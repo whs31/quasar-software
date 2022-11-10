@@ -3,13 +3,14 @@
 #include <QDateTime>
 #include <QDebug>
 
+#include "mainwindow.h"
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    QWidget widget;
-    widget.show();
+    MainWindow window;
+    window.show();
 
-    return app.exec(); //1
+    return app.exec();
 }
 
 __attribute__((constructor)) void showVersion() {

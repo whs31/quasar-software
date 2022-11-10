@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     QWidget widget;
     widget.show();
 
-    return app.exec();
+    return app.exec(); //1
 }
 
 __attribute__((constructor)) void showVersion() {

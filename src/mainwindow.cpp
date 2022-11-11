@@ -74,7 +74,8 @@ void MainWindow::ReadTelemetry(QByteArray data){
             QString parsedMessage = unparsed;
             parsedMessage.chop(1);
             parsedMessage.remove(0, 3);
-            QMetaObject::invokeMethod(qml, "getMessage", Q_ARG(QVariant, parsedMessage));
+            qInfo()<<"[SERVER] Server responds with: "<<parsedMessage;
+            //QMetaObject::invokeMethod(qml, "getMessage", Q_ARG(QVariant, parsedMessage));
         }
         else
         {
@@ -93,4 +94,10 @@ void MainWindow::ReadTelemetry(QByteArray data){
     ui->label_c_telemetryspd->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[2], 'f', 3)+HtmlBoldEnd+HtmlColorEnd);
     ui->label_c_telemetryelv->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[3], 'f', 3)+HtmlBoldEnd+HtmlColorEnd);
     QMetaObject::invokeMethod(qml, "getTelemetry", Q_ARG(QVariant, telemetry[0]), Q_ARG(QVariant, telemetry[1]), Q_ARG(QVariant, telemetry[2]), Q_ARG(QVariant, telemetry[3]));
+}
+
+void MainWindow::on_formImage_triggered()
+{
+    qInfo()<<"[CLIENT] Sending command to form SAR image";
+    SendRemoteCommand("$form-SAR-image");
 }

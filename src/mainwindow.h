@@ -57,9 +57,11 @@ private:
 
 signals:
 
+
 private slots:
     void ReadTelemetry(QByteArray data);
     void Halftime();
 
+    void on_formImage_triggered();
 };
 #endif // MAINWINDOW_H

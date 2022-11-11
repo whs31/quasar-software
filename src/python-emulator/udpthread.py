@@ -55,5 +55,5 @@ while(1):
     if(messageStr == "$form-SAR-image"):
         UDPServerSocket.sendto(str.encode("$>>Формирование РЛИ#"), address)
         print ("\n[REMOTE] Получена команда на формирование РЛИ") 
-        p1 = subprocess.Popen(['python', r'./start.py'])
+        p1 = subprocess.Popen(['python3', r'./start.py'])
         p1.wait()

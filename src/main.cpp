@@ -4,6 +4,7 @@
 #include <QDebug>
 
 #include <qqml.h>
+#include <QStandardPaths>
 
 #include "mainwindow.h"
 int main(int argc, char *argv[]) {
@@ -11,6 +12,8 @@ int main(int argc, char *argv[]) {
 
     MainWindow window;
     window.show();
+
+    //qDebug()<<QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation);
 
     return app.exec();
 }

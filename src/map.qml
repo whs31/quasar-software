@@ -2,8 +2,8 @@ import QtQuick 2.12
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.12
-import QtLocation 5.0
-import QtPositioning 5.0
+import QtLocation 5.12
+import QtPositioning 5.12
 
 //import cpp.invoker 1.0
 
@@ -25,7 +25,7 @@ Rectangle {
         lonText.text = qsTr(lon.toFixed(5).toString());
         spdText.text = qsTr(elv.toFixed(5).toString());
         elvText.text = qsTr(speed.toFixed(5).toString());
-        panGPS();
+        //panGPS();
         drawRoute(lat, lon);
     }
 
@@ -206,10 +206,11 @@ Rectangle {
                         name: "osm.mapping.providersrepository.address";
                         value: "file://home/user/quasar-ui/QuaSAR-UI/osmconfigs";
                     }
+
                 }
-                activeMapType: mapView.supportedMapTypes[6]
+                activeMapType: mapView.supportedMapTypes[0]
                 center: QtPositioning.coordinate(59.660784, 30.200268);
-                zoomLevel: 15
+                zoomLevel: 10
                 copyrightsVisible: false
                 MapPolyline {
                     id: mapPolyline
@@ -218,12 +219,12 @@ Rectangle {
                     line.color: '#e2c700'
                     path: [ ]
                 }
-                //Behavior on center {
-                //    CoordinateAnimation {
-                //        duration: 1000
-                 //       easing.type: Easing.Linear
-                  //  }
-                //}
+                Behavior on center {
+                    CoordinateAnimation {
+                        duration: 1000
+                        easing.type: Easing.Linear
+                    }
+                }
             }
         }
         GroupBox {
@@ -295,7 +296,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:11;anchors_height:200}D{i:16;anchors_height:119}
-D{i:2;anchors_width:206}
+    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:11}D{i:16}
 }
 ##^##*/

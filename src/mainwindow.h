@@ -8,6 +8,9 @@
 #include <QQuickItem>
 
 #include <QTimer>
+#include <QSslSocket>
+#include <QDialog>
+#include <QMessageBox>
 
 #include "udpremote.h"
 #include "tcpremote.h"
@@ -45,7 +48,10 @@ private:
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
     QTimer *timer;
+    void InitializeUI();
+    void InitializeConnections();
 
+    QString __version__ = "b11.11";
     //colors for text
     QString HtmlColorMain = "<font color=\"#2ECC71\">";
     QString HtmlColorMainFaded = "<font color=\"#27AE60\">";

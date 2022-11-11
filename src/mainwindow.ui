@@ -12,11 +12,12 @@
   </property>
   <property name="font">
    <font>
-    <family>MS Shell Dlg 2</family>
+    <family>Ubuntu</family>
+    <pointsize>10</pointsize>
    </font>
   </property>
   <property name="windowTitle">
-   <string>QuaSAR Network</string>
+   <string>QuaSAR</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -447,7 +448,7 @@
      <x>0</x>
      <y>0</y>
      <width>1339</width>
-     <height>23</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menutemp1">

@@ -7,27 +7,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     pMainWindow = this;
-    ui->setupUi(this);
-
-    ui->map->show();
-    qml = ui->map->rootObject();
-
-    timer = new QTimer(this);
-    udpRemote = new UDPRemote();
-    tcpRemote = new TCPRemote();
-
-    connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
-    connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    if(CONNECTION_TYPE == "tcp"){
-        tcpRemote->Connect(CONNECTION_ADDRESS);
-
-    } else {
-        udpRemote->Connect(CONNECTION_ADDRESS);
-        if(CONNECTION_TYPE != "udp") { CONNECTION_TYPE = "udp"; qWarning()<<"Connection type string unrecognized, using UDP by default"; }
-        qInfo()<<"UDP client connected";
-    }
-    timer->start(500);
+    InitializeUI();
+    InitializeConnections();
 }
 
 MainWindow::~MainWindow()
@@ -42,14 +23,59 @@ MainWindow *MainWindow::getMainWinPtr()
     return pMainWindow;
 }
 
+void MainWindow::InitializeUI()
+{
+    qInfo()<<"[STARTUP] Starting UI initialization...";
+    ui->setupUi(this);
+    ui->map->show();
+    qml = ui->map->rootObject();
+    QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
+    qInfo()<<"[STARTUP] Session started at "+localTime.toString();
+    qInfo()<<"[STARTUP] Software build version "+__version__;
+    if (QSslSocket::supportsSsl())
+        {
+            qInfo() << "[STARTUP] OpenSSL detected: " << QSslSocket::supportsSsl() << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString() << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
+        }
+        else {
+            qCritical() << "[ERROR] OpenSSL detected: " << QSslSocket::supportsSsl() << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString() << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
+            QMessageBox openSSLDialogue;
+            openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
+            openSSLDialogue.setIcon(QMessageBox::Critical);
+            openSSLDialogue.setText("Попробуйте переустановить программу.");
+            openSSLDialogue.exec();
+        }
+    qInfo()<<"[STARTUP] UI initialization finished";
+}
+
+void MainWindow::InitializeConnections()
+{
+    qInfo()<<"[STARTUP] Setuping connections...";
+    timer = new QTimer(this);
+    udpRemote = new UDPRemote();
+    tcpRemote = new TCPRemote();
+
+    connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
+    connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+    connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+    if(CONNECTION_TYPE == "tcp"){ tcpRemote->Connect(CONNECTION_ADDRESS); }
+    else
+    {
+        udpRemote->Connect(CONNECTION_ADDRESS);
+        if(CONNECTION_TYPE != "udp") { CONNECTION_TYPE = "udp"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+        qInfo()<<"UDP client connected";
+    }
+    timer->start(500);
+    qInfo()<<"[STARTUP] Connections set up successfully";
+}
+
 void MainWindow::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($text#))
     if(CONNECTION_TYPE == "tcp"){
-        tcpRemote->Send("$request");
+        SendRemoteCommand("$request");
     } else {
-        udpRemote->Send("$request");
+        SendRemoteCommand("$request");
     }
 }
 

@@ -14,9 +14,11 @@
 
 #include "udpremote.h"
 #include "tcpremote.h"
+#include "confighandler.h"
 
 class UDPRemote;
 class TCPRemote;
+class ConfigHandler;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -32,6 +34,7 @@ public:
     static MainWindow * getMainWinPtr();
     friend class UDPRemote;
     friend class TCPRemote;
+    friend class ConfigHandler;
     QQuickItem* qml;
 
     QString CONNECTION_TYPE = "udp"; //"tcp"
@@ -47,11 +50,11 @@ private:
     static MainWindow * pMainWindow;
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
+    ConfigHandler *config;
     QTimer *timer;
     void InitializeUI();
     void InitializeConnections();
 
-    QString __version__ = "b11.11";
     //colors for text
     QString HtmlColorMain = "<font color=\"#2ECC71\">";
     QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
@@ -73,5 +76,6 @@ private slots:
     void on_checkBox_drawTrack_stateChanged(int arg1);
     void on_checkBox_stateChanged(int arg1);
     void on_pushButton_clearTrack_clicked();
+    void on_pushButton_panGPS_clicked();
 };
 #endif // MAINWINDOW_H

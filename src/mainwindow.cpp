@@ -31,7 +31,6 @@ void MainWindow::InitializeUI()
     qml = ui->map->rootObject();
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
     qInfo()<<"[STARTUP] Session started at "+localTime.toString();
-    qInfo()<<"[STARTUP] Software build version "+__version__;
     if (QSslSocket::supportsSsl())
         {
             qInfo() << "[STARTUP] OpenSSL detected: " << QSslSocket::supportsSsl() << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString() << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
@@ -53,6 +52,8 @@ void MainWindow::InitializeConnections()
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
+    config = new ConfigHandler();
+    config->loadSettings();
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
@@ -160,4 +161,9 @@ void MainWindow::on_pushButton_clearTrack_clicked()
     default:
         break;
     }
+}
+
+void MainWindow::on_pushButton_panGPS_clicked()
+{
+    QMetaObject::invokeMethod(qml, "panGPS");
 }

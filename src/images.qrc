@@ -6,5 +6,6 @@
         <file>img/helicopter.png</file>
         <file>img/plane.png</file>
         <file>img/track.png</file>
+        <file>img/ruler.png</file>
     </qresource>
 </RCC>

@@ -23,6 +23,7 @@ endif()
 include_directories(
     network
     src
+    config
 )
 
 
@@ -30,6 +31,7 @@ include_directories(
 
 file(GLOB SOURCE src/* )
 file(GLOB NETWORK network/*)
+file(GLOB CONFIG config/*)
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
@@ -43,6 +45,10 @@ else()
         network/remote.cpp
         src/mainwindow.h
         src/mainwindow.cpp
+        config/config.h
+        config/confighandler.h
+        config/config.cpp
+        config/confighandler.cpp
    )
 endif()
 

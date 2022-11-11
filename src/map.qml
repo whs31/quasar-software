@@ -50,10 +50,9 @@ Rectangle {
         var e = 0.000001;
         if(Math.abs(longitude-currentQtCoordinates.longitude)>e&&Math.abs(latitude-currentQtCoordinates.latitude)>e)
         {
-            //tg = Math.abs(dy/dx);
             atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
             angle = (atan*180)/Math.PI;
-            console.log(angle);
+            //console.log(angle);
             planeMapItem.rotationAngle = angle;
         }
     }
@@ -147,13 +146,13 @@ Rectangle {
             id: mapPolyline
             line.width: 5
             opacity: 0.75
-            line.color: '#00FFFF'
+            line.color: '#FFF5EE'
             path: [ ]
         }
         Behavior on center {
             CoordinateAnimation {
                 duration: 1000
-                easing.type: Easing.Linear
+                easing.type: Easing.Linear //Easing.InOutQuart
             }
         }
         MouseArea {
@@ -195,7 +194,7 @@ Rectangle {
                 anchors.fill: planeMapItem;
                 source: planeSource;
                 opacity: 1;
-                color: "#00FFFF"
+                color: "#FFF5EE"
             }
             Behavior on coordinate {
                 CoordinateAnimation {

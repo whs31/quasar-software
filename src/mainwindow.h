@@ -69,5 +69,9 @@ private slots:
     void Halftime();
 
     void on_formImage_triggered();
+    void on_checkBox_drawTooltip_stateChanged(int arg1);
+    void on_checkBox_drawTrack_stateChanged(int arg1);
+    void on_checkBox_stateChanged(int arg1);
+    void on_pushButton_clearTrack_clicked();
 };
 #endif // MAINWINDOW_H

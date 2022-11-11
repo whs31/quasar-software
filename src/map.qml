@@ -21,13 +21,15 @@ Rectangle {
     property double velocity: 0.0
     property var currentQtCoordinates: QtPositioning.coordinate(51.660784, 39.200268);
 
+    property var followPlane: false;
     property var enableTooltip: true;
+    property var enableRoute: true;
 
     function getTelemetry(lat, lon, elv, speed)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
-        //panGPS();
-        drawRoute(lat, lon);
+        if(followPlane) panGPS(); //@TODO отключает слежение за бортом при нажатии на карту мышью и передает этот факт в cpp
+        if(enableRoute) drawRoute(lat, lon);
     }
 
     function panGPS()
@@ -39,6 +41,27 @@ Rectangle {
     function drawRoute(lat, lon)
     {
         mapPolyline.addCoordinate(QtPositioning.coordinate(lat,lon));
+    }
+
+    function clearRoute()
+       {
+           mapPolyline.path = [];
+       }
+
+    function changeDrawRoute(arg)
+    {
+        if(arg===2) { enableRoute=true; } else { enableRoute = false; }
+    }
+
+    function changeFollowPlane(arg)
+    {
+        if(arg===2) { followPlane=true; } else { followPlane = false; }
+    }
+
+    //-------------------tooltip-------------------------{
+    function changeEnableTooltip(arg)
+    {
+        if(arg===2) { enableTooltip=true; } else { enableTooltip = false; }
     }
 
     function drawTooltip()
@@ -73,6 +96,8 @@ Rectangle {
         cursorTooltip.visible = false;
         cursorTooltipText.visible = false;
     }
+    //---------------------------------------------------}
+
 
     Map {
         id: mapView

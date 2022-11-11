@@ -127,3 +127,37 @@ void MainWindow::on_formImage_triggered()
     qInfo()<<"[CLIENT] Sending command to form SAR image";
     SendRemoteCommand("$form-SAR-image");
 }
+
+void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1)
+{
+    QMetaObject::invokeMethod(qml, "changeEnableTooltip", Q_ARG(QVariant, arg1));
+}
+
+void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)
+{
+    QMetaObject::invokeMethod(qml, "changeDrawRoute", Q_ARG(QVariant, arg1));
+}
+
+void MainWindow::on_checkBox_stateChanged(int arg1)
+{
+    QMetaObject::invokeMethod(qml, "changeFollowPlane", Q_ARG(QVariant, arg1));
+}
+
+void MainWindow::on_pushButton_clearTrack_clicked()
+{
+    QMessageBox askForClearTrack;
+        askForClearTrack.setWindowTitle("Очистка трека");
+        askForClearTrack.setIcon(QMessageBox::Information);
+        askForClearTrack.setText("Вы уверены, что хотите полностью очистить трек?");
+        askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+        askForClearTrack.setDefaultButton(QMessageBox::Cancel);
+        int ret = askForClearTrack.exec();
+        switch (ret) {
+          case QMessageBox::Yes: QMetaObject::invokeMethod(qml, "clearRoute");
+              break;
+          case QMessageBox::Cancel:
+              break;
+          default:
+              break;
+        }
+}

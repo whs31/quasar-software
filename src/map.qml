@@ -8,7 +8,8 @@ import QtPositioning 5.12
 //import cpp.invoker 1.0
 
 
-Rectangle {
+Item {
+    id: qqview
     /*Invoker {
         id: invoker
     }*/
@@ -21,17 +22,8 @@ Rectangle {
     function getTelemetry(lat, lon, elv, speed)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
-        latText.text = qsTr(lat.toFixed(5).toString());
-        lonText.text = qsTr(lon.toFixed(5).toString());
-        spdText.text = qsTr(elv.toFixed(5).toString());
-        elvText.text = qsTr(speed.toFixed(5).toString());
         //panGPS();
         drawRoute(lat, lon);
-    }
-
-    function getMessage(msg)
-    {
-        msgText.text = qsTr(msg);
     }
 
     function panGPS()
@@ -45,159 +37,9 @@ Rectangle {
         mapPolyline.addCoordinate(QtPositioning.coordinate(lat,lon));
     }
 
-    id:main
-    color: "#282828"
-    radius: 9
-    border.width: 3
-    border.color: "#606060"
-
-    Item {
-        id: element
-        anchors.fill: parent
-
-        GroupBox {
-            id: groupBox
-            width: 206
-            height: 119
-            wheelEnabled: false
-            anchors.left: parent.left
-            anchors.leftMargin: 8
-            anchors.top: parent.top
-            anchors.topMargin: 8
-            font.capitalization: Font.AllUppercase
-            enabled: true
-            font.weight: Font.Normal
-            font.bold: true
-            font.family: "Verdana"
-            title: qsTr("<font color='white'><b>Телеметрия</b></font>")
-
-            Text {
-                id: element1
-                color: "#ffffff"
-                text: qsTr("Широта:")
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                anchors.top: parent.top
-                anchors.topMargin: 0
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: element2
-                color: "#ffffff"
-                text: qsTr("Долгота:")
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                anchors.top: parent.top
-                anchors.topMargin: 20
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: element3
-                color: "#ffffff"
-                text: qsTr("Высота: ")
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                anchors.top: parent.top
-                anchors.topMargin: 40
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: element4
-                color: "#ffffff"
-                text: qsTr("Скорость:")
-                anchors.left: parent.left
-                anchors.leftMargin: 0
-                anchors.top: parent.top
-                anchors.topMargin: 60
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: latText
-                color: "#e2c700"
-                text: qsTr("0.0000")
-                font.bold: true
-                anchors.left: parent.left
-                anchors.leftMargin: 88
-                anchors.top: parent.top
-                anchors.topMargin: 0
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: lonText
-                color: "#e2c700"
-                text: qsTr("0.0000")
-                font.bold: true
-                anchors.left: parent.left
-                anchors.leftMargin: 88
-                anchors.top: parent.top
-                anchors.topMargin: 21
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: elvText
-                color: "#e2c700"
-                text: qsTr("0.0000")
-                font.bold: true
-                anchors.left: parent.left
-                anchors.leftMargin: 88
-                anchors.top: parent.top
-                anchors.topMargin: 41
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: spdText
-                color: "#e2c700"
-                text: qsTr("0.0000")
-                font.bold: true
-                anchors.left: parent.left
-                anchors.leftMargin: 88
-                anchors.top: parent.top
-                anchors.topMargin: 60
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-
-        }
-
-        GroupBox {
-            id: groupBox1
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            anchors.left: groupBox.right
-            anchors.leftMargin: 8
-            anchors.top: parent.top
-            anchors.topMargin: 8
-            anchors.right: parent.right
-            anchors.rightMargin: 8
-            font.capitalization: Font.AllUppercase
-            enabled: true
-            font.weight: Font.Normal
-            font.bold: true
-            font.family: "Verdana"
-            title: qsTr("<font color='white'><b>Карта</b></font>")
-
             Map {
                 id: mapView
                 visible: true
-                anchors.rightMargin: 5
-                anchors.leftMargin: 5
-                anchors.bottomMargin: 5
-                anchors.topMargin: 5
                 anchors.fill: parent
                 plugin: Plugin {
                     id: mapPluginID;
@@ -210,7 +52,7 @@ Rectangle {
                 }
                 activeMapType: mapView.supportedMapTypes[0]
                 center: QtPositioning.coordinate(59.660784, 30.200268);
-                zoomLevel: 10
+                zoomLevel: 9
                 copyrightsVisible: false
                 MapPolyline {
                     id: mapPolyline
@@ -226,76 +68,11 @@ Rectangle {
                     }
                 }
             }
-        }
-        GroupBox {
-            id: groupBox2
-            width: 206
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 8
-            wheelEnabled: false
-            anchors.left: parent.left
-            anchors.leftMargin: 8
-            anchors.top: groupBox.bottom
-            anchors.topMargin: 8
-            font.capitalization: Font.AllUppercase
-            enabled: true
-            font.weight: Font.Normal
-            font.bold: true
-            font.family: "Verdana"
-            title: qsTr("<font color='white'><b>Диалоговое окно</b></font>")
-
-            Text {
-                id: element5
-                color: "#ffffff"
-                text: qsTr("Сообщение от РЛС: ")
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                anchors.topMargin: 0
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-            Text {
-                id: msgText
-                color: "#928a4a"
-                text: qsTr("-------------")
-                horizontalAlignment: Text.AlignHCenter
-                fontSizeMode: Text.FixedSize
-                style: Text.Sunken
-                font.italic: false
-                anchors.right: parent.right
-                anchors.rightMargin: 5
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                font.bold: true
-                anchors.top: parent.top
-                anchors.topMargin: 30
-                font.family: "Verdana"
-                textFormat: Text.RichText
-                font.pixelSize: 12
-            }
-
-            Button {
-                id: buttonFormImage
-                text: qsTr("Формирование РЛИ")
-                anchors.right: parent.right
-                anchors.rightMargin: 5
-                anchors.left: parent.left
-                anchors.leftMargin: 5
-                highlighted: true
-                flat: true
-                font.pointSize: 7
-                font.family: "Verdana"
-                anchors.bottom: parent.bottomesri
-                anchors.bottomMargin: 5
-                //onClicked: invoker.formImageButton();
-            }
-        }
-    }
 }
+
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:2}D{i:11}D{i:16}
+    D{i:0;autoSize:true;formeditorZoom:0.66;height:480;width:640}
 }
 ##^##*/

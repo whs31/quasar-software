@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     } else {
         udpRemote->Connect(CONNECTION_ADDRESS);
         if(CONNECTION_TYPE != "udp") { CONNECTION_TYPE = "udp"; qWarning()<<"Connection type string unrecognized, using UDP by default"; }
+        qInfo()<<"UDP client connected";
     }
     timer->start(500);
 }
@@ -87,6 +88,9 @@ void MainWindow::ReadTelemetry(QByteArray data){
             }
         }
     }
-    //QString tmp = "\n<b>Широта: </b>"+QString::number(telemetry[0])+"\n<b>Долгота: </b>"+QString::number(telemetry[1])+"\n<b>Скорость: </b>"+QString::number(telemetry[2])+"\n<b>Высота: </b>"+QString::number(telemetry[3]);
-    QMetaObject::invokeMethod(qml, "getTelemetry", Q_ARG(QVariant, telemetry[0]), Q_ARG(QVariant, telemetry[1]), Q_ARG(QVariant, telemetry[2]), Q_ARG(QVariant, telemetry[3]));//parsedList.join("   ")));
+    ui->label_c_telemetrylat->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[0], 'f', 7)+HtmlBoldEnd+HtmlColorEnd);
+    ui->label_c_telemetrylon->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[1], 'f', 7)+HtmlBoldEnd+HtmlColorEnd);
+    ui->label_c_telemetryelv->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[2], 'f', 3)+HtmlBoldEnd+HtmlColorEnd+" км/ч");
+    ui->label_c_telemetryspd->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[3], 'f', 3)+HtmlBoldEnd+HtmlColorEnd+" м");
+    QMetaObject::invokeMethod(qml, "getTelemetry", Q_ARG(QVariant, telemetry[0]), Q_ARG(QVariant, telemetry[1]), Q_ARG(QVariant, telemetry[2]), Q_ARG(QVariant, telemetry[3]));
 }

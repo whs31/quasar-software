@@ -37,7 +37,7 @@ public:
     void SendRemoteCommand(QString command);
 
 
-    double telemetry[3]; //lat, lon, speed, elevation
+    double telemetry[4]; //lat, lon, speed, elevation
 
 private:
     Ui::MainWindow *ui;
@@ -45,6 +45,15 @@ private:
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
     QTimer *timer;
+
+    //colors for text
+    QString HtmlColorMain = "<font color=\"#2ECC71\">";
+    QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
+    QString HtmlColorMainAccent = "<font color=\"#F1C40F\">";
+    QString HtmlColorEnd = "</font>";
+    //html tags
+    QString HtmlBold = "<b>";
+    QString HtmlBoldEnd = "</b>";
 
 signals:
 

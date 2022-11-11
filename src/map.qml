@@ -4,6 +4,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
+import QtGraphicalEffects 1.0
 
 //import cpp.invoker 1.0
 
@@ -15,11 +16,18 @@ Rectangle {
     }*/
     layer.enabled: true
     layer.samples: 4
+
+    //=================preconfig=======================
+    property string vehicle: "helicopter";
+    property string antennaPosition: "right";
+
+
+
     property double latitude: 0.0
     property double longitude: 0.0
     property double elevation: 0.0
     property double velocity: 0.0
-    property var currentQtCoordinates: QtPositioning.coordinate(51.660784, 39.200268);
+    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268);
 
     property var followPlane: false;
     property var enableTooltip: true;
@@ -28,14 +36,31 @@ Rectangle {
     function getTelemetry(lat, lon, elv, speed)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
+        drawPlane();
+        currentQtCoordinates = QtPositioning.coordinate(latitude,longitude);
         if(followPlane) panGPS(); //@TODO отключает слежение за бортом при нажатии на карту мышью и передает этот факт в cpp
         if(enableRoute) drawRoute(lat, lon);
+    }
+
+    //--------------------------route&gps--------------------------------------------{
+    function drawPlane()
+    {
+        planeMapItem.coordinate = QtPositioning.coordinate(latitude, longitude);
+        var atan = 0.0; var angle = 0.0;
+        var e = 0.000001;
+        if(Math.abs(longitude-currentQtCoordinates.longitude)>e&&Math.abs(latitude-currentQtCoordinates.latitude)>e)
+        {
+            //tg = Math.abs(dy/dx);
+            atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
+            angle = (atan*180)/Math.PI;
+            console.log(angle);
+            planeMapItem.rotationAngle = angle;
+        }
     }
 
     function panGPS()
     {
         mapView.center = currentQtCoordinates;
-        currentQtCoordinates = QtPositioning.coordinate(latitude,longitude);
     }
 
     function drawRoute(lat, lon)
@@ -44,9 +69,9 @@ Rectangle {
     }
 
     function clearRoute()
-       {
-           mapPolyline.path = [];
-       }
+    {
+        mapPolyline.path = [];
+    }
 
     function changeDrawRoute(arg)
     {
@@ -57,6 +82,7 @@ Rectangle {
     {
         if(arg===2) { followPlane=true; } else { followPlane = false; }
     }
+    //------------------------------------------------------------------------------}
 
     //-------------------tooltip-------------------------{
     function changeEnableTooltip(arg)
@@ -145,6 +171,41 @@ Rectangle {
             onExited: {
                 clearTooltip();
             }
+        }
+        MapQuickItem {
+            property alias rotationAngle: rotation.angle
+            id: planeMapItem
+            anchorPoint.x: 20
+            anchorPoint.y: 20
+            transform: Rotation {
+                id: rotation
+                origin.x: 20;
+                origin.y: 20;
+                angle: 0
+            }
+            z:5
+            sourceItem: Image {
+                id: planeSource;
+                layer.enabled: true
+                transformOrigin: Item.Center
+                source: if(vehicle==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
+            }
+            ColorOverlay {
+                id: overlayPlane;
+                anchors.fill: planeMapItem;
+                source: planeSource;
+                opacity: 1;
+                color: "#00FFFF"
+            }
+            Behavior on coordinate {
+                CoordinateAnimation {
+                    duration: 250
+                    easing.type: Easing.Linear
+                }
+            }
+        }
+        Component.onCompleted: {
+            mapView.addMapItem(planeMapItem);
         }
         Rectangle {
             id: cursorTooltip

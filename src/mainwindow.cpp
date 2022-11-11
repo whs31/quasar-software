@@ -146,18 +146,18 @@ void MainWindow::on_checkBox_stateChanged(int arg1)
 void MainWindow::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
-        askForClearTrack.setWindowTitle("Очистка трека");
-        askForClearTrack.setIcon(QMessageBox::Information);
-        askForClearTrack.setText("Вы уверены, что хотите полностью очистить трек?");
-        askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-        askForClearTrack.setDefaultButton(QMessageBox::Cancel);
-        int ret = askForClearTrack.exec();
-        switch (ret) {
-          case QMessageBox::Yes: QMetaObject::invokeMethod(qml, "clearRoute");
-              break;
-          case QMessageBox::Cancel:
-              break;
-          default:
-              break;
-        }
+    askForClearTrack.setWindowTitle("Очистка трека");
+    askForClearTrack.setIcon(QMessageBox::Information);
+    askForClearTrack.setText("Вы уверены, что хотите полностью очистить трек?");
+    askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    askForClearTrack.setDefaultButton(QMessageBox::Cancel);
+    int ret = askForClearTrack.exec();
+    switch (ret) {
+    case QMessageBox::Yes: QMetaObject::invokeMethod(qml, "clearRoute");
+        break;
+    case QMessageBox::Cancel:
+        break;
+    default:
+        break;
+    }
 }

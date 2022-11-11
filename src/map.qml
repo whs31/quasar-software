@@ -46,7 +46,7 @@ Item {
                     name: "osm";
                     PluginParameter {
                         name: "osm.mapping.providersrepository.address";
-                        value: "file://home/user/quasar-ui/QuaSAR-UI/osmconfigs";
+                        value: "file:///home/user/quasar-ui/QuaSAR-UI/osmconfigs";
                     }
 
                 }

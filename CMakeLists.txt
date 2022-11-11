@@ -47,8 +47,11 @@ else()
         src/mainwindow.cpp
         config/config.h
         config/confighandler.h
+        config/settingsdialog.h
         config/config.cpp
         config/confighandler.cpp
+        config/settingsdialog.cpp
+        config/settingsdialog.ui
    )
 endif()
 

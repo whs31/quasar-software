@@ -129,6 +129,16 @@ void MainWindow::on_formImage_triggered()
     SendRemoteCommand("$form-SAR-image");
 }
 
+void MainWindow::on_openSettings_triggered()
+{
+    SettingsDialog sd(this);
+    if(sd.exec() == QDialog::Accepted)
+    {
+        //markerName = md.lineEdit1Text();
+        //markerColor = md.color();
+    }
+}
+
 void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1)
 {
     QMetaObject::invokeMethod(qml, "changeEnableTooltip", Q_ARG(QVariant, arg1));

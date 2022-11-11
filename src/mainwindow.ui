@@ -473,7 +473,7 @@
               <string>Координаты курсора</string>
              </property>
              <property name="icon">
-              <iconset resource="images.qrc">
+              <iconset>
                <normaloff>:/img/gps (1).png</normaloff>:/img/gps (1).png</iconset>
              </property>
              <property name="checked">
@@ -496,7 +496,7 @@
               <string>Траектория полета</string>
              </property>
              <property name="icon">
-              <iconset resource="images.qrc">
+              <iconset>
                <normaloff>:/img/track.png</normaloff>:/img/track.png</iconset>
              </property>
              <property name="checkable">
@@ -522,7 +522,7 @@
               <string>Следить за бортом</string>
              </property>
              <property name="icon">
-              <iconset resource="images.qrc">
+              <iconset>
                <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
              </property>
             </widget>
@@ -563,7 +563,7 @@ QPushButton:selected {
               <string>Очистить трек полета</string>
              </property>
              <property name="icon">
-              <iconset resource="images.qrc">
+              <iconset>
                <normaloff>:/img/eraser.png</normaloff>:/img/eraser.png</iconset>
              </property>
              <property name="iconSize">
@@ -637,7 +637,7 @@ QPushButton:selected {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="images.qrc">
+          <iconset>
            <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
          </property>
          <property name="flat">
@@ -663,7 +663,7 @@ QPushButton:selected {
           <string>Линейка</string>
          </property>
          <property name="icon">
-          <iconset resource="images.qrc">
+          <iconset>
            <normaloff>:/img/ruler.png</normaloff>:/img/ruler.png</iconset>
          </property>
          <property name="flat">
@@ -704,11 +704,23 @@ QPushButton:selected {
     </property>
     <addaction name="formImage"/>
    </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Инструменты</string>
+    </property>
+    <addaction name="openSettings"/>
+   </widget>
    <addaction name="menutemp1"/>
+   <addaction name="menu"/>
   </widget>
   <action name="formImage">
    <property name="text">
     <string>Формирование РЛИ</string>
+   </property>
+  </action>
+  <action name="openSettings">
+   <property name="text">
+    <string>Параметры программы</string>
    </property>
   </action>
  </widget>
@@ -719,8 +731,6 @@ QPushButton:selected {
    <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="images.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

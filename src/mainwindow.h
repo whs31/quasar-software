@@ -15,10 +15,12 @@
 #include "udpremote.h"
 #include "tcpremote.h"
 #include "confighandler.h"
+#include "settingsdialog.h"
 
 class UDPRemote;
 class TCPRemote;
 class ConfigHandler;
+class SettingsDialog;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -35,6 +37,7 @@ public:
     friend class UDPRemote;
     friend class TCPRemote;
     friend class ConfigHandler;
+    friend class SettingsDialog;
     QQuickItem* qml;
 
     QString CONNECTION_TYPE = "udp"; //"tcp"
@@ -72,6 +75,8 @@ private slots:
     void Halftime();
 
     void on_formImage_triggered();
+    void on_openSettings_triggered();
+
     void on_checkBox_drawTooltip_stateChanged(int arg1);
     void on_checkBox_drawTrack_stateChanged(int arg1);
     void on_checkBox_stateChanged(int arg1);

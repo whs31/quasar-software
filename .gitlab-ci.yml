@@ -5,7 +5,8 @@ linux:
   stage: build
   tags: [linux]
   #script: cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-  script: cmake -GNinja -DCMAKE_BUILD_TYPE:String=Release && cmake --build . --target all
+  script: echo "ci disabled"
+  #cmake -GNinja -DCMAKE_BUILD_TYPE:String=Release && cmake --build . --target all
   artifacts:
     name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
     paths: [$CI_PROJECT_TITLE]

@@ -10,7 +10,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
          */
 
     group_t utility;
-    utility["version"] = "1111";
+    utility["version"] = "1411";
     checkValuesSimple(utility);
 
     group_t network;

@@ -98,7 +98,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+         <widget class="QDoubleSpinBox" name="i_predictRange">
           <property name="suffix">
            <string> км</string>
           </property>
@@ -148,7 +148,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox">
+         <widget class="QDoubleSpinBox" name="i_updateTime">
           <property name="suffix">
            <string> с</string>
           </property>
@@ -208,7 +208,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="i_networktype">
           <property name="enabled">
            <bool>false</bool>
           </property>
@@ -252,7 +252,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+         <widget class="QDoubleSpinBox" name="i_driftAngle">
           <property name="suffix">
            <string>°</string>
           </property>
@@ -365,7 +365,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="i_networkip">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -394,7 +394,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="i_networkport">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -420,14 +420,14 @@
       <item row="12" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <widget class="QRadioButton" name="radioButton_3">
+         <widget class="QRadioButton" name="i_antennaLeftB">
           <property name="text">
            <string>Слева</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="radioButton_4">
+         <widget class="QRadioButton" name="i_antennaRightB">
           <property name="text">
            <string>Справа</string>
           </property>
@@ -496,7 +496,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+         <widget class="QDoubleSpinBox" name="i_captureRange">
           <property name="suffix">
            <string> км</string>
           </property>
@@ -539,7 +539,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+         <widget class="QDoubleSpinBox" name="i_azimuth">
           <property name="suffix">
            <string>°</string>
           </property>
@@ -632,7 +632,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBox_6">
+         <widget class="QDoubleSpinBox" name="i_captureTime">
           <property name="suffix">
            <string> с</string>
           </property>

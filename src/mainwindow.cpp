@@ -58,11 +58,11 @@ void MainWindow::InitializeConnections()
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    if(C_NETWORKTYPE == "tcp"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
+    if(C_NETWORKTYPE == "TCP"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
     else
     {
         udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
-        if(C_NETWORKTYPE != "udp") { C_NETWORKTYPE = "udp"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+        if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
         qInfo()<<"UDP client connected";
     }
     timer->start(500);
@@ -73,7 +73,7 @@ void MainWindow::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($text#))
-    if(C_NETWORKTYPE == "tcp"){
+    if(C_NETWORKTYPE == "TCP"){
         SendRemoteCommand("$request");
     } else {
         SendRemoteCommand("$request");
@@ -82,7 +82,7 @@ void MainWindow::Halftime()
 
 void MainWindow::SendRemoteCommand(QString command)
 {
-    if(C_NETWORKTYPE == "tcp"){
+    if(C_NETWORKTYPE == "TCP"){
         tcpRemote->Send(command.toUtf8());
     } else {
         udpRemote->Send(command.toUtf8());
@@ -131,12 +131,31 @@ void MainWindow::on_formImage_triggered()
 
 void MainWindow::on_openSettings_triggered()
 {
-    SettingsDialog sd(this);
+    SettingsDialog sd(this,
+                      C_NETWORKTYPE,
+                      C_NETWORKADDRESS,
+                      C_NETWORKPORT,
+                      C_UPDATETIME,
+                      C_PREDICTRANGE,
+                      C_DRIFTANGLE,
+                      C_AZIMUTH,
+                      C_CAPTURERANGE,
+                      C_CAPTURETIME,
+                      C_ANTENNAPOSITION);
     if(sd.exec() == QDialog::Accepted)
     {
-        //markerName = md.lineEdit1Text();
-        //markerColor = md.color();
-    }
+        C_NETWORKTYPE = sd.r_connectionType;
+        C_NETWORKADDRESS = sd.r_connectionAddress;
+        C_NETWORKPORT = sd.r_connectionPort;
+        C_UPDATETIME = sd.r_refreshTime;
+        C_PREDICTRANGE = sd.r_predictRange;
+        C_DRIFTANGLE = sd.r_driftAngle;
+        C_AZIMUTH = sd.r_thetaAzimuth;
+        C_CAPTURERANGE = sd.r_captureRange;
+        C_CAPTURETIME = sd.r_captureTime;
+        C_ANTENNAPOSITION = sd.r_antennaPosition;
+        config->saveSettings();
+    } else { config->loadSettings(); }
 }
 
 void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1)

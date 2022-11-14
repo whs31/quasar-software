@@ -9,5 +9,7 @@
         <file>img/ruler.png</file>
         <file>img/zoom-out.png</file>
         <file>img/zoom-in.png</file>
+        <file>img/ruler (1).png</file>
+        <file>img/gps (2).png</file>
     </qresource>
 </RCC>

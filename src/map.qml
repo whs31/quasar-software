@@ -16,7 +16,7 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: Material.Teal
+    Material.accent: Material.Cyan
     Material.primary: Material.Lime
 
     layer.enabled: true
@@ -38,6 +38,10 @@ Rectangle {
     property var enableTooltip: true;
     property var enableRoute: true;
 
+    property int r_currentstate: 0;
+    property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
+    property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
+
     function getTelemetry(lat, lon, elv, speed)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
@@ -47,6 +51,24 @@ Rectangle {
         if(enableRoute) drawRoute(lat, lon);
         speedText.text = Number(speed).toFixed(1);
         elevationText.text = Number(elevation).toFixed(0);
+    }
+
+    function convertMetric(s)
+    {
+        //1 градус = 111.12 км
+        return s*0.00899928;
+    }
+    function convertGeo(s)
+    {
+        return s*111.12;
+    }
+
+    function normalizeV(p1, p2)
+    {
+        var dx = Math.abs(p1.longitude-p2.longitude);
+        var dy = Math.abs(p1.latitude-p2.latitude);
+        var output = Math.sqrt(dx*dx+dy*dy);
+        return output;
     }
 
     //--------------------------route&gps--------------------------------------------{
@@ -130,6 +152,21 @@ Rectangle {
     }
     //---------------------------------------------------}
 
+    function drawRuler()
+    {
+        rulerLine.path = [];
+        rulerLine.addCoordinate(r_firstpoint);
+        rulerLine.addCoordinate(r_secondpoint);
+        console.log()
+    }
+
+
+
+    function clearRuler()
+    {
+        rulerLine.path = [];
+    }
+
 
     Map {
         id: mapView
@@ -153,9 +190,17 @@ Rectangle {
             id: mapPolyline
             line.width: 5
             opacity: 0.75
-            line.color: '#FFF5EE'
+            line.color: Material.accent
             path: [ ]
         }
+        MapPolyline {
+            id: rulerLine
+            line.width: 4
+            opacity: 0.8
+            line.color: Material.primary
+            path: [ ]
+        }
+
         Behavior on center {
             CoordinateAnimation {
                 duration: 1000
@@ -174,9 +219,40 @@ Rectangle {
             }
             onPositionChanged: {
                 changeTooltipPosition();
+                if(r_currentstate === 2)
+                {
+                    drawRuler();
+                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+
+                    console.log(convertGeo(normalizeV(r_firstpoint, r_secondpoint)));
+                }
             }
             onExited: {
                 clearTooltip();
+            }
+            onClicked:
+            {
+                if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
+                {
+                    r_currentstate = 0;
+                    clearRuler();
+                }
+                else if(r_currentstate === 1 & mouse.button === Qt.LeftButton)
+                {
+                    r_firstpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    r_currentstate = 2;
+                    r_secondpoint = r_firstpoint;
+                }
+                else if(r_currentstate === 2 & mouse.button === Qt.LeftButton)
+                {
+                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    r_currentstate = 3;
+                }
+                else if(r_currentstate === 3)
+                {
+                    r_currentstate = 0;
+                    clearRuler();
+                }
             }
         }
         MapQuickItem {
@@ -202,7 +278,7 @@ Rectangle {
                 anchors.fill: planeMapItem;
                 source: planeSource;
                 opacity: 1;
-                color: "#FFF5EE"
+                color: Material.accent
             }
             Behavior on coordinate {
                 CoordinateAnimation {
@@ -292,6 +368,8 @@ Rectangle {
                 text: qsTr("м")
             }
         }
+
+        //----------------------zoom slider---------------------------
         RoundButton
         {
             icon.source: "qrc:/img/zoom-out.png"
@@ -352,6 +430,57 @@ Rectangle {
             enabled: true
             display: AbstractButton.IconOnly
             onClicked: mapView.zoomLevel += 0.5
+        }
+        //-------------------------------------------------------------
+
+        RoundButton
+        {
+            icon.source: "qrc:/img/gps (2).png"
+            icon.color: "black"
+            icon.width: 32
+            icon.height: 32
+            id: panButton
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            anchors.left: zoomOut.right
+            anchors.verticalCenter: zoomOut.verticalCenter
+            highlighted: true
+            flat: false
+            anchors.leftMargin: 0
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked: panGPS()
+        }
+
+        RoundButton
+        {
+            icon.source: "qrc:/img/ruler (1).png"
+            icon.color: "black"
+            icon.width: 32
+            icon.height: 32
+            id: rulerButton
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            anchors.left: panButton.right
+            anchors.verticalCenter: panButton.verticalCenter
+            highlighted: true
+            flat: false
+            anchors.leftMargin: 0
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked:
+            {
+                if(r_currentstate !== 0) { r_currentstate = 0;
+                    clearRuler(); } else {
+                    r_currentstate = 1;
+                }
+            }
         }
     }
 }

@@ -7,5 +7,7 @@
         <file>img/plane.png</file>
         <file>img/track.png</file>
         <file>img/ruler.png</file>
+        <file>img/zoom-out.png</file>
+        <file>img/zoom-in.png</file>
     </qresource>
 </RCC>

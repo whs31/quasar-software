@@ -5,6 +5,8 @@
 
 #include <qqml.h>
 #include <QStandardPaths>
+#include <QQmlApplicationEngine>
+#include <QQuickStyle>
 
 #include "mainwindow.h"
 int main(int argc, char *argv[]) {
@@ -18,7 +20,7 @@ int main(int argc, char *argv[]) {
         QTextStream ts(&qss);
         qApp->setStyleSheet(ts.readAll());
     }
-
+    QQuickStyle::setStyle("Material");
     MainWindow window;
     window.show();
     window.showMaximized();

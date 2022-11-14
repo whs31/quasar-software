@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.12
+import QtQuick.Controls.Material 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
@@ -14,6 +15,10 @@ Rectangle {
     /*Invoker {
         id: invoker
     }*/
+    Material.theme: Material.Dark
+    Material.accent: Material.Teal
+    Material.primary: Material.Lime
+
     layer.enabled: true
     layer.samples: 4
 
@@ -40,6 +45,8 @@ Rectangle {
         currentQtCoordinates = QtPositioning.coordinate(latitude,longitude);
         if(followPlane) panGPS(); //@TODO отключает слежение за бортом при нажатии на карту мышью и передает этот факт в cpp
         if(enableRoute) drawRoute(lat, lon);
+        speedText.text = Number(speed).toFixed(1);
+        elevationText.text = Number(elevation).toFixed(0);
     }
 
     //--------------------------route&gps--------------------------------------------{
@@ -155,6 +162,7 @@ Rectangle {
                 easing.type: Easing.Linear //Easing.InOutQuart
             }
         }
+        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
         MouseArea {
             id: mapMouseArea
             anchors.fill: parent
@@ -205,6 +213,7 @@ Rectangle {
         }
         Component.onCompleted: {
             mapView.addMapItem(planeMapItem);
+            zoomSlider.value = 1-(mapView.zoomLevel/18);
         }
         Rectangle {
             id: cursorTooltip
@@ -231,12 +240,126 @@ Rectangle {
                 }
             }
         }
+
+        Rectangle {
+            id: speedElvRect
+            y: 62
+            width: 200
+            height: 40
+            opacity: 0.9
+            visible: true
+            radius: 18
+            color: Material.color(Material.Grey, Material.Shade900)
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 50
+            anchors.horizontalCenter: parent.horizontalCenter
+            Text {
+                id: speedText
+                color: Material.primary
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                font.bold: true
+                textFormat: Text.RichText
+                anchors.leftMargin: 30
+                text: qsTr("---.-")
+            }
+            Text {
+                id: speedTextTT
+                color: "#f6f5f4"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: speedText.right
+                anchors.leftMargin: 5
+                text: qsTr("км/ч")
+            }
+            Text {
+                id: elevationText
+                color: Material.primary
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: elevationTextTT.left
+                horizontalAlignment: Text.AlignRight
+                font.bold: true
+                textFormat: Text.RichText
+                anchors.rightMargin: 5
+                text: qsTr("----")
+            }
+            Text {
+                id: elevationTextTT
+                color: "#f6f5f4"
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                horizontalAlignment: Text.AlignRight
+                anchors.rightMargin: 30
+                text: qsTr("м")
+            }
+        }
+        RoundButton
+        {
+            icon.source: "qrc:/img/zoom-out.png"
+            icon.color: "black"
+            icon.width: 32
+            icon.height: 32
+            id: zoomOut
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            highlighted: true
+            flat: false
+            anchors.bottomMargin: 20
+            anchors.leftMargin: 30
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked: mapView.zoomLevel -= 0.5
+        }
+        Slider
+        {
+            id: zoomSlider
+            width: 40
+            height: 200
+            live: true
+            anchors.bottom: zoomOut.top
+            anchors.bottomMargin: 0
+            anchors.horizontalCenter: zoomOut.horizontalCenter
+            snapMode: Slider.NoSnap
+            to: 0
+            from: 1
+            wheelEnabled: false
+            clip: false
+            orientation: Qt.Vertical
+            value: 1
+            onMoved: mapView.zoomLevel = (1-value)*18;
+        }
+        RoundButton
+        {
+            icon.source: "qrc:/img/zoom-in.png"
+            icon.color: "black"
+            icon.width: 32
+            icon.height: 32
+            id: zoomIn
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            anchors.horizontalCenter: zoomOut.horizontalCenter
+            anchors.bottom: zoomSlider.top
+            highlighted: true
+            flat: false
+            anchors.bottomMargin: -5
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked: mapView.zoomLevel += 0.5
+        }
     }
 }
 
 
+
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.66;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:1.25;height:480;width:640}
 }
 ##^##*/

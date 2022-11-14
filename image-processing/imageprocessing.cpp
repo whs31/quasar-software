@@ -5,24 +5,75 @@ ImageProcessing::ImageProcessing(QObject *parent) : QObject (parent)
     mainWindow = MainWindow::getMainWinPtr();
 }
 
-ImageProcessing::image_metadata ImageProcessing::decode(QString path)
+ImageProcessing::image_metadata ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,"err"};
-    qDebug()<<"[IMG] Called decoding function for image from "<<path;
-    QFile _qfile(path);
-    if(_qfile.open(QIODevice::ReadOnly))
+    image_metadata metaStruct = {0,0,0,0,0,0,0,"error"};
+    qDebug()<<"[IMG] Called decoding function for image from "<<filelist;
+    for (QString fileName : filelist)
     {
-        QByteArray rawData = _qfile.readAll();
-        char *data = rawData.data();
-        uint16_t *metaMarker = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE);
-        if(*metaMarker == 0xE1FF)
+        //qWarning()<<filelist;
+        QFile _qfile(fileName);
+        if(_qfile.open(QIODevice::ReadOnly))
         {
-            uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
-            *metaSize = qToBigEndian(*metaSize) - 2;
-            memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
-            metaStruct.filename = path;
-            qDebug()<<"[IMG] Decoded file ("<<metaStruct.filename<<") successfully";
+            QByteArray rawData = _qfile.readAll();
+            char *data = rawData.data();
+            uint16_t *metaMarker = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE);
+            if(*metaMarker == 0xE1FF)
+            {
+                uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
+                *metaSize = qToBigEndian(*metaSize) - 2;
+                memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
+                metaStruct.filename = fileName;
+                qDebug()<<"[IMG] Decoded file ("<<metaStruct.filename<<") successfully";
+                metadataList.append(metaStruct);
+            }
+
+        } else { qDebug()<<"[IMG] Decoding error!"; return {0,0,0,0,0,0,0,"error"}; }
+    } return {1,1,1,1,1,1,1,"successfull decoding!"};//.filename = error failcheck
+}
+
+void ImageProcessing::processPath(QString path)
+{
+    QDir directory(path);
+    QStringList fileList;
+    directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    directory.setNameFilters(QStringList("*.jpg"));
+    QStringList entry_list = directory.entryList();
+    for (QString entryString : entry_list)
+    {
+        fileList.append(entryString.prepend(path+"/"));
+    }
+    if(!fileList.empty())
+    {
+        qInfo()<<"[IMG] Imagelist fulfilled";
+        imageList.clear();
+        metadataList.clear();
+        //qml clear and remove images =))))
+        for ( QString f : fileList  ){
+            imageList.append(f);
         }
-        return metaStruct;
-    } else { qDebug()<<"[IMG] Decoding error!"; return metaStruct; } //.filename = err failcheck
+    } else {
+        QMessageBox warningDialogue;
+        warningDialogue.setWindowTitle("Изображения не найдены!");
+        warningDialogue.setIcon(QMessageBox::Warning);
+        warningDialogue.setText("В выбранном каталоге не найдены изображения!");
+        warningDialogue.exec();
+    }
+    decode(imageList);
+    updateLabels(0);
+    //showAllImages();
+}
+
+void ImageProcessing::updateLabels(int structureIndex)
+{
+    QStringList tmp = metadataList[structureIndex].filename.split("/");
+    QString cutFilename = tmp[tmp.size()-1];
+    mainWindow->ui->label_c_metaFilename->setText(cutFilename);
+    mainWindow->ui->label_c_metaLat->setText(QString::number(metadataList[structureIndex].latitude));
+    mainWindow->ui->label_c_metaLon->setText(QString::number(metadataList[structureIndex].longitude));
+    mainWindow->ui->label_c_metaDx->setText(QString::number(metadataList[structureIndex].dx));
+    mainWindow->ui->label_c_metaDy->setText(QString::number(metadataList[structureIndex].dy));
+    mainWindow->ui->label_c_metaX0->setText(QString::number(metadataList[structureIndex].x0));
+    mainWindow->ui->label_c_metaY0->setText(QString::number(metadataList[structureIndex].y0));
+    mainWindow->ui->label_c_metaAngle->setText(QString::number(metadataList[structureIndex].angle));
 }

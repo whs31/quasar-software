@@ -18,14 +18,14 @@ int main(int argc, char *argv[]) {
     else   {
         qss.open(QFile::ReadOnly | QFile::Text);
         QTextStream ts(&qss);
-        qApp->setStyleSheet(ts.readAll());
+        qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
     }
-    QQuickStyle::setStyle("Material");
+    QQuickStyle::setStyle("Material");                              //графика для QML
     MainWindow window;
     window.show();
     window.showMaximized();
 
-    //qDebug()<<QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation);
+    //qDebug()<<QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation); //здесь валяется кэш карт
 
     return app.exec();
 }

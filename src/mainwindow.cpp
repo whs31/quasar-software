@@ -69,7 +69,7 @@ void MainWindow::InitializeConnections()
     timer->start(500);
     qInfo()<<"[STARTUP] Connections set up successfully";
     //try
-    qDebug()<<imageProcessing->decode(C_PATH+"/m6-27-12-2020_16-06-58.jpg").angle;
+    imageProcessing->processPath(C_PATH);
 }
 
 void MainWindow::Halftime()

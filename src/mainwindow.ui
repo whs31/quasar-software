@@ -706,7 +706,7 @@ QPushButton:selected {
             <number>2</number>
            </property>
            <item row="2" column="0">
-            <widget class="QLabel" name="label">
+            <widget class="QLabel" name="label_d_metaLat">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -719,7 +719,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="8" column="0">
-            <widget class="QLabel" name="label_8">
+            <widget class="QLabel" name="label_d_metaAngle">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -732,7 +732,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="7" column="0">
-            <widget class="QLabel" name="label_7">
+            <widget class="QLabel" name="label_d_metaY0">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -745,7 +745,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="0" column="0">
-            <widget class="QLabel" name="label_9">
+            <widget class="QLabel" name="label_d_metaFilename">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -760,7 +760,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="5" column="0">
-            <widget class="QLabel" name="label_5">
+            <widget class="QLabel" name="label_d_metaDy">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -773,7 +773,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="4" column="0">
-            <widget class="QLabel" name="label_4">
+            <widget class="QLabel" name="label_d_metaDx">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -786,7 +786,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="3" column="0">
-            <widget class="QLabel" name="label_3">
+            <widget class="QLabel" name="label_d_metaLon">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -799,7 +799,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="2" column="1">
-            <widget class="QLabel" name="label_2">
+            <widget class="QLabel" name="label_c_metaLat">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -815,7 +815,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="6" column="0">
-            <widget class="QLabel" name="label_6">
+            <widget class="QLabel" name="label_d_metaX0">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -828,7 +828,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="1" column="0">
-            <widget class="QLabel" name="label_10">
+            <widget class="QLabel" name="label_d_metaTime">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -843,7 +843,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLabel" name="label_11">
+            <widget class="QLabel" name="label_c_metaFilename">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -861,7 +861,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLabel" name="label_12">
+            <widget class="QLabel" name="label_c_metaTime">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -879,7 +879,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QLabel" name="label_13">
+            <widget class="QLabel" name="label_c_metaLon">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -895,7 +895,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="4" column="1">
-            <widget class="QLabel" name="label_14">
+            <widget class="QLabel" name="label_c_metaDx">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -911,7 +911,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="5" column="1">
-            <widget class="QLabel" name="label_15">
+            <widget class="QLabel" name="label_c_metaDy">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -927,7 +927,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="6" column="1">
-            <widget class="QLabel" name="label_16">
+            <widget class="QLabel" name="label_c_metaX0">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -943,7 +943,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="7" column="1">
-            <widget class="QLabel" name="label_17">
+            <widget class="QLabel" name="label_c_metaY0">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -959,7 +959,7 @@ QPushButton:selected {
             </widget>
            </item>
            <item row="8" column="1">
-            <widget class="QLabel" name="label_18">
+            <widget class="QLabel" name="label_c_metaAngle">
              <property name="font">
               <font>
                <family>Ubuntu</family>

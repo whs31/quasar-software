@@ -60,7 +60,7 @@ public:
     float C_DRIFTANGLE;
     QString C_ANTENNAPOSITION;
     QString C_PATH;
-    //---------------------------
+    //----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 private:
     Ui::MainWindow *ui;
@@ -73,7 +73,7 @@ private:
     void InitializeUI();
     void InitializeConnections();
 
-    //colors for text @TODO MAKE DEFINE
+    //colors for text
     QString HtmlColorMain = "<font color=\"#2ECC71\">";
     QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
     QString HtmlColorMainAccent = "<font color=\"#F1C40F\">";

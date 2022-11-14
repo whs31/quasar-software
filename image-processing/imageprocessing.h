@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QVector>
 #include <QtEndian>
+#include <QDir>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -27,8 +28,12 @@ public:
             QString filename;
         };
 
-    ImageProcessing::image_metadata decode(QString path);
+    ImageProcessing::image_metadata decode(QStringList filelist);
+    void processPath(QString path);
+    void updateLabels(int structureIndex);
     QVector<image_metadata> metadataList;
+    QStringList imageList;
+
 
 private:
     MainWindow* mainWindow;

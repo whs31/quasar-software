@@ -53,14 +53,21 @@ Rectangle {
         elevationText.text = Number(elevation).toFixed(0);
     }
 
-    function convertMetric(s)
+    function convertMetric(s) // километры в градусы
     {
         //1 градус = 111.12 км
         return s*0.00899928;
     }
-    function convertGeo(s)
+    function convertGeo(s) // градусы в километры
     {
         return s*111.12;
+    }
+
+    function aMean(p1, p2)
+    {
+        x = (p1.latitude+p2.latitude)/2;
+        y = (p1.longitude+p2.longitude)/2;
+        return QtPositioning.coordinate(x, y);
     }
 
     function normalizeV(p1, p2)
@@ -81,7 +88,6 @@ Rectangle {
         {
             atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
             angle = (atan*180)/Math.PI;
-            //console.log(angle);
             planeMapItem.rotationAngle = angle;
         }
     }
@@ -157,7 +163,18 @@ Rectangle {
         rulerLine.path = [];
         rulerLine.addCoordinate(r_firstpoint);
         rulerLine.addCoordinate(r_secondpoint);
-        console.log()
+        rulerTextMapItem.visible = true;
+        rulerTextMapItem.coordinate = QtPositioning.coordinate((r_firstpoint.latitude+r_secondpoint.latitude)/2, (r_firstpoint.longitude+r_secondpoint.longitude)/2);
+        var atan = Math.atan2(r_secondpoint.longitude-r_firstpoint.longitude, r_secondpoint.latitude-r_firstpoint.latitude);
+        var angle = ((atan*180)/Math.PI);
+        var textAngle = angle+270;
+        if(textAngle>90 & textAngle<270) { textAngle+=180 }
+        if(angle>90 & angle<270) { angle +=180 }
+        rulerTextMapItem.rulerRotationAngle = textAngle;
+        r1MapItem.r1RotationAngle = angle;
+        r2MapItem.r2RotationAngle = angle;
+        r2MapItem.visible = true;
+        r2MapItem.coordinate = r_secondpoint;
     }
 
 
@@ -165,6 +182,9 @@ Rectangle {
     function clearRuler()
     {
         rulerLine.path = [];
+        rulerTextMapItem.visible = false;
+        r1MapItem.visible = false;
+        r2MapItem.visible = false;
     }
 
 
@@ -197,7 +217,7 @@ Rectangle {
             id: rulerLine
             line.width: 4
             opacity: 0.8
-            line.color: Material.primary
+            line.color: Material.color(Material.Amber, Material.Shade100)
             path: [ ]
         }
 
@@ -224,7 +244,7 @@ Rectangle {
                     drawRuler();
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
 
-                    console.log(convertGeo(normalizeV(r_firstpoint, r_secondpoint)));
+                    rulerText.text = Number(convertGeo(normalizeV(r_firstpoint, r_secondpoint))).toFixed(2)+" км";
                 }
             }
             onExited: {
@@ -240,6 +260,8 @@ Rectangle {
                 else if(r_currentstate === 1 & mouse.button === Qt.LeftButton)
                 {
                     r_firstpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    r1MapItem.coordinate = r_firstpoint;
+                    r1MapItem.visible = true;
                     r_currentstate = 2;
                     r_secondpoint = r_firstpoint;
                 }
@@ -247,12 +269,102 @@ Rectangle {
                 {
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
                     r_currentstate = 3;
+
+                    r2MapItem.visible = true;
+                    //aMean(r_firstpoint, r_secondpoint);
                 }
                 else if(r_currentstate === 3)
                 {
                     r_currentstate = 0;
                     clearRuler();
+
                 }
+            }
+        }
+        MapQuickItem {
+            property alias rulerRotationAngle: rulerRotation.angle
+            id: rulerTextMapItem
+            visible: false
+            width: 2
+            height: 2
+            transform: Rotation {
+                id: rulerRotation
+                origin.x: rulerText.width/2;
+                origin.y: rulerText.height/2;
+                angle: 0
+            }
+            anchorPoint.x: rulerText.width/2
+            anchorPoint.y: rulerText.height/2
+            z:5
+            sourceItem: Text {
+                id: rulerText;
+                font.bold: true
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                style: Text.Outline
+                font.family: "Verdana"
+                //layer.enabled: true
+
+                color: Material.color(Material.Amber, Material.Shade100)
+                text: "-----";
+            }
+        }
+        MapQuickItem {
+            property alias r1RotationAngle: r1Rotation.angle
+            id: r1MapItem
+            visible: false
+            width: 2
+            height: 2
+            transform: Rotation {
+                id: r1Rotation
+                origin.x: r1Source.width;
+                origin.y: r1Source.height/2;
+                angle: 0
+            }
+            anchorPoint.x: r1Source.width
+            anchorPoint.y: r1Source.height/2
+            z:5
+            sourceItem: Image {
+                id: r1Source;
+                layer.enabled: true
+                transformOrigin: Item.Right
+                source: "qrc:/img/right-arrow.png"
+            }
+            ColorOverlay {
+                id: r1Overlay;
+                anchors.fill: r1MapItem;
+                source: r1Source;
+                opacity: 1;
+                color: Material.color(Material.Amber, Material.Shade100)
+            }
+        }
+        MapQuickItem {
+            property alias r2RotationAngle: r2Rotation.angle
+            id: r2MapItem
+            visible: false
+            width: 2
+            height: 2
+            transform: Rotation {
+                id: r2Rotation
+                origin.x: r2Source.width;
+                origin.y: r2Source.height/2;
+                angle: 0
+            }
+            anchorPoint.x: r2Source.width
+            anchorPoint.y: r2Source.height/2
+            z:5
+            sourceItem: Image {
+                id: r2Source;
+                layer.enabled: true
+                transformOrigin: Item.Right
+                source: "qrc:/img/right-arrow.png"
+            }
+            ColorOverlay {
+                id: r2Overlay;
+                anchors.fill: r2MapItem;
+                source: r2Source;
+                opacity: 1;
+                color: Material.color(Material.Amber, Material.Shade100)
             }
         }
         MapQuickItem {
@@ -476,7 +588,7 @@ Rectangle {
             display: AbstractButton.IconOnly
             onClicked:
             {
-                if(r_currentstate !== 0) { r_currentstate = 0;
+                if(r_currentstate !== 0) { r_currentstate = 1;
                     clearRuler(); } else {
                     r_currentstate = 1;
                 }
@@ -489,6 +601,6 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:1.25;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.01;height:480;width:640}
 }
 ##^##*/

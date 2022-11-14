@@ -54,7 +54,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -685,9 +685,9 @@ QPushButton:selected {
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="udpTab">
+      <widget class="QWidget" name="imgTab">
        <attribute name="title">
-        <string>UDP</string>
+        <string>IMG</string>
        </attribute>
       </widget>
      </widget>

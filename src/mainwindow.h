@@ -16,11 +16,13 @@
 #include "tcpremote.h"
 #include "confighandler.h"
 #include "settingsdialog.h"
+#include "imageprocessing.h"
 
 class UDPRemote;
 class TCPRemote;
 class ConfigHandler;
 class SettingsDialog;
+class ImageProcessing;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,6 +40,7 @@ public:
     friend class TCPRemote;
     friend class ConfigHandler;
     friend class SettingsDialog;
+    friend class ImageProcessing;
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
@@ -65,6 +68,7 @@ private:
     TCPRemote *tcpRemote;
     ConfigHandler *config;
     QTimer *timer;
+    ImageProcessing *imageProcessing;
     void InitializeUI();
     void InitializeConnections();
 

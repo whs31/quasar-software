@@ -54,6 +54,7 @@ void MainWindow::InitializeConnections()
     tcpRemote = new TCPRemote();
     config = new ConfigHandler();
     config->loadSettings();
+    imageProcessing = new ImageProcessing();
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
@@ -67,6 +68,8 @@ void MainWindow::InitializeConnections()
     }
     timer->start(500);
     qInfo()<<"[STARTUP] Connections set up successfully";
+    //try
+    qDebug()<<imageProcessing->decode(":/test-images/m6-27-12-2020_16-06-58.jpg").angle;
 }
 
 void MainWindow::Halftime()

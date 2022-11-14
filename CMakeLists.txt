@@ -25,6 +25,7 @@ include_directories(
     network
     src
     config
+    image-processing
 )
 
 
@@ -33,6 +34,7 @@ include_directories(
 file(GLOB SOURCE src/* )
 file(GLOB NETWORK network/*)
 file(GLOB CONFIG config/*)
+file(GLOB CONFIG image-processing/*)
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
@@ -53,6 +55,8 @@ else()
         config/confighandler.cpp
         config/settingsdialog.cpp
         config/settingsdialog.ui
+        image-processing/imageprocessing.h
+        image-processing/imageprocessing.cpp
    )
 endif()
 

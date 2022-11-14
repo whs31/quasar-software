@@ -40,13 +40,23 @@ public:
     friend class SettingsDialog;
     QQuickItem* qml;
 
-    QString CONNECTION_TYPE = "udp"; //"tcp"
-    QString CONNECTION_ADDRESS = "127.0.0.1:25565";
-
     void SendRemoteCommand(QString command);
 
 
     double telemetry[4]; //lat, lon, speed, elevation
+
+    //-----config values--------- //эти значения обновляются классом configHandler при вызове loadSettings и передаются в settingsDialog при инициализации окна
+    QString C_NETWORKTYPE;
+    QString C_NETWORKADDRESS;
+    QString C_NETWORKPORT;
+    float C_UPDATETIME;
+    float C_PREDICTRANGE;
+    float C_CAPTURERANGE;
+    float C_CAPTURETIME;
+    float C_AZIMUTH;
+    float C_DRIFTANGLE;
+    QString C_ANTENNAPOSITION;
+    //---------------------------
 
 private:
     Ui::MainWindow *ui;

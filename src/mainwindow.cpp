@@ -58,11 +58,11 @@ void MainWindow::InitializeConnections()
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    if(CONNECTION_TYPE == "tcp"){ tcpRemote->Connect(CONNECTION_ADDRESS); }
+    if(C_NETWORKTYPE == "tcp"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
     else
     {
-        udpRemote->Connect(CONNECTION_ADDRESS);
-        if(CONNECTION_TYPE != "udp") { CONNECTION_TYPE = "udp"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+        udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
+        if(C_NETWORKTYPE != "udp") { C_NETWORKTYPE = "udp"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
         qInfo()<<"UDP client connected";
     }
     timer->start(500);
@@ -73,7 +73,7 @@ void MainWindow::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($text#))
-    if(CONNECTION_TYPE == "tcp"){
+    if(C_NETWORKTYPE == "tcp"){
         SendRemoteCommand("$request");
     } else {
         SendRemoteCommand("$request");
@@ -82,7 +82,7 @@ void MainWindow::Halftime()
 
 void MainWindow::SendRemoteCommand(QString command)
 {
-    if(CONNECTION_TYPE == "tcp"){
+    if(C_NETWORKTYPE == "tcp"){
         tcpRemote->Send(command.toUtf8());
     } else {
         udpRemote->Send(command.toUtf8());

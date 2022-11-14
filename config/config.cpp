@@ -13,18 +13,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     utility["version"] = "1111";
     checkValuesSimple(utility);
 
-    group_t telemetry;
-    telemetry["type"] = "UDP";
-    telemetry["address"] = "127.0.0.1";
-    telemetry["port"] = "25565";
-    telemetry["updateTime"] = "0.5";
-    checkValuesSimple(telemetry);
-
     group_t network;
-    network["type"] = "TCP";
-    network["address"] = "127.0.0.1";
+    network["type"] = "UDP";
+    network["ip"] = "127.0.0.1";
     network["port"] = "25565";
-    telemetry["updateTime"] = "0.5";
+    network["updateTime"] = "0.5";
     checkValuesSimple(network);
 
     group_t map;
@@ -33,11 +26,9 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["diagram_length"] = "3";
     map["diagram_theta_azimuth"] = "12.5";
     map["diagram_drift_angle"] = "11";
+    map["antenna_position"] = "r";
+    map["vehicle_type"] = "helicopter";
     checkValuesSimple(map);
-
-    group_t image;
-    image["show_all_images_on_init"] = "false";
-    checkValuesSimple(image);
 }
 
 void Config::checkValues(QString group, group_t *list){

@@ -28,7 +28,7 @@ public:
         };
 
     ImageProcessing::image_metadata decode(QString path);
-
+    QVector<image_metadata> metadataList;
 
 private:
     MainWindow* mainWindow;

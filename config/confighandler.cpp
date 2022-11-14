@@ -3,7 +3,7 @@
 ConfigHandler::ConfigHandler()
 {
     mainWindow = MainWindow::getMainWinPtr();
-    config = new Config(QCoreApplication::applicationDirPath()+"/config.ini");
+    config = new Config(QCoreApplication::applicationDirPath()+"/quasar.ini");
 }
 
 void ConfigHandler::loadSettings()
@@ -18,6 +18,7 @@ void ConfigHandler::loadSettings()
       mainWindow->C_AZIMUTH = config->value("map/diagram_theta_azimuth").toFloat();
       mainWindow->C_DRIFTANGLE = config->value("map/diagram_drift_angle").toFloat();
       mainWindow->C_ANTENNAPOSITION = config->value("map/antenna_position").toString();
+      mainWindow->C_PATH = config->value("image/path").toString();
     qInfo()<<"[CONFIG] Config loaded. Version "<<config->value("utility/version").toString();
 
 }
@@ -34,6 +35,7 @@ void ConfigHandler::saveSettings()
     config->setValue("map/diagram_theta_azimuth", mainWindow->C_AZIMUTH);
     config->setValue("map/diagram_drift_angle", mainWindow->C_DRIFTANGLE);
     config->setValue("map/antenna_position", mainWindow->C_ANTENNAPOSITION);
+    config->setValue("image/path", mainWindow->C_PATH);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

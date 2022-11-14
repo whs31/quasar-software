@@ -22,7 +22,8 @@ public:
                    float cfg_thetaAzimuth = 0,
                    float cfg_captureRange = 0,
                    float cfg_captureTime = 0,
-                   QString cfg_antennaPosition = "");
+                   QString cfg_antennaPosition = "",
+                   QString cfg_path = "");
 
     //обратная связь
     QString r_connectionType;
@@ -35,6 +36,7 @@ public:
     float r_captureRange;
     float r_captureTime;
     QString r_antennaPosition;
+    QString r_path;
     ~SettingsDialog();
 
 signals:
@@ -51,6 +53,8 @@ private slots:
     void on_i_captureTime_valueChanged(double arg1);
     void on_i_antennaLeftB_clicked();
     void on_i_antennaRightB_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::SettingsDialog *uiS;

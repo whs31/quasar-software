@@ -69,13 +69,13 @@ void MainWindow::InitializeConnections()
     timer->start(500);
     qInfo()<<"[STARTUP] Connections set up successfully";
     //try
-    qDebug()<<imageProcessing->decode(":/test-images/m6-27-12-2020_16-06-58.jpg").angle;
+    qDebug()<<imageProcessing->decode(C_PATH+"/m6-27-12-2020_16-06-58.jpg").angle;
 }
 
 void MainWindow::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
-    //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($text#))
+    //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($>>text#))
     if(C_NETWORKTYPE == "TCP"){
         SendRemoteCommand("$request");
     } else {
@@ -144,7 +144,8 @@ void MainWindow::on_openSettings_triggered()
                       C_AZIMUTH,
                       C_CAPTURERANGE,
                       C_CAPTURETIME,
-                      C_ANTENNAPOSITION);
+                      C_ANTENNAPOSITION,
+                      C_PATH);
     if(sd.exec() == QDialog::Accepted)
     {
         C_NETWORKTYPE = sd.r_connectionType;
@@ -157,6 +158,7 @@ void MainWindow::on_openSettings_triggered()
         C_CAPTURERANGE = sd.r_captureRange;
         C_CAPTURETIME = sd.r_captureTime;
         C_ANTENNAPOSITION = sd.r_antennaPosition;
+        C_PATH = sd.r_path;
         config->saveSettings();
     } else { config->loadSettings(); }
 }

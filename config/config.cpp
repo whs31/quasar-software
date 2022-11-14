@@ -29,6 +29,10 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["antenna_position"] = "r";
     map["vehicle_type"] = "helicopter";
     checkValuesSimple(map);
+
+    group_t image;
+    image["path"] = "\\192.168.1.48/Jetson/QuaSAR-bin/img";
+    checkValuesSimple(image);
 }
 
 void Config::checkValues(QString group, group_t *list){

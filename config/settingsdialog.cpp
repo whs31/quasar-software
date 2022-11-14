@@ -1,5 +1,7 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
+#include <QFileDialog>
+#include <QStandardPaths>
 
 SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
                                QString cfg_connectionAddress,
@@ -10,7 +12,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
                                float cfg_thetaAzimuth,
                                float cfg_captureRange,
                                float cfg_captureTime,
-                               QString cfg_antennaPosition) : QDialog(parent), uiS(new Ui::SettingsDialog)
+                               QString cfg_antennaPosition,
+                               QString cfg_path) : QDialog(parent), uiS(new Ui::SettingsDialog)
 {
     uiS->setupUi(this);
     uiS->i_networktype->setText(cfg_connectionType);
@@ -25,7 +28,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
     if(cfg_antennaPosition == "r") { uiS->i_antennaRightB->setChecked(true); uiS->i_antennaLeftB->setChecked(false); } else { uiS->i_antennaRightB->setChecked(false); uiS->i_antennaLeftB->setChecked(true); }
 
     r_connectionType = cfg_connectionType; r_connectionAddress = cfg_connectionAddress; r_connectionPort = cfg_connectionPort; r_refreshTime = cfg_refreshTime; r_predictRange = cfg_predictRange;
-    r_driftAngle = cfg_driftAngle; r_thetaAzimuth = cfg_thetaAzimuth; r_captureRange = cfg_captureRange; r_captureTime = cfg_captureTime; r_antennaPosition = cfg_antennaPosition;
+    r_driftAngle = cfg_driftAngle; r_thetaAzimuth = cfg_thetaAzimuth; r_captureRange = cfg_captureRange; r_captureTime = cfg_captureTime; r_antennaPosition = cfg_antennaPosition; r_path = cfg_path;
 }
 
 SettingsDialog::~SettingsDialog()
@@ -86,4 +89,14 @@ void SettingsDialog::on_i_antennaLeftB_clicked()
 void SettingsDialog::on_i_antennaRightB_clicked()
 {
     r_antennaPosition = "r";
+}
+
+void SettingsDialog::on_pushButton_clicked()
+{
+    QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, tr("Выберите папку с выходными изображениями РЛС"),
+                                                                     QStandardPaths::displayName(QStandardPaths::HomeLocation));
+    if(pathNotNullCheck!=NULL)
+    {
+        r_path = pathNotNullCheck;
+    }
 }

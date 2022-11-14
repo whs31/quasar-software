@@ -165,6 +165,7 @@ Rectangle {
         rulerLine.addCoordinate(r_secondpoint);
         rulerTextMapItem.visible = true;
         rulerTextMapItem.coordinate = QtPositioning.coordinate((r_firstpoint.latitude+r_secondpoint.latitude)/2, (r_firstpoint.longitude+r_secondpoint.longitude)/2);
+        //var c1 = fromCoordinate(r_firstpoint)
         var atan = Math.atan2(r_secondpoint.longitude-r_firstpoint.longitude, r_secondpoint.latitude-r_firstpoint.latitude);
         var angle = ((atan*180)/Math.PI);
         var textAngle = angle+270;

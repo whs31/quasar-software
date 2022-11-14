@@ -134,7 +134,7 @@ Rectangle {
             name: "osm";
             PluginParameter {
                 name: "osm.mapping.providersrepository.address";
-                value: "file:///home/user/quasar-ui/QuaSAR-UI/osmconfigs"; //@TODO убрать хардкод
+                value: "qrc:/osmconfigs" //"file:///home/user/quasar-ui/QuaSAR-UI/src/osmconfigs";
             }
 
         }

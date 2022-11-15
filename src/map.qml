@@ -42,7 +42,7 @@ Rectangle {
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
 
-    function getTelemetry(lat, lon, elv, speed)
+    function getTelemetry(lat, lon, elv, speed) //called every C_UPDATETIME (0.5 s default)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
         drawPlane();
@@ -53,41 +53,16 @@ Rectangle {
         elevationText.text = Number(elevation).toFixed(0);
     }
 
-    function convertMetric(s) // километры в градусы
-    {
-        //1 градус = 111.12 км
-        return s*0.00899928;
-    }
-    function convertGeo(s) // градусы в километры
-    {
-        return s*111.12;
-    }
-
-    function aMean(p1, p2)
-    {
-        x = (p1.latitude+p2.latitude)/2;
-        y = (p1.longitude+p2.longitude)/2;
-        return QtPositioning.coordinate(x, y);
-    }
-
-    function normalizeV(p1, p2)
-    {
-        var dx = Math.abs(p1.longitude-p2.longitude);
-        var dy = Math.abs(p1.latitude-p2.latitude);
-        var output = Math.sqrt(dx*dx+dy*dy);
-        return output;
-    }
-
     //--------------------------route&gps--------------------------------------------{
     function drawPlane()
     {
         planeMapItem.coordinate = QtPositioning.coordinate(latitude, longitude);
         var atan = 0.0; var angle = 0.0;
-        var e = 0.000001;
-        if(Math.abs(longitude-currentQtCoordinates.longitude)>e&&Math.abs(latitude-currentQtCoordinates.latitude)>e)
+        var coord = QtPositioning.coordinate(latitude, longitude);
+        var e = 5;
+        if(Math.abs(currentQtCoordinates.distanceTo(coord)) > e && Math.abs(currentQtCoordinates.distanceTo(coord)) > e)
         {
-            atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
-            angle = (atan*180)/Math.PI;
+            angle = currentQtCoordinates.azimuthTo(coord);
             planeMapItem.rotationAngle = angle;
         }
     }
@@ -164,16 +139,17 @@ Rectangle {
         rulerLine.addCoordinate(r_firstpoint);
         rulerLine.addCoordinate(r_secondpoint);
         rulerTextMapItem.visible = true;
-        rulerTextMapItem.coordinate = QtPositioning.coordinate((r_firstpoint.latitude+r_secondpoint.latitude)/2, (r_firstpoint.longitude+r_secondpoint.longitude)/2);
-        //var c1 = fromCoordinate(r_firstpoint)
-        var atan = Math.atan2(r_secondpoint.longitude-r_firstpoint.longitude, r_secondpoint.latitude-r_firstpoint.latitude);
-        var angle = ((atan*180)/Math.PI);
-        var textAngle = angle+270;
+
+        var cc = QtPositioning.coordinate((r_firstpoint.latitude+r_secondpoint.latitude)/2, (r_firstpoint.longitude+r_secondpoint.longitude)/2);
+        var geoAngle = r_firstpoint.azimuthTo(r_secondpoint); //между N и выбранным вектором
+        var textAngle = geoAngle+0;
         if(textAngle>90 & textAngle<270) { textAngle+=180 }
-        if(angle>90 & angle<270) { angle +=180 }
+        if(geoAngle>90 & geoAngle<270) { geoAngle +=180 }
+
+        rulerTextMapItem.coordinate = cc;
         rulerTextMapItem.rulerRotationAngle = textAngle;
-        r1MapItem.r1RotationAngle = angle;
-        r2MapItem.r2RotationAngle = angle;
+        r1MapItem.r1RotationAngle = geoAngle;
+        r2MapItem.r2RotationAngle = geoAngle;
         r2MapItem.visible = true;
         r2MapItem.coordinate = r_secondpoint;
     }
@@ -228,6 +204,10 @@ Rectangle {
                 easing.type: Easing.Linear //Easing.InOutQuart
             }
         }
+        Behavior on zoomLevel {
+            NumberAnimation { duration: 100 }
+        }
+
         onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
         MouseArea {
             id: mapMouseArea
@@ -244,8 +224,7 @@ Rectangle {
                 {
                     drawRuler();
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-
-                    rulerText.text = Number(convertGeo(normalizeV(r_firstpoint, r_secondpoint))).toFixed(2)+" км";
+                    rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
             }
             onExited: {

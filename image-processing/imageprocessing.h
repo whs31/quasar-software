@@ -42,7 +42,9 @@ public:
     QStringList imageList;
 
     int fileCounter = 0;
-
+    void goLeft();
+    void goRight();
+    void updateUpperLabels();
 
 private:
     MainWindow* mainWindow;

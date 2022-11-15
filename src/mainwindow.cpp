@@ -75,10 +75,8 @@ void MainWindow::InitializeConnections()
 void MainWindow::InitialImageScan()
 {
     imageProcessing->processPath(C_PATH);
-    ui->label_c_foundImages->setText("Найдено "+HtmlBold+HtmlColorMainAccent+QString::number(imageProcessing->getVectorSize())+HtmlColorEnd+HtmlBoldEnd+" изображений");
-    ui->label_c_currentImage->setText("Изображение "+HtmlBold+HtmlColorMain+QString::number(imageProcessing->getFileCounter())+HtmlColorEnd+HtmlBoldEnd+" из "+HtmlBold+QString::number(imageProcessing->getVectorSize())+HtmlBoldEnd);
+    imageProcessing->updateUpperLabels();
 }
-
 void MainWindow::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
@@ -212,4 +210,24 @@ void MainWindow::on_pushButton_panGPS_clicked()
 void MainWindow::on_pushButton_update_clicked()
 {
     InitialImageScan();
+}
+
+void MainWindow::on_pushButton_goLeft_clicked()
+{
+    imageProcessing->goLeft();
+}
+
+void MainWindow::on_pushButton_goRight_clicked()
+{
+    imageProcessing->goRight();
+}
+
+void MainWindow::on_pushButton_panImage_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_panImage_2_clicked()
+{
+    on_pushButton_panImage_clicked();
 }

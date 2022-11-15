@@ -220,6 +220,7 @@ void MainWindow::on_pushButton_panGPS_clicked()
 void MainWindow::on_pushButton_update_clicked()
 {
     InitialImageScan();
+    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
 }
 
 void MainWindow::on_pushButton_goLeft_clicked()
@@ -238,6 +239,8 @@ void MainWindow::on_pushButton_panImage_clicked()
 {
     QMetaObject::invokeMethod(qml, "panImage",
                                     Q_ARG(QVariant, imageProcessing->getFileCounter()));
+    ui->checkBox->setChecked(false);
+    on_checkBox_stateChanged(0);
 }
 
 void MainWindow::on_pushButton_panImage_2_clicked()
@@ -289,5 +292,6 @@ void MainWindow::on_pushButton_showAllImages_clicked()
             }
         }
         ImageChecklistLoop();
+        ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
     }
 }

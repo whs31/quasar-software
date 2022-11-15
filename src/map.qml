@@ -51,6 +51,7 @@ Rectangle {
     property int r_currentstate: 0;
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
+    property var fc: 0;
 
     //called every C_UPDATETIME (0.5 s default)
     function getTelemetry(lat, lon, elv, speed)
@@ -63,6 +64,7 @@ Rectangle {
         speedText.text = Number(speed).toFixed(1);
         elevationText.text = Number(elevation).toFixed(0);
         //console.log(imageArray.length);
+        //cameraGrip.value = timer_3s.elapsed;
     }
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2)
@@ -163,12 +165,14 @@ Rectangle {
         imageArray[filecounter].visible = true;
         imageArray[filecounter].enabled = true;
         console.log("[QML] Image shown", filecounter);
+        fc = filecounter;
     }
 
     function panImage(filecounter)
     {
         console.log("[QML] Map centered on image");
         mapView.center = imageArray[filecounter].coordinate;
+        fc = filecounter;
         //mapView.zoomLevel = 14
     }
     //-------------------------------------------------------------------------------}
@@ -379,7 +383,13 @@ Rectangle {
                 {
                     r_currentstate = 0;
                     clearRuler();
-
+                }
+            }
+            onPressed: {
+                if(followPlane) {
+                    followPlane = false;
+                    timer_3s.restart();
+                    numAnim1.restart();
                 }
             }
         }
@@ -585,6 +595,26 @@ Rectangle {
             }
         }
 
+        ProgressBar {
+            id: cameraGrip;
+            opacity: 0.5;
+            anchors.top: speedElvRect.bottom;
+            anchors.left: speedElvRect.left;
+            anchors.right: speedElvRect.right;
+            anchors.bottom: parent.bottom;
+            anchors.bottomMargin: 10;
+            from: 0;
+            to: 3000;
+            value: 0
+            NumberAnimation on value {
+                id: numAnim1
+                from: 0
+                to: 3000
+                duration: 3000
+            }
+
+        }
+
         //----------------------zoom slider---------------------------
         RoundButton
         {
@@ -726,16 +756,26 @@ Rectangle {
             display: AbstractButton.IconOnly
             onClicked:
             {
-                console.log("panned"); // remove this
-            }
+                panImage(fc);
+                //dont follow plane for a while
+                if(followPlane)
+                {
+                    followPlane = false;
+                    timer_3s.restart();
+                    numAnim1.restart();
+                }
+        }
+
+        Timer {
+            id: timer_3s
+            interval: 3000; running: false; repeat: false
+            onTriggered: {
+                followPlane = true;
+                cameraGrip.value = 0;
+            }//ProgressBar
         }
     }
 }
-
-
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.01;height:480;width:640}
 }
-##^##*/
+
+

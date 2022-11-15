@@ -22,27 +22,37 @@ Rectangle {
     layer.enabled: true
     layer.samples: 4
 
-    //=================preconfig=======================
-    property string vehicle: "helicopter";
-    property string antennaPosition: "right";
-
-
+    //=====================config=======================|
+        property string c_VEHICLE: "helicopter";      //|
+        property string c_ANTENNAPOSITION: "right";   //|
+        property string c_PATH: "file:///";           //|
+        property double c_PREDICTRANGE: 0.0;          //|
+        property double c_DIAGRAMLENGTH: 0.0;         //|
+        property double c_CAPTURETIME: 0.0;           //|
+        property double c_DIAGRAMAZIMUTH: 0.0;        //|
+        property double c_DRIFTANGLE: 0.0;            //|
+    //==================================================|
 
     property double latitude: 0.0
     property double longitude: 0.0
     property double elevation: 0.0
     property double velocity: 0.0
-    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268);
+    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268); //in case of no connection
 
+    //-------widgets ui checkboxes------
     property var followPlane: false;
     property var enableTooltip: true;
     property var enableRoute: true;
+    //----------------------------------
 
+
+    //ruler
     property int r_currentstate: 0;
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
 
-    function getTelemetry(lat, lon, elv, speed) //called every C_UPDATETIME (0.5 s default)
+    //called every C_UPDATETIME (0.5 s default)
+    function getTelemetry(lat, lon, elv, speed)
     {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
         drawPlane();
@@ -51,6 +61,18 @@ Rectangle {
         if(enableRoute) drawRoute(lat, lon);
         speedText.text = Number(speed).toFixed(1);
         elevationText.text = Number(elevation).toFixed(0);
+    }
+
+    function loadSettings(d1, d2, d3, d4, d5, s1, s2)
+    {
+        c_ANTENNAPOSITION = s1;
+        c_PATH = s2;
+        c_PREDICTRANGE = d1;
+        c_DIAGRAMLENGTH = d2;
+        c_CAPTURETIME = d3;
+        c_DIAGRAMAZIMUTH = d4;
+        c_DRIFTANGLE = d5;
+        console.log("[QML] Config loaded in qml");
     }
 
     //--------------------------route&gps--------------------------------------------{
@@ -308,7 +330,7 @@ Rectangle {
                 id: r1Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/img/right-arrow.png"
+                source: "qrc:/img/right-arrow-map.png"
             }
             ColorOverlay {
                 id: r1Overlay;
@@ -337,7 +359,7 @@ Rectangle {
                 id: r2Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/img/right-arrow.png"
+                source: "qrc:/img/right-arrow-map.png"
             }
             ColorOverlay {
                 id: r2Overlay;
@@ -363,7 +385,7 @@ Rectangle {
                 id: planeSource;
                 layer.enabled: true
                 transformOrigin: Item.Center
-                source: if(vehicle==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
+                source: if(c_VEHICLE==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
             }
             ColorOverlay {
                 id: overlayPlane;
@@ -596,7 +618,7 @@ Rectangle {
             display: AbstractButton.IconOnly
             onClicked:
             {
-                console.log("panned");
+                console.log("panned"); // remove this
             }
         }
     }

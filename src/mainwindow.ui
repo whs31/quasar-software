@@ -54,7 +54,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -892,7 +892,7 @@ QPushButton:selected {
         <string>IMG</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
+        <item row="3" column="0">
          <widget class="QGroupBox" name="metaGBox">
           <property name="font">
            <font>
@@ -1014,6 +1014,9 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
            <item row="6" column="0">
@@ -1060,6 +1063,9 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
            <item row="1" column="1">
@@ -1078,6 +1084,9 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
            <item row="3" column="1">
@@ -1093,6 +1102,9 @@ QPushButton:selected {
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -1110,6 +1122,9 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
            <item row="5" column="1">
@@ -1125,6 +1140,9 @@ QPushButton:selected {
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -1142,6 +1160,9 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
            <item row="7" column="1">
@@ -1157,6 +1178,9 @@ QPushButton:selected {
              </property>
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
              </property>
             </widget>
            </item>
@@ -1174,12 +1198,208 @@ QPushButton:selected {
              <property name="alignment">
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
+             <property name="textInteractionFlags">
+              <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+             </property>
             </widget>
            </item>
           </layout>
          </widget>
         </item>
         <item row="1" column="0">
+         <widget class="QFrame" name="frame_3">
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QPushButton" name="pushButton_goLeft">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/img/left-arrow.png</normaloff>:/img/left-arrow.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_c_currentImage">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Изображение №1 из 0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_goRight">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/img/right-arrow.png</normaloff>:/img/right-arrow.png</iconset>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QFrame" name="frame_2">
+          <property name="font">
+           <font>
+            <family>Ubuntu</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_c_foundImages">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>Найдено 0 изображений</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <item>
+              <widget class="QPushButton" name="pushButton_update">
+               <property name="font">
+                <font>
+                 <family>Ubuntu</family>
+                 <pointsize>9</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+  background-color: rgb(38, 162, 105);
+  color: #E0E1E3;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+QPushButton:hover {
+  background-color: rgb(87, 227, 137);
+  color: #E0E1E3;
+}
+QPushButton:pressed {
+  background-color: rgb(28, 152, 95)
+}
+QPushButton:selected {
+  background: #60798B;
+  color: #E0E1E3;
+}</string>
+               </property>
+               <property name="text">
+                <string>Обновить</string>
+               </property>
+               <property name="icon">
+                <iconset resource="images.qrc">
+                 <normaloff>:/img/refresh-page-option.png</normaloff>:/img/refresh-page-option.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_autoUpdate">
+               <property name="font">
+                <font>
+                 <family>Ubuntu</family>
+                 <pointsize>8</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Автообновление каталога</string>
+               </property>
+               <property name="icon">
+                <iconset resource="images.qrc">
+                 <normaloff>:/img/time-left.png</normaloff>:/img/time-left.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>12</width>
+                 <height>12</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="0">
          <spacer name="verticalSpacer_2">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -1188,6 +1408,22 @@ QPushButton:selected {
            <size>
             <width>20</width>
             <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0">
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>20</height>
            </size>
           </property>
          </spacer>

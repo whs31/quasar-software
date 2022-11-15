@@ -5,10 +5,15 @@ ImageProcessing::ImageProcessing(QObject *parent) : QObject (parent)
     mainWindow = MainWindow::getMainWinPtr();
 }
 
+bool ImageProcessing::getReadyStatus()
+{
+    if(!imageList.empty()) { return 1; } return 0;
+}
+
 void ImageProcessing::decode(QStringList filelist)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,"error"};
-    qDebug()<<"[IMG] Called decoding function for image from "<<filelist;
+    qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (QString fileName : filelist)
     {
         //qWarning()<<filelist;
@@ -27,7 +32,7 @@ void ImageProcessing::decode(QStringList filelist)
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
 
-                qDebug()<<"[IMG] Decoded file ("<<metaStruct.filename<<") successfully";
+                qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
             }
 
@@ -80,4 +85,14 @@ void ImageProcessing::updateLabels(int structureIndex)
     mainWindow->ui->label_c_metaY0->setText(QString::number(metadataList[structureIndex].y0));
     mainWindow->ui->label_c_metaAngle->setText(QString::number(metadataList[structureIndex].angle));
     mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
+}
+
+int ImageProcessing::getFileCounter()
+{
+    return fileCounter;
+}
+
+int ImageProcessing::getVectorSize()
+{
+    return imageList.length();
 }

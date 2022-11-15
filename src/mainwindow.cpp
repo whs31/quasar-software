@@ -64,12 +64,19 @@ void MainWindow::InitializeConnections()
     {
         udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
         if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
-        qInfo()<<"UDP client connected";
+        qInfo()<<"[REMOTE] UDP client connected";
     }
     timer->start(500);
     qInfo()<<"[STARTUP] Connections set up successfully";
-    //try
+
+    InitialImageScan();
+}
+
+void MainWindow::InitialImageScan()
+{
     imageProcessing->processPath(C_PATH);
+    ui->label_c_foundImages->setText("Найдено "+HtmlBold+HtmlColorMainAccent+QString::number(imageProcessing->getVectorSize())+HtmlColorEnd+HtmlBoldEnd+" изображений");
+    ui->label_c_currentImage->setText("Изображение "+HtmlBold+HtmlColorMain+QString::number(imageProcessing->getFileCounter())+HtmlColorEnd+HtmlBoldEnd+" из "+HtmlBold+QString::number(imageProcessing->getVectorSize())+HtmlBoldEnd);
 }
 
 void MainWindow::Halftime()
@@ -126,13 +133,13 @@ void MainWindow::ReadTelemetry(QByteArray data){
     QMetaObject::invokeMethod(qml, "getTelemetry", Q_ARG(QVariant, telemetry[0]), Q_ARG(QVariant, telemetry[1]), Q_ARG(QVariant, telemetry[3]), Q_ARG(QVariant, telemetry[2]));
 }
 
-void MainWindow::on_formImage_triggered()
+void MainWindow::on_formImage_triggered() //menu slot (will be removed)
 {
     qInfo()<<"[CLIENT] Sending command to form SAR image";
     SendRemoteCommand("$form-SAR-image");
 }
 
-void MainWindow::on_openSettings_triggered()
+void MainWindow::on_openSettings_triggered() //menu slot
 {
     SettingsDialog sd(this,
                       C_NETWORKTYPE,
@@ -200,4 +207,9 @@ void MainWindow::on_pushButton_clearTrack_clicked()
 void MainWindow::on_pushButton_panGPS_clicked()
 {
     QMetaObject::invokeMethod(qml, "panGPS");
+}
+
+void MainWindow::on_pushButton_update_clicked()
+{
+    InitialImageScan();
 }

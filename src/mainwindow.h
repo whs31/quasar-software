@@ -73,6 +73,8 @@ private:
     void InitializeUI();
     void InitializeConnections();
 
+    void InitialImageScan();
+
     //colors for text
     QString HtmlColorMain = "<font color=\"#2ECC71\">";
     QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
@@ -97,5 +99,6 @@ private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_pushButton_clearTrack_clicked();
     void on_pushButton_panGPS_clicked();
+    void on_pushButton_update_clicked();
 };
 #endif // MAINWINDOW_H

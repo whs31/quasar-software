@@ -34,8 +34,14 @@ public:
     void processPath(QString path);
     void updateLabels(int structureIndex);
 
+    bool getReadyStatus();
+    int getFileCounter();
+    int getVectorSize();
+
     QVector<image_metadata> metadataList;
     QStringList imageList;
+
+    int fileCounter = 0;
 
 
 private:

@@ -13,5 +13,9 @@
         <file>img/gps (2).png</file>
         <file>img/right-arrow.png</file>
         <file>img/picture.png</file>
+        <file>img/time-left.png</file>
+        <file>img/right-arrow-map.png</file>
+        <file>img/refresh-page-option.png</file>
+        <file>img/left-arrow.png</file>
     </qresource>
 </RCC>

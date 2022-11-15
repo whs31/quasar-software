@@ -20,6 +20,15 @@ void ConfigHandler::loadSettings()
       mainWindow->C_ANTENNAPOSITION = config->value("map/antenna_position").toString();
       mainWindow->C_PATH = config->value("image/path").toString();
     qInfo()<<"[CONFIG] Config loaded. Version "<<config->value("utility/version").toString();
+    auto qml = mainWindow->ui->map->rootObject();
+    QMetaObject::invokeMethod(qml, "loadSettings",
+            Q_ARG(QVariant, config->value("map/predict_line_range").toDouble()),
+            Q_ARG(QVariant, config->value("map/diagram_length").toDouble()),
+            Q_ARG(QVariant, config->value("map/capture_time").toDouble()),
+            Q_ARG(QVariant, config->value("map/diagram_theta_azimuth").toDouble()),
+            Q_ARG(QVariant, config->value("map/diagram_drift_angle").toDouble()),
+            Q_ARG(QVariant, config->value("map/antenna_position").toString()),
+            Q_ARG(QVariant, config->value("map/path").toString()));
 
 }
 

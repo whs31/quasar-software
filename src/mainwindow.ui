@@ -54,7 +54,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -73,7 +73,7 @@
         <string>Map</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QGroupBox" name="checkersGBox">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
@@ -94,6 +94,23 @@
            <bool>true</bool>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Следить за бортом</string>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/planeSmall.png</normaloff>:/img-deprecated/planeSmall.png</iconset>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QCheckBox" name="checkBox_drawTooltip">
              <property name="font">
@@ -144,7 +161,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="checkBox">
+            <widget class="QCheckBox" name="checkBox_drawPredict">
              <property name="font">
               <font>
                <family>Ubuntu</family>
@@ -152,24 +169,151 @@
               </font>
              </property>
              <property name="text">
-              <string>Следить за бортом</string>
+              <string>Направление полета</string>
              </property>
              <property name="icon">
-              <iconset resource="images.qrc">
-               <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/path.png</normaloff>:/img-deprecated/path.png</iconset>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="pushButton_clearTrack">
+            <widget class="QCheckBox" name="checkBox_drawDiagram">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Диаграмма направленности</string>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/radar.png</normaloff>:/img-deprecated/radar.png</iconset>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="0">
+         <widget class="QFrame" name="frame">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="horizontalSpacing">
+            <number>10</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton_panGPS">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>20</height>
+              </size>
+             </property>
              <property name="font">
               <font>
                <family>Ubuntu</family>
                <pointsize>9</pointsize>
               </font>
              </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
+             <property name="text">
+              <string>Местоположение РЛС</string>
+             </property>
+             <property name="icon">
+              <iconset resource="images.qrc">
+               <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="pushButton_panImage">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Местоположение РЛИ</string>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/jpg_pan.png</normaloff>:/img-deprecated/jpg_pan.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="flat">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="pushButton_clearTrack">
+          <property name="font">
+           <font>
+            <family>Ubuntu</family>
+            <pointsize>9</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
   background-color: rgb(192, 28, 40);
   color: #E0E1E3;
   border-radius: 4px;
@@ -191,40 +335,40 @@ QPushButton:selected {
   background: #60798B;
   color: #E0E1E3;
 }</string>
-             </property>
-             <property name="text">
-              <string>Очистить трек полета</string>
-             </property>
-             <property name="icon">
-              <iconset resource="images.qrc">
-               <normaloff>:/img/eraser.png</normaloff>:/img/eraser.png</iconset>
-             </property>
-             <property name="iconSize">
-              <size>
-               <width>12</width>
-               <height>12</height>
-              </size>
-             </property>
-             <property name="autoDefault">
-              <bool>false</bool>
-             </property>
-             <property name="default">
-              <bool>false</bool>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          </property>
+          <property name="text">
+           <string>Очистить трек полета</string>
+          </property>
+          <property name="icon">
+           <iconset resource="images.qrc">
+            <normaloff>:/img/eraser.png</normaloff>:/img/eraser.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>12</width>
+            <height>12</height>
+           </size>
+          </property>
+          <property name="autoDefault">
+           <bool>false</bool>
+          </property>
+          <property name="default">
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
-        <item row="3" column="0">
-         <spacer name="verticalSpacer">
+        <item row="5" column="0">
+         <spacer name="verticalSpacer_3">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
             <width>20</width>
-            <height>40</height>
+            <height>20</height>
            </size>
           </property>
          </spacer>
@@ -663,24 +807,82 @@ QPushButton:selected {
           </layout>
          </widget>
         </item>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton_panGPS">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>20</height>
-           </size>
+        <item row="6" column="0">
+         <widget class="QGroupBox" name="markersGBox">
+          <property name="font">
+           <font>
+            <family>Ubuntu</family>
+            <pointsize>8</pointsize>
+           </font>
           </property>
-          <property name="text">
-           <string/>
+          <property name="title">
+           <string>Маркеры карты</string>
           </property>
-          <property name="icon">
-           <iconset resource="images.qrc">
-            <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
-          </property>
-          <property name="flat">
-           <bool>false</bool>
-          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QPushButton" name="pushButton_placeMarker">
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Установить маркер</string>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/add_marker.png</normaloff>:/img-deprecated/add_marker.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_saveMarkers">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/save.png</normaloff>:/img-deprecated/save.png</iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_loadMarkers">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="font">
+              <font>
+               <family>Ubuntu</family>
+               <pointsize>9</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="img-deprecated.qrc">
+               <normaloff>:/img-deprecated/load.png</normaloff>:/img-deprecated/load.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
@@ -1064,6 +1266,7 @@ QPushButton:selected {
  </customwidgets>
  <resources>
   <include location="images.qrc"/>
+  <include location="img-deprecated.qrc"/>
  </resources>
  <connections/>
 </ui>

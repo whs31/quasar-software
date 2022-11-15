@@ -175,7 +175,7 @@ Rectangle {
             name: "osm";
             PluginParameter {
                 name: "osm.mapping.providersrepository.address";
-                value: "qrc:/osmconfigs" //"file:///home/user/quasar-ui/QuaSAR-UI/src/osmconfigs";
+                value: "qrc:/osmconfigs";
             }
 
         }
@@ -572,6 +572,31 @@ Rectangle {
                     clearRuler(); } else {
                     r_currentstate = 1;
                 }
+            }
+        }
+
+        RoundButton
+        {
+            icon.source: "qrc:/img/picture.png"
+            icon.color: "black"
+            icon.width: 32
+            icon.height: 32
+            id: panImageButton
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            anchors.left: rulerButton.right
+            anchors.verticalCenter: rulerButton.verticalCenter
+            highlighted: true
+            flat: false
+            anchors.leftMargin: 0
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked:
+            {
+                console.log("panned");
             }
         }
     }

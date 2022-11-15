@@ -12,5 +12,6 @@
         <file>img/ruler (1).png</file>
         <file>img/gps (2).png</file>
         <file>img/right-arrow.png</file>
+        <file>img/picture.png</file>
     </qresource>
 </RCC>

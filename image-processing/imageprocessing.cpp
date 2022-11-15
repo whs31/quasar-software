@@ -5,7 +5,7 @@ ImageProcessing::ImageProcessing(QObject *parent) : QObject (parent)
     mainWindow = MainWindow::getMainWinPtr();
 }
 
-ImageProcessing::image_metadata ImageProcessing::decode(QStringList filelist)
+void ImageProcessing::decode(QStringList filelist)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,"error"};
     qDebug()<<"[IMG] Called decoding function for image from "<<filelist;
@@ -24,12 +24,15 @@ ImageProcessing::image_metadata ImageProcessing::decode(QStringList filelist)
                 *metaSize = qToBigEndian(*metaSize) - 2;
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
+                QDateTime crDate = QFileInfo(_qfile).birthTime();
+                metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
+
                 qDebug()<<"[IMG] Decoded file ("<<metaStruct.filename<<") successfully";
                 metadataList.append(metaStruct);
             }
 
-        } else { qDebug()<<"[IMG] Decoding error!"; return {0,0,0,0,0,0,0,"error"}; }
-    } return {1,1,1,1,1,1,1,"successfull decoding!"};//.filename = error failcheck
+        } else { qDebug()<<"[IMG] Decoding error!"; }
+    }
 }
 
 void ImageProcessing::processPath(QString path)
@@ -49,7 +52,7 @@ void ImageProcessing::processPath(QString path)
         imageList.clear();
         metadataList.clear();
         //qml clear and remove images =))))
-        for ( QString f : fileList  ){
+        for ( QString f : fileList ) {
             imageList.append(f);
         }
     } else {
@@ -76,4 +79,5 @@ void ImageProcessing::updateLabels(int structureIndex)
     mainWindow->ui->label_c_metaX0->setText(QString::number(metadataList[structureIndex].x0));
     mainWindow->ui->label_c_metaY0->setText(QString::number(metadataList[structureIndex].y0));
     mainWindow->ui->label_c_metaAngle->setText(QString::number(metadataList[structureIndex].angle));
+    mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
 }

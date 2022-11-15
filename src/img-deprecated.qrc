@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img-deprecated/add_marker.png</file>
+        <file>img-deprecated/cancel.png</file>
+        <file>img-deprecated/follow.png</file>
+        <file>img-deprecated/jpeg_opacityMask.png</file>
+        <file>img-deprecated/jpg_pan.png</file>
+        <file>img-deprecated/load.png</file>
+        <file>img-deprecated/nav_pan.png</file>
+        <file>img-deprecated/path.png</file>
+        <file>img-deprecated/planeSmall.png</file>
+        <file>img-deprecated/radar.png</file>
+        <file>img-deprecated/route.png</file>
+        <file>img-deprecated/ruler.png</file>
+        <file>img-deprecated/save.png</file>
+        <file>img-deprecated/swapMode.png</file>
+        <file>img-deprecated/take_coords.png</file>
+    </qresource>
+</RCC>

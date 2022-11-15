@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QtEndian>
 #include <QDir>
+#include <QFileInfo>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -26,11 +27,13 @@ public:
             float y0;
             float angle;
             QString filename;
+            QString datetime;
         };
 
-    ImageProcessing::image_metadata decode(QStringList filelist);
+    void decode(QStringList filelist);
     void processPath(QString path);
     void updateLabels(int structureIndex);
+
     QVector<image_metadata> metadataList;
     QStringList imageList;
 

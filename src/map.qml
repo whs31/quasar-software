@@ -38,6 +38,7 @@ Rectangle {
     property double elevation: 0.0
     property double velocity: 0.0
     property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268); //in case of no connection
+    property var imageArray: []
 
     //-------widgets ui checkboxes------
     property var followPlane: false;
@@ -61,6 +62,7 @@ Rectangle {
         if(enableRoute) drawRoute(lat, lon);
         speedText.text = Number(speed).toFixed(1);
         elevationText.text = Number(elevation).toFixed(0);
+        //console.log(imageArray.length);
     }
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2)
@@ -74,6 +76,78 @@ Rectangle {
         c_DRIFTANGLE = d5;
         console.log("[QML] Config loaded in qml");
     }
+
+    //--------------------------SAR images-------------------------------------------{
+    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename)
+    {
+        console.log("[QML] Displaying image from " + filename);
+        var item = Qt.createQmlObject('
+                                                    import QtQuick 2.0;
+                                                    import QtLocation 5.12;
+                                                    MapQuickItem {
+                                                    }
+            ', mapView, "dynamic");
+        //one degree = 111 120 meters
+        item.anchorPoint.x = -x0;
+        item.anchorPoint.y = width/2;
+        item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
+        item.sourceItem = Qt.createQmlObject('
+                                                    import QtQuick 2.0;
+                                                    import QtGraphicalEffects 1.12;
+                                                    Rectangle {
+                                                        opacity: 1;
+                                                        transformOrigin: Item.Left;
+                                                        rotation: 0
+                                                        Image {
+                                                            id: imageSource;
+                                                            opacity: 50;
+                                                            source: "file:///'+ filename +'"
+                                                            visible: false
+                                                        }
+                                                        Image {
+                                                            id: mask
+                                                            source: "qrc:/img-deprecated/jpeg_opacityMask.png"
+                                                            sourceSize: Qt.size(imageSource.width, imageSource.height)
+                                                            visible: false
+                                                        }
+                                                        OpacityMask {
+                                                            anchors.fill: imageSource
+                                                            source: imageSource
+                                                            maskSource: mask
+                                                        }
+                                                    }
+            ', mapView, "dynamic");
+        item.zoomLevel = 17.2;          //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
+                                        //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
+                                        //dx = metersPerPx (без учета dy)
+                                        //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
+        mapView.addMapItem(item);
+        item.sourceItem.rotation = angle;
+        imageArray.push(item); //если изображения будут отображены не по очереди, то все ломается
+        //change opacity of newly created jpg
+    }
+
+    function hideImage(filecounter)
+    {
+        imageArray[filecounter].visible = false;
+        imageArray[filecounter].enabled = false;
+        console.log("[QML] Image hidden", filecounter);
+    }
+
+    function showImage(filecounter)
+    {
+        imageArray[filecounter].visible = true;
+        imageArray[filecounter].enabled = true;
+        console.log("[QML] Image shown", filecounter);
+    }
+
+    function panImage(filecounter)
+    {
+        console.log("[QML] Map centered on image");
+        mapView.center = imageArray[filecounter].coordinate;
+        //mapView.zoomLevel = 14
+    }
+    //-------------------------------------------------------------------------------}
 
     //--------------------------route&gps--------------------------------------------{
     function drawPlane()
@@ -211,12 +285,14 @@ Rectangle {
             opacity: 0.75
             line.color: Material.accent
             path: [ ]
+            z: 10
         }
         MapPolyline {
             id: rulerLine
             line.width: 4
             opacity: 0.8
             line.color: Material.color(Material.Amber, Material.Shade100)
+            z: 10
             path: [ ]
         }
 

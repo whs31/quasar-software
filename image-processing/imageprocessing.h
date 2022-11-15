@@ -42,6 +42,7 @@ public:
     void goLeft();
     void goRight();
     void updateUpperLabels();
+    void showAllImages();
 
 private:
     MainWindow* mainWindow;

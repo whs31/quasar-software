@@ -88,6 +88,38 @@ void ImageProcessing::updateLabels(int structureIndex)
         mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
 }
 
+void ImageProcessing::showAllImages()
+{
+    bool tmp_showOnStart = false; //replace by config value <--------------------------------------------------------
+    for (image_metadata meta : metadataList)
+    {
+        if(meta.latitude!=0)
+        {
+            QQuickItem*  qml = mainWindow->ui->map->rootObject();
+            QMetaObject::invokeMethod(qml, "addImage",
+                        Q_ARG(QVariant, (float)meta.latitude),
+                        Q_ARG(QVariant, (float)meta.longitude),
+                        Q_ARG(QVariant, meta.dx),
+                        Q_ARG(QVariant, meta.dy),
+                        Q_ARG(QVariant, meta.x0),
+                        Q_ARG(QVariant, meta.y0),
+                        Q_ARG(QVariant, meta.angle),
+                        Q_ARG(QVariant, meta.filename)
+                    );
+            if(!tmp_showOnStart) // <--------------------------------------------------------
+            {
+                for(int i = 0; i<getVectorSize(); i++)
+                {
+                    QMetaObject::invokeMethod(qml, "hideImage",
+                                                  Q_ARG(QVariant, i));
+                }
+            }
+        }
+    }
+    qInfo()<<"[IMG] Images shown successfully";
+}
+
+
 int ImageProcessing::getFileCounter()
 {
     return fileCounter;

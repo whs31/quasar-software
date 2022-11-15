@@ -82,6 +82,7 @@ void MainWindow::InitialImageScan()
         {
             imageChecklist.append(false);
         }
+        imageProcessing->showAllImages();
     }
 
 }
@@ -234,7 +235,8 @@ void MainWindow::on_pushButton_goRight_clicked()
 
 void MainWindow::on_pushButton_panImage_clicked()
 {
-
+    QMetaObject::invokeMethod(qml, "panImage",
+                                    Q_ARG(QVariant, imageProcessing->getFileCounter()));
 }
 
 void MainWindow::on_pushButton_panImage_2_clicked()
@@ -256,15 +258,15 @@ void MainWindow::ImageChecklistLoop()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
-        for(int i = 0; i<imageProcessing->getVectorSize()-1; i++)
+        for(int i = 0; i<imageProcessing->getVectorSize(); i++)
         {
             if(imageChecklist[i]==true)
             {
-                //QMetaObject::invokeMethod(qml, "showImage",
-                        //Q_ARG(QVariant, i));
+                QMetaObject::invokeMethod(qml, "showImage",
+                                          Q_ARG(QVariant, i));
             } else {
-                //QMetaObject::invokeMethod(qml, "hideImage",
-                        //Q_ARG(QVariant, i));
+                QMetaObject::invokeMethod(qml, "hideImage",
+                                          Q_ARG(QVariant, i));
             }
         }
     }

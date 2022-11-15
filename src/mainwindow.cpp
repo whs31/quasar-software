@@ -271,3 +271,22 @@ void MainWindow::ImageChecklistLoop()
         }
     }
 }
+
+void MainWindow::on_pushButton_showAllImages_clicked()
+{
+    if(imageProcessing->getReadyStatus()==true)
+    {
+        if(imageChecklist[0] == false) {
+            for(int i = 0; i<imageProcessing->getVectorSize(); i++)
+            {
+                imageChecklist[i] = true;
+            }
+        } else {
+            for(int i = 0; i<imageProcessing->getVectorSize(); i++)
+            {
+                imageChecklist[i] = false;
+            }
+        }
+        ImageChecklistLoop();
+    }
+}

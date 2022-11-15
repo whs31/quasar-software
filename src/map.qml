@@ -486,6 +486,7 @@ Rectangle {
             visible: true
             width: 0
             height: 0
+            z: 12
             Rectangle {
                 id: tooltip
                 color: "#000000"
@@ -519,6 +520,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 50
             anchors.horizontalCenter: parent.horizontalCenter
+            z: 100
             Text {
                 id: speedText
                 color: Material.primary
@@ -581,12 +583,14 @@ Rectangle {
             enabled: true
             display: AbstractButton.IconOnly
             onClicked: mapView.zoomLevel -= 0.5
+            z: 100
         }
         Slider
         {
             id: zoomSlider
             width: 40
             height: 200
+            z: 100
             live: true
             anchors.bottom: zoomOut.top
             anchors.bottomMargin: 0
@@ -608,6 +612,7 @@ Rectangle {
             icon.height: 32
             id: zoomIn
             width: 40
+            z: 100
             height: 40
             radius: 10
             opacity: 1
@@ -634,6 +639,7 @@ Rectangle {
             height: 40
             radius: 10
             opacity: 1
+            z: 100
             anchors.left: zoomOut.right
             anchors.verticalCenter: zoomOut.verticalCenter
             highlighted: true
@@ -656,6 +662,7 @@ Rectangle {
             height: 40
             radius: 10
             opacity: 1
+            z: 100
             anchors.left: panButton.right
             anchors.verticalCenter: panButton.verticalCenter
             highlighted: true
@@ -683,6 +690,7 @@ Rectangle {
             width: 40
             height: 40
             radius: 10
+            z: 100
             opacity: 1
             anchors.left: rulerButton.right
             anchors.verticalCenter: rulerButton.verticalCenter

@@ -2,10 +2,7 @@
 #define IMAGEPROCESSING_H
 
 #include <QObject>
-#include <QVector>
-#include <QtEndian>
-#include <QDir>
-#include <QFileInfo>
+#include "qt-includes.h"
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"

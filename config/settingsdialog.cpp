@@ -1,7 +1,5 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
-#include <QFileDialog>
-#include <QStandardPaths>
 
 SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
                                QString cfg_connectionAddress,

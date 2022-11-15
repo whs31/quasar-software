@@ -2,15 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-#include <QQmlComponent>
-#include <QQmlEngine>
-#include <QQuickItem>
-
-#include <QTimer>
-#include <QSslSocket>
-#include <QDialog>
-#include <QMessageBox>
+#include "qt-includes.h"
 
 #include "udpremote.h"
 #include "tcpremote.h"
@@ -79,6 +71,10 @@ private:
     ConfigHandler *config;
     QTimer *timer;
     ImageProcessing *imageProcessing;
+
+    QVector<bool> imageChecklist;
+    void ImageChecklistLoop();
+
     void InitializeUI();
     void InitializeConnections();
     void InitialImageScan();
@@ -105,5 +101,6 @@ private slots:
     void on_pushButton_goRight_clicked();
     void on_pushButton_panImage_clicked();
     void on_pushButton_panImage_2_clicked();
+    void on_pushButton_showImage_clicked();
 };
 #endif // MAINWINDOW_H

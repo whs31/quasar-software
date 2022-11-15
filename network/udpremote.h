@@ -2,11 +2,7 @@
 #define UDPREMOTE_H
 
 #include <QObject>
-#include <QQmlComponent>
-#include <QQmlEngine>
-#include <QQuickItem>
-
-#include <QUdpSocket>
+#include "qt-includes.h"
 
 #include "remote.h"
 #include "mainwindow.h"

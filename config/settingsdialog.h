@@ -2,7 +2,8 @@
 #define SETTINGSDIALOG_H
 
 #include <QObject>
-#include <QInputDialog>
+#include "qt-includes.h"
+
 
 namespace Ui {
 class SettingsDialog;

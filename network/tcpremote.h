@@ -2,7 +2,7 @@
 #define TCPREMOTE_H
 
 #include <QObject>
-#include <QTcpSocket>
+#include "qt-includes.h"
 
 #include "remote.h"
 #include "mainwindow.h"

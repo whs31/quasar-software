@@ -2,6 +2,7 @@
 #define CONFIGHANDLER_H
 
 #include <QObject>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "config.h"

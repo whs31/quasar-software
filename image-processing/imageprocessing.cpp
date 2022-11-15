@@ -12,7 +12,7 @@ bool ImageProcessing::getReadyStatus()
 
 void ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,"error"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,"error", "dt"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (QString fileName : filelist)
     {

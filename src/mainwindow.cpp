@@ -76,6 +76,14 @@ void MainWindow::InitialImageScan()
 {
     imageProcessing->processPath(C_PATH);
     imageProcessing->updateUpperLabels();
+    if(imageProcessing->getReadyStatus()==true)
+    {
+        for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)
+        {
+            imageChecklist.append(false);
+        }
+    }
+
 }
 void MainWindow::Halftime()
 {
@@ -215,11 +223,13 @@ void MainWindow::on_pushButton_update_clicked()
 void MainWindow::on_pushButton_goLeft_clicked()
 {
     imageProcessing->goLeft();
+    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
 }
 
 void MainWindow::on_pushButton_goRight_clicked()
 {
     imageProcessing->goRight();
+    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
 }
 
 void MainWindow::on_pushButton_panImage_clicked()
@@ -230,4 +240,32 @@ void MainWindow::on_pushButton_panImage_clicked()
 void MainWindow::on_pushButton_panImage_2_clicked()
 {
     on_pushButton_panImage_clicked();
+}
+
+void MainWindow::on_pushButton_showImage_clicked()
+{
+    if(imageProcessing->getReadyStatus()==true)
+    {
+        imageChecklist[imageProcessing->getFileCounter()] = !imageChecklist[imageProcessing->getFileCounter()];
+        ImageChecklistLoop();
+        qInfo()<<imageChecklist;
+    }
+}
+
+void MainWindow::ImageChecklistLoop()
+{
+    if(imageProcessing->getReadyStatus()==true)
+    {
+        for(int i = 0; i<imageProcessing->getVectorSize()-1; i++)
+        {
+            if(imageChecklist[i]==true)
+            {
+                //QMetaObject::invokeMethod(qml, "showImage",
+                        //Q_ARG(QVariant, i));
+            } else {
+                //QMetaObject::invokeMethod(qml, "hideImage",
+                        //Q_ARG(QVariant, i));
+            }
+        }
+    }
 }

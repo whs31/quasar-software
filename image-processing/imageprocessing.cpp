@@ -96,6 +96,10 @@ void ImageProcessing::showAllImages()
         if(meta.latitude!=0)
         {
             QQuickItem*  qml = mainWindow->ui->map->rootObject();
+            QImageReader reader(meta.filename);
+            QSize sizeOfImage = reader.size();
+            int height = sizeOfImage.height();
+            //int width = sizeOfImage.width();
             QMetaObject::invokeMethod(qml, "addImage",
                         Q_ARG(QVariant, (float)meta.latitude),
                         Q_ARG(QVariant, (float)meta.longitude),
@@ -104,7 +108,8 @@ void ImageProcessing::showAllImages()
                         Q_ARG(QVariant, meta.x0),
                         Q_ARG(QVariant, meta.y0),
                         Q_ARG(QVariant, meta.angle),
-                        Q_ARG(QVariant, meta.filename)
+                        Q_ARG(QVariant, meta.filename),
+                        Q_ARG(QVariant, height)
                     );
             if(!tmp_showOnStart) // <--------------------------------------------------------
             {

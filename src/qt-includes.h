@@ -21,5 +21,6 @@
 #include <QInputDialog>
 #include <QStandardPaths>
 #include <QFileDialog>
+#include <QImageReader>
 
 #endif // QTINCLUDES_H

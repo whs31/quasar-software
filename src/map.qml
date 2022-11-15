@@ -78,32 +78,55 @@ Rectangle {
     }
 
     //--------------------------SAR images-------------------------------------------{
-    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename)
+    function clearImageArray()
+    {
+        for (var i = 0; i < imageArray.length; i++)  {
+              hideImage(i);
+          }
+        imageArray = [];
+    }
+
+    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename, h)
     {
         console.log("[QML] Displaying image from " + filename);
         var item = Qt.createQmlObject('
                                                     import QtQuick 2.0;
                                                     import QtLocation 5.12;
+
                                                     MapQuickItem {
+                                                        id: imageItem
+                                                        z:1
+
                                                     }
-            ', mapView, "dynamic");
+    ', mapView, "dynamic"); //3000x1273 hardcoded f now
         //one degree = 111 120 meters
         item.anchorPoint.x = -x0;
-        item.anchorPoint.y = width/2;
+        item.anchorPoint.y = h/2;
+        console.log("H is "+h)
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
+
         item.sourceItem = Qt.createQmlObject('
                                                     import QtQuick 2.0;
                                                     import QtGraphicalEffects 1.12;
+
                                                     Rectangle {
                                                         opacity: 1;
-                                                        transformOrigin: Item.Left;
-                                                        rotation: 0
+                                                        transform: Rotation {
+                                                            id: imageRotation
+                                                            origin.x: -'+x0+'
+                                                            origin.y: imageSource.height/2;
+                                                            angle: '+angle+'
+                                                        }
+
                                                         Image {
                                                             id: imageSource;
-                                                            opacity: 50;
+                                                            opacity: 1;
                                                             source: "file:///'+ filename +'"
-                                                            visible: false
+                                                            visible: true
                                                         }
+
+                                                    }
+            ', mapView, "dynamic"); /*
                                                         Image {
                                                             id: mask
                                                             source: "qrc:/img-deprecated/jpeg_opacityMask.png"
@@ -115,16 +138,13 @@ Rectangle {
                                                             source: imageSource
                                                             maskSource: mask
                                                         }
-                                                    }
-            ', mapView, "dynamic");
-        //item.zoomLevel = 17.2;
+                                                        */
         item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx);
                                         //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
                                         //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
                                         //dx = metersPerPx (без учета dy)
                                         //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
         mapView.addMapItem(item);
-        item.sourceItem.rotation = angle;
         imageArray.push(item); //если изображения будут отображены не по очереди, то все ломается
         //change opacity of newly created jpg
     }

@@ -74,6 +74,7 @@ void MainWindow::InitializeConnections()
 
 void MainWindow::InitialImageScan()
 {
+    QMetaObject::invokeMethod(qml, "clearImageArray");
     imageProcessing->processPath(C_PATH);
     imageProcessing->updateUpperLabels();
     if(imageProcessing->getReadyStatus()==true)

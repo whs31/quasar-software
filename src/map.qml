@@ -117,7 +117,9 @@ Rectangle {
                                                         }
                                                     }
             ', mapView, "dynamic");
-        item.zoomLevel = 17.2;          //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
+        //item.zoomLevel = 17.2;
+        item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx);
+                                        //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
                                         //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
                                         //dx = metersPerPx (без учета dy)
                                         //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
@@ -126,6 +128,8 @@ Rectangle {
         imageArray.push(item); //если изображения будут отображены не по очереди, то все ломается
         //change opacity of newly created jpg
     }
+
+    function log(base, exponent) { return Math.log(exponent) / Math.log(base); }
 
     function hideImage(filecounter)
     {

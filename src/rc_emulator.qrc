@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>python-emulator/GPTelemetry_pb2.py</file>
-        <file>python-emulator/navthread.py</file>
-        <file>python-emulator/start.py</file>
-        <file>python-emulator/tcpthread.py</file>
-        <file>python-emulator/udpthread.py</file>
-    </qresource>
-</RCC>

@@ -1,40 +1,75 @@
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  PKG_VER: 0.0.0
 
-linux:
-  stage: build
-  tags: [linux]
-  #script: cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-  script: echo "ci disabled"
-  #cmake -GNinja -DCMAKE_BUILD_TYPE:String=Release && cmake --build . --target all
-  artifacts:
-    name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
-    paths: [$CI_PROJECT_TITLE]
-
-#windows:
+#linux:
 #  stage: build
-#  tags: [windows]
-#  script:
-#    - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF && cmake --build .
-#    - mkdir -p $CI_PROJECT_TITLE/platforms && cp $CI_PROJECT_TITLE.exe $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/iconv.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libbz2-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libfreetype-6.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libgcc_s_seh-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libglib-2.0-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libharfbuzz-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libintl-8.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libpcre-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libpcre2-16-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libpng16-16.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libssp-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libstdc++-6.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libwinpthread-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/Qt5Core.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/Qt5Gui.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/Qt5Widgets.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/zlib1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/platforms/qwindows.dll $CI_PROJECT_TITLE/platforms
+#  tags: [linux]
+#  script: cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
 #  artifacts:
 #    name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
 #    paths: [$CI_PROJECT_TITLE]
+
+ubuntu:
+    stage: build
+    tags: [ubuntu]
+    script:
+        - cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
+        - mkdir -p deb/DEBIAN
+        - "echo 'Package: DiagnosticAgent' > deb/DEBIAN/control"
+        - "echo 'Version: '$PKG_VER >> deb/DEBIAN/control"
+        - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
+        #- "echo 'Depends: libqwt-qt5-6_6.1.2-6_amd64.deb' >> deb/DEBIAN/control"
+
+        - "echo '#!/bin/bash' > deb/DEBIAN/postinst"
+        - "echo 'chmod ugo+rw /opt/DiagnosticAgent -R' > deb/DEBIAN/postinst"
+        - chmod +x deb/DEBIAN/postinst
+        - mkdir -p deb/opt/DiagnosticAgent/bin
+        - cp DiagnosticAgent deb/opt/DiagnosticAgent
+        - cp resources/config.json deb/opt/DiagnosticAgent
+        - cp DiagnosticAgent deb/opt/DiagnosticAgent/bin
+        - dpkg-deb --build deb DiagnosticAgent_$CI_COMMIT_REF_NAME.deb
+    artifacts:
+        name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
+        paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
+
+astra1.6:
+    stage: build
+    tags: [astra1.6]
+    script:
+        - cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
+        - mkdir -p deb/DEBIAN
+        - "echo 'Package: DiagnosticAgent' > deb/DEBIAN/control"
+        - "echo 'Version: '$PKG_VER >> deb/DEBIAN/control"
+        - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
+        #- "echo 'Depends: libqwt-qt5-6' >> deb/DEBIAN/control"
+
+        - "echo '#!/bin/bash' > deb/DEBIAN/postinst"
+        - "echo 'chmod ugo+rw /opt/DiagnosticAgent -R' > deb/DEBIAN/postinst"
+        - chmod +x deb/DEBIAN/postinst
+        - mkdir -p deb/opt/DiagnosticAgent
+        - cp DiagnosticAgent deb/opt/DiagnosticAgent
+        - cp resources/config.json deb/opt/DiagnosticAgent
+        - dpkg-deb --build deb DiagnosticAgent_$CI_COMMIT_REF_NAME.deb
+    artifacts:
+        name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
+        paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
+
+
+windows:
+  stage: build
+  tags: [windows]
+  script:
+    - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
+    - mkdir $CI_PROJECT_TITLE && cp $CI_PROJECT_TITLE.exe $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/iconv.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libgcc_s_seh-1.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libpcre2-16-0.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libssp-0.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libstdc++-6.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libwinpthread-1.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/Qt5Core.dll $CI_PROJECT_TITLE
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/zlib1.dll $CI_PROJECT_TITLE
+  artifacts:
+    name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
+    paths: [$CI_PROJECT_TITLE]

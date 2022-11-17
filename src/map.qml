@@ -124,7 +124,18 @@ Rectangle {
                                                             id: imageSource;
                                                             opacity: 1;
                                                             source: "file:///'+ filename +'"
-                                                            visible: true
+                                                            visible: false
+                                                        }
+                                                        Image {
+                                                            id: mask
+                                                            source: "qrc:/img-deprecated/jpeg_opacityMask.png"
+                                                            sourceSize: Qt.size(imageSource.width, imageSource.height)
+                                                            visible: false
+                                                        }
+                                                        OpacityMask {
+                                                            anchors.fill: imageSource
+                                                            source: imageSource
+                                                            maskSource: mask
                                                         }
 
                                                     }

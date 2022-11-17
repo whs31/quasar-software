@@ -151,7 +151,7 @@ Rectangle {
                                                             maskSource: mask
                                                         }
                                                         */
-        item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx);
+        if(dx!==0) { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx); } else { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/1); }
                                         //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
                                         //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
                                         //dx = metersPerPx (без учета dy)
@@ -417,7 +417,7 @@ Rectangle {
             }
             anchorPoint.x: rulerText.width/2
             anchorPoint.y: rulerText.height/2
-            z:5
+            z:6
             sourceItem: Text {
                 id: rulerText;
                 font.bold: true

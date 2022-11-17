@@ -3,6 +3,7 @@
 ImageProcessing::ImageProcessing(QObject *parent) : QObject (parent)
 {
     mainWindow = MainWindow::getMainWinPtr();
+    imageManager = new ImageManager;
 }
 
 bool ImageProcessing::getReadyStatus()
@@ -12,7 +13,7 @@ bool ImageProcessing::getReadyStatus()
 
 void ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,"error", "dt"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (QString fileName : filelist)
     {
@@ -27,11 +28,18 @@ void ImageProcessing::decode(QStringList filelist)
             {
                 uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
                 *metaSize = qToBigEndian(*metaSize) - 2;
+                const void* dataV;
+                //memcpy(&dataV, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
 
+                //uint32_t newChecksum = getChecksum(dataV, (size_t)(*metaSize-JPEG_CHECKSUM_SIZE));
+
+                //qDebug()<<newChecksum<<metaStruct.checksum;
+                //qDebug()<<QString("%1").arg(newChecksum, 8, 16, QLatin1Char('0'));
+                metaStruct.checksumMatch = 1;//(newChecksum==metaStruct.checksum) ? 1 : 0;
                 qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
             }
@@ -42,6 +50,8 @@ void ImageProcessing::decode(QStringList filelist)
 
 bool ImageProcessing::processPath(QString path)
 {
+    notNull = imageManager->CopyJPEG(path);
+
     QDir directory(path);
     QStringList fileList;
     directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
@@ -88,7 +98,30 @@ void ImageProcessing::updateLabels(int structureIndex)
         mainWindow->ui->label_c_metaX0->setText(QString::number(metadataList[structureIndex].x0));
         mainWindow->ui->label_c_metaY0->setText(QString::number(metadataList[structureIndex].y0));
         mainWindow->ui->label_c_metaAngle->setText(QString::number(metadataList[structureIndex].angle));
+        mainWindow->ui->label_c_metaDAngle->setText(QString::number(metadataList[structureIndex].driftAngle));
+        QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
+        mainWindow->ui->label_c_metaChecksum->setText(checksumHex);
         mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
+        if(metadataList[structureIndex].checksumMatch) { mainWindow->ui->label_c_checksumSuccess->setText(mainWindow->HtmlColorSuccess+"да"+mainWindow->HtmlColorEnd); }
+        else { mainWindow->ui->label_c_checksumSuccess->setText(mainWindow->HtmlColorFailure+"нет"+mainWindow->HtmlColorEnd); }
+}
+
+uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
+{
+    /*const uint32_t Polynomial = 0xEDB88320;
+    uint32_t crc = ~previousCrc32;
+    unsigned char* current = (unsigned char*) data;
+    while (length--)
+    {
+        crc ^= *(uint32_t*)&current;
+        current++;
+        for (unsigned int j = 0; j < 8; j++)
+            crc = (crc >> 1) ^ (-int(crc & 1) & Polynomial);
+    }
+    return ~crc;*/
+
+    //этот метод будет переписан полностью на стороне РЛС
+    return 0;
 }
 
 void ImageProcessing::showAllImages()

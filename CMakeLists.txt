@@ -47,7 +47,9 @@ else()
         config/settingsdialog.cpp
         config/settingsdialog.ui
         image-processing/imageprocessing.h
+        image-processing/imagemanager.h
         image-processing/imageprocessing.cpp
+        image-processing/imagemanager.cpp
    )
 endif()
 

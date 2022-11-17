@@ -16,6 +16,7 @@
 #include <QVector>
 #include <QtEndian>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 
 #include <QInputDialog>

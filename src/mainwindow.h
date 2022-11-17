@@ -10,6 +10,7 @@
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 
+
 class UDPRemote;
 class TCPRemote;
 class ConfigHandler;
@@ -58,6 +59,8 @@ public:
     QString HtmlColorMain = "<font color=\"#2ECC71\">";
     QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
     QString HtmlColorMainAccent = "<font color=\"#F1C40F\">";
+    QString HtmlColorSuccess = "<font color=\"#CDDC39\">";
+    QString HtmlColorFailure = "<font color=\"#EF5350\">";
     QString HtmlColorEnd = "</font>";
     //html tags
     QString HtmlBold = "<b>";

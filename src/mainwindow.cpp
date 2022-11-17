@@ -224,7 +224,6 @@ void MainWindow::on_pushButton_showImage_clicked()
     {
         imageChecklist[imageProcessing->getFileCounter()] = !imageChecklist[imageProcessing->getFileCounter()];
         ImageChecklistLoop();
-        qInfo()<<imageChecklist;
     }
 }
 

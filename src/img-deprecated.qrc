@@ -15,5 +15,6 @@
         <file>img-deprecated/save.png</file>
         <file>img-deprecated/swapMode.png</file>
         <file>img-deprecated/take_coords.png</file>
+        <file>img-deprecated/gpsarrow.png</file>
     </qresource>
 </RCC>

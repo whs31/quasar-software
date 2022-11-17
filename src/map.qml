@@ -223,7 +223,7 @@ Rectangle {
 
     function changeFollowPlane(arg)
     {
-        if(arg===2) { followPlane=true; } else { followPlane = false; }
+        if(arg===2) { followPlane=true; } else { followPlane = false; timer_3s.stop(); }
     }
     //------------------------------------------------------------------------------}
 
@@ -396,7 +396,7 @@ Rectangle {
                 }
             }
             onPressed: {
-                if(followPlane) {
+                if(followPlane||timer_3s.running) {
                     followPlane = false;
                     timer_3s.restart();
                     numAnim1.restart();
@@ -505,7 +505,7 @@ Rectangle {
                 id: planeSource;
                 layer.enabled: true
                 transformOrigin: Item.Center
-                source: if(c_VEHICLE==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
+                source: "qrc:/img-deprecated/gpsarrow.png"//if(c_VEHICLE==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
             }
             ColorOverlay {
                 id: overlayPlane;

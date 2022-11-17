@@ -40,7 +40,7 @@ void ImageProcessing::decode(QStringList filelist)
     }
 }
 
-void ImageProcessing::processPath(QString path)
+bool ImageProcessing::processPath(QString path)
 {
     QDir directory(path);
     QStringList fileList;
@@ -53,24 +53,27 @@ void ImageProcessing::processPath(QString path)
     }
     if(!fileList.empty())
     {
+        notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
         imageList.clear();
         metadataList.clear();
-        //qml clear and remove images =))))
         for ( QString f : fileList ) {
             imageList.append(f);
         }
+        QQuickItem*  qml = mainWindow->ui->map->rootObject();
+        QMetaObject::invokeMethod(qml, "clearImageArray");
+        decode(imageList);
+        updateLabels(0);
     } else {
+        notNull = false;
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
         warningDialogue.setText("В выбранном каталоге не найдены изображения!");
         warningDialogue.exec();
     }
-    decode(imageList);
-    updateLabels(0);
     mainWindow->ui->pushButton_goRight->setEnabled(true);
-    //showAllImages();
+    return notNull;
 }
 
 void ImageProcessing::updateLabels(int structureIndex)
@@ -174,6 +177,7 @@ void ImageProcessing::goRight()
 
 void ImageProcessing::updateUpperLabels()
 {
+    if(notNull) {  }
     mainWindow->ui->label_c_foundImages->setText(
                 "Найдено "
                 +mainWindow->HtmlBold

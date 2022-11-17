@@ -18,11 +18,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-MainWindow *MainWindow::getMainWinPtr()
-{
-    return pMainWindow;
-}
-
 void MainWindow::InitializeUI()
 {
     qInfo()<<"[STARTUP] Starting UI initialization...";
@@ -72,10 +67,9 @@ void MainWindow::InitializeConnections()
     InitialImageScan();
 }
 
-void MainWindow::InitialImageScan()
+bool MainWindow::InitialImageScan()
 {
-    QMetaObject::invokeMethod(qml, "clearImageArray");
-    imageProcessing->processPath(C_PATH);
+    bool n = imageProcessing->processPath(C_PATH);
     imageProcessing->updateUpperLabels();
     if(imageProcessing->getReadyStatus()==true)
     {
@@ -85,7 +79,11 @@ void MainWindow::InitialImageScan()
         }
         imageProcessing->showAllImages();
     }
+    ui->frame_3->setEnabled(n);
+    ui->frame_4->setEnabled(n);
+    ui->metaGBox->setEnabled(n);
 
+    return n;
 }
 void MainWindow::Halftime()
 {
@@ -173,25 +171,21 @@ void MainWindow::on_openSettings_triggered() //menu slot
         C_CAPTURERANGE = sd.r_captureRange;
         C_CAPTURETIME = sd.r_captureTime;
         C_ANTENNAPOSITION = sd.r_antennaPosition;
-        C_PATH = sd.r_path;
+        if(C_PATH!=sd.r_path) { C_PATH = sd.r_path; InitialImageScan(); } else { qDebug()<<"[CONFIG] Path unchanged, no further scans"; }
+
         config->saveSettings();
     } else { config->loadSettings(); }
 }
 
-void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1)
-{
-    QMetaObject::invokeMethod(qml, "changeEnableTooltip", Q_ARG(QVariant, arg1));
-}
-
-void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)
-{
-    QMetaObject::invokeMethod(qml, "changeDrawRoute", Q_ARG(QVariant, arg1));
-}
-
-void MainWindow::on_checkBox_stateChanged(int arg1)
-{
-    QMetaObject::invokeMethod(qml, "changeFollowPlane", Q_ARG(QVariant, arg1));
-}
+MainWindow *MainWindow::getMainWinPtr()                         { return pMainWindow;                                                                                                           }
+void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { QMetaObject::invokeMethod(qml, "changeEnableTooltip", Q_ARG(QVariant, arg1));                                                 }
+void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { QMetaObject::invokeMethod(qml, "changeDrawRoute", Q_ARG(QVariant, arg1));                                                     }
+void MainWindow::on_checkBox_stateChanged(int arg1)             { QMetaObject::invokeMethod(qml, "changeFollowPlane", Q_ARG(QVariant, arg1));                                                   }
+void MainWindow::on_pushButton_panGPS_clicked()                 { QMetaObject::invokeMethod(qml, "panGPS");                                                                                     }
+void MainWindow::on_pushButton_panImage_2_clicked()             { on_pushButton_panImage_clicked();                                                                                             }
+void MainWindow::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
+void MainWindow::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
+void MainWindow::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }
 
 void MainWindow::on_pushButton_clearTrack_clicked()
 {
@@ -212,28 +206,7 @@ void MainWindow::on_pushButton_clearTrack_clicked()
     }
 }
 
-void MainWindow::on_pushButton_panGPS_clicked()
-{
-    QMetaObject::invokeMethod(qml, "panGPS");
-}
 
-void MainWindow::on_pushButton_update_clicked()
-{
-    InitialImageScan();
-    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
-}
-
-void MainWindow::on_pushButton_goLeft_clicked()
-{
-    imageProcessing->goLeft();
-    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
-}
-
-void MainWindow::on_pushButton_goRight_clicked()
-{
-    imageProcessing->goRight();
-    ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
-}
 
 void MainWindow::on_pushButton_panImage_clicked()
 {
@@ -243,10 +216,7 @@ void MainWindow::on_pushButton_panImage_clicked()
     on_checkBox_stateChanged(0);
 }
 
-void MainWindow::on_pushButton_panImage_2_clicked()
-{
-    on_pushButton_panImage_clicked();
-}
+
 
 void MainWindow::on_pushButton_showImage_clicked()
 {

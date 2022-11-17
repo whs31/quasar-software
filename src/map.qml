@@ -104,7 +104,6 @@ Rectangle {
         //one degree = 111 120 meters
         item.anchorPoint.x = -x0;
         item.anchorPoint.y = h/2;
-        console.log("H is "+h)
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
 
         item.sourceItem = Qt.createQmlObject('
@@ -168,14 +167,14 @@ Rectangle {
     {
         imageArray[filecounter].visible = false;
         imageArray[filecounter].enabled = false;
-        console.log("[QML] Image hidden", filecounter);
+        //console.log("[QML] Image hidden", filecounter);
     }
 
     function showImage(filecounter)
     {
         imageArray[filecounter].visible = true;
         imageArray[filecounter].enabled = true;
-        console.log("[QML] Image shown", filecounter);
+        //console.log("[QML] Image shown", filecounter);
         fc = filecounter;
     }
 

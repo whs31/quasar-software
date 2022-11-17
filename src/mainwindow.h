@@ -74,10 +74,9 @@ private:
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();
-
     void InitializeUI();
     void InitializeConnections();
-    void InitialImageScan();
+    bool InitialImageScan();
 
 signals:
 

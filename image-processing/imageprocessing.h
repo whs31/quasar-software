@@ -27,8 +27,8 @@ public:
             QString datetime;
         };
 
+    bool processPath(QString path);
     void decode(QStringList filelist);
-    void processPath(QString path);
     void updateLabels(int structureIndex);
 
     bool getReadyStatus();
@@ -39,6 +39,7 @@ public:
     QStringList imageList;
 
     int fileCounter = 0;
+    bool notNull = false;
     void goLeft();
     void goRight();
     void updateUpperLabels();

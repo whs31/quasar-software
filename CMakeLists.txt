@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(QuaSAR-UI)
+project(quasar)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -10,16 +10,6 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS src/)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core )
 find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets REQUIRED Network Location Positioning)
 find_package(Qt5 REQUIRED COMPONENTS QuickControls2)
-
-find_package(PkgConfig REQUIRED)
-pkg_search_module(OPENSSL REQUIRED openssl)
-
-if( OPENSSL_FOUND )
-    include_directories(${OPENSSL_INCLUDE_DIRS})
-    message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
-else()
-    # Error; with REQUIRED, pkg_search_module() will throw an error by it's own
-endif()
 
 include_directories(
     network
@@ -60,14 +50,6 @@ else()
         image-processing/imageprocessing.cpp
    )
 endif()
-
-find_package(OpenSSL REQUIRED)
-if( OpenSSL_FOUND )
-   include_directories(${OPENSSL_INCLUDE_DIRS})
-   link_directories(${OPENSSL_LIBRARIES})
-   message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
-endif()
-#target_link_libraries(${PROJECT_NAME} /path/of/libssl.so /path/of/libcrypto.so)
 
 target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Widgets

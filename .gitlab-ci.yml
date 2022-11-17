@@ -27,8 +27,6 @@ ubuntu:
         - mkdir -p deb/opt/DiagnosticAgent/bin
         - cp DiagnosticAgent deb/opt/DiagnosticAgent
         - cp resources/config.json deb/opt/DiagnosticAgent
-        - cp DiagnosticAgent deb/opt/DiagnosticAgent/bin
-        - dpkg-deb --build deb DiagnosticAgent_$CI_COMMIT_REF_NAME.deb
     artifacts:
         name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
         paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
@@ -49,8 +47,6 @@ astra1.6:
         - chmod +x deb/DEBIAN/postinst
         - mkdir -p deb/opt/DiagnosticAgent
         - cp DiagnosticAgent deb/opt/DiagnosticAgent
-        - cp resources/config.json deb/opt/DiagnosticAgent
-        - dpkg-deb --build deb DiagnosticAgent_$CI_COMMIT_REF_NAME.deb
     artifacts:
         name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
         paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]

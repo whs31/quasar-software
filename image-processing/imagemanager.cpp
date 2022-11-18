@@ -7,7 +7,10 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
     if (!dir.exists()){
       dir.mkdir(cacheDirectory);
     }
-    qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
+    PNGDirectory = QCoreApplication::applicationDirPath()+QDir::separator()+"png-cache";
+    qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory<<", .png directory: "<<PNGDirectory;
+    //на случай если ne захочется кешировать в отдельную папку
+    //PNGDirectory = cacheDirectory;
 }
 
 bool ImageManager::CopyJPEG(const QString &path)
@@ -28,8 +31,21 @@ bool ImageManager::CopyJPEG(const QString &path)
             QString destinationFile = cacheDirectory + QDir::separator() + fileInfo.fileName();
             bool result = QFile::copy(f, destinationFile);
             result==true ? qDebug()<<"[FILEMANAGER] Copy success" : qWarning()<<"[FILEMANAGER] Copy failure";
+            MakePNG(f);
         }
         return true;
     } return false;
 }
 
+bool ImageManager::MakePNG(QString jpeg)
+{
+    QFile file(jpeg);
+    QString filename = file.fileName();
+    filename.chop(3); filename.append("png");
+    QPixmap pix(jpeg);
+    pix.save(PNGDirectory+QDir::separator()+filename);
+}
+
+
+QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }
+QString ImageManager::getPNGDirectory(void)                     { return PNGDirectory;                                                }

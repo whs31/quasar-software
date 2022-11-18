@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QFile>
+#include <QPixmap>
 
 class ImageManager : public QObject
 {
@@ -13,9 +14,15 @@ class ImageManager : public QObject
 public:
     explicit ImageManager(QObject *parent = nullptr);
 
-    QString cacheDirectory;
     bool CopyJPEG(const QString& path);
-    QString getCacheDirectory();
+    bool MakePNG(QString jpeg);
+    QString getCacheDirectory(void);
+    QString getPNGDirectory(void);
+
+private:
+    QString cacheDirectory;
+    QString PNGDirectory;
+    //QStringList
 
 signals:
 

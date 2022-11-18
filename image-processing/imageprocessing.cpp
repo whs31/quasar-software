@@ -10,6 +10,46 @@ bool ImageProcessing::getReadyStatus()
     if(!imageList.empty()) { return 1; } return 0;
 }
 
+bool ImageProcessing::processPath(QString path)
+{
+    notNull = imageManager->CopyJPEG(path);
+
+    QDir directory(imageManager->getPNGDirectory());
+    QStringList fileList;
+    directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    directory.setNameFilters(QStringList("*.jpg"));
+    QStringList entry_list = directory.entryList();
+    for (QString entryString : entry_list)
+    {
+        fileList.append(entryString.prepend(path+"/"));
+    }
+    if(!fileList.empty())
+    {
+        notNull = true;
+        qInfo()<<"[IMG] Imagelist fulfilled";
+        imageList.clear();
+        metadataList.clear();
+        for ( QString f : fileList ) {
+            imageList.append(f);
+        }
+        qmlLinker->clearImageArray();
+        decode(imageList);
+        updateLabels(0);
+    } else {
+        notNull = false;
+        QMessageBox warningDialogue;
+        warningDialogue.setWindowTitle("Изображения не найдены!");
+        warningDialogue.setIcon(QMessageBox::Warning);
+        warningDialogue.setText("В выбранном каталоге не найдены изображения!");
+        warningDialogue.exec();
+    }
+    if(getVectorSize()>1) { mainWindow->setPushButton_goRightEnabled(true); }
+    if(notNull) {
+        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+    }
+    return notNull;
+}
+
 void ImageProcessing::decode(QStringList filelist)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false};
@@ -45,46 +85,6 @@ void ImageProcessing::decode(QStringList filelist)
 
         } else { qDebug()<<"[IMG] Decoding error!"; }
     }
-}
-
-bool ImageProcessing::processPath(QString path)
-{
-    notNull = imageManager->CopyJPEG(path);
-
-    QDir directory(path);
-    QStringList fileList;
-    directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
-    directory.setNameFilters(QStringList("*.jpg"));
-    QStringList entry_list = directory.entryList();
-    for (QString entryString : entry_list)
-    {
-        fileList.append(entryString.prepend(path+"/"));
-    }
-    if(!fileList.empty())
-    {
-        notNull = true;
-        qInfo()<<"[IMG] Imagelist fulfilled";
-        imageList.clear();
-        metadataList.clear();
-        for ( QString f : fileList ) {
-            imageList.append(f);
-        }
-        qmlLinker->clearImageArray();
-        decode(imageList);
-        updateLabels(0);
-    } else {
-        notNull = false;
-        QMessageBox warningDialogue;
-        warningDialogue.setWindowTitle("Изображения не найдены!");
-        warningDialogue.setIcon(QMessageBox::Warning);
-        warningDialogue.setText("В выбранном каталоге не найдены изображения!");
-        warningDialogue.exec();
-    }
-    if(getVectorSize()>1) { mainWindow->setPushButton_goRightEnabled(true); }
-    if(notNull) {
-        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
-    }
-    return notNull;
 }
 
 void ImageProcessing::updateLabels(int structureIndex)

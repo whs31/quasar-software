@@ -48,19 +48,19 @@ SettingsDialog::~SettingsDialog()
     delete uiS;
 }
 
-void SettingsDialog::on_i_networktype_editingFinished()                                { cfg_connectionType = uiS->i_networktype->text();                                                                                  }
-void SettingsDialog::on_i_networkip_editingFinished()                                     { cfg_connectionAddress = uiS->i_networkip->text();                                                                                 }
-void SettingsDialog::on_i_networkport_editingFinished()                                { cfg_connectionPort = uiS->i_networkport->text();                                                                                  }
-void SettingsDialog::on_i_updateTime_valueChanged(double arg1)            { cfg_refreshTime = uiS->i_updateTime->value();                                                                                     }
-void SettingsDialog::on_i_predictRange_valueChanged(double arg1)         { cfg_predictRange = uiS->i_predictRange->value();                                                                                  }
-void SettingsDialog::on_i_driftAngle_valueChanged(double arg1)               { cfg_driftAngle = uiS->i_driftAngle->value();                                                                                      }
-void SettingsDialog::on_i_captureRange_valueChanged(double arg1)        { cfg_captureRange = uiS->i_captureRange->value();                                                                                  }
-void SettingsDialog::on_i_azimuth_valueChanged(double arg1)                    { cfg_thetaAzimuth = uiS->i_azimuth->value();                                                                                       }
-void SettingsDialog::on_i_captureTime_valueChanged(double arg1)           { cfg_captureTime = uiS->i_captureTime->value();                                                                                    }
-void SettingsDialog::on_i_antennaLeftB_clicked()                                               { cfg_antennaPosition = "l";                                                                                                        }
-void SettingsDialog::on_i_antennaRightB_clicked()                                            { cfg_antennaPosition = "r";                                                                                                        }
+void SettingsDialog::on_i_networktype_editingFinished()            { cfg_connectionType = uiS->i_networktype->text();                                                                                  }
+void SettingsDialog::on_i_networkip_editingFinished()              { cfg_connectionAddress = uiS->i_networkip->text();                                                                                 }
+void SettingsDialog::on_i_networkport_editingFinished()            { cfg_connectionPort = uiS->i_networkport->text();                                                                                  }
+void SettingsDialog::on_i_updateTime_valueChanged(double arg1)     { cfg_refreshTime = uiS->i_updateTime->value();                                                                                     }
+void SettingsDialog::on_i_predictRange_valueChanged(double arg1)   { cfg_predictRange = uiS->i_predictRange->value();                                                                                  }
+void SettingsDialog::on_i_driftAngle_valueChanged(double arg1)     { cfg_driftAngle = uiS->i_driftAngle->value();                                                                                      }
+void SettingsDialog::on_i_captureRange_valueChanged(double arg1)   { cfg_captureRange = uiS->i_captureRange->value();                                                                                  }
+void SettingsDialog::on_i_azimuth_valueChanged(double arg1)        { cfg_thetaAzimuth = uiS->i_azimuth->value();                                                                                       }
+void SettingsDialog::on_i_captureTime_valueChanged(double arg1)    { cfg_captureTime = uiS->i_captureTime->value();                                                                                    }
+void SettingsDialog::on_i_antennaLeftB_clicked()                   { cfg_antennaPosition = "l";                                                                                                        }
+void SettingsDialog::on_i_antennaRightB_clicked()                  { cfg_antennaPosition = "r";                                                                                                        }
 void SettingsDialog::on_pushButton_clicked()                                                      {
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, tr("Выберите папку с выходными изображениями РЛС"), QStandardPaths::displayName(QStandardPaths::HomeLocation));
-                                     if(pathNotNullCheck!=NULL) { cfg_path = pathNotNullCheck; }                                                                                                    }
-void SettingsDialog::on_i_showImages_stateChanged(int arg1)                    { bool b = (arg1==2) ? true : false; cfg_showImageOnStart = b;                                                                      }
-void SettingsDialog::on_i_connectOnStart_stateChanged(int arg1)             { bool b = (arg1==2) ? true : false; cfg_connectOnStart = b;                                                                        }
+                                     if(pathNotNullCheck!=NULL) { cfg_path = pathNotNullCheck; }                                                                                                       }
+void SettingsDialog::on_i_showImages_stateChanged(int arg1)        { bool b = (arg1==2) ? true : false; cfg_showImageOnStart = b;                                                                      }
+void SettingsDialog::on_i_connectOnStart_stateChanged(int arg1)    { bool b = (arg1==2) ? true : false; cfg_connectOnStart = b;                                                                        }

@@ -4,6 +4,7 @@ ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
 {
     mainWindow = MainWindow::getMainWinPtr();
     imageManager = new ImageManager;
+    html = new HTMLTags();
 }
 
 bool ImageProcessing::getReadyStatus()
@@ -101,8 +102,8 @@ void ImageProcessing::updateLabels(int structureIndex)
         QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
         mainWindow->ui->label_c_metaChecksum->setText(checksumHex);
         mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
-        if(metadataList[structureIndex].checksumMatch) { mainWindow->ui->label_c_checksumSuccess->setText(mainWindow->HtmlColorSuccess+"да"+mainWindow->HtmlColorEnd); }
-        else { mainWindow->ui->label_c_checksumSuccess->setText(mainWindow->HtmlColorFailure+"нет"+mainWindow->HtmlColorEnd); }
+        if(metadataList[structureIndex].checksumMatch) { mainWindow->ui->label_c_checksumSuccess->setText(html->HtmlColorSuccess+"да"+html->HtmlColorEnd); }
+        else { mainWindow->ui->label_c_checksumSuccess->setText(html->HtmlColorFailure+"нет"+html->HtmlColorEnd); }
 }
 
 uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
@@ -200,21 +201,21 @@ void ImageProcessing::updateUpperLabels()
     if(notNull) {  }
     mainWindow->ui->label_c_foundImages->setText(
                 "Найдено "
-                +mainWindow->HtmlBold
-                +mainWindow->HtmlColorMainAccent
+                +html->HtmlBold
+                +html->HtmlColorMainAccent
                 +QString::number(getVectorSize())
-                +mainWindow->HtmlColorEnd
-                +mainWindow->HtmlBoldEnd
+                +html->HtmlColorEnd
+                +html->HtmlBoldEnd
                 +" изображений");
     mainWindow->ui->label_c_currentImage->setText(
                 "Изображение "
-                +mainWindow->HtmlBold
-                +mainWindow->HtmlColorMain
+                +html->HtmlBold
+                +html->HtmlColorMain
                 +QString::number(getFileCounter()+1)
-                +mainWindow->HtmlColorEnd
-                +mainWindow->HtmlBoldEnd
+                +html->HtmlColorEnd
+                +html->HtmlBoldEnd
                 +" из "
-                +mainWindow->HtmlBold
+                +html->HtmlBold
                 +QString::number(getVectorSize())
-                +mainWindow->HtmlBoldEnd);
+                +html->HtmlBoldEnd);
 }

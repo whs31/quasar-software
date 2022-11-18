@@ -44,6 +44,7 @@ void MainWindow::InitializeUI()
 void MainWindow::InitializeConnections()
 {
     qInfo()<<"[STARTUP] Setuping connections...";
+    html = new HTMLTags();
     linker = new LinkerQML(qml);
 
 
@@ -135,11 +136,11 @@ void MainWindow::ReadTelemetry(QByteArray data){
             }
         }
     }
-    ui->label_c_telemetrylat->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[0], 'f', 7)+HtmlBoldEnd+HtmlColorEnd);
-    ui->label_c_telemetrylon->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[1], 'f', 7)+HtmlBoldEnd+HtmlColorEnd);
-    ui->label_c_telemetryspd->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[2], 'f', 1)+HtmlBoldEnd+HtmlColorEnd);
-    ui->label_c_telemetryelv->setText(HtmlColorMain+HtmlBold+QString::number(telemetry[3], 'f', 1)+HtmlBoldEnd+HtmlColorEnd);
-    QMetaObject::invokeMethod(qml, "getTelemetry", Q_ARG(QVariant, telemetry[0]), Q_ARG(QVariant, telemetry[1]), Q_ARG(QVariant, telemetry[3]), Q_ARG(QVariant, telemetry[2]));
+    ui->label_c_telemetrylat->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[0], 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetrylon->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[1], 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetryspd->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[2], 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetryelv->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[3], 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }
 
 void MainWindow::on_formImage_triggered() //menu slot (will be removed)
@@ -181,10 +182,10 @@ void MainWindow::on_openSettings_triggered() //menu slot
 }
 
 MainWindow *MainWindow::getMainWinPtr()                         { return pMainWindow;                                                                                                           }
-void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { QMetaObject::invokeMethod(qml, "changeEnableTooltip", Q_ARG(QVariant, arg1));                                                 }
-void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { QMetaObject::invokeMethod(qml, "changeDrawRoute", Q_ARG(QVariant, arg1));                                                     }
-void MainWindow::on_checkBox_stateChanged(int arg1)             { QMetaObject::invokeMethod(qml, "changeFollowPlane", Q_ARG(QVariant, arg1));                                                   }
-void MainWindow::on_pushButton_panGPS_clicked()                 { QMetaObject::invokeMethod(qml, "panGPS");                                                                                     }
+void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                            }
+void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
+void MainWindow::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
+void MainWindow::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
 void MainWindow::on_pushButton_panImage_2_clicked()             { on_pushButton_panImage_clicked();                                                                                             }
 void MainWindow::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
 void MainWindow::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
@@ -200,7 +201,7 @@ void MainWindow::on_pushButton_clearTrack_clicked()
     askForClearTrack.setDefaultButton(QMessageBox::Cancel);
     int ret = askForClearTrack.exec();
     switch (ret) {
-    case QMessageBox::Yes: QMetaObject::invokeMethod(qml, "clearRoute");
+    case QMessageBox::Yes: linker->clearRoute();
         break;
     case QMessageBox::Cancel:
         break;
@@ -213,8 +214,7 @@ void MainWindow::on_pushButton_clearTrack_clicked()
 
 void MainWindow::on_pushButton_panImage_clicked()
 {
-    QMetaObject::invokeMethod(qml, "panImage",
-                                    Q_ARG(QVariant, imageProcessing->getFileCounter()));
+    linker->panImage(imageProcessing->getFileCounter());
     ui->checkBox->setChecked(false);
     on_checkBox_stateChanged(0);
 }
@@ -238,11 +238,9 @@ void MainWindow::ImageChecklistLoop()
         {
             if(imageChecklist[i]==true)
             {
-                QMetaObject::invokeMethod(qml, "showImage",
-                                          Q_ARG(QVariant, i));
+                linker->showImage(i);
             } else {
-                QMetaObject::invokeMethod(qml, "hideImage",
-                                          Q_ARG(QVariant, i));
+                linker->hideImage(i);
             }
         }
     }

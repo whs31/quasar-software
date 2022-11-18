@@ -9,6 +9,7 @@
 #include "imagemanager.h"
 
 #include "linkerqml.h"
+#include "htmltags.h"
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
@@ -57,6 +58,7 @@ private:
     MainWindow* mainWindow;
     LinkerQML* qmlLinker;
     ImageManager* imageManager;
+    HTMLTags* html;
 };
 
 #endif // IMAGEPROCESSING_H

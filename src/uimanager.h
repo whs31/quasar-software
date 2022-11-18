@@ -2,12 +2,14 @@
 #define UIMANAGER_H
 
 #include "mainwindow.h"
+#include "htmltags.h"
 
-class UIManager : public MainWindow
+class UIManager : public QObject
 {
     Q_OBJECT
 public:
-    UIManager();
+    UIManager(MainWindow* w);
+    MainWindow* w;
 };
 
 #endif // UIMANAGER_H

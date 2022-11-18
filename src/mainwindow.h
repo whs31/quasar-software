@@ -10,6 +10,7 @@
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 
+#include "htmltags.h"
 #include "linkerqml.h"
 
 class ConfigHandler;
@@ -50,20 +51,10 @@ public:
     QString C_PATH;
     //----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    //colors for text
-    QString HtmlColorMain = "<font color=\"#2ECC71\">";
-    QString HtmlColorMainFaded = "<font color=\"#27AE60\">";
-    QString HtmlColorMainAccent = "<font color=\"#F1C40F\">";
-    QString HtmlColorSuccess = "<font color=\"#CDDC39\">";
-    QString HtmlColorFailure = "<font color=\"#EF5350\">";
-    QString HtmlColorEnd = "</font>";
-    //html tags
-    QString HtmlBold = "<b>";
-    QString HtmlBoldEnd = "</b>";
-
 private:
     Ui::MainWindow *ui;
     static MainWindow * pMainWindow;
+    HTMLTags *html;
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
     ConfigHandler *config;

@@ -22,9 +22,6 @@ include_directories(
 #link_directories(lib)
 
 file(GLOB SOURCE src/* )
-file(GLOB NETWORK network/*)
-file(GLOB CONFIG config/*)
-file(GLOB CONFIG image-processing/*)
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
@@ -54,6 +51,7 @@ else()
         image-processing/imagemanager.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.cpp
+        src/htmltags.h
    )
 endif()
 

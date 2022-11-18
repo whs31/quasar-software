@@ -1,9 +1,16 @@
 #include "linkerqml.h"
 
 LinkerQML::LinkerQML(QQuickItem* map) : map(map) { }
-void LinkerQML::clearImageArray()                                               { QMetaObject::invokeMethod(map, "clearImageArray");                                                                    }
-void LinkerQML::hideImage(QVariant i)                                           { QMetaObject::invokeMethod(map, "hideImage", Q_ARG(QVariant, i));                                                      }
-void LinkerQML::showImage(QVariant i)                                           { QMetaObject::invokeMethod(map, "showImage", Q_ARG(QVariant, i));                                                      }
+
+void LinkerQML::clearImageArray(void)                                               { QMetaObject::invokeMethod(map, "clearImageArray");                                                                    }
+void LinkerQML::hideImage(QVariant i)                                               { QMetaObject::invokeMethod(map, "hideImage", Q_ARG(QVariant, i));                                                      }
+void LinkerQML::showImage(QVariant i)                                               { QMetaObject::invokeMethod(map, "showImage", Q_ARG(QVariant, i));                                                      }
+void LinkerQML::changeEnableTooltip(QVariant arg1)                                  { QMetaObject::invokeMethod(map, "changeEnableTooltip", Q_ARG(QVariant, arg1));                                         }
+void LinkerQML::changeDrawRoute(QVariant arg1)                                      { QMetaObject::invokeMethod(map, "changeDrawRoute", Q_ARG(QVariant, arg1));                                             }
+void LinkerQML::changeFollowPlane(QVariant arg1)                                    { QMetaObject::invokeMethod(map, "changeFollowPlane", Q_ARG(QVariant, arg1));                                           }
+void LinkerQML::panGPS(void)                                                        { QMetaObject::invokeMethod(map, "panGPS");                                                                             }
+void LinkerQML::clearRoute(void)                                                    { QMetaObject::invokeMethod(map, "clearRoute");                                                                         }
+void LinkerQML::panImage(int filecounter)                                           { QMetaObject::invokeMethod(map, "panImage", Q_ARG(QVariant, filecounter));                                                              }
 
 void LinkerQML::addImage(double latitude, double longitude, float dx, float dy, float x0, float y0, float angle, QString filename, float height)
 {
@@ -17,5 +24,15 @@ void LinkerQML::addImage(double latitude, double longitude, float dx, float dy, 
                               Q_ARG(QVariant, angle),
                               Q_ARG(QVariant, filename),
                               Q_ARG(QVariant, height)
+                              );
+}
+
+void LinkerQML::getTelemetry(float f1, float f2, float f3, float f4)
+{
+    QMetaObject::invokeMethod(map, "getTelemetry",
+                              Q_ARG(QVariant, f1),
+                              Q_ARG(QVariant, f2),
+                              Q_ARG(QVariant, f3),
+                              Q_ARG(QVariant, f4)
                               );
 }

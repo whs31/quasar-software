@@ -1,12 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow * MainWindow::pMainWindow;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    pMainWindow = this;
     InitializeUI();
     InitializeConnections();
 }
@@ -180,7 +178,6 @@ void MainWindow::on_openSettings_triggered() //menu slot
         config->saveSettings();
     } else { config->loadSettings(); }
 }
-MainWindow *MainWindow::getMainWinPtr()                         { return pMainWindow;                                                                                                           }
 void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                            }
 void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
 void MainWindow::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }

@@ -30,7 +30,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    static MainWindow * getMainWinPtr();
+    //static MainWindow * getMainWinPtr();
 
     QQuickItem* qml;
 
@@ -66,7 +66,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    static MainWindow * pMainWindow;
+    //static MainWindow * pMainWindow;
     HTMLTags *html;
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;

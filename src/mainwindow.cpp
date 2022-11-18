@@ -50,20 +50,22 @@ void MainWindow::InitializeConnections()
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
-    config = new ConfigHandler();
-    config->loadSettings();
+    config = new ConfigHandler(linker, this);           config->loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    if(C_NETWORKTYPE == "TCP"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
-    else
+    if(C_CONNECTONSTART)
     {
-        udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
-        if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
-        qInfo()<<"[REMOTE] UDP client connected";
-    }
+        if(C_NETWORKTYPE == "TCP"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
+        else
+        {
+            udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
+            if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+            qInfo()<<"[REMOTE] UDP client connected";
+        }
+    }//---------------------------------------------< внутренности засунуть в кнопку на случай если в конфиге false;
     timer->start(500);
     qInfo()<<"[STARTUP] Connections set up successfully";
 
@@ -79,7 +81,7 @@ bool MainWindow::InitialImageScan()
         {
             imageChecklist.append(false);
         }
-        imageProcessing->showAllImages();
+        imageProcessing->showAllImages(C_SHOWIMAGEONSTART);
     }
     ui->frame_3->setEnabled(n);
     ui->frame_4->setEnabled(n);
@@ -143,6 +145,14 @@ void MainWindow::on_formImage_triggered() //menu slot (will be removed)
     SendRemoteCommand("$form-SAR-image");
 }
 
+void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2)
+{
+    C_NETWORKTYPE = s1;         C_NETWORKADDRESS = s2;          C_NETWORKPORT = s3;             C_UPDATETIME = f1;
+    C_PREDICTRANGE = f2;        C_CAPTURERANGE = f3;            C_CAPTURETIME = f4;             C_AZIMUTH = f5;
+    C_DRIFTANGLE = f6;          C_ANTENNAPOSITION = s4;         C_PATH = s5;                    C_SHOWIMAGEONSTART = b1;
+    C_CONNECTONSTART = b2;
+}
+
 void MainWindow::on_openSettings_triggered() //menu slot
 {
     SettingsDialog sd(this,
@@ -156,20 +166,24 @@ void MainWindow::on_openSettings_triggered() //menu slot
                       C_CAPTURERANGE,
                       C_CAPTURETIME,
                       C_ANTENNAPOSITION,
-                      C_PATH);
+                      C_PATH,
+                      C_SHOWIMAGEONSTART,
+                      C_CONNECTONSTART);
     if(sd.exec() == QDialog::Accepted)
     {
-        C_NETWORKTYPE = sd.r_connectionType;
-        C_NETWORKADDRESS = sd.r_connectionAddress;
-        C_NETWORKPORT = sd.r_connectionPort;
-        C_UPDATETIME = sd.r_refreshTime;
-        C_PREDICTRANGE = sd.r_predictRange;
-        C_DRIFTANGLE = sd.r_driftAngle;
-        C_AZIMUTH = sd.r_thetaAzimuth;
-        C_CAPTURERANGE = sd.r_captureRange;
-        C_CAPTURETIME = sd.r_captureTime;
-        C_ANTENNAPOSITION = sd.r_antennaPosition;
-        if(C_PATH!=sd.r_path) { C_PATH = sd.r_path; InitialImageScan(); } else { qDebug()<<"[CONFIG] Path unchanged, no further scans"; }
+        C_NETWORKTYPE = sd.cfg_connectionType;
+        C_NETWORKADDRESS = sd.cfg_connectionAddress;
+        C_NETWORKPORT = sd.cfg_connectionPort;
+        C_UPDATETIME = sd.cfg_refreshTime;
+        C_PREDICTRANGE = sd.cfg_predictRange;
+        C_DRIFTANGLE = sd.cfg_driftAngle;
+        C_AZIMUTH = sd.cfg_thetaAzimuth;
+        C_CAPTURERANGE = sd.cfg_captureRange;
+        C_CAPTURETIME = sd.cfg_captureTime;
+        C_ANTENNAPOSITION = sd.cfg_antennaPosition;
+        if(C_PATH!=sd.cfg_path) { C_PATH = sd.cfg_path; InitialImageScan(); } else { qDebug()<<"[CONFIG] Path unchanged, no further scans"; }
+        C_SHOWIMAGEONSTART = sd.cfg_showImageOnStart;
+        C_CONNECTONSTART = sd.cfg_connectOnStart;
 
         config->saveSettings();
     } else { config->loadSettings(); }

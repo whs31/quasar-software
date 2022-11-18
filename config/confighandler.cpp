@@ -1,34 +1,34 @@
 #include "confighandler.h"
 
-ConfigHandler::ConfigHandler()
+ConfigHandler::ConfigHandler(LinkerQML* linker, MainWindow* parent) : mainWindow(parent), linker(linker)
 {
-    mainWindow = MainWindow::getMainWinPtr();
     config = new Config(QCoreApplication::applicationDirPath()+"/quasar.ini");
 }
 
 void ConfigHandler::loadSettings()
 {
-      mainWindow->C_NETWORKTYPE = config->value("network/type").toString();
-      mainWindow->C_NETWORKADDRESS = config->value("network/ip").toString();
-      mainWindow->C_NETWORKPORT = config->value("network/port").toString();
-      mainWindow->C_UPDATETIME = config->value("network/updateTime").toFloat();
-      mainWindow->C_PREDICTRANGE = config->value("map/predict_line_range").toFloat();
-      mainWindow->C_CAPTURERANGE = config->value("map/diagram_length").toFloat();
-      mainWindow->C_CAPTURETIME = config->value("map/capture_time").toFloat();
-      mainWindow->C_AZIMUTH = config->value("map/diagram_theta_azimuth").toFloat();
-      mainWindow->C_DRIFTANGLE = config->value("map/diagram_drift_angle").toFloat();
-      mainWindow->C_ANTENNAPOSITION = config->value("map/antenna_position").toString();
-      mainWindow->C_PATH = config->value("image/path").toString();
+    mainWindow->getConfig(config->value("network/type").toString(),
+                          config->value("network/ip").toString(),
+                          config->value("network/port").toString(),
+                          config->value("network/updateTime").toFloat(),
+                          config->value("map/predict_line_range").toFloat(),
+                          config->value("map/diagram_length").toFloat(),
+                          config->value("map/capture_time").toFloat(),
+                          config->value("map/diagram_theta_azimuth").toFloat(),
+                          config->value("map/diagram_drift_angle").toFloat(),
+                          config->value("map/antenna_position").toString(),
+                          config->value("image/path").toString(),
+                          config->value("startup/show_image").toBool(),
+                          config->value("startup/connect").toBool());
+
+    linker->loadSettings(config->value("map/predict_line_range").toDouble(),
+                         config->value("map/diagram_length").toDouble(),
+                         config->value("map/capture_time").toDouble(),
+                         config->value("map/diagram_theta_azimuth").toDouble(),
+                         config->value("map/diagram_drift_angle").toDouble(),
+                         config->value("map/antenna_position").toString(),
+                         config->value("map/path").toString());
     qInfo()<<"[CONFIG] Config loaded. Version "<<config->value("utility/version").toString();
-    auto qml = mainWindow->ui->map->rootObject();
-    QMetaObject::invokeMethod(qml, "loadSettings",
-            Q_ARG(QVariant, config->value("map/predict_line_range").toDouble()),
-            Q_ARG(QVariant, config->value("map/diagram_length").toDouble()),
-            Q_ARG(QVariant, config->value("map/capture_time").toDouble()),
-            Q_ARG(QVariant, config->value("map/diagram_theta_azimuth").toDouble()),
-            Q_ARG(QVariant, config->value("map/diagram_drift_angle").toDouble()),
-            Q_ARG(QVariant, config->value("map/antenna_position").toString()),
-            Q_ARG(QVariant, config->value("map/path").toString()));
 
 }
 
@@ -45,6 +45,8 @@ void ConfigHandler::saveSettings()
     config->setValue("map/diagram_drift_angle", mainWindow->C_DRIFTANGLE);
     config->setValue("map/antenna_position", mainWindow->C_ANTENNAPOSITION);
     config->setValue("image/path", mainWindow->C_PATH);
+    config->setValue("startup/show_image", mainWindow->C_SHOWIMAGEONSTART);
+    config->setValue("startup/connect", mainWindow->C_CONNECTONSTART);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

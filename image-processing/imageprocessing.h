@@ -2,13 +2,11 @@
 #define IMAGEPROCESSING_H
 
 #include <QObject>
-#include "qt-includes.h"
 
 #include "mainwindow.h"
 #include "imagemanager.h"
 
 #include "linkerqml.h"
-#include "htmltags.h"
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
@@ -38,9 +36,9 @@ public:
     void decode(QStringList filelist);
     void updateLabels(int structureIndex);
 
-    bool getReadyStatus();
-    int getFileCounter();
-    int getVectorSize();
+    bool getReadyStatus(void);
+    int getFileCounter(void);
+    int getVectorSize(void);
     uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
 
     QVector<image_metadata> metadataList;
@@ -48,15 +46,14 @@ public:
 
     int fileCounter = 0;
     bool notNull = false;
-    void goLeft();
-    void goRight();
-    void showAllImages();
+    void goLeft(void);
+    void goRight(void);
+    void showAllImages(bool showOnStart = false);
 
 private:
     MainWindow* mainWindow;
     LinkerQML* qmlLinker;
     ImageManager* imageManager;
-    HTMLTags* html;
 };
 
 #endif // IMAGEPROCESSING_H

@@ -13,8 +13,9 @@
 #include "htmltags.h"
 #include "linkerqml.h"
 
+//классы, имеющие обратную связь с мейнвиндоу в виде вызова функции без системы сигнал-слот
+//это надо фиксить =)
 class ConfigHandler;
-class SettingsDialog;
 class ImageProcessing;
 
 QT_BEGIN_NAMESPACE
@@ -30,9 +31,6 @@ public:
     ~MainWindow();
     static MainWindow * getMainWinPtr();
 
-    friend class ConfigHandler;
-    friend class SettingsDialog;
-    //friend class ImageProcessing;
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
@@ -50,7 +48,20 @@ public:
     float C_DRIFTANGLE;
     QString C_ANTENNAPOSITION;
     QString C_PATH;
+    bool C_SHOWIMAGEONSTART;
+    bool C_CONNECTONSTART;
     //----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    //ui setters
+    void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
+    void updateImageManagerLabels(int total, int current);
+    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void setPushButton_goLeftEnabled(bool state);
+    void setPushButton_goRightEnabled(bool state);
+    //getters
+    void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2);
+
+
 
 private:
     Ui::MainWindow *ui;
@@ -70,14 +81,6 @@ private:
     bool InitialImageScan();
 
 signals:
-
-public slots:
-    //ui setters
-    void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
-    void updateImageManagerLabels(int total, int current);
-    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
-    void setPushButton_goLeftEnabled(bool state);
-    void setPushButton_goRightEnabled(bool state);
 
 private slots:
     void ReadTelemetry(QByteArray data);

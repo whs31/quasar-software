@@ -36,3 +36,16 @@ void LinkerQML::getTelemetry(float f1, float f2, float f3, float f4)
                               Q_ARG(QVariant, f4)
                               );
 }
+
+void LinkerQML::loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth, float driftAngle, QString antennaPosition, QString path)
+{
+    QMetaObject::invokeMethod(map, "loadSettings",
+                              Q_ARG(QVariant, predictRange),
+                              Q_ARG(QVariant, diagramLength),
+                              Q_ARG(QVariant, captureTime),
+                              Q_ARG(QVariant, thetaAzimuth),
+                              Q_ARG(QVariant, driftAngle),
+                              Q_ARG(QVariant, antennaPosition),
+                              Q_ARG(QVariant, path)
+                              );
+}

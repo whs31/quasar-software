@@ -20,6 +20,7 @@ public:
     void panGPS(void);
     void clearRoute(void);
     void panImage(int filecounter);
+    void loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth, float driftAngle, QString antennaPosition, QString path);
 
 protected:
     QQuickItem* map;

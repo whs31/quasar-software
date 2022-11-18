@@ -3,7 +3,6 @@
 ImageProcessing::ImageProcessing(LinkerQML* linker, MainWindow* parent) : qmlLinker(linker), mainWindow(parent)
 {
     imageManager = new ImageManager;
-    html = new HTMLTags();
 }
 
 bool ImageProcessing::getReadyStatus()
@@ -125,9 +124,8 @@ uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t 
     return 0;
 }
 
-void ImageProcessing::showAllImages()
+void ImageProcessing::showAllImages(bool showOnStart)
 {
-    bool tmp_showOnStart = false; //replace by config value <--------------------------------------------------------
     for (image_metadata meta : metadataList)
     {
         if(meta.latitude!=0)
@@ -137,7 +135,7 @@ void ImageProcessing::showAllImages()
             int height = sizeOfImage.height();
             //int width = sizeOfImage.width();
             qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height);
-            if(!tmp_showOnStart) // <--------------------------------------------------------
+            if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)
                 {

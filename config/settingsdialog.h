@@ -24,20 +24,24 @@ public:
                    float cfg_captureRange = 0,
                    float cfg_captureTime = 0,
                    QString cfg_antennaPosition = "",
-                   QString cfg_path = "");
+                   QString cfg_path = "",
+                   bool cfg_showImageOnStart = 1,
+                   bool cfg_connectOnStart = 1);
 
     //обратная связь
-    QString r_connectionType;
-    QString r_connectionAddress;
-    QString r_connectionPort;
-    float r_refreshTime;
-    float r_predictRange;
-    float r_driftAngle;
-    float r_thetaAzimuth;
-    float r_captureRange;
-    float r_captureTime;
-    QString r_antennaPosition;
-    QString r_path;
+    QString cfg_connectionType;
+    QString cfg_connectionAddress;
+    QString cfg_connectionPort;
+    float cfg_refreshTime;
+    float cfg_predictRange;
+    float cfg_driftAngle;
+    float cfg_thetaAzimuth;
+    float cfg_captureRange;
+    float cfg_captureTime;
+    QString cfg_antennaPosition;
+    QString cfg_path;
+    bool cfg_showImageOnStart;
+    bool cfg_connectOnStart;
     ~SettingsDialog();
 
 signals:
@@ -54,8 +58,11 @@ private slots:
     void on_i_captureTime_valueChanged(double arg1);
     void on_i_antennaLeftB_clicked();
     void on_i_antennaRightB_clicked();
-
     void on_pushButton_clicked();
+
+    void on_i_showImages_stateChanged(int arg1);
+
+    void on_i_connectOnStart_stateChanged(int arg1);
 
 private:
     Ui::SettingsDialog *uiS;

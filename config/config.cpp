@@ -33,6 +33,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     group_t image;
     image["path"] = "\\192.168.1.48/Jetson/QuaSAR-bin/img";
     checkValuesSimple(image);
+
+    group_t startup;
+    startup["show_image"] = "true";
+    startup["connect"] = "true";
+    checkValuesSimple(startup);
 }
 
 void Config::checkValues(QString group, group_t *list){

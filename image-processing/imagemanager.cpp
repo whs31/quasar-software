@@ -49,8 +49,19 @@ bool ImageManager::MakePNG(QString jpeg)
     QFileInfo f(file);
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
-    QPixmap pix(jpeg);
-    pix.save(PNGDirectory+QDir::separator()+filename);
+    QImage pix(jpeg);
+    swapAlpha(pix);
+    bool b = pix.save(PNGDirectory+QDir::separator()+filename);
+    return b;
+}
+
+QImage ImageManager::swapAlpha(QImage i)
+{
+    QImage alphaImage = i;
+    alphaImage.createMaskFromColor(QColor("black").rgb(), Qt::MaskOutColor);
+    i.setAlphaChannel(alphaImage);
+    qDebug()<<i.hasAlphaChannel();
+    return i;
 }
 
 

@@ -82,7 +82,7 @@ void ImageProcessing::decode(QStringList filelist)
 
                 //qDebug()<<newChecksum<<metaStruct.checksum;
                 //qDebug()<<QString("%1").arg(newChecksum, 8, 16, QLatin1Char('0'));
-                metaStruct.checksumMatch = 0;//(newChecksum==metaStruct.checksum) ? 1 : 0;
+                metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
                 qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
             }

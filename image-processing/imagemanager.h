@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QPixmap>
+#include <QImage>
 
 class ImageManager : public QObject
 {
@@ -18,6 +19,7 @@ public:
     bool MakePNG(QString jpeg);
     QString getCacheDirectory(void);
     QString getPNGDirectory(void);
+    QImage swapAlpha(QImage i);
 
 private:
     QString cacheDirectory;

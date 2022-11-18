@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qt-includes.h"
+#include <QSslSocket>
+#include <QTimer>
 
 #include "udpremote.h"
 #include "tcpremote.h"

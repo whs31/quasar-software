@@ -2,6 +2,7 @@
 #define HTMLTAGS_H
 
 #include <QObject>
+
 class HTMLTags : public QObject
 {
     Q_OBJECT

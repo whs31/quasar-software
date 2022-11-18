@@ -2,7 +2,10 @@
 #define IMAGEMANAGER_H
 
 #include <QObject>
-#include "qt-includes.h"
+#include <QCoreApplication>
+#include <QDir>
+#include <QDebug>
+#include <QFile>
 
 class ImageManager : public QObject
 {

@@ -2,7 +2,8 @@
 #define SETTINGSDIALOG_H
 
 #include <QObject>
-#include "qt-includes.h"
+#include <QStandardPaths>
+#include <QFileDialog>
 
 
 namespace Ui {

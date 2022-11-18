@@ -17,7 +17,6 @@ MainWindow::~MainWindow()
     tcpRemote->Disconnect();
     delete ui;
 }
-
 void MainWindow::InitializeUI()
 {
     qInfo()<<"[STARTUP] Starting UI initialization...";
@@ -40,7 +39,6 @@ void MainWindow::InitializeUI()
         }
     qInfo()<<"[STARTUP] UI initialization finished";
 }
-
 void MainWindow::InitializeConnections()
 {
     qInfo()<<"[STARTUP] Setuping connections...";
@@ -71,7 +69,6 @@ void MainWindow::InitializeConnections()
 
     InitialImageScan();
 }
-
 bool MainWindow::InitialImageScan()
 {
     bool n = imageProcessing->processPath(C_PATH);
@@ -99,7 +96,6 @@ void MainWindow::Halftime()
         SendRemoteCommand("$request");
     }
 }
-
 void MainWindow::SendRemoteCommand(QString command)
 {
     if(C_NETWORKTYPE == "TCP"){
@@ -108,7 +104,6 @@ void MainWindow::SendRemoteCommand(QString command)
         udpRemote->Send(command.toUtf8());
     }
 }
-
 void MainWindow::ReadTelemetry(QByteArray data){
 
     //qDebug()<<data.data();
@@ -138,13 +133,11 @@ void MainWindow::ReadTelemetry(QByteArray data){
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }
-
 void MainWindow::on_formImage_triggered() //menu slot (will be removed)
 {
     qInfo()<<"[CLIENT] Sending command to form SAR image";
     SendRemoteCommand("$form-SAR-image");
 }
-
 void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2)
 {
     C_NETWORKTYPE = s1;         C_NETWORKADDRESS = s2;          C_NETWORKPORT = s3;             C_UPDATETIME = f1;
@@ -152,7 +145,6 @@ void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f
     C_DRIFTANGLE = f6;          C_ANTENNAPOSITION = s4;         C_PATH = s5;                    C_SHOWIMAGEONSTART = b1;
     C_CONNECTONSTART = b2;
 }
-
 void MainWindow::on_openSettings_triggered() //menu slot
 {
     SettingsDialog sd(this,
@@ -188,7 +180,6 @@ void MainWindow::on_openSettings_triggered() //menu slot
         config->saveSettings();
     } else { config->loadSettings(); }
 }
-
 MainWindow *MainWindow::getMainWinPtr()                         { return pMainWindow;                                                                                                           }
 void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                            }
 void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
@@ -198,7 +189,6 @@ void MainWindow::on_pushButton_panImage_2_clicked()             { on_pushButton_
 void MainWindow::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
 void MainWindow::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
 void MainWindow::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }
-
 void MainWindow::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
@@ -217,18 +207,12 @@ void MainWindow::on_pushButton_clearTrack_clicked()
         break;
     }
 }
-
-
-
 void MainWindow::on_pushButton_panImage_clicked()
 {
     linker->panImage(imageProcessing->getFileCounter());
     ui->checkBox->setChecked(false);
     on_checkBox_stateChanged(0);
 }
-
-
-
 void MainWindow::on_pushButton_showImage_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
@@ -237,7 +221,6 @@ void MainWindow::on_pushButton_showImage_clicked()
         ImageChecklistLoop();
     }
 }
-
 void MainWindow::ImageChecklistLoop()
 {
     if(imageProcessing->getReadyStatus()==true)
@@ -253,7 +236,6 @@ void MainWindow::ImageChecklistLoop()
         }
     }
 }
-
 void MainWindow::on_pushButton_showAllImages_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
@@ -273,7 +255,6 @@ void MainWindow::on_pushButton_showAllImages_clicked()
         ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
     }
 }
-
 void MainWindow::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
 {
     ui->label_c_telemetrylat->setText(html->HtmlColorMain+html->HtmlBold+QString::number(lat, 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
@@ -281,7 +262,6 @@ void MainWindow::updateTelemetryLabels(float lat, float lon, float speed, float 
     ui->label_c_telemetryspd->setText(html->HtmlColorMain+html->HtmlBold+QString::number(speed, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
     ui->label_c_telemetryelv->setText(html->HtmlColorMain+html->HtmlBold+QString::number(elevation, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
 }
-
 void MainWindow::updateImageManagerLabels(int total, int current)
 {
     ui->label_c_foundImages->setText(
@@ -304,7 +284,6 @@ void MainWindow::updateImageManagerLabels(int total, int current)
                 +QString::number(total)
                 +html->HtmlBoldEnd);
 }
-
 void MainWindow::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
 {
     ui->label_c_metaFilename->setText(filename);
@@ -320,6 +299,5 @@ void MainWindow::updateImageMetaLabels(QString filename, float lat, float lon, f
     ui->label_c_metaTime->setText(datetime);
     (match) ? ui->label_c_checksumSuccess->setText(html->HtmlColorSuccess+"да"+html->HtmlColorEnd) : ui->label_c_checksumSuccess->setText(html->HtmlColorFailure+"нет"+html->HtmlColorEnd);
 }
-
 void MainWindow::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
 void MainWindow::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }

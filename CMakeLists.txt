@@ -33,7 +33,6 @@ else()
         network/tcpremote.cpp
         network/udpremote.cpp
         network/remote.cpp
-        src/qt-includes.h
         src/mainwindow.h
         src/linkerqml.h
         src/mainwindow.cpp

@@ -4,7 +4,6 @@
 #include <QObject>
 
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
 #include "config.h"
 #include "linkerqml.h"
 

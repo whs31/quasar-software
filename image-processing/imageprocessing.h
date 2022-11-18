@@ -2,10 +2,13 @@
 #define IMAGEPROCESSING_H
 
 #include <QObject>
+#include <QtEndian>
+#include <QImageReader>
+#include <QMessageBox>
+#include <QDateTime>
 
 #include "mainwindow.h"
 #include "imagemanager.h"
-
 #include "linkerqml.h"
 
 #define JPEG_HEADER_SIZE 20

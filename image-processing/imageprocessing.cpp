@@ -1,6 +1,6 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(QObject *parent) : QObject (parent)
+ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
 {
     mainWindow = MainWindow::getMainWinPtr();
     imageManager = new ImageManager;
@@ -70,8 +70,7 @@ bool ImageProcessing::processPath(QString path)
         for ( QString f : fileList ) {
             imageList.append(f);
         }
-        QQuickItem*  qml = mainWindow->ui->map->rootObject();
-        QMetaObject::invokeMethod(qml, "clearImageArray");
+        qmlLinker->clearImageArray();
         decode(imageList);
         updateLabels(0);
     } else {
@@ -131,28 +130,16 @@ void ImageProcessing::showAllImages()
     {
         if(meta.latitude!=0)
         {
-            QQuickItem*  qml = mainWindow->ui->map->rootObject();
             QImageReader reader(meta.filename);
             QSize sizeOfImage = reader.size();
             int height = sizeOfImage.height();
             //int width = sizeOfImage.width();
-            QMetaObject::invokeMethod(qml, "addImage",
-                        Q_ARG(QVariant, (float)meta.latitude),
-                        Q_ARG(QVariant, (float)meta.longitude),
-                        Q_ARG(QVariant, meta.dx),
-                        Q_ARG(QVariant, meta.dy),
-                        Q_ARG(QVariant, meta.x0),
-                        Q_ARG(QVariant, meta.y0),
-                        Q_ARG(QVariant, meta.angle),
-                        Q_ARG(QVariant, meta.filename),
-                        Q_ARG(QVariant, height)
-                    );
+            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height);
             if(!tmp_showOnStart) // <--------------------------------------------------------
             {
                 for(int i = 0; i<getVectorSize(); i++)
                 {
-                    QMetaObject::invokeMethod(qml, "hideImage",
-                                                  Q_ARG(QVariant, i));
+                    qmlLinker->hideImage(i);
                 }
             }
         }

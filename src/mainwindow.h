@@ -10,9 +10,8 @@
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 
+#include "linkerqml.h"
 
-class UDPRemote;
-class TCPRemote;
 class ConfigHandler;
 class SettingsDialog;
 class ImageProcessing;
@@ -29,16 +28,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     static MainWindow * getMainWinPtr();
-    friend class UDPRemote;
-    friend class TCPRemote;
     friend class ConfigHandler;
     friend class SettingsDialog;
     friend class ImageProcessing;
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
-
-
     double telemetry[4]; //lat, lon, speed, elevation
 
     //-----config values--------- //эти значения обновляются классом configHandler при вызове loadSettings и передаются в settingsDialog при инициализации окна
@@ -74,6 +69,7 @@ private:
     ConfigHandler *config;
     QTimer *timer;
     ImageProcessing *imageProcessing;
+    LinkerQML *linker;
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();

@@ -1,11 +1,9 @@
 #include "tcpremote.h"
-#include "ui_mainwindow.h"
 
 
 TCPRemote::TCPRemote()
 {
     socket = new QTcpSocket( this );
-    mainWindow = MainWindow::getMainWinPtr();
     connect(socket,SIGNAL(readyRead()), this, SLOT(readSlot()));
     connect(socket,SIGNAL(disconnected()), this, SLOT(disconnectSlot()));
 }
@@ -21,7 +19,7 @@ int TCPRemote::Connect(QString addr){
     QStringList l = addr.split(":");
     socket->connectToHost(l[0], l[1].toInt());
 
-    if( socket->waitForConnected(3000) ) {
+    if( socket->waitForConnected(6000) ) {
         return 0;
     }
     qDebug() << "[REMOTE] Connection timeout";

@@ -1,9 +1,7 @@
 #include "udpremote.h"
-#include "ui_mainwindow.h"
 
 UDPRemote::UDPRemote()
 {
-    mainWindow = MainWindow::getMainWinPtr();
     socket = new QUdpSocket(this);
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyRead()));
 }
@@ -36,9 +34,6 @@ int UDPRemote::Send(QByteArray data){
 }
 
 void UDPRemote::readyRead(){
-
-    //qDebug() << "Read";
-
     QByteArray Buffer;
     Buffer.resize(socket->pendingDatagramSize());
     socket->readDatagram(Buffer.data(), (qint64) Buffer.size(), &host, &port);

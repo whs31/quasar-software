@@ -8,6 +8,8 @@
 #include "ui_mainwindow.h"
 #include "imagemanager.h"
 
+#include "linkerqml.h"
+
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
 class MainWindow;
@@ -16,7 +18,7 @@ class ImageProcessing : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageProcessing(QObject *parent = nullptr);
+    explicit ImageProcessing(LinkerQML* linker);//QMLLinker* linker) : linker(linker);//uimanager
     struct image_metadata {
             double latitude;
             double longitude;
@@ -53,6 +55,7 @@ public:
 
 private:
     MainWindow* mainWindow;
+    LinkerQML* qmlLinker;
     ImageManager* imageManager;
 };
 

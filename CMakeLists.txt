@@ -38,7 +38,11 @@ else()
         network/remote.cpp
         src/qt-includes.h
         src/mainwindow.h
+        src/linkerqml.h
+        src/uimanager.h
         src/mainwindow.cpp
+        src/linkerqml.cpp
+        src/uimanager.cpp
         config/config.h
         config/confighandler.h
         config/settingsdialog.h

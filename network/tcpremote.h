@@ -5,10 +5,7 @@
 #include "qt-includes.h"
 
 #include "remote.h"
-#include "mainwindow.h"
 
-
-class MainWindow;
 class TCPRemote : public Remote
 {
     Q_OBJECT
@@ -21,7 +18,6 @@ public:
 
 private:
     QTcpSocket *socket;
-    MainWindow *mainWindow;
 
 private slots:
     void readSlot();

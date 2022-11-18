@@ -44,12 +44,16 @@ void MainWindow::InitializeUI()
 void MainWindow::InitializeConnections()
 {
     qInfo()<<"[STARTUP] Setuping connections...";
+    linker = new LinkerQML(qml);
+
+
+    //------------------------------------
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     config = new ConfigHandler();
     config->loadSettings();
-    imageProcessing = new ImageProcessing();
+    imageProcessing = new ImageProcessing(linker); //linker
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
@@ -118,7 +122,6 @@ void MainWindow::ReadTelemetry(QByteArray data){
             parsedMessage.chop(1);
             parsedMessage.remove(0, 3);
             qInfo()<<"[SERVER] Server responds with: "<<parsedMessage;
-            //QMetaObject::invokeMethod(qml, "getMessage", Q_ARG(QVariant, parsedMessage));
         }
         else
         {

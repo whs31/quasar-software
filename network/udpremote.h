@@ -5,10 +5,7 @@
 #include "qt-includes.h"
 
 #include "remote.h"
-#include "mainwindow.h"
 
-
-class MainWindow;
 class UDPRemote : public Remote
 {
     Q_OBJECT
@@ -20,8 +17,6 @@ public:
    int Send(QByteArray data);
 
 private:
-    MainWindow *mainWindow;
-
     quint16 port;
     QHostAddress host;
     QUdpSocket *socket;

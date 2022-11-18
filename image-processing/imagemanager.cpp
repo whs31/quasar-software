@@ -8,6 +8,11 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
       dir.mkdir(cacheDirectory);
     }
     PNGDirectory = QCoreApplication::applicationDirPath()+QDir::separator()+"png-cache";
+    QDir pngdir(PNGDirectory);
+    if(!pngdir.exists())
+    {
+        pngdir.mkdir(PNGDirectory);
+    }
     qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory<<", .png directory: "<<PNGDirectory;
     //на случай если ne захочется кешировать в отдельную папку
     //PNGDirectory = cacheDirectory;
@@ -30,8 +35,8 @@ bool ImageManager::CopyJPEG(const QString &path)
             QFileInfo fileInfo(f);
             QString destinationFile = cacheDirectory + QDir::separator() + fileInfo.fileName();
             bool result = QFile::copy(f, destinationFile);
-            result==true ? qDebug()<<"[FILEMANAGER] Copy success" : qWarning()<<"[FILEMANAGER] Copy failure";
-            MakePNG(f);
+            result==true ? qDebug()<<"[FILEMANAGER] Copy success" : qWarning()<<"[FILEMANAGER] File already existing at working .png cache, skipping...";
+            MakePNG(destinationFile);
         }
         return true;
     } return false;
@@ -39,8 +44,10 @@ bool ImageManager::CopyJPEG(const QString &path)
 
 bool ImageManager::MakePNG(QString jpeg)
 {
+    qDebug()<<"[FILEMANAGER] Making png file out of "<<jpeg;
     QFile file(jpeg);
-    QString filename = file.fileName();
+    QFileInfo f(file);
+    QString filename = f.fileName();
     filename.chop(3); filename.append("png");
     QPixmap pix(jpeg);
     pix.save(PNGDirectory+QDir::separator()+filename);

@@ -14,7 +14,7 @@ bool ImageProcessing::processPath(QString path)
 {
     notNull = imageManager->CopyJPEG(path);
 
-    QDir directory(imageManager->getPNGDirectory());
+    QDir directory(path);
     QStringList fileList;
     directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
     directory.setNameFilters(QStringList("*.jpg"));
@@ -71,6 +71,10 @@ void ImageProcessing::decode(QStringList filelist)
                 //memcpy(&dataV, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
+                QFileInfo info(_qfile);
+                QString pngPath = info.fileName();
+                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(imageManager->getPNGDirectory()+QDir::separator());
+                metaStruct.filename = pngPath;
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
 

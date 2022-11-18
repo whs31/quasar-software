@@ -46,15 +46,13 @@ void MainWindow::InitializeConnections()
     qInfo()<<"[STARTUP] Setuping connections...";
     html = new HTMLTags();
     linker = new LinkerQML(qml);
-
-
     //------------------------------------
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     config = new ConfigHandler();
     config->loadSettings();
-    imageProcessing = new ImageProcessing(linker); //linker
+    imageProcessing = new ImageProcessing(linker, this);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
@@ -75,7 +73,6 @@ void MainWindow::InitializeConnections()
 bool MainWindow::InitialImageScan()
 {
     bool n = imageProcessing->processPath(C_PATH);
-    imageProcessing->updateUpperLabels();
     if(imageProcessing->getReadyStatus()==true)
     {
         for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)
@@ -136,10 +133,7 @@ void MainWindow::ReadTelemetry(QByteArray data){
             }
         }
     }
-    ui->label_c_telemetrylat->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[0], 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetrylon->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[1], 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetryspd->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[2], 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetryelv->setText(html->HtmlColorMain+html->HtmlBold+QString::number(telemetry[3], 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }
 
@@ -265,3 +259,53 @@ void MainWindow::on_pushButton_showAllImages_clicked()
         ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
     }
 }
+
+void MainWindow::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
+{
+    ui->label_c_telemetrylat->setText(html->HtmlColorMain+html->HtmlBold+QString::number(lat, 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetrylon->setText(html->HtmlColorMain+html->HtmlBold+QString::number(lon, 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetryspd->setText(html->HtmlColorMain+html->HtmlBold+QString::number(speed, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetryelv->setText(html->HtmlColorMain+html->HtmlBold+QString::number(elevation, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+}
+
+void MainWindow::updateImageManagerLabels(int total, int current)
+{
+    ui->label_c_foundImages->setText(
+                "Найдено "
+                +html->HtmlBold
+                +html->HtmlColorMainAccent
+                +QString::number(total)
+                +html->HtmlColorEnd
+                +html->HtmlBoldEnd
+                +" изображений");
+    ui->label_c_currentImage->setText(
+                "Изображение "
+                +html->HtmlBold
+                +html->HtmlColorMain
+                +QString::number(current+1)
+                +html->HtmlColorEnd
+                +html->HtmlBoldEnd
+                +" из "
+                +html->HtmlBold
+                +QString::number(total)
+                +html->HtmlBoldEnd);
+}
+
+void MainWindow::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
+{
+    ui->label_c_metaFilename->setText(filename);
+    ui->label_c_metaLat->setText(QString::number(lat));
+    ui->label_c_metaLon->setText(QString::number(lon));
+    ui->label_c_metaDx->setText(QString::number(dx));
+    ui->label_c_metaDy->setText(QString::number(dy));
+    ui->label_c_metaX0->setText(QString::number(x0));
+    ui->label_c_metaY0->setText(QString::number(y0));
+    ui->label_c_metaAngle->setText(QString::number(angle));
+    ui->label_c_metaDAngle->setText(QString::number(driftAngle));
+    ui->label_c_metaChecksum->setText(hexSum);
+    ui->label_c_metaTime->setText(datetime);
+    (match) ? ui->label_c_checksumSuccess->setText(html->HtmlColorSuccess+"да"+html->HtmlColorEnd) : ui->label_c_checksumSuccess->setText(html->HtmlColorFailure+"нет"+html->HtmlColorEnd);
+}
+
+void MainWindow::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
+void MainWindow::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }

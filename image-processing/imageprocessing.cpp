@@ -1,8 +1,7 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
+ImageProcessing::ImageProcessing(LinkerQML* linker, MainWindow* parent) : qmlLinker(linker), mainWindow(parent)
 {
-    mainWindow = MainWindow::getMainWinPtr();
     imageManager = new ImageManager;
     html = new HTMLTags();
 }
@@ -40,7 +39,7 @@ void ImageProcessing::decode(QStringList filelist)
 
                 //qDebug()<<newChecksum<<metaStruct.checksum;
                 //qDebug()<<QString("%1").arg(newChecksum, 8, 16, QLatin1Char('0'));
-                metaStruct.checksumMatch = 1;//(newChecksum==metaStruct.checksum) ? 1 : 0;
+                metaStruct.checksumMatch = 0;//(newChecksum==metaStruct.checksum) ? 1 : 0;
                 qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
             }
@@ -82,7 +81,10 @@ bool ImageProcessing::processPath(QString path)
         warningDialogue.setText("В выбранном каталоге не найдены изображения!");
         warningDialogue.exec();
     }
-    mainWindow->ui->pushButton_goRight->setEnabled(true);
+    if(getVectorSize()>1) { mainWindow->setPushButton_goRightEnabled(true); }
+    if(notNull) {
+        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+    }
     return notNull;
 }
 
@@ -90,20 +92,19 @@ void ImageProcessing::updateLabels(int structureIndex)
 {
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
-        mainWindow->ui->label_c_metaFilename->setText(cutFilename);
-        mainWindow->ui->label_c_metaLat->setText(QString::number(metadataList[structureIndex].latitude));
-        mainWindow->ui->label_c_metaLon->setText(QString::number(metadataList[structureIndex].longitude));
-        mainWindow->ui->label_c_metaDx->setText(QString::number(metadataList[structureIndex].dx));
-        mainWindow->ui->label_c_metaDy->setText(QString::number(metadataList[structureIndex].dy));
-        mainWindow->ui->label_c_metaX0->setText(QString::number(metadataList[structureIndex].x0));
-        mainWindow->ui->label_c_metaY0->setText(QString::number(metadataList[structureIndex].y0));
-        mainWindow->ui->label_c_metaAngle->setText(QString::number(metadataList[structureIndex].angle));
-        mainWindow->ui->label_c_metaDAngle->setText(QString::number(metadataList[structureIndex].driftAngle));
-        QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
-        mainWindow->ui->label_c_metaChecksum->setText(checksumHex);
-        mainWindow->ui->label_c_metaTime->setText(metadataList[structureIndex].datetime);
-        if(metadataList[structureIndex].checksumMatch) { mainWindow->ui->label_c_checksumSuccess->setText(html->HtmlColorSuccess+"да"+html->HtmlColorEnd); }
-        else { mainWindow->ui->label_c_checksumSuccess->setText(html->HtmlColorFailure+"нет"+html->HtmlColorEnd); }
+    QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
+    mainWindow->updateImageMetaLabels(cutFilename,
+                                      metadataList[structureIndex].latitude,
+                                      metadataList[structureIndex].longitude,
+                                      metadataList[structureIndex].dx,
+                                      metadataList[structureIndex].dy,
+                                      metadataList[structureIndex].x0,
+                                      metadataList[structureIndex].y0,
+                                      metadataList[structureIndex].angle,
+                                      metadataList[structureIndex].driftAngle,
+                                      checksumHex,
+                                      metadataList[structureIndex].datetime,
+                                      metadataList[structureIndex].checksumMatch);
 }
 
 uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
@@ -169,13 +170,15 @@ void ImageProcessing::goLeft()
         updateLabels(fileCounter);
     }
     if (fileCounter == 0) {
-        mainWindow->ui->pushButton_goLeft->setEnabled(false);
+        mainWindow->setPushButton_goLeftEnabled(false);
     }
     if(fileCounter < totalFiles)
     {
-        mainWindow->ui->pushButton_goRight->setEnabled(true);
+        mainWindow->setPushButton_goRightEnabled(true);
     }
-    updateUpperLabels();
+    if(notNull) {
+        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+    }
 }
 
 void ImageProcessing::goRight()
@@ -188,34 +191,12 @@ void ImageProcessing::goRight()
     }
     if(fileCounter > 0)
     {
-        mainWindow->ui->pushButton_goLeft->setEnabled(true);
+        mainWindow->setPushButton_goLeftEnabled(true);
     }
     if (fileCounter == totalFiles) {
-        mainWindow->ui->pushButton_goRight->setEnabled(false);
+        mainWindow->setPushButton_goRightEnabled(false);
     }
-    updateUpperLabels();
-}
-
-void ImageProcessing::updateUpperLabels()
-{
-    if(notNull) {  }
-    mainWindow->ui->label_c_foundImages->setText(
-                "Найдено "
-                +html->HtmlBold
-                +html->HtmlColorMainAccent
-                +QString::number(getVectorSize())
-                +html->HtmlColorEnd
-                +html->HtmlBoldEnd
-                +" изображений");
-    mainWindow->ui->label_c_currentImage->setText(
-                "Изображение "
-                +html->HtmlBold
-                +html->HtmlColorMain
-                +QString::number(getFileCounter()+1)
-                +html->HtmlColorEnd
-                +html->HtmlBoldEnd
-                +" из "
-                +html->HtmlBold
-                +QString::number(getVectorSize())
-                +html->HtmlBoldEnd);
+    if(notNull) {
+        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+    }
 }

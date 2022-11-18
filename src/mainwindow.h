@@ -29,9 +29,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     static MainWindow * getMainWinPtr();
+
     friend class ConfigHandler;
     friend class SettingsDialog;
-    friend class ImageProcessing;
+    //friend class ImageProcessing;
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
@@ -70,6 +71,13 @@ private:
 
 signals:
 
+public slots:
+    //ui setters
+    void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
+    void updateImageManagerLabels(int total, int current);
+    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void setPushButton_goLeftEnabled(bool state);
+    void setPushButton_goRightEnabled(bool state);
 
 private slots:
     void ReadTelemetry(QByteArray data);

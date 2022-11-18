@@ -1,7 +1,6 @@
 #ifndef LINKERQML_H
 #define LINKERQML_H
 
-//#include <mainwindow.h>
 #include <QObject>
 #include <QQuickItem>
 

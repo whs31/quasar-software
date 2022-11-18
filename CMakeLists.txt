@@ -36,10 +36,9 @@ else()
         src/qt-includes.h
         src/mainwindow.h
         src/linkerqml.h
-        src/uimanager.h
         src/mainwindow.cpp
         src/linkerqml.cpp
-        src/uimanager.cpp
+        src/htmltags.h
         config/config.h
         config/confighandler.h
         config/settingsdialog.h
@@ -51,7 +50,6 @@ else()
         image-processing/imagemanager.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.cpp
-        src/htmltags.h
    )
 endif()
 

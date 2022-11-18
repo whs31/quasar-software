@@ -10,9 +10,6 @@
 #include <QDialog>
 #include <QMessageBox>
 
-#include <QUdpSocket>
-#include <QTcpSocket>
-
 #include <QVector>
 #include <QtEndian>
 #include <QDir>

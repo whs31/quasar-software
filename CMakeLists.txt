@@ -47,8 +47,10 @@ else()
         config/settingsdialog.ui
         image-processing/imageprocessing.h
         image-processing/imagemanager.h
+        image-processing/tcpdownloader.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.cpp
+        image-processing/tcpdownloader.cpp
    )
 endif()
 

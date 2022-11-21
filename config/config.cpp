@@ -37,6 +37,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     group_t startup;
     startup["show_image"] = "true";
     startup["connect"] = "true";
+    startup["debug_console"] = "false";
     checkValuesSimple(startup);
 }
 

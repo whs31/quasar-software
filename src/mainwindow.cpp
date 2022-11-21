@@ -1,10 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+MainWindow* MainWindow::debugPointer;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    debugPointer = this;
     InitializeUI();
     InitializeConnections();
 }
@@ -15,31 +17,46 @@ MainWindow::~MainWindow()
     tcpRemote->Disconnect();
     delete ui;
 }
+
+MainWindow* MainWindow::getDebugPointer(void)                                { return debugPointer;                                                                                                                 }
+bool MainWindow::getReady(void)                                              { return uiReady;                                                                                                                      }
+
 void MainWindow::InitializeUI()
 {
-    qInfo()<<"[STARTUP] Starting UI initialization...";
+            qDebug()<<"[STARTUP] Starting UI initialization...";
     ui->setupUi(this);
     ui->map->show();
     qml = ui->map->rootObject();
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
-    qInfo()<<"[STARTUP] Session started at "+localTime.toString();
+    uiReady = true;
+            qDebug()<<"[STARTUP] UI initialization finished";
+            qInfo()<<"[STARTUP] Session started at "+localTime.toString();
     if (QSslSocket::supportsSsl())
         {
-            qInfo() << "[STARTUP] OpenSSL detected: " << QSslSocket::supportsSsl() << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString() << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
+                    qInfo() << "[STARTUP] OpenSSL detected: "
+                            << QSslSocket::supportsSsl()
+                            << ", OpenSSL build version: "
+                            << QSslSocket::sslLibraryBuildVersionString()
+                            << ", OpenSSL ver.: "
+                            << QSslSocket::sslLibraryVersionString();
         }
         else {
-            qCritical() << "[ERROR] OpenSSL detected: " << QSslSocket::supportsSsl() << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString() << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
+                    qCritical() << "[ERROR] OpenSSL detected: "
+                                << QSslSocket::supportsSsl()
+                                << ", OpenSSL build version: "
+                                << QSslSocket::sslLibraryBuildVersionString()
+                                << ", OpenSSL ver.: "
+                                << QSslSocket::sslLibraryVersionString();
             QMessageBox openSSLDialogue;
             openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
             openSSLDialogue.setIcon(QMessageBox::Critical);
             openSSLDialogue.setText("Попробуйте переустановить программу.");
             openSSLDialogue.exec();
         }
-    qInfo()<<"[STARTUP] UI initialization finished";
 }
 void MainWindow::InitializeConnections()
 {
-    qInfo()<<"[STARTUP] Setuping connections...";
+            qInfo()<<"[STARTUP] Setuping connections...";
     html = new HTMLTags();
     linker = new LinkerQML(qml);
     //------------------------------------
@@ -48,6 +65,9 @@ void MainWindow::InitializeConnections()
     tcpRemote = new TCPRemote();
     config = new ConfigHandler(linker, this);           config->loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
+
+    ui->debugConsoleDock->setEnabled(C_DEBUGCONSOLE);
+    ui->debugConsoleDock->setVisible(C_DEBUGCONSOLE);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
@@ -59,14 +79,46 @@ void MainWindow::InitializeConnections()
         {
             udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
             if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
-            qInfo()<<"[REMOTE] UDP client connected";
+                    qInfo()<<"[REMOTE] UDP client connected";
         }
     }//---------------------------------------------< внутренности засунуть в кнопку на случай если в конфиге false;
     timer->start(500);
-    qInfo()<<"[STARTUP] Connections set up successfully";
+            qDebug()<<"[STARTUP] Connections set up successfully";
 
     InitialImageScan();
 }
+
+void MainWindow::debugStreamUpdate(QString _text, int msgtype)
+{
+    if(uiReady)
+    {
+        if(msgtype == 0)
+        {
+            ui->debugConsole->setTextColor(Qt::gray);
+        } else if (msgtype == 1)
+        {
+            ui->debugConsole->setTextColor(Qt::white);
+        } else if (msgtype == 2)
+        {
+            ui->debugConsole->setTextColor(Qt::yellow);
+        } else if (msgtype == 3)
+        {
+            ui->debugConsole->setTextColor(Qt::red);
+        } else if (msgtype == 4)
+        {
+            ui->debugConsole->setTextColor(Qt::darkRed);
+        }
+            QFont consoleFont = ui->debugConsole->font();
+            consoleFont.setPointSize(7);
+        ui->debugConsole->insertPlainText(_text);
+        ui->debugConsole->setTextColor(Qt::white);
+        ui->debugConsole->setFont(consoleFont);
+        QTextCursor c = ui->debugConsole->textCursor();
+        c.movePosition(QTextCursor::End);
+        ui->debugConsole->setTextCursor(c);
+    }
+}
+
 bool MainWindow::InitialImageScan()
 {
     bool n = imageProcessing->processPath(C_PATH);
@@ -114,7 +166,7 @@ void MainWindow::ReadTelemetry(QByteArray data){
             QString parsedMessage = unparsed;
             parsedMessage.chop(1);
             parsedMessage.remove(0, 3);
-            qInfo()<<"[SERVER] Server responds with: "<<parsedMessage;
+                    qInfo()<<"[SERVER] Server responds with: "<<parsedMessage;
         }
         else
         {
@@ -133,15 +185,15 @@ void MainWindow::ReadTelemetry(QByteArray data){
 }
 void MainWindow::on_formImage_triggered() //menu slot (will be removed)
 {
-    qInfo()<<"[CLIENT] Sending command to form SAR image";
+            qDebug()<<"[CLIENT] Sending command to form SAR image";
     SendRemoteCommand("$form-SAR-image");
 }
-void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2)
+void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3)
 {
     C_NETWORKTYPE = s1;         C_NETWORKADDRESS = s2;          C_NETWORKPORT = s3;             C_UPDATETIME = f1;
     C_PREDICTRANGE = f2;        C_CAPTURERANGE = f3;            C_CAPTURETIME = f4;             C_AZIMUTH = f5;
     C_DRIFTANGLE = f6;          C_ANTENNAPOSITION = s4;         C_PATH = s5;                    C_SHOWIMAGEONSTART = b1;
-    C_CONNECTONSTART = b2;
+    C_CONNECTONSTART = b2;      C_DEBUGCONSOLE = b3;
 }
 void MainWindow::on_openSettings_triggered() //menu slot
 {
@@ -158,7 +210,8 @@ void MainWindow::on_openSettings_triggered() //menu slot
                       C_ANTENNAPOSITION,
                       C_PATH,
                       C_SHOWIMAGEONSTART,
-                      C_CONNECTONSTART);
+                      C_CONNECTONSTART,
+                      C_DEBUGCONSOLE);
     if(sd.exec() == QDialog::Accepted)
     {
         C_NETWORKTYPE = sd.cfg_connectionType;
@@ -174,6 +227,7 @@ void MainWindow::on_openSettings_triggered() //menu slot
         if(C_PATH!=sd.cfg_path) { C_PATH = sd.cfg_path; InitialImageScan(); } else { qDebug()<<"[CONFIG] Path unchanged, no further scans"; }
         C_SHOWIMAGEONSTART = sd.cfg_showImageOnStart;
         C_CONNECTONSTART = sd.cfg_connectOnStart;
+        C_DEBUGCONSOLE = sd.cfg_debugConsole; ui->debugConsoleDock->setEnabled(C_DEBUGCONSOLE); ui->debugConsoleDock->setVisible(C_DEBUGCONSOLE);
 
         config->saveSettings();
     } else { config->loadSettings(); }

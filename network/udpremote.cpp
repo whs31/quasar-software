@@ -16,7 +16,7 @@ int UDPRemote::Connect(QString addr){
     QStringList l = addr.split(":");
     host.setAddress(l[0]);
     port = l[1].toInt();
-    qDebug() << "[REMOTE] Binding:" << host << port;
+            qInfo() << "[REMOTE] Binding:" << host << port;
     return socket->bind(host,port);
 }
 

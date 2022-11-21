@@ -27,7 +27,8 @@ public:
                    QString cfg_antennaPosition = "",
                    QString cfg_path = "",
                    bool cfg_showImageOnStart = 1,
-                   bool cfg_connectOnStart = 1);
+                   bool cfg_connectOnStart = 1,
+                   bool cfg_debugConsole = 1);
 
     //обратная связь
     QString cfg_connectionType;
@@ -43,6 +44,7 @@ public:
     QString cfg_path;
     bool cfg_showImageOnStart;
     bool cfg_connectOnStart;
+    bool cfg_debugConsole;
     ~SettingsDialog();
 
 signals:
@@ -60,10 +62,9 @@ private slots:
     void on_i_antennaLeftB_clicked();
     void on_i_antennaRightB_clicked();
     void on_pushButton_clicked();
-
     void on_i_showImages_stateChanged(int arg1);
-
     void on_i_connectOnStart_stateChanged(int arg1);
+    void on_i_debugConsole_stateChanged(int arg1);
 
 private:
     Ui::SettingsDialog *uiS;

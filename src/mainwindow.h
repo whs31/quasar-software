@@ -30,10 +30,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
+    static MainWindow* getDebugPointer(void);
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
+    void debugStreamUpdate(QString _text, int msgtype);
     double telemetry[4]; //lat, lon, speed, elevation
 
     //-----config values--------- //эти значения обновляются классом configHandler при вызове loadSettings и передаются в settingsDialog при инициализации окна
@@ -50,6 +51,7 @@ public:
     QString C_PATH;
     bool C_SHOWIMAGEONSTART;
     bool C_CONNECTONSTART;
+    bool C_DEBUGCONSOLE;
     //----------------------------------------------------------------------------------------------------------------------------------------------------------
 
     //ui setters
@@ -59,12 +61,14 @@ public:
     void setPushButton_goLeftEnabled(bool state);
     void setPushButton_goRightEnabled(bool state);
     //getters
-    void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2);
+    void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3);
+    bool getReady(void);
 
 
 
 private:
     Ui::MainWindow *ui;
+    static MainWindow* debugPointer;
     HTMLTags *html;
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
@@ -72,6 +76,8 @@ private:
     QTimer *timer;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;
+
+    bool uiReady = false;
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();

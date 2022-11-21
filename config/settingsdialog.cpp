@@ -13,7 +13,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
                                QString cfg_antennaPosition,
                                QString cfg_path,
                                bool cfg_showImageOnStart,
-                               bool cfg_connectOnStart) : QDialog(parent), uiS(new Ui::SettingsDialog),
+                               bool cfg_connectOnStart,
+                               bool cfg_debugConsole) : QDialog(parent), uiS(new Ui::SettingsDialog),
                                                                         cfg_connectionType(cfg_connectionType),
                                                                         cfg_connectionAddress(cfg_connectionAddress),
                                                                         cfg_connectionPort(cfg_connectionPort),
@@ -26,7 +27,8 @@ SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
                                                                         cfg_antennaPosition(cfg_antennaPosition),
                                                                         cfg_path(cfg_path),
                                                                         cfg_showImageOnStart(cfg_showImageOnStart),
-                                                                        cfg_connectOnStart(cfg_connectOnStart)
+                                                                        cfg_connectOnStart(cfg_connectOnStart),
+                                                                        cfg_debugConsole(cfg_debugConsole)
 {
     uiS->setupUi(this);
     uiS->i_networktype->setText(cfg_connectionType);
@@ -40,6 +42,7 @@ SettingsDialog::SettingsDialog(QWidget *parent, QString cfg_connectionType,
     uiS->i_captureTime->setValue(cfg_captureTime);
     uiS->i_showImages->setChecked(cfg_showImageOnStart);
     uiS->i_connectOnStart->setChecked(cfg_connectOnStart);
+    uiS->i_debugConsole->setChecked(cfg_debugConsole);
     if(cfg_antennaPosition == "r") { uiS->i_antennaRightB->setChecked(true); uiS->i_antennaLeftB->setChecked(false); } else { uiS->i_antennaRightB->setChecked(false); uiS->i_antennaLeftB->setChecked(true); }
 }
 
@@ -64,3 +67,4 @@ void SettingsDialog::on_pushButton_clicked()                                    
                                      if(pathNotNullCheck!=NULL) { cfg_path = pathNotNullCheck; }                                                                                                       }
 void SettingsDialog::on_i_showImages_stateChanged(int arg1)        { bool b = (arg1==2) ? true : false; cfg_showImageOnStart = b;                                                                      }
 void SettingsDialog::on_i_connectOnStart_stateChanged(int arg1)    { bool b = (arg1==2) ? true : false; cfg_connectOnStart = b;                                                                        }
+void SettingsDialog::on_i_debugConsole_stateChanged(int arg1)      { bool b = (arg1==2) ? true : false; cfg_debugConsole = b;                                                                          }

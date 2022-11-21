@@ -19,7 +19,8 @@ void ConfigHandler::loadSettings()
                           config->value("map/antenna_position").toString(),
                           config->value("image/path").toString(),
                           config->value("startup/show_image").toBool(),
-                          config->value("startup/connect").toBool());
+                          config->value("startup/connect").toBool(),
+                          config->value("startup/debug_console").toBool());
 
     linker->loadSettings(config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -47,6 +48,7 @@ void ConfigHandler::saveSettings()
     config->setValue("image/path", mainWindow->C_PATH);
     config->setValue("startup/show_image", mainWindow->C_SHOWIMAGEONSTART);
     config->setValue("startup/connect", mainWindow->C_CONNECTONSTART);
+    config->setValue("startup/debug_console", mainWindow->C_DEBUGCONSOLE);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

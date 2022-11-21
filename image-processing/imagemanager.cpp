@@ -13,7 +13,8 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
     {
         pngdir.mkdir(PNGDirectory);
     }
-    qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory<<", .png directory: "<<PNGDirectory;
+            qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
+            qInfo()<<"[FILEMANAGER] .png directory: "<<PNGDirectory;
     //на случай если ne захочется кешировать в отдельную папку
     //PNGDirectory = cacheDirectory;
 }
@@ -48,7 +49,7 @@ QStringList ImageManager::CopyJPEG(const QString &path)
 
 QString ImageManager::MakePNG(QString jpeg)
 {
-    qDebug()<<"[FILEMANAGER] Making png file out of "<<jpeg;
+            qDebug()<<"[FILEMANAGER] Making png file out of "<<jpeg;
     QFile file(jpeg);
     QFileInfo f(file);
     QString filename = f.fileName();
@@ -59,7 +60,6 @@ QString ImageManager::MakePNG(QString jpeg)
     QString finalFile = PNGDirectory+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);
-    qDebug()<<pixMap.hasAlphaChannel();
     return finalFile;
 }
 
@@ -68,7 +68,6 @@ QImage ImageManager::swapAlpha(QImage i)
     QImage alphaImage = i;
     alphaImage.createMaskFromColor(QColor("black").rgb(), Qt::MaskOutColor);
     i.setAlphaChannel(alphaImage);
-    qDebug()<<i.hasAlphaChannel();
     return i;
 }
 
@@ -84,7 +83,6 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
 {
     QImage base(path);
     base.convertToFormat(QImage::Format_ARGB32_Premultiplied);
-    qDebug()<<base.hasAlphaChannel();
     QPainter painter;
     painter.begin(&base);
     painter.setCompositionMode(QPainter::CompositionMode_Source);
@@ -114,7 +112,6 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
     painter.fillPath(fillp, brush);
     painter.end();
     base.save(path);
-    qDebug()<<base.hasAlphaChannel();
 }
 
 QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }

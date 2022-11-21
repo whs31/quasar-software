@@ -15,8 +15,8 @@ class ImageManager : public QObject
 public:
     explicit ImageManager(QObject *parent = nullptr);
 
-    bool CopyJPEG(const QString& path);
-    bool MakePNG(QString jpeg);
+    QStringList CopyJPEG(const QString& path);
+    QString MakePNG(QString jpeg);
     QString getCacheDirectory(void);
     QString getPNGDirectory(void);
     QImage swapAlpha(QImage i);
@@ -24,7 +24,6 @@ public:
 private:
     QString cacheDirectory;
     QString PNGDirectory;
-    //QStringList
 
 signals:
 

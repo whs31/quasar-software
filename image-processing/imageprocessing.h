@@ -45,7 +45,6 @@ public:
     uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
 
     QVector<image_metadata> metadataList;
-    QStringList imageList;
 
     int fileCounter = 0;
     bool notNull = false;

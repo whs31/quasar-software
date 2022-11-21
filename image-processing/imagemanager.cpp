@@ -18,41 +18,47 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
     //PNGDirectory = cacheDirectory;
 }
 
-bool ImageManager::CopyJPEG(const QString &path)
+QStringList ImageManager::CopyJPEG(const QString &path)
 {
-    QDir directory(path);
-    QStringList fileList;
-    directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
-    directory.setNameFilters(QStringList("*.jpg"));
-    QStringList entry_list = directory.entryList();
-    for (QString entryString : entry_list)
+    QDir initialDirectory(path);
+    QStringList initialFileList;
+    QStringList jpgFileList;
+    initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    initialDirectory.setNameFilters(QStringList("*.jpg"));
+    for (QString entryString : initialDirectory.entryList())
     {
-        fileList.append(entryString.prepend(path+"/"));
+        initialFileList.append(entryString.prepend(path+"/"));
     }
-    if(!fileList.empty())
+    if(!initialFileList.empty())
     {
-        for ( QString f : fileList ) {
-            QFileInfo fileInfo(f);
-            QString destinationFile = cacheDirectory + QDir::separator() + fileInfo.fileName();
-            bool result = QFile::copy(f, destinationFile);
+        for ( QString initialFile : initialFileList ) {
+            QFileInfo fileInfo(initialFile);
+            QString jpegFile = cacheDirectory + '/' + fileInfo.fileName();
+            QDir::toNativeSeparators(jpegFile);
+            bool result = QFile::copy(initialFile, jpegFile);
+            jpgFileList.append(jpegFile);
             result==true ? qDebug()<<"[FILEMANAGER] Copy success" : qWarning()<<"[FILEMANAGER] File already existing at working .png cache, skipping...";
-            MakePNG(destinationFile);
+            MakePNG(jpegFile);
         }
-        return true;
-    } return false;
+        return jpgFileList;
+    } return {}; //.empty() = true
 }
 
-bool ImageManager::MakePNG(QString jpeg)
+
+
+QString ImageManager::MakePNG(QString jpeg)
 {
     qDebug()<<"[FILEMANAGER] Making png file out of "<<jpeg;
     QFile file(jpeg);
     QFileInfo f(file);
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
-    QImage pix(jpeg);
-    swapAlpha(pix);
-    bool b = pix.save(PNGDirectory+QDir::separator()+filename);
-    return b;
+    QImage pixMap(jpeg);
+    //pixMap = swapAlpha(pix);
+    QString finalFile = PNGDirectory+'/'+filename;
+    QDir::toNativeSeparators(finalFile);
+    pixMap.save(finalFile);
+    return finalFile;
 }
 
 QImage ImageManager::swapAlpha(QImage i)
@@ -63,7 +69,6 @@ QImage ImageManager::swapAlpha(QImage i)
     qDebug()<<i.hasAlphaChannel();
     return i;
 }
-
 
 QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }
 QString ImageManager::getPNGDirectory(void)                     { return PNGDirectory;                                                }

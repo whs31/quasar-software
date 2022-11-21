@@ -1,42 +1,28 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker, MainWindow* parent) : qmlLinker(linker), mainWindow(parent)
+ImageProcessing::ImageProcessing(LinkerQML* linker, MainWindow* parent) : mainWindow(parent), qmlLinker(linker)
 {
     imageManager = new ImageManager;
 }
 
 bool ImageProcessing::getReadyStatus()
 {
-    if(!imageList.empty()) { return 1; } return 0;
+    if(!metadataList.empty()) { return 1; } return 0;
 }
 
 bool ImageProcessing::processPath(QString path)
 {
-    notNull = imageManager->CopyJPEG(path);
-
-    QDir directory(path);
-    QStringList fileList;
-    directory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
-    directory.setNameFilters(QStringList("*.jpg"));
-    QStringList entry_list = directory.entryList();
-    for (QString entryString : entry_list)
+    QStringList imageList = imageManager->CopyJPEG(path);
+    if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }
+    if(notNull)
     {
-        fileList.append(entryString.prepend(path+"/"));
-    }
-    if(!fileList.empty())
-    {
-        notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
-        imageList.clear();
         metadataList.clear();
-        for ( QString f : fileList ) {
-            imageList.append(f);
-        }
         qmlLinker->clearImageArray();
         decode(imageList);
         updateLabels(0);
+        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
     } else {
-        notNull = false;
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
@@ -44,9 +30,6 @@ bool ImageProcessing::processPath(QString path)
         warningDialogue.exec();
     }
     if(getVectorSize()>1) { mainWindow->setPushButton_goRightEnabled(true); }
-    if(notNull) {
-        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
-    }
     return notNull;
 }
 
@@ -56,7 +39,6 @@ void ImageProcessing::decode(QStringList filelist)
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (QString fileName : filelist)
     {
-        //qWarning()<<filelist;
         QFile _qfile(fileName);
         if(_qfile.open(QIODevice::ReadOnly))
         {
@@ -67,13 +49,14 @@ void ImageProcessing::decode(QStringList filelist)
             {
                 uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
                 *metaSize = qToBigEndian(*metaSize) - 2;
-                const void* dataV;
+                //const void* dataV;
                 //memcpy(&dataV, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
                 QFileInfo info(_qfile);
                 QString pngPath = info.fileName();
-                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(imageManager->getPNGDirectory()+QDir::separator());
+                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(imageManager->getPNGDirectory()+'/');
+                QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
@@ -85,6 +68,7 @@ void ImageProcessing::decode(QStringList filelist)
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
                 qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
+                //make mask
             }
 
         } else { qDebug()<<"[IMG] Decoding error!"; }
@@ -159,7 +143,7 @@ int ImageProcessing::getFileCounter()
 
 int ImageProcessing::getVectorSize()
 {
-    return imageList.length();
+    return metadataList.length();
 }
 
 void ImageProcessing::goLeft()

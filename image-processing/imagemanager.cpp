@@ -54,10 +54,12 @@ QString ImageManager::MakePNG(QString jpeg)
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
-    //pixMap = swapAlpha(pix);
+    pixMap.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    pixMap = evilFormatConversion(pixMap);
     QString finalFile = PNGDirectory+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);
+    qDebug()<<pixMap.hasAlphaChannel();
     return finalFile;
 }
 
@@ -68,6 +70,51 @@ QImage ImageManager::swapAlpha(QImage i)
     i.setAlphaChannel(alphaImage);
     qDebug()<<i.hasAlphaChannel();
     return i;
+}
+
+QImage ImageManager::evilFormatConversion(QImage i)                                     //      этот метод нужен для конверсии изображения
+{                                                                                       //      в формат, поддерживающий прозрачность
+    QImage sample(i.width(),i.height(), QImage::Format_ARGB32_Premultiplied);
+    sample.fill(QColor(254,254,254));
+    i.setAlphaChannel(sample);
+    return i;
+}
+
+bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
+{
+    QImage base(path);
+    base.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    qDebug()<<base.hasAlphaChannel();
+    QPainter painter;
+    painter.begin(&base);
+    painter.setCompositionMode(QPainter::CompositionMode_Source);
+    //painter.fillRect(base.rect(), QColor(0, 0, 0, 120));
+    painter.setPen(QPen(Qt::transparent, 2));
+    const int top[8] = {
+        0, (int)(height/2+rayInitialWidth),
+        0, (int)height,
+        (int)width, (int)height,
+        (int)width, static_cast<int>((height/2)+width*(qTan(qDegreesToRadians(thetaAzimuth/2))))
+    };
+    const int bottom[8] = {
+        0, (int)(height/2-rayInitialWidth),
+        0, 0,
+        (int)width, 0,
+        (int)width, static_cast<int>((height/2)-width*(qTan(qDegreesToRadians(thetaAzimuth/2))))
+    };
+    QPolygon p1, p2;
+    p1.setPoints(4, top); p2.setPoints(4, bottom);
+    painter.drawPolygon(p1);
+    painter.drawPolygon(p2);
+    QPainterPath fillp;
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(Qt::transparent);
+    fillp.addPolygon(p1); fillp.addPolygon(p2);
+    painter.fillPath(fillp, brush);
+    painter.end();
+    base.save(path);
+    qDebug()<<base.hasAlphaChannel();
 }
 
 QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }

@@ -69,6 +69,11 @@ void ImageProcessing::decode(QStringList filelist)
                 qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
                 //make mask
+                QImageReader reader(metaStruct.filename);
+                QSize sizeOfImage = reader.size();
+                int height = sizeOfImage.height();
+                int width = sizeOfImage.width();
+                imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
             }
 
         } else { qDebug()<<"[IMG] Decoding error!"; }

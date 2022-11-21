@@ -44,6 +44,8 @@ Rectangle {
     property var followPlane: false;
     property var enableTooltip: true;
     property var enableRoute: true;
+    property var enablePredict: true;
+    property var enableDiagram: true;
     //----------------------------------
 
 
@@ -59,12 +61,10 @@ Rectangle {
         latitude = lat; longitude = lon; elevation = elv; velocity = speed;
         drawPlane();
         currentQtCoordinates = QtPositioning.coordinate(latitude,longitude);
-        if(followPlane) panGPS(); //@TODO отключает слежение за бортом при нажатии на карту мышью и передает этот факт в cpp
+        if(followPlane) panGPS();
         if(enableRoute) drawRoute(lat, lon);
         speedText.text = Number(speed).toFixed(1);
         elevationText.text = Number(elevation).toFixed(0);
-        //console.log(imageArray.length);
-        //cameraGrip.value = timer_3s.elapsed;
     }
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2)
@@ -172,7 +172,7 @@ Rectangle {
         console.log("[QML] Map centered on image");
         mapView.center = imageArray[filecounter].coordinate;
         fc = filecounter;
-        //mapView.zoomLevel = 14
+//        mapView.zoomLevel = 14
     }
     //-------------------------------------------------------------------------------}
 
@@ -187,7 +187,15 @@ Rectangle {
         {
             angle = currentQtCoordinates.azimuthTo(coord);
             planeMapItem.rotationAngle = angle;
+            if(enablePredict) { drawPredict(angle); }
         }
+    }
+
+    function drawPredict(angle)
+    {
+        var lat_ = c_PREDICTRANGE*Math.cos(Math.PI-angle*180/Math.PI);
+        var lon_ = c_PREDICTRANGE*Math.sin(Math.PI-angle*180/Math.PI);
+
     }
 
     function panGPS()
@@ -306,33 +314,14 @@ Rectangle {
         center: QtPositioning.coordinate(59.660784, 30.200268);
         zoomLevel: 9
         copyrightsVisible: false
-        MapPolyline {
-            id: mapPolyline
-            line.width: 5
-            opacity: 0.75
-            line.color: Material.accent
-            path: [ ]
-            z: 10
-        }
-        MapPolyline {
-            id: rulerLine
-            line.width: 4
-            opacity: 0.8
-            line.color: Material.color(Material.Amber, Material.Shade100)
-            z: 10
-            path: [ ]
-        }
 
-        Behavior on center {
-            CoordinateAnimation {
-                duration: 1000
-                easing.type: Easing.Linear //Easing.InOutQuart
-            }
-        }
-        Behavior on zoomLevel {
-            NumberAnimation { duration: 100 }
-        }
+        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.accent; path: [ ]; z: 10; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.5; line.color: Material.accent; z: 9; path: [ ]; }
+        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.accent; z: 9; path: []; }
 
+        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
+        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
         MouseArea {
             id: mapMouseArea
@@ -340,9 +329,7 @@ Rectangle {
             hoverEnabled: true
             propagateComposedEvents: true
             acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onEntered: {
-                drawTooltip();
-            }
+            onEntered: { drawTooltip(); }
             onPositionChanged: {
                 changeTooltipPosition();
                 if(r_currentstate === 2)
@@ -352,9 +339,7 @@ Rectangle {
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
             }
-            onExited: {
-                clearTooltip();
-            }
+            onExited: { clearTooltip(); }
             onClicked:
             {
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
@@ -510,10 +495,7 @@ Rectangle {
                 }
             }
         }
-        Component.onCompleted: {
-            mapView.addMapItem(planeMapItem);
-            zoomSlider.value = 1-(mapView.zoomLevel/18);
-        }
+        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18); }
         Rectangle {
             id: cursorTooltip
             visible: true
@@ -764,15 +746,7 @@ Rectangle {
                     numAnim1.restart();
                 }
         }
-
-        Timer {
-            id: timer_3s
-            interval: 3000; running: false; repeat: false
-            onTriggered: {
-                followPlane = true;
-                cameraGrip.value = 0;
-            }//ProgressBar
-        }
+        Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { followPlane = true; cameraGrip.value = 0; } }
     }
 }
 }

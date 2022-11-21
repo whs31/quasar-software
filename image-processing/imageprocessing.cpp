@@ -146,53 +146,21 @@ void ImageProcessing::showAllImages(bool showOnStart)
 }
 
 
-int ImageProcessing::getFileCounter()
-{
-    return fileCounter;
-}
-
-int ImageProcessing::getVectorSize()
-{
-    return metadataList.length();
-}
-
+int ImageProcessing::getFileCounter()           { return fileCounter;                                                           }
+int ImageProcessing::getVectorSize()            { return metadataList.length();                                                 }
 void ImageProcessing::goLeft()
 {
     int totalFiles = getVectorSize()-1;
-
-    if(fileCounter>0)
-    {
-        fileCounter--;
-        updateLabels(fileCounter);
-    }
-    if (fileCounter == 0) {
-        mainWindow->setPushButton_goLeftEnabled(false);
-    }
-    if(fileCounter < totalFiles)
-    {
-        mainWindow->setPushButton_goRightEnabled(true);
-    }
-    if(notNull) {
-        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
-    }
+    if(fileCounter>0) { fileCounter--; updateLabels(fileCounter);                                       }
+    if (fileCounter == 0) { mainWindow->setPushButton_goLeftEnabled(false);                             }
+    if(fileCounter < totalFiles) { mainWindow->setPushButton_goRightEnabled(true);                      }
+    if(notNull) { mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
 }
-
 void ImageProcessing::goRight()
 {
     int totalFiles = getVectorSize()-1;
-    if(fileCounter < totalFiles)
-    {
-        fileCounter++;
-        updateLabels(fileCounter);
-    }
-    if(fileCounter > 0)
-    {
-        mainWindow->setPushButton_goLeftEnabled(true);
-    }
-    if (fileCounter == totalFiles) {
-        mainWindow->setPushButton_goRightEnabled(false);
-    }
-    if(notNull) {
-        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
-    }
+    if(fileCounter < totalFiles) { fileCounter++; updateLabels(fileCounter);                            }
+    if(fileCounter > 0) { mainWindow->setPushButton_goLeftEnabled(true);                                }
+    if (fileCounter == totalFiles) { mainWindow->setPushButton_goRightEnabled(false);                   }
+    if(notNull) { mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
 }

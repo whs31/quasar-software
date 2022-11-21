@@ -11,6 +11,8 @@
 #include "imagemanager.h"
 #include "linkerqml.h"
 
+#include <QElapsedTimer>
+
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
 

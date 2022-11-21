@@ -12,16 +12,21 @@ bool ImageProcessing::getReadyStatus()
 
 bool ImageProcessing::processPath(QString path)
 {
+    QElapsedTimer* profiler = new QElapsedTimer();
+    profiler->start();
     QStringList imageList = imageManager->CopyJPEG(path);
+    qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms";
     if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }
     if(notNull)
     {
         qInfo()<<"[IMG] Imagelist fulfilled";
+        profiler->restart();
         metadataList.clear();
         qmlLinker->clearImageArray();
         decode(imageList);
         updateLabels(0);
         mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+        qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms";
     } else {
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");

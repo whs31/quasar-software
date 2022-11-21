@@ -38,7 +38,7 @@ QStringList ImageManager::CopyJPEG(const QString &path)
             QDir::toNativeSeparators(jpegFile);
             bool result = QFile::copy(initialFile, jpegFile);
             jpgFileList.append(jpegFile);
-            result==true ? qDebug()<<"[FILEMANAGER] Copy success" : qWarning()<<"[FILEMANAGER] File already existing at working .png cache, skipping...";
+            result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache, skipping... ";
             MakePNG(jpegFile);
         }
         return jpgFileList;
@@ -55,7 +55,6 @@ QString ImageManager::MakePNG(QString jpeg)
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
-    pixMap.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     pixMap = evilFormatConversion(pixMap);
     QString finalFile = PNGDirectory+'/'+filename;
     QDir::toNativeSeparators(finalFile);
@@ -82,7 +81,6 @@ QImage ImageManager::evilFormatConversion(QImage i)                             
 bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
 {
     QImage base(path);
-    base.convertToFormat(QImage::Format_ARGB32_Premultiplied);
     QPainter painter;
     painter.begin(&base);
     painter.setCompositionMode(QPainter::CompositionMode_Source);

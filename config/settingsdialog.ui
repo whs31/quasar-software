@@ -409,6 +409,11 @@
       </item>
       <item row="19" column="0">
        <widget class="QCheckBox" name="i_showImages">
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Отображать массив РЛИ при запуске</string>
         </property>
@@ -620,6 +625,11 @@
       </item>
       <item row="19" column="1">
        <widget class="QCheckBox" name="i_connectOnStart">
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Подключение к РЛС при запуске</string>
         </property>
@@ -697,6 +707,11 @@
       </item>
       <item row="20" column="0">
        <widget class="QCheckBox" name="i_debugConsole">
+        <property name="font">
+         <font>
+          <pointsize>8</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Включить отладочную консоль</string>
         </property>

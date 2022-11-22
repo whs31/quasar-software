@@ -24,7 +24,7 @@ public:
     QString getCacheDirectory(void);
     QString getPNGDirectory(void);
     QImage swapAlpha(QImage i);
-    QImage evilFormatConversion(QImage i);
+    QImage enableAlphaSupport(QImage i);
     bool addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0);
 
 private:

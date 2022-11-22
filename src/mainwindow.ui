@@ -57,7 +57,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -109,8 +109,8 @@
               <string>Следить за бортом</string>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/planeSmall.png</normaloff>:/img-deprecated/planeSmall.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/planeSmall.png</normaloff>:/ui-resources/planeSmall.png</iconset>
              </property>
             </widget>
            </item>
@@ -127,7 +127,7 @@
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/gps (1).png</normaloff>:/img/gps (1).png</iconset>
+               <normaloff>:/ui-resources/gps (1).png</normaloff>:/ui-resources/gps (1).png</iconset>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -150,7 +150,7 @@
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/track.png</normaloff>:/img/track.png</iconset>
+               <normaloff>:/ui-resources/route.png</normaloff>:/ui-resources/route.png</iconset>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -178,8 +178,8 @@
               <string>Направление полета</string>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/path.png</normaloff>:/img-deprecated/path.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/path.png</normaloff>:/ui-resources/path.png</iconset>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -201,8 +201,8 @@
               <string>Диаграмма направленности</string>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/radar.png</normaloff>:/img-deprecated/radar.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/radar.png</normaloff>:/ui-resources/radar.png</iconset>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -271,7 +271,7 @@
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/gps.png</normaloff>:/img/gps.png</iconset>
+               <normaloff>:/ui-resources/gps.png</normaloff>:/ui-resources/gps.png</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -296,8 +296,8 @@
               <string>Местоположение РЛИ</string>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/jpg_pan.png</normaloff>:/img-deprecated/jpg_pan.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/photo.png</normaloff>:/ui-resources/photo.png</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -350,7 +350,7 @@ QPushButton:selected {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/img/eraser.png</normaloff>:/img/eraser.png</iconset>
+            <normaloff>:/ui-resources/eraser.png</normaloff>:/ui-resources/eraser.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -846,8 +846,8 @@ QPushButton:selected {
               <string>Установить маркер</string>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/add_marker.png</normaloff>:/img-deprecated/add_marker.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/add_marker.png</normaloff>:/ui-resources/add_marker.png</iconset>
              </property>
             </widget>
            </item>
@@ -869,8 +869,8 @@ QPushButton:selected {
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/save.png</normaloff>:/img-deprecated/save.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/diskette.png</normaloff>:/ui-resources/diskette.png</iconset>
              </property>
             </widget>
            </item>
@@ -892,8 +892,8 @@ QPushButton:selected {
               <string/>
              </property>
              <property name="icon">
-              <iconset resource="img-deprecated.qrc">
-               <normaloff>:/img-deprecated/load.png</normaloff>:/img-deprecated/load.png</iconset>
+              <iconset resource="images.qrc">
+               <normaloff>:/ui-resources/download.png</normaloff>:/ui-resources/download.png</iconset>
              </property>
             </widget>
            </item>
@@ -934,7 +934,7 @@ QPushButton:selected {
                </property>
                <property name="icon">
                 <iconset resource="images.qrc">
-                 <normaloff>:/img/photo.png</normaloff>:/img/photo.png</iconset>
+                 <normaloff>:/ui-resources/photo.png</normaloff>:/ui-resources/photo.png</iconset>
                </property>
                <property name="checkable">
                 <bool>true</bool>
@@ -957,7 +957,7 @@ QPushButton:selected {
                </property>
                <property name="icon">
                 <iconset resource="images.qrc">
-                 <normaloff>:/img/photo (2).png</normaloff>:/img/photo (2).png</iconset>
+                 <normaloff>:/ui-resources/photo (2).png</normaloff>:/ui-resources/photo (2).png</iconset>
                </property>
               </widget>
              </item>
@@ -979,7 +979,7 @@ QPushButton:selected {
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/photo (1).png</normaloff>:/img/photo (1).png</iconset>
+               <normaloff>:/ui-resources/photo (1).png</normaloff>:/ui-resources/photo (1).png</iconset>
              </property>
             </widget>
            </item>
@@ -1080,7 +1080,7 @@ QPushButton:selected {
                </property>
                <property name="icon">
                 <iconset resource="images.qrc">
-                 <normaloff>:/img/refresh-page-option.png</normaloff>:/img/refresh-page-option.png</iconset>
+                 <normaloff>:/ui-resources/refresh-page-option.png</normaloff>:/ui-resources/refresh-page-option.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1106,7 +1106,7 @@ QPushButton:selected {
                </property>
                <property name="icon">
                 <iconset resource="images.qrc">
-                 <normaloff>:/img/time-left.png</normaloff>:/img/time-left.png</iconset>
+                 <normaloff>:/ui-resources/time-left.png</normaloff>:/ui-resources/time-left.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -1630,7 +1630,7 @@ QPushButton:selected {
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/left-arrow.png</normaloff>:/img/left-arrow.png</iconset>
+               <normaloff>:/ui-resources/left-arrow.png</normaloff>:/ui-resources/left-arrow.png</iconset>
              </property>
             </widget>
            </item>
@@ -1672,7 +1672,7 @@ QPushButton:selected {
              </property>
              <property name="icon">
               <iconset resource="images.qrc">
-               <normaloff>:/img/right-arrow.png</normaloff>:/img/right-arrow.png</iconset>
+               <normaloff>:/ui-resources/right-arrow.png</normaloff>:/ui-resources/right-arrow.png</iconset>
              </property>
              <property name="flat">
               <bool>false</bool>
@@ -1826,7 +1826,6 @@ QPushButton:selected {
  </customwidgets>
  <resources>
   <include location="images.qrc"/>
-  <include location="img-deprecated.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -424,7 +424,7 @@ Rectangle {
                 id: r1Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/img/right-arrow-map.png"
+                source: "qrc:/ui-resources/right-arrow-map.png"
             }
             ColorOverlay {
                 id: r1Overlay;
@@ -453,7 +453,7 @@ Rectangle {
                 id: r2Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/img/right-arrow-map.png"
+                source: "qrc:/ui-resources/right-arrow-map.png"
             }
             ColorOverlay {
                 id: r2Overlay;
@@ -479,7 +479,7 @@ Rectangle {
                 id: planeSource;
                 layer.enabled: true
                 transformOrigin: Item.Center
-                source: "qrc:/img-deprecated/gpsarrow.png"//if(c_VEHICLE==="helicopter") { "qrc:/img/helicopter.png" } else { "qrc:/img/plane.png" }
+                source: "qrc:/ui-resources/gpsarrow.png"
             }
             ColorOverlay {
                 id: overlayPlane;
@@ -599,7 +599,7 @@ Rectangle {
         //----------------------zoom slider---------------------------
         RoundButton
         {
-            icon.source: "qrc:/img/zoom-out.png"
+            icon.source: "qrc:/ui-resources/zoom-out.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -641,7 +641,7 @@ Rectangle {
         }
         RoundButton
         {
-            icon.source: "qrc:/img/zoom-in.png"
+            icon.source: "qrc:/ui-resources/zoom-in.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -665,7 +665,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/img/gps (2).png"
+            icon.source: "qrc:/ui-resources/gps (2).png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -688,7 +688,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/img/ruler (1).png"
+            icon.source: "qrc:/ui-resources/ruler (1).png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -717,7 +717,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/img/picture.png"
+            icon.source: "qrc:/ui-resources/picture.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32

@@ -55,7 +55,7 @@ QString ImageManager::MakePNG(QString jpeg)
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
-    pixMap = evilFormatConversion(pixMap);
+    pixMap = enableAlphaSupport(pixMap);
     QString finalFile = PNGDirectory+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);
@@ -70,7 +70,7 @@ QImage ImageManager::swapAlpha(QImage i)
     return i;
 }
 
-QImage ImageManager::evilFormatConversion(QImage i)                                     //      этот метод нужен для конверсии изображения
+QImage ImageManager::enableAlphaSupport(QImage i)                                     //      этот метод нужен для конверсии изображения
 {                                                                                       //      в формат, поддерживающий прозрачность
     QImage sample(i.width(),i.height(), QImage::Format_ARGB32_Premultiplied);
     sample.fill(QColor(254,254,254));
@@ -86,6 +86,7 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
     painter.setCompositionMode(QPainter::CompositionMode_Source);
     //painter.fillRect(base.rect(), QColor(0, 0, 0, 120));
     painter.setPen(QPen(Qt::transparent, 2));
+    painter.setRenderHint(QPainter::Antialiasing);
     const int top[8] = {
         0, (int)(height/2+rayInitialWidth),
         0, (int)height,

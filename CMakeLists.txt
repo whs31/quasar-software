@@ -14,6 +14,7 @@ find_package(Qt5 REQUIRED COMPONENTS QuickControls2)
 include_directories(
     network
     src
+    src/resources
     config
     image-processing
 )
@@ -22,6 +23,7 @@ include_directories(
 #link_directories(lib)
 
 file(GLOB SOURCE src/* )
+file(GLOB RES src/resources/*)
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})

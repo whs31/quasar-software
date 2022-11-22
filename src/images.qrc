@@ -1,27 +1,41 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/eraser.png</file>
-        <file>img/gps (1).png</file>
-        <file>img/gps.png</file>
-        <file>img/helicopter.png</file>
-        <file>img/plane.png</file>
-        <file>img/track.png</file>
-        <file>img/ruler.png</file>
-        <file>img/zoom-out.png</file>
-        <file>img/zoom-in.png</file>
-        <file>img/ruler (1).png</file>
-        <file>img/gps (2).png</file>
-        <file>img/right-arrow.png</file>
-        <file>img/picture.png</file>
-        <file>img/time-left.png</file>
-        <file>img/right-arrow-map.png</file>
-        <file>img/refresh-page-option.png</file>
-        <file>img/left-arrow.png</file>
-        <file>img/photo (2).png</file>
-        <file>img/photo (1).png</file>
-        <file>img/photo.png</file>
-        <file>img/question.png</file>
-        <file>img/checked.png</file>
-        <file>img/cancel.png</file>
+        <file>ui-resources/add_marker.png</file>
+        <file>ui-resources/cancel.png</file>
+        <file>ui-resources/checked.png</file>
+        <file>ui-resources/eraser.png</file>
+        <file>ui-resources/follow.png</file>
+        <file>ui-resources/gps (1).png</file>
+        <file>ui-resources/gps (2).png</file>
+        <file>ui-resources/gps.png</file>
+        <file>ui-resources/gpsarrow.png</file>
+        <file>ui-resources/helicopter.png</file>
+        <file>ui-resources/jpeg_opacityMask.png</file>
+        <file>ui-resources/jpg_pan.png</file>
+        <file>ui-resources/left-arrow.png</file>
+        <file>ui-resources/load.png</file>
+        <file>ui-resources/nav_pan.png</file>
+        <file>ui-resources/path.png</file>
+        <file>ui-resources/photo (1).png</file>
+        <file>ui-resources/photo (2).png</file>
+        <file>ui-resources/photo.png</file>
+        <file>ui-resources/picture.png</file>
+        <file>ui-resources/plane.png</file>
+        <file>ui-resources/planeSmall.png</file>
+        <file>ui-resources/question.png</file>
+        <file>ui-resources/radar.png</file>
+        <file>ui-resources/refresh-page-option.png</file>
+        <file>ui-resources/right-arrow-map.png</file>
+        <file>ui-resources/right-arrow.png</file>
+        <file>ui-resources/route.png</file>
+        <file>ui-resources/ruler (1).png</file>
+        <file>ui-resources/ruler.png</file>
+        <file>ui-resources/take_coords.png</file>
+        <file>ui-resources/time-left.png</file>
+        <file>ui-resources/track.png</file>
+        <file>ui-resources/zoom-in.png</file>
+        <file>ui-resources/zoom-out.png</file>
+        <file>ui-resources/download.png</file>
+        <file>ui-resources/diskette.png</file>
     </qresource>
 </RCC>

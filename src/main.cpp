@@ -16,7 +16,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     int msgt = 0;
     switch (type) {
     case QtDebugMsg:
-        txt = QString("Debug: %1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg+"\r\n");
         msgt = 0;
         break;
     case QtWarningMsg:

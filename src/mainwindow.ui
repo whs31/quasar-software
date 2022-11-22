@@ -872,6 +872,12 @@ QPushButton:selected {
               <iconset resource="images.qrc">
                <normaloff>:/ui-resources/diskette.png</normaloff>:/ui-resources/diskette.png</iconset>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>12</width>
+               <height>12</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item>
@@ -894,6 +900,12 @@ QPushButton:selected {
              <property name="icon">
               <iconset resource="images.qrc">
                <normaloff>:/ui-resources/download.png</normaloff>:/ui-resources/download.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>12</width>
+               <height>12</height>
+              </size>
              </property>
             </widget>
            </item>
@@ -1793,7 +1805,7 @@ QPushButton:selected {
      <item row="0" column="0">
       <widget class="QTextEdit" name="debugConsole">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>

@@ -12,6 +12,7 @@
 #include <QPainterPath>
 #include <QPolygon>
 #include <QtMath>
+#include <QSet>
 
 class ImageManager : public QObject
 {
@@ -19,6 +20,7 @@ class ImageManager : public QObject
 public:
     explicit ImageManager(QObject *parent = nullptr);
 
+    QStringList getDiff(const QString &path, QStringList existingFileList);
     QStringList CopyJPEG(const QString& path);
     QString MakePNG(QString jpeg);
     QString getCacheDirectory(void);

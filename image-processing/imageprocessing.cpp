@@ -10,10 +10,32 @@ bool ImageProcessing::getReadyStatus()
     if(!metadataList.empty()) { return 1; } return 0;
 }
 
+QStringList ImageProcessing::getEntryList(QString &path)
+{
+    QStringList strl = {};
+    QDir initialDirectory(path);
+    QStringList initialFileList;
+    initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    initialDirectory.setNameFilters(QStringList("*.jpg"));
+    strl = initialDirectory.entryList();
+    if(!strl.empty())
+    {
+            qDebug()<<"[FILEMANAGER] Metadata list contains "<<strl.length()<<" files";
+        /*
+         *          отрезаем формат, путь уже отрезан entryList(). Получается, str = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
+         *          аналогичное действие должен провернуть метод ImageManager getDiff(), чтобы сравнивать конкретно имена файлов без расширений и путей.
+         */
+        for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
+        return strl;
+    } else { qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager..."; return {}; }
+}
+
 bool ImageProcessing::processPath(QString path)
 {
     QElapsedTimer* profiler = new QElapsedTimer();
     profiler->start();
+    QStringList diff = imageManager->getDiff(path, getEntryList(path));
+        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
     QStringList imageList = imageManager->CopyJPEG(path);
         qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1780 для 5 картинок
     if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }

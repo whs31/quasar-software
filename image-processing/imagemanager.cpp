@@ -2,21 +2,30 @@
 
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
-    cacheDirectory = QCoreApplication::applicationDirPath()+QDir::separator()+"image-cache";
+    cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
     QDir dir(cacheDirectory);
-    if (!dir.exists()){
-      dir.mkdir(cacheDirectory);
-    }
-    PNGDirectory = QCoreApplication::applicationDirPath()+QDir::separator()+"png-cache";
+    if (!dir.exists()){ dir.mkpath(cacheDirectory); }
+    PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
     QDir pngdir(PNGDirectory);
-    if(!pngdir.exists())
-    {
-        pngdir.mkdir(PNGDirectory);
-    }
+    if(!pngdir.exists()) { pngdir.mkpath(PNGDirectory); }
             qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
             qInfo()<<"[FILEMANAGER] .png directory: "<<PNGDirectory;
     //на случай если ne захочется кешировать в отдельную папку
     //PNGDirectory = cacheDirectory;
+}
+
+QStringList ImageManager::getDiff(const QString &path, QStringList existingFileList)
+{
+    QDir pngDirectory(getPNGDirectory());
+    QStringList pngFileList;
+    QStringList diff;
+    pngDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    pngDirectory.setNameFilters(QStringList("*.png"));
+    for (QString entryString : pngDirectory.entryList()) { pngFileList.append(entryString); }
+    for (int i = 0; i<pngFileList.length(); i++) { pngFileList[i].chop(4); }
+        qDebug()<<"[FILEMANAGER] Found "<<pngFileList.length()<<" files in cache";
+    for(QString str : existingFileList) { if(!pngFileList.contains(str)) { diff.append(str); } }
+    return diff;
 }
 
 QStringList ImageManager::CopyJPEG(const QString &path)
@@ -38,7 +47,7 @@ QStringList ImageManager::CopyJPEG(const QString &path)
             QDir::toNativeSeparators(jpegFile);
             bool result = QFile::copy(initialFile, jpegFile);
             jpgFileList.append(jpegFile);
-            result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache, skipping... ";
+            result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache (probably diff error)!";
             MakePNG(jpegFile);
         }
         return jpgFileList;

@@ -37,6 +37,7 @@ public:
             bool checksumMatch;
         };
 
+    QStringList getEntryList(QString &path);
     bool processPath(QString path);
     void decode(QStringList filelist);
     void updateLabels(int structureIndex);

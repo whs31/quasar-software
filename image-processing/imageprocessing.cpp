@@ -36,7 +36,8 @@ bool ImageProcessing::processPath(QString path)
     profiler->start();
     QStringList diff = imageManager->getDiff(path, getEntryList(path));
         qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
-    QStringList imageList = imageManager->CopyJPEG(path);
+    //diff received
+    QStringList imageList = imageManager->CopyJPEG(path, diff);
         qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1780 для 5 картинок
     if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }
     if(notNull)

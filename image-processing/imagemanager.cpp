@@ -28,7 +28,33 @@ QStringList ImageManager::getDiff(const QString &path, QStringList existingFileL
     return diff;
 }
 
-QStringList ImageManager::CopyJPEG(const QString &path)
+QStringList ImageManager::diffConvert(QStringList diff, const int format)
+{
+    switch (format) {
+    case 0:
+        for(int i = 0; i<diff.length(); i++)
+        {
+            diff[i].chop(4);
+        }
+        break;
+    case 1:
+        for(int i = 0; i<diff.length(); i++)
+        {
+            diff[i].append(".jpg");
+        }
+        break;
+    case 2:
+        for(int i = 0; i<diff.length(); i++)
+        {
+            diff[i].append(".png");
+        }
+        break;
+    default:
+        break;
+    } return diff;
+}
+
+QStringList ImageManager::CopyJPEG(const QString &path, QStringList diff)
 {
     QDir initialDirectory(path);
     QStringList initialFileList;
@@ -45,10 +71,15 @@ QStringList ImageManager::CopyJPEG(const QString &path)
             QFileInfo fileInfo(initialFile);
             QString jpegFile = cacheDirectory + '/' + fileInfo.fileName();
             QDir::toNativeSeparators(jpegFile);
-            bool result = QFile::copy(initialFile, jpegFile);
+            //diff convert
+            //qWarning()<<diffConvert(diff, 1);
+            if(!diff.empty()&&diffConvert(diff, 1).contains(fileInfo.fileName()))
+            {
+                bool result = QFile::copy(initialFile, jpegFile);
+                result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache (probably diff error)!";
+                MakePNG(jpegFile);
+            }
             jpgFileList.append(jpegFile);
-            result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache (probably diff error)!";
-            MakePNG(jpegFile);
         }
         return jpgFileList;
     } return {}; //.empty() = true
@@ -80,7 +111,7 @@ QImage ImageManager::swapAlpha(QImage i)
 }
 
 QImage ImageManager::enableAlphaSupport(QImage i)                                     //      этот метод нужен для конверсии изображения
-{                                                                                       //      в формат, поддерживающий прозрачность
+{                                                                                     //      в формат, поддерживающий прозрачность
     QImage sample(i.width(),i.height(), QImage::Format_ARGB32_Premultiplied);
     sample.fill(QColor(254,254,254));
     i.setAlphaChannel(sample);

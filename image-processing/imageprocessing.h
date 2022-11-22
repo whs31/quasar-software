@@ -59,6 +59,8 @@ private:
     MainWindow* mainWindow;
     LinkerQML* qmlLinker;
     ImageManager* imageManager;
+
+    QStringList diff;
 };
 
 #endif // IMAGEPROCESSING_H

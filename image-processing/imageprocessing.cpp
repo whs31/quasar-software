@@ -34,7 +34,8 @@ bool ImageProcessing::processPath(QString path)
 {
     QElapsedTimer* profiler = new QElapsedTimer();
     profiler->start();
-    QStringList diff = imageManager->getDiff(path, getEntryList(path));
+    diff.clear();
+    diff = imageManager->getDiff(path, getEntryList(path));
         qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
     //diff received
     QStringList imageList = imageManager->CopyJPEG(path, diff);
@@ -97,11 +98,14 @@ void ImageProcessing::decode(QStringList filelist)
                         qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
                 metadataList.append(metaStruct);
                 //make mask
-                QImageReader reader(metaStruct.filename);
-                QSize sizeOfImage = reader.size();
-                int height = sizeOfImage.height();
-                int width = sizeOfImage.width();
-                imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                if(!diff.empty()&&imageManager->diffConvert(diff, 1).contains(info.fileName()))
+                {
+                    QImageReader reader(metaStruct.filename);
+                    QSize sizeOfImage = reader.size();
+                    int height = sizeOfImage.height();
+                    int width = sizeOfImage.width();
+                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                } else { qDebug()<<"[IMG] Mask already applied, skipping..."; }
             }
 
         } else { qDebug()<<"[IMG] Decoding error!"; }

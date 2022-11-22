@@ -54,11 +54,11 @@ public:
     void goLeft(void);
     void goRight(void);
     void showAllImages(bool showOnStart = false);
+    ImageManager* imageManager;
 
 private:
     MainWindow* mainWindow;
     LinkerQML* qmlLinker;
-    ImageManager* imageManager;
 
     QStringList diff;
 };

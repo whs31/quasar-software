@@ -119,9 +119,17 @@ void MainWindow::debugStreamUpdate(QString _text, int msgtype)
     }
 }
 
+/*
+ *  С учетом всех оптимизаций полная обработка одного РЛИ занимает 400-500 мс
+ *  Это значение умножается на количество НОВЫХ изображений, которые предоставил загрузчик,
+ *  либо которые были найдены в каталоге РЛИ.
+ *  Метод работает в двух режимах: отображение РЛИ из пути C_PATH, если загрузчик выключен/не отвечает, либо же С_PATH
+ *  переопределяется загрузчиком и РЛИ считываются уже с нового пути.
+*/
 bool MainWindow::InitialImageScan()
 {
     bool n = imageProcessing->processPath(C_PATH);
+    //imageProcessing->imageManager->getCacheDirectory();
     if(imageProcessing->getReadyStatus()==true)
     {
         for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)

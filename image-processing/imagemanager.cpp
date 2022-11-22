@@ -28,6 +28,10 @@ QStringList ImageManager::getDiff(const QString &path, QStringList existingFileL
     return diff;
 }
 
+/*
+ *            format:
+ * { 0 1 2 } => { blank .jpg .png }
+ */
 QStringList ImageManager::diffConvert(QStringList diff, const int format)
 {
     switch (format) {

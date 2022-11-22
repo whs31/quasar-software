@@ -104,6 +104,7 @@ void ImageProcessing::decode(QStringList filelist)
                     QSize sizeOfImage = reader.size();
                     int height = sizeOfImage.height();
                     int width = sizeOfImage.width();
+                    qDebug()<<"[IMG] Making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
                 } else { qDebug()<<"[IMG] Mask already applied, skipping..."; }
             }

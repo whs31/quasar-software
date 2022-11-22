@@ -37,5 +37,9 @@
         <file>ui-resources/zoom-out.png</file>
         <file>ui-resources/download.png</file>
         <file>ui-resources/diskette.png</file>
+        <file>ui-resources/tab/command-line.png</file>
+        <file>ui-resources/tab/image.png</file>
+        <file>ui-resources/tab/map.png</file>
+        <file>ui-resources/tab/wifi.png</file>
     </qresource>
 </RCC>

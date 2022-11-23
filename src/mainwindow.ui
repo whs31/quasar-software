@@ -161,7 +161,7 @@
   </widget>
   <widget class="QDockWidget" name="imageDock">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Ignored" vsizetype="Preferred">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>

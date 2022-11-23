@@ -1,0 +1,18 @@
+build*/
+logs*/
+doc/html
+doc/doxy.log
+*.user
+*.autosave
+# Generated files
+moc_*
+ui_*
+*.o
+*.moc
+*.prl
+
+
+# doxygen
+src/html/
+src/latex/
+

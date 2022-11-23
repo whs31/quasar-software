@@ -7,7 +7,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 
-#include "mainwindow.h"
+#include "coreui.h"
 #include "imagemanager.h"
 #include "linkerqml.h"
 
@@ -16,12 +16,12 @@
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
 
-class MainWindow;
+class CoreUI;
 class ImageProcessing : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageProcessing(LinkerQML* linker, MainWindow* parent);
+    explicit ImageProcessing(LinkerQML* linker, CoreUI* parent);
     struct image_metadata {
             double latitude;
             double longitude;
@@ -57,7 +57,7 @@ public:
     ImageManager* imageManager;
 
 private:
-    MainWindow* mainWindow;
+    CoreUI* core;
     LinkerQML* qmlLinker;
 
     QStringList diff;

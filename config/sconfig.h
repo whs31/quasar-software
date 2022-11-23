@@ -20,20 +20,20 @@ public:
     static void saveSettings();
     static void discardSettings();
 
-    static QString C_NETWORKTYPE;
-    static QString C_NETWORKADDRESS;
-    static QString C_NETWORKPORT;
-    static float C_UPDATETIME;
-    static float C_PREDICTRANGE;
-    static float C_CAPTURERANGE;
-    static float C_CAPTURETIME;
-    static float C_AZIMUTH;
-    static float C_DRIFTANGLE;
-    static QString C_ANTENNAPOSITION;
-    static QString C_PATH;
-    static bool C_SHOWIMAGEONSTART;
-    static bool C_CONNECTONSTART;
-    static bool C_DEBUGCONSOLE;
+    static QString NETWORKTYPE;
+    static QString NETWORKADDRESS;
+    static QString NETWORKPORT;
+    static float UPDATETIME;
+    static float PREDICTRANGE;
+    static float CAPTURERANGE;
+    static float CAPTURETIME;
+    static float AZIMUTH;
+    static float DRIFTANGLE;
+    static QString ANTENNAPOSITION;
+    static QString PATH;
+    static bool SHOWIMAGEONSTART;
+    static bool CONNECTONSTART;
+    static bool DEBUGCONSOLE;
 
 signals:
 

@@ -4,20 +4,20 @@ SConfig* SConfig::pointer;
 LinkerQML* SConfig::linker;
 Config* SConfig::config;
 
-QString SConfig::C_NETWORKTYPE;
-QString SConfig::C_NETWORKADDRESS;
-QString SConfig::C_NETWORKPORT;
-float SConfig::C_UPDATETIME;
-float SConfig::C_PREDICTRANGE;
-float SConfig::C_CAPTURERANGE;
-float SConfig::C_CAPTURETIME;
-float SConfig::C_AZIMUTH;
-float SConfig::C_DRIFTANGLE;
-QString SConfig::C_ANTENNAPOSITION;
-QString SConfig::C_PATH;
-bool SConfig::C_SHOWIMAGEONSTART;
-bool SConfig::C_CONNECTONSTART;
-bool SConfig::C_DEBUGCONSOLE;
+QString SConfig::NETWORKTYPE;
+QString SConfig::NETWORKADDRESS;
+QString SConfig::NETWORKPORT;
+float SConfig::UPDATETIME;
+float SConfig::PREDICTRANGE;
+float SConfig::CAPTURERANGE;
+float SConfig::CAPTURETIME;
+float SConfig::AZIMUTH;
+float SConfig::DRIFTANGLE;
+QString SConfig::ANTENNAPOSITION;
+QString SConfig::PATH;
+bool SConfig::SHOWIMAGEONSTART;
+bool SConfig::CONNECTONSTART;
+bool SConfig::DEBUGCONSOLE;
 
 SConfig::SConfig(QQuickItem* qml)
 {
@@ -31,7 +31,20 @@ SConfig* SConfig::init(void)            { return pointer; }
 
 void SConfig::loadSettings()
 {
-    //здесь был mainwindow->getConfig()
+    NETWORKTYPE           =           config->value("network/type").toString();
+    NETWORKADDRESS        =           config->value("network/ip").toString();
+    NETWORKPORT           =           config->value("network/port").toString();
+    UPDATETIME            =           config->value("network/updateTime").toFloat();
+    PREDICTRANGE          =           config->value("map/predict_line_range").toFloat();
+    CAPTURERANGE          =           config->value("map/diagram_length").toFloat();
+    CAPTURETIME           =           config->value("map/capture_time").toFloat();
+    AZIMUTH               =           config->value("map/diagram_theta_azimuth").toFloat();
+    DRIFTANGLE            =           config->value("map/diagram_drift_angle").toFloat();
+    ANTENNAPOSITION       =           config->value("map/antenna_position").toString();
+    PATH                  =           config->value("image/path").toString();
+    SHOWIMAGEONSTART      =           config->value("startup/show_image").toBool();
+    CONNECTONSTART        =           config->value("startup/connect").toBool();
+    DEBUGCONSOLE          =           config->value("startup/debug_console").toBool();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -46,20 +59,20 @@ void SConfig::loadSettings()
 
 void SConfig::saveSettings()
 {
-    config->setValue("network/type", C_NETWORKTYPE);
-    config->setValue("network/ip", C_NETWORKADDRESS);
-    config->setValue("network/port", C_NETWORKPORT);
-    config->setValue("network/updateTime", C_UPDATETIME);
-    config->setValue("map/predict_line_range", C_PREDICTRANGE);
-    config->setValue("map/diagram_length", C_CAPTURERANGE);
-    config->setValue("map/capture_time", C_CAPTURETIME);
-    config->setValue("map/diagram_theta_azimuth", C_AZIMUTH);
-    config->setValue("map/diagram_drift_angle", C_DRIFTANGLE);
-    config->setValue("map/antenna_position", C_ANTENNAPOSITION);
-    config->setValue("image/path", C_PATH);
-    config->setValue("startup/show_image", C_SHOWIMAGEONSTART);
-    config->setValue("startup/connect", C_CONNECTONSTART);
-    config->setValue("startup/debug_console", C_DEBUGCONSOLE);
+    config->setValue("network/type", NETWORKTYPE);
+    config->setValue("network/ip", NETWORKADDRESS);
+    config->setValue("network/port", NETWORKPORT);
+    config->setValue("network/updateTime", UPDATETIME);
+    config->setValue("map/predict_line_range", PREDICTRANGE);
+    config->setValue("map/diagram_length", CAPTURERANGE);
+    config->setValue("map/capture_time", CAPTURETIME);
+    config->setValue("map/diagram_theta_azimuth", AZIMUTH);
+    config->setValue("map/diagram_drift_angle", DRIFTANGLE);
+    config->setValue("map/antenna_position", ANTENNAPOSITION);
+    config->setValue("image/path", PATH);
+    config->setValue("startup/show_image", SHOWIMAGEONSTART);
+    config->setValue("startup/connect", CONNECTONSTART);
+    config->setValue("startup/debug_console", DEBUGCONSOLE);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

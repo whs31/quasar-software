@@ -8,8 +8,8 @@
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "coreui.h"
+#include "ui_coreui.h"
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -40,7 +40,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << endl;
-    MainWindow* pointer = MainWindow::getDebugPointer();
+    CoreUI* pointer = CoreUI::getDebugPointer();
     pointer->debugStreamUpdate(txt, msgt);
 }
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
         qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
     }
     QQuickStyle::setStyle("Material");                              //графика для QML
-    MainWindow window;
+    CoreUI window;
 
     window.show();
     window.showMaximized();

@@ -35,17 +35,16 @@ else()
         network/tcpremote.cpp
         network/udpremote.cpp
         network/remote.cpp
-        src/mainwindow.h
+        src/coreui.h
         src/linkerqml.h
-        src/mainwindow.cpp
+        src/coreui.cpp
         src/linkerqml.cpp
-        src/htmltags.h
+        src/tags.h
+        src/tags.cpp
         config/config.h
-        config/confighandler.h
         config/settingsdialog.h
         config/sconfig.h
         config/config.cpp
-        config/confighandler.cpp
         config/settingsdialog.cpp
         config/settingsdialog.ui
         config/sconfig.cpp

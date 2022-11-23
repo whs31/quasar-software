@@ -1,6 +1,6 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker, MainWindow* parent) : mainWindow(parent), qmlLinker(linker)
+ImageProcessing::ImageProcessing(LinkerQML* linker, CoreUI* parent) : core(parent), qmlLinker(linker)
 {
     imageManager = new ImageManager;
 }
@@ -50,7 +50,7 @@ bool ImageProcessing::processPath(QString path)
         qmlLinker->clearImageArray();
         decode(imageList);
         updateLabels(0);
-        mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());
+        core->updateImageManagerLabels(getVectorSize(), getFileCounter());
             qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1032 для пяти картинок
     } else {
         QMessageBox warningDialogue;
@@ -59,7 +59,7 @@ bool ImageProcessing::processPath(QString path)
         warningDialogue.setText("В выбранном каталоге не найдены изображения!");
         warningDialogue.exec();
     }
-    if(getVectorSize()>1) { mainWindow->setPushButton_goRightEnabled(true); }
+    if(getVectorSize()>1) { core->setPushButton_goRightEnabled(true); }
     return notNull;
 }
 
@@ -119,7 +119,7 @@ void ImageProcessing::updateLabels(int structureIndex)
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
     QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
-    mainWindow->updateImageMetaLabels(cutFilename,
+    core->updateImageMetaLabels(cutFilename,
                                       metadataList[structureIndex].latitude,
                                       metadataList[structureIndex].longitude,
                                       metadataList[structureIndex].dx,
@@ -181,15 +181,15 @@ void ImageProcessing::goLeft()
 {
     int totalFiles = getVectorSize()-1;
     if(fileCounter>0) { fileCounter--; updateLabels(fileCounter);                                       }
-    if (fileCounter == 0) { mainWindow->setPushButton_goLeftEnabled(false);                             }
-    if(fileCounter < totalFiles) { mainWindow->setPushButton_goRightEnabled(true);                      }
-    if(notNull) { mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
+    if (fileCounter == 0) { core->setPushButton_goLeftEnabled(false);                             }
+    if(fileCounter < totalFiles) { core->setPushButton_goRightEnabled(true);                      }
+    if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
 }
 void ImageProcessing::goRight()
 {
     int totalFiles = getVectorSize()-1;
     if(fileCounter < totalFiles) { fileCounter++; updateLabels(fileCounter);                            }
-    if(fileCounter > 0) { mainWindow->setPushButton_goLeftEnabled(true);                                }
-    if (fileCounter == totalFiles) { mainWindow->setPushButton_goRightEnabled(false);                   }
-    if(notNull) { mainWindow->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
+    if(fileCounter > 0) { core->setPushButton_goLeftEnabled(true);                                }
+    if (fileCounter == totalFiles) { core->setPushButton_goRightEnabled(false);                   }
+    if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
 }

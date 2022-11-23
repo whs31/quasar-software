@@ -1,28 +1,28 @@
-#include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "coreui.h"
+#include "ui_coreui.h"
 
-MainWindow* MainWindow::debugPointer;
-MainWindow::MainWindow(QWidget *parent)
+CoreUI* CoreUI::debugPointer;
+CoreUI::CoreUI(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::CoreUI)
 {
     debugPointer = this;
     InitializeUI();
     InitializeConnections();
 }
 
-MainWindow::~MainWindow()
+CoreUI::~CoreUI()
 {
     udpRemote->Disconnect();
     tcpRemote->Disconnect();
     delete ui;
 }
 
-MainWindow* MainWindow::getDebugPointer(void)                                { return debugPointer;                                                                                                                 }
-bool MainWindow::getReady(void)                                              { return uiReady;                                                                                                                      }
-QQuickItem* MainWindow::getMapPointer(void)                                  { return qml;                                                                                                                          }
+CoreUI* CoreUI::getDebugPointer(void)                                    { return debugPointer;                                                                                                                 }
+bool CoreUI::getReady(void)                                              { return uiReady;                                                                                                                      }
+QQuickItem* CoreUI::getMapPointer(void)                                  { return qml;                                                                                                                          }
 
-void MainWindow::InitializeUI()
+void CoreUI::InitializeUI()
 {
             qDebug()<<"[STARTUP] Starting UI initialization...";
     ui->setupUi(this);
@@ -55,33 +55,32 @@ void MainWindow::InitializeUI()
             openSSLDialogue.exec();
         }
 }
-void MainWindow::InitializeConnections()
+void CoreUI::InitializeConnections()
 {
             qInfo()<<"[STARTUP] Setuping connections...";
-    html = new HTMLTags();
     linker = new LinkerQML(qml);
     //------------------------------------
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
+    new Tags();
     new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
     SConfig::loadSettings();
-    config = new ConfigHandler(linker, this);           config->loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
 
-    ui->debugConsoleDock->setEnabled(C_DEBUGCONSOLE);
-    ui->debugConsoleDock->setVisible(C_DEBUGCONSOLE);
+    ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);
+    ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    if(C_CONNECTONSTART)
+    if(SConfig::CONNECTONSTART)
     {
-        if(C_NETWORKTYPE == "TCP"){ tcpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT); }
+        if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
         else
         {
-            udpRemote->Connect(C_NETWORKADDRESS+":"+C_NETWORKPORT);
-            if(C_NETWORKTYPE != "UDP") { C_NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+            udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
+            if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
                     qInfo()<<"[REMOTE] UDP client connected";
         }
     }//---------------------------------------------< внутренности засунуть в кнопку на случай если в конфиге false;
@@ -91,26 +90,15 @@ void MainWindow::InitializeConnections()
     InitialImageScan();
 }
 
-void MainWindow::debugStreamUpdate(QString _text, int msgtype)
+void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if(uiReady)
     {
-        if(msgtype == 0)
-        {
-            ui->debugConsole->setTextColor(Qt::gray);
-        } else if (msgtype == 1)
-        {
-            ui->debugConsole->setTextColor(Qt::white);
-        } else if (msgtype == 2)
-        {
-            ui->debugConsole->setTextColor(Qt::yellow);
-        } else if (msgtype == 3)
-        {
-            ui->debugConsole->setTextColor(Qt::red);
-        } else if (msgtype == 4)
-        {
-            ui->debugConsole->setTextColor(Qt::darkRed);
-        }
+        if(msgtype == 0) { ui->debugConsole->setTextColor(Qt::gray); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(Qt::white); }
+        else if (msgtype == 2) { ui->debugConsole->setTextColor(Qt::yellow); }
+        else if (msgtype == 3) { ui->debugConsole->setTextColor(Qt::red); }
+        else if (msgtype == 4) { ui->debugConsole->setTextColor(Qt::darkRed); }
             QFont consoleFont = ui->debugConsole->font();
             consoleFont.setPointSize(7);
         ui->debugConsole->insertPlainText(_text);
@@ -126,12 +114,12 @@ void MainWindow::debugStreamUpdate(QString _text, int msgtype)
  *  С учетом всех оптимизаций полная обработка одного РЛИ занимает 400-500 мс
  *  Это значение умножается на количество НОВЫХ изображений, которые предоставил загрузчик,
  *  либо которые были найдены в каталоге РЛИ.
- *  Метод работает в двух режимах: отображение РЛИ из пути C_PATH, если загрузчик выключен/не отвечает, либо же С_PATH
+ *  Метод работает в двух режимах: отображение РЛИ из пути SConfig::PATH, если загрузчик выключен/не отвечает, либо же SConfig::PATH
  *  переопределяется загрузчиком и РЛИ считываются уже с нового пути.
 */
-bool MainWindow::InitialImageScan()
+bool CoreUI::InitialImageScan()
 {
-    bool n = imageProcessing->processPath(C_PATH);
+    bool n = imageProcessing->processPath(SConfig::PATH);
     //imageProcessing->imageManager->getCacheDirectory();
     if(imageProcessing->getReadyStatus()==true)
     {
@@ -139,7 +127,7 @@ bool MainWindow::InitialImageScan()
         {
             imageChecklist.append(false);
         }
-        imageProcessing->showAllImages(C_SHOWIMAGEONSTART);
+        imageProcessing->showAllImages(SConfig::SHOWIMAGEONSTART);
     }
     ui->pushButton_showAllImages->setEnabled(n);
     ui->layout_imageTop_2->setEnabled(n);
@@ -148,25 +136,25 @@ bool MainWindow::InitialImageScan()
 
     return n;
 }
-void MainWindow::Halftime()
+void CoreUI::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($>>text#))
-    if(C_NETWORKTYPE == "TCP"){
+    if(SConfig::NETWORKTYPE == "TCP"){
         SendRemoteCommand("$request");
     } else {
         SendRemoteCommand("$request");
     }
 }
-void MainWindow::SendRemoteCommand(QString command)
+void CoreUI::SendRemoteCommand(QString command)
 {
-    if(C_NETWORKTYPE == "TCP"){
+    if(SConfig::NETWORKTYPE == "TCP"){
         tcpRemote->Send(command.toUtf8());
     } else {
         udpRemote->Send(command.toUtf8());
     }
 }
-void MainWindow::ReadTelemetry(QByteArray data){
+void CoreUI::ReadTelemetry(QByteArray data){
 
     //qDebug()<<data.data();
     QString unparsed = data.data();
@@ -195,63 +183,34 @@ void MainWindow::ReadTelemetry(QByteArray data){
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }
-void MainWindow::on_formImage_triggered() //menu slot (will be removed)
+void CoreUI::on_formImage_triggered() //menu slot (will be removed)
 {
             qDebug()<<"[CLIENT] Sending command to form SAR image";
     SendRemoteCommand("$form-SAR-image");
 }
-void MainWindow::getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3)
+void CoreUI::on_openSettings_triggered() //menu slot
 {
-    C_NETWORKTYPE = s1;         C_NETWORKADDRESS = s2;          C_NETWORKPORT = s3;             C_UPDATETIME = f1;
-    C_PREDICTRANGE = f2;        C_CAPTURERANGE = f3;            C_CAPTURETIME = f4;             C_AZIMUTH = f5;
-    C_DRIFTANGLE = f6;          C_ANTENNAPOSITION = s4;         C_PATH = s5;                    C_SHOWIMAGEONSTART = b1;
-    C_CONNECTONSTART = b2;      C_DEBUGCONSOLE = b3;
-}
-void MainWindow::on_openSettings_triggered() //menu slot
-{
-    SettingsDialog sd(this,
-                      C_NETWORKTYPE,
-                      C_NETWORKADDRESS,
-                      C_NETWORKPORT,
-                      C_UPDATETIME,
-                      C_PREDICTRANGE,
-                      C_DRIFTANGLE,
-                      C_AZIMUTH,
-                      C_CAPTURERANGE,
-                      C_CAPTURETIME,
-                      C_ANTENNAPOSITION,
-                      C_PATH,
-                      C_SHOWIMAGEONSTART,
-                      C_CONNECTONSTART,
-                      C_DEBUGCONSOLE);
+    SettingsDialog sd(this);
+    QString s = SConfig::PATH;
     if(sd.exec() == QDialog::Accepted)
     {
-        C_NETWORKTYPE = sd.cfg_connectionType;
-        C_NETWORKADDRESS = sd.cfg_connectionAddress;
-        C_NETWORKPORT = sd.cfg_connectionPort;
-        C_UPDATETIME = sd.cfg_refreshTime;
-        C_PREDICTRANGE = sd.cfg_predictRange;
-        C_DRIFTANGLE = sd.cfg_driftAngle;
-        C_AZIMUTH = sd.cfg_thetaAzimuth;
-        C_CAPTURERANGE = sd.cfg_captureRange;
-        C_CAPTURETIME = sd.cfg_captureTime;
-        C_ANTENNAPOSITION = sd.cfg_antennaPosition;
-        if(C_PATH!=sd.cfg_path) { C_PATH = sd.cfg_path; InitialImageScan(); } else { qDebug()<<"[CONFIG] Path unchanged, no further scans"; }
-        C_SHOWIMAGEONSTART = sd.cfg_showImageOnStart;
-        C_CONNECTONSTART = sd.cfg_connectOnStart;
-        C_DEBUGCONSOLE = sd.cfg_debugConsole; ui->debugConsoleDock->setEnabled(C_DEBUGCONSOLE); ui->debugConsoleDock->setVisible(C_DEBUGCONSOLE);
+        if(s!=SConfig::PATH)
+        {
+            InitialImageScan();
+        } else { qInfo()<<"[CONFIG] Path unchanged, no further scans"; }
+        ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
-        config->saveSettings();
-    } else { config->loadSettings(); }
+        SConfig::saveSettings();
+    } else { SConfig::loadSettings(); }
 }
-void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                            }
-void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
-void MainWindow::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
-void MainWindow::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
-void MainWindow::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
-void MainWindow::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
-void MainWindow::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }
-void MainWindow::on_pushButton_clearTrack_clicked()
+void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                            }
+void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
+void CoreUI::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
+void CoreUI::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
+void CoreUI::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
+void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
+void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }
+void CoreUI::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
     askForClearTrack.setWindowTitle("Очистка трека");
@@ -269,13 +228,13 @@ void MainWindow::on_pushButton_clearTrack_clicked()
         break;
     }
 }
-void MainWindow::on_pushButton_panImage_clicked()
+void CoreUI::on_pushButton_panImage_clicked()
 {
     linker->panImage(imageProcessing->getFileCounter());
     ui->checkBox->setChecked(false);
     on_checkBox_stateChanged(0);
 }
-void MainWindow::on_pushButton_showImage_clicked()
+void CoreUI::on_pushButton_showImage_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
@@ -283,7 +242,7 @@ void MainWindow::on_pushButton_showImage_clicked()
         ImageChecklistLoop();
     }
 }
-void MainWindow::ImageChecklistLoop()
+void CoreUI::ImageChecklistLoop()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
@@ -298,7 +257,7 @@ void MainWindow::ImageChecklistLoop()
         }
     }
 }
-void MainWindow::on_pushButton_showAllImages_clicked()
+void CoreUI::on_pushButton_showAllImages_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
@@ -317,36 +276,36 @@ void MainWindow::on_pushButton_showAllImages_clicked()
         ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
     }
 }
-void MainWindow::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
+void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
 {
-    ui->label_c_telemetrylat->setText(html->HtmlColorMain+html->HtmlBold+QString::number(lat, 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetrylon->setText(html->HtmlColorMain+html->HtmlBold+QString::number(lon, 'f', 7)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetryspd->setText(html->HtmlColorMain+html->HtmlBold+QString::number(speed, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
-    ui->label_c_telemetryelv->setText(html->HtmlColorMain+html->HtmlBold+QString::number(elevation, 'f', 1)+html->HtmlBoldEnd+html->HtmlColorEnd);
+    ui->label_c_telemetrylat->setText(Tags::ColorMain+Tags::Bold+QString::number(lat, 'f', 7)+Tags::Bold_+Tags::Color_);
+    ui->label_c_telemetrylon->setText(Tags::ColorMain+Tags::Bold+QString::number(lon, 'f', 7)+Tags::Bold_+Tags::Color_);
+    ui->label_c_telemetryspd->setText(Tags::ColorMain+Tags::Bold+QString::number(speed, 'f', 1)+Tags::Bold_+Tags::Color_);
+    ui->label_c_telemetryelv->setText(Tags::ColorMain+Tags::Bold+QString::number(elevation, 'f', 1)+Tags::Bold_+Tags::Color_);
 }
-void MainWindow::updateImageManagerLabels(int total, int current)
+void CoreUI::updateImageManagerLabels(int total, int current)
 {
     ui->label_c_foundImages->setText(
                 "Найдено "
-                +html->HtmlBold
-                +html->HtmlColorMainAccent
+                +Tags::Bold
+                +Tags::ColorMainA
                 +QString::number(total)
-                +html->HtmlColorEnd
-                +html->HtmlBoldEnd
+                +Tags::Color_
+                +Tags::Bold_
                 +" изображений");
     ui->label_c_currentImage->setText(
                 "Изображение "
-                +html->HtmlBold
-                +html->HtmlColorMain
+                +Tags::Bold
+                +Tags::ColorMain
                 +QString::number(current+1)
-                +html->HtmlColorEnd
-                +html->HtmlBoldEnd
+                +Tags::Color_
+                +Tags::Bold_
                 +" из "
-                +html->HtmlBold
+                +Tags::Bold
                 +QString::number(total)
-                +html->HtmlBoldEnd);
+                +Tags::Bold_);
 }
-void MainWindow::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
+void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
 {
     ui->label_c_metaFilename->setText(filename);
     ui->label_c_metaLat->setText(QString::number(lat));
@@ -359,7 +318,7 @@ void MainWindow::updateImageMetaLabels(QString filename, float lat, float lon, f
     ui->label_c_metaDAngle->setText(QString::number(driftAngle));
     ui->label_c_metaChecksum->setText(hexSum);
     ui->label_c_metaTime->setText(datetime);
-    (match) ? ui->label_c_checksumSuccess->setText(html->HtmlColorSuccess+"да"+html->HtmlColorEnd) : ui->label_c_checksumSuccess->setText(html->HtmlColorFailure+"нет"+html->HtmlColorEnd);
+    (match) ? ui->label_c_checksumSuccess->setText(Tags::ColorSuccess+"да"+Tags::Color_) : ui->label_c_checksumSuccess->setText(Tags::ColorFailure+"нет"+Tags::Color_);
 }
-void MainWindow::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
-void MainWindow::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }
+void CoreUI::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
+void CoreUI::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }

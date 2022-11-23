@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef COREUI_H
+#define COREUI_H
 
 #include <QMainWindow>
 #include <QSslSocket>
@@ -7,11 +7,10 @@
 
 #include "udpremote.h"
 #include "tcpremote.h"
-#include "confighandler.h"
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 
-#include "htmltags.h"
+#include "tags.h"
 #include "linkerqml.h"
 #include "sconfig.h"
 
@@ -22,39 +21,22 @@ class ImageProcessing;
 //--------
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class CoreUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-    static MainWindow* getDebugPointer(void);
+    CoreUI(QWidget *parent = nullptr);
+    ~CoreUI();
+    static CoreUI* getDebugPointer(void);
     QQuickItem* qml;
 
     void SendRemoteCommand(QString command);
     void debugStreamUpdate(QString _text, int msgtype);
     double telemetry[4]; //lat, lon, speed, elevation
-
-    //-----config values--------- //эти значения обновляются классом configHandler при вызове loadSettings и передаются в settingsDialog при инициализации окна
-    QString C_NETWORKTYPE;
-    QString C_NETWORKADDRESS;
-    QString C_NETWORKPORT;
-    float C_UPDATETIME;
-    float C_PREDICTRANGE;
-    float C_CAPTURERANGE;
-    float C_CAPTURETIME;
-    float C_AZIMUTH;
-    float C_DRIFTANGLE;
-    QString C_ANTENNAPOSITION;
-    QString C_PATH;
-    bool C_SHOWIMAGEONSTART;
-    bool C_CONNECTONSTART;
-    bool C_DEBUGCONSOLE;
-    //----------------------------------------------------------------------------------------------------------------------------------------------------------
 
     //ui setters
     void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
@@ -70,9 +52,8 @@ public:
 
 
 private:
-    Ui::MainWindow *ui;
-    static MainWindow* debugPointer;
-    HTMLTags *html;
+    Ui::CoreUI *ui;
+    static CoreUI* debugPointer;
     UDPRemote *udpRemote;
     TCPRemote *tcpRemote;
     ConfigHandler *config;
@@ -111,4 +92,4 @@ private slots:
     void on_pushButton_showImage_clicked();
     void on_pushButton_showAllImages_clicked();
 };
-#endif // MAINWINDOW_H
+#endif // COREUI_H

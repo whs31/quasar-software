@@ -99,7 +99,7 @@ void ImageProcessing::decode(QStringList filelist)
                         //qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully"; //засоряет дебаг
                 metadataList.append(metaStruct);
                 //make mask
-                if(!diff.empty()&&imageManager->diffConvert(diff, 1).contains(info.fileName()))
+                if(!diff.empty()&&imageManager->diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
                     QImageReader reader(metaStruct.filename);
                     QSize sizeOfImage = reader.size();

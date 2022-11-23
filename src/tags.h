@@ -3,21 +3,32 @@
 
 #include <QObject>
 
+enum Colors : short int
+{
+    NoColor,
+    Main,
+    MainFaded,
+    Accent,
+    Success,
+    Failure
+};
+
+enum Format : short int
+{
+    NoFormat,
+    Bold,
+    Italic,
+    Underline
+};
+
 class Tags
 {
 public:
     Tags();
 
-    //colors for text
-    static const QString ColorMain;
-    static const QString ColorMainF;
-    static const QString ColorMainA;
-    static const QString ColorSuccess;
-    static const QString ColorFailure;
-    static const QString Color_;
-    //html tags
-    static const QString Bold;
-    static const QString Bold_;
+    static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat);
+
+private:
 };
 
 #endif // TAGS_H

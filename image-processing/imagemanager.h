@@ -14,6 +14,13 @@
 #include <QtMath>
 #include <QSet>
 
+enum ImageFormat : short int
+{
+    OnlyFilename,
+    JPEG,
+    PNG
+};
+
 class ImageManager : public QObject
 {
     Q_OBJECT
@@ -21,7 +28,7 @@ public:
     explicit ImageManager(QObject *parent = nullptr);
 
     QStringList getDiff(const QString &path, QStringList existingFileList);
-    QStringList diffConvert(QStringList diff, const int format); // { 0 1 2 } => { blank .jpg .png }
+    QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
     QStringList CopyJPEG(const QString& path, QStringList diff);
     QString MakePNG(QString jpeg);
     QString getCacheDirectory(void);

@@ -32,7 +32,7 @@ QStringList ImageManager::getDiff(const QString &path, QStringList existingFileL
  *            format:
  * { 0 1 2 } => { blank .jpg .png }
  */
-QStringList ImageManager::diffConvert(QStringList diff, const int format)
+QStringList ImageManager::diffConvert(QStringList diff, ImageFormat format)
 {
     switch (format) {
     case 0:
@@ -77,7 +77,7 @@ QStringList ImageManager::CopyJPEG(const QString &path, QStringList diff)
             QDir::toNativeSeparators(jpegFile);
             //diff convert
             //qWarning()<<diffConvert(diff, 1);
-            if(!diff.empty()&&diffConvert(diff, 1).contains(fileInfo.fileName()))
+            if(!diff.empty()&&diffConvert(diff, ImageFormat::JPEG).contains(fileInfo.fileName()))
             {
                 bool result = QFile::copy(initialFile, jpegFile);
                 result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache (probably diff error)!";

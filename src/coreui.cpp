@@ -278,32 +278,22 @@ void CoreUI::on_pushButton_showAllImages_clicked()
 }
 void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
 {
-    ui->label_c_telemetrylat->setText(Tags::ColorMain+Tags::Bold+QString::number(lat, 'f', 7)+Tags::Bold_+Tags::Color_);
-    ui->label_c_telemetrylon->setText(Tags::ColorMain+Tags::Bold+QString::number(lon, 'f', 7)+Tags::Bold_+Tags::Color_);
-    ui->label_c_telemetryspd->setText(Tags::ColorMain+Tags::Bold+QString::number(speed, 'f', 1)+Tags::Bold_+Tags::Color_);
-    ui->label_c_telemetryelv->setText(Tags::ColorMain+Tags::Bold+QString::number(elevation, 'f', 1)+Tags::Bold_+Tags::Color_);
+    ui->label_c_telemetrylat->setText(Tags::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold));
+    ui->label_c_telemetrylon->setText(Tags::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold));
+    ui->label_c_telemetryspd->setText(Tags::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold));
+    ui->label_c_telemetryelv->setText(Tags::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold));
 }
 void CoreUI::updateImageManagerLabels(int total, int current)
 {
     ui->label_c_foundImages->setText(
                 "Найдено "
-                +Tags::Bold
-                +Tags::ColorMainA
-                +QString::number(total)
-                +Tags::Color_
-                +Tags::Bold_
+                +Tags::StyleText(QString::number(total), Colors::Accent, Format::Bold)
                 +" изображений");
     ui->label_c_currentImage->setText(
                 "Изображение "
-                +Tags::Bold
-                +Tags::ColorMain
-                +QString::number(current+1)
-                +Tags::Color_
-                +Tags::Bold_
+                +Tags::StyleText(QString::number(current+1), Colors::Main, Format::Bold)
                 +" из "
-                +Tags::Bold
-                +QString::number(total)
-                +Tags::Bold_);
+                +Tags::StyleText(QString::number(total), Colors::NoColor, Format::Bold));
 }
 void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
 {
@@ -318,7 +308,7 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
     ui->label_c_metaDAngle->setText(QString::number(driftAngle));
     ui->label_c_metaChecksum->setText(hexSum);
     ui->label_c_metaTime->setText(datetime);
-    (match) ? ui->label_c_checksumSuccess->setText(Tags::ColorSuccess+"да"+Tags::Color_) : ui->label_c_checksumSuccess->setText(Tags::ColorFailure+"нет"+Tags::Color_);
+    (match) ? ui->label_c_checksumSuccess->setText(Tags::StyleText("да", Colors::Success)) : ui->label_c_checksumSuccess->setText(Tags::StyleText("нет", Colors::Failure));
 }
 void CoreUI::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
 void CoreUI::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }

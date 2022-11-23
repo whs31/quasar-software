@@ -43,10 +43,12 @@ else()
         config/config.h
         config/confighandler.h
         config/settingsdialog.h
+        config/sconfig.h
         config/config.cpp
         config/confighandler.cpp
         config/settingsdialog.cpp
         config/settingsdialog.ui
+        config/sconfig.cpp
         image-processing/imageprocessing.h
         image-processing/imagemanager.h
         image-processing/tcpdownloader.h

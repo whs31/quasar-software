@@ -105,7 +105,6 @@ private slots:
     void on_pushButton_goLeft_clicked();
     void on_pushButton_goRight_clicked();
     void on_pushButton_panImage_clicked();
-    void on_pushButton_panImage_2_clicked();
     void on_pushButton_showImage_clicked();
     void on_pushButton_showAllImages_clicked();
 };

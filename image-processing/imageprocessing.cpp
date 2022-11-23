@@ -36,7 +36,8 @@ bool ImageProcessing::processPath(QString path)
     profiler->start();
     diff.clear();
     diff = imageManager->getDiff(path, getEntryList(path));
-        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+        if(!diff.empty()) { qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files"; }
+        else { qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped"; }
     //diff received
     QStringList imageList = imageManager->CopyJPEG(path, diff);
         qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1780 для 5 картинок
@@ -95,7 +96,7 @@ void ImageProcessing::decode(QStringList filelist)
                 //qDebug()<<newChecksum<<metaStruct.checksum;
                 //qDebug()<<QString("%1").arg(newChecksum, 8, 16, QLatin1Char('0'));
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
-                        qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully";
+                        //qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully"; //засоряет дебаг
                 metadataList.append(metaStruct);
                 //make mask
                 if(!diff.empty()&&imageManager->diffConvert(diff, 1).contains(info.fileName()))
@@ -106,10 +107,10 @@ void ImageProcessing::decode(QStringList filelist)
                     int width = sizeOfImage.width();
                     qDebug()<<"[IMG] Making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
-                } else { qDebug()<<"[IMG] Mask already applied, skipping..."; }
+                } else {} //qDebug()<<"[IMG] Mask already applied, skipping..."; }
             }
 
-        } else { qDebug()<<"[IMG] Decoding error!"; }
+        } else { qCritical()<<"[IMG] Decoding error!"; }
     }
 }
 

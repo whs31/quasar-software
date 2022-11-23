@@ -138,8 +138,9 @@ bool MainWindow::InitialImageScan()
         }
         imageProcessing->showAllImages(C_SHOWIMAGEONSTART);
     }
-    ui->frame_3->setEnabled(n);
-    ui->frame_4->setEnabled(n);
+    ui->pushButton_showAllImages->setEnabled(n);
+    ui->layout_imageTop_2->setEnabled(n);
+    ui->layout_imageMiddle_2->setEnabled(n);
     ui->metaGBox->setEnabled(n);
 
     return n;
@@ -244,7 +245,6 @@ void MainWindow::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->change
 void MainWindow::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
 void MainWindow::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
 void MainWindow::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
-void MainWindow::on_pushButton_panImage_2_clicked()             { on_pushButton_panImage_clicked();                                                                                             }
 void MainWindow::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
 void MainWindow::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
 void MainWindow::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }

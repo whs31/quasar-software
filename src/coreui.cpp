@@ -63,6 +63,7 @@ void CoreUI::InitializeConnections()
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
+    downloader = new TCPDownloader();
     new Tags();
     new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
     SConfig::loadSettings();
@@ -111,7 +112,7 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 }
 
 /*
- *  С учетом всех оптимизаций полная обработка одного РЛИ занимает 400-500 мс
+ *  С учетом всех оптимизаций полная обработка одного РЛИ занимает 200-300 мс
  *  Это значение умножается на количество НОВЫХ изображений, которые предоставил загрузчик,
  *  либо которые были найдены в каталоге РЛИ.
  *  Метод работает в двух режимах: отображение РЛИ из пути SConfig::PATH, если загрузчик выключен/не отвечает, либо же SConfig::PATH

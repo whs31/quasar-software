@@ -13,6 +13,7 @@
 #include "tags.h"
 #include "linkerqml.h"
 #include "sconfig.h"
+#include "tcpdownloader.h"
 
 //классы, имеющие обратную связь с мейнвиндоу в виде вызова функции без системы сигнал-слот
 //это надо фиксить =)
@@ -60,6 +61,7 @@ private:
     QTimer *timer;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;
+    TCPDownloader *downloader;
 
     bool uiReady = false;
 

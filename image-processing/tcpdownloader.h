@@ -11,13 +11,18 @@ class TCPDownloader : public QObject
 public:
     explicit TCPDownloader(QObject *parent = nullptr);
 
+
 signals:
 
 public slots:
-    void newConnection();
+    void clientConnected(void);
+    void serverRead(void);
+    void clientDisconnected(void);
 
 private:
     QTcpServer* server;
+    QTcpSocket* socket;
+    QByteArray datagram;
 };
 
 #endif // TCPDOWNLOADER_H

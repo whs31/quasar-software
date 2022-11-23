@@ -20,6 +20,7 @@ MainWindow::~MainWindow()
 
 MainWindow* MainWindow::getDebugPointer(void)                                { return debugPointer;                                                                                                                 }
 bool MainWindow::getReady(void)                                              { return uiReady;                                                                                                                      }
+QQuickItem* MainWindow::getMapPointer(void)                                  { return qml;                                                                                                                          }
 
 void MainWindow::InitializeUI()
 {
@@ -63,6 +64,8 @@ void MainWindow::InitializeConnections()
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
+    new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
+    SConfig::loadSettings();
     config = new ConfigHandler(linker, this);           config->loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
 

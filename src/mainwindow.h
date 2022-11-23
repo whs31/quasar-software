@@ -13,11 +13,13 @@
 
 #include "htmltags.h"
 #include "linkerqml.h"
+#include "sconfig.h"
 
 //классы, имеющие обратную связь с мейнвиндоу в виде вызова функции без системы сигнал-слот
 //это надо фиксить =)
 class ConfigHandler;
 class ImageProcessing;
+//--------
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -63,6 +65,7 @@ public:
     //getters
     void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3);
     bool getReady(void);
+    QQuickItem* getMapPointer(void);
 
 
 

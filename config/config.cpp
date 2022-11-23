@@ -10,7 +10,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
          */
 
     group_t utility;
-    utility["version"] = "1411";
+    utility["version"] = "2311";
     checkValuesSimple(utility);
 
     group_t network;
@@ -27,11 +27,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["diagram_theta_azimuth"] = "12.5";
     map["diagram_drift_angle"] = "11";
     map["antenna_position"] = "r";
-    map["vehicle_type"] = "helicopter";
+    map["vehicle_type"] = "!unused";
     checkValuesSimple(map);
 
     group_t image;
-    image["path"] = "\\192.168.1.48/Jetson/QuaSAR-bin/img";
+    image["path"] = "\\192.168.1.48\\Jetson\\QuaSAR-bin\\img";
     checkValuesSimple(image);
 
     group_t startup;

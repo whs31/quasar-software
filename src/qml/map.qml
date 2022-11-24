@@ -193,8 +193,12 @@ Rectangle {
 
     function drawPredict(angle)
     {
-        var lat_ = c_PREDICTRANGE*Math.cos(Math.PI-angle*180/Math.PI);
-        var lon_ = c_PREDICTRANGE*Math.sin(Math.PI-angle*180/Math.PI);
+        predictLine.path = [];
+        var p_lat = latitude+Math.sin((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
+        var p_lon = longitude+Math.cos((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
+        predictLine.addCoordinate(QtPositioning.coordinate(latitude, longitude));
+        predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
+        console.log(c_PREDICTRANGE);
 
     }
 
@@ -317,7 +321,7 @@ Rectangle {
 
         MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.accent; path: [ ]; z: 10; }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.5; line.color: Material.accent; z: 9; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.2; line.color: Material.accent; z: 9; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.accent; z: 9; path: []; }
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }

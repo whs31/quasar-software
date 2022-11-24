@@ -17,6 +17,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->i_showImages->setChecked(SConfig::SHOWIMAGEONSTART);
     uiS->i_connectOnStart->setChecked(SConfig::CONNECTONSTART);
     uiS->i_debugConsole->setChecked(SConfig::DEBUGCONSOLE);
+    uiS->i_useLoader->setChecked(SConfig::USELOADER);
     if(SConfig::ANTENNAPOSITION == "r") {
         uiS->i_antennaRightB->setChecked(true);
         uiS->i_antennaLeftB->setChecked(false); }
@@ -50,6 +51,7 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::SHOWIMAGEONSTART =           (uiS->i_showImages->isChecked()) ? true : false;
     SConfig::CONNECTONSTART   =           (uiS->i_connectOnStart->isChecked()) ? true : false;
     SConfig::DEBUGCONSOLE     =           (uiS->i_debugConsole->isChecked()) ? true : false;
+    SConfig::USELOADER        =           (uiS->i_useLoader->isChecked()) ? true : false;
     accept();
 }
 

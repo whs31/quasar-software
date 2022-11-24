@@ -12,7 +12,8 @@
 #include <QPainterPath>
 #include <QPolygon>
 #include <QtMath>
-#include <QSet>
+
+#include "sconfig.h"
 
 enum ImageFormat : short int
 {

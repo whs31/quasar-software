@@ -11,6 +11,7 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
     TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
     QDir tcpdir(TCPDirectory);
     if(!tcpdir.exists()) { tcpdir.mkpath(TCPDirectory); }
+    SConfig::CACHEPATH = TCPDirectory;
 
             qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
             qInfo()<<"[FILEMANAGER] .png directory: "<<PNGDirectory;

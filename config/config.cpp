@@ -31,6 +31,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     checkValuesSimple(map);
 
     group_t image;
+    image["use_loader"] = true;
     image["path"] = "\\192.168.1.48\\Jetson\\QuaSAR-bin\\img";
     checkValuesSimple(image);
 

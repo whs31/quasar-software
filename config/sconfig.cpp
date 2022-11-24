@@ -18,6 +18,8 @@ QString SConfig::PATH;
 bool SConfig::SHOWIMAGEONSTART;
 bool SConfig::CONNECTONSTART;
 bool SConfig::DEBUGCONSOLE;
+QString SConfig::CACHEPATH;
+bool SConfig::USELOADER;
 
 SConfig::SConfig(QQuickItem* qml)
 {
@@ -45,6 +47,8 @@ void SConfig::loadSettings()
     SHOWIMAGEONSTART      =           config->value("startup/show_image").toBool();
     CONNECTONSTART        =           config->value("startup/connect").toBool();
     DEBUGCONSOLE          =           config->value("startup/debug_console").toBool();
+    //CACHEPATH           =           устанавливается в ImageManager в конструкторе
+    USELOADER             =           config->value("image/use_loader").toBool();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -73,6 +77,7 @@ void SConfig::saveSettings()
     config->setValue("startup/show_image", SHOWIMAGEONSTART);
     config->setValue("startup/connect", CONNECTONSTART);
     config->setValue("startup/debug_console", DEBUGCONSOLE);
+    config->setValue("image/use_loader", USELOADER);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

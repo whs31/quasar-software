@@ -34,6 +34,8 @@ public:
     static bool SHOWIMAGEONSTART;
     static bool CONNECTONSTART;
     static bool DEBUGCONSOLE;
+    static QString CACHEPATH;
+    static bool USELOADER;
 
 signals:
 

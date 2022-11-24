@@ -28,6 +28,7 @@ void TCPDownloader::clientConnected(void)
     datagram.clear();
     fnameCheck = false;
     success = false;
+    qInfo()<<"[SERVER] SAR connected and ready to send image";
 }
 
 void TCPDownloader::clientDisconnected(void)

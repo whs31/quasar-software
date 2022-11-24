@@ -127,8 +127,12 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 */
 bool CoreUI::InitialImageScan()
 {
-    bool n = imageProcessing->processPath(SConfig::PATH);
-    //imageProcessing->imageManager->getCacheDirectory();
+    bool n;
+    if(SConfig::USELOADER) {
+        n = imageProcessing->processPath(SConfig::CACHEPATH);
+    } else {
+        n = imageProcessing->processPath(SConfig::PATH);
+    }
     if(imageProcessing->getReadyStatus()==true)
     {
         for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)

@@ -254,19 +254,19 @@
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: rgb(38, 162, 105);
+  background-color: #97B37D;
   color: #E0E1E3;
-  border-radius: 4px;
-  padding: 2px;
+  border-radius: 8px;
+  padding: 1px;
   outline: none;
   border: none;
 }
 QPushButton:hover {
-  background-color: rgb(87, 227, 137);
+  background-color: #88B360;
   color: #E0E1E3;
 }
 QPushButton:pressed {
-  background-color: rgb(28, 152, 95)
+  background-color:  #738066
 }
 QPushButton:selected {
   background: #60798B;
@@ -967,7 +967,7 @@ QPushButton:selected {
            <property name="sizeHint" stdset="0">
             <size>
              <width>20</width>
-             <height>73</height>
+             <height>75</height>
             </size>
            </property>
           </spacer>
@@ -983,7 +983,7 @@ QPushButton:selected {
    <property name="minimumSize">
     <size>
      <width>804</width>
-     <height>141</height>
+     <height>143</height>
     </size>
    </property>
    <property name="features">
@@ -1187,38 +1187,6 @@ QPushButton:selected {
         <property name="spacing">
          <number>0</number>
         </property>
-        <item row="1" column="3">
-         <widget class="QLabel" name="label_d_telemetrylonpost">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-            <italic>true</italic>
-           </font>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="text">
-           <string>°</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>-1</number>
-          </property>
-         </widget>
-        </item>
         <item row="3" column="0">
          <widget class="QLabel" name="label_d_telemetryspd">
           <property name="sizePolicy">
@@ -1243,6 +1211,30 @@ QPushButton:selected {
           </property>
          </widget>
         </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_d_telemetrylat">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Ubuntu</family>
+            <pointsize>10</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Широта</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="2">
          <widget class="QLabel" name="label_c_telemetrylon">
           <property name="sizePolicy">
@@ -1254,7 +1246,7 @@ QPushButton:selected {
           <property name="font">
            <font>
             <family>Ubuntu</family>
-            <pointsize>11</pointsize>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
@@ -1271,43 +1263,90 @@ QPushButton:selected {
           </property>
          </widget>
         </item>
-        <item row="3" column="3">
-         <widget class="QLabel" name="label_d_telemetryspdpost">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
+        <item row="3" column="2">
+         <widget class="QLabel" name="label_c_telemetryspd">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
-          <property name="maximumSize">
+          <property name="font">
+           <font>
+            <family>Ubuntu</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>0.0000000</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
            <size>
-            <width>1677</width>
-            <height>16777215</height>
+            <width>150</width>
+            <height>20</height>
            </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="label_c_telemetryelv">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
           <property name="font">
            <font>
             <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-            <italic>true</italic>
+            <pointsize>12</pointsize>
            </font>
           </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
           <property name="text">
-           <string>км/ч</string>
+           <string>0.0000000</string>
           </property>
-          <property name="margin">
-           <number>0</number>
+          <property name="textFormat">
+           <enum>Qt::RichText</enum>
           </property>
-          <property name="indent">
-           <number>-1</number>
+          <property name="alignment">
+           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
           </property>
          </widget>
+        </item>
+        <item row="3" column="1">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>0</width>
+            <height>1</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item row="0" column="2">
          <widget class="QLabel" name="label_c_telemetrylat">
@@ -1320,7 +1359,7 @@ QPushButton:selected {
           <property name="font">
            <font>
             <family>Ubuntu</family>
-            <pointsize>11</pointsize>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">
@@ -1361,119 +1400,6 @@ QPushButton:selected {
           </property>
          </widget>
         </item>
-        <item row="0" column="3">
-         <widget class="QLabel" name="label_d_telemetrylatpost">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-            <italic>true</italic>
-           </font>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="text">
-           <string>°</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>-1</number>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_d_telemetrylat">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Широта</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::RichText</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="2">
-         <widget class="QLabel" name="label_c_telemetryspd">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>0.0000000</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::RichText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>150</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="3" column="1">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>0</width>
-            <height>1</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_d_telemetryelv">
           <property name="sizePolicy">
@@ -1495,72 +1421,6 @@ QPushButton:selected {
           </property>
           <property name="textFormat">
            <enum>Qt::RichText</enum>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QLabel" name="label_c_telemetryelv">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>11</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>0.0000000</string>
-          </property>
-          <property name="textFormat">
-           <enum>Qt::RichText</enum>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-          <property name="textInteractionFlags">
-           <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QLabel" name="label_d_telemetryelvpost">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Ubuntu</family>
-            <pointsize>10</pointsize>
-            <italic>true</italic>
-           </font>
-          </property>
-          <property name="lineWidth">
-           <number>0</number>
-          </property>
-          <property name="text">
-           <string>м</string>
-          </property>
-          <property name="margin">
-           <number>0</number>
-          </property>
-          <property name="indent">
-           <number>-1</number>
           </property>
          </widget>
         </item>
@@ -1601,26 +1461,21 @@ QPushButton:selected {
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-  background-color: rgb(192, 28, 40);
-  color: #E0E1E3;
-  border-radius: 4px;
-  padding: 2px;
+  background-color: #CC7067;
+  color: #F6F7F9;
+  border-radius: 8px;
+  padding: 1px;
   outline: none;
   border: none;
 }
 
 QPushButton:hover {
-  background-color: rgb(246, 97, 81);
-  color: #E0E1E3;
+  background-color: #FF8C81;
+  color: #F6F7F9;
 }
 
 QPushButton:pressed {
-  background-color: rgb(165, 29, 45);
-}
-
-QPushButton:selected {
-  background: #60798B;
-  color: #E0E1E3;
+  background-color: #FF7452;
 }</string>
           </property>
           <property name="text">
@@ -1877,6 +1732,12 @@ QPushButton:selected {
    </widget>
   </widget>
   <widget class="QDockWidget" name="networkDock">
+   <property name="minimumSize">
+    <size>
+     <width>230</width>
+     <height>87</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -1919,8 +1780,8 @@ QPushButton:selected {
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>254</width>
-          <height>597</height>
+          <width>230</width>
+          <height>595</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -1953,6 +1814,12 @@ QPushButton:selected {
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <widget class="QLabel" name="label_c_connectionstatus">
+              <property name="font">
+               <font>
+                <family>Ubuntu</family>
+                <pointsize>8</pointsize>
+               </font>
+              </property>
               <property name="text">
                <string>Соединение с РЛС не установлено</string>
               </property>
@@ -1963,6 +1830,12 @@ QPushButton:selected {
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_reconnect">
+              <property name="font">
+               <font>
+                <family>Ubuntu</family>
+                <pointsize>8</pointsize>
+               </font>
+              </property>
               <property name="text">
                <string>Повторное подключение</string>
               </property>

@@ -211,12 +211,13 @@ void CoreUI::ReadTelemetry(QByteArray data){
             }
         }
     }
-    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
-    linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
-    if((float)telemetry[0]!= 0)
+    if((float)telemetry[0]!= 0 && connectionChecker != telemetry[0])
     {
         Connected(); //disconnected если 20 секунд не поступали данные с РЛС
     }
+    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
+    linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
+    connectionChecker = telemetry[0];
 }
 void CoreUI::on_formImage_triggered() //menu slot (will be removed)
 {
@@ -313,10 +314,10 @@ void CoreUI::on_pushButton_showAllImages_clicked()
 }
 void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
 {
-    ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold));
-    ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold));
-    ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold));
-    ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold));
+    ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
+    ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
+    ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("км/ч", Colors::MainFaded, Format::SuperScript));
+    ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("м", Colors::MainFaded, Format::SuperScript));
 }
 void CoreUI::updateImageManagerLabels(int total, int current)
 {
@@ -353,6 +354,7 @@ void CoreUI::on_pushButton_reconnect_clicked()
 {
     udpRemote->Disconnect();
     tcpRemote->Disconnect();
+    Disconnected();
     if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
     else {
         udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);

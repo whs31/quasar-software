@@ -16,8 +16,8 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: Material.Cyan
-    Material.primary: Material.Lime
+    Material.accent: "#BFB560"
+    Material.primary: "#844D99"
 
     layer.enabled: true
     layer.samples: 4

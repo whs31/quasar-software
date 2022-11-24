@@ -25,7 +25,9 @@ enum Format : short int
     Bold,
     Italic,
     Underline,
-    SuperScript
+    SuperScript,
+    SubScript,
+    SuperScriptBold
 };
 
 class Style : public QObject

@@ -69,6 +69,7 @@ private:
 
     void Connected();
     void Disconnected();
+    double connectionChecker;
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();

@@ -211,6 +211,9 @@
         <property name="text">
          <string>Использовать загрузчик изображений</string>
         </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
        </widget>
       </item>
       <item row="6" column="2">

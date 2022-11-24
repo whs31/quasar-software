@@ -73,7 +73,7 @@ void CoreUI::InitializeConnections()
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
     connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
     new Style(true);  //false при сборке релиза
-    new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
+    new SConfig(qml);
     SConfig::loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
 
@@ -93,7 +93,8 @@ void CoreUI::InitializeConnections()
                     qInfo()<<"[REMOTE] UDP client connected";
         }
     }//---------------------------------------------< внутренности засунуть в кнопку на случай если в конфиге false;
-    timer->start(500);
+    timer->start(SConfig::UPDATETIME*1000);
+    Disconnected();
             qDebug()<<"[STARTUP] Connections set up successfully";
 
     InitialImageScan();
@@ -159,7 +160,7 @@ void CoreUI::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($>>text#))
-    if(SConfig::NETWORKTYPE == "TCP"){
+    if(SConfig::NETWORKTYPE == "TCP"){ //wtf???
         SendRemoteCommand("$request");
     } else {
         SendRemoteCommand("$request");
@@ -173,9 +174,20 @@ void CoreUI::SendRemoteCommand(QString command)
         udpRemote->Send(command.toUtf8());
     }
 }
-void CoreUI::ReadTelemetry(QByteArray data){
 
-    //qDebug()<<data.data();
+void CoreUI::Connected()
+{
+    connected = true;
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
+}
+
+void CoreUI::Disconnected()
+{
+    connected = false;
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
+}
+
+void CoreUI::ReadTelemetry(QByteArray data){
     QString unparsed = data.data();
     QString parsed;
     QStringList parsedList;
@@ -201,6 +213,10 @@ void CoreUI::ReadTelemetry(QByteArray data){
     }
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
+    if((float)telemetry[0]!= 0)
+    {
+        Connected(); //disconnected если 20 секунд не поступали данные с РЛС
+    }
 }
 void CoreUI::on_formImage_triggered() //menu slot (will be removed)
 {
@@ -332,3 +348,17 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
 void CoreUI::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
 void CoreUI::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }
 void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)      { autoUpdate = ui->checkBox_autoUpdate->isChecked();            }
+
+void CoreUI::on_pushButton_reconnect_clicked()
+{
+    udpRemote->Disconnect();
+    tcpRemote->Disconnect();
+    if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
+    else {
+        udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
+        if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
+                qInfo()<<"[REMOTE] UDP client connected";
+    }
+    //timer->start(SConfig::UPDATETIME);
+    //если широта была 0 то клиртрек
+}

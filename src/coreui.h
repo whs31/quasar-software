@@ -64,7 +64,11 @@ private:
     TCPDownloader *downloader;
 
     bool uiReady = false;
-    bool autoUpdate = false;
+    bool connected = false;
+    bool autoUpdate = true;
+
+    void Connected();
+    void Disconnected();
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();
@@ -97,5 +101,6 @@ private slots:
     void on_pushButton_showImage_clicked();
     void on_pushButton_showAllImages_clicked();
     void on_checkBox_autoUpdate_stateChanged(int arg1);
+    void on_pushButton_reconnect_clicked();
 };
 #endif // COREUI_H

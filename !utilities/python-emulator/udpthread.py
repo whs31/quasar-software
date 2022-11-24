@@ -16,7 +16,7 @@ import subprocess
 
 
 localIP     = "127.0.0.1"
-localPort   = 25560
+localPort   = 25565
 bufferSize  = 1024
 
 UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)

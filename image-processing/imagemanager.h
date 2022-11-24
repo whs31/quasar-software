@@ -33,6 +33,8 @@ public:
     QString MakePNG(QString jpeg);
     QString getCacheDirectory(void);
     QString getPNGDirectory(void);
+    QString getTCPDirectory (void);
+    bool saveRawData(QByteArray data, QString filename);
     QImage swapAlpha(QImage i);
     QImage enableAlphaSupport(QImage i);
     bool addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0);
@@ -40,6 +42,7 @@ public:
 private:
     QString cacheDirectory;
     QString PNGDirectory;
+    QString TCPDirectory;
 
 signals:
 

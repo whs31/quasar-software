@@ -47,15 +47,6 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
-    QFile qss(":/stylesheet/stylesheet.qss");
-    if (!qss.exists())   {
-        printf("[MAINTHREAD] Unable to set stylesheet, file not found\n");
-    }
-    else   {
-        qss.open(QFile::ReadOnly | QFile::Text);
-        QTextStream ts(&qss);
-        qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
-    }
     QQuickStyle::setStyle("Material");                              //графика для QML
     CoreUI window;
 

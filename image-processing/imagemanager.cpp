@@ -8,8 +8,12 @@ ImageManager::ImageManager(QObject *parent) : QObject(parent)
     PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
     QDir pngdir(PNGDirectory);
     if(!pngdir.exists()) { pngdir.mkpath(PNGDirectory); }
+    TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
+    QDir tcpdir(TCPDirectory);
+
             qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
             qInfo()<<"[FILEMANAGER] .png directory: "<<PNGDirectory;
+            qInfo()<<"[FILEMANAGER] TCP Downloader directory: "<<TCPDirectory;
     //на случай если ne захочется кешировать в отдельную папку
     //PNGDirectory = cacheDirectory;
 }
@@ -122,6 +126,17 @@ QImage ImageManager::enableAlphaSupport(QImage i)                               
     return i;
 }
 
+bool ImageManager::saveRawData(QByteArray data, QString filename)
+{
+    QPixmap image;
+    image.loadFromData(data);
+    QString path = getTCPDirectory();
+    path.append("/");
+    path.append(filename);
+    QDir::toNativeSeparators(path);
+    image.save(path);
+}
+
 bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
 {
     QImage base(path);
@@ -159,3 +174,4 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
 
 QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }
 QString ImageManager::getPNGDirectory(void)                     { return PNGDirectory;                                                }
+QString ImageManager::getTCPDirectory(void)                     { return TCPDirectory;                                                }

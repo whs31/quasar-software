@@ -2,6 +2,12 @@
 #define STYLE_H
 
 #include <QObject>
+#include <QApplication>
+#include <QDebug>
+#include <QFile>
+#include <QTextStream>
+#include <QTimer>
+
 
 enum Colors : short int
 {
@@ -22,14 +28,19 @@ enum Format : short int
     SuperScript
 };
 
-class Style
+class Style : public QObject
 {
+    Q_OBJECT
 public:
-    Style();
+    Style(bool TestMode = true, QObject* parent = nullptr);
 
     static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat);
-
+public slots:
+    void updateQSS(void);
 private:
+    bool TestMode;
+    QString defaultQSS = ":/stylesheet/stylesheet.qss";
+    QString testQSS = "/home/user/quasar-ui/QuaSAR-UI/src/stylesheet/stylesheet.qss";
 };
 
 #endif // STYLE_H

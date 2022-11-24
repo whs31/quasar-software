@@ -5,7 +5,7 @@ import sys
 import time
 
 chunk_size = 1024
-fileName = 'example.jpg'
+fileName = 'm1-16-11-2022_14-13-42(tcp).jpg'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 10000)
 
@@ -19,7 +19,7 @@ for chunk in iter(lambda: f.read(chunk_size), b''):
     sock.send(chunk)
     
     # Имитация медленного канала
-    time.sleep(0.02)
+    time.sleep(0.01)
 
 
 print('Sending done')

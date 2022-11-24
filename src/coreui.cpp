@@ -1,6 +1,13 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
+/*
+ * 1. Класс парсер для телеметрии и тд
+ * 2. Разбить cpp на два
+ *
+ *
+*/
+
 CoreUI* CoreUI::debugPointer;
 CoreUI::CoreUI(QWidget *parent)
     : QMainWindow(parent)
@@ -64,7 +71,7 @@ void CoreUI::InitializeConnections()
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader();
-    new Style();
+    new Style(true);  //false при сборке релиза
     new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
     SConfig::loadSettings();
     imageProcessing = new ImageProcessing(linker, this);

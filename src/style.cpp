@@ -1,6 +1,38 @@
 #include "style.h"
 
-Style::Style() {}
+Style::Style(bool TestMode, QObject* parent) : TestMode(TestMode), QObject(parent)
+{
+    if(!TestMode)
+    {
+        QFile qss(defaultQSS);
+        if (!qss.exists())   {
+            qWarning()<<("[QSS] Unable to set stylesheet, file not found\n");
+        }
+        else   {
+            qss.open(QFile::ReadOnly | QFile::Text);
+            QTextStream ts(&qss);
+            qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
+        }
+    } else {
+        QTimer* watcher = new QTimer();
+        watcher->start(500);
+        connect(watcher, SIGNAL(timeout()), this, SLOT(updateQSS()));
+    }
+}
+
+void Style::updateQSS(void)
+{
+    QFile qss(testQSS);
+    if (!qss.exists())   {
+        qWarning()<<("[QSS] Unable to set test stylesheet, file not found\n");
+    }
+    else   {
+        qss.open(QFile::ReadOnly | QFile::Text);
+        QTextStream ts(&qss);
+        qApp->setStyleSheet(ts.readAll());                              //графика для Widgets
+    }
+}
+
 QString Style::StyleText(QString string, Colors color, Format format)
 {
     const QStringList _colors = {

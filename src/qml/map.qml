@@ -16,8 +16,8 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: "#BFB560"
-    Material.primary: "#844D99"
+    Material.accent: "#EEE1C6"
+    Material.primary: "#E59E6D"
 
     layer.enabled: true
     layer.samples: 4
@@ -578,12 +578,12 @@ Rectangle {
 
         ProgressBar {
             id: cameraGrip;
-            opacity: 0.5;
+            opacity: 0.3;
             anchors.top: speedElvRect.bottom;
             anchors.left: speedElvRect.left;
             anchors.right: speedElvRect.right;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 10;
+            anchors.bottomMargin: 40;
             from: 0;
             to: 3000;
             value: 0
@@ -608,12 +608,12 @@ Rectangle {
             height: 40
             radius: 10
             opacity: 1
-            anchors.left: parent.left
+            anchors.right: parent.right
             anchors.bottom: parent.bottom
             highlighted: true
             flat: false
             anchors.bottomMargin: 20
-            anchors.leftMargin: 30
+            anchors.rightMargin: 30
             hoverEnabled: true
             enabled: true
             display: AbstractButton.IconOnly
@@ -675,11 +675,11 @@ Rectangle {
             radius: 10
             opacity: 1
             z: 100
-            anchors.left: zoomOut.right
+            anchors.right: zoomOut.left
             anchors.verticalCenter: zoomOut.verticalCenter
             highlighted: true
             flat: false
-            anchors.leftMargin: 0
+            anchors.rightMargin: 0
             hoverEnabled: true
             enabled: true
             display: AbstractButton.IconOnly
@@ -698,11 +698,11 @@ Rectangle {
             radius: 10
             opacity: 1
             z: 100
-            anchors.left: panButton.right
+            anchors.right: panButton.left
             anchors.verticalCenter: panButton.verticalCenter
             highlighted: true
             flat: false
-            anchors.leftMargin: 0
+            anchors.rightMargin: 0
             hoverEnabled: true
             enabled: true
             display: AbstractButton.IconOnly
@@ -727,11 +727,11 @@ Rectangle {
             radius: 10
             z: 100
             opacity: 1
-            anchors.left: rulerButton.right
+            anchors.right: rulerButton.left
             anchors.verticalCenter: rulerButton.verticalCenter
             highlighted: true
             flat: false
-            anchors.leftMargin: 0
+            anchors.rightMargin: 0
             hoverEnabled: true
             enabled: true
             display: AbstractButton.IconOnly

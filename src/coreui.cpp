@@ -68,13 +68,13 @@ void CoreUI::InitializeConnections()
     linker = new LinkerQML(qml);
     //------------------------------------
     timer = new QTimer(this);
+    new SConfig(qml);
+    SConfig::loadSettings();
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
     connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
     new Style(true);  //false при сборке релиза
-    new SConfig(qml);
-    SConfig::loadSettings();
     imageProcessing = new ImageProcessing(linker, this);
 
     ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);

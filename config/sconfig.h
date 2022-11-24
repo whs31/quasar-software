@@ -37,6 +37,8 @@ public:
     static QString CACHEPATH;
     static bool USELOADER;
     static bool SAVEATEND;
+    static QString LOADERIP;
+    static QString LOADERPORT;
 
 signals:
 

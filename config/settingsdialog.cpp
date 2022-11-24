@@ -19,6 +19,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->i_debugConsole->setChecked(SConfig::DEBUGCONSOLE);
     uiS->i_useLoader->setChecked(SConfig::USELOADER);
     uiS->i_saveOnlyAtEnd->setChecked(SConfig::SAVEATEND);
+    uiS->i_loaderIp->setText(SConfig::LOADERIP);
+    uiS->i_loaderPort->setText(SConfig::LOADERPORT);
     if(SConfig::ANTENNAPOSITION == "r") {
         uiS->i_antennaRightB->setChecked(true);
         uiS->i_antennaLeftB->setChecked(false); }
@@ -54,6 +56,8 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::DEBUGCONSOLE     =           (uiS->i_debugConsole->isChecked()) ? true : false;
     SConfig::USELOADER        =           (uiS->i_useLoader->isChecked()) ? true : false;
     SConfig::SAVEATEND        =           (uiS->i_saveOnlyAtEnd->isChecked()) ? true : false;
+    SConfig::LOADERIP         =           uiS->i_loaderIp->text();
+    SConfig::LOADERPORT       =           uiS->i_loaderPort->text();
     accept();
 }
 

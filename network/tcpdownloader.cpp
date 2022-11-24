@@ -4,8 +4,9 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
 {
     server = new QTcpServer(this);
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
-    if(!server->listen(QHostAddress::LocalHost, 10000))
+    if(!server->listen(QHostAddress(SConfig::LOADERIP), SConfig::LOADERPORT.toUInt()))
     {
+
         qCritical() << "[SERVER] Server could not start";
     } else {
         qInfo()<<"[SERVER] Server started.";

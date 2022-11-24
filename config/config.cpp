@@ -18,6 +18,8 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["ip"] = "127.0.0.1";
     network["port"] = "25565";
     network["updateTime"] = "0.5";
+    network["loader_ip"] = "127.0.0.1";
+    network["loader_port"] = "25555";
     checkValuesSimple(network);
 
     group_t map;

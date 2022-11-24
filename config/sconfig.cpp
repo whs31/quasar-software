@@ -21,6 +21,8 @@ bool SConfig::DEBUGCONSOLE;
 QString SConfig::CACHEPATH;
 bool SConfig::USELOADER;
 bool SConfig::SAVEATEND;
+QString SConfig::LOADERIP;
+QString SConfig::LOADERPORT;
 
 SConfig::SConfig(QQuickItem* qml)
 {
@@ -51,6 +53,8 @@ void SConfig::loadSettings()
     //CACHEPATH           =           устанавливается в ImageManager в конструкторе
     USELOADER             =           config->value("image/use_loader").toBool();
     SAVEATEND             =           config->value("image/save_at_end").toBool();
+    LOADERIP              =           config->value("network/loader_ip").toString();
+    LOADERPORT            =           config->value("network/loader_port").toString();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -81,6 +85,8 @@ void SConfig::saveSettings()
     config->setValue("startup/debug_console", DEBUGCONSOLE);
     config->setValue("image/use_loader", USELOADER);
     config->setValue("image/save_at_end", SAVEATEND);
+    config->setValue("network/loader_ip", LOADERIP);
+    config->setValue("network/loader_port", LOADERPORT);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

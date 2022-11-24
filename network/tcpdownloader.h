@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QTcpServer>
+#include <QHostAddress>
 #include "imagemanager.h"
 #include "sconfig.h"
 

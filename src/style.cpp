@@ -36,12 +36,12 @@ void Style::updateQSS(void)
 QString Style::StyleText(QString string, Colors color, Format format)
 {
     const QStringList _colors = {
-                                        "<font color=\"#BFB560\">",
-                                        "<font color=\"#99914D\">",
-                                        "<font color=\"#DC80FF\">",
+                                        "<font color=\"#E3D4AD\">",
+                                        "<font color=\"#D3BC8D\">",
+                                        "<font color=\"#E59E6D\">",
                                         //"<font color=\"#844D99\">",
-                                        "<font color=\"#88B360\">",
-                                        "<font color=\"#CC7067\">",
+                                        "<font color=\"#A2FF78\">",
+                                        "<font color=\"#FF6D6A\">",
                                         "</font>"
     };
     const QStringList _styles = {

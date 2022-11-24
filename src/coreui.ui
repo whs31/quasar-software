@@ -925,6 +925,9 @@ QPushButton:selected {
               <property name="alignment">
                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
               </property>
+              <property name="wordWrap">
+               <bool>true</bool>
+              </property>
               <property name="textInteractionFlags">
                <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
               </property>

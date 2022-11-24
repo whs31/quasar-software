@@ -1,6 +1,6 @@
 #include "style.h"
 
-Style::Style(bool TestMode, QObject* parent) : TestMode(TestMode), QObject(parent)
+Style::Style(bool TestMode, QObject* parent) : QObject(parent), TestMode(TestMode)
 {
     if(!TestMode)
     {

@@ -52,11 +52,8 @@ void TCPDownloader::serverRead(void)
         {
             imageData = datagram;
             imageData.remove(0,splitIndex+1);
-            qWarning()<<splitIndex;
+            //qWarning()<<splitIndex;
             if(_mode == 1) { success = manager->saveRawData(imageData, filename); }
         }
     }
 }
-
-//если стоит галочка "автообновление каталога", то этот класс должен эмиттить сигнал в кор юай, а слот должен вызывать initialimagescan()
-//класс по дефолту должен эмиттить сигнал, просто без галочки слот ничего не делает.

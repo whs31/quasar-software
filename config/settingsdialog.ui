@@ -743,6 +743,13 @@
       </item>
       <item row="8" column="0">
        <widget class="QCheckBox" name="i_saveOnlyAtEnd">
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
         <property name="text">
          <string>Сохранять РЛИ только по завершению передачи</string>
         </property>

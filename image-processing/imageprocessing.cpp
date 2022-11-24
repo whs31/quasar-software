@@ -69,6 +69,7 @@ void ImageProcessing::decode(QStringList filelist)
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (QString fileName : filelist)
     {
+
         QFile _qfile(fileName);
         if(_qfile.open(QIODevice::ReadOnly))
         {
@@ -79,8 +80,6 @@ void ImageProcessing::decode(QStringList filelist)
             {
                 uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
                 *metaSize = qToBigEndian(*metaSize) - 2;
-                //const void* dataV;
-                //memcpy(&dataV, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
                 QFileInfo info(_qfile);
@@ -90,13 +89,7 @@ void ImageProcessing::decode(QStringList filelist)
                 metaStruct.filename = pngPath;
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
-
-                //uint32_t newChecksum = getChecksum(dataV, (size_t)(*metaSize-JPEG_CHECKSUM_SIZE));
-
-                //qDebug()<<newChecksum<<metaStruct.checksum;
-                //qDebug()<<QString("%1").arg(newChecksum, 8, 16, QLatin1Char('0'));
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
-                        //qDebug()<<"[IMG] Decoded file ("<<filelist.indexOf(fileName)<<") successfully"; //засоряет дебаг
                 metadataList.append(metaStruct);
                 //make mask
                 if(!diff.empty()&&imageManager->diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
@@ -107,7 +100,7 @@ void ImageProcessing::decode(QStringList filelist)
                     int width = sizeOfImage.width();
                     qDebug()<<"[IMG] Making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
-                } else {} //qDebug()<<"[IMG] Mask already applied, skipping..."; }
+                }
             }
 
         } else { qCritical()<<"[IMG] Decoding error!"; }

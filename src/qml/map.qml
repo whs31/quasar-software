@@ -84,6 +84,7 @@ Rectangle {
     {
         for (var i = 0; i < imageArray.length; i++)  {
               hideImage(i);
+              mapView.removeMapItem(imageArray[i]);
           }
         imageArray = [];
     }
@@ -198,8 +199,6 @@ Rectangle {
         var p_lon = longitude+Math.cos((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
         predictLine.addCoordinate(QtPositioning.coordinate(latitude, longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
-        console.log(c_PREDICTRANGE);
-
     }
 
     function panGPS()
@@ -499,7 +498,10 @@ Rectangle {
                 }
             }
         }
-        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18); }
+        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18);
+            addImage(39.9237, 43.4337, 1, 1, 0, 0, angle, "/home/user/quasar-ui/QuaSAR-UI/!utilities/misc/image.png", 919);
+            showImage(0);
+        }
         Rectangle {
             id: cursorTooltip
             visible: true

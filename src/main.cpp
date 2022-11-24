@@ -20,19 +20,19 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
         msgt = 0;
         break;
     case QtWarningMsg:
-        txt = QString(">: %1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg+"\r\n");
         msgt = 2;
     break;
     case QtInfoMsg:
-        txt = QString(">: %1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg+"\r\n");
         msgt = 1;
     break;
     case QtCriticalMsg:
-        txt = QString(">: %1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg+"\r\n");
         msgt = 3;
     break;
     case QtFatalMsg:
-        txt = QString(">: %1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg+"\r\n");
         msgt = 4;
     break;
     }

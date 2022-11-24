@@ -92,7 +92,7 @@ void SConfig::saveSettings()
     QMessageBox notifyAboutRestart;
     notifyAboutRestart.setWindowTitle("Сохранение настроек");
     notifyAboutRestart.setIcon(QMessageBox::Information);
-    notifyAboutRestart.setText("Настройки сохранены.");
+    notifyAboutRestart.setText("Настройки сохранены. Некоторые параметры вступят в силу только после перезапуска программы.");
     notifyAboutRestart.setStandardButtons(QMessageBox::Yes);
     notifyAboutRestart.setDefaultButton(QMessageBox::Yes);
     notifyAboutRestart.exec();

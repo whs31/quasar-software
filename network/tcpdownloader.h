@@ -5,19 +5,24 @@
 #include <QTcpSocket>
 #include <QTcpServer>
 #include "imagemanager.h"
+#include "sconfig.h"
 
-
-#include <QPixmap>
-#include <QCoreApplication>
+enum DowloaderMode : short int
+{
+    NoSave,
+    SaveContinuous,
+    SaveAtDisconnect
+};
 
 class TCPDownloader : public QObject
 {
     Q_OBJECT
 public:
-    explicit TCPDownloader(QObject *parent = nullptr);
+    explicit TCPDownloader(QObject *parent = nullptr, DowloaderMode mode = SaveAtDisconnect);
 
 
 signals:
+    void receivingFinished();
 
 public slots:
     void clientConnected(void);
@@ -33,7 +38,9 @@ private:
     QByteArray imageData;
     bool fnameCheck = false;
     bool success = false;
+    uint8_t splitIndex;
     ImageManager* manager;
+    short int _mode;
 };
 
 #endif // TCPDOWNLOADER_H

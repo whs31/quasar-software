@@ -50,14 +50,14 @@
       <property name="horizontalSpacing">
        <number>0</number>
       </property>
-      <item row="17" column="1">
+      <item row="18" column="1">
        <widget class="Line" name="line_8">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="16" column="0">
+      <item row="17" column="0">
        <widget class="QLabel" name="label_14">
         <property name="font">
          <font>
@@ -85,14 +85,14 @@
         </property>
        </widget>
       </item>
-      <item row="20" column="0">
+      <item row="22" column="0">
        <widget class="Line" name="line_10">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="9" column="0">
+      <item row="10" column="0">
        <widget class="Line" name="line_4">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -120,7 +120,7 @@
         </property>
        </widget>
       </item>
-      <item row="13" column="0">
+      <item row="14" column="0">
        <widget class="QLabel" name="label_10">
         <property name="font">
          <font>
@@ -134,7 +134,7 @@
         </property>
        </widget>
       </item>
-      <item row="11" column="0">
+      <item row="12" column="0">
        <widget class="QLabel" name="label_5">
         <property name="font">
          <font>
@@ -148,7 +148,7 @@
         </property>
        </widget>
       </item>
-      <item row="14" column="2">
+      <item row="15" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_10">
         <item>
          <spacer name="horizontalSpacer_8">
@@ -178,7 +178,7 @@
         </item>
        </layout>
       </item>
-      <item row="10" column="0">
+      <item row="11" column="0">
        <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
@@ -192,7 +192,7 @@
         </property>
        </widget>
       </item>
-      <item row="12" column="0">
+      <item row="13" column="0">
        <widget class="QLabel" name="label_9">
         <property name="font">
          <font>
@@ -203,6 +203,13 @@
         </property>
         <property name="text">
          <string>Дальность съёмки</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QCheckBox" name="i_useLoader">
+        <property name="text">
+         <string>Использовать загрузчик изображений</string>
         </property>
        </widget>
       </item>
@@ -313,7 +320,7 @@
         </item>
        </layout>
       </item>
-      <item row="18" column="0">
+      <item row="19" column="0">
        <widget class="QLabel" name="label_11">
         <property name="font">
          <font>
@@ -327,7 +334,7 @@
         </property>
        </widget>
       </item>
-      <item row="17" column="0">
+      <item row="18" column="0">
        <widget class="Line" name="line_7">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -341,14 +348,14 @@
         </property>
        </widget>
       </item>
-      <item row="20" column="2">
+      <item row="22" column="2">
        <widget class="Line" name="line_12">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="13" column="2">
+      <item row="14" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <spacer name="horizontalSpacer_7">
@@ -385,14 +392,14 @@
         </property>
        </widget>
       </item>
-      <item row="20" column="1">
+      <item row="22" column="1">
        <widget class="Line" name="line_11">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="15" column="2">
+      <item row="16" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
          <widget class="QRadioButton" name="i_antennaLeftB">
@@ -413,7 +420,7 @@
         </item>
        </layout>
       </item>
-      <item row="15" column="0">
+      <item row="16" column="0">
        <widget class="QLabel" name="label_12">
         <property name="font">
          <font>
@@ -434,7 +441,7 @@
         </property>
        </widget>
       </item>
-      <item row="22" column="1">
+      <item row="24" column="1">
        <widget class="QCheckBox" name="i_connectOnStart">
         <property name="font">
          <font>
@@ -467,14 +474,14 @@
         </property>
        </widget>
       </item>
-      <item row="9" column="1">
+      <item row="10" column="1">
        <widget class="Line" name="line_5">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="12" column="2">
+      <item row="13" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <spacer name="horizontalSpacer_6">
@@ -554,7 +561,7 @@
         </property>
        </widget>
       </item>
-      <item row="19" column="0">
+      <item row="21" column="0">
        <widget class="QLabel" name="label_15">
         <property name="font">
          <font>
@@ -568,14 +575,14 @@
         </property>
        </widget>
       </item>
-      <item row="14" column="0">
+      <item row="15" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
          <string>Длительность съемки</string>
         </property>
        </widget>
       </item>
-      <item row="18" column="2">
+      <item row="19" column="2">
        <widget class="QPushButton" name="pushButton">
         <property name="text">
          <string>Указать</string>
@@ -596,7 +603,7 @@
         </property>
        </widget>
       </item>
-      <item row="17" column="2">
+      <item row="18" column="2">
        <widget class="Line" name="line_9">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -610,7 +617,7 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="0">
+      <item row="9" column="0">
        <widget class="QLabel" name="label_13">
         <property name="font">
          <font>
@@ -624,7 +631,7 @@
         </property>
        </widget>
       </item>
-      <item row="23" column="0">
+      <item row="25" column="0">
        <widget class="QCheckBox" name="i_debugConsole">
         <property name="font">
          <font>
@@ -649,14 +656,14 @@
         </property>
        </spacer>
       </item>
-      <item row="9" column="2">
+      <item row="10" column="2">
        <widget class="Line" name="line_6">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
       </item>
-      <item row="11" column="2">
+      <item row="12" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
          <spacer name="horizontalSpacer_5">
@@ -686,7 +693,7 @@
         </item>
        </layout>
       </item>
-      <item row="10" column="2">
+      <item row="11" column="2">
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <spacer name="horizontalSpacer_4">
@@ -722,7 +729,7 @@
         </item>
        </layout>
       </item>
-      <item row="22" column="0">
+      <item row="24" column="0">
        <widget class="QCheckBox" name="i_showImages">
         <property name="font">
          <font>
@@ -734,10 +741,10 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QCheckBox" name="i_useLoader">
+      <item row="8" column="0">
+       <widget class="QCheckBox" name="i_saveOnlyAtEnd">
         <property name="text">
-         <string>Использовать загрузчик изображений</string>
+         <string>Сохранять РЛИ только по завершению передачи</string>
         </property>
        </widget>
       </item>

@@ -20,6 +20,7 @@ bool SConfig::CONNECTONSTART;
 bool SConfig::DEBUGCONSOLE;
 QString SConfig::CACHEPATH;
 bool SConfig::USELOADER;
+bool SConfig::SAVEATEND;
 
 SConfig::SConfig(QQuickItem* qml)
 {
@@ -49,6 +50,7 @@ void SConfig::loadSettings()
     DEBUGCONSOLE          =           config->value("startup/debug_console").toBool();
     //CACHEPATH           =           устанавливается в ImageManager в конструкторе
     USELOADER             =           config->value("image/use_loader").toBool();
+    SAVEATEND             =           config->value("image/save_at_end").toBool();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -78,6 +80,7 @@ void SConfig::saveSettings()
     config->setValue("startup/connect", CONNECTONSTART);
     config->setValue("startup/debug_console", DEBUGCONSOLE);
     config->setValue("image/use_loader", USELOADER);
+    config->setValue("image/save_at_end", SAVEATEND);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

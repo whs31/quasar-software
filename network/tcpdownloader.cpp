@@ -1,13 +1,6 @@
 #include "tcpdownloader.h"
 
-
-/*
- *  1. Сделать enum для режима работы загрузчика (сохранение прогрессивного рли в процессе получения данных, либо сохранение по итогу)
- *  2. Добавить в конфиг бул на 2 режима работы программы (чтение с директории, чтение с загрузчика)
- *  3. Режим работы загрузчика тоже в конфиг
-*/
-
-TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
+TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(parent), _mode(mode)
 {
     server = new QTcpServer(this);
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
@@ -22,45 +15,48 @@ TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 
 void TCPDownloader::clientConnected(void)
 {
+    if(SConfig::SAVEATEND) { _mode = 2; } else { _mode = 1; }
     socket = server->nextPendingConnection();
     connect(socket, &QTcpSocket::readyRead, this, &TCPDownloader::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPDownloader::clientDisconnected);
     datagram.clear();
     fnameCheck = false;
     success = false;
+    splitIndex = 0;
     qInfo()<<"[SERVER] SAR connected and ready to send image";
 }
 
 void TCPDownloader::clientDisconnected(void)
 {
     socket->close();
-    (success) ? qDebug()<<"[SERVER] Image fully received from SAR" : qCritical()<<"[SERVER] Image was not received from SAR (saving or receiving error!)";
+    (success) ? qInfo()<<"[SERVER] Image fully received from SAR" : qWarning()<<"[SERVER] Something went wrong in receiving SAR image";
+    if(_mode == 2) { success = manager->saveRawData(imageData, filename); }
+    emit receivingFinished();
 }
-
 void TCPDownloader::serverRead(void)
 {
-    QPixmap image;
+
     while(socket->bytesAvailable()>0)
     {
         datagram.append(socket->readAll());
-        uint8_t i = 0;
-        if(datagram.contains('\n'))
-        {
-            i = datagram.indexOf('\n');
-            imageData = datagram;
-            imageData.remove(0,i+1);
-        }
         if(datagram.contains('\n')&&!fnameCheck)
         {
+            splitIndex = datagram.indexOf('\n');
             QByteArray fnamearr = datagram;
-            fnamearr.truncate(i);
+            fnamearr.truncate(splitIndex);
             filename = QString::fromUtf8(fnamearr);
             fnameCheck = true;
             qDebug()<<"[SERVER] Received filename: "<<filename;
         }
         else if(fnameCheck)
         {
-            success = manager->saveRawData(imageData, filename);
+            imageData = datagram;
+            imageData.remove(0,splitIndex+1);
+            qWarning()<<splitIndex;
+            if(_mode == 1) { success = manager->saveRawData(imageData, filename); }
         }
     }
 }
+
+//если стоит галочка "автообновление каталога", то этот класс должен эмиттить сигнал в кор юай, а слот должен вызывать initialimagescan()
+//класс по дефолту должен эмиттить сигнал, просто без галочки слот ничего не делает.

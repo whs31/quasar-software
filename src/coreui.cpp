@@ -70,7 +70,8 @@ void CoreUI::InitializeConnections()
     timer = new QTimer(this);
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
-    downloader = new TCPDownloader();
+    downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
+    connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
     new Style(true);  //false при сборке релиза
     new SConfig(qml); //вызываем конструктор только один раз, остальное все статическое
     SConfig::loadSettings();
@@ -148,6 +149,12 @@ bool CoreUI::InitialImageScan()
 
     return n;
 }
+
+void CoreUI::updateDirectory()
+{
+    if(autoUpdate) { InitialImageScan(); }
+}
+
 void CoreUI::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
@@ -324,3 +331,4 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
 }
 void CoreUI::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
 void CoreUI::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }
+void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)      { autoUpdate = ui->checkBox_autoUpdate->isChecked();            }

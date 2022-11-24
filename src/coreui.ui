@@ -99,7 +99,7 @@
    <property name="minimumSize">
     <size>
      <width>301</width>
-     <height>474</height>
+     <height>490</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -137,7 +137,7 @@
      <item>
       <widget class="QCheckBox" name="checkBox_autoUpdate">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -561,7 +561,7 @@ QPushButton:selected {
            </font>
           </property>
           <property name="text">
-           <string>Совпадение контрольной суммы</string>
+           <string>Совпадение</string>
           </property>
          </widget>
         </item>

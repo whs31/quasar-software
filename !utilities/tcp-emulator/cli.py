@@ -19,7 +19,7 @@ for chunk in iter(lambda: f.read(chunk_size), b''):
     sock.send(chunk)
     
     # Имитация медленного канала
-    time.sleep(0.05)
+    time.sleep(0.01)
 
 
 print('Sending done')

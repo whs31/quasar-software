@@ -36,6 +36,7 @@ public:
     static bool DEBUGCONSOLE;
     static QString CACHEPATH;
     static bool USELOADER;
+    static bool SAVEATEND;
 
 signals:
 

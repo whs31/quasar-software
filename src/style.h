@@ -1,5 +1,5 @@
-#ifndef TAGS_H
-#define TAGS_H
+#ifndef STYLE_H
+#define STYLE_H
 
 #include <QObject>
 
@@ -18,17 +18,18 @@ enum Format : short int
     NoFormat,
     Bold,
     Italic,
-    Underline
+    Underline,
+    SuperScript
 };
 
-class Tags
+class Style
 {
 public:
-    Tags();
+    Style();
 
     static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat);
 
 private:
 };
 
-#endif // TAGS_H
+#endif // STYLE_H

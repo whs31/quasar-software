@@ -32,15 +32,17 @@ else()
         network/remote.h
         network/tcpremote.h
         network/udpremote.h
+        network/tcpdownloader.h
         network/tcpremote.cpp
         network/udpremote.cpp
         network/remote.cpp
+        network/tcpdownloader.cpp
         src/coreui.h
         src/linkerqml.h
         src/coreui.cpp
         src/linkerqml.cpp
-        src/tags.h
-        src/tags.cpp
+        src/style.h
+        src/style.cpp
         config/config.h
         config/settingsdialog.h
         config/sconfig.h
@@ -50,10 +52,8 @@ else()
         config/sconfig.cpp
         image-processing/imageprocessing.h
         image-processing/imagemanager.h
-        image-processing/tcpdownloader.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.cpp
-        image-processing/tcpdownloader.cpp
    )
 endif()
 

@@ -10,7 +10,7 @@
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 
-#include "tags.h"
+#include "style.h"
 #include "linkerqml.h"
 #include "sconfig.h"
 #include "tcpdownloader.h"

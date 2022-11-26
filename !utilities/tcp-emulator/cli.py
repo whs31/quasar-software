@@ -3,15 +3,23 @@
 import socket
 import sys
 import time
+import os
 
 chunk_size = 1024
-fileName = 'm1-16-11-2022_14-13-42.jpg'
+fileName = 'm1-16-11-2022_14-14-12.jpg'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 10000)
 
 sock.connect(server_address)
 
-sock.send(fileName + '\n')
+filesize = os.path.getsize(fileName)
+
+print(filesize)
+fileinfo = (fileName + '\0').encode() + filesize.to_bytes(4, byteorder='little')
+
+print(fileinfo)
+
+sock.send(fileinfo)
 
 f = open(fileName, 'rb')
 
@@ -20,8 +28,6 @@ for chunk in iter(lambda: f.read(chunk_size), b''):
     
     # Имитация медленного канала
     time.sleep(0.01)
-
-
 print('Sending done')
 sock.shutdown(socket.SHUT_WR)
 f.close()

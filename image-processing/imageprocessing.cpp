@@ -67,9 +67,9 @@ void ImageProcessing::decode(QStringList filelist)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
-    for (QString fileName : filelist)
+    for (int s = 0; s<filelist.length(); s++)
     {
-
+        QString fileName = filelist[s];
         QFile _qfile(fileName);
         if(_qfile.open(QIODevice::ReadOnly))
         {
@@ -101,7 +101,7 @@ void ImageProcessing::decode(QStringList filelist)
                     qDebug()<<"[IMG] Making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
                 }
-            }
+            } else { qCritical()<<"[IMG] Marker error!"; }
 
         } else { qCritical()<<"[IMG] Decoding error!"; }
     }

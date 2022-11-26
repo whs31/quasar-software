@@ -12,6 +12,9 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
         qInfo()<<"[SERVER] Server started.";
     }
     manager = new ImageManager();
+    timer = new QTimer();
+    timer->setInterval(TCP_TIMEOUT);
+    connect(timer, &QTimer::timeout, this, &TCPDownloader::connectionTimeout);
 }
 
 void TCPDownloader::clientConnected(void)
@@ -20,9 +23,11 @@ void TCPDownloader::clientConnected(void)
     socket = server->nextPendingConnection();
     connect(socket, &QTcpSocket::readyRead, this, &TCPDownloader::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPDownloader::clientDisconnected);
-    datagram.clear();
-    fnameCheck = false;
+    imageData64.clear();
+    imageData.clear();
+    readFile = &TCPDownloader::readFileInfo;
     success = false;
+    timer->start();
     splitIndex = 0;
     qInfo()<<"[SERVER] SAR connected and ready to send image";
 }
@@ -30,31 +35,49 @@ void TCPDownloader::clientConnected(void)
 void TCPDownloader::clientDisconnected(void)
 {
     socket->close();
-    (success) ? qInfo()<<"[SERVER] Image fully received from SAR" : qWarning()<<"[SERVER] Something went wrong in receiving SAR image";
+    timer->stop();
+    (fileSize == imageData.size()) ? qInfo()<<"[SERVER] Image fully received from SAR" : qWarning()<<"[SERVER] Something went wrong in receiving SAR image";
     if(_mode == 2) { success = manager->saveRawData(imageData, filename); }
     emit receivingFinished();
 }
 void TCPDownloader::serverRead(void)
 {
+    (this->*readFile) (socket->readAll());
+}
 
-    while(socket->bytesAvailable()>0)
-    {
-        datagram.append(socket->readAll());
-        if(datagram.contains('\n')&&!fnameCheck)
-        {
-            splitIndex = datagram.indexOf('\n');
-            QByteArray fnamearr = datagram;
-            fnamearr.truncate(splitIndex);
-            filename = QString::fromUtf8(fnamearr);
-            fnameCheck = true;
-            qDebug()<<"[SERVER] Received filename: "<<filename;
-        }
-        else if(fnameCheck)
-        {
-            imageData = datagram;
-            imageData.remove(0,splitIndex+1);
-            //qWarning()<<splitIndex;
-            if(_mode == 1) { success = manager->saveRawData(imageData, filename); }
-        }
+void TCPDownloader::readFileInfo(QByteArray data)
+{
+    readFile = &TCPDownloader::readFileBody;
+
+    filename = QString(data);
+    uint8_t i = data.indexOf('\0') + 1;
+    memcpy(&fileSize, data.mid(i, sizeof(uint32_t)).data(), sizeof(uint32_t));
+    i+=sizeof(uint32_t);
+
+    qDebug() << "Name:" << filename;
+    qDebug() << "fileSize:" << fileSize;
+
+    data.remove(0, i);
+
+    timer->stop();
+    timer->start();
+    (this->*readFile)(data);
+}
+
+void TCPDownloader::readFileBody(QByteArray data)
+{
+    timer->stop();
+    timer->start();
+    if(data.size()){
+        imageData.append(data);
+        imageData64.append(data.toBase64());
     }
+}
+
+float TCPDownloader::progress(){
+    return (float)imageData.size() / fileSize;
+}
+
+void TCPDownloader::connectionTimeout(void){
+    socket->close();
 }

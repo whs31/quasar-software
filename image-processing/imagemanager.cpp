@@ -130,13 +130,16 @@ QImage ImageManager::enableAlphaSupport(QImage i)                               
 
 bool ImageManager::saveRawData(QByteArray data, QString filename)
 {
-    QPixmap image;
-    image.loadFromData(data);
+    data.reserve(sizeof(data));
+
     QString path = getTCPDirectory();
     path.append("/");
     path.append(filename);
     QDir::toNativeSeparators(path);
-    image.save(path);
+    QFile file(path);
+    file.open(QIODevice::WriteOnly);
+    file.write(data);
+    file.close();
 }
 
 bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)

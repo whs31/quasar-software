@@ -20,6 +20,7 @@ public:
     static void saveSettings();
     static void discardSettings();
 
+    static bool TESTMODE;
     static QString NETWORKTYPE;
     static QString NETWORKADDRESS;
     static QString NETWORKPORT;

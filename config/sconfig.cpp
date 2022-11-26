@@ -4,6 +4,7 @@ SConfig* SConfig::pointer;
 LinkerQML* SConfig::linker;
 Config* SConfig::config;
 
+bool SConfig::TESTMODE;
 QString SConfig::NETWORKTYPE;
 QString SConfig::NETWORKADDRESS;
 QString SConfig::NETWORKPORT;
@@ -36,6 +37,7 @@ SConfig* SConfig::init(void)            { return pointer; }
 
 void SConfig::loadSettings()
 {
+    TESTMODE              =           config->value("utility/test_mode").toBool();
     NETWORKTYPE           =           config->value("network/type").toString();
     NETWORKADDRESS        =           config->value("network/ip").toString();
     NETWORKPORT           =           config->value("network/port").toString();
@@ -62,13 +64,15 @@ void SConfig::loadSettings()
                          config->value("map/diagram_theta_azimuth").toDouble(),
                          config->value("map/diagram_drift_angle").toDouble(),
                          config->value("map/antenna_position").toString(),
-                         config->value("map/path").toString());
-    qWarning()<<"[SCONFIG] Config loaded. Version "<<config->value("utility/version").toString();
+                         config->value("map/path").toString(),
+                         config->value("utility/test_mode").toBool());
+    qInfo()<<"[SCONFIG] Config loaded. Version "<<config->value("utility/version").toString();
 
 }
 
 void SConfig::saveSettings()
 {
+    config->setValue("utility/test_mode", TESTMODE);
     config->setValue("network/type", NETWORKTYPE);
     config->setValue("network/ip", NETWORKADDRESS);
     config->setValue("network/port", NETWORKPORT);

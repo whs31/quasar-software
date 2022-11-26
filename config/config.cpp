@@ -11,6 +11,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 
     group_t utility;
     utility["version"] = "2311";
+    utility["test_mode"] = "false";
     checkValuesSimple(utility);
 
     group_t network;
@@ -33,8 +34,8 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     checkValuesSimple(map);
 
     group_t image;
-    image["use_loader"] = true;
-    image["save_at_end"] = true;
+    image["use_loader"] = "true";
+    image["save_at_end"] = "true";
     image["path"] = "\\192.168.1.48\\Jetson\\QuaSAR-bin\\img";
     checkValuesSimple(image);
 

@@ -32,6 +32,8 @@ Rectangle {
         property double c_DIAGRAMAZIMUTH: 0.0;        //|
         property double c_DRIFTANGLE: 0.0;            //|
     //==================================================|
+    property var m_provider: "osm";
+    property var m_mapMode: 0;
 
     property double latitude: 0.0
     property double longitude: 0.0
@@ -67,8 +69,17 @@ Rectangle {
         elevationText.text = Number(elevation).toFixed(0);
     }
 
-    function loadSettings(d1, d2, d3, d4, d5, s1, s2)
+    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode)
     {
+        if(testmode)
+        {
+            m_provider = "osm";
+            m_mapMode = 3;
+        } else {
+            m_provider = "osm";
+            m_mapMode = 0;
+        }
+
         c_ANTENNAPOSITION = s1;
         c_PATH = s2;
         c_PREDICTRANGE = d1;
@@ -306,14 +317,14 @@ Rectangle {
         layer.smooth: true
         plugin: Plugin {
             id: mapPluginID;
-            name: "osm";
+            name: m_provider;
             PluginParameter {
                 name: "osm.mapping.providersrepository.address";
                 value: "qrc:/osmconfigs";
             }
 
         }
-        activeMapType: mapView.supportedMapTypes[0]
+        activeMapType: mapView.supportedMapTypes[m_mapMode]
         center: QtPositioning.coordinate(59.660784, 30.200268);
         zoomLevel: 9
         copyrightsVisible: false

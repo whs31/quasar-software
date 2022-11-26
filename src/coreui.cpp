@@ -71,6 +71,8 @@ void CoreUI::InitializeConnections()
     udpTimeout = new QTimer(this);
     new SConfig(qml);
     SConfig::loadSettings();
+    if(SConfig::TESTMODE)
+        qWarning()<<"[STARTUP] Program is running in test mode!";
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
@@ -159,10 +161,8 @@ void CoreUI::updateDirectory()
     if(autoUpdate) { InitialImageScan(); }
 }
 
-void CoreUI::Halftime()
+void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
 {
-    //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
-    //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($>>text#))
     SendRemoteCommand(SARMessageParser::REQUEST_TELEMETRY);
 }
 void CoreUI::SendRemoteCommand(QString command)
@@ -174,18 +174,8 @@ void CoreUI::SendRemoteCommand(QString command)
     }
 }
 
-void CoreUI::Connected()
-{
-    connected = true;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
-}
-
-void CoreUI::Disconnected()
-{
-    connected = false;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
-}
-
+void CoreUI::Connected() { connected = true; ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold)); }
+void CoreUI::Disconnected() { connected = false; ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold)); }
 void CoreUI::ReadUDPData(QByteArray data)
 {
     udpTimeout->start(3*SConfig::UPDATETIME*1000);

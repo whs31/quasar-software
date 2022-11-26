@@ -74,7 +74,7 @@ void CoreUI::InitializeConnections()
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
     connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
-    new Style(true);  //false при сборке релиза
+    new Style(false);  //false при сборке релиза
     imageProcessing = new ImageProcessing(linker, this);
 
     ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);

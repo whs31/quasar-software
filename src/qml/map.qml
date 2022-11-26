@@ -498,10 +498,7 @@ Rectangle {
                 }
             }
         }
-        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18);
-            addImage(39.9237, 43.4337, 1, 1, 0, 0, angle, "/home/user/quasar-ui/QuaSAR-UI/!utilities/misc/image.png", 919);
-            showImage(0);
-        }
+        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18); }
         Rectangle {
             id: cursorTooltip
             visible: true

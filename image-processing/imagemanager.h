@@ -6,6 +6,7 @@
 #include <QDir>
 #include <QDebug>
 #include <QFile>
+#include <QSaveFile>
 #include <QPixmap>
 #include <QImage>
 #include <QPainter>

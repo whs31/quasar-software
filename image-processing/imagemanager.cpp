@@ -136,10 +136,10 @@ bool ImageManager::saveRawData(QByteArray data, QString filename)
     path.append("/");
     path.append(filename);
     QDir::toNativeSeparators(path);
-    QFile file(path);
+    QSaveFile file(path);
     file.open(QIODevice::WriteOnly);
     file.write(data);
-    file.close();
+    file.commit();
 }
 
 bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)

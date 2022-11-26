@@ -34,7 +34,7 @@ class Style : public QObject
 {
     Q_OBJECT
 public:
-    Style(bool TestMode = true, QObject* parent = nullptr);
+    Style(bool TestMode = false, QObject* parent = nullptr);
 
     static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat);
 public slots:

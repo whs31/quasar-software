@@ -2,7 +2,7 @@
 #include "ui_coreui.h"
 
 /*
- * 1. Класс парсер для телеметрии и тд
+ * 1. Коннектед брать с количества спутников в парсере (!=0)
  * 2. Разбить cpp на два
  *
  *
@@ -81,8 +81,8 @@ void CoreUI::InitializeConnections()
     ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
-    connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+    connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
+    connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     if(SConfig::CONNECTONSTART)
     {
         if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
@@ -104,8 +104,8 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if(uiReady)
     {
-        if(msgtype == 0) { ui->debugConsole->setTextColor(Qt::gray); }
-        else if (msgtype == 1) { ui->debugConsole->setTextColor(Qt::white); }
+        if(msgtype == 0) { ui->debugConsole->setTextColor(Qt::white); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(Qt::cyan); }
         else if (msgtype == 2) { ui->debugConsole->setTextColor(Qt::yellow); }
         else if (msgtype == 3) { ui->debugConsole->setTextColor(Qt::red); }
         else if (msgtype == 4) { ui->debugConsole->setTextColor(Qt::darkRed); }
@@ -160,11 +160,7 @@ void CoreUI::Halftime()
 {
     //$request запрашивает данные телеметрии в виде строки (ответ = строка вида ($lat@lon@speed@elv#)),
     //$form-SAR-image дает команду на формирование РЛИ (ответ = строка вида ($>>text#))
-    if(SConfig::NETWORKTYPE == "TCP"){ //wtf???
-        SendRemoteCommand("$request");
-    } else {
-        SendRemoteCommand("$request");
-    }
+    SendRemoteCommand(SARMessageParser::REQUEST_TELEMETRY);
 }
 void CoreUI::SendRemoteCommand(QString command)
 {
@@ -187,29 +183,15 @@ void CoreUI::Disconnected()
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
 }
 
-void CoreUI::ReadTelemetry(QByteArray data){
-    QString unparsed = data.data();
-    QString parsed;
-    QStringList parsedList;
-    if(unparsed.endsWith("#") && unparsed.startsWith("$")) {
-        if(unparsed.startsWith("$>>"))
-        {
-            QString parsedMessage = unparsed;
-            parsedMessage.chop(1);
-            parsedMessage.remove(0, 3);
-                    qInfo()<<"[SERVER] Server responds with: "<<parsedMessage;
-        }
-        else
-        {
-            parsed = unparsed;
-            parsed.chop(1);
-            parsed.remove(0, 1);
-            parsedList = parsed.split("@");
-            for(int i = 0; i<=3; i++)
-            {
-                telemetry[i] = parsedList[i].toDouble();
-            }
-        }
+void CoreUI::ReadUDPData(QByteArray data)
+{
+    DataType dtype = SARMessageParser::checkReceivedDataType(data);
+    switch (dtype) {
+    case DataType::Telemetry:
+        telemetry = SARMessageParser::parseTelemetry(data);
+        break;
+    default:
+        break;
     }
     if((float)telemetry[0]!= 0 && connectionChecker != telemetry[0])
     {
@@ -361,6 +343,25 @@ void CoreUI::on_pushButton_reconnect_clicked()
         if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
                 qInfo()<<"[REMOTE] UDP client connected";
     }
-    //timer->start(SConfig::UPDATETIME);
-    //если широта была 0 то клиртрек
 }
+
+void CoreUI::on_pushButton_clearCache_clicked()
+{
+    QMessageBox askForClearCache;
+    askForClearCache.setWindowTitle("Очистка кэша РЛИ");
+    askForClearCache.setIcon(QMessageBox::Information);
+    askForClearCache.setText("Вы уверены, что хотите полностью очистить кэш радиолокационных изображений? Это действие удалит все изображения, полученные в ходе текущего полёта!");
+    askForClearCache.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    askForClearCache.setDefaultButton(QMessageBox::Cancel);
+    int ret = askForClearCache.exec();
+    switch (ret) {
+    case QMessageBox::Yes:
+        ImageManager::clearCache();
+        break;
+    case QMessageBox::Cancel:
+        break;
+    default:
+        break;
+    }
+}
+

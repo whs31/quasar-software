@@ -9,6 +9,8 @@
 #include "tcpremote.h"
 #include "settingsdialog.h"
 #include "imageprocessing.h"
+#include "imagemanager.h"
+#include "sarmessageparser.h"
 
 #include "style.h"
 #include "linkerqml.h"
@@ -16,7 +18,6 @@
 #include "tcpdownloader.h"
 
 //классы, имеющие обратную связь с мейнвиндоу в виде вызова функции без системы сигнал-слот
-//это надо фиксить =)
 class ConfigHandler;
 class ImageProcessing;
 //--------
@@ -37,7 +38,7 @@ public:
 
     void SendRemoteCommand(QString command);
     void debugStreamUpdate(QString _text, int msgtype);
-    double telemetry[4]; //lat, lon, speed, elevation
+    std::array<double, 5> telemetry; //lat, lon, speed, elevation
 
     //ui setters
     void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
@@ -82,7 +83,7 @@ signals:
 public slots:
     void updateDirectory(void);
 private slots:
-    void ReadTelemetry(QByteArray data);
+    void ReadUDPData(QByteArray data);
     void Halftime();
 
     //top menu
@@ -103,5 +104,6 @@ private slots:
     void on_pushButton_showAllImages_clicked();
     void on_checkBox_autoUpdate_stateChanged(int arg1);
     void on_pushButton_reconnect_clicked();
+    void on_pushButton_clearCache_clicked();
 };
 #endif // COREUI_H

@@ -84,7 +84,7 @@ void ImageProcessing::decode(QStringList filelist)
                 metaStruct.filename = fileName;
                 QFileInfo info(_qfile);
                 QString pngPath = info.fileName();
-                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(imageManager->getPNGDirectory()+'/');
+                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(ImageManager::getPNGDirectory()+'/');
                 QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
                 QDateTime crDate = QFileInfo(_qfile).birthTime();

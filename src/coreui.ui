@@ -71,7 +71,7 @@
      <x>0</x>
      <y>0</y>
      <width>1339</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menutemp1">
@@ -107,9 +107,6 @@
      <width>524287</width>
      <height>524287</height>
     </size>
-   </property>
-   <property name="features">
-    <set>QDockWidget::AllDockWidgetFeatures</set>
    </property>
    <property name="allowedAreas">
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
@@ -155,9 +152,9 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-117</y>
           <width>361</width>
-          <height>512</height>
+          <height>516</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -194,7 +191,6 @@
             <font>
              <family>Ubuntu</family>
              <pointsize>9</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -493,6 +489,9 @@ QPushButton:selected {
            <property name="title">
             <string>Метаданные РЛИ</string>
            </property>
+           <property name="checkable">
+            <bool>false</bool>
+           </property>
            <layout class="QGridLayout" name="gridLayout_5">
             <property name="horizontalSpacing">
              <number>0</number>
@@ -506,7 +505,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>8</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -575,7 +573,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>8</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -628,7 +625,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>8</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -703,7 +699,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>8</pointsize>
-                <weight>75</weight>
                 <italic>true</italic>
                 <bold>true</bold>
                </font>
@@ -753,7 +748,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>10</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -915,7 +909,6 @@ QPushButton:selected {
                <font>
                 <family>Ubuntu</family>
                 <pointsize>10</pointsize>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -963,6 +956,42 @@ QPushButton:selected {
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="pushButton_clearCache">
+           <property name="font">
+            <font>
+             <family>Ubuntu</family>
+             <pointsize>8</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  background-color: #CC7067;
+  color: #F6F7F9;
+  border-radius: 8px;
+  padding: 1px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:hover {
+  background-color: #FF8C81;
+  color: #F6F7F9;
+}
+
+QPushButton:pressed {
+  background-color: #FF7452;
+}</string>
+           </property>
+           <property name="text">
+            <string>Очистить кэш изображений</string>
+           </property>
+           <property name="icon">
+            <iconset resource="images.qrc">
+             <normaloff>:/ui-resources/eraser.png</normaloff>:/ui-resources/eraser.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item>
           <spacer name="verticalSpacer">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -988,9 +1017,6 @@ QPushButton:selected {
      <width>804</width>
      <height>143</height>
     </size>
-   </property>
-   <property name="features">
-    <set>QDockWidget::AllDockWidgetFeatures</set>
    </property>
    <property name="windowTitle">
     <string>Инструменты карты</string>
@@ -1202,7 +1228,6 @@ QPushButton:selected {
            <font>
             <family>Ubuntu</family>
             <pointsize>10</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -1226,7 +1251,6 @@ QPushButton:selected {
            <font>
             <family>Ubuntu</family>
             <pointsize>10</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -1391,7 +1415,6 @@ QPushButton:selected {
            <font>
             <family>Ubuntu</family>
             <pointsize>10</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -1415,7 +1438,6 @@ QPushButton:selected {
            <font>
             <family>Ubuntu</family>
             <pointsize>10</pointsize>
-            <weight>75</weight>
             <bold>true</bold>
            </font>
           </property>
@@ -1689,9 +1711,6 @@ QPushButton:pressed {
    <property name="floating">
     <bool>false</bool>
    </property>
-   <property name="features">
-    <set>QDockWidget::AllDockWidgetFeatures</set>
-   </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
    </property>
@@ -1741,9 +1760,6 @@ QPushButton:pressed {
      <height>87</height>
     </size>
    </property>
-   <property name="features">
-    <set>QDockWidget::AllDockWidgetFeatures</set>
-   </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
    </property>
@@ -1784,7 +1800,7 @@ QPushButton:pressed {
           <x>0</x>
           <y>0</y>
           <width>251</width>
-          <height>595</height>
+          <height>596</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">

@@ -1,28 +1,31 @@
 #include "imagemanager.h"
 
+QString ImageManager::cacheDirectory;
+QString ImageManager::PNGDirectory;
+QString ImageManager::TCPDirectory;
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
-    cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
-    QDir dir(cacheDirectory);
+    ImageManager::cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
+    QDir dir(ImageManager::cacheDirectory);
     if (!dir.exists()){ dir.mkpath(cacheDirectory); }
-    PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
-    QDir pngdir(PNGDirectory);
-    if(!pngdir.exists()) { pngdir.mkpath(PNGDirectory); }
-    TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
-    QDir tcpdir(TCPDirectory);
-    if(!tcpdir.exists()) { tcpdir.mkpath(TCPDirectory); }
-    SConfig::CACHEPATH = TCPDirectory;
+    ImageManager::PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
+    QDir pngdir(ImageManager::PNGDirectory);
+    if(!pngdir.exists()) { pngdir.mkpath(ImageManager::PNGDirectory); }
+    ImageManager::TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
+    QDir tcpdir(ImageManager::TCPDirectory);
+    if(!tcpdir.exists()) { tcpdir.mkpath(ImageManager::TCPDirectory); }
+    SConfig::CACHEPATH = ImageManager::TCPDirectory;
 
-            qInfo()<<"[FILEMANAGER] Working directory: "<<cacheDirectory;
-            qInfo()<<"[FILEMANAGER] .png directory: "<<PNGDirectory;
-            qInfo()<<"[FILEMANAGER] TCP Downloader directory: "<<TCPDirectory;
+            qInfo()<<"[FILEMANAGER] Working directory: "<<ImageManager::cacheDirectory;
+            qInfo()<<"[FILEMANAGER] .png directory: "<<ImageManager::PNGDirectory;
+            qInfo()<<"[FILEMANAGER] TCP Downloader directory: "<<ImageManager::TCPDirectory;
     //на случай если ne захочется кешировать в отдельную папку
     //PNGDirectory = cacheDirectory;
 }
 
 QStringList ImageManager::getDiff(const QString &path, QStringList existingFileList)
 {
-    QDir pngDirectory(getPNGDirectory());
+    QDir pngDirectory(ImageManager::getPNGDirectory());
     QStringList pngFileList;
     QStringList diff;
     pngDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
@@ -106,7 +109,7 @@ QString ImageManager::MakePNG(QString jpeg)
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
     pixMap = enableAlphaSupport(pixMap);
-    QString finalFile = PNGDirectory+'/'+filename;
+    QString finalFile = ImageManager::PNGDirectory+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);
     return finalFile;
@@ -132,7 +135,7 @@ bool ImageManager::saveRawData(QByteArray data, QString filename)
 {
     data.reserve(sizeof(data));
 
-    QString path = getTCPDirectory();
+    QString path = ImageManager::getTCPDirectory();
     path.append("/");
     path.append(filename);
     QDir::toNativeSeparators(path);
@@ -140,6 +143,7 @@ bool ImageManager::saveRawData(QByteArray data, QString filename)
     file.open(QIODevice::WriteOnly);
     file.write(data);
     file.commit();
+    return true;
 }
 
 bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
@@ -174,9 +178,27 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
     fillp.addPolygon(p1); fillp.addPolygon(p2);
     painter.fillPath(fillp, brush);
     painter.end();
-    base.save(path);
+    bool s = base.save(path);
+    return s;
 }
 
-QString ImageManager::getCacheDirectory(void)                   { return cacheDirectory;                                              }
-QString ImageManager::getPNGDirectory(void)                     { return PNGDirectory;                                                }
-QString ImageManager::getTCPDirectory(void)                     { return TCPDirectory;                                                }
+QString ImageManager::getCacheDirectory(void)                   { return ImageManager::cacheDirectory;                                              }
+QString ImageManager::getPNGDirectory(void)                     { return ImageManager::PNGDirectory;                                                }
+QString ImageManager::getTCPDirectory(void)                     { return ImageManager::TCPDirectory;                                                }
+
+void ImageManager::clearCache(ClearMode mode)
+{
+    if(mode == 0||mode == 1)
+    {
+        QDir tcpdir(ImageManager::TCPDirectory);
+        if(tcpdir.exists()) { tcpdir.removeRecursively(); }
+    }
+    if(mode == 0||mode == 2)
+    {
+        QDir dir(ImageManager::cacheDirectory);
+        if (dir.exists()) { dir.removeRecursively(); }
+        QDir pngdir(ImageManager::PNGDirectory);
+        if(pngdir.exists()) { pngdir.removeRecursively(); }
+    }
+    qWarning()<<"[FILEMANAGER] Cache cleared ("<<mode<<")";
+}

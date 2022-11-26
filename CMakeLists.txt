@@ -33,12 +33,12 @@ else()
         network/tcpremote.h
         network/udpremote.h
         network/tcpdownloader.h
-        network/parser.h
         network/tcpremote.cpp
         network/udpremote.cpp
         network/remote.cpp
         network/tcpdownloader.cpp
-        network/parser.cpp
+        network/sarmessageparser.h
+        network/sarmessageparser.cpp
         src/coreui.h
         src/linkerqml.h
         src/coreui.cpp

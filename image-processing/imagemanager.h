@@ -23,6 +23,13 @@ enum ImageFormat : short int
     PNG
 };
 
+enum ClearMode : short int
+{
+    ClearAll,
+    ClearTCP,
+    ClearPNG
+};
+
 class ImageManager : public QObject
 {
     Q_OBJECT
@@ -33,18 +40,20 @@ public:
     QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
     QStringList CopyJPEG(const QString& path, QStringList diff);
     QString MakePNG(QString jpeg);
-    QString getCacheDirectory(void);
-    QString getPNGDirectory(void);
-    QString getTCPDirectory (void);
+    static QString getCacheDirectory(void);
+    static QString getPNGDirectory(void);
+    static QString getTCPDirectory (void);
     bool saveRawData(QByteArray data, QString filename);
     QImage swapAlpha(QImage i);
     QImage enableAlphaSupport(QImage i);
     bool addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0);
 
+    static void clearCache(ClearMode mode = ClearMode::ClearAll);
+
 private:
-    QString cacheDirectory;
-    QString PNGDirectory;
-    QString TCPDirectory;
+    static QString cacheDirectory;
+    static QString PNGDirectory;
+    static QString TCPDirectory;
 
 signals:
 

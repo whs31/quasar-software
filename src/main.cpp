@@ -9,7 +9,6 @@
 #include <QQuickStyle>
 
 #include "coreui.h"
-#include "ui_coreui.h"
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -39,7 +38,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     QFile outFile(QCoreApplication::applicationDirPath()+"/debug_log.txt");
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
-    ts << txt << endl;
+    ts << txt << Qt::endl;
     CoreUI* pointer = CoreUI::getDebugPointer();
     pointer->debugStreamUpdate(txt, msgt);
 }
@@ -52,9 +51,6 @@ int main(int argc, char *argv[]) {
 
     window.show();
     window.showMaximized();
-
-    //qDebug()<<QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation); //здесь валяется кэш карт
-
     return app.exec();
 }
 

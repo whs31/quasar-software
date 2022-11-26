@@ -60,6 +60,7 @@ private:
     TCPRemote *tcpRemote;
     ConfigHandler *config;
     QTimer *timer;
+    QTimer *udpTimeout;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;
     TCPDownloader *downloader;
@@ -67,10 +68,6 @@ private:
     bool uiReady = false;
     bool connected = false;
     bool autoUpdate = true;
-
-    void Connected();
-    void Disconnected();
-    double connectionChecker;
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();
@@ -82,6 +79,8 @@ signals:
 
 public slots:
     void updateDirectory(void);
+    void Connected();
+    void Disconnected();
 private slots:
     void ReadUDPData(QByteArray data);
     void Halftime();

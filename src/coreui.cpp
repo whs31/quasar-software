@@ -68,6 +68,7 @@ void CoreUI::InitializeConnections()
     linker = new LinkerQML(qml);
     //------------------------------------
     timer = new QTimer(this);
+    udpTimeout = new QTimer(this);
     new SConfig(qml);
     SConfig::loadSettings();
     udpRemote = new UDPRemote();
@@ -81,6 +82,7 @@ void CoreUI::InitializeConnections()
     ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
+    connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     if(SConfig::CONNECTONSTART)
@@ -94,6 +96,7 @@ void CoreUI::InitializeConnections()
         }
     }//---------------------------------------------< внутренности засунуть в кнопку на случай если в конфиге false;
     timer->start(SConfig::UPDATETIME*1000);
+    udpTimeout->start(3*SConfig::UPDATETIME*1000);
     Disconnected();
             qDebug()<<"[STARTUP] Connections set up successfully";
 
@@ -185,21 +188,22 @@ void CoreUI::Disconnected()
 
 void CoreUI::ReadUDPData(QByteArray data)
 {
+    udpTimeout->start(3*SConfig::UPDATETIME*1000);
     DataType dtype = SARMessageParser::checkReceivedDataType(data);
     switch (dtype) {
     case DataType::Telemetry:
+        telemetry[4] = (double)0;
         telemetry = SARMessageParser::parseTelemetry(data);
         break;
     default:
         break;
     }
-    if((float)telemetry[0]!= 0 && connectionChecker != telemetry[0])
+    if((int)telemetry[4] != 0)
     {
-        Connected(); //disconnected если 20 секунд не поступали данные с РЛС
-    }
+        Connected();
+    } else { Disconnected(); }
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
-    connectionChecker = telemetry[0];
 }
 void CoreUI::on_formImage_triggered() //menu slot (will be removed)
 {

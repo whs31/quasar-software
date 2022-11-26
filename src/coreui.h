@@ -61,6 +61,7 @@ private:
     ConfigHandler *config;
     QTimer *timer;
     QTimer *udpTimeout;
+    QTimer *uiTimer1;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;
     TCPDownloader *downloader;
@@ -81,6 +82,8 @@ signals:
 
 public slots:
     void updateDirectory(void);
+    void updateProgress(float f);
+    void updateLoaderLabel();
     void Connected();
     void Disconnected();
 private slots:

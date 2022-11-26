@@ -61,6 +61,7 @@ void CoreUI::InitializeUI()
             openSSLDialogue.setText("Попробуйте переустановить программу.");
             openSSLDialogue.exec();
         }
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
 }
 void CoreUI::InitializeConnections()
 {
@@ -69,6 +70,7 @@ void CoreUI::InitializeConnections()
     //------------------------------------
     timer = new QTimer(this);
     udpTimeout = new QTimer(this);
+    uiTimer1 = new QTimer(this);
     new SConfig(qml);
     SConfig::loadSettings();
     if(SConfig::TESTMODE)
@@ -77,6 +79,7 @@ void CoreUI::InitializeConnections()
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
     connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
+    connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
     new Style(false);  //false при сборке релиза
     imageProcessing = new ImageProcessing(linker, this);
 
@@ -85,6 +88,7 @@ void CoreUI::InitializeConnections()
 
     connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
     connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected));
+    connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
     connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     if(SConfig::CONNECTONSTART)
@@ -161,6 +165,22 @@ void CoreUI::updateDirectory()
     if(autoUpdate) { InitialImageScan(); }
 }
 
+void CoreUI::updateLoaderLabel(void)
+{
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
+    uiTimer1->stop();
+}
+
+void CoreUI::updateProgress(float f)
+{
+    if(f>0) { ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent, Format::Italic)); }
+    if(f>99) {
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success, Format::Italic));
+        uiTimer1->start(5000);
+    }
+    ui->progressBar_loader->setValue((int)f);
+}
+
 void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
 {
     SendRemoteCommand(SARMessageParser::REQUEST_TELEMETRY);
@@ -174,8 +194,20 @@ void CoreUI::SendRemoteCommand(QString command)
     }
 }
 
-void CoreUI::Connected() { connected = true; ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold)); }
-void CoreUI::Disconnected() { connected = false; ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold)); }
+void CoreUI::Connected()
+{
+    connected = true;
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
+    ui->label_c_satcount->setVisible(true); ui->label_c_satcount->setEnabled(true);
+    ui->groupBox_Loader->setVisible(true); ui->groupBox_Loader->setVisible(true);
+}
+void CoreUI::Disconnected()
+{
+    connected = false;
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
+    ui->label_c_satcount->setVisible(false); ui->label_c_satcount->setEnabled(false);
+    ui->groupBox_Loader->setVisible(false); ui->groupBox_Loader->setVisible(false);
+}
 void CoreUI::ReadUDPData(QByteArray data)
 {
     udpTimeout->start(3*SConfig::UPDATETIME*1000);

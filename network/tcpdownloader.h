@@ -30,8 +30,9 @@ public:
 
 signals:
     void receivingFinished();
+    void progressChanged(float progress);
 
-public slots:
+ public slots:
     void clientConnected(void);
     void serverRead(void);
     void clientDisconnected(void);

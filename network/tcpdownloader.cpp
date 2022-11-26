@@ -72,10 +72,13 @@ void TCPDownloader::readFileBody(QByteArray data)
         imageData.append(data);
         imageData64.append(data.toBase64());
     }
+    progress();
 }
 
 float TCPDownloader::progress(){
-    return (float)imageData.size() / fileSize;
+    float f = (float)imageData.size() / fileSize;
+    emit progressChanged(f*100);
+    return f;
 }
 
 void TCPDownloader::connectionTimeout(void){

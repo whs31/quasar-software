@@ -31,9 +31,10 @@ Rectangle {
         property double c_CAPTURETIME: 0.0;           //|
         property double c_DIAGRAMAZIMUTH: 0.0;        //|
         property double c_DRIFTANGLE: 0.0;            //|
+        property string m_provider: "osm";            //|
+        property int m_mapMode: 0;                    //|
     //==================================================|
-    property var m_provider: "osm";
-    property var m_mapMode: 0;
+
 
     property double latitude: 0.0
     property double longitude: 0.0
@@ -43,11 +44,11 @@ Rectangle {
     property var imageArray: []
 
     //-------widgets ui checkboxes------
-    property var followPlane: false;
-    property var enableTooltip: true;
-    property var enableRoute: true;
-    property var enablePredict: true;
-    property var enableDiagram: true;
+    property bool followPlane: false;
+    property bool enableTooltip: true;
+    property bool enableRoute: true;
+    property bool enablePredict: true;
+    property bool enableDiagram: true;
     //----------------------------------
 
 
@@ -55,7 +56,7 @@ Rectangle {
     property int r_currentstate: 0;
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
-    property var fc: 0;
+    property int fc: 0;
 
     //called every C_UPDATETIME (0.5 s default)
     function getTelemetry(lat, lon, elv, speed)
@@ -112,7 +113,7 @@ Rectangle {
                                                         z:1
 
                                                     }
-    ', mapView, "dynamic"); //3000x1273 hardcoded f now
+    ', mapView, "dynamic");
         //one degree = 111 120 meters
         item.anchorPoint.x = -x0;
         item.anchorPoint.y = h/2;
@@ -139,27 +140,12 @@ Rectangle {
                                                         }
 
                                                     }
-            ', mapView, "dynamic"); /*
-                                                        Image {
-                                                            id: mask
-                                                            source: "qrc:/img-deprecated/jpeg_opacityMask.png"
-                                                            sourceSize: Qt.size(imageSource.width, imageSource.height)
-                                                            visible: false
-                                                        }
-                                                        OpacityMask {
-                                                            anchors.fill: imageSource
-                                                            source: imageSource
-                                                            maskSource: mask
-                                                        }
-                                                        */
+            ', mapView, "dynamic");
         if(dx!==0) { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx); } else { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/1); }
-                                        //https://developer.here.com/documentation/data-layers/dev_guide/topics/zoom-levels.html **deprecated**
                                         //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
-                                        //dx = metersPerPx (без учета dy)
                                         //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
         mapView.addMapItem(item);
-        imageArray.push(item); //если изображения будут отображены не по очереди, то все ломается
-        //change opacity of newly created jpg
+        imageArray.push(item);
     }
 
     function log(base, exponent) { return Math.log(exponent) / Math.log(base); }
@@ -168,14 +154,12 @@ Rectangle {
     {
         imageArray[filecounter].visible = false;
         imageArray[filecounter].enabled = false;
-        //console.log("[QML] Image hidden", filecounter);
     }
 
     function showImage(filecounter)
     {
         imageArray[filecounter].visible = true;
         imageArray[filecounter].enabled = true;
-        //console.log("[QML] Image shown", filecounter);
         fc = filecounter;
     }
 
@@ -184,7 +168,6 @@ Rectangle {
         console.log("[QML] Map centered on image");
         mapView.center = imageArray[filecounter].coordinate;
         fc = filecounter;
-//        mapView.zoomLevel = 14
     }
     //-------------------------------------------------------------------------------}
 

@@ -188,11 +188,12 @@ void CoreUI::ReadUDPData(QByteArray data)
     default:
         break;
     }
-    if((int)telemetry[4] != 0)
+    if((int)telemetry[4] != 0 && _conckc != telemetry[0])
     {
         Connected();
     } else { Disconnected(); }
-    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3]);
+    _conckc = telemetry[0];
+    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3], (int)telemetry[4]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }
 void CoreUI::on_formImage_triggered() //menu slot (will be removed)
@@ -288,12 +289,13 @@ void CoreUI::on_pushButton_showAllImages_clicked()
         ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
     }
 }
-void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation)
+void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount)
 {
     ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
     ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
     ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("км/ч", Colors::MainFaded, Format::SuperScript));
     ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("м", Colors::MainFaded, Format::SuperScript));
+    ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));
 }
 void CoreUI::updateImageManagerLabels(int total, int current)
 {

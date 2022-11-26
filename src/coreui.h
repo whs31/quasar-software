@@ -41,7 +41,7 @@ public:
     std::array<double, 5> telemetry; //lat, lon, speed, elevation
 
     //ui setters
-    void updateTelemetryLabels(float lat, float lon, float speed, float elevation);
+    void updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount);
     void updateImageManagerLabels(int total, int current);
     void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
     void setPushButton_goLeftEnabled(bool state);
@@ -68,6 +68,8 @@ private:
     bool uiReady = false;
     bool connected = false;
     bool autoUpdate = true;
+
+    double _conckc = 0;
 
     QVector<bool> imageChecklist;
     void ImageChecklistLoop();

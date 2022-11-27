@@ -50,7 +50,7 @@ bool ImageProcessing::processPath(QString path)
         qmlLinker->clearImageArray();
         decode(imageList);
         updateLabels(0);
-        core->updateImageManagerLabels(getVectorSize(), getFileCounter());
+        emit updateTopLabels(getVectorSize(), getFileCounter());
             qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1032 для пяти картинок
     } else {
         QMessageBox warningDialogue;
@@ -59,7 +59,10 @@ bool ImageProcessing::processPath(QString path)
         warningDialogue.setText("В выбранном каталоге не найдены изображения!");
         warningDialogue.exec();
     }
-    if(getVectorSize()>1) { core->setPushButton_goRightEnabled(true); }
+    if(getVectorSize()>1)
+    {
+        emit(setRightButton(true));
+    }
     return notNull;
 }
 
@@ -119,18 +122,18 @@ void ImageProcessing::updateLabels(int structureIndex)
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
     QString checksumHex = QString("%1").arg(metadataList[structureIndex].checksum, 8, 16, QLatin1Char('0'));
-    core->updateImageMetaLabels(cutFilename,
-                                      metadataList[structureIndex].latitude,
-                                      metadataList[structureIndex].longitude,
-                                      metadataList[structureIndex].dx,
-                                      metadataList[structureIndex].dy,
-                                      metadataList[structureIndex].x0,
-                                      metadataList[structureIndex].y0,
-                                      metadataList[structureIndex].angle,
-                                      metadataList[structureIndex].driftAngle,
-                                      checksumHex,
-                                      metadataList[structureIndex].datetime,
-                                      metadataList[structureIndex].checksumMatch);
+    emit updateMetaLabels(cutFilename,
+                          metadataList[structureIndex].latitude,
+                          metadataList[structureIndex].longitude,
+                          metadataList[structureIndex].dx,
+                          metadataList[structureIndex].dy,
+                          metadataList[structureIndex].x0,
+                          metadataList[structureIndex].y0,
+                          metadataList[structureIndex].angle,
+                          metadataList[structureIndex].driftAngle,
+                          checksumHex,
+                          metadataList[structureIndex].datetime,
+                          metadataList[structureIndex].checksumMatch);
 }
 
 uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
@@ -175,21 +178,54 @@ void ImageProcessing::showAllImages(bool showOnStart)
 }
 
 
-int ImageProcessing::getFileCounter()           { return fileCounter;                                                           }
-int ImageProcessing::getVectorSize()            { return metadataList.length();                                                 }
+int ImageProcessing::getFileCounter()
+{
+    return fileCounter;
+}
+
+int ImageProcessing::getVectorSize()
+{
+    return metadataList.length();
+}
+
 void ImageProcessing::goLeft()
 {
     int totalFiles = getVectorSize()-1;
-    if(fileCounter>0) { fileCounter--; updateLabels(fileCounter);                                 }
-    if (fileCounter == 0) { core->setPushButton_goLeftEnabled(false);                             }
-    if(fileCounter < totalFiles) { core->setPushButton_goRightEnabled(true);                      }
-    if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
+    if(fileCounter>0)
+    {
+        fileCounter--;
+        updateLabels(fileCounter);
+    }
+    if (fileCounter == 0)
+    {
+        emit(setLeftButton(false));
+    }
+    if(fileCounter < totalFiles)
+    {
+        emit(setRightButton(true));
+    }
+    if(notNull)
+    {
+        emit updateTopLabels(getVectorSize(), getFileCounter());
+    }
 }
 void ImageProcessing::goRight()
 {
     int totalFiles = getVectorSize()-1;
-    if(fileCounter < totalFiles) { fileCounter++; updateLabels(fileCounter);                      }
-    if(fileCounter > 0) { core->setPushButton_goLeftEnabled(true);                                }
-    if (fileCounter == totalFiles) { core->setPushButton_goRightEnabled(false);                   }
-    if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
+    if(fileCounter < totalFiles)
+    {
+        fileCounter++; updateLabels(fileCounter);
+    }
+    if(fileCounter > 0)
+    {
+        emit(setLeftButton(true));
+    }
+    if (fileCounter == totalFiles)
+    {
+        emit(setRightButton(false));
+    }
+    if(notNull)
+    {
+        emit updateTopLabels(getVectorSize(), getFileCounter());
+    }
 }

@@ -42,10 +42,7 @@ public:
 
     //ui setters
     void updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount);
-    void updateImageManagerLabels(int total, int current);
-    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
-    void setPushButton_goLeftEnabled(bool state);
-    void setPushButton_goRightEnabled(bool state);
+
     //getters
     void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3);
     bool getReady(void);
@@ -86,6 +83,11 @@ public slots:
     void updateLoaderLabel();
     void Connected();
     void Disconnected();
+
+    void setPushButton_goLeftEnabled(bool state);
+    void setPushButton_goRightEnabled(bool state);
+    void updateImageManagerLabels(int total, int current);
+    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
 private slots:
     void ReadUDPData(QByteArray data);
     void Halftime();

@@ -7,7 +7,6 @@
 #include <QMessageBox>
 #include <QDateTime>
 
-#include "coreui.h"
 #include "imagemanager.h"
 #include "linkerqml.h"
 
@@ -22,6 +21,31 @@ class ImageProcessing : public QObject
     Q_OBJECT
 public:
     explicit ImageProcessing(LinkerQML* linker, CoreUI* parent);
+    bool processPath(QString path);
+    bool getReadyStatus(void);
+    int getFileCounter(void);
+    int getVectorSize(void);
+    void goLeft(void);
+    void goRight(void);
+    void showAllImages(bool showOnStart = false);
+
+signals:
+    void setLeftButton(bool b);
+    void setRightButton(bool b);
+    void updateTopLabels(int total, int current);
+    void updateMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+
+private:
+    CoreUI* core;
+    LinkerQML* qmlLinker;
+    QStringList diff;
+    ImageManager* imageManager;
+
+    uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
+    void decode(QStringList filelist);
+    void updateLabels(int structureIndex);
+    QStringList getEntryList(QString &path);
+
     struct image_metadata {
             double latitude;
             double longitude;
@@ -37,31 +61,9 @@ public:
             bool checksumMatch;
             QString base64encoding;
         };
-
-    QStringList getEntryList(QString &path);
-    bool processPath(QString path);
-    void decode(QStringList filelist);
-    void updateLabels(int structureIndex);
-
-    bool getReadyStatus(void);
-    int getFileCounter(void);
-    int getVectorSize(void);
-    uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
-
     QVector<image_metadata> metadataList;
-
-    int fileCounter = 0;
     bool notNull = false;
-    void goLeft(void);
-    void goRight(void);
-    void showAllImages(bool showOnStart = false);
-    ImageManager* imageManager;
-
-private:
-    CoreUI* core;
-    LinkerQML* qmlLinker;
-
-    QStringList diff;
+    int fileCounter = 0;
 };
 
 #endif // IMAGEPROCESSING_H

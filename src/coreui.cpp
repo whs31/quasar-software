@@ -82,6 +82,11 @@ void CoreUI::InitializeConnections()
     connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
     new Style(false);  //false при сборке релиза
     imageProcessing = new ImageProcessing(linker, this);
+    connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
+    connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
+    connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));
+    connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)),
+                       this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)));
 
     ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);
     ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);

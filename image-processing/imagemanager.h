@@ -32,6 +32,13 @@ enum ClearMode : short int
     ClearPNG
 };
 
+enum MaskFormat : short int
+{
+    Geometric,
+    AlphaSwap,
+    Combined
+};
+
 class ImageManager : public QObject
 {
     Q_OBJECT
@@ -39,25 +46,25 @@ public:
     explicit ImageManager(QObject *parent = nullptr);
 
     QStringList getDiff(const QString &path, QStringList existingFileList);
-    QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
     QStringList CopyJPEG(const QString& path, QStringList diff);
-    QString MakePNG(QString jpeg);
+    bool saveRawData(QByteArray data, QString filename);
+    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
+
     static QString getCacheDirectory(void);
     static QString getPNGDirectory(void);
     static QString getTCPDirectory (void);
-    bool saveRawData(QByteArray data, QString filename);
-    QImage swapAlpha(QImage i);
-    QImage enableAlphaSupport(QImage i);
-    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0);
-    QString convertToBase64(QImage image);
-
     static void clearCache(ClearMode mode = ClearMode::ClearAll);
     static void setupCache(void);
+    static QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
 
 private:
     static QString cacheDirectory;
     static QString PNGDirectory;
     static QString TCPDirectory;
+
+    QImage enableAlphaSupport(QImage i);
+    QString convertToBase64(QImage image);
+    QString MakePNG(QString jpeg);
 
 signals:
 

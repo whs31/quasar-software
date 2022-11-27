@@ -74,8 +74,8 @@ private:
     void InitializeUI();
     void InitializeConnections();
 
-    bool InitialImageScan();
-    bool PartialImageScan();
+    void InitialImageScan();
+    void PartialImageScan();
 
 signals:
 
@@ -90,6 +90,8 @@ public slots:
     void setPushButton_goRightEnabled(bool state);
     void updateImageManagerLabels(int total, int current);
     void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void enableImageBar(bool b);
+
 private slots:
     void ReadUDPData(QByteArray data);
     void Halftime();

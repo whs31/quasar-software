@@ -1,13 +1,16 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker, CoreUI* parent) : core(parent), qmlLinker(linker)
+ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
 {
     imageManager = new ImageManager;
 }
 
 bool ImageProcessing::getReadyStatus()
 {
-    if(!metadataList.empty()) { return 1; } return 0;
+    if(!metadataList.empty())
+    {
+        return 1;
+    } return 0;
 }
 
 QStringList ImageProcessing::getEntryList(QString &path)
@@ -55,7 +58,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
         metadataList.clear();
         qmlLinker->clearImageArray();
 
-        decode(imageList);
+        decode(imageList, DecodeMode::Initial);
         updateLabels(0);
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
@@ -72,10 +75,59 @@ bool ImageProcessing::InitialScan() //recall after changing settings
     {
         emit(setRightButton(true));
     }
+    if(getReadyStatus())
+    {
+        for(int i = 0; i<getVectorSize(); i++)
+        {
+            imageChecklist.append(false); //<--------------------------
+        }
+        showAllImages(SConfig::SHOWIMAGEONSTART);
+    }
+    emit enableImageBar(notNull);
     return notNull;
 }
 
-void ImageProcessing::decode(QStringList filelist)
+bool ImageProcessing::PartialScan()
+{
+    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
+    bool foundNew = false;
+    diff.clear();
+    diff = imageManager->GetDiff(getEntryList(initialPath));
+
+    QStringList imageList = imageManager->GetPartialList(initialPath, diff);
+    if(!diff.empty())
+    {
+        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+    } else {
+        qInfo()<<"[FILEMANAGER] Partial scan found no difference to process";
+    }
+    if(!imageList.empty())
+    {
+        qInfo()<<"[IMG] Imagelist fulfilled";
+        foundNew = true;
+        decode(imageList, DecodeMode::Partial);
+
+        emit updateTopLabels(getVectorSize(), getFileCounter());
+    } else {
+        qDebug()<<"[IMG] Partial scan found no images to process";
+        foundNew = false;
+    }
+    if(foundNew)
+    {
+        emit(setRightButton(true));
+    }
+    if(getReadyStatus())
+    {
+        for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
+        {
+            imageChecklist.append(false); //<---=------------------
+        }
+        showPartialScanResult();
+    }
+    return foundNew;
+}
+
+void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
@@ -132,6 +184,10 @@ void ImageProcessing::decode(QStringList filelist)
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
                 }
                 metadataList.append(metaStruct);
+                if(mode == DecodeMode::Partial)
+                {
+                    newImagesCounter++;
+                }
             } else {
                 qCritical()<<"[IMG] Marker error!";
             }
@@ -186,9 +242,14 @@ void ImageProcessing::showAllImages(bool showOnStart)
         {
             QImageReader reader(meta.filename);
             QSize sizeOfImage = reader.size();
-            int height = sizeOfImage.height();
-            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height, meta.base64encoding);
-            if(meta.base64encoding.length()<100&&SConfig::USEBASE64) { qCritical()<<"[QML] Something went wrong"; }
+
+            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+
+            if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
+            {
+                qCritical()<<"[QML] Something went wrong";
+            }
+
             if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)
@@ -198,7 +259,38 @@ void ImageProcessing::showAllImages(bool showOnStart)
             }
         }
     }
-            qInfo()<<"[IMG] Images shown successfully";
+    qInfo()<<"[IMG] Initial images shown successfully";
+}
+
+void ImageProcessing::showPartialScanResult()
+{
+    if(newImagesCounter != 0)
+    {
+        for(int i = 1; i <= newImagesCounter; i++)
+        {
+            if(metadataList[metadataList.length()-i].latitude!=0)
+            {
+                QImageReader reader(metadataList[metadataList.length()-i].filename);
+                QSize sizeOfImage = reader.size();
+
+                qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                                    metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
+                                    metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
+                                    metadataList[metadataList.length()-i].angle, metadataList[metadataList.length()-i].filename,
+                                    sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+
+                if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
+                {
+                    qCritical()<<"[QML] Something went wrong";
+                }
+            }
+        }
+        qInfo()<<"[IMG] Some new images shown successfully";
+        newImagesCounter = 0;
+    } else {
+        qWarning()<<"[IMG] No new images, skipping qml part";
+    }
+
 }
 
 

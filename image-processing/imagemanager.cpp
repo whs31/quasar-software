@@ -60,6 +60,33 @@ QStringList ImageManager::GetInitialList(const QString &path, QStringList diff)
     return {}; //.empty() = true
 }
 
+QStringList ImageManager::GetPartialList(const QString &path, QStringList diff)
+{
+    QDir initialDirectory(path);
+    QStringList initialFileList;
+    QStringList partialFileList;
+    initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    initialDirectory.setNameFilters(QStringList("*.jpg"));
+    for (QString entryString : initialDirectory.entryList())
+    {
+        initialFileList.append(entryString.prepend(path+"/"));
+    }
+    if(!initialFileList.empty())
+    {
+        for ( QString initialFile : initialFileList )
+        {
+            QFileInfo fileInfo(initialFile);
+            if(!diff.empty()&&diffConvert(diff, ImageFormat::JPEG).contains(fileInfo.fileName()))
+            {
+                partialFileList.append(initialFile);
+                MakePNG(initialFile);
+            }
+        }
+        return partialFileList;
+    }
+    return {}; //.empty() = true
+}
+
 bool ImageManager::saveRawData(QByteArray data, QString filename)
 {
     data.reserve(sizeof(data));

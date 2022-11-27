@@ -47,6 +47,7 @@ public:
 
     QStringList GetDiff(QStringList existingFileList);
     QStringList GetInitialList(const QString& path, QStringList diff = {});
+    QStringList GetPartialList(const QString& path, QStringList diff = {});
     bool saveRawData(QByteArray data, QString filename);
     QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
 

@@ -65,7 +65,7 @@ bool ImageProcessing::processPath(QString path)
 
 void ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false, "base64"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false, "b64"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -90,22 +90,24 @@ void ImageProcessing::decode(QStringList filelist)
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
-                metadataList.append(metaStruct);
                 //make mask
-                if(!diff.empty()&&imageManager->diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
+                QImageReader reader(metaStruct.filename);
+                QSize sizeOfImage = reader.size();
+                int height = sizeOfImage.height();
+                int width = sizeOfImage.width();
+                if(SConfig::USEBASE64)
                 {
-                    QImageReader reader(metaStruct.filename);
-                    QSize sizeOfImage = reader.size();
-                    int height = sizeOfImage.height();
-                    int width = sizeOfImage.width();
-                    qDebug()<<"[IMG] Making mask...";
-                    if(SConfig::USEBASE64)
-                    {
-                        qInfo()<<"[IMG] Using base64 encoding";
-                    }
-                    QString base64 = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
-                    metaStruct.base64encoding = base64;
+                            qInfo()<<"[IMG] Using base64 encoding, making mask...";
+                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    if(metaStruct.base64encoding.length()<100) qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
                 }
+                else if(!diff.empty()&&imageManager->diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
+                {
+                            qDebug()<<"[IMG] Using saving to disk, making mask...";
+                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    metaStruct.base64encoding = "blank";
+                }
+                metadataList.append(metaStruct);
             } else { qCritical()<<"[IMG] Marker error!"; }
 
         } else { qCritical()<<"[IMG] Decoding error!"; }
@@ -158,8 +160,8 @@ void ImageProcessing::showAllImages(bool showOnStart)
             QImageReader reader(meta.filename);
             QSize sizeOfImage = reader.size();
             int height = sizeOfImage.height();
-            //int width = sizeOfImage.width();
             qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height, meta.base64encoding);
+            if(meta.base64encoding.length()<100) { qCritical()<<"[QML] Something went wrong"; }
             if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)
@@ -178,7 +180,7 @@ int ImageProcessing::getVectorSize()            { return metadataList.length(); 
 void ImageProcessing::goLeft()
 {
     int totalFiles = getVectorSize()-1;
-    if(fileCounter>0) { fileCounter--; updateLabels(fileCounter);                                       }
+    if(fileCounter>0) { fileCounter--; updateLabels(fileCounter);                                 }
     if (fileCounter == 0) { core->setPushButton_goLeftEnabled(false);                             }
     if(fileCounter < totalFiles) { core->setPushButton_goRightEnabled(true);                      }
     if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }
@@ -186,7 +188,7 @@ void ImageProcessing::goLeft()
 void ImageProcessing::goRight()
 {
     int totalFiles = getVectorSize()-1;
-    if(fileCounter < totalFiles) { fileCounter++; updateLabels(fileCounter);                            }
+    if(fileCounter < totalFiles) { fileCounter++; updateLabels(fileCounter);                      }
     if(fileCounter > 0) { core->setPushButton_goLeftEnabled(true);                                }
     if (fileCounter == totalFiles) { core->setPushButton_goRightEnabled(false);                   }
     if(notNull) { core->updateImageManagerLabels(getVectorSize(), getFileCounter());              }

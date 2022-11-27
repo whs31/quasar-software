@@ -143,12 +143,8 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 */
 bool CoreUI::InitialImageScan()
 {
-    bool n;
-    if(SConfig::USELOADER) {
-        n = imageProcessing->processPath(SConfig::CACHEPATH);
-    } else {
-        n = imageProcessing->processPath(SConfig::PATH);
-    }
+    bool n = imageProcessing->InitialScan();
+
     if(imageProcessing->getReadyStatus()==true)
     {
         for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)
@@ -163,6 +159,11 @@ bool CoreUI::InitialImageScan()
     ui->metaGBox->setEnabled(n);
 
     return n;
+}
+
+bool CoreUI::PartialImageScan()
+{
+
 }
 
 void CoreUI::updateDirectory()

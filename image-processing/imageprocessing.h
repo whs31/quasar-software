@@ -21,7 +21,8 @@ class ImageProcessing : public QObject
     Q_OBJECT
 public:
     explicit ImageProcessing(LinkerQML* linker, CoreUI* parent);
-    bool processPath(QString path);
+    bool InitialScan();
+    bool PartialScan();
     bool getReadyStatus(void);
     int getFileCounter(void);
     int getVectorSize(void);
@@ -38,7 +39,6 @@ signals:
 private:
     CoreUI* core;
     LinkerQML* qmlLinker;
-    QStringList diff;
     ImageManager* imageManager;
 
     uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
@@ -62,6 +62,7 @@ private:
             QString base64encoding;
         };
     QVector<image_metadata> metadataList;
+    QStringList diff;
     bool notNull = false;
     int fileCounter = 0;
 };

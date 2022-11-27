@@ -73,7 +73,9 @@ private:
     void ImageChecklistLoop();
     void InitializeUI();
     void InitializeConnections();
+
     bool InitialImageScan();
+    bool PartialImageScan();
 
 signals:
 

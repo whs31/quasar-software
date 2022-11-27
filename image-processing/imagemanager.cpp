@@ -1,37 +1,44 @@
 #include "imagemanager.h"
 
-QString ImageManager::cacheDirectory;
 QString ImageManager::PNGDirectory;
 QString ImageManager::TCPDirectory;
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
     ImageManager::setupCache();
-            qInfo()<<"[FILEMANAGER] Working directory: "<<ImageManager::cacheDirectory;
             qInfo()<<"[FILEMANAGER] .png directory: "<<ImageManager::PNGDirectory;
             qInfo()<<"[FILEMANAGER] TCP Downloader directory: "<<ImageManager::TCPDirectory;
-    //на случай если ne захочется кешировать в отдельную папку
-    //PNGDirectory = cacheDirectory;
 }
 
-QStringList ImageManager::getDiff(const QString &path, QStringList existingFileList)
+QStringList ImageManager::GetDiff(QStringList existingFileList)
 {
     QDir pngDirectory(ImageManager::getPNGDirectory());
     QStringList pngFileList;
     QStringList diff;
     pngDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
     pngDirectory.setNameFilters(QStringList("*.png"));
-    for (QString entryString : pngDirectory.entryList()) { pngFileList.append(entryString); }
-    for (int i = 0; i<pngFileList.length(); i++) { pngFileList[i].chop(4); }
-        qDebug()<<"[FILEMANAGER] Found "<<pngFileList.length()<<" files in cache";
-    for(QString str : existingFileList) { if(!pngFileList.contains(str)) { diff.append(str); } }
+    for (QString entryString : pngDirectory.entryList())
+    {
+        pngFileList.append(entryString);
+    }
+    for (int i = 0; i<pngFileList.length(); i++)
+    {
+        pngFileList[i].chop(4);
+    }
+    qDebug()<<"[FILEMANAGER] Found "<<pngFileList.length()<<" files in cache";
+    for(QString str : existingFileList)
+    {
+        if(!pngFileList.contains(str))
+        {
+            diff.append(str);
+        }
+    }
     return diff;
 }
 
-QStringList ImageManager::CopyJPEG(const QString &path, QStringList diff)
+QStringList ImageManager::GetInitialList(const QString &path, QStringList diff)
 {
     QDir initialDirectory(path);
     QStringList initialFileList;
-    QStringList jpgFileList;
     initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
     initialDirectory.setNameFilters(QStringList("*.jpg"));
     for (QString entryString : initialDirectory.entryList())
@@ -40,22 +47,17 @@ QStringList ImageManager::CopyJPEG(const QString &path, QStringList diff)
     }
     if(!initialFileList.empty())
     {
-        for ( QString initialFile : initialFileList ) {
+        for ( QString initialFile : initialFileList )
+        {
             QFileInfo fileInfo(initialFile);
-            QString jpegFile = cacheDirectory + '/' + fileInfo.fileName();
-            QDir::toNativeSeparators(jpegFile);
-            //diff convert
-            //qWarning()<<diffConvert(diff, 1);
             if(!diff.empty()&&diffConvert(diff, ImageFormat::JPEG).contains(fileInfo.fileName()))
             {
-                bool result = QFile::copy(initialFile, jpegFile);
-                result==true ? qDebug()<<"[FILEMANAGER] Copy success " : qWarning()<<"[FILEMANAGER] File already existing at working .png cache (probably diff error)!";
-                MakePNG(jpegFile);
+                MakePNG(initialFile);
             }
-            jpgFileList.append(jpegFile);
         }
-        return jpgFileList;
-    } return {}; //.empty() = true
+        return initialFileList;
+    }
+    return {}; //.empty() = true
 }
 
 bool ImageManager::saveRawData(QByteArray data, QString filename)
@@ -125,10 +127,6 @@ QString ImageManager::addAlphaMask(QString path, float width, float height, floa
     return "";
 }
 
-QString ImageManager::getCacheDirectory(void)
-{
-    return ImageManager::cacheDirectory;
-}
 QString ImageManager::getPNGDirectory(void)
 {
     return ImageManager::PNGDirectory;
@@ -147,8 +145,6 @@ void ImageManager::clearCache(ClearMode mode)
     }
     if(mode == 0||mode == 2)
     {
-        QDir dir(ImageManager::cacheDirectory);
-        if (dir.exists()) { dir.removeRecursively(); }
         QDir pngdir(ImageManager::PNGDirectory);
         if(pngdir.exists()) { pngdir.removeRecursively(); }
     }
@@ -158,9 +154,6 @@ void ImageManager::clearCache(ClearMode mode)
 
 void ImageManager::setupCache(void)
 {
-    ImageManager::cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
-    QDir dir(ImageManager::cacheDirectory);
-    if (!dir.exists()){ dir.mkpath(cacheDirectory); }
     ImageManager::PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
     QDir pngdir(ImageManager::PNGDirectory);
     if(!pngdir.exists()) { pngdir.mkpath(ImageManager::PNGDirectory); }

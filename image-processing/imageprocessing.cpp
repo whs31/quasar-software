@@ -27,32 +27,41 @@ QStringList ImageProcessing::getEntryList(QString &path)
          */
         for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
         return strl;
-    } else { qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager..."; return {}; }
+    } else {
+        qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager...";
+        return {};
+    }
 }
 
-bool ImageProcessing::processPath(QString path)
+bool ImageProcessing::InitialScan() //recall after changing settings
 {
-    QElapsedTimer* profiler = new QElapsedTimer();
-    profiler->start();
+    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
-    diff = imageManager->getDiff(path, getEntryList(path));
-        if(!diff.empty()) { qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files"; }
-        else { qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped"; }
-    //diff received
-    QStringList imageList = imageManager->CopyJPEG(path, diff);
-        qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1780 для 5 картинок
-    if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }
-    if(notNull)
+    diff = imageManager->GetDiff(getEntryList(initialPath));
+
+    QStringList imageList = imageManager->GetInitialList(initialPath, diff);
+
+    if(!diff.empty())
     {
+        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+    } else {
+        qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped";
+    }
+    if(!imageList.empty())
+    {
+        notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
-        profiler->restart();
+
         metadataList.clear();
         qmlLinker->clearImageArray();
+
         decode(imageList);
         updateLabels(0);
+
         emit updateTopLabels(getVectorSize(), getFileCounter());
-            qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1032 для пяти картинок
     } else {
+        notNull = false;
+        qDebug()<<"[IMG] Directory is empty, throwing warning window...";
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
@@ -68,7 +77,7 @@ bool ImageProcessing::processPath(QString path)
 
 void ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false, "b64"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -81,39 +90,54 @@ void ImageProcessing::decode(QStringList filelist)
             uint16_t *metaMarker = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE);
             if(*metaMarker == 0xE1FF)
             {
+                //заполнение структуры метаданными
                 uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
                 *metaSize = qToBigEndian(*metaSize) - 2;
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
+
+                //добавление в структуру имени файла (.png)
                 QFileInfo info(_qfile);
                 QString pngPath = info.fileName();
-                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(ImageManager::getPNGDirectory()+'/');
+                pngPath.chop(3);
+                pngPath.append("png");
+                pngPath.prepend(ImageManager::getPNGDirectory()+'/');
                 QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
+
+                //добавление в структуру даты создания файла
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
+
+                //проверка контрольной суммы
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
-                //make mask
+
+                //создание маски альфа-канала
                 QImageReader reader(metaStruct.filename);
                 QSize sizeOfImage = reader.size();
                 int height = sizeOfImage.height();
                 int width = sizeOfImage.width();
                 if(SConfig::USEBASE64)
                 {
-                            qInfo()<<"[IMG] Using base64 encoding, making mask...";
+                    qInfo()<<"[IMG] Using base64 encoding, making mask...";
                     metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
-                    if(metaStruct.base64encoding.length()<100) qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
+                    if(metaStruct.base64encoding.length()<100)
+                    {
+                        qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
+                    }
                 }
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
-                            qDebug()<<"[IMG] Using saving to disk, making mask...";
+                    qDebug()<<"[IMG] Using saving to disk, making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
-                    metaStruct.base64encoding = "blank";
                 }
                 metadataList.append(metaStruct);
-            } else { qCritical()<<"[IMG] Marker error!"; }
-
-        } else { qCritical()<<"[IMG] Decoding error!"; }
+            } else {
+                qCritical()<<"[IMG] Marker error!";
+            }
+        } else {
+            qCritical()<<"[IMG] Decoding error!";
+        }
     }
 }
 

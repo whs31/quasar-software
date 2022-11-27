@@ -45,12 +45,12 @@ class ImageManager : public QObject
 public:
     explicit ImageManager(QObject *parent = nullptr);
 
-    QStringList getDiff(const QString &path, QStringList existingFileList);
-    QStringList CopyJPEG(const QString& path, QStringList diff);
+    QStringList GetDiff(QStringList existingFileList);
+    QStringList GetInitialList(const QString& path, QStringList diff = {});
+    QStringList GetPartialList(const QString& path, QStringList diff = {});
     bool saveRawData(QByteArray data, QString filename);
     QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
 
-    static QString getCacheDirectory(void);
     static QString getPNGDirectory(void);
     static QString getTCPDirectory (void);
     static void clearCache(ClearMode mode = ClearMode::ClearAll);
@@ -58,7 +58,6 @@ public:
     static QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
 
 private:
-    static QString cacheDirectory;
     static QString PNGDirectory;
     static QString TCPDirectory;
 

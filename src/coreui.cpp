@@ -81,12 +81,13 @@ void CoreUI::InitializeConnections()
     connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
     connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
     new Style(false);  //false при сборке релиза
-    imageProcessing = new ImageProcessing(linker, this);
+    imageProcessing = new ImageProcessing(linker);
     connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
     connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
     connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));
     connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)),
                        this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)));
+    connect(imageProcessing, SIGNAL(enableImageBar(bool)), this, SLOT(enableImageBar(bool)));
 
     ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);
     ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
@@ -111,7 +112,7 @@ void CoreUI::InitializeConnections()
     Disconnected();
             qDebug()<<"[STARTUP] Connections set up successfully";
 
-    InitialImageScan();
+    imageProcessing->InitialScan();
 }
 
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
@@ -141,33 +142,14 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
  *  Метод работает в двух режимах: отображение РЛИ из пути SConfig::PATH, если загрузчик выключен/не отвечает, либо же SConfig::PATH
  *  переопределяется загрузчиком и РЛИ считываются уже с нового пути.
 */
-bool CoreUI::InitialImageScan()
-{
-    bool n;
-    if(SConfig::USELOADER) {
-        n = imageProcessing->processPath(SConfig::CACHEPATH);
-    } else {
-        n = imageProcessing->processPath(SConfig::PATH);
-    }
-    if(imageProcessing->getReadyStatus()==true)
-    {
-        for(int i = 0; i<=imageProcessing->getVectorSize()-1; i++)
-        {
-            imageChecklist.append(false);
-        }
-        imageProcessing->showAllImages(SConfig::SHOWIMAGEONSTART);
-    }
-    ui->pushButton_showAllImages->setEnabled(n);
-    ui->layout_imageTop_2->setEnabled(n);
-    ui->layout_imageMiddle_2->setEnabled(n);
-    ui->metaGBox->setEnabled(n);
 
-    return n;
-}
 
 void CoreUI::updateDirectory()
 {
-    if(autoUpdate) { InitialImageScan(); }
+    if(autoUpdate) {
+        imageProcessing->PartialScan();
+        linker->panImage(imageProcessing->getFileCounter());
+    }
 }
 
 void CoreUI::updateLoaderLabel(void)
@@ -246,7 +228,7 @@ void CoreUI::on_openSettings_triggered() //menu slot
     {
         if(s!=SConfig::PATH)
         {
-            InitialImageScan();
+            imageProcessing->InitialScan();
         } else { qInfo()<<"[CONFIG] Path unchanged, no further scans"; }
         ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
@@ -257,9 +239,14 @@ void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnab
 void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                }
 void CoreUI::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
 void CoreUI::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
-void CoreUI::on_pushButton_update_clicked()                 { bool b = InitialImageScan(); if(b) { ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);}}
-void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);           }
-void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);          }
+void CoreUI::on_pushButton_update_clicked()                 {
+    imageProcessing->PartialScan();
+    {
+        ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);
+    }
+}
+void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);           }
+void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);          }
 void CoreUI::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
@@ -288,7 +275,7 @@ void CoreUI::on_pushButton_showImage_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
-        imageChecklist[imageProcessing->getFileCounter()] = !imageChecklist[imageProcessing->getFileCounter()];
+        imageProcessing->imageChecklist[imageProcessing->getFileCounter()] = !imageProcessing->imageChecklist[imageProcessing->getFileCounter()];
         ImageChecklistLoop();
     }
 }
@@ -298,7 +285,7 @@ void CoreUI::ImageChecklistLoop()
     {
         for(int i = 0; i<imageProcessing->getVectorSize(); i++)
         {
-            if(imageChecklist[i]==true)
+            if(imageProcessing->imageChecklist[i]==true)
             {
                 linker->showImage(i);
             } else {
@@ -311,19 +298,19 @@ void CoreUI::on_pushButton_showAllImages_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
     {
-        if(imageChecklist[0] == false) {
+        if(imageProcessing->imageChecklist[0] == false) {
             for(int i = 0; i<imageProcessing->getVectorSize(); i++)
             {
-                imageChecklist[i] = true;
+                imageProcessing->imageChecklist[i] = true;
             }
         } else {
             for(int i = 0; i<imageProcessing->getVectorSize(); i++)
             {
-                imageChecklist[i] = false;
+                imageProcessing->imageChecklist[i] = false;
             }
         }
         ImageChecklistLoop();
-        ui->pushButton_showImage->setChecked(imageChecklist[imageProcessing->getFileCounter()]);
+        ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);
     }
 }
 void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount)
@@ -361,6 +348,16 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
     ui->label_c_metaTime->setText(datetime);
     (match) ? ui->label_c_checksumSuccess->setText(Style::StyleText("да", Colors::Success)) : ui->label_c_checksumSuccess->setText(Style::StyleText("нет", Colors::Failure));
 }
+
+void CoreUI::enableImageBar(bool b)
+{
+    ui->pushButton_showAllImages->setEnabled(b);
+    ui->pushButton_showImage->setChecked(b);
+    ui->layout_imageTop_2->setEnabled(b);
+    ui->layout_imageMiddle_2->setEnabled(b);
+    ui->metaGBox->setEnabled(b);
+}
+
 void CoreUI::setPushButton_goLeftEnabled(bool state)            { ui->pushButton_goLeft->setEnabled(state);                     }
 void CoreUI::setPushButton_goRightEnabled(bool state)           { ui->pushButton_goRight->setEnabled(state);                    }
 void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)      { autoUpdate = ui->checkBox_autoUpdate->isChecked();            }
@@ -389,7 +386,8 @@ void CoreUI::on_pushButton_clearCache_clicked()
     int ret = askForClearCache.exec();
     switch (ret) {
     case QMessageBox::Yes:
-        ImageManager::clearCache();
+        imageProcessing->clearCache();
+        imageProcessing->InitialScan();
         break;
     case QMessageBox::Cancel:
         break;

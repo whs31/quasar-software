@@ -1,13 +1,23 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker, CoreUI* parent) : core(parent), qmlLinker(linker)
+ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
 {
     imageManager = new ImageManager;
 }
 
 bool ImageProcessing::getReadyStatus()
 {
-    if(!metadataList.empty()) { return 1; } return 0;
+    if(!metadataList.empty())
+    {
+        return 1;
+    } return 0;
+}
+
+void ImageProcessing::clearCache()
+{
+    metadataList.clear();
+    qmlLinker->clearImageArray();
+    ImageManager::clearCache(ClearMode::ClearAll);
 }
 
 QStringList ImageProcessing::getEntryList(QString &path)
@@ -27,32 +37,41 @@ QStringList ImageProcessing::getEntryList(QString &path)
          */
         for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
         return strl;
-    } else { qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager..."; return {}; }
+    } else {
+        qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager...";
+        return {};
+    }
 }
 
-bool ImageProcessing::processPath(QString path)
+bool ImageProcessing::InitialScan() //recall after changing settings
 {
-    QElapsedTimer* profiler = new QElapsedTimer();
-    profiler->start();
+    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
-    diff = imageManager->getDiff(path, getEntryList(path));
-        if(!diff.empty()) { qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files"; }
-        else { qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped"; }
-    //diff received
-    QStringList imageList = imageManager->CopyJPEG(path, diff);
-        qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1780 для 5 картинок
-    if(!imageList.empty()) { notNull = true; } else { qDebug()<<"[IMG] Directory is empty, throwing warning window..."; notNull = false; }
-    if(notNull)
+    diff = imageManager->GetDiff(getEntryList(initialPath));
+
+    QStringList imageList = imageManager->GetInitialList(initialPath, diff);
+
+    if(!diff.empty())
     {
+        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+    } else {
+        qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped";
+    }
+    if(!imageList.empty())
+    {
+        notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
-        profiler->restart();
+
         metadataList.clear();
         qmlLinker->clearImageArray();
-        decode(imageList);
+
+        decode(imageList, DecodeMode::Initial);
         updateLabels(0);
+
         emit updateTopLabels(getVectorSize(), getFileCounter());
-            qCritical()<<"Time elapsed: ["<<profiler->elapsed()<<"] ms"; //1032 для пяти картинок
     } else {
+        notNull = false;
+        qDebug()<<"[IMG] Directory is empty, throwing warning window...";
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
@@ -63,12 +82,67 @@ bool ImageProcessing::processPath(QString path)
     {
         emit(setRightButton(true));
     }
+    if(getReadyStatus())
+    {
+        for(int i = 0; i<getVectorSize(); i++)
+        {
+            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
+        }
+        showAllImages(SConfig::SHOWIMAGEONSTART);
+    }
+    emit enableImageBar(notNull);
     return notNull;
 }
 
-void ImageProcessing::decode(QStringList filelist)
+bool ImageProcessing::PartialScan()
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false, "b64"};
+    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
+    bool foundNew = false;
+    diff.clear();
+    diff = imageManager->GetDiff(getEntryList(initialPath));
+
+    QStringList imageList = imageManager->GetPartialList(initialPath, diff);
+    if(!diff.empty())
+    {
+        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+    } else {
+        qInfo()<<"[FILEMANAGER] Partial scan found no difference to process";
+    }
+    if(!imageList.empty())
+    {
+        qInfo()<<"[IMG] Imagelist fulfilled";
+        foundNew = true;
+        notNull = true;
+        if(getVectorSize()>1)
+        {
+            emit(setRightButton(true));
+        }
+        emit enableImageBar(true);
+        decode(imageList, DecodeMode::Partial);
+
+        emit updateTopLabels(getVectorSize(), getFileCounter());
+    } else {
+        qDebug()<<"[IMG] Partial scan found no images to process";
+        foundNew = false;
+    }
+    if(foundNew)
+    {
+        emit(setRightButton(true));
+    }
+    if(getReadyStatus())
+    {
+        for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
+        {
+            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
+        }
+        showPartialScanResult();
+    }
+    return foundNew;
+}
+
+void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
+{
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -81,39 +155,58 @@ void ImageProcessing::decode(QStringList filelist)
             uint16_t *metaMarker = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE);
             if(*metaMarker == 0xE1FF)
             {
+                //заполнение структуры метаданными
                 uint16_t *metaSize = reinterpret_cast<uint16_t *>(data + JPEG_HEADER_SIZE + 2);
                 *metaSize = qToBigEndian(*metaSize) - 2;
                 memcpy(&metaStruct, (data+JPEG_HEADER_SIZE+4), *metaSize);
                 metaStruct.filename = fileName;
+
+                //добавление в структуру имени файла (.png)
                 QFileInfo info(_qfile);
                 QString pngPath = info.fileName();
-                pngPath.chop(3); pngPath.append("png"); pngPath.prepend(ImageManager::getPNGDirectory()+'/');
+                pngPath.chop(3);
+                pngPath.append("png");
+                pngPath.prepend(ImageManager::getPNGDirectory()+'/');
                 QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
+
+                //добавление в структуру даты создания файла
                 QDateTime crDate = QFileInfo(_qfile).birthTime();
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
+
+                //проверка контрольной суммы
                 metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
-                //make mask
+
+                //создание маски альфа-канала
                 QImageReader reader(metaStruct.filename);
                 QSize sizeOfImage = reader.size();
                 int height = sizeOfImage.height();
                 int width = sizeOfImage.width();
                 if(SConfig::USEBASE64)
                 {
-                            qInfo()<<"[IMG] Using base64 encoding, making mask...";
+                    qInfo()<<"[IMG] Using base64 encoding, making mask...";
                     metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
-                    if(metaStruct.base64encoding.length()<100) qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
+                    if(metaStruct.base64encoding.length()<100)
+                    {
+                        qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
+                    }
                 }
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
-                            qDebug()<<"[IMG] Using saving to disk, making mask...";
+                    qDebug()<<"[IMG] Using saving to disk, making mask...";
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
-                    metaStruct.base64encoding = "blank";
                 }
                 metadataList.append(metaStruct);
-            } else { qCritical()<<"[IMG] Marker error!"; }
-
-        } else { qCritical()<<"[IMG] Decoding error!"; }
+                if(mode == DecodeMode::Partial)
+                {
+                    newImagesCounter++;
+                }
+            } else {
+                qCritical()<<"[IMG] Marker error!";
+            }
+        } else {
+            qCritical()<<"[IMG] Decoding error!";
+        }
     }
 }
 
@@ -162,9 +255,14 @@ void ImageProcessing::showAllImages(bool showOnStart)
         {
             QImageReader reader(meta.filename);
             QSize sizeOfImage = reader.size();
-            int height = sizeOfImage.height();
-            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height, meta.base64encoding);
-            if(meta.base64encoding.length()<100&&SConfig::USEBASE64) { qCritical()<<"[QML] Something went wrong"; }
+
+            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+
+            if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
+            {
+                qCritical()<<"[QML] Something went wrong";
+            }
+
             if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)
@@ -174,7 +272,38 @@ void ImageProcessing::showAllImages(bool showOnStart)
             }
         }
     }
-            qInfo()<<"[IMG] Images shown successfully";
+    qInfo()<<"[IMG] Initial images shown successfully";
+}
+
+void ImageProcessing::showPartialScanResult()
+{
+    if(newImagesCounter != 0)
+    {
+        for(int i = 1; i <= newImagesCounter; i++)
+        {
+            if(metadataList[metadataList.length()-i].latitude!=0)
+            {
+                QImageReader reader(metadataList[metadataList.length()-i].filename);
+                QSize sizeOfImage = reader.size();
+
+                qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                                    metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
+                                    metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
+                                    metadataList[metadataList.length()-i].angle, metadataList[metadataList.length()-i].filename,
+                                    sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+
+                if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
+                {
+                    qCritical()<<"[QML] Something went wrong";
+                }
+            }
+        }
+        qInfo()<<"[IMG] Some new images shown successfully";
+        newImagesCounter = 0;
+    } else {
+        qWarning()<<"[IMG] No new images, skipping qml part";
+    }
+
 }
 
 

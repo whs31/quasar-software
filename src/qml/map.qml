@@ -145,7 +145,7 @@ Rectangle {
                                                     }
             ', mapView, "dynamic");
         } else {
-            console.log("[QML] Displaying image from " + base64encoding);
+            console.log("[QML] Displaying image from base64 string");
             item.sourceItem = Qt.createQmlObject('
                                                     import QtQuick 2.0;
                                                     import QtGraphicalEffects 1.12;

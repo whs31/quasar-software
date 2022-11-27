@@ -98,7 +98,7 @@
    </property>
    <property name="minimumSize">
     <size>
-     <width>375</width>
+     <width>385</width>
      <height>300</height>
     </size>
    </property>
@@ -153,7 +153,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>361</width>
+          <width>371</width>
           <height>516</height>
          </rect>
         </property>

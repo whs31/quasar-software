@@ -5,17 +5,7 @@ QString ImageManager::PNGDirectory;
 QString ImageManager::TCPDirectory;
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
-    ImageManager::cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
-    QDir dir(ImageManager::cacheDirectory);
-    if (!dir.exists()){ dir.mkpath(cacheDirectory); }
-    ImageManager::PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
-    QDir pngdir(ImageManager::PNGDirectory);
-    if(!pngdir.exists()) { pngdir.mkpath(ImageManager::PNGDirectory); }
-    ImageManager::TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
-    QDir tcpdir(ImageManager::TCPDirectory);
-    if(!tcpdir.exists()) { tcpdir.mkpath(ImageManager::TCPDirectory); }
-    SConfig::CACHEPATH = ImageManager::TCPDirectory;
-
+    ImageManager::setupCache();
             qInfo()<<"[FILEMANAGER] Working directory: "<<ImageManager::cacheDirectory;
             qInfo()<<"[FILEMANAGER] .png directory: "<<ImageManager::PNGDirectory;
             qInfo()<<"[FILEMANAGER] TCP Downloader directory: "<<ImageManager::TCPDirectory;
@@ -216,4 +206,20 @@ void ImageManager::clearCache(ClearMode mode)
         if(pngdir.exists()) { pngdir.removeRecursively(); }
     }
     qWarning()<<"[FILEMANAGER] Cache cleared ("<<mode<<")";
+    ImageManager::setupCache();
+}
+
+void ImageManager::setupCache(void)
+{
+    ImageManager::cacheDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pjpgc";
+    QDir dir(ImageManager::cacheDirectory);
+    if (!dir.exists()){ dir.mkpath(cacheDirectory); }
+    ImageManager::PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
+    QDir pngdir(ImageManager::PNGDirectory);
+    if(!pngdir.exists()) { pngdir.mkpath(ImageManager::PNGDirectory); }
+    ImageManager::TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
+    QDir tcpdir(ImageManager::TCPDirectory);
+    if(!tcpdir.exists()) { tcpdir.mkpath(ImageManager::TCPDirectory); }
+    SConfig::CACHEPATH = ImageManager::TCPDirectory;
+    qDebug()<<"[FILEMANAGER] Cache created";
 }

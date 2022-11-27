@@ -52,6 +52,7 @@ public:
     QString convertToBase64(QImage image);
 
     static void clearCache(ClearMode mode = ClearMode::ClearAll);
+    static void setupCache(void);
 
 private:
     static QString cacheDirectory;

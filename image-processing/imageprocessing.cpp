@@ -98,13 +98,13 @@ void ImageProcessing::decode(QStringList filelist)
                 if(SConfig::USEBASE64)
                 {
                             qInfo()<<"[IMG] Using base64 encoding, making mask...";
-                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100) qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
                 }
-                else if(!diff.empty()&&imageManager->diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
+                else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
                             qDebug()<<"[IMG] Using saving to disk, making mask...";
-                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
                     metaStruct.base64encoding = "blank";
                 }
                 metadataList.append(metaStruct);
@@ -161,7 +161,7 @@ void ImageProcessing::showAllImages(bool showOnStart)
             QSize sizeOfImage = reader.size();
             int height = sizeOfImage.height();
             qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height, meta.base64encoding);
-            if(meta.base64encoding.length()<100) { qCritical()<<"[QML] Something went wrong"; }
+            if(meta.base64encoding.length()<100&&SConfig::USEBASE64) { qCritical()<<"[QML] Something went wrong"; }
             if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)

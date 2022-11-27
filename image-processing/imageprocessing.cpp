@@ -13,6 +13,13 @@ bool ImageProcessing::getReadyStatus()
     } return 0;
 }
 
+void ImageProcessing::clearCache()
+{
+    metadataList.clear();
+    qmlLinker->clearImageArray();
+    ImageManager::clearCache(ClearMode::ClearAll);
+}
+
 QStringList ImageProcessing::getEntryList(QString &path)
 {
     QStringList strl = {};
@@ -79,7 +86,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
     {
         for(int i = 0; i<getVectorSize(); i++)
         {
-            imageChecklist.append(false); //<--------------------------
+            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
         }
         showAllImages(SConfig::SHOWIMAGEONSTART);
     }
@@ -105,6 +112,12 @@ bool ImageProcessing::PartialScan()
     {
         qInfo()<<"[IMG] Imagelist fulfilled";
         foundNew = true;
+        notNull = true;
+        if(getVectorSize()>1)
+        {
+            emit(setRightButton(true));
+        }
+        emit enableImageBar(true);
         decode(imageList, DecodeMode::Partial);
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
@@ -120,7 +133,7 @@ bool ImageProcessing::PartialScan()
     {
         for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
         {
-            imageChecklist.append(false); //<---=------------------
+            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
         }
         showPartialScanResult();
     }

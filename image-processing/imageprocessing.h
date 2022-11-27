@@ -35,6 +35,7 @@ public:
     void goRight(void);
     void showAllImages(bool showOnStart = false);
     void showPartialScanResult();
+    void clearCache();
 
     QVector<bool> imageChecklist;
 

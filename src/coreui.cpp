@@ -112,7 +112,7 @@ void CoreUI::InitializeConnections()
     Disconnected();
             qDebug()<<"[STARTUP] Connections set up successfully";
 
-    InitialImageScan();
+    imageProcessing->InitialScan();
 }
 
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
@@ -142,19 +142,14 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
  *  Метод работает в двух режимах: отображение РЛИ из пути SConfig::PATH, если загрузчик выключен/не отвечает, либо же SConfig::PATH
  *  переопределяется загрузчиком и РЛИ считываются уже с нового пути.
 */
-void CoreUI::InitialImageScan()
-{
-    imageProcessing->InitialScan();
-}
 
-void CoreUI::PartialImageScan()
-{
-    imageProcessing->PartialScan();
-}
 
 void CoreUI::updateDirectory()
 {
-    if(autoUpdate) { InitialImageScan(); }
+    if(autoUpdate) {
+        imageProcessing->PartialScan();
+        linker->panImage(imageProcessing->getFileCounter());
+    }
 }
 
 void CoreUI::updateLoaderLabel(void)
@@ -233,7 +228,7 @@ void CoreUI::on_openSettings_triggered() //menu slot
     {
         if(s!=SConfig::PATH)
         {
-            InitialImageScan();
+            imageProcessing->InitialScan();
         } else { qInfo()<<"[CONFIG] Path unchanged, no further scans"; }
         ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
@@ -245,7 +240,7 @@ void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDraw
 void CoreUI::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                              }
 void CoreUI::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                             }
 void CoreUI::on_pushButton_update_clicked()                 {
-    PartialImageScan();
+    imageProcessing->PartialScan();
     {
         ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);
     }
@@ -357,6 +352,7 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
 void CoreUI::enableImageBar(bool b)
 {
     ui->pushButton_showAllImages->setEnabled(b);
+    ui->pushButton_showImage->setChecked(b);
     ui->layout_imageTop_2->setEnabled(b);
     ui->layout_imageMiddle_2->setEnabled(b);
     ui->metaGBox->setEnabled(b);
@@ -390,7 +386,8 @@ void CoreUI::on_pushButton_clearCache_clicked()
     int ret = askForClearCache.exec();
     switch (ret) {
     case QMessageBox::Yes:
-        ImageManager::clearCache();
+        imageProcessing->clearCache();
+        imageProcessing->InitialScan();
         break;
     case QMessageBox::Cancel:
         break;

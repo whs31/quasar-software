@@ -74,9 +74,6 @@ private:
     void InitializeUI();
     void InitializeConnections();
 
-    void InitialImageScan();
-    void PartialImageScan();
-
 signals:
 
 public slots:

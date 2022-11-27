@@ -21,6 +21,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->i_saveOnlyAtEnd->setChecked(SConfig::SAVEATEND);
     uiS->i_loaderIp->setText(SConfig::LOADERIP);
     uiS->i_loaderPort->setText(SConfig::LOADERPORT);
+    uiS->i_usebase64->setChecked(SConfig::USEBASE64);
     if(SConfig::ANTENNAPOSITION == "r") {
         uiS->i_antennaRightB->setChecked(true);
         uiS->i_antennaLeftB->setChecked(false); }
@@ -51,13 +52,14 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::CAPTURETIME      =           uiS->i_captureTime->value();
     SConfig::ANTENNAPOSITION  =           (uiS->i_antennaLeftB->isChecked()) ? "l" : "r";
     //SConfig::C_PATH         =           SConfig::C_PATH   присваивается в слоте кнопки
-    SConfig::SHOWIMAGEONSTART =           (uiS->i_showImages->isChecked()) ? true : false;
-    SConfig::CONNECTONSTART   =           (uiS->i_connectOnStart->isChecked()) ? true : false;
-    SConfig::DEBUGCONSOLE     =           (uiS->i_debugConsole->isChecked()) ? true : false;
-    SConfig::USELOADER        =           (uiS->i_useLoader->isChecked()) ? true : false;
-    SConfig::SAVEATEND        =           (uiS->i_saveOnlyAtEnd->isChecked()) ? true : false;
+    SConfig::SHOWIMAGEONSTART =           uiS->i_showImages->isChecked();
+    SConfig::CONNECTONSTART   =           uiS->i_connectOnStart->isChecked();
+    SConfig::DEBUGCONSOLE     =           uiS->i_debugConsole->isChecked();
+    SConfig::USELOADER        =           uiS->i_useLoader->isChecked();
+    SConfig::SAVEATEND        =           uiS->i_saveOnlyAtEnd->isChecked();
     SConfig::LOADERIP         =           uiS->i_loaderIp->text();
     SConfig::LOADERPORT       =           uiS->i_loaderPort->text();
+    SConfig::USEBASE64        =           uiS->i_usebase64->isChecked();
     accept();
 }
 

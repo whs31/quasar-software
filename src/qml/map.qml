@@ -33,6 +33,7 @@ Rectangle {
         property double c_DRIFTANGLE: 0.0;            //|
         property string m_provider: "osm";            //|
         property int m_mapMode: 0;                    //|
+        property bool c_USEBASE64: false;             //|
     //==================================================|
 
 
@@ -70,7 +71,7 @@ Rectangle {
         elevationText.text = Number(elevation).toFixed(0);
     }
 
-    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode)
+    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64)
     {
         if(testmode)
         {
@@ -88,6 +89,7 @@ Rectangle {
         c_CAPTURETIME = d3;
         c_DIAGRAMAZIMUTH = d4;
         c_DRIFTANGLE = d5;
+        c_USEBASE64 = usebase64;
         console.log("[QML] Config loaded in qml");
     }
 
@@ -101,9 +103,8 @@ Rectangle {
         imageArray = [];
     }
 
-    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename, h)
+    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename, h, base64encoding)
     {
-        console.log("[QML] Displaying image from " + filename);
         var item = Qt.createQmlObject('
                                                     import QtQuick 2.0;
                                                     import QtLocation 5.12;
@@ -118,8 +119,10 @@ Rectangle {
         item.anchorPoint.x = -x0;
         item.anchorPoint.y = h/2;
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
-
-        item.sourceItem = Qt.createQmlObject('
+        if(!c_USEBASE64)
+        {
+            console.log("[QML] Displaying image from " + filename);
+            item.sourceItem = Qt.createQmlObject('
                                                     import QtQuick 2.0;
                                                     import QtGraphicalEffects 1.12;
 
@@ -141,6 +144,32 @@ Rectangle {
 
                                                     }
             ', mapView, "dynamic");
+        } else {
+            console.log("[QML] Displaying image from " + base64encoding);
+            item.sourceItem = Qt.createQmlObject('
+                                                    import QtQuick 2.0;
+                                                    import QtGraphicalEffects 1.12;
+
+                                                    Rectangle {
+                                                        opacity: 1;
+                                                        transform: Rotation {
+                                                            id: imageRotation
+                                                            origin.x: -'+x0+'
+                                                            origin.y: imageSource.height/2;
+                                                            angle: '+angle+'
+                                                        }
+
+                                                        Image {
+                                                            id: imageSource;
+                                                            opacity: 1;
+                                                            source: "data:image/png;base64,'+ base64encoding +'"
+                                                            visible: true
+                                                        }
+
+                                                    }
+            ', mapView, "dynamic");
+        }
+
         if(dx!==0) { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx); } else { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/1); }
                                         //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
                                         //zoom = log2((156543.03392*cos(PI*lat/180))/dx)

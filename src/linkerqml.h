@@ -12,7 +12,9 @@ public:
     void clearImageArray(void);
     void hideImage(QVariant i);
     void showImage(QVariant i);
-    void addImage(double latitude, double longitude, float dx, float dy, float x0, float y0, float angle, QString filename, float height);
+    void addImage(double latitude, double longitude, float dx, float dy,
+                  float x0, float y0, float angle, QString filename,
+                  float height, QString base64encoding);
     void getTelemetry(float f1, float f2, float f3, float f4);
     void changeEnableTooltip(QVariant arg1);
     void changeDrawRoute(QVariant arg1);
@@ -20,7 +22,9 @@ public:
     void panGPS(void);
     void clearRoute(void);
     void panImage(int filecounter);
-    void loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth, float driftAngle, QString antennaPosition, QString path, bool testMode = false);
+    void loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth,
+                      float driftAngle, QString antennaPosition, QString path, bool testMode = false,
+                      bool usebase64 = false);
 
 protected:
     QQuickItem* map;

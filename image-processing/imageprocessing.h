@@ -35,6 +35,7 @@ public:
             QString filename;
             QString datetime;
             bool checksumMatch;
+            QString base64encoding;
         };
 
     QStringList getEntryList(QString &path);

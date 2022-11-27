@@ -40,6 +40,7 @@ public:
     static bool SAVEATEND;
     static QString LOADERIP;
     static QString LOADERPORT;
+    static bool USEBASE64;
 
 signals:
 

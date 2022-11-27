@@ -24,6 +24,7 @@ bool SConfig::USELOADER;
 bool SConfig::SAVEATEND;
 QString SConfig::LOADERIP;
 QString SConfig::LOADERPORT;
+bool SConfig::USEBASE64;
 
 SConfig::SConfig(QQuickItem* qml)
 {
@@ -57,6 +58,7 @@ void SConfig::loadSettings()
     SAVEATEND             =           config->value("image/save_at_end").toBool();
     LOADERIP              =           config->value("network/loader_ip").toString();
     LOADERPORT            =           config->value("network/loader_port").toString();
+    USEBASE64             =           config->value("image/use_base64").toBool();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -65,7 +67,8 @@ void SConfig::loadSettings()
                          config->value("map/diagram_drift_angle").toDouble(),
                          config->value("map/antenna_position").toString(),
                          config->value("map/path").toString(),
-                         config->value("utility/test_mode").toBool());
+                         config->value("utility/test_mode").toBool(),
+                         config->value("image/use_base64").toBool());
     qInfo()<<"[SCONFIG] Config loaded. Version "<<config->value("utility/version").toString();
 
 }
@@ -91,6 +94,7 @@ void SConfig::saveSettings()
     config->setValue("image/save_at_end", SAVEATEND);
     config->setValue("network/loader_ip", LOADERIP);
     config->setValue("network/loader_port", LOADERPORT);
+    config->setValue("image/use_base64", USEBASE64);
 
     qInfo()<<"[CONFIG] Config saved.";
     QMessageBox notifyAboutRestart;

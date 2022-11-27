@@ -146,7 +146,7 @@ bool ImageManager::saveRawData(QByteArray data, QString filename)
     return true;
 }
 
-bool ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
+QString ImageManager::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle)
 {
     QImage base(path);
     QPainter painter;
@@ -178,8 +178,23 @@ bool ImageManager::addAlphaMask(QString path, float width, float height, float t
     fillp.addPolygon(p1); fillp.addPolygon(p2);
     painter.fillPath(fillp, brush);
     painter.end();
-    bool s = base.save(path);
-    return s;
+    if(SConfig::USEBASE64)
+    {
+        QString r = convertToBase64(base);
+        return r;
+    } else {
+        bool s = base.save(path);
+    }
+    return "";
+}
+
+QString ImageManager::convertToBase64(QImage image)
+{
+    QByteArray arr;
+    QBuffer buffer(&arr);
+    image.save(&buffer, "PNG");
+    QString encoded = QString::fromLatin1(arr.toBase64().data());
+    return encoded;
 }
 
 QString ImageManager::getCacheDirectory(void)                   { return ImageManager::cacheDirectory;                                              }

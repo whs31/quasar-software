@@ -3,6 +3,7 @@ logs*/
 doc/html
 doc/doxy.log
 *.user
+CMakeLists.txt.user
 *.autosave
 # Generated files
 moc_*

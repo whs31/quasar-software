@@ -65,7 +65,7 @@ bool ImageProcessing::processPath(QString path)
 
 void ImageProcessing::decode(QStringList filelist)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"filename", "datetime", false, "base64"};
     qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -99,7 +99,12 @@ void ImageProcessing::decode(QStringList filelist)
                     int height = sizeOfImage.height();
                     int width = sizeOfImage.width();
                     qDebug()<<"[IMG] Making mask...";
-                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    if(SConfig::USEBASE64)
+                    {
+                        qInfo()<<"[IMG] Using base64 encoding";
+                    }
+                    QString base64 = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30);
+                    metaStruct.base64encoding = base64;
                 }
             } else { qCritical()<<"[IMG] Marker error!"; }
 
@@ -154,7 +159,7 @@ void ImageProcessing::showAllImages(bool showOnStart)
             QSize sizeOfImage = reader.size();
             int height = sizeOfImage.height();
             //int width = sizeOfImage.width();
-            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height);
+            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, height, meta.base64encoding);
             if(!showOnStart)
             {
                 for(int i = 0; i<getVectorSize(); i++)

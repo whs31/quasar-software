@@ -34,6 +34,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     checkValuesSimple(map);
 
     group_t image;
+    image["use_base64"] = "false";
     image["use_loader"] = "true";
     image["save_at_end"] = "true";
     image["path"] = "\\192.168.1.48\\Jetson\\QuaSAR-bin\\img";

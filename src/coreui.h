@@ -10,7 +10,7 @@
 #include "settingsdialog.h"
 #include "imageprocessing.h"
 #include "imagemanager.h"
-#include "sarmessageparser.h"
+#include "messageparser.h"
 
 #include "style.h"
 #include "linkerqml.h"

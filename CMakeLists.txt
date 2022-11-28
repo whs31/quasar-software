@@ -15,6 +15,7 @@ include_directories(
     network
     src
     src/resources
+    misc
     config
     image-processing
 )
@@ -37,15 +38,13 @@ else()
         network/udpremote.cpp
         network/remote.cpp
         network/tcpdownloader.cpp
-        network/sarmessageparser.h
-        network/sarmessageparser.cpp
+        network/messageparser.h
+        network/messageparser.cpp
         src/coreui.h
         src/linkerqml.h
         src/coreui.cpp
         src/coreui-guislots.cpp
         src/linkerqml.cpp
-        src/style.h
-        src/style.cpp
         config/config.h
         config/settingsdialog.h
         config/sconfig.h
@@ -57,6 +56,10 @@ else()
         image-processing/imagemanager.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.cpp
+        misc/style.h
+        misc/uxmanager.h
+        misc/style.cpp
+        misc/uxmanager.cpp
    )
 endif()
 

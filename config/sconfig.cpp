@@ -31,7 +31,7 @@ SConfig::SConfig(QQuickItem* qml)
     pointer = this;
     config = new Config(QCoreApplication::applicationDirPath()+"/settings.ini");
     linker = new LinkerQML(qml);
-    qWarning()<<"[SCONFIG] Config loaded. Version "<<config->value("utility/version").toString();
+    qInfo()<<"[SCONFIG] QuaSAR-UI build version: "<<config->value("utility/version").toString();
 }
 
 SConfig* SConfig::init(void)            { return pointer; }
@@ -69,7 +69,7 @@ void SConfig::loadSettings()
                          config->value("map/path").toString(),
                          config->value("utility/test_mode").toBool(),
                          config->value("image/use_base64").toBool());
-    qInfo()<<"[SCONFIG] Config loaded. Version "<<config->value("utility/version").toString();
+    qInfo()<<"[SCONFIG] Config loaded. Version ";
 
 }
 

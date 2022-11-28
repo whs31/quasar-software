@@ -1,4 +1,4 @@
-/* <Класс SARMessageParser : QObject>
+/* <Класс MessageParser : QObject>
  *      Класс, содержащий статические методы и переменные
  *      для работы с данными, передаваемыми между ПО и РЛС.
  *      Класс не требует вызова конструктора для работы.
@@ -20,29 +20,29 @@
 
  *        Строка, на которую откликается сервер и передает данные телеметрии.
 */
-#include "sarmessageparser.h"
+#include "messageparser.h"
 
 
-QString SARMessageParser::REQUEST_TELEMETRY = "$JSON";
-SARMessageParser::SARMessageParser(QObject *parent)
+QString MessageParser::REQUEST_TELEMETRY = "$JSON";
+MessageParser::MessageParser(QObject *parent)
     : QObject{parent}
 {
 
 }
 
-DataType SARMessageParser::checkReceivedDataType(QByteArray data)
+DataType MessageParser::checkReceivedDataType(QByteArray data)
 {
     QString dts = data.data();
-    if(dts.startsWith(SARMessageParser::REQUEST_TELEMETRY))
+    if(dts.startsWith(MessageParser::REQUEST_TELEMETRY))
     {
         return DataType::Telemetry;
     }
     return DataType::Unrecognized;
 }
-std::array<double, 5> SARMessageParser::parseTelemetry(QByteArray data)
+std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
 {
     QString dts = data.data();
-    dts.remove(0, SARMessageParser::REQUEST_TELEMETRY.length());
+    dts.remove(0, MessageParser::REQUEST_TELEMETRY.length());
 
     QJsonDocument jsonDocument = QJsonDocument::fromJson(dts.toUtf8());
     double lat =  jsonDocument.object().value("Latitude").toDouble();

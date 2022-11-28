@@ -10,7 +10,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
          */
 
     group_t utility;
-    utility["version"] = "2311";
+    utility["version"] = "0.8.9pre";
     utility["test_mode"] = "false";
     checkValuesSimple(utility);
 

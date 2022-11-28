@@ -120,10 +120,10 @@ void CoreUI::updateProgress(float f)
 }
 void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount)
 {
-    ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
-    ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainFaded, Format::NoFormat));
-    ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("км/ч", Colors::MainFaded, Format::SuperScript));
-    ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("м", Colors::MainFaded, Format::SuperScript));
+    ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainShade900, Format::Complicated, "b-sup"));
+    ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainShade900, Format::Complicated, "b-sup"));
+    ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("км/ч", Colors::MainShade900, Format::Complicated, "b-sup"));
+    ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("м", Colors::MainShade900, Format::Complicated, "b-sup"));
     ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -161,7 +161,6 @@ void CoreUI::InitializeUI()
             openSSLDialogue.setText("Попробуйте переустановить программу.");
             openSSLDialogue.exec();
         }
-    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
 }
 
 void CoreUI::InitializeConnections()
@@ -170,6 +169,7 @@ void CoreUI::InitializeConnections()
         timer = new QTimer(this);
         udpTimeout = new QTimer(this);
         uiTimer1 = new QTimer(this);
+    new Style(false);  //false при сборке релиза
     linker = new LinkerQML(qml);
     new SConfig(qml);
     SConfig::loadSettings();
@@ -180,7 +180,6 @@ void CoreUI::InitializeConnections()
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
         connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
-    new Style(false);  //false при сборке релиза
     imageProcessing = new ImageProcessing(linker);
         connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
         connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
@@ -193,7 +192,7 @@ void CoreUI::InitializeConnections()
     ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
-        connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected));
+        connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
         connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
@@ -207,9 +206,10 @@ void CoreUI::InitializeConnections()
             qInfo()<<"[REMOTE] UDP client connected";
         }
     }
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainFadedPlus, Format::Bold)
-                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainFaded, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainFaded, Format::Bold));
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
+                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
     timer->start(SConfig::UPDATETIME*1000);
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
     Disconnected();
@@ -232,11 +232,11 @@ void CoreUI::SendRemoteCommand(QString command)
 void CoreUI::ReadUDPData(QByteArray data)
 {
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
-    DataType dtype = SARMessageParser::checkReceivedDataType(data);
+    DataType dtype = MessageParser::checkReceivedDataType(data);
     switch (dtype) {
     case DataType::Telemetry:
         telemetry[4] = (double)0;
-        telemetry = SARMessageParser::parseTelemetry(data);
+        telemetry = MessageParser::parseTelemetry(data);
         break;
     default:
         break;
@@ -252,7 +252,7 @@ void CoreUI::ReadUDPData(QByteArray data)
 
 void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
 {
-    SendRemoteCommand(SARMessageParser::REQUEST_TELEMETRY);
+    SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

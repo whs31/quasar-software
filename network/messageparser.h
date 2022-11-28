@@ -21,8 +21,8 @@
  *        Строка, на которую откликается сервер и передает данные телеметрии.
 */
 
-#ifndef SARMESSAGEPARSER_H
-#define SARMESSAGEPARSER_H
+#ifndef MESSAGEPARSER_H
+#define MESSAGEPARSER_H
 
 #include <QObject>
 #include <QJsonDocument>
@@ -35,7 +35,7 @@ enum DataType : short int
     Telemetry
 };
 
-class SARMessageParser : public QObject
+class MessageParser : public QObject
 {
     Q_OBJECT
 public:
@@ -48,7 +48,7 @@ public:
 signals:
 
 private:
-    explicit SARMessageParser(QObject *parent = nullptr);
+    explicit MessageParser(QObject *parent = nullptr);
 };
 
-#endif // SARMESSAGEPARSER_H
+#endif // MESSAGEPARSER_H

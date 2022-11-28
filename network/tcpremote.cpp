@@ -22,7 +22,7 @@ int TCPRemote::Connect(QString addr){
     if( socket->waitForConnected(6000) ) {
         return 0;
     }
-            qCritical() << "[REMOTE] Connection timeout";
+    Debug::Log("!![REMOTE] Connection timeout");
     return -1;
 }
 

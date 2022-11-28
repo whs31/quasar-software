@@ -6,12 +6,11 @@ Style::Style(bool TestMode) : TestMode(TestMode)
 {
     initializeColors();
     initializeFormats();
-    qDebug()<<formats;
     if(!TestMode)
     {
         QFile qss(defaultQSS);
         if (!qss.exists())   {
-            qWarning()<<("[QSS] Unable to set stylesheet, file not found\n");
+            Debug::Log("!![QSS] Unable to set stylesheet, file not found\n");
         }
         else   {
             qss.open(QFile::ReadOnly | QFile::Text);
@@ -29,7 +28,7 @@ void Style::updateQSS(void)
 {
     QFile qss(testQSS);
     if (!qss.exists())   {
-        qWarning()<<("[QSS] Unable to set test stylesheet, file not found\n");
+        Debug::Log("!![QSS] Unable to set test stylesheet, file not found\n");
     }
     else   {
         qss.open(QFile::ReadOnly | QFile::Text);

@@ -27,7 +27,7 @@ for chunk in iter(lambda: f.read(chunk_size), b''):
     sock.send(chunk)
     
     # Имитация медленного канала
-    time.sleep(0.01)
+    time.sleep(0.015)
 print('Sending done')
 sock.shutdown(socket.SHUT_WR)
 f.close()

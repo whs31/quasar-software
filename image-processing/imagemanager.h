@@ -17,6 +17,7 @@
 #include <QBuffer>
 
 #include "sconfig.h"
+#include "debug.h"
 
 enum ImageFormat : short int
 {

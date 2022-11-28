@@ -9,6 +9,7 @@
 #include <QQuickStyle>
 
 #include "coreui.h"
+#include "style.h"
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -47,6 +48,7 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
     QQuickStyle::setStyle("Material");                              //графика для QML
+    new Style(false);  //false при сборке релиза
     CoreUI window;
 
     window.show();

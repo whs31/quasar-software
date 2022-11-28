@@ -9,6 +9,7 @@
 
 #include "config.h"
 #include "linkerqml.h"
+#include "debug.h"
 
 class SConfig : public QObject
 {

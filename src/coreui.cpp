@@ -32,11 +32,11 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if(uiReady)
     {
-        if(msgtype == 0) { ui->debugConsole->setTextColor(Qt::white); }
-        else if (msgtype == 1) { ui->debugConsole->setTextColor(Qt::cyan); }
-        else if (msgtype == 2) { ui->debugConsole->setTextColor(Qt::yellow); }
-        else if (msgtype == 3) { ui->debugConsole->setTextColor(Qt::red); }
-        else if (msgtype == 4) { ui->debugConsole->setTextColor(Qt::darkRed); }
+        if(msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::ConsoleTextColor, true)); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info, true)); }
+        else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning, true)); }
+        else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Failure, true)); }
+        else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::CriticalFailure, true)); }
             QFont consoleFont = ui->debugConsole->font();
             consoleFont.setPointSize(7);
         ui->debugConsole->insertPlainText(_text);
@@ -131,30 +131,32 @@ void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elev
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::InitializeUI()
 {
-            qDebug()<<"[STARTUP] Starting UI initialization...";
     ui->setupUi(this);
+    uiReady = true;
+    Debug::Log("[STARTUP] Starting UI initialization...");
     ui->map->show();
     qml = ui->map->rootObject();
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
-    uiReady = true;
-            qDebug()<<"[STARTUP] UI initialization finished";
-            qInfo()<<"[STARTUP] Session started at "+localTime.toString();
+    Debug::Log("[STARTUP] UI initialization finished");
+    Debug::Log("?[STARTUP] Session started at "+localTime.toString());
+    bool b_ssl1 = QSslSocket::supportsSsl();
+    QString ssl1 = b_ssl1 ? "true" : "false";
     if (QSslSocket::supportsSsl())
         {
-                    qInfo() << "[STARTUP] OpenSSL detected: "
-                            << QSslSocket::supportsSsl()
-                            << ", OpenSSL build version: "
-                            << QSslSocket::sslLibraryBuildVersionString()
-                            << ", OpenSSL ver.: "
-                            << QSslSocket::sslLibraryVersionString();
+            Debug::Log("?[STARTUP] OpenSSL detected: "
+                            + ssl1
+                            + ", OpenSSL build version: "
+                            + QSslSocket::sslLibraryBuildVersionString()
+                            + ", OpenSSL ver.: "
+                            + QSslSocket::sslLibraryVersionString());
         }
         else {
-                    qCritical() << "[ERROR] OpenSSL detected: "
-                                << QSslSocket::supportsSsl()
-                                << ", OpenSSL build version: "
-                                << QSslSocket::sslLibraryBuildVersionString()
-                                << ", OpenSSL ver.: "
-                                << QSslSocket::sslLibraryVersionString();
+                Debug::Log("!!![STARTUP] OpenSSL detected: "
+                        + ssl1
+                        + ", OpenSSL build version: "
+                        + QSslSocket::sslLibraryBuildVersionString()
+                        + ", OpenSSL ver.: "
+                        + QSslSocket::sslLibraryVersionString());
             QMessageBox openSSLDialogue;
             openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
             openSSLDialogue.setIcon(QMessageBox::Critical);
@@ -165,16 +167,15 @@ void CoreUI::InitializeUI()
 
 void CoreUI::InitializeConnections()
 {
-        qInfo()<<"[STARTUP] Setuping connections...";
+    Debug::Log("?[STARTUP] Setuping connections...");
         timer = new QTimer(this);
         udpTimeout = new QTimer(this);
         uiTimer1 = new QTimer(this);
-    new Style(false);  //false при сборке релиза
     linker = new LinkerQML(qml);
     new SConfig(qml);
     SConfig::loadSettings();
     if(SConfig::TESTMODE)
-        qWarning()<<"[STARTUP] Program is running in test mode!";
+        Debug::Log("![STARTUP] Program is running in test mode!");
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
@@ -202,8 +203,8 @@ void CoreUI::InitializeConnections()
         else
         {
             udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
-            if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
-            qInfo()<<"[REMOTE] UDP client connected";
+            if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
+            Debug::Log("?[REMOTE] UDP client connected");
         }
     }
     ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
@@ -213,7 +214,7 @@ void CoreUI::InitializeConnections()
     timer->start(SConfig::UPDATETIME*1000);
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
     Disconnected();
-        qDebug()<<"[STARTUP] Connections set up successfully";
+    Debug::Log("[STARTUP] Connections set up successfully");
     //execute any startup code here
     imageProcessing->InitialScan();
 }

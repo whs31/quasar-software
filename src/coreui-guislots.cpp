@@ -3,7 +3,7 @@
 
 //======================================================================================MENU SLOTS============================================================================================================
 //remove this in future
-void CoreUI::on_formImage_triggered()                       { qDebug()<<"[CLIENT] Sending command to form SAR image"; SendRemoteCommand("$form-SAR-image");                                                  }
+void CoreUI::on_formImage_triggered()                       { Debug::Log("[CLIENT] Sending command to form SAR image"); SendRemoteCommand("$form-SAR-image");                                                  }
 void CoreUI::on_openSettings_triggered() //menu slot
 {
     SettingsDialog sd(this);
@@ -13,7 +13,7 @@ void CoreUI::on_openSettings_triggered() //menu slot
         if(s!=SConfig::PATH)
         {
             imageProcessing->InitialScan();
-        } else { qInfo()<<"[CONFIG] Path unchanged, no further scans"; }
+        } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
         ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
         SConfig::saveSettings();
@@ -89,8 +89,8 @@ void CoreUI::on_pushButton_reconnect_clicked()
     if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
     else {
         udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
-        if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; qWarning()<<"[WARNING] Connection type string unrecognized, using UDP by default"; }
-                qInfo()<<"[REMOTE] UDP client connected";
+        if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
+        Debug::Log("?[REMOTE] UDP client connected");
     }
 }
 void CoreUI::on_pushButton_clearCache_clicked()

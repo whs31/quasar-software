@@ -30,7 +30,7 @@ QStringList ImageProcessing::getEntryList(QString &path)
     strl = initialDirectory.entryList();
     if(!strl.empty())
     {
-            qDebug()<<"[FILEMANAGER] Metadata list contains "<<strl.length()<<" files";
+        Debug::Log("[FILEMANAGER] Metadata list contains "+QString::number(strl.length())+" files");
         /*
          *          отрезаем формат, путь уже отрезан entryList(). Получается, str = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
          *          аналогичное действие должен провернуть метод ImageManager getDiff(), чтобы сравнивать конкретно имена файлов без расширений и путей.
@@ -38,7 +38,7 @@ QStringList ImageProcessing::getEntryList(QString &path)
         for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
         return strl;
     } else {
-        qDebug()<<"[FILEMANAGER] Metadata list contains zero files, calling ImageManager...";
+        Debug::Log("[FILEMANAGER] Metadata list contains zero files, calling ImageManager...");
         return {};
     }
 }
@@ -69,9 +69,9 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 
     if(!diff.empty())
     {
-        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+        Debug::Log("[FILEMANAGER] Diff: "+QString::number(diff.length())+" files");
     } else {
-        qInfo()<<"[FILEMANAGER] No difference between cache and path found. Image processing will be skipped";
+        Debug::Log("?[FILEMANAGER] No difference between cache and path found. Image processing will be skipped");
     }
     if(!imageList.empty())
     {
@@ -87,7 +87,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         notNull = false;
-        qDebug()<<"[IMG] Directory is empty, throwing warning window...";
+        Debug::Log("![IMG] Directory is empty, throwing warning window...");
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
@@ -120,13 +120,13 @@ bool ImageProcessing::PartialScan()
     QStringList imageList = imageManager->GetPartialList(initialPath, diff);
     if(!diff.empty())
     {
-        qInfo()<<"[FILEMANAGER] Diff: "<<diff.length()<<" files";
+        Debug::Log("[FILEMANAGER] Diff: "+QString::number(diff.length())+" files");
     } else {
-        qInfo()<<"[FILEMANAGER] Partial scan found no difference to process";
+        Debug::Log("[FILEMANAGER] Partial scan found no difference to process");
     }
     if(!imageList.empty())
     {
-        qInfo()<<"[IMG] Imagelist fulfilled";
+        Debug::Log("?[IMG] Imagelist fulfilled");
         foundNew = true;
         notNull = true;
         if(getVectorSize()>1)
@@ -138,7 +138,7 @@ bool ImageProcessing::PartialScan()
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
-        qDebug()<<"[IMG] Partial scan found no images to process";
+        Debug::Log("[IMG] Partial scan found no images to process");
         foundNew = false;
     }
     if(foundNew)
@@ -159,7 +159,7 @@ bool ImageProcessing::PartialScan()
 void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
 {
     image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
-    qDebug()<<"[IMG] Called decoding function for image from filelist of "<<filelist.length()<<" files";
+    Debug::Log("?[IMG] Called decoding function for image from filelist of "+QString::number(filelist.length())+" files");
     for (int s = 0; s<filelist.length(); s++)
     {
         QString fileName = filelist[s];
@@ -200,16 +200,16 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
                 int width = sizeOfImage.width();
                 if(SConfig::USEBASE64)
                 {
-                    qInfo()<<"[IMG] Using base64 encoding, making mask...";
+                    Debug::Log("[IMG] Using base64 encoding, making mask...");
                     metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100)
                     {
-                        qCritical()<<"[IMG] Something went wrong (base64) "<<metaStruct.base64encoding;
+                        Debug::Log("!![IMG] Something went wrong (base64) "+metaStruct.base64encoding);
                     }
                 }
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
-                    qDebug()<<"[IMG] Using saving to disk, making mask...";
+                    Debug::Log("[IMG] Using saving to disk, making mask...");
                     imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
                 }
                 metadataList.append(metaStruct);
@@ -218,10 +218,10 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
                     newImagesCounter++;
                 }
             } else {
-                qCritical()<<"[IMG] Marker error!";
+                Debug::Log("!![IMG] Marker error!");
             }
         } else {
-            qCritical()<<"[IMG] Decoding error!";
+            Debug::Log("!![IMG] Decoding error!");
         }
     }
 }
@@ -276,7 +276,7 @@ void ImageProcessing::showAllImages(bool showOnStart)
 
             if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
             {
-                qCritical()<<"[QML] Something went wrong";
+                Debug::Log("!![QML] Something went wrong");
             }
 
             if(!showOnStart)
@@ -288,7 +288,7 @@ void ImageProcessing::showAllImages(bool showOnStart)
             }
         }
     }
-    qInfo()<<"[IMG] Initial images shown successfully";
+    Debug::Log("?[IMG] Initial images shown successfully");
 }
 
 void ImageProcessing::showPartialScanResult()
@@ -310,14 +310,14 @@ void ImageProcessing::showPartialScanResult()
 
                 if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
                 {
-                    qCritical()<<"[QML] Something went wrong";
+                    Debug::Log("!![QML] Something went wrong");
                 }
             }
         }
-        qInfo()<<"[IMG] Some new images shown successfully";
+        Debug::Log("?[IMG] Some new images shown successfully");
         newImagesCounter = 0;
     } else {
-        qWarning()<<"[IMG] No new images, skipping qml part";
+        Debug::Log("?[IMG] No new images, skipping qml part");
     }
 
 }

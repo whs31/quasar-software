@@ -6,10 +6,9 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
     if(!server->listen(QHostAddress(SConfig::LOADERIP), SConfig::LOADERPORT.toUInt()))
     {
-
-        qCritical() << "[SERVER] Server could not start";
+        Debug::Log("!![SERVER] Server could not start");
     } else {
-        qInfo()<<"[SERVER] Server started.";
+        Debug::Log("?[SERVER] Server started.");
     }
     manager = new ImageManager();
     timer = new QTimer();
@@ -29,14 +28,14 @@ void TCPDownloader::clientConnected(void)
     success = false;
     timer->start();
     splitIndex = 0;
-    qInfo()<<"[SERVER] SAR connected and ready to send image";
+    Debug::Log("?[SERVER] SAR connected and ready to send image");
 }
 
 void TCPDownloader::clientDisconnected(void)
 {
     socket->close();
     timer->stop();
-    (fileSize == imageData.size()) ? qInfo()<<"[SERVER] Image fully received from SAR" : qWarning()<<"[SERVER] Something went wrong in receiving SAR image";
+    (fileSize == imageData.size()) ? Debug::Log("?[SERVER] Image fully received from SAR") : Debug::Log("![SERVER] Something went wrong in receiving SAR image");
     if(_mode == 2) { success = manager->saveRawData(imageData, filename); }
     emit receivingFinished();
 }
@@ -54,8 +53,8 @@ void TCPDownloader::readFileInfo(QByteArray data)
     memcpy(&fileSize, data.mid(i, sizeof(uint32_t)).data(), sizeof(uint32_t));
     i+=sizeof(uint32_t);
 
-    qDebug() << "Name:" << filename;
-    qDebug() << "fileSize:" << fileSize;
+    Debug::Log("Name:" + filename);
+    Debug::Log(&"FileSize:" [ fileSize]);
 
     data.remove(0, i);
 

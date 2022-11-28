@@ -2,6 +2,7 @@
 #define STYLE_H
 
 #include "uxmanager.h"
+#include "debug.h"
 #include <QApplication>
 #include <QDebug>
 #include <QFile>

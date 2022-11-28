@@ -6,6 +6,7 @@
 #include <QTcpSocket>
 
 #include "remote.h"
+#include "debug.h"
 
 class TCPRemote : public Remote
 {

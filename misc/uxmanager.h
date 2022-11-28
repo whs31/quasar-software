@@ -14,6 +14,10 @@ enum Colors : short int
     Accent,
     Success,
     Failure,
+    CriticalFailure,
+    Info,
+    Warning,
+    ConsoleTextColor,
     __c__
 };
 
@@ -33,7 +37,7 @@ class UXManager : public QObject
     Q_OBJECT
 public:
     explicit UXManager(QObject *parent = nullptr);
-    static QColor GetColor(Colors color = Colors::NoColor);
+    static QColor GetColor(Colors color = Colors::NoColor, bool useBeforeClassInit = false);
     static QString GetFormat(Format format = Format::NoFormat);
 
 protected:

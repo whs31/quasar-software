@@ -58,8 +58,10 @@ else()
         image-processing/imagemanager.cpp
         misc/style.h
         misc/uxmanager.h
+        misc/debug.h
         misc/style.cpp
         misc/uxmanager.cpp
+        misc/debug.cpp
    )
 endif()
 

@@ -11,6 +11,7 @@
 #include "imageprocessing.h"
 #include "imagemanager.h"
 #include "messageparser.h"
+#include "debug.h"
 
 #include "style.h"
 #include "linkerqml.h"

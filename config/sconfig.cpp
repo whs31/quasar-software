@@ -31,7 +31,7 @@ SConfig::SConfig(QQuickItem* qml)
     pointer = this;
     config = new Config(QCoreApplication::applicationDirPath()+"/settings.ini");
     linker = new LinkerQML(qml);
-    qInfo()<<"[SCONFIG] QuaSAR-UI build version: "<<config->value("utility/version").toString();
+    Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());
 }
 
 SConfig* SConfig::init(void)            { return pointer; }
@@ -69,8 +69,7 @@ void SConfig::loadSettings()
                          config->value("map/path").toString(),
                          config->value("utility/test_mode").toBool(),
                          config->value("image/use_base64").toBool());
-    qInfo()<<"[SCONFIG] Config loaded. Version ";
-
+    Debug::Log("?[SCONFIG] Config loaded.");
 }
 
 void SConfig::saveSettings()
@@ -96,7 +95,7 @@ void SConfig::saveSettings()
     config->setValue("network/loader_port", LOADERPORT);
     config->setValue("image/use_base64", USEBASE64);
 
-    qInfo()<<"[CONFIG] Config saved.";
+    Debug::Log("?[CONFIG] Config saved.");
     QMessageBox notifyAboutRestart;
     notifyAboutRestart.setWindowTitle("Сохранение настроек");
     notifyAboutRestart.setIcon(QMessageBox::Information);

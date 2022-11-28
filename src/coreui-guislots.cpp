@@ -18,6 +18,10 @@ void CoreUI::on_openSettings_triggered() //menu slot
 
         SConfig::saveSettings();
     } else { SConfig::loadSettings(); }
+
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainFadedPlus, Format::Bold)
+                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainFaded, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainFaded, Format::Bold));
 }
 //============================================================================================================================================================================================================
 

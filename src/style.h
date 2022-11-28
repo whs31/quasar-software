@@ -14,6 +14,7 @@ enum Colors : short int
     NoColor,
     Main,
     MainFaded,
+    MainFadedPlus,
     Accent,
     Success,
     Failure

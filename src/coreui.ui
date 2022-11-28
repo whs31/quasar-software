@@ -152,7 +152,7 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>-82</y>
+          <y>0</y>
           <width>371</width>
           <height>530</height>
          </rect>
@@ -1948,6 +1948,18 @@ QPushButton:pressed {
             </item>
             <item>
              <widget class="QPushButton" name="pushButton_reconnect">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>20</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>Ubuntu</family>
@@ -1956,6 +1968,20 @@ QPushButton:pressed {
               </property>
               <property name="text">
                <string>Повторное подключение</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_c_sarip">
+              <property name="text">
+               <string>Адрес РЛС: 192.168.0.2:88</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_c_loaderip">
+              <property name="text">
+               <string>Адрес загрузчика: 192.168.0.1:88</string>
               </property>
              </widget>
             </item>

@@ -38,6 +38,7 @@ QString Style::StyleText(QString string, Colors color, Format format)
     const QStringList _colors = {
                                         "<font color=\"#E3D4AD\">",
                                         "<font color=\"#D3BC8D\">",
+                                        "<font color=\"#9e9075\">",
                                         "<font color=\"#E59E6D\">",
                                         //"<font color=\"#844D99\">",
                                         "<font color=\"#A2FF78\">",

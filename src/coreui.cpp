@@ -199,7 +199,7 @@ void CoreUI::InitializeConnections()
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
     if(SConfig::CONNECTONSTART)
     {
-        if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
+        if(SConfig::NETWORKTYPE == "TCP") { tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
         else
         {
             udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
@@ -207,6 +207,9 @@ void CoreUI::InitializeConnections()
             qInfo()<<"[REMOTE] UDP client connected";
         }
     }
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainFadedPlus, Format::Bold)
+                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainFaded, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainFaded, Format::Bold));
     timer->start(SConfig::UPDATETIME*1000);
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
     Disconnected();

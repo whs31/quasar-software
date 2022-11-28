@@ -42,6 +42,7 @@ else()
         src/coreui.h
         src/linkerqml.h
         src/coreui.cpp
+        src/coreui-guislots.cpp
         src/linkerqml.cpp
         src/style.h
         src/style.cpp

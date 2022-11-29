@@ -1,6 +1,6 @@
 import time
 import sys
-import win32pipe, win32file, pywintypes
+import pywintypes, win32pipe, win32file
 
 
 class Pipe():

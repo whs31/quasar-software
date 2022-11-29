@@ -3,21 +3,39 @@
 QVector<QColor> UXManager::ColorList;
 QStringList UXManager::ColorStringList;
 QStringList UXManager::FormatList;
+QString UXManager::jsonFilePath;
+QJsonObject UXManager::jsonobj;
 UXManager::UXManager(QObject *parent) : QObject{parent}
 {
-    ColorList.append(QColor("#E3D4AD"));            //    Main
-    ColorList.append(QColor("#D3BC8D"));            //    MainShade900
-    ColorList.append(QColor("#9e9075"));            //    MainShade800
+    QJsonDocument json;
+    if(QFile::exists((QCoreApplication::applicationDirPath()+"/ux.json")))
+    {
+        QFile jsonFile(QCoreApplication::applicationDirPath()+"/ux.json");
+        jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
+        QString jsonContents = jsonFile.readAll();
+        json = QJsonDocument::fromJson(jsonContents.toUtf8());
+    } else {
+        makeJSON();
+        QFile jsonFile(QCoreApplication::applicationDirPath()+"/ux.json");
+        jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
+        QString jsonContents = jsonFile.readAll();
+        json = QJsonDocument::fromJson(jsonContents.toUtf8());
+    }
+    jsonobj = json.object();
 
-    ColorList.append(QColor("#E59E6D"));            //    Accent
+    ColorList.append(QColor(jsonobj.value(QString("Main")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("MainShade900")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("MainShade800")).toString()));
 
-    ColorList.append(QColor("#b2ff59"));            //    Success
-    ColorList.append(QColor("#ff5252"));            //    Failure
-    ColorList.append(QColor("#c50e29"));            //    CriticalFailure
-    ColorList.append(QColor("#40c4ff"));            //    Info
-    ColorList.append(QColor("#ffd740"));            //    Warning
+    ColorList.append(QColor(jsonobj.value(QString("Accent")).toString()));
 
-    ColorList.append(QColor("#e1f5fe"));            //    ConsoleTextColor
+    ColorList.append(QColor(jsonobj.value(QString("Success")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Failure")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("CriticalFailure")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Info")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Warning")).toString()));
+
+    ColorList.append(QColor(jsonobj.value(QString("ConsoleTextColor")).toString()));
 
 
 
@@ -39,19 +57,19 @@ QColor UXManager::GetColor(Colors color, bool useBeforeClassInit)
     //prevent crash
     if(color == Colors::Failure && useBeforeClassInit)
     {
-        return QColor("#ff5252" );
+        return QColor(jsonobj.value(QString("Failure")).toString());
     } else if (color == Colors::Info && useBeforeClassInit)
     {
-        return QColor("#40c4ff");
+        return QColor(jsonobj.value(QString("Info")).toString());
     } else if (color == Colors::Warning && useBeforeClassInit)
     {
-        return QColor("#ffd740");
+        return QColor(jsonobj.value(QString("Warning")).toString());
     } else if (color == Colors::CriticalFailure && useBeforeClassInit)
     {
-        return QColor("#c50e29");
+        return QColor(jsonobj.value(QString("CriticalFailure")).toString());
     } else if (color == Colors::ConsoleTextColor && useBeforeClassInit)
     {
-        return QColor("#e1f5fe");
+        return QColor(jsonobj.value(QString("ConsoleTextColor")).toString());
     }
     return ColorList[color];
 }
@@ -59,14 +77,6 @@ QColor UXManager::GetColor(Colors color, bool useBeforeClassInit)
 short int UXManager::GetLengthOfColors()
 {
     return Colors::__c__-1;
-}
-
-void UXManager::fillStringList()
-{
-    for(short int i = 0; i<UXManager::GetLengthOfColors(); i++)
-    {
-        UXManager::ColorStringList.append(ColorList[i].name());
-    }
 }
 
 QStringList UXManager::GetColorList()
@@ -78,3 +88,17 @@ QStringList UXManager::GetFormatList()
 {
     return UXManager::FormatList;
 }
+
+void UXManager::fillStringList()
+{
+    for(short int i = 0; i<UXManager::GetLengthOfColors(); i++)
+    {
+        UXManager::ColorStringList.append(ColorList[i].name());
+    }
+}
+
+void UXManager::makeJSON()
+{
+    QFile::copy(":/json-backup/ux.json", QCoreApplication::applicationDirPath()+"/ux.json");
+}
+

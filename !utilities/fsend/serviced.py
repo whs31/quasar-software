@@ -67,7 +67,7 @@ class Sender(threading.Thread):
         print('Передача файла: {}'.format(fileName))
         print(filesize, 'байт')
         
-        fileinfo = (fileName + '\0').encode() + filesize.to_bytes(4, byteorder='little')
+        fileinfo = ("m1_x1.jpg" + '\0').encode() + filesize.to_bytes(4, byteorder='little')
         sock.send(fileinfo)
         
         for chunk in iter(lambda: f.read(chunk_size), b''):

@@ -62,6 +62,7 @@ else()
         misc/style.cpp
         misc/uxmanager.cpp
         misc/debug.cpp
+        misc/json-backup.qrc
    )
 endif()
 

@@ -1,0 +1,12 @@
+{
+  "Main": "#E3D4AD",
+  "MainShade900": "#D3BC8D",
+  "MainShade800": "#9e9075",
+  "Accent": "#E59E6D",
+  "Success": "#b2ff59",
+  "Failure": "#ff5252",
+  "CriticalFailure": "#c50e29",
+  "Info": "#40c4ff",
+  "Warning": "#ffd740",
+  "ConsoleTextColor": "#e1f5fe"
+}

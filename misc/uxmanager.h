@@ -2,7 +2,11 @@
 #define UXMANAGER_H
 
 #include <QObject>
+#include <QCoreApplication>
 #include <QVector>
+#include <QFile>
+#include <QJsonObject>
+#include <QJsonDocument>
 #include "qcolor.h"
 
 enum Colors : short int
@@ -50,7 +54,10 @@ private:
     static QStringList ColorStringList;
     static QStringList FormatList;
     static void fillStringList();
+    static void makeJSON();
 
+    static QString jsonFilePath;
+    static QJsonObject jsonobj;
 
 signals:
 

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>json-backup/ux.json</file>
+    </qresource>
+</RCC>

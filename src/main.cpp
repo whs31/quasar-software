@@ -39,7 +39,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     QFile outFile(QCoreApplication::applicationDirPath()+"/debug_log.txt");
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
-    ts << txt << Qt::endl;
+    ts << txt << '\n';
     CoreUI* pointer = CoreUI::getDebugPointer();
     pointer->debugStreamUpdate(txt, msgt);
 }

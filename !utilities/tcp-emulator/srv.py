@@ -18,30 +18,24 @@ head = True
 
 f = None
 
+data = connection.recv(1024)
+
+p = data.find(b'\0')
+print(len(data))
+fn = data[:p]
+print(fn)
+f = open('out-'+str(fn.decode('utf-8')), 'wb')
+data = data[p+1:]
+
+head = False
+
 while(1):
     data = connection.recv(1024)
     
-    if(head):
-        
-        p = data.find(b'\n')
-        if(p > -1):
-            fn = data[:p]
-            f = open('out-'+str(fn), 'wb')
-            data = data[p+1:]
-            print(data)
-            head = False
-            
-        else:
-            # Значит, вместо заголовка пришла какая-то херня
-            # Нужно придумать исключение
-            pass
-    
-    if(f):
-        f.write(data)
-    
-    
     if not data:
         break
+    
+    f.write(data)
 
 
 f.close()

@@ -3,9 +3,13 @@ import os
 import errno
 import time
 import psutil
-import pipe
 import time
 import socket
+
+if(os.name == 'posix'):
+    import pipe_posix as pipe
+else:
+    import pipe_windows as pipe
 
 FIFO = 'fsend.pipe'
 LOCKFILE = "fsend.lock"
@@ -14,7 +18,7 @@ class Sender(threading.Thread):
     def __init__(self, parent):
         super().__init__()
 
-        print('Запуск сервиса')
+        print('Сервис запущен')
         self.fileList = []
         self.parent = parent
         lockfile = open(LOCKFILE, "w")
@@ -59,6 +63,7 @@ class Sender(threading.Thread):
 
         try:
             filesize = os.path.getsize(fileName)
+            
             f = open(fileName, 'rb')
         except:
             print('Ошибка: файла {} не существует'.format(fileName))
@@ -67,7 +72,7 @@ class Sender(threading.Thread):
         print('Передача файла: {}'.format(fileName))
         print(filesize, 'байт')
         
-        fileinfo = ("m1_x1.jpg" + '\0').encode() + filesize.to_bytes(4, byteorder='little')
+        fileinfo = (os.path.basename(fileName) + b'\0') + filesize.to_bytes(4, byteorder='little')
         sock.send(fileinfo)
         
         for chunk in iter(lambda: f.read(chunk_size), b''):

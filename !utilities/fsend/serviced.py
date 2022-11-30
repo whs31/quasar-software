@@ -30,8 +30,9 @@ class Sender(threading.Thread):
     def run(self):
         while(self.parent.running):
             self.sem.acquire()
-            fileName = self.fileList.pop(0)
-            self.sendFile(fileName)
+            tmp = self.fileList.pop(0)
+            address, fileName = tmp.split('\n')
+            self.sendFile(address, fileName)
             
     def readCommand(self):
         p = pipe.Pipe()
@@ -42,17 +43,20 @@ class Sender(threading.Thread):
             if(d == None):
                 p.reinit()
                 continue
-            self.fileList.append(d)
-            self.sem.release()
-            print(d)
             
-    def sendFile(self, fileName):
+            if(d == b'\x00status'):
+                self.status(p)
+                continue
+            
+            self.fileList.append(d.decode("utf-8") )
+            self.sem.release()
+            
+    def sendFile(self, address, fileName):
         chunk_size = 1024
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(5)
-        ip = 'localhost'
-        port = 10000
-        server_address = (ip, port)
+        ip, port = address.split(':')
+        server_address = (ip, int(port))
         
         print('Подключение {}:{}'.format(ip, port))
         try:
@@ -72,7 +76,7 @@ class Sender(threading.Thread):
         print('Передача файла: {}'.format(fileName))
         print(filesize, 'байт')
         
-        fileinfo = (os.path.basename(fileName) + b'\0') + filesize.to_bytes(4, byteorder='little')
+        fileinfo = (os.path.basename(fileName).encode() + b'\0') + filesize.to_bytes(4, byteorder='little')
         sock.send(fileinfo)
         
         for chunk in iter(lambda: f.read(chunk_size), b''):
@@ -82,14 +86,16 @@ class Sender(threading.Thread):
             except socket.error as err:
                 print(err)
                 return
-            # Имитация медленного канала
-            time.sleep(0.01)
             
         print('Передача завершена')
         sock.shutdown(socket.SHUT_WR)
         f.close()
         sock.close()
-
+        
+    def status(self, p):
+        s = b'STATUS'
+        #p.write(s)
+        print(s)
 
 class serviced():
 
@@ -109,21 +115,36 @@ class serviced():
         if(pid == None):
             return False
         pid = int(pid)
-        print('PID:', pid)
 
         return psutil.pid_exists(pid)
 
-    def command(self, cmd):
+    def append(self, adr, fn):
+        
+        cmd = '{}\n{}'.format(adr, fn)
 
         if(not self.active()):
             sender = Sender(self)
             sender.start()
+            if(fn):
+                sender.fileList.append(cmd)
+                sender.sem.release()
+            
             sender.readCommand()
         else:
             p = pipe.Pipe()
             p.connect(FIFO)
             p.write(cmd.encode())
             p.close()
+            
+    def status(self):
+        if(self.active()):
+                p = pipe.Pipe()
+                p.connect(FIFO)
+                p.write(b'\x00status')
+                p.close()
+        else:
+            print('Сервис не активен')
+        
 
 
 

@@ -23,7 +23,6 @@ class Pipe():
     def connect(self, name):
         self.name = name
         self.pipe = os.open(name, os.O_RDWR)
-        print(self.pipe)
 
     def write(self, data):
         os.write(self.pipe, data)

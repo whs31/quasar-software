@@ -5,6 +5,7 @@ import time
 import psutil
 import time
 import socket
+import logging
 
 if(os.name == 'posix'):
     import pipe_posix as pipe
@@ -18,7 +19,7 @@ class Sender(threading.Thread):
     def __init__(self, parent):
         super().__init__()
 
-        print('Сервис запущен')
+        logging.info('Сервис запущен')
         self.fileList = []
         self.parent = parent
         lockfile = open(LOCKFILE, "w")
@@ -58,11 +59,11 @@ class Sender(threading.Thread):
         ip, port = address.split(':')
         server_address = (ip, int(port))
         
-        print('Подключение {}:{}'.format(ip, port))
+        logging.info('Подключение {}:{}'.format(ip, port))
         try:
             sock.connect(server_address)
         except socket.error as err:
-            print(err)
+            logging.error(err)
             return
 
         try:
@@ -70,11 +71,11 @@ class Sender(threading.Thread):
             
             f = open(fileName, 'rb')
         except:
-            print('Ошибка: файла {} не существует'.format(fileName))
+            logging.error('Ошибка: файла {} не существует'.format(fileName))
             return
         
-        print('Передача файла: {}'.format(fileName))
-        print(filesize, 'байт')
+        logging.info('Передача файла: {}'.format(fileName))
+        logging.info(filesize, 'байт')
         
         fileinfo = (os.path.basename(fileName).encode() + b'\0') + filesize.to_bytes(4, byteorder='little')
         sock.send(fileinfo)
@@ -84,10 +85,10 @@ class Sender(threading.Thread):
             try:
                 sock.send(chunk)
             except socket.error as err:
-                print(err)
+                logging.error(err)
                 return
             
-        print('Передача завершена')
+        logging.info('Передача завершена')
         sock.shutdown(socket.SHUT_WR)
         f.close()
         sock.close()
@@ -95,7 +96,7 @@ class Sender(threading.Thread):
     def status(self, p):
         s = b'STATUS'
         #p.write(s)
-        print(s)
+        logging.info(s)
 
 class serviced():
 
@@ -143,7 +144,7 @@ class serviced():
                 p.write(b'\x00status')
                 p.close()
         else:
-            print('Сервис не активен')
+            logging.info('Сервис не активен')
         
 
 

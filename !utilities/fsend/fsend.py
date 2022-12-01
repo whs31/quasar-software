@@ -5,6 +5,7 @@ import sys
 import config
 import serviced
 import argparse
+import logging
 
 def main(cmd):
     defaults = {'daemonize': False, 'address': '127.0.0.1:10000'}
@@ -19,6 +20,15 @@ def main(cmd):
     
     args = parser.parse_args()
     
+    
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.FileHandler("fsend.log"),
+            logging.StreamHandler()
+        ]
+    )
     
     s = serviced.serviced()
     

@@ -265,30 +265,36 @@ uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t 
 
 void ImageProcessing::showAllImages(bool showOnStart)
 {
-    for (image_metadata meta : metadataList)
+    if(!metadataList.isEmpty())
     {
-        if(meta.latitude!=0)
+
+        for (image_metadata meta : metadataList)
         {
-            QImageReader reader(meta.filename);
-            QSize sizeOfImage = reader.size();
-
-            qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
-
-            if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
+            if(meta.latitude!=0)
             {
-                Debug::Log("!![QML] Something went wrong");
-            }
+                QImageReader reader(meta.filename);
+                QSize sizeOfImage = reader.size();
 
-            if(!showOnStart)
-            {
-                for(int i = 0; i<getVectorSize(); i++)
+                qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+
+                if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
                 {
-                    qmlLinker->hideImage(i);
+                    Debug::Log("!![QML] Something went wrong");
+                }
+
+                if(!showOnStart)
+                {
+                    for(int i = 0; i<getVectorSize(); i++)
+                    {
+                        qmlLinker->hideImage(i);
+                    }
                 }
             }
         }
+    } else {
+        Debug::Log("![IMG] Empty image list!");
     }
-    Debug::Log("?[IMG] Initial images shown successfully");
+
 }
 
 void ImageProcessing::showPartialScanResult()

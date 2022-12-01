@@ -34,7 +34,9 @@ void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->g
 void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);          }
 void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)  { autoUpdate = ui->checkBox_autoUpdate->isChecked();                                                                                             }
 void CoreUI::on_pushButton_expandImageInfo_clicked()        { bool b = ui->showFullInfoContainer->isVisible(); b = !b; ui->showFullInfoContainer->setVisible(b);                                             }
-void CoreUI::on_pushButton_update_clicked()                 { imageProcessing->PartialScan(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);      }
+void CoreUI::on_pushButton_update_clicked()                 { imageProcessing->PartialScan();
+                                                              if(imageProcessing->getReadyStatus()) { ui->pushButton_showImage->setChecked(
+                                                                              imageProcessing->imageChecklist[imageProcessing->getFileCounter()]); }                                                         }
 void CoreUI::on_pushButton_panImage_clicked()               { linker->panImage(imageProcessing->getFileCounter()); ui->checkBox->setChecked(false); on_checkBox_stateChanged(0);                             }
 void CoreUI::on_pushButton_showImage_clicked()
 {

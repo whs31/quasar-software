@@ -9,17 +9,6 @@ import logging
 
 def main(cmd):
     defaults = {'daemonize': False, 'address': '127.0.0.1:10000'}
-    cfg = config.read('main', defaults)
-    
-    
-    parser = argparse.ArgumentParser(description='Сервис для передачи файлов')
-    parser.add_argument('-f', type=str, default=None, help='Имя файла')
-    parser.add_argument('-a', type=str, default=cfg['address'], help='Адрес сервера для приема')
-    parser.add_argument('-s', help='Статус', action='store_true')
-    parser.add_argument('-d', default=cfg['daemonize'], help='Запуск в фотоновом режиме', action='store_true')
-    
-    args = parser.parse_args()
-    
     
     logging.basicConfig(
         level=logging.INFO,
@@ -30,7 +19,20 @@ def main(cmd):
         ]
     )
     
-    s = serviced.serviced()
+    
+    cfg = config.read('main', defaults)
+    
+    
+    parser = argparse.ArgumentParser(description='Сервис для передачи файлов')
+    parser.add_argument('-f', type=str, default=None, help='Имя файла')
+    parser.add_argument('-a', type=str, default=cfg['address'], help='Адрес сервера для приема')
+    parser.add_argument('-s', help='Статус', action='store_true')
+    parser.add_argument('-d', default=cfg['daemonize'], help='Запуск в фоновом режиме', action='store_true')
+    parser.add_argument('-k', help='Остановка процесса в фоновом режиме', action='store_true')
+    
+    args = parser.parse_args()
+    
+    s = serviced.serviced(args)
     
     if(args.s):
         s.status()

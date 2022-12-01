@@ -8,6 +8,7 @@ import psutil
 import time
 import socket
 import logging
+import sys
 
 if(os.name == 'posix'):
     import pipe_posix as pipe
@@ -21,7 +22,7 @@ class Sender(threading.Thread):
     def __init__(self, parent):
         super().__init__()
 
-        logging.info('Сервис запущен')
+        logging.info('Сервис запущен ({})'.format(os.getpid()))
         self.fileList = []
         self.parent = parent
         lockfile = open(LOCKFILE, "w")
@@ -46,9 +47,12 @@ class Sender(threading.Thread):
             if(d == None):
                 p.reinit()
                 continue
-            
-            if(d == b'\x00status'):
+            elif(d == b'\x00status'):
                 self.status(p)
+                continue
+            elif(d == b'\x00stop'):
+                logging.info('Сервис остановлен ({})'.format(os.getpid()))
+                os._exit(0)
                 continue
             
             self.fileList.append(d.decode("utf-8") )
@@ -102,8 +106,40 @@ class Sender(threading.Thread):
 
 class serviced():
 
-    def __init__(self):
+    def __init__(self, args):
+        self.args = args
         self.running = True
+        
+        
+    def daemonize(self):
+        try:
+            pid = os.fork()
+            if pid > 0:
+                sys.exit(0)
+        except OSError as err:
+            logging.error('Ошибка запуска в фоновом режиме: {0}\n'.format(err))
+            sys.exit(1)
+        
+        #os.chdir('/')
+        os.setsid()
+        os.umask(0)
+
+        try:
+            pid = os.fork()
+            if pid > 0:
+                sys.exit(0)
+        except OSError as err:
+            logging.error('Ошибка запуска в фоновом режиме: {0}\n'.format(err))
+            sys.exit(1)
+
+        sys.stdout.flush()
+        sys.stderr.flush()
+        si = open(os.devnull, 'r')
+        so = open(os.devnull, 'w')
+        se = open(os.devnull, 'w')
+        os.dup2(si.fileno(), sys.stdin.fileno())
+        os.dup2(so.fileno(), sys.stdout.fileno())
+        os.dup2(se.fileno(), sys.stderr.fileno())
 
     def active(self):
 
@@ -126,6 +162,10 @@ class serviced():
         cmd = '{}\n{}'.format(adr, fn)
 
         if(not self.active()):
+            
+            if(self.args.d):
+                self.daemonize()
+            
             sender = Sender(self)
             sender.start()
             if(fn):
@@ -134,6 +174,10 @@ class serviced():
             
             sender.readCommand()
         else:
+            
+            if(self.args.k):
+                cmd = '\0stop'
+            
             p = pipe.Pipe()
             p.connect(FIFO)
             p.write(cmd.encode())

@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 import time
 import sys
 import pywintypes, win32pipe, win32file

@@ -1,3 +1,9 @@
+# Python cache and images
+/!utilities/fsend/__pycache__
+/!utilities/fsend/*.jpg
+/!utilities/fsend/*.pyc
+/!utilities/fsend/*.lock
+
 # C++ objects and libs
 *.slo
 *.lo

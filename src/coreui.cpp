@@ -134,6 +134,8 @@ void CoreUI::InitializeUI()
     ui->setupUi(this);
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
+    ui->map->rootContext()->setContextProperty("ApplicationDirPath", QString(QCoreApplication::applicationDirPath()));
+    ui->map->setSource(QUrl("qrc:/qml/map.qml")); // where the MyContainer comp is a simple plain Item {}
     ui->map->show();
     qml = ui->map->rootObject();
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());

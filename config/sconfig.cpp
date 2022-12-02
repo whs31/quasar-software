@@ -32,13 +32,15 @@ SConfig::SConfig(QQuickItem* qml)
     config = new Config(QCoreApplication::applicationDirPath()+"/settings.ini");
     linker = new LinkerQML(qml);
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());
+    TESTMODE              =           config->value("utility/test_mode").toBool();
+    new TilesManager();
 }
 
 SConfig* SConfig::init(void)            { return pointer; }
 
 void SConfig::loadSettings()
 {
-    TESTMODE              =           config->value("utility/test_mode").toBool();
+
     NETWORKTYPE           =           config->value("network/type").toString();
     NETWORKADDRESS        =           config->value("network/ip").toString();
     NETWORKPORT           =           config->value("network/port").toString();
@@ -68,7 +70,8 @@ void SConfig::loadSettings()
                          config->value("map/antenna_position").toString(),
                          config->value("map/path").toString(),
                          config->value("utility/test_mode").toBool(),
-                         config->value("image/use_base64").toBool());
+                         config->value("image/use_base64").toBool(),
+                         TilesManager::OSMConfigsPath);
     Debug::Log("?[SCONFIG] Config loaded.");
 }
 

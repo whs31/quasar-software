@@ -7,7 +7,6 @@
 #include <QStandardPaths>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
-
 #include "coreui.h"
 #include "style.h"
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)

@@ -10,6 +10,7 @@
 #include "config.h"
 #include "linkerqml.h"
 #include "debug.h"
+#include "tilesmanager.h"
 
 class SConfig : public QObject
 {

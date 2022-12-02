@@ -18,6 +18,8 @@ include_directories(
     misc
     config
     image-processing
+    map
+    json
 )
 
 
@@ -30,6 +32,10 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${PROJECT_NAME} ${SOURCE}
+        map/tilesmanager.h
+        map/tilesmanager.cpp
+        json/jsonmanager.h
+        json/jsonmanager.cpp
         network/remote.h
         network/tcpremote.h
         network/udpremote.h

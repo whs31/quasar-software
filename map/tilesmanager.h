@@ -14,7 +14,7 @@ class TilesManager : public QObject
     Q_OBJECT
 public:
     explicit TilesManager(QObject *parent = nullptr);
-    static void InitializeConfig(bool TestMode);
+    static void InitializeConfig();
     static QString OSMConfigsPath;
     static QString TileServerPath;
 

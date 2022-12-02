@@ -1,5 +1,5 @@
 {
-    "UrlTemplate" : "http://192.168.18.3/tiles/%z/%x/%y.png",
+    "UrlTemplate": "file:///C:/Users/0/Documents/!release/tiles/%z/%x/%y.png",
     "ImageFormat" : "png",
     "QImageFormat" : "Indexed8",
     "MaximumZoomLevel" : 18,

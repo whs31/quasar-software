@@ -38,6 +38,7 @@ SConfig::SConfig(QQuickItem* qml)
 
 SConfig* SConfig::init(void)            { return pointer; }
 
+
 void SConfig::loadSettings()
 {
 

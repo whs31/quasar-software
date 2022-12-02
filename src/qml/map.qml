@@ -76,7 +76,7 @@ Rectangle {
         if(testmode)
         {
             m_provider = "osm";
-            m_mapMode = 0;
+            m_mapMode = 3;
         } else {
             m_provider = "osm";
             m_mapMode = 0;

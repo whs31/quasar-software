@@ -333,7 +333,7 @@ Rectangle {
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";
-                value: ApplicationDirPath+"/maptsc";
+                value: "file:///"+ApplicationDirPath+"/maptsc";
             }
             Component.onCompleted: console.log(parameterOSM.value);
 

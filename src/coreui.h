@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QSslSocket>
 #include <QTimer>
+#include <QQmlEngine>
+#include <QQmlContext>
 
 #include "udpremote.h"
 #include "tcpremote.h"
@@ -17,6 +19,7 @@
 #include "linkerqml.h"
 #include "sconfig.h"
 #include "tcpdownloader.h"
+#include "tilesmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }

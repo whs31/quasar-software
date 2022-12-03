@@ -24,7 +24,7 @@ public:
     void panImage(int filecounter);
     void loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth,
                       float driftAngle, QString antennaPosition, QString path, bool testMode = false,
-                      bool usebase64 = false);
+                      bool usebase64 = false, QString cfgpath = "");
 
 protected:
     QQuickItem* map;

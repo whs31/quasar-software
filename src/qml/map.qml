@@ -71,7 +71,7 @@ Rectangle {
         elevationText.text = Number(elevation).toFixed(0);
     }
 
-    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64)
+    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
     {
         if(testmode)
         {
@@ -331,9 +331,11 @@ Rectangle {
             id: mapPluginID;
             name: m_provider;
             PluginParameter {
+                id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";
-                value: "qrc:/osmconfigs";
+                value: "file:///"+ApplicationDirPath+"/maptsc";
             }
+            Component.onCompleted: console.log(parameterOSM.value);
 
         }
         activeMapType: mapView.supportedMapTypes[m_mapMode]

@@ -18,6 +18,8 @@ include_directories(
     misc
     config
     image-processing
+    map
+    json
 )
 
 
@@ -30,6 +32,10 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${PROJECT_NAME} ${SOURCE}
+        map/tilesmanager.h
+        map/tilesmanager.cpp
+        json/jsonmanager.h
+        json/jsonmanager.cpp
         network/remote.h
         network/tcpremote.h
         network/udpremote.h
@@ -75,9 +81,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt5::QuickControls2
 )
-
-
-add_subdirectory(submodule)
 
 execute_process(COMMAND git describe --tags --always WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
 execute_process(COMMAND ${CMAKE_COMMAND} -E env TZ=UTC git log -1 --format=%cd --date=format-local:"%d.%m.%Y %H:%M:%S" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_SOURCE_DATE OUTPUT_STRIP_TRAILING_WHITESPACE)

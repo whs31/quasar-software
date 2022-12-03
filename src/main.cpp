@@ -7,7 +7,6 @@
 #include <QStandardPaths>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
-
 #include "coreui.h"
 #include "style.h"
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
@@ -49,6 +48,7 @@ int main(int argc, char *argv[]) {
     qInstallMessageHandler(debugLogger);
     QQuickStyle::setStyle("Material");                              //графика для QML
     new Style(false);  //false при сборке релиза
+    new TilesManager();
     CoreUI window;
 
     window.show();

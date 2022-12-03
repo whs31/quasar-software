@@ -34,11 +34,8 @@ def main(cmd):
     
     s = serviced.serviced(args)
     
-    if(args.s):
-        s.status()
-        return
-    
-    s.append(args.a, args.f)
+    if(not s.extra(args)):
+        s.append(args.a, args.f)
 
 
 

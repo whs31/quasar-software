@@ -15,7 +15,8 @@ if(os.name == 'posix'):
 else:
     import pipe_windows as pipe
 
-FIFO = 'fsend.pipe'
+FIFO_IN = 'fsend.pipe.in'
+FIFO_OUT = 'fsend.pipe.out'
 LOCKFILE = "fsend.lock"
 
 class Sender(threading.Thread):
@@ -39,16 +40,19 @@ class Sender(threading.Thread):
             self.sendFile(address, fileName)
             
     def readCommand(self):
-        p = pipe.Pipe()
-        p.create(FIFO)
+        pipeIn = pipe.Pipe()
+        pipeIn.create(FIFO_IN)
+        
+        pipeOut = pipe.Pipe()
+        pipeOut.create(FIFO_OUT)
 
         while(self.parent.running):
-            d = p.read()
+            d = pipeIn.read()
             if(d == None):
-                p.reinit()
+                pipeIn.reinit()
                 continue
             elif(d == b'\x00status'):
-                self.status(p)
+                self.status(pipeOut)
                 continue
             elif(d == b'\x00stop'):
                 logging.info('Сервис остановлен ({})'.format(os.getpid()))
@@ -100,8 +104,8 @@ class Sender(threading.Thread):
         sock.close()
         
     def status(self, p):
-        s = b'STATUS'
-        #p.write(s)
+        s = 'На очереди {} файл(ов)'.format(len(self.fileList))
+        p.write(s.encode())
         logging.info(s)
 
 class serviced():
@@ -156,6 +160,20 @@ class serviced():
         pid = int(pid)
 
         return psutil.pid_exists(pid)
+        
+    def sendToService(self, cmd):
+        p = pipe.Pipe()
+        p.connect(FIFO_IN)
+        p.write(cmd.encode())
+        p.close()
+        
+    def readFromService(self):
+        p = pipe.Pipe()
+        p.connect(FIFO_OUT)
+        d = p.read()
+        p.close()
+        
+        return d.decode('utf-8')
 
     def append(self, adr, fn):
         
@@ -173,22 +191,23 @@ class serviced():
                 sender.sem.release()
             
             sender.readCommand()
-        else:
+        else:                
+            self.sendToService(cmd)
             
-            if(self.args.k):
-                cmd = '\0stop'
-            
-            p = pipe.Pipe()
-            p.connect(FIFO)
-            p.write(cmd.encode())
-            p.close()
+    def extra(self, args):
+        if(self.args.k):
+            self.sendToService('\0stop')
+            return True
+        if(self.args.s):
+            self.status()
+            return True
+        
+        return False
             
     def status(self):
         if(self.active()):
-                p = pipe.Pipe()
-                p.connect(FIFO)
-                p.write(b'\x00status')
-                p.close()
+                self.sendToService('\0status')
+                print(self.readFromService())
         else:
             logging.info('Сервис не активен')
         

@@ -35,7 +35,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
         msgt = 4;
     break;
     }
-    QFile outFile(QCoreApplication::applicationDirPath()+"/debug_log.txt");
+    QFile outFile(QCoreApplication::applicationDirPath()+"/-/log.txt");
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';

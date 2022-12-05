@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 #include <QVector>
 #include <QFile>
+#include <QDir>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include "qcolor.h"

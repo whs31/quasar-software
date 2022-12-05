@@ -35,7 +35,9 @@ else()
         map/tilesmanager.h
         map/tilesmanager.cpp
         json/jsonmanager.h
+        json/jsonconfig.h
         json/jsonmanager.cpp
+        json/jsonconfig.cpp
         network/remote.h
         network/tcpremote.h
         network/udpremote.h
@@ -65,10 +67,12 @@ else()
         misc/style.h
         misc/uxmanager.h
         misc/debug.h
+        misc/profiler.h
         misc/style.cpp
         misc/uxmanager.cpp
         misc/debug.cpp
         misc/json-backup.qrc
+        misc/profiler.cpp
    )
 endif()
 

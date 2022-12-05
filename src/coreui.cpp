@@ -12,6 +12,12 @@ CoreUI::CoreUI(QWidget *parent)
     , ui(new Ui::CoreUI)
 {
     debugPointer = this;
+    //log clear
+    for(short i = 0; i < 25; i++)
+    {
+        qDebug()<<" ";
+    }
+    qDebug()<<"=================================NEW SESSION=========================================";
     InitializeUI();
     InitializeConnections();
 }
@@ -66,15 +72,20 @@ void CoreUI::Disconnected()
 {
     connected = false;
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
-    ui->label_c_satcount->setVisible(false); ui->label_c_satcount->setEnabled(false);
-    ui->groupBox_Loader->setVisible(false); ui->groupBox_Loader->setVisible(false);
+    ui->label_c_satcount->setVisible(true); ui->label_c_satcount->setEnabled(false);
+    ui->groupBox_Loader->setVisible(true); ui->groupBox_Loader->setVisible(false);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::setPushButton_goLeftEnabled(bool state)        { ui->pushButton_goLeft->setEnabled(state);                                                                                                      }
 void CoreUI::setPushButton_goRightEnabled(bool state)       { ui->pushButton_goRight->setEnabled(state);                                                                                                     }
-void CoreUI::updateLoaderLabel(void)                        { ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic)); uiTimer1->stop();        }
+void CoreUI::updateLoaderLabel(void)
+{
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
+    uiTimer1->stop();
+    ui->progressBar_loader->setValue(0);
+}
 void CoreUI::updateDirectory(void)                          { if(autoUpdate) { imageProcessing->PartialScan(); linker->panImage(imageProcessing->getFileCounter()); }                                        }
 void CoreUI::updateImageManagerLabels(int total, int current)
 {
@@ -244,7 +255,7 @@ void CoreUI::ReadUDPData(QByteArray data)
     default:
         break;
     }
-    if((int)telemetry[4] != 0 && _conckc != telemetry[0])
+    if((int)telemetry[4] != 0 || _conckc != telemetry[0])
     {
         Connected();
     } else { Disconnected(); }

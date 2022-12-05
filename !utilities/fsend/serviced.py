@@ -85,7 +85,7 @@ class Sender(threading.Thread):
             return
         
         logging.info('Передача файла: {}'.format(fileName))
-        logging.info(filesize, 'байт')
+        logging.info('Объем файла: {} байт'.format(filesize) )
         
         fileinfo = (os.path.basename(fileName).encode() + b'\0') + filesize.to_bytes(4, byteorder='little')
         sock.send(fileinfo)

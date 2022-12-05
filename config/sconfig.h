@@ -8,6 +8,8 @@
 #include <QMessageBox>
 
 #include "config.h"
+#include "jsonconfig.h"
+
 #include "linkerqml.h"
 #include "debug.h"
 
@@ -22,6 +24,7 @@ public:
     static void discardSettings();
 
     static bool TESTMODE;
+    static bool USEPROFILER;
     static QString NETWORKTYPE;
     static QString NETWORKADDRESS;
     static QString NETWORKPORT;
@@ -48,6 +51,7 @@ signals:
 private:
     static SConfig* pointer;
     static Config* config;
+    static JsonConfig* jsonConfig;
     static LinkerQML* linker;
 };
 

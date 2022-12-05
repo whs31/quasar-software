@@ -61,29 +61,36 @@ void ImageProcessing::imageChecklistLoop()
 
 bool ImageProcessing::InitialScan() //recall after changing settings
 {
+    Profiler* profiler = new Profiler("Профайлер полного сканирования"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
-
+    profiler->Stop("Diff");
+    profiler->Start();
     QStringList imageList = imageManager->GetInitialList(initialPath, diff);
-
+    profiler->Stop("PNG saving");
     if(!diff.empty())
     {
         Debug::Log("[FILEMANAGER] Diff: "+QString::number(diff.length())+" files");
     } else {
         Debug::Log("?[FILEMANAGER] No difference between cache and path found. Image processing will be skipped");
     }
+    
     if(!imageList.empty())
     {
         notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
 
         metadataList.clear();
+        profiler->Start();
         qmlLinker->clearImageArray();
-
-        decode(imageList, DecodeMode::Initial);
-        updateLabels(0);
-
+        profiler->Stop("QML array clear");
+        profiler->Start();
+        Decode(imageList, DecodeMode::Initial);
+        profiler->Stop("Decode and alpha mask apply");
+        UpdateLabels(0);
+        profiler->ShowProfile();
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         notNull = false;
@@ -112,11 +119,15 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 
 bool ImageProcessing::PartialScan()
 {
+    Profiler* profiler = new Profiler("Профайлер частичного сканирования"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     bool foundNew = false;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
+    profiler->Stop("Diff");
 
+    profiler->Start();
     QStringList imageList = imageManager->GetPartialList(initialPath, diff);
     if(!diff.empty())
     {
@@ -124,6 +135,8 @@ bool ImageProcessing::PartialScan()
     } else {
         Debug::Log("[FILEMANAGER] Partial scan found no difference to process");
     }
+    profiler->Stop("PNG saving");
+    profiler->Start();
     if(!imageList.empty())
     {
         Debug::Log("?[IMG] Imagelist fulfilled");
@@ -134,17 +147,19 @@ bool ImageProcessing::PartialScan()
             emit(setRightButton(true));
         }
         emit enableImageBar(true);
-        decode(imageList, DecodeMode::Partial);
+        Decode(imageList, DecodeMode::Partial);
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         Debug::Log("[IMG] Partial scan found no images to process");
         foundNew = false;
     }
+    profiler->Stop("Decoding and alpha mask apply");
     if(foundNew)
     {
         emit(setRightButton(true));
     }
+    profiler->Start();
     if(getReadyStatus())
     {
         for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
@@ -153,12 +168,14 @@ bool ImageProcessing::PartialScan()
         }
         showPartialScanResult();
     }
+    profiler->Stop("UI and QML display");
+    profiler->ShowProfile();
     return foundNew;
 }
 
-void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
+void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     Debug::Log("?[IMG] Called decoding function for image from filelist of "+QString::number(filelist.length())+" files");
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -226,7 +243,7 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
     }
 }
 
-void ImageProcessing::updateLabels(int structureIndex)
+void ImageProcessing::UpdateLabels(int structureIndex)
 {
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
@@ -345,7 +362,7 @@ void ImageProcessing::goLeft()
     if(fileCounter>0)
     {
         fileCounter--;
-        updateLabels(fileCounter);
+        UpdateLabels(fileCounter);
     }
     if (fileCounter == 0)
     {
@@ -365,7 +382,7 @@ void ImageProcessing::goRight()
     int totalFiles = getVectorSize()-1;
     if(fileCounter < totalFiles)
     {
-        fileCounter++; updateLabels(fileCounter);
+        fileCounter++; UpdateLabels(fileCounter);
     }
     if(fileCounter > 0)
     {

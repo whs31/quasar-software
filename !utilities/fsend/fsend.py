@@ -7,7 +7,7 @@ import serviced
 import argparse
 import logging
 
-def main(cmd):
+def main():
     defaults = {'daemonize': False, 'address': '127.0.0.1:10000'}
     
     logging.basicConfig(
@@ -40,12 +40,6 @@ def main(cmd):
 
 
 if __name__ == "__main__":
-    cmd = ''
-    if(len(sys.argv) == 1):
-        cmd = 'status'
-    else:
-        #print(sys.argv)
-        #cmd = ' '.join( map(str, sys.argv[1:]) )
-        for c in sys.argv[1:]:
-            cmd += "{}".format(c)
-    main(cmd)
+
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+    main()

@@ -11,7 +11,7 @@
 #include "linkerqml.h"
 #include "debug.h"
 
-#include <QElapsedTimer>
+#include "profiler.h"
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
@@ -53,8 +53,8 @@ private:
     ImageManager* imageManager;
 
     uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
-    void decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
-    void updateLabels(int structureIndex);
+    void Decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
+    void UpdateLabels(int structureIndex);
     QStringList getEntryList(QString &path);
 
     struct image_metadata {
@@ -66,6 +66,9 @@ private:
             float y0;
             float angle;
             float driftAngle;
+            float lx;
+            float ly;
+            float div;
             uint32_t checksum;
             QString filename;
             QString datetime;

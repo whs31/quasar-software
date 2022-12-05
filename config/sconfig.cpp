@@ -3,8 +3,10 @@
 SConfig* SConfig::pointer;
 LinkerQML* SConfig::linker;
 Config* SConfig::config;
+JsonConfig* SConfig::jsonConfig;
 
 bool SConfig::TESTMODE;
+bool SConfig::USEPROFILER;
 QString SConfig::NETWORKTYPE;
 QString SConfig::NETWORKADDRESS;
 QString SConfig::NETWORKPORT;
@@ -29,7 +31,8 @@ bool SConfig::USEBASE64;
 SConfig::SConfig(QQuickItem* qml)
 {
     pointer = this;
-    config = new Config(QCoreApplication::applicationDirPath()+"/settings.ini");
+    config = new Config(QCoreApplication::applicationDirPath() + "/-/oldconfig.ini");
+    jsonConfig = new JsonConfig(QCoreApplication::applicationDirPath() + "/-/config.json");
     linker = new LinkerQML(qml);
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
 }
@@ -39,7 +42,8 @@ SConfig* SConfig::init(void)            { return pointer; }
 
 void SConfig::loadSettings()
 {
-
+    TESTMODE              =           config->value("utility/test_mode").toBool();
+    USEPROFILER           =           config->value("utility/profiler").toBool();
     NETWORKTYPE           =           config->value("network/type").toString();
     NETWORKADDRESS        =           config->value("network/ip").toString();
     NETWORKPORT           =           config->value("network/port").toString();
@@ -77,15 +81,16 @@ void SConfig::loadSettings()
 void SConfig::saveSettings()
 {
     config->setValue("utility/test_mode", TESTMODE);
+    config->setValue("utility/profiler", USEPROFILER);
     config->setValue("network/type", NETWORKTYPE);
     config->setValue("network/ip", NETWORKADDRESS);
     config->setValue("network/port", NETWORKPORT);
-    config->setValue("network/updateTime", UPDATETIME);
-    config->setValue("map/predict_line_range", PREDICTRANGE);
-    config->setValue("map/diagram_length", CAPTURERANGE);
-    config->setValue("map/capture_time", CAPTURETIME);
-    config->setValue("map/diagram_theta_azimuth", AZIMUTH);
-    config->setValue("map/diagram_drift_angle", DRIFTANGLE);
+    config->setValue("network/updateTime", QString::number(UPDATETIME));
+    config->setValue("map/predict_line_range", QString::number(PREDICTRANGE));
+    config->setValue("map/diagram_length", QString::number(CAPTURERANGE));
+    config->setValue("map/capture_time", QString::number(CAPTURETIME));
+    config->setValue("map/diagram_theta_azimuth", QString::number(AZIMUTH));
+    config->setValue("map/diagram_drift_angle", QString::number(DRIFTANGLE));
     config->setValue("map/antenna_position", ANTENNAPOSITION);
     config->setValue("image/path", PATH);
     config->setValue("startup/show_image", SHOWIMAGEONSTART);

@@ -58,8 +58,7 @@ void CoreUI::on_pushButton_clearTrack_clicked()
     switch (ret) {
     case QMessageBox::Yes: linker->clearRoute();
         break;
-    case QMessageBox::Cancel:
-        break;
+    case QMessageBox::Cancel: { break; }
     default:
         break;
     }

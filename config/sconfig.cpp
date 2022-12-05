@@ -3,6 +3,7 @@
 SConfig* SConfig::pointer;
 LinkerQML* SConfig::linker;
 Config* SConfig::config;
+JsonConfig* SConfig::jsonConfig;
 
 bool SConfig::TESTMODE;
 bool SConfig::USEPROFILER;
@@ -30,7 +31,8 @@ bool SConfig::USEBASE64;
 SConfig::SConfig(QQuickItem* qml)
 {
     pointer = this;
-    config = new Config(QCoreApplication::applicationDirPath()+"/(deprecated).ini");
+    config = new Config(QCoreApplication::applicationDirPath() + "/-/oldconfig.ini");
+    jsonConfig = new JsonConfig(QCoreApplication::applicationDirPath() + "/-/config.json");
     linker = new LinkerQML(qml);
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
 }

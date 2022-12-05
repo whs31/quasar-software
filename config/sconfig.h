@@ -8,6 +8,8 @@
 #include <QMessageBox>
 
 #include "config.h"
+#include "jsonconfig.h"
+
 #include "linkerqml.h"
 #include "debug.h"
 
@@ -49,6 +51,7 @@ signals:
 private:
     static SConfig* pointer;
     static Config* config;
+    static JsonConfig* jsonConfig;
     static LinkerQML* linker;
 };
 

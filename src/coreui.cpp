@@ -12,6 +12,12 @@ CoreUI::CoreUI(QWidget *parent)
     , ui(new Ui::CoreUI)
 {
     debugPointer = this;
+    //log clear
+    for(short i = 0; i < 25; i++)
+    {
+        qDebug()<<" ";
+    }
+    qDebug()<<"=================================NEW SESSION=========================================";
     InitializeUI();
     InitializeConnections();
 }

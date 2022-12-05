@@ -87,9 +87,9 @@ bool ImageProcessing::InitialScan() //recall after changing settings
         qmlLinker->clearImageArray();
         profiler->Stop("QML array clear");
         profiler->Start();
-        decode(imageList, DecodeMode::Initial);
+        Decode(imageList, DecodeMode::Initial);
         profiler->Stop("Decode and alpha mask apply");
-        updateLabels(0);
+        UpdateLabels(0);
         profiler->ShowProfile();
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
@@ -147,7 +147,7 @@ bool ImageProcessing::PartialScan()
             emit(setRightButton(true));
         }
         emit enableImageBar(true);
-        decode(imageList, DecodeMode::Partial);
+        Decode(imageList, DecodeMode::Partial);
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
@@ -173,9 +173,9 @@ bool ImageProcessing::PartialScan()
     return foundNew;
 }
 
-void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
+void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     Debug::Log("?[IMG] Called decoding function for image from filelist of "+QString::number(filelist.length())+" files");
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -243,7 +243,7 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
     }
 }
 
-void ImageProcessing::updateLabels(int structureIndex)
+void ImageProcessing::UpdateLabels(int structureIndex)
 {
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
@@ -362,7 +362,7 @@ void ImageProcessing::goLeft()
     if(fileCounter>0)
     {
         fileCounter--;
-        updateLabels(fileCounter);
+        UpdateLabels(fileCounter);
     }
     if (fileCounter == 0)
     {
@@ -382,7 +382,7 @@ void ImageProcessing::goRight()
     int totalFiles = getVectorSize()-1;
     if(fileCounter < totalFiles)
     {
-        fileCounter++; updateLabels(fileCounter);
+        fileCounter++; UpdateLabels(fileCounter);
     }
     if(fileCounter > 0)
     {

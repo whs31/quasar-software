@@ -165,9 +165,9 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-179</y>
           <width>371</width>
-          <height>569</height>
+          <height>614</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -578,8 +578,8 @@ QPushButton:selected {
                <property name="spacing">
                 <number>0</number>
                </property>
-               <item row="2" column="1">
-                <widget class="QLabel" name="label_c_metaDy">
+               <item row="8" column="0">
+                <widget class="QLabel" name="label_d_metaLY">
                  <property name="font">
                   <font>
                    <family>Sans Serif</family>
@@ -587,166 +587,12 @@ QPushButton:selected {
                   </font>
                  </property>
                  <property name="text">
-                  <string>----</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                 <property name="textInteractionFlags">
-                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                  <string>l(y)</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
                 <widget class="QLabel" name="label_c_metaDx">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>----</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                 <property name="textInteractionFlags">
-                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0">
-                <widget class="QLabel" name="label_d_metaDAngle">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Угол сноса</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="1">
-                <widget class="QLabel" name="label_c_metaY0">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>----</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                 <property name="textInteractionFlags">
-                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_d_metaDy">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>dY</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0">
-                <widget class="QLabel" name="label_d_metaY0">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>y0</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="0">
-                <widget class="QLabel" name="label_d_metaChecksum">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Хэш файла</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_d_metaAngle">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>Угол</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_d_metaX0">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>x0</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QLabel" name="label_c_metaChecksum">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>----</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="1">
-                <widget class="QLabel" name="label_c_metaDAngle">
-                 <property name="font">
-                  <font>
-                   <family>Sans Serif</family>
-                   <pointsize>8</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>----</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="1">
-                <widget class="QLabel" name="label_c_metaX0">
                  <property name="font">
                   <font>
                    <family>Sans Serif</family>
@@ -777,6 +623,144 @@ QPushButton:selected {
                  </property>
                 </widget>
                </item>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_d_metaAngle">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Угол</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QLabel" name="label_d_metaChecksum">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Хэш файла</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QLabel" name="label_d_metaLX">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>l(x)</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QLabel" name="label_c_metaDy">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="textInteractionFlags">
+                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="1">
+                <widget class="QLabel" name="label_c_metaDAngle">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
+                <widget class="QLabel" name="label_c_metaY0">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="textInteractionFlags">
+                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="1">
+                <widget class="QLabel" name="label_c_metaX0">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                 <property name="textInteractionFlags">
+                  <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="label_d_metaDAngle">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Угол сноса</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_d_metaX0">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>x0</string>
+                 </property>
+                </widget>
+               </item>
                <item row="5" column="1">
                 <widget class="QLabel" name="label_c_metaAngle">
                  <property name="font">
@@ -793,6 +777,109 @@ QPushButton:selected {
                  </property>
                  <property name="textInteractionFlags">
                   <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QLabel" name="label_d_metaY0">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>y0</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_d_metaDy">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>dY</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="1">
+                <widget class="QLabel" name="label_c_metaChecksum">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="label_d_metaDiv">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Угол расх. луча</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="7" column="1">
+                <widget class="QLabel" name="label_c_metaLX">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="1">
+                <widget class="QLabel" name="label_c_metaLY">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="1">
+                <widget class="QLabel" name="label_c_metaDiv">
+                 <property name="font">
+                  <font>
+                   <family>Sans Serif</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>----</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
@@ -983,20 +1070,6 @@ QPushButton:selected {
                <number>0</number>
               </property>
               <item>
-               <widget class="QLabel" name="label_d_showFullInfo">
-                <property name="font">
-                 <font>
-                  <family>Sans Serif</family>
-                  <pointsize>8</pointsize>
-                  <bold>false</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Показать подробную информацию </string>
-                </property>
-               </widget>
-              </item>
-              <item>
                <widget class="QPushButton" name="pushButton_expandImageInfo">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1024,6 +1097,8 @@ QPushButton:selected {
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
+ 
+background-color: rgba(255, 255, 255, 0);
   border-radius: 4px;
   padding: 1px;
   outline: none;
@@ -1036,6 +1111,23 @@ QPushButton:selected {
                 <property name="icon">
                  <iconset resource="stylesheet.qrc">
                   <normaloff>:/stylesheet/rc/arrow_down.png</normaloff>:/stylesheet/rc/arrow_down.png</iconset>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_d_showFullInfo">
+                <property name="font">
+                 <font>
+                  <family>Sans Serif</family>
+                  <pointsize>8</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Показать подробную информацию </string>
                 </property>
                </widget>
               </item>

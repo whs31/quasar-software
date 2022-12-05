@@ -65,10 +65,12 @@ else()
         misc/style.h
         misc/uxmanager.h
         misc/debug.h
+        misc/profiler.h
         misc/style.cpp
         misc/uxmanager.cpp
         misc/debug.cpp
         misc/json-backup.qrc
+        misc/profiler.cpp
    )
 endif()
 

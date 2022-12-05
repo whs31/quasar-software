@@ -11,7 +11,7 @@
 #include "linkerqml.h"
 #include "debug.h"
 
-#include <QElapsedTimer>
+#include "profiler.h"
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4

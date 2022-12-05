@@ -7,12 +7,12 @@
     <x>0</x>
     <y>0</y>
     <width>863</width>
-    <height>718</height>
+    <height>758</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <pointsize>10</pointsize>
+    <pointsize>9</pointsize>
    </font>
   </property>
   <property name="windowTitle">
@@ -74,7 +74,7 @@
        <widget class="QLabel" name="label_3">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -101,7 +101,7 @@
        <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -121,7 +121,7 @@
        <widget class="QLabel" name="label_10">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -134,7 +134,7 @@
        <widget class="QLabel" name="label_5">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -177,7 +177,7 @@
        <widget class="QLabel" name="label_4">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -190,7 +190,7 @@
        <widget class="QLabel" name="label_9">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -201,6 +201,11 @@
       </item>
       <item row="2" column="0">
        <widget class="QCheckBox" name="i_useLoader">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Использовать загрузчик изображений</string>
         </property>
@@ -320,7 +325,7 @@
        <widget class="QLabel" name="label_11">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -419,7 +424,7 @@
        <widget class="QLabel" name="label_12">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -439,7 +444,7 @@
        <widget class="QCheckBox" name="i_connectOnStart">
         <property name="font">
          <font>
-          <pointsize>8</pointsize>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="text">
@@ -544,7 +549,7 @@
        <widget class="QLabel" name="label_2">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -568,6 +573,11 @@
       </item>
       <item row="16" column="0">
        <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Длительность съемки</string>
         </property>
@@ -686,7 +696,7 @@
        <widget class="QCheckBox" name="i_saveOnlyAtEnd">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
           <bold>false</bold>
          </font>
         </property>
@@ -735,7 +745,7 @@
        <widget class="QCheckBox" name="i_showImages">
         <property name="font">
          <font>
-          <pointsize>8</pointsize>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="text">
@@ -745,6 +755,11 @@
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="label_17">
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Адрес загрузчика РЛИ</string>
         </property>
@@ -828,7 +843,7 @@
        <widget class="QCheckBox" name="i_usebase64">
         <property name="font">
          <font>
-          <pointsize>10</pointsize>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="text">

@@ -18,6 +18,7 @@
 
 #include "sconfig.h"
 #include "debug.h"
+#include "profiler.h"
 
 enum ImageFormat : short int
 {

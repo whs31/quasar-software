@@ -61,29 +61,36 @@ void ImageProcessing::imageChecklistLoop()
 
 bool ImageProcessing::InitialScan() //recall after changing settings
 {
+    Profiler* profiler = new Profiler("Профайлер ImageProcessing"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
-
+    profiler->Stop("Diff");
+    profiler->Start();
     QStringList imageList = imageManager->GetInitialList(initialPath, diff);
-
+    profiler->Stop("PNG saving");
     if(!diff.empty())
     {
         Debug::Log("[FILEMANAGER] Diff: "+QString::number(diff.length())+" files");
     } else {
         Debug::Log("?[FILEMANAGER] No difference between cache and path found. Image processing will be skipped");
     }
+    
     if(!imageList.empty())
     {
         notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
 
         metadataList.clear();
+        profiler->Start();
         qmlLinker->clearImageArray();
-
+        profiler->Stop("QML array clear");
+        profiler->Start();
         decode(imageList, DecodeMode::Initial);
+        profiler->Stop("Decode and alpha mask apply");
         updateLabels(0);
-
+        profiler->ShowProfile();
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         notNull = false;

@@ -22,6 +22,7 @@ public:
     static void discardSettings();
 
     static bool TESTMODE;
+    static bool USEPROFILER;
     static QString NETWORKTYPE;
     static QString NETWORKADDRESS;
     static QString NETWORKPORT;

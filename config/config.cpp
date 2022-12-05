@@ -10,8 +10,9 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
          */
 
     group_t utility;
-    utility["version"] = "0.9.0pre";
+    utility["version"] = "0.9.2pre";
     utility["test_mode"] = "false";
+    utility["profiler"] = "false";
     checkValuesSimple(utility);
 
     group_t network;

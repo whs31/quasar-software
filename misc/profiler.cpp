@@ -25,11 +25,14 @@ void Profiler::ShowProfile()
         output.append(QString::number(operationTime[i], 'f', 1) + " ms\n");
     }
     
-    QMessageBox openSSLDialogue;
+    if(SConfig::USEPROFILER)
+    {
+        QMessageBox openSSLDialogue;
             openSSLDialogue.setWindowTitle(header);
             openSSLDialogue.setIcon(QMessageBox::Icon::Information);
             openSSLDialogue.setText(output);
             openSSLDialogue.exec();
+    }
     operationName.clear();
     operationTime.clear();
 }

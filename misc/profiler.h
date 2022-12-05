@@ -6,6 +6,8 @@
 #include <QVector>
 #include <QMessageBox>
 
+#include "sconfig.h"
+
 class Profiler : public QObject
 {
     Q_OBJECT

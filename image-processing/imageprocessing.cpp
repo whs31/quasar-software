@@ -61,7 +61,7 @@ void ImageProcessing::imageChecklistLoop()
 
 bool ImageProcessing::InitialScan() //recall after changing settings
 {
-    Profiler* profiler = new Profiler("Профайлер ImageProcessing"); 
+    Profiler* profiler = new Profiler("Профайлер полного сканирования"); 
     profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
@@ -119,11 +119,15 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 
 bool ImageProcessing::PartialScan()
 {
+    Profiler* profiler = new Profiler("Профайлер частичного сканирования"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     bool foundNew = false;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
+    profiler->Stop("Diff");
 
+    profiler->Start();
     QStringList imageList = imageManager->GetPartialList(initialPath, diff);
     if(!diff.empty())
     {
@@ -131,6 +135,8 @@ bool ImageProcessing::PartialScan()
     } else {
         Debug::Log("[FILEMANAGER] Partial scan found no difference to process");
     }
+    profiler->Stop("PNG saving");
+    profiler->Start();
     if(!imageList.empty())
     {
         Debug::Log("?[IMG] Imagelist fulfilled");
@@ -148,10 +154,12 @@ bool ImageProcessing::PartialScan()
         Debug::Log("[IMG] Partial scan found no images to process");
         foundNew = false;
     }
+    profiler->Stop("Decoding and alpha mask apply");
     if(foundNew)
     {
         emit(setRightButton(true));
     }
+    profiler->Start();
     if(getReadyStatus())
     {
         for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
@@ -160,6 +168,8 @@ bool ImageProcessing::PartialScan()
         }
         showPartialScanResult();
     }
+    profiler->Stop("UI and QML display");
+    profiler->ShowProfile();
     return foundNew;
 }
 

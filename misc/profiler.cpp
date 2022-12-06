@@ -19,11 +19,18 @@ void Profiler::Stop(QString name)
 void Profiler::ShowProfile()
 {
     QString output = "";
+    float totalElapsed = 0;
+    for(float f : operationTime)
+    {
+        totalElapsed += f;
+    }
     for (size_t i = 0; i < operationName.length(); i++)
     {
         output.append(operationName[i] + ": ");
-        output.append(QString::number(operationTime[i], 'f', 1) + " ms\n");
+        output.append(QString::number(operationTime[i], 'f', 0) + " ms\n");
     }
+
+    output.append("\nTotal elapsed time: " + QString::number(totalElapsed, 'f', 0) + " ms");
     
     if(SConfig::USEPROFILER)
     {

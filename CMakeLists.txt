@@ -13,6 +13,7 @@ set(CMAKE_AUTOUIC_SEARCH_PATHS src/)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core )
 find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets REQUIRED Network Location Positioning)
 find_package(Qt5 REQUIRED COMPONENTS QuickControls2)
+find_package(Qt5 OPTIONAL_COMPONENTS Gui Test Widgets WinExtras X11Extras)
 
 include_directories(
     network
@@ -31,6 +32,8 @@ include_directories(
 
 file(GLOB SOURCE src/* )
 file(GLOB RES src/resources/*)
+
+
 
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
@@ -85,6 +88,7 @@ else()
    )
 endif()
 
+
 target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Gui
@@ -94,6 +98,34 @@ target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt5::QuickControls2
 )
+
+
+if(WIN32)
+    target_compile_definitions(${executable_name} PRIVATE
+        QGOODWINDOW
+    )
+
+    target_link_libraries(${executable_name}
+        Qt::WinExtras
+        Gdi32
+        User32
+    )
+endif()
+
+
+if(UNIX AND NOT ANDROID AND NOT APPLE)
+    target_link_libraries(${executable_name}
+        X11
+    )
+endif()
+
+if((( ( UNIX ) AND NOT APPLE ) AND NOT ANDROID) AND ((QT_VERSION_MAJOR EQUAL 5)))
+    target_link_libraries(${executable_name}
+        Qt::Test
+        Qt::X11Extras
+    )
+endif()
+
 
 execute_process(COMMAND git describe --tags --always WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
 execute_process(COMMAND ${CMAKE_COMMAND} -E env TZ=UTC git log -1 --format=%cd --date=format-local:"%d.%m.%Y %H:%M:%S" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_SOURCE_DATE OUTPUT_STRIP_TRAILING_WHITESPACE)

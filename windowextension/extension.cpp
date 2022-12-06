@@ -309,7 +309,6 @@ QGoodWindow::QGoodWindow(QWidget *parent, const QColor &clear_color) : QMainWind
     wcx.lpfnWndProc = WNDPROC(WndProc);
     wcx.cbClsExtra = 0;
     wcx.cbWndExtra = 0;
-    wcx.hCursor	= LoadCursorW(nullptr, IDC_ARROW);
     wcx.hbrBackground = HBRUSH(CreateSolidBrush(RGB(m_clear_color.red(),
                                                     m_clear_color.green(),
                                                     m_clear_color.blue())));

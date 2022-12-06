@@ -247,5 +247,10 @@
         <file>ui-resources/windowextension/maximize.png</file>
         <file>ui-resources/windowextension/minimize.png</file>
         <file>ui-resources/windowextension/restore.png</file>
+        <file>ui-resources/w_newimage.png</file>
+        <file>ui-resources/w_timer.png</file>
+        <file>ui-resources/windowextension/logo.png</file>
+        <file>ui-resources/windowextension/info.png</file>
+        <file>ui-resources/windowextension/settings.png</file>
     </qresource>
 </RCC>

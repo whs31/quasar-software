@@ -95,14 +95,11 @@ private slots:
     void on_minButton_clicked();
     void on_minmaxButton_clicked();
     void on_closeButton_clicked();
+    void on_settingsButton_clicked();
 
     //utility slots
     void ReadUDPData(QByteArray data);
     void Halftime();
-
-    //menu slots
-    void on_formImage_triggered();
-    void on_openSettings_triggered();
 
     //gui slots
     void on_checkBox_drawTooltip_stateChanged(int arg1);
@@ -120,6 +117,5 @@ private slots:
     void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_clearCache_clicked();
-
 };
 #endif // COREUI_H

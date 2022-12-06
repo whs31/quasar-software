@@ -1,30 +1,6 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
-//======================================================================================MENU SLOTS============================================================================================================
-//remove this in future
-void CoreUI::on_formImage_triggered()                       { Debug::Log("[CLIENT] Sending command to form SAR image"); SendRemoteCommand("$form-SAR-image");                                                  }
-void CoreUI::on_openSettings_triggered() //menu slot
-{
-    SettingsDialog sd(this);
-    QString s = SConfig::PATH;
-    if(sd.exec() == QDialog::Accepted)
-    {
-        if(s!=SConfig::PATH)
-        {
-            imageProcessing->InitialScan();
-        } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
-        ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
-
-        SConfig::saveSettings();
-    } else { SConfig::loadSettings(); }
-
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
-}
-//============================================================================================================================================================================================================
-
 //***************************************************************************************GUI SLOTS************************************************************************************************************
 void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                                             }
 void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                                 }

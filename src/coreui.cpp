@@ -314,3 +314,22 @@ void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (о
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+void CoreUI::on_pushButton_formSingleImage_clicked()
+{
+
+}
+
+
+void CoreUI::on_pushButton_launchContinuous_clicked()
+{
+
+}
+
+
+void CoreUI::on_pushButton_stopContinuous_clicked()
+{
+
+}
+

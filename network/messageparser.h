@@ -40,6 +40,7 @@ class MessageParser : public QObject
     Q_OBJECT
 public:
     static QString REQUEST_TELEMETRY;
+    static QString REQUEST_FORM;
 
     static DataType checkReceivedDataType(QByteArray data);
     static std::array<double, 5> parseTelemetry (QByteArray data);

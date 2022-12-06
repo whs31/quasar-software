@@ -98,4 +98,21 @@ void CoreUI::on_pushButton_clearCache_clicked()
         break;
     }
 }
+
+void CoreUI::on_pushButton_formSingleImage_clicked()
+{
+    SendRemoteCommand(MessageParser::REQUEST_FORM);
+}
+
+
+void CoreUI::on_pushButton_launchContinuous_clicked()
+{
+
+}
+
+
+void CoreUI::on_pushButton_stopContinuous_clicked()
+{
+
+}
 //************************************************************************************************************************************************************************************************************

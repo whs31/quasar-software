@@ -119,5 +119,8 @@ private slots:
     void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_clearCache_clicked();
+    void on_pushButton_formSingleImage_clicked();
+    void on_pushButton_launchContinuous_clicked();
+    void on_pushButton_stopContinuous_clicked();
 };
 #endif // COREUI_H

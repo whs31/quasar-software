@@ -24,6 +24,7 @@
 
 
 QString MessageParser::REQUEST_TELEMETRY = "$JSON";
+QString MessageParser::REQUEST_FORM = "$FORM";
 MessageParser::MessageParser(QObject *parent)
     : QObject{parent}
 {

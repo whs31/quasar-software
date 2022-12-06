@@ -449,30 +449,6 @@ QMenu::right-arrow {
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1339</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menutemp1">
-    <property name="title">
-     <string>Соединение</string>
-    </property>
-    <addaction name="formImage"/>
-   </widget>
-   <widget class="QMenu" name="menu">
-    <property name="title">
-     <string>Инструменты</string>
-    </property>
-    <addaction name="openSettings"/>
-   </widget>
-   <addaction name="menutemp1"/>
-   <addaction name="menu"/>
-  </widget>
   <widget class="QDockWidget" name="imageDock">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -857,7 +833,7 @@ QAbstractScrollArea:disabled {
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>-269</y>
+          <y>-248</y>
           <width>371</width>
           <height>603</height>
          </rect>
@@ -6297,7 +6273,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>251</width>
-          <height>517</height>
+          <height>548</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">

@@ -204,14 +204,18 @@ Rectangle {
     function drawPlane()
     {
         planeMapItem.coordinate = QtPositioning.coordinate(latitude, longitude);
-        var atan = 0.0; var angle = 0.0;
+        var atan = 0.0; var angle = 0.0; var geometricalAngle = 0.0;
         var coord = QtPositioning.coordinate(latitude, longitude);
         var e = 5;
         if(Math.abs(currentQtCoordinates.distanceTo(coord)) > e && Math.abs(currentQtCoordinates.distanceTo(coord)) > e)
         {
             angle = currentQtCoordinates.azimuthTo(coord);
+
+            atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
+            geometricalAngle = (atan*180)/Math.PI;
+
             planeMapItem.rotationAngle = angle;
-            if(enablePredict) { drawPredict(angle); }
+            if(enablePredict) { drawPredict(geometricalAngle); }
         }
     }
 
@@ -321,7 +325,6 @@ Rectangle {
         r2MapItem.visible = false;
     }
 
-
     Map {
         id: mapView
         visible: true
@@ -354,7 +357,7 @@ Rectangle {
         }
 
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.2; line.color: Material.primary; z: 9; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 9; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }

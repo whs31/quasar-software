@@ -1,3 +1,5 @@
+#FIX QGOODWINDOW
+
 cmake_minimum_required(VERSION 3.13)
 
 project(QuaSAR-UI)
@@ -79,11 +81,8 @@ else()
         misc/debug.cpp
         misc/profiler.h
         misc/profiler.cpp
+        misc/json-backup.qrc
    )
-endif()
-
-if(WIN32)
-    target_sources(winadmin.rc)
 endif()
 
 target_link_libraries(${executable_name}

@@ -62,19 +62,19 @@ QColor UXManager::GetColor(Colors color, bool useBeforeClassInit)
     //prevent crash
     if(color == Colors::Failure && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Failure")).toString());
+        return QColor(125,125,0);
     } else if (color == Colors::Info && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Info")).toString());
+        return QColor(125,125,0);
     } else if (color == Colors::Warning && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Warning")).toString());
+        return QColor(125,125,0);
     } else if (color == Colors::CriticalFailure && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("CriticalFailure")).toString());
+        return QColor(125,125,0);
     } else if (color == Colors::ConsoleTextColor && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("ConsoleTextColor")).toString());
+        return QColor(125,125,0);
     }
     return ColorList[color];
 }

@@ -252,5 +252,7 @@
         <file>ui-resources/windowextension/logo.png</file>
         <file>ui-resources/windowextension/info.png</file>
         <file>ui-resources/windowextension/settings.png</file>
+        <file>ui-resources/b_down.png</file>
+        <file>ui-resources/b_up.png</file>
     </qresource>
 </RCC>

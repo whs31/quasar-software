@@ -18,6 +18,8 @@ public:
     void getTelemetry(float f1, float f2, float f3, float f4);
     void changeEnableTooltip(QVariant arg1);
     void changeDrawRoute(QVariant arg1);
+    void changeDrawPredict(QVariant arg1);
+    void changeDrawPolygon(QVariant arg1);
     void changeFollowPlane(QVariant arg1);
     void panGPS(void);
     void clearRoute(void);

@@ -363,6 +363,7 @@ Rectangle {
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
+        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
         MouseArea {
             id: mapMouseArea
             anchors.fill: parent
@@ -554,7 +555,12 @@ Rectangle {
                 }
             }
         }
-        Component.onCompleted: { mapView.addMapItem(planeMapItem); zoomSlider.value = 1-(mapView.zoomLevel/18); }
+        Component.onCompleted: 
+        { 
+            mapView.addMapItem(planeMapItem); 
+            zoomSlider.value = 1 - (mapView.zoomLevel / 18); 
+            tiltSlider.value = 1 - (mapView.tilt / 45);
+        }
         Rectangle {
             id: cursorTooltip
             visible: true
@@ -657,7 +663,88 @@ Rectangle {
 
         }
 
+        //---------------tilt slider-------------------
+
+        RoundButton
+        {
+            icon.source: "qrc:/ui-resources/b_down.png"
+            icon.color: "black"
+            icon.width: 24
+            icon.height: 24
+            id: tiltDown
+            width: 30
+            height: 30
+            radius: 8
+            opacity: 1
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            highlighted: true
+            flat: false
+            anchors.bottomMargin: 20
+            anchors.leftMargin: 30
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked: {
+                if(mapView.tilt >= 2)
+                {
+                    mapView.tilt -= 2;
+                }
+            }
+            z: 100
+        }
+
+        Slider
+        {
+            id: tiltSlider
+            width: 25
+            height: 120
+            z: 100
+            live: true
+            anchors.bottom: tiltDown.top
+            anchors.bottomMargin: 0
+            anchors.horizontalCenter: tiltDown.horizontalCenter
+            snapMode: Slider.NoSnap
+            to: 0
+            from: 1
+            wheelEnabled: false
+            clip: false
+            orientation: Qt.Vertical
+            value: 1
+            onMoved: mapView.tilt = (1 - value) * 45;
+        }
+
+        RoundButton
+        {
+            icon.source: "qrc:/ui-resources/b_up.png"
+            icon.color: "black"
+            icon.width: 24
+            icon.height: 24
+            id: tiltUp
+            width: 30
+            z: 100
+            height: 30
+            radius: 8
+            opacity: 1
+            anchors.horizontalCenter: tiltDown.horizontalCenter
+            anchors.bottom: tiltSlider.top
+            highlighted: true
+            flat: false
+            anchors.bottomMargin: -5
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked: {
+                if(mapView.tilt <= (89.5 / 2) - 2)
+                {
+                    mapView.tilt += 2;
+                }
+            }
+        }
+
+
         //----------------------zoom slider---------------------------
+        
         RoundButton
         {
             icon.source: "qrc:/ui-resources/b_zoomout.png"
@@ -681,6 +768,7 @@ Rectangle {
             onClicked: mapView.zoomLevel -= 0.5
             z: 100
         }
+        
         Slider
         {
             id: zoomSlider
@@ -700,6 +788,7 @@ Rectangle {
             value: 1
             onMoved: mapView.zoomLevel = (1-value)*18;
         }
+
         RoundButton
         {
             icon.source: "qrc:/ui-resources/b_zoomin.png"

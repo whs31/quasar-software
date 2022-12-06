@@ -9,6 +9,8 @@ void LinkerQML::hideImage(QVariant i)                                           
 void LinkerQML::showImage(QVariant i)                                               { QMetaObject::invokeMethod(map, "showImage", Q_ARG(QVariant, i));                                                      }
 void LinkerQML::changeEnableTooltip(QVariant arg1)                                  { QMetaObject::invokeMethod(map, "changeEnableTooltip", Q_ARG(QVariant, arg1));                                         }
 void LinkerQML::changeDrawRoute(QVariant arg1)                                      { QMetaObject::invokeMethod(map, "changeDrawRoute", Q_ARG(QVariant, arg1));                                             }
+void LinkerQML::changeDrawPredict(QVariant arg1)                                    { QMetaObject::invokeMethod(map, "changeDrawPredict", Q_ARG(QVariant, arg1));                                           }
+void LinkerQML::changeDrawPolygon(QVariant arg1)                                    { QMetaObject::invokeMethod(map, "changeDrawPolygon", Q_ARG(QVariant, arg1));                                           }
 void LinkerQML::changeFollowPlane(QVariant arg1)                                    { QMetaObject::invokeMethod(map, "changeFollowPlane", Q_ARG(QVariant, arg1));                                           }
 void LinkerQML::panGPS(void)                                                        { QMetaObject::invokeMethod(map, "panGPS");                                                                             }
 void LinkerQML::clearRoute(void)                                                    { QMetaObject::invokeMethod(map, "clearRoute");                                                                         }

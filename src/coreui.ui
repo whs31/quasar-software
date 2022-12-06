@@ -850,7 +850,7 @@ QAbstractScrollArea:disabled {
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>374</width>
+          <width>371</width>
           <height>603</height>
          </rect>
         </property>
@@ -1030,8 +1030,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #C9CDD0;
-  color: #19232D;
+  background-color: #689F38;
+  color: #FAFAFA;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1065,12 +1065,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
-  color: #19232D;
+  background-color: #8BC34A;
+  color: #FAFAFA;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #33691E;
 }
 
 QPushButton:selected {
@@ -1186,7 +1186,7 @@ QPushButton:disabled {
 }
 
 QPushButton:checked {
-  background-color: #ACB1B6;
+  background-color: #B39DDB;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1201,16 +1201,16 @@ QPushButton:checked:disabled {
 }
 
 QPushButton:checked:selected {
-  background: #ACB1B6;
+  background: #E8EAF6;
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
+  background-color: #D1C4E9;
   color: #19232D;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #B39DDB;
 }
 
 QPushButton:selected {
@@ -1276,7 +1276,7 @@ QPushButton:disabled {
 }
 
 QPushButton:checked {
-  background-color: #ACB1B6;
+  background-color: #B2EBF2;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1291,16 +1291,16 @@ QPushButton:checked:disabled {
 }
 
 QPushButton:checked:selected {
-  background: #ACB1B6;
+  background: #E0F7FA;
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
+  background-color: #D1C4E9;
   color: #19232D;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #B39DDB;
 }
 
 QPushButton:selected {
@@ -1522,7 +1522,7 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #19232D;
   border-radius: 4px;
   padding: 2px;
@@ -1531,14 +1531,14 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #788D9C;
   border-radius: 4px;
   padding: 2px;
 }
 
 QPushButton:checked {
-  background-color: #ACB1B6;
+  background-color: transparent;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1650,7 +1650,7 @@ QLabel:disabled {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #19232D;
   border-radius: 4px;
   padding: 2px;
@@ -1659,14 +1659,14 @@ QLabel:disabled {
 }
 
 QPushButton:disabled {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #788D9C;
   border-radius: 4px;
   padding: 2px;
 }
 
 QPushButton:checked {
-  background-color: #ACB1B6;
+  background-color: transparent;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -2903,13 +2903,13 @@ QLabel:disabled {
                 </property>
                 <property name="minimumSize">
                  <size>
-                  <width>25</width>
+                  <width>13</width>
                   <height>13</height>
                  </size>
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>25</width>
+                  <width>13</width>
                   <height>13</height>
                  </size>
                 </property>
@@ -2921,7 +2921,7 @@ QLabel:disabled {
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #19232D;
   border-radius: 4px;
   padding: 2px;
@@ -2930,14 +2930,14 @@ QLabel:disabled {
 }
 
 QPushButton:disabled {
-  background-color: #C9CDD0;
+  background-color: transparent;
   color: #788D9C;
   border-radius: 4px;
   padding: 2px;
 }
 
 QPushButton:checked {
-  background-color: #ACB1B6;
+  background-color: transparent;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -2986,6 +2986,12 @@ QDialogButtonBox QPushButton {
                 <property name="icon">
                  <iconset resource="images.qrc">
                   <normaloff>:/ui-resources/css/arrow_down.png</normaloff>:/ui-resources/css/arrow_down.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>12</width>
+                  <height>16</height>
+                 </size>
                 </property>
                 <property name="flat">
                  <bool>true</bool>
@@ -3140,8 +3146,8 @@ QLabel:disabled {
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #C9CDD0;
-  color: #19232D;
+  background-color: #D32F2F;
+  color: #FAFAFA;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3175,12 +3181,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
-  color: #19232D;
+  background-color: #F44336;
+  color: #FAFAFA;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #B71C1C;
 }
 
 QPushButton:selected {
@@ -4582,8 +4588,8 @@ QLabel:disabled {
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-  background-color: #C9CDD0;
-  color: #19232D;
+  background-color: #D32F2F;
+  color: #FAFAFA;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4617,17 +4623,17 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
-  color: #19232D;
+  background-color: #F44336;
+  color: #FAFAFA;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #B71C1C;
 }
 
 QPushButton:selected {
   background: #ACB1B6;
-  color: #19232D;
+  color: #FAFAFA;
 }
 
 QPushButton::menu-indicator {
@@ -4921,6 +4927,12 @@ QDialogButtonBox QPushButton {
               <iconset resource="images.qrc">
                <normaloff>:/ui-resources/b_marker.png</normaloff>:/ui-resources/b_marker.png</iconset>
              </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
             </widget>
            </item>
            <item>
@@ -5007,8 +5019,8 @@ QDialogButtonBox QPushButton {
              </property>
              <property name="iconSize">
               <size>
-               <width>12</width>
-               <height>12</height>
+               <width>16</width>
+               <height>16</height>
               </size>
              </property>
             </widget>
@@ -5097,8 +5109,8 @@ QDialogButtonBox QPushButton {
              </property>
              <property name="iconSize">
               <size>
-               <width>12</width>
-               <height>12</height>
+               <width>16</width>
+               <height>16</height>
               </size>
              </property>
             </widget>
@@ -5492,7 +5504,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit {
-  background-color: #FAFAFA;
+  background-color: #181624;
   color: #19232D;
   border-radius: 4px;
   border: 1px solid #C9CDD0;
@@ -5970,7 +5982,9 @@ QGroupBox::indicator:checked:disabled {
               <property name="font">
                <font>
                 <family>Sans Serif</family>
-                <pointsize>8</pointsize>
+                <pointsize>9</pointsize>
+                <bold>false</bold>
+                <strikeout>false</strikeout>
                </font>
               </property>
               <property name="styleSheet">
@@ -6022,8 +6036,8 @@ QLabel:disabled {
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-  background-color: #C9CDD0;
-  color: #19232D;
+  background-color: #9575CD;
+  color: #FAFAFA;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -6057,12 +6071,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #B9BDC1;
-  color: #19232D;
+  background-color: #B39DDB;
+  color: #FAFAFA;
 }
 
 QPushButton:pressed {
-  background-color: #ACB1B6;
+  background-color: #7E57C2;
 }
 
 QPushButton:selected {
@@ -6083,6 +6097,22 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="text">
                <string>Повторное подключение</string>
+              </property>
+              <property name="icon">
+               <iconset resource="images.qrc">
+                <normaloff>:/ui-resources/w_refresh.png</normaloff>:/ui-resources/w_refresh.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>12</width>
+                <height>12</height>
+               </size>
+              </property>
+              <property name="default">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
               </property>
              </widget>
             </item>

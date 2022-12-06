@@ -16,8 +16,8 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: "#EEE1C6"
-    Material.primary: "#E59E6D"
+    Material.accent: "#EDE7F6"
+    Material.primary: "#00BCD4"
 
     layer.enabled: true
     layer.samples: 4
@@ -343,10 +343,19 @@ Rectangle {
         zoomLevel: 9
         copyrightsVisible: false
 
-        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.accent; path: [ ]; z: 10; }
+        MapPolyline { 
+            id: mapPolyline; 
+            line.width: 5; 
+            opacity: 0.75; 
+            line.color: 
+            Material.primary; 
+            path: [ ]; 
+            z: 10; 
+        }
+
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.2; line.color: Material.accent; z: 9; path: [ ]; }
-        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.accent; z: 9; path: []; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.2; line.color: Material.primary; z: 9; path: [ ]; }
+        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
@@ -502,19 +511,38 @@ Rectangle {
                 origin.y: 20;
                 angle: 0
             }
-            z:5
+            z:10
             sourceItem: Image {
                 id: planeSource;
                 layer.enabled: true
                 transformOrigin: Item.Center
+                smooth: true;
                 source: "qrc:/ui-resources/qml_gpsarrow.png"
             }
             ColorOverlay {
                 id: overlayPlane;
                 anchors.fill: planeMapItem;
                 source: planeSource;
-                opacity: 1;
-                color: Material.accent
+                opacity: 0.75;
+                color: Material.primary
+            }
+            DropShadow {
+                anchors.fill: overlayPlane;
+                horizontalOffset: 5;
+                verticalOffset: 5;
+                radius: 8.0;
+                samples: 17;
+                color: "#000000";
+                source: overlayPlane;
+            }
+            Glow {
+                anchors.fill: overlayPlane
+                radius: 5;
+                samples: 17
+                color: "#4DD0E1"
+                spread: 0.5;
+                transparentBorder: true;
+                source: overlayPlane
             }
             Behavior on coordinate {
                 CoordinateAnimation {
@@ -532,14 +560,14 @@ Rectangle {
             z: 12
             Rectangle {
                 id: tooltip
-                color: "#000000"
+                color: "#EDE7F6"
                 width: 148
                 height: 15
                 radius: 1
                 opacity: 0.75
                 Text {
                     id: cursorTooltipText
-                    color: "#f6f5f4"
+                    color: "#212121"
                     enabled: false
                     anchors.fill: parent
                     leftPadding: 8
@@ -559,14 +587,14 @@ Rectangle {
             opacity: 0.9
             visible: true
             radius: 18
-            color: Material.color(Material.Grey, Material.Shade900)
+            color: "#EDE7F6";
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 50
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: speedText
-                color: Material.primary
+                color: "#0097A7";
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 font.bold: true
@@ -576,7 +604,7 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#f6f5f4"
+                color: "#212121"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
@@ -595,7 +623,7 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#f6f5f4"
+                color: "#212121"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight
@@ -606,12 +634,14 @@ Rectangle {
 
         ProgressBar {
             id: cameraGrip;
-            opacity: 0.3;
+            opacity: 0.25;
             anchors.top: speedElvRect.bottom;
             anchors.left: speedElvRect.left;
             anchors.right: speedElvRect.right;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: 40;
+            anchors.rightMargin: 40;
+            anchors.leftMargin: 40;
             from: 0;
             to: 3000;
             value: 0

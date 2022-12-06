@@ -2,11 +2,11 @@
   "Main": "#311B92",
   "MainShade900": "#5E35B1",
   "MainShade800": "#9575CD",
-  "Accent": "#FFB300",
-  "Success": "#b2ff59",
-  "Failure": "#E53935",
-  "CriticalFailure": "#B71C1C",
+  "Accent": "#0097A7",
+  "Success": "#558B2F",
+  "Failure": "#B71C1C",
+  "CriticalFailure": "#C51162",
   "Info": "#9575CD",
   "Warning": "#FF8F00",
-  "ConsoleTextColor": "#757575"
+  "ConsoleTextColor": "#FCFCFC"
 }

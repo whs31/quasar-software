@@ -20,7 +20,382 @@
    <string>QuaSAR</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">QDockWidget {
+  outline: 1px solid #C9CDD0;
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+}
+
+QDockWidget::title {
+  /* Better size for title bar */
+  padding: 3px;
+  spacing: 4px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+QDockWidget::close-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QDockWidget::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QDockWidget::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QDockWidget::float-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
+}
+
+QDockWidget::float-button:hover {
+  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
+}
+
+QDockWidget::float-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
+}
+
+QScrollBar:horizontal {
+  height: 8px;
+  margin: 0px 16px 0px 16px;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  background-color: #FAFAFA;
+}
+
+QScrollBar:vertical {
+  background-color: #FAFAFA;
+  width: 8px;
+  margin: 16px 0px 16px 0px;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal {
+  background-color: #ACB1B6;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  min-width: 8px;
+}
+
+QScrollBar::handle:horizontal:hover {
+  background-color: #9FCBFF;
+  border: #9FCBFF;
+  border-radius: 4px;
+  min-width: 8px;
+}
+
+QScrollBar::handle:horizontal:focus {
+  border: 1px solid #73C7FF;
+}
+
+QScrollBar::handle:vertical {
+  background-color: #ACB1B6;
+  border: 1px solid #C9CDD0;
+  min-height: 8px;
+  border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+  background-color: #9FCBFF;
+  border: #9FCBFF;
+  border-radius: 4px;
+  min-height: 8px;
+}
+
+QScrollBar::handle:vertical:focus {
+  border: 1px solid #73C7FF;
+}
+
+QScrollBar::add-line:horizontal {
+  margin: 0px 0px 0px 0px;
+  border-image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: right;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:horizontal:hover, QScrollBar::add-line:horizontal:on {
+  border-image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: right;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical {
+  margin: 3px 0px 3px 0px;
+  border-image: url(&quot;:/ui-resources/css/arrow_down_disabled.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: bottom;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
+  border-image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: bottom;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+  margin: 0px 3px 0px 3px;
+  border-image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: left;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on {
+  border-image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: left;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical {
+  margin: 3px 0px 3px 0px;
+  border-image: url(&quot;:/ui-resources/css/arrow_up_disabled.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: top;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical:hover, QScrollBar::sub-line:vertical:on {
+  border-image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
+  height: 12px;
+  width: 12px;
+  subcontrol-position: top;
+  subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
+  background: none;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+  background: none;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+  background: none;
+}
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+  background: none;
+}
+
+QMainWindow::separator {
+  background-color: #9575CD;
+  border: 0px solid #FAFAFA;
+  spacing: 0px;
+  padding: 2px;
+}
+
+QMainWindow::separator:hover {
+  background-color: #ACB1B6;
+  border: 0px solid #73C7FF;
+}
+
+QMainWindow::separator:horizontal {
+  width: 5px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  image: url(&quot;:/ui-resources/css/toolbar_separator_vertical.png&quot;);
+}
+
+QMainWindow::separator:vertical {
+  height: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
+  image: url(&quot;:/ui-resources/css/toolbar_separator_horizontal.png&quot;);
+}
+
+QMenuBar {
+  background-color: #C9CDD0;
+  padding: 2px;
+  border: 1px solid #FAFAFA;
+  color: #19232D;
+  selection-background-color: #73C7FF;
+}
+
+QMenuBar:focus {
+  border: 1px solid #9FCBFF;
+}
+
+QMenuBar::item {
+  background: transparent;
+  padding: 4px;
+}
+
+QMenuBar::item:selected {
+  padding: 4px;
+  background: transparent;
+  border: 0px solid #C9CDD0;
+  background-color: #73C7FF;
+}
+
+QMenuBar::item:pressed {
+  padding: 4px;
+  border: 0px solid #C9CDD0;
+  background-color: #73C7FF;
+  color: #19232D;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+/* QMenu ------------------------------------------------------------------
+
+https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu
+
+--------------------------------------------------------------------------- */
+QMenu {
+  border: 0px solid #C9CDD0;
+  color: #19232D;
+  margin: 0px;
+  background-color: #CED1D4;
+  selection-background-color: #73C7FF;
+}
+
+QMenu::separator {
+  height: 1px;
+  background-color: #ACB1B6;
+  color: #19232D;
+}
+
+QMenu::item {
+  background-color: #CED1D4;
+  padding: 4px 24px 4px 28px;
+  /* Reserve space for selection border */
+  border: 1px transparent #C9CDD0;
+}
+
+QMenu::item:selected {
+  color: #19232D;
+  background-color: #73C7FF;
+}
+
+QMenu::item:pressed {
+  background-color: #73C7FF;
+}
+
+QMenu::icon {
+  padding-left: 10px;
+  width: 14px;
+  height: 14px;
+}
+
+QMenu::indicator {
+  padding-left: 8px;
+  width: 12px;
+  height: 12px;
+  /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
+  /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
+}
+
+QMenu::indicator:non-exclusive:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:unchecked:hover, QMenu::indicator:non-exclusive:unchecked:focus, QMenu::indicator:non-exclusive:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:checked:hover, QMenu::indicator:non-exclusive:checked:focus, QMenu::indicator:non-exclusive:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QMenu::indicator:non-exclusive:indeterminate:focus, QMenu::indicator:non-exclusive:indeterminate:hover, QMenu::indicator:non-exclusive:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+
+QMenu::indicator:exclusive:unchecked {
+  image: url(&quot;:/ui-resources/css/radio_unchecked.png&quot;);
+}
+
+QMenu::indicator:exclusive:unchecked:hover, QMenu::indicator:exclusive:unchecked:focus, QMenu::indicator:exclusive:unchecked:pressed {
+  border: none;
+  outline: none;
+  image: url(&quot;:/ui-resources/css/radio_unchecked_focus.png&quot;);
+}
+
+QMenu::indicator:exclusive:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/radio_unchecked_disabled.png&quot;);
+}
+
+QMenu::indicator:exclusive:checked {
+  border: none;
+  outline: none;
+  image: url(&quot;:/ui-resources/css/radio_checked.png&quot;);
+}
+
+QMenu::indicator:exclusive:checked:hover, QMenu::indicator:exclusive:checked:focus, QMenu::indicator:exclusive:checked:pressed {
+  border: none;
+  outline: none;
+  image: url(&quot;:/ui-resources/css/radio_checked_focus.png&quot;);
+}
+
+QMenu::indicator:exclusive:checked:disabled {
+  outline: none;
+  image: url(&quot;:/ui-resources/css/radio_checked_disabled.png&quot;);
+}
+
+QMenu::right-arrow {
+  margin: 5px;
+  padding-left: 12px;
+  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+  height: 12px;
+  width: 12px;
+}
+</string>
   </property>
   <widget class="QWidget" name="mapContainer">
    <layout class="QGridLayout" name="gridLayout">
@@ -72,7 +447,7 @@
      <x>0</x>
      <y>0</y>
      <width>1339</width>
-     <height>20</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menutemp1">
@@ -115,6 +490,300 @@
      <pointsize>10</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+  color: rgb(255, 255, 255);
+}
+
+DockWidget {
+  outline: 1px solid #C9CDD0;
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+}
+
+QDockWidget::title {
+  /* Better size for title bar */
+  padding: 3px;
+  spacing: 4px;
+  border: none;
+  background-color: #9575CD;
+}
+
+QDockWidget::close-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QDockWidget::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QDockWidget::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QDockWidget::float-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
+}
+
+QDockWidget::float-button:hover {
+  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
+}
+
+QDockWidget::float-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
+}
+
+QTabBar, QDockWidget QTabBar {
+  qproperty-drawBase: 0;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 2px;
+  border: 0;
+  /* left: 5px; move to the right by 5px - removed for fix */
+}
+
+QTabBar::close-button, QDockWidget QTabBar::close-button {
+  border: 0;
+  margin: 0;
+  padding: 4px;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QTabBar::tab, QDockWidget QTabBar::tab {
+  /* !selected and disabled ----------------------------------------- */
+  /* selected ------------------------------------------------------- */
+}
+
+QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
+  border-bottom: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
+  border-top: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
+  border-right: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
+  border-left: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
+  border-bottom: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
+  border-top: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
+  border-right: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
+  border-left: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
+  border-bottom: 2px solid #FAFAFA;
+  margin-top: 2px;
+}
+
+QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
+  border-top: 2px solid #FAFAFA;
+  margin-bottom: 2px;
+}
+
+QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
+  border-left: 2px solid #FAFAFA;
+  margin-right: 2px;
+}
+
+QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
+  border-right: 2px solid #FAFAFA;
+  margin-left: 2px;
+}
+
+QTabBar::tab:top, QDockWidget QTabBar::tab:top {
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-width: 5px;
+  border-bottom: 3px solid #C9CDD0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
+  background-color: #B9BDC1;
+  border-bottom: 3px solid #37AEFE;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-bottom: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
+  border-top: 3px solid #C9CDD0;
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-width: 5px;
+}
+
+QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
+  background-color: #B9BDC1;
+  border-top: 3px solid #37AEFE;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-top: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:left, QDockWidget QTabBar::tab:left {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
+  background-color: #B9BDC1;
+  border-right: 3px solid #37AEFE;
+}
+
+QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-right: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-right: 0px;
+  padding-right: -1px;
+}
+
+QTabBar::tab:right, QDockWidget QTabBar::tab:right {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
+  background-color: #B9BDC1;
+  border-left: 3px solid #37AEFE;
+}
+
+QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-left: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+QTabBar QToolButton, QDockWidget QTabBar QToolButton {
+  /* Fixes #136 */
+  background-color: #C9CDD0;
+  height: 12px;
+  width: 12px;
+}
+
+QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
+  background-color: #C9CDD0;
+}
+
+QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
+  border: 1px solid #9FCBFF;
+}
+
+QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
+}
+
+QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
+}</string>
+   </property>
    <property name="allowedAreas">
     <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
    </property>
@@ -149,6 +818,21 @@
          <pointsize>10</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QAbstractScrollArea {
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  /* fix #159 */
+  padding: 2px;
+  /* remove min-height to fix #244 */
+  color: #19232D;
+}
+
+QAbstractScrollArea:disabled {
+  color: #788D9C;
+}</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>
@@ -166,8 +850,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>371</width>
-          <height>614</height>
+          <width>374</width>
+          <height>603</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -207,6 +891,25 @@
              <bold>false</bold>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+           </property>
            <property name="text">
             <string>Найдено 0 изображений</string>
            </property>
@@ -228,6 +931,70 @@
              <family>Sans Serif</family>
              <pointsize>8</pointsize>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
            </property>
            <property name="text">
             <string>Автообновление каталога</string>
@@ -263,23 +1030,63 @@
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #97B37D;
-  color: #E0E1E3;
-  border-radius: 8px;
-  padding: 1px;
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
   outline: none;
   border: none;
 }
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
 QPushButton:hover {
-  background-color: #88B360;
-  color: #E0E1E3;
+  background-color: #B9BDC1;
+  color: #19232D;
 }
+
 QPushButton:pressed {
-  background-color:  #738066
+  background-color: #ACB1B6;
 }
+
 QPushButton:selected {
-  background: #60798B;
-  color: #E0E1E3;
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
 }</string>
            </property>
            <property name="text">
@@ -308,6 +1115,32 @@ QPushButton:selected {
              <pointsize>10</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">.QFrame {
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}</string>
+           </property>
            <layout class="QHBoxLayout" name="layout_imageTop">
             <property name="leftMargin">
              <number>0</number>
@@ -334,6 +1167,67 @@ QPushButton:selected {
                 <family>Sans Serif</family>
                 <pointsize>9</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
               </property>
               <property name="text">
                <string>Отобразить РЛИ</string>
@@ -364,6 +1258,67 @@ QPushButton:selected {
                 <pointsize>9</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
+              </property>
               <property name="text">
                <string>Местоположение РЛИ</string>
               </property>
@@ -393,6 +1348,67 @@ QPushButton:selected {
              <pointsize>9</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
+           </property>
            <property name="text">
             <string>Отобразить все РЛИ</string>
            </property>
@@ -413,6 +1429,32 @@ QPushButton:selected {
              <pointsize>10</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">.QFrame {
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}</string>
+           </property>
            <layout class="QVBoxLayout" name="layout_imageMiddle">
             <item>
              <widget class="QFrame" name="frame_3">
@@ -421,6 +1463,32 @@ QPushButton:selected {
                 <family>Sans Serif</family>
                 <pointsize>10</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">.QFrame {
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -452,6 +1520,67 @@ QPushButton:selected {
                    <pointsize>10</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
+                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -468,6 +1597,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>9</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>Изображение №1 из 0</string>
@@ -500,6 +1648,67 @@ QPushButton:selected {
                    <pointsize>10</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
+                 </property>
                  <property name="text">
                   <string/>
                  </property>
@@ -527,7 +1736,64 @@ QPushButton:selected {
             <font>
              <family>Sans Serif</family>
              <pointsize>8</pointsize>
+             <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QGroupBox {
+  font-weight: bold;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: #19232D
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  margin-top: 2px;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}</string>
            </property>
            <property name="title">
             <string>Метаданные РЛИ</string>
@@ -552,6 +1818,32 @@ QPushButton:selected {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">.QFrame {
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::Box</enum>
@@ -586,6 +1878,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>l(y)</string>
                  </property>
@@ -598,6 +1909,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -618,6 +1948,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>dX</string>
                  </property>
@@ -630,6 +1979,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>Угол</string>
@@ -644,6 +2012,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>Хэш файла</string>
                  </property>
@@ -657,6 +2044,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>l(x)</string>
                  </property>
@@ -669,6 +2075,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -689,6 +2114,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>----</string>
                  </property>
@@ -704,6 +2148,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -724,6 +2187,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>----</string>
                  </property>
@@ -743,6 +2225,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>Угол сноса</string>
                  </property>
@@ -756,6 +2257,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>x0</string>
                  </property>
@@ -768,6 +2288,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -788,6 +2327,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>y0</string>
                  </property>
@@ -801,6 +2359,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>dY</string>
                  </property>
@@ -813,6 +2390,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -830,6 +2426,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>Угол расх. луча</string>
                  </property>
@@ -842,6 +2457,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -859,6 +2493,25 @@ QPushButton:selected {
                    <pointsize>8</pointsize>
                   </font>
                  </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                 </property>
                  <property name="text">
                   <string>----</string>
                  </property>
@@ -874,6 +2527,25 @@ QPushButton:selected {
                    <family>Sans Serif</family>
                    <pointsize>8</pointsize>
                   </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                  </property>
                  <property name="text">
                   <string>----</string>
@@ -894,6 +2566,25 @@ QPushButton:selected {
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>----</string>
@@ -937,6 +2628,25 @@ QPushButton:selected {
                 <bold>true</bold>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
               </property>
@@ -969,6 +2679,25 @@ QPushButton:selected {
                 <bold>true</bold>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+              </property>
               <property name="text">
                <string>----</string>
               </property>
@@ -988,6 +2717,25 @@ QPushButton:selected {
                 <pointsize>8</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+              </property>
               <property name="text">
                <string>Долгота</string>
               </property>
@@ -1000,6 +2748,25 @@ QPushButton:selected {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Широта</string>
@@ -1014,6 +2781,25 @@ QPushButton:selected {
                 <pointsize>8</pointsize>
                 <bold>false</bold>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Время съемки</string>
@@ -1034,6 +2820,25 @@ QPushButton:selected {
                   <bold>true</bold>
                  </font>
                 </property>
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+                </property>
                 <property name="text">
                  <string>Имя файла</string>
                 </property>
@@ -1047,6 +2852,25 @@ QPushButton:selected {
                   <pointsize>8</pointsize>
                   <bold>true</bold>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                 </property>
                 <property name="text">
                  <string>----</string>
@@ -1097,20 +2921,71 @@ QPushButton:selected {
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
- 
-background-color: rgba(255, 255, 255, 0);
+  background-color: #C9CDD0;
+  color: #19232D;
   border-radius: 4px;
-  padding: 1px;
+  padding: 2px;
   outline: none;
   border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
 }</string>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
-                  <normaloff>:/stylesheet/rc/arrow_down.png</normaloff>:/stylesheet/rc/arrow_down.png</iconset>
+                 <iconset resource="images.qrc">
+                  <normaloff>:/ui-resources/css/arrow_down.png</normaloff>:/ui-resources/css/arrow_down.png</iconset>
                 </property>
                 <property name="flat">
                  <bool>true</bool>
@@ -1125,6 +3000,25 @@ background-color: rgba(255, 255, 255, 0);
                   <pointsize>8</pointsize>
                   <bold>false</bold>
                  </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
                 </property>
                 <property name="text">
                  <string>Показать подробную информацию </string>
@@ -1141,6 +3035,25 @@ background-color: rgba(255, 255, 255, 0);
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>----</string>
@@ -1167,6 +3080,25 @@ background-color: rgba(255, 255, 255, 0);
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Совпадение хэша</string>
@@ -1208,21 +3140,63 @@ background-color: rgba(255, 255, 255, 0);
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #CC7067;
-  color: #F6F7F9;
-  border-radius: 8px;
-  padding: 1px;
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
   outline: none;
   border: none;
 }
 
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
 QPushButton:hover {
-  background-color: #FF8C81;
-  color: #F6F7F9;
+  background-color: #B9BDC1;
+  color: #19232D;
 }
 
 QPushButton:pressed {
-  background-color: #FF7452;
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
 }</string>
            </property>
            <property name="text">
@@ -1264,7 +3238,7 @@ QPushButton:pressed {
    <property name="minimumSize">
     <size>
      <width>804</width>
-     <height>156</height>
+     <height>162</height>
     </size>
    </property>
    <property name="font">
@@ -1272,6 +3246,300 @@ QPushButton:pressed {
      <family>Sans Serif</family>
      <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+  color: rgb(255, 255, 255);
+}
+
+DockWidget {
+  outline: 1px solid #C9CDD0;
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+}
+
+QDockWidget::title {
+  /* Better size for title bar */
+  padding: 3px;
+  spacing: 4px;
+  border: none;
+  background-color: #9575CD;
+}
+
+QDockWidget::close-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QDockWidget::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QDockWidget::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QDockWidget::float-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
+}
+
+QDockWidget::float-button:hover {
+  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
+}
+
+QDockWidget::float-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
+}
+
+QTabBar, QDockWidget QTabBar {
+  qproperty-drawBase: 0;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 2px;
+  border: 0;
+  /* left: 5px; move to the right by 5px - removed for fix */
+}
+
+QTabBar::close-button, QDockWidget QTabBar::close-button {
+  border: 0;
+  margin: 0;
+  padding: 4px;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QTabBar::tab, QDockWidget QTabBar::tab {
+  /* !selected and disabled ----------------------------------------- */
+  /* selected ------------------------------------------------------- */
+}
+
+QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
+  border-bottom: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
+  border-top: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
+  border-right: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
+  border-left: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
+  border-bottom: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
+  border-top: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
+  border-right: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
+  border-left: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
+  border-bottom: 2px solid #FAFAFA;
+  margin-top: 2px;
+}
+
+QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
+  border-top: 2px solid #FAFAFA;
+  margin-bottom: 2px;
+}
+
+QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
+  border-left: 2px solid #FAFAFA;
+  margin-right: 2px;
+}
+
+QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
+  border-right: 2px solid #FAFAFA;
+  margin-left: 2px;
+}
+
+QTabBar::tab:top, QDockWidget QTabBar::tab:top {
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-width: 5px;
+  border-bottom: 3px solid #C9CDD0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
+  background-color: #B9BDC1;
+  border-bottom: 3px solid #37AEFE;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-bottom: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
+  border-top: 3px solid #C9CDD0;
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-width: 5px;
+}
+
+QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
+  background-color: #B9BDC1;
+  border-top: 3px solid #37AEFE;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-top: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:left, QDockWidget QTabBar::tab:left {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
+  background-color: #B9BDC1;
+  border-right: 3px solid #37AEFE;
+}
+
+QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-right: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-right: 0px;
+  padding-right: -1px;
+}
+
+QTabBar::tab:right, QDockWidget QTabBar::tab:right {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
+  background-color: #B9BDC1;
+  border-left: 3px solid #37AEFE;
+}
+
+QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-left: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+QTabBar QToolButton, QDockWidget QTabBar QToolButton {
+  /* Fixes #136 */
+  background-color: #C9CDD0;
+  height: 12px;
+  width: 12px;
+}
+
+QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
+  background-color: #C9CDD0;
+}
+
+QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
+  border: 1px solid #9FCBFF;
+}
+
+QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
+}
+
+QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
+}</string>
    </property>
    <property name="windowTitle">
     <string>Инструменты карты</string>
@@ -1293,7 +3561,64 @@ QPushButton:pressed {
         <font>
          <family>Sans Serif</family>
          <pointsize>8</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QGroupBox {
+  font-weight: bold;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: #19232D
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  margin-top: 2px;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}</string>
        </property>
        <property name="title">
         <string>Параметры карты</string>
@@ -1312,6 +3637,70 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>9</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
           </property>
           <property name="text">
            <string>Следить за бортом</string>
@@ -1332,6 +3721,70 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>9</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
           </property>
           <property name="text">
            <string>Траектория полета</string>
@@ -1359,6 +3812,70 @@ QPushButton:pressed {
             <pointsize>9</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
+          </property>
           <property name="text">
            <string>Координаты курсора</string>
           </property>
@@ -1382,6 +3899,70 @@ QPushButton:pressed {
             <pointsize>9</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
+          </property>
           <property name="text">
            <string>Направление полета</string>
           </property>
@@ -1404,6 +3985,70 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>9</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QCheckBox {
+  background-color: #FAFAFA;
+  color: #19232D;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #FAFAFA;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
           </property>
           <property name="text">
            <string>Диаграмма направленности</string>
@@ -1486,6 +4131,25 @@ QPushButton:pressed {
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+          </property>
           <property name="text">
            <string>Скорость</string>
           </property>
@@ -1509,6 +4173,25 @@ QPushButton:pressed {
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+          </property>
           <property name="text">
            <string>Широта</string>
           </property>
@@ -1530,6 +4213,25 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
           </property>
           <property name="text">
            <string>0.0000000</string>
@@ -1558,6 +4260,25 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
           </property>
           <property name="text">
            <string>0.0000000</string>
@@ -1605,6 +4326,25 @@ QPushButton:pressed {
             <family>Sans Serif</family>
             <pointsize>12</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
           </property>
           <property name="text">
            <string>0.0000000</string>
@@ -1656,6 +4396,25 @@ QPushButton:pressed {
             <pointsize>12</pointsize>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+          </property>
           <property name="text">
            <string>0.0000000</string>
           </property>
@@ -1685,6 +4444,25 @@ QPushButton:pressed {
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+          </property>
           <property name="text">
            <string>Долгота</string>
           </property>
@@ -1708,6 +4486,25 @@ QPushButton:pressed {
             <bold>true</bold>
            </font>
           </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+          </property>
           <property name="text">
            <string>Высота</string>
           </property>
@@ -1726,6 +4523,32 @@ QPushButton:pressed {
          <family>Sans Serif</family>
          <pointsize>10</pointsize>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">.QFrame {
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+  /* No frame */
+  /* HLine */
+  /* HLine */
+}
+
+.QFrame[frameShape=&quot;0&quot;] {
+  border-radius: 4px;
+  border: 1px transparent #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;4&quot;] {
+  max-height: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}
+
+.QFrame[frameShape=&quot;5&quot;] {
+  max-width: 2px;
+  border: none;
+  background-color: #C9CDD0;
+}</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
@@ -1754,26 +4577,68 @@ QPushButton:pressed {
           <property name="font">
            <font>
             <family>Sans Serif</family>
-            <pointsize>9</pointsize>
+            <pointsize>8</pointsize>
            </font>
           </property>
           <property name="styleSheet">
            <string notr="true">QPushButton {
-  background-color: #CC7067;
-  color: #F6F7F9;
-  border-radius: 8px;
-  padding: 1px;
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
   outline: none;
   border: none;
 }
 
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
 QPushButton:hover {
-  background-color: #FF8C81;
-  color: #F6F7F9;
+  background-color: #B9BDC1;
+  color: #19232D;
 }
 
 QPushButton:pressed {
-  background-color: #FF7452;
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
 }</string>
           </property>
           <property name="text">
@@ -1808,8 +4673,69 @@ QPushButton:pressed {
           <property name="font">
            <font>
             <family>Sans Serif</family>
-            <pointsize>9</pointsize>
+            <pointsize>8</pointsize>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
           </property>
           <property name="text">
            <string>Местоположение РЛС</string>
@@ -1838,7 +4764,64 @@ QPushButton:pressed {
            <font>
             <family>Sans Serif</family>
             <pointsize>8</pointsize>
+            <bold>true</bold>
            </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox {
+  font-weight: bold;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: #19232D
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  margin-top: 2px;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}</string>
           </property>
           <property name="title">
            <string>Маркеры карты</string>
@@ -1867,8 +4850,69 @@ QPushButton:pressed {
              <property name="font">
               <font>
                <family>Sans Serif</family>
-               <pointsize>9</pointsize>
+               <pointsize>8</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
              </property>
              <property name="text">
               <string>Установить маркер</string>
@@ -1892,6 +4936,67 @@ QPushButton:pressed {
                <family>Sans Serif</family>
                <pointsize>9</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
              </property>
              <property name="text">
               <string/>
@@ -1921,6 +5026,67 @@ QPushButton:pressed {
                <family>Sans Serif</family>
                <pointsize>9</pointsize>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
              </property>
              <property name="text">
               <string/>
@@ -1987,6 +5153,300 @@ QPushButton:pressed {
      <pointsize>8</pointsize>
     </font>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+  color: rgb(255, 255, 255);
+}
+
+DockWidget {
+  outline: 1px solid #C9CDD0;
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+}
+
+QDockWidget::title {
+  /* Better size for title bar */
+  padding: 3px;
+  spacing: 4px;
+  border: none;
+  background-color: #9575CD;
+}
+
+QDockWidget::close-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QDockWidget::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QDockWidget::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QDockWidget::float-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
+}
+
+QDockWidget::float-button:hover {
+  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
+}
+
+QDockWidget::float-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
+}
+
+QTabBar, QDockWidget QTabBar {
+  qproperty-drawBase: 0;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 2px;
+  border: 0;
+  /* left: 5px; move to the right by 5px - removed for fix */
+}
+
+QTabBar::close-button, QDockWidget QTabBar::close-button {
+  border: 0;
+  margin: 0;
+  padding: 4px;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QTabBar::tab, QDockWidget QTabBar::tab {
+  /* !selected and disabled ----------------------------------------- */
+  /* selected ------------------------------------------------------- */
+}
+
+QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
+  border-bottom: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
+  border-top: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
+  border-right: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
+  border-left: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
+  border-bottom: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
+  border-top: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
+  border-right: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
+  border-left: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
+  border-bottom: 2px solid #FAFAFA;
+  margin-top: 2px;
+}
+
+QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
+  border-top: 2px solid #FAFAFA;
+  margin-bottom: 2px;
+}
+
+QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
+  border-left: 2px solid #FAFAFA;
+  margin-right: 2px;
+}
+
+QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
+  border-right: 2px solid #FAFAFA;
+  margin-left: 2px;
+}
+
+QTabBar::tab:top, QDockWidget QTabBar::tab:top {
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-width: 5px;
+  border-bottom: 3px solid #C9CDD0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
+  background-color: #B9BDC1;
+  border-bottom: 3px solid #37AEFE;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-bottom: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
+  border-top: 3px solid #C9CDD0;
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-width: 5px;
+}
+
+QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
+  background-color: #B9BDC1;
+  border-top: 3px solid #37AEFE;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-top: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:left, QDockWidget QTabBar::tab:left {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
+  background-color: #B9BDC1;
+  border-right: 3px solid #37AEFE;
+}
+
+QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-right: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-right: 0px;
+  padding-right: -1px;
+}
+
+QTabBar::tab:right, QDockWidget QTabBar::tab:right {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
+  background-color: #B9BDC1;
+  border-left: 3px solid #37AEFE;
+}
+
+QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-left: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+QTabBar QToolButton, QDockWidget QTabBar QToolButton {
+  /* Fixes #136 */
+  background-color: #C9CDD0;
+  height: 12px;
+  width: 12px;
+}
+
+QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
+  background-color: #C9CDD0;
+}
+
+QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
+  border: 1px solid #9FCBFF;
+}
+
+QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
+}
+
+QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
+}</string>
+   </property>
    <property name="floating">
     <bool>false</bool>
    </property>
@@ -2030,6 +5490,23 @@ QPushButton:pressed {
          <pointsize>8</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QTextEdit {
+  background-color: #FAFAFA;
+  color: #19232D;
+  border-radius: 4px;
+  border: 1px solid #C9CDD0;
+}
+
+QTextEdit:focus {
+  border: 1px solid #73C7FF;
+}
+
+QTextEdit:selected {
+  background: #9FCBFF;
+  color: #C9CDD0;
+}</string>
+       </property>
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>
@@ -2051,7 +5528,7 @@ QPushButton:pressed {
    <property name="minimumSize">
     <size>
      <width>251</width>
-     <height>88</height>
+     <height>94</height>
     </size>
    </property>
    <property name="font">
@@ -2059,6 +5536,300 @@ QPushButton:pressed {
      <family>Sans Serif</family>
      <pointsize>10</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+  color: rgb(255, 255, 255);
+}
+
+DockWidget {
+  outline: 1px solid #C9CDD0;
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
+}
+
+QDockWidget::title {
+  /* Better size for title bar */
+  padding: 3px;
+  spacing: 4px;
+  border: none;
+  background-color: #9575CD;
+}
+
+QDockWidget::close-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QDockWidget::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QDockWidget::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QDockWidget::float-button {
+  icon-size: 12px;
+  border: none;
+  background: transparent;
+  background-image: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
+}
+
+QDockWidget::float-button:hover {
+  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
+}
+
+QDockWidget::float-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
+}
+
+QTabBar, QDockWidget QTabBar {
+  qproperty-drawBase: 0;
+  border-radius: 4px;
+  margin: 0px;
+  padding: 2px;
+  border: 0;
+  /* left: 5px; move to the right by 5px - removed for fix */
+}
+
+QTabBar::close-button, QDockWidget QTabBar::close-button {
+  border: 0;
+  margin: 0;
+  padding: 4px;
+  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
+}
+
+QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
+  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
+}
+
+QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
+  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
+}
+
+QTabBar::tab, QDockWidget QTabBar::tab {
+  /* !selected and disabled ----------------------------------------- */
+  /* selected ------------------------------------------------------- */
+}
+
+QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
+  border-bottom: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
+  border-top: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
+  border-right: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
+  border-left: 3px solid #DAEDFF;
+  color: #788D9C;
+  background-color: #C9CDD0;
+}
+
+QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
+  border-bottom: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
+  border-top: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
+  border-right: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
+  border-left: 3px solid #FAFAFA;
+  color: #788D9C;
+  background-color: #FAFAFA;
+}
+
+QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
+  border-bottom: 2px solid #FAFAFA;
+  margin-top: 2px;
+}
+
+QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
+  border-top: 2px solid #FAFAFA;
+  margin-bottom: 2px;
+}
+
+QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
+  border-left: 2px solid #FAFAFA;
+  margin-right: 2px;
+}
+
+QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
+  border-right: 2px solid #FAFAFA;
+  margin-left: 2px;
+}
+
+QTabBar::tab:top, QDockWidget QTabBar::tab:top {
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  min-width: 5px;
+  border-bottom: 3px solid #C9CDD0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
+  background-color: #B9BDC1;
+  border-bottom: 3px solid #37AEFE;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-bottom: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
+  border-top: 3px solid #C9CDD0;
+  background-color: #C9CDD0;
+  margin-left: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-width: 5px;
+}
+
+QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
+  background-color: #B9BDC1;
+  border-top: 3px solid #37AEFE;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-top: 3px solid #73C7FF;
+  /* Fixes spyder-ide/spyder#9766 and #243 */
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+QTabBar::tab:left, QDockWidget QTabBar::tab:left {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
+  background-color: #B9BDC1;
+  border-right: 3px solid #37AEFE;
+}
+
+QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-right: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-right: 0px;
+  padding-right: -1px;
+}
+
+QTabBar::tab:right, QDockWidget QTabBar::tab:right {
+  background-color: #C9CDD0;
+  margin-top: 2px;
+  padding-left: 2px;
+  padding-right: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  min-height: 5px;
+}
+
+QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
+  background-color: #B9BDC1;
+  border-left: 3px solid #37AEFE;
+}
+
+QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
+  border: 1px solid #73C7FF;
+  border-left: 3px solid #73C7FF;
+  /* Fixes different behavior #271 */
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+QTabBar QToolButton, QDockWidget QTabBar QToolButton {
+  /* Fixes #136 */
+  background-color: #C9CDD0;
+  height: 12px;
+  width: 12px;
+}
+
+QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
+  background-color: #C9CDD0;
+}
+
+QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
+  border: 1px solid #9FCBFF;
+}
+
+QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
+}
+
+QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
+  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
+}
+
+QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
+  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
+}</string>
    </property>
    <property name="allowedAreas">
     <set>Qt::AllDockWidgetAreas</set>
@@ -2106,7 +5877,7 @@ QPushButton:pressed {
           <x>0</x>
           <y>0</y>
           <width>251</width>
-          <height>582</height>
+          <height>553</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -2131,7 +5902,64 @@ QPushButton:pressed {
             <font>
              <family>Sans Serif</family>
              <pointsize>8</pointsize>
+             <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QGroupBox {
+  font-weight: bold;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: #19232D
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  margin-top: 2px;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}</string>
            </property>
            <property name="title">
             <string>Статус подключения</string>
@@ -2144,6 +5972,25 @@ QPushButton:pressed {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Соединение с РЛС не установлено</string>
@@ -2173,6 +6020,67 @@ QPushButton:pressed {
                 <pointsize>8</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+  background-color: #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+  border: none;
+}
+
+QPushButton:disabled {
+  background-color: #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+}
+
+QPushButton:checked {
+  background-color: #ACB1B6;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:disabled {
+  background-color: #ACB1B6;
+  color: #788D9C;
+  border-radius: 4px;
+  padding: 2px;
+  outline: none;
+}
+
+QPushButton:checked:selected {
+  background: #ACB1B6;
+}
+
+QPushButton:hover {
+  background-color: #B9BDC1;
+  color: #19232D;
+}
+
+QPushButton:pressed {
+  background-color: #ACB1B6;
+}
+
+QPushButton:selected {
+  background: #ACB1B6;
+  color: #19232D;
+}
+
+QPushButton::menu-indicator {
+  subcontrol-origin: padding;
+  subcontrol-position: bottom right;
+  bottom: 4px;
+}
+
+QDialogButtonBox QPushButton {
+  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
+  min-width: 80px;
+}</string>
+              </property>
               <property name="text">
                <string>Повторное подключение</string>
               </property>
@@ -2186,6 +6094,25 @@ QPushButton:pressed {
                 <pointsize>8</pointsize>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+              </property>
               <property name="text">
                <string>Адрес РЛС: 192.168.0.2:88</string>
               </property>
@@ -2198,6 +6125,25 @@ QPushButton:pressed {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Адрес загрузчика: 192.168.0.1:88</string>
@@ -2215,6 +6161,25 @@ QPushButton:pressed {
              <pointsize>8</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
+           </property>
            <property name="text">
             <string>Количество спутников: 0</string>
            </property>
@@ -2226,7 +6191,64 @@ QPushButton:pressed {
             <font>
              <family>Sans Serif</family>
              <pointsize>8</pointsize>
+             <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QGroupBox {
+  font-weight: bold;
+  border: 1px solid #C9CDD0;
+  border-radius: 4px;
+  padding: 2px;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  color: #19232D
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  subcontrol-position: top left;
+  left: 4px;
+  padding-left: 2px;
+  padding-right: 4px;
+  padding-top: -4px;
+}
+
+QGroupBox::indicator {
+  margin-left: 2px;
+  margin-top: 2px;
+  padding: 0;
+  height: 14px;
+  width: 14px;
+}
+
+QGroupBox::indicator:unchecked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QGroupBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QGroupBox::indicator:checked {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QGroupBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}</string>
            </property>
            <property name="title">
             <string>Загрузчик изображений</string>
@@ -2239,6 +6261,25 @@ QPushButton:pressed {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QWidget {
+ color: #19232D
+}
+
+Label {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #19232D;
+}
+
+QLabel:disabled {
+  background-color: #FAFAFA;
+  border: 0px solid #C9CDD0;
+  color: #788D9C;
+}</string>
               </property>
               <property name="text">
                <string>Статус: ожидает подключения</string>
@@ -2255,6 +6296,35 @@ QPushButton:pressed {
                 <family>Sans Serif</family>
                 <pointsize>8</pointsize>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QProgressBar {
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  color: #19232D;
+  border-radius: 4px;
+  text-align: center;
+}
+
+QProgressBar:disabled {
+  background-color: #FAFAFA;
+  border: 1px solid #C9CDD0;
+  color: #788D9C;
+  border-radius: 4px;
+  text-align: center;
+}
+
+QProgressBar::chunk {
+  background-color: #9FCBFF;
+  color: #FAFAFA;
+  border-radius: 4px;
+}
+
+QProgressBar::chunk:disabled {
+  background-color: #DAEDFF;
+  color: #788D9C;
+  border-radius: 4px;
+}</string>
               </property>
               <property name="value">
                <number>0</number>
@@ -2310,7 +6380,6 @@ QPushButton:pressed {
  </customwidgets>
  <resources>
   <include location="images.qrc"/>
-  <include location="qss.qrc"/>
  </resources>
  <connections/>
 </ui>

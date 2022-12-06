@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(QuaSAR-UI)
+set(executable_name Quasar)
 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -32,7 +33,7 @@ file(GLOB RES src/resources/*)
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
-    add_executable(${PROJECT_NAME} ${SOURCE}
+    add_executable(${executable_name} ${SOURCE}
         windowextension/extension.h
         windowextension/shadow.h
         windowextension/common.h
@@ -83,7 +84,11 @@ else()
    )
 endif()
 
-target_link_libraries(${PROJECT_NAME}
+if(WIN32)
+    target_sources(winadmin.rc)
+endif()
+
+target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Gui
     Qt${QT_VERSION_MAJOR}::QuickWidgets

@@ -20,6 +20,7 @@ include_directories(
     image-processing
     map
     json
+    windowextension
 )
 
 
@@ -32,6 +33,11 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${PROJECT_NAME} ${SOURCE}
+        windowextension/extension.h
+        windowextension/shadow.h
+        windowextension/common.h
+        windowextension/shadow.cpp
+        windowextension/extension.cpp
         map/tilesmanager.h
         map/tilesmanager.cpp
         json/jsonmanager.h

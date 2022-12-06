@@ -1,12 +1,13 @@
 #ifndef COREUI_H
 #define COREUI_H
 
-#include <QMainWindow>
 #include <QSslSocket>
 #include <QTimer>
 #include <QQmlEngine>
 #include <QQmlContext>
 
+
+#include "extension.h"
 #include "udpremote.h"
 #include "tcpremote.h"
 #include "settingsdialog.h"
@@ -25,7 +26,7 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
 
-class CoreUI : public QMainWindow
+class CoreUI : public QGoodWindow
 {
     Q_OBJECT
 
@@ -90,6 +91,11 @@ private:
     void SendRemoteCommand(QString command);
 
 private slots:
+    //header
+    void on_minButton_clicked();
+    void on_minmaxButton_clicked();
+    void on_closeButton_clicked();
+
     //utility slots
     void ReadUDPData(QByteArray data);
     void Halftime();
@@ -114,5 +120,6 @@ private slots:
     void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_clearCache_clicked();
+
 };
 #endif // COREUI_H

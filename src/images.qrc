@@ -243,5 +243,9 @@
         <file>ui-resources/css/window_undock_focus@2x.png</file>
         <file>ui-resources/css/window_undock_pressed.png</file>
         <file>ui-resources/css/window_undock_pressed@2x.png</file>
+        <file>ui-resources/windowextension/close.png</file>
+        <file>ui-resources/windowextension/maximize.png</file>
+        <file>ui-resources/windowextension/minimize.png</file>
+        <file>ui-resources/windowextension/restore.png</file>
     </qresource>
 </RCC>

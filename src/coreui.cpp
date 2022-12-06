@@ -1,14 +1,9 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
-/* @TODO
- *  Класс для дебага
- *
-*/
-
 CoreUI* CoreUI::debugPointer;
 CoreUI::CoreUI(QWidget *parent)
-    : QMainWindow(parent)
+    : QGoodWindow(parent)
     , ui(new Ui::CoreUI)
 {
     debugPointer = this;
@@ -143,6 +138,8 @@ void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elev
 void CoreUI::InitializeUI()
 {
     ui->setupUi(this);
+    setMargins(19, 0, 0, 76);
+    ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
     ui->map->rootContext()->setContextProperty("ApplicationDirPath", QString(QCoreApplication::applicationDirPath()));
@@ -243,6 +240,34 @@ void CoreUI::SendRemoteCommand(QString command)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+void CoreUI::on_minButton_clicked()
+{
+    showMinimized();
+}
+
+
+void CoreUI::on_minmaxButton_clicked()
+{
+    if(!isMaximized())
+        {
+            showMaximized();
+            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); //restore
+        }
+        else
+        {
+            showNormal();
+            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
+        }
+}
+
+
+void CoreUI::on_closeButton_clicked()
+{
+    QApplication::quit();
+}
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::ReadUDPData(QByteArray data)
 {
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
@@ -269,6 +294,9 @@ void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (о
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
 
 

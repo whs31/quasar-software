@@ -6837,8 +6837,8 @@ QMainWindow::separator {
       <widget class="QLabel" name="quasarlogo">
        <property name="minimumSize">
         <size>
-         <width>20</width>
-         <height>20</height>
+         <width>18</width>
+         <height>18</height>
         </size>
        </property>
        <property name="maximumSize">

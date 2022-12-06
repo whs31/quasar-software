@@ -35,51 +35,49 @@ if(ANDROID)
 else()
     add_executable(${executable_name} ${SOURCE}
         windowextension/extension.h
-        windowextension/shadow.h
-        windowextension/common.h
-        windowextension/shadow.cpp
         windowextension/extension.cpp
+        windowextension/shadow.h
+        windowextension/shadow.cpp
+        windowextension/common.h
         map/tilesmanager.h
         map/tilesmanager.cpp
+        map/linkerqml.h
+        map/linkerqml.cpp
         json/jsonmanager.h
-        json/jsonconfig.h
         json/jsonmanager.cpp
+        json/jsonconfig.h
         json/jsonconfig.cpp
         network/remote.h
-        network/tcpremote.h
-        network/udpremote.h
-        network/tcpdownloader.h
-        network/tcpremote.cpp
-        network/udpremote.cpp
         network/remote.cpp
+        network/tcpremote.h
+        network/tcpremote.cpp
+        network/udpremote.h
+        network/udpremote.cpp
+        network/tcpdownloader.h
         network/tcpdownloader.cpp
         network/messageparser.h
         network/messageparser.cpp
         src/coreui.h
-        src/linkerqml.h
         src/coreui.cpp
         src/coreui-guislots.cpp
-        src/linkerqml.cpp
-        src/qss.qrc
         config/config.h
-        config/settingsdialog.h
-        config/sconfig.h
         config/config.cpp
+        config/sconfig.h
+        config/sconfig.cpp
+        config/settingsdialog.h
         config/settingsdialog.cpp
         config/settingsdialog.ui
-        config/sconfig.cpp
         image-processing/imageprocessing.h
-        image-processing/imagemanager.h
         image-processing/imageprocessing.cpp
+        image-processing/imagemanager.h
         image-processing/imagemanager.cpp
         misc/style.h
-        misc/uxmanager.h
-        misc/debug.h
-        misc/profiler.h
         misc/style.cpp
+        misc/uxmanager.h
         misc/uxmanager.cpp
+        misc/debug.h
         misc/debug.cpp
-        misc/json-backup.qrc
+        misc/profiler.h
         misc/profiler.cpp
    )
 endif()

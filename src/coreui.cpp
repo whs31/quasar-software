@@ -315,21 +315,3 @@ void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (о
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-void CoreUI::on_pushButton_formSingleImage_clicked()
-{
-
-}
-
-
-void CoreUI::on_pushButton_launchContinuous_clicked()
-{
-
-}
-
-
-void CoreUI::on_pushButton_stopContinuous_clicked()
-{
-
-}
-

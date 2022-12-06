@@ -507,7 +507,7 @@ Rectangle {
                 id: planeSource;
                 layer.enabled: true
                 transformOrigin: Item.Center
-                source: "qrc:/ui-resources/gpsarrow.png"
+                source: "qrc:/ui-resources/qml_gpsarrow.png"
             }
             ColorOverlay {
                 id: overlayPlane;
@@ -627,7 +627,7 @@ Rectangle {
         //----------------------zoom slider---------------------------
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/zoom-out.png"
+            icon.source: "qrc:/ui-resources/b_zoomout.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -669,7 +669,7 @@ Rectangle {
         }
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/zoom-in.png"
+            icon.source: "qrc:/ui-resources/b_zoomin.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -693,7 +693,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/gps (2).png"
+            icon.source: "qrc:/ui-resources/b_plane.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -716,7 +716,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/ruler (1).png"
+            icon.source: "qrc:/ui-resources/b_ruler.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32
@@ -745,7 +745,7 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/picture.png"
+            icon.source: "qrc:/ui-resources/b_imagemarker.png"
             icon.color: "black"
             icon.width: 32
             icon.height: 32

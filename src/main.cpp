@@ -46,8 +46,8 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
-    QQuickStyle::setStyle("Material");                              //графика для QML
-    new Style(false);  //false при сборке релиза
+    QQuickStyle::setStyle("Material");  //графика для QML
+    new Style(false);                   //false при сборке релиза
     new TilesManager();
     CoreUI window;
 

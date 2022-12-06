@@ -53,6 +53,7 @@ else()
         src/coreui.cpp
         src/coreui-guislots.cpp
         src/linkerqml.cpp
+        src/qss.qrc
         config/config.h
         config/settingsdialog.h
         config/sconfig.h

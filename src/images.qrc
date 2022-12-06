@@ -1,43 +1,39 @@
 <RCC>
     <qresource prefix="/">
-        <file>ui-resources/add_marker.png</file>
-        <file>ui-resources/cancel.png</file>
-        <file>ui-resources/checked.png</file>
-        <file>ui-resources/eraser.png</file>
-        <file>ui-resources/follow.png</file>
-        <file>ui-resources/gps (1).png</file>
-        <file>ui-resources/gps (2).png</file>
-        <file>ui-resources/gps.png</file>
-        <file>ui-resources/gpsarrow.png</file>
-        <file>ui-resources/helicopter.png</file>
-        <file>ui-resources/jpeg_opacityMask.png</file>
-        <file>ui-resources/jpg_pan.png</file>
-        <file>ui-resources/left-arrow.png</file>
-        <file>ui-resources/load.png</file>
-        <file>ui-resources/nav_pan.png</file>
-        <file>ui-resources/path.png</file>
-        <file>ui-resources/photo (1).png</file>
-        <file>ui-resources/photo (2).png</file>
-        <file>ui-resources/photo.png</file>
-        <file>ui-resources/picture.png</file>
-        <file>ui-resources/plane.png</file>
-        <file>ui-resources/planeSmall.png</file>
-        <file>ui-resources/question.png</file>
-        <file>ui-resources/radar.png</file>
-        <file>ui-resources/refresh-page-option.png</file>
         <file>ui-resources/right-arrow-map.png</file>
-        <file>ui-resources/right-arrow.png</file>
-        <file>ui-resources/route.png</file>
-        <file>ui-resources/ruler (1).png</file>
-        <file>ui-resources/ruler.png</file>
-        <file>ui-resources/take_coords.png</file>
-        <file>ui-resources/time-left.png</file>
-        <file>ui-resources/track.png</file>
-        <file>ui-resources/zoom-in.png</file>
-        <file>ui-resources/zoom-out.png</file>
-        <file>ui-resources/download.png</file>
-        <file>ui-resources/diskette.png</file>
-        <file>ui-resources/record_green.png</file>
-        <file>ui-resources/record_red.png</file>
+        <file>ui-resources/b_crosshair.png</file>
+        <file>ui-resources/b_crosshairdot.png</file>
+        <file>ui-resources/b_curve.png</file>
+        <file>ui-resources/b_eraser.png</file>
+        <file>ui-resources/b_eye.png</file>
+        <file>ui-resources/b_eyedropper.png</file>
+        <file>ui-resources/b_gps.png</file>
+        <file>ui-resources/b_image.png</file>
+        <file>ui-resources/b_imagemarker.png</file>
+        <file>ui-resources/b_images.png</file>
+        <file>ui-resources/b_left.png</file>
+        <file>ui-resources/b_load.png</file>
+        <file>ui-resources/b_marker.png</file>
+        <file>ui-resources/b_plane.png</file>
+        <file>ui-resources/b_radar.png</file>
+        <file>ui-resources/b_right.png</file>
+        <file>ui-resources/b_route.png</file>
+        <file>ui-resources/b_route2.png</file>
+        <file>ui-resources/b_ruler.png</file>
+        <file>ui-resources/b_save.png</file>
+        <file>ui-resources/b_timer.png</file>
+        <file>ui-resources/b_zoomin.png</file>
+        <file>ui-resources/b_zoomout.png</file>
+        <file>ui-resources/c_cancel.png</file>
+        <file>ui-resources/c_green.png</file>
+        <file>ui-resources/c_ok.png</file>
+        <file>ui-resources/c_questionmark.png</file>
+        <file>ui-resources/c_red.png</file>
+        <file>ui-resources/qml_gpsarrow.png</file>
+        <file>ui-resources/qml_helicopter.png</file>
+        <file>ui-resources/qml_plane.png</file>
+        <file>ui-resources/w_eraser.png</file>
+        <file>ui-resources/w_refresh.png</file>
+        <file>ui-resources/w_ruler.png</file>
     </qresource>
 </RCC>

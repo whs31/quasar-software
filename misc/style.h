@@ -26,7 +26,7 @@ private:
     bool TestMode;
     static QStringList colors;
     static QStringList formats;
-    QString defaultQSS = ":/stylesheet/stylesheet.qss";
+    QString defaultQSS = ":/stylesheet/lightstyle.qss";
     QString testQSS = "/home/user/quasar-ui/QuaSAR-UI/src/stylesheet/stylesheet.qss";
 };
 

@@ -1158,7 +1158,7 @@ QDialogButtonBox QPushButton {
               <property name="styleSheet">
                <string notr="true">QPushButton {
   background-color: #535771;
-  color: #D8d8d8;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1174,7 +1174,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;

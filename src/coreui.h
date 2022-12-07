@@ -3,6 +3,7 @@
 
 #include <QSslSocket>
 #include <QTimer>
+#include "qqml.h"
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QRect>

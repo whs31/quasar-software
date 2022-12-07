@@ -11,10 +11,6 @@
 #include "style.h"
 
 
-//qml types
-//#include "ftelemetry.h"
-
-
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -52,9 +48,6 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
-
-    //qmlRegisterType<FTelemetry>("FClass",1,0,"FTelemetry");
-
 
     QQuickStyle::setStyle("Material");  //графика для QML
     new Style(false);                   //false при сборке релиза

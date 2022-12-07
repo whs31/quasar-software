@@ -1,6 +1,9 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
+//qml types
+#include "backend/ftelemetry.h"
+
 CoreUI* CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
 CoreUI::CoreUI(QWidget *parent)
@@ -134,18 +137,27 @@ void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elev
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::InitializeUI()
 {
+    //ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
+
+    //custom window frame setup
     setMargins(25, 0, 0, 170);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
+
+    //qml base setup
     ui->map->rootContext()->setContextProperty("ApplicationDirPath", QString(QCoreApplication::applicationDirPath()));
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
     qml = ui->map->rootObject();
+
+    //debug logging misc code
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
     Debug::Log("[STARTUP] UI initialization finished");
     Debug::Log("?[STARTUP] Session started at "+localTime.toString());
+
+    //openssl check
     bool b_ssl1 = QSslSocket::supportsSsl();
     QString ssl1 = b_ssl1 ? "true" : "false";
     if (QSslSocket::supportsSsl())
@@ -170,12 +182,18 @@ void CoreUI::InitializeUI()
             openSSLDialogue.setText("Попробуйте переустановить программу.");
             openSSLDialogue.exec();
         }
+
+    //set default position and size of floating qdockwidgets
     InitializeDockwidgets();
-        
+
+    //any other ui startup code here!
+
 }
 
 void CoreUI::InitializeConnections()
 {
+    //core
+    //(!) do not touch it.
     Debug::Log("?[STARTUP] Setuping connections...");
         timer = new QTimer(this);
         udpTimeout = new QTimer(this);
@@ -184,11 +202,19 @@ void CoreUI::InitializeConnections()
     new SConfig(qml);
     if(SConfig::TESTMODE)
         Debug::Log("![STARTUP] Program is running in test mode!");
+
+    //qml types declaration
+    QScopedPointer<FTelemetry> fTelemetry(new FTelemetry);
+    qmlRegisterSingletonInstance("FModel", 1, 0, "Telemetry", fTelemetry.get());
+
+    //network setup
     udpRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
         connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
+
+    //sar image alghorithms setup
     imageProcessing = new ImageProcessing(linker);
         connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
         connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
@@ -201,6 +227,8 @@ void CoreUI::InitializeConnections()
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
         connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
+
+    //network connection
     if(SConfig::CONNECTONSTART)
     {
         if(SConfig::NETWORKTYPE == "TCP") { tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
@@ -211,16 +239,24 @@ void CoreUI::InitializeConnections()
             Debug::Log("?[REMOTE] UDP client connected");
         }
     }
+
+    //ui misc initialization and assignment
     ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
                                             +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
     ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
     ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
+
+    //timers starts here
     timer->start(SConfig::UPDATETIME*1000);
     udpTimeout->start(3*SConfig::UPDATETIME*1000);
+
+    //startup functions
     Disconnected();
-    Debug::Log("[STARTUP] Connections set up successfully");
-    //execute any startup code here
     imageProcessing->InitialScan();
+    Debug::Log("[STARTUP] Connections set up successfully");
+
+    //execute any other startup code here
+
 }
 
 void CoreUI::InitializeDockwidgets()

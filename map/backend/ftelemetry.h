@@ -7,12 +7,12 @@
 class FTelemetry : public QObject
 {
     Q_OBJECT
-    //Q_PROPERTY(float latitude READ latitude WRITE setLatitude NOTIFY latitudeChanged);
-    //Q_PROPERTY(float longitude READ longitude WRITE setLongitude NOTIFY longitudeChanged);
-    //Q_PROPERTY(float elevation READ elevation WRITE setElevation NOTIFY elevationChanged);
-    //Q_PROPERTY(float speed READ speed WRITE setSpeed NOTIFY speedChanged);
-    //Q_PROPERTY(int sats READ sats WRITE setSats NOTIFY satsChanged);
-    //QML_ELEMENT
+    Q_PROPERTY(float latitude READ latitude WRITE setLatitude NOTIFY latitudeChanged);
+    Q_PROPERTY(float longitude READ longitude WRITE setLongitude NOTIFY longitudeChanged);
+    Q_PROPERTY(float elevation READ elevation WRITE setElevation NOTIFY elevationChanged);
+    Q_PROPERTY(float speed READ speed WRITE setSpeed NOTIFY speedChanged);
+    Q_PROPERTY(int sats READ sats WRITE setSats NOTIFY satsChanged);
+    QML_ELEMENT
 
 
 
@@ -23,13 +23,13 @@ public:
     float longitude();
     float elevation();
     float speed();
-    int sats();
+    short sats();
     
-    void setLatitude(float &latitude);
-    void setLongitude(float &longitude);
-    void setElevation(float &elevation);
-    void setSpeed(float &speed);
-    void setSats(int &sats);
+    void setLatitude(float value);
+    void setLongitude(float value);
+    void setElevation(float value);
+    void setSpeed(float value);
+    void setSats(short value);
 
 signals:
     void latitudeChanged();
@@ -43,7 +43,7 @@ private:
     float _longitude;
     float _elevation;
     float _speed;
-    int _sats;
+    short _sats;
 
 };
 

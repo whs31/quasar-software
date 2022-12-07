@@ -12,9 +12,8 @@ import QtGraphicalEffects 1.0
 
 Rectangle {
     id: qqview
-    /*Invoker {
-        id: invoker
-    }*/
+
+    //ux constants
     Material.theme: Material.Dark
     Material.accent: "#929292"
     Material.primary: "#008CCC"
@@ -23,12 +22,18 @@ Rectangle {
     property color primarySuperLight: "#97E3EE";
     property color yellowColor: "#F6C413";
 
+    //ux settings
     layer.enabled: true
     layer.samples: 4
 
+    //defaults constants
+    property real defaultLatitude: 60.034;
+    property real defaultLongitude: 30.28136;
+    property real defaultZoom: 15.0;
+
     //=====================config=======================|
     property string c_VEHICLE: "helicopter";      //| //del
-    property string c_ANTENNAPOSITION: "right";   //|
+    property string c_ANTENNAPOSITION: "right";   //| //fstaticconfig @TODO
     property string c_PATH: "file:///";           //|
     property double c_PREDICTRANGE: 0.0;          //|
     property double c_DIAGRAMLENGTH: 0.0;         //|
@@ -41,11 +46,11 @@ Rectangle {
     //==================================================|
 
 
-    property var currentQtCoordinates: QtPositioning.coordinate(60, 30); //in case of no connection, default position of map on startup (maybe make it variable)
+    property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
     property var imageArray: []
 
     //-------widgets ui checkboxes------
-    property bool followPlane: false;
+    property bool followPlane: false; //fdynamicconfig @TODO
     property bool enableTooltip: true;
     property bool enableRoute: true;
     property bool enablePredict: true;
@@ -371,8 +376,8 @@ Rectangle {
             }
         }
         activeMapType: mapView.supportedMapTypes[m_mapMode]
-        center: QtPositioning.coordinate(59.660784, 30.200268);
-        zoomLevel: 9; //make defaults
+        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
+        zoomLevel: defaultZoom;
         copyrightsVisible: false
 
         Component.onCompleted: { awake(); start(); }

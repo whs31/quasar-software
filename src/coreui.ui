@@ -834,7 +834,7 @@ QAbstractScrollArea:disabled {
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-93</y>
           <width>373</width>
           <height>605</height>
          </rect>
@@ -986,7 +986,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/ui-resources/b_timer.png</normaloff>:/ui-resources/b_timer.png</iconset>
+             <normaloff>:/ui-resources/white/time-left.png</normaloff>:/ui-resources/white/time-left.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -1081,7 +1081,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/ui-resources/w_refresh.png</normaloff>:/ui-resources/w_refresh.png</iconset>
+             <normaloff>:/ui-resources/white/refresh.png</normaloff>:/ui-resources/white/refresh.png</iconset>
            </property>
            <property name="iconSize">
             <size>
@@ -1223,7 +1223,7 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="icon">
                <iconset resource="images.qrc">
-                <normaloff>:/ui-resources/b_image.png</normaloff>:/ui-resources/b_image.png</iconset>
+                <normaloff>:/ui-resources/white/image.png</normaloff>:/ui-resources/white/image.png</iconset>
               </property>
               <property name="checkable">
                <bool>true</bool>
@@ -1315,7 +1315,7 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="icon">
                <iconset resource="images.qrc">
-                <normaloff>:/ui-resources/b_imagemarker.png</normaloff>:/ui-resources/b_imagemarker.png</iconset>
+                <normaloff>:/ui-resources/white/marker.png</normaloff>:/ui-resources/white/marker.png</iconset>
               </property>
              </widget>
             </item>
@@ -1407,7 +1407,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/ui-resources/b_images.png</normaloff>:/ui-resources/b_images.png</iconset>
+             <normaloff>:/ui-resources/white/images.png</normaloff>:/ui-resources/white/images.png</iconset>
            </property>
           </widget>
          </item>
@@ -1515,7 +1515,7 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: 535771;
+  background-color: #535771;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -1579,8 +1579,7 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="icon">
                   <iconset resource="images.qrc">
-                   <normaloff>:/ui-resources/b_left.png</normaloff>
-                   <disabledon>:/ui-resources/css/transparent.png</disabledon>:/ui-resources/b_left.png</iconset>
+                   <normaloff>:/ui-resources/white/left.png</normaloff>:/ui-resources/white/left.png</iconset>
                  </property>
                 </widget>
                </item>
@@ -1644,7 +1643,7 @@ QLabel:disabled {
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: 535771;
+  background-color: #535771;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -1708,8 +1707,7 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="icon">
                   <iconset resource="images.qrc">
-                   <normaloff>:/ui-resources/b_right.png</normaloff>
-                   <disabledon>:/ui-resources/css/transparent.png</disabledon>:/ui-resources/b_right.png</iconset>
+                   <normaloff>:/ui-resources/white/right.png</normaloff>:/ui-resources/white/right.png</iconset>
                  </property>
                  <property name="flat">
                   <bool>false</bool>
@@ -1817,7 +1815,7 @@ QGroupBox::indicator:checked:disabled {
               <property name="styleSheet">
                <string notr="true">.QFrame {
   border-radius: 4px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #535771;
   /* No frame */
   /* HLine */
   /* HLine */
@@ -2892,7 +2890,7 @@ QLabel:disabled {
             <item row="8" column="0" colspan="2">
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <property name="spacing">
-               <number>0</number>
+               <number>3</number>
               </property>
               <item>
                <widget class="QPushButton" name="pushButton_expandImageInfo">
@@ -3213,7 +3211,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="icon">
             <iconset resource="images.qrc">
-             <normaloff>:/ui-resources/w_eraser.png</normaloff>:/ui-resources/w_eraser.png</iconset>
+             <normaloff>:/ui-resources/white/eraser.png</normaloff>:/ui-resources/white/eraser.png</iconset>
            </property>
           </widget>
          </item>
@@ -4201,7 +4199,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_plane.png</normaloff>:/ui-resources/b_plane.png</iconset>
+            <normaloff>:/ui-resources/white/plane.png</normaloff>:/ui-resources/white/plane.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4288,7 +4286,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_eyedropper.png</normaloff>:/ui-resources/b_eyedropper.png</iconset>
+            <normaloff>:/ui-resources/white/eyedropper.png</normaloff>:/ui-resources/white/eyedropper.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4381,7 +4379,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_curve.png</normaloff>:/ui-resources/b_curve.png</iconset>
+            <normaloff>:/ui-resources/white/curve.png</normaloff>:/ui-resources/white/curve.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4474,7 +4472,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_route.png</normaloff>:/ui-resources/b_route.png</iconset>
+            <normaloff>:/ui-resources/white/route.png</normaloff>:/ui-resources/white/route.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4579,7 +4577,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_radar.png</normaloff>:/ui-resources/b_radar.png</iconset>
+            <normaloff>:/ui-resources/white/radar.png</normaloff>:/ui-resources/white/radar.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4829,7 +4827,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/w_timer.png</normaloff>:/ui-resources/w_timer.png</iconset>
+            <normaloff>:/ui-resources/white/timer.png</normaloff>:/ui-resources/white/timer.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -4940,14 +4938,14 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/w_newimage.png</normaloff>:/ui-resources/w_newimage.png</iconset>
+            <normaloff>:/ui-resources/white/newimage.png</normaloff>:/ui-resources/white/newimage.png</iconset>
           </property>
          </widget>
         </item>
         <item row="1" column="0" colspan="2">
          <widget class="QProgressBar" name="progressBar_formImageStatus">
           <property name="enabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="minimumSize">
            <size>
@@ -5174,7 +5172,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/w_eraser.png</normaloff>:/ui-resources/w_eraser.png</iconset>
+            <normaloff>:/ui-resources/white/eraser.png</normaloff>:/ui-resources/white/eraser.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5272,7 +5270,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_load.png</normaloff>:/ui-resources/b_load.png</iconset>
+            <normaloff>:/ui-resources/white/load.png</normaloff>:/ui-resources/white/load.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5361,7 +5359,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_marker.png</normaloff>:/ui-resources/b_marker.png</iconset>
+            <normaloff>:/ui-resources/white/marker.png</normaloff>:/ui-resources/white/marker.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5453,7 +5451,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_save.png</normaloff>:/ui-resources/b_save.png</iconset>
+            <normaloff>:/ui-resources/white/save.png</normaloff>:/ui-resources/white/save.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -5545,7 +5543,7 @@ QDialogButtonBox QPushButton {
           </property>
           <property name="icon">
            <iconset resource="images.qrc">
-            <normaloff>:/ui-resources/b_gps.png</normaloff>:/ui-resources/b_gps.png</iconset>
+            <normaloff>:/ui-resources/white/plane.png</normaloff>:/ui-resources/white/plane.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -6557,7 +6555,7 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="icon">
                <iconset resource="images.qrc">
-                <normaloff>:/ui-resources/w_refresh.png</normaloff>:/ui-resources/w_refresh.png</iconset>
+                <normaloff>:/ui-resources/white/refresh.png</normaloff>:/ui-resources/white/refresh.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -6906,13 +6904,13 @@ QMainWindow::separator {
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="images.qrc">:/ui-resources/windowextension/logo.png</pixmap>
+        <pixmap resource="images.qrc">:/ui-resources/quasarlogo/logo-white.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
        </property>
        <property name="margin">
-        <number>1</number>
+        <number>-1</number>
        </property>
       </widget>
      </item>

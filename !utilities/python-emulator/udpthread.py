@@ -17,7 +17,7 @@ import json
 
 
 localIP     = "127.0.0.1"
-localPort   = 11110
+localPort   = 11111
 bufferSize  = 1024
 
 UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)

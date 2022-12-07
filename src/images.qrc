@@ -273,5 +273,12 @@
         <file>ui-resources/white/time-left.png</file>
         <file>ui-resources/white/timer.png</file>
         <file>ui-resources/white/track.png</file>
+        <file>ui-resources/white/up.png</file>
+        <file>ui-resources/white/down.png</file>
+        <file>ui-resources/white/zoom-in.png</file>
+        <file>ui-resources/white/zoom-out.png</file>
+        <file>ui-resources/quasarlogo/logo-black.png</file>
+        <file>ui-resources/quasarlogo/logo-white-shadowed.png</file>
+        <file>ui-resources/quasarlogo/logo-white.png</file>
     </qresource>
 </RCC>

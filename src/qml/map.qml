@@ -1,13 +1,13 @@
 import QtQuick 2.12
 import QtQuick.Dialogs 1.2
 import QtQuick.Window 2.2
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
-
-//import cpp.invoker 1.0
 
 
 Rectangle {
@@ -16,14 +16,14 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: "#EDE7F6"
-    Material.primary: "#00BCD4"
+    Material.accent: "#9191a9"
+    Material.primary: "#00e1e7"
 
     layer.enabled: true
     layer.samples: 4
 
     //=====================config=======================|
-        property string c_VEHICLE: "helicopter";      //|
+        property string c_VEHICLE: "helicopter";      //| //del
         property string c_ANTENNAPOSITION: "right";   //|
         property string c_PATH: "file:///";           //|
         property double c_PREDICTRANGE: 0.0;          //|
@@ -41,7 +41,7 @@ Rectangle {
     property double longitude: 0.0
     property double elevation: 0.0
     property double velocity: 0.0
-    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268); //in case of no connection
+    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268); //in case of no connection, default position of map on startup (maybe make it variable)
     property var imageArray: []
 
     //-------widgets ui checkboxes------
@@ -327,9 +327,9 @@ Rectangle {
 
     Map {
         id: mapView
-        visible: true
-        anchors.fill: parent
-        layer.smooth: true
+        anchors.fill: parent;
+        layer.smooth: true;
+        tilt: 15;
         plugin: Plugin {
             id: mapPluginID;
             name: m_provider;
@@ -338,13 +338,23 @@ Rectangle {
                 name: "osm.mapping.providersrepository.address";
                 value: "file:///"+ApplicationDirPath+"/maptsc";
             }
-            Component.onCompleted: console.log(parameterOSM.value);
-
         }
         activeMapType: mapView.supportedMapTypes[m_mapMode]
         center: QtPositioning.coordinate(59.660784, 30.200268);
-        zoomLevel: 9
+        zoomLevel: 9; //make defaults
         copyrightsVisible: false
+
+        Component.onCompleted: 
+        { 
+            mapView.addMapItem(planeMapItem); 
+            zoomSlider.value = 1 - (mapView.zoomLevel / 18); 
+            tiltSlider.value = 1 - (mapView.tilt / 45);
+        }
+
+        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
+        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
+        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
+        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
 
         MapPolyline { 
             id: mapPolyline; 
@@ -360,10 +370,6 @@ Rectangle {
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 9; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
 
-        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
-        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
-        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
         MouseArea {
             id: mapMouseArea
             anchors.fill: parent
@@ -418,6 +424,7 @@ Rectangle {
                 }
             }
         }
+
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
             id: rulerTextMapItem
@@ -440,10 +447,8 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 style: Text.Outline
                 font.family: "Verdana"
-                //layer.enabled: true
-
-                color: Material.color(Material.Amber, Material.Shade100)
-                text: "-----";
+                color: Material.color(Material.Amber, Material.Shade100) //make const
+                text: "";
             }
         }
         MapQuickItem {
@@ -465,7 +470,7 @@ Rectangle {
                 id: r1Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/ui-resources/right-arrow-map.png"
+                source: "qrc:/ui-resources/qml/temp.png"
             }
             ColorOverlay {
                 id: r1Overlay;
@@ -494,7 +499,7 @@ Rectangle {
                 id: r2Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/ui-resources/right-arrow-map.png"
+                source: "qrc:/ui-resources/qml/temp.png"
             }
             ColorOverlay {
                 id: r2Overlay;
@@ -521,7 +526,7 @@ Rectangle {
                 layer.enabled: true
                 transformOrigin: Item.Center
                 smooth: true;
-                source: "qrc:/ui-resources/qml_gpsarrow.png"
+                source: "qrc:/ui-resources/qml/gpsarrow.png"
             }
             ColorOverlay {
                 id: overlayPlane;
@@ -543,7 +548,7 @@ Rectangle {
                 anchors.fill: overlayPlane
                 radius: 5;
                 samples: 17
-                color: "#4DD0E1"
+                color: "#81eff4"
                 spread: 0.5;
                 transparentBorder: true;
                 source: overlayPlane
@@ -555,12 +560,6 @@ Rectangle {
                 }
             }
         }
-        Component.onCompleted: 
-        { 
-            mapView.addMapItem(planeMapItem); 
-            zoomSlider.value = 1 - (mapView.zoomLevel / 18); 
-            tiltSlider.value = 1 - (mapView.tilt / 45);
-        }
         Rectangle {
             id: cursorTooltip
             visible: true
@@ -569,14 +568,14 @@ Rectangle {
             z: 12
             Rectangle {
                 id: tooltip
-                color: "#EDE7F6"
-                width: 148
+                color: "#23243b";
+                width: 156
                 height: 15
                 radius: 1
                 opacity: 0.75
                 Text {
                     id: cursorTooltipText
-                    color: "#212121"
+                    color: "#EDE7F6";
                     enabled: false
                     anchors.fill: parent
                     leftPadding: 8
@@ -596,14 +595,14 @@ Rectangle {
             opacity: 0.9
             visible: true
             radius: 18
-            color: "#EDE7F6";
+            color: "#23243b";
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 50
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: speedText
-                color: "#0097A7";
+                color: Material.primary;
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 font.bold: true
@@ -613,7 +612,7 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#212121"
+                color: "#EDE7F6"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
@@ -621,7 +620,7 @@ Rectangle {
             }
             Text {
                 id: elevationText
-                color: Material.primary
+                color: Material.primary;
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: elevationTextTT.left
                 horizontalAlignment: Text.AlignRight
@@ -632,7 +631,7 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#212121"
+                color: "#EDE7F6";
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight
@@ -667,8 +666,8 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_down.png"
-            icon.color: "black"
+            icon.source: "qrc:/ui-resources/white/down.png"
+            icon.color: "white"
             icon.width: 24
             icon.height: 24
             id: tiltDown
@@ -716,8 +715,8 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_up.png"
-            icon.color: "black"
+            icon.source: "qrc:/ui-resources/white/up.png"
+            icon.color: "white"
             icon.width: 24
             icon.height: 24
             id: tiltUp
@@ -747,11 +746,11 @@ Rectangle {
         
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_zoomout.png"
-            icon.color: "black"
+            id: zoomOut
+            icon.source: "qrc:/ui-resources/white/zoom-out.png"
+            icon.color: "white"
             icon.width: 32
             icon.height: 32
-            id: zoomOut
             width: 40
             height: 40
             radius: 10
@@ -791,11 +790,11 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_zoomin.png"
-            icon.color: "black"
+            id: zoomIn
+            icon.source: "qrc:/ui-resources/white/zoom-in.png"
+            icon.color: "white"
             icon.width: 32
             icon.height: 32
-            id: zoomIn
             width: 40
             z: 100
             height: 40
@@ -815,11 +814,11 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_plane.png"
-            icon.color: "black"
+            id: panButton
+            icon.source: "qrc:/ui-resources/white/plane.png"
+            icon.color: "white"
             icon.width: 32
             icon.height: 32
-            id: panButton
             width: 40
             height: 40
             radius: 10
@@ -838,47 +837,18 @@ Rectangle {
 
         RoundButton
         {
-            icon.source: "qrc:/ui-resources/b_ruler.png"
-            icon.color: "black"
+            id: panImageButton
+            icon.source: "qrc:/ui-resources/white/image.png"
+            icon.color: "white"
             icon.width: 32
             icon.height: 32
-            id: rulerButton
             width: 40
             height: 40
             radius: 10
-            opacity: 1
             z: 100
+            opacity: 1
             anchors.right: panButton.left
             anchors.verticalCenter: panButton.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked:
-            {
-                if(r_currentstate !== 0) { r_currentstate = 1;
-                    clearRuler(); } else {
-                    r_currentstate = 1;
-                }
-            }
-        }
-
-        RoundButton
-        {
-            icon.source: "qrc:/ui-resources/b_imagemarker.png"
-            icon.color: "black"
-            icon.width: 32
-            icon.height: 32
-            id: panImageButton
-            width: 40
-            height: 40
-            radius: 10
-            z: 100
-            opacity: 1
-            anchors.right: rulerButton.left
-            anchors.verticalCenter: rulerButton.verticalCenter
             highlighted: true
             flat: false
             anchors.rightMargin: 0
@@ -895,6 +865,35 @@ Rectangle {
                     timer_3s.restart();
                     numAnim1.restart();
                 }
+        }
+
+        RoundButton
+        {
+            id: rulerButton
+            icon.source: "qrc:/ui-resources/white/ruler.png"
+            icon.color: "white"
+            icon.width: 32
+            icon.height: 32
+            width: 40
+            height: 40
+            radius: 10
+            opacity: 1
+            z: 100
+            anchors.right: panImageButton.left
+            anchors.verticalCenter: panImageButton.verticalCenter
+            highlighted: true
+            flat: false
+            anchors.rightMargin: 20
+            hoverEnabled: true
+            enabled: true
+            display: AbstractButton.IconOnly
+            onClicked:
+            {
+                if(r_currentstate !== 0) { r_currentstate = 1;
+                    clearRuler(); } else {
+                    r_currentstate = 1;
+                }
+            }
         }
         Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { followPlane = true; cameraGrip.value = 0; } }
     }

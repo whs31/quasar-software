@@ -60,15 +60,11 @@ void CoreUI::Connected()
 {
     connected = true;
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
-    ui->label_c_satcount->setVisible(true); ui->label_c_satcount->setEnabled(true);
-    ui->groupBox_Loader->setVisible(true); ui->groupBox_Loader->setVisible(true);
 }
 void CoreUI::Disconnected()
 {
     connected = false;
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
-    ui->label_c_satcount->setVisible(true); ui->label_c_satcount->setEnabled(false);
-    ui->groupBox_Loader->setVisible(true); ui->groupBox_Loader->setVisible(false);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

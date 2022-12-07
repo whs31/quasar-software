@@ -135,7 +135,7 @@ void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elev
 void CoreUI::InitializeUI()
 {
     ui->setupUi(this);
-    setMargins(25, 0, 0, 150);
+    setMargins(25, 0, 0, 170);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");

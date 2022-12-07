@@ -64,6 +64,8 @@ else()
         map/tilesmanager.cpp
         map/linkerqml.h
         map/linkerqml.cpp
+        map/backend/ftelemetry.h
+        map/backend/ftelemetry.cpp
         json/jsonmanager.h
         json/jsonmanager.cpp
         json/jsonconfig.h

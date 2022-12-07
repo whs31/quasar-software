@@ -11,9 +11,14 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS src/)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core )
-find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets REQUIRED Network Location Positioning)
+find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets Test REQUIRED Network Location Positioning)
 find_package(Qt5 REQUIRED COMPONENTS QuickControls2)
-find_package(Qt5 OPTIONAL_COMPONENTS Gui Test Widgets WinExtras X11Extras)
+if(WIN32)
+    find_package(Qt5 OPTIONAL_COMPONENTS WinExtras)
+else()
+    find_package(Qt5 OPTIONAL_COMPONENTS X11Extras)
+endif()
+
 
 include_directories(
     network

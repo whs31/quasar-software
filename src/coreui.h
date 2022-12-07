@@ -55,7 +55,7 @@ public slots:
     void updateLoaderLabel(void);
     void updateDirectory(void);
     void updateImageManagerLabels(int total, int current);
-    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match);
     void enableImageBar(bool b);
     void updateProgress(float f);
     void updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount);

@@ -45,7 +45,7 @@ signals:
     void setLeftButton(bool b);
     void setRightButton(bool b);
     void updateTopLabels(int total, int current);
-    void updateMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void updateMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match);
     void enableImageBar(bool b);
 
 private:

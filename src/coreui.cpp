@@ -88,7 +88,7 @@ void CoreUI::updateImageManagerLabels(int total, int current)
                                       +" из "
                                       +Style::StyleText(QString::number(total), Colors::NoColor, Format::Bold));
 }
-void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match)
+void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match)
 {
     ui->label_c_metaFilename->setText(filename);
     ui->label_c_metaLat->setText(QString::number(lat, 'f', 6));
@@ -99,6 +99,9 @@ void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float
     ui->label_c_metaY0->setText(QString::number(y0));
     ui->label_c_metaAngle->setText(QString::number(angle));
     ui->label_c_metaDAngle->setText(QString::number(driftAngle));
+    ui->label_c_metaLX->setText(QString::number(lx));
+    ui->label_c_metaLY->setText(QString::number(ly));
+    ui->label_c_metaDiv->setText(QString::number(divAngle));
     ui->label_c_metaChecksum->setText(hexSum);
     ui->label_c_metaTime->setText(datetime);
     (match) ? ui->label_c_checksumSuccess->setText(Style::StyleText("совпадает", Colors::Success)) : ui->label_c_checksumSuccess->setText(Style::StyleText("не совпадает", Colors::Failure));
@@ -190,8 +193,8 @@ void CoreUI::InitializeConnections()
         connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
         connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
         connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));
-        connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)),
-                           this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,QString,QString,bool)));
+        connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)),
+                           this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)));
         connect(imageProcessing, SIGNAL(enableImageBar(bool)), this, SLOT(enableImageBar(bool)));
 
     ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);

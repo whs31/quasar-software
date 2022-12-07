@@ -257,6 +257,9 @@ void ImageProcessing::UpdateLabels(int structureIndex)
                           metadataList[structureIndex].y0,
                           metadataList[structureIndex].angle,
                           metadataList[structureIndex].driftAngle,
+                          metadataList[structureIndex].lx,
+                          metadataList[structureIndex].ly,
+                          metadataList[structureIndex].div,
                           checksumHex,
                           metadataList[structureIndex].datetime,
                           metadataList[structureIndex].checksumMatch);

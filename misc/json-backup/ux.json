@@ -1,12 +1,12 @@
 {
-  "Main": "#311B92",
-  "MainShade900": "#5E35B1",
-  "MainShade800": "#9575CD",
-  "Accent": "#0097A7",
-  "Success": "#558B2F",
-  "Failure": "#B71C1C",
+  "Main": "#00d0df",
+  "MainShade900": "#00e1e7",
+  "MainShade800": "#81eff4",
+  "Accent": "#ff8900",
+  "Success": "#00eca0",
+  "Failure": "#ff5c5c",
   "CriticalFailure": "#C51162",
-  "Info": "#9575CD",
-  "Warning": "#FF8F00",
-  "ConsoleTextColor": "#FCFCFC"
+  "Info": "#4799ff",
+  "Warning": "#ffae33",
+  "ConsoleTextColor": "#Bebebf"
 }

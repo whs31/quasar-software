@@ -19,6 +19,12 @@ else()
     find_package(Qt5 OPTIONAL_COMPONENTS X11Extras)
 endif()
 
+if(NOT WIN32)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules (GTK REQUIRED)
+    pkg_check_modules (GTK2 REQUIRED gtk+-2.0)
+endif()
+
 
 include_directories(
     network
@@ -31,6 +37,12 @@ include_directories(
     json
     windowextension
 )
+
+if(NOT WIN32)
+    include_directories (
+      ${GTK2_INCLUDE_DIRS}
+      )
+endif()
 
 
 #link_directories(lib)
@@ -119,12 +131,21 @@ endif()
 
 
 if(UNIX AND NOT ANDROID AND NOT APPLE)
+    target_compile_definitions(${executable_name} PRIVATE
+        QGOODWINDOW
+    )
+
     target_link_libraries(${executable_name}
         X11
+        ${GTK_LIBRARIES}
+        ${GTK2_LIBRARIES}
     )
 endif()
 
 if((( ( UNIX ) AND NOT APPLE ) AND NOT ANDROID) AND ((QT_VERSION_MAJOR EQUAL 5)))
+    target_compile_definitions(${executable_name} PRIVATE
+        QGOODWINDOW
+    )
     target_link_libraries(${executable_name}
         Qt::Test
         Qt::X11Extras

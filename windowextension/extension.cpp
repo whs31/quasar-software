@@ -248,7 +248,7 @@ QGoodWindow::QGoodWindow(QWidget *parent, const QColor &clear_color) : QMainWind
 #ifdef QGOODWINDOW
     setParent(nullptr);
 
-    m_dark = isSystemThemeDark();
+    m_dark = true;
 
     m_caption_buttons_handled = false;
 

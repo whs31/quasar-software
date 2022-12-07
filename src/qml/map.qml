@@ -27,17 +27,17 @@ Rectangle {
     layer.samples: 4
 
     //=====================config=======================|
-        property string c_VEHICLE: "helicopter";      //| //del
-        property string c_ANTENNAPOSITION: "right";   //|
-        property string c_PATH: "file:///";           //|
-        property double c_PREDICTRANGE: 0.0;          //|
-        property double c_DIAGRAMLENGTH: 0.0;         //|
-        property double c_CAPTURETIME: 0.0;           //|
-        property double c_DIAGRAMAZIMUTH: 0.0;        //|
-        property double c_DRIFTANGLE: 0.0;            //|
-        property string m_provider: "osm";            //|
-        property int m_mapMode: 0;                    //|
-        property bool c_USEBASE64: false;             //|
+    property string c_VEHICLE: "helicopter";      //| //del
+    property string c_ANTENNAPOSITION: "right";   //|
+    property string c_PATH: "file:///";           //|
+    property double c_PREDICTRANGE: 0.0;          //|
+    property double c_DIAGRAMLENGTH: 0.0;         //|
+    property double c_CAPTURETIME: 0.0;           //|
+    property double c_DIAGRAMAZIMUTH: 0.0;        //|
+    property double c_DRIFTANGLE: 0.0;            //|
+    property string m_provider: "osm";            //|
+    property int m_mapMode: 0;                    //|
+    property bool c_USEBASE64: false;             //|
     //==================================================|
 
 
@@ -101,9 +101,9 @@ Rectangle {
     function clearImageArray()
     {
         for (var i = 0; i < imageArray.length; i++)  {
-              hideImage(i);
-              mapView.removeMapItem(imageArray[i]);
-          }
+            hideImage(i);
+            mapView.removeMapItem(imageArray[i]);
+        }
         imageArray = [];
     }
 
@@ -175,8 +175,8 @@ Rectangle {
         }
 
         if(dx!==0) { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx); } else { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/1); }
-                                        //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
-                                        //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
+        //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
+        //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
         mapView.addMapItem(item);
         imageArray.push(item);
     }
@@ -348,10 +348,10 @@ Rectangle {
         zoomLevel: 9; //make defaults
         copyrightsVisible: false
 
-        Component.onCompleted: 
-        { 
-            mapView.addMapItem(planeMapItem); 
-            zoomSlider.value = 1 - (mapView.zoomLevel / 18); 
+        Component.onCompleted:
+        {
+            mapView.addMapItem(planeMapItem);
+            zoomSlider.value = 1 - (mapView.zoomLevel / 18);
             tiltSlider.value = 1 - (mapView.tilt / 45);
         }
 
@@ -360,14 +360,14 @@ Rectangle {
         onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
         onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
 
-        MapPolyline { 
-            id: mapPolyline; 
-            line.width: 5; 
-            opacity: 0.75; 
-            line.color: 
-            Material.primary; 
-            path: [ ]; 
-            z: 10; 
+        MapPolyline {
+            id: mapPolyline;
+            line.width: 5;
+            opacity: 0.75;
+            line.color:
+                Material.primary;
+            path: [ ];
+            z: 10;
         }
 
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
@@ -869,39 +869,48 @@ Rectangle {
                     timer_3s.restart();
                     numAnim1.restart();
                 }
-        }
+            }
 
-        RoundButton
-        {
-            id: rulerButton
-            icon.source: "qrc:/ui-resources/white/ruler.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            z: 100
-            anchors.right: panImageButton.left
-            anchors.verticalCenter: panImageButton.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 20
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked:
+            RoundButton
             {
-                if(r_currentstate !== 0) { r_currentstate = 1;
-                    clearRuler(); } else {
-                    r_currentstate = 1;
+                id: rulerButton
+                icon.source: "qrc:/ui-resources/white/ruler.png"
+                icon.color: "white"
+                icon.width: 32
+                icon.height: 32
+                width: 40
+                height: 40
+                radius: 10
+                opacity: 1
+                z: 100
+                anchors.right: panImageButton.left
+                anchors.verticalCenter: panImageButton.verticalCenter
+                highlighted: true
+                flat: false
+                anchors.rightMargin: 20
+                hoverEnabled: true
+                enabled: true
+                display: AbstractButton.IconOnly
+                onClicked:
+                {
+                    if(r_currentstate !== 0) { r_currentstate = 1;
+                        clearRuler(); } else {
+                        r_currentstate = 1;
+                    }
                 }
             }
+            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { followPlane = true; cameraGrip.value = 0; } }
         }
-        Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { followPlane = true; cameraGrip.value = 0; } }
     }
-}
+    Connections {
+        target: FTelemetry
+        function onLatitudeChanged() { console.log(FTelemetry.latitude); }
+        function onLongitudeChanged() { console.log(FTelemetry.longitude); }
+        function onSpeedChanged() { console.log(FTelemetry.speed); }
+        function onElevationChanged() { console.log(FTelemetry.elevation); }
+        function onSatsChanged() { console.log(FTelemetry.sats); }
+    }
+
 }
 
 

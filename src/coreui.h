@@ -7,6 +7,10 @@
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QRect>
+#include <QScopedPointer>
+
+//qml types
+#include "backend/ftelemetry.h"
 
 
 #include "extension.h"
@@ -56,6 +60,7 @@ public slots:
     //utility public slots
     void Connected();
     void Disconnected();
+    void WriteSampleDebugLog(); //delme
 
     //gui public slots
     void setPushButton_goLeftEnabled(bool state);
@@ -78,6 +83,9 @@ private:
     LinkerQML *linker;
     TCPDownloader *downloader;
     QQuickItem* qml;
+
+    //qml types
+    FTelemetry* fTelemetry;
 
     //timers
     QTimer *timer;

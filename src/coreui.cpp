@@ -1,9 +1,6 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
-//qml types
-#include "backend/ftelemetry.h"
-
 CoreUI* CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
 CoreUI::CoreUI(QWidget *parent)
@@ -70,6 +67,11 @@ void CoreUI::Disconnected()
 {
     connected = false;
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
+}
+
+void CoreUI::WriteSampleDebugLog()
+{
+    qCritical()<<"SAMPLE";
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -204,8 +206,8 @@ void CoreUI::InitializeConnections()
         Debug::Log("![STARTUP] Program is running in test mode!");
 
     //qml types declaration
-    QScopedPointer<FTelemetry> fTelemetry(new FTelemetry);
-    qmlRegisterSingletonInstance("FModel", 1, 0, "Telemetry", fTelemetry.get());
+    fTelemetry = new FTelemetry();
+    ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
 
     //network setup
     udpRemote = new UDPRemote();
@@ -256,7 +258,6 @@ void CoreUI::InitializeConnections()
     Debug::Log("[STARTUP] Connections set up successfully");
 
     //execute any other startup code here
-
 }
 
 void CoreUI::InitializeDockwidgets()
@@ -352,6 +353,11 @@ void CoreUI::ReadUDPData(QByteArray data)
         Connected();
     } else { Disconnected(); }
     _conckc = telemetry[0];
+    fTelemetry->setLatitude((float)telemetry[0]);
+    fTelemetry->setLongitude((float)telemetry[1]);
+    fTelemetry->setSpeed((float)telemetry[2]);
+    fTelemetry->setElevation((float)telemetry[3]);
+    fTelemetry->setSats((short)telemetry[4]);
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3], (int)telemetry[4]);
     linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
 }

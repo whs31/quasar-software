@@ -18,10 +18,10 @@ Rectangle {
     Material.theme: Material.Dark
     Material.accent: "#929292"
     Material.primary: "#008CCC"
-
     property color accentDark: "#616161";
     property color primaryLight: "#00B5EB";
     property color primarySuperLight: "#97E3EE";
+    property color yellowColor: "#F6C413";
 
     layer.enabled: true
     layer.samples: 4
@@ -59,7 +59,23 @@ Rectangle {
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
     property int fc: 0;
 
-    //called every C_UPDATETIME (0.5 s default)
+    //===========================================================================================================================================================================================
+     //===========================================================================================================================================================================================
+
+    //called on map component initialized
+    function awake()
+    {
+        mapView.addMapItem(planeMapItem);
+    }
+
+    //called right after awake
+    function start()
+    {
+        zoomSlider.value = 1 - (mapView.zoomLevel / 18);
+        tiltSlider.value = 1 - (mapView.tilt / 45);
+    }
+
+    //called every fixed time (0.5 s default)           call time equals to C_UPDATETIME in sconfig
     function fixedUpdate()
     {
         //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
@@ -73,11 +89,18 @@ Rectangle {
         onGUI();
     }
 
+    //called after fixedupdate
     function onGUI()
     {
-        elevationText.text = Number(FTelemetry.elevation).toFixed(0);
+        latitudeText.text = Number(FTelemetry.latitude).toFixed(7)+"°"; //make it onXXXchanged()
+        longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°"; //make it onXXXchanged()
+        elevationText.text = Number(FTelemetry.elevation).toFixed(0); //make it onXXXchanged()
         speedText.text = Number(FTelemetry.speed).toFixed(1); //make it onXXXchanged()
     }
+
+    //===========================================================================================================================================================================================
+     //===========================================================================================================================================================================================
+
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
     {
@@ -352,12 +375,7 @@ Rectangle {
         zoomLevel: 9; //make defaults
         copyrightsVisible: false
 
-        Component.onCompleted:
-        {
-            mapView.addMapItem(planeMapItem);
-            zoomSlider.value = 1 - (mapView.zoomLevel / 18);
-            tiltSlider.value = 1 - (mapView.tilt / 45);
-        }
+        Component.onCompleted: { awake(); start(); }
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
@@ -599,19 +617,19 @@ Rectangle {
             id: speedElvRect
             y: 62
             width: 200
-            height: 40
-            opacity: 0.9
+            height: 25
+            opacity: 0.8
             visible: true
             radius: 18
             color: Material.accent;
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 50
+            anchors.bottom: latLonRect.top
+            anchors.bottomMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: speedText
-                color: primarySuperLight;
-                anchors.verticalCenter: parent.verticalCenter
+                color: "#FFFFFF";
+                anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: parent.left
                 font.bold: true
                 textFormat: Text.RichText
@@ -620,16 +638,16 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#FFFFFF"
-                anchors.verticalCenter: parent.verticalCenter
+                color: "#FAFAFA"
+                anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
                 text: qsTr("км/ч")
             }
             Text {
                 id: elevationText
-                color: primarySuperLight;
-                anchors.verticalCenter: parent.verticalCenter
+                color: "#FFFFFF";
+                anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: elevationTextTT.left
                 horizontalAlignment: Text.AlignRight
                 font.bold: true
@@ -639,8 +657,8 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#FFFFFF";
-                anchors.verticalCenter: parent.verticalCenter
+                color: "#FAFAFA";
+                anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight
                 anchors.rightMargin: 30
@@ -648,12 +666,47 @@ Rectangle {
             }
         }
 
+        Rectangle {
+            id: latLonRect
+            width: 120
+            height: 40
+            opacity: 0.8
+            visible: true
+            radius: 15
+            color: Material.accent;
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+            z: 100
+            Text {
+                id: latitudeText
+                color: "#FFFFFF";
+                anchors.horizontalCenter: parent.horizontalCenter;
+                anchors.top: parent.top
+                font.bold: true
+                textFormat: Text.RichText
+                anchors.topMargin: 5
+                text: qsTr("-------")
+            }
+            Text {
+                id: longitudeText
+                color: "#FFFFFF";
+                anchors.horizontalCenter: parent.horizontalCenter;
+                anchors.bottom: parent.bottom
+                font.bold: true
+                textFormat: Text.RichText
+                anchors.bottomMargin: 5
+                text: qsTr("-------")
+            }
+
+        }
+
         ProgressBar {
             id: cameraGrip;
             opacity: 0.25;
-            anchors.top: speedElvRect.bottom;
-            anchors.left: speedElvRect.left;
-            anchors.right: speedElvRect.right;
+            anchors.top: latLonRect.bottom;
+            anchors.left: latLonRect.left;
+            anchors.right: latLonRect.right;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: 40;
             anchors.rightMargin: 40;
@@ -667,7 +720,6 @@ Rectangle {
                 to: 3000
                 duration: 3000
             }
-
         }
 
         //---------------tilt slider-------------------

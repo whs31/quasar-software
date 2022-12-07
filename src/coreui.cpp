@@ -44,7 +44,7 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
         else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Failure, true)); }
         else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::CriticalFailure, true)); }
             QFont consoleFont = ui->debugConsole->font();
-            consoleFont.setPointSize(7);
+            consoleFont.setPointSize(8);
         ui->debugConsole->insertPlainText(_text);
         ui->debugConsole->setTextColor(Qt::white);
         ui->debugConsole->setFont(consoleFont);

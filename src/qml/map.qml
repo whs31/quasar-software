@@ -16,8 +16,12 @@ Rectangle {
         id: invoker
     }*/
     Material.theme: Material.Dark
-    Material.accent: "#9191a9"
-    Material.primary: "#00e1e7"
+    Material.accent: "#929292"
+    Material.primary: "#008CCC"
+
+    property color accentDark: "#616161";
+    property color primaryLight: "#00B5EB";
+    property color primarySuperLight: "#97E3EE";
 
     layer.enabled: true
     layer.samples: 4
@@ -548,7 +552,7 @@ Rectangle {
                 anchors.fill: overlayPlane
                 radius: 5;
                 samples: 17
-                color: "#81eff4"
+                color: primaryLight;
                 spread: 0.5;
                 transparentBorder: true;
                 source: overlayPlane
@@ -568,14 +572,14 @@ Rectangle {
             z: 12
             Rectangle {
                 id: tooltip
-                color: "#23243b";
+                color: accentDark;
                 width: 156
                 height: 15
                 radius: 1
                 opacity: 0.75
                 Text {
                     id: cursorTooltipText
-                    color: "#EDE7F6";
+                    color: "#F2F2F2";
                     enabled: false
                     anchors.fill: parent
                     leftPadding: 8
@@ -595,14 +599,14 @@ Rectangle {
             opacity: 0.9
             visible: true
             radius: 18
-            color: "#23243b";
+            color: Material.accent;
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 50
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: speedText
-                color: Material.primary;
+                color: primarySuperLight;
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: parent.left
                 font.bold: true
@@ -612,7 +616,7 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#EDE7F6"
+                color: "#FFFFFF"
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
@@ -620,7 +624,7 @@ Rectangle {
             }
             Text {
                 id: elevationText
-                color: Material.primary;
+                color: primarySuperLight;
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: elevationTextTT.left
                 horizontalAlignment: Text.AlignRight
@@ -631,7 +635,7 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#EDE7F6";
+                color: "#FFFFFF";
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight

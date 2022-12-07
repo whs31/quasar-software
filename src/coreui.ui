@@ -25,7 +25,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget {
@@ -220,7 +220,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }
 
 QMainWindow::separator {
-  background-color: #FAFAFA;
+  background-color: #929292;
   border: 0px solid #FAFAFA;
   spacing: 0px;
   padding: 0px;
@@ -408,16 +408,16 @@ QMenu::right-arrow {
   <widget class="QWidget" name="mapContainer">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="topMargin">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="rightMargin">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="bottomMargin">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="spacing">
      <number>0</number>
@@ -438,7 +438,7 @@ QMenu::right-arrow {
       </property>
       <property name="font">
        <font>
-        <family>Sans Serif</family>
+        <family>Arial</family>
         <pointsize>10</pointsize>
        </font>
       </property>
@@ -470,20 +470,20 @@ QMenu::right-arrow {
    </property>
    <property name="font">
     <font>
-     <family>Sans Serif</family>
+     <family>Arial</family>
      <pointsize>10</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #2a2c39;
+  background-color: #313131;
 }
 
 DockWidget {
-  outline: 1px solid #C9CDD0;
-  background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  outline: 1px solid #929292;
+  background-color: #929292;
+  border: 1px solid #929292;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -494,7 +494,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget::close-button {
@@ -799,23 +799,23 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea">
        <property name="font">
         <font>
-         <family>Sans Serif</family>
+         <family>Arial</family>
          <pointsize>10</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QAbstractScrollArea {
-  background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  background-color: #313131;
+  border: 1px solid #313131;
   border-radius: 4px;
   /* fix #159 */
   padding: 2px;
   /* remove min-height to fix #244 */
-  color: #19232D;
+  color: #313131;
 }
 
 QAbstractScrollArea:disabled {
-  color: #788D9C;
+  color: #313131;
 }</string>
        </property>
        <property name="frameShape">
@@ -871,7 +871,7 @@ QAbstractScrollArea:disabled {
           <widget class="QLabel" name="label_c_foundImages">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>9</pointsize>
              <bold>false</bold>
             </font>
@@ -913,13 +913,13 @@ QLabel:disabled {
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -1009,13 +1009,13 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #00db86;
+  background-color: #75866D;
   color: #fafafc;
   border-radius: 4px;
   padding: 2px;
@@ -1051,12 +1051,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #00eca0;
+  background-color: #9FBC9C;
   color: #fafafc;
 }
 
 QPushButton:pressed {
-  background-color: #00c36b;
+  background-color: #465041;
   color: #fafafc;
 }
 
@@ -1098,7 +1098,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -1151,13 +1151,13 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-  background-color: #535771;
+  background-color: #616161;
   color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
@@ -1166,7 +1166,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1243,14 +1243,14 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #616161;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1258,7 +1258,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1266,7 +1266,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1335,14 +1335,14 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #616161;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1350,7 +1350,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1358,7 +1358,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1418,14 +1418,14 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>10</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">.QFrame {
   border-radius: 4px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #616161;
   /* No frame */
   /* HLine */
   /* HLine */
@@ -1433,7 +1433,7 @@ QDialogButtonBox QPushButton {
 
 .QFrame[frameShape=&quot;0&quot;] {
   border-radius: 4px;
-  border: 1px transparent #C9CDD0;
+  border: 1px transparent #616161;
 }
 
 .QFrame[frameShape=&quot;4&quot;] {
@@ -1453,14 +1453,14 @@ QDialogButtonBox QPushButton {
              <widget class="QFrame" name="frame_3">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>10</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">.QFrame {
   border-radius: 4px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #616161;
   /* No frame */
   /* HLine */
   /* HLine */
@@ -1468,7 +1468,7 @@ QDialogButtonBox QPushButton {
 
 .QFrame[frameShape=&quot;0&quot;] {
   border-radius: 4px;
-  border: 1px transparent #C9CDD0;
+  border: 1px transparent #616161;
 }
 
 .QFrame[frameShape=&quot;4&quot;] {
@@ -1509,13 +1509,13 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: #535771;
+  background-color: #616161;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -1587,7 +1587,7 @@ QDialogButtonBox QPushButton {
                 <widget class="QLabel" name="label_c_currentImage">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
@@ -1597,7 +1597,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1605,7 +1605,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1637,13 +1637,13 @@ QLabel:disabled {
                  </property>
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
-  background-color: #535771;
+  background-color: #616161;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -1727,7 +1727,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -1735,7 +1735,7 @@ QDialogButtonBox QPushButton {
            <property name="styleSheet">
             <string notr="true">QGroupBox {
   font-weight: bold;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #616161;
   border-radius: 4px;
   padding: 2px;
   margin-top: 6px;
@@ -1808,14 +1808,14 @@ QGroupBox::indicator:checked:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">.QFrame {
   border-radius: 4px;
-  border: 1px solid #535771;
+  border: 1px solid #555555;
   /* No frame */
   /* HLine */
   /* HLine */
@@ -1823,7 +1823,7 @@ QGroupBox::indicator:checked:disabled {
 
 .QFrame[frameShape=&quot;0&quot;] {
   border-radius: 4px;
-  border: 1px transparent #C9CDD0;
+  border: 1px transparent #616161;
 }
 
 .QFrame[frameShape=&quot;4&quot;] {
@@ -1867,7 +1867,7 @@ QGroupBox::indicator:checked:disabled {
                 <widget class="QLabel" name="label_d_metaLY">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -1878,7 +1878,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1886,7 +1886,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1900,7 +1900,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDx">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -1910,7 +1910,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1918,7 +1918,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1938,7 +1938,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDx">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -1949,7 +1949,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1957,7 +1957,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1971,7 +1971,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaAngle">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -1981,7 +1981,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1989,7 +1989,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2003,7 +2003,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaChecksum">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2013,7 +2013,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2021,7 +2021,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2035,7 +2035,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaLX">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2046,7 +2046,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2054,7 +2054,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2068,7 +2068,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDy">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2078,7 +2078,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2086,7 +2086,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2106,7 +2106,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDAngle">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2116,7 +2116,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2124,7 +2124,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2141,7 +2141,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaY0">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2151,7 +2151,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2159,7 +2159,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2179,7 +2179,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaX0">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2189,7 +2189,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2197,7 +2197,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2217,7 +2217,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDAngle">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2227,7 +2227,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2235,7 +2235,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2249,7 +2249,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaX0">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2260,7 +2260,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2268,7 +2268,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2282,7 +2282,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaAngle">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2292,7 +2292,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2300,7 +2300,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2320,7 +2320,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaY0">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2331,7 +2331,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2339,7 +2339,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2353,7 +2353,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDy">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2364,7 +2364,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2372,7 +2372,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2386,7 +2386,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaChecksum">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2396,7 +2396,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2404,7 +2404,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2421,7 +2421,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDiv">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2431,7 +2431,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2439,7 +2439,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2453,7 +2453,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaLX">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2463,7 +2463,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2471,7 +2471,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2488,7 +2488,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaLY">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2498,7 +2498,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2506,7 +2506,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2523,7 +2523,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDiv">
                  <property name="font">
                   <font>
-                   <family>Sans Serif</family>
+                   <family>Arial</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2533,7 +2533,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2541,7 +2541,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2561,7 +2561,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaLat">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -2572,7 +2572,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2580,7 +2580,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2621,7 +2621,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <italic>true</italic>
                 <bold>true</bold>
@@ -2633,7 +2633,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2641,7 +2641,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2673,7 +2673,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaTime">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -2684,7 +2684,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2692,7 +2692,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2712,7 +2712,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaLon">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -2722,7 +2722,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2730,7 +2730,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2744,7 +2744,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaLat">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -2754,7 +2754,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2762,7 +2762,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2776,7 +2776,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaTime">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <bold>false</bold>
                </font>
@@ -2787,7 +2787,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2795,7 +2795,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2814,7 +2814,7 @@ QLabel:disabled {
                <widget class="QLabel" name="label_d_metaFilename">
                 <property name="font">
                  <font>
-                  <family>Sans Serif</family>
+                  <family>Arial</family>
                   <pointsize>8</pointsize>
                   <bold>true</bold>
                  </font>
@@ -2825,7 +2825,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2833,7 +2833,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2847,7 +2847,7 @@ QLabel:disabled {
                <widget class="QLabel" name="label_c_metaFilename">
                 <property name="font">
                  <font>
-                  <family>Sans Serif</family>
+                  <family>Arial</family>
                   <pointsize>8</pointsize>
                   <bold>true</bold>
                  </font>
@@ -2858,7 +2858,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2866,7 +2866,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2914,7 +2914,7 @@ QLabel:disabled {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Sans Serif</family>
+                  <family>Arial</family>
                   <pointsize>9</pointsize>
                  </font>
                 </property>
@@ -3001,7 +3001,7 @@ QDialogButtonBox QPushButton {
                <widget class="QLabel" name="label_d_showFullInfo">
                 <property name="font">
                  <font>
-                  <family>Sans Serif</family>
+                  <family>Arial</family>
                   <pointsize>8</pointsize>
                   <bold>false</bold>
                  </font>
@@ -3012,7 +3012,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3020,7 +3020,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3036,7 +3036,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaLon">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -3047,7 +3047,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3055,7 +3055,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3081,7 +3081,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -3092,7 +3092,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3100,7 +3100,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3114,7 +3114,7 @@ QLabel:disabled {
              <spacer name="verticalSpacer_3">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -3139,13 +3139,13 @@ QLabel:disabled {
           <widget class="QPushButton" name="pushButton_clearCache">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
             </font>
            </property>
            <property name="styleSheet">
             <string notr="true">QPushButton {
-  background-color: #ff5c5c;
+  background-color: #a24c4c;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -3181,12 +3181,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #ff8181;
+  background-color: #FFA8A8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #ff3737;
+  background-color: #CB5F5F;
   color: #23243b;
 }
 
@@ -3219,7 +3219,7 @@ QDialogButtonBox QPushButton {
           <spacer name="verticalSpacer">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -3257,19 +3257,19 @@ QDialogButtonBox QPushButton {
    <property name="maximumSize">
     <size>
      <width>524287</width>
-     <height>100</height>
+     <height>69</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <family>Sans Serif</family>
+     <family>Arial</family>
      <pointsize>10</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #2a2c39;
+  background-color: #313131;
 }
 
 DockWidget {
@@ -3286,7 +3286,7 @@ QDockWidget::title {
   padding: 0px;
   spacing: 4px;
   border: none;
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget::close-button {
@@ -3608,14 +3608,15 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          </property>
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>8</pointsize>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #9191a9;
-  color: #fafafc;
+  background-color: #929292;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3623,7 +3624,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
 }
 
 QPushButton:disabled {
-  background-color: #535771;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -3631,7 +3632,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3650,13 +3651,13 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #fafafc;
+  background-color: #D8d8d8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #9191a9;
+  color: #23243b;
 }
 
 QPushButton:selected {
@@ -3694,13 +3695,14 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #9191a9;
-  color: #fafafc;
+  background-color: #929292;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3708,7 +3710,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #535771;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -3716,7 +3718,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3735,13 +3737,13 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #fafafc;
+  background-color: #D8d8d8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #9191a9;
+  color: #23243b;
 }
 
 QPushButton:selected {
@@ -3788,6 +3790,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -3796,7 +3799,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #ff5c5c;
+  background-color: #a24c4c;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -3832,12 +3835,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #ff8181;
+  background-color: #FFA8A8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #ff3737;
+  background-color: #CB5F5F;
   color: #23243b;
 }
 
@@ -3864,6 +3867,11 @@ QDialogButtonBox QPushButton {
        </item>
        <item>
         <spacer name="horizontalSpacer">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+          </font>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -3879,13 +3887,13 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_clearTrack">
          <property name="font">
           <font>
-           <family>Sans Serif</family>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #ff5c5c;
+  background-color: #a24c4c;
   color: #D8d8d8;
   border-radius: 4px;
   padding: 2px;
@@ -3921,12 +3929,12 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #ff8181;
+  background-color: #FFA8A8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #ff3737;
+  background-color: #CB5F5F;
   color: #23243b;
 }
 
@@ -3974,14 +3982,14 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Sans Serif</family>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #616161;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3989,7 +3997,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -3997,7 +4005,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4066,14 +4074,14 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Sans Serif</family>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #616161;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4081,7 +4089,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4089,7 +4097,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4158,14 +4166,14 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Sans Serif</family>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #616161;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4173,7 +4181,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4181,7 +4189,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4246,6 +4254,11 @@ QDialogButtonBox QPushButton {
       <layout class="QHBoxLayout" name="secondRow">
        <item>
         <spacer name="horizontalSpacer_2">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+          </font>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -4261,13 +4274,14 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_showMapToolsDock">
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #9191a9;
-  color: #fafafc;
+  background-color: #929292;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4275,7 +4289,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #535771;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4283,7 +4297,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4302,13 +4316,13 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #fafafc;
+  background-color: #D8d8d8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #9191a9;
+  color: #23243b;
 }
 
 QPushButton:selected {
@@ -4340,13 +4354,14 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_showDebugConsoleDock">
          <property name="font">
           <font>
+           <family>Arial</family>
            <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #9191a9;
-  color: #fafafc;
+  background-color: #929292;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4354,7 +4369,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #535771;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4362,7 +4377,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -4381,13 +4396,13 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #fafafc;
+  background-color: #D8d8d8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #9191a9;
+  color: #23243b;
 }
 
 QPushButton:selected {
@@ -4447,20 +4462,20 @@ QDialogButtonBox QPushButton {
    </property>
    <property name="font">
     <font>
-     <family>Sans Serif</family>
+     <family>Arial</family>
      <pointsize>8</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #2a2c39;
+  background-color: #313131;
 }
 
 DockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #313131;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #313131;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -4471,7 +4486,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget::close-button {
@@ -4791,8 +4806,9 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="font">
         <font>
-         <family>Sans Serif</family>
+         <family>Consolas</family>
          <pointsize>8</pointsize>
+         <bold>false</bold>
         </font>
        </property>
        <property name="cursor" stdset="0">
@@ -4803,7 +4819,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit {
-  background-color: #181624;
+  background-color: #313131;
   color: #19232D;
   border-radius: 4px;
   border: 1px solid #C9CDD0;
@@ -4830,6 +4846,9 @@ QTextEdit:selected {
        <property name="documentTitle">
         <string/>
        </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
@@ -4844,20 +4863,20 @@ QTextEdit:selected {
    </property>
    <property name="font">
     <font>
-     <family>Sans Serif</family>
+     <family>Arial</family>
      <pointsize>10</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #2a2c39;
+  background-color: #313131;
 }
 
 DockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #313131;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #313131;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -4868,7 +4887,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget::close-button {
@@ -5173,7 +5192,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea_2">
        <property name="font">
         <font>
-         <family>Sans Serif</family>
+         <family>Arial</family>
          <pointsize>10</pointsize>
         </font>
        </property>
@@ -5212,7 +5231,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <widget class="QGroupBox" name="groupBox">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -5220,7 +5239,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
            <property name="styleSheet">
             <string notr="true">QGroupBox {
   font-weight: bold;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #616161;
   border-radius: 4px;
   padding: 2px;
   margin-top: 6px;
@@ -5281,7 +5300,7 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_connectionstatus">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>9</pointsize>
                 <bold>false</bold>
                 <strikeout>false</strikeout>
@@ -5293,7 +5312,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5301,7 +5320,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5330,14 +5349,14 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-  background-color: #9191a9;
-  color: #fafafc;
+  background-color: #929292;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -5345,7 +5364,7 @@ QLabel:disabled {
 }
 
 QPushButton:disabled {
-  background-color: #535771;
+  background-color: #313131;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -5353,7 +5372,7 @@ QPushButton:disabled {
 
 QPushButton:checked {
   background-color: #Bebebf;
-  color: #23243b;
+  color: #FFFFFF;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -5372,13 +5391,13 @@ QPushButton:checked:selected {
 }
 
 QPushButton:hover {
-  background-color: #fafafc;
+  background-color: #D8d8d8;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
-  color: #D8d8d8;
+  background-color: #9191a9;
+  color: #23243b;
 }
 
 QPushButton:selected {
@@ -5422,7 +5441,7 @@ QDialogButtonBox QPushButton {
              <widget class="QLabel" name="label_c_sarip">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5432,7 +5451,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5440,7 +5459,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5454,7 +5473,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_loaderip">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5464,7 +5483,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5472,7 +5491,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5502,11 +5521,16 @@ QLabel:disabled {
              <height>20</height>
             </size>
            </property>
+           <property name="font">
+            <font>
+             <family>Arial</family>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QProgressBar {
-  background-color: #535771;
-  border: 1px solid #C9CDD0;
-  color: #9191a9;
+  background-color: #616161;
+  border: 1px solid #616161;
+  color: #C2C2C2;
   border-radius: 4px;
   text-align: center;
 }
@@ -5514,13 +5538,13 @@ QLabel:disabled {
 QProgressBar:disabled {
   background-color: #23243b;
   border: 1px solid #C9CDD0;
-  color: #788D9C;
+  color: #C2C2C2;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar::chunk {
-  background-color: #D8d8d8;
+  background-color: #C2C2C2;
   color: #23243b;
   border-radius: 4px;
 }
@@ -5540,7 +5564,7 @@ QProgressBar::chunk:disabled {
           <widget class="QLabel" name="label_c_satcount">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -5550,7 +5574,7 @@ QProgressBar::chunk:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5558,7 +5582,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5572,7 +5596,7 @@ QLabel:disabled {
           <widget class="QGroupBox" name="groupBox_Loader">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -5580,7 +5604,7 @@ QLabel:disabled {
            <property name="styleSheet">
             <string notr="true">QGroupBox {
   font-weight: bold;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #616161;
   border-radius: 4px;
   padding: 2px;
   margin-top: 6px;
@@ -5641,7 +5665,7 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_loaderStatus">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5651,7 +5675,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5659,7 +5683,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #2a2c39;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5676,29 +5700,29 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QProgressBar {
-  background-color: #535771;
-  border: 1px solid #C9CDD0;
-  color: #9191a9;
+  background-color: #616161;
+  border: 1px solid #616161;
+  color: #C2C2C2;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar:disabled {
-  background-color: #FAFAFA;
+  background-color: #23243b;
   border: 1px solid #C9CDD0;
-  color: #788D9C;
+  color: #C2C2C2;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar::chunk {
-  background-color: #D8d8d8;
+  background-color: #C2C2C2;
   color: #23243b;
   border-radius: 4px;
 }
@@ -5721,7 +5745,7 @@ QProgressBar::chunk:disabled {
           <spacer name="verticalSpacer_2">
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -5762,12 +5786,17 @@ QProgressBar::chunk:disabled {
      <height>24</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  background-color: #9191a9;
+  background-color: #929292;
 }
 QMainWindow::separator {
-  background-color: #9191a9;
+  background-color: #929292;
   border: 0px solid #FAFAFA;
   spacing: 0px;
   padding: 0px;
@@ -5797,6 +5826,14 @@ QMainWindow::separator {
          <width>18</width>
          <height>18</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -5828,6 +5865,7 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
+         <family>Arial</family>
          <bold>true</bold>
         </font>
        </property>
@@ -5843,6 +5881,11 @@ QMainWindow::separator {
      </item>
      <item>
       <spacer name="horizontalSpacer_4">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -5868,9 +5911,14 @@ QMainWindow::separator {
          <height>16</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #9191a9;
+  background-color: #929292;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -5915,9 +5963,14 @@ QPushButton:pressed {
          <height>16</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #9191a9;
+  background-color: #929292;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -5950,6 +6003,11 @@ QPushButton:pressed {
      </item>
      <item>
       <spacer name="horizontalSpacer_6">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -5984,9 +6042,14 @@ QPushButton:pressed {
          <height>16</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #9191a9;
+  background-color: #929292;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -6031,9 +6094,14 @@ QPushButton:pressed {
          <height>16</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #9191a9;
+  background-color: #929292;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -6084,6 +6152,11 @@ QPushButton:pressed {
          <height>16</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
   background-color: #FF5252;
@@ -6130,10 +6203,15 @@ QPushButton:pressed {
      <height>63</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #2a2c39;
+  background-color: #313131;
 }
 
 DockWidget {
@@ -6150,7 +6228,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #9191a9;
+  background-color: #929292;
 }
 
 QDockWidget::close-button {
@@ -6456,6 +6534,11 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
      </property>
      <item>
       <widget class="QScrollArea" name="scrollArea_3">
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -6465,7 +6548,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>258</width>
-          <height>152</height>
+          <height>154</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -6494,7 +6577,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
            </property>
            <property name="font">
             <font>
-             <family>Sans Serif</family>
+             <family>Arial</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -6545,13 +6628,13 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
              <widget class="QCheckBox" name="checkBox">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6632,13 +6715,13 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <widget class="QCheckBox" name="checkBox_drawTooltip">
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6725,13 +6808,13 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6818,13 +6901,13 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6923,13 +7006,13 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Sans Serif</family>
+                <family>Arial</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #2a2c39;
+  background-color: #313131;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -7011,6 +7094,11 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
             </item>
             <item>
              <spacer name="verticalSpacer_4">
+              <property name="font">
+               <font>
+                <family>Arial</family>
+               </font>
+              </property>
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>

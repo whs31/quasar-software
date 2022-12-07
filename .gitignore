@@ -1,3 +1,6 @@
+# VS code cache
+.vscode*
+
 # Python cache and images
 /!utilities/fsend/__pycache__
 /!utilities/fsend/*.jpg

@@ -5,6 +5,7 @@
 #include <QTimer>
 #include <QQmlEngine>
 #include <QQmlContext>
+#include <QRect>
 
 
 #include "extension.h"
@@ -22,6 +23,11 @@
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 
+// #define MAPTOOLS_WIDTH 120
+// #define MAPTOOLS_HEIGHT 70
+// #define DEBUG_WIDTH 250
+// #define DEBUG_HEIGHT 150
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
@@ -35,6 +41,7 @@ public:
     ~CoreUI();
     //static public methods
     static CoreUI* getDebugPointer(void);
+    static QRect screenResolution;
 
     //public methods
     void debugStreamUpdate(QString _text, int msgtype);
@@ -88,6 +95,7 @@ private:
     //private methods
     void InitializeUI();
     void InitializeConnections();
+    void InitializeDockwidgets();
     void SendRemoteCommand(QString command);
 
 private slots:
@@ -122,5 +130,7 @@ private slots:
     void on_pushButton_formSingleImage_clicked();
     void on_pushButton_launchContinuous_clicked();
     void on_pushButton_stopContinuous_clicked();
+    void on_pushButton_showDebugConsoleDock_clicked();
+    void on_pushButton_showMapToolsDock_clicked();
 };
 #endif // COREUI_H

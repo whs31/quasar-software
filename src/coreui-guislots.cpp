@@ -115,4 +115,30 @@ void CoreUI::on_pushButton_stopContinuous_clicked()
 {
 
 }
+
+
+void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
+{
+    if(SConfig::DEBUGCONSOLE)
+    {
+        bool state = ui->debugConsoleDock->isEnabled();
+        state = !state;
+        ui->debugConsoleDock->setEnabled(state);
+        ui->debugConsoleDock->setVisible(state);
+        ui->debugConsole->adjustSize();
+        ui->debugConsoleDock->adjustSize();
+    } else {
+        //throw password window =)
+    }
+}
+
+
+void CoreUI::on_pushButton_showMapToolsDock_clicked()
+{
+    bool state = ui->mapSettingsDock->isEnabled();
+    state = !state;
+    ui->mapSettingsDock->setEnabled(state);
+    ui->mapSettingsDock->setVisible(state);
+    ui->mapSettingsDock->adjustSize();
+}
 //************************************************************************************************************************************************************************************************************

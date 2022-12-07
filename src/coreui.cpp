@@ -2,11 +2,13 @@
 #include "ui_coreui.h"
 
 CoreUI* CoreUI::debugPointer;
+QRect CoreUI::screenResolution;
 CoreUI::CoreUI(QWidget *parent)
     : QGoodWindow(parent)
     , ui(new Ui::CoreUI)
 {
     debugPointer = this;
+    screenResolution = QApplication::desktop()->availableGeometry();
     //log clear
     for(short i = 0; i < 25; i++)
     {
@@ -125,10 +127,6 @@ void CoreUI::updateProgress(float f)
 }
 void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount)
 {
-    ui->label_c_telemetrylat->setText(Style::StyleText(QString::number(lat, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainShade900, Format::Complicated, "b-sup"));
-    ui->label_c_telemetrylon->setText(Style::StyleText(QString::number(lon, 'f', 7), Colors::Main, Format::Bold)+Style::StyleText("°", Colors::MainShade900, Format::Complicated, "b-sup"));
-    ui->label_c_telemetryspd->setText(Style::StyleText(QString::number(speed, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("км/ч", Colors::MainShade900, Format::Complicated, "b-sup"));
-    ui->label_c_telemetryelv->setText(Style::StyleText(QString::number(elevation, 'f', 1), Colors::Main, Format::Bold)+Style::StyleText("м", Colors::MainShade900, Format::Complicated, "b-sup"));
     ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -137,12 +135,12 @@ void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elev
 void CoreUI::InitializeUI()
 {
     ui->setupUi(this);
-    setMargins(19, 0, 0, 76);
+    setMargins(25, 0, 0, 150);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
     ui->map->rootContext()->setContextProperty("ApplicationDirPath", QString(QCoreApplication::applicationDirPath()));
-    ui->map->setSource(QUrl("qrc:/qml/map.qml")); // where the MyContainer comp is a simple plain Item {}
+    ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
     qml = ui->map->rootObject();
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
@@ -172,6 +170,8 @@ void CoreUI::InitializeUI()
             openSSLDialogue.setText("Попробуйте переустановить программу.");
             openSSLDialogue.exec();
         }
+    InitializeDockwidgets();
+        
 }
 
 void CoreUI::InitializeConnections()
@@ -196,10 +196,6 @@ void CoreUI::InitializeConnections()
         connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)),
                            this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)));
         connect(imageProcessing, SIGNAL(enableImageBar(bool)), this, SLOT(enableImageBar(bool)));
-
-    ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE);
-    ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
-
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
@@ -225,6 +221,24 @@ void CoreUI::InitializeConnections()
     Debug::Log("[STARTUP] Connections set up successfully");
     //execute any startup code here
     imageProcessing->InitialScan();
+}
+
+void CoreUI::InitializeDockwidgets()
+{
+    //чтобы все работало, надо их показать и тут же скрыть.
+    ui->debugConsoleDock->setEnabled(true);
+    ui->debugConsoleDock->setVisible(true);
+    ui->debugConsoleDock->adjustSize();
+    ui->debugConsoleDock->move(screenResolution.width()/4, screenResolution.height()/3);
+    ui->debugConsoleDock->setEnabled(false);
+    ui->debugConsoleDock->setVisible(false);
+    
+    ui->mapSettingsDock->setEnabled(true);
+    ui->mapSettingsDock->setVisible(true);
+    ui->mapSettingsDock->adjustSize();
+    ui->mapSettingsDock->move(screenResolution.width()/2, screenResolution.height()/4);
+    ui->mapSettingsDock->setEnabled(false);
+    ui->mapSettingsDock->setVisible(false);
 }
 
 void CoreUI::SendRemoteCommand(QString command)
@@ -274,7 +288,6 @@ void CoreUI::on_settingsButton_clicked()
         {
             imageProcessing->InitialScan();
         } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
-        ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
 
         SConfig::saveSettings();
     } else { SConfig::loadSettings(); }
@@ -312,4 +325,6 @@ void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (о
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 

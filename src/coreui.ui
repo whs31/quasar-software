@@ -477,7 +477,7 @@ QMenu::right-arrow {
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #23243b;
+  background-color: #2a2c39;
 }
 
 DockWidget {
@@ -919,7 +919,7 @@ QLabel:disabled {
            </property>
            <property name="styleSheet">
             <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -932,7 +932,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 
@@ -1166,7 +1166,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1258,7 +1258,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1350,7 +1350,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1524,7 +1524,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: 23243b;
+  background-color: 2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -1597,7 +1597,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1605,7 +1605,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1878,7 +1878,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1886,7 +1886,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1910,7 +1910,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1918,7 +1918,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1949,7 +1949,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1957,7 +1957,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -1981,7 +1981,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -1989,7 +1989,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2013,7 +2013,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2021,7 +2021,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2046,7 +2046,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2054,7 +2054,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2078,7 +2078,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2086,7 +2086,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2116,7 +2116,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2124,7 +2124,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2151,7 +2151,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2159,7 +2159,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2189,7 +2189,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2197,7 +2197,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2227,7 +2227,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2235,7 +2235,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2260,7 +2260,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2268,7 +2268,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2292,7 +2292,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2300,7 +2300,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2331,7 +2331,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2339,7 +2339,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2364,7 +2364,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2372,7 +2372,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2396,7 +2396,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2404,7 +2404,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2431,7 +2431,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2439,7 +2439,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2463,7 +2463,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2471,7 +2471,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2498,7 +2498,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2506,7 +2506,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2533,7 +2533,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2541,7 +2541,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2572,7 +2572,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2580,7 +2580,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2633,7 +2633,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2641,7 +2641,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2684,7 +2684,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2692,7 +2692,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2722,7 +2722,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2730,7 +2730,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2754,7 +2754,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2762,7 +2762,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2787,7 +2787,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2795,7 +2795,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2825,7 +2825,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2833,7 +2833,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -2858,7 +2858,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -2866,7 +2866,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3012,7 +3012,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3020,7 +3020,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3047,7 +3047,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3055,7 +3055,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3092,7 +3092,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -3100,7 +3100,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -3251,7 +3251,7 @@ QDialogButtonBox QPushButton {
    <property name="minimumSize">
     <size>
      <width>1175</width>
-     <height>66</height>
+     <height>69</height>
     </size>
    </property>
    <property name="maximumSize">
@@ -3269,7 +3269,7 @@ QDialogButtonBox QPushButton {
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #23243b;
+  background-color: #2a2c39;
 }
 
 DockWidget {
@@ -3989,7 +3989,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4081,7 +4081,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4173,7 +4173,7 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
@@ -4454,7 +4454,7 @@ QDialogButtonBox QPushButton {
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #23243b;
+  background-color: #2a2c39;
 }
 
 DockWidget {
@@ -4838,7 +4838,7 @@ QTextEdit:selected {
   <widget class="QDockWidget" name="networkDock">
    <property name="minimumSize">
     <size>
-     <width>251</width>
+     <width>260</width>
      <height>94</height>
     </size>
    </property>
@@ -4851,7 +4851,7 @@ QTextEdit:selected {
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #23243b;
+  background-color: #2a2c39;
 }
 
 DockWidget {
@@ -5189,7 +5189,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>260</width>
-          <height>314</height>
+          <height>283</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -5293,7 +5293,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5301,7 +5301,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5432,7 +5432,7 @@ QDialogButtonBox QPushButton {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5440,7 +5440,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5464,7 +5464,7 @@ QLabel:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5472,7 +5472,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -5651,7 +5651,7 @@ QGroupBox::indicator:checked:disabled {
 }
 
 Label {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
@@ -5659,7 +5659,7 @@ Label {
 }
 
 QLabel:disabled {
-  background-color: #23243b;
+  background-color: #2a2c39;
   border: 0px solid #C9CDD0;
   color: #Bebebf;
 }</string>
@@ -6133,7 +6133,7 @@ QPushButton:pressed {
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #23243b;
+  background-color: #2a2c39;
 }
 
 DockWidget {
@@ -6465,7 +6465,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>258</width>
-          <height>125</height>
+          <height>152</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -6551,7 +6551,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6564,7 +6564,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 
@@ -6638,7 +6638,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6651,7 +6651,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 
@@ -6731,7 +6731,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6744,7 +6744,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 
@@ -6824,7 +6824,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6837,7 +6837,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 
@@ -6929,7 +6929,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #23243b;
+  background-color: #2a2c39;
   color: #D8d8d8;
   spacing: 4px;
   outline: none;
@@ -6942,7 +6942,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #FAFAFA;
+  background-color: #2a2c39;
   color: #788D9C;
 }
 

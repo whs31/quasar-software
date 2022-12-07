@@ -7,12 +7,12 @@
 class FTelemetry : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float latitude READ latitude WRITE setLatitude NOTIFY latitudeChanged);
-    Q_PROPERTY(float longitude READ longitude WRITE setLongitude NOTIFY longitudeChanged);
-    Q_PROPERTY(float elevation READ elevation WRITE setElevation NOTIFY elevationChanged);
-    Q_PROPERTY(float speed READ speed WRITE setSpeed NOTIFY speedChanged);
-    Q_PROPERTY(int sats READ sats WRITE setSats NOTIFY satsChanged);
-    QML_ELEMENT
+    //Q_PROPERTY(float latitude READ latitude WRITE setLatitude NOTIFY latitudeChanged);
+    //Q_PROPERTY(float longitude READ longitude WRITE setLongitude NOTIFY longitudeChanged);
+    //Q_PROPERTY(float elevation READ elevation WRITE setElevation NOTIFY elevationChanged);
+    //Q_PROPERTY(float speed READ speed WRITE setSpeed NOTIFY speedChanged);
+    //Q_PROPERTY(int sats READ sats WRITE setSats NOTIFY satsChanged);
+    //QML_ELEMENT
 
 
 

@@ -21,7 +21,6 @@ endif()
 
 if(NOT WIN32)
     find_package(PkgConfig REQUIRED)
-    pkg_check_modules (GTK REQUIRED)
     pkg_check_modules (GTK2 REQUIRED gtk+-2.0)
 endif()
 
@@ -137,7 +136,6 @@ if(UNIX AND NOT ANDROID AND NOT APPLE)
 
     target_link_libraries(${executable_name}
         X11
-        ${GTK_LIBRARIES}
         ${GTK2_LIBRARIES}
     )
 endif()

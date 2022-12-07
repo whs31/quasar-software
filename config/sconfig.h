@@ -45,6 +45,8 @@ public:
     static QString LOADERIP;
     static QString LOADERPORT;
     static bool USEBASE64;
+    static bool METAANGLEINRADIANS;
+    static float METAANGLECORRECTION;
 
 signals:
 

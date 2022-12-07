@@ -27,14 +27,17 @@ bool SConfig::SAVEATEND;
 QString SConfig::LOADERIP;
 QString SConfig::LOADERPORT;
 bool SConfig::USEBASE64;
+bool SConfig::METAANGLEINRADIANS;
+float SConfig::METAANGLECORRECTION;
 
 SConfig::SConfig(QQuickItem* qml)
 {
     pointer = this;
-    config = new Config(QCoreApplication::applicationDirPath() + "/-/oldconfig.ini");
+    config = new Config(QCoreApplication::applicationDirPath() + "/-/config2.ini");
     jsonConfig = new JsonConfig(QCoreApplication::applicationDirPath() + "/-/config.json");
     linker = new LinkerQML(qml);
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
+    SConfig::loadSettings();
 }
 
 SConfig* SConfig::init(void)            { return pointer; }
@@ -64,6 +67,8 @@ void SConfig::loadSettings()
     LOADERIP              =           config->value("network/loader_ip").toString();
     LOADERPORT            =           config->value("network/loader_port").toString();
     USEBASE64             =           config->value("image/use_base64").toBool();
+    METAANGLEINRADIANS    =           config->value("image/angle_in_radians").toBool();
+    METAANGLECORRECTION   =           config->value("image/angle_correction").toFloat();
 
     SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
                          config->value("map/diagram_length").toDouble(),
@@ -101,6 +106,9 @@ void SConfig::saveSettings()
     config->setValue("network/loader_ip", LOADERIP);
     config->setValue("network/loader_port", LOADERPORT);
     config->setValue("image/use_base64", USEBASE64);
+    config->setValue("image/angle_in_radians", METAANGLEINRADIANS);
+    config->setValue("image/angle_correction", METAANGLECORRECTION);
+    
 
     Debug::Log("?[CONFIG] Config saved.");
     QMessageBox notifyAboutRestart;

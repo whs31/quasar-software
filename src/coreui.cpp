@@ -179,7 +179,6 @@ void CoreUI::InitializeConnections()
         uiTimer1 = new QTimer(this);
     linker = new LinkerQML(qml);
     new SConfig(qml);
-    SConfig::loadSettings();
     if(SConfig::TESTMODE)
         Debug::Log("![STARTUP] Program is running in test mode!");
     udpRemote = new UDPRemote();

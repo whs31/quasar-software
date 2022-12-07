@@ -31,10 +31,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["diagram_theta_azimuth"] = "12.5";
     map["diagram_drift_angle"] = "11";
     map["antenna_position"] = "r";
-    map["vehicle_type"] = "!unused";
     checkValuesSimple(map);
 
     group_t image;
+    image["angle_correction"] = "0.0";
+    image["angle_in_radians"] = "true";
     image["use_base64"] = "false";
     image["use_loader"] = "true";
     image["save_at_end"] = "true";

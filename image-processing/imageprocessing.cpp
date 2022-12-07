@@ -292,7 +292,15 @@ void ImageProcessing::showAllImages(bool showOnStart)
                 QImageReader reader(meta.filename);
                 QSize sizeOfImage = reader.size();
 
-                qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                if(SConfig::METAANGLEINRADIANS)
+                {
+                    float v = meta.angle;
+                    v = (v * 180) / M_PI;
+                    v += SConfig::METAANGLECORRECTION;
+                    qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, v, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                } else {
+                    qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle+SConfig::METAANGLECORRECTION, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                }
 
                 if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
                 {
@@ -324,12 +332,25 @@ void ImageProcessing::showPartialScanResult()
             {
                 QImageReader reader(metadataList[metadataList.length()-i].filename);
                 QSize sizeOfImage = reader.size();
-
-                qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                if(SConfig::METAANGLEINRADIANS)
+                {
+                    float v = metadataList[metadataList.length()-i].angle;
+                    v = (v * 180) / M_PI;
+                    v += SConfig::METAANGLECORRECTION; 
+                    qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
                                     metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
                                     metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
-                                    metadataList[metadataList.length()-i].angle, metadataList[metadataList.length()-i].filename,
+                                    v, 
+                                    metadataList[metadataList.length()-i].filename,
                                     sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+                } else {
+                    qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                                    metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
+                                    metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
+                                    metadataList[metadataList.length()-i].angle + SConfig::METAANGLECORRECTION, 
+                                    metadataList[metadataList.length()-i].filename,
+                                    sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+                }
 
                 if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
                 {

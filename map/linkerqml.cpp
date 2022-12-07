@@ -33,15 +33,7 @@ void LinkerQML::addImage(double latitude, double longitude, float dx, float dy, 
                               );
 }
 
-void LinkerQML::getTelemetry(float f1, float f2, float f3, float f4)
-{
-    QMetaObject::invokeMethod(map, "getTelemetry",
-                              Q_ARG(QVariant, f1),
-                              Q_ARG(QVariant, f2),
-                              Q_ARG(QVariant, f3),
-                              Q_ARG(QVariant, f4)
-                              );
-}
+void LinkerQML::fixedUpdate()  { QMetaObject::invokeMethod(map, "fixedUpdate"); }
 
 void LinkerQML::loadSettings(float predictRange, float diagramLength, float captureTime,
                              float thetaAzimuth, float driftAngle, QString antennaPosition,

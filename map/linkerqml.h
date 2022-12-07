@@ -15,7 +15,7 @@ public:
     void addImage(double latitude, double longitude, float dx, float dy,
                   float x0, float y0, float angle, QString filename,
                   float height, QString base64encoding);
-    void getTelemetry(float f1, float f2, float f3, float f4);
+    void fixedUpdate();
     void changeEnableTooltip(QVariant arg1);
     void changeDrawRoute(QVariant arg1);
     void changeDrawPredict(QVariant arg1);

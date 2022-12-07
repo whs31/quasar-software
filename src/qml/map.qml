@@ -41,11 +41,7 @@ Rectangle {
     //==================================================|
 
 
-    property double latitude: 0.0
-    property double longitude: 0.0
-    property double elevation: 0.0
-    property double velocity: 0.0
-    property var currentQtCoordinates: QtPositioning.coordinate(59.660784, 30.200268); //in case of no connection, default position of map on startup (maybe make it variable)
+    property var currentQtCoordinates: QtPositioning.coordinate(60, 30); //in case of no connection, default position of map on startup (maybe make it variable)
     property var imageArray: []
 
     //-------widgets ui checkboxes------
@@ -64,15 +60,23 @@ Rectangle {
     property int fc: 0;
 
     //called every C_UPDATETIME (0.5 s default)
-    function getTelemetry(lat, lon, elv, speed)
+    function fixedUpdate()
     {
-        latitude = lat; longitude = lon; elevation = elv; velocity = speed;
+        //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
         drawPlane();
-        currentQtCoordinates = QtPositioning.coordinate(latitude,longitude);
+        currentQtCoordinates = QtPositioning.coordinate(FTelemetry.latitude,FTelemetry.longitude);
+
         if(followPlane) panGPS();
-        if(enableRoute) drawRoute(lat, lon);
-        speedText.text = Number(speed).toFixed(1);
-        elevationText.text = Number(elevation).toFixed(0);
+        if(enableRoute) drawRoute();
+
+
+        onGUI();
+    }
+
+    function onGUI()
+    {
+        elevationText.text = Number(FTelemetry.elevation).toFixed(0);
+        speedText.text = Number(FTelemetry.speed).toFixed(1); //make it onXXXchanged()
     }
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
@@ -207,15 +211,15 @@ Rectangle {
     //--------------------------route&gps--------------------------------------------{
     function drawPlane()
     {
-        planeMapItem.coordinate = QtPositioning.coordinate(latitude, longitude);
+        planeMapItem.coordinate = QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude);
         var atan = 0.0; var angle = 0.0; var geometricalAngle = 0.0;
-        var coord = QtPositioning.coordinate(latitude, longitude);
+        var coord = QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude);
         var e = 5;
         if(Math.abs(currentQtCoordinates.distanceTo(coord)) > e && Math.abs(currentQtCoordinates.distanceTo(coord)) > e)
         {
             angle = currentQtCoordinates.azimuthTo(coord);
 
-            atan = Math.atan2(longitude-currentQtCoordinates.longitude, latitude-currentQtCoordinates.latitude);
+            atan = Math.atan2(FTelemetry.longitude-currentQtCoordinates.longitude, FTelemetry.latitude-currentQtCoordinates.latitude);
             geometricalAngle = (atan*180)/Math.PI;
 
             planeMapItem.rotationAngle = angle;
@@ -226,9 +230,9 @@ Rectangle {
     function drawPredict(angle)
     {
         predictLine.path = [];
-        var p_lat = latitude+Math.sin((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
-        var p_lon = longitude+Math.cos((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
-        predictLine.addCoordinate(QtPositioning.coordinate(latitude, longitude));
+        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
+        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
+        predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
 
@@ -237,9 +241,9 @@ Rectangle {
         mapView.center = currentQtCoordinates;
     }
 
-    function drawRoute(lat, lon)
+    function drawRoute()
     {
-        mapPolyline.addCoordinate(QtPositioning.coordinate(lat,lon));
+        mapPolyline.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
     }
 
     function clearRoute()
@@ -903,12 +907,8 @@ Rectangle {
         }
     }
     Connections {
-        target: FTelemetry
-        function onLatitudeChanged() { console.log(FTelemetry.latitude); }
-        function onLongitudeChanged() { console.log(FTelemetry.longitude); }
-        function onSpeedChanged() { console.log(FTelemetry.speed); }
-        function onElevationChanged() { console.log(FTelemetry.elevation); }
-        function onSatsChanged() { console.log(FTelemetry.sats); }
+        //function speedChanged()
+        //function elevationChanged()
     }
 
 }

@@ -359,7 +359,8 @@ void CoreUI::ReadUDPData(QByteArray data)
     fTelemetry->setElevation((float)telemetry[3]);
     fTelemetry->setSats((short)telemetry[4]);
     updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3], (int)telemetry[4]);
-    linker->getTelemetry((float)telemetry[0], (float)telemetry[1], (float)telemetry[3], (float)telemetry[2]);
+
+    linker->fixedUpdate();
 }
 
 void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)

@@ -30,16 +30,7 @@ Rectangle {
     property real defaultLatitude: 60.034;
     property real defaultLongitude: 30.28136;
     property real defaultZoom: 15.0;
-    property int  defalutMapModeOnTestMode: 0;
-
-    //=====================config=======================|
-    property string c_ANTENNAPOSITION: "right";   //| //fstaticconfig @TODO
-    property double c_PREDICTRANGE: 0.0;          //|
-    property double c_CAPTURETIME: 0.0;           //|
-    property double c_DRIFTANGLE: 0.0;            //|
-    property bool c_USEBASE64: false;             //|
-    //==================================================|
-
+    property int  defaultMapModeOnTestMode: 0;
 
     property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
     property var imageArray: []
@@ -67,6 +58,11 @@ Rectangle {
         tiltSlider.value = 1 - (mapView.tilt / 45);
     }
 
+    function qmlBackendStart()
+    {
+        if(FStaticVariables.testMode) { defaultMapModeOnTestMode = 3; } else { defaultMapModeOnTestMode = 0; }
+    }
+
     //called every fixed time (0.5 s default)           call time equals to C_UPDATETIME in sconfig
     function fixedUpdate()
     {
@@ -76,7 +72,6 @@ Rectangle {
 
         if(FDynamicVariables.followPlane) panGPS();
         if(FDynamicVariables.enableRoute) drawRoute();
-
 
         onGUI();
     }
@@ -92,26 +87,6 @@ Rectangle {
 
     //===========================================================================================================================================================================================
     //===========================================================================================================================================================================================
-
-    function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
-    {
-        if(testmode)
-        {
-            defalutMapModeOnTestMode = 3;
-        } else {
-
-            defalutMapModeOnTestMode = 0;
-        }
-
-        c_ANTENNAPOSITION = s1;
-        c_PREDICTRANGE = d1;
-        c_DIAGRAMLENGTH = d2;
-        c_CAPTURETIME = d3;
-        c_DIAGRAMAZIMUTH = d4;
-        c_DRIFTANGLE = d5;
-        c_USEBASE64 = usebase64;
-        console.log("[QML] Config loaded in qml");
-    }
 
     //--------------------------SAR images-------------------------------------------{
     function clearImageArray()
@@ -139,7 +114,7 @@ Rectangle {
         item.anchorPoint.x = -x0;
         item.anchorPoint.y = h/2;
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
-        if(!c_USEBASE64)
+        if(!FStaticVariables.useBase64)
         {
             console.log("[QML] Displaying image from " + filename);
             item.sourceItem = Qt.createQmlObject('
@@ -242,8 +217,8 @@ Rectangle {
     function drawPredict(angle)
     {
         predictLine.path = [];
-        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
-        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * (c_PREDICTRANGE*0.00899928);
+        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * (FStaticVariables.predictRange * 0.00899928);
+        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * (FStaticVariables.predictRange * 0.00899928);
         predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
@@ -346,7 +321,7 @@ Rectangle {
                 value: "file:///"+ApplicationDirPath+"/maptsc";
             }
         }
-        activeMapType: mapView.supportedMapTypes[defalutMapModeOnTestMode]
+        activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
         copyrightsVisible: false

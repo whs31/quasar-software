@@ -4,6 +4,7 @@ SConfig* SConfig::pointer;
 LinkerQML* SConfig::linker;
 Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
+FStaticVariables* SConfig::fStatic;
 
 bool SConfig::TESTMODE;
 bool SConfig::USEPROFILER;
@@ -30,12 +31,13 @@ bool SConfig::USEBASE64;
 bool SConfig::METAANGLEINRADIANS;
 float SConfig::METAANGLECORRECTION;
 
-SConfig::SConfig(QQuickItem* qml)
+SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
 {
     pointer = this;
     config = new Config(QCoreApplication::applicationDirPath() + "/-/config2.ini");
     jsonConfig = new JsonConfig(QCoreApplication::applicationDirPath() + "/-/config.json");
     linker = new LinkerQML(qml);
+    fStatic = fStaticVariables;
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
     SConfig::loadSettings();
 }
@@ -70,16 +72,10 @@ void SConfig::loadSettings()
     METAANGLEINRADIANS    =           config->value("image/angle_in_radians").toBool();
     METAANGLECORRECTION   =           config->value("image/angle_correction").toFloat();
 
-    SConfig::linker->loadSettings(SConfig::config->value("map/predict_line_range").toDouble(),
-                         config->value("map/diagram_length").toDouble(),
-                         config->value("map/capture_time").toDouble(),
-                         config->value("map/diagram_theta_azimuth").toDouble(),
-                         config->value("map/diagram_drift_angle").toDouble(),
-                         config->value("map/antenna_position").toString(),
-                         config->value("map/path").toString(),
-                         config->value("utility/test_mode").toBool(),
-                         config->value("image/use_base64").toBool(),
-                         "remove me please =)");
+    fStatic->setTestMode(TESTMODE);
+    fStatic->setPredictRange(PREDICTRANGE);
+    fStatic->setUseBase64(USEBASE64);
+
     Debug::Log("?[SCONFIG] Config loaded.");
 }
 

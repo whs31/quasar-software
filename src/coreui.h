@@ -89,6 +89,7 @@ private:
     //qml types
     FTelemetry* fTelemetry;
     FDynamicVariables* fDynamicVariables;
+    FStaticVariables* fStaticVariables;
 
     //timers
     QTimer *timer;

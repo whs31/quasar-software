@@ -11,13 +11,14 @@
 #include "jsonconfig.h"
 
 #include "linkerqml.h"
+#include "backend/fstaticvariables.h"
 #include "debug.h"
 
 class SConfig : public QObject
 {
     Q_OBJECT
 public:
-    explicit SConfig(QQuickItem* qml);
+    explicit SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables);
     static SConfig* init(void);
     static void loadSettings();
     static void saveSettings();
@@ -56,6 +57,7 @@ private:
     static Config* config;
     static JsonConfig* jsonConfig;
     static LinkerQML* linker;
+    static FStaticVariables* fStatic;
 
     static void save();
 };

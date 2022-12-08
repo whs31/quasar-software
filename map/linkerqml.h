@@ -16,17 +16,9 @@ public:
                   float x0, float y0, float angle, QString filename,
                   float height, QString base64encoding);
     void fixedUpdate();
-    void changeEnableTooltip(QVariant arg1);
-    void changeDrawRoute(QVariant arg1);
-    void changeDrawPredict(QVariant arg1);
-    void changeDrawPolygon(QVariant arg1);
-    void changeFollowPlane(QVariant arg1);
     void panGPS(void);
     void clearRoute(void);
     void panImage(int filecounter);
-    void loadSettings(float predictRange, float diagramLength, float captureTime, float thetaAzimuth,
-                      float driftAngle, QString antennaPosition, QString path, bool testMode = false,
-                      bool usebase64 = false, QString cfgpath = "");
 
 protected:
     QQuickItem* map;

@@ -4,6 +4,10 @@ FDynamicVariables::FDynamicVariables(QObject *parent)
     : QObject{parent}
 {
     _followPlane = false;
+    _enableTooltip = true;
+    _enableRoute = true;
+    _enablePredict = true;
+    _enablePredictDiagram = true;
 }
 
 bool FDynamicVariables::followPlane()    { return _followPlane; }

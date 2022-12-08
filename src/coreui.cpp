@@ -194,14 +194,18 @@ void CoreUI::InitializeConnections()
         udpTimeout = new QTimer(this);
         uiTimer1 = new QTimer(this);
     linker = new LinkerQML(qml);
-    new SConfig(qml);
-    if(SConfig::TESTMODE)
-        Debug::Log("![STARTUP] Program is running in test mode!");
 
     //qml types declaration
     fTelemetry = new FTelemetry();                                ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
     fDynamicVariables = new FDynamicVariables();                  ui->map->rootContext()->setContextProperty("FDynamicVariables", fDynamicVariables);
         connect(fDynamicVariables, SIGNAL(followPlaneChanged(bool)), this, SLOT(setCheckboxState(bool)));
+    fStaticVariables = new FStaticVariables();                    ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
+
+    //config
+    new SConfig(qml, fStaticVariables);
+    if(SConfig::TESTMODE)
+        Debug::Log("![STARTUP] Program is running in test mode!");
+    QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
     //network setup
     udpRemote = new UDPRemote();

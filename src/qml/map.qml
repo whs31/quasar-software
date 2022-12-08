@@ -30,18 +30,13 @@ Rectangle {
     property real defaultLatitude: 60.034;
     property real defaultLongitude: 30.28136;
     property real defaultZoom: 15.0;
+    property int  defalutMapModeOnTestMode: 0;
 
     //=====================config=======================|
-    property string c_VEHICLE: "helicopter";      //| //del
     property string c_ANTENNAPOSITION: "right";   //| //fstaticconfig @TODO
-    property string c_PATH: "file:///";           //|
     property double c_PREDICTRANGE: 0.0;          //|
-    property double c_DIAGRAMLENGTH: 0.0;         //|
     property double c_CAPTURETIME: 0.0;           //|
-    property double c_DIAGRAMAZIMUTH: 0.0;        //|
     property double c_DRIFTANGLE: 0.0;            //|
-    property string m_provider: "osm";            //|
-    property int m_mapMode: 0;                    //|
     property bool c_USEBASE64: false;             //|
     //==================================================|
 
@@ -102,15 +97,13 @@ Rectangle {
     {
         if(testmode)
         {
-            m_provider = "osm";
-            m_mapMode = 3;
+            defalutMapModeOnTestMode = 3;
         } else {
-            m_provider = "osm";
-            m_mapMode = 0;
+
+            defalutMapModeOnTestMode = 0;
         }
 
         c_ANTENNAPOSITION = s1;
-        c_PATH = s2;
         c_PREDICTRANGE = d1;
         c_DIAGRAMLENGTH = d2;
         c_CAPTURETIME = d3;
@@ -346,14 +339,14 @@ Rectangle {
         tilt: 15;
         plugin: Plugin {
             id: mapPluginID;
-            name: m_provider;
+            name: "osm";
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";
                 value: "file:///"+ApplicationDirPath+"/maptsc";
             }
         }
-        activeMapType: mapView.supportedMapTypes[m_mapMode]
+        activeMapType: mapView.supportedMapTypes[defalutMapModeOnTestMode]
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
         copyrightsVisible: false

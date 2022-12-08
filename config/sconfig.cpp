@@ -85,6 +85,25 @@ void SConfig::loadSettings()
 
 void SConfig::saveSettings()
 {
+    save();
+    Debug::Log("?[CONFIG] Config saved.");
+    QMessageBox notifyAboutRestart;
+    notifyAboutRestart.setWindowTitle("Сохранение настроек");
+    notifyAboutRestart.setIcon(QMessageBox::Information);
+    notifyAboutRestart.setText("Настройки сохранены. Некоторые параметры вступят в силу только после перезапуска программы.");
+    notifyAboutRestart.setStandardButtons(QMessageBox::Yes);
+    notifyAboutRestart.setDefaultButton(QMessageBox::Yes);
+    notifyAboutRestart.exec();
+}
+
+void SConfig::saveQuiet()
+{
+    save();
+    Debug::Log("?[CONFIG] Config saved without dialog.");
+}
+
+void SConfig::save()
+{
     config->setValue("utility/test_mode", TESTMODE);
     config->setValue("utility/profiler", USEPROFILER);
     config->setValue("network/type", NETWORKTYPE);
@@ -108,16 +127,6 @@ void SConfig::saveSettings()
     config->setValue("image/use_base64", USEBASE64);
     config->setValue("image/angle_in_radians", METAANGLEINRADIANS);
     config->setValue("image/angle_correction", METAANGLECORRECTION);
-    
-
-    Debug::Log("?[CONFIG] Config saved.");
-    QMessageBox notifyAboutRestart;
-    notifyAboutRestart.setWindowTitle("Сохранение настроек");
-    notifyAboutRestart.setIcon(QMessageBox::Information);
-    notifyAboutRestart.setText("Настройки сохранены. Некоторые параметры вступят в силу только после перезапуска программы.");
-    notifyAboutRestart.setStandardButtons(QMessageBox::Yes);
-    notifyAboutRestart.setDefaultButton(QMessageBox::Yes);
-    notifyAboutRestart.exec();
 }
 
 void SConfig::discardSettings()

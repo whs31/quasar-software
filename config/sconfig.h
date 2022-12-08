@@ -21,6 +21,7 @@ public:
     static SConfig* init(void);
     static void loadSettings();
     static void saveSettings();
+    static void saveQuiet();
     static void discardSettings();
 
     static bool TESTMODE;
@@ -55,6 +56,8 @@ private:
     static Config* config;
     static JsonConfig* jsonConfig;
     static LinkerQML* linker;
+
+    static void save();
 };
 
 #endif // SCONFIG_H

@@ -3,7 +3,7 @@
 FDynamicVariables::FDynamicVariables(QObject *parent)
     : QObject{parent}
 {
-
+    _followPlane = false;
 }
 
 bool FDynamicVariables::followPlane()    { return _followPlane; }

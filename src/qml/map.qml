@@ -89,15 +89,14 @@ Rectangle {
     //called after fixedupdate
     function onGUI()
     {
-        latitudeText.text = Number(FTelemetry.latitude).toFixed(7)+"°"; //make it onXXXchanged()
-        longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°"; //make it onXXXchanged()
-        elevationText.text = Number(FTelemetry.elevation).toFixed(0); //make it onXXXchanged()
-        speedText.text = Number(FTelemetry.speed).toFixed(1); //make it onXXXchanged()
+        latitudeText.text = Number(FTelemetry.latitude).toFixed(7)+"°";
+        longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°";
+        elevationText.text = Number(FTelemetry.elevation).toFixed(0);
+        speedText.text = Number(FTelemetry.speed).toFixed(1);
     }
 
     //===========================================================================================================================================================================================
     //===========================================================================================================================================================================================
-
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
     {
@@ -243,7 +242,7 @@ Rectangle {
             geometricalAngle = (atan*180)/Math.PI;
 
             planeMapItem.rotationAngle = angle;
-            if(FDynamicVariables.enablePredict) { drawPredict(geometricalAngle); }
+            if(FDynamicVariables.enablePredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
         }
     }
 
@@ -255,6 +254,8 @@ Rectangle {
         predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
+
+    function clearPredict() { predictLine.path = []; }
 
     function panGPS()
     {
@@ -941,8 +942,7 @@ Rectangle {
         }
     }
     Connections {
-        //function speedChanged()
-        //function elevationChanged()
+
     }
 
 }

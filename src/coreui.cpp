@@ -68,11 +68,6 @@ void CoreUI::Disconnected()
     connected = false;
     ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
 }
-
-void CoreUI::WriteSampleDebugLog()
-{
-    qCritical()<<"SAMPLE";
-}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -130,10 +125,8 @@ void CoreUI::updateProgress(float f)
     }
     ui->progressBar_loader->setValue((int)f);
 }
-void CoreUI::updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount)
-{
-    ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));
-}
+void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));                                 }
+void CoreUI::setCheckboxState(bool b)               { ui->checkBox->setChecked(b);                                                                                                                           }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -206,8 +199,9 @@ void CoreUI::InitializeConnections()
         Debug::Log("![STARTUP] Program is running in test mode!");
 
     //qml types declaration
-    fTelemetry = new FTelemetry();
-    ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
+    fTelemetry = new FTelemetry();                                ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
+    fDynamicVariables = new FDynamicVariables();                  ui->map->rootContext()->setContextProperty("FDynamicVariables", fDynamicVariables);
+        connect(fDynamicVariables, SIGNAL(followPlaneChanged(bool)), this, SLOT(setCheckboxState(bool)));
 
     //network setup
     udpRemote = new UDPRemote();
@@ -338,8 +332,9 @@ void CoreUI::on_settingsButton_clicked()
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::ReadUDPData(QByteArray data)
 {
-    udpTimeout->start(3*SConfig::UPDATETIME*1000);
+    udpTimeout->start(3 * SConfig::UPDATETIME*1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
+    std::array<double, 5> telemetry; //lat, lon, speed, elevation, sats
     switch (dtype) {
     case DataType::Telemetry:
         telemetry[4] = (double)0;
@@ -358,12 +353,14 @@ void CoreUI::ReadUDPData(QByteArray data)
     fTelemetry->setSpeed((float)telemetry[2]);
     fTelemetry->setElevation((float)telemetry[3]);
     fTelemetry->setSats((short)telemetry[4]);
-    updateTelemetryLabels(telemetry[0], telemetry[1], telemetry[2], telemetry[3], (int)telemetry[4]);
+    updateTelemetryLabels((int)telemetry[4]);
 
     linker->fixedUpdate();
 }
 
-void CoreUI::Halftime() //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
+//вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
+//эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
+void CoreUI::Halftime()
 {
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }

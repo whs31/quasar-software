@@ -49,23 +49,15 @@ Rectangle {
     property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
     property var imageArray: []
 
-    //-------widgets ui checkboxes------
-    property bool followPlane: false; //fdynamicconfig @TODO
-    property bool enableTooltip: true;
-    property bool enableRoute: true;
-    property bool enablePredict: true;
-    property bool enableDiagram: true;
-    //----------------------------------
-
-
     //ruler
     property int r_currentstate: 0;
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
+
     property int fc: 0;
 
     //===========================================================================================================================================================================================
-     //===========================================================================================================================================================================================
+    //===========================================================================================================================================================================================
 
     //called on map component initialized
     function awake()
@@ -87,8 +79,8 @@ Rectangle {
         drawPlane();
         currentQtCoordinates = QtPositioning.coordinate(FTelemetry.latitude,FTelemetry.longitude);
 
-        if(followPlane) panGPS();
-        if(enableRoute) drawRoute();
+        if(FDynamicVariables.followPlane) panGPS();
+        if(FDynamicVariables.enableRoute) drawRoute();
 
 
         onGUI();
@@ -104,7 +96,7 @@ Rectangle {
     }
 
     //===========================================================================================================================================================================================
-     //===========================================================================================================================================================================================
+    //===========================================================================================================================================================================================
 
 
     function loadSettings(d1, d2, d3, d4, d5, s1, s2, testmode, usebase64, cfgpath)
@@ -251,7 +243,7 @@ Rectangle {
             geometricalAngle = (atan*180)/Math.PI;
 
             planeMapItem.rotationAngle = angle;
-            if(enablePredict) { drawPredict(geometricalAngle); }
+            if(FDynamicVariables.enablePredict) { drawPredict(geometricalAngle); }
         }
     }
 
@@ -278,24 +270,9 @@ Rectangle {
     {
         mapPolyline.path = [];
     }
-
-    function changeDrawRoute(arg)
-    {
-        if(arg===2) { enableRoute=true; } else { enableRoute = false; }
-    }
-
-    function changeFollowPlane(arg)
-    {
-        if(arg===2) { followPlane=true; } else { followPlane = false; timer_3s.stop(); }
-    }
     //------------------------------------------------------------------------------}
 
-    //-------------------tooltip-------------------------{
-    function changeEnableTooltip(arg)
-    {
-        if(arg===2) { enableTooltip=true; } else { enableTooltip = false; }
-    }
-
+    //------------------------------------tooltip-----------------------------------
     function drawTooltip()
     {
         cursorTooltip.visible = true;
@@ -304,7 +281,7 @@ Rectangle {
 
     function changeTooltipPosition()
     {
-        if(enableTooltip)
+        if(FDynamicVariables.enableTooltip)
         {
             if(mapMouseArea.pressed)
             {
@@ -448,8 +425,8 @@ Rectangle {
                 }
             }
             onPressed: {
-                if(followPlane||timer_3s.running) {
-                    followPlane = false;
+                if(FDynamicVariables.followPlane || timer_3s.running) {
+                    FDynamicVariables.followPlane = false;
                     timer_3s.restart();
                     numAnim1.restart();
                 }
@@ -924,9 +901,9 @@ Rectangle {
             {
                 panImage(fc);
                 //dont follow plane for a while
-                if(followPlane)
+                if(FDynamicVariables.followPlane)
                 {
-                    followPlane = false;
+                    FDynamicVariables.followPlane = false;
                     timer_3s.restart();
                     numAnim1.restart();
                 }
@@ -960,7 +937,7 @@ Rectangle {
                     }
                 }
             }
-            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { followPlane = true; cameraGrip.value = 0; } }
+            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { FDynamicVariables.followPlane = true; cameraGrip.value = 0; } }
         }
     }
     Connections {

@@ -11,6 +11,8 @@
 
 //qml types
 #include "backend/ftelemetry.h"
+#include "backend/fdynamicvariables.h"
+#include "backend/fstaticvariables.h"
 
 
 #include "extension.h"
@@ -60,7 +62,6 @@ public slots:
     //utility public slots
     void Connected();
     void Disconnected();
-    void WriteSampleDebugLog(); //delme
 
     //gui public slots
     void setPushButton_goLeftEnabled(bool state);
@@ -71,7 +72,8 @@ public slots:
     void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match);
     void enableImageBar(bool b);
     void updateProgress(float f);
-    void updateTelemetryLabels(float lat, float lon, float speed, float elevation, int satcount);
+    void updateTelemetryLabels(int satcount);
+    void setCheckboxState(bool b);
 
 private:
     //object pointers
@@ -86,6 +88,7 @@ private:
 
     //qml types
     FTelemetry* fTelemetry;
+    FDynamicVariables* fDynamicVariables;
 
     //timers
     QTimer *timer;
@@ -99,7 +102,6 @@ private:
 
     //global variables
     double _conckc = 0;
-    std::array<double, 5> telemetry; //lat, lon, speed, elevation, sats
 
     //private methods
     void InitializeUI();

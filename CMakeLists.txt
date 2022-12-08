@@ -66,6 +66,10 @@ else()
         map/linkerqml.cpp
         map/backend/ftelemetry.h
         map/backend/ftelemetry.cpp
+        map/backend/fdynamicvariables.h
+        map/backend/fdynamicvariables.cpp
+        map/backend/fstaticvariables.h
+        map/backend/fstaticvariables.cpp
         json/jsonmanager.h
         json/jsonmanager.cpp
         json/jsonconfig.h

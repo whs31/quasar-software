@@ -93,18 +93,18 @@ void CoreUI::updateImageManagerLabels(int total, int current)
 void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match)
 {
     ui->label_c_metaFilename->setText(filename);
-    ui->label_c_metaLat->setText(QString::number(lat, 'f', 6));
-    ui->label_c_metaLon->setText(QString::number(lon, 'f', 6));
+    ui->label_c_metaLat->setText(QString::number(lat, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
+    ui->label_c_metaLon->setText(QString::number(lon, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
     ui->label_c_metaDx->setText(QString::number(dx));
     ui->label_c_metaDy->setText(QString::number(dy));
-    ui->label_c_metaX0->setText(QString::number(x0));
-    ui->label_c_metaY0->setText(QString::number(y0));
-    ui->label_c_metaAngle->setText(QString::number(angle));
-    ui->label_c_metaDAngle->setText(QString::number(driftAngle));
-    ui->label_c_metaLX->setText(QString::number(lx));
-    ui->label_c_metaLY->setText(QString::number(ly));
-    ui->label_c_metaDiv->setText(QString::number(divAngle));
-    ui->label_c_metaChecksum->setText(hexSum);
+    ui->label_c_metaX0->setText(QString::number(x0) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
+    ui->label_c_metaY0->setText(QString::number(y0)+ Style::StyleText(" м", Colors::NoColor, Format::Italic));
+    ui->label_c_metaAngle->setText(QString::number(angle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
+    ui->label_c_metaDAngle->setText(QString::number(driftAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
+    ui->label_c_metaLX->setText(QString::number(lx) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
+    ui->label_c_metaLY->setText(QString::number(ly) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
+    ui->label_c_metaDiv->setText(QString::number(divAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
+    ui->label_c_metaChecksum->setText(Style::StyleText("0х", Colors::NoColor, Format::Italic) + Style::StyleText(hexSum, Colors::Info, Format::Italic));
     ui->label_c_metaTime->setText(datetime);
     (match) ? ui->label_c_checksumSuccess->setText(Style::StyleText("совпадает", Colors::Success)) : ui->label_c_checksumSuccess->setText(Style::StyleText("не совпадает", Colors::Failure));
 }

@@ -10,6 +10,8 @@
 #include "coreui.h"
 #include "style.h"
 
+#include "smath.h"
+
 
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
@@ -48,6 +50,8 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
+
+    qmlRegisterType<SMath>("Utility", 1, 0, "Math");
 
     QQuickStyle::setStyle("Material");  //графика для QML
     new Style(false);                   //false при сборке релиза

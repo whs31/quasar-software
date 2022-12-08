@@ -35,6 +35,7 @@ include_directories(
     map
     json
     windowextension
+    func
 )
 
 if(NOT WIN32)
@@ -98,6 +99,10 @@ else()
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.h
         image-processing/imagemanager.cpp
+        func/smath.h
+        func/smath.cpp
+        func/stext.h
+        func/stext.cpp
         misc/style.h
         misc/style.cpp
         misc/uxmanager.h

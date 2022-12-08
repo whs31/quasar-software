@@ -105,6 +105,8 @@ else()
         func/smath.cpp
         func/stext.h
         func/stext.cpp
+        func/schecksum.h
+        func/schecksum.cpp
         misc/style.h
         misc/style.cpp
         misc/uxmanager.h

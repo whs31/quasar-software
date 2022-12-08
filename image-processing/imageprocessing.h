@@ -11,8 +11,10 @@
 #include "linkerqml.h"
 #include "debug.h"
 #include "smath.h"
+#include "schecksum.h"
 
 #include "profiler.h"
+
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
@@ -35,7 +37,7 @@ public:
     int getVectorSize(void);
     void goLeft(void);
     void goRight(void);
-    void showAllImages(bool showOnStart = false);
+    void showInitialScanResult(bool showOnStart = false);
     void showPartialScanResult();
     void clearCache();
     void imageChecklistLoop();
@@ -50,14 +52,6 @@ signals:
     void enableImageBar(bool b);
 
 private:
-    LinkerQML* qmlLinker;
-    ImageManager* imageManager;
-
-    uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
-    void Decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
-    void UpdateLabels(int structureIndex);
-    QStringList getEntryList(QString &path);
-
     struct image_metadata {
             double latitude;
             double longitude;
@@ -76,6 +70,14 @@ private:
             bool checksumMatch;
             QString base64encoding;
         };
+    LinkerQML* qmlLinker;
+    ImageManager* imageManager;
+
+    void Decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
+    void UpdateLabels(int structureIndex);
+    QStringList getEntryList(QString &path);
+
+
     QVector<image_metadata> metadataList;
 
     QStringList diff;

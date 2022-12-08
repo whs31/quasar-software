@@ -111,7 +111,6 @@ QString ImageManager::addAlphaMask(QString path, float width, float height, floa
         QPainter painter;
         painter.begin(&base);
         painter.setCompositionMode(QPainter::CompositionMode_Source);
-        //painter.fillRect(base.rect(), QColor(0, 0, 0, 120));
         painter.setPen(QPen(Qt::transparent, 2));
         painter.setRenderHint(QPainter::Antialiasing);
         const int top[8] = {
@@ -149,7 +148,7 @@ QString ImageManager::addAlphaMask(QString path, float width, float height, floa
         QString r = convertToBase64(base);
         return r;
     } else {
-        bool s = base.save(path); //rework
+        bool s = base.save(path);
     }
     return "";
 }
@@ -191,10 +190,6 @@ void ImageManager::setupCache(void)
     Debug::Log("?[FILEMANAGER] Cache created");
 }
 
-/*
- *            format:
- * { 0 1 2 } => { blank .jpg .png }
- */
 QStringList ImageManager::diffConvert(QStringList diff, ImageFormat format)
 {
     switch (format) {
@@ -223,7 +218,7 @@ QStringList ImageManager::diffConvert(QStringList diff, ImageFormat format)
 
 QImage ImageManager::enableAlphaSupport(QImage i)                                     //      этот метод нужен для конверсии изображения
 {                                                                                     //      в формат, поддерживающий прозрачность
-    QImage sample(i.width(),i.height(), QImage::Format_ARGB32_Premultiplied);
+    QImage sample(i.width(),i.height(), QImage::Format_ARGB32_Premultiplied);         //      сюда надо будет добавить прозрачность из слайдера (или сделать это в qml)
     sample.fill(QColor(254,254,254));
     i.setAlphaChannel(sample);
     return i;

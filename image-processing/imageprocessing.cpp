@@ -7,10 +7,8 @@ ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
 
 bool ImageProcessing::getReadyStatus()
 {
-    if(!metadataList.empty())
-    {
-        return 1;
-    } return 0;
+    if(!metadataList.empty()) return 1;
+    return 0;
 }
 
 void ImageProcessing::clearCache()
@@ -32,7 +30,7 @@ QStringList ImageProcessing::getEntryList(QString &path)
     {
         Debug::Log("[FILEMANAGER] Metadata list contains "+QString::number(strl.length())+" files");
         /*
-         *          отрезаем формат, путь уже отрезан entryList(). Получается, str = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
+         *          отрезаем формат, путь уже отрезан entryList(). Получается, strl[i] = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
          *          аналогичное действие должен провернуть метод ImageManager getDiff(), чтобы сравнивать конкретно имена файлов без расширений и путей.
          */
         for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
@@ -111,7 +109,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
         {
             imageChecklist.append(SConfig::SHOWIMAGEONSTART);
         }
-        showAllImages(SConfig::SHOWIMAGEONSTART);
+        showInitialScanResult(SConfig::SHOWIMAGEONSTART);
     }
     emit enableImageBar(notNull);
     return notNull;
@@ -208,7 +206,13 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
 
                 //проверка контрольной суммы
-                metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
+                void* structData = (void *) malloc(1024);
+                memcpy((char*)structData, (void*)&metaStruct, *metaSize);
+                uint32_t recalculatedChecksum = SChecksum::calculateChecksum(structData, *metaSize);
+                QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 8, 16, QLatin1Char('0'));
+                qCritical()<<recalculatedChecksumHex;
+
+                metaStruct.checksumMatch = (recalculatedChecksum == metaStruct.checksum) ? 1 : 0;
 
                 //геометрические преобразования
                 if(SConfig::METAANGLEINRADIANS)
@@ -226,7 +230,7 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 if(SConfig::USEBASE64)
                 {
                     Debug::Log("[IMG] Using base64 encoding, making mask...");
-                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
+                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100)
                     {
                         Debug::Log("!![IMG] Something went wrong (base64) "+metaStruct.base64encoding);
@@ -273,25 +277,7 @@ void ImageProcessing::UpdateLabels(int structureIndex)
                           metadataList[structureIndex].checksumMatch);
 }
 
-uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
-{
-    /*const uint32_t Polynomial = 0xEDB88320;
-    uint32_t crc = ~previousCrc32;
-    unsigned char* current = (unsigned char*) data;
-    while (length--)
-    {
-        crc ^= *(uint32_t*)&current;
-        current++;
-        for (unsigned int j = 0; j < 8; j++)
-            crc = (crc >> 1) ^ (-int(crc & 1) & Polynomial);
-    }
-    return ~crc;*/
-
-    //этот метод будет переписан полностью на стороне РЛС
-    return 0;
-}
-
-void ImageProcessing::showAllImages(bool showOnStart)
+void ImageProcessing::showInitialScanResult(bool showOnStart)
 {
     if(!metadataList.isEmpty())
     {
@@ -322,7 +308,6 @@ void ImageProcessing::showAllImages(bool showOnStart)
     } else {
         Debug::Log("![IMG] Empty image list!");
     }
-
 }
 
 void ImageProcessing::showPartialScanResult()

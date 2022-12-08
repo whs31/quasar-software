@@ -10,6 +10,7 @@
 #include "imagemanager.h"
 #include "linkerqml.h"
 #include "debug.h"
+#include "smath.h"
 
 #include "profiler.h"
 

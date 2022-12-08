@@ -10,20 +10,17 @@ class SMath : public QObject
 public:
     explicit SMath(QObject *parent = nullptr);
 
-    static qreal DegreesToKilometers(qreal degrees);
-    static qreal DegreesToMeters(qreal degrees);
-    static qreal MetersToDegrees(qreal meters);
+    Q_INVOKABLE static qreal degreesToKilometers(qreal degrees);
+    Q_INVOKABLE static qreal degreesToMeters(qreal degrees);
+    Q_INVOKABLE static qreal metersToDegrees(qreal meters);
 
-    static qreal MercatorZoomLevel(qreal dx, qreal latitude);
+    Q_INVOKABLE static qreal mercatorZoomLevel(qreal dx, qreal latitude);
 
-    static qreal Log(qreal base, qreal exponent);
-    static qreal DegreesToRadians(qreal degrees);
-    static qreal RadiansToDegrees(qreal radians);
+    Q_INVOKABLE static qreal log(qreal base, qreal exponent);
+    Q_INVOKABLE static qreal degreesToRadians(qreal degrees);
+    Q_INVOKABLE static qreal radiansToDegrees(qreal radians);
 
 signals:
-
-private:
-    static const qreal k_degreesToC;
 
 };
 

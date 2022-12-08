@@ -48,10 +48,9 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 }
 
 int main(int argc, char *argv[]) {
+    qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     QApplication app(argc, argv);
     qInstallMessageHandler(debugLogger);
-
-    qmlRegisterType<SMath>("Utility", 1, 0, "Math");
 
     QQuickStyle::setStyle("Material");  //графика для QML
     new Style(false);                   //false при сборке релиза

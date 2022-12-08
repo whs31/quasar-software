@@ -8,10 +8,12 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
+import SMath 1.0
 
 
 Rectangle {
     id: qqview
+    SMath { id: smath; }
 
     //ux constants
     Material.theme: Material.Dark
@@ -165,9 +167,7 @@ Rectangle {
             ', mapView, "dynamic");
         }
 
-        if(dx!==0) { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/dx); } else { item.zoomLevel = log(2, 156543.03392*Math.cos(centerlat*Math.PI/180)/1); }
-        //metersPerPx = 156543.03392 * Math.cos(latLng.lat() * Math.PI / 180) / Math.pow(2, zoom) где latLng - anchor point РЛИ и zoom - зум карты
-        //zoom = log2((156543.03392*cos(PI*lat/180))/dx)
+        item.zoomLevel = smath.mercatorZoomLevel(dx, centerlat);
         mapView.addMapItem(item);
         imageArray.push(item);
     }
@@ -217,8 +217,8 @@ Rectangle {
     function drawPredict(angle)
     {
         predictLine.path = [];
-        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * (FStaticVariables.predictRange * 0.00899928);
-        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * (FStaticVariables.predictRange * 0.00899928);
+        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
+        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
         predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }

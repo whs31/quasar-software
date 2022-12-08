@@ -71,6 +71,8 @@ else()
         map/backend/fdynamicvariables.cpp
         map/backend/fstaticvariables.h
         map/backend/fstaticvariables.cpp
+        map/backend/fmousekeyhandler.h
+        map/backend/fmousekeyhandler.cpp
         json/jsonmanager.h
         json/jsonmanager.cpp
         json/jsonconfig.h
@@ -112,6 +114,7 @@ else()
         misc/profiler.h
         misc/profiler.cpp
         misc/json-backup.qrc
+        ${SRCS} appiconwin32.rc
    )
 endif()
 
@@ -160,7 +163,6 @@ if((( ( UNIX ) AND NOT APPLE ) AND NOT ANDROID) AND ((QT_VERSION_MAJOR EQUAL 5))
         Qt::X11Extras
     )
 endif()
-
 
 execute_process(COMMAND git describe --tags --always WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
 execute_process(COMMAND ${CMAKE_COMMAND} -E env TZ=UTC git log -1 --format=%cd --date=format-local:"%d.%m.%Y %H:%M:%S" WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_SOURCE_DATE OUTPUT_STRIP_TRAILING_WHITESPACE)

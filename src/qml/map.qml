@@ -9,11 +9,13 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 import SMath 1.0
+import MouseKeyHandler 1.0
 
 
 Rectangle {
     id: qqview
     SMath { id: smath; }
+    MouseKeyHandler { id: mouseKeyHandler; }
 
     //ux constants
     Material.theme: Material.Dark
@@ -391,6 +393,10 @@ Rectangle {
                 {
                     r_currentstate = 0;
                     clearRuler();
+                }
+                if(r_currentstate === 0 & mouse.button === Qt.RightButton)
+                {
+                    mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
             }
             onPressed: {

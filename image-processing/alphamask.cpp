@@ -1,9 +1,9 @@
 #include "alphamask.h"
 
 AlphaMask::AlphaMask()
-{
-
-}
+{ }
+AlphaMask::~AlphaMask()
+{ }
 
 QImage AlphaMask::enableAlphaSupport(QImage i)                                     //      этот метод нужен для конверсии изображения
 {                                                                                     //      в формат, поддерживающий прозрачность
@@ -28,13 +28,13 @@ QString AlphaMask::addAlphaMask(QString path, float width, float height, float t
             0, (int)(height/2+rayInitialWidth),
             0, (int)height,
             (int)width, (int)height,
-            (int)width, static_cast<int>((height/2)+width*(qTan(qDegreesToRadians(thetaAzimuth/2))))
+            (int)width, static_cast<int>((height/2)+width*(qTan(qDegreesToRadians((thetaAzimuth+thetaAzimuthCorrection)/2))))
         };
         const int bottom[8] = {
             0, (int)(height/2-rayInitialWidth),
             0, 0,
             (int)width, 0,
-            (int)width, static_cast<int>((height/2)-width*(qTan(qDegreesToRadians(thetaAzimuth/2))))
+            (int)width, static_cast<int>((height/2)-width*(qTan(qDegreesToRadians((thetaAzimuth+thetaAzimuthCorrection)/2))))
         };
         QPolygon p1, p2;
         p1.setPoints(4, top); p2.setPoints(4, bottom);

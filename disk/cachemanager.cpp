@@ -41,6 +41,7 @@ void CacheManager::setupImageCache()
     QDir tcp(tcpDowloaderCache);
     if(!png.exists()) { png.mkpath(pngCache); }
     if(!tcp.exists()) { tcp.mkpath(tcpDowloaderCache); }
+    SConfig::CACHEPATH = tcpDowloaderCache;
     Debug::Log("?[CACHEMANAGER] Image cache created");
 }
 

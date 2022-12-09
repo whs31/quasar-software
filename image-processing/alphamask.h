@@ -23,14 +23,16 @@ class AlphaMask : QObject
     Q_OBJECT
 public:
     explicit AlphaMask();
+    ~AlphaMask();
 
-    static QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
-    static QImage enableAlphaSupport(QImage i);
-    static QString convertToBase64(QImage image);
+    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
+    QImage enableAlphaSupport(QImage i);
+    QString convertToBase64(QImage image);
 
 signals:
 
 private:
+    const float thetaAzimuthCorrection = -5; //removing black borders 
 
 
 };

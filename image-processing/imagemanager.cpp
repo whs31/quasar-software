@@ -131,7 +131,8 @@ QString ImageManager::MakePNG(QString jpeg)
     QString filename = f.fileName();
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
-    pixMap = AlphaMask::enableAlphaSupport(pixMap);
+    AlphaMask alphaMask;
+    pixMap = alphaMask.enableAlphaSupport(pixMap);
     QString finalFile = CacheManager::getPngCache()+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);

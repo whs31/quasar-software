@@ -227,10 +227,11 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 QSize sizeOfImage = reader.size();
                 int height = sizeOfImage.height();
                 int width = sizeOfImage.width();
+                AlphaMask alphaMask;
                 if(SConfig::USEBASE64)
                 {
                     Debug::Log("[IMG] Using base64 encoding, making mask...");
-                    metaStruct.base64encoding = AlphaMask::addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, 0, MaskFormat::Geometric);
+                    metaStruct.base64encoding = alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100)
                     {
                         Debug::Log("!![IMG] Something went wrong (base64) "+metaStruct.base64encoding);
@@ -239,7 +240,7 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
                     Debug::Log("[IMG] Using saving to disk, making mask...");
-                    AlphaMask::addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, 0, MaskFormat::Geometric);
+                    alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, 0, MaskFormat::Geometric);
                 }
                 metadataList.append(metaStruct);
                 if(mode == DecodeMode::Partial)

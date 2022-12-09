@@ -32,6 +32,7 @@
 #include "style.h"
 #include "linkerqml.h"
 #include "sconfig.h"
+#include "cachemanager.h"
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 

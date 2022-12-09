@@ -48,6 +48,8 @@
 #include <QJsonDocument>
 #include "qcolor.h"
 
+#include "cachemanager.h"
+
 enum Colors : short int
 {
     NoColor,

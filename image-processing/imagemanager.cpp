@@ -5,8 +5,6 @@ QString ImageManager::TCPDirectory;
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
     ImageManager::setupCache();
-            Debug::Log("?[FILEMANAGER] .png directory: "+ImageManager::PNGDirectory);
-            Debug::Log("?[FILEMANAGER] TCP Downloader directory: "+ImageManager::TCPDirectory);
 }
 
 QStringList ImageManager::GetDiff(QStringList existingFileList)

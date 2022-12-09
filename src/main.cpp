@@ -52,12 +52,15 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     QApplication app(argc, argv);
-    qInstallMessageHandler(debugLogger);
+    
+    //cache setup
+    CacheManager::initializeCache();
 
     QQuickStyle::setStyle("Material");  //графика для QML
     new Style(false);                   //false при сборке релиза
-    new SText();
     new TilesManager();
+
+    qInstallMessageHandler(debugLogger);
     CoreUI window;
 
     window.show();

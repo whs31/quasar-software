@@ -37,6 +37,7 @@ include_directories(
     windowextension
     func
     gui
+    disk
 )
 
 if(NOT WIN32)
@@ -98,6 +99,8 @@ else()
         config/settingsdialog.h
         config/settingsdialog.cpp
         config/settingsdialog.ui
+        disk/cachemanager.h
+        disk/cachemanager.cpp
         image-processing/imageprocessing.h
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.h

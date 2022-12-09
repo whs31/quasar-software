@@ -19,6 +19,7 @@
 #include "sconfig.h"
 #include "debug.h"
 #include "profiler.h"
+#include "cachemanager.h"
 
 enum ImageFormat : short int
 {

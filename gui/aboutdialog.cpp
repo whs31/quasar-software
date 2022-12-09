@@ -7,7 +7,7 @@ AboutDialog::AboutDialog(QWidget *parent, QString softwareBuildVersion) :
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-    ui->softVersion->setText("Версия программного обеспечения " + Style::StyleText(softwareVersion, Colors::Accent, Format::Bold));
+    ui->softVersion->setText("Версия ПО " + Style::StyleText(softwareVersion, Colors::Accent, Format::Bold));
 }
 
 AboutDialog::~AboutDialog()

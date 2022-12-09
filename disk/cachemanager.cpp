@@ -14,7 +14,7 @@ CacheManager* CacheManager::initializeCache()
     if(_instance != NULL)
         return _instance;
     _instance = new CacheManager();
-
+    return _instance;
 }
 
 void CacheManager::initialize()
@@ -22,16 +22,42 @@ void CacheManager::initialize()
     settingsPath = QCoreApplication::applicationDirPath()+"/appconfig";
     QDir settings(settingsPath);
     if(!settings.exists()) { settings.mkpath(settingsPath); }
+
+    mapProviderCache = QCoreApplication::applicationDirPath()+"/apposmconfig";
+    QDir osmconfigs(mapProviderCache);
+    osmconfigs.mkpath(mapProviderCache);
+
+    tileServerCache = QCoreApplication::applicationDirPath()+"/tiles";
+    QDir tiles(tileServerCache);
+    if(!tiles.exists()) { tiles.mkpath(tileServerCache); }
+    Debug::Log("?[CACHEMANAGER] Initial cache created");
 }
 
 void CacheManager::setupImageCache()
 {
-
+    pngCache = QCoreApplication::applicationDirPath()+"/appcache/pngcache";
+    tcpDowloaderCache = QCoreApplication::applicationDirPath()+"/appcache/tcpdcache";
+    QDir png(pngCache);
+    QDir tcp(tcpDowloaderCache);
+    if(!png.exists()) { png.mkpath(pngCache); }
+    if(!tcp.exists()) { tcp.mkpath(tcpDowloaderCache); }
+    Debug::Log("?[CACHEMANAGER] Image cache created");
 }
 
-void CacheManager::clearImageCache()
+void CacheManager::clearImageCache(ClearMode mode)
 {
-
+    if(mode == ClearMode::ClearAll || mode == ClearMode::ClearTCP)
+    {
+        QDir tcp(tcpDowloaderCache);
+        if(tcp.exists()) { tcp.removeRecursively(); }
+    }
+    if(mode == ClearMode::ClearAll || mode == ClearMode::ClearPNG)
+    {
+        QDir png(pngCache);
+        if(png.exists()) { png.removeRecursively(); }
+    }
+    Debug::Log("[CACHEMANAGER] Cache cleared");
+    setupImageCache();
 }
 
 QString CacheManager::getTcpDowloaderCache() { return CacheManager::tcpDowloaderCache; }
@@ -45,6 +71,6 @@ CacheManager::CacheManager()
 {
     initialize();
     setupImageCache();
-    Debug::Log("?[FILEMANAGER] .png directory: "+CacheManager::pngCache);
-    Debug::Log("?[FILEMANAGER] TCP Downloader directory: "+CacheManager::tcpDowloaderCache);
+    Debug::Log("?[CACHEMANAGER] .png directory: "+CacheManager::pngCache);
+    Debug::Log("?[CACHEMANAGER] TCP Downloader directory: "+CacheManager::tcpDowloaderCache);
 }

@@ -15,7 +15,7 @@ void ImageProcessing::clearCache()
 {
     metadataList.clear();
     qmlLinker->clearImageArray();
-    ImageManager::clearCache(ClearMode::ClearAll);
+    CacheManager::clearImageCache(ClearMode::ClearAll);
 }
 
 QStringList ImageProcessing::getEntryList(QString &path)
@@ -197,7 +197,7 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 QString pngPath = info.fileName();
                 pngPath.chop(3);
                 pngPath.append("png");
-                pngPath.prepend(ImageManager::getPNGDirectory()+'/');
+                pngPath.prepend(CacheManager::getPngCache()+'/');
                 QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
 

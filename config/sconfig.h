@@ -7,6 +7,7 @@
 #include <QQuickItem>
 #include <QMessageBox>
 
+#include "cachemanager.h"
 #include "config.h"
 #include "jsonconfig.h"
 

@@ -36,8 +36,8 @@ float SConfig::METAANGLECORRECTION;
 SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
 {
     pointer = this;
-    config = new Config(QCoreApplication::applicationDirPath() + "/-/config2.ini");
-    jsonConfig = new JsonConfig(QCoreApplication::applicationDirPath() + "/-/config.json");
+    config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
+    jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
     linker = new LinkerQML(qml);
     fStatic = fStaticVariables;
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   

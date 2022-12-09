@@ -7,13 +7,20 @@
 #include "debug.h"
 #include "sconfig.h"
 
+enum ClearMode : short int
+{
+    ClearAll,
+    ClearTCP,
+    ClearPNG
+};
+
 class CacheManager : public QObject
 {
     Q_OBJECT
 public:
     static CacheManager* initializeCache();
     static void setupImageCache(void);
-    static void clearImageCache(void);
+    static void clearImageCache(ClearMode mode = ClearMode::ClearAll);
 
     static QString getTcpDowloaderCache();
     static QString getPngCache();

@@ -28,13 +28,6 @@ enum ImageFormat : short int
     PNG
 };
 
-enum ClearMode : short int
-{
-    ClearAll,
-    ClearTCP,
-    ClearPNG
-};
-
 enum MaskFormat : short int
 {
     Geometric,
@@ -54,10 +47,6 @@ public:
     bool saveRawData(QByteArray data, QString filename);
     QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
 
-    static QString getPNGDirectory(void);
-    static QString getTCPDirectory (void);
-    static void clearCache(ClearMode mode = ClearMode::ClearAll);
-    static void setupCache(void);
     static QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
 
 private:

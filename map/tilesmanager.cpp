@@ -19,13 +19,8 @@ TilesManager::TilesManager()
 
 void TilesManager::InitializeConfig()
 {
-    TilesManager::OSMConfigsPath = QCoreApplication::applicationDirPath()+"/maptsc";
-    TilesManager::TileServerPath = QCoreApplication::applicationDirPath()+"/tiles";
-
-
-    QDir osmconfigs(TilesManager::OSMConfigsPath);
-    //if(osmconfigs.exists()) { osmconfigs.removeRecursively(); }
-    osmconfigs.mkpath(TilesManager::OSMConfigsPath);
+    TilesManager::OSMConfigsPath = CacheManager::getMapProviderCache();
+    TilesManager::TileServerPath = CacheManager::getTileServerCache();
 
     QFile f_satellite(":/osmconfigs/satellite");
     f_satellite.open(QIODevice::ReadOnly);

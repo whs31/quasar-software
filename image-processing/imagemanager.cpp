@@ -1,15 +1,12 @@
 #include "imagemanager.h"
 
-QString ImageManager::PNGDirectory;
-QString ImageManager::TCPDirectory;
 ImageManager::ImageManager(QObject *parent) : QObject(parent)
 {
-    ImageManager::setupCache();
 }
 
 QStringList ImageManager::GetDiff(QStringList existingFileList)
 {
-    QDir pngDirectory(ImageManager::getPNGDirectory());
+    QDir pngDirectory(CacheManager::getPngCache());
     QStringList pngFileList;
     QStringList diff;
     pngDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
@@ -89,7 +86,7 @@ bool ImageManager::saveRawData(QByteArray data, QString filename)
 {
     data.reserve(sizeof(data));
 
-    QString path = ImageManager::getTCPDirectory();
+    QString path = CacheManager::getTcpDowloaderCache();
     path.append("/");
     path.append(filename);
     QDir::toNativeSeparators(path);
@@ -151,43 +148,6 @@ QString ImageManager::addAlphaMask(QString path, float width, float height, floa
     return "";
 }
 
-QString ImageManager::getPNGDirectory(void)
-{
-    return ImageManager::PNGDirectory;
-}
-QString ImageManager::getTCPDirectory(void)
-{
-    return ImageManager::TCPDirectory;
-}
-
-void ImageManager::clearCache(ClearMode mode)
-{
-    if(mode == 0||mode == 1)
-    {
-        QDir tcpdir(ImageManager::TCPDirectory);
-        if(tcpdir.exists()) { tcpdir.removeRecursively(); }
-    }
-    if(mode == 0||mode == 2)
-    {
-        QDir pngdir(ImageManager::PNGDirectory);
-        if(pngdir.exists()) { pngdir.removeRecursively(); }
-    }
-    Debug::Log("![FILEMANAGER] Cache cleared");
-    ImageManager::setupCache();
-}
-
-void ImageManager::setupCache(void)
-{
-    ImageManager::PNGDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"pngc";
-    QDir pngdir(ImageManager::PNGDirectory);
-    if(!pngdir.exists()) { pngdir.mkpath(ImageManager::PNGDirectory); }
-    ImageManager::TCPDirectory = QCoreApplication::applicationDirPath()+"/cache/"+"tcpipdc";
-    QDir tcpdir(ImageManager::TCPDirectory);
-    if(!tcpdir.exists()) { tcpdir.mkpath(ImageManager::TCPDirectory); }
-    SConfig::CACHEPATH = ImageManager::TCPDirectory;
-    Debug::Log("?[FILEMANAGER] Cache created");
-}
-
 QStringList ImageManager::diffConvert(QStringList diff, ImageFormat format)
 {
     switch (format) {
@@ -240,7 +200,7 @@ QString ImageManager::MakePNG(QString jpeg)
     filename.chop(3); filename.append("png");
     QImage pixMap(jpeg);
     pixMap = enableAlphaSupport(pixMap);
-    QString finalFile = ImageManager::PNGDirectory+'/'+filename;
+    QString finalFile = CacheManager::getPngCache()+'/'+filename;
     QDir::toNativeSeparators(finalFile);
     pixMap.save(finalFile);
     return finalFile;

@@ -7,6 +7,8 @@
 #include <QSaveFile>
 #include <QDir>
 
+#include "cachemanager.h"
+
 #include <QTextStream>
 
 class TilesManager : public QObject

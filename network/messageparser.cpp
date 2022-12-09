@@ -81,6 +81,7 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     //crc16
     QByteArray str = formRequest.toUtf8();
     char* data = str.data();
+    //char* data = "0004|14|$FORM(arg1=1,arg2=2)|";         так работает........... =(
     qCritical()<<formRequest;
     qCritical()<<formRequest.length();
     uint16_t crc16 = SChecksum::calculateCRC16(data, formRequest.length());

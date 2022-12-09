@@ -97,7 +97,8 @@ void CoreUI::on_pushButton_clearCache_clicked()
 
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {
-    SendRemoteCommand(MessageParser::REQUEST_FORM);
+    SendRemoteCommand(MessageParser::makeFormRequest(1, 1));
+    qCritical()<<MessageParser::makeFormRequest(1, 1);
 }
 
 

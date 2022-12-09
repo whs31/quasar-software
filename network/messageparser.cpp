@@ -25,6 +25,8 @@
 
 QString MessageParser::REQUEST_TELEMETRY = "$JSON";
 QString MessageParser::REQUEST_FORM = "$FORM";
+
+size_t MessageParser::formMessageID = 0;
 MessageParser::MessageParser(QObject *parent)
     : QObject{parent}
 {
@@ -52,4 +54,43 @@ std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
     double elv =  jsonDocument.object().value("Elevation").toDouble();
     double sats =  jsonDocument.object().value("Sats").toDouble();
     return { lat, lon, spd, elv, sats };
+}
+
+QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
+{
+    QString formRequest = "";
+
+    QString messageID;
+    (formMessageID < 10000) ? formMessageID++ : formMessageID == 1;
+    if(formMessageID < 1000)
+        messageID = "0";
+    if(formMessageID < 100)
+        messageID.append("0");
+    if(formMessageID < 10)
+        messageID.append("0");
+    messageID.append(QString::number(formMessageID));
+    formRequest.append(messageID + "|");
+
+    QString _formRequest = REQUEST_FORM + "(arg1=" + QString::number(arg1) + ",arg2=" + QString::number(arg2) + ")";
+    short strlen = _formRequest.length();
+    QString hexlen;
+    hexlen.setNum(strlen, 16);
+    formRequest.append(hexlen + "|");
+    formRequest.append(_formRequest + "|");
+
+    //crc16
+    QByteArray str = formRequest.toUtf8();
+    char* data = str.data();
+    uint16_t crc16 = SChecksum::calculateCRC16((uint8_t*)data, strlen);
+    QString crc16hex = QString("%1").arg(crc16, 4, 16, QLatin1Char('0'));
+    formRequest.append(crc16hex);
+
+    QByteArray returnArr = formRequest.toUtf8();
+    return returnArr;
+}
+
+QStringList MessageParser::parseFormResponse(QByteArray data)
+{
+
+
 }

@@ -51,7 +51,7 @@ public:
 
     static std::array<double, 5> parseTelemetry (QByteArray data);
 
-    static QStringList parseFormResponse(QByteArray data);
+    static std::array<int, 4> parseFormResponse(QByteArray data);
     static QByteArray makeFormRequest(short arg1 = 1, short arg2 = 1);
 
 

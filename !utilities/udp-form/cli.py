@@ -46,14 +46,11 @@ def crc16(data):
     
 
 mess_id = '0001'
-mess_cmd = '$FORM'
-mess_arg = ['arg1=1', 'arg2=2']
+mess_cmd = '$9922'
 
-mess_cmd_full = '{}({})'.format(mess_cmd, ','.join(mess_arg))
+mess_len = '{:02x}'.format(len(mess_cmd))
 
-mess_len = '{:02x}'.format(len(mess_cmd_full))
-
-message = '{}|{}|{}|'.format(mess_id, mess_len, mess_cmd_full)
+message = '{}|{}|{}|'.format(mess_id, mess_len, mess_cmd)
 message += crc16(message.encode())
 
 print(message)
@@ -62,12 +59,9 @@ print(message)
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 addr = ("127.0.0.1", 9845)
 client_socket.sendto(message.encode(), addr)
-'''
+
 try:
     data, server = client_socket.recvfrom(1024)
-    end = time.time()
-    elapsed = end - start
-    print(f'{data} {pings} {elapsed}')
+    print(f'{data}')
 except socket.timeout:
     print('REQUEST TIMED OUT')
-'''

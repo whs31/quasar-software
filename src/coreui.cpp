@@ -366,28 +366,48 @@ void CoreUI::ReadUDPData(QByteArray data)
 {
     udpTimeout->start(3 * SConfig::UPDATETIME*1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
-    std::array<double, 5> telemetry; //lat, lon, speed, elevation, sats
+
     switch (dtype) {
     case DataType::Telemetry:
+        std::array<double, 5> telemetry; //lat, lon, speed, elevation, sats
         telemetry[4] = (double)0;
         telemetry = MessageParser::parseTelemetry(data);
+        _conckc = telemetry[0];
+        fTelemetry->setLatitude((float)telemetry[0]);
+        fTelemetry->setLongitude((float)telemetry[1]);
+        fTelemetry->setSpeed((float)telemetry[2]);
+        fTelemetry->setElevation((float)telemetry[3]);
+        fTelemetry->setSats((short)telemetry[4]);
+        updateTelemetryLabels((int)telemetry[4]);
+
+        linker->fixedUpdate();
+
+        if((int)telemetry[4] != 0 || _conckc != telemetry[0])
+        {
+            Connected();
+        } else { Disconnected(); }
+        break;
+    case DataType::FormResponse:
+        std::array<int, 4> responseList;
+        responseList = MessageParser::parseFormResponse(data);
+
+        //temp
+        if(!responseList.empty())
+        {
+            QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
+            Debug::Log("?[FORM] SAR responds with: pid "
+                       + QString::number(responseList[0])
+                       + ", hexlen "
+                       + QString::number(responseList[1])
+                       + ", code"
+                       + QString::number(responseList[2])
+                       + " with checksum check " +
+                       checksumCheck);
+        }
         break;
     default:
         break;
     }
-    if((int)telemetry[4] != 0 || _conckc != telemetry[0])
-    {
-        Connected();
-    } else { Disconnected(); }
-    _conckc = telemetry[0];
-    fTelemetry->setLatitude((float)telemetry[0]);
-    fTelemetry->setLongitude((float)telemetry[1]);
-    fTelemetry->setSpeed((float)telemetry[2]);
-    fTelemetry->setElevation((float)telemetry[3]);
-    fTelemetry->setSats((short)telemetry[4]);
-    updateTelemetryLabels((int)telemetry[4]);
-
-    linker->fixedUpdate();
 }
 
 //вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)

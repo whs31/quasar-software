@@ -37,9 +37,9 @@ DataType MessageParser::checkReceivedDataType(QByteArray data)
 {
     QString dts = data.data();
     if(dts.startsWith(MessageParser::REQUEST_TELEMETRY))
-    {
         return DataType::Telemetry;
-    }
+    if(dts.contains("|") && !dts.contains(MessageParser::REQUEST_FORM))
+        return DataType::FormResponse;
     return DataType::Unrecognized;
 }
 std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
@@ -89,8 +89,14 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     return returnArr;
 }
 
-QStringList MessageParser::parseFormResponse(QByteArray data)
+std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)
 {
+    QString rawString = data.data();
+    QStringList response = rawString.split("|");
+    int strlen = response[1].toInt(nullptr, 10);
+    response[2].remove(0, 1);
 
+    int checksumCheckResult = 0; //1 if checksum is successful
 
+    return { response[0].toInt(), strlen, response[2].toInt(), checksumCheckResult };
 }

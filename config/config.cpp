@@ -23,6 +23,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["updateTime"] = "0.5";
     network["loader_ip"] = "127.0.0.1";
     network["loader_port"] = "25555";
+    network["form_image_port"] = "9845";
     checkValuesSimple(network);
 
     group_t map;

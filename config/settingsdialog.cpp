@@ -22,6 +22,7 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->i_loaderIp->setText(SConfig::LOADERIP);
     uiS->i_loaderPort->setText(SConfig::LOADERPORT);
     uiS->i_usebase64->setChecked(SConfig::USEBASE64);
+    uiS->i_formImagePort->setText(SConfig::FORMIMAGEPORT);
     if(SConfig::ANTENNAPOSITION == "r") {
         uiS->i_antennaRightB->setChecked(true);
         uiS->i_antennaLeftB->setChecked(false); }
@@ -44,6 +45,9 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::NETWORKTYPE      =           uiS->i_networktype->text();
     SConfig::NETWORKADDRESS   =           uiS->i_networkip->text();
     SConfig::NETWORKPORT      =           uiS->i_networkport->text();
+    SConfig::LOADERIP         =           uiS->i_loaderIp->text();
+    SConfig::LOADERPORT       =           uiS->i_loaderPort->text();
+    SConfig::FORMIMAGEPORT    =           uiS->i_formImagePort->text();
     SConfig::UPDATETIME       =           uiS->i_updateTime->value();
     SConfig::PREDICTRANGE     =           uiS->i_predictRange->value();
     SConfig::DRIFTANGLE       =           uiS->i_driftAngle->value();
@@ -57,8 +61,6 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::DEBUGCONSOLE     =           uiS->i_debugConsole->isChecked();
     SConfig::USELOADER        =           uiS->i_useLoader->isChecked();
     SConfig::SAVEATEND        =           uiS->i_saveOnlyAtEnd->isChecked();
-    SConfig::LOADERIP         =           uiS->i_loaderIp->text();
-    SConfig::LOADERPORT       =           uiS->i_loaderPort->text();
     SConfig::USEBASE64        =           uiS->i_usebase64->isChecked();
     accept();
 }

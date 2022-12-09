@@ -13,6 +13,9 @@ bool SConfig::USEPROFILER;
 QString SConfig::NETWORKTYPE;
 QString SConfig::NETWORKADDRESS;
 QString SConfig::NETWORKPORT;
+QString SConfig::LOADERIP;
+QString SConfig::LOADERPORT;
+QString SConfig::FORMIMAGEPORT;
 float SConfig::UPDATETIME;
 float SConfig::PREDICTRANGE;
 float SConfig::CAPTURERANGE;
@@ -27,8 +30,6 @@ bool SConfig::DEBUGCONSOLE;
 QString SConfig::CACHEPATH;
 bool SConfig::USELOADER;
 bool SConfig::SAVEATEND;
-QString SConfig::LOADERIP;
-QString SConfig::LOADERPORT;
 bool SConfig::USEBASE64;
 bool SConfig::METAANGLEINRADIANS;
 float SConfig::METAANGLECORRECTION;
@@ -59,6 +60,7 @@ void SConfig::loadSettings()
     UPDATETIME            =           config->value("network/updateTime").toFloat();
     LOADERIP              =           config->value("network/loader_ip").toString();
     LOADERPORT            =           config->value("network/loader_port").toString();
+    FORMIMAGEPORT         =           config->value("network/form_image_port").toString();
     PREDICTRANGE          =           config->value("map/predict_line_range").toFloat();
     CAPTURERANGE          =           config->value("map/diagram_length").toFloat();
     CAPTURETIME           =           config->value("map/capture_time").toFloat();
@@ -110,6 +112,9 @@ void SConfig::save()
     config->setValue("network/ip", NETWORKADDRESS);
     config->setValue("network/port", NETWORKPORT);
     config->setValue("network/updateTime", QString::number(UPDATETIME));
+    config->setValue("network/loader_ip", LOADERIP);
+    config->setValue("network/loader_port", LOADERPORT);
+    config->setValue("network/form_image_port", FORMIMAGEPORT);
     config->setValue("map/predict_line_range", QString::number(PREDICTRANGE));
     config->setValue("map/diagram_length", QString::number(CAPTURERANGE));
     config->setValue("map/capture_time", QString::number(CAPTURETIME));
@@ -117,16 +122,14 @@ void SConfig::save()
     config->setValue("map/diagram_drift_angle", QString::number(DRIFTANGLE));
     config->setValue("map/antenna_position", ANTENNAPOSITION);
     config->setValue("image/path", PATH);
-    config->setValue("startup/show_image", SHOWIMAGEONSTART);
-    config->setValue("startup/connect", CONNECTONSTART);
-    config->setValue("startup/debug_console", DEBUGCONSOLE);
     config->setValue("image/use_loader", USELOADER);
     config->setValue("image/save_at_end", SAVEATEND);
-    config->setValue("network/loader_ip", LOADERIP);
-    config->setValue("network/loader_port", LOADERPORT);
     config->setValue("image/use_base64", USEBASE64);
     config->setValue("image/angle_in_radians", METAANGLEINRADIANS);
     config->setValue("image/angle_correction", METAANGLECORRECTION);
+    config->setValue("startup/show_image", SHOWIMAGEONSTART);
+    config->setValue("startup/connect", CONNECTONSTART);
+    config->setValue("startup/debug_console", DEBUGCONSOLE);
 }
 
 void SConfig::discardSettings()

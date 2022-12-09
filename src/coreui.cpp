@@ -9,19 +9,20 @@ CoreUI::CoreUI(QWidget *parent)
 {
     debugPointer = this;
     screenResolution = QGuiApplication::screens().first()->availableGeometry();
-    //log clear
+    //log clear //must be done in Debug class
     for(short i = 0; i < 25; i++)
     {
         qDebug()<<" ";
     }
-    qDebug()<<"=================================NEW SESSION=========================================";
+    qDebug()<<"=================================NEW SESSION========================================="; //this too
     InitializeUI();
     InitializeConnections();
 }
 
 CoreUI::~CoreUI()
 {
-    udpRemote->Disconnect();
+    telemetryRemote->Disconnect();
+    formRemote->Disconnect();
     tcpRemote->Disconnect();
     delete ui;
 }
@@ -209,7 +210,8 @@ void CoreUI::InitializeConnections()
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
     //network setup
-    udpRemote = new UDPRemote();
+    telemetryRemote = new UDPRemote();
+    formRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
         connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
@@ -226,7 +228,8 @@ void CoreUI::InitializeConnections()
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
-        connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
+        connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
+        connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
 
     //network connection
@@ -235,7 +238,8 @@ void CoreUI::InitializeConnections()
         if(SConfig::NETWORKTYPE == "TCP") { tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
         else
         {
-            udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
+            telemetryRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::NETWORKPORT);
+            formRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::FORMIMAGEPORT);
             if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
             Debug::Log("?[REMOTE] UDP client connected");
         }
@@ -282,7 +286,8 @@ void CoreUI::SendRemoteCommand(QString command)
     if(SConfig::NETWORKTYPE == "TCP"){
         tcpRemote->Send(command.toUtf8());
     } else {
-        udpRemote->Send(command.toUtf8());
+        telemetryRemote->Send(command.toUtf8());
+        formRemote->Send(command.toUtf8());
     }
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -85,7 +85,8 @@ private:
     //object pointers
     Ui::CoreUI *ui;
     static CoreUI* debugPointer;
-    UDPRemote *udpRemote;
+    UDPRemote *telemetryRemote;
+    UDPRemote *formRemote;
     TCPRemote *tcpRemote;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;

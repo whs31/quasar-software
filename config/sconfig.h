@@ -33,6 +33,9 @@ public:
     static QString NETWORKTYPE;
     static QString NETWORKADDRESS;
     static QString NETWORKPORT;
+    static QString LOADERIP;
+    static QString LOADERPORT;
+    static QString FORMIMAGEPORT;
     static float UPDATETIME;
     static float PREDICTRANGE;
     static float CAPTURERANGE;
@@ -47,8 +50,6 @@ public:
     static QString CACHEPATH;
     static bool USELOADER;
     static bool SAVEATEND;
-    static QString LOADERIP;
-    static QString LOADERPORT;
     static bool USEBASE64;
     static bool METAANGLEINRADIANS;
     static float METAANGLECORRECTION;

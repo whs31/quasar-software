@@ -62,12 +62,14 @@ void CoreUI::on_pushButton_showAllImages_clicked()
 }
 void CoreUI::on_pushButton_reconnect_clicked()
 {
-    udpRemote->Disconnect();
+    telemetryRemote->Disconnect();
+    formRemote->Disconnect();
     tcpRemote->Disconnect();
     Disconnected();
     if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
     else {
-        udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
+        telemetryRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::NETWORKPORT);
+        formRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::FORMIMAGEPORT);
         if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
         Debug::Log("?[REMOTE] UDP client connected");
     }

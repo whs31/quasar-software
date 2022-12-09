@@ -36,6 +36,7 @@ include_directories(
     json
     windowextension
     func
+    gui
 )
 
 if(NOT WIN32)
@@ -116,6 +117,9 @@ else()
         misc/profiler.h
         misc/profiler.cpp
         misc/json-backup.qrc
+        gui/aboutdialog.h
+        gui/aboutdialog.cpp
+        gui/aboutdialog.ui
         ${SRCS} appiconwin32.rc
    )
 endif()

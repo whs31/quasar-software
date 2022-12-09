@@ -6,6 +6,7 @@ Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
 FStaticVariables* SConfig::fStatic;
 
+QString SConfig::BUILDVERSION;
 bool SConfig::TESTMODE;
 bool SConfig::USEPROFILER;
 QString SConfig::NETWORKTYPE;
@@ -47,6 +48,7 @@ SConfig* SConfig::init(void)            { return pointer; }
 
 void SConfig::loadSettings()
 {
+    BUILDVERSION          =           config->value("utility/version").toString();
     TESTMODE              =           config->value("utility/test_mode").toBool();
     USEPROFILER           =           config->value("utility/profiler").toBool();
     NETWORKTYPE           =           config->value("network/type").toString();

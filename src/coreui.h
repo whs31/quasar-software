@@ -18,11 +18,13 @@
 #include "extension.h"
 #include "udpremote.h"
 #include "tcpremote.h"
-#include "settingsdialog.h"
 #include "imageprocessing.h"
 #include "imagemanager.h"
 #include "messageparser.h"
 #include "debug.h"
+
+#include "settingsdialog.h"
+#include "aboutdialog.h"
 
 #include "style.h"
 #include "linkerqml.h"
@@ -116,6 +118,7 @@ private slots:
     void on_minmaxButton_clicked();
     void on_closeButton_clicked();
     void on_settingsButton_clicked();
+    void on_infoButton_clicked();
 
     //utility slots
     void ReadUDPData(QByteArray data);
@@ -144,5 +147,6 @@ private slots:
     void on_pushButton_stopContinuous_clicked();
     void on_pushButton_showDebugConsoleDock_clicked();
     void on_pushButton_showMapToolsDock_clicked();
+
 };
 #endif // COREUI_H

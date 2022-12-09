@@ -17,11 +17,11 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>QuaSAR</string>
+   <string>СПО QuaSAR</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
-    <normaloff>:/ui-resources/windowextension/logo.png</normaloff>:/ui-resources/windowextension/logo.png</iconset>
+    <normaloff>:/ui-resources/quasarlogo/logo-black.png</normaloff>:/ui-resources/quasarlogo/logo-black.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
@@ -404,6 +404,9 @@ QMenu::right-arrow {
   width: 12px;
 }
 </string>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
   </property>
   <widget class="QWidget" name="mapContainer">
    <layout class="QGridLayout" name="gridLayout">

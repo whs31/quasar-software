@@ -25,6 +25,7 @@ public:
     static void saveQuiet();
     static void discardSettings();
 
+    static QString BUILDVERSION;
     static bool TESTMODE;
     static bool USEPROFILER;
     static QString NETWORKTYPE;

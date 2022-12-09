@@ -52,7 +52,7 @@ void Style::initializeFormats()
 {
     formats = UXManager::GetFormatList();
     QStringList _f = formats;
-    for(int k = 0; k < (_f.size()/2); k++) _f.swap(k,formats.size()-(1+k));
+    for(int k = 0; k < (_f.size()/2); k++) _f.swapItemsAt(k,formats.size()-(1+k));
     for(int f = 0; f < _f.length(); f++)
     {
         _f[f].remove(0, 1);

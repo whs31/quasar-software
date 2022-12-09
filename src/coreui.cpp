@@ -8,7 +8,7 @@ CoreUI::CoreUI(QWidget *parent)
     , ui(new Ui::CoreUI)
 {
     debugPointer = this;
-    screenResolution = QApplication::desktop()->availableGeometry();
+    screenResolution = QGuiApplication::screens().first()->availableGeometry();
     //log clear
     for(short i = 0; i < 25; i++)
     {
@@ -331,6 +331,13 @@ void CoreUI::on_settingsButton_clicked()
                                             +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
     ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
 }
+
+void CoreUI::on_infoButton_clicked()
+{
+    AboutDialog aboutDialog(this, SConfig::BUILDVERSION);
+    aboutDialog.exec();
+}
+
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -369,6 +376,3 @@ void CoreUI::Halftime()
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-

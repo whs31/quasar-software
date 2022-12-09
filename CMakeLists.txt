@@ -105,6 +105,8 @@ else()
         image-processing/imageprocessing.cpp
         image-processing/imagemanager.h
         image-processing/imagemanager.cpp
+        image-processing/alphamask.h
+        image-processing/alphamask.cpp
         func/smath.h
         func/smath.cpp
         func/stext.h

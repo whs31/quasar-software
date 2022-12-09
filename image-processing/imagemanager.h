@@ -20,19 +20,13 @@
 #include "debug.h"
 #include "profiler.h"
 #include "cachemanager.h"
+#include "alphamask.h"
 
 enum ImageFormat : short int
 {
     OnlyFilename,
     JPEG,
     PNG
-};
-
-enum MaskFormat : short int
-{
-    Geometric,
-    AlphaSwap,
-    Combined
 };
 
 class ImageManager : public QObject
@@ -44,17 +38,11 @@ public:
     QStringList GetDiff(QStringList existingFileList);
     QStringList GetInitialList(const QString& path, QStringList diff = {});
     QStringList GetPartialList(const QString& path, QStringList diff = {});
-    bool saveRawData(QByteArray data, QString filename);
-    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
+    bool saveRawData(QByteArray data, QString filename); //to disk
 
     static QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
 
 private:
-    static QString PNGDirectory;
-    static QString TCPDirectory;
-
-    QImage enableAlphaSupport(QImage i);
-    QString convertToBase64(QImage image);
     QString MakePNG(QString jpeg);
 
 signals:

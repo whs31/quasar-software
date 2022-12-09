@@ -11,7 +11,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 
     group_t utility;
     utility["version"] = "0.9.4pre";
-    utility["sudo_password"] = "qqq";
+    utility["sudo_password"] = "123";
     utility["test_mode"] = "false";
     utility["profiler"] = "false";
     checkValuesSimple(utility);

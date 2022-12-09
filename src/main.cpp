@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 
     QQuickStyle::setStyle("Material");  //графика для QML
     new Style(false);                   //false при сборке релиза
-    new TilesManager();
+    new TilesManager(true);             //false при сборке релиза
 
     qInstallMessageHandler(debugLogger);
     CoreUI window;

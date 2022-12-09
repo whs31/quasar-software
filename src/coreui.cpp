@@ -143,7 +143,7 @@ void CoreUI::InitializeUI()
     Debug::Log("[STARTUP] Starting UI initialization...");
 
     //qml base setup
-    ui->map->rootContext()->setContextProperty("ApplicationDirPath", QString(QCoreApplication::applicationDirPath()));
+    ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
     qml = ui->map->rootObject();

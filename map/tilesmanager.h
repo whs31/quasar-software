@@ -15,10 +15,8 @@ class TilesManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit TilesManager();
+    explicit TilesManager(bool useLocalTileServer = false);
     static void InitializeConfig();
-    static QString OSMConfigsPath;
-    static QString TileServerPath;
 
 private:
     static QString _street;
@@ -28,6 +26,8 @@ private:
     static QString _cycle;
     static QString _hiking;
     static QString _nighttransit;
+
+    static bool useLocalTileServer;
 
 signals:
 

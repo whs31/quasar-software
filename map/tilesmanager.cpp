@@ -1,7 +1,6 @@
 #include "tilesmanager.h"
 
-QString TilesManager::OSMConfigsPath = "";
-QString TilesManager::TileServerPath = "";
+
 
 QString TilesManager::_street;
 QString TilesManager::_satellite;
@@ -11,17 +10,17 @@ QString TilesManager::_cycle;
 QString TilesManager::_hiking;
 QString TilesManager::_nighttransit;
 
-TilesManager::TilesManager()
+bool TilesManager::useLocalTileServer; //change to false on release
+
+TilesManager::TilesManager(bool useLocalhost)
 {
+    useLocalTileServer = useLocalhost;
     InitializeConfig();
-    //Debug::Log("?[TILESERVER] Path initialized");
+    Debug::Log("?[TILESERVER] Path initialized");
 }
 
 void TilesManager::InitializeConfig()
 {
-    TilesManager::OSMConfigsPath = CacheManager::getMapProviderCache();
-    TilesManager::TileServerPath = CacheManager::getTileServerCache();
-
     QFile f_satellite(":/osmconfigs/satellite");
     f_satellite.open(QIODevice::ReadOnly);
     _satellite = f_satellite.readAll();
@@ -46,44 +45,54 @@ void TilesManager::InitializeConfig()
     f_nighttransit.open(QIODevice::ReadOnly);
     _nighttransit = f_nighttransit.readAll();
 
-    QSaveFile satellite(OSMConfigsPath+"/satellite");
+    QSaveFile satellite(CacheManager::getMapProviderCache()+"/satellite");
     satellite.open(QIODevice::WriteOnly);
     QTextStream out1(&satellite); out1 << _satellite;
     satellite.commit();
 
-    QSaveFile terrain(OSMConfigsPath+"/terrain");
+    QSaveFile terrain(CacheManager::getMapProviderCache()+"/terrain");
     terrain.open(QIODevice::WriteOnly);
     QTextStream out2(&terrain); out2 << _terrain;
     terrain.commit();
 
-    QSaveFile transit(OSMConfigsPath+"/transit");
+    QSaveFile transit(CacheManager::getMapProviderCache()+"/transit");
     transit.open(QIODevice::WriteOnly);
     QTextStream out3(&transit); out3 << _transit;
     transit.commit();
 
-    QSaveFile cycle(OSMConfigsPath+"/cycle");
+    QSaveFile cycle(CacheManager::getMapProviderCache()+"/cycle");
     cycle.open(QIODevice::WriteOnly);
     QTextStream out4(&cycle); out4 << _cycle;
     cycle.commit();
 
-    QSaveFile hiking(OSMConfigsPath+"/hiking");
+    QSaveFile hiking(CacheManager::getMapProviderCache()+"/hiking");
     hiking.open(QIODevice::WriteOnly);
     QTextStream out5(&hiking); out5 << _hiking;
     hiking.commit();
 
-    QSaveFile nighttransit(OSMConfigsPath+"/night-transit");
+    QSaveFile nighttransit(CacheManager::getMapProviderCache()+"/night-transit");
     nighttransit.open(QIODevice::WriteOnly);
     QTextStream out6(&nighttransit); out6 << _nighttransit;
     nighttransit.commit();
 
         //"file:///" + TilesManager::TileServerPath + "/%z/%x/%y.png"
-        _street = "{\r\n    \"UrlTemplate\" : \""
-                                "file:///" + TilesManager::TileServerPath + "/%z/%x/%y.png"
+        if(!useLocalTileServer)
+        {
+            _street = "{\r\n    \"UrlTemplate\" : \""
+                                "file:///" + CacheManager::getTileServerCache() + "/%z/%x/%y.png"
                   "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
                   "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
                   "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
                   "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
-        QSaveFile street(OSMConfigsPath+"/street");
+        } else { //http://192.168.18.3/tiles/%z/%x/%y.png
+            _street = "{\r\n    \"UrlTemplate\" : \""
+                                "http://192.168.18.3/tiles/%z/%x/%y.png"
+                  "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
+                  "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
+                  "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
+                  "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
+        }
+        QSaveFile street(CacheManager::getMapProviderCache()+"/street");
         street.open(QIODevice::WriteOnly);
         QTextStream out7(&street); out7 << _street;
         street.commit();

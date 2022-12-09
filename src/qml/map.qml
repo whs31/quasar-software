@@ -320,13 +320,13 @@ Rectangle {
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";
-                value: "file:///"+ApplicationDirPath+"/maptsc";
+                value: "file:///"+OsmConfigPath;
             }
         }
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
-        copyrightsVisible: false
+        copyrightsVisible: false;
 
         Component.onCompleted: { awake(); start(); }
 

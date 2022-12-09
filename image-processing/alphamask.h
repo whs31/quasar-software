@@ -11,6 +11,9 @@
 #include "sconfig.h"
 #include <QtMath>
 
+#include "draw/rectangle.h"
+#include "draw/triangle.h"
+
 enum MaskFormat : short int
 {
     Geometric,
@@ -32,7 +35,7 @@ public:
 signals:
 
 private:
-    const float thetaAzimuthCorrection = -5; //removing black borders 
+    const float thetaAzimuthCorrection = 0.25; //removing black borders 
 
 
 };

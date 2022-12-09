@@ -107,6 +107,12 @@ else()
         image-processing/imagemanager.cpp
         image-processing/alphamask.h
         image-processing/alphamask.cpp
+        image-processing/draw/shape.h
+        image-processing/draw/shape.cpp
+        image-processing/draw/rectangle.h
+        image-processing/draw/rectangle.cpp
+        image-processing/draw/triangle.h
+        image-processing/draw/triangle.cpp
         func/smath.h
         func/smath.cpp
         func/stext.h

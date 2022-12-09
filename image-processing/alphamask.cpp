@@ -15,6 +15,7 @@ QImage AlphaMask::enableAlphaSupport(QImage i)                                  
 
 QString AlphaMask::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle, MaskFormat format)
 {
+    Rectangle rectangle({0, 0}, {200, 200}, {400, 400}, {56, 651});
     QImage base(path);
     if(format == 0 || format == 2)
     {
@@ -28,13 +29,13 @@ QString AlphaMask::addAlphaMask(QString path, float width, float height, float t
             0, (int)(height/2+rayInitialWidth),
             0, (int)height,
             (int)width, (int)height,
-            (int)width, static_cast<int>((height/2)+width*(qTan(qDegreesToRadians((thetaAzimuth+thetaAzimuthCorrection)/2))))
+            (int)width, static_cast<int>((height/2)+width*(qTan(qDegreesToRadians((thetaAzimuth * (1-thetaAzimuthCorrection))/2))))
         };
         const int bottom[8] = {
             0, (int)(height/2-rayInitialWidth),
             0, 0,
             (int)width, 0,
-            (int)width, static_cast<int>((height/2)-width*(qTan(qDegreesToRadians((thetaAzimuth+thetaAzimuthCorrection)/2))))
+            (int)width, static_cast<int>((height/2)-width*(qTan(qDegreesToRadians((thetaAzimuth * (1-thetaAzimuthCorrection))/2))))
         };
         QPolygon p1, p2;
         p1.setPoints(4, top); p2.setPoints(4, bottom);

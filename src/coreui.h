@@ -23,6 +23,8 @@
 #include "messageparser.h"
 #include "debug.h"
 
+#include "stext.h"
+
 #include "settingsdialog.h"
 #include "aboutdialog.h"
 #include "passworddialog.h"

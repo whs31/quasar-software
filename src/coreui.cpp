@@ -84,7 +84,8 @@ void CoreUI::updateImageManagerLabels(int total, int current)
 {
     ui->label_c_foundImages->setText("Найдено "
                                      +Style::StyleText(QString::number(total), Colors::Accent, Format::Bold)
-                                     +" изображений");
+                                     +" изображен"
+                                     +SText::localNumeralEnding(total));
     ui->label_c_currentImage->setText("Изображение "
                                       +Style::StyleText(QString::number(current+1), Colors::Main, Format::Bold)
                                       +" из "

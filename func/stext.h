@@ -9,6 +9,8 @@ class SText : public QObject
 public:
     explicit SText(QObject *parent = nullptr);
 
+    static QString localNumeralEnding(int numeral);
+
 signals:
 
 };

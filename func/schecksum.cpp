@@ -20,7 +20,7 @@ uint32_t SChecksum::calculateChecksum(const void* data, size_t length, uint32_t 
     return ~crc;
 }
 
-uint16_t SChecksum::calculateCRC16(uint8_t* buffer, int length)
+uint16_t SChecksum::calculateCRC16(char* buffer, int length)
 {
     uint16_t crc = 0xFFFF;
 

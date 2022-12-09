@@ -126,7 +126,8 @@ private slots:
     void on_infoButton_clicked();
 
     //utility slots
-    void ReadUDPData(QByteArray data);
+    void ReadTelemetry(QByteArray data);
+    void ReadForm(QByteArray data);
     void Halftime();
 
     //gui slots

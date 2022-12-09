@@ -228,9 +228,9 @@ void CoreUI::InitializeConnections()
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
-        connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
-        connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
-        connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadUDPData(QByteArray)));
+        connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+        connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
+        connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //network connection
     if(SConfig::CONNECTONSTART)
@@ -362,7 +362,7 @@ void CoreUI::on_infoButton_clicked()
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::ReadUDPData(QByteArray data)
+void CoreUI::ReadTelemetry(QByteArray data)
 {
     udpTimeout->start(3 * SConfig::UPDATETIME*1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
@@ -387,6 +387,37 @@ void CoreUI::ReadUDPData(QByteArray data)
             Connected();
         } else { Disconnected(); }
         break;
+    case DataType::FormResponse:
+        std::array<int, 4> responseList;
+        responseList = MessageParser::parseFormResponse(data);
+
+        //temp
+        if(!responseList.empty())
+        {
+            QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
+            Debug::Log("?[FORM] SAR responds with: pid "
+                       + QString::number(responseList[0])
+                       + ", hexlen "
+                       + QString::number(responseList[1])
+                       + ", code"
+                       + QString::number(responseList[2])
+                       + " with checksum check " +
+                       checksumCheck);
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+void CoreUI::ReadForm(QByteArray data)
+{
+    DataType dtype = MessageParser::checkReceivedDataType(data);
+    switch (dtype) {
+    case DataType::Telemetry:
+    {
+        break;
+    }
     case DataType::FormResponse:
         std::array<int, 4> responseList;
         responseList = MessageParser::parseFormResponse(data);

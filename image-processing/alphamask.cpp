@@ -13,9 +13,8 @@ QImage AlphaMask::enableAlphaSupport(QImage i)                                  
     return i;
 }
 
-QString AlphaMask::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, float driftAngle, MaskFormat format)
+QString AlphaMask::addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth, float horizontalCut, MaskFormat format)
 {
-    Rectangle rectangle({0, 0}, {200, 200}, {400, 400}, {56, 651});
     QImage base(path);
     if(format == 0 || format == 2)
     {

@@ -11,8 +11,9 @@
 #include "sconfig.h"
 #include <QtMath>
 
-#include "draw/rectangle.h"
-#include "draw/triangle.h"
+
+#include "draw/plotter.h"
+
 
 enum MaskFormat : short int
 {
@@ -28,7 +29,7 @@ public:
     explicit AlphaMask();
     ~AlphaMask();
 
-    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, float driftAngle = 0, MaskFormat format = MaskFormat::Geometric);
+    QString addAlphaMask(QString path, float width, float height, float thetaAzimuth, float rayInitialWidth = 10, float horizontalCut = 0, MaskFormat format = MaskFormat::Geometric);
     QImage enableAlphaSupport(QImage i);
     QString convertToBase64(QImage image);
 

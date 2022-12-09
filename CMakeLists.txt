@@ -107,6 +107,8 @@ else()
         image-processing/imagemanager.cpp
         image-processing/alphamask.h
         image-processing/alphamask.cpp
+        image-processing/draw/plotter.h
+        image-processing/draw/plotter.cpp
         image-processing/draw/shape.h
         image-processing/draw/shape.cpp
         image-processing/draw/rectangle.h

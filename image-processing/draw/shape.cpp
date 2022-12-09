@@ -18,5 +18,25 @@ void Shape::checkBounds()
         if(point.y() < lowerBound)
             lowerBound = point.y();
     }
-    
 }
+
+int Shape::getLowerBound()
+{
+    return lowerBound;
+}
+
+int Shape::getUpperBound()
+{
+    return upperBound;
+}
+
+int Shape::getRightBound()
+{
+    return rightBound;
+}
+
+int Shape::getLeftBound()
+{
+    return leftBound;
+}
+

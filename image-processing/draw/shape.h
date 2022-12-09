@@ -10,6 +10,10 @@ class Shape : QObject
     Q_OBJECT
 public:
     explicit Shape();
+    int getLowerBound();
+    int getUpperBound();
+    int getLeftBound();
+    int getRightBound();
 
 protected:
     QVector<QPoint> points;

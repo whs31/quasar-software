@@ -8,5 +8,4 @@ Rectangle::Rectangle(QPoint a, QPoint b, QPoint c, QPoint d)
     points.append(c);
     points.append(d);
     checkBounds();
-    qCritical()<<lowerBound<<"  "<<upperBound<<"    "<<leftBound<<"     "<<rightBound;
 }

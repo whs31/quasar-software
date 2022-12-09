@@ -81,7 +81,9 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     //crc16
     QByteArray str = formRequest.toUtf8();
     char* data = str.data();
-    uint16_t crc16 = SChecksum::calculateCRC16((uint8_t*)data, strlen);
+    qCritical()<<formRequest;
+    qCritical()<<formRequest.length();
+    uint16_t crc16 = SChecksum::calculateCRC16((uint8_t*)data, formRequest.length());
     QString crc16hex = QString("%1").arg(crc16, 4, 16, QLatin1Char('0'));
     formRequest.append(crc16hex);
 

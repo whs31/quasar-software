@@ -10,6 +10,12 @@
     <height>465</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="windowTitle">
    <string>Информация о программе</string>
   </property>
@@ -2234,6 +2240,9 @@ PlotWidget {
   /* Fix cut labels in plots #134 */
   padding: 0px;
 }</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
   </property>
   <property name="modal">
    <bool>false</bool>

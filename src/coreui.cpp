@@ -315,21 +315,36 @@ void CoreUI::on_closeButton_clicked()
 
 void CoreUI::on_settingsButton_clicked()
 {
-    SettingsDialog sd(this);
-    QString s = SConfig::PATH;
-    if(sd.exec() == QDialog::Accepted)
+    PasswordDialog passwordDialog(this, SConfig::PASSWORD);
+    if(passwordDialog.exec() == QDialog::Accepted)
     {
-        if(s!=SConfig::PATH)
+        if(passwordDialog.passwordCheck)
         {
-            imageProcessing->InitialScan();
-        } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
-
-        SConfig::saveSettings();
-    } else { SConfig::loadSettings(); }
-
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
+            SettingsDialog sd(this);
+            QString s = SConfig::PATH;
+            if(sd.exec() == QDialog::Accepted)
+            {
+                if(s!=SConfig::PATH)
+                {
+                    imageProcessing->InitialScan();
+                } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
+                SConfig::saveSettings();
+            } else { SConfig::loadSettings(); }
+            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
+                                                    +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
+            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
+        } else {
+            QMessageBox passwordWarning;
+            passwordWarning.setWindowTitle("Ошибка");
+            passwordWarning.setIcon(QMessageBox::Critical);
+            passwordWarning.setText("Неверный пароль.");
+            passwordWarning.setStandardButtons(QMessageBox::Yes);
+            passwordWarning.setDefaultButton(QMessageBox::Yes);
+            passwordWarning.exec();
+        }
+    } else {
+        // do nothing
+    }
 }
 
 void CoreUI::on_infoButton_clicked()

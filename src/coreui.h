@@ -25,6 +25,7 @@
 
 #include "settingsdialog.h"
 #include "aboutdialog.h"
+#include "passworddialog.h"
 
 #include "style.h"
 #include "linkerqml.h"

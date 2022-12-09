@@ -26,6 +26,7 @@ public:
     static void discardSettings();
 
     static QString BUILDVERSION;
+    static QString PASSWORD;
     static bool TESTMODE;
     static bool USEPROFILER;
     static QString NETWORKTYPE;

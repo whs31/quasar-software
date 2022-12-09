@@ -7,6 +7,7 @@ JsonConfig* SConfig::jsonConfig;
 FStaticVariables* SConfig::fStatic;
 
 QString SConfig::BUILDVERSION;
+QString SConfig::PASSWORD;
 bool SConfig::TESTMODE;
 bool SConfig::USEPROFILER;
 QString SConfig::NETWORKTYPE;
@@ -49,12 +50,15 @@ SConfig* SConfig::init(void)            { return pointer; }
 void SConfig::loadSettings()
 {
     BUILDVERSION          =           config->value("utility/version").toString();
+    PASSWORD              =           config->value("utility/sudo_password").toString();
     TESTMODE              =           config->value("utility/test_mode").toBool();
     USEPROFILER           =           config->value("utility/profiler").toBool();
     NETWORKTYPE           =           config->value("network/type").toString();
     NETWORKADDRESS        =           config->value("network/ip").toString();
     NETWORKPORT           =           config->value("network/port").toString();
     UPDATETIME            =           config->value("network/updateTime").toFloat();
+    LOADERIP              =           config->value("network/loader_ip").toString();
+    LOADERPORT            =           config->value("network/loader_port").toString();
     PREDICTRANGE          =           config->value("map/predict_line_range").toFloat();
     CAPTURERANGE          =           config->value("map/diagram_length").toFloat();
     CAPTURETIME           =           config->value("map/capture_time").toFloat();
@@ -62,17 +66,15 @@ void SConfig::loadSettings()
     DRIFTANGLE            =           config->value("map/diagram_drift_angle").toFloat();
     ANTENNAPOSITION       =           config->value("map/antenna_position").toString();
     PATH                  =           config->value("image/path").toString();
+    USELOADER             =           config->value("image/use_loader").toBool();
+    SAVEATEND             =           config->value("image/save_at_end").toBool();
+    USEBASE64             =           config->value("image/use_base64").toBool();
+    METAANGLEINRADIANS    =           config->value("image/angle_in_radians").toBool();
+    METAANGLECORRECTION   =           config->value("image/angle_correction").toFloat();
     SHOWIMAGEONSTART      =           config->value("startup/show_image").toBool();
     CONNECTONSTART        =           config->value("startup/connect").toBool();
     DEBUGCONSOLE          =           config->value("startup/debug_console").toBool();
     //CACHEPATH           =           устанавливается в ImageManager в конструкторе
-    USELOADER             =           config->value("image/use_loader").toBool();
-    SAVEATEND             =           config->value("image/save_at_end").toBool();
-    LOADERIP              =           config->value("network/loader_ip").toString();
-    LOADERPORT            =           config->value("network/loader_port").toString();
-    USEBASE64             =           config->value("image/use_base64").toBool();
-    METAANGLEINRADIANS    =           config->value("image/angle_in_radians").toBool();
-    METAANGLECORRECTION   =           config->value("image/angle_correction").toFloat();
 
     fStatic->setTestMode(TESTMODE);
     fStatic->setPredictRange(PREDICTRANGE);

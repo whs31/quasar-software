@@ -120,6 +120,9 @@ else()
         gui/aboutdialog.h
         gui/aboutdialog.cpp
         gui/aboutdialog.ui
+        gui/passworddialog.h
+        gui/passworddialog.cpp
+        gui/passworddialog.ui
         ${SRCS} appiconwin32.rc
    )
 endif()

@@ -87,12 +87,17 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
 std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)
 {
     QString rawString = data.data();
+    QString checkCrc = rawString;
+    checkCrc.chop(5);
+
     QStringList response = rawString.split("|");
     int strlen = response[1].toInt(nullptr, 10);
     response[2].remove(0, 1);
 
-    //add checksum calculation here (when checksum will be fixed)
-    int checksumCheckResult = 0; //1 if checksum is successful
+    //crc16
+    uint16_t crc16 = SChecksum::calculateCRC16(SChecksum::toCharPointer(checkCrc), checkCrc.length());
+    uint16_t receivedCrc16 = response[3].toUInt(nullptr, 16);
+    int checksumCheckResult = (crc16 == receivedCrc16) ? 1 : 0;
 
     return { response[0].toInt(), strlen, response[2].toInt(), checksumCheckResult };
 }

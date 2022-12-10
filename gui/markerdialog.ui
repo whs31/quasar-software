@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>353</width>
-    <height>378</height>
+    <width>241</width>
+    <height>308</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Новый маркер</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
@@ -399,7 +399,7 @@ QMenu::right-arrow {
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="label_8">
+      <widget class="QLabel" name="label_d_markerName">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -431,7 +431,7 @@ QLabel:disabled {
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
+      <widget class="QLineEdit" name="lineEdit_markerName">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -486,7 +486,7 @@ QLineEdit:selected {
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="label_7">
+      <widget class="QLabel" name="label_d_markerColor">
        <property name="font">
         <font>
          <family>Arial</family>
@@ -518,7 +518,7 @@ QLabel:disabled {
       </widget>
      </item>
      <item>
-      <widget class="ColorPicker" name="pushButton">
+      <widget class="ColorPicker" name="colorPicker">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -647,20 +647,38 @@ QAbstractScrollArea:disabled {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>329</width>
-        <height>108</height>
+        <width>209</width>
+        <height>126</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="2" column="2">
-        <widget class="QRadioButton" name="radioButton_2">
+       <item row="1" column="2">
+        <widget class="QRadioButton" name="radioButton_flag">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>RadioButton</string>
+          <string>Флаг</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="pixmap_d_defaultMarker">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">QWidget {
  color: #D8d8d8
@@ -682,6 +700,12 @@ QLabel:disabled {
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/default.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -692,54 +716,52 @@ QLabel:disabled {
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>205</width>
+           <width>15</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="2">
-        <widget class="QRadioButton" name="radioButton">
+        <widget class="QRadioButton" name="radioButton_defaultMarker">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>RadioButton</string>
+          <string>Стандартная иконка</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <widget class="QRadioButton" name="radioButton_3">
+       <item row="2" column="2">
+        <widget class="QRadioButton" name="radioButton_sar">
+         <property name="font">
+          <font>
+           <family>Arial</family>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="text">
-          <string>RadioButton</string>
+          <string>Радар</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="pixmap_d_flag">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">QWidget {
  color: #D8d8d8
@@ -761,6 +783,56 @@ QLabel:disabled {
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/flag.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="pixmap_d_sar">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+ color: #D8d8d8
+}
+
+Label {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #D8d8d8;
+}
+
+QLabel:disabled {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  color: #Bebebf;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/radar.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -769,7 +841,7 @@ QLabel:disabled {
     </widget>
    </item>
    <item>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="groupBox_coordinates">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -838,7 +910,7 @@ QGroupBox::indicator:checked:disabled {
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="label_d_latitude">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -870,7 +942,7 @@ QLabel:disabled {
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="lineEdit_latitude">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -915,7 +987,7 @@ QLineEdit:selected {
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="label_d_longitude">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -947,7 +1019,7 @@ QLabel:disabled {
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_3">
+       <widget class="QLineEdit" name="lineEdit_longitude">
         <property name="font">
          <font>
           <family>Arial</family>
@@ -995,7 +1067,7 @@ QLineEdit:selected {
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="checkBox_saveXML">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -1075,7 +1147,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
     </widget>
    </item>
    <item>
-    <widget class="QCheckBox" name="checkBox_2">
+    <widget class="QCheckBox" name="checkBox_screenAnchor">
      <property name="font">
       <font>
        <family>Arial</family>
@@ -1162,7 +1234,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>0</height>
+       <height>2</height>
       </size>
      </property>
     </spacer>
@@ -1259,7 +1331,9 @@ QDialogButtonBox QPushButton {
    <header location="global">widgets/colorpicker.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../src/map-resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

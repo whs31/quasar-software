@@ -23,10 +23,8 @@ uint32_t SChecksum::calculateChecksum(const void* data, size_t length, uint32_t 
 uint16_t SChecksum::calculateCRC16(char* buffer, int length)
 {
     uint16_t crc = 0xFFFF;
-
     for (int pos = 0; pos < length; pos++) {
         crc ^= (uint16_t)buffer[pos];
-
         for (int i = 0; i < 8; i++) {
             if ((crc & 0x0001) != 0) {
                 crc >>= 1;
@@ -38,4 +36,11 @@ uint16_t SChecksum::calculateCRC16(char* buffer, int length)
         }
     }
     return crc;
+}
+
+char* SChecksum::toCharPointer(QString string)
+{
+    QByteArray localarray = string.toLocal8Bit();
+    char* localdata = localarray.data();
+    return localdata;
 }

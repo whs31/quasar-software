@@ -78,9 +78,7 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     formRequest.append(hexlen + "|");
     formRequest.append(_formRequest + "|");
 
-    QByteArray localarray = formRequest.toLocal8Bit();
-    char* localdata = localarray.data();
-    uint16_t crc16 = SChecksum::calculateCRC16(localdata, formRequest.length());
+    uint16_t crc16 = SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length());
     formRequest.append(QString::number(crc16, 16) + "\n");
 
     return formRequest.toUtf8();

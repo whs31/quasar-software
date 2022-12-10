@@ -97,7 +97,7 @@ void CoreUI::on_pushButton_clearCache_clicked()
 
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {
-    QString request = MessageParser::makeFormRequest(1, 2);
+    QString request = MessageParser::makeFormRequest(1, 1);
     SendRemoteCommand(request);
     Debug::Log("[FORM] Sended to SAR: " + request);
 }

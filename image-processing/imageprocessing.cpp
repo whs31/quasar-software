@@ -1,6 +1,6 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
+ImageProcessing::ImageProcessing()
 {
     imageManager = new ImageManager;
 }
@@ -14,7 +14,7 @@ bool ImageProcessing::getReadyStatus()
 void ImageProcessing::clearCache()
 {
     metadataList.clear();
-    qmlLinker->clearImageArray();
+    LinkerQML::clearImageArray();
     CacheManager::clearImageCache(ClearMode::ClearAll);
 }
 
@@ -49,9 +49,9 @@ void ImageProcessing::imageChecklistLoop()
         {
             if(imageChecklist[i]==true)
             {
-                qmlLinker->showImage(i);
+                LinkerQML::showImage(i);
             } else {
-                qmlLinker->hideImage(i);
+                LinkerQML::hideImage(i);
             }
         }
     }
@@ -82,7 +82,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 
         metadataList.clear();
         profiler->Start();
-        qmlLinker->clearImageArray();
+        LinkerQML::clearImageArray();
         profiler->Stop("QML array clear");
         profiler->Start();
         Decode(imageList, DecodeMode::Initial);
@@ -290,7 +290,7 @@ void ImageProcessing::showInitialScanResult(bool showOnStart)
                 QImageReader reader(meta.filename);
                 QSize sizeOfImage = reader.size();
 
-                qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                LinkerQML::addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
 
                 if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
                 {
@@ -301,7 +301,7 @@ void ImageProcessing::showInitialScanResult(bool showOnStart)
                 {
                     for(int i = 0; i<getVectorSize(); i++)
                     {
-                        qmlLinker->hideImage(i);
+                        LinkerQML::hideImage(i);
                     }
                 }
             }
@@ -321,7 +321,7 @@ void ImageProcessing::showPartialScanResult()
             {
                 QImageReader reader(metadataList[metadataList.length()-i].filename);
                 QSize sizeOfImage = reader.size();
-                qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                LinkerQML::addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
                         metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
                         metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
                         metadataList[metadataList.length()-i].angle,

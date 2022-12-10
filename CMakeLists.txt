@@ -67,6 +67,7 @@ else()
         map/backend/fdynamicvariables.h      map/backend/fdynamicvariables.cpp
         map/backend/fstaticvariables.h       map/backend/fstaticvariables.cpp
         map/backend/fmousekeyhandler.h       map/backend/fmousekeyhandler.cpp
+        map/backend/smousestate.h            map/backend/smousestate.cpp
         map/models/tmarker.h                 map/models/tmarker.cpp
         map/global/markermanager.h           map/global/markermanager.cpp
         json/jsonmanager.h                   json/jsonmanager.cpp
@@ -94,6 +95,7 @@ else()
         misc/json-backup.qrc
         gui/aboutdialog.h                    gui/aboutdialog.cpp                        gui/aboutdialog.ui
         gui/passworddialog.h                 gui/passworddialog.cpp                     gui/passworddialog.ui
+        gui/markerdialog.h                   gui/markerdialog.cpp                       gui/markerdialog.ui
         ${SRCS} appiconwin32.rc
    )
 endif()

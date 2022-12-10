@@ -2,6 +2,7 @@
 #define MARKERMANAGER_H
 
 #include <QObject>
+#include "models/tmarker.h"
 
 class MarkerManager : public QObject
 {

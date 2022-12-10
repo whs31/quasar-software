@@ -24,6 +24,7 @@
 #include "debug.h"
 
 #include "stext.h"
+#include "backend/smousestate.h"
 
 #include "settingsdialog.h"
 #include "aboutdialog.h"
@@ -146,6 +147,7 @@ private slots:
     void on_pushButton_panImage_clicked();
     void on_pushButton_showImage_clicked();
     void on_pushButton_clearTrack_clicked();
+     void on_pushButton_placeMarker_clicked();
     void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_clearCache_clicked();
@@ -154,6 +156,5 @@ private slots:
     void on_pushButton_stopContinuous_clicked();
     void on_pushButton_showDebugConsoleDock_clicked();
     void on_pushButton_showMapToolsDock_clicked();
-
 };
 #endif // COREUI_H

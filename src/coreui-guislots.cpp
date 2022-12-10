@@ -43,6 +43,12 @@ void CoreUI::on_pushButton_clearTrack_clicked()
         break;
     }
 }
+
+void CoreUI::on_pushButton_placeMarker_clicked()
+{
+    SMouseState::mouseState = MouseState::MarkerPlacement;
+}
+
 void CoreUI::on_pushButton_showAllImages_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)

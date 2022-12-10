@@ -219,7 +219,7 @@ void CoreUI::InitializeConnections()
         timer = new QTimer(this);
         udpTimeout = new QTimer(this);
         uiTimer1 = new QTimer(this);
-    linker = new LinkerQML(qml);
+    LinkerQML::initialize(qml);
 
     //qml types declaration
     fTelemetry = new FTelemetry();                                ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
@@ -242,7 +242,7 @@ void CoreUI::InitializeConnections()
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     //sar image alghorithms setup
-    imageProcessing = new ImageProcessing(linker);
+    imageProcessing = new ImageProcessing();
         connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
         connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
         connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));

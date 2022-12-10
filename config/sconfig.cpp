@@ -39,7 +39,6 @@ SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
     jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
-    linker = new LinkerQML(qml);
     fStatic = fStaticVariables;
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
     SConfig::loadSettings();

@@ -1,7 +1,10 @@
 #include "linkerqml.h"
 
-LinkerQML::LinkerQML(QQuickItem* map) : map(map) {
-
+QQuickItem* LinkerQML::map = Q_NULLPTR;
+LinkerQML::LinkerQML(QQuickItem* map) { }
+void LinkerQML::initialize(QQuickItem* map)
+{
+    LinkerQML::map = map;
 }
 
 void LinkerQML::clearImageArray(void)                                               { QMetaObject::invokeMethod(map, "clearImageArray");                                                                    }

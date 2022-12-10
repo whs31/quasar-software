@@ -29,7 +29,7 @@ class ImageProcessing : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageProcessing(LinkerQML* linker);
+    explicit ImageProcessing();
     bool InitialScan();
     bool PartialScan();
     bool getReadyStatus(void);

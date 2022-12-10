@@ -8,8 +8,10 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
+
 import SMath 1.0
 import MouseKeyHandler 1.0
+//import Marker 1.0
 
 
 Rectangle {

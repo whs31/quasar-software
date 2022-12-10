@@ -32,11 +32,13 @@ void CoreUI::on_pushButton_clearTrack_clicked()
         askForClearTrack.setText("Вы уверены, что хотите полностью очистить трек?");
         askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
         askForClearTrack.setDefaultButton(QMessageBox::Cancel);
-        short ret = askForClearTrack.exec();
+        int ret = askForClearTrack.exec(); //не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
     switch (ret) {
-    case QMessageBox::Yes: linker->clearRoute();
+    case QMessageBox::Yes:
+        linker->clearRoute();
         break;
-    case QMessageBox::Cancel: { break; }
+    case QMessageBox::Cancel:
+        break;
     default:
         break;
     }

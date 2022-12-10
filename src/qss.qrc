@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>stylesheet/lightstyle.qss</file>
+    </qresource>
 </RCC>

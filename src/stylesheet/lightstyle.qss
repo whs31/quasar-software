@@ -41,18 +41,18 @@ QToolBar * {
 
 --------------------------------------------------------------------------- */
 QWidget {
-  background-color: #FAFAFA;
+  background-color: #313131;
   border: 0px solid #C9CDD0;
   padding: 0px;
-  color: #19232D;
-  selection-background-color: #9FCBFF;
-  selection-color: #19232D;
+  color: #FAFAFA;
+  selection-background-color: #313131;
+  selection-color: #FAFAFA;
 }
 
 QWidget:disabled {
-  background-color: #FAFAFA;
-  color: #788D9C;
-  selection-background-color: #DAEDFF;
+  background-color: #313131;
+  color: #FAFAFA;
+  selection-background-color: #313131;
   selection-color: #788D9C;
 }
 
@@ -527,26 +527,6 @@ QAbstractItemView QLineEdit {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 
 --------------------------------------------------------------------------- */
-QAbstractScrollArea {
-  background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
-  border-radius: 4px;
-  /* fix #159 */
-  padding: 2px;
-  /* remove min-height to fix #244 */
-  color: #19232D;
-}
-
-QAbstractScrollArea:disabled {
-  color: #788D9C;
-}
-
-/* QScrollArea ------------------------------------------------------------
-
---------------------------------------------------------------------------- */
-QScrollArea QWidget QWidget:disabled {
-  background-color: #FAFAFA;
-}
 
 /* QScrollBar -------------------------------------------------------------
 
@@ -880,19 +860,6 @@ QAbstractSpinBox:selected {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 
 --------------------------------------------------------------------------- */
-QLabel {
-  background-color: #FAFAFA;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #19232D;
-}
-
-QLabel:disabled {
-  background-color: #FAFAFA;
-  border: 0px solid #C9CDD0;
-  color: #788D9C;
-}
 
 /* QTextBrowser -----------------------------------------------------------
 

@@ -616,7 +616,13 @@ QDialogButtonBox QPushButton {
    <item>
     <widget class="QScrollArea" name="scrollArea">
      <property name="styleSheet">
-      <string notr="true">QAbstractScrollArea {
+      <string notr="true">QWidget {
+  color: rgb(255, 255, 255);
+  background-color: #313131;
+}
+
+
+QAbstractScrollArea {
   background-color: #313131;
   border: 1px solid #313131;
   border-radius: 4px;
@@ -641,11 +647,18 @@ QAbstractScrollArea:disabled {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>321</width>
-        <height>181</height>
+        <width>329</width>
+        <height>108</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
+       <item row="2" column="2">
+        <widget class="QRadioButton" name="radioButton_2">
+         <property name="text">
+          <string>RadioButton</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_3">
          <property name="styleSheet">
@@ -668,7 +681,7 @@ QLabel:disabled {
 }</string>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -679,14 +692,47 @@ QLabel:disabled {
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>148</width>
+           <width>205</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
        </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="styleSheet">
+          <string notr="true">QWidget {
+ color: #D8d8d8
+}
+
+Label {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #D8d8d8;
+}
+
+QLabel:disabled {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  color: #Bebebf;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="2">
         <widget class="QRadioButton" name="radioButton">
+         <property name="text">
+          <string>RadioButton</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QRadioButton" name="radioButton_3">
          <property name="text">
           <string>RadioButton</string>
          </property>
@@ -714,146 +760,7 @@ QLabel:disabled {
 }</string>
          </property>
          <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2">
-        <widget class="QRadioButton" name="radioButton_3">
-         <property name="text">
-          <string>RadioButton</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_5">
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="2">
-        <widget class="QRadioButton" name="radioButton_2">
-         <property name="text">
-          <string>RadioButton</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_6">
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="2">
-        <widget class="QRadioButton" name="radioButton_4">
-         <property name="text">
-          <string>RadioButton</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_9">
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="2">
-        <widget class="QRadioButton" name="radioButton_5">
-         <property name="text">
-          <string>RadioButton</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_10">
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="2">
-        <widget class="QRadioButton" name="radioButton_6">
-         <property name="text">
-          <string>RadioButton</string>
+          <string/>
          </property>
         </widget>
        </item>

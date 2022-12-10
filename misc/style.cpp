@@ -11,12 +11,12 @@ Style::Style(bool TestMode) : TestMode(TestMode)
     {
         QFile qss(defaultQSS);
         if (!qss.exists())   {
-            //Debug::Log("!![QSS] Unable to set stylesheet, file not found\n");
+            Debug::Log("!![QSS] Unable to set stylesheet, file not found\n");
         }
         else   {
             qss.open(QFile::ReadOnly | QFile::Text);
             QTextStream ts(&qss);
-            //qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
+            qApp->setStyleSheet(ts.readAll());                          //графика для Widgets
         }
     } else {
         QTimer* watcher = new QTimer();

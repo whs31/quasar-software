@@ -100,6 +100,8 @@ void CoreUI::on_pushButton_formSingleImage_clicked()
     QString request = MessageParser::makeFormRequest(1, 1);
     SendRemoteCommand(request);
     Debug::Log("[FORM] Sended to SAR: " + request);
+    ui->label_c_formImageStatus->setText(Style::StyleText("отправлен запрос на формирование", Colors::MainShade800, Format::NoFormat));
+    ui->progressBar_formImageStatus->setValue(10);
 }
 
 

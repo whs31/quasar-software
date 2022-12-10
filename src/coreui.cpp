@@ -79,6 +79,9 @@ void CoreUI::updateLoaderLabel(void)
     ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
     uiTimer1->stop();
     ui->progressBar_loader->setValue(0);
+
+    ui->label_c_formImageStatus->setText(Style::StyleText("ожидание команды на формирование", Colors::ConsoleTextColor, Format::NoFormat));
+    ui->progressBar_formImageStatus->setValue(0);
 }
 void CoreUI::updateDirectory(void)                          { if(autoUpdate) { imageProcessing->PartialScan(); linker->panImage(imageProcessing->getFileCounter()); }                                        }
 void CoreUI::updateImageManagerLabels(int total, int current)
@@ -120,12 +123,19 @@ void CoreUI::enableImageBar(bool b)
 }
 void CoreUI::updateProgress(float f)
 {
-    if(f>0) { ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent, Format::Italic)); }
+    if(f>0)
+    {
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning, Format::NoFormat));
+
+    }
     if(f>99) {
         ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success, Format::NoFormat));
         uiTimer1->start(5000);
     }
     ui->progressBar_loader->setValue((int)f);
+    ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
 }
 void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));                                 }
 void CoreUI::setCheckboxState(bool b)               { ui->checkBox->setChecked(b);                                                                                                                           }
@@ -434,6 +444,8 @@ void CoreUI::ReadForm(QByteArray data)
                        + QString::number(responseList[2])
                        + " with checksum check " +
                        checksumCheck);
+            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent, Format::NoFormat));
+            ui->progressBar_formImageStatus->setValue((int)40);
         }
         break;
     default:

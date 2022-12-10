@@ -92,7 +92,7 @@ else()
         misc/uxmanager.h                     misc/uxmanager.cpp
         misc/debug.h                         misc/debug.cpp
         misc/profiler.h                      misc/profiler.cpp
-        misc/json-backup.qrc
+        misc/json-backup.qrc                 src/map-resources.qrc
         gui/aboutdialog.h                    gui/aboutdialog.cpp                        gui/aboutdialog.ui
         gui/passworddialog.h                 gui/passworddialog.cpp                     gui/passworddialog.ui
         gui/markerdialog.h                   gui/markerdialog.cpp                       gui/markerdialog.ui

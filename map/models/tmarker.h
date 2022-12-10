@@ -21,6 +21,8 @@ public:
     qreal longitude = 0;
     bool scalable = false;
     bool save = true;
+    qreal anchorX = 0;
+    qreal anchorY = 0;
 
 signals:
 

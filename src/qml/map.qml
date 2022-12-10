@@ -115,7 +115,7 @@ Rectangle {
                                                     }
     ', mapView, "dynamic");
         //one degree = 111 120 meters
-        item.anchorPoint.x = -x0;
+        item.anchorPoint.x = -x0 / dx;
         item.anchorPoint.y = h/2;
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
         if(!FStaticVariables.useBase64)

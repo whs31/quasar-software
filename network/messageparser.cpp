@@ -58,7 +58,7 @@ std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
 
 QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
 {
-    QString formRequest = "";
+    QString formRequest = ":";
 
     QString messageID;
     (formMessageID < 10000) ? formMessageID++ : formMessageID == 1;
@@ -79,13 +79,12 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     formRequest.append(_formRequest + "|");
 
     //crc16
-    QByteArray str = formRequest.toUtf8();
-    char* data = str.data();
-    //char* data = "0004|14|$FORM(arg1=1,arg2=2)|";         так работает........... =(
+    QByteArray localarray = formRequest.toLocal8Bit();
+    char* localdata = localarray.data();
     qCritical()<<formRequest;
     qCritical()<<formRequest.length();
-    uint16_t crc16 = SChecksum::calculateCRC16(data, formRequest.length());
-    formRequest.append(QString::number(crc16, 16));
+    uint16_t crc16 = SChecksum::calculateCRC16(localdata, formRequest.length());
+    formRequest.append(QString::number(crc16, 16) + "\n");
 
     QByteArray returnArr = formRequest.toUtf8();
     return returnArr;
@@ -98,6 +97,7 @@ std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)
     int strlen = response[1].toInt(nullptr, 10);
     response[2].remove(0, 1);
 
+    //add checksum calculation here (when checksum will be fixed)
     int checksumCheckResult = 0; //1 if checksum is successful
 
     return { response[0].toInt(), strlen, response[2].toInt(), checksumCheckResult };

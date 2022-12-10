@@ -2,16 +2,21 @@
 #define MARKERMANAGER_H
 
 #include <QObject>
+#include <QVector>
 #include "models/tmarker.h"
+#include "markerdialog.h"
 
 class MarkerManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit MarkerManager(QObject *parent = nullptr);
+    static void newMarker();
 
 signals:
 
+private:
+    explicit MarkerManager(QObject *parent = nullptr);
+    static QVector<TMarker> markerList;
 };
 
 #endif // MARKERMANAGER_H

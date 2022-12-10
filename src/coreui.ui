@@ -5650,8 +5650,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>252</width>
-          <height>297</height>
+          <width>260</width>
+          <height>304</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -7072,7 +7072,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>258</width>
-          <height>154</height>
+          <height>143</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">

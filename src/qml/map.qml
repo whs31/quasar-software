@@ -400,6 +400,12 @@ Rectangle {
                 {
                     mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
+                console.log(mouseKeyHandler.mouseState);
+                if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
+                {
+                    console.log("qml trying to place");
+                    mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
+                }
             }
             onPressed: {
                 if(FDynamicVariables.followPlane || timer_3s.running) {

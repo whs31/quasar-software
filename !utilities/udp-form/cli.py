@@ -50,8 +50,9 @@ mess_cmd = '$9922'
 
 mess_len = '{:02x}'.format(len(mess_cmd))
 
-message = '{}|{}|{}|'.format(mess_id, mess_len, mess_cmd)
+message = ':{}|{}|{}|'.format(mess_id, mess_len, mess_cmd)
 message += crc16(message.encode())
+message += '\n'
 
 print(message)
 

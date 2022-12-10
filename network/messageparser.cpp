@@ -79,6 +79,14 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     formRequest.append(_formRequest + "|");
 
     //crc16
+    /* Что я пробовал:
+     *    - formRequest объявить как QByteArray
+     *    - отрезать последний символ у char*
+     *    - toLatin1(), toUtf8(), toLocal8Bit()
+     *    - преобразование в std::string -> const char* -> char*
+     *
+     *
+    */
     QByteArray localarray = formRequest.toLocal8Bit();
     char* localdata = localarray.data();
     qCritical()<<formRequest;

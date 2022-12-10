@@ -78,24 +78,12 @@ QByteArray MessageParser::makeFormRequest(short arg1, short arg2)
     formRequest.append(hexlen + "|");
     formRequest.append(_formRequest + "|");
 
-    //crc16
-    /* Что я пробовал:
-     *    - formRequest объявить как QByteArray
-     *    - отрезать последний символ у char*
-     *    - toLatin1(), toUtf8(), toLocal8Bit()
-     *    - преобразование в std::string -> const char* -> char*
-     *
-     *
-    */
     QByteArray localarray = formRequest.toLocal8Bit();
     char* localdata = localarray.data();
-    qCritical()<<formRequest;
-    qCritical()<<formRequest.length();
     uint16_t crc16 = SChecksum::calculateCRC16(localdata, formRequest.length());
     formRequest.append(QString::number(crc16, 16) + "\n");
 
-    QByteArray returnArr = formRequest.toUtf8();
-    return returnArr;
+    return formRequest.toUtf8();
 }
 
 std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)

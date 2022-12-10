@@ -45,7 +45,13 @@ SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
     SConfig::loadSettings();
 }
 
-SConfig* SConfig::init(void)            { return pointer; }
+SConfig* SConfig::initialize(QQuickItem* qml, FStaticVariables* fStaticVariables)
+{
+    if(pointer != NULL)
+        return pointer;
+    pointer = new SConfig(qml, fStaticVariables);
+    return pointer;
+}
 
 
 void SConfig::loadSettings()

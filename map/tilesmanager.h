@@ -15,10 +15,12 @@ class TilesManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit TilesManager(bool useLocalTileServer = false);
+    static TilesManager* initialize(bool useLocalhost = false);
     static void InitializeConfig();
 
 private:
+    explicit TilesManager(bool useLocalhost = false);
+    static TilesManager* _instance;
     static QString _street;
     static QString _satellite;
     static QString _terrain;

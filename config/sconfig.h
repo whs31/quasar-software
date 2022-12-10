@@ -19,8 +19,8 @@ class SConfig : public QObject
 {
     Q_OBJECT
 public:
-    explicit SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables);
-    static SConfig* init(void);
+    static SConfig* initialize(QQuickItem* qml, FStaticVariables* fStaticVariables);
+
     static void loadSettings();
     static void saveSettings();
     static void saveQuiet();
@@ -57,6 +57,7 @@ public:
 signals:
 
 private:
+    explicit SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables);
     static SConfig* pointer;
     static Config* config;
     static JsonConfig* jsonConfig;

@@ -228,7 +228,7 @@ void CoreUI::InitializeConnections()
     fStaticVariables = new FStaticVariables();                    ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
 
     //config
-    new SConfig(qml, fStaticVariables);
+    SConfig::initialize(qml, fStaticVariables);
     if(SConfig::TESTMODE)
         Debug::Log("![STARTUP] Program is running in test mode!");
     QMetaObject::invokeMethod(qml, "qmlBackendStart");

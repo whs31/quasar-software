@@ -59,9 +59,9 @@ int main(int argc, char *argv[]) {
     //cache setup
     CacheManager::initializeCache();
 
-    QQuickStyle::setStyle("Material");  //графика для QML
-    new Style(false);                   //false при сборке релиза
-    new TilesManager(true);             //false при сборке релиза
+    QQuickStyle::setStyle("Material");              //графика для QML
+    Style::initialize(false);                       //false при сборке релиза
+    TilesManager::initialize(false);                //false при сборке релиза
 
     qInstallMessageHandler(debugLogger);
     CoreUI window;

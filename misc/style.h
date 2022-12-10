@@ -13,12 +13,14 @@ class Style : public UXManager
 {
     Q_OBJECT
 public:
-    Style(bool TestMode = false);
+    static Style* initialize(bool testMode = false);
 
     static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat, QString comlplicatedFormat = ""); //e.g. "b-i-u-sup-sub"
 public slots:
     void updateQSS(void);
 private:
+    Style(bool TestMode = false);
+    static Style* _instance;
     void initializeColors();
     void initializeFormats();
     static QString makeComplicatedFormat(QString text, QString complicatedFormat);

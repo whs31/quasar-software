@@ -1,5 +1,7 @@
 #include "tilesmanager.h"
 
+TilesManager* TilesManager::_instance = nullptr;
+
 QString TilesManager::_street;
 QString TilesManager::_satellite;
 QString TilesManager::_terrain;
@@ -15,6 +17,14 @@ TilesManager::TilesManager(bool useLocalhost)
     useLocalTileServer = useLocalhost;
     InitializeConfig();
     Debug::Log("?[TILESERVER] Path initialized");
+}
+
+TilesManager* TilesManager::initialize(bool useLocalhost)
+{
+    if(_instance != NULL)
+        return _instance;
+    _instance = new TilesManager(useLocalhost);
+    return _instance;
 }
 
 void TilesManager::InitializeConfig()

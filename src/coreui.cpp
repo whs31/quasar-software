@@ -80,10 +80,24 @@ void CoreUI::updateLoaderLabel(void)
     uiTimer1->stop();
     ui->progressBar_loader->setValue(0);
 
-    ui->label_c_formImageStatus->setText(Style::StyleText("ожидание команды на формирование", Colors::ConsoleTextColor, Format::NoFormat));
-    ui->progressBar_formImageStatus->setValue(0);
+    if(!formingContinuous)
+    {
+        ui->label_c_formImageStatus->setText(Style::StyleText("ожидание команды на формирование", Colors::ConsoleTextColor, Format::NoFormat));
+        ui->progressBar_formImageStatus->setValue(0);
+    }
 }
-void CoreUI::updateDirectory(void)                          { if(autoUpdate) { imageProcessing->PartialScan(); linker->panImage(imageProcessing->getFileCounter()); }                                        }
+void CoreUI::updateDirectory(void)
+{
+    if(autoUpdate)
+    {
+        imageProcessing->PartialScan();
+        linker->panImage(imageProcessing->getFileCounter());
+    }
+    if(formingContinuous)
+    {
+        on_pushButton_formSingleImage_clicked();
+    }
+}
 void CoreUI::updateImageManagerLabels(int total, int current)
 {
     ui->label_c_foundImages->setText("Найдено "

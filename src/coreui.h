@@ -107,6 +107,7 @@ private:
     bool uiReady = false;
     bool connected = false;
     bool autoUpdate = true;
+    bool formingContinuous = false;
 
     //global variables
     double _conckc = 0;

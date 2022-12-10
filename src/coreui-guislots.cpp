@@ -104,18 +104,16 @@ void CoreUI::on_pushButton_formSingleImage_clicked()
     ui->progressBar_formImageStatus->setValue(10);
 }
 
-
 void CoreUI::on_pushButton_launchContinuous_clicked()
 {
-
+    formingContinuous = true;
+    on_pushButton_formSingleImage_clicked();
 }
-
 
 void CoreUI::on_pushButton_stopContinuous_clicked()
 {
-
+    formingContinuous = false;
 }
-
 
 void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
 {

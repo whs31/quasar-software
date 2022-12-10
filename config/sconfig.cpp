@@ -126,7 +126,7 @@ void SConfig::save()
     config->setValue("image/save_at_end", SAVEATEND);
     config->setValue("image/use_base64", USEBASE64);
     config->setValue("image/angle_in_radians", METAANGLEINRADIANS);
-    config->setValue("image/angle_correction", METAANGLECORRECTION);
+    config->setValue("image/angle_correction", QString::number(METAANGLECORRECTION));
     config->setValue("startup/show_image", SHOWIMAGEONSTART);
     config->setValue("startup/connect", CONNECTONSTART);
     config->setValue("startup/debug_console", DEBUGCONSOLE);

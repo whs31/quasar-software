@@ -26,5 +26,5 @@ void FMouseKeyHandler::placeMarker(qreal latitude, qreal longitude)
 {
     qCritical()<<"fmousekeyhandler received";
     setMouseState(MouseState::Blank);
-    MarkerManager::newMarker();
+    MarkerManager::newMarker(latitude, longitude);
 }

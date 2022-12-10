@@ -6,6 +6,7 @@
 
 enum MarkerIcon : short int {
     GoogleDefaultMarker,
+    Flag,
     SARImage
 };
 

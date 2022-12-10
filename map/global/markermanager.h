@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QVector>
+#include <QDebug>
 #include "models/tmarker.h"
 #include "markerdialog.h"
 
@@ -10,7 +11,7 @@ class MarkerManager : public QObject
 {
     Q_OBJECT
 public:
-    static void newMarker();
+    static void newMarker(qreal latitude, qreal longitude);
 
 signals:
 

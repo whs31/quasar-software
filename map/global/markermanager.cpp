@@ -8,12 +8,12 @@ MarkerManager::MarkerManager(QObject *parent)
 
 void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
-    TMarker marker;
-    MarkerDialog markerDialog(latitude, longitude, &marker);
+    TMarker* marker = new TMarker();
+    MarkerDialog markerDialog(latitude, longitude, *marker);
     if(markerDialog.exec() == QDialog::Accepted)
     {
-        qDebug()<<marker.name;
+        qDebug()<<marker->name;
     } else {
-        delete &marker;
+        delete marker;
     }
 }

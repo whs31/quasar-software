@@ -2,6 +2,7 @@
 #define MARKERDIALOG_H
 
 #include <QDialog>
+#include <QDebug>
 #include "models/tmarker.h"
 
 namespace Ui {
@@ -13,13 +14,16 @@ class MarkerDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit MarkerDialog(qreal latitude, qreal longitude, TMarker* marker);
+    explicit MarkerDialog(qreal latitude, qreal longitude, TMarker& marker);
     ~MarkerDialog();
 
 
+private slots:
+    void on_buttonBox_accepted();
+
 private:
     Ui::MarkerDialog *ui;
-    TMarker* marker;
+    TMarker& newmarker;
 };
 
 #endif // MARKERDIALOG_H

@@ -312,9 +312,14 @@ Rectangle {
     }
 
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real){
-        markerModel.append({"lat": latitude, "lon": longitude});
-        console.log(latitude);
-        console.log(longitude);
+        markerModel.append({    "m_name": name, 
+                                "m_color": col, 
+                                "m_qrc": icon, 
+                                "lat": latitude, 
+                                "lon": longitude, 
+                                "anchorX": anchorX,
+                                "anchorY": anchorY 
+                            });
     }
 
     ListModel {
@@ -353,20 +358,22 @@ Rectangle {
         {
             model: markerModel;
             delegate: MapQuickItem {
+                        //anchors must be set according to 32x32 rescaled image
+                        //e.g. middle will be QPoint(16, 16);
                         id: marker
-                        anchorPoint.x: 16;
-                        anchorPoint.y: 32;
+                        anchorPoint: Qt.point(anchorX, anchorY);
                         z:10;
                         coordinate: QtPositioning.coordinate(lat, lon);
+                        property alias markerName: markerText.text;
                         sourceItem: Item {
                             Image {
                                 id: markerSource;
-                                width: 32;
+                                width: 32; 
                                 height: 32;
                                 layer.enabled: true;
                                 transformOrigin: Item.Center;
                                 smooth: true;
-                                source: "qrc:/map-resources/markers/default.png";
+                                source: m_qrc;
                                 visible: true;
                             }
                             ColorOverlay {
@@ -374,7 +381,7 @@ Rectangle {
                                 anchors.fill: markerSource;
                                 source: markerSource;
                                 opacity: 0.75;
-                                color: Material.primary;
+                                color: m_color;
                             }
                             DropShadow {
                                 anchors.fill: markerOverlay;
@@ -385,15 +392,37 @@ Rectangle {
                                 color: "#000000";
                                 source: markerOverlay;
                             }
-                            Glow {
-                                anchors.fill: markerOverlay;
-                                radius: 5;
-                                samples: 17;
-                                color: primaryLight;
-                                spread: 0.5;
-                                transparentBorder: true;
-                                source: markerOverlay;
+                            Text {
+                                id: markerText;
+                                color: m_color;
+                                enabled: true;
+                                anchors.top: markerSource.bottom;
+                                anchors.topMargin: 5;
+                                anchors.horizontalCenter: markerSource.horizontalCenter;
+                                font.pointSize: 7;
+                                font.family: "Arial";
+                                textFormat: Text.RichText;
+                                text: m_name;
                             }
+                            /* Rectangle {
+                                id: marker
+                                color: accentDark;
+                                width: 156
+                                height: 15
+                                radius: 1
+                                opacity: 0.75
+                                Text {
+                                    id: cursorTooltipText
+                                    color: "#F2F2F2";
+                                    enabled: true
+                                    anchors.fill: parent
+                                    leftPadding: 8
+                                    font.pointSize: 8
+                                    minimumPointSize: 8
+                                    minimumPixelSize: 8
+                                    textFormat: Text.RichText
+                                }
+                            } */
                         }
                     }
         }
@@ -461,10 +490,8 @@ Rectangle {
                 {
                     mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
-                console.log(mouseKeyHandler.mouseState);
                 if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
                 {
-                    console.log("qml trying to place");
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
             }

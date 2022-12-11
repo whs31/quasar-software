@@ -36,14 +36,19 @@ void LinkerQML::fixedUpdate()  { QMetaObject::invokeMethod(map, "fixedUpdate"); 
 void LinkerQML::addModel(TMarker &marker)
 {
     QString icon;
-    if(marker.icon = MarkerIcon::SARImage)
+    qCritical()<<marker.icon;
+    if(marker.icon == MarkerIcon::SARImage)
     {
+        qCritical()<<"SAR image";
         icon = "qrc:/map-resources/markers/radar.png";
     } 
-    else if(marker.icon = MarkerIcon::Flag)
+    else if(marker.icon == MarkerIcon::Flag)
     {
+        qCritical()<<"Flag";
         icon = "qrc:/map-resources/markers/flag.png";
-    } else {
+    } 
+    else {
+        qCritical()<<"default";
         icon = "qrc:/map-resources/markers/default.png";
     }
     QMetaObject::invokeMethod(map, "addMarker",

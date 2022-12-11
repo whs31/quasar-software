@@ -32,12 +32,12 @@ void MarkerDialog::on_buttonBox_accepted()
         newmarker.icon = MarkerIcon::GoogleDefaultMarker;
         //marker->anchorX =
         //marker->anchorY =
-    } else if(ui->radioButton_flag)
+    } else if(ui->radioButton_flag->isChecked())
     {
         newmarker.icon = MarkerIcon::Flag;
         //marker->anchorX =
         //marker->anchorY =
-    } else if(ui->radioButton_sar)
+    } else if(ui->radioButton_sar->isChecked())
     {
         newmarker.icon = MarkerIcon::SARImage;
         //marker->anchorX =

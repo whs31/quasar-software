@@ -24,6 +24,6 @@ void TMarker::update(void)
     }
     if(scalable)
     {
-        zoomLevel = 17.2;
+        zoomLevel = 16;
     } 
 }

@@ -9,6 +9,7 @@
 
 #include "imagemanager.h"
 #include "linkerqml.h"
+#include "global/markermanager.h"
 #include "debug.h"
 #include "smath.h"
 #include "schecksum.h"

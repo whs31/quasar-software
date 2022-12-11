@@ -12,7 +12,7 @@
 
 #include "smath.h"
 #include "backend/fmousekeyhandler.h"
-#include "models/tmarker.h"
+//#include "global/markermanager.h"
 
 
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
@@ -55,7 +55,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 int main(int argc, char *argv[]) {
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
-    qmlRegisterType<TMarker>("Marker", 1, 0, "Marker");
+    qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     QApplication app(argc, argv);
     
     //cache setup

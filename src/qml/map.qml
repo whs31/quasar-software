@@ -11,7 +11,7 @@ import QtGraphicalEffects 1.0
 
 import SMath 1.0
 import MouseKeyHandler 1.0
-//import Marker 1.0
+import MarkerManager 1.0
 
 
 Rectangle {
@@ -401,6 +401,7 @@ Rectangle {
                                 MouseArea {
                                     id: markerMouseArea;
                                     anchors.fill: parent;
+                                    cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
                                     acceptedButtons: Qt.LeftButton;
                                     preventStealing: true;
                                     propagateComposedEvents: true;
@@ -415,8 +416,8 @@ Rectangle {
                                         mouse.accepted = false;
                                     }
                                     onPressAndHold: {
-                                        marker.coordinate = QtPositioning.coordinate(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, 
-                                        mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
+                                        MarkerManager.removeMarker(index);
+                                        markerModel.remove(index);
                                     }
                                 } //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor
                             }

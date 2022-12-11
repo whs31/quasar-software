@@ -346,6 +346,7 @@ Rectangle {
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
         copyrightsVisible: false;
+        z: 1;
 
         Component.onCompleted: { awake(); start(); }
 
@@ -397,6 +398,27 @@ Rectangle {
                                 smooth: true;
                                 source: m_qrc;
                                 visible: true;
+                                MouseArea {
+                                    id: markerMouseArea;
+                                    anchors.fill: parent;
+                                    acceptedButtons: Qt.LeftButton;
+                                    preventStealing: true;
+                                    propagateComposedEvents: true;
+                                    hoverEnabled: true;
+                                    onEntered:{
+                                        console.log("entered");
+                                    }
+                                    onExited: {
+                                        console.log("exited");
+                                    }
+                                    onClicked: {
+                                        mouse.accepted = false;
+                                    }
+                                    onPressAndHold: {
+                                        marker.coordinate = QtPositioning.coordinate(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, 
+                                        mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
+                                    }
+                                } //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor
                             }
                             ColorOverlay {
                                 id: markerOverlay;
@@ -426,27 +448,8 @@ Rectangle {
                                 textFormat: Text.RichText;
                                 text: m_name;
                             }
-                            /* Rectangle {
-                                id: marker
-                                color: accentDark;
-                                width: 156
-                                height: 15
-                                radius: 1
-                                opacity: 0.75
-                                Text {
-                                    id: cursorTooltipText
-                                    color: "#F2F2F2";
-                                    enabled: true
-                                    anchors.fill: parent
-                                    leftPadding: 8
-                                    font.pointSize: 8
-                                    minimumPointSize: 8
-                                    minimumPixelSize: 8
-                                    textFormat: Text.RichText
-                                }
-                            } */
                         }
-                    }
+            }
         }
         
         MapPolyline {
@@ -469,7 +472,10 @@ Rectangle {
             hoverEnabled: true
             propagateComposedEvents: true
             acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onEntered: { drawTooltip(); }
+            onEntered: { 
+                drawTooltip(); 
+            }
+            z: 0;
             onPositionChanged: {
                 changeTooltipPosition();
                 if(r_currentstate === 2)
@@ -479,9 +485,12 @@ Rectangle {
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
             }
-            onExited: { clearTooltip(); }
+            onExited: { 
+                clearTooltip(); 
+            }
             onClicked:
             {
+                mouse.accepted = false;
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
                 {
                     r_currentstate = 0;
@@ -776,7 +785,6 @@ Rectangle {
                 anchors.bottomMargin: 5
                 text: qsTr("-------")
             }
-
         }
 
         ProgressBar {

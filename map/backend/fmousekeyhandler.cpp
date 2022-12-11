@@ -7,8 +7,8 @@ FMouseKeyHandler::FMouseKeyHandler(QObject *parent)
     clipboard = QApplication::clipboard();
 }
 
-qint16 FMouseKeyHandler::mouseState(void) { _mouseState = SMouseState::mouseState; return _mouseState; qWarning()<<_mouseState; }
-void FMouseKeyHandler::setMouseState(qint16 state) { if(_mouseState == state) return; _mouseState = state; SMouseState::mouseState = state; emit mouseStateChanged(); qWarning()<<_mouseState; }
+qint16 FMouseKeyHandler::mouseState(void) { _mouseState = SMouseState::mouseState; return _mouseState; }
+void FMouseKeyHandler::setMouseState(qint16 state) { if(_mouseState == state) return; _mouseState = state; SMouseState::mouseState = state; emit mouseStateChanged(); }
 
 void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 {
@@ -24,7 +24,6 @@ void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 
 void FMouseKeyHandler::placeMarker(qreal latitude, qreal longitude)
 {
-    qCritical()<<"fmousekeyhandler received";
     setMouseState(MouseState::Blank);
     MarkerManager::newMarker(latitude, longitude);
 }

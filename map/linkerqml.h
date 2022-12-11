@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QQuickItem>
+#include "models/tmarker.h"
 
 class LinkerQML : public QObject
 {
@@ -19,6 +20,8 @@ public:
     static void panGPS(void);
     static void clearRoute(void);
     static void panImage(int filecounter);
+
+    static void addModel(TMarker &marker);
 
 protected:
     static QQuickItem* map;

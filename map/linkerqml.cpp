@@ -32,3 +32,27 @@ void LinkerQML::addImage(double latitude, double longitude, float dx, float dy, 
 }
 
 void LinkerQML::fixedUpdate()  { QMetaObject::invokeMethod(map, "fixedUpdate"); }
+
+void LinkerQML::addModel(TMarker &marker)
+{
+    QString icon;
+    if(marker.icon = MarkerIcon::SARImage)
+    {
+        icon = "qrc:/map-resources/markers/radar.png";
+    } 
+    else if(marker.icon = MarkerIcon::Flag)
+    {
+        icon = "qrc:/map-resources/markers/flag.png";
+    } else {
+        icon = "qrc:/map-resources/markers/default.png";
+    }
+    QMetaObject::invokeMethod(map, "addMarker",
+                                Q_ARG(QString, marker.name),
+                                Q_ARG(QColor, marker.color),
+                                Q_ARG(QString, icon),
+                                Q_ARG(qreal, marker.latitude),
+                                Q_ARG(qreal, marker.longitude),
+                                Q_ARG(qreal, marker.anchorX),
+                                Q_ARG(qreal, marker.anchorY)
+                                );
+}

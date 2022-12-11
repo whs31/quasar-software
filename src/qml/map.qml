@@ -311,6 +311,17 @@ Rectangle {
         r2MapItem.visible = false;
     }
 
+    function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real){
+        markerModel.append({"lat": latitude, "lon": longitude});
+        console.log(latitude);
+        console.log(longitude);
+    }
+
+    ListModel {
+        id: markerModel
+        dynamicRoles: true;
+    }
+
     Map {
         id: mapView
         anchors.fill: parent;
@@ -337,6 +348,56 @@ Rectangle {
         onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
         onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
 
+
+        MapItemView
+        {
+            model: markerModel;
+            delegate: MapQuickItem {
+                        id: marker
+                        anchorPoint.x: 16;
+                        anchorPoint.y: 32;
+                        z:10;
+                        coordinate: QtPositioning.coordinate(lat, lon);
+                        sourceItem: Item {
+                            Image {
+                                id: markerSource;
+                                width: 32;
+                                height: 32;
+                                layer.enabled: true;
+                                transformOrigin: Item.Center;
+                                smooth: true;
+                                source: "qrc:/map-resources/markers/default.png";
+                                visible: true;
+                            }
+                            ColorOverlay {
+                                id: markerOverlay;
+                                anchors.fill: markerSource;
+                                source: markerSource;
+                                opacity: 0.75;
+                                color: Material.primary;
+                            }
+                            DropShadow {
+                                anchors.fill: markerOverlay;
+                                horizontalOffset: 5;
+                                verticalOffset: 5;
+                                radius: 8.0;
+                                samples: 17;
+                                color: "#000000";
+                                source: markerOverlay;
+                            }
+                            Glow {
+                                anchors.fill: markerOverlay;
+                                radius: 5;
+                                samples: 17;
+                                color: primaryLight;
+                                spread: 0.5;
+                                transparentBorder: true;
+                                source: markerOverlay;
+                            }
+                        }
+                    }
+        }
+        
         MapPolyline {
             id: mapPolyline;
             line.width: 5;
@@ -506,43 +567,46 @@ Rectangle {
             anchorPoint.x: 20
             anchorPoint.y: 20
             transform: Rotation {
-                id: rotation
+                id: rotation;
                 origin.x: 20;
                 origin.y: 20;
-                angle: 0
+                angle: 0;
             }
-            z:10
-            sourceItem: Image {
-                id: planeSource;
-                layer.enabled: true
-                transformOrigin: Item.Center
-                smooth: true;
-                source: "qrc:/ui-resources/qml/gpsarrow.png"
-            }
-            ColorOverlay {
-                id: overlayPlane;
-                anchors.fill: planeMapItem;
-                source: planeSource;
-                opacity: 0.75;
-                color: Material.primary
-            }
-            DropShadow {
-                anchors.fill: overlayPlane;
-                horizontalOffset: 5;
-                verticalOffset: 5;
-                radius: 8.0;
-                samples: 17;
-                color: "#000000";
-                source: overlayPlane;
-            }
-            Glow {
-                anchors.fill: overlayPlane
-                radius: 5;
-                samples: 17
-                color: primaryLight;
-                spread: 0.5;
-                transparentBorder: true;
-                source: overlayPlane
+            z:10;
+            sourceItem: Item {
+                Image {
+                    id: planeSource;
+                    layer.enabled: true;
+                    transformOrigin: Item.Center;
+                    smooth: true;
+                    source: "qrc:/ui-resources/qml/gpsarrow.png";
+                    visible: false;
+                }
+                ColorOverlay {
+                    id: overlayPlane;
+                    anchors.fill: planeSource;
+                    source: planeSource;
+                    opacity: 0.75;
+                    color: Material.primary;
+                }
+                DropShadow {
+                    anchors.fill: overlayPlane;
+                    horizontalOffset: 5;
+                    verticalOffset: 5;
+                    radius: 8.0;
+                    samples: 17;
+                    color: "#000000";
+                    source: overlayPlane;
+                }
+                Glow {
+                    anchors.fill: overlayPlane;
+                    radius: 5;
+                    samples: 17;
+                    color: primaryLight;
+                    spread: 0.5;
+                    transparentBorder: true;
+                    source: overlayPlane;
+                }
             }
             Behavior on coordinate {
                 CoordinateAnimation {

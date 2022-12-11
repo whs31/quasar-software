@@ -7,6 +7,7 @@
 #include "debug.h"
 #include "models/tmarker.h"
 #include "markerdialog.h"
+#include "linkerqml.h"
 
 class MarkerManager : public QObject
 {

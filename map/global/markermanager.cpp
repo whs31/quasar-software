@@ -12,8 +12,9 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude)
     MarkerDialog markerDialog(latitude, longitude, *marker);
     if(markerDialog.exec() == QDialog::Accepted)
     {
-        qDebug()<<marker->name;
+        Debug::Log("[MARKER] Created new marker with name " + marker->name);
     } else {
+        Debug::Log("[MARKER] Marker discarded");
         delete marker;
     }
 }

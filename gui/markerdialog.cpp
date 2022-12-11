@@ -10,8 +10,6 @@ MarkerDialog::MarkerDialog(qreal latitude, qreal longitude, TMarker &marker) :
     ui->lineEdit_longitude->setText(QString::number(longitude));
     ui->colorPicker->setColor(newmarker.color);
     ui->lineEdit_markerName->setText(newmarker.name);   
-    //marker.name = "123"; this exactly works
-    //newmarker.name = "123"; also works
 }
 
 MarkerDialog::~MarkerDialog()

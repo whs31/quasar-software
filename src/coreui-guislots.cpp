@@ -7,7 +7,6 @@ void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { fDynamicVariables-
 void CoreUI::on_checkBox_drawPredict_stateChanged(int arg1) { fDynamicVariables->setEnablePredict(arg1 == 2 ? true : false);                                                                                 }
 void CoreUI::on_checkBox_drawDiagram_stateChanged(int arg1) { fDynamicVariables->setEnablePredictDiagram(arg1 == 2 ? true : false);                                                                          }
 void CoreUI::on_checkBox_stateChanged(int arg1)             { fDynamicVariables->setFollowPlane(arg1 == 2 ? true : false);                                                                                   }
-void CoreUI::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                                              }
 void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);           }
 void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);          }
 void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)  { autoUpdate = ui->checkBox_autoUpdate->isChecked();                                                                                             }

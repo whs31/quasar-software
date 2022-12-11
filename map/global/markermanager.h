@@ -3,7 +3,8 @@
 
 #include <QObject>
 #include <QVector>
-#include <QDebug>
+
+#include "debug.h"
 #include "models/tmarker.h"
 #include "markerdialog.h"
 

@@ -9,12 +9,7 @@ CoreUI::CoreUI(QWidget *parent)
 {
     debugPointer = this;
     screenResolution = QGuiApplication::screens().first()->availableGeometry();
-    //log clear //must be done in Debug class
-    for(short i = 0; i < 25; i++)
-    {
-        qDebug()<<" ";
-    }
-    qDebug()<<"=================================NEW SESSION========================================="; //this too
+    Debug::NewSession();
     InitializeUI();
     InitializeConnections();
 }

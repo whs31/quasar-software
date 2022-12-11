@@ -2,7 +2,6 @@
 #define MARKERDIALOG_H
 
 #include <QDialog>
-#include <QDebug>
 #include "models/tmarker.h"
 
 namespace Ui {

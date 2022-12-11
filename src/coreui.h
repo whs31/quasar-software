@@ -138,7 +138,6 @@ private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_checkBox_drawPredict_stateChanged(int arg1);
     void on_checkBox_drawDiagram_stateChanged(int arg1);
-    void on_pushButton_panGPS_clicked();
     void on_pushButton_goLeft_clicked();
     void on_pushButton_goRight_clicked();
     void on_checkBox_autoUpdate_stateChanged(int arg1);

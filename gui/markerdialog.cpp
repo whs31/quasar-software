@@ -26,7 +26,7 @@ void MarkerDialog::on_buttonBox_accepted()
     newmarker.latitude = ui->lineEdit_latitude->text().toDouble();
     newmarker.longitude = ui->lineEdit_longitude->text().toDouble();
     newmarker.save = ui->checkBox_saveXML->isChecked();
-    newmarker.scalable = ui->checkBox_screenAnchor->isChecked();
+    newmarker.scalable = !ui->checkBox_screenAnchor->isChecked();
     if(ui->radioButton_defaultMarker->isChecked())
     {
         newmarker.icon = MarkerIcon::GoogleDefaultMarker;

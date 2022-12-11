@@ -311,14 +311,15 @@ Rectangle {
         r2MapItem.visible = false;
     }
 
-    function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real){
+    function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
                                 "m_color": col, 
                                 "m_qrc": icon, 
                                 "lat": latitude, 
                                 "lon": longitude, 
                                 "anchorX": anchorX,
-                                "anchorY": anchorY 
+                                "anchorY": anchorY,
+                                "m_zoom": zoomLevel
                             });
     }
 
@@ -357,12 +358,33 @@ Rectangle {
         MapItemView
         {
             model: markerModel;
+            add: Transition {
+                    NumberAnimation {
+                        property: "m_opacity";
+                        from: 0;
+                        to: 1;
+                        duration: 2000;
+                        easing.type: Easing.OutCubic;
+                    }
+            }
+            remove: Transition {
+                        NumberAnimation {
+                            property: "m_opacity";
+                            from: 1;
+                            to: 0;
+                            duration: 2000;
+                            easing.type: Easing.OutCubic;
+                        }
+            }
             delegate: MapQuickItem {
                         //anchors must be set according to 32x32 rescaled image
                         //e.g. middle will be QPoint(16, 16);
                         id: marker
                         anchorPoint: Qt.point(anchorX, anchorY);
                         z:10;
+                        zoomLevel: m_zoom;
+                        property real m_opacity: 1;
+                        opacity: m_opacity;
                         coordinate: QtPositioning.coordinate(lat, lon);
                         property alias markerName: markerText.text;
                         sourceItem: Item {

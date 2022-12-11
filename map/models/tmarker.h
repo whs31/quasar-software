@@ -22,8 +22,13 @@ public:
     qreal longitude = 0;
     bool scalable = false;
     bool save = true;
+    
+    qreal zoomLevel = 0;
     qreal anchorX = 0;
     qreal anchorY = 0;
+    QString iconPath = "qrc:/map-resources/markers/default.png";
+
+    void update();
 
 signals:
 

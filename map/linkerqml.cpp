@@ -35,29 +35,14 @@ void LinkerQML::fixedUpdate()  { QMetaObject::invokeMethod(map, "fixedUpdate"); 
 
 void LinkerQML::addModel(TMarker &marker)
 {
-    QString icon;
-    qCritical()<<marker.icon;
-    if(marker.icon == MarkerIcon::SARImage)
-    {
-        qCritical()<<"SAR image";
-        icon = "qrc:/map-resources/markers/radar.png";
-    } 
-    else if(marker.icon == MarkerIcon::Flag)
-    {
-        qCritical()<<"Flag";
-        icon = "qrc:/map-resources/markers/flag.png";
-    } 
-    else {
-        qCritical()<<"default";
-        icon = "qrc:/map-resources/markers/default.png";
-    }
     QMetaObject::invokeMethod(map, "addMarker",
                                 Q_ARG(QString, marker.name),
                                 Q_ARG(QColor, marker.color),
-                                Q_ARG(QString, icon),
+                                Q_ARG(QString, marker.iconPath),
                                 Q_ARG(qreal, marker.latitude),
                                 Q_ARG(qreal, marker.longitude),
                                 Q_ARG(qreal, marker.anchorX),
-                                Q_ARG(qreal, marker.anchorY)
+                                Q_ARG(qreal, marker.anchorY),
+                                Q_ARG(qreal, marker.zoomLevel)
                                 );
 }

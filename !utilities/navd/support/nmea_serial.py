@@ -1,4 +1,4 @@
-defaults = {'baud':'115200', 'ttyname':'/dev/ttyUSB0'}
+defaults = {'baud':'115200', 'ttyname':'/dev/ttyUSB0', 'preconfig': True}
 
 
 def run(parent, cfg):
@@ -26,22 +26,23 @@ def run(parent, cfg):
             
         print('OK')
 
-
-        try:
-            com.write( b"PUBX,40,GLL,0,0,0,0\r\n");
-            com.write( b"PUBX,40,VTG,0,0,0,0\r\n");
-            com.write( b"PUBX,40,GSV,0,0,0,0\r\n");
-            
-            com.write( b"PUBX,40,RMC,1,1,1,0*46\r\n");
-            
-            com.write( b"\xB5\x62\x06\x08\x06\x00\xC8\x00\x01\x00\x01\x00\xDE\x6A");
-            com.write( b"\xB5\x62\x06\x00\x01\x00\x01\x08\x22");
-        except serial.SerialException:
-            com.close()
-            pass
+        if(cfg['preconfig']):
+            try:
+                com.write( b"PUBX,40,GLL,0,0,0,0\r\n");
+                com.write( b"PUBX,40,VTG,0,0,0,0\r\n");
+                com.write( b"PUBX,40,GSV,0,0,0,0\r\n");
+                
+                com.write( b"PUBX,40,RMC,1,1,1,0*46\r\n");
+                
+                com.write( b"\xB5\x62\x06\x08\x06\x00\xC8\x00\x01\x00\x01\x00\xDE\x6A");
+                com.write( b"\xB5\x62\x06\x00\x01\x00\x01\x08\x22");
+            except serial.SerialException:
+                com.close()
+                pass
             
         
         print('Running')
+        print('Preconfig: {}'.format(cfg['preconfig']))
         
         while(parent.running):
             

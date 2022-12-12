@@ -8,6 +8,7 @@ Item {
         width: 300;
         height: 40;
         color: "#000055";
+        opacity: 0;
         MouseArea {
             id: bottomPanHoverArea;
             anchors.fill: parent;
@@ -24,6 +25,7 @@ Item {
         width: 300;
         height: 40;
         color: "#00FF00";
+        opacity: 0;
         MouseArea {
             id: topPanHoverArea;
             anchors.fill: parent;
@@ -40,6 +42,7 @@ Item {
         width: 40;
         height: 220;
         color: "#FF00FF";
+        opacity: 0;
         MouseArea {
             id: leftPanHoverArea;
             anchors.fill: parent;
@@ -56,6 +59,7 @@ Item {
         width: 40;
         height: 220;
         color: "#FFFF00";
+        opacity: 0;
         MouseArea {
             id: rightPanHoverArea;
             anchors.fill: parent;

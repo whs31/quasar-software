@@ -16,7 +16,7 @@ Item {
     {
         id: zoomOut;
         icon.source: "qrc:/ui-resources/white/zoom-out.png";
-        icon.color: "white";
+        icon.color: "black";
         icon.width: 32;
         icon.height: 32;
         width: 40;
@@ -55,7 +55,7 @@ Item {
     {
         id: zoomIn;
         icon.source: "qrc:/ui-resources/white/zoom-in.png";
-        icon.color: "white";
+        icon.color: "black";
         icon.width: 32;
         icon.height: 32;
         width: 40;

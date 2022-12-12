@@ -13,7 +13,7 @@ Item {
     {
         id: panButton;
         icon.source: "qrc:/ui-resources/white/plane.png";
-        icon.color: "white";
+        icon.color: "black";
         icon.width: 32;
         icon.height: 32;
         width: 40;
@@ -34,7 +34,7 @@ Item {
     {
         id: panImageButton;
         icon.source: "qrc:/ui-resources/white/image.png";
-        icon.color: "white";
+        icon.color: "black";
         icon.width: 32;
         icon.height: 32;
         width: 40;
@@ -64,7 +64,7 @@ Item {
     {
         id: rulerButton;
         icon.source: "qrc:/ui-resources/white/ruler.png";
-        icon.color: "white";
+        icon.color: "black";
         icon.width: 32;
         icon.height: 32;
         width: 40;

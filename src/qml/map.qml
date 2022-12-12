@@ -69,7 +69,7 @@ Rectangle {
     //called right after awake
     function start()
     {
-        zoomSlider.value = 1 - (mapView.zoomLevel / 18);
+        zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
         tiltSlider.value = 1 - (mapView.tilt / 45);
     }
 
@@ -103,10 +103,10 @@ Rectangle {
     //called 60 times per second (enable Timer ^^^^)
     function update()
     {
-        if(bottomPanning) { mapView.pan(0, 5); }
-        if(topPanning) { mapView.pan(0, -5); }
-        if(leftPanning) { mapView.pan(-5, 0); }
-        if(rightPanning) { mapView.pan(5, 0); }
+        if(bottomPanning) { mapView.pan(0, 2); }
+        if(topPanning) { mapView.pan(0, -2); }
+        if(leftPanning) { mapView.pan(-2, 0); }
+        if(rightPanning) { mapView.pan(2, 0); }
     }
 
     //===========================================================================================================================================================================================
@@ -336,40 +336,12 @@ Rectangle {
     }
 
     Map {
-        id: mapView
-        anchors.fill: parent;
-        layer.smooth: true;
-        tilt: 15;
-        plugin: Plugin {
-            id: mapPluginID;
-            name: "osm";
-            PluginParameter {
-                id: parameterOSM;
-                name: "osm.mapping.providersrepository.address";
-                value: "file:///"+OsmConfigPath;
-            }
-        }
-        
-        activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
-        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
-        zoomLevel: defaultZoom;
-        copyrightsVisible: false;
-        z: 1;
-
-        Component.onCompleted: { awake(); start(); }
-        gesture.enabled: true;
-        gesture.acceptedGestures: MapGestureArea.ZoomGesture;
-
-        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
-        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
-        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
         MouseArea {
             id: mapMouseArea;
             anchors.fill: parent;
             hoverEnabled: true;
             propagateComposedEvents: true;
-            preventStealing: true;
+            //preventStealing: true;
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
             onPositionChanged: {
@@ -384,7 +356,6 @@ Rectangle {
             }
             onClicked:
             {
-                mouse.accepted = false;
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
                 {
                     r_currentstate = 0;
@@ -419,9 +390,36 @@ Rectangle {
                 {
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
+                mouse.accepted = false;
             }
         } 
 
+        id: mapView
+        anchors.fill: parent;
+        layer.smooth: true;
+        tilt: 15;
+        plugin: Plugin {
+            id: mapPluginID;
+            name: "osm";
+            PluginParameter {
+                id: parameterOSM;
+                name: "osm.mapping.providersrepository.address";
+                value: "file:///"+OsmConfigPath;
+            }
+        }
+        
+        activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
+        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
+        zoomLevel: defaultZoom;
+        copyrightsVisible: false;
+        z: 1;
+
+        Component.onCompleted: { awake(); start(); }
+
+        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
+        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
+        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
+        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
 
         MapItemView
         {
@@ -873,72 +871,15 @@ Rectangle {
                 }
             }
         }
-        //----------------------zoom slider---------------------------
-        RoundButton
+        ZoomSlider 
         {
-            id: zoomOut
-            icon.source: "qrc:/ui-resources/white/zoom-out.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 40;
-            anchors.rightMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel -= 0.5
-            z: 100
+            id: zoomSliderElement;
+            anchors.right: parent.right;
+            anchors.bottom: parent.bottom;
+            anchors.rightMargin: 20;
+            anchors.bottomMargin: 10;
+            z: 100;
         }
-        Slider
-        {
-            id: zoomSlider
-            width: 40
-            height: 200
-            z: 100
-            live: true
-            anchors.bottom: zoomOut.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.zoomLevel = (1-value)*18;
-        }
-        RoundButton
-        {
-            id: zoomIn
-            icon.source: "qrc:/ui-resources/white/zoom-in.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            z: 100
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            anchors.bottom: zoomSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel += 0.5
-        }
-        //-------------------------------------------------------------
         RoundButton
         {
             id: panButton

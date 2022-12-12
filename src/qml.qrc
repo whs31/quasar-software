@@ -3,5 +3,7 @@
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
         <file>qml/Gesture.qml</file>
+        <file>qml/ZoomSlider.qml</file>
+        <file>qml/TiltSlider.qml</file>
     </qresource>
 </RCC>

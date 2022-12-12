@@ -1,7 +1,7 @@
 import QtQuick 2.12
 
 Item {
-    Rectangle {
+        Rectangle {
             id: bottomPan;
             anchors.left: parent.left;
             anchors.leftMargin: 40;
@@ -9,8 +9,8 @@ Item {
             anchors.rightMargin: 40;
             anchors.bottom: parent.bottom;
             height: 40;
-            color: "#FF0000";
-            opacity: 0;
+            color: "#000055";
+            opacity: 0.3;
             MouseArea {
                 id: bottomPanHoverArea;
                 anchors.fill: parent;
@@ -28,8 +28,8 @@ Item {
             anchors.rightMargin: 40;
             anchors.top: parent.top;
             height: 40;
-            color: "#FF0000";
-            opacity: 0;
+            color: "#00FF00";
+            opacity: 0.3;
             MouseArea {
                 id: topPanHoverArea;
                 anchors.fill: parent;
@@ -48,7 +48,7 @@ Item {
             anchors.bottomMargin: 40;
             width: 40;
             color: "#FF00FF";
-            opacity: 0;
+            opacity: 0.3;
             MouseArea {
                 id: leftPanHoverArea;
                 anchors.fill: parent;
@@ -67,7 +67,7 @@ Item {
             anchors.bottomMargin: 40;
             width: 40;
             color: "#FFFF00";
-            opacity: 0;
+            opacity: 0.3;
             MouseArea {
                 id: rightPanHoverArea;
                 anchors.fill: parent;

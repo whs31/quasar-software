@@ -133,7 +133,7 @@ def run(parent, cfg):
         parent.gpx.lat = mrls_telemetry.lat
         parent.gpx.lon = mrls_telemetry.lon
         parent.gpx.elv = mrls_telemetry.altitude_gps
-        parent.gpx.direct = mrls_telemetry.yaw
+        parent.gpx.direct = mrls_telemetry.yaw * (180.0/3.1415926535)
         parent.gpx.fix = 1
         parent.gpx.sats = 1
         

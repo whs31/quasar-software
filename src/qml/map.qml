@@ -269,21 +269,21 @@ Rectangle {
         {
             if(mapMouseArea.pressed)
             {
-                cursorTooltip.visible = false;
-                cursorTooltipText.visible = false;
+                mapHoverCoordinatesTooltip.visible = false;
+                mapHoverCoordinatesTooltip.visible = false;
             }
             else {
-                cursorTooltip.visible = true;
-                cursorTooltipText.visible = true;
-                cursorTooltip.x = mapMouseArea.mouseX;
-                cursorTooltip.y = mapMouseArea.mouseY;
+                mapHoverCoordinatesTooltip.visible = true;
+                mapHoverCoordinatesTooltip.visible = true;
+                mapHoverCoordinatesTooltip.x = mapMouseArea.mouseX;
+                mapHoverCoordinatesTooltip.y = mapMouseArea.mouseY;
                 var coordToStr = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-                cursorTooltipText.text = "  ➤Ш: <b><i>"+coordToStr.latitude.toFixed(5)+"</b></i>,   Д: <b><i>"+coordToStr.longitude.toFixed(5)+"</b></i>";
+                mapHoverCoordinatesTooltip.tooltipText = "➤ Ш: "+coordToStr.latitude.toFixed(5)+",  Д: "+coordToStr.longitude.toFixed(5);
             }
         }
         else {
-            cursorTooltip.visible = false;
-            cursorTooltipText.visible = false;
+            mapHoverCoordinatesTooltip.visible = false;
+            mapHoverCoordinatesTooltip.visible = false;
         }
     }
     //---------------------------------------------------}
@@ -334,14 +334,14 @@ Rectangle {
     ListModel {
         id: markerModel
     }
-
+    
     Map {
         MouseArea {
             id: mapMouseArea;
             anchors.fill: parent;
             hoverEnabled: true;
             propagateComposedEvents: true;
-            //preventStealing: true;
+            //preventStealing: true; //never enable it, or gestures will be broken 
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
             onPositionChanged: {
@@ -352,7 +352,6 @@ Rectangle {
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
-                //MouseHover.mousePositionX = mapMouseArea.mouseX; MouseHover.mousePositionY = mapMouseArea.mouseY;
             }
             onClicked:
             {
@@ -375,7 +374,6 @@ Rectangle {
                     r_currentstate = 3;
 
                     r2MapItem.visible = true;
-                    //aMean(r_firstpoint, r_secondpoint);
                 }
                 else if(r_currentstate === 3)
                 {
@@ -665,32 +663,7 @@ Rectangle {
                 }
             }
         }
-        Rectangle {
-            id: cursorTooltip
-            visible: true
-            width: 0
-            height: 0
-            z: 12
-            Rectangle {
-                id: tooltip
-                color: accentDark;
-                width: 156
-                height: 15
-                radius: 1
-                opacity: 0.75
-                Text {
-                    id: cursorTooltipText
-                    color: "#F2F2F2";
-                    enabled: false
-                    anchors.fill: parent
-                    leftPadding: 8
-                    font.pointSize: 8
-                    minimumPointSize: 8
-                    minimumPixelSize: 8
-                    textFormat: Text.RichText
-                }
-            }
-        }
+
         Rectangle {
             id: speedElvRect
             y: 62
@@ -775,6 +748,15 @@ Rectangle {
                 anchors.bottomMargin: 5
                 text: qsTr("-------")
             }
+        }
+
+        FloatingTooltip
+        {
+            id: mapHoverCoordinatesTooltip;
+            visible: true;
+            tooltipPadding: 10;
+            tooltipText: "Ш: 50.0000000 Д: 30.0000000";
+            transparency: 0.5;
         }
 
         //left to right <<<<<<<<<

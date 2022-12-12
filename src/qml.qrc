@@ -6,5 +6,7 @@
         <file>qml/ZoomSlider.qml</file>
         <file>qml/TiltSlider.qml</file>
         <file>qml/BottomToolbar.qml</file>
+        <file>qml/FloatingTooltip.qml</file>
+        <file>qml/SmallPopup.qml</file>
     </qresource>
 </RCC>

@@ -11,6 +11,7 @@ import QtGraphicalEffects 1.0
 
 import SMath 1.0
 import MouseKeyHandler 1.0
+import MouseHover 1.0
 import MarkerManager 1.0
 
 
@@ -18,6 +19,8 @@ Rectangle {
     id: qqview
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
+    //Timer { interval: 20; running: true; repeat: true; onTriggered: update(); } //framerate = interval
+
 
     //ux constants
     Material.theme: Material.Dark
@@ -89,6 +92,12 @@ Rectangle {
         longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°";
         elevationText.text = Number(FTelemetry.elevation).toFixed(0);
         speedText.text = Number(FTelemetry.speed).toFixed(1);
+    }
+
+    //called 60 times per second (enable Timer ^^^^)
+    function update()
+    {
+
     }
 
     //===========================================================================================================================================================================================
@@ -175,8 +184,6 @@ Rectangle {
         mapView.addMapItem(item);
         imageArray.push(item);
     }
-
-    function log(base, exponent) { return Math.log(exponent) / Math.log(base); }
 
     function hideImage(filecounter)
     {
@@ -398,28 +405,6 @@ Rectangle {
                                 smooth: true;
                                 source: m_qrc;
                                 visible: true;
-                                MouseArea {
-                                    id: markerMouseArea;
-                                    anchors.fill: parent;
-                                    //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
-                                    acceptedButtons: Qt.LeftButton;
-                                    preventStealing: true;
-                                    propagateComposedEvents: true;
-                                    hoverEnabled: true;
-                                    onEntered:{
-                                        console.log("entered");
-                                    }
-                                    onExited: {
-                                        console.log("exited");
-                                    }
-                                    onClicked: {
-                                        mouse.accepted = false;
-                                    }
-                                    onPressAndHold: {
-                                        MarkerManager.removeMarker(index);
-                                        markerModel.remove(index);
-                                    }
-                                }
                             }
                             ColorOverlay {
                                 id: markerOverlay;
@@ -466,7 +451,6 @@ Rectangle {
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 9; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
-
         MouseArea {
             id: mapMouseArea
             anchors.fill: parent
@@ -485,6 +469,8 @@ Rectangle {
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
+                MouseHover.mousePositionX = mapMouseArea.mouseX; MouseHover.mousePositionY = mapMouseArea.mouseY;
+                console.log(MouseHover.mousePositionX + "     " + MouseHover.mousePositionY);
             }
             onExited: { 
                 clearTooltip(); 
@@ -534,7 +520,7 @@ Rectangle {
                     numAnim1.restart();
                 }
             }
-        }
+        } 
 
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
@@ -700,7 +686,6 @@ Rectangle {
                 }
             }
         }
-
         Rectangle {
             id: speedElvRect
             y: 62
@@ -753,7 +738,6 @@ Rectangle {
                 text: qsTr("м")
             }
         }
-
         Rectangle {
             id: latLonRect
             width: 120
@@ -787,7 +771,6 @@ Rectangle {
                 text: qsTr("-------")
             }
         }
-
         ProgressBar {
             id: cameraGrip;
             opacity: 0.25;
@@ -808,9 +791,7 @@ Rectangle {
                 duration: 3000
             }
         }
-
         //---------------tilt slider-------------------
-
         RoundButton
         {
             icon.source: "qrc:/ui-resources/white/down.png"
@@ -839,7 +820,6 @@ Rectangle {
             }
             z: 100
         }
-
         Slider
         {
             id: tiltSlider
@@ -859,7 +839,6 @@ Rectangle {
             value: 1
             onMoved: mapView.tilt = (1 - value) * 45;
         }
-
         RoundButton
         {
             icon.source: "qrc:/ui-resources/white/up.png"
@@ -887,10 +866,7 @@ Rectangle {
                 }
             }
         }
-
-
         //----------------------zoom slider---------------------------
-        
         RoundButton
         {
             id: zoomOut
@@ -914,7 +890,6 @@ Rectangle {
             onClicked: mapView.zoomLevel -= 0.5
             z: 100
         }
-        
         Slider
         {
             id: zoomSlider
@@ -934,7 +909,6 @@ Rectangle {
             value: 1
             onMoved: mapView.zoomLevel = (1-value)*18;
         }
-
         RoundButton
         {
             id: zoomIn
@@ -958,7 +932,6 @@ Rectangle {
             onClicked: mapView.zoomLevel += 0.5
         }
         //-------------------------------------------------------------
-
         RoundButton
         {
             id: panButton
@@ -981,7 +954,6 @@ Rectangle {
             display: AbstractButton.IconOnly
             onClicked: panGPS()
         }
-
         RoundButton
         {
             id: panImageButton
@@ -1048,7 +1020,6 @@ Rectangle {
     Connections {
 
     }
-
 }
 
 

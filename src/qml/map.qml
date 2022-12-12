@@ -401,7 +401,7 @@ Rectangle {
                                 MouseArea {
                                     id: markerMouseArea;
                                     anchors.fill: parent;
-                                    cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
+                                    //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
                                     acceptedButtons: Qt.LeftButton;
                                     preventStealing: true;
                                     propagateComposedEvents: true;
@@ -419,7 +419,7 @@ Rectangle {
                                         MarkerManager.removeMarker(index);
                                         markerModel.remove(index);
                                     }
-                                } //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor
+                                }
                             }
                             ColorOverlay {
                                 id: markerOverlay;

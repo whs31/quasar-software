@@ -291,7 +291,7 @@ void ImageProcessing::showInitialScanResult(bool showOnStart)
                 QSize sizeOfImage = reader.size();
 
                 LinkerQML::addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
-                MarkerManager::newMarker(meta.latitude, meta.longitude, true);
+                //MarkerManager::newMarker(meta.latitude, meta.longitude, true);
 
                 if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
                 {
@@ -328,7 +328,7 @@ void ImageProcessing::showPartialScanResult()
                         metadataList[metadataList.length()-i].angle,
                         metadataList[metadataList.length()-i].filename,
                         sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
-                MarkerManager::newMarker(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude, true);
+                //MarkerManager::newMarker(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude, true);
 
                 if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
                 {

@@ -9,6 +9,8 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 
+//import
+
 import SMath 1.0
 import MouseKeyHandler 1.0
 //import MouseHover 1.0
@@ -19,6 +21,12 @@ Rectangle {
     id: qqview
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
+
+    Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
+    property bool bottomPanning: false;
+    property bool topPanning: false;
+    property bool leftPanning: false;
+    property bool rightPanning: false;
 
     //ux constants
     Material.theme: Material.Dark
@@ -95,8 +103,10 @@ Rectangle {
     //called 60 times per second (enable Timer ^^^^)
     function update()
     {
-        mapMouseArea.hoverEnabled = hoverSwitch;
-        hoverSwitch = !hoverSwitch;
+        if(bottomPanning) { mapView.pan(0, 5); }
+        if(topPanning) { mapView.pan(0, -5); }
+        if(leftPanning) { mapView.pan(-5, 0); }
+        if(rightPanning) { mapView.pan(5, 0); }
     }
 
     //===========================================================================================================================================================================================
@@ -339,6 +349,7 @@ Rectangle {
                 value: "file:///"+OsmConfigPath;
             }
         }
+        
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
@@ -346,6 +357,8 @@ Rectangle {
         z: 1;
 
         Component.onCompleted: { awake(); start(); }
+        gesture.enabled: true;
+        gesture.acceptedGestures: MapGestureArea.ZoomGesture;
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
@@ -405,13 +418,6 @@ Rectangle {
                 if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
                 {
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
-                }
-            }
-            onPressed: {
-                if(FDynamicVariables.followPlane || timer_3s.running) {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
                 }
             }
         } 
@@ -501,6 +507,7 @@ Rectangle {
                                 anchors.horizontalCenter: markerSource.horizontalCenter;
                                 font.pointSize: 7;
                                 font.family: "Arial";
+                                font.weight: Font.Bold;
                                 textFormat: Text.RichText;
                                 text: m_name;
                             }
@@ -696,7 +703,7 @@ Rectangle {
             radius: 18
             color: Material.accent;
             anchors.bottom: latLonRect.top
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: 8;
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
@@ -747,7 +754,7 @@ Rectangle {
             radius: 15
             color: Material.accent;
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 40
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
@@ -807,7 +814,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             highlighted: true
             flat: false
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 40;
             anchors.leftMargin: 30
             hoverEnabled: true
             enabled: true
@@ -882,7 +889,7 @@ Rectangle {
             anchors.bottom: parent.bottom
             highlighted: true
             flat: false
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 40;
             anchors.rightMargin: 30
             hoverEnabled: true
             enabled: true
@@ -1015,6 +1022,10 @@ Rectangle {
                 }
             }
             Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { FDynamicVariables.followPlane = true; cameraGrip.value = 0; } }
+        }
+        Gesture {
+            id: gesture;
+            anchors.fill: parent;
         }
     }
     Connections {

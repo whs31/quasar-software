@@ -1,7 +1,7 @@
 #include "linkerqml.h"
 
 QQuickItem* LinkerQML::map = Q_NULLPTR;
-LinkerQML::LinkerQML(QQuickItem* map) { }
+LinkerQML::LinkerQML() { }
 void LinkerQML::initialize(QQuickItem* map)
 {
     LinkerQML::map = map;

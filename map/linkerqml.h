@@ -27,7 +27,7 @@ protected:
     static QQuickItem* map;
 
 private:
-    LinkerQML(QQuickItem* map);
+    LinkerQML();
 
 };
 

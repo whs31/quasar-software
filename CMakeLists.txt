@@ -58,46 +58,48 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${executable_name} ${SOURCE}
-        windowextension/extension.h          windowextension/extension.cpp
-        windowextension/shadow.h             windowextension/shadow.cpp
+        windowextension/extension.h                         windowextension/extension.cpp
+        windowextension/shadow.h                            windowextension/shadow.cpp
         windowextension/common.h
-        map/tilesmanager.h                   map/tilesmanager.cpp
-        map/linkerqml.h                      map/linkerqml.cpp
-        map/backend/ftelemetry.h             map/backend/ftelemetry.cpp
-        map/backend/fdynamicvariables.h      map/backend/fdynamicvariables.cpp
-        map/backend/fstaticvariables.h       map/backend/fstaticvariables.cpp
-        map/backend/fmousekeyhandler.h       map/backend/fmousekeyhandler.cpp
-        map/backend/fmousehover.h            map/backend/fmousehover.cpp
-        map/backend/smousestate.h            map/backend/smousestate.cpp
-        map/models/tmarker.h                 map/models/tmarker.cpp
-        map/global/markermanager.h           map/global/markermanager.cpp
-        json/jsonmanager.h                   json/jsonmanager.cpp
-        json/jsonconfig.h                    json/jsonconfig.cpp
-        network/remote.h                     network/remote.cpp
-        network/tcpremote.h                  network/tcpremote.cpp
-        network/udpremote.h                  network/udpremote.cpp
-        network/tcpdownloader.h              network/tcpdownloader.cpp
-        network/messageparser.h              network/messageparser.cpp
-        src/coreui.h                         src/coreui.cpp                             src/coreui-guislots.cpp
-        config/config.h                      config/config.cpp
-        config/sconfig.h                     config/sconfig.cpp
-        config/settingsdialog.h              config/settingsdialog.cpp                  config/settingsdialog.ui
-        disk/cachemanager.h                  disk/cachemanager.cpp
-        image-processing/imageprocessing.h   image-processing/imageprocessing.cpp
-        image-processing/imagemanager.h      image-processing/imagemanager.cpp          #rename me
-        image-processing/alphamask.h         image-processing/alphamask.cpp
-        func/smath.h                         func/smath.cpp
-        func/stext.h                         func/stext.cpp
-        func/schecksum.h                     func/schecksum.cpp
-        misc/style.h                         misc/style.cpp
-        misc/uxmanager.h                     misc/uxmanager.cpp
-        misc/debug.h                         misc/debug.cpp
-        misc/profiler.h                      misc/profiler.cpp
-        misc/json-backup.qrc                 src/map-resources.qrc                      src/qml.qrc
-        gui/aboutdialog.h                    gui/aboutdialog.cpp                        gui/aboutdialog.ui
-        gui/passworddialog.h                 gui/passworddialog.cpp                     gui/passworddialog.ui
-        gui/markerdialog.h                   gui/markerdialog.cpp                       gui/markerdialog.ui
-        gui/widgets/colorpicker.h            gui/widgets/colorpicker.cpp
+        map/tilesmanager.h                                  map/tilesmanager.cpp
+        map/linkerqml.h                                     map/linkerqml.cpp
+        map/backend/ftelemetry.h                            map/backend/ftelemetry.cpp
+        map/backend/fdynamicvariables.h                     map/backend/fdynamicvariables.cpp
+        map/backend/fstaticvariables.h                      map/backend/fstaticvariables.cpp
+        map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
+        map/backend/fmousehover.h                           map/backend/fmousehover.cpp
+        map/backend/smousestate.h                           map/backend/smousestate.cpp
+        map/models/tmarker.h                                map/models/tmarker.cpp
+        map/models/timage.h                                 map/models/timage.cpp
+        map/global/markermanager.h                          map/global/markermanager.cpp
+        json/jsonmanager.h                                  json/jsonmanager.cpp
+        json/jsonconfig.h                                   json/jsonconfig.cpp
+        network/remote.h                                    network/remote.cpp
+        network/tcpremote.h                                 network/tcpremote.cpp
+        network/udpremote.h                                 network/udpremote.cpp
+        network/tcpdownloader.h                             network/tcpdownloader.cpp
+        network/messageparser.h                             network/messageparser.cpp
+        src/coreui.h                                        src/coreui.cpp                                                 src/coreui-guislots.cpp
+        config/config.h                                     config/config.cpp
+        config/sconfig.h                                    config/sconfig.cpp
+        config/settingsdialog.h                             config/settingsdialog.cpp                                      config/settingsdialog.ui
+        disk/cachemanager.h                                 disk/cachemanager.cpp
+        image-processing/imageprocessing.h                  image-processing/imageprocessing.cpp
+        image-processing/imagemanager.h                     image-processing/imagemanager.cpp                              #rename me
+        image-processing/alphamask.h                        image-processing/alphamask.cpp
+        image-processing/optimized/optimizedprocessing.h    image-processing/optimized/optimizedprocessing.cpp
+        func/smath.h                                        func/smath.cpp
+        func/stext.h                                        func/stext.cpp
+        func/schecksum.h                                    func/schecksum.cpp
+        misc/style.h                                        misc/style.cpp
+        misc/uxmanager.h                                    misc/uxmanager.cpp
+        misc/debug.h                                        misc/debug.cpp
+        misc/profiler.h                                     misc/profiler.cpp
+        misc/json-backup.qrc                                src/map-resources.qrc                                          src/qml.qrc
+        gui/aboutdialog.h                                   gui/aboutdialog.cpp                                            gui/aboutdialog.ui
+        gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
+        gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
+        gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
         ${SRCS} appiconwin32.rc
    )
 endif()

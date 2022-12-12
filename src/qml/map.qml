@@ -480,8 +480,8 @@ Rectangle {
                                 onExited: {
                                     console.log("exited!");
                                 }
-                                onCanceled: {
-                                    mapMouseArea.hoverEnabled = false;
+                                onClicked: {
+                                    console.log("clicked!!!!");
                                 }
                             }
                             }

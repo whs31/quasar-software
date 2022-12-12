@@ -7,24 +7,35 @@
 #include <QQuickItem>
 #include <QMessageBox>
 
+#include "cachemanager.h"
 #include "config.h"
+#include "jsonconfig.h"
+
 #include "linkerqml.h"
+#include "backend/fstaticvariables.h"
 #include "debug.h"
 
 class SConfig : public QObject
 {
     Q_OBJECT
 public:
-    explicit SConfig(QQuickItem* qml);
-    static SConfig* init(void);
+    static SConfig* initialize(QQuickItem* qml, FStaticVariables* fStaticVariables);
+
     static void loadSettings();
     static void saveSettings();
+    static void saveQuiet();
     static void discardSettings();
 
+    static QString BUILDVERSION;
+    static QString PASSWORD;
     static bool TESTMODE;
+    static bool USEPROFILER;
     static QString NETWORKTYPE;
     static QString NETWORKADDRESS;
     static QString NETWORKPORT;
+    static QString LOADERIP;
+    static QString LOADERPORT;
+    static QString FORMIMAGEPORT;
     static float UPDATETIME;
     static float PREDICTRANGE;
     static float CAPTURERANGE;
@@ -39,16 +50,21 @@ public:
     static QString CACHEPATH;
     static bool USELOADER;
     static bool SAVEATEND;
-    static QString LOADERIP;
-    static QString LOADERPORT;
     static bool USEBASE64;
+    static bool METAANGLEINRADIANS;
+    static float METAANGLECORRECTION;
 
 signals:
 
 private:
+    explicit SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables);
     static SConfig* pointer;
     static Config* config;
+    static JsonConfig* jsonConfig;
     static LinkerQML* linker;
+    static FStaticVariables* fStatic;
+
+    static void save();
 };
 
 #endif // SCONFIG_H

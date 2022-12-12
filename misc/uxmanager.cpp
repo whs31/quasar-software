@@ -7,16 +7,17 @@ QString UXManager::jsonFilePath;
 QJsonObject UXManager::jsonobj;
 UXManager::UXManager(QObject *parent) : QObject{parent}
 {
+
     QJsonDocument json;
-    if(QFile::exists((QCoreApplication::applicationDirPath()+"/ux.json")))
+    if(QFile::exists((CacheManager::getSettingsPath()+"/ux.json")))
     {
-        QFile jsonFile(QCoreApplication::applicationDirPath()+"/ux.json");
+        QFile jsonFile(CacheManager::getSettingsPath()+"/ux.json");
         jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QString jsonContents = jsonFile.readAll();
         json = QJsonDocument::fromJson(jsonContents.toUtf8());
     } else {
         makeJSON();
-        QFile jsonFile(QCoreApplication::applicationDirPath()+"/ux.json");
+        QFile jsonFile(CacheManager::getSettingsPath()+"/ux.json");
         jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QString jsonContents = jsonFile.readAll();
         json = QJsonDocument::fromJson(jsonContents.toUtf8());
@@ -99,6 +100,6 @@ void UXManager::fillStringList()
 
 void UXManager::makeJSON()
 {
-    QFile::copy(":/json-backup/ux.json", QCoreApplication::applicationDirPath()+"/ux.json");
+    QFile::copy(":/json-backup/ux.json", CacheManager::getSettingsPath() + "/ux.json");
 }
 

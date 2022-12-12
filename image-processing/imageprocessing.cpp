@@ -1,23 +1,21 @@
 #include "imageprocessing.h"
 
-ImageProcessing::ImageProcessing(LinkerQML* linker) : qmlLinker(linker)
+ImageProcessing::ImageProcessing()
 {
     imageManager = new ImageManager;
 }
 
 bool ImageProcessing::getReadyStatus()
 {
-    if(!metadataList.empty())
-    {
-        return 1;
-    } return 0;
+    if(!metadataList.empty()) return 1;
+    return 0;
 }
 
 void ImageProcessing::clearCache()
 {
     metadataList.clear();
-    qmlLinker->clearImageArray();
-    ImageManager::clearCache(ClearMode::ClearAll);
+    LinkerQML::clearImageArray();
+    CacheManager::clearImageCache(ClearMode::ClearAll);
 }
 
 QStringList ImageProcessing::getEntryList(QString &path)
@@ -32,7 +30,7 @@ QStringList ImageProcessing::getEntryList(QString &path)
     {
         Debug::Log("[FILEMANAGER] Metadata list contains "+QString::number(strl.length())+" files");
         /*
-         *          отрезаем формат, путь уже отрезан entryList(). Получается, str = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
+         *          отрезаем формат, путь уже отрезан entryList(). Получается, strl[i] = имя файла без указания формата и пути к нему (mx_xx-xx-xxxx_xx-xx-xx)
          *          аналогичное действие должен провернуть метод ImageManager getDiff(), чтобы сравнивать конкретно имена файлов без расширений и путей.
          */
         for (int i = 0; i<strl.length(); i++) { strl[i].chop(4); }
@@ -51,9 +49,9 @@ void ImageProcessing::imageChecklistLoop()
         {
             if(imageChecklist[i]==true)
             {
-                qmlLinker->showImage(i);
+                LinkerQML::showImage(i);
             } else {
-                qmlLinker->hideImage(i);
+                LinkerQML::hideImage(i);
             }
         }
     }
@@ -61,29 +59,36 @@ void ImageProcessing::imageChecklistLoop()
 
 bool ImageProcessing::InitialScan() //recall after changing settings
 {
+    Profiler* profiler = new Profiler("Профайлер полного сканирования"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
-
+    profiler->Stop("Diff");
+    profiler->Start();
     QStringList imageList = imageManager->GetInitialList(initialPath, diff);
-
+    profiler->Stop("PNG saving");
     if(!diff.empty())
     {
         Debug::Log("[FILEMANAGER] Diff: "+QString::number(diff.length())+" files");
     } else {
         Debug::Log("?[FILEMANAGER] No difference between cache and path found. Image processing will be skipped");
     }
+    
     if(!imageList.empty())
     {
         notNull = true;
         qInfo()<<"[IMG] Imagelist fulfilled";
 
         metadataList.clear();
-        qmlLinker->clearImageArray();
-
-        decode(imageList, DecodeMode::Initial);
-        updateLabels(0);
-
+        profiler->Start();
+        LinkerQML::clearImageArray();
+        profiler->Stop("QML array clear");
+        profiler->Start();
+        Decode(imageList, DecodeMode::Initial);
+        profiler->Stop("Decode and alpha mask apply");
+        UpdateLabels(0);
+        profiler->ShowProfile();
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         notNull = false;
@@ -104,7 +109,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
         {
             imageChecklist.append(SConfig::SHOWIMAGEONSTART);
         }
-        showAllImages(SConfig::SHOWIMAGEONSTART);
+        showInitialScanResult(SConfig::SHOWIMAGEONSTART);
     }
     emit enableImageBar(notNull);
     return notNull;
@@ -112,11 +117,15 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 
 bool ImageProcessing::PartialScan()
 {
+    Profiler* profiler = new Profiler("Профайлер частичного сканирования"); 
+    profiler->Start();
     QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
     bool foundNew = false;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
+    profiler->Stop("Diff");
 
+    profiler->Start();
     QStringList imageList = imageManager->GetPartialList(initialPath, diff);
     if(!diff.empty())
     {
@@ -124,6 +133,8 @@ bool ImageProcessing::PartialScan()
     } else {
         Debug::Log("[FILEMANAGER] Partial scan found no difference to process");
     }
+    profiler->Stop("PNG saving");
+    profiler->Start();
     if(!imageList.empty())
     {
         Debug::Log("?[IMG] Imagelist fulfilled");
@@ -134,17 +145,19 @@ bool ImageProcessing::PartialScan()
             emit(setRightButton(true));
         }
         emit enableImageBar(true);
-        decode(imageList, DecodeMode::Partial);
+        Decode(imageList, DecodeMode::Partial);
 
         emit updateTopLabels(getVectorSize(), getFileCounter());
     } else {
         Debug::Log("[IMG] Partial scan found no images to process");
         foundNew = false;
     }
+    profiler->Stop("Decoding and alpha mask apply");
     if(foundNew)
     {
         emit(setRightButton(true));
     }
+    profiler->Start();
     if(getReadyStatus())
     {
         for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
@@ -153,12 +166,14 @@ bool ImageProcessing::PartialScan()
         }
         showPartialScanResult();
     }
+    profiler->Stop("UI and QML display");
+    profiler->ShowProfile();
     return foundNew;
 }
 
-void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
+void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
 {
-    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
+    image_metadata metaStruct = {0,0,0,0,0,0,0,0,0,0,0,0,"-", "-", false, "-"};
     Debug::Log("?[IMG] Called decoding function for image from filelist of "+QString::number(filelist.length())+" files");
     for (int s = 0; s<filelist.length(); s++)
     {
@@ -182,7 +197,7 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
                 QString pngPath = info.fileName();
                 pngPath.chop(3);
                 pngPath.append("png");
-                pngPath.prepend(ImageManager::getPNGDirectory()+'/');
+                pngPath.prepend(CacheManager::getPngCache()+'/');
                 QDir::toNativeSeparators(pngPath);
                 metaStruct.filename = pngPath;
 
@@ -191,17 +206,32 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
                 metaStruct.datetime = crDate.toString("dd.MM в HH:mm:ss");
 
                 //проверка контрольной суммы
-                metaStruct.checksumMatch = 0; //(newChecksum==metaStruct.checksum) ? 1 : 0;
+                void* structData = (void *) malloc(1024);
+                memcpy((char*)structData, (void*)&metaStruct, *metaSize);
+                uint32_t recalculatedChecksum = SChecksum::calculateChecksum(structData, *metaSize);
+                QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 8, 16, QLatin1Char('0'));
+                qCritical()<<recalculatedChecksumHex;
+
+                metaStruct.checksumMatch = (recalculatedChecksum == metaStruct.checksum) ? 1 : 0;
+
+                //геометрические преобразования
+                if(SConfig::METAANGLEINRADIANS)
+                {
+                    metaStruct.angle = SMath::radiansToDegrees(metaStruct.angle) + SConfig::METAANGLECORRECTION;
+                    metaStruct.driftAngle = SMath::radiansToDegrees(metaStruct.driftAngle);
+                    metaStruct.div = SMath::radiansToDegrees(metaStruct.div);
+                }
 
                 //создание маски альфа-канала
                 QImageReader reader(metaStruct.filename);
                 QSize sizeOfImage = reader.size();
                 int height = sizeOfImage.height();
                 int width = sizeOfImage.width();
+                AlphaMask alphaMask;
                 if(SConfig::USEBASE64)
                 {
                     Debug::Log("[IMG] Using base64 encoding, making mask...");
-                    metaStruct.base64encoding = imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
+                    metaStruct.base64encoding = alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100)
                     {
                         Debug::Log("!![IMG] Something went wrong (base64) "+metaStruct.base64encoding);
@@ -210,7 +240,7 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
                     Debug::Log("[IMG] Using saving to disk, making mask...");
-                    imageManager->addAlphaMask(metaStruct.filename, width, height, 13, 30, 0, 0, MaskFormat::Geometric);
+                    alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, MaskFormat::Geometric);
                 }
                 metadataList.append(metaStruct);
                 if(mode == DecodeMode::Partial)
@@ -226,7 +256,7 @@ void ImageProcessing::decode(QStringList filelist, DecodeMode mode)
     }
 }
 
-void ImageProcessing::updateLabels(int structureIndex)
+void ImageProcessing::UpdateLabels(int structureIndex)
 {
     QStringList tmp = metadataList[structureIndex].filename.split("/");
     QString cutFilename = tmp[tmp.size()-1];
@@ -240,30 +270,15 @@ void ImageProcessing::updateLabels(int structureIndex)
                           metadataList[structureIndex].y0,
                           metadataList[structureIndex].angle,
                           metadataList[structureIndex].driftAngle,
+                          metadataList[structureIndex].lx,
+                          metadataList[structureIndex].ly,
+                          metadataList[structureIndex].div,
                           checksumHex,
                           metadataList[structureIndex].datetime,
                           metadataList[structureIndex].checksumMatch);
 }
 
-uint32_t ImageProcessing::getChecksum(const void* data, size_t length, uint32_t previousCrc32)
-{
-    /*const uint32_t Polynomial = 0xEDB88320;
-    uint32_t crc = ~previousCrc32;
-    unsigned char* current = (unsigned char*) data;
-    while (length--)
-    {
-        crc ^= *(uint32_t*)&current;
-        current++;
-        for (unsigned int j = 0; j < 8; j++)
-            crc = (crc >> 1) ^ (-int(crc & 1) & Polynomial);
-    }
-    return ~crc;*/
-
-    //этот метод будет переписан полностью на стороне РЛС
-    return 0;
-}
-
-void ImageProcessing::showAllImages(bool showOnStart)
+void ImageProcessing::showInitialScanResult(bool showOnStart)
 {
     if(!metadataList.isEmpty())
     {
@@ -275,7 +290,8 @@ void ImageProcessing::showAllImages(bool showOnStart)
                 QImageReader reader(meta.filename);
                 QSize sizeOfImage = reader.size();
 
-                qmlLinker->addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                LinkerQML::addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
+                MarkerManager::newMarker(meta.latitude, meta.longitude, true);
 
                 if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
                 {
@@ -286,7 +302,7 @@ void ImageProcessing::showAllImages(bool showOnStart)
                 {
                     for(int i = 0; i<getVectorSize(); i++)
                     {
-                        qmlLinker->hideImage(i);
+                        LinkerQML::hideImage(i);
                     }
                 }
             }
@@ -294,7 +310,6 @@ void ImageProcessing::showAllImages(bool showOnStart)
     } else {
         Debug::Log("![IMG] Empty image list!");
     }
-
 }
 
 void ImageProcessing::showPartialScanResult()
@@ -307,12 +322,13 @@ void ImageProcessing::showPartialScanResult()
             {
                 QImageReader reader(metadataList[metadataList.length()-i].filename);
                 QSize sizeOfImage = reader.size();
-
-                qmlLinker->addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
-                                    metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
-                                    metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
-                                    metadataList[metadataList.length()-i].angle, metadataList[metadataList.length()-i].filename,
-                                    sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+                LinkerQML::addImage(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude,
+                        metadataList[metadataList.length()-i].dx, metadataList[metadataList.length()-i].dy,
+                        metadataList[metadataList.length()-i].x0, metadataList[metadataList.length()-i].y0,
+                        metadataList[metadataList.length()-i].angle,
+                        metadataList[metadataList.length()-i].filename,
+                        sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
+                MarkerManager::newMarker(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude, true);
 
                 if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
                 {
@@ -345,7 +361,7 @@ void ImageProcessing::goLeft()
     if(fileCounter>0)
     {
         fileCounter--;
-        updateLabels(fileCounter);
+        UpdateLabels(fileCounter);
     }
     if (fileCounter == 0)
     {
@@ -365,7 +381,7 @@ void ImageProcessing::goRight()
     int totalFiles = getVectorSize()-1;
     if(fileCounter < totalFiles)
     {
-        fileCounter++; updateLabels(fileCounter);
+        fileCounter++; UpdateLabels(fileCounter);
     }
     if(fileCounter > 0)
     {

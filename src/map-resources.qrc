@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>map-resources/markers/default.png</file>
+        <file>map-resources/markers/flag.png</file>
+        <file>map-resources/markers/preset.psd</file>
+        <file>map-resources/markers/radar.png</file>
+    </qresource>
+</RCC>

@@ -1,3 +1,41 @@
+/* Gray:
+ *  #9191a9
+ *  #535771
+ *  #08090b
+ * White:
+ *  #fafafc
+ *  #D8d8d8
+ *  #Bebebf
+ * Main
+ *  #4799ff
+ *  #007cfe
+ *  #0068d8
+ * Error:
+ *  #ff8181
+ *  #ff5c5c
+ *  #ff3737
+ * Warning:
+ *  #ffcd71
+ *  #ffae33
+ *  #ff8900
+ * Reserved:
+ *  #ffee6a
+ *  #ffde35
+ *  #ffcd00
+ * Accent:
+ *  #81eff4
+ *  #00e1e7
+ *  #00d0df
+ * Purple
+ *  #f1a7eb
+ *  #c35cde
+ *  #7600d2
+ * Success:
+ *  #00eca0
+ *  #00db86
+ *  #00c36b
+*/
+
 #ifndef UXMANAGER_H
 #define UXMANAGER_H
 
@@ -5,9 +43,12 @@
 #include <QCoreApplication>
 #include <QVector>
 #include <QFile>
+#include <QDir>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include "qcolor.h"
+
+#include "cachemanager.h"
 
 enum Colors : short int
 {

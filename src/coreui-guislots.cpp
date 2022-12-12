@@ -1,35 +1,12 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 
-//======================================================================================MENU SLOTS============================================================================================================
-//remove this in future
-void CoreUI::on_formImage_triggered()                       { Debug::Log("[CLIENT] Sending command to form SAR image"); SendRemoteCommand("$form-SAR-image");                                                  }
-void CoreUI::on_openSettings_triggered() //menu slot
-{
-    SettingsDialog sd(this);
-    QString s = SConfig::PATH;
-    if(sd.exec() == QDialog::Accepted)
-    {
-        if(s!=SConfig::PATH)
-        {
-            imageProcessing->InitialScan();
-        } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
-        ui->debugConsoleDock->setEnabled(SConfig::DEBUGCONSOLE); ui->debugConsoleDock->setVisible(SConfig::DEBUGCONSOLE);
-
-        SConfig::saveSettings();
-    } else { SConfig::loadSettings(); }
-
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
-}
-//============================================================================================================================================================================================================
-
 //***************************************************************************************GUI SLOTS************************************************************************************************************
-void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { linker->changeEnableTooltip(arg1);                                                                                                             }
-void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { linker->changeDrawRoute(arg1);                                                                                                                 }
-void CoreUI::on_checkBox_stateChanged(int arg1)             { linker->changeFollowPlane(arg1);                                                                                                               }
-void CoreUI::on_pushButton_panGPS_clicked()                 { linker->panGPS();                                                                                                                              }
+void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { fDynamicVariables->setEnableTooltip(arg1 == 2 ? true : false);                                                                                 }
+void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { fDynamicVariables->setEnableRoute(arg1 == 2 ? true : false);                                                                                   }
+void CoreUI::on_checkBox_drawPredict_stateChanged(int arg1) { fDynamicVariables->setEnablePredict(arg1 == 2 ? true : false);                                                                                 }
+void CoreUI::on_checkBox_drawDiagram_stateChanged(int arg1) { fDynamicVariables->setEnablePredictDiagram(arg1 == 2 ? true : false);                                                                          }
+void CoreUI::on_checkBox_stateChanged(int arg1)             { fDynamicVariables->setFollowPlane(arg1 == 2 ? true : false);                                                                                   }
 void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);           }
 void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);          }
 void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)  { autoUpdate = ui->checkBox_autoUpdate->isChecked();                                                                                             }
@@ -54,9 +31,10 @@ void CoreUI::on_pushButton_clearTrack_clicked()
         askForClearTrack.setText("Вы уверены, что хотите полностью очистить трек?");
         askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
         askForClearTrack.setDefaultButton(QMessageBox::Cancel);
-        short ret = askForClearTrack.exec();
+        int ret = askForClearTrack.exec(); //не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
     switch (ret) {
-    case QMessageBox::Yes: linker->clearRoute();
+    case QMessageBox::Yes:
+        linker->clearRoute();
         break;
     case QMessageBox::Cancel:
         break;
@@ -64,6 +42,12 @@ void CoreUI::on_pushButton_clearTrack_clicked()
         break;
     }
 }
+
+void CoreUI::on_pushButton_placeMarker_clicked()
+{
+    SMouseState::mouseState = MouseState::MarkerPlacement;
+}
+
 void CoreUI::on_pushButton_showAllImages_clicked()
 {
     if(imageProcessing->getReadyStatus()==true)
@@ -85,12 +69,14 @@ void CoreUI::on_pushButton_showAllImages_clicked()
 }
 void CoreUI::on_pushButton_reconnect_clicked()
 {
-    udpRemote->Disconnect();
+    telemetryRemote->Disconnect();
+    formRemote->Disconnect();
     tcpRemote->Disconnect();
     Disconnected();
     if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
     else {
-        udpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT);
+        telemetryRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::NETWORKPORT);
+        formRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::FORMIMAGEPORT);
         if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
         Debug::Log("?[REMOTE] UDP client connected");
     }
@@ -114,5 +100,47 @@ void CoreUI::on_pushButton_clearCache_clicked()
     default:
         break;
     }
+}
+
+void CoreUI::on_pushButton_formSingleImage_clicked()
+{
+    QString request = MessageParser::makeFormRequest(1, 1);
+    SendRemoteCommand(request);
+    Debug::Log("[FORM] Sended to SAR: " + request);
+    ui->label_c_formImageStatus->setText(Style::StyleText("отправлен запрос на формирование", Colors::MainShade800, Format::NoFormat));
+    ui->progressBar_formImageStatus->setValue(10);
+}
+
+void CoreUI::on_pushButton_launchContinuous_clicked()
+{
+    formingContinuous = true;
+    on_pushButton_formSingleImage_clicked();
+}
+
+void CoreUI::on_pushButton_stopContinuous_clicked()
+{
+    formingContinuous = false;
+}
+
+void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
+{
+    if(SConfig::DEBUGCONSOLE)
+    {
+        bool state = ui->debugConsoleDock->isEnabled();
+        state = !state;
+        ui->debugConsoleDock->setEnabled(state);
+        ui->debugConsoleDock->setVisible(state);
+    } else {
+        //throw password window =)
+    }
+}
+
+
+void CoreUI::on_pushButton_showMapToolsDock_clicked()
+{
+    bool state = ui->mapSettingsDock->isEnabled();
+    state = !state;
+    ui->mapSettingsDock->setEnabled(state);
+    ui->mapSettingsDock->setVisible(state);
 }
 //************************************************************************************************************************************************************************************************************

@@ -10,8 +10,10 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
          */
 
     group_t utility;
-    utility["version"] = "0.9.0pre";
+    utility["version"] = "1.2.0alpha";
+    utility["sudo_password"] = "123";
     utility["test_mode"] = "false";
+    utility["profiler"] = "false";
     checkValuesSimple(utility);
 
     group_t network;
@@ -21,6 +23,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["updateTime"] = "0.5";
     network["loader_ip"] = "127.0.0.1";
     network["loader_port"] = "25555";
+    network["form_image_port"] = "9845";
     checkValuesSimple(network);
 
     group_t map;
@@ -30,10 +33,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["diagram_theta_azimuth"] = "12.5";
     map["diagram_drift_angle"] = "11";
     map["antenna_position"] = "r";
-    map["vehicle_type"] = "!unused";
     checkValuesSimple(map);
 
     group_t image;
+    image["angle_correction"] = "0.0";
+    image["angle_in_radians"] = "true";
     image["use_base64"] = "false";
     image["use_loader"] = "true";
     image["save_at_end"] = "true";

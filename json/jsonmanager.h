@@ -16,7 +16,7 @@ class JSONManager : public QObject
 public:
     explicit JSONManager();
     static QJsonObject parseJSON(QString path);
-    static void editJSONValue(QString path, QString key, QString value);
+    //static void editJSONValue(QJsonObject object, QString key, QString value);
 
 signals:
 

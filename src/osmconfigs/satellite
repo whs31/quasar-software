@@ -1,5 +1,5 @@
 {
-    "UrlTemplate" : "http://192.168.18.3/tiles/%z/%x/%y.png",
+    "UrlTemplate" : "https://maps.geoapify.com/v1/tile/dark-matter-brown/%z/%x/%y.png?&apiKey=0d5122a5dbe245b8a448288666e25b4d",
     "ImageFormat" : "png",
     "QImageFormat" : "Indexed8",
     "MaximumZoomLevel" : 18,

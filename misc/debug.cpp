@@ -17,17 +17,17 @@ void Debug::Log(QString text)
     switch (type) {
     case 1: {
         text.remove(0, 1);
-        qInfo()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
+        qInfo().noquote().nospace()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
         break;
     }
     case 2: {
         text.remove(0, 1);
-        qWarning()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
+        qWarning().noquote().nospace()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
         break;
     }
     case 3: {
         text.remove(0, 2);
-        qCritical()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
+        qCritical().noquote().nospace()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
         break;
     }
     case 4: {
@@ -40,7 +40,16 @@ void Debug::Log(QString text)
         break;
     }
     default: {
-        qDebug()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
+        qDebug().noquote().nospace()<<QDateTime::currentDateTime().toString("dd.MM.yyyy-hh:mm:ss(z)")<<text;
         break;
     }}
+}
+
+void Debug::NewSession()
+{
+    for(short i = 0; i < 15; i++)
+    {
+        qDebug()<<" ";
+    }
+    qInfo()<<"=================================NEW SESSION========================================="; 
 }

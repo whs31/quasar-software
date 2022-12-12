@@ -9,6 +9,12 @@
 #include <QQuickStyle>
 #include "coreui.h"
 #include "style.h"
+
+#include "smath.h"
+#include "backend/fmousekeyhandler.h"
+//#include "global/markermanager.h"
+
+
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -35,27 +41,34 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
         msgt = 4;
     break;
     }
-    QFile outFile(QCoreApplication::applicationDirPath()+"/debug_log.txt");
+    QFile outFile(CacheManager::getSettingsPath() + "/log.txt");
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';
     CoreUI* pointer = CoreUI::getDebugPointer();
-    pointer->debugStreamUpdate(txt, msgt);
+    if(pointer->getReady())
+    {
+        pointer->debugStreamUpdate(txt, msgt);
+    }
 }
 
 int main(int argc, char *argv[]) {
+    qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
+    qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
+    qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     QApplication app(argc, argv);
+    
+    //cache setup
+    CacheManager::initializeCache();
+
+    QQuickStyle::setStyle("Material");              //графика для QML
+    Style::initialize(false);                       //false при сборке релиза
+    TilesManager::initialize(false);                //false при сборке релиза
+
     qInstallMessageHandler(debugLogger);
-    QQuickStyle::setStyle("Material");                              //графика для QML
-    new Style(false);  //false при сборке релиза
-    new TilesManager();
     CoreUI window;
 
     window.show();
     window.showMaximized();
     return app.exec();
-}
-
-__attribute__((constructor)) void showVersion() {
-    //qInfo() << PROJECT_NAME << "version" << PROJECT_VERSION << "source" << PROJECT_SOURCE_DATE << "build" << PROJECT_BUILD_DATE << "start" << QDateTime::currentDateTimeUtc().toString("dd.MM.yyyy hh:mm:ss").toStdString().data();
 }

@@ -9,9 +9,13 @@
 
 #include "imagemanager.h"
 #include "linkerqml.h"
+#include "global/markermanager.h"
 #include "debug.h"
+#include "smath.h"
+#include "schecksum.h"
 
-#include <QElapsedTimer>
+#include "profiler.h"
+
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4
@@ -26,7 +30,7 @@ class ImageProcessing : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageProcessing(LinkerQML* linker);
+    explicit ImageProcessing();
     bool InitialScan();
     bool PartialScan();
     bool getReadyStatus(void);
@@ -34,7 +38,7 @@ public:
     int getVectorSize(void);
     void goLeft(void);
     void goRight(void);
-    void showAllImages(bool showOnStart = false);
+    void showInitialScanResult(bool showOnStart = false);
     void showPartialScanResult();
     void clearCache();
     void imageChecklistLoop();
@@ -45,18 +49,10 @@ signals:
     void setLeftButton(bool b);
     void setRightButton(bool b);
     void updateTopLabels(int total, int current);
-    void updateMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, QString hexSum, QString datetime, bool match);
+    void updateMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match);
     void enableImageBar(bool b);
 
 private:
-    LinkerQML* qmlLinker;
-    ImageManager* imageManager;
-
-    uint32_t getChecksum(const void* data, size_t length, uint32_t previousCrc32 = 0);
-    void decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
-    void updateLabels(int structureIndex);
-    QStringList getEntryList(QString &path);
-
     struct image_metadata {
             double latitude;
             double longitude;
@@ -66,12 +62,23 @@ private:
             float y0;
             float angle;
             float driftAngle;
+            float lx;
+            float ly;
+            float div;
             uint32_t checksum;
             QString filename;
             QString datetime;
             bool checksumMatch;
             QString base64encoding;
         };
+    LinkerQML* qmlLinker;
+    ImageManager* imageManager;
+
+    void Decode(QStringList filelist, DecodeMode mode = DecodeMode::Initial);
+    void UpdateLabels(int structureIndex);
+    QStringList getEntryList(QString &path);
+
+
     QVector<image_metadata> metadataList;
 
     QStringList diff;

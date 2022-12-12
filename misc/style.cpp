@@ -1,5 +1,6 @@
 #include "style.h"
 
+Style* Style::_instance = nullptr;
 QStringList Style::colors;
 QStringList Style::formats;
 Style::Style(bool TestMode) : TestMode(TestMode)
@@ -22,6 +23,14 @@ Style::Style(bool TestMode) : TestMode(TestMode)
         watcher->start(500);
         connect(watcher, SIGNAL(timeout()), this, SLOT(updateQSS()));
     }
+}
+
+Style* Style::initialize(bool testMode)
+{
+    if(_instance != NULL)
+        return _instance;
+    _instance = new Style(testMode);
+    return _instance;
 }
 
 void Style::updateQSS(void)
@@ -52,7 +61,7 @@ void Style::initializeFormats()
 {
     formats = UXManager::GetFormatList();
     QStringList _f = formats;
-    for(int k = 0; k < (_f.size()/2); k++) _f.swap(k,formats.size()-(1+k));
+    for(int k = 0; k < (_f.size()/2); k++) _f.swapItemsAt(k,formats.size()-(1+k));
     for(int f = 0; f < _f.length(); f++)
     {
         _f[f].remove(0, 1);

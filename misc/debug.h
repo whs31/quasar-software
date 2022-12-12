@@ -11,6 +11,7 @@ class Debug : public QObject
 public:
     explicit Debug(QObject *parent = nullptr);
     static void Log(QString text);
+    static void NewSession();
 signals:
 
 };

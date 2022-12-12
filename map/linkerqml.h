@@ -28,6 +28,7 @@ protected:
 
 private:
     LinkerQML(QQuickItem* map);
+
 };
 
 #endif // LINKERQML_H

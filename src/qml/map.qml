@@ -9,8 +9,11 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 
+//import
+
 import SMath 1.0
 import MouseKeyHandler 1.0
+//import MouseHover 1.0
 import MarkerManager 1.0
 
 
@@ -18,6 +21,12 @@ Rectangle {
     id: qqview
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
+
+    Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
+    property bool bottomPanning: false;
+    property bool topPanning: false;
+    property bool leftPanning: false;
+    property bool rightPanning: false;
 
     //ux constants
     Material.theme: Material.Dark
@@ -60,8 +69,8 @@ Rectangle {
     //called right after awake
     function start()
     {
-        zoomSlider.value = 1 - (mapView.zoomLevel / 18);
-        tiltSlider.value = 1 - (mapView.tilt / 45);
+        zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
+        tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
     }
 
     function qmlBackendStart()
@@ -89,6 +98,15 @@ Rectangle {
         longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°";
         elevationText.text = Number(FTelemetry.elevation).toFixed(0);
         speedText.text = Number(FTelemetry.speed).toFixed(1);
+    }
+
+    //called 60 times per second (enable Timer ^^^^)
+    function update()
+    {
+        if(bottomPanning) { mapView.pan(0, 2); }
+        if(topPanning) { mapView.pan(0, -2); }
+        if(leftPanning) { mapView.pan(-2, 0); }
+        if(rightPanning) { mapView.pan(2, 0); }
     }
 
     //===========================================================================================================================================================================================
@@ -176,8 +194,6 @@ Rectangle {
         imageArray.push(item);
     }
 
-    function log(base, exponent) { return Math.log(exponent) / Math.log(base); }
-
     function hideImage(filecounter)
     {
         imageArray[filecounter].visible = false;
@@ -246,11 +262,6 @@ Rectangle {
     //------------------------------------------------------------------------------}
 
     //------------------------------------tooltip-----------------------------------
-    function drawTooltip()
-    {
-        cursorTooltip.visible = true;
-        cursorTooltipText.visible = true;
-    }
 
     function changeTooltipPosition()
     {
@@ -258,10 +269,12 @@ Rectangle {
         {
             if(mapMouseArea.pressed)
             {
-                clearTooltip();
+                cursorTooltip.visible = false;
+                cursorTooltipText.visible = false;
             }
             else {
-                drawTooltip();
+                cursorTooltip.visible = true;
+                cursorTooltipText.visible = true;
                 cursorTooltip.x = mapMouseArea.mouseX;
                 cursorTooltip.y = mapMouseArea.mouseY;
                 var coordToStr = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
@@ -269,14 +282,9 @@ Rectangle {
             }
         }
         else {
-            clearTooltip();
+            cursorTooltip.visible = false;
+            cursorTooltipText.visible = false;
         }
-    }
-
-    function clearTooltip()
-    {
-        cursorTooltip.visible = false;
-        cursorTooltipText.visible = false;
     }
     //---------------------------------------------------}
 
@@ -313,7 +321,7 @@ Rectangle {
 
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
-                                "m_color": col, 
+                                "m_color": String(col), 
                                 "m_qrc": icon, 
                                 "lat": latitude, 
                                 "lon": longitude, 
@@ -325,10 +333,67 @@ Rectangle {
 
     ListModel {
         id: markerModel
-        dynamicRoles: true;
     }
 
     Map {
+        MouseArea {
+            id: mapMouseArea;
+            anchors.fill: parent;
+            hoverEnabled: true;
+            propagateComposedEvents: true;
+            //preventStealing: true;
+            acceptedButtons: Qt.LeftButton | Qt.RightButton;
+            z: 0;
+            onPositionChanged: {
+                changeTooltipPosition();
+                if(r_currentstate === 2)
+                {
+                    drawRuler();
+                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
+                }
+                //MouseHover.mousePositionX = mapMouseArea.mouseX; MouseHover.mousePositionY = mapMouseArea.mouseY;
+            }
+            onClicked:
+            {
+                if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
+                {
+                    r_currentstate = 0;
+                    clearRuler();
+                }
+                else if(r_currentstate === 1 & mouse.button === Qt.LeftButton)
+                {
+                    r_firstpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    r1MapItem.coordinate = r_firstpoint;
+                    r1MapItem.visible = true;
+                    r_currentstate = 2;
+                    r_secondpoint = r_firstpoint;
+                }
+                else if(r_currentstate === 2 & mouse.button === Qt.LeftButton)
+                {
+                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
+                    r_currentstate = 3;
+
+                    r2MapItem.visible = true;
+                    //aMean(r_firstpoint, r_secondpoint);
+                }
+                else if(r_currentstate === 3)
+                {
+                    r_currentstate = 0;
+                    clearRuler();
+                }
+                if(r_currentstate === 0 & mouse.button === Qt.RightButton)
+                {
+                    mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
+                }
+                if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
+                {
+                    mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
+                }
+                mouse.accepted = false;
+            }
+        } 
+
         id: mapView
         anchors.fill: parent;
         layer.smooth: true;
@@ -342,6 +407,7 @@ Rectangle {
                 value: "file:///"+OsmConfigPath;
             }
         }
+        
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
         center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
         zoomLevel: defaultZoom;
@@ -352,9 +418,8 @@ Rectangle {
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
-        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
-
+        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
+        onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
 
         MapItemView
         {
@@ -398,28 +463,22 @@ Rectangle {
                                 smooth: true;
                                 source: m_qrc;
                                 visible: true;
+                                
                                 MouseArea {
-                                    id: markerMouseArea;
-                                    anchors.fill: parent;
-                                    //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
-                                    acceptedButtons: Qt.LeftButton;
-                                    preventStealing: true;
-                                    propagateComposedEvents: true;
-                                    hoverEnabled: true;
-                                    onEntered:{
-                                        console.log("entered");
-                                    }
-                                    onExited: {
-                                        console.log("exited");
-                                    }
-                                    onClicked: {
-                                        mouse.accepted = false;
-                                    }
-                                    onPressAndHold: {
-                                        MarkerManager.removeMarker(index);
-                                        markerModel.remove(index);
-                                    }
+                                id: markerMouseArea;
+                                propagateComposedEvents: true;
+                                anchors.fill: parent;
+                                hoverEnabled: true;
+                                onEntered: {
+                                    console.log("entered!");
                                 }
+                                onExited: {
+                                    console.log("exited!");
+                                }
+                                onCanceled: {
+                                    mapMouseArea.hoverEnabled = false;
+                                }
+                            }
                             }
                             ColorOverlay {
                                 id: markerOverlay;
@@ -446,6 +505,7 @@ Rectangle {
                                 anchors.horizontalCenter: markerSource.horizontalCenter;
                                 font.pointSize: 7;
                                 font.family: "Arial";
+                                font.weight: Font.Bold;
                                 textFormat: Text.RichText;
                                 text: m_name;
                             }
@@ -466,75 +526,6 @@ Rectangle {
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 9; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
-
-        MouseArea {
-            id: mapMouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            propagateComposedEvents: true
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onEntered: { 
-                drawTooltip(); 
-            }
-            z: 0;
-            onPositionChanged: {
-                changeTooltipPosition();
-                if(r_currentstate === 2)
-                {
-                    drawRuler();
-                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-                    rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
-                }
-            }
-            onExited: { 
-                clearTooltip(); 
-            }
-            onClicked:
-            {
-                mouse.accepted = false;
-                if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
-                {
-                    r_currentstate = 0;
-                    clearRuler();
-                }
-                else if(r_currentstate === 1 & mouse.button === Qt.LeftButton)
-                {
-                    r_firstpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-                    r1MapItem.coordinate = r_firstpoint;
-                    r1MapItem.visible = true;
-                    r_currentstate = 2;
-                    r_secondpoint = r_firstpoint;
-                }
-                else if(r_currentstate === 2 & mouse.button === Qt.LeftButton)
-                {
-                    r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-                    r_currentstate = 3;
-
-                    r2MapItem.visible = true;
-                    //aMean(r_firstpoint, r_secondpoint);
-                }
-                else if(r_currentstate === 3)
-                {
-                    r_currentstate = 0;
-                    clearRuler();
-                }
-                if(r_currentstate === 0 & mouse.button === Qt.RightButton)
-                {
-                    mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
-                }
-                if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
-                {
-                    mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
-                }
-            }
-            onPressed: {
-                if(FDynamicVariables.followPlane || timer_3s.running) {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
-                }
-            }
-        }
 
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
@@ -700,7 +691,6 @@ Rectangle {
                 }
             }
         }
-
         Rectangle {
             id: speedElvRect
             y: 62
@@ -711,7 +701,7 @@ Rectangle {
             radius: 18
             color: Material.accent;
             anchors.bottom: latLonRect.top
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: 8;
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
@@ -753,7 +743,6 @@ Rectangle {
                 text: qsTr("м")
             }
         }
-
         Rectangle {
             id: latLonRect
             width: 120
@@ -763,7 +752,7 @@ Rectangle {
             radius: 15
             color: Material.accent;
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 40
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
@@ -787,7 +776,6 @@ Rectangle {
                 text: qsTr("-------")
             }
         }
-
         ProgressBar {
             id: cameraGrip;
             opacity: 0.25;
@@ -809,246 +797,46 @@ Rectangle {
             }
         }
 
-        //---------------tilt slider-------------------
-
-        RoundButton
+        //left to right <<<<<<<<<
+        ZoomSlider 
         {
-            icon.source: "qrc:/ui-resources/white/down.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltDown
-            width: 30
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 20
-            anchors.leftMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt >= 2)
-                {
-                    mapView.tilt -= 2;
-                }
-            }
-            z: 100
+            id: zoomSliderElement;
+            anchors.right: parent.right;
+            anchors.bottom: parent.bottom;
+            //anchors.rightMargin: 20;
+            //anchors.bottomMargin: 10;
+            z: 100;
         }
 
-        Slider
+        BottomToolbar
         {
-            id: tiltSlider
-            width: 25
-            height: 120
-            z: 100
-            live: true
-            anchors.bottom: tiltDown.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.tilt = (1 - value) * 45;
+            id: bottomToolbarElement;
+            anchors.right: zoomSliderElement.left;
+            anchors.rightMargin: 40;
+            anchors.bottom: zoomSliderElement.bottom;
+            z: 100;
         }
 
-        RoundButton
+        TiltSlider
         {
-            icon.source: "qrc:/ui-resources/white/up.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltUp
-            width: 30
-            z: 100
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            anchors.bottom: tiltSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt <= (89.5 / 2) - 2)
-                {
-                    mapView.tilt += 2;
-                }
-            }
-        }
-
-
-        //----------------------zoom slider---------------------------
-        
-        RoundButton
-        {
-            id: zoomOut
-            icon.source: "qrc:/ui-resources/white/zoom-out.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 20
-            anchors.rightMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel -= 0.5
-            z: 100
+            id: tiltSliderElement;
+            anchors.left: parent.left;
+            anchors.bottom: parent.bottom;
+            //anchors.leftMargin: 15;
+            //anchors.bottomMargin: 10;
+            z: 100;
         }
         
-        Slider
-        {
-            id: zoomSlider
-            width: 40
-            height: 200
-            z: 100
-            live: true
-            anchors.bottom: zoomOut.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.zoomLevel = (1-value)*18;
-        }
+        
 
-        RoundButton
-        {
-            id: zoomIn
-            icon.source: "qrc:/ui-resources/white/zoom-in.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            z: 100
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            anchors.bottom: zoomSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel += 0.5
-        }
-        //-------------------------------------------------------------
-
-        RoundButton
-        {
-            id: panButton
-            icon.source: "qrc:/ui-resources/white/plane.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            z: 100
-            anchors.right: zoomOut.left
-            anchors.verticalCenter: zoomOut.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: panGPS()
-        }
-
-        RoundButton
-        {
-            id: panImageButton
-            icon.source: "qrc:/ui-resources/white/image.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            z: 100
-            opacity: 1
-            anchors.right: panButton.left
-            anchors.verticalCenter: panButton.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked:
-            {
-                panImage(fc);
-                //dont follow plane for a while
-                if(FDynamicVariables.followPlane)
-                {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
-                }
-            }
-
-            RoundButton
-            {
-                id: rulerButton
-                icon.source: "qrc:/ui-resources/white/ruler.png"
-                icon.color: "white"
-                icon.width: 32
-                icon.height: 32
-                width: 40
-                height: 40
-                radius: 10
-                opacity: 1
-                z: 100
-                anchors.right: panImageButton.left
-                anchors.verticalCenter: panImageButton.verticalCenter
-                highlighted: true
-                flat: false
-                anchors.rightMargin: 20
-                hoverEnabled: true
-                enabled: true
-                display: AbstractButton.IconOnly
-                onClicked:
-                {
-                    if(r_currentstate !== 0) { r_currentstate = 1;
-                        clearRuler(); } else {
-                        r_currentstate = 1;
-                    }
-                }
-            }
-            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { FDynamicVariables.followPlane = true; cameraGrip.value = 0; } }
+        Gesture {
+            id: gesture;
+            anchors.fill: parent;
         }
     }
     Connections {
 
     }
-
 }
 
 

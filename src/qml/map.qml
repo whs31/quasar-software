@@ -335,12 +335,15 @@ Rectangle {
         id: markerModel
     }
     
+    property bool markerPlacementCursorChange: false;
+
     Map {
         MouseArea {
             id: mapMouseArea;
             anchors.fill: parent;
             hoverEnabled: true;
             propagateComposedEvents: true;
+            cursorShape: markerPlacementCursorChange ? Qt.PointingHandCursor : Qt.CrossCursor;
             //preventStealing: true; //never enable it, or gestures will be broken 
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
@@ -352,6 +355,10 @@ Rectangle {
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
+                if(mouseKeyHandler.mouseState === 1)
+                {
+                    markerPlacementCursorChange = true;
+                } else { markerPlacementCursorChange = false; }
             }
             onClicked:
             {
@@ -384,7 +391,7 @@ Rectangle {
                 {
                     mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
-                if(mouseKeyHandler.mouseState == 1 & mouse.button === Qt.LeftButton)
+                if(mouseKeyHandler.mouseState === 1 & mouse.button === Qt.LeftButton)
                 {
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }

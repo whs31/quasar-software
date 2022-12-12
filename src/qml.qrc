@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/map.qml</file>
+        <file>qml/InlineDialog.qml</file>
+        <file>qml/Gesture.qml</file>
+        <file>qml/ZoomSlider.qml</file>
+        <file>qml/TiltSlider.qml</file>
+        <file>qml/BottomToolbar.qml</file>
     </qresource>
 </RCC>

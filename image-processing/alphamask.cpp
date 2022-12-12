@@ -18,20 +18,6 @@ QString AlphaMask::addAlphaMask(QString path, float width, float height, float t
     QImage base(path);
     if(format == 0 || format == 2)
     {
-//        Rectangle topRectangle( {0, height},
-//                                {0, height / 2 + width * qTan( qDegreesToRadians(thetaAzimuth * (1 - thetaAzimuthCorrection) / 2))},
-//                                {width, height},
-//                                {width, height / 2 + width * qTan( qDegreesToRadians(thetaAzimuth * (1 - thetaAzimuthCorrection) / 2))}
-//                              );
-//                              qCritical()<<topRectangle.getLeftBound()<<topRectangle.getRightBound()<<topRectangle.getLowerBound()<<topRectangle.getUpperBound();
-//        for(int x = topRectangle.getLeftBound(); x < topRectangle.getRightBound(); x++)
-//        {
-//            for(int y = topRectangle.getLowerBound(); y < topRectangle.getUpperBound(); y++)
-//            {
-//                base.setPixelColor(x, y, QColor(0, 0, 0, 0));
-//            }
-//        }
-        
          QPainter painter;
          painter.begin(&base);
          painter.setCompositionMode(QPainter::CompositionMode_Source);

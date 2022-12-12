@@ -11,9 +11,6 @@
 #include "sconfig.h"
 #include <QtMath>
 
-#include "draw/triangle.h"
-#include "draw/rectangle.h"
-
 enum MaskFormat : short int
 {
     Geometric,

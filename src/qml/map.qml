@@ -9,8 +9,11 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 
+//import
+
 import SMath 1.0
 import MouseKeyHandler 1.0
+//import MouseHover 1.0
 import MarkerManager 1.0
 
 
@@ -19,18 +22,24 @@ Rectangle {
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
 
+    Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
+    property bool bottomPanning: false;
+    property bool topPanning: false;
+    property bool leftPanning: false;
+    property bool rightPanning: false;
+
     //ux constants
-    Material.theme: Material.Dark
-    Material.accent: "#929292"
-    Material.primary: "#008CCC"
-    property color accentDark: "#616161";
+    Material.theme: Material.Dark;
+    Material.accent: "#C2C2C2";
+    Material.primary: "#008CCC";
+    property color accentDark: "#A2A2A2";
     property color primaryLight: "#00B5EB";
     property color primarySuperLight: "#97E3EE";
     property color yellowColor: "#F6C413";
 
     //ux settings
-    layer.enabled: true
-    layer.samples: 4
+    layer.enabled: true;
+    layer.samples: 4;
 
     //defaults constants
     property real defaultLatitude: 60.034;
@@ -60,8 +69,8 @@ Rectangle {
     //called right after awake
     function start()
     {
-        zoomSlider.value = 1 - (mapView.zoomLevel / 18);
-        tiltSlider.value = 1 - (mapView.tilt / 45);
+        zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
+        tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
     }
 
     function qmlBackendStart()
@@ -91,6 +100,15 @@ Rectangle {
         speedText.text = Number(FTelemetry.speed).toFixed(1);
     }
 
+    //called 60 times per second (enable Timer ^^^^)
+    function update()
+    {
+        if(bottomPanning) { mapView.pan(0, 2); }
+        if(topPanning) { mapView.pan(0, -2); }
+        if(leftPanning) { mapView.pan(-2, 0); }
+        if(rightPanning) { mapView.pan(2, 0); }
+    }
+
     //===========================================================================================================================================================================================
     //===========================================================================================================================================================================================
 
@@ -115,7 +133,7 @@ Rectangle {
                                                         z:1
 
                                                     }
-    ', mapView, "dynamic");
+                                    ', mapView, "dynamic");
         //one degree = 111 120 meters
         item.anchorPoint.x = -x0 / dx;
         item.anchorPoint.y = h/2;
@@ -175,8 +193,6 @@ Rectangle {
         mapView.addMapItem(item);
         imageArray.push(item);
     }
-
-    function log(base, exponent) { return Math.log(exponent) / Math.log(base); }
 
     function hideImage(filecounter)
     {
@@ -246,11 +262,6 @@ Rectangle {
     //------------------------------------------------------------------------------}
 
     //------------------------------------tooltip-----------------------------------
-    function drawTooltip()
-    {
-        cursorTooltip.visible = true;
-        cursorTooltipText.visible = true;
-    }
 
     function changeTooltipPosition()
     {
@@ -258,10 +269,12 @@ Rectangle {
         {
             if(mapMouseArea.pressed)
             {
-                clearTooltip();
+                cursorTooltip.visible = false;
+                cursorTooltipText.visible = false;
             }
             else {
-                drawTooltip();
+                cursorTooltip.visible = true;
+                cursorTooltipText.visible = true;
                 cursorTooltip.x = mapMouseArea.mouseX;
                 cursorTooltip.y = mapMouseArea.mouseY;
                 var coordToStr = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
@@ -269,14 +282,9 @@ Rectangle {
             }
         }
         else {
-            clearTooltip();
+            cursorTooltip.visible = false;
+            cursorTooltipText.visible = false;
         }
-    }
-
-    function clearTooltip()
-    {
-        cursorTooltip.visible = false;
-        cursorTooltipText.visible = false;
     }
     //---------------------------------------------------}
 
@@ -313,7 +321,7 @@ Rectangle {
 
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
-                                "m_color": col, 
+                                "m_color": String(col), 
                                 "m_qrc": icon, 
                                 "lat": latitude, 
                                 "lon": longitude, 
@@ -325,157 +333,16 @@ Rectangle {
 
     ListModel {
         id: markerModel
-        dynamicRoles: true;
     }
 
     Map {
-        id: mapView
-        anchors.fill: parent;
-        layer.smooth: true;
-        tilt: 15;
-        plugin: Plugin {
-            id: mapPluginID;
-            name: "osm";
-            PluginParameter {
-                id: parameterOSM;
-                name: "osm.mapping.providersrepository.address";
-                value: "file:///"+OsmConfigPath;
-            }
-        }
-        activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
-        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
-        zoomLevel: defaultZoom;
-        copyrightsVisible: false;
-        z: 1;
-
-        Component.onCompleted: { awake(); start(); }
-
-        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
-        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSlider.value = 1-(mapView.zoomLevel/18);
-        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
-
-
-        MapItemView
-        {
-            model: markerModel;
-            add: Transition {
-                    NumberAnimation {
-                        property: "m_opacity";
-                        from: 0;
-                        to: 1;
-                        duration: 2000;
-                        easing.type: Easing.OutCubic;
-                    }
-            }
-            remove: Transition {
-                        NumberAnimation {
-                            property: "m_opacity";
-                            from: 1;
-                            to: 0;
-                            duration: 2000;
-                            easing.type: Easing.OutCubic;
-                        }
-            }
-            delegate: MapQuickItem {
-                        //anchors must be set according to 32x32 rescaled image
-                        //e.g. middle will be QPoint(16, 16);
-                        id: marker
-                        anchorPoint: Qt.point(anchorX, anchorY);
-                        z:10;
-                        zoomLevel: m_zoom;
-                        property real m_opacity: 1;
-                        opacity: m_opacity;
-                        coordinate: QtPositioning.coordinate(lat, lon);
-                        property alias markerName: markerText.text;
-                        sourceItem: Item {
-                            Image {
-                                id: markerSource;
-                                width: 32; 
-                                height: 32;
-                                layer.enabled: true;
-                                transformOrigin: Item.Center;
-                                smooth: true;
-                                source: m_qrc;
-                                visible: true;
-                                MouseArea {
-                                    id: markerMouseArea;
-                                    anchors.fill: parent;
-                                    cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor;
-                                    acceptedButtons: Qt.LeftButton;
-                                    preventStealing: true;
-                                    propagateComposedEvents: true;
-                                    hoverEnabled: true;
-                                    onEntered:{
-                                        console.log("entered");
-                                    }
-                                    onExited: {
-                                        console.log("exited");
-                                    }
-                                    onClicked: {
-                                        mouse.accepted = false;
-                                    }
-                                    onPressAndHold: {
-                                        MarkerManager.removeMarker(index);
-                                        markerModel.remove(index);
-                                    }
-                                } //cursorShape: drag.active ? Qt.ClosedHandCursor : Qt.OpenHandCursor
-                            }
-                            ColorOverlay {
-                                id: markerOverlay;
-                                anchors.fill: markerSource;
-                                source: markerSource;
-                                opacity: 0.75;
-                                color: m_color;
-                            }
-                            DropShadow {
-                                anchors.fill: markerOverlay;
-                                horizontalOffset: 5;
-                                verticalOffset: 5;
-                                radius: 8.0;
-                                samples: 17;
-                                color: "#000000";
-                                source: markerOverlay;
-                            }
-                            Text {
-                                id: markerText;
-                                color: m_color;
-                                enabled: true;
-                                anchors.top: markerSource.bottom;
-                                anchors.topMargin: 5;
-                                anchors.horizontalCenter: markerSource.horizontalCenter;
-                                font.pointSize: 7;
-                                font.family: "Arial";
-                                textFormat: Text.RichText;
-                                text: m_name;
-                            }
-                        }
-            }
-        }
-        
-        MapPolyline {
-            id: mapPolyline;
-            line.width: 5;
-            opacity: 0.75;
-            line.color:
-                Material.primary;
-            path: [ ];
-            z: 10;
-        }
-
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 9; path: [ ]; }
-        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 9; path: []; }
-
         MouseArea {
-            id: mapMouseArea
-            anchors.fill: parent
-            hoverEnabled: true
-            propagateComposedEvents: true
-            acceptedButtons: Qt.LeftButton | Qt.RightButton
-            onEntered: { 
-                drawTooltip(); 
-            }
+            id: mapMouseArea;
+            anchors.fill: parent;
+            hoverEnabled: true;
+            propagateComposedEvents: true;
+            //preventStealing: true;
+            acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
             onPositionChanged: {
                 changeTooltipPosition();
@@ -485,13 +352,10 @@ Rectangle {
                     r_secondpoint = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
                     rulerText.text = r_firstpoint.distanceTo(r_secondpoint).toLocaleString(Qt.locale("ru_RU"), 'f', 0) + " м";
                 }
-            }
-            onExited: { 
-                clearTooltip(); 
+                //MouseHover.mousePositionX = mapMouseArea.mouseX; MouseHover.mousePositionY = mapMouseArea.mouseY;
             }
             onClicked:
             {
-                mouse.accepted = false;
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
                 {
                     r_currentstate = 0;
@@ -526,15 +390,142 @@ Rectangle {
                 {
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
+                mouse.accepted = false;
             }
-            onPressed: {
-                if(FDynamicVariables.followPlane || timer_3s.running) {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
-                }
+        } 
+
+        id: mapView
+        anchors.fill: parent;
+        layer.smooth: true;
+        tilt: 15;
+        plugin: Plugin {
+            id: mapPluginID;
+            name: "osm";
+            PluginParameter {
+                id: parameterOSM;
+                name: "osm.mapping.providersrepository.address";
+                value: "file:///"+OsmConfigPath;
             }
         }
+        
+        activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
+        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
+        zoomLevel: defaultZoom;
+        copyrightsVisible: false;
+        z: 0;
+
+        Component.onCompleted: { awake(); start(); }
+
+        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
+        Behavior on zoomLevel { NumberAnimation { duration: 100 } }
+        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
+        onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
+
+        MapItemView
+        {
+            model: markerModel;
+            add: Transition {
+                    NumberAnimation {
+                        property: "m_opacity";
+                        from: 0;
+                        to: 1;
+                        duration: 2000;
+                        easing.type: Easing.OutCubic;
+                    }
+            }
+            remove: Transition {
+                        NumberAnimation {
+                            property: "m_opacity";
+                            from: 1;
+                            to: 0;
+                            duration: 2000;
+                            easing.type: Easing.OutCubic;
+                        }
+            }
+            delegate: MapQuickItem {
+                        //anchors must be set according to 32x32 rescaled image
+                        //e.g. middle will be QPoint(16, 16);
+                        id: marker
+                        anchorPoint: Qt.point(anchorX, anchorY);
+                        z: 2;
+                        zoomLevel: m_zoom;
+                        property real m_opacity: 1;
+                        opacity: m_opacity;
+                        coordinate: QtPositioning.coordinate(lat, lon);
+                        property alias markerName: markerText.text;
+                        sourceItem: Item {
+                            Image {
+                                id: markerSource;
+                                width: 32; 
+                                height: 32;
+                                layer.enabled: true;
+                                transformOrigin: Item.Center;
+                                smooth: true;
+                                source: m_qrc;
+                                visible: true;
+                                
+                                MouseArea {
+                                id: markerMouseArea;
+                                propagateComposedEvents: true;
+                                anchors.fill: parent;
+                                hoverEnabled: true;
+                                onEntered: {
+                                    console.log("entered!");
+                                }
+                                onExited: {
+                                    console.log("exited!");
+                                }
+                                onCanceled: {
+                                    mapMouseArea.hoverEnabled = false;
+                                }
+                            }
+                            }
+                            ColorOverlay {
+                                id: markerOverlay;
+                                anchors.fill: markerSource;
+                                source: markerSource;
+                                opacity: 0.75;
+                                color: m_color;
+                            }
+                            DropShadow {
+                                anchors.fill: markerOverlay;
+                                horizontalOffset: 5;
+                                verticalOffset: 5;
+                                radius: 8.0;
+                                samples: 17;
+                                color: "#000000";
+                                source: markerOverlay;
+                            }
+                            Text {
+                                id: markerText;
+                                color: m_color;
+                                enabled: true;
+                                anchors.top: markerSource.bottom;
+                                anchors.topMargin: 5;
+                                anchors.horizontalCenter: markerSource.horizontalCenter;
+                                font.pointSize: 7;
+                                font.family: "Arial";
+                                font.weight: Font.Bold;
+                                textFormat: Text.RichText;
+                                text: m_name;
+                            }
+                        }
+            }
+        }
+        
+        MapPolyline {
+            id: mapPolyline;
+            line.width: 5;
+            opacity: 0.75;
+            line.color:
+                Material.primary;
+            path: [ ];
+            z: 7;
+        }
+
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 6; path: [ ]; }
+        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 6; path: []; }
 
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
@@ -550,7 +541,7 @@ Rectangle {
             }
             anchorPoint.x: rulerText.width/2
             anchorPoint.y: rulerText.height/2
-            z:6
+            z:10
             sourceItem: Text {
                 id: rulerText;
                 font.bold: true
@@ -576,7 +567,7 @@ Rectangle {
             }
             anchorPoint.x: r1Source.width
             anchorPoint.y: r1Source.height/2
-            z:5
+            z: 10;
             sourceItem: Image {
                 id: r1Source;
                 layer.enabled: true
@@ -605,7 +596,7 @@ Rectangle {
             }
             anchorPoint.x: r2Source.width
             anchorPoint.y: r2Source.height/2
-            z:5
+            z: 10;
             sourceItem: Image {
                 id: r2Source;
                 layer.enabled: true
@@ -631,7 +622,7 @@ Rectangle {
                 origin.y: 20;
                 angle: 0;
             }
-            z:10;
+            z: 18;
             sourceItem: Item {
                 Image {
                     id: planeSource;
@@ -700,7 +691,6 @@ Rectangle {
                 }
             }
         }
-
         Rectangle {
             id: speedElvRect
             y: 62
@@ -711,12 +701,12 @@ Rectangle {
             radius: 18
             color: Material.accent;
             anchors.bottom: latLonRect.top
-            anchors.bottomMargin: 10
+            anchors.bottomMargin: 8;
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: speedText
-                color: "#FFFFFF";
+                color: "#121212";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: parent.left
                 font.bold: true
@@ -726,7 +716,7 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#FAFAFA"
+                color: "#121212"
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
@@ -734,7 +724,7 @@ Rectangle {
             }
             Text {
                 id: elevationText
-                color: "#FFFFFF";
+                color: "#121212";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: elevationTextTT.left
                 horizontalAlignment: Text.AlignRight
@@ -745,7 +735,7 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#FAFAFA";
+                color: "#121212";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight
@@ -753,7 +743,6 @@ Rectangle {
                 text: qsTr("м")
             }
         }
-
         Rectangle {
             id: latLonRect
             width: 120
@@ -763,12 +752,12 @@ Rectangle {
             radius: 15
             color: Material.accent;
             anchors.bottom: parent.bottom
-            anchors.bottomMargin: 20
+            anchors.bottomMargin: 40
             anchors.horizontalCenter: parent.horizontalCenter
             z: 100
             Text {
                 id: latitudeText
-                color: "#FFFFFF";
+                color: "#121212";
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.top: parent.top
                 font.bold: true
@@ -778,7 +767,7 @@ Rectangle {
             }
             Text {
                 id: longitudeText
-                color: "#FFFFFF";
+                color: "#121212";
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.bottom: parent.bottom
                 font.bold: true
@@ -788,267 +777,46 @@ Rectangle {
             }
         }
 
-        ProgressBar {
-            id: cameraGrip;
-            opacity: 0.25;
-            anchors.top: latLonRect.bottom;
-            anchors.left: latLonRect.left;
-            anchors.right: latLonRect.right;
+        //left to right <<<<<<<<<
+        ZoomSlider 
+        {
+            id: zoomSliderElement;
+            anchors.right: parent.right;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 40;
+            anchors.rightMargin: 10;
+            anchors.bottomMargin: 10;
+            z: 100;
+        }
+
+        BottomToolbar
+        {
+            id: bottomToolbarElement;
+            anchors.right: zoomSliderElement.left;
             anchors.rightMargin: 40;
-            anchors.leftMargin: 40;
-            from: 0;
-            to: 3000;
-            value: 0
-            NumberAnimation on value {
-                id: numAnim1
-                from: 0
-                to: 3000
-                duration: 3000
-            }
+            anchors.bottom: zoomSliderElement.bottom;
+            z: 100;
         }
 
-        //---------------tilt slider-------------------
-
-        RoundButton
+        TiltSlider
         {
-            icon.source: "qrc:/ui-resources/white/down.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltDown
-            width: 30
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 20
-            anchors.leftMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt >= 2)
-                {
-                    mapView.tilt -= 2;
-                }
-            }
-            z: 100
-        }
-
-        Slider
-        {
-            id: tiltSlider
-            width: 25
-            height: 120
-            z: 100
-            live: true
-            anchors.bottom: tiltDown.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.tilt = (1 - value) * 45;
-        }
-
-        RoundButton
-        {
-            icon.source: "qrc:/ui-resources/white/up.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltUp
-            width: 30
-            z: 100
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            anchors.bottom: tiltSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt <= (89.5 / 2) - 2)
-                {
-                    mapView.tilt += 2;
-                }
-            }
-        }
-
-
-        //----------------------zoom slider---------------------------
-        
-        RoundButton
-        {
-            id: zoomOut
-            icon.source: "qrc:/ui-resources/white/zoom-out.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 20
-            anchors.rightMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel -= 0.5
-            z: 100
+            id: tiltSliderElement;
+            anchors.left: parent.left;
+            anchors.bottom: parent.bottom;
+            anchors.leftMargin: 10;
+            anchors.bottomMargin: 10;
+            z: 100;
         }
         
-        Slider
-        {
-            id: zoomSlider
-            width: 40
-            height: 200
-            z: 100
-            live: true
-            anchors.bottom: zoomOut.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.zoomLevel = (1-value)*18;
-        }
+        
 
-        RoundButton
-        {
-            id: zoomIn
-            icon.source: "qrc:/ui-resources/white/zoom-in.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            z: 100
-            height: 40
-            radius: 10
-            opacity: 1
-            anchors.horizontalCenter: zoomOut.horizontalCenter
-            anchors.bottom: zoomSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: mapView.zoomLevel += 0.5
-        }
-        //-------------------------------------------------------------
-
-        RoundButton
-        {
-            id: panButton
-            icon.source: "qrc:/ui-resources/white/plane.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            z: 100
-            anchors.right: zoomOut.left
-            anchors.verticalCenter: zoomOut.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: panGPS()
-        }
-
-        RoundButton
-        {
-            id: panImageButton
-            icon.source: "qrc:/ui-resources/white/image.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            z: 100
-            opacity: 1
-            anchors.right: panButton.left
-            anchors.verticalCenter: panButton.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked:
-            {
-                panImage(fc);
-                //dont follow plane for a while
-                if(FDynamicVariables.followPlane)
-                {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
-                }
-            }
-
-            RoundButton
-            {
-                id: rulerButton
-                icon.source: "qrc:/ui-resources/white/ruler.png"
-                icon.color: "white"
-                icon.width: 32
-                icon.height: 32
-                width: 40
-                height: 40
-                radius: 10
-                opacity: 1
-                z: 100
-                anchors.right: panImageButton.left
-                anchors.verticalCenter: panImageButton.verticalCenter
-                highlighted: true
-                flat: false
-                anchors.rightMargin: 20
-                hoverEnabled: true
-                enabled: true
-                display: AbstractButton.IconOnly
-                onClicked:
-                {
-                    if(r_currentstate !== 0) { r_currentstate = 1;
-                        clearRuler(); } else {
-                        r_currentstate = 1;
-                    }
-                }
-            }
-            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { FDynamicVariables.followPlane = true; cameraGrip.value = 0; } }
+        Gesture {
+            id: gesture;
+            anchors.fill: parent;
         }
     }
     Connections {
 
     }
-
 }
 
 

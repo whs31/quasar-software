@@ -70,7 +70,7 @@ Rectangle {
     function start()
     {
         zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
-        tiltSlider.value = 1 - (mapView.tilt / 45);
+        tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
     }
 
     function qmlBackendStart()
@@ -419,7 +419,7 @@ Rectangle {
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
-        onTiltChanged: tiltSlider.value = 1 - (mapView.tilt / 45);
+        onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
 
         MapItemView
         {
@@ -796,174 +796,39 @@ Rectangle {
                 duration: 3000
             }
         }
-        //---------------tilt slider-------------------
-        RoundButton
-        {
-            icon.source: "qrc:/ui-resources/white/down.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltDown
-            width: 30
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: 40;
-            anchors.leftMargin: 30
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt >= 2)
-                {
-                    mapView.tilt -= 2;
-                }
-            }
-            z: 100
-        }
-        Slider
-        {
-            id: tiltSlider
-            width: 25
-            height: 120
-            z: 100
-            live: true
-            anchors.bottom: tiltDown.top
-            anchors.bottomMargin: 0
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            snapMode: Slider.NoSnap
-            to: 0
-            from: 1
-            wheelEnabled: false
-            clip: false
-            orientation: Qt.Vertical
-            value: 1
-            onMoved: mapView.tilt = (1 - value) * 45;
-        }
-        RoundButton
-        {
-            icon.source: "qrc:/ui-resources/white/up.png"
-            icon.color: "white"
-            icon.width: 24
-            icon.height: 24
-            id: tiltUp
-            width: 30
-            z: 100
-            height: 30
-            radius: 8
-            opacity: 1
-            anchors.horizontalCenter: tiltDown.horizontalCenter
-            anchors.bottom: tiltSlider.top
-            highlighted: true
-            flat: false
-            anchors.bottomMargin: -5
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: {
-                if(mapView.tilt <= (89.5 / 2) - 2)
-                {
-                    mapView.tilt += 2;
-                }
-            }
-        }
+
+        //left to right <<<<<<<<<
         ZoomSlider 
         {
             id: zoomSliderElement;
             anchors.right: parent.right;
             anchors.bottom: parent.bottom;
-            anchors.rightMargin: 20;
-            anchors.bottomMargin: 10;
+            //anchors.rightMargin: 20;
+            //anchors.bottomMargin: 10;
             z: 100;
         }
-        RoundButton
-        {
-            id: panButton
-            icon.source: "qrc:/ui-resources/white/plane.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            opacity: 1
-            z: 100
-            anchors.right: zoomOut.left
-            anchors.verticalCenter: zoomOut.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked: panGPS()
-        }
-        RoundButton
-        {
-            id: panImageButton
-            icon.source: "qrc:/ui-resources/white/image.png"
-            icon.color: "white"
-            icon.width: 32
-            icon.height: 32
-            width: 40
-            height: 40
-            radius: 10
-            z: 100
-            opacity: 1
-            anchors.right: panButton.left
-            anchors.verticalCenter: panButton.verticalCenter
-            highlighted: true
-            flat: false
-            anchors.rightMargin: 0
-            hoverEnabled: true
-            enabled: true
-            display: AbstractButton.IconOnly
-            onClicked:
-            {
-                panImage(fc);
-                //dont follow plane for a while
-                if(FDynamicVariables.followPlane)
-                {
-                    FDynamicVariables.followPlane = false;
-                    timer_3s.restart();
-                    numAnim1.restart();
-                }
-            }
 
-            RoundButton
-            {
-                id: rulerButton
-                icon.source: "qrc:/ui-resources/white/ruler.png"
-                icon.color: "white"
-                icon.width: 32
-                icon.height: 32
-                width: 40
-                height: 40
-                radius: 10
-                opacity: 1
-                z: 100
-                anchors.right: panImageButton.left
-                anchors.verticalCenter: panImageButton.verticalCenter
-                highlighted: true
-                flat: false
-                anchors.rightMargin: 20
-                hoverEnabled: true
-                enabled: true
-                display: AbstractButton.IconOnly
-                onClicked:
-                {
-                    if(r_currentstate !== 0) { r_currentstate = 1;
-                        clearRuler(); } else {
-                        r_currentstate = 1;
-                    }
-                }
-            }
-            Timer { id: timer_3s; interval: 3000; running: false; repeat: false; onTriggered: { FDynamicVariables.followPlane = true; cameraGrip.value = 0; } }
+        BottomToolbar
+        {
+            id: bottomToolbarElement;
+            anchors.right: zoomSliderElement.left;
+            anchors.rightMargin: 40;
+            anchors.bottom: zoomSliderElement.bottom;
+            z: 100;
         }
+
+        TiltSlider
+        {
+            id: tiltSliderElement;
+            anchors.left: parent.left;
+            anchors.bottom: parent.bottom;
+            //anchors.leftMargin: 15;
+            //anchors.bottomMargin: 10;
+            z: 100;
+        }
+        
+        
+
         Gesture {
             id: gesture;
             anchors.fill: parent;

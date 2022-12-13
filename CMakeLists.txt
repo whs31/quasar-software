@@ -3,7 +3,7 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(QuaSAR-UI)
-set(executable_name QuaSAR-UI)
+set(executable_name Quasar)
  
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)

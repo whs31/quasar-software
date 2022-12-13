@@ -14,6 +14,9 @@ MapQuickItem {
     //anchors must be set according to 32x32 rescaled image
     //e.g. middle will be QPoint(16, 16);
 
+
+    //property alias dialogShow: markerDialog.enabled;
+
     id: marker
     anchorPoint.x: anchorX;
     anchorPoint.y: anchorY;
@@ -38,15 +41,16 @@ MapQuickItem {
                 id: markerMouseArea;
                 propagateComposedEvents: true;
                 anchors.fill: parent;
+                anchors.topMargin: -20;
+                anchors.leftMargin: -20;
+                anchors.rightMargin: -20;
                 hoverEnabled: true;
                 onEntered: {
-                    console.log("entered!");
+                    dialogFadeIn.start();
+                    markerDialog.enabled = true;
                 }
                 onExited: {
-                    console.log("exited!");
-                }
-                onClicked: {
-                    console.log("clicked!!!!");
+                    dialogTimer.restart();
                 }
             }
         }
@@ -79,5 +83,29 @@ MapQuickItem {
             textFormat: Text.RichText;
             text: m_name;
         }
+        InlineDialog {
+            id: markerDialog;
+            opacity: 0;
+            enabled: true;
+            anchors.bottom: markerSource.top;
+            anchors.bottomMargin: 2;
+            anchors.horizontalCenter: markerSource.horizontalCenter;
+            NumberAnimation on opacity {
+                id: dialogFadeIn;
+                from: 0;
+                to: 1;
+                duration: 500;
+                easing.type: Easing.Linear;
+            }
+            NumberAnimation on opacity {
+                id: dialogFadeOut;
+                from: 1;
+                to: 0;
+                duration: 500;
+                easing.type: Easing.Linear;
+            }
+        }
+        Timer { id: dialogTimer; interval: 1000; running: false; onTriggered: {                     dialogFadeOut.start(); markerDialog.enabled = false; }}
+
     }
 }

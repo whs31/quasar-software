@@ -57,7 +57,7 @@ std::array<double, 6> MessageParser::parseTelemetry(QByteArray data)
     return { lat, lon, spd, elv, sats, direction };
 }
 
-QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4)
+QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6)
 {
     QString formRequest = ":";
 
@@ -72,7 +72,8 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
     messageID.append(QString::number(formMessageID));
     formRequest.append(messageID + "|");
 
-    QString _formRequest = REQUEST_FORM + "(" + arg1 + "," + QString::number(arg2) + "," + QString::number(arg3) + "," + QString::number(arg4, 'f', 1) + ")";
+    QString _formRequest = REQUEST_FORM + "(" + arg1 + "," + QString::number(arg2) + "," + QString::number(arg3) + "," +
+                                            QString::number(arg4, 'f', 1) + "," + QString::number(arg5, 'f', 1) + "," + QString::number(arg6, 'f', 1) + ")";
     short strlen = _formRequest.length();
     QString hexlen;
     hexlen.setNum(strlen, 16);
@@ -80,7 +81,7 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
     formRequest.append(_formRequest + "|");
 
     uint16_t crc16 = SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length());
-    formRequest.append(QString::number(crc16, 16) + "\n");
+    formRequest.append(QStringLiteral("%1").arg(crc16, 4, 16, QLatin1Char('0')) + "\n");
 
     return formRequest.toUtf8();
 }

@@ -442,7 +442,8 @@ void CoreUI::ReadTelemetry(QByteArray data)
 
 void CoreUI::ReadSARConsole(QByteArray data)
 {
-    qCritical()<<data; //rework in future
+    QString dataStr = data.data();
+    qCritical()<<dataStr; //rework in future
 }
 
 void CoreUI::ReadForm(QByteArray data)
@@ -503,5 +504,17 @@ void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
 void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
 {
     sar_time = arg1;
+}
+
+
+void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
+{
+    sar_dx = arg1;
+}
+
+
+void CoreUI::on_doubleSpinBox_sarDY_valueChanged(double arg1)
+{
+    sar_dy = arg1;
 }
 

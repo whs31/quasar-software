@@ -118,6 +118,8 @@ private:
     quint32 sar_lowerbound = 100;
     quint32 sar_upperbound = 3000;
     float sar_time = 1.0;
+    float sar_dx = 1;
+    float sar_dy = 1;
 
     //private methods
     void InitializeUI();
@@ -153,7 +155,7 @@ private slots:
     void on_pushButton_panImage_clicked();
     void on_pushButton_showImage_clicked();
     void on_pushButton_clearTrack_clicked();
-     void on_pushButton_placeMarker_clicked();
+    void on_pushButton_placeMarker_clicked();
     void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_clearCache_clicked();
@@ -165,5 +167,7 @@ private slots:
     void on_spinBox_sarLowerBound_valueChanged(int arg1);
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);
+    void on_doubleSpinBox_sarDX_valueChanged(double arg1);
+    void on_doubleSpinBox_sarDY_valueChanged(double arg1);
 };
 #endif // COREUI_H

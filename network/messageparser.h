@@ -27,7 +27,7 @@ public:
     static DataType checkReceivedDataType(QByteArray data);
     static DataType checkSendingDataType(QByteArray data);
 
-    static std::array<double, 5> parseTelemetry (QByteArray data);
+    static std::array<double, 6> parseTelemetry (QByteArray data);
 
     static std::array<int, 4> parseFormResponse(QByteArray data);
     static QByteArray makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4);

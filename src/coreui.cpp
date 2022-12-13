@@ -392,7 +392,7 @@ void CoreUI::ReadTelemetry(QByteArray data)
 
     switch (dtype) {
     case DataType::Telemetry:
-        std::array<double, 5> telemetry; //lat, lon, speed, elevation, sats
+        std::array<double, 6> telemetry; //lat, lon, speed, elevation, sats
         telemetry[4] = (double)0;
         telemetry = MessageParser::parseTelemetry(data);
         _conckc = telemetry[0];
@@ -401,6 +401,7 @@ void CoreUI::ReadTelemetry(QByteArray data)
         fTelemetry->setSpeed((float)telemetry[2]);
         fTelemetry->setElevation((float)telemetry[3]);
         fTelemetry->setSats((short)telemetry[4]);
+        //direction
         updateTelemetryLabels((int)telemetry[4]);
 
         linker->fixedUpdate();

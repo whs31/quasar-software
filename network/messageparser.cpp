@@ -42,7 +42,7 @@ DataType MessageParser::checkReceivedDataType(QByteArray data)
         return DataType::FormResponse;
     return DataType::Unrecognized;
 }
-std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
+std::array<double, 6> MessageParser::parseTelemetry(QByteArray data)
 {
     QString dts = data.data();
     dts.remove(0, MessageParser::REQUEST_TELEMETRY.length());
@@ -51,9 +51,10 @@ std::array<double, 5> MessageParser::parseTelemetry(QByteArray data)
     double lat =  jsonDocument.object().value("Latitude").toDouble();
     double lon =  jsonDocument.object().value("Longitude").toDouble();
     double spd =  jsonDocument.object().value("Speed").toDouble();
-    double elv =  jsonDocument.object().value("Elevation").toDouble();
-    double sats =  jsonDocument.object().value("Sats").toDouble();
-    return { lat, lon, spd, elv, sats };
+    double elv =  jsonDocument.object().value("Elevation").toDouble(); //to qproperty system
+    double sats =  jsonDocument.object().value("Sats").toDouble(); //to qproperty system
+    double direction = jsonDocument.object().value("Direction").toDouble();
+    return { lat, lon, spd, elv, sats, direction };
 }
 
 QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4)

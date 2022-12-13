@@ -224,7 +224,7 @@ void CoreUI::InitializeConnections()
 
     //config
     SConfig::initialize(qml, fStaticVariables);
-    if(SConfig::TESTMODE)
+    if(SConfig::getHashBoolean("UseOSM"))
         Debug::Log("![STARTUP] Program is running in test mode!");
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
@@ -252,27 +252,27 @@ void CoreUI::InitializeConnections()
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //network connection
-    if(SConfig::CONNECTONSTART)
+    if(SConfig::getHashBoolean("StartupConnectToSAR"))
     {
-        if(SConfig::NETWORKTYPE == "TCP") { tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
+        if(SConfig::getHashString("NetworkType") == "TCP") { tcpRemote->Connect(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort")); }
         else
         {
-            telemetryRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::NETWORKPORT);
-            formRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::FORMIMAGEPORT);
-            if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
+            telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
+            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+            if(SConfig::getHashString("NetworkType") != "UDP") { SConfig::getHashString("NetworkType") = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
             Debug::Log("?[REMOTE] UDP client connected");
         }
     }
 
     //ui misc initialization and assignment
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
+                                            +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
     ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
 
     //timers starts here
-    timer->start(SConfig::UPDATETIME*1000);
-    udpTimeout->start(3*SConfig::UPDATETIME*1000);
+    timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
+    udpTimeout->start(3*SConfig::getHashFloat("TelemetryFrequency") * 1000);
 
     //startup functions
     Disconnected();
@@ -302,7 +302,7 @@ void CoreUI::InitializeDockwidgets()
 
 void CoreUI::SendRemoteCommand(QString command)
 {
-    if(SConfig::NETWORKTYPE == "TCP"){
+    if(SConfig::getHashString("NetworkType") == "TCP"){
         tcpRemote->Send(command.toUtf8());
     } else {
         telemetryRemote->Send(command.toUtf8());
@@ -340,24 +340,24 @@ void CoreUI::on_closeButton_clicked()
 
 void CoreUI::on_settingsButton_clicked()
 {
-    PasswordDialog passwordDialog(this, SConfig::PASSWORD);
+    PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
     if(passwordDialog.exec() == QDialog::Accepted)
     {
         if(passwordDialog.passwordCheck)
         {
             SettingsDialog sd(this);
-            QString s = SConfig::PATH;
+            QString s = SConfig::getHashString("ViewPath");
             if(sd.exec() == QDialog::Accepted)
             {
-                if(s!=SConfig::PATH)
+                if(s!=SConfig::getHashString("ViewPath"))
                 {
                     imageProcessing->InitialScan();
                 } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
                 SConfig::saveSettings();
             } else { SConfig::loadSettings(); }
-            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::NETWORKTYPE+") ", Colors::MainShade800, Format::Bold)
-                                                    +Style::StyleText(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT, Colors::MainShade900, Format::Bold));
-            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::LOADERIP+":"+SConfig::LOADERPORT, Colors::MainShade900, Format::Bold));
+            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
+                                                    +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
+            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
         } else {
             QMessageBox passwordWarning;
             passwordWarning.setWindowTitle("Ошибка");
@@ -374,7 +374,7 @@ void CoreUI::on_settingsButton_clicked()
 
 void CoreUI::on_infoButton_clicked()
 {
-    AboutDialog aboutDialog(this, SConfig::BUILDVERSION);
+    AboutDialog aboutDialog(this, SConfig::getHashString("Version"));
     aboutDialog.exec();
 }
 
@@ -383,7 +383,7 @@ void CoreUI::on_infoButton_clicked()
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::ReadTelemetry(QByteArray data)
 {
-    udpTimeout->start(3 * SConfig::UPDATETIME*1000);
+    udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency")*1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
 
     switch (dtype) {

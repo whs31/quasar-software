@@ -32,7 +32,7 @@ void Profiler::ShowProfile()
 
     output.append("\nTotal elapsed time: " + QString::number(totalElapsed, 'f', 0) + " ms");
     
-    if(SConfig::USEPROFILER)
+    if(SConfig::getHashBoolean("ShowProfiler"))
     {
         QMessageBox openSSLDialogue;
             openSSLDialogue.setWindowTitle(header);

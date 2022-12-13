@@ -5,3 +5,8 @@ TImage::TImage(QObject *parent)
 {
 
 }
+
+void TImage::setupImage()
+{
+    
+}

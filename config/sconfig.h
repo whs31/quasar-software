@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QQuickItem>
 #include <QMessageBox>
+#include <QHash>
 
 #include "cachemanager.h"
 #include "config.h"
@@ -26,33 +27,10 @@ public:
     static void saveQuiet();
     static void discardSettings();
 
-    static QString BUILDVERSION;
-    static QString PASSWORD;
-    static bool TESTMODE;
-    static bool USEPROFILER;
-    static QString NETWORKTYPE;
-    static QString NETWORKADDRESS;
-    static QString NETWORKPORT;
-    static QString LOADERIP;
-    static QString LOADERPORT;
-    static QString FORMIMAGEPORT;
-    static float UPDATETIME;
-    static float PREDICTRANGE;
-    static float CAPTURERANGE;
-    static float CAPTURETIME;
-    static float AZIMUTH;
-    static float DRIFTANGLE;
-    static QString ANTENNAPOSITION;
-    static QString PATH;
-    static bool SHOWIMAGEONSTART;
-    static bool CONNECTONSTART;
-    static bool DEBUGCONSOLE;
-    static QString CACHEPATH;
-    static bool USELOADER;
-    static bool SAVEATEND;
-    static bool USEBASE64;
-    static bool METAANGLEINRADIANS;
-    static float METAANGLECORRECTION;
+    static void setHashValue(QString key, QVariant value);
+    static QString getHashString(QString key);
+    static float getHashFloat(QString key);
+    static bool getHashBoolean(QString key);
 
 signals:
 
@@ -64,6 +42,7 @@ private:
     static LinkerQML* linker;
     static FStaticVariables* fStatic;
 
+    static QHash<QString, QVariant> variantHash;
     static void save();
 };
 

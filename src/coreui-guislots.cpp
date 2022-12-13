@@ -73,11 +73,11 @@ void CoreUI::on_pushButton_reconnect_clicked()
     formRemote->Disconnect();
     tcpRemote->Disconnect();
     Disconnected();
-    if(SConfig::NETWORKTYPE == "TCP"){ tcpRemote->Connect(SConfig::NETWORKADDRESS+":"+SConfig::NETWORKPORT); }
+    if(SConfig::getHashString("NetworkType") == "TCP"){ tcpRemote->Connect(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort")); }
     else {
-        telemetryRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::NETWORKPORT);
-        formRemote->Connect(SConfig::NETWORKADDRESS + ":" + SConfig::FORMIMAGEPORT);
-        if(SConfig::NETWORKTYPE != "UDP") { SConfig::NETWORKTYPE = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
+        telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
+        formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+        if(SConfig::getHashString("NetworkType") != "UDP") { SConfig::getHashString("NetworkType") = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
         Debug::Log("?[REMOTE] UDP client connected");
     }
 }
@@ -124,7 +124,7 @@ void CoreUI::on_pushButton_stopContinuous_clicked()
 
 void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
 {
-    if(SConfig::DEBUGCONSOLE)
+    if(SConfig::getHashBoolean("ShowConsole"))
     {
         bool state = ui->debugConsoleDock->isEnabled();
         state = !state;

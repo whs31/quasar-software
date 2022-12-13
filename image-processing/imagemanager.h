@@ -16,7 +16,6 @@
 
 #include <QBuffer>
 
-#include "sconfig.h"
 #include "debug.h"
 #include "profiler.h"
 #include "cachemanager.h"

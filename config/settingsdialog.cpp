@@ -5,30 +5,24 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
 {
     uiS->setupUi(this);
 
-    uiS->i_networktype->setText(SConfig::NETWORKTYPE);
-    uiS->i_networkip->setText(SConfig::NETWORKADDRESS);
-    uiS->i_networkport->setText(SConfig::NETWORKPORT);
-    uiS->i_updateTime->setValue(SConfig::UPDATETIME);
-    uiS->i_predictRange->setValue(SConfig::PREDICTRANGE);
-    uiS->i_driftAngle->setValue(SConfig::DRIFTANGLE);
-    uiS->i_azimuth->setValue(SConfig::AZIMUTH);
-    uiS->i_captureRange->setValue(SConfig::CAPTURERANGE);
-    uiS->i_captureTime->setValue(SConfig::CAPTURETIME);
-    uiS->i_showImages->setChecked(SConfig::SHOWIMAGEONSTART);
-    uiS->i_connectOnStart->setChecked(SConfig::CONNECTONSTART);
-    uiS->i_debugConsole->setChecked(SConfig::DEBUGCONSOLE);
-    uiS->i_useLoader->setChecked(SConfig::USELOADER);
-    uiS->i_saveOnlyAtEnd->setChecked(SConfig::SAVEATEND);
-    uiS->i_loaderIp->setText(SConfig::LOADERIP);
-    uiS->i_loaderPort->setText(SConfig::LOADERPORT);
-    uiS->i_usebase64->setChecked(SConfig::USEBASE64);
-    uiS->i_formImagePort->setText(SConfig::FORMIMAGEPORT);
-    if(SConfig::ANTENNAPOSITION == "r") {
-        uiS->i_antennaRightB->setChecked(true);
-        uiS->i_antennaLeftB->setChecked(false); }
-    else {
-        uiS->i_antennaRightB->setChecked(false);
-        uiS->i_antennaLeftB->setChecked(true); }
+    uiS->i_networktype->setText(SConfig::getHashString("NetworkType"));
+    uiS->i_networkip->setText(SConfig::getHashString("SarIP"));
+    uiS->i_networkport->setText(SConfig::getHashString("TelemetryPort"));
+    uiS->i_updateTime->setValue(SConfig::getHashFloat("TelemetryFrequency"));
+    uiS->i_predictRange->setValue(SConfig::getHashFloat("VelocityVectorLength"));
+    uiS->i_driftAngle->setValue(SConfig::getHashFloat("DiagramDriftAngle"));
+    uiS->i_azimuth->setValue(SConfig::getHashFloat("DiagramThetaAzimuth"));
+    uiS->i_captureRange->setValue(SConfig::getHashFloat("DiagramCaptureRange"));
+    uiS->i_captureTime->setValue(SConfig::getHashFloat("DiagramCaptureTime"));
+    uiS->i_showImages->setChecked(SConfig::getHashBoolean("StartupShowAll"));
+    uiS->i_connectOnStart->setChecked(SConfig::getHashBoolean("StartupConnectToSAR"));
+    uiS->i_debugConsole->setChecked(SConfig::getHashBoolean("ShowConsole"));
+    uiS->i_useLoader->setChecked(SConfig::getHashBoolean("Mode"));
+    uiS->i_saveOnlyAtEnd->setChecked(SConfig::getHashBoolean("SaveNonContinuous"));
+    uiS->i_loaderIp->setText(SConfig::getHashString("LoaderIP"));
+    uiS->i_loaderPort->setText(SConfig::getHashString("LoaderPort"));
+    uiS->i_usebase64->setChecked(SConfig::getHashBoolean("Base64Enabled"));
+    uiS->i_formImagePort->setText(SConfig::getHashString("DialogPort"));
 }
 
 SettingsDialog::~SettingsDialog() { delete uiS; }
@@ -36,32 +30,31 @@ void SettingsDialog::on_pushButton_clicked() {
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(this,
                                                                 tr("Выберите папку с выходными изображениями РЛС"),
                                                                 QStandardPaths::displayName(QStandardPaths::HomeLocation));
-    if(pathNotNullCheck!=NULL) { SConfig::PATH = pathNotNullCheck; }
+    if(pathNotNullCheck!=NULL) { SConfig::setHashValue("ViewPath", pathNotNullCheck); }
 }
 void SettingsDialog::on_buttonBox_rejected() { reject(); }
 
 void SettingsDialog::on_buttonBox_accepted()
 {
-    SConfig::NETWORKTYPE      =           uiS->i_networktype->text();
-    SConfig::NETWORKADDRESS   =           uiS->i_networkip->text();
-    SConfig::NETWORKPORT      =           uiS->i_networkport->text();
-    SConfig::LOADERIP         =           uiS->i_loaderIp->text();
-    SConfig::LOADERPORT       =           uiS->i_loaderPort->text();
-    SConfig::FORMIMAGEPORT    =           uiS->i_formImagePort->text();
-    SConfig::UPDATETIME       =           uiS->i_updateTime->value();
-    SConfig::PREDICTRANGE     =           uiS->i_predictRange->value();
-    SConfig::DRIFTANGLE       =           uiS->i_driftAngle->value();
-    SConfig::CAPTURERANGE     =           uiS->i_captureRange->value();
-    SConfig::AZIMUTH          =           uiS->i_azimuth->value();
-    SConfig::CAPTURETIME      =           uiS->i_captureTime->value();
-    SConfig::ANTENNAPOSITION  =           (uiS->i_antennaLeftB->isChecked()) ? "l" : "r";
-    //SConfig::C_PATH         =           SConfig::C_PATH   присваивается в слоте кнопки
-    SConfig::SHOWIMAGEONSTART =           uiS->i_showImages->isChecked();
-    SConfig::CONNECTONSTART   =           uiS->i_connectOnStart->isChecked();
-    SConfig::DEBUGCONSOLE     =           uiS->i_debugConsole->isChecked();
-    SConfig::USELOADER        =           uiS->i_useLoader->isChecked();
-    SConfig::SAVEATEND        =           uiS->i_saveOnlyAtEnd->isChecked();
-    SConfig::USEBASE64        =           uiS->i_usebase64->isChecked();
+    SConfig::setHashValue("NetworkType", uiS->i_networktype->text());
+    SConfig::setHashValue("SarIP", uiS->i_networkip->text());
+    SConfig::setHashValue("TelemetryPort", uiS->i_networkport->text());
+    SConfig::setHashValue("DialogPort", uiS->i_formImagePort->text());
+    SConfig::setHashValue("LoaderIP", uiS->i_loaderIp->text());
+    SConfig::setHashValue("LoaderPort", uiS->i_loaderPort->text());
+    SConfig::setHashValue("TelemetryFrequency", uiS->i_updateTime->value());
+    SConfig::setHashValue("VelocityVectorLength", uiS->i_predictRange->value());
+    SConfig::setHashValue("DiagramDriftAngle", uiS->i_driftAngle->value());
+    SConfig::setHashValue("DiagramCaptureRange", uiS->i_captureRange->value());
+    SConfig::setHashValue("DiagramThetaAzimuth", uiS->i_azimuth->value());
+    SConfig::setHashValue("DiagramCaptureTime", uiS->i_captureTime->value());
+    //SConfig::setHashValue("AntennaPosition", uiS->i_antennaLeftB->isChecked());
+    SConfig::setHashValue("StartupShowAll", uiS->i_showImages->isChecked());
+    SConfig::setHashValue("StartupConnectToSAR", uiS->i_connectOnStart->isChecked());
+    SConfig::setHashValue("Base64Enabled", uiS->i_usebase64->isChecked());
+    SConfig::setHashValue("ShowConsole", uiS->i_debugConsole->isChecked());
+    SConfig::setHashValue("Mode", uiS->i_useLoader->isChecked());
+    SConfig::setHashValue("SaveNonContinuous", uiS->i_saveOnlyAtEnd->isChecked());
     accept();
 }
 

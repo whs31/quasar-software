@@ -38,6 +38,7 @@ public:
     bool checksumMatch = false;
     
     qint32 angleMode = AngleMode::Degrees;
+    qreal anglePredefinedCorrection = 0;
     qint32 index = 0;
     qreal opacity = 1;
 
@@ -67,6 +68,8 @@ public:
         QString filename = "";
         QString creationTime = "";
     };
+
+    void setupImage();
 
 signals:
 };

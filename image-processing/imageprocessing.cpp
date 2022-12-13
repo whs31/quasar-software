@@ -61,7 +61,7 @@ bool ImageProcessing::InitialScan() //recall after changing settings
 {
     Profiler* profiler = new Profiler("Профайлер полного сканирования"); 
     profiler->Start();
-    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
+    QString initialPath = (SConfig::getHashBoolean("Mode")) ? SConfig::getHashString("FlightPath") : SConfig::getHashString("ViewPath");
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
     profiler->Stop("Diff");
@@ -107,9 +107,9 @@ bool ImageProcessing::InitialScan() //recall after changing settings
     {
         for(int i = 0; i<getVectorSize(); i++)
         {
-            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
+            imageChecklist.append(SConfig::getHashBoolean("StartupShowAll"));
         }
-        showInitialScanResult(SConfig::SHOWIMAGEONSTART);
+        showInitialScanResult(SConfig::getHashBoolean("StartupShowAll"));
     }
     emit enableImageBar(notNull);
     return notNull;
@@ -119,7 +119,7 @@ bool ImageProcessing::PartialScan()
 {
     Profiler* profiler = new Profiler("Профайлер частичного сканирования"); 
     profiler->Start();
-    QString initialPath = (SConfig::USELOADER) ? SConfig::CACHEPATH : SConfig::PATH;
+    QString initialPath = (SConfig::getHashBoolean("Mode")) ? SConfig::getHashString("FlightPath") : SConfig::getHashString("ViewPath");
     bool foundNew = false;
     diff.clear();
     diff = imageManager->GetDiff(getEntryList(initialPath));
@@ -162,7 +162,7 @@ bool ImageProcessing::PartialScan()
     {
         for(int i = getVectorSize()-newImagesCounter; i<getVectorSize(); i++)
         {
-            imageChecklist.append(SConfig::SHOWIMAGEONSTART);
+            imageChecklist.append(SConfig::getHashBoolean("StartupShowAll"));
         }
         showPartialScanResult();
     }
@@ -215,9 +215,9 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 metaStruct.checksumMatch = (recalculatedChecksum == metaStruct.checksum) ? 1 : 0;
 
                 //геометрические преобразования
-                if(SConfig::METAANGLEINRADIANS)
+                if(SConfig::getHashBoolean("GlobalRadians"))
                 {
-                    metaStruct.angle = SMath::radiansToDegrees(metaStruct.angle) + SConfig::METAANGLECORRECTION;
+                    metaStruct.angle = SMath::radiansToDegrees(metaStruct.angle) + SConfig::getHashFloat("AnglePredefinedCorrection");
                     metaStruct.driftAngle = SMath::radiansToDegrees(metaStruct.driftAngle);
                     metaStruct.div = SMath::radiansToDegrees(metaStruct.div);
                 }
@@ -228,10 +228,10 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 int height = sizeOfImage.height();
                 int width = sizeOfImage.width();
                 AlphaMask alphaMask;
-                if(SConfig::USEBASE64)
+                if(SConfig::getHashBoolean("Base64Enabled"))
                 {
                     Debug::Log("[IMG] Using base64 encoding, making mask...");
-                    metaStruct.base64encoding = alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, MaskFormat::Geometric);
+                    metaStruct.base64encoding = alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::getHashFloat("DiagramThetaAzimuth") : metaStruct.div, 30, 0, MaskFormat::Geometric);
                     if(metaStruct.base64encoding.length()<100)
                     {
                         Debug::Log("!![IMG] Something went wrong (base64) "+metaStruct.base64encoding);
@@ -240,7 +240,7 @@ void ImageProcessing::Decode(QStringList filelist, DecodeMode mode)
                 else if(!diff.empty()&&ImageManager::diffConvert(diff, ImageFormat::JPEG).contains(info.fileName()))
                 {
                     Debug::Log("[IMG] Using saving to disk, making mask...");
-                    alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::AZIMUTH : metaStruct.div, 30, 0, MaskFormat::Geometric);
+                    alphaMask.addAlphaMask(metaStruct.filename, width, height, (metaStruct.div == 0) ? SConfig::getHashFloat("DiagramThetaAzimuth") : metaStruct.div, 30, 0, MaskFormat::Geometric);
                 }
                 metadataList.append(metaStruct);
                 if(mode == DecodeMode::Partial)
@@ -293,7 +293,7 @@ void ImageProcessing::showInitialScanResult(bool showOnStart)
                 LinkerQML::addImage(meta.latitude, meta.longitude, meta.dx, meta.dy, meta.x0, meta.y0, meta.angle, meta.filename, sizeOfImage.height(), meta.base64encoding);
                 //MarkerManager::newMarker(meta.latitude, meta.longitude, true);
 
-                if(meta.base64encoding.length()<100 && SConfig::USEBASE64)
+                if(meta.base64encoding.length()<100 && SConfig::getHashBoolean("Base64Enabled"))
                 {
                     Debug::Log("!![QML] Something went wrong");
                 }
@@ -330,7 +330,7 @@ void ImageProcessing::showPartialScanResult()
                         sizeOfImage.height(), metadataList[metadataList.length()-i].base64encoding);
                 //MarkerManager::newMarker(metadataList[metadataList.length()-i].latitude, metadataList[metadataList.length()-i].longitude, true);
 
-                if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::USEBASE64)
+                if(metadataList[metadataList.length()-i].base64encoding.length()<100 && SConfig::getHashBoolean("Base64Enabled"))
                 {
                     Debug::Log("!![QML] Something went wrong");
                 }

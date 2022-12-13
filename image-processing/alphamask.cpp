@@ -53,7 +53,7 @@ QString AlphaMask::addAlphaMask(QString path, float width, float height, float t
         alphaImage.createMaskFromColor(QColor("black").rgb(), Qt::MaskOutColor);
         base.setAlphaChannel(alphaImage);
     }
-    if(SConfig::USEBASE64)
+    if(SConfig::getHashBoolean("Base64Enabled"))
     {
         QString r = convertToBase64(base);
         return r;

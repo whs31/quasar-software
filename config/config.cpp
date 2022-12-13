@@ -2,52 +2,52 @@
 
 Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 {
-         /*
-         * Заполнять стандартные параметры рекомендуется так:
-         * group_t <Название группы>;
-         * <Название группы>["<Название параметра>"] = "<Значение>";
-         * checkValuesSimple(<Название группы>);
-         */
+    group_t general;
+    general["version"] = "1.2.3alpha";
+    general["is_stable"] = "false";
+    general["sudo_password"] = "123";
+    general["program_mode"] = "true"; //"flight" = true, "view" = false
+    checkValuesSimple(general);
 
     group_t utility;
-    utility["version"] = "1.2.3alpha";
-    utility["sudo_password"] = "123";
-    utility["test_mode"] = "false";
-    utility["profiler"] = "false";
+    utility["use_osm_maps"] = "false";
+    utility["display_profiler"] = "false";
+    utility["enable_debug_console"] = "true";
     checkValuesSimple(utility);
 
     group_t network;
-    network["type"] = "UDP";
-    network["ip"] = "127.0.0.1";
-    network["port"] = "25565";
-    network["updateTime"] = "0.5";
-    network["loader_ip"] = "127.0.0.1";
-    network["loader_port"] = "25555";
-    network["form_image_port"] = "9845";
+    network["core_type"] = "UDP";
+    network["sar_ip"] = "127.0.0.1";
+    network["telemetry_port"] = "25565";
+    network["telemetry_update_time"] = "0.5";
+    network["image_loader_ip"] = "127.0.0.1";
+    network["image_loader_port"] = "25555";
+    network["dialog_port"] = "9845";
     checkValuesSimple(network);
 
     group_t map;
-    map["predict_line_range"] = "4";
-    map["capture_time"] = "15";
-    map["diagram_length"] = "3";
-    map["diagram_theta_azimuth"] = "12.5";
-    map["diagram_drift_angle"] = "11";
+    map["velocity_vector_length"] = "4";
     map["antenna_position"] = "r";
     checkValuesSimple(map);
 
+    group_t diagram;
+    diagram["diagram_capture_time"] = "15";
+    diagram["diagram_capture_range"] = "3";
+    diagram["diagram_theta_azimuth"] = "12.5";
+    diagram["diagram_drift_angle"] = "11";
+    checkValuesSimple(diagram);
+
     group_t image;
-    image["angle_correction"] = "0.0";
-    image["angle_in_radians"] = "true";
-    image["use_base64"] = "false";
-    image["use_loader"] = "true";
-    image["save_at_end"] = "true";
-    image["path"] = "\\192.168.1.48\\Jetson\\QuaSAR-bin\\img";
+    image["angle_predefined_correction"] = "0.0";
+    image["angle_use_radians_globally"] = "true";
+    image["use_base64_encoding_optimization"] = "true";
+    image["save_image_only_when_loading_finished"] = "true";
+    image["view_mode_default_directory"] = "C:/";
     checkValuesSimple(image);
 
     group_t startup;
-    startup["show_image"] = "true";
-    startup["connect"] = "true";
-    startup["debug_console"] = "false";
+    startup["display_images_when_loaded"] = "true";
+    startup["connect_to_sar"] = "false";
     checkValuesSimple(startup);
 }
 

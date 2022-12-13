@@ -4,7 +4,7 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
 {
     server = new QTcpServer(this);
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
-    if(!server->listen(QHostAddress(SConfig::LOADERIP), SConfig::LOADERPORT.toUInt()))
+    if(!server->listen(QHostAddress(SConfig::getHashString("LoaderIP")), SConfig::getHashString("LoaderPort").toUInt()))
     {
         Debug::Log("!![SERVER] Server could not start");
     } else {
@@ -18,7 +18,7 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
 
 void TCPDownloader::clientConnected(void)
 {
-    if(SConfig::SAVEATEND) { _mode = 2; } else { _mode = 1; }
+    if(SConfig::getHashBoolean("SaveNonContinuous")) { _mode = 2; } else { _mode = 1; }
     socket = server->nextPendingConnection();
     connect(socket, &QTcpSocket::readyRead, this, &TCPDownloader::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPDownloader::clientDisconnected);

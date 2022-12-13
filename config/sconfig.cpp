@@ -6,33 +6,7 @@ Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
 FStaticVariables* SConfig::fStatic;
 
-QString SConfig::BUILDVERSION;
-QString SConfig::PASSWORD;
-bool SConfig::TESTMODE;
-bool SConfig::USEPROFILER;
-QString SConfig::NETWORKTYPE;
-QString SConfig::NETWORKADDRESS;
-QString SConfig::NETWORKPORT;
-QString SConfig::LOADERIP;
-QString SConfig::LOADERPORT;
-QString SConfig::FORMIMAGEPORT;
-float SConfig::UPDATETIME;
-float SConfig::PREDICTRANGE;
-float SConfig::CAPTURERANGE;
-float SConfig::CAPTURETIME;
-float SConfig::AZIMUTH;
-float SConfig::DRIFTANGLE;
-QString SConfig::ANTENNAPOSITION;
-QString SConfig::PATH;
-bool SConfig::SHOWIMAGEONSTART;
-bool SConfig::CONNECTONSTART;
-bool SConfig::DEBUGCONSOLE;
-QString SConfig::CACHEPATH;
-bool SConfig::USELOADER;
-bool SConfig::SAVEATEND;
-bool SConfig::USEBASE64;
-bool SConfig::METAANGLEINRADIANS;
-float SConfig::METAANGLECORRECTION;
+QHash<QString, QVariant> SConfig::variantHash; 
 
 SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
 {
@@ -41,6 +15,7 @@ SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
     jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
     fStatic = fStaticVariables;
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
+
     SConfig::loadSettings();
 }
 
@@ -52,40 +27,66 @@ SConfig* SConfig::initialize(QQuickItem* qml, FStaticVariables* fStaticVariables
     return pointer;
 }
 
+void SConfig::setHashValue(QString key, QVariant value)
+{
+    variantHash.insert(key, value);
+}
+
+QString SConfig::getHashString(QString key)
+{
+    return variantHash.value(key).toString();
+}
+
+float SConfig::getHashFloat(QString key)
+{
+    return variantHash.value(key).toFloat();
+}
+
+bool SConfig::getHashBoolean(QString key)
+{
+    return variantHash.value(key).toBool();
+}
 
 void SConfig::loadSettings()
 {
-    BUILDVERSION          =           config->value("utility/version").toString();
-    PASSWORD              =           config->value("utility/sudo_password").toString();
-    TESTMODE              =           config->value("utility/test_mode").toBool();
-    USEPROFILER           =           config->value("utility/profiler").toBool();
-    NETWORKTYPE           =           config->value("network/type").toString();
-    NETWORKADDRESS        =           config->value("network/ip").toString();
-    NETWORKPORT           =           config->value("network/port").toString();
-    UPDATETIME            =           config->value("network/updateTime").toFloat();
-    LOADERIP              =           config->value("network/loader_ip").toString();
-    LOADERPORT            =           config->value("network/loader_port").toString();
-    FORMIMAGEPORT         =           config->value("network/form_image_port").toString();
-    PREDICTRANGE          =           config->value("map/predict_line_range").toFloat();
-    CAPTURERANGE          =           config->value("map/diagram_length").toFloat();
-    CAPTURETIME           =           config->value("map/capture_time").toFloat();
-    AZIMUTH               =           config->value("map/diagram_theta_azimuth").toFloat();
-    DRIFTANGLE            =           config->value("map/diagram_drift_angle").toFloat();
-    ANTENNAPOSITION       =           config->value("map/antenna_position").toString();
-    PATH                  =           config->value("image/path").toString();
-    USELOADER             =           config->value("image/use_loader").toBool();
-    SAVEATEND             =           config->value("image/save_at_end").toBool();
-    USEBASE64             =           config->value("image/use_base64").toBool();
-    METAANGLEINRADIANS    =           config->value("image/angle_in_radians").toBool();
-    METAANGLECORRECTION   =           config->value("image/angle_correction").toFloat();
-    SHOWIMAGEONSTART      =           config->value("startup/show_image").toBool();
-    CONNECTONSTART        =           config->value("startup/connect").toBool();
-    DEBUGCONSOLE          =           config->value("startup/debug_console").toBool();
-    //CACHEPATH           =           устанавливается в ImageManager в конструкторе
+    setHashValue("Version", config->value("general/version"));
+    setHashValue("StableStatus", config->value("general/is_stable"));
+    setHashValue("SudoPassword", config->value("general/sudo_password"));
+    setHashValue("Mode", config->value("general/program_mode"));
 
-    fStatic->setTestMode(TESTMODE);
-    fStatic->setPredictRange(PREDICTRANGE);
-    fStatic->setUseBase64(USEBASE64);
+    setHashValue("UseOSM", config->value("utility/use_osm_maps"));
+    setHashValue("ShowProfiler", config->value("utility/display_profiler"));
+    setHashValue("ShowConsole", config->value("utility/enable_debug_console"));
+
+    setHashValue("NetworkType", config->value("network/core_type"));
+    setHashValue("SarIP", config->value("network/sar_ip"));
+    setHashValue("TelemetryPort", config->value("network/telemetry_port"));
+    setHashValue("TelemetryFrequency", config->value("network/telemetry_update_time"));
+    setHashValue("LoaderIP", config->value("network/image_loader_ip"));
+    setHashValue("LoaderPort", config->value("network/image_loader_port"));
+    setHashValue("DialogPort", config->value("network/dialog_port"));
+
+    setHashValue("VelocityVectorLength", config->value("map/velocity_vector_length"));
+    setHashValue("AntennaPosition", config->value("map/antenna_position"));
+
+    setHashValue("DiagramCaptureTime", config->value("diagram/diagram_capture_time"));
+    setHashValue("DiagramCaptureRange", config->value("diagram/diagram_capture_range"));
+    setHashValue("DiagramThetaAzimuth", config->value("diagram/diagram_theta_azimuth"));
+    setHashValue("DiagramDriftAngle", config->value("diagram/diagram_drift_angle"));
+
+    setHashValue("AnglePredefinedCorrection", config->value("image/angle_predefined_correction"));
+    setHashValue("GlobalRadians", config->value("image/angle_use_radians_globally"));
+    setHashValue("Base64Enabled", config->value("image/use_base64_encoding_optimization"));
+    setHashValue("SaveNonContinuous", config->value("image/save_image_only_when_loading_finished"));
+    setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
+    setHashValue("FlightPath", "nullstr");
+
+    setHashValue("StartupShowAll", config->value("startup/display_images_when_loaded"));
+    setHashValue("StartupConnectToSAR", config->value("startup/connect_to_sar"));
+
+    fStatic->setTestMode(getHashBoolean("UseOSM"));
+    fStatic->setPredictRange(getHashFloat("VelocityVectorLength"));
+    fStatic->setUseBase64(getHashBoolean("Base64Enabled"));
 
     Debug::Log("?[SCONFIG] Config loaded.");
 }
@@ -111,30 +112,37 @@ void SConfig::saveQuiet()
 
 void SConfig::save()
 {
-    config->setValue("utility/test_mode", TESTMODE);
-    config->setValue("utility/profiler", USEPROFILER);
-    config->setValue("network/type", NETWORKTYPE);
-    config->setValue("network/ip", NETWORKADDRESS);
-    config->setValue("network/port", NETWORKPORT);
-    config->setValue("network/updateTime", QString::number(UPDATETIME));
-    config->setValue("network/loader_ip", LOADERIP);
-    config->setValue("network/loader_port", LOADERPORT);
-    config->setValue("network/form_image_port", FORMIMAGEPORT);
-    config->setValue("map/predict_line_range", QString::number(PREDICTRANGE));
-    config->setValue("map/diagram_length", QString::number(CAPTURERANGE));
-    config->setValue("map/capture_time", QString::number(CAPTURETIME));
-    config->setValue("map/diagram_theta_azimuth", QString::number(AZIMUTH));
-    config->setValue("map/diagram_drift_angle", QString::number(DRIFTANGLE));
-    config->setValue("map/antenna_position", ANTENNAPOSITION);
-    config->setValue("image/path", PATH);
-    config->setValue("image/use_loader", USELOADER);
-    config->setValue("image/save_at_end", SAVEATEND);
-    config->setValue("image/use_base64", USEBASE64);
-    config->setValue("image/angle_in_radians", METAANGLEINRADIANS);
-    config->setValue("image/angle_correction", QString::number(METAANGLECORRECTION));
-    config->setValue("startup/show_image", SHOWIMAGEONSTART);
-    config->setValue("startup/connect", CONNECTONSTART);
-    config->setValue("startup/debug_console", DEBUGCONSOLE);
+    config->setValue("general/sudo_password", getHashString("SudoPassword"));
+    config->setValue("general/program_mode", getHashBoolean("Mode"));
+
+    config->setValue("utility/use_osm_maps", getHashBoolean("UseOSM"));
+    config->setValue("utility/display_profiler", getHashBoolean("ShowProfiler"));
+    config->setValue("utility/enable_debug_console", getHashBoolean("ShowConsole"));
+
+    config->setValue("network/core_type", getHashString("NetworkType"));
+    config->setValue("network/sar_ip", getHashString("SarIP"));
+    config->setValue("network/telemetry_port", getHashString("TelemetryPort"));
+    config->setValue("network/telemetry_update_time", getHashFloat("TelemetryFrequency"));
+    config->setValue("network/image_loader_ip", getHashString("LoaderIP"));
+    config->setValue("network/image_loader_port", getHashString("LoaderPort"));
+    config->setValue("network/dialog_port", getHashString("DialogPort"));
+
+    config->setValue("map/velocity_vector_length", getHashFloat("VelocityVectorLength"));
+    config->setValue("map/antenna_position", getHashString("AntennaPosition"));
+
+    config->setValue("diagram/diagram_capture_time", getHashFloat("DiagramCaptureTime"));
+    config->setValue("diagram/diagram_capture_range", getHashFloat("DiagramCaptureRange"));
+    config->setValue("diagram/diagram_theta_azimuth", getHashFloat("DiagramThetaAzimuth"));
+    config->setValue("diagram/diagram_drift_angle", getHashFloat("DiagramDriftAngle"));
+
+    config->setValue("image/angle_predefined_correction", getHashFloat("AnglePredefinedCorrection"));
+    config->setValue("image/angle_use_radians_globally", getHashBoolean("GlobalRadians"));
+    config->setValue("image/use_base64_encoding_optimization", getHashBoolean("Base64Enabled"));
+    config->setValue("image/save_image_only_when_loading_finished", getHashBoolean("SaveNonContinuous"));
+    config->setValue("image/view_mode_default_directory", getHashString("ViewPath"));
+
+    config->setValue("startup/display_images_when_loaded", getHashBoolean("StartupShowAll"));
+    config->setValue("startup/connect_to_sar", getHashBoolean("StartupConnectToSAR"));
 }
 
 void SConfig::discardSettings()

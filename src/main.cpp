@@ -57,9 +57,9 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
-    //qmlRegisterSingletonInstance<FMouseHover>("MouseHover", 1, 0, "MouseHover", FMouseHover::initialize());
+
     QApplication app(argc, argv);
-    
+
     //cache setup
     CacheManager::initializeCache();
 

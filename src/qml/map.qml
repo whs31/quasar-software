@@ -447,75 +447,7 @@ Rectangle {
                             easing.type: Easing.OutCubic;
                         }
             }
-            delegate: MapQuickItem {
-                        //anchors must be set according to 32x32 rescaled image
-                        //e.g. middle will be QPoint(16, 16);
-                        id: marker
-                        anchorPoint: Qt.point(anchorX, anchorY);
-                        z: 2;
-                        zoomLevel: m_zoom;
-                        property real m_opacity: 1;
-                        opacity: m_opacity;
-                        coordinate: QtPositioning.coordinate(lat, lon);
-                        property alias markerName: markerText.text;
-                        sourceItem: Item {
-                            Image {
-                                id: markerSource;
-                                width: 32; 
-                                height: 32;
-                                layer.enabled: true;
-                                transformOrigin: Item.Center;
-                                smooth: true;
-                                source: m_qrc;
-                                visible: true;
-                                
-                                MouseArea {
-                                id: markerMouseArea;
-                                propagateComposedEvents: true;
-                                anchors.fill: parent;
-                                hoverEnabled: true;
-                                onEntered: {
-                                    console.log("entered!");
-                                }
-                                onExited: {
-                                    console.log("exited!");
-                                }
-                                onClicked: {
-                                    console.log("clicked!!!!");
-                                }
-                            }
-                            }
-                            ColorOverlay {
-                                id: markerOverlay;
-                                anchors.fill: markerSource;
-                                source: markerSource;
-                                opacity: 0.75;
-                                color: m_color;
-                            }
-                            DropShadow {
-                                anchors.fill: markerOverlay;
-                                horizontalOffset: 5;
-                                verticalOffset: 5;
-                                radius: 8.0;
-                                samples: 17;
-                                color: "#000000";
-                                source: markerOverlay;
-                            }
-                            Text {
-                                id: markerText;
-                                color: m_color;
-                                enabled: true;
-                                anchors.top: markerSource.bottom;
-                                anchors.topMargin: 5;
-                                anchors.horizontalCenter: markerSource.horizontalCenter;
-                                font.pointSize: 7;
-                                font.family: "Arial";
-                                font.weight: Font.Bold;
-                                textFormat: Text.RichText;
-                                text: m_name;
-                            }
-                        }
-            }
+            delegate: Marker { }
         }
         
         MapPolyline {

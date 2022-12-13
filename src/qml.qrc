@@ -8,5 +8,6 @@
         <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/SmallPopup.qml</file>
+        <file>qml/Marker.qml</file>
     </qresource>
 </RCC>

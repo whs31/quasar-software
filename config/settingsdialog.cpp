@@ -20,6 +20,11 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->useBase64->setChecked(SConfig::getHashBoolean("Base64Enabled"));
     uiS->commandPort->setText(SConfig::getHashString("DialogPort"));
     uiS->consolePort->setText(SConfig::getHashString("ListenPort"));
+
+    uiS->useOSM->setChecked(SConfig::getHashBoolean("UseOSM"));
+    uiS->useProfiler->setChecked(SConfig::getHashBoolean("ShowProfiler"));
+    uiS->metaInRadians->setChecked(SConfig::getHashBoolean("GlobalRadians"));
+    uiS->angleCorrection->setValue(SConfig::getHashBoolean("AnglePredefinedCorrection"));
 }
 
 SettingsDialog::~SettingsDialog() { delete uiS; }
@@ -49,6 +54,10 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::setHashValue("ShowConsole", uiS->useConsole->isChecked());
     SConfig::setHashValue("Mode", mode);
     SConfig::setHashValue("SaveNonContinuous", uiS->saveAtEnd->isChecked());
+    SConfig::setHashValue("UseOSM", uiS->useOSM->isChecked());
+    SConfig::setHashValue("ShowProfiler", uiS->useProfiler->isChecked());
+    SConfig::setHashValue("GlobalRadians", uiS->metaInRadians->isChecked());
+    SConfig::setHashValue("AnglePredefinedCorrection", uiS->angleCorrection->value());
     accept();
 }
 

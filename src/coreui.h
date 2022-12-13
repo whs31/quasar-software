@@ -37,11 +37,6 @@
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 
-// #define MAPTOOLS_WIDTH 120
-// #define MAPTOOLS_HEIGHT 70
-// #define DEBUG_WIDTH 250
-// #define DEBUG_HEIGHT 150
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE

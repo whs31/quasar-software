@@ -16,7 +16,7 @@ MarkerManager *MarkerManager::initialize()
 
 void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 {
-    TMarker *marker = new TMarker();
+    TMarker *marker = new TMarker(initialize());
     if (!quiet)
     {
         MarkerDialog markerDialog(latitude, longitude, *marker);

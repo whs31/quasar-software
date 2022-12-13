@@ -34,7 +34,7 @@ public:
 
     QString cachedJPEGfilename = "";
     QString base64 = "";
-    QString creationTime = "";
+    
     bool checksumMatch = false;
     
     qint32 angleMode = AngleMode::Degrees;
@@ -49,6 +49,24 @@ public:
     bool drawSARmarker = true;
     QString SARMarkerName = "";
     QColor SARMarkerColor = Qt::white;
+
+    struct interface
+    {
+        QString latitude = "";
+        QString longtude = "";
+        QString dx = "";
+        QString dy = "";
+        QString x0 = "";
+        QString y0 = "";
+        QString angle = "";
+        QString driftAngle = "";
+        QString lx = "";
+        QString ly = "";
+        QString thetaAzimuth = "";
+        QString checksum = "";
+        QString filename = "";
+        QString creationTime = "";
+    };
 
 signals:
 };

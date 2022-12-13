@@ -77,6 +77,8 @@ void CoreUI::on_pushButton_reconnect_clicked()
     else {
         telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
         formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+        consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
+        qCritical()<<SConfig::getHashString("LoaderIP")<<":"<<SConfig::getHashString("ListenPort");
         if(SConfig::getHashString("NetworkType") != "UDP") { SConfig::getHashString("NetworkType") = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
         Debug::Log("?[REMOTE] UDP client connected");
     }
@@ -105,7 +107,7 @@ void CoreUI::on_pushButton_clearCache_clicked()
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {
     QString request = MessageParser::makeFormRequest(sar_mode, sar_lowerbound, sar_upperbound, sar_time);
-    SendRemoteCommand(request);
+    SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
     ui->label_c_formImageStatus->setText(Style::StyleText("отправлен запрос на формирование", Colors::MainShade800, Format::NoFormat));
     ui->progressBar_formImageStatus->setValue(10);

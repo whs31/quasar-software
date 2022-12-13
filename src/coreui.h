@@ -41,6 +41,11 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
 
+enum CommandType {
+    TelemetryCommand,
+    FormCommand
+};
+
 class CoreUI : public QGoodWindow
 {
     Q_OBJECT
@@ -118,7 +123,7 @@ private:
     void InitializeUI();
     void InitializeConnections();
     void InitializeDockwidgets();
-    void SendRemoteCommand(QString command);
+    void SendRemoteCommand(QString command, CommandType type);
 
 private slots:
     //header

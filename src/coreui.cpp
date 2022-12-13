@@ -262,7 +262,8 @@ void CoreUI::InitializeConnections()
         {
             telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
             formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
-            consoleListenerRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("ListenPort"));
+            consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
+            qCritical()<<SConfig::getHashString("LoaderIP")<<":"<<SConfig::getHashString("ListenPort");
             if(SConfig::getHashString("NetworkType") != "UDP") { SConfig::getHashString("NetworkType") = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
             Debug::Log("?[REMOTE] UDP client connected");
         }
@@ -304,13 +305,18 @@ void CoreUI::InitializeDockwidgets()
     ui->mapSettingsDock->setVisible(false);
 }
 
-void CoreUI::SendRemoteCommand(QString command)
+void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if(SConfig::getHashString("NetworkType") == "TCP"){
         tcpRemote->Send(command.toUtf8());
     } else {
-        telemetryRemote->Send(command.toUtf8());
-        formRemote->Send(command.toUtf8());
+        if(type == CommandType::TelemetryCommand)
+        {
+            telemetryRemote->Send(command.toUtf8());
+        } else if (type == CommandType::FormCommand)
+        {
+            formRemote->Send(command.toUtf8());
+        }
     }
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -436,7 +442,7 @@ void CoreUI::ReadTelemetry(QByteArray data)
 
 void CoreUI::ReadSARConsole(QByteArray data)
 {
-    qCritical()<<data;
+    qCritical()<<data; //rework in future
 }
 
 void CoreUI::ReadForm(QByteArray data)
@@ -476,7 +482,7 @@ void CoreUI::ReadForm(QByteArray data)
 //эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
 void CoreUI::Halftime()
 {
-    SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
+    SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -83,6 +83,7 @@ private:
     static CoreUI* debugPointer;
     UDPRemote *telemetryRemote;
     UDPRemote *formRemote;
+    UDPRemote *consoleListenerRemote;
     TCPRemote *tcpRemote;
     ImageProcessing *imageProcessing;
     LinkerQML *linker;
@@ -108,6 +109,11 @@ private:
     //global variables
     double _conckc = 0;
 
+    QString sar_mode = "m1";
+    quint32 sar_lowerbound = 100;
+    quint32 sar_upperbound = 3000;
+    float sar_time = 1.0;
+
     //private methods
     void InitializeUI();
     void InitializeConnections();
@@ -125,6 +131,7 @@ private slots:
     //utility slots
     void ReadTelemetry(QByteArray data);
     void ReadForm(QByteArray data);
+    void ReadSARConsole(QByteArray data);
     void Halftime();
 
     //gui slots
@@ -150,5 +157,8 @@ private slots:
     void on_pushButton_stopContinuous_clicked();
     void on_pushButton_showDebugConsoleDock_clicked();
     void on_pushButton_showMapToolsDock_clicked();
+    void on_spinBox_sarLowerBound_valueChanged(int arg1);
+    void on_spinBox_sarUpperBound_valueChanged(int arg1);
+    void on_doubleSpinBox_sarTime_valueChanged(double arg1);
 };
 #endif // COREUI_H

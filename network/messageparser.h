@@ -30,7 +30,7 @@ public:
     static std::array<double, 5> parseTelemetry (QByteArray data);
 
     static std::array<int, 4> parseFormResponse(QByteArray data);
-    static QByteArray makeFormRequest(short arg1 = 1, short arg2 = 1);
+    static QByteArray makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4);
 
 
 signals:

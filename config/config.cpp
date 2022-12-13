@@ -3,7 +3,7 @@
 Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 {
     group_t general;
-    general["version"] = "1.2.3alpha";
+    general["version"] = "1.2.4alpha";
     general["is_stable"] = "false";
     general["sudo_password"] = "123";
     general["program_mode"] = "true"; //"flight" = true, "view" = false
@@ -23,6 +23,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["image_loader_ip"] = "127.0.0.1";
     network["image_loader_port"] = "25555";
     network["dialog_port"] = "9845";
+    network["console_listen_port"] = "9846";
     checkValuesSimple(network);
 
     group_t map;

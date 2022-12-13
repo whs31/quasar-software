@@ -4367,10 +4367,13 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:foc
 }</string>
          </property>
          <property name="editable">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="currentText">
-          <string>M1</string>
+          <string/>
+         </property>
+         <property name="currentIndex">
+          <number>-1</number>
          </property>
          <property name="insertPolicy">
           <enum>QComboBox::InsertAtTop</enum>
@@ -5262,7 +5265,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit {
-  background-color: #313131;
+  background-color: #212121;
   color: #19232D;
   border-radius: 4px;
   border: 1px solid #C9CDD0;

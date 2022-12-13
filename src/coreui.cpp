@@ -18,6 +18,7 @@ CoreUI::~CoreUI()
 {
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
+    consoleListenerRemote->Disconnect();
     tcpRemote->Disconnect();
     delete ui;
 }
@@ -231,6 +232,7 @@ void CoreUI::InitializeConnections()
     //network setup
     telemetryRemote = new UDPRemote();
     formRemote = new UDPRemote();
+    consoleListenerRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
         connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
@@ -249,6 +251,7 @@ void CoreUI::InitializeConnections()
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
         connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
         connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
+        connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //network connection
@@ -259,6 +262,7 @@ void CoreUI::InitializeConnections()
         {
             telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
             formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+            consoleListenerRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("ListenPort"));
             if(SConfig::getHashString("NetworkType") != "UDP") { SConfig::getHashString("NetworkType") = "UDP"; Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default"); }
             Debug::Log("?[REMOTE] UDP client connected");
         }
@@ -429,6 +433,11 @@ void CoreUI::ReadTelemetry(QByteArray data)
     }
 }
 
+void CoreUI::ReadSARConsole(QByteArray data)
+{
+    qCritical()<<data;
+}
+
 void CoreUI::ReadForm(QByteArray data)
 {
     DataType dtype = MessageParser::checkReceivedDataType(data);
@@ -469,3 +478,23 @@ void CoreUI::Halftime()
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
+{
+    sar_lowerbound = arg1;
+}
+
+
+
+
+void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
+{
+    sar_upperbound = arg1;
+}
+
+
+void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
+{
+    sar_time = arg1;
+}
+

@@ -65,6 +65,7 @@ void SConfig::loadSettings()
     setHashValue("LoaderIP", config->value("network/image_loader_ip"));
     setHashValue("LoaderPort", config->value("network/image_loader_port"));
     setHashValue("DialogPort", config->value("network/dialog_port"));
+    setHashValue("ListenPort", config->value("network/console_listen_port"));
 
     setHashValue("VelocityVectorLength", config->value("map/velocity_vector_length"));
     setHashValue("AntennaPosition", config->value("map/antenna_position"));
@@ -126,6 +127,7 @@ void SConfig::save()
     config->setValue("network/image_loader_ip", getHashString("LoaderIP"));
     config->setValue("network/image_loader_port", getHashString("LoaderPort"));
     config->setValue("network/dialog_port", getHashString("DialogPort"));
+    config->setValue("network/console_listen_port", getHashString("ListenPort"));
 
     config->setValue("map/velocity_vector_length", getHashFloat("VelocityVectorLength"));
     config->setValue("map/antenna_position", getHashString("AntennaPosition"));

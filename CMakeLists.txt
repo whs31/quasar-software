@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(QuaSAR-UI)
 set(executable_name QuaSAR-UI)
-
+ 
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
@@ -123,8 +123,8 @@ if(WIN32)
 
     target_link_libraries(${executable_name}
         Qt::WinExtras
-        Gdi32
-        User32
+        #Gdi32
+        #User32
     )
 endif()
 

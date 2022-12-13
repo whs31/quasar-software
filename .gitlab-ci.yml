@@ -52,7 +52,7 @@ windows:
   script:
     - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_SHARED_LINKER_FLAGS="-static -static-libgcc" && cmake --build .
     - mkdir -p $CI_PROJECT_TITLE/bin/geoservices $CI_PROJECT_TITLE/bin/imageformats $CI_PROJECT_TITLE/bin/platforms
-    - cp $CI_PROJECT_TITLE.exe $CI_PROJECT_TITLE/bin
+    - cp Quasar.exe Quasar/bin
     - cpwinlib iconv.dll $CI_PROJECT_TITLE/bin
     - cpwinlib libbz2-1.dll $CI_PROJECT_TITLE/bin
     - cpwinlib libcfitsio-3.dll $CI_PROJECT_TITLE/bin
@@ -139,4 +139,4 @@ windows:
     - cp -r settings $CI_PROJECT_TITLE
   artifacts:
     name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
-    paths: [./QuaSAR-UI.exe]
+    paths: [./Quasar.exe]

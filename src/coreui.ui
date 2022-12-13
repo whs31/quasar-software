@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1339</width>
-    <height>779</height>
+    <width>1175</width>
+    <height>525</height>
    </rect>
   </property>
   <property name="font">
@@ -441,7 +441,7 @@ QMenu::right-arrow {
       </property>
       <property name="font">
        <font>
-        <family>Arial</family>
+        <family>FreeSans</family>
         <pointsize>10</pointsize>
        </font>
       </property>
@@ -473,7 +473,7 @@ QMenu::right-arrow {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
      <pointsize>9</pointsize>
     </font>
    </property>
@@ -802,7 +802,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea">
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
          <pointsize>10</pointsize>
         </font>
        </property>
@@ -838,8 +838,8 @@ QAbstractScrollArea:disabled {
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>379</width>
-          <height>656</height>
+          <width>371</width>
+          <height>551</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -874,7 +874,7 @@ QAbstractScrollArea:disabled {
           <widget class="QLabel" name="label_c_foundImages">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>9</pointsize>
              <bold>false</bold>
             </font>
@@ -916,7 +916,7 @@ QLabel:disabled {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -1012,7 +1012,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -1101,7 +1101,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -1154,7 +1154,7 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -1246,7 +1246,7 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -1338,7 +1338,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -1421,7 +1421,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -1456,7 +1456,7 @@ QDialogButtonBox QPushButton {
              <widget class="QFrame" name="frame_3">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>10</pointsize>
                </font>
               </property>
@@ -1512,7 +1512,7 @@ QDialogButtonBox QPushButton {
                  </property>
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -1590,7 +1590,7 @@ QDialogButtonBox QPushButton {
                 <widget class="QLabel" name="label_c_currentImage">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>9</pointsize>
                   </font>
                  </property>
@@ -1640,7 +1640,7 @@ QLabel:disabled {
                  </property>
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>10</pointsize>
                   </font>
                  </property>
@@ -1730,7 +1730,7 @@ QDialogButtonBox QPushButton {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -1811,7 +1811,7 @@ QGroupBox::indicator:checked:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -1870,7 +1870,7 @@ QGroupBox::indicator:checked:disabled {
                 <widget class="QLabel" name="label_d_metaLY">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -1903,7 +1903,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDx">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -1941,7 +1941,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDx">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -1974,7 +1974,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaAngle">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2006,7 +2006,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaChecksum">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2038,7 +2038,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaLX">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2071,7 +2071,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDy">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2109,7 +2109,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDAngle">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2144,7 +2144,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaY0">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2182,7 +2182,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaX0">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2220,7 +2220,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDAngle">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2252,7 +2252,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaX0">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2285,7 +2285,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaAngle">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2323,7 +2323,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaY0">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2356,7 +2356,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDy">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                    <italic>true</italic>
                   </font>
@@ -2389,7 +2389,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaChecksum">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2424,7 +2424,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_d_metaDiv">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2456,7 +2456,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaLX">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2491,7 +2491,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaLY">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2526,7 +2526,7 @@ QLabel:disabled {
                 <widget class="QLabel" name="label_c_metaDiv">
                  <property name="font">
                   <font>
-                   <family>Arial</family>
+                   <family>FreeSans</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -2564,7 +2564,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaLat">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -2624,7 +2624,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <italic>true</italic>
                 <bold>true</bold>
@@ -2676,7 +2676,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaTime">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -2715,7 +2715,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaLon">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -2747,7 +2747,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaLat">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -2779,7 +2779,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_d_metaTime">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <bold>false</bold>
                </font>
@@ -2817,7 +2817,7 @@ QLabel:disabled {
                <widget class="QLabel" name="label_d_metaFilename">
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>FreeSans</family>
                   <pointsize>8</pointsize>
                   <bold>true</bold>
                  </font>
@@ -2850,7 +2850,7 @@ QLabel:disabled {
                <widget class="QLabel" name="label_c_metaFilename">
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>FreeSans</family>
                   <pointsize>8</pointsize>
                   <bold>true</bold>
                  </font>
@@ -2917,7 +2917,7 @@ QLabel:disabled {
                 </property>
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>FreeSans</family>
                   <pointsize>9</pointsize>
                  </font>
                 </property>
@@ -3004,7 +3004,7 @@ QDialogButtonBox QPushButton {
                <widget class="QLabel" name="label_d_showFullInfo">
                 <property name="font">
                  <font>
-                  <family>Arial</family>
+                  <family>FreeSans</family>
                   <pointsize>8</pointsize>
                   <bold>false</bold>
                  </font>
@@ -3039,7 +3039,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_metaLon">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -3084,7 +3084,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                 <bold>true</bold>
                </font>
@@ -3117,7 +3117,7 @@ QLabel:disabled {
              <spacer name="verticalSpacer_3">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -3142,7 +3142,7 @@ QLabel:disabled {
           <widget class="QPushButton" name="pushButton_clearCache">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -3222,7 +3222,7 @@ QDialogButtonBox QPushButton {
           <spacer name="verticalSpacer">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -3265,7 +3265,7 @@ QDialogButtonBox QPushButton {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
      <pointsize>9</pointsize>
      <bold>false</bold>
     </font>
@@ -3612,7 +3612,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
            <bold>false</bold>
           </font>
@@ -3699,7 +3699,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -3794,7 +3794,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -3873,7 +3873,7 @@ QDialogButtonBox QPushButton {
         <spacer name="horizontalSpacer">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
           </font>
          </property>
          <property name="orientation">
@@ -3891,7 +3891,7 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_clearTrack">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -3986,7 +3986,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -4078,7 +4078,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -4170,7 +4170,7 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -4260,7 +4260,7 @@ QDialogButtonBox QPushButton {
         <widget class="QComboBox" name="comboBox_sarMode">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -4384,7 +4384,7 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:foc
         <widget class="QSpinBox" name="spinBox_sarLowerBound">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -4487,7 +4487,7 @@ QAbstractSpinBox:selected {
         <widget class="QSpinBox" name="spinBox_sarUpperBound">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -4593,7 +4593,7 @@ QAbstractSpinBox:selected {
         <widget class="QDoubleSpinBox" name="doubleSpinBox_sarTime">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>9</pointsize>
           </font>
          </property>
@@ -4699,7 +4699,7 @@ QAbstractSpinBox:selected {
         <spacer name="horizontalSpacer_2">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
           </font>
          </property>
          <property name="orientation">
@@ -4717,7 +4717,7 @@ QAbstractSpinBox:selected {
         <widget class="QPushButton" name="pushButton_showMapToolsDock">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -4797,7 +4797,7 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_showDebugConsoleDock">
          <property name="font">
           <font>
-           <family>Arial</family>
+           <family>FreeSans</family>
            <pointsize>8</pointsize>
           </font>
          </property>
@@ -4905,7 +4905,7 @@ QDialogButtonBox QPushButton {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
      <pointsize>9</pointsize>
     </font>
    </property>
@@ -5249,7 +5249,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="font">
         <font>
-         <family>Consolas</family>
+         <family>FreeSans</family>
          <pointsize>8</pointsize>
          <bold>false</bold>
         </font>
@@ -5306,7 +5306,7 @@ QTextEdit:selected {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
      <pointsize>9</pointsize>
     </font>
    </property>
@@ -5635,7 +5635,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea_2">
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
          <pointsize>10</pointsize>
         </font>
        </property>
@@ -5650,8 +5650,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>260</width>
-          <height>304</height>
+          <width>252</width>
+          <height>283</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -5674,7 +5674,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <widget class="QGroupBox" name="groupBox">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -5743,7 +5743,7 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_connectionstatus">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>9</pointsize>
                 <bold>false</bold>
                 <strikeout>false</strikeout>
@@ -5792,7 +5792,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5884,7 +5884,7 @@ QDialogButtonBox QPushButton {
              <widget class="QLabel" name="label_c_sarip">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5916,7 +5916,7 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_loaderip">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -5951,7 +5951,7 @@ QLabel:disabled {
           <widget class="QLabel" name="label_d_formImageStatus">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -5962,6 +5962,11 @@ QLabel:disabled {
          </item>
          <item>
           <widget class="Line" name="line">
+           <property name="font">
+            <font>
+             <family>FreeSans</family>
+            </font>
+           </property>
            <property name="styleSheet">
             <string notr="true">QFrame {
   border-radius: 4px;
@@ -6000,7 +6005,7 @@ QFrame[frameShape=&quot;5&quot;] {
           <widget class="QLabel" name="label_c_formImageStatus">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -6032,7 +6037,7 @@ QFrame[frameShape=&quot;5&quot;] {
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
             </font>
            </property>
            <property name="styleSheet">
@@ -6073,7 +6078,7 @@ QProgressBar::chunk:disabled {
           <widget class="QLabel" name="label_c_satcount">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
             </font>
            </property>
@@ -6105,7 +6110,7 @@ QLabel:disabled {
           <widget class="QGroupBox" name="groupBox_Loader">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -6174,7 +6179,7 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_loaderStatus">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -6221,7 +6226,7 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -6266,7 +6271,7 @@ QProgressBar::chunk:disabled {
           <spacer name="verticalSpacer_2">
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>10</pointsize>
             </font>
            </property>
@@ -6309,7 +6314,7 @@ QProgressBar::chunk:disabled {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
     </font>
    </property>
    <property name="styleSheet">
@@ -6350,7 +6355,7 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6386,7 +6391,7 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
          <bold>true</bold>
         </font>
        </property>
@@ -6404,7 +6409,7 @@ QMainWindow::separator {
       <spacer name="horizontalSpacer_4">
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="orientation">
@@ -6434,7 +6439,7 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6486,7 +6491,7 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6526,7 +6531,7 @@ QPushButton:pressed {
       <spacer name="horizontalSpacer_6">
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="orientation">
@@ -6565,7 +6570,7 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6617,7 +6622,7 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6675,7 +6680,7 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="styleSheet">
@@ -6726,7 +6731,7 @@ QPushButton:pressed {
    </property>
    <property name="font">
     <font>
-     <family>Arial</family>
+     <family>FreeSans</family>
     </font>
    </property>
    <property name="styleSheet">
@@ -7060,7 +7065,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea_3">
        <property name="font">
         <font>
-         <family>Arial</family>
+         <family>FreeSans</family>
         </font>
        </property>
        <property name="widgetResizable">
@@ -7071,8 +7076,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>258</width>
-          <height>143</height>
+          <width>250</width>
+          <height>123</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -7101,7 +7106,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
            </property>
            <property name="font">
             <font>
-             <family>Arial</family>
+             <family>FreeSans</family>
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
@@ -7152,7 +7157,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
              <widget class="QCheckBox" name="checkBox">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -7239,7 +7244,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <widget class="QCheckBox" name="checkBox_drawTooltip">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -7332,7 +7337,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -7425,7 +7430,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -7530,7 +7535,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                 <pointsize>8</pointsize>
                </font>
               </property>
@@ -7620,7 +7625,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <spacer name="verticalSpacer_4">
               <property name="font">
                <font>
-                <family>Arial</family>
+                <family>FreeSans</family>
                </font>
               </property>
               <property name="orientation">

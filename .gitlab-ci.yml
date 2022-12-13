@@ -46,21 +46,97 @@ astra1.6:
         name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
         paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
 
-
-#windows:
-#  stage: build
-#  tags: [windows]
-#  script:
-#    - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-#    - mkdir $CI_PROJECT_TITLE && cp $CI_PROJECT_TITLE.exe $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/iconv.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libgcc_s_seh-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libpcre2-16-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libssp-0.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libstdc++-6.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/libwinpthread-1.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/Qt5Core.dll $CI_PROJECT_TITLE
-#    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/bin/zlib1.dll $CI_PROJECT_TITLE
-#  artifacts:
-#    name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
-#    paths: [$CI_PROJECT_TITLE]
+windows:
+  stage: build
+  tags: [windows]
+  script:
+    - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_SHARED_LINKER_FLAGS="-static -static-libgcc" && cmake --build .
+    - mkdir -p $CI_PROJECT_TITLE/bin/geoservices $CI_PROJECT_TITLE/bin/imageformats $CI_PROJECT_TITLE/bin/platforms
+    - cp $CI_PROJECT_TITLE.exe $CI_PROJECT_TITLE/bin
+    - cpwinlib iconv.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libbz2-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libcfitsio-3.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libcharset-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libcrypto-1_1-x64.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libcurl-4.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libexpat-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libfreetype-6.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libfreexl-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgcc_s_seh-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgdal-29.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgeos-3.9.2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgeos_c-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgeotiff-5.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgif-7.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libglib-2.0-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libgta-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libharfbuzz-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libidn2-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libintl-8.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libjasper-4.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libjpeg-62.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libkmlbase.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libkmldom.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libkmlengine.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib liblzma-5.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libminizip-3.0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libopenjp2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libpcre-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libpcre2-16-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libpng16-16.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libpq.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libproj_8_2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib librttopo-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libspatialite-4.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libsqlite3-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libssh2-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libssl-1_1-x64.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libssp-0.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libstdc++-6.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libtiff-5.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib liburiparser-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libwebp-7.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libwinpthread-1.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libxml2-2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib libzstd.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Charts.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Core.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Gui.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Location.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Multimedia.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5MultimediaQuick.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Network.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5OpenGL.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Positioning.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5PositioningQuick.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Qml.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QmlModels.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QmlWorkerScript.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Quick.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QuickControls2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QuickShapes.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QuickTemplates2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5QuickWidgets.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Svg.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5Widgets.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib Qt5WinExtras.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib qwt-qt5.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib SDL2.dll $CI_PROJECT_TITLE/bin
+    - cpwinlib zlib1.dll $CI_PROJECT_TITLE/bin
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/geoservices/qtgeoservices_osm.dll $CI_PROJECT_TITLE/bin/geoservices
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/imageformats/qjpeg.dll $CI_PROJECT_TITLE/bin/imageformats
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/imageformats/qsvg.dll $CI_PROJECT_TITLE/bin/imageformats
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/platforms/qwindows.dll $CI_PROJECT_TITLE/bin/platforms
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/Qt $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtCharts $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtGraphicalEffects $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtLocation $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtMultimedia $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtPositioning $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtQml $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtQuick $CI_PROJECT_TITLE/bin
+    - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtQuick.2 $CI_PROJECT_TITLE/bin
+    - cp -r settings $CI_PROJECT_TITLE
+  artifacts:
+    name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
+    paths: [$CI_PROJECT_TITLE]

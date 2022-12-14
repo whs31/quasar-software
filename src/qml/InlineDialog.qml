@@ -45,8 +45,7 @@ Rectangle {
         highlighted: false
         anchors.rightMargin: -2;
         onClicked: {
-            //marker
-            console.log("click");
+            //marker flag
             markerModel.remove(index);
         }
     }

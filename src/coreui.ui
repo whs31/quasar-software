@@ -839,7 +839,7 @@ QAbstractScrollArea:disabled {
           <x>0</x>
           <y>0</y>
           <width>371</width>
-          <height>566</height>
+          <height>551</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -5506,7 +5506,7 @@ QTextEdit:selected {
   <widget class="QDockWidget" name="networkDock">
    <property name="minimumSize">
     <size>
-     <width>260</width>
+     <width>300</width>
      <height>94</height>
     </size>
    </property>
@@ -5848,6 +5848,12 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        <property name="frameShape">
         <enum>QFrame::NoFrame</enum>
        </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustToContents</enum>
+       </property>
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
@@ -5856,8 +5862,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>252</width>
-          <height>297</height>
+          <width>292</width>
+          <height>283</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -7282,7 +7288,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>250</width>
+          <width>290</width>
           <height>123</height>
          </rect>
         </property>

@@ -384,7 +384,7 @@ void CoreUI::on_settingsButton_clicked()
 
 void CoreUI::on_infoButton_clicked()
 {
-    AboutDialog aboutDialog(this, SConfig::getHashString("Version"));
+    AboutDialog aboutDialog(this, PROJECT_VERSION);
     aboutDialog.exec();
 }
 

@@ -119,7 +119,9 @@ private:
     quint32 sar_upperbound = 3000;
     float sar_time = 1.0;
     float sar_dx = 1;
-    float sar_dy = 1;
+    int sar_override_gps = 0;
+    float sar_gps_height = 150;
+    float sar_gps_velocity = 100;
 
     //private methods
     void InitializeUI();
@@ -168,6 +170,9 @@ private slots:
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);
     void on_doubleSpinBox_sarDX_valueChanged(double arg1);
-    void on_doubleSpinBox_sarDY_valueChanged(double arg1);
+    void on_checkBoxEnableManualGPS_stateChanged(int arg1);
+    void on_doubleSpinBox_height_valueChanged(double arg1);
+    void on_doubleSpinBox_velocity_valueChanged(double arg1);
+    void on_pushButton_showSARConsole_clicked();
 };
 #endif // COREUI_H

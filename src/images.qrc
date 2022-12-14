@@ -285,5 +285,6 @@
         <file>ui-resources/quasarlogo/radar-logo.png</file>
         <file>ui-resources/black/close.png</file>
         <file>ui-resources/white/close.png</file>
+        <file>ui-resources/white/command-line.png</file>
     </qresource>
 </RCC>

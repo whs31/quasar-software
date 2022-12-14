@@ -204,6 +204,8 @@ void CoreUI::InitializeUI()
     InitializeDockwidgets();
 
     //any other ui startup code here!
+    ui->doubleSpinBox_height->setVisible(false);
+    ui->doubleSpinBox_velocity->setVisible(false);
 
 }
 
@@ -285,6 +287,7 @@ void CoreUI::InitializeConnections()
     Debug::Log("[STARTUP] Connections set up successfully");
 
     //execute any other startup code here
+
 }
 
 void CoreUI::InitializeDockwidgets()
@@ -296,6 +299,13 @@ void CoreUI::InitializeDockwidgets()
     ui->debugConsoleDock->move(screenResolution.width()/4, screenResolution.height()/3);
     ui->debugConsoleDock->setEnabled(false);
     ui->debugConsoleDock->setVisible(false);
+
+    ui->sarConsoleDock->setEnabled(true);
+    ui->sarConsoleDock->setVisible(true);
+    ui->sarConsoleDock->adjustSize();
+    ui->sarConsoleDock->move(screenResolution.width()/1.5, screenResolution.height()/3);
+    ui->sarConsoleDock->setEnabled(false);
+    ui->sarConsoleDock->setVisible(false);
     
     ui->mapSettingsDock->setEnabled(true);
     ui->mapSettingsDock->setVisible(true);
@@ -443,7 +453,13 @@ void CoreUI::ReadTelemetry(QByteArray data)
 void CoreUI::ReadSARConsole(QByteArray data)
 {
     QString dataStr = data.data();
-    qCritical()<<dataStr; //rework in future
+    dataStr.replace(QRegExp("[\r]"), "");
+    QStringList dataParsed = dataStr.split(QRegExp("[\n]"),QString::SkipEmptyParts);
+    for(QString str : dataParsed)
+    {
+        ui->sarConsole->append(str);
+    }
+    //qCritical()<<dataStr; //rework in future
 }
 
 void CoreUI::ReadForm(QByteArray data)
@@ -491,30 +507,41 @@ void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
 {
     sar_lowerbound = arg1;
 }
-
-
-
-
 void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
 {
     sar_upperbound = arg1;
 }
-
-
 void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
 {
     sar_time = arg1;
 }
-
-
 void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
 {
     sar_dx = arg1;
 }
-
-
-void CoreUI::on_doubleSpinBox_sarDY_valueChanged(double arg1)
+void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
 {
-    sar_dy = arg1;
-}
+    if(arg1 == 2)
+    {
+        ui->doubleSpinBox_height->setEnabled(true);
+        ui->doubleSpinBox_velocity->setEnabled(true);
+        ui->doubleSpinBox_height->setVisible(true);
+        ui->doubleSpinBox_velocity->setVisible(true);
+        sar_override_gps = 1;
+    } else {
+        ui->doubleSpinBox_height->setEnabled(false);
+        ui->doubleSpinBox_velocity->setEnabled(false);
+        ui->doubleSpinBox_height->setVisible(false);
+        ui->doubleSpinBox_velocity->setVisible(false);
+        sar_override_gps = 0;
+    }
 
+}
+void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
+{
+    sar_gps_height = arg1;
+}
+void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
+{
+    sar_gps_velocity = arg1;
+}

@@ -16,7 +16,7 @@ class TImage : public QObject
 public:
     explicit TImage(QObject *parent = nullptr);
 
-    struct metadata
+    struct Metadata
     {
         double latitude = 0;
         double longitude = 0;
@@ -41,6 +41,7 @@ public:
     qreal anglePredefinedCorrection = 0;
     qint32 index = 0;
     qreal opacity = 1;
+    bool visible = true;
 
     qreal horizontalCorrection = 0;
     qreal verticalCorrection = 0;
@@ -51,7 +52,7 @@ public:
     QString SARMarkerName = "";
     QColor SARMarkerColor = Qt::white;
 
-    struct interface
+    struct Interface
     {
         QString latitude = "";
         QString longtude = "";
@@ -68,6 +69,8 @@ public:
         QString filename = "";
         QString creationTime = "";
     };
+    Metadata meta;
+    Interface gui;
 
     void setupImage();
 

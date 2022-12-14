@@ -135,7 +135,7 @@ Rectangle {
                                                     }
                                     ', mapView, "dynamic");
         //one degree = 111 120 meters
-        item.anchorPoint.x = -x0 / dx;
+        item.anchorPoint.x = -x0;
         item.anchorPoint.y = h/2;
         item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
         if(!FStaticVariables.useBase64)
@@ -189,7 +189,7 @@ Rectangle {
             ', mapView, "dynamic");
         }
 
-        item.zoomLevel = smath.mercatorZoomLevel(dx, centerlat);
+        item.zoomLevel = smath.mercatorZoomLevel(1, centerlat);
         mapView.addMapItem(item);
         imageArray.push(item);
     }

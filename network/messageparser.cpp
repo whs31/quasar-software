@@ -57,7 +57,7 @@ std::array<double, 6> MessageParser::parseTelemetry(QByteArray data)
     return { lat, lon, spd, elv, sats, direction };
 }
 
-QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, float arg7, float arg8)
+QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9)
 {
     QString formRequest = ":";
 
@@ -74,7 +74,8 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
 
     QString _formRequest = REQUEST_FORM + "(" + arg1 + "," + QString::number(arg2) + "," + QString::number(arg3) + "," +
                                             QString::number(arg4, 'f', 1) + "," + QString::number(arg5, 'f', 1) + "," + QString::number(arg6, 'f', 1) +
-                                            "," + QString::number(arg7, 'f', 0) + "," + QString::number(arg8, 'f', 1) + ")";
+                                            "," + QString::number(arg7) +
+                                            "," + QString::number(arg8, 'f', 0) + "," + QString::number(arg9, 'f', 1) + ")";
     short strlen = _formRequest.length();
     QString hexlen;
     hexlen.setNum(strlen, 16);

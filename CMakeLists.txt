@@ -87,7 +87,9 @@ else()
         image-processing/imageprocessing.h                  image-processing/imageprocessing.cpp
         image-processing/imagemanager.h                     image-processing/imagemanager.cpp                              #rename me
         image-processing/alphamask.h                        image-processing/alphamask.cpp
-        image-processing/optimized/optimizedprocessing.h    image-processing/optimized/optimizedprocessing.cpp
+        image-processing/optimized/imagetools.h             image-processing/optimized/imagetools.cpp
+        image-processing/optimized/imagebmanager.h          image-processing/optimized/imagebmanager.cpp
+        disk/disktools.h                                    disk/disktools.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp
         func/schecksum.h                                    func/schecksum.cpp

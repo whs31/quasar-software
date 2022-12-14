@@ -7,9 +7,13 @@ class DiskTools : public QObject
 {
     Q_OBJECT
 public:
-    explicit DiskTools(QObject *parent = nullptr);
+    static DiskTools* initialize(QObject* parent); 
 
 signals:
+
+private:
+    static DiskTools* _instance;
+    explicit DiskTools(QObject *parent = nullptr);
 
 };
 

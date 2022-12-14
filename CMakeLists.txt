@@ -84,12 +84,10 @@ else()
         config/sconfig.h                                    config/sconfig.cpp
         config/settingsdialog.h                             config/settingsdialog.cpp                                      config/settingsdialog.ui
         disk/cachemanager.h                                 disk/cachemanager.cpp
-        image-processing/imageprocessing.h                  image-processing/imageprocessing.cpp
-        image-processing/imagemanager.h                     image-processing/imagemanager.cpp                              #rename me
-        image-processing/alphamask.h                        image-processing/alphamask.cpp
-        image-processing/optimized/imagetools.h             image-processing/optimized/imagetools.cpp
-        image-processing/optimized/imagebmanager.h          image-processing/optimized/imagebmanager.cpp
         disk/disktools.h                                    disk/disktools.cpp
+        disk/savethread.h                                   disk/savethread.cpp
+        image-processing/imageprocess.h                     image-processing/imageprocess.cpp
+        image-processing/imagemanager.h                     image-processing/imagemanager.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp
         func/schecksum.h                                    func/schecksum.cpp

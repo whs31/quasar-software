@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QColor>
+#include <QImage>
 
 enum AngleMode 
 {
@@ -71,6 +72,7 @@ public:
     };
     Metadata meta;
     Interface gui;
+    QImage image;
 
     void setupImage();
 

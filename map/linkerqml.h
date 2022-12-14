@@ -8,14 +8,8 @@
 class LinkerQML : public QObject
 {
 public:
-    static void initialize(QQuickItem* map);
+    static LinkerQML* initialize(QQuickItem* map);
 
-    static void clearImageArray(void);
-    static void hideImage(QVariant i);
-    static void showImage(QVariant i);
-    static void addImage(double latitude, double longitude, float dx, float dy,
-                  float x0, float y0, float angle, QString filename,
-                  float height, QString base64encoding);
     static void fixedUpdate();
     static void panGPS(void);
     static void clearRoute(void);
@@ -27,7 +21,8 @@ protected:
     static QQuickItem* map;
 
 private:
-    LinkerQML();
+    LinkerQML(QObject* parent = nullptr);
+    static LinkerQML* _instance;
 
 };
 

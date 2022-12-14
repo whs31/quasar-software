@@ -35,11 +35,8 @@ void CacheManager::initialize()
 
 void CacheManager::setupImageCache()
 {
-    pngCache = QCoreApplication::applicationDirPath()+"/appcache/pngcache";
     tcpDowloaderCache = QCoreApplication::applicationDirPath()+"/appcache/tcpdcache";
-    QDir png(pngCache);
     QDir tcp(tcpDowloaderCache);
-    if(!png.exists()) { png.mkpath(pngCache); }
     if(!tcp.exists()) { tcp.mkpath(tcpDowloaderCache); }
     SConfig::setHashValue("FlightPath", tcpDowloaderCache);
     Debug::Log("?[CACHEMANAGER] Image cache created");
@@ -53,16 +50,12 @@ void CacheManager::clearImageCache(ClearMode mode)
         if(tcp.exists()) { tcp.removeRecursively(); }
     }
     if(mode == ClearMode::ClearAll || mode == ClearMode::ClearPNG)
-    {
-        QDir png(pngCache);
-        if(png.exists()) { png.removeRecursively(); }
-    }
+    {}
     Debug::Log("[CACHEMANAGER] Cache cleared");
     setupImageCache();
 }
 
 QString CacheManager::getTcpDowloaderCache() { return CacheManager::tcpDowloaderCache; }
-QString CacheManager::getPngCache() { return CacheManager::pngCache; }
 QString CacheManager::getMapProviderCache() { return mapProviderCache; }
 QString CacheManager::getTileServerCache() { return tileServerCache; }
 QString CacheManager::getDynamicResourcesCache() { return dynamicResourcesCache; }
@@ -72,6 +65,6 @@ CacheManager::CacheManager()
 {
     initialize();
     setupImageCache();
-    Debug::Log("?[CACHEMANAGER] .png directory: "+CacheManager::pngCache);
     Debug::Log("?[CACHEMANAGER] TCP Downloader directory: "+CacheManager::tcpDowloaderCache);
+    DiskTools::initialize(initializeCache());
 }

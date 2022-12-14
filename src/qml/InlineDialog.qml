@@ -47,6 +47,7 @@ Rectangle {
         onClicked: {
             //marker flag
             markerModel.remove(index);
+            MarkerManager.removeMarker(index);
         }
     }
 }

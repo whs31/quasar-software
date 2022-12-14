@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1175</width>
-    <height>525</height>
+    <height>690</height>
    </rect>
   </property>
   <property name="font">
@@ -838,8 +838,8 @@ QAbstractScrollArea:disabled {
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>371</width>
-          <height>551</height>
+          <width>379</width>
+          <height>567</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -4475,6 +4475,9 @@ QAbstractSpinBox:selected {
          <property name="suffix">
           <string> м</string>
          </property>
+         <property name="prefix">
+          <string>x0: </string>
+         </property>
          <property name="maximum">
           <number>2000</number>
          </property>
@@ -4578,6 +4581,9 @@ QAbstractSpinBox:selected {
          <property name="suffix">
           <string> м</string>
          </property>
+         <property name="prefix">
+          <string>lx: </string>
+         </property>
          <property name="minimum">
           <number>500</number>
          </property>
@@ -4676,106 +4682,8 @@ QAbstractSpinBox:selected {
   color: #455364;
 }</string>
          </property>
-         <property name="suffix">
-          <string> м</string>
-         </property>
-         <property name="minimum">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="maximum">
-          <double>10.000000000000000</double>
-         </property>
-         <property name="singleStep">
-          <double>0.100000000000000</double>
-         </property>
-         <property name="value">
-          <double>1.000000000000000</double>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QDoubleSpinBox" name="doubleSpinBox_sarDY">
-         <property name="font">
-          <font>
-           <family>Arial</family>
-           <pointsize>9</pointsize>
-           <italic>false</italic>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #346792;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
-}
-
-QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
-}</string>
+         <property name="prefix">
+          <string>dx: </string>
          </property>
          <property name="suffix">
           <string> м</string>
@@ -4884,6 +4792,9 @@ QAbstractSpinBox:selected {
          <property name="showGroupSeparator" stdset="0">
           <bool>false</bool>
          </property>
+         <property name="prefix">
+          <string>ts: </string>
+         </property>
          <property name="suffix">
           <string> с</string>
          </property>
@@ -4898,6 +4809,274 @@ QAbstractSpinBox:selected {
          </property>
          <property name="value">
           <double>1.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkBoxEnableManualGPS">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QCheckBox {
+  background-color: #313131;
+  color: #D8d8d8;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #2a2c39;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Задать навигационные данные</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_height">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QAbstractSpinBox {
+  background-color: #313131;
+  border: 1px solid #929292;
+  color: #E0E1E3;
+  /* This fixes 103, 111 */
+  padding-top: 2px;
+  /* This fixes 103, 111 */
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+  /* min-width: 5px; removed to fix 109 */
+}
+
+QAbstractSpinBox:up-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: top right;
+  border-left: 1px solid #929292;
+  border-bottom: 1px solid #929292;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-bottom: -1px;
+}
+
+QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
+  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::up-arrow:hover {
+  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
+}
+
+QAbstractSpinBox:down-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: bottom right;
+  border-left: 1px solid #929292;
+  border-top: 1px solid #929292;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-top: -1px;
+}
+
+QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
+  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::down-arrow:hover {
+  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
+}
+
+QAbstractSpinBox:hover {
+  border: 1px solid #346792;
+  color: #E0E1E3;
+}
+
+QAbstractSpinBox:focus {
+  border: 1px solid #1A72BB;
+}
+
+QAbstractSpinBox:selected {
+  background: #346792;
+  color: #455364;
+}</string>
+         </property>
+         <property name="prefix">
+          <string>Высота: </string>
+         </property>
+         <property name="suffix">
+          <string> м</string>
+         </property>
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <double>3000.000000000000000</double>
+         </property>
+         <property name="singleStep">
+          <double>10.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>150.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_velocity">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QAbstractSpinBox {
+  background-color: #313131;
+  border: 1px solid #929292;
+  color: #E0E1E3;
+  /* This fixes 103, 111 */
+  padding-top: 2px;
+  /* This fixes 103, 111 */
+  padding-bottom: 2px;
+  padding-left: 4px;
+  padding-right: 4px;
+  border-radius: 4px;
+  /* min-width: 5px; removed to fix 109 */
+}
+
+QAbstractSpinBox:up-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: top right;
+  border-left: 1px solid #929292;
+  border-bottom: 1px solid #929292;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-bottom: -1px;
+}
+
+QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
+  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::up-arrow:hover {
+  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
+}
+
+QAbstractSpinBox:down-button {
+  background-color: transparent #19232D;
+  subcontrol-origin: border;
+  subcontrol-position: bottom right;
+  border-left: 1px solid #929292;
+  border-top: 1px solid #929292;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin: 1px;
+  width: 12px;
+  margin-top: -1px;
+}
+
+QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
+  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
+  height: 8px;
+  width: 8px;
+}
+
+QAbstractSpinBox::down-arrow:hover {
+  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
+}
+
+QAbstractSpinBox:hover {
+  border: 1px solid #346792;
+  color: #E0E1E3;
+}
+
+QAbstractSpinBox:focus {
+  border: 1px solid #1A72BB;
+}
+
+QAbstractSpinBox:selected {
+  background: #346792;
+  color: #455364;
+}</string>
+         </property>
+         <property name="prefix">
+          <string>Скорость: </string>
+         </property>
+         <property name="suffix">
+          <string> км/ч</string>
+         </property>
+         <property name="maximum">
+          <double>500.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>100.000000000000000</double>
          </property>
         </widget>
        </item>
@@ -5863,7 +6042,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>292</width>
-          <height>283</height>
+          <height>297</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">

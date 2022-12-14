@@ -41,6 +41,7 @@ public:
     qreal anglePredefinedCorrection = 0;
     qint32 index = 0;
     qreal opacity = 1;
+    bool visible = true;
 
     qreal horizontalCorrection = 0;
     qreal verticalCorrection = 0;

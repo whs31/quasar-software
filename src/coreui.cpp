@@ -204,6 +204,8 @@ void CoreUI::InitializeUI()
     InitializeDockwidgets();
 
     //any other ui startup code here!
+    ui->doubleSpinBox_height->setVisible(false);
+    ui->doubleSpinBox_velocity->setVisible(false);
 
 }
 
@@ -491,30 +493,40 @@ void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
 {
     sar_lowerbound = arg1;
 }
-
-
-
-
 void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
 {
     sar_upperbound = arg1;
 }
-
-
 void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
 {
     sar_time = arg1;
 }
-
-
 void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
 {
     sar_dx = arg1;
 }
-
-
-void CoreUI::on_doubleSpinBox_sarDY_valueChanged(double arg1)
+void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
 {
-    sar_dy = arg1;
+    if(arg1 == 2)
+    {
+        ui->doubleSpinBox_height->setEnabled(true);
+        ui->doubleSpinBox_velocity->setEnabled(true);
+        ui->doubleSpinBox_height->setVisible(true);
+        ui->doubleSpinBox_velocity->setVisible(true);
+    } else {
+        ui->doubleSpinBox_height->setEnabled(false);
+        ui->doubleSpinBox_velocity->setEnabled(false);
+        ui->doubleSpinBox_height->setVisible(false);
+        ui->doubleSpinBox_velocity->setVisible(false);
+    }
+
+}
+void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
+{
+    sar_gps_height = arg1;
+}
+void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
+{
+    sar_gps_velocity = arg1;
 }
 

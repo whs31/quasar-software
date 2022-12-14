@@ -36,24 +36,36 @@ MapQuickItem {
             smooth: true;
             source: m_qrc;
             visible: true;
-
-            MouseArea {
+        }
+        MouseArea {
                 id: markerMouseArea;
                 propagateComposedEvents: true;
-                anchors.fill: parent;
+                anchors.left: markerSource.left;
+                anchors.leftMargin: -5;
+                anchors.right: markerSource.right;
+                anchors.rightMargin: -5;
+                anchors.bottom: markerSource.bottom;
+                anchors.bottomMargin: -5;
+                anchors.top: markerSource.top;
                 anchors.topMargin: -20;
-                anchors.leftMargin: -20;
-                anchors.rightMargin: -20;
                 hoverEnabled: true;
                 onEntered: {
                     dialogFadeIn.start();
+                    markerDialog.visible = true;
                     markerDialog.enabled = true;
                 }
                 onExited: {
-                    dialogTimer.restart();
+                    dialogFadeOut.start();
+                    //markerDialog.visible = false;
+                    markerDialog.enabled = false;
+                    //dialogTimer.start();
+                }
+                Rectangle { //hitbox
+                    anchors.fill: parent
+                    color: "#FF0000";
+                    visible: false;
                 }
             }
-        }
         ColorOverlay {
             id: markerOverlay;
             anchors.fill: markerSource;
@@ -86,7 +98,8 @@ MapQuickItem {
         InlineDialog {
             id: markerDialog;
             opacity: 0;
-            enabled: true;
+            enabled: false;
+            visible: false;
             anchors.bottom: markerSource.top;
             anchors.bottomMargin: 2;
             anchors.horizontalCenter: markerSource.horizontalCenter;
@@ -94,18 +107,18 @@ MapQuickItem {
                 id: dialogFadeIn;
                 from: 0;
                 to: 1;
-                duration: 500;
+                duration: 300;
                 easing.type: Easing.Linear;
             }
             NumberAnimation on opacity {
                 id: dialogFadeOut;
                 from: 1;
                 to: 0;
-                duration: 500;
+                duration: 300;
                 easing.type: Easing.Linear;
             }
         }
-        Timer { id: dialogTimer; interval: 1000; running: false; onTriggered: {                     dialogFadeOut.start(); markerDialog.enabled = false; }}
+        //Timer { id: dialogTimer; interval: 1000; running: false; onTriggered: {   console.log("timeout");                  dialogFadeOut.start(); markerDialog.enabled = false; }}
 
     }
 }

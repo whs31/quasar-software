@@ -347,6 +347,12 @@ Rectangle {
             //preventStealing: true; //never enable it, or gestures will be broken 
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
+            onEntered: {
+                mapHoverCoordinatesTooltip.visible = true;
+            }
+            onExited: {
+                mapHoverCoordinatesTooltip.visible = false;
+            }
             onPositionChanged: {
                 changeTooltipPosition();
                 if(r_currentstate === 2)

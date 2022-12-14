@@ -33,7 +33,7 @@ Rectangle {
         font.family: "Arial"
         font.bold: true
         Material.background: Material.Red
-
+        hoverEnabled: false;
         scale: 1
         z: 100
         display: AbstractButton.IconOnly
@@ -46,6 +46,8 @@ Rectangle {
         anchors.rightMargin: -2;
         onClicked: {
             //marker
+            console.log("click");
+            markerModel.remove(index);
         }
     }
 }

@@ -29,7 +29,8 @@ MapQuickItem {
     opacity: m_opacity;
     property alias m_lx: imageRotation.origin.x;
     property alias m_ly: imageRotation.origin.y;
-    property alias m_angle: imageRotation.angle;
+    //property alias m_angle: imageRotation.angle;
+    Component.onCompleted: console.log(m_angle);
     coordinate: QtPositioning.coordinate(m_lat, m_lon);
     sourceItem: Item {
         Image {
@@ -39,7 +40,7 @@ MapQuickItem {
                 id: imageRotation;
                 origin.x: 0;
                 origin.y: 0;
-                angle: 0;
+                angle: m_angle;
             }
             smooth: true;
             source: "data:image/png;base64," + m_base64;

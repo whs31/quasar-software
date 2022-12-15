@@ -79,7 +79,15 @@ MapQuickItem {
 //                    visible: false;
 //                }
 //            }
-        
+//        SARDialog {
+//            id: sarDialog;
+//            enabled: true;
+//            visible: true;
+//            opacity: 1;
+//            anchors.top: imageSource.bottom;
+//            anchors.topMargin: 5;
+//            anchors.horizontalCenter: imageSource.horizontalCenter;
+//        }
     }
 }
 

@@ -126,7 +126,5 @@ MapQuickItem {
                 easing.type: Easing.Linear;
             }
         }
-        //Timer { id: dialogTimer; interval: 1000; running: false; onTriggered: {   console.log("timeout");                  dialogFadeOut.start(); markerDialog.enabled = false; }}
-
     }
 }

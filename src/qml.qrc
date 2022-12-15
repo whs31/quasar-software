@@ -11,5 +11,6 @@
         <file>qml/Marker.qml</file>
         <file>qml/MenuImages.qml</file>
         <file>qml/SARImage.qml</file>
+        <file>qml/SARDialog.qml</file>
     </qresource>
 </RCC>

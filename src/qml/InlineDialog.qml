@@ -11,9 +11,9 @@ Rectangle {
     width: 45
     height: 15
     opacity: 0.6;
-    color: "#121212";
+    color: "#22292a";
     radius: 5;
-    border.color: "#777777";
+    border.color: "#2a3334";
     z: 100;
 
     RoundButton {
@@ -37,7 +37,7 @@ Rectangle {
         scale: 1
         z: 100
         display: AbstractButton.IconOnly
-        icon.color: "#ffffff"
+        icon.color: "#fff5ee"
         icon.source: "../ui-resources/white/close.png"
         icon.width: 8
         icon.height: 8

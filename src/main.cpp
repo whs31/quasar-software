@@ -1,3 +1,11 @@
+/*  Main #354041
+    Dark #2a3334 
+    Darker #22292a
+    Text #fff5ee
+
+
+*/
+
 #include <QWidget>
 #include <QApplication>
 #include <QDateTime>

@@ -112,25 +112,10 @@ Rectangle {
     //===========================================================================================================================================================================================
     //===========================================================================================================================================================================================
 
-    //--------------------------SAR images-------------------------------------------{
-    function addImage(meta, gui, base64: string, ChecksumSuccess: bool)
-    {
-        imageModel.append({     "m_lat": meta[0], 
-                                "m_lon": meta[1], 
-                                "m_x0": meta[4], 
-                                "m_y0": meta[5], 
-                                "m_width": meta[9], 
-                                "m_height": meta[10],
-                                "m_angle": meta[6],
-                                "m_base64": base64,
-                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
-                            });
-    }
-
     function panImage(filecounter)
     {
         console.log("[QML] Map centered on image");
-        mapView.center = imageArray[filecounter].coordinate;
+        mapView.center = imageModel.count.coordinate;
         fc = filecounter;
     }
     //-------------------------------------------------------------------------------}
@@ -244,6 +229,38 @@ Rectangle {
         r2MapItem.visible = false;
     }
 
+    function addImage(meta, gui, base64: string, checksumSuccess: bool)
+    {
+        imageModel.append({     "m_lat": meta[0],
+                                "m_lon": meta[1],
+                                "m_x0": meta[4],
+                                "m_y0": meta[5],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_angle": meta[6],
+                                "m_base64": base64,
+                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
+                            });
+        imageUIModel.append({   "m_lat": meta[0],
+                                "m_lon": meta[1],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_latitude": gui[0],
+                                "m_longitude": gui[1],
+                                "m_dx": gui[2],
+                                "m_dy": gui[3],
+                                "m_x0": gui[4],
+                                "m_y0": gui[5],
+                                "m_angle": gui[6],
+                                "m_driftAngle": gui[7],
+                                "m_azimuth": gui[10],
+                                "m_hash": gui[11],
+                                "m_filename": gui[12],
+                                "m_datetime": gui[13],
+                                "m_checksumMatch": checksumSuccess ? "да" : "нет"
+                            });
+    }
+
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
                                 "m_color": String(col), 
@@ -256,13 +273,9 @@ Rectangle {
                             });
     }
 
-    ListModel {
-        id: imageModel;
-    }
-
-    ListModel {
-        id: markerModel;
-    }
+    ListModel { id: imageModel; }
+    ListModel { id: imageUIModel; }
+    ListModel { id: markerModel; }
     
     property bool markerPlacementCursorChange: false;
 
@@ -384,6 +397,31 @@ Rectangle {
             }
             delegate: SARImage { }
         }
+
+        MapItemView
+        {
+            model: imageUIModel;
+            add: Transition {
+                    NumberAnimation {
+                        property: "m_opacity";
+                        from: 0;
+                        to: 1;
+                        duration: 2000;
+                        easing.type: Easing.OutCubic;
+                    }
+            }
+            remove: Transition {
+                        NumberAnimation {
+                            property: "m_opacity";
+                            from: 1;
+                            to: 0;
+                            duration: 2000;
+                            easing.type: Easing.OutCubic;
+                        }
+            }
+            delegate: SARDialog { }
+        }
+
 
         MapItemView
         {

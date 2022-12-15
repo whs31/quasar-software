@@ -29,6 +29,7 @@ public:
 
     QString cachedJPEGfilename = ""; //check
     QString base64 = ""; 
+    qreal realHeight = 0;
     
     bool checksumMatch = false; //check
     

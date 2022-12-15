@@ -34,7 +34,7 @@ void LinkerQML::addModel(TImage &image)
                                  image.meta.driftAngle,
                                  image.meta.thetaAzimuth,
                                  image.meta.lx,
-                                 image.meta.ly
+                                 image.realHeight
                               };
     QStringList guilist =     {  image.gui.latitude,
                                  image.gui.longitude,

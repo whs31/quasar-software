@@ -26,7 +26,6 @@ MapQuickItem {
     zoomLevel: m_zoom;
     property real m_opacity: 1;
     opacity: m_opacity;
-    Component.onCompleted: console.log(m_height);
     coordinate: QtPositioning.coordinate(m_lat, m_lon);
     sourceItem: Item {
         Image {
@@ -41,6 +40,15 @@ MapQuickItem {
             smooth: true;
             source: "data:image/png;base64," + m_base64;
             visible: true;
+            DropShadow {
+                anchors.fill: imageSource;
+                horizontalOffset: 50;
+                verticalOffset: 50;
+                radius: 8.0;
+                samples: 17;
+                color: "#000000";
+                source: imageSource;
+            }
         }
 //        MouseArea {
 //                id: markerMouseArea;
@@ -71,15 +79,7 @@ MapQuickItem {
 //                    visible: false;
 //                }
 //            }
-//        DropShadow {
-//            anchors.fill: markerOverlay;
-//            horizontalOffset: 5;
-//            verticalOffset: 5;
-//            radius: 8.0;
-//            samples: 17;
-//            color: "#000000";
-//            source: markerOverlay;
-//        }
+        
     }
 }
 

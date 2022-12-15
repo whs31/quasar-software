@@ -36,7 +36,7 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
             return;
         }
         imageProcess.assignUIStrings(*image, filename);
-        image->image = imageProcess.dataToImage(data, ImageMode::Raw);
+        image->image = imageProcess.dataToImage(data, ImageMode::GeometricAlphaMask, *image);
         image->base64 = imageProcess.imageToBase64(image->image);
 
         //append to vector when all functions which changing image is called 

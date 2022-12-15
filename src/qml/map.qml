@@ -115,6 +115,7 @@ Rectangle {
     //--------------------------SAR images-------------------------------------------{
     function addImage(meta, gui, base64: string, ChecksumSuccess: bool)
     {
+        console.log(gui);
         imageModel.append({     "m_lat": meta[0], 
                                 "m_lon": meta[1], 
                                 "m_x0": meta[4], 

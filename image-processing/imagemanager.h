@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QVector>
+#include <QSaveFile> //delete later
 
 #include "models/timage.h"
 #include "imageprocess.h"

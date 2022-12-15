@@ -31,7 +31,7 @@ public:
     bool decode(QByteArray data, TImage& image);
     void assignUIStrings(TImage& image, QString filename);
     QImage dataToImage(QByteArray data, ImageMode mode);
-    QString imageToBase64(QImage image);
+    QString imageToBase64(QImage& image);
 
 signals:
 

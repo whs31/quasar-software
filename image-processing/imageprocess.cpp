@@ -64,7 +64,8 @@ void ImageProcess::assignUIStrings(TImage& image, QString filename)
 
 QImage ImageProcess::dataToImage(QByteArray data, ImageMode mode)
 {
-    QImage qimage = QImage::fromData(data,"PNG");
+    data.reserve(sizeof(data));
+    QImage qimage = QImage::fromData(data,"JPEG");
     if(mode == ImageMode::Raw)
         return qimage;
     else if (mode == ImageMode::GeometricAlphaMask)
@@ -75,7 +76,7 @@ QImage ImageProcess::dataToImage(QByteArray data, ImageMode mode)
     return QImage();
 }
 
-QString ImageProcess::imageToBase64(QImage image)
+QString ImageProcess::imageToBase64(QImage& image)
 {
     QByteArray arr;
     QBuffer buffer(&arr);

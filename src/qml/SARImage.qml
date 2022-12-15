@@ -51,43 +51,36 @@ MapQuickItem {
             }
         }
 //        MouseArea {
-//                id: markerMouseArea;
+//                id: sarMouseArea;
 //                propagateComposedEvents: true;
-//                anchors.left: markerSource.left;
+//                anchors.left: imageSource.left;
 //                anchors.leftMargin: -5;
-//                anchors.right: markerSource.right;
+//                anchors.right: imageSource.right;
 //                anchors.rightMargin: -5;
-//                anchors.bottom: markerSource.bottom;
+//                anchors.bottom: imageSource.bottom;
 //                anchors.bottomMargin: -5;
-//                anchors.top: markerSource.top;
-//                anchors.topMargin: -20;
+//                anchors.top: imageSource.top;
+//                anchors.topMargin: -5;
 //                hoverEnabled: true;
+//                transform: Rotation {
+//                    id: areaRotation;
+//                    origin.x: -m_x0;
+//                    origin.y: m_height / 2;
+//                    angle: m_angle;
+//                }
 //                onEntered: {
-//                    dialogFadeIn.start();
-//                    markerDialog.visible = true;
-//                    markerDialog.enabled = true;
+//                    //imageUIModel.get(index).sardialogFadeIn.start();
+//                    imageUIModel.set(index, {visible: true});
+//                    //imageUIModel.setProperty(index, "enabled", true);
+//                    console.log(index);
 //                }
 //                onExited: {
-//                    dialogFadeOut.start();
-//                    //markerDialog.visible = false;
-//                    markerDialog.enabled = false;
-//                    //dialogTimer.start();
-//                }
-//                Rectangle { //hitbox
-//                    anchors.fill: parent
-//                    color: "#FF0000";
-//                    visible: false;
+//                    //imageUIModel.get(index).sardialogFadeOut.start();
+//                    imageUIModel.set(index, {visible: true});
+//                    //imageUIModel.setProperty(index, "enabled", false);
+//                    console.log(index);
 //                }
 //            }
-//        SARDialog {
-//            id: sarDialog;
-//            enabled: true;
-//            visible: true;
-//            opacity: 1;
-//            anchors.top: imageSource.bottom;
-//            anchors.topMargin: 5;
-//            anchors.horizontalCenter: imageSource.horizontalCenter;
-//        }
     }
 }
 

@@ -115,7 +115,8 @@ Rectangle {
     function panImage(filecounter)
     {
         console.log("[QML] Map centered on image");
-        mapView.center = imageModel.count.coordinate;
+        var coords = QtPositioning.coordinate(imageModel.get(imageModel.count - 1).m_lat, imageModel.get(imageModel.count - 1).m_lon);
+        mapView.center = coords;
         fc = filecounter;
     }
     //-------------------------------------------------------------------------------}
@@ -231,16 +232,6 @@ Rectangle {
 
     function addImage(meta, gui, base64: string, checksumSuccess: bool)
     {
-        imageModel.append({     "m_lat": meta[0],
-                                "m_lon": meta[1],
-                                "m_x0": meta[4],
-                                "m_y0": meta[5],
-                                "m_width": meta[9],
-                                "m_height": meta[10],
-                                "m_angle": meta[6],
-                                "m_base64": base64,
-                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
-                            });
         imageUIModel.append({   "m_lat": meta[0],
                                 "m_lon": meta[1],
                                 "m_width": meta[9],
@@ -258,6 +249,18 @@ Rectangle {
                                 "m_filename": gui[12],
                                 "m_datetime": gui[13],
                                 "m_checksumMatch": checksumSuccess ? "да" : "нет"
+                            });
+        imageModel.append({     "m_lat": meta[0],
+                                "m_lon": meta[1],
+                                "m_x0": meta[4],
+                                "m_y0": meta[5],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_angle": meta[6],
+                                "m_base64": base64,
+                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
                             });
     }
 

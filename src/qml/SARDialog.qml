@@ -15,19 +15,48 @@ MapQuickItem {
     zoomLevel: 0;
     anchorPoint.x: 0;
     anchorPoint.y: 0;
-    property real m_opacity: 1;
+    property real m_opacity: 0.5;
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(m_lat, m_lon);
     sourceItem: Rectangle {
         id: sarDialogBase;
-        width: column.width + 25;
-        height: column.height + 25;
-        opacity: 0.65
+        width: childrenRect.width + 10;
+        height: childrenRect.height + 10;
+        opacity: 0.4
         color: "#22292a";
         radius: 10;
         border.color: "#2a3334";
         z: 100;
 
+//        MouseArea {
+//            id: sarDialogMouseArea;
+//            propagateComposedEvents: true;
+//            anchors.left: sarDialogBase.left;
+//            anchors.leftMargin: -5;
+//            anchors.right: sarDialogBase.right;
+//            anchors.rightMargin: -5;
+//            anchors.bottom: sarDialogBase.bottom;
+//            anchors.bottomMargin: -5;
+//            anchors.top: sarDialogBase.top;
+//            anchors.topMargin: -5;
+//            hoverEnabled: true;
+//            onEntered: {
+//                //sardialogFadeIn.start();
+//                sarUI.visible = true;
+//                //sarUI.enabled = true;
+//            }
+//            onExited: {
+//                //sardialogFadeOut.start();
+//                //markerDialog.visible = false;
+//                //sarUI.enabled = false;
+//                //dialogTimer.start();
+//            }
+//            Rectangle { //hitbox
+//                anchors.fill: parent
+//                color: "#FF00FF";
+//                visible: false;
+//            }
+//        }
         Column {
             id: column
             anchors.left: parent.left
@@ -151,5 +180,19 @@ MapQuickItem {
                 font.italic: true
             }
         }
+    }
+    NumberAnimation on opacity {
+        id: sardialogFadeIn;
+        from: 0;
+        to: 1;
+        duration: 300;
+        easing.type: Easing.Linear;
+    }
+    NumberAnimation on opacity {
+        id: sardialogFadeOut;
+        from: 1;
+        to: 0;
+        duration: 300;
+        easing.type: Easing.Linear;
     }
 }

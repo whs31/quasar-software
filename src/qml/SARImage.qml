@@ -19,18 +19,14 @@ MapQuickItem {
 //        markerRemove(index);
 //        markerModel.remove(index);
 //    }
-
     id: sarimage;
     anchorPoint.x: -m_x0;
-    anchorPoint.y: m_ly / 2;
+    anchorPoint.y: m_height / 2;
     z: 2;
     zoomLevel: m_zoom;
     property real m_opacity: 1;
     opacity: m_opacity;
-    property alias m_lx: imageRotation.origin.x;
-    property alias m_ly: imageRotation.origin.y;
-    //property alias m_angle: imageRotation.angle;
-    Component.onCompleted: console.log(m_angle);
+    Component.onCompleted: console.log(m_height);
     coordinate: QtPositioning.coordinate(m_lat, m_lon);
     sourceItem: Item {
         Image {
@@ -38,8 +34,8 @@ MapQuickItem {
             layer.enabled: true;
             transform: Rotation {
                 id: imageRotation;
-                origin.x: 0;
-                origin.y: 0;
+                origin.x: -m_x0;
+                origin.y: m_height / 2;
                 angle: m_angle;
             }
             smooth: true;

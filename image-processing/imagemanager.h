@@ -2,10 +2,12 @@
 #define IMAGEMANAGER_H
 
 #include <QObject>
+#include <QVector>
 
 #include "models/timage.h"
 #include "imageprocess.h"
 #include "disktools.h"
+#include "linkerqml.h"
 
 class ImageManager : public QObject
 {
@@ -19,6 +21,8 @@ signals:
 private:
     explicit ImageManager(QObject *parent = nullptr);
     static ImageManager* _instance;
+    static QVector<TImage*> imageList;
+
     static bool checkVector(QString filename);
 };
 

@@ -39,9 +39,8 @@ void DiskTools::fetchDirectory()
     {
         for (QString filename : initialFileList)
         {
-            QStringList cutFilename;
-            cutFilename = filename.split("/");
-            ImageManager::newImage(cutFilename.last(), convertToRawData(filename));
+            
+            ImageManager::newImage(filename, convertToRawData(filename));
         }
     } else {
         Debug::Log("![IMG] Directory is empty, throwing warning window...");

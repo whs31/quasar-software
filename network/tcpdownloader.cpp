@@ -35,7 +35,7 @@ void TCPDownloader::clientDisconnected(void)
     socket->close();
     timer->stop();
     (fileSize == imageData.size()) ? Debug::Log("?[SERVER] Image fully received from SAR") : Debug::Log("![SERVER] Something went wrong in receiving SAR image");
-    if(_mode == 2) { ImageManager::newImage(filename, imageData); }
+    if(_mode == 2) { ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData); }
     emit receivingFinished();
 }
 void TCPDownloader::serverRead(void)

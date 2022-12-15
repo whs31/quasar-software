@@ -22,3 +22,7 @@ void LinkerQML::addModel(TMarker &marker)
     QMetaObject::invokeMethod(map, "addMarker", Q_ARG(QString, marker.name), Q_ARG(QColor, marker.color), Q_ARG(QString, marker.iconPath), Q_ARG(qreal, marker.latitude),
                                                 Q_ARG(qreal, marker.longitude), Q_ARG(qreal, marker.anchorX), Q_ARG(qreal, marker.anchorY), Q_ARG(qreal, marker.zoomLevel));
 }
+void LinkerQML::addModel(TImage &image)
+{
+    qCritical()<<image.gui.creationTime<<"  "<<image.gui.filename;
+}

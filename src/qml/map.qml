@@ -710,6 +710,14 @@ Rectangle {
         }
 
         //left to right <<<<<<<<<
+        MenuImages
+        {
+            visible: false; //comment me
+            enabled: false; //comment me
+            anchors.left: parent.left;
+            anchors.top: parent.top;
+        }
+
         ZoomSlider 
         {
             id: zoomSliderElement;

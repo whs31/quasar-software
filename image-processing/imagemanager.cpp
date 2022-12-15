@@ -1,6 +1,7 @@
 #include "imagemanager.h"
 
 ImageManager *ImageManager::_instance = nullptr;
+QVector<TImage*> ImageManager::imageList = {};
 ImageManager::ImageManager(QObject *parent)
     : QObject{parent}
 {
@@ -14,20 +15,36 @@ ImageManager *ImageManager::initialize(QObject *parent)
     return _instance;
 }
 
-void ImageManager::newImage(QString filename, QByteArray data)
+void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
+    QStringList _cutFilename;
+    _cutFilename = filenamePath.split("/");
+    QString filename = _cutFilename.last();
     if (!checkVector(filename))
     {
         TImage *image = new TImage(initialize());
-        image->cachedJPEGfilename = filename;
+        image->index = imageList.length();
+        image->cachedJPEGfilename = filenamePath;
 
         // save thread from disktools
 
         ImageProcess imageProcess;
-        imageProcess.decode(data, *image);
-        qCritical() << image->meta.angle;
+        if(!imageProcess.decode(data, *image))
+        {
+            delete image;
+            Debug::Log("!![IMGMANAGER] Image discarded due to decoding error");
+            return;
+        }
+        imageProcess.assignUIStrings(*image, filename);
+        image->image = imageProcess.dataToImage(data, ImageMode::Raw);
+        image->base64 = imageProcess.imageToBase64(image->image);
+
+        //append to vector when all functions which changing image is called 
+        imageList.append(image);     
+        LinkerQML::addModel(*image);
+        //any logging only after it
     } else {
-        Debug::Log("[IMGMANAGER] Image " + filename + " already fetched, skipping");
+        Debug::Log("[IMGMANAGER] Image " + filenamePath + " already fetched, skipping");
     }
 }
 

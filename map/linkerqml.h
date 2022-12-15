@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QQuickItem>
 #include "models/tmarker.h"
+#include "models/timage.h"
 
 class LinkerQML : public QObject
 {
@@ -15,7 +16,8 @@ public:
     static void clearRoute(void);
     static void panImage(int filecounter);
 
-    static void addModel(TMarker &marker);
+    static void addModel(TMarker& marker);
+    static void addModel(TImage& image);
 
 protected:
     static QQuickItem* map;

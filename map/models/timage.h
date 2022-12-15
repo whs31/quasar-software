@@ -5,12 +5,6 @@
 #include <QColor>
 #include <QImage>
 
-enum AngleMode 
-{
-    Radians,
-    Degrees
-};
-
 class TImage : public QObject
 {
     Q_OBJECT
@@ -33,14 +27,12 @@ public:
         uint32_t checksum = 0;
     };
 
-    QString cachedJPEGfilename = "";
-    QString base64 = "";
+    QString cachedJPEGfilename = ""; //check
+    QString base64 = ""; 
     
-    bool checksumMatch = false;
+    bool checksumMatch = false; //check
     
-    qint32 angleMode = AngleMode::Degrees;
-    qreal anglePredefinedCorrection = 0;
-    qint32 index = 0;
+    qint32 index = 0; //check
     qreal opacity = 1;
     bool visible = true;
 
@@ -56,7 +48,7 @@ public:
     struct Interface
     {
         QString latitude = "";
-        QString longtude = "";
+        QString longitude = "";
         QString dx = "";
         QString dy = "";
         QString x0 = "";
@@ -70,9 +62,9 @@ public:
         QString filename = "";
         QString creationTime = "";
     };
-    Metadata meta;
-    Interface gui;
-    QImage image;
+    Metadata meta; //check
+    Interface gui; //check
+    QImage image; //check
 
     void setupImage();
 

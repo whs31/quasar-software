@@ -16,6 +16,14 @@ MapQuickItem {
 
 
     //property alias dialogShow: markerDialog.enabled;
+    function remove()
+    {
+        console.log(index);
+        //индекс становится равным -1 после вызова remove(index). 
+        //сначала мы делаем все действия в бэкэнде, и только после этого убираем маркер из модели
+        markerRemove(index);
+        markerModel.remove(index);
+    }
 
     id: marker
     anchorPoint.x: anchorX;

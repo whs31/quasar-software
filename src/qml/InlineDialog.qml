@@ -45,9 +45,7 @@ Rectangle {
         highlighted: false
         anchors.rightMargin: -2;
         onClicked: {
-            //marker flag
-            markerModel.remove(index);
-            MarkerManager.removeMarker(index);
+            remove();
         }
     }
 }

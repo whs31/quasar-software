@@ -33,6 +33,6 @@ void ImageProcess::decode(QByteArray data, TImage& image)
     }
     else
     {
-        Debug::Log("!![IMG] Marker error!");
+        Debug::Log("!![IMAGETOOLS] Marker error!");
     } 
 }

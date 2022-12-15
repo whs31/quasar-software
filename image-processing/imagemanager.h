@@ -19,6 +19,7 @@ signals:
 private:
     explicit ImageManager(QObject *parent = nullptr);
     static ImageManager* _instance;
+    static bool checkVector(QString filename);
 };
 
 #endif // IMAGEMANAGER_H

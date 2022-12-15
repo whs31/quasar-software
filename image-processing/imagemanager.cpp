@@ -3,7 +3,8 @@
 ImageManager *ImageManager::_instance = nullptr;
 ImageManager::ImageManager(QObject *parent)
     : QObject{parent}
-{  }
+{
+}
 
 ImageManager *ImageManager::initialize(QObject *parent)
 {
@@ -15,12 +16,23 @@ ImageManager *ImageManager::initialize(QObject *parent)
 
 void ImageManager::newImage(QString filename, QByteArray data)
 {
-    TImage* image = new TImage(initialize());
-    image->cachedJPEGfilename = filename;
+    if (!checkVector(filename))
+    {
+        TImage *image = new TImage(initialize());
+        image->cachedJPEGfilename = filename;
 
-    //save thread from disktools
-    
-    ImageProcess imageProcess;
-    imageProcess.decode(data, *image);
-    qCritical()<<image->meta.angle;
+        // save thread from disktools
+
+        ImageProcess imageProcess;
+        imageProcess.decode(data, *image);
+        qCritical() << image->meta.angle;
+    } else {
+        Debug::Log("[IMGMANAGER] Image " + filename + " already fetched, skipping");
+    }
+}
+
+bool ImageManager::checkVector(QString filename)
+{
+    // check here
+    return 0;
 }

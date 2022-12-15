@@ -7,22 +7,6 @@ void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1)   { fDynamicVariables-
 void CoreUI::on_checkBox_drawPredict_stateChanged(int arg1) { fDynamicVariables->setEnablePredict(arg1 == 2 ? true : false);                                                                                 }
 void CoreUI::on_checkBox_drawDiagram_stateChanged(int arg1) { fDynamicVariables->setEnablePredictDiagram(arg1 == 2 ? true : false);                                                                          }
 void CoreUI::on_checkBox_stateChanged(int arg1)             { fDynamicVariables->setFollowPlane(arg1 == 2 ? true : false);                                                                                   }
-void CoreUI::on_pushButton_goLeft_clicked()                 { imageProcessing->goLeft(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);           }
-void CoreUI::on_pushButton_goRight_clicked()                { imageProcessing->goRight(); ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);          }
-void CoreUI::on_checkBox_autoUpdate_stateChanged(int arg1)  { autoUpdate = ui->checkBox_autoUpdate->isChecked();                                                                                             }
-void CoreUI::on_pushButton_expandImageInfo_clicked()        { bool b = ui->showFullInfoContainer->isVisible(); b = !b; ui->showFullInfoContainer->setVisible(b);                                             }
-void CoreUI::on_pushButton_update_clicked()                 { imageProcessing->PartialScan();
-                                                              if(imageProcessing->getReadyStatus()) { ui->pushButton_showImage->setChecked(
-                                                                              imageProcessing->imageChecklist[imageProcessing->getFileCounter()]); }                                                         }
-void CoreUI::on_pushButton_panImage_clicked()               { linker->panImage(imageProcessing->getFileCounter()); ui->checkBox->setChecked(false); on_checkBox_stateChanged(0);                             }
-void CoreUI::on_pushButton_showImage_clicked()
-{
-    if(imageProcessing->getReadyStatus()==true)
-    {
-        imageProcessing->imageChecklist[imageProcessing->getFileCounter()] = !imageProcessing->imageChecklist[imageProcessing->getFileCounter()];
-        imageProcessing->imageChecklistLoop();
-    }
-}
 void CoreUI::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
@@ -47,26 +31,6 @@ void CoreUI::on_pushButton_placeMarker_clicked()
 {
     SMouseState::mouseState = MouseState::MarkerPlacement;
 }
-
-void CoreUI::on_pushButton_showAllImages_clicked()
-{
-    if(imageProcessing->getReadyStatus()==true)
-    {
-        if(imageProcessing->imageChecklist[0] == false) {
-            for(int i = 0; i<imageProcessing->getVectorSize(); i++)
-            {
-                imageProcessing->imageChecklist[i] = true;
-            }
-        } else {
-            for(int i = 0; i<imageProcessing->getVectorSize(); i++)
-            {
-                imageProcessing->imageChecklist[i] = false;
-            }
-        }
-        imageProcessing->imageChecklistLoop();
-        ui->pushButton_showImage->setChecked(imageProcessing->imageChecklist[imageProcessing->getFileCounter()]);
-    }
-}
 void CoreUI::on_pushButton_reconnect_clicked()
 {
     telemetryRemote->Disconnect();
@@ -83,27 +47,6 @@ void CoreUI::on_pushButton_reconnect_clicked()
         Debug::Log("?[REMOTE] UDP client connected");
     }
 }
-void CoreUI::on_pushButton_clearCache_clicked()
-{
-    QMessageBox askForClearCache;
-    askForClearCache.setWindowTitle("Очистка кэша РЛИ");
-    askForClearCache.setIcon(QMessageBox::Information);
-    askForClearCache.setText("Вы уверены, что хотите полностью очистить кэш радиолокационных изображений? Это действие удалит все изображения, полученные в ходе текущего полёта!");
-    askForClearCache.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-    askForClearCache.setDefaultButton(QMessageBox::Cancel);
-    int ret = askForClearCache.exec();
-    switch (ret) {
-    case QMessageBox::Yes:
-        imageProcessing->clearCache();
-        imageProcessing->InitialScan();
-        break;
-    case QMessageBox::Cancel:
-        break;
-    default:
-        break;
-    }
-}
-
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {
     QString request = MessageParser::makeFormRequest(sar_mode, sar_lowerbound, sar_upperbound, sar_time, sar_dx, sar_dx, sar_override_gps, sar_gps_height, sar_gps_velocity);

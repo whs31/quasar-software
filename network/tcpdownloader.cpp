@@ -10,7 +10,6 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
     } else {
         Debug::Log("?[SERVER] Server started.");
     }
-    manager = new ImageManager();
     timer = new QTimer();
     timer->setInterval(TCP_TIMEOUT);
     connect(timer, &QTimer::timeout, this, &TCPDownloader::connectionTimeout);

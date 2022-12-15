@@ -18,8 +18,6 @@
 #include "extension.h"
 #include "udpremote.h"
 #include "tcpremote.h"
-#include "imageprocessing.h"
-#include "imagemanager.h"
 #include "messageparser.h"
 #include "debug.h"
 
@@ -71,13 +69,6 @@ public slots:
     void Disconnected();
 
     //gui public slots
-    void setPushButton_goLeftEnabled(bool state);
-    void setPushButton_goRightEnabled(bool state);
-    void updateLoaderLabel(void);
-    void updateDirectory(void);
-    void updateImageManagerLabels(int total, int current);
-    void updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match);
-    void enableImageBar(bool b);
     void updateProgress(float f);
     void updateTelemetryLabels(int satcount);
     void setCheckboxState(bool b);
@@ -90,7 +81,6 @@ private:
     UDPRemote *formRemote;
     UDPRemote *consoleListenerRemote;
     TCPRemote *tcpRemote;
-    ImageProcessing *imageProcessing;
     LinkerQML *linker;
     TCPDownloader *downloader;
     QQuickItem* qml;
@@ -149,18 +139,9 @@ private slots:
     void on_checkBox_stateChanged(int arg1);
     void on_checkBox_drawPredict_stateChanged(int arg1);
     void on_checkBox_drawDiagram_stateChanged(int arg1);
-    void on_pushButton_goLeft_clicked();
-    void on_pushButton_goRight_clicked();
-    void on_checkBox_autoUpdate_stateChanged(int arg1);
-    void on_pushButton_expandImageInfo_clicked();
-    void on_pushButton_update_clicked();
-    void on_pushButton_panImage_clicked();
-    void on_pushButton_showImage_clicked();
     void on_pushButton_clearTrack_clicked();
     void on_pushButton_placeMarker_clicked();
-    void on_pushButton_showAllImages_clicked();
     void on_pushButton_reconnect_clicked();
-    void on_pushButton_clearCache_clicked();
     void on_pushButton_formSingleImage_clicked();
     void on_pushButton_launchContinuous_clicked();
     void on_pushButton_stopContinuous_clicked();

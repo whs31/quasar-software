@@ -20,6 +20,6 @@ void ImageManager::newImage(QString filename, QByteArray data)
 
     //save thread from disktools
     
-    imageProcess = new ImageProcess(initialize());
-    imageProcess->decode(data, *image);
+    ImageProcess imageProcess;
+    //imageProcess.decode(data, *image);
 }

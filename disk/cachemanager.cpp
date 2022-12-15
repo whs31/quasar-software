@@ -1,9 +1,8 @@
 #include "cachemanager.h"
 
-CacheManager* CacheManager::_instance = NULL;
+CacheManager* CacheManager::_instance = nullptr;
 
 QString CacheManager::tcpDowloaderCache;
-QString CacheManager::pngCache;
 QString CacheManager::mapProviderCache;
 QString CacheManager::tileServerCache;
 QString CacheManager::dynamicResourcesCache;
@@ -11,9 +10,10 @@ QString CacheManager::settingsPath;
 
 CacheManager* CacheManager::initializeCache()
 {
-    if(_instance != NULL)
+    if(_instance != nullptr)
         return _instance;
     _instance = new CacheManager();
+    DiskTools::initialize(initializeCache());
     return _instance;
 }
 
@@ -66,5 +66,5 @@ CacheManager::CacheManager()
     initialize();
     setupImageCache();
     Debug::Log("?[CACHEMANAGER] TCP Downloader directory: "+CacheManager::tcpDowloaderCache);
-    DiskTools::initialize(initializeCache());
+
 }

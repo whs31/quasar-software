@@ -19,7 +19,6 @@ signals:
 private:
     explicit ImageManager(QObject *parent = nullptr);
     static ImageManager* _instance;
-    ImageProcess* imageProcess;
 };
 
 #endif // IMAGEMANAGER_H

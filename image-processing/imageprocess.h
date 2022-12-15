@@ -18,7 +18,8 @@ class ImageProcess : public QObject
     Q_OBJECT
 public:
     explicit ImageProcess(QObject *parent = nullptr);
-    TImage decode(QByteArray data, TImage& image);
+
+    void decode(QByteArray data, TImage& image);
 
 signals:
 

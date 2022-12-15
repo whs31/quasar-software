@@ -68,69 +68,6 @@ void CoreUI::Disconnected()
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::setPushButton_goLeftEnabled(bool state)        { ui->pushButton_goLeft->setEnabled(state);                                                                                                      }
-void CoreUI::setPushButton_goRightEnabled(bool state)       { ui->pushButton_goRight->setEnabled(state);                                                                                                     }
-void CoreUI::updateLoaderLabel(void)
-{
-    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
-    uiTimer1->stop();
-    ui->progressBar_loader->setValue(0);
-
-    if(!formingContinuous)
-    {
-        ui->label_c_formImageStatus->setText(Style::StyleText("ожидание команды на формирование", Colors::ConsoleTextColor, Format::NoFormat));
-        ui->progressBar_formImageStatus->setValue(0);
-    }
-}
-void CoreUI::updateDirectory(void)
-{
-    if(autoUpdate)
-    {
-        imageProcessing->PartialScan();
-        linker->panImage(imageProcessing->getFileCounter());
-    }
-    if(formingContinuous)
-    {
-        on_pushButton_formSingleImage_clicked();
-    }
-}
-void CoreUI::updateImageManagerLabels(int total, int current)
-{
-    ui->label_c_foundImages->setText("Найдено "
-                                     +Style::StyleText(QString::number(total), Colors::Accent, Format::Bold)
-                                     +" изображен"
-                                     +SText::localNumeralEnding(total));
-    ui->label_c_currentImage->setText("Изображение "
-                                      +Style::StyleText(QString::number(current+1), Colors::Main, Format::Bold)
-                                      +" из "
-                                      +Style::StyleText(QString::number(total), Colors::NoColor, Format::Bold));
-}
-void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match)
-{
-    ui->label_c_metaFilename->setText(filename);
-    ui->label_c_metaLat->setText(QString::number(lat, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLon->setText(QString::number(lon, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDx->setText(QString::number(dx));
-    ui->label_c_metaDy->setText(QString::number(dy));
-    ui->label_c_metaX0->setText(QString::number(x0) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaY0->setText(QString::number(y0)+ Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaAngle->setText(QString::number(angle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDAngle->setText(QString::number(driftAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLX->setText(QString::number(lx) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLY->setText(QString::number(ly) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDiv->setText(QString::number(divAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaChecksum->setText(Style::StyleText("0х", Colors::NoColor, Format::Italic) + Style::StyleText(hexSum, Colors::Info, Format::Italic));
-    ui->label_c_metaTime->setText(datetime);
-    (match) ? ui->label_c_checksumSuccess->setText(Style::StyleText("совпадает", Colors::Success)) : ui->label_c_checksumSuccess->setText(Style::StyleText("не совпадает", Colors::Failure));
-}
-void CoreUI::enableImageBar(bool b)
-{
-    ui->pushButton_showAllImages->setEnabled(b);
-    ui->pushButton_showImage->setChecked(b);
-    ui->layout_imageTop_2->setEnabled(b);
-    ui->layout_imageMiddle_2->setEnabled(b);
-    ui->metaGBox->setEnabled(b);
-}
 void CoreUI::updateProgress(float f)
 {
     if(f>0)
@@ -241,13 +178,6 @@ void CoreUI::InitializeConnections()
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     //sar image alghorithms setup
-    imageProcessing = new ImageProcessing();
-        connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
-        connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
-        connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));
-        connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)),
-                           this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)));
-        connect(imageProcessing, SIGNAL(enableImageBar(bool)), this, SLOT(enableImageBar(bool)));
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
@@ -283,7 +213,6 @@ void CoreUI::InitializeConnections()
 
     //startup functions
     Disconnected();
-    imageProcessing->InitialScan();
     Debug::Log("[STARTUP] Connections set up successfully");
 
     //execute any other startup code here
@@ -371,7 +300,7 @@ void CoreUI::on_settingsButton_clicked()
             {
                 if(s!=SConfig::getHashString("ViewPath"))
                 {
-                    imageProcessing->InitialScan();
+
                 } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
                 SConfig::saveSettings();
             } else { SConfig::loadSettings(); }

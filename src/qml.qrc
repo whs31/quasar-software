@@ -10,5 +10,6 @@
         <file>qml/SmallPopup.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/MenuImages.qml</file>
+        <file>qml/SARImage.qml</file>
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QQuickItem>
+#include <QVector>
 #include "models/tmarker.h"
 #include "models/timage.h"
 

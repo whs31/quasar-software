@@ -20,8 +20,10 @@ bool ImageProcess::decode(QByteArray data, TImage& image)
         void *structData = (void *)malloc(1024);
         memcpy((char *)structData, (void *)&image.meta, *metaSize);
         uint32_t recalculatedChecksum = SChecksum::calculateChecksum(structData, *metaSize);
-        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 8, 16, QLatin1Char('0'));
+        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 8, 16, QLatin1Char('0')); //@TODO to uint16 -> crc16
         image.checksumMatch = (recalculatedChecksum == image.meta.checksum) ? 1 : 0;
+        if(!image.checksumMatch)
+            Debug::Log("![IMAGETOOLS] Checksum seems to be incorrect");
 
         // геометрические преобразования
         if (SConfig::getHashBoolean("GlobalRadians"))

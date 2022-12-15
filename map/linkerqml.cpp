@@ -24,5 +24,38 @@ void LinkerQML::addModel(TMarker &marker)
 }
 void LinkerQML::addModel(TImage &image)
 {
-    qCritical()<<image.gui.creationTime<<"  "<<image.gui.filename;
+    QVariantList metalist =   {  image.meta.latitude,
+                                 image.meta.longitude,
+                                 image.meta.dx,
+                                 image.meta.dy,
+                                 image.meta.x0,
+                                 image.meta.y0,
+                                 image.meta.angle,
+                                 image.meta.driftAngle,
+                                 image.meta.thetaAzimuth,
+                                 image.meta.lx,
+                                 image.meta.ly
+                              };
+    QStringList guilist =     {  image.gui.latitude,
+                                 image.gui.longitude,
+                                 image.gui.dx,
+                                 image.gui.dy,
+                                 image.gui.x0,
+                                 image.gui.y0,
+                                 image.gui.angle,
+                                 image.gui.driftAngle,
+                                 image.gui.lx,
+                                 image.gui.ly,
+                                 image.gui.thetaAzimuth,
+                                 image.gui.checksum,
+                                 image.gui.filename,
+                                 image.gui.creationTime
+                              };
+
+    QMetaObject::invokeMethod(map, "addImage",
+            Q_ARG(QVariant, QVariant::fromValue(metalist)),
+            Q_ARG(QVariant, QVariant::fromValue(guilist)),
+            Q_ARG(QString, image.base64),
+            Q_ARG(bool, image.checksumMatch)
+        );
 }

@@ -13,7 +13,7 @@
 #include "smath.h"
 #include "backend/fmousekeyhandler.h"
 #include "backend/fmousehover.h"
-//#include "global/markermanager.h"
+#include "imagemanager.h"
 
 
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
@@ -57,6 +57,7 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
+    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
 
     QApplication app(argc, argv);
 

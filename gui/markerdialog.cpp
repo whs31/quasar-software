@@ -30,18 +30,12 @@ void MarkerDialog::on_buttonBox_accepted()
     if(ui->radioButton_defaultMarker->isChecked())
     {
         newmarker.icon = MarkerIcon::GoogleDefaultMarker;
-        //marker->anchorX =
-        //marker->anchorY =
     } else if(ui->radioButton_flag->isChecked())
     {
         newmarker.icon = MarkerIcon::Flag;
-        //marker->anchorX =
-        //marker->anchorY =
     } else if(ui->radioButton_sar->isChecked())
     {
         newmarker.icon = MarkerIcon::SARImage;
-        //marker->anchorX =
-        //marker->anchorY =
     }
     done(QDialog::Accepted);
 }

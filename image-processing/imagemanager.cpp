@@ -21,5 +21,6 @@ void ImageManager::newImage(QString filename, QByteArray data)
     //save thread from disktools
     
     ImageProcess imageProcess;
-    //imageProcess.decode(data, *image);
+    imageProcess.decode(data, *image);
+    qCritical()<<image->meta.angle;
 }

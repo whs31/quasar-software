@@ -177,7 +177,7 @@ void CoreUI::InitializeConnections()
         connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
-    //sar image alghorithms setup
+    //sar connections setup
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
         connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
@@ -185,6 +185,9 @@ void CoreUI::InitializeConnections()
         connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
         connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+
+    //image-processing setup
+    DiskTools::fetchDirectory();
 
     //network connection
     if(SConfig::getHashBoolean("StartupConnectToSAR"))

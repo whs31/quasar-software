@@ -5,7 +5,7 @@ ImageProcess::ImageProcess(QObject *parent)
 {
 }
 
-void decode(QByteArray data, TImage &image)
+void ImageProcess::decode(QByteArray data, TImage& image)
 {
     char *chardata = data.data();
     uint16_t *metaMarker = reinterpret_cast<uint16_t *>(chardata + JPEG_HEADER_SIZE);
@@ -34,5 +34,5 @@ void decode(QByteArray data, TImage &image)
     else
     {
         Debug::Log("!![IMG] Marker error!");
-    }
+    } 
 }

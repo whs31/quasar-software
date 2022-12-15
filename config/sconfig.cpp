@@ -80,7 +80,7 @@ void SConfig::loadSettings()
     setHashValue("Base64Enabled", config->value("image/use_base64_encoding_optimization"));
     setHashValue("SaveNonContinuous", config->value("image/save_image_only_when_loading_finished"));
     setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
-    setHashValue("FlightPath", "nullstr");
+    setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
 
     setHashValue("StartupShowAll", config->value("startup/display_images_when_loaded"));
     setHashValue("StartupConnectToSAR", config->value("startup/connect_to_sar"));

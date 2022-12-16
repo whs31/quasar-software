@@ -1,14 +1,13 @@
 #include "sconfig.h"
 
 SConfig* SConfig::pointer;
-LinkerQML* SConfig::linker;
 Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
 FStaticVariables* SConfig::fStatic;
 
 QHash<QString, QVariant> SConfig::variantHash; 
 
-SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
+SConfig::SConfig(FStaticVariables* fStaticVariables)
 {
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
@@ -19,11 +18,11 @@ SConfig::SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables)
     SConfig::loadSettings();
 }
 
-SConfig* SConfig::initialize(QQuickItem* qml, FStaticVariables* fStaticVariables)
+SConfig* SConfig::initialize(FStaticVariables* fStaticVariables)
 {
     if(pointer != NULL)
         return pointer;
-    pointer = new SConfig(qml, fStaticVariables);
+    pointer = new SConfig(fStaticVariables);
     return pointer;
 }
 

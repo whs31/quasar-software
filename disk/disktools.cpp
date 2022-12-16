@@ -19,13 +19,11 @@ void DiskTools::fetchDirectory()
     QStringList initialFileList;
     if (mode == false)
     {
-        qCritical()<<SConfig::getHashString("ViewPath");
         QDir initialDirectory(SConfig::getHashString("ViewPath"));
         initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
         initialDirectory.setNameFilters(QStringList("*.jpg"));
         for (QString entryString : initialDirectory.entryList())
         {
-            qCritical()<<entryString;
             initialFileList.append(entryString.prepend(SConfig::getHashString("ViewPath") + "/"));
         }
     } else {

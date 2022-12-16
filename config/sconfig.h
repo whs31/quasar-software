@@ -12,7 +12,6 @@
 #include "config.h"
 #include "jsonconfig.h"
 
-#include "linkerqml.h"
 #include "backend/fstaticvariables.h"
 #include "debug.h"
 
@@ -20,7 +19,7 @@ class SConfig : public QObject
 {
     Q_OBJECT
 public:
-    static SConfig* initialize(QQuickItem* qml, FStaticVariables* fStaticVariables);
+    static SConfig* initialize(FStaticVariables* fStaticVariables);
 
     static void loadSettings();
     static void saveSettings();
@@ -35,11 +34,10 @@ public:
 signals:
 
 private:
-    explicit SConfig(QQuickItem* qml, FStaticVariables* fStaticVariables);
+    explicit SConfig(FStaticVariables* fStaticVariables);
     static SConfig* pointer;
     static Config* config;
     static JsonConfig* jsonConfig;
-    static LinkerQML* linker;
     static FStaticVariables* fStatic;
 
     static QHash<QString, QVariant> variantHash;

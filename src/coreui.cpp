@@ -163,7 +163,7 @@ void CoreUI::InitializeConnections()
     fStaticVariables = new FStaticVariables();                    ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
 
     //config
-    SConfig::initialize(qml, fStaticVariables);
+    SConfig::initialize(fStaticVariables);
     if(SConfig::getHashBoolean("UseOSM"))
         Debug::Log("![STARTUP] Program is running in test mode!");
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
@@ -174,7 +174,6 @@ void CoreUI::InitializeConnections()
     consoleListenerRemote = new UDPRemote();
     tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
-        connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     //sar connections setup
@@ -187,7 +186,6 @@ void CoreUI::InitializeConnections()
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //image-processing setup
-        qDebug()<<"yay";
     DiskTools::fetchDirectory();
 
     //network connection
@@ -265,31 +263,13 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::on_minButton_clicked()
-{
-    showMinimized();
-}
-
-
+void CoreUI::on_minButton_clicked() {showMinimized();}
 void CoreUI::on_minmaxButton_clicked()
 {
-    if(!isMaximized())
-        {
-            showMaximized();
-            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); //restore
-        }
-        else
-        {
-            showNormal();
-            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-        }
+    if(!isMaximized()) { showMaximized(); ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); } //restore
+    else { showNormal(); ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); }
 }
-
-
-void CoreUI::on_closeButton_clicked()
-{
-    QApplication::quit();
-}
+void CoreUI::on_closeButton_clicked() { QApplication::quit(); }
 
 void CoreUI::on_settingsButton_clicked()
 {
@@ -325,11 +305,7 @@ void CoreUI::on_settingsButton_clicked()
     }
 }
 
-void CoreUI::on_infoButton_clicked()
-{
-    AboutDialog aboutDialog(this, PROJECT_VERSION);
-    aboutDialog.exec();
-}
+void CoreUI::on_infoButton_clicked() { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -276,7 +276,7 @@ void CoreUI::on_settingsButton_clicked()
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
     if(passwordDialog.exec() == QDialog::Accepted)
     {
-        if(passwordDialog.passwordCheck)
+        if(passwordDialog.passwordCheck || SConfig::getHashString("SudoPassword").isEmpty())
         {
             SettingsDialog sd(this);
             QString s = SConfig::getHashString("ViewPath");

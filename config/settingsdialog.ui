@@ -2268,9 +2268,9 @@ PlotWidget {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>623</width>
-        <height>852</height>
+        <y>-535</y>
+        <width>609</width>
+        <height>835</height>
        </rect>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -3189,18 +3189,6 @@ PlotWidget {
               </property>
               <property name="text">
                <string>Метаданные в радианах</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QCheckBox" name="useBase64">
-              <property name="font">
-               <font>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="text">
-               <string>Использовать base64-кодировку </string>
               </property>
              </widget>
             </item>

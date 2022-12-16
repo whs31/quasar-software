@@ -84,7 +84,7 @@ MapQuickItem {
                 font.family: "Arial";
                 font.weight: Font.Bold;
                 textFormat: Text.RichText;
-                text: "Изображение №" + Number(index);
+                text: "Изображение №" + Number(index + 1);
                 horizontalAlignment: Text.AlignHCenter;
                 verticalAlignment: Text.AlignVCenter;
             }

@@ -48,8 +48,6 @@ bool SConfig::getHashBoolean(QString key)
 
 void SConfig::loadSettings()
 {
-    setHashValue("Version", config->value("general/version"));
-    setHashValue("StableStatus", config->value("general/is_stable"));
     setHashValue("SudoPassword", config->value("general/sudo_password"));
     setHashValue("Mode", config->value("general/program_mode"));
 
@@ -76,12 +74,10 @@ void SConfig::loadSettings()
 
     setHashValue("AnglePredefinedCorrection", config->value("image/angle_predefined_correction"));
     setHashValue("GlobalRadians", config->value("image/angle_use_radians_globally"));
-    setHashValue("Base64Enabled", config->value("image/use_base64_encoding_optimization"));
     setHashValue("SaveNonContinuous", config->value("image/save_image_only_when_loading_finished"));
     setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
     setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
 
-    setHashValue("StartupShowAll", config->value("startup/display_images_when_loaded"));
     setHashValue("StartupConnectToSAR", config->value("startup/connect_to_sar"));
 
     fStatic->setTestMode(getHashBoolean("UseOSM"));
@@ -131,12 +127,12 @@ void SConfig::save()
     config->setValue("map/velocity_vector_length", getHashFloat("VelocityVectorLength"));
     config->setValue("map/antenna_position", getHashString("AntennaPosition"));
 
-    config->setValue("diagram/diagram_capture_time", getHashFloat("DiagramCaptureTime"));
-    config->setValue("diagram/diagram_capture_range", getHashFloat("DiagramCaptureRange"));
-    config->setValue("diagram/diagram_theta_azimuth", getHashFloat("DiagramThetaAzimuth"));
-    config->setValue("diagram/diagram_drift_angle", getHashFloat("DiagramDriftAngle"));
+    config->setValue("diagram/diagram_capture_time", QString::number(getHashFloat("DiagramCaptureTime")));
+    config->setValue("diagram/diagram_capture_range", QString::number(getHashFloat("DiagramCaptureRange")));
+    config->setValue("diagram/diagram_theta_azimuth", QString::number(getHashFloat("DiagramThetaAzimuth")));
+    config->setValue("diagram/diagram_drift_angle", QString::number(getHashFloat("DiagramDriftAngle")));
 
-    config->setValue("image/angle_predefined_correction", getHashFloat("AnglePredefinedCorrection"));
+    config->setValue("image/angle_predefined_correction", QString::number(getHashFloat("AnglePredefinedCorrection")));
     config->setValue("image/angle_use_radians_globally", getHashBoolean("GlobalRadians"));
     config->setValue("image/use_base64_encoding_optimization", getHashBoolean("Base64Enabled"));
     config->setValue("image/save_image_only_when_loading_finished", getHashBoolean("SaveNonContinuous"));

@@ -3,8 +3,6 @@
 Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 {
     group_t general;
-    general["version"] = "1.2.4alpha";
-    general["is_stable"] = "false";
     general["sudo_password"] = "123";
     general["program_mode"] = "false"; //"flight" = true, "view" = false
     checkValuesSimple(general);
@@ -41,13 +39,11 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     group_t image;
     image["angle_predefined_correction"] = "0.0";
     image["angle_use_radians_globally"] = "true";
-    image["use_base64_encoding_optimization"] = "true";
     image["save_image_only_when_loading_finished"] = "true";
     image["view_mode_default_directory"] = "C:/";
     checkValuesSimple(image);
 
     group_t startup;
-    startup["display_images_when_loaded"] = "true";
     startup["connect_to_sar"] = "false";
     checkValuesSimple(startup);
 }

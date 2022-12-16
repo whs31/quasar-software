@@ -1,10 +1,8 @@
-/*  Main #354041
-    Dark #2a3334 
-    Darker #22292a
-    Text #fff5ee
+//  Main "#354041"
+//  Dark #2a3334
+//  Darker #22292a
+//  Text #fff5ee
 
-
-*/
 
 #include <QWidget>
 #include <QApplication>
@@ -20,10 +18,11 @@
 
 #include "smath.h"
 #include "backend/fmousekeyhandler.h"
-#include "backend/fmousehover.h"
 #include "imagemanager.h"
 
-
+/* @TODO qml ghostly image connecting icon and main image
+ * @TODO qml reskin and panes
+ */
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;

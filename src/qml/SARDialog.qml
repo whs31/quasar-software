@@ -11,12 +11,15 @@ import QtGraphicalEffects 1.15
 
 MapQuickItem {
     id: sarUI;
+    //visible: m_visible;
+    
+    property bool anim: m_visible;
+    
     z: 2;
     zoomLevel: 0;
     anchorPoint.x: 0;
     anchorPoint.y: 0;
-    property real m_opacity: 0.5;
-    opacity: m_opacity;
+    opacity: 0;
     coordinate: QtPositioning.coordinate(m_lat, m_lon);
     sourceItem: Rectangle {
         id: sarDialogBase;
@@ -27,6 +30,17 @@ MapQuickItem {
         radius: 10;
         border.color: "#2a3334";
         z: 100;
+        MapPolygon {
+            id: sarpoly;
+            border.color: "#FFFFFF";
+            border.width: 3;
+            color: "#AAAAAA";
+            path: [
+                QtPositioning.coordinate(0, 0),
+                QtPositioning.coordinate(0, 3),
+                QtPositioning.coordinate(0, 5)
+            ];
+        }
 
 //        MouseArea {
 //            id: sarDialogMouseArea;
@@ -181,6 +195,7 @@ MapQuickItem {
             }
         }
     }
+            
     NumberAnimation on opacity {
         id: sardialogFadeIn;
         from: 0;
@@ -195,4 +210,10 @@ MapQuickItem {
         duration: 300;
         easing.type: Easing.Linear;
     }
+
+    onAnimChanged: {
+        if(anim === true) { sardialogFadeIn.start(); }
+        else { sardialogFadeOut.start(); }
+    }
+    
 }

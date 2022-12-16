@@ -248,7 +248,8 @@ Rectangle {
                                 "m_hash": gui[11],
                                 "m_filename": gui[12],
                                 "m_datetime": gui[13],
-                                "m_checksumMatch": checksumSuccess ? "да" : "нет"
+                                "m_checksumMatch": checksumSuccess ? "да" : "нет",
+                                "m_visible": true
                             });
         imageModel.append({     "m_lat": meta[0],
                                 "m_lon": meta[1],
@@ -261,6 +262,7 @@ Rectangle {
                                 "m_angle": meta[6],
                                 "m_base64": base64,
                                 "m_zoom": smath.mercatorZoomLevel(1, meta[0])
+                                
                             });
     }
 

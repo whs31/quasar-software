@@ -41,37 +41,30 @@ MapQuickItem {
             source: "data:image/png;base64," + m_base64;
             visible: true;
         }
-//        MouseArea {
-//                id: sarMouseArea;
-//                propagateComposedEvents: true;
-//                anchors.left: imageSource.left;
-//                anchors.leftMargin: -5;
-//                anchors.right: imageSource.right;
-//                anchors.rightMargin: -5;
-//                anchors.bottom: imageSource.bottom;
-//                anchors.bottomMargin: -5;
-//                anchors.top: imageSource.top;
-//                anchors.topMargin: -5;
-//                hoverEnabled: true;
-//                transform: Rotation {
-//                    id: areaRotation;
-//                    origin.x: -m_x0;
-//                    origin.y: m_height / 2;
-//                    angle: m_angle;
-//                }
-//                onEntered: {
-//                    //imageUIModel.get(index).sardialogFadeIn.start();
-//                    imageUIModel.set(index, {visible: true});
-//                    //imageUIModel.setProperty(index, "enabled", true);
-//                    console.log(index);
-//                }
-//                onExited: {
-//                    //imageUIModel.get(index).sardialogFadeOut.start();
-//                    imageUIModel.set(index, {visible: true});
-//                    //imageUIModel.setProperty(index, "enabled", false);
-//                    console.log(index);
-//                }
-//            }
+        MouseArea {
+                  id: sarMouseArea;
+               propagateComposedEvents: true;
+               anchors.left: imageSource.left;
+               anchors.leftMargin: -5;
+               anchors.right: imageSource.right;
+               anchors.rightMargin: -5;
+               anchors.bottom: imageSource.bottom;
+               anchors.bottomMargin: -5;
+               anchors.top: imageSource.top;
+               anchors.topMargin: -5;
+               hoverEnabled: true;
+               transform: Rotation {
+                   id: areaRotation;
+                   origin.x: -m_x0;
+                   origin.y: m_height / 2;
+                   angle: m_angle;
+               }
+               onClicked: {
+                   var v = imageUIModel.get(index).m_visible;
+                   v = !v;
+                   imageUIModel.set(index, {"m_visible": v});
+               }
+           }
     }
 }
 

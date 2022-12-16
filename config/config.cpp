@@ -6,7 +6,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     general["version"] = "1.2.4alpha";
     general["is_stable"] = "false";
     general["sudo_password"] = "123";
-    general["program_mode"] = "true"; //"flight" = true, "view" = false
+    general["program_mode"] = "false"; //"flight" = true, "view" = false
     checkValuesSimple(general);
 
     group_t utility;

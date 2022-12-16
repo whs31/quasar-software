@@ -187,6 +187,7 @@ void CoreUI::InitializeConnections()
         connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //image-processing setup
+        qDebug()<<"yay";
     DiskTools::fetchDirectory();
 
     //network connection

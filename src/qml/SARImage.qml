@@ -40,15 +40,6 @@ MapQuickItem {
             smooth: true;
             source: "data:image/png;base64," + m_base64;
             visible: true;
-            DropShadow {
-                anchors.fill: imageSource;
-                horizontalOffset: 50;
-                verticalOffset: 50;
-                radius: 8.0;
-                samples: 17;
-                color: "#000000";
-                source: imageSource;
-            }
         }
 //        MouseArea {
 //                id: sarMouseArea;

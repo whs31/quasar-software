@@ -408,7 +408,7 @@ Rectangle {
             model: imageUIModel;
             add: Transition {
                     NumberAnimation {
-                        property: "m_opacity";
+                        property: "m_scale";
                         from: 0;
                         to: 1;
                         duration: 2000;

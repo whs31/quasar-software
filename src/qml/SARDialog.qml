@@ -22,7 +22,7 @@ MapQuickItem {
         id: sarDialogBase;
         width: childrenRect.width + 10;
         height: childrenRect.height + 10;
-        opacity: 0.4
+        opacity: 0.8
         color: "#22292a";
         radius: 10;
         border.color: "#2a3334";

@@ -6,7 +6,7 @@ import time
 import os
 
 chunk_size = 1024
-fileName = 'm1-16-11-2022_14-14-12.jpg'
+fileName = 'fetched.jpg'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('localhost', 10000)
 

@@ -19,7 +19,7 @@ CoreUI::~CoreUI()
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
-    tcpRemote->Disconnect();
+    //tcpRemote->Disconnect();
     delete ui;
 }
 
@@ -172,18 +172,18 @@ void CoreUI::InitializeConnections()
     telemetryRemote = new UDPRemote();
     formRemote = new UDPRemote();
     consoleListenerRemote = new UDPRemote();
-    tcpRemote = new TCPRemote();
+    //tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     //sar connections setup
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
-        connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
+        //connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
         connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
         connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
         connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
-        connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+        //connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //image-processing setup
     DiskTools::fetchDirectory();
@@ -191,7 +191,7 @@ void CoreUI::InitializeConnections()
     //network connection
     if(SConfig::getHashBoolean("StartupConnectToSAR"))
     {
-        if(SConfig::getHashString("NetworkType") == "TCP") { tcpRemote->Connect(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort")); }
+        if(SConfig::getHashString("NetworkType") == "TCP") { qCritical()<<"TCP usage in telemetry"; }
         else
         {
             telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
@@ -249,7 +249,7 @@ void CoreUI::InitializeDockwidgets()
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if(SConfig::getHashString("NetworkType") == "TCP"){
-        tcpRemote->Send(command.toUtf8());
+        //tcpRemote->Send(command.toUtf8());
     } else {
         if(type == CommandType::TelemetryCommand)
         {

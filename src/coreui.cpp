@@ -32,11 +32,11 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if(uiReady)
     {
-        if(msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::ConsoleTextColor, true)); }
-        else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info, true)); }
-        else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning, true)); }
-        else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Failure, true)); }
-        else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::CriticalFailure, true)); }
+        if(msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Text100, true)); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info200, true)); }
+        else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning100, true)); }
+        else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error200, true)); }
+        else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error100, true)); }
             QFont consoleFont = ui->debugConsole->font();
             consoleFont.setPointSize(8);
         ui->debugConsole->insertPlainText(_text);
@@ -58,12 +58,12 @@ QQuickItem* CoreUI::getMapPointer(void)                     { return qml;       
 void CoreUI::Connected()
 {
     connected = true;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success100, Format::Bold));
 }
 void CoreUI::Disconnected()
 {
     connected = false;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Error200, Format::Bold));
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -72,19 +72,19 @@ void CoreUI::updateProgress(float f)
 {
     if(f>0)
     {
-        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning, Format::NoFormat));
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent100, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning100, Format::NoFormat));
 
     }
     if(f>99) {
-        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success, Format::NoFormat));
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success100, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
         uiTimer1->start(5000);
     }
     ui->progressBar_loader->setValue((int)f);
     ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
 }
-void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));                                 }
+void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent100, Format::Bold));                                 }
 void CoreUI::setCheckboxState(bool b)               { ui->checkBox->setChecked(b);                                                                                                                           }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -204,10 +204,10 @@ void CoreUI::InitializeConnections()
     }
 
     //ui misc initialization and assignment
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::Info300, Format::Bold)
+                                            +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Info100, Format::Italic));
 
     //timers starts here
     timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
@@ -288,9 +288,9 @@ void CoreUI::on_settingsButton_clicked()
                 } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
                 SConfig::saveSettings();
             } else { SConfig::loadSettings(); }
-            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
-                                                    +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
-            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
+            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::Info300, Format::Bold)
+                                                    +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
+            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
         } else {
             QMessageBox passwordWarning;
             passwordWarning.setWindowTitle("Ошибка");
@@ -395,7 +395,7 @@ void CoreUI::ReadForm(QByteArray data)
                        + QString::number(responseList[2])
                        + " with checksum check " +
                        checksumCheck);
-            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent, Format::NoFormat));
+            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
             ui->progressBar_formImageStatus->setValue((int)40);
         }
         break;

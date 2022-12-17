@@ -24,19 +24,18 @@ UXManager::UXManager(QObject *parent) : QObject{parent}
     }
     jsonobj = json.object();
 
-    ColorList.append(QColor(jsonobj.value(QString("Main")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("MainShade900")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("MainShade800")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Info100")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Info200")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Info300")).toString()));
 
-    ColorList.append(QColor(jsonobj.value(QString("Accent")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Accent100")).toString()));
 
-    ColorList.append(QColor(jsonobj.value(QString("Success")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("Failure")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("CriticalFailure")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("Info")).toString()));
-    ColorList.append(QColor(jsonobj.value(QString("Warning")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Success100")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Error200")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Error100")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Warning100")).toString()));
 
-    ColorList.append(QColor(jsonobj.value(QString("ConsoleTextColor")).toString()));
+    ColorList.append(QColor(jsonobj.value(QString("Text100")).toString()));
 
 
 
@@ -47,30 +46,27 @@ UXManager::UXManager(QObject *parent) : QObject{parent}
     FormatList.append("<sup>");                     //    SuperScript
     FormatList.append("<sub>");                     //    SubScript
 
-
-
-
     fillStringList();
 }
 
 QColor UXManager::GetColor(Colors color, bool useBeforeClassInit)
 {
     //prevent crash
-    if(color == Colors::Failure && useBeforeClassInit)
+    if(color == Colors::Error200 && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Failure")).toString());
-    } else if (color == Colors::Info && useBeforeClassInit)
+        return QColor(jsonobj.value(QString("Error200")).toString());
+    } else if (color == Colors::Info200 && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Info")).toString());
-    } else if (color == Colors::Warning && useBeforeClassInit)
+        return QColor(jsonobj.value(QString("Info200")).toString());
+    } else if (color == Colors::Warning100 && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("Warning")).toString());
-    } else if (color == Colors::CriticalFailure && useBeforeClassInit)
+        return QColor(jsonobj.value(QString("Warning100")).toString());
+    } else if (color == Colors::Error100 && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("CriticalFailure")).toString());
-    } else if (color == Colors::ConsoleTextColor && useBeforeClassInit)
+        return QColor(jsonobj.value(QString("Error100")).toString());
+    } else if (color == Colors::Text100 && useBeforeClassInit)
     {
-        return QColor(jsonobj.value(QString("ConsoleTextColor")).toString());
+        return QColor(jsonobj.value(QString("Text100")).toString());
     }
     return ColorList[color];
 }
@@ -92,10 +88,8 @@ QStringList UXManager::GetFormatList()
 
 void UXManager::fillStringList()
 {
-    for(short int i = 0; i<UXManager::GetLengthOfColors(); i++)
-    {
-        UXManager::ColorStringList.append(ColorList[i].name());
-    }
+	for (short int i = 0; i < UXManager::GetLengthOfColors(); i++)
+		UXManager::ColorStringList.append(ColorList[i].name());
 }
 
 void UXManager::makeJSON()

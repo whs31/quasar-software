@@ -33,7 +33,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="../src/images.qrc">
-    <normaloff>:/ui-resources/quasarlogo/logo-black.png</normaloff>:/ui-resources/quasarlogo/logo-black.png</iconset>
+    <normaloff>:/ui-resources/quasarlogo/icon.png</normaloff>:/ui-resources/quasarlogo/icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">/* ---------------------------------------------------------------------------

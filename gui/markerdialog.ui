@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>241</width>
-    <height>308</height>
+    <height>313</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Новый маркер</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../src/images.qrc">
+    <normaloff>:/ui-resources/quasarlogo/icon.png</normaloff>:/ui-resources/quasarlogo/icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
@@ -1335,6 +1339,7 @@ QDialogButtonBox QPushButton {
   </customwidget>
  </customwidgets>
  <resources>
+  <include location="../src/images.qrc"/>
   <include location="../src/map-resources.qrc"/>
  </resources>
  <connections>

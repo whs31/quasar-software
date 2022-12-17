@@ -21,17 +21,17 @@
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">
-    <normaloff>:/ui-resources/quasarlogo/logo-black.png</normaloff>:/ui-resources/quasarlogo/logo-black.png</iconset>
+    <normaloff>:/ui-resources/quasarlogo/icon.png</normaloff>:/ui-resources/quasarlogo/icon.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #204040;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -42,7 +42,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #C9CDD0;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -86,53 +86,53 @@ QDockWidget::float-button:pressed {
 QScrollBar:horizontal {
   height: 8px;
   margin: 0px 16px 0px 16px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
-  background-color: #FAFAFA;
+  background-color: #204040;
 }
 
 QScrollBar:vertical {
-  background-color: #FAFAFA;
+  background-color: #204040;
   width: 8px;
   margin: 16px 0px 16px 0px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
 }
 
 QScrollBar::handle:horizontal {
-  background-color: #ACB1B6;
-  border: 1px solid #C9CDD0;
+  background-color: #204040;
+  border: 1px solid #204040;
   border-radius: 4px;
   min-width: 8px;
 }
 
 QScrollBar::handle:horizontal:hover {
-  background-color: #9FCBFF;
-  border: #9FCBFF;
+  background-color: #499c54;
+  border: #499c54;
   border-radius: 4px;
   min-width: 8px;
 }
 
 QScrollBar::handle:horizontal:focus {
-  border: 1px solid #73C7FF;
+  border: 1px solid #bc9117;
 }
 
 QScrollBar::handle:vertical {
-  background-color: #ACB1B6;
-  border: 1px solid #C9CDD0;
+  background-color: #204040;
+  border: 1px solid #204040;
   min-height: 8px;
   border-radius: 4px;
 }
 
 QScrollBar::handle:vertical:hover {
-  background-color: #9FCBFF;
-  border: #9FCBFF;
+  background-color: #499c54;
+  border: #499c54;
   border-radius: 4px;
   min-height: 8px;
 }
 
 QScrollBar::handle:vertical:focus {
-  border: 1px solid #73C7FF;
+  border: 1px solid #bc9117;
 }
 
 QScrollBar::add-line:horizontal {
@@ -220,14 +220,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }
 
 QMainWindow::separator {
-  background-color: #929292;
+  background-color: #204040;
   border: 0px solid #FAFAFA;
   spacing: 0px;
   padding: 0px;
 }
 
 QMainWindow::separator:hover {
-  background-color: #ACB1B6;
+  background-color: #499c54;
   border: 0px solid #73C7FF;
 }
 
@@ -246,9 +246,9 @@ QMainWindow::separator:vertical {
 }
 
 QMenuBar {
-  background-color: #C9CDD0;
+  background-color: #204040;
   padding: 2px;
-  border: 1px solid #FAFAFA;
+  border: 1px solid #204040;
   color: #19232D;
   selection-background-color: #73C7FF;
 }
@@ -480,14 +480,14 @@ QMenu::right-arrow {
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #313131;
+  color: #dae1e5;
+  background-color: #132623;
 }
 
 DockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #132623;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #132623;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -498,7 +498,7 @@ QDockWidget::title {
   padding: 0px;
   spacing: 4px;
   border: none;
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -827,8 +827,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -836,39 +836,19 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -913,8 +893,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -922,39 +902,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -1011,8 +971,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #a24c4c;
-  color: #D8d8d8;
+  background-color: #b16573;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1052,7 +1012,7 @@ QPushButton:hover {
 }
 
 QPushButton:pressed {
-  background-color: #CB5F5F;
+  background-color: #701828;
   color: #23243b;
 }
 
@@ -1105,8 +1065,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #a24c4c;
-  color: #D8d8d8;
+  background-color: #b16573;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1146,7 +1106,7 @@ QPushButton:hover {
 }
 
 QPushButton:pressed {
-  background-color: #CB5F5F;
+  background-color: #701828;
   color: #23243b;
 }
 
@@ -1200,8 +1160,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #616161;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1209,39 +1169,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -1292,8 +1232,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #616161;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1301,39 +1241,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -1384,8 +1304,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #616161;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1393,39 +1313,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -1466,17 +1366,29 @@ QDialogButtonBox QPushButton {
       <layout class="QHBoxLayout" name="secondRow">
        <item>
         <widget class="QComboBox" name="comboBox_sarMode">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>26</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>22</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>FreeSans</family>
-           <pointsize>9</pointsize>
+           <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QComboBox {
-  border: 1px solid #929292;
+  border: 1px solid #204040;
   border-radius: 4px;
-  selection-background-color: #616161;
+  selection-background-color: #204040;
   padding-left: 4px;
   padding-right: 4px;
   /* padding-right = 36; 4 + 16*2 See scrollbar size */
@@ -1492,17 +1404,17 @@ QDialogButtonBox QPushButton {
 QComboBox QAbstractItemView {
   border: 0px solid #616161;
   border-radius: 0;
-  background-color: #616161;
+  background-color: #132623;
   selection-background-color: #616161;
 }
 
 QComboBox QAbstractItemView:hover {
-  background-color: #19232D;
+  background-color: #204040;
   color: #E0E1E3;
 }
 
 QComboBox QAbstractItemView:selected {
-  background: #346792;
+  background: #132623;
   color: #455364;
 }
 
@@ -1538,7 +1450,7 @@ QComboBox::indicator {
 }
 
 QComboBox::indicator:alternate {
-  background: #929292;
+  background: #204040;
 }
 
 QComboBox::item {
@@ -1561,7 +1473,7 @@ QComboBox::drop-down {
   subcontrol-origin: padding;
   subcontrol-position: top right;
   width: 12px;
-  border-left: 1px solid #929292;
+  border-left: 1px solid #204040;
 }
 
 QComboBox::down-arrow {
@@ -1596,14 +1508,14 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:foc
          <property name="font">
           <font>
            <family>Arial</family>
-           <pointsize>9</pointsize>
+           <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -1615,11 +1527,11 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:foc
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1638,11 +1550,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1661,17 +1573,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="accelerated">
@@ -1702,14 +1614,14 @@ QAbstractSpinBox:selected {
          <property name="font">
           <font>
            <family>Arial</family>
-           <pointsize>9</pointsize>
+           <pointsize>8</pointsize>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -1721,11 +1633,11 @@ QAbstractSpinBox:selected {
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1744,11 +1656,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1767,17 +1679,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="accelerated">
@@ -1811,15 +1723,15 @@ QAbstractSpinBox:selected {
          <property name="font">
           <font>
            <family>Arial</family>
-           <pointsize>9</pointsize>
+           <pointsize>8</pointsize>
            <italic>false</italic>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -1831,11 +1743,11 @@ QAbstractSpinBox:selected {
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1854,11 +1766,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1877,17 +1789,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="prefix">
@@ -1915,15 +1827,15 @@ QAbstractSpinBox:selected {
          <property name="font">
           <font>
            <family>Arial</family>
-           <pointsize>9</pointsize>
+           <pointsize>8</pointsize>
            <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -1935,11 +1847,11 @@ QAbstractSpinBox:selected {
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1958,11 +1870,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -1981,17 +1893,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="accelerated">
@@ -2025,10 +1937,15 @@ QAbstractSpinBox:selected {
          <property name="enabled">
           <bool>true</bool>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -2040,7 +1957,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -2099,11 +2016,16 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -2115,11 +2037,11 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -2138,11 +2060,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -2161,17 +2083,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="prefix">
@@ -2199,11 +2121,16 @@ QAbstractSpinBox:selected {
          <property name="enabled">
           <bool>false</bool>
          </property>
+         <property name="font">
+          <font>
+           <pointsize>8</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QAbstractSpinBox {
-  background-color: #313131;
-  border: 1px solid #929292;
-  color: #E0E1E3;
+  background-color: #132623;
+  border: 1px solid #204040;
+  color: #dae1e5;
   /* This fixes 103, 111 */
   padding-top: 2px;
   /* This fixes 103, 111 */
@@ -2215,11 +2142,11 @@ QAbstractSpinBox:selected {
 }
 
 QAbstractSpinBox:up-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: top right;
-  border-left: 1px solid #929292;
-  border-bottom: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-bottom: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -2238,11 +2165,11 @@ QAbstractSpinBox::up-arrow:hover {
 }
 
 QAbstractSpinBox:down-button {
-  background-color: transparent #19232D;
+  background-color: transparent #204040;
   subcontrol-origin: border;
   subcontrol-position: bottom right;
-  border-left: 1px solid #929292;
-  border-top: 1px solid #929292;
+  border-left: 1px solid #204040;
+  border-top: 1px solid #204040;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   margin: 1px;
@@ -2261,17 +2188,17 @@ QAbstractSpinBox::down-arrow:hover {
 }
 
 QAbstractSpinBox:hover {
-  border: 1px solid #346792;
+  border: 1px solid #499c54;
   color: #E0E1E3;
 }
 
 QAbstractSpinBox:focus {
-  border: 1px solid #1A72BB;
+  border: 1px solid #204040;
 }
 
 QAbstractSpinBox:selected {
-  background: #346792;
-  color: #455364;
+  background: #499c54;
+  color: #c7a750;
 }</string>
          </property>
          <property name="prefix">
@@ -2316,8 +2243,8 @@ QAbstractSpinBox:selected {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -2325,39 +2252,19 @@ QAbstractSpinBox:selected {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -2396,8 +2303,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -2405,39 +2312,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -2476,8 +2363,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="styleSheet">
           <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -2485,39 +2372,19 @@ QDialogButtonBox QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -2584,14 +2451,14 @@ QDialogButtonBox QPushButton {
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #313131;
+  color: #dae1e5;
+  background-color: #132623;
 }
 
 DockWidget {
-  outline: 1px solid #313131;
+  outline: 1px solid #132623;
   background-color: #FAFAFA;
-  border: 1px solid #313131;
+  border: 1px solid #132623;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -2602,7 +2469,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -2935,10 +2802,10 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit {
-  background-color: #212121;
-  color: #19232D;
+  background-color: #031613;
+  color: #FFFFFF;
   border-radius: 4px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
 }
 
 QTextEdit:focus {
@@ -2985,14 +2852,14 @@ QTextEdit:selected {
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #313131;
+  color: #dae1e5;
+  background-color: #132623;
 }
 
 DockWidget {
-  outline: 1px solid #313131;
+  outline: 1px solid #132623;
   background-color: #FAFAFA;
-  border: 1px solid #313131;
+  border: 1px solid #132623;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -3003,7 +2870,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -3430,21 +3297,21 @@ QGroupBox::indicator:checked:disabled {
               </property>
               <property name="styleSheet">
                <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
               </property>
               <property name="text">
@@ -3477,8 +3344,8 @@ QLabel:disabled {
               </property>
               <property name="styleSheet">
                <string notr="true">QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -3486,39 +3353,19 @@ QLabel:disabled {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -3569,21 +3416,21 @@ QDialogButtonBox QPushButton {
               </property>
               <property name="styleSheet">
                <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
               </property>
               <property name="text">
@@ -3601,21 +3448,21 @@ QLabel:disabled {
               </property>
               <property name="styleSheet">
                <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
               </property>
               <property name="text">
@@ -3634,6 +3481,25 @@ QLabel:disabled {
              <pointsize>8</pointsize>
             </font>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+ color: #dae1e5
+}
+
+Label {
+  background-color: #132623;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #dae1e5;
+}
+
+QLabel:disabled {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  color: #b2b9bb;
+}</string>
+           </property>
            <property name="text">
             <string>Статус формирования РЛИ:</string>
            </property>
@@ -3649,8 +3515,8 @@ QLabel:disabled {
            <property name="styleSheet">
             <string notr="true">QFrame {
   border-radius: 4px;
-  border: 1px solid #616161;
-  background-color: #616161;
+  border: 1px solid #203a40;
+  background-color: #203a40;
   /* No frame */
   /* HLine */
   /* HLine */
@@ -3658,19 +3524,19 @@ QLabel:disabled {
 
 QFrame[frameShape=&quot;0&quot;] {
   border-radius: 4px;
-  border: 1px transparent #616161;
+  border: 1px transparent #203a40;
 }
 
 .QFrame[frameShape=&quot;4&quot;] {
   max-height: 2px;
   border: none;
-  background-color: #616161;
+  background-color: #203a40;
 }
 
 QFrame[frameShape=&quot;5&quot;] {
   max-width: 2px;
   border: none;
-  background-color: #616161;
+  background-color: #203a40;
 }
 
 </string>
@@ -3688,6 +3554,25 @@ QFrame[frameShape=&quot;5&quot;] {
              <pointsize>8</pointsize>
              <bold>true</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QWidget {
+ color: #dae1e5
+}
+
+Label {
+  background-color: #132623;
+  border: 0px solid #C9CDD0;
+  padding: 2px;
+  margin: 0px;
+  color: #dae1e5;
+}
+
+QLabel:disabled {
+  background-color: #313131;
+  border: 0px solid #C9CDD0;
+  color: #b2b9bb;
+}</string>
            </property>
            <property name="text">
             <string>ожидает подключения к РЛС</string>
@@ -3721,30 +3606,30 @@ QFrame[frameShape=&quot;5&quot;] {
            </property>
            <property name="styleSheet">
             <string notr="true">QProgressBar {
-  background-color: #616161;
-  border: 1px solid #616161;
-  color: #C2C2C2;
+  background-color: #204040;
+  border: 1px solid #203a40;
+  color: #dae1e5;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar:disabled {
-  background-color: #23243b;
-  border: 1px solid #C9CDD0;
-  color: #C2C2C2;
+  background-color: #203a40;
+  border: 1px solid #203a40;
+  color: #dae1e5;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar::chunk {
-  background-color: #C2C2C2;
-  color: #23243b;
+  background-color: #bc9117;
+  color: #dae1e5;
   border-radius: 4px;
 }
 
 QProgressBar::chunk:disabled {
-  background-color: #Bebebf;
-  color: #23243b;
+  background-color: #203a40;
+  color: #dae1e5;
   border-radius: 4px;
 }</string>
            </property>
@@ -3763,21 +3648,21 @@ QProgressBar::chunk:disabled {
            </property>
            <property name="styleSheet">
             <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
            </property>
            <property name="text">
@@ -3911,30 +3796,30 @@ QLabel:disabled {
               </property>
               <property name="styleSheet">
                <string notr="true">QProgressBar {
-  background-color: #616161;
-  border: 1px solid #616161;
-  color: #C2C2C2;
+  background-color: #204040;
+  border: 1px solid #203a40;
+  color: #dae1e5;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar:disabled {
-  background-color: #23243b;
-  border: 1px solid #C9CDD0;
-  color: #C2C2C2;
+  background-color: #203a40;
+  border: 1px solid #203a40;
+  color: #dae1e5;
   border-radius: 4px;
   text-align: center;
 }
 
 QProgressBar::chunk {
-  background-color: #C2C2C2;
-  color: #23243b;
+  background-color: #bc9117;
+  color: #dae1e5;
   border-radius: 4px;
 }
 
 QProgressBar::chunk:disabled {
-  background-color: #Bebebf;
-  color: #23243b;
+  background-color: #203a40;
+  color: #dae1e5;
   border-radius: 4px;
 }</string>
               </property>
@@ -3998,10 +3883,10 @@ QProgressBar::chunk:disabled {
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  background-color: #929292;
+  background-color: #204040;
 }
 QMainWindow::separator {
-  background-color: #929292;
+  background-color: #204040;
   border: 0px solid #FAFAFA;
   spacing: 0px;
   padding: 0px;
@@ -4076,7 +3961,7 @@ QMainWindow::separator {
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget {
- color: #FAFAFA
+ color: #dae1e5
 }</string>
        </property>
        <property name="text">
@@ -4123,7 +4008,7 @@ QMainWindow::separator {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #929292;
+  background-color: #204040;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -4131,12 +4016,12 @@ QMainWindow::separator {
   border: none;
 }
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #F6F7F9;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
+  background-color: #132623;
 }</string>
        </property>
        <property name="text">
@@ -4175,7 +4060,7 @@ QPushButton:pressed {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #929292;
+  background-color: #204040;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -4183,12 +4068,12 @@ QPushButton:pressed {
   border: none;
 }
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #F6F7F9;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
+  background-color: #132623;
 }</string>
        </property>
        <property name="text">
@@ -4254,7 +4139,7 @@ QPushButton:pressed {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #929292;
+  background-color: #204040;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -4262,12 +4147,12 @@ QPushButton:pressed {
   border: none;
 }
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #F6F7F9;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
+  background-color: #132623;
 }</string>
        </property>
        <property name="text">
@@ -4306,7 +4191,7 @@ QPushButton:pressed {
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #929292;
+  background-color: #204040;
   color: #F6F7F9;
   border-radius: 0px;
   padding: 1px;
@@ -4314,12 +4199,12 @@ QPushButton:pressed {
   border: none;
 }
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #F6F7F9;
 }
 
 QPushButton:pressed {
-  background-color: #535771;
+  background-color: #132623;
 }</string>
        </property>
        <property name="text">
@@ -4415,14 +4300,14 @@ QPushButton:pressed {
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #313131;
+  color: #dae1e5;
+  background-color: #132623;
 }
 
 DockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #132623;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #132623;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -4433,7 +4318,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -4842,8 +4727,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -4855,7 +4740,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -4929,8 +4814,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -4942,7 +4827,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -5022,8 +4907,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -5035,7 +4920,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -5115,8 +5000,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -5128,7 +5013,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -5220,8 +5105,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -5233,7 +5118,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -5331,14 +5216,14 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
   <widget class="QDockWidget" name="sarConsoleDock">
    <property name="styleSheet">
     <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #313131;
+  color: #dae1e5;
+  background-color: #132623;
 }
 
 DockWidget {
-  outline: 1px solid #313131;
+  outline: 1px solid #132623;
   background-color: #FAFAFA;
-  border: 1px solid #313131;
+  border: 1px solid #132623;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -5349,7 +5234,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #929292;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -5664,10 +5549,10 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="styleSheet">
         <string notr="true">QTextEdit {
-  background-color: #212121;
+  background-color: #031613;
   color: #FFFFFF;
   border-radius: 4px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
 }
 
 QTextEdit:focus {

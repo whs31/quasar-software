@@ -364,6 +364,7 @@ Rectangle {
                 name: "osm.mapping.providersrepository.address";
                 value: "file:///"+OsmConfigPath;
             }
+            Component.onCompleted: console.info("[MAP] using osmconfig: " + OsmConfigPath);
         }
         
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]

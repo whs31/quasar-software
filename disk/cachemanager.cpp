@@ -27,7 +27,7 @@ void CacheManager::initialize()
     QDir osmconfigs(mapProviderCache);
     osmconfigs.mkpath(mapProviderCache);
 
-    tileServerCache = QCoreApplication::applicationDirPath()+"/-Tiles";
+    tileServerCache = QCoreApplication::applicationDirPath()+"/app-offline-tiles";
     QDir tiles(tileServerCache);
     if(!tiles.exists()) { tiles.mkpath(tileServerCache); }
     Debug::Log("?[CACHEMANAGER] Initial cache created");

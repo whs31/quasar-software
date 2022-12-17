@@ -99,6 +99,7 @@ else()
         gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
         gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
         gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
+        src/fonts.qrc
         ${SRCS} appiconwin32.rc
    )
 endif()

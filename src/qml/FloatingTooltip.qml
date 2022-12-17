@@ -16,14 +16,14 @@ Item {
         width: toolTipText.paintedWidth + 10 + tooltipPadding;
         height: toolTipText.paintedHeight + 3;
         opacity: 0.8;
-        color: "#121212";
+        color: "#132623";
         radius: 5;
         border.color: "#777777";
         z: 99;
 
         Text {
             id: toolTipText;
-            color: "#ffffff"
+            color: "#dae1e5"
             text: qsTr("Sample tooltip text: e.g. latitude, longitude");
             anchors.left: parent.left;
             anchors.right: parent.right;

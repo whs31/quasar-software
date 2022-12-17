@@ -15,6 +15,7 @@
 #include "schecksum.h"
 #include "sconfig.h"
 #include "smath.h"
+//#include "style.h"
 
 #define JPEG_HEADER_SIZE 20
 #define JPEG_CHECKSUM_SIZE 4

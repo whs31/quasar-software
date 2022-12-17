@@ -14,5 +14,5 @@ Pane {
     height: 50;
     contentHeight: 50
     contentWidth: 200
-    Material.background: "#2f4f4f";
+    Material.background: "#132623";
 }

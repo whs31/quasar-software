@@ -14,7 +14,7 @@ Item {
     RoundButton
     {
         icon.source: "qrc:/ui-resources/white/down.png";
-        icon.color: "black";
+        icon.color: "#dae1e5";
         icon.width: 24;
         icon.height: 24;
         id: tiltDown;
@@ -53,7 +53,7 @@ Item {
     RoundButton
     {
         icon.source: "qrc:/ui-resources/white/up.png";
-        icon.color: "black";
+        icon.color: "#dae1e5";
         icon.width: 24;
         icon.height: 24;
         id: tiltUp;

@@ -461,7 +461,7 @@ QMenu::right-arrow {
    </property>
    <property name="minimumSize">
     <size>
-     <width>1704</width>
+     <width>500</width>
      <height>69</height>
     </size>
    </property>
@@ -4660,7 +4660,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>298</width>
-          <height>135</height>
+          <height>128</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">

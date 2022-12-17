@@ -97,10 +97,15 @@ MapQuickItem {
             anchors.left: textOverlay.right;
             anchors.leftMargin: 10;
             opacity: 0;
-            color: "#22292a";
+            color: "#132623";
             radius: 10;
-            border.color: "#2a3334";
+            border.color: "#204040";
             z: 100;
+            Component.onCompleted:
+            {
+                visible = false;
+                console.log(anim);
+            }
             NumberAnimation on opacity {
                 id: sardialogFadeIn;
                 from: 0;
@@ -240,13 +245,8 @@ MapQuickItem {
             }
         }
     }
-
-    
-    Component.onCompleted: sardialogFadeOut.start();
-    
-    
     onAnimChanged: {
-        if(anim === true) { sardialogFadeIn.start(); sarDialogBase.enabled = true; }
+        if(anim === true) { sardialogFadeIn.start(); sarDialogBase.enabled = true; sarDialogBase.visible = true;}
         else { sardialogFadeOut.start(); sarDialogBase.enabled = false; }
     }   
 }

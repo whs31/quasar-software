@@ -31,8 +31,9 @@ Rectangle {
 
     //ux constants
     Material.theme: Material.Dark;
-    Material.accent: "#C2C2C2";
-    Material.primary: "#008CCC";
+    Material.accent: "#204040";
+    Material.primary: "#bc9117";
+    Material.background: "#132623";
     property color accentDark: "#A2A2A2";
     property color primaryLight: "#00B5EB";
     property color primarySuperLight: "#97E3EE";
@@ -248,8 +249,8 @@ Rectangle {
                                 "m_hash": gui[11],
                                 "m_filename": gui[12],
                                 "m_datetime": gui[13],
-                                "m_checksumMatch": checksumSuccess ? "да" : "нет",
-                                "m_visible": true
+                                "m_checksumMatch": checksumSuccess ? "<font color=\"#73c924\">да</font>" : "<font color=\"#b16573\">нет</font>",
+                                "m_visible": false
                             });
         imageModel.append({     "m_lat": meta[0],
                                 "m_lon": meta[1],
@@ -413,7 +414,7 @@ Rectangle {
                         property: "m_scale";
                         from: 0;
                         to: 1;
-                        duration: 2000;
+                        duration: 500;
                         easing.type: Easing.OutCubic;
                     }
             }
@@ -464,7 +465,7 @@ Rectangle {
             z: 7;
         }
 
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Material.color(Material.Amber, Material.Shade100); z: 10; path: [ ]; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 10; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 6; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 6; path: []; }
 
@@ -490,7 +491,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 style: Text.Outline
                 font.family: "Verdana"
-                color: Material.color(Material.Amber, Material.Shade100) //make const
+                color: "#a385cf";
                 text: "";
             }
         }
@@ -520,7 +521,7 @@ Rectangle {
                 anchors.fill: r1MapItem;
                 source: r1Source;
                 opacity: 1;
-                color: Material.color(Material.Amber, Material.Shade100)
+                color: "#a385cf";
             }
         }
         MapQuickItem {
@@ -549,7 +550,7 @@ Rectangle {
                 anchors.fill: r2MapItem;
                 source: r2Source;
                 opacity: 1;
-                color: Material.color(Material.Amber, Material.Shade100)
+                color: "#a385cf";
             }
         }
         MapQuickItem {
@@ -593,7 +594,7 @@ Rectangle {
                     anchors.fill: overlayPlane;
                     radius: 5;
                     samples: 17;
-                    color: primaryLight;
+                    color: "#c4bb4b";
                     spread: 0.5;
                     transparentBorder: true;
                     source: overlayPlane;
@@ -622,7 +623,7 @@ Rectangle {
             z: 100
             Text {
                 id: speedText
-                color: "#121212";
+                color: "#dae1e5";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: parent.left
                 font.bold: true
@@ -632,7 +633,7 @@ Rectangle {
             }
             Text {
                 id: speedTextTT
-                color: "#121212"
+                color: "#dae1e5"
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.left: speedText.right
                 anchors.leftMargin: 5
@@ -640,7 +641,7 @@ Rectangle {
             }
             Text {
                 id: elevationText
-                color: "#121212";
+                color: "#dae1e5";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: elevationTextTT.left
                 horizontalAlignment: Text.AlignRight
@@ -651,7 +652,7 @@ Rectangle {
             }
             Text {
                 id: elevationTextTT
-                color: "#121212";
+                color: "#dae1e5";
                 anchors.verticalCenter: parent.verticalCenter;
                 anchors.right: parent.right
                 horizontalAlignment: Text.AlignRight
@@ -673,7 +674,7 @@ Rectangle {
             z: 100
             Text {
                 id: latitudeText
-                color: "#121212";
+                color: "#dae1e5";
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.top: parent.top
                 font.bold: true
@@ -683,7 +684,7 @@ Rectangle {
             }
             Text {
                 id: longitudeText
-                color: "#121212";
+                color: "#dae1e5";
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.bottom: parent.bottom
                 font.bold: true

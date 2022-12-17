@@ -7,10 +7,10 @@
         <file>qml/TiltSlider.qml</file>
         <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
-        <file>qml/SmallPopup.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/MenuImages.qml</file>
         <file>qml/SARImage.qml</file>
         <file>qml/SARDialog.qml</file>
+        <file>qml/SARDialogMetadataText.qml</file>
     </qresource>
 </RCC>

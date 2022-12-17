@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>ui-resources/fonts/proximanova_regular.ttf</file>
+        <file>ui-resources/fonts/HelveticaNeueCyr-Light.ttf</file>
     </qresource>
 </RCC>

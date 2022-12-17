@@ -62,13 +62,13 @@ void SettingsDialog::on_buttonBox_accepted()
 void SettingsDialog::on_flightMode_clicked()
 {
     uiS->viewMode->setStyleSheet("");
-    uiS->flightMode->setStyleSheet("background-color: rgb(170, 170, 255);");
+    uiS->flightMode->setStyleSheet("background-color: #2B6781;");
     mode = true;
 }
 
 void SettingsDialog::on_viewMode_clicked()
 {
     uiS->flightMode->setStyleSheet("");
-    uiS->viewMode->setStyleSheet("background-color: rgb(255, 170, 127);");
+    uiS->viewMode->setStyleSheet("background-color: #bc9117;");
     mode = false;
 }

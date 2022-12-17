@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>241</width>
-    <height>313</height>
+    <width>247</width>
+    <height>316</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,13 +19,13 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog {
-  background-color: #313131;
+  background-color: #132623;
 }
 
 QDockWidget {
-  outline: 1px solid #C9CDD0;
+  outline: 1px solid #204040;
   background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
   titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
@@ -36,7 +36,7 @@ QDockWidget::title {
   padding: 3px;
   spacing: 4px;
   border: none;
-  background-color: #C9CDD0;
+  background-color: #204040;
 }
 
 QDockWidget::close-button {
@@ -80,53 +80,53 @@ QDockWidget::float-button:pressed {
 QScrollBar:horizontal {
   height: 8px;
   margin: 0px 16px 0px 16px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
-  background-color: #FAFAFA;
+  background-color: #204040;
 }
 
 QScrollBar:vertical {
-  background-color: #FAFAFA;
+  background-color: #204040;
   width: 8px;
   margin: 16px 0px 16px 0px;
-  border: 1px solid #C9CDD0;
+  border: 1px solid #204040;
   border-radius: 4px;
 }
 
 QScrollBar::handle:horizontal {
-  background-color: #ACB1B6;
-  border: 1px solid #C9CDD0;
+  background-color: #204040;
+  border: 1px solid #204040;
   border-radius: 4px;
   min-width: 8px;
 }
 
 QScrollBar::handle:horizontal:hover {
-  background-color: #9FCBFF;
-  border: #9FCBFF;
+  background-color: #499c54;
+  border: #499c54;
   border-radius: 4px;
   min-width: 8px;
 }
 
 QScrollBar::handle:horizontal:focus {
-  border: 1px solid #73C7FF;
+  border: 1px solid #bc9117;
 }
 
 QScrollBar::handle:vertical {
-  background-color: #ACB1B6;
-  border: 1px solid #C9CDD0;
+  background-color: #204040;
+  border: 1px solid #204040;
   min-height: 8px;
   border-radius: 4px;
 }
 
 QScrollBar::handle:vertical:hover {
-  background-color: #9FCBFF;
-  border: #9FCBFF;
+  background-color: #499c54;
+  border: #499c54;
   border-radius: 4px;
   min-height: 8px;
 }
 
 QScrollBar::handle:vertical:focus {
-  border: 1px solid #73C7FF;
+  border: 1px solid #bc9117;
 }
 
 QScrollBar::add-line:horizontal {
@@ -214,14 +214,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 }
 
 QMainWindow::separator {
-  background-color: #929292;
+  background-color: #204040;
   border: 0px solid #FAFAFA;
   spacing: 0px;
   padding: 0px;
 }
 
 QMainWindow::separator:hover {
-  background-color: #ACB1B6;
+  background-color: #499c54;
   border: 0px solid #73C7FF;
 }
 
@@ -240,9 +240,9 @@ QMainWindow::separator:vertical {
 }
 
 QMenuBar {
-  background-color: #C9CDD0;
+  background-color: #204040;
   padding: 2px;
-  border: 1px solid #FAFAFA;
+  border: 1px solid #204040;
   color: #19232D;
   selection-background-color: #73C7FF;
 }
@@ -406,27 +406,27 @@ QMenu::right-arrow {
       <widget class="QLabel" name="label_d_markerName">
        <property name="font">
         <font>
-         <family>Arial</family>
-         <pointsize>8</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
        </property>
        <property name="text">
@@ -438,13 +438,13 @@ QLabel:disabled {
       <widget class="QLineEdit" name="lineEdit_markerName">
        <property name="font">
         <font>
-         <family>Arial</family>
-         <pointsize>8</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
-  background-color: #929292;
+  background-color: #203a40;
   padding-top: 2px;
   /* This QLineEdit fix  103, 111 */
   padding-bottom: 2px;
@@ -452,28 +452,28 @@ QLabel:disabled {
   padding-left: 4px;
   padding-right: 4px;
   border-style: solid;
-  border: 1px solid #455364;
+  border: 1px solid #204040;
   border-radius: 4px;
   color: #F2F2F2;
 }
 
 QLineEdit:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #9DA9B5;
 }
 
 QLineEdit:hover {
-  border: 1px solid #C2C2C2;
+  border: 1px solid #499c54;
   color: #F2F2F2;
 }
 
 QLineEdit:focus {
-  border: 1px solid #97E3EE;
+  border: 1px solid #bc9117;
 }
 
 QLineEdit:selected {
-  background-color: #346792;
-  color: #455364;
+  background-color: #bc9117;
+  color: #dae1e5;
 }
 </string>
        </property>
@@ -493,27 +493,27 @@ QLineEdit:selected {
       <widget class="QLabel" name="label_d_markerColor">
        <property name="font">
         <font>
-         <family>Arial</family>
-         <pointsize>8</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
        </property>
        <property name="text">
@@ -543,14 +543,14 @@ QLabel:disabled {
        </property>
        <property name="font">
         <font>
-         <family>Arial</family>
-         <pointsize>8</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton {
-  background-color: #616161;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -558,39 +558,19 @@ QLabel:disabled {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 
@@ -619,25 +599,30 @@ QDialogButtonBox QPushButton {
    </item>
    <item>
     <widget class="QScrollArea" name="scrollArea">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">QWidget {
   color: rgb(255, 255, 255);
-  background-color: #313131;
+  background-color: #132623;
 }
 
 
 QAbstractScrollArea {
-  background-color: #313131;
-  border: 1px solid #313131;
+  background-color: #132623;
+  border: 1px solid #132623;
   border-radius: 4px;
   /* fix #159 */
   padding: 2px;
   /* remove min-height to fix #244 */
-  color: #313131;
+  color: #132623;
 }
 
 QAbstractScrollArea:disabled {
-  color: #313131;
+  color: #132623;
 }</string>
      </property>
      <property name="frameShape">
@@ -651,7 +636,7 @@ QAbstractScrollArea:disabled {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>209</width>
+        <width>215</width>
         <height>126</height>
        </rect>
       </property>
@@ -660,8 +645,8 @@ QAbstractScrollArea:disabled {
         <widget class="QRadioButton" name="radioButton_flag">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="text">
@@ -683,23 +668,28 @@ QAbstractScrollArea:disabled {
            <height>32</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
          </property>
          <property name="text">
@@ -715,6 +705,11 @@ QLabel:disabled {
        </item>
        <item row="0" column="1">
         <spacer name="horizontalSpacer">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
@@ -730,8 +725,8 @@ QLabel:disabled {
         <widget class="QRadioButton" name="radioButton_defaultMarker">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="text">
@@ -746,8 +741,8 @@ QLabel:disabled {
         <widget class="QRadioButton" name="radioButton_sar">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="text">
@@ -768,6 +763,11 @@ QLabel:disabled {
            <width>32</width>
            <height>32</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">QWidget {
@@ -813,6 +813,11 @@ QLabel:disabled {
            <height>32</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">QWidget {
  color: #D8d8d8
@@ -851,8 +856,8 @@ QLabel:disabled {
     <widget class="QGroupBox" name="groupBox_coordinates">
      <property name="font">
       <font>
-       <family>Arial</family>
-       <pointsize>8</pointsize>
+       <family>Calibri</family>
+       <pointsize>9</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -920,27 +925,27 @@ QGroupBox::indicator:checked:disabled {
        <widget class="QLabel" name="label_d_latitude">
         <property name="font">
          <font>
-          <family>Arial</family>
-          <pointsize>8</pointsize>
+          <family>Calibri</family>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
         </property>
         <property name="text">
@@ -952,13 +957,13 @@ QLabel:disabled {
        <widget class="QLineEdit" name="lineEdit_latitude">
         <property name="font">
          <font>
-          <family>Arial</family>
-          <pointsize>8</pointsize>
+          <family>Calibri</family>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit {
-  background-color: #929292;
+  background-color: #203a40;
   padding-top: 2px;
   /* This QLineEdit fix  103, 111 */
   padding-bottom: 2px;
@@ -966,28 +971,28 @@ QLabel:disabled {
   padding-left: 4px;
   padding-right: 4px;
   border-style: solid;
-  border: 1px solid #455364;
+  border: 1px solid #204040;
   border-radius: 4px;
   color: #F2F2F2;
 }
 
 QLineEdit:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #9DA9B5;
 }
 
 QLineEdit:hover {
-  border: 1px solid #C2C2C2;
+  border: 1px solid #499c54;
   color: #F2F2F2;
 }
 
 QLineEdit:focus {
-  border: 1px solid #97E3EE;
+  border: 1px solid #bc9117;
 }
 
 QLineEdit:selected {
-  background-color: #346792;
-  color: #455364;
+  background-color: #bc9117;
+  color: #dae1e5;
 }
 </string>
         </property>
@@ -997,27 +1002,27 @@ QLineEdit:selected {
        <widget class="QLabel" name="label_d_longitude">
         <property name="font">
          <font>
-          <family>Arial</family>
-          <pointsize>8</pointsize>
+          <family>Calibri</family>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget {
- color: #D8d8d8
+ color: #dae1e5
 }
 
 Label {
-  background-color: #313131;
+  background-color: #132623;
   border: 0px solid #C9CDD0;
   padding: 2px;
   margin: 0px;
-  color: #D8d8d8;
+  color: #dae1e5;
 }
 
 QLabel:disabled {
   background-color: #313131;
   border: 0px solid #C9CDD0;
-  color: #Bebebf;
+  color: #b2b9bb;
 }</string>
         </property>
         <property name="text">
@@ -1029,13 +1034,13 @@ QLabel:disabled {
        <widget class="QLineEdit" name="lineEdit_longitude">
         <property name="font">
          <font>
-          <family>Arial</family>
-          <pointsize>8</pointsize>
+          <family>Calibri</family>
+          <pointsize>9</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true">QLineEdit {
-  background-color: #929292;
+  background-color: #203a40;
   padding-top: 2px;
   /* This QLineEdit fix  103, 111 */
   padding-bottom: 2px;
@@ -1043,28 +1048,28 @@ QLabel:disabled {
   padding-left: 4px;
   padding-right: 4px;
   border-style: solid;
-  border: 1px solid #455364;
+  border: 1px solid #204040;
   border-radius: 4px;
   color: #F2F2F2;
 }
 
 QLineEdit:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #9DA9B5;
 }
 
 QLineEdit:hover {
-  border: 1px solid #C2C2C2;
+  border: 1px solid #499c54;
   color: #F2F2F2;
 }
 
 QLineEdit:focus {
-  border: 1px solid #97E3EE;
+  border: 1px solid #bc9117;
 }
 
 QLineEdit:selected {
-  background-color: #346792;
-  color: #455364;
+  background-color: #bc9117;
+  color: #dae1e5;
 }
 </string>
         </property>
@@ -1077,14 +1082,14 @@ QLineEdit:selected {
     <widget class="QCheckBox" name="checkBox_saveXML">
      <property name="font">
       <font>
-       <family>Arial</family>
-       <pointsize>8</pointsize>
+       <family>Calibri</family>
+       <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -1096,7 +1101,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -1157,14 +1162,14 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
     <widget class="QCheckBox" name="checkBox_screenAnchor">
      <property name="font">
       <font>
-       <family>Arial</family>
-       <pointsize>8</pointsize>
+       <family>Calibri</family>
+       <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">QCheckBox {
-  background-color: #313131;
-  color: #D8d8d8;
+  background-color: #132623;
+  color: #dae1e5;
   spacing: 4px;
   outline: none;
   padding-top: 4px;
@@ -1176,7 +1181,7 @@ QCheckBox:focus {
 }
 
 QCheckBox QWidget:disabled {
-  background-color: #2a2c39;
+  background-color: #132623;
   color: #788D9C;
 }
 
@@ -1235,6 +1240,11 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
    </item>
    <item>
     <spacer name="verticalSpacer">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
+     </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -1250,8 +1260,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="font">
       <font>
-       <family>Arial</family>
-       <pointsize>8</pointsize>
+       <family>Calibri</family>
+       <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -1260,8 +1270,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
   min-width: 80px;
 }
 QPushButton {
-  background-color: #929292;
-  color: #FFFFFF;
+  background-color: #204040;
+  color: #dae1e5;
   border-radius: 4px;
   padding: 2px;
   outline: none;
@@ -1269,39 +1279,19 @@ QPushButton {
 }
 
 QPushButton:disabled {
-  background-color: #313131;
+  background-color: #203a40;
   color: #Bebebf;
   border-radius: 4px;
   padding: 2px;
 }
 
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #FFFFFF;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
 QPushButton:hover {
-  background-color: #D8d8d8;
+  background-color: #499c54;
   color: #23243b;
 }
 
 QPushButton:pressed {
-  background-color: #9191a9;
+  background-color: #132623;
   color: #23243b;
 }
 

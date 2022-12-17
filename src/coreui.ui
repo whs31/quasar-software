@@ -6,13 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1223</width>
+    <width>1704</width>
     <height>724</height>
    </rect>
   </property>
   <property name="font">
    <font>
-    <family>Ubuntu</family>
+    <family>Proxima Nova</family>
     <pointsize>10</pointsize>
    </font>
   </property>
@@ -441,8 +441,8 @@ QMenu::right-arrow {
       </property>
       <property name="font">
        <font>
-        <family>FreeSans</family>
-        <pointsize>10</pointsize>
+        <family>Calibri</family>
+        <pointsize>9</pointsize>
        </font>
       </property>
       <property name="resizeMode">
@@ -461,7 +461,7 @@ QMenu::right-arrow {
    </property>
    <property name="minimumSize">
     <size>
-     <width>1190</width>
+     <width>1704</width>
      <height>69</height>
     </size>
    </property>
@@ -473,7 +473,7 @@ QMenu::right-arrow {
    </property>
    <property name="font">
     <font>
-     <family>FreeSans</family>
+     <family>Calibri</family>
      <pointsize>9</pointsize>
      <bold>false</bold>
     </font>
@@ -820,8 +820,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
            <bold>false</bold>
           </font>
          </property>
@@ -844,7 +844,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -887,8 +887,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -910,7 +910,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -962,8 +962,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="cursor">
@@ -1008,7 +1008,7 @@ QPushButton:checked:selected {
 
 QPushButton:hover {
   background-color: #FFA8A8;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1041,7 +1041,8 @@ QDialogButtonBox QPushButton {
         <spacer name="horizontalSpacer">
          <property name="font">
           <font>
-           <family>FreeSans</family>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="orientation">
@@ -1059,8 +1060,8 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_clearTrack">
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1102,7 +1103,7 @@ QPushButton:checked:selected {
 
 QPushButton:hover {
   background-color: #FFA8A8;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1154,8 +1155,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1177,7 +1178,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1226,8 +1227,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1249,7 +1250,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1298,8 +1299,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1321,7 +1322,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1380,8 +1381,8 @@ QDialogButtonBox QPushButton {
          </property>
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1507,8 +1508,8 @@ QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:foc
         <widget class="QSpinBox" name="spinBox_sarLowerBound">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1613,8 +1614,8 @@ QAbstractSpinBox:selected {
         <widget class="QSpinBox" name="spinBox_sarUpperBound">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -1722,8 +1723,8 @@ QAbstractSpinBox:selected {
         <widget class="QDoubleSpinBox" name="doubleSpinBox_sarDX">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
            <italic>false</italic>
           </font>
          </property>
@@ -1826,8 +1827,8 @@ QAbstractSpinBox:selected {
         <widget class="QDoubleSpinBox" name="doubleSpinBox_sarTime">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
            <bold>true</bold>
           </font>
          </property>
@@ -1939,7 +1940,8 @@ QAbstractSpinBox:selected {
          </property>
          <property name="font">
           <font>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2018,7 +2020,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
          </property>
          <property name="font">
           <font>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2123,7 +2126,8 @@ QAbstractSpinBox:selected {
          </property>
          <property name="font">
           <font>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2219,7 +2223,8 @@ QAbstractSpinBox:selected {
         <spacer name="horizontalSpacer_2">
          <property name="font">
           <font>
-           <family>FreeSans</family>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="orientation">
@@ -2237,8 +2242,8 @@ QAbstractSpinBox:selected {
         <widget class="QPushButton" name="pushButton_showMapToolsDock">
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2260,7 +2265,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -2297,8 +2302,8 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_showSARConsole">
          <property name="font">
           <font>
-           <family>Arial</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2320,7 +2325,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -2357,8 +2362,8 @@ QDialogButtonBox QPushButton {
         <widget class="QPushButton" name="pushButton_showDebugConsoleDock">
          <property name="font">
           <font>
-           <family>FreeSans</family>
-           <pointsize>8</pointsize>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -2380,7 +2385,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -2445,7 +2450,7 @@ QDialogButtonBox QPushButton {
    </property>
    <property name="font">
     <font>
-     <family>FreeSans</family>
+     <family>Calibri</family>
      <pointsize>9</pointsize>
     </font>
    </property>
@@ -2789,8 +2794,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
-         <pointsize>8</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
          <bold>false</bold>
         </font>
        </property>
@@ -2841,12 +2846,12 @@ QTextEdit:selected {
    <property name="minimumSize">
     <size>
      <width>300</width>
-     <height>94</height>
+     <height>105</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <family>FreeSans</family>
+     <family>Calibri</family>
      <pointsize>9</pointsize>
     </font>
    </property>
@@ -3175,8 +3180,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea_2">
        <property name="font">
         <font>
-         <family>FreeSans</family>
-         <pointsize>10</pointsize>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="frameShape">
@@ -3197,7 +3202,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>292</width>
-          <height>297</height>
+          <height>307</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3220,8 +3225,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <widget class="QGroupBox" name="groupBox">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -3289,9 +3294,9 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_connectionstatus">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>9</pointsize>
-                <bold>false</bold>
+                <family>Calibri</family>
+                <pointsize>11</pointsize>
+                <bold>true</bold>
                 <strikeout>false</strikeout>
                </font>
               </property>
@@ -3338,8 +3343,8 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -3361,7 +3366,7 @@ QPushButton:disabled {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -3410,8 +3415,8 @@ QDialogButtonBox QPushButton {
              <widget class="QLabel" name="label_c_sarip">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -3442,8 +3447,8 @@ QLabel:disabled {
              <widget class="QLabel" name="label_c_loaderip">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -3477,8 +3482,8 @@ QLabel:disabled {
           <widget class="QLabel" name="label_d_formImageStatus">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -3509,7 +3514,8 @@ QLabel:disabled {
           <widget class="Line" name="line">
            <property name="font">
             <font>
-             <family>FreeSans</family>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -3550,8 +3556,8 @@ QFrame[frameShape=&quot;5&quot;] {
           <widget class="QLabel" name="label_c_formImageStatus">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -3601,7 +3607,8 @@ QLabel:disabled {
            </property>
            <property name="font">
             <font>
-             <family>FreeSans</family>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -3642,8 +3649,8 @@ QProgressBar::chunk:disabled {
           <widget class="QLabel" name="label_c_satcount">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
             </font>
            </property>
            <property name="styleSheet">
@@ -3674,8 +3681,8 @@ QLabel:disabled {
           <widget class="QGroupBox" name="groupBox_Loader">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -3743,8 +3750,8 @@ QGroupBox::indicator:checked:disabled {
              <widget class="QLabel" name="label_c_loaderStatus">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -3790,8 +3797,8 @@ QLabel:disabled {
               </property>
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -3835,8 +3842,8 @@ QProgressBar::chunk:disabled {
           <spacer name="verticalSpacer_2">
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>10</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
             </font>
            </property>
            <property name="orientation">
@@ -3878,7 +3885,8 @@ QProgressBar::chunk:disabled {
    </property>
    <property name="font">
     <font>
-     <family>FreeSans</family>
+     <family>Calibri</family>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -3919,7 +3927,8 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -3955,7 +3964,8 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
          <bold>true</bold>
         </font>
        </property>
@@ -3973,7 +3983,8 @@ QMainWindow::separator {
       <spacer name="horizontalSpacer_4">
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="orientation">
@@ -4003,7 +4014,8 @@ QMainWindow::separator {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -4055,7 +4067,8 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -4095,7 +4108,8 @@ QPushButton:pressed {
       <spacer name="horizontalSpacer_6">
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="orientation">
@@ -4134,7 +4148,8 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -4186,7 +4201,8 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -4244,7 +4260,8 @@ QPushButton:pressed {
        </property>
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -4289,13 +4306,14 @@ QPushButton:pressed {
    </property>
    <property name="minimumSize">
     <size>
-     <width>58</width>
-     <height>63</height>
+     <width>90</width>
+     <height>107</height>
     </size>
    </property>
    <property name="font">
     <font>
-     <family>FreeSans</family>
+     <family>Calibri</family>
+     <pointsize>9</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -4629,7 +4647,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
       <widget class="QScrollArea" name="scrollArea_3">
        <property name="font">
         <font>
-         <family>FreeSans</family>
+         <family>Calibri</family>
+         <pointsize>9</pointsize>
         </font>
        </property>
        <property name="widgetResizable">
@@ -4641,7 +4660,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>298</width>
-          <height>126</height>
+          <height>135</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -4670,8 +4689,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
            </property>
            <property name="font">
             <font>
-             <family>FreeSans</family>
-             <pointsize>8</pointsize>
+             <family>Calibri</family>
+             <pointsize>9</pointsize>
              <bold>true</bold>
             </font>
            </property>
@@ -4721,8 +4740,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
              <widget class="QCheckBox" name="checkBox">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -4808,8 +4827,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <widget class="QCheckBox" name="checkBox_drawTooltip">
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -4901,8 +4920,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -4994,8 +5013,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -5099,8 +5118,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
               </property>
               <property name="font">
                <font>
-                <family>FreeSans</family>
-                <pointsize>8</pointsize>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="styleSheet">
@@ -5189,7 +5208,8 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <spacer name="verticalSpacer_4">
               <property name="font">
                <font>
-                <family>FreeSans</family>
+                <family>Calibri</family>
+                <pointsize>9</pointsize>
                </font>
               </property>
               <property name="orientation">
@@ -5214,6 +5234,12 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
    </widget>
   </widget>
   <widget class="QDockWidget" name="sarConsoleDock">
+   <property name="font">
+    <font>
+     <family>Calibri</family>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QWidget {
   color: #dae1e5;
@@ -5543,7 +5569,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
        <property name="font">
         <font>
          <family>Consolas</family>
-         <pointsize>8</pointsize>
+         <pointsize>9</pointsize>
          <bold>true</bold>
         </font>
        </property>
@@ -5580,8 +5606,8 @@ p, li { white-space: pre-wrap; }
 hr { height: 1px; border-width: 0; }
 li.unchecked::marker { content: &quot;\2610&quot;; }
 li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:8pt; font-weight:700; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:700; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="placeholderText">
         <string>Ожидание вывода с РЛС....</string>

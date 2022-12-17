@@ -864,7 +864,7 @@ QPushButton:checked:selected {
 
 QPushButton:hover {
   background-color: #499c54;
-  color: #23243b;
+  color: #dae1e5;
 }
 
 QPushButton:pressed {
@@ -1233,7 +1233,7 @@ QLineEdit:focus {
 }
 
 QLineEdit:selected {
-  background-color: #9FCBFF;
+  background-color: #bc9117;
   color: #C9CDD0;
 }
 

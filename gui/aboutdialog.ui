@@ -2264,6 +2264,11 @@ PlotWidget {
     <layout class="QGridLayout" name="gridLayout">
      <item row="2" column="1">
       <spacer name="verticalSpacer_3">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -2277,6 +2282,11 @@ PlotWidget {
      </item>
      <item row="1" column="0">
       <spacer name="horizontalSpacer">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -2290,6 +2300,11 @@ PlotWidget {
      </item>
      <item row="0" column="1">
       <spacer name="verticalSpacer_4">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -2303,6 +2318,11 @@ PlotWidget {
      </item>
      <item row="1" column="2">
       <spacer name="horizontalSpacer_2">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -2334,6 +2354,11 @@ PlotWidget {
          <height>150</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -2357,8 +2382,8 @@ PlotWidget {
      </property>
      <property name="font">
       <font>
-       <family>Liberation Sans</family>
-       <pointsize>13</pointsize>
+       <family>Calibri</family>
+       <pointsize>15</pointsize>
        <bold>true</bold>
        <underline>false</underline>
        <stylestrategy>PreferAntialias</stylestrategy>
@@ -2395,8 +2420,9 @@ PlotWidget {
      </property>
      <property name="font">
       <font>
-       <family>Liberation Sans</family>
+       <family>Calibri</family>
        <pointsize>11</pointsize>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -2409,6 +2435,11 @@ PlotWidget {
    </item>
    <item>
     <spacer name="verticalSpacer">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
+     </property>
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -2427,6 +2458,11 @@ PlotWidget {
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <spacer name="horizontalSpacer_3">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -2442,9 +2478,11 @@ PlotWidget {
       <widget class="QLabel" name="gitlabLink">
        <property name="font">
         <font>
-         <family>Liberation Sans</family>
-         <pointsize>10</pointsize>
+         <family>Calibri</family>
+         <pointsize>12</pointsize>
          <bold>true</bold>
+         <underline>false</underline>
+         <strikeout>false</strikeout>
         </font>
        </property>
        <property name="text">
@@ -2463,6 +2501,11 @@ PlotWidget {
      </item>
      <item>
       <spacer name="horizontalSpacer_4">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -2488,6 +2531,11 @@ PlotWidget {
          <height>50</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -2501,6 +2549,11 @@ PlotWidget {
      </item>
      <item>
       <spacer name="horizontalSpacer_5">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -2516,6 +2569,11 @@ PlotWidget {
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">QDialogButtonBox QPushButton {
   /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */

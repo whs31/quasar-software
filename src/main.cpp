@@ -8,6 +8,8 @@
 #include <QApplication>
 #include <QDateTime>
 #include <QDebug>
+#include <QFontDatabase>
+#include <QFont>
 
 #include <qqml.h>
 #include <QStandardPaths>
@@ -67,16 +69,20 @@ int main(int argc, char *argv[]) {
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
 
     QApplication app(argc, argv);
-
     //cache setup
     CacheManager::initializeCache();
 
-    QQuickStyle::setStyle("Material");              //графика для QML
+    QQuickStyle::setStyle("Material");                      //графика для QML
     Style::initialize(false);                       //false при сборке релиза
-    TilesManager::initialize(false);                //false при сборке релиза
+    TilesManager::initialize(false);              //false при сборке релиза
 
     qInstallMessageHandler(debugLogger);
     CoreUI window;
+
+	QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/proximanova_regular.ttf");
+	QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/HelveticaNeueCyr-Light.ttf");
+	QFont proximaNova = QFont("Proxima Nova", 10, 1);
+	QFont helveticaNeue = QFont("Helvetica Neue Embedded", 10, 1);
 
     window.show();
     window.showMaximized();

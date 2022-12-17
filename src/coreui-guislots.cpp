@@ -35,7 +35,6 @@ void CoreUI::on_pushButton_reconnect_clicked()
 {
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
-    tcpRemote->Disconnect();
     Disconnected();
     if(SConfig::getHashString("NetworkType") == "TCP"){ tcpRemote->Connect(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort")); }
     else {

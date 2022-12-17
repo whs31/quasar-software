@@ -41,15 +41,15 @@ signals:
 
 private:
     QTcpServer* server;
-    QTcpSocket* socket;
+    QTcpSocket* socket = nullptr;
     QByteArray imageData;
     QTimer* timer;
     bool success = false;
-    uint8_t splitIndex;
+    uint8_t splitIndex = 0;
     ImageManager* manager;
     short int _mode;
 
-    uint32_t fileSize;
+    uint32_t fileSize = 0;
     QString filename;
 
     void (TCPDownloader::*readFile)(QByteArray data);

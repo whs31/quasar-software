@@ -1,6 +1,9 @@
-# VS code cache
+# VS code and CLion cache
 .vscode*
+.idea*
+
 build*
+cmake-build*
 
 # Python cache and images
 /!utilities/fsend/__pycache__

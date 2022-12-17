@@ -17,14 +17,13 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->saveAtEnd->setChecked(SConfig::getHashBoolean("SaveNonContinuous"));
     uiS->loaderIP->setText(SConfig::getHashString("LoaderIP"));
     uiS->loaderPort->setText(SConfig::getHashString("LoaderPort"));
-    uiS->useBase64->setChecked(SConfig::getHashBoolean("Base64Enabled"));
     uiS->commandPort->setText(SConfig::getHashString("DialogPort"));
     uiS->consolePort->setText(SConfig::getHashString("ListenPort"));
 
     uiS->useOSM->setChecked(SConfig::getHashBoolean("UseOSM"));
     uiS->useProfiler->setChecked(SConfig::getHashBoolean("ShowProfiler"));
     uiS->metaInRadians->setChecked(SConfig::getHashBoolean("GlobalRadians"));
-    uiS->angleCorrection->setValue(SConfig::getHashBoolean("AnglePredefinedCorrection"));
+    uiS->angleCorrection->setValue(SConfig::getHashFloat("AnglePredefinedCorrection"));
 }
 
 SettingsDialog::~SettingsDialog() { delete uiS; }
@@ -32,7 +31,7 @@ void SettingsDialog::on_pushButton_clicked() {
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(this,
                                                                 tr("Выберите папку с выходными изображениями РЛС"),
                                                                 QStandardPaths::displayName(QStandardPaths::HomeLocation));
-    if(pathNotNullCheck!=NULL) { SConfig::setHashValue("ViewPath", pathNotNullCheck); }
+    if(pathNotNullCheck != NULL) { SConfig::setHashValue("ViewPath", pathNotNullCheck); }
 }
 void SettingsDialog::on_buttonBox_rejected() { reject(); }
 
@@ -49,8 +48,7 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::setHashValue("TelemetryFrequency", uiS->telUpdateTime->value());
     SConfig::setHashValue("VelocityVectorLength", uiS->vectorLength->value());
     SConfig::setHashValue("DiagramThetaAzimuth", uiS->azimuth->value());
-    SConfig::setHashValue("AntennaPosition", (uiS->antennaLeft->isChecked()) ? "l" : "r");
-    SConfig::setHashValue("Base64Enabled", uiS->useBase64->isChecked());
+    SConfig::setHashValue("AntennaPosition", (uiS->antennaLeft->isChecked()) ? "left" : "right");
     SConfig::setHashValue("ShowConsole", uiS->useConsole->isChecked());
     SConfig::setHashValue("Mode", mode);
     SConfig::setHashValue("SaveNonContinuous", uiS->saveAtEnd->isChecked());

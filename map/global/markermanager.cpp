@@ -4,8 +4,7 @@ QVector<TMarker *> MarkerManager::markerList = {};
 MarkerManager *MarkerManager::_instance = nullptr;
 MarkerManager::MarkerManager(QObject *parent)
     : QObject{parent}
-{
-}
+{}
 MarkerManager *MarkerManager::initialize()
 {
     if (_instance != NULL)
@@ -16,7 +15,7 @@ MarkerManager *MarkerManager::initialize()
 
 void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 {
-    TMarker *marker = new TMarker(initialize());
+    TMarker* marker = new TMarker(initialize());
     if (!quiet)
     {
         MarkerDialog markerDialog(latitude, longitude, *marker);
@@ -52,6 +51,7 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 
 void MarkerManager::removeMarker(qint32 index)
 {
-    qCritical() << markerList.length();
+    int indexFixed = index + 1;
     markerList.remove(index);
+    Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
 }

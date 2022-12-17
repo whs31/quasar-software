@@ -19,7 +19,7 @@ CoreUI::~CoreUI()
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
-    tcpRemote->Disconnect();
+    //tcpRemote->Disconnect();
     delete ui;
 }
 
@@ -32,11 +32,11 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if(uiReady)
     {
-        if(msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::ConsoleTextColor, true)); }
-        else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info, true)); }
-        else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning, true)); }
-        else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Failure, true)); }
-        else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::CriticalFailure, true)); }
+        if(msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Text100, true)); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info200, true)); }
+        else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning100, true)); }
+        else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error200, true)); }
+        else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error100, true)); }
             QFont consoleFont = ui->debugConsole->font();
             consoleFont.setPointSize(8);
         ui->debugConsole->insertPlainText(_text);
@@ -58,96 +58,33 @@ QQuickItem* CoreUI::getMapPointer(void)                     { return qml;       
 void CoreUI::Connected()
 {
     connected = true;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success, Format::Bold));
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success100, Format::Bold));
 }
 void CoreUI::Disconnected()
 {
     connected = false;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Failure, Format::Bold));
+    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Error200, Format::Bold));
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::setPushButton_goLeftEnabled(bool state)        { ui->pushButton_goLeft->setEnabled(state);                                                                                                      }
-void CoreUI::setPushButton_goRightEnabled(bool state)       { ui->pushButton_goRight->setEnabled(state);                                                                                                     }
-void CoreUI::updateLoaderLabel(void)
-{
-    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
-    uiTimer1->stop();
-    ui->progressBar_loader->setValue(0);
-
-    if(!formingContinuous)
-    {
-        ui->label_c_formImageStatus->setText(Style::StyleText("ожидание команды на формирование", Colors::ConsoleTextColor, Format::NoFormat));
-        ui->progressBar_formImageStatus->setValue(0);
-    }
-}
-void CoreUI::updateDirectory(void)
-{
-    if(autoUpdate)
-    {
-        imageProcessing->PartialScan();
-        linker->panImage(imageProcessing->getFileCounter());
-    }
-    if(formingContinuous)
-    {
-        on_pushButton_formSingleImage_clicked();
-    }
-}
-void CoreUI::updateImageManagerLabels(int total, int current)
-{
-    ui->label_c_foundImages->setText("Найдено "
-                                     +Style::StyleText(QString::number(total), Colors::Accent, Format::Bold)
-                                     +" изображен"
-                                     +SText::localNumeralEnding(total));
-    ui->label_c_currentImage->setText("Изображение "
-                                      +Style::StyleText(QString::number(current+1), Colors::Main, Format::Bold)
-                                      +" из "
-                                      +Style::StyleText(QString::number(total), Colors::NoColor, Format::Bold));
-}
-void CoreUI::updateImageMetaLabels(QString filename, float lat, float lon, float dx, float dy, float x0, float y0, float angle, float driftAngle, float lx, float ly, float divAngle, QString hexSum, QString datetime, bool match)
-{
-    ui->label_c_metaFilename->setText(filename);
-    ui->label_c_metaLat->setText(QString::number(lat, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLon->setText(QString::number(lon, 'f', 6) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDx->setText(QString::number(dx));
-    ui->label_c_metaDy->setText(QString::number(dy));
-    ui->label_c_metaX0->setText(QString::number(x0) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaY0->setText(QString::number(y0)+ Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaAngle->setText(QString::number(angle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDAngle->setText(QString::number(driftAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLX->setText(QString::number(lx) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaLY->setText(QString::number(ly) + Style::StyleText(" м", Colors::NoColor, Format::Italic));
-    ui->label_c_metaDiv->setText(QString::number(divAngle) + Style::StyleText("°", Colors::NoColor, Format::Italic));
-    ui->label_c_metaChecksum->setText(Style::StyleText("0х", Colors::NoColor, Format::Italic) + Style::StyleText(hexSum, Colors::Info, Format::Italic));
-    ui->label_c_metaTime->setText(datetime);
-    (match) ? ui->label_c_checksumSuccess->setText(Style::StyleText("совпадает", Colors::Success)) : ui->label_c_checksumSuccess->setText(Style::StyleText("не совпадает", Colors::Failure));
-}
-void CoreUI::enableImageBar(bool b)
-{
-    ui->pushButton_showAllImages->setEnabled(b);
-    ui->pushButton_showImage->setChecked(b);
-    ui->layout_imageTop_2->setEnabled(b);
-    ui->layout_imageMiddle_2->setEnabled(b);
-    ui->metaGBox->setEnabled(b);
-}
 void CoreUI::updateProgress(float f)
 {
     if(f>0)
     {
-        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning, Format::NoFormat));
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("приём данных", Colors::Accent100, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning100, Format::NoFormat));
 
     }
     if(f>99) {
-        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success, Format::NoFormat));
+        ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("изображение получено", Colors::Success100, Format::Italic));
+        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
         uiTimer1->start(5000);
     }
     ui->progressBar_loader->setValue((int)f);
     ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
 }
-void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent, Format::Bold));                                 }
+void CoreUI::updateTelemetryLabels(int satcount)    { ui->label_c_satcount->setText("Спутники: "+Style::StyleText(QString::number(satcount), Colors::Accent100, Format::Bold));                                 }
 void CoreUI::setCheckboxState(bool b)               { ui->checkBox->setChecked(b);                                                                                                                           }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -226,7 +163,7 @@ void CoreUI::InitializeConnections()
     fStaticVariables = new FStaticVariables();                    ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
 
     //config
-    SConfig::initialize(qml, fStaticVariables);
+    SConfig::initialize(fStaticVariables);
     if(SConfig::getHashBoolean("UseOSM"))
         Debug::Log("![STARTUP] Program is running in test mode!");
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
@@ -235,31 +172,26 @@ void CoreUI::InitializeConnections()
     telemetryRemote = new UDPRemote();
     formRemote = new UDPRemote();
     consoleListenerRemote = new UDPRemote();
-    tcpRemote = new TCPRemote();
+    //tcpRemote = new TCPRemote();
     downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
-        connect(downloader, SIGNAL(receivingFinished()), this, SLOT(updateDirectory()));
         connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
-    //sar image alghorithms setup
-    imageProcessing = new ImageProcessing();
-        connect(imageProcessing, SIGNAL(setLeftButton(bool)), this, SLOT(setPushButton_goLeftEnabled(bool)));
-        connect(imageProcessing, SIGNAL(setRightButton(bool)), this, SLOT(setPushButton_goRightEnabled(bool)));
-        connect(imageProcessing, SIGNAL(updateTopLabels(int,int)), this, SLOT(updateImageManagerLabels(int,int)));
-        connect(imageProcessing, SIGNAL(updateMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)),
-                           this, SLOT(updateImageMetaLabels(QString,float,float,float,float,float,float,float,float,float,float,float,QString,QString,bool)));
-        connect(imageProcessing, SIGNAL(enableImageBar(bool)), this, SLOT(enableImageBar(bool)));
+    //sar connections setup
         connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
         connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
-        connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
+        //connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
         connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
         connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
         connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
-        connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+        //connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+
+    //image-processing setup
+    DiskTools::fetchDirectory();
 
     //network connection
     if(SConfig::getHashBoolean("StartupConnectToSAR"))
     {
-        if(SConfig::getHashString("NetworkType") == "TCP") { tcpRemote->Connect(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort")); }
+        if(SConfig::getHashString("NetworkType") == "TCP") { qCritical()<<"TCP usage in telemetry"; }
         else
         {
             telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
@@ -272,10 +204,10 @@ void CoreUI::InitializeConnections()
     }
 
     //ui misc initialization and assignment
-    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
-                                            +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
-    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Main, Format::Italic));
+    ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::Info300, Format::Bold)
+                                            +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderStatus->setText("Статус: "+Style::StyleText("ожидание подключения", Colors::Info100, Format::Italic));
 
     //timers starts here
     timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
@@ -283,7 +215,6 @@ void CoreUI::InitializeConnections()
 
     //startup functions
     Disconnected();
-    imageProcessing->InitialScan();
     Debug::Log("[STARTUP] Connections set up successfully");
 
     //execute any other startup code here
@@ -318,7 +249,7 @@ void CoreUI::InitializeDockwidgets()
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if(SConfig::getHashString("NetworkType") == "TCP"){
-        tcpRemote->Send(command.toUtf8());
+        //tcpRemote->Send(command.toUtf8());
     } else {
         if(type == CommandType::TelemetryCommand)
         {
@@ -332,38 +263,20 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::on_minButton_clicked()
-{
-    showMinimized();
-}
-
-
+void CoreUI::on_minButton_clicked() {showMinimized();}
 void CoreUI::on_minmaxButton_clicked()
 {
-    if(!isMaximized())
-        {
-            showMaximized();
-            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); //restore
-        }
-        else
-        {
-            showNormal();
-            ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-        }
+    if(!isMaximized()) { showMaximized(); ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); } //restore
+    else { showNormal(); ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png")); }
 }
-
-
-void CoreUI::on_closeButton_clicked()
-{
-    QApplication::quit();
-}
+void CoreUI::on_closeButton_clicked() { QApplication::quit(); }
 
 void CoreUI::on_settingsButton_clicked()
 {
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
     if(passwordDialog.exec() == QDialog::Accepted)
     {
-        if(passwordDialog.passwordCheck)
+        if(passwordDialog.passwordCheck || SConfig::getHashString("SudoPassword").isEmpty())
         {
             SettingsDialog sd(this);
             QString s = SConfig::getHashString("ViewPath");
@@ -371,13 +284,13 @@ void CoreUI::on_settingsButton_clicked()
             {
                 if(s!=SConfig::getHashString("ViewPath"))
                 {
-                    imageProcessing->InitialScan();
+
                 } else { Debug::Log("?[CONFIG] Path unchanged, no further scans"); }
                 SConfig::saveSettings();
             } else { SConfig::loadSettings(); }
-            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::MainShade800, Format::Bold)
-                                                    +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::MainShade900, Format::Bold));
-            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::MainShade900, Format::Bold));
+            ui->label_c_sarip->setText("Адрес РЛС: "+Style::StyleText(" ("+SConfig::getHashString("NetworkType")+") ", Colors::Info300, Format::Bold)
+                                                    +Style::StyleText(SConfig::getHashString("SarIP")+":"+SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
+            ui->label_c_loaderip->setText("Адрес загрузчика: "+Style::StyleText(SConfig::getHashString("LoaderIP")+":"+SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
         } else {
             QMessageBox passwordWarning;
             passwordWarning.setWindowTitle("Ошибка");
@@ -392,11 +305,7 @@ void CoreUI::on_settingsButton_clicked()
     }
 }
 
-void CoreUI::on_infoButton_clicked()
-{
-    AboutDialog aboutDialog(this, PROJECT_VERSION);
-    aboutDialog.exec();
-}
+void CoreUI::on_infoButton_clicked() { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -486,7 +395,7 @@ void CoreUI::ReadForm(QByteArray data)
                        + QString::number(responseList[2])
                        + " with checksum check " +
                        checksumCheck);
-            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent, Format::NoFormat));
+            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
             ui->progressBar_formImageStatus->setValue((int)40);
         }
         break;

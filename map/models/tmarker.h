@@ -15,7 +15,7 @@ class TMarker : public QObject
     Q_OBJECT
 public:
     explicit TMarker(QObject *parent = nullptr);
-    QColor color = Qt::white;
+    QColor color = QColor("#fff5ee");
     QString name = "Новый маркер";
     short int icon = MarkerIcon::GoogleDefaultMarker;
     qreal latitude = 0;

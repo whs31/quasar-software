@@ -15,6 +15,7 @@ import SMath 1.0
 import MouseKeyHandler 1.0
 //import MouseHover 1.0
 import MarkerManager 1.0
+import ImageManager 1.0
 
 
 Rectangle {
@@ -48,7 +49,6 @@ Rectangle {
     property int  defaultMapModeOnTestMode: 0;
 
     property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
-    property var imageArray: []
 
     //ruler
     property int r_currentstate: 0;
@@ -112,105 +112,11 @@ Rectangle {
     //===========================================================================================================================================================================================
     //===========================================================================================================================================================================================
 
-    //--------------------------SAR images-------------------------------------------{
-    function clearImageArray()
-    {
-        for (var i = 0; i < imageArray.length; i++)  {
-            hideImage(i);
-            mapView.removeMapItem(imageArray[i]);
-        }
-        imageArray = [];
-    }
-
-    function addImage(centerlat, centerlon, dx, dy, x0, y0, angle, filename, h, base64encoding)
-    {
-        var item = Qt.createQmlObject('
-                                                    import QtQuick 2.0;
-                                                    import QtLocation 5.12;
-
-                                                    MapQuickItem {
-                                                        id: imageItem
-                                                        z:1
-
-                                                    }
-                                    ', mapView, "dynamic");
-        //one degree = 111 120 meters
-        item.anchorPoint.x = -x0;
-        item.anchorPoint.y = h/2;
-        item.coordinate = QtPositioning.coordinate(centerlat, centerlon);
-        if(!FStaticVariables.useBase64)
-        {
-            console.log("[QML] Displaying image from " + filename);
-            item.sourceItem = Qt.createQmlObject('
-                                                    import QtQuick 2.0;
-                                                    import QtGraphicalEffects 1.12;
-
-                                                    Rectangle {
-                                                        opacity: 1;
-                                                        transform: Rotation {
-                                                            id: imageRotation
-                                                            origin.x: -'+x0+'
-                                                            origin.y: imageSource.height/2;
-                                                            angle: '+angle+'
-                                                        }
-
-                                                        Image {
-                                                            id: imageSource;
-                                                            opacity: 1;
-                                                            source: "file:///'+ filename +'"
-                                                            visible: true
-                                                        }
-
-                                                    }
-            ', mapView, "dynamic");
-        } else {
-            console.log("[QML] Displaying image from base64 string");
-            item.sourceItem = Qt.createQmlObject('
-                                                    import QtQuick 2.0;
-                                                    import QtGraphicalEffects 1.12;
-
-                                                    Rectangle {
-                                                        opacity: 1;
-                                                        transform: Rotation {
-                                                            id: imageRotation
-                                                            origin.x: -'+x0+'
-                                                            origin.y: imageSource.height/2;
-                                                            angle: '+angle+'
-                                                        }
-
-                                                        Image {
-                                                            id: imageSource;
-                                                            opacity: 1;
-                                                            source: "data:image/png;base64,'+ base64encoding +'"
-                                                            visible: true
-                                                        }
-
-                                                    }
-            ', mapView, "dynamic");
-        }
-
-        item.zoomLevel = smath.mercatorZoomLevel(1, centerlat);
-        mapView.addMapItem(item);
-        imageArray.push(item);
-    }
-
-    function hideImage(filecounter)
-    {
-        imageArray[filecounter].visible = false;
-        imageArray[filecounter].enabled = false;
-    }
-
-    function showImage(filecounter)
-    {
-        imageArray[filecounter].visible = true;
-        imageArray[filecounter].enabled = true;
-        fc = filecounter;
-    }
-
     function panImage(filecounter)
     {
         console.log("[QML] Map centered on image");
-        mapView.center = imageArray[filecounter].coordinate;
+        var coords = QtPositioning.coordinate(imageModel.get(imageModel.count - 1).m_lat, imageModel.get(imageModel.count - 1).m_lon);
+        mapView.center = coords;
         fc = filecounter;
     }
     //-------------------------------------------------------------------------------}
@@ -258,6 +164,11 @@ Rectangle {
     function clearRoute()
     {
         mapPolyline.path = [];
+    }
+
+    function markerRemove(i)
+    {
+        MarkerManager.removeMarker(i);
     }
     //------------------------------------------------------------------------------}
 
@@ -319,6 +230,42 @@ Rectangle {
         r2MapItem.visible = false;
     }
 
+    function addImage(meta, gui, base64: string, checksumSuccess: bool)
+    {
+        imageUIModel.append({   "m_lat": meta[0],
+                                "m_lon": meta[1],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_latitude": gui[0],
+                                "m_longitude": gui[1],
+                                "m_dx": gui[2],
+                                "m_dy": gui[3],
+                                "m_x0": gui[4],
+                                "m_y0": gui[5],
+                                "m_angle": gui[6],
+                                "m_driftAngle": gui[7],
+                                "m_azimuth": gui[10],
+                                "m_hash": gui[11],
+                                "m_filename": gui[12],
+                                "m_datetime": gui[13],
+                                "m_checksumMatch": checksumSuccess ? "да" : "нет",
+                                "m_visible": true
+                            });
+        imageModel.append({     "m_lat": meta[0],
+                                "m_lon": meta[1],
+                                "m_x0": meta[4],
+                                "m_y0": meta[5],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_width": meta[9],
+                                "m_height": meta[10],
+                                "m_angle": meta[6],
+                                "m_base64": base64,
+                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
+                                
+                            });
+    }
+
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
                                 "m_color": String(col), 
@@ -331,9 +278,9 @@ Rectangle {
                             });
     }
 
-    ListModel {
-        id: markerModel
-    }
+    ListModel { id: imageModel; }
+    ListModel { id: imageUIModel; }
+    ListModel { id: markerModel; }
     
     property bool markerPlacementCursorChange: false;
 
@@ -431,6 +378,55 @@ Rectangle {
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
         onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
+
+        MapItemView
+        {
+            model: imageModel;
+            add: Transition {
+                    NumberAnimation {
+                        property: "m_opacity";
+                        from: 0;
+                        to: 1;
+                        duration: 2000;
+                        easing.type: Easing.OutCubic;
+                    }
+            }
+            remove: Transition {
+                        NumberAnimation {
+                            property: "m_opacity";
+                            from: 1;
+                            to: 0;
+                            duration: 2000;
+                            easing.type: Easing.OutCubic;
+                        }
+            }
+            delegate: SARImage { }
+        }
+
+        MapItemView
+        {
+            model: imageUIModel;
+            add: Transition {
+                    NumberAnimation {
+                        property: "m_scale";
+                        from: 0;
+                        to: 1;
+                        duration: 2000;
+                        easing.type: Easing.OutCubic;
+                    }
+            }
+            remove: Transition {
+                        NumberAnimation {
+                            property: "m_opacity";
+                            from: 1;
+                            to: 0;
+                            duration: 2000;
+                            easing.type: Easing.OutCubic;
+                        }
+            }
+            delegate: SARDialog { }
+        }
+
 
         MapItemView
         {
@@ -705,6 +701,14 @@ Rectangle {
         }
 
         //left to right <<<<<<<<<
+        MenuImages
+        {
+            visible: false; //comment me
+            enabled: false; //comment me
+            anchors.left: parent.left;
+            anchors.top: parent.top;
+        }
+
         ZoomSlider 
         {
             id: zoomSliderElement;

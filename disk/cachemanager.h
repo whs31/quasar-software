@@ -6,6 +6,7 @@
 #include <QFile>
 #include "debug.h"
 #include "sconfig.h"
+#include "disktools.h"
 
 enum ClearMode : short int
 {
@@ -23,7 +24,6 @@ public:
     static void clearImageCache(ClearMode mode = ClearMode::ClearAll);
 
     static QString getTcpDowloaderCache();
-    static QString getPngCache();
     static QString getMapProviderCache();
     static QString getTileServerCache();
     static QString getDynamicResourcesCache();
@@ -38,7 +38,6 @@ private:
     static void initialize(void);
 
     static QString tcpDowloaderCache;
-    static QString pngCache;
     static QString mapProviderCache;
     static QString tileServerCache;
     static QString dynamicResourcesCache;

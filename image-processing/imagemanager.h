@@ -2,50 +2,29 @@
 #define IMAGEMANAGER_H
 
 #include <QObject>
-#include <QCoreApplication>
-#include <QDir>
-#include <QDebug>
-#include <QFile>
-#include <QSaveFile>
-#include <QPixmap>
-#include <QImage>
-#include <QPainter>
-#include <QPainterPath>
-#include <QPolygon>
-#include <QtMath>
+#include <QVector>
+#include <QSaveFile> //delete later
 
-#include <QBuffer>
-
-#include "debug.h"
-#include "profiler.h"
-#include "cachemanager.h"
-#include "alphamask.h"
-
-enum ImageFormat : short int
-{
-    OnlyFilename,
-    JPEG,
-    PNG
-};
+#include "models/timage.h"
+#include "imageprocess.h"
+#include "disktools.h"
+#include "linkerqml.h"
 
 class ImageManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit ImageManager(QObject *parent = nullptr);
-
-    QStringList GetDiff(QStringList existingFileList);
-    QStringList GetInitialList(const QString& path, QStringList diff = {});
-    QStringList GetPartialList(const QString& path, QStringList diff = {});
-    bool saveRawData(QByteArray data, QString filename); //to disk
-
-    static QStringList diffConvert(QStringList diff, ImageFormat format = ImageFormat::OnlyFilename);
-
-private:
-    QString MakePNG(QString jpeg);
+    static ImageManager* initialize(QObject *parent = nullptr);
+    static void newImage(QString filename, QByteArray rawData);
 
 signals:
 
+private:
+    explicit ImageManager(QObject *parent = nullptr);
+    static ImageManager* _instance;
+    static QVector<TImage*> imageList;
+
+    static bool checkVector(QString filename);
 };
 
 #endif // IMAGEMANAGER_H

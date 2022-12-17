@@ -6,20 +6,26 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
     if(!server->listen(QHostAddress(SConfig::getHashString("LoaderIP")), SConfig::getHashString("LoaderPort").toUInt()))
     {
-        Debug::Log("!![SERVER] Server could not start");
+        Debug::Log("!![SERVER] TCP-IP server has failed to start.");
     } else {
-        Debug::Log("?[SERVER] Server started.");
+        Debug::Log("?[SERVER] TCP-IP server started.");
     }
-    manager = new ImageManager();
     timer = new QTimer();
     timer->setInterval(TCP_TIMEOUT);
     connect(timer, &QTimer::timeout, this, &TCPDownloader::connectionTimeout);
+	//socket = new QTcpSocket(this);
 }
 
 void TCPDownloader::clientConnected(void)
 {
+	Debug::Log("?[SERVER] Trying to connect to SAR...");
     if(SConfig::getHashBoolean("SaveNonContinuous")) { _mode = 2; } else { _mode = 1; }
-    socket = server->nextPendingConnection();
+	socket = server->nextPendingConnection();
+	if(!socket)
+	{
+		Debug::Log("!![SERVER] NextPendingConnection returned nullptr. Aborting connection.");
+		return;
+	}
     connect(socket, &QTcpSocket::readyRead, this, &TCPDownloader::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPDownloader::clientDisconnected);
     imageData64.clear();
@@ -36,7 +42,7 @@ void TCPDownloader::clientDisconnected(void)
     socket->close();
     timer->stop();
     (fileSize == imageData.size()) ? Debug::Log("?[SERVER] Image fully received from SAR") : Debug::Log("![SERVER] Something went wrong in receiving SAR image");
-    if(_mode == 2) { success = manager->saveRawData(imageData, filename); }
+    if(_mode == 2) { ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData); }
     emit receivingFinished();
 }
 void TCPDownloader::serverRead(void)
@@ -50,11 +56,13 @@ void TCPDownloader::readFileInfo(QByteArray data)
 
     filename = QString(data);
     uint8_t i = data.indexOf('\0') + 1;
+
     memcpy(&fileSize, data.mid(i, sizeof(uint32_t)).data(), sizeof(uint32_t));
+
     i+=sizeof(uint32_t);
 
-    Debug::Log("Name:" + filename);
-    Debug::Log(&"FileSize:" [ fileSize]);
+    Debug::Log("[SERVER] Name:" + filename);
+    Debug::Log("[SERVER] Filesize:" + QString::number(fileSize / (1024)) + " kB");
 
     data.remove(0, i);
 

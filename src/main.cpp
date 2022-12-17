@@ -1,3 +1,9 @@
+//  Main "#354041"
+//  Dark #2a3334
+//  Darker #22292a
+//  Text #fff5ee
+
+
 #include <QWidget>
 #include <QApplication>
 #include <QDateTime>
@@ -12,10 +18,11 @@
 
 #include "smath.h"
 #include "backend/fmousekeyhandler.h"
-#include "backend/fmousehover.h"
-//#include "global/markermanager.h"
+#include "imagemanager.h"
 
-
+/* @TODO qml ghostly image connecting icon and main image
+ * @TODO qml reskin and panes
+ */
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -57,6 +64,7 @@ int main(int argc, char *argv[]) {
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
+    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
 
     QApplication app(argc, argv);
 

@@ -28,7 +28,8 @@ public:
     };
 
     QString cachedJPEGfilename = ""; //check
-    QString base64 = ""; 
+    QString base64 = "";
+    qreal realWidth = 0;
     qreal realHeight = 0;
     
     bool checksumMatch = false; //check

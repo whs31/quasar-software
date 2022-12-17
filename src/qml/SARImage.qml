@@ -35,7 +35,7 @@ MapQuickItem {
                 id: imageRotation;
                 origin.x: -m_x0;
                 origin.y: m_height / 2;
-                angle: m_angle;
+                angle: m_angle + m_driftAngle;
             }
             smooth: true;
             source: "data:image/png;base64," + m_base64;

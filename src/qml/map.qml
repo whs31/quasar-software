@@ -260,6 +260,7 @@ Rectangle {
                                 "m_width": meta[9],
                                 "m_height": meta[10],
                                 "m_angle": meta[6],
+                                "m_driftAngle": meta[7],
                                 "m_base64": base64,
                                 "m_zoom": smath.mercatorZoomLevel(1, meta[0])
                                 

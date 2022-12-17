@@ -66,6 +66,7 @@ QImage ImageProcess::dataToImage(QByteArray data, ImageMode mode, TImage& image)
 {
     data.reserve(sizeof(data));
     QImage qimage = QImage::fromData(data, "JPEG");
+    image.realWidth = qimage.width();
     image.realHeight = qimage.height();
 
                 
@@ -74,7 +75,7 @@ QImage ImageProcess::dataToImage(QByteArray data, ImageMode mode, TImage& image)
     else if (mode == ImageMode::GeometricAlphaMask)
     {
         qimage = enableAlphaSupport(qimage);
-        qimage = addAlphaMask(qimage, image.meta.lx, image.realHeight, image.meta.thetaAzimuth, image.meta.x0);
+        qimage = addAlphaMask(qimage, image.realWidth, image.realHeight, image.meta.thetaAzimuth, image.meta.x0);
         return qimage;
     }
     Debug::Log("!![IMAGETOOLS] ImageMode is incorrect.");

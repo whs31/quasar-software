@@ -31,6 +31,9 @@ public:
     static float getHashFloat(QString key);
     static bool getHashBoolean(QString key);
 
+    static QHash<QString, QVariant> getHashTable(void);
+    static void setHashTable(QHash<QString, QVariant> table);
+
 signals:
 
 private:

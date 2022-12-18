@@ -7,7 +7,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 
 ColumnLayout {
-    spacing: 2;
+    spacing: 1;
     Text {
         id: text_c_filename
         color: "#dae1e5"

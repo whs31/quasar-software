@@ -161,3 +161,6 @@ void SConfig::discardSettings()
     }
 }
 
+QHash<QString, QVariant> SConfig::getHashTable(void) { return variantHash; }
+void SConfig::setHashTable(QHash<QString, QVariant> table) { variantHash = table; }
+

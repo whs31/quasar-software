@@ -51,7 +51,7 @@ ColumnLayout {
     Text {
         id: text_c_lx
         color: "#dae1e5"
-        text: "Дальняя граница: " + m_lx;
+        text: "Протяженность кадра по <i>OX</i>: " + m_lx;
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false
@@ -67,25 +67,23 @@ ColumnLayout {
     Text {
         id: text_c_ly
         color: "#dae1e5"
-        text: "ly: " + m_ly;
+        text: "Протяженность кадра по <i>OY</i>: " + m_ly; //
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false
     }
-
     Text {
         id: text_c_y0
         color: "#dae1e5"
-        text: "y0:" + m_y0;
+        text: "y0 (не используется):" + m_y0; //
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false
     }
-
     Text {
         id: text_c_dx
         color: "#dae1e5"
-        text: "dx: " + m_dx;
+        text: "Попиксельный шаг по <i>OX</i>: " + m_dx;
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false
@@ -93,7 +91,7 @@ ColumnLayout {
     Text {
         id: text_c_dy
         color: "#dae1e5"
-        text: "dy: " + m_dy;
+        text: "Попиксельный шаг по <i>OY</i>: " + m_dy;
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false
@@ -117,7 +115,7 @@ ColumnLayout {
     Text {
         id: text_c_div
         color: "#dae1e5"
-        text: "Угол расхождения луча: " + m_azimuth;
+        text: "Ширина диаграммы направленности: " + m_azimuth;
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false

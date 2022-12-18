@@ -31,7 +31,7 @@ public:
     static QString getHashString(QString key);
     static float getHashFloat(QString key);
     static bool getHashBoolean(QString key);
-    static QVariant getHashValue(QString key);
+    static QVariant get(QString key);
 
     static QHash<QString, QVariant> getHashTable(void);
     static void setHashTable(QHash<QString, QVariant> table);

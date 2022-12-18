@@ -26,25 +26,13 @@ SConfig* SConfig::initialize(FStaticVariables* fStaticVariables)
     return pointer;
 }
 
-void SConfig::setHashValue(QString key, QVariant value)
-{
-    variantHash.insert(key, value);
-}
-
-QString SConfig::getHashString(QString key)
-{
-    return variantHash.value(key).toString();
-}
-
-float SConfig::getHashFloat(QString key)
-{
-    return variantHash.value(key).toFloat();
-}
-
-bool SConfig::getHashBoolean(QString key)
-{
-    return variantHash.value(key).toBool();
-}
+void SConfig::setHashValue(QString key, QVariant value) { variantHash.insert(key, value); }
+QString SConfig::getHashString(QString key) { return variantHash.value(key).toString(); }
+float SConfig::getHashFloat(QString key) { return variantHash.value(key).toFloat(); }
+bool SConfig::getHashBoolean(QString key) { return variantHash.value(key).toBool(); }
+QVariant SConfig::get(QString key) { return variantHash.value(key); }
+QHash<QString, QVariant> SConfig::getHashTable(void) { return variantHash; }
+void SConfig::setHashTable(QHash<QString, QVariant> table) { variantHash = table; }
 
 void SConfig::loadSettings()
 {
@@ -160,7 +148,3 @@ void SConfig::discardSettings()
           break;
     }
 }
-
-QHash<QString, QVariant> SConfig::getHashTable(void) { return variantHash; }
-void SConfig::setHashTable(QHash<QString, QVariant> table) { variantHash = table; }
-

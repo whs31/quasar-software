@@ -33,8 +33,8 @@ public:
     static bool getHashBoolean(QString key);
     static QVariant get(QString key);
 
-    static QHash<QString, QVariant> getHashTable(void);
-    static void setHashTable(QHash<QString, QVariant> table);
+    static QHash<QString, QVariant>* getHashTable(void);
+    static void setHashTable(QHash<QString, QVariant>* table);
 
 signals:
 

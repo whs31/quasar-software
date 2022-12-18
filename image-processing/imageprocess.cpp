@@ -17,10 +17,10 @@ bool ImageProcess::decode(QByteArray data, TImage &image)
         memcpy(&image.meta, (chardata + JPEG_HEADER_SIZE + 4), *metaSize);
 
         // проверка контрольной суммы
-        void *structData = (void *)malloc(1024);
-        memcpy((char *)structData, (void *)&image.meta, *metaSize);
-        uint32_t recalculatedChecksum = SChecksum::calculateChecksum(structData, *metaSize);
-        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 8, 16, QLatin1Char('0')); //@TODO to uint16 -> crc16
+        char* structData = (char*)malloc(sizeof(image.meta));
+        memcpy((char *)structData, (char *)&image.meta, *metaSize);
+        uint32_t recalculatedChecksum = SChecksum::calculateCRC16(structData, *metaSize);
+        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 4, 16, QLatin1Char('0')); //@TODO to uint16 -> crc16
         image.checksumMatch = (recalculatedChecksum == image.meta.checksum) ? 1 : 0;
         if (!image.checksumMatch)
             Debug::Log("![IMAGETOOLS] Checksum seems to be incorrect");
@@ -54,7 +54,7 @@ void ImageProcess::assignUIStrings(TImage &image, QString filename)
     image.gui.lx = QString::number(image.meta.lx, 'f', 0) + " м";
     image.gui.ly = QString::number(image.meta.ly, 'f', 0) + " м";
     image.gui.thetaAzimuth = QString::number(image.meta.thetaAzimuth, 'f', 3) + "°";
-    image.gui.checksum = "<font color=\"#a385cf\">0x" + QStringLiteral("%1").arg(image.meta.checksum, 8, 16, QLatin1Char('0')).toUpper() + "</font>"; //@TODO to uint16
+    image.gui.checksum = "<font color=\"#a385cf\">0x" + QStringLiteral("%1").arg(image.meta.checksum, 4, 16, QLatin1Char('0')).toUpper() + "</font>"; //@TODO to uint16
     image.gui.filename = "<font color=\"#c7a750\">" + filename + "</font>";
 
     QDateTime date = QDateTime::currentDateTime();

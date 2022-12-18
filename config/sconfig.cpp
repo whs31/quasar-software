@@ -31,8 +31,8 @@ QString SConfig::getHashString(QString key) { return variantHash.value(key).toSt
 float SConfig::getHashFloat(QString key) { return variantHash.value(key).toFloat(); }
 bool SConfig::getHashBoolean(QString key) { return variantHash.value(key).toBool(); }
 QVariant SConfig::get(QString key) { return variantHash.value(key); }
-QHash<QString, QVariant> SConfig::getHashTable(void) { return variantHash; }
-void SConfig::setHashTable(QHash<QString, QVariant> table) { variantHash = table; }
+QHash<QString, QVariant>* SConfig::getHashTable(void) { return &variantHash; }
+void SConfig::setHashTable(QHash<QString, QVariant>* table) { variantHash = *table; }
 
 void SConfig::loadSettings()
 {

@@ -47,12 +47,12 @@ void ImageProcess::assignUIStrings(TImage &image, QString filename)
     image.gui.longitude = QString::number(image.meta.longitude, 'f', 8) + "°";
     image.gui.dx = QString::number(image.meta.dx, 'f', 1);
     image.gui.dy = QString::number(image.meta.dy, 'f', 1);
-    image.gui.x0 = QString::number(image.meta.x0, 'f', 0) + "м";
-    image.gui.y0 = QString::number(image.meta.y0, 'f', 0) + "м";
+    image.gui.x0 = QString::number(image.meta.x0, 'f', 0) + " м";
+    image.gui.y0 = QString::number(image.meta.y0, 'f', 0) + " м";
     image.gui.angle = QString::number(image.meta.angle, 'f', 3) + "°";
     image.gui.driftAngle = QString::number(image.meta.driftAngle, 'f', 3) + "°";
-    image.gui.lx = QString::number(image.meta.lx, 'f', 0) + "м";
-    image.gui.ly = QString::number(image.meta.ly, 'f', 0) + "м";
+    image.gui.lx = QString::number(image.meta.lx, 'f', 0) + " м";
+    image.gui.ly = QString::number(image.meta.ly, 'f', 0) + " м";
     image.gui.thetaAzimuth = QString::number(image.meta.thetaAzimuth, 'f', 3) + "°";
     image.gui.checksum = "<font color=\"#a385cf\">0x" + QStringLiteral("%1").arg(image.meta.checksum, 8, 16, QLatin1Char('0')).toUpper() + "</font>"; //@TODO to uint16
     image.gui.filename = "<font color=\"#c7a750\">" + filename + "</font>";

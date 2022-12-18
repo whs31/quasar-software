@@ -13,5 +13,6 @@
         <file>qml/SARDialog.qml</file>
         <file>qml/SARDialogMetadataText.qml</file>
         <file>qml/ui/RoundPane.qml</file>
+        <file>qml/groups/TelemetryPanel.qml</file>
     </qresource>
 </RCC>

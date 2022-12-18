@@ -8,6 +8,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
+import "groups" as Groups
 
 //import
 
@@ -95,10 +96,10 @@ Rectangle {
     //called after fixedupdate
     function onGUI()
     {
-        latitudeText.text = Number(FTelemetry.latitude).toFixed(7)+"°";
-        longitudeText.text = Number(FTelemetry.longitude).toFixed(7)+"°";
-        elevationText.text = Number(FTelemetry.elevation).toFixed(0);
-        speedText.text = Number(FTelemetry.speed).toFixed(1);
+        telemetryPanel.textLatitude = Number(FTelemetry.latitude).toFixed(7);
+        telemetryPanel.textLongitude = Number(FTelemetry.longitude).toFixed(7);
+        telemetryPanel.textElevation = "<font color=\"#a385cf\">" + Number(FTelemetry.elevation).toFixed(0) + "</font>";
+        telemetryPanel.textSpeed = "<font color=\"#a385cf\">" + Number(FTelemetry.speed).toFixed(1) + "</font>";
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -608,90 +609,13 @@ Rectangle {
             }
         }
 
-        Rectangle {
-            id: speedElvRect
-            y: 62
-            width: 200
-            height: 25
-            opacity: 0.8
-            visible: true
-            radius: 18
-            color: Material.accent;
-            anchors.bottom: latLonRect.top
-            anchors.bottomMargin: 8;
-            anchors.horizontalCenter: parent.horizontalCenter
-            z: 100
-            Text {
-                id: speedText
-                color: "#dae1e5";
-                anchors.verticalCenter: parent.verticalCenter;
-                anchors.left: parent.left
-                font.bold: true
-                textFormat: Text.RichText
-                anchors.leftMargin: 30
-                text: qsTr("---.-")
-            }
-            Text {
-                id: speedTextTT
-                color: "#dae1e5"
-                anchors.verticalCenter: parent.verticalCenter;
-                anchors.left: speedText.right
-                anchors.leftMargin: 5
-                text: qsTr("км/ч")
-            }
-            Text {
-                id: elevationText
-                color: "#dae1e5";
-                anchors.verticalCenter: parent.verticalCenter;
-                anchors.right: elevationTextTT.left
-                horizontalAlignment: Text.AlignRight
-                font.bold: true
-                textFormat: Text.RichText
-                anchors.rightMargin: 5
-                text: qsTr("----")
-            }
-            Text {
-                id: elevationTextTT
-                color: "#dae1e5";
-                anchors.verticalCenter: parent.verticalCenter;
-                anchors.right: parent.right
-                horizontalAlignment: Text.AlignRight
-                anchors.rightMargin: 30
-                text: qsTr("м")
-            }
-        }
-        Rectangle {
-            id: latLonRect
-            width: 120
-            height: 40
-            opacity: 0.8
-            visible: true
-            radius: 15
-            color: Material.accent;
-            anchors.bottom: parent.bottom
-            anchors.bottomMargin: 40
-            anchors.horizontalCenter: parent.horizontalCenter
-            z: 100
-            Text {
-                id: latitudeText
-                color: "#dae1e5";
-                anchors.horizontalCenter: parent.horizontalCenter;
-                anchors.top: parent.top
-                font.bold: true
-                textFormat: Text.RichText
-                anchors.topMargin: 5
-                text: qsTr("-------")
-            }
-            Text {
-                id: longitudeText
-                color: "#dae1e5";
-                anchors.horizontalCenter: parent.horizontalCenter;
-                anchors.bottom: parent.bottom
-                font.bold: true
-                textFormat: Text.RichText
-                anchors.bottomMargin: 5
-                text: qsTr("-------")
-            }
+        Groups.TelemetryPanel
+        {
+            id: telemetryPanel;
+            Material.background: Material.accent;
+            anchors.bottom: parent.bottom;
+            anchors.bottomMargin: 10;
+            anchors.horizontalCenter: parent.horizontalCenter;
         }
 
         FloatingTooltip

@@ -120,9 +120,6 @@ MapQuickItem {
             }
             SARDialogMetadataText {
                 id: metadataColumn;
-                anchors.left: text_d_infoLabel.left;
-                anchors.top: text_d_infoLabel.bottom;
-                anchors.topMargin: 3;
             }
         }
     }

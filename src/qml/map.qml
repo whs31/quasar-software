@@ -9,6 +9,7 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 import "groups" as Groups
+import "sar-image" as ImageSAR
 
 //import
 
@@ -404,7 +405,7 @@ Rectangle {
                             easing.type: Easing.OutCubic;
                         }
             }
-            delegate: SARImage { }
+            delegate: ImageSAR.MapImage { }
         }
 
         MapItemView
@@ -428,7 +429,7 @@ Rectangle {
                             easing.type: Easing.OutCubic;
                         }
             }
-            delegate: SARDialog { }
+            delegate: ImageSAR.Dialog { }
         }
 
 

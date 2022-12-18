@@ -287,5 +287,7 @@
         <file>ui-resources/white/close.png</file>
         <file>ui-resources/white/command-line.png</file>
         <file>ui-resources/quasarlogo/icon.png</file>
+        <file>ui-resources/white/hide.png</file>
+        <file>ui-resources/white/trashbin.png</file>
     </qresource>
 </RCC>

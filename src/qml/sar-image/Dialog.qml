@@ -8,10 +8,10 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
-import "ui" as UI
+import "qrc:/qml/ui" as UI
 
 MapQuickItem {
-    id: sarUI;  
+    id: sarUI;
     property bool anim: m_visible;
     
     z: 2;
@@ -36,22 +36,19 @@ MapQuickItem {
         }
 
         MouseArea {
-                id: radarImageMouseArea;
-                propagateComposedEvents: true;
-                cursorShape: Qt.WhatsThisCursor;
-                anchors.left: radarImage.left;
-                anchors.leftMargin: -5;
-                anchors.right: radarImage.right;
-                anchors.rightMargin: -5;
-                anchors.bottom: radarImage.bottom;
-                anchors.bottomMargin: -5;
-                anchors.top: radarImage.top;
-                anchors.topMargin: -5;
-                //hoverEnabled: true;
-                onClicked: {
-                    anim = !anim;
-                }
-            }
+            id: radarImageMouseArea;
+            propagateComposedEvents: true;
+            cursorShape: Qt.WhatsThisCursor;
+            anchors.left: radarImage.left;
+            anchors.leftMargin: -5;
+            anchors.right: radarImage.right;
+            anchors.rightMargin: -5;
+            anchors.bottom: radarImage.bottom;
+            anchors.bottomMargin: -5;
+            anchors.top: radarImage.top;
+            anchors.topMargin: -5;
+            onClicked: { anim = !anim; }
+        }
         ColorOverlay {
             id: radarImageOverlay;
             anchors.fill: radarImage;
@@ -91,8 +88,8 @@ MapQuickItem {
                 verticalAlignment: Text.AlignVCenter;
             }
         }
-
-        UI.RoundPane {
+        UI.RoundPane
+        {
             id: sarDialogBase;
             anchors.left: textOverlay.right;
             anchors.leftMargin: 10;
@@ -100,10 +97,7 @@ MapQuickItem {
             radius: 10;
             z: 100;
             Material.elevation: 10;
-            Component.onCompleted:
-            {
-                visible = false;
-            }
+            Component.onCompleted: { visible = false; }
             NumberAnimation on opacity {
                 id: sardialogFadeIn;
                 from: 0;
@@ -118,13 +112,17 @@ MapQuickItem {
                 duration: 300;
                 easing.type: Easing.Linear;
             }
-            SARDialogMetadataText {
-                id: metadataColumn;
+            GridLayout
+            {
+                columns: 2;
+                MetadataGroup {
+                    id: metadataColumn;
+                }
             }
         }
     }
     onAnimChanged: {
         if(anim === true) { sardialogFadeIn.start(); sarDialogBase.enabled = true; sarDialogBase.visible = true;}
         else { sardialogFadeOut.start(); sarDialogBase.enabled = false; }
-    }   
+    }
 }

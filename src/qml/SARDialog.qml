@@ -15,9 +15,9 @@ MapQuickItem {
     
     z: 2;
     zoomLevel: 0;
-    anchorPoint.x: 24;
-    anchorPoint.y: 24;
-    property real m_opacity: 1;
+    anchorPoint.x: 18;
+    anchorPoint.y: 18;
+    property real m_opacity: 0.8;
     opacity: m_opacity;
     property real m_scale: 1;
     scale: m_scale;
@@ -25,8 +25,8 @@ MapQuickItem {
     sourceItem: Item {
         Image {
             id: radarImage;
-            width: 48;
-            height: 48;
+            width: 36;
+            height: 36;
             layer.enabled: true;
             transformOrigin: Item.Center;
             smooth: true;
@@ -37,6 +37,7 @@ MapQuickItem {
         MouseArea {
                 id: radarImageMouseArea;
                 propagateComposedEvents: true;
+                cursorShape: Qt.WhatsThisCursor;
                 anchors.left: radarImage.left;
                 anchors.leftMargin: -5;
                 anchors.right: radarImage.right;
@@ -80,7 +81,7 @@ MapQuickItem {
                 color: "#121212"; //radarImageOverlay.color;
                 enabled: true;
                 anchors.fill: parent;
-                font.pointSize: 8;
+                font.pointSize: 7;
                 font.family: "Arial";
                 font.weight: Font.Bold;
                 textFormat: Text.RichText;
@@ -120,128 +121,25 @@ MapQuickItem {
                 duration: 300;
                 easing.type: Easing.Linear;
             }
-            Column {
-            id: column
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.leftMargin: 5;
-            anchors.topMargin: 5;
-
             Text {
-                id: text1
-                color: "#fff5ee"
-                text: qsTr("Информация об изображении")
-                font.pixelSize: 9
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignTop
-                font.underline: true
-                font.bold: true
+                id: text_d_infoLabel;
+                color: "#dae1e5";
+                text: "Информация об изображении";
+                font.pixelSize: 10;
+                anchors.left: parent.left;
+                anchors.leftMargin: 4;
+                anchors.top: parent.top;
+                anchors.topMargin: 4;
+                horizontalAlignment: Text.AlignLeft;
+                verticalAlignment: Text.AlignTop;
+                font.underline: true;
+                font.bold: true;
             }
-
-            Text {
-                id: text3
-                color: "#fff5ee"
-                text: qsTr("Имя файла: ") + m_filename;
-                font.pixelSize: 8
-                fontSizeMode: Text.FixedSize
-                font.bold: true
-            }
-
-            Text {
-                id: text4
-                color: "#fff5ee"
-                text: qsTr("Дата: ") + m_datetime;
-                font.pixelSize: 8
-                font.bold: true
-            }
-
-            Text {
-                id: text5
-                color: "#fff5ee"
-                text: qsTr("Совпадение хэша: ") + m_checksumMatch;
-                font.pixelSize: 8
-                font.bold: true
-            }
-
-            Text {
-                id: text6
-                color: "#fff5ee"
-                text: qsTr("Широта: ") + m_latitude;
-                font.pixelSize: 8
-                font.bold: true
-            }
-
-            Text {
-                id: text7
-                color: "#fff5ee"
-                text: qsTr("Долгота: ") + m_longitude;
-                font.pixelSize: 8
-                font.bold: true
-            }
-
-            Text {
-                id: text8
-                color: "#fff5ee"
-                text: qsTr("dx: ") + m_dx;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text9
-                color: "#fff5ee"
-                text: qsTr("dy: ") + m_dy;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text10
-                color: "#fff5ee"
-                text: qsTr("x0: ") + m_x0;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text11
-                color: "#fff5ee"
-                text: qsTr("y0: ") + m_y0;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text12
-                color: "#fff5ee"
-                text: qsTr("Тета-азимут: ") + m_azimuth;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text13
-                color: "#fff5ee"
-                text: qsTr("Угол сноса: ") + m_driftAngle;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text14
-                color: "#fff5ee"
-                text: qsTr("Угол поворота: ") + m_angle;
-                font.pixelSize: 8
-                font.italic: true
-            }
-
-            Text {
-                id: text15
-                color: "#fff5ee"
-                text: qsTr("Хэш файла: ") + m_hash;
-                font.pixelSize: 8
-                font.italic: true
-            }
+            SARDialogMetadataText {
+                id: metadataColumn;
+                anchors.left: text_d_infoLabel.left;
+                anchors.top: text_d_infoLabel.bottom;
+                anchors.topMargin: 3;
             }
         }
     }

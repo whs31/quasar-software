@@ -90,18 +90,28 @@ MapQuickItem {
             color: "#000000";
             source: markerOverlay;
         }
-        Text {
-            id: markerText;
+        Rectangle {
+            id: textOverlay;
             color: markerOverlay.color;
-            enabled: true;
+            width: markerText.paintedWidth + 10;
+            height: markerText.paintedHeight + 3;
             anchors.top: markerSource.bottom;
             anchors.topMargin: 5;
             anchors.horizontalCenter: markerSource.horizontalCenter;
-            font.pointSize: 7;
-            font.family: "Arial";
-            font.weight: Font.Bold;
-            textFormat: Text.RichText;
-            text: m_name;
+            radius: 10
+            Text {
+                id: markerText;
+                color: "#000000";
+                enabled: true;
+                anchors.fill: parent;
+                font.pointSize: 7;
+                font.family: "Arial";
+                font.weight: Font.Bold;
+                textFormat: Text.RichText;
+                horizontalAlignment: Text.AlignHCenter;
+                verticalAlignment: Text.AlignVCenter;
+                text: m_name;
+            }
         }
         InlineDialog {
             id: markerDialog;

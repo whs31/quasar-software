@@ -7,6 +7,7 @@
 #include <QQuickItem>
 #include <QMessageBox>
 #include <QHash>
+#include <QVariant>
 
 #include "cachemanager.h"
 #include "config.h"
@@ -30,6 +31,7 @@ public:
     static QString getHashString(QString key);
     static float getHashFloat(QString key);
     static bool getHashBoolean(QString key);
+    static QVariant getHashValue(QString key);
 
     static QHash<QString, QVariant> getHashTable(void);
     static void setHashTable(QHash<QString, QVariant> table);

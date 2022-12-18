@@ -112,12 +112,12 @@ MapQuickItem {
                 duration: 300;
                 easing.type: Easing.Linear;
             }
-            GridLayout
+            ColumnLayout
             {
-                columns: 2;
-                MetadataGroup {
-                    id: metadataColumn;
-                }
+                //columns: 2;
+                spacing: 1;
+                ButtonTopGroup { id: buttonColumn; }
+                MetadataGroup { id: metadataColumn; }
             }
         }
     }

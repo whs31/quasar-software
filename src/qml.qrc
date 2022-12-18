@@ -11,9 +11,9 @@
         <file>qml/MenuImages.qml</file>
         <file>qml/ui/RoundPane.qml</file>
         <file>qml/groups/TelemetryPanel.qml</file>
-        <file>qml/sar-image/ButtonGroup.qml</file>
         <file>qml/sar-image/Dialog.qml</file>
         <file>qml/sar-image/MapImage.qml</file>
         <file>qml/sar-image/MetadataGroup.qml</file>
+        <file>qml/sar-image/ButtonTopGroup.qml</file>
     </qresource>
 </RCC>

@@ -12,5 +12,6 @@
         <file>qml/SARImage.qml</file>
         <file>qml/SARDialog.qml</file>
         <file>qml/SARDialogMetadataText.qml</file>
+        <file>qml/ui/RoundPane.qml</file>
     </qresource>
 </RCC>

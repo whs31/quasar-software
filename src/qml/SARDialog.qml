@@ -8,6 +8,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
+import "ui" as UI
 
 MapQuickItem {
     id: sarUI;  
@@ -17,7 +18,7 @@ MapQuickItem {
     zoomLevel: 0;
     anchorPoint.x: 18;
     anchorPoint.y: 18;
-    property real m_opacity: 0.8;
+    property real m_opacity: 0.9;
     opacity: m_opacity;
     property real m_scale: 1;
     scale: m_scale;
@@ -91,49 +92,31 @@ MapQuickItem {
             }
         }
 
-        Rectangle {
+        UI.RoundPane {
             id: sarDialogBase;
-            width: childrenRect.width + 10;
-            height: childrenRect.height + 10;
             anchors.left: textOverlay.right;
             anchors.leftMargin: 10;
             opacity: 0;
-            color: "#132623";
             radius: 10;
-            border.color: "#204040";
             z: 100;
+            Material.elevation: 10;
             Component.onCompleted:
             {
                 visible = false;
-                console.log(anim);
             }
             NumberAnimation on opacity {
                 id: sardialogFadeIn;
                 from: 0;
-                to: 0.8;
+                to: 0.9;
                 duration: 300;
                 easing.type: Easing.Linear;
             }
             NumberAnimation on opacity {
                 id: sardialogFadeOut;
-                from: 0.8;
+                from: 0.9;
                 to: 0;
                 duration: 300;
                 easing.type: Easing.Linear;
-            }
-            Text {
-                id: text_d_infoLabel;
-                color: "#dae1e5";
-                text: "Информация об изображении";
-                font.pixelSize: 10;
-                anchors.left: parent.left;
-                anchors.leftMargin: 4;
-                anchors.top: parent.top;
-                anchors.topMargin: 4;
-                horizontalAlignment: Text.AlignLeft;
-                verticalAlignment: Text.AlignTop;
-                font.underline: true;
-                font.bold: true;
             }
             SARDialogMetadataText {
                 id: metadataColumn;

@@ -9,6 +9,17 @@ import QtQuick.Layouts 1.15
 ColumnLayout {
     spacing: 1;
     Text {
+        id: text_d_infoLabel;
+        color: "#dae1e5";
+        text: "Информация об изображении";
+        font.pixelSize: 11
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignTop;
+        bottomPadding: 5
+        font.underline: true;
+        font.bold: true;
+    }
+    Text {
         id: text_c_filename
         color: "#dae1e5"
         text: "Имя файла: " + m_filename;
@@ -75,7 +86,7 @@ ColumnLayout {
     Text {
         id: text_c_y0
         color: "#dae1e5"
-        text: "y0 (не используется):" + m_y0; //
+        text: "y0 (не используется): " + m_y0; //
         font.pixelSize: 9
         font.family: "Verdana"
         font.bold: false

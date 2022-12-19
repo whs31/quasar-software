@@ -74,7 +74,7 @@ else()
         json/jsonmanager.h                                  json/jsonmanager.cpp
         json/jsonconfig.h                                   json/jsonconfig.cpp
         network/remote.h                                    network/remote.cpp
-        network/tcpremote.h                                 network/tcpremote.cpp
+        #network/tcpremote.h                                #network/tcpremote.cpp              removed in 1.9.0alpha
         network/udpremote.h                                 network/udpremote.cpp
         network/tcpdownloader.h                             network/tcpdownloader.cpp
         network/messageparser.h                             network/messageparser.cpp

@@ -4,15 +4,13 @@
 #include <QObject>
 #include <QDir>
 #include <QFile>
-#include "debug.h"
-#include "sconfig.h"
 #include "disktools.h"
 
 class CacheManager : public QObject
 {
     Q_OBJECT
 public:
-    static CacheManager* initializeCache();
+    static CacheManager* initializeCache(QObject *parent = nullptr);
     static void setupImageCache(void);
     Q_INVOKABLE static void clearImageCache(); 
 
@@ -26,7 +24,7 @@ public:
 signals:
 
 private:
-    explicit CacheManager(); 
+    explicit CacheManager(QObject* parent = nullptr); 
     static CacheManager* _instance;
     static void initialize(void);
 

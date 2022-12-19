@@ -9,17 +9,17 @@
 #include <QTextStream>
 #include <QTimer>
 
-class Style : public UXManager
+class Style : public QObject
 {
     Q_OBJECT
 public:
-    static Style* initialize(bool testMode = false);
+    static Style* initialize(QObject* parent = nullptr, bool testMode = false);
 
     static QString StyleText(QString string, Colors color = Colors::NoColor, Format format = Format::NoFormat, QString comlplicatedFormat = ""); //e.g. "b-i-u-sup-sub"
 public slots:
     void updateQSS(void);
 private:
-    Style(bool TestMode = false);
+    Style(QObject* parent = nullptr, bool TestMode = false);
     static Style* _instance;
     void initializeColors();
     void initializeFormats();

@@ -5,19 +5,30 @@ QStringList UXManager::ColorStringList;
 QStringList UXManager::FormatList;
 QString UXManager::jsonFilePath;
 QJsonObject UXManager::jsonobj;
+UXManager* UXManager::_instance = nullptr;
+QString UXManager::settingsPath = "nullstr";
+
+UXManager *UXManager::initialize(QObject *parent, QString m_settingsPath)
+{
+    if (_instance != NULL)
+        return _instance;
+    settingsPath = m_settingsPath;
+    _instance = new UXManager(parent);
+    return _instance;
+}
+
 UXManager::UXManager(QObject *parent) : QObject{parent}
 {
-
     QJsonDocument json;
-    if(QFile::exists((CacheManager::getSettingsPath()+"/ux.json")))
+    if(QFile::exists((settingsPath+"/ux.json")))
     {
-        QFile jsonFile(CacheManager::getSettingsPath()+"/ux.json");
+        QFile jsonFile(settingsPath+"/ux.json");
         jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QString jsonContents = jsonFile.readAll();
         json = QJsonDocument::fromJson(jsonContents.toUtf8());
     } else {
         makeJSON();
-        QFile jsonFile(CacheManager::getSettingsPath()+"/ux.json");
+        QFile jsonFile(settingsPath+"/ux.json");
         jsonFile.open(QIODevice::ReadOnly | QIODevice::Text);
         QString jsonContents = jsonFile.readAll();
         json = QJsonDocument::fromJson(jsonContents.toUtf8());
@@ -94,6 +105,6 @@ void UXManager::fillStringList()
 
 void UXManager::makeJSON()
 {
-    QFile::copy(":/json-backup/ux.json", CacheManager::getSettingsPath() + "/ux.json");
+    QFile::copy(":/json-backup/ux.json", settingsPath + "/ux.json");
 }
 

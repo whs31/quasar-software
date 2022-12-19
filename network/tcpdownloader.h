@@ -9,8 +9,6 @@
 #include <QHostAddress>
 #include <QTimer>
 #include "imagemanager.h"
-#include "sconfig.h"
-#include "debug.h"
 
 enum DowloaderMode : short int
 {

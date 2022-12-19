@@ -6,7 +6,6 @@
 
 #include "qqml.h"
 #include "debug.h"
-#include "models/tmarker.h"
 #include "markerdialog.h"
 #include "linkerqml.h"
 

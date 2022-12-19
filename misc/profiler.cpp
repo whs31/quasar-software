@@ -1,6 +1,6 @@
 #include "profiler.h"
 
-Profiler::Profiler(QString profilerName) : header(profilerName)
+Profiler::Profiler(QString profilerName, bool showProfiler) : header(profilerName), showProfiler(showProfiler)
 { 
     timer = new QElapsedTimer();
 }
@@ -32,7 +32,7 @@ void Profiler::ShowProfile()
 
     output.append("\nTotal elapsed time: " + QString::number(totalElapsed, 'f', 0) + " ms");
     
-    if(SConfig::getHashBoolean("ShowProfiler"))
+    if(showProfiler)
     {
         QMessageBox openSSLDialogue;
             openSSLDialogue.setWindowTitle(header);

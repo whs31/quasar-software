@@ -1,26 +1,6 @@
-#include "buildprefs.h"
-
-#include <QWidget>
 #include <QApplication>
-#include <QDateTime>
-#include <QDebug>
-#include <QFontDatabase>
-#include <QFont>
-
-#include <qqml.h>
-#include <QStandardPaths>
-#include <QQmlApplicationEngine>
-#include <QQuickStyle>
 #include "coreui.h"
-#include "style.h"
 
-#include "smath.h"
-#include "backend/fmousekeyhandler.h"
-#include "imagemanager.h"
-
-/* @TODO qml ghostly image connecting icon and main image
- * @TODO qml reskin and panes
- */
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -60,27 +40,17 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-    //cache setup
-    CacheManager::initializeCache();
 
-    //qml registration here
-    qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
-    qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
-    qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
-    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
-    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize());
-
+    
     QQuickStyle::setStyle("Material");                      //графика для QML
-    Style::initialize(ENABLE_CSS_UPDATE_ON_CHANGE);
-    TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
-
     qInstallMessageHandler(debugLogger);
+
     CoreUI window;
 
-	QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/proximanova_regular.ttf");
-	QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/HelveticaNeueCyr-Light.ttf");
-	QFont proximaNova = QFont("Proxima Nova", 10, 1);
-	QFont helveticaNeue = QFont("Helvetica Neue Embedded", 10, 1);
+	// QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/proximanova_regular.ttf");
+	// QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/HelveticaNeueCyr-Light.ttf");
+	// QFont proximaNova = QFont("Proxima Nova", 10, 1);
+	// QFont helveticaNeue = QFont("Helvetica Neue Embedded", 10, 1);
 
     window.show();
     window.showMaximized();

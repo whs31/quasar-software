@@ -7,7 +7,6 @@
 
 #include "models/timage.h"
 #include "imageprocess.h"
-#include "disktools.h"
 #include "linkerqml.h"
 
 

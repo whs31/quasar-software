@@ -43,16 +43,19 @@ class UXManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit UXManager(QObject *parent = nullptr);
+    static UXManager* initialize(QObject *parent = nullptr, QString m_settingsPath = "only assign this value on first init");
+    
     static QColor GetColor(Colors color = Colors::NoColor, bool useBeforeClassInit = false);
     static QString GetFormat(Format format = Format::NoFormat);
-
-protected:
     static short int GetLengthOfColors();
     static QStringList GetColorList();
     static QStringList GetFormatList();
+    
 
 private:
+    static UXManager* _instance;
+    explicit UXManager(QObject *parent = nullptr);
+    static QString settingsPath;
     static QVector<QColor> ColorList;
     static QStringList ColorStringList;
     static QStringList FormatList;

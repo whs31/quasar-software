@@ -6,13 +6,11 @@
 #include <QVector>
 #include <QMessageBox>
 
-#include "sconfig.h"
-
 class Profiler : public QObject
 {
     Q_OBJECT
 public:
-    explicit Profiler(QString profilerName = "Профайлер");
+    explicit Profiler(QString profilerName = "Профайлер", bool showProfiler = true);
     void ShowProfile();
     void Start();
     void Stop(QString name = "");
@@ -23,6 +21,7 @@ private:
     QVector<float> operationTime;
     QElapsedTimer* timer;
     QString header;
+    bool showProfiler;
 
 
 signals:

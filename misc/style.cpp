@@ -3,7 +3,7 @@
 Style* Style::_instance = nullptr;
 QStringList Style::colors;
 QStringList Style::formats;
-Style::Style(bool TestMode) : TestMode(TestMode)
+Style::Style(QObject* parent, bool TestMode) : QObject{parent}, TestMode(TestMode)//, QObject{parent} 
 {
     initializeColors();
     initializeFormats();
@@ -25,11 +25,11 @@ Style::Style(bool TestMode) : TestMode(TestMode)
     }
 }
 
-Style* Style::initialize(bool testMode)
+Style* Style::initialize(QObject* parent, bool testMode)
 {
     if(_instance != NULL)
         return _instance;
-    _instance = new Style(testMode);
+    _instance = new Style(parent, testMode);
     return _instance;
 }
 

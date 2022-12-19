@@ -8,11 +8,11 @@ QString CacheManager::tileServerCache;
 QString CacheManager::dynamicResourcesCache;
 QString CacheManager::settingsPath;
 
-CacheManager *CacheManager::initializeCache()
+CacheManager *CacheManager::initializeCache(QObject *parent)
 {
     if (_instance != nullptr)
         return _instance;
-    _instance = new CacheManager();
+    _instance = new CacheManager(parent);
     DiskTools::initialize(initializeCache());
     return _instance;
 }
@@ -47,7 +47,6 @@ void CacheManager::setupImageCache()
     {
         tcp.mkpath(tcpDowloaderCache);
     }
-    SConfig::setHashValue("FlightPath", tcpDowloaderCache);
     Debug::Log("?[CACHEMANAGER] Image cache created");
 }
 
@@ -68,7 +67,7 @@ QString CacheManager::getTileServerCache() { return tileServerCache; }
 QString CacheManager::getDynamicResourcesCache() { return dynamicResourcesCache; }
 QString CacheManager::getSettingsPath() { return settingsPath; }
 
-CacheManager::CacheManager()
+CacheManager::CacheManager(QObject *parent) : QObject{parent}
 {
     initialize();
     setupImageCache();

@@ -4,6 +4,7 @@
 #include <QSslSocket>
 #include <QTimer>
 #include "qqml.h"
+#include <QQuickStyle>
 #include <QQmlEngine>
 #include <QQmlContext>
 #include <QRect>
@@ -12,17 +13,12 @@
 //qml types
 #include "backend/ftelemetry.h"
 #include "backend/fdynamicvariables.h"
-#include "backend/fstaticvariables.h"
-
+#include "backend/fmousekeyhandler.h"
 
 #include "extension.h"
 #include "udpremote.h"
-#include "tcpremote.h"
 #include "messageparser.h"
-#include "debug.h"
-
-#include "stext.h"
-#include "backend/smousestate.h"
+#include "smath.h"
 
 #include "settingsdialog.h"
 #include "aboutdialog.h"
@@ -30,8 +26,7 @@
 
 #include "style.h"
 #include "linkerqml.h"
-#include "sconfig.h"
-#include "cachemanager.h"
+
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 
@@ -80,7 +75,6 @@ private:
     UDPRemote *telemetryRemote;
     UDPRemote *formRemote;
     UDPRemote *consoleListenerRemote;
-    TCPRemote *tcpRemote;
     LinkerQML *linker;
     TCPDownloader *downloader;
     QQuickItem* qml;

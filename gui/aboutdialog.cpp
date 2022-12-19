@@ -3,13 +3,10 @@
 
 AboutDialog::AboutDialog(QWidget *parent, QString softwareBuildVersion) :
     QDialog(parent),
-    softwareVersion(softwareBuildVersion),
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-    //regex to detect stable
-    //also change in debug logs and remove from config software version
-    ui->softVersion->setText(Style::StyleText(softwareVersion, Colors::Accent100, Format::Bold));
+    ui->softVersion->setText(Style::StyleText(softwareBuildVersion, softwareBuildVersion.contains("-") ? Colors::Accent100 : Colors::Info100, Format::Bold));
 }
 
 AboutDialog::~AboutDialog()

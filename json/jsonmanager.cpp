@@ -2,9 +2,7 @@
 
 JSONManager::JSONManager()
     : QObject{parent()}
-{
-
-}
+{}
 
 QJsonObject JSONManager::parseJSON(QString path)
 {
@@ -18,9 +16,7 @@ QJsonObject JSONManager::parseJSON(QString path)
         jsonfile.close();
     } else {
         Debug::Log("!![JSON] .json file unavialable");
-        QJsonObject object {
-        };
-        return object;
+        return QJsonObject{};
     }
     return json.object();
 }

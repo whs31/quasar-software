@@ -2,9 +2,7 @@
 
 FStaticVariables::FStaticVariables(QObject *parent)
     : QObject{parent}
-{
-
-}
+{}
 
 float FStaticVariables::predictRange()    { return _predictRange; }
 void FStaticVariables::setPredictRange(float value)  { if(value == _predictRange) return; _predictRange = value; emit predictRangeChanged(); }

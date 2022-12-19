@@ -18,7 +18,6 @@ public:
 
 private:
     Ui::AboutDialog *ui;
-    QString softwareVersion;
 };
 
 #endif // ABOUTDIALOG_H

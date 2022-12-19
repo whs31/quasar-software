@@ -68,8 +68,6 @@ public:
     Interface gui; //check
     QImage image; //check
 
-    void setupImage();
-
 signals:
 };
 

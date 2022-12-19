@@ -14,13 +14,5 @@ PasswordDialog::~PasswordDialog()
     delete ui;
 }
 
-void PasswordDialog::on_passwordField_textChanged(const QString &arg1)
-{
-    if(arg1 == _password)
-    {
-        passwordCheck = true;
-    } else {
-        passwordCheck = false;
-    }
-}
+void PasswordDialog::on_passwordField_textChanged(const QString &arg1) { arg1 == _password ? passwordCheck = true : passwordCheck = false; }
 

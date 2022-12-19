@@ -2,9 +2,7 @@
 
 FTelemetry::FTelemetry(QObject *parent)
     : QObject{parent}
-{
-
-}
+{}
 
 float FTelemetry::latitude()    { return _latitude; }
 void FTelemetry::setLatitude(float value)  { if(value == _latitude) return; _latitude = value; emit latitudeChanged(); }

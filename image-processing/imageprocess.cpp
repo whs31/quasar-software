@@ -68,8 +68,7 @@ QImage ImageProcess::dataToImage(QByteArray data, ImageMode mode, TImage& image)
     QImage qimage = QImage::fromData(data, "JPEG");
     image.realWidth = qimage.width();
     image.realHeight = qimage.height();
-
-                
+      
     if (mode == ImageMode::Raw)
         return qimage;
     else if (mode == ImageMode::GeometricAlphaMask)
@@ -87,8 +86,7 @@ QString ImageProcess::imageToBase64(QImage &image)
     QByteArray arr;
     QBuffer buffer(&arr);
     image.save(&buffer, "PNG");
-    QString encoded = QString::fromLatin1(arr.toBase64().data());
-    return encoded;
+    return QString::fromLatin1(arr.toBase64().data());
 }
 
 QImage ImageProcess::enableAlphaSupport(QImage image)
@@ -107,28 +105,24 @@ QImage ImageProcess::addAlphaMask(QImage image, float width, float height, float
     painter.setPen(QPen(Qt::transparent, 10));
     painter.setRenderHint(QPainter::Antialiasing);
     const int top[8] = {
-        0, (int)((height / 2) - 2*x0*qTan(qDegreesToRadians(thetaAzimuth / 2))),
+        0, (int)((height / 2) - 2 * x0 * qTan(qDegreesToRadians(thetaAzimuth / 2))),
         0, 0,
         (int)width, 0,
-        (int)width, (int)((height / 2) - (2*x0 + width) * qTan(qDegreesToRadians(thetaAzimuth / 2)))
+        (int)width, (int)((height / 2) - (2 * x0 + width) * qTan(qDegreesToRadians(thetaAzimuth / 2)))
         };
     const int bottom[8] = {
-        0, (int)((height / 2) + 2*x0*qTan(qDegreesToRadians(thetaAzimuth / 2))),
+        0, (int)((height / 2) + 2 * x0 * qTan(qDegreesToRadians(thetaAzimuth / 2))),
         0, (int)height,
         (int)width, (int)height,
-        (int)width, (int)((height / 2) + (2*x0 + width) * qTan(qDegreesToRadians(thetaAzimuth / 2)))
+        (int)width, (int)((height / 2) + (2 * x0 + width) * qTan(qDegreesToRadians(thetaAzimuth / 2)))
         };
     QPolygon p1, p2;
-    p1.setPoints(4, top);
-    p2.setPoints(4, bottom);
-    painter.drawPolygon(p1);
-    painter.drawPolygon(p2);
+    p1.setPoints(4, top);    p2.setPoints(4, bottom);
+    painter.drawPolygon(p1); painter.drawPolygon(p2);
     QPainterPath fillp;
     QBrush brush;
-    brush.setStyle(Qt::SolidPattern);
-    brush.setColor(Qt::transparent);
-    fillp.addPolygon(p1);
-    fillp.addPolygon(p2);
+    brush.setStyle(Qt::SolidPattern); brush.setColor(Qt::transparent);
+    fillp.addPolygon(p1);    fillp.addPolygon(p2);
     painter.fillPath(fillp, brush);
     painter.end();
     return image;

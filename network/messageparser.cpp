@@ -1,27 +1,4 @@
-/* <Класс MessageParser : QObject>
- *      Класс, содержащий статические методы и переменные
- *      для работы с данными, передаваемыми между ПО и РЛС.
- *      Класс не требует вызова конструктора для работы.
- *
- *•Публичные статические методы:
- *      ► DataType checkReceivedDataType(QByteArray data)
- *
- *        Анализирует массив байтов data и возвращает enum DataType : short int,
- *        равный типу данных, закодированных в массиве байтов.
- *
- *      ► std::array<double, 5> parseTelemetry(QByteArray data)
- *
- *        Принимает массив байтов с телеметрией в формате JSON и возвращает
- *        массив double с данными телеметрии в следующем порядке:
- *        широта, долгота, скорость, высота, количество спутников GPS.
- *
- *•Публичные статические значения:
- *      ► QString REQUEST_TELEMETRY
-
- *        Строка, на которую откликается сервер и передает данные телеметрии.
-*/
 #include "messageparser.h"
-
 
 QString MessageParser::REQUEST_TELEMETRY = "$JSON";
 QString MessageParser::REQUEST_FORM = "$FORM";
@@ -29,9 +6,7 @@ QString MessageParser::REQUEST_FORM = "$FORM";
 size_t MessageParser::formMessageID = 0;
 MessageParser::MessageParser(QObject *parent)
     : QObject{parent}
-{
-
-}
+{}
 
 DataType MessageParser::checkReceivedDataType(QByteArray data)
 {
@@ -51,7 +26,7 @@ std::array<double, 6> MessageParser::parseTelemetry(QByteArray data)
     double lat =  jsonDocument.object().value("Latitude").toDouble();
     double lon =  jsonDocument.object().value("Longitude").toDouble();
     double spd =  jsonDocument.object().value("Speed").toDouble();
-    double elv =  jsonDocument.object().value("Elevation").toDouble(); //to qproperty system
+    double elv =  jsonDocument.object().value("Elevation").toDouble(); 
     double sats =  jsonDocument.object().value("Sats").toDouble(); //to qproperty system
     double direction = jsonDocument.object().value("Direction").toDouble();
     return { lat, lon, spd, elv, sats, direction };
@@ -59,32 +34,22 @@ std::array<double, 6> MessageParser::parseTelemetry(QByteArray data)
 
 QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9)
 {
-    QString formRequest = ":";
-
-    QString messageID;
-    (formMessageID < 10000) ? formMessageID++ : formMessageID == 1;
-    if(formMessageID < 1000)
-        messageID = "0";
-    if(formMessageID < 100)
-        messageID.append("0");
-    if(formMessageID < 10)
-        messageID.append("0");
-    messageID.append(QString::number(formMessageID));
-    formRequest.append(messageID + "|");
-
-    QString _formRequest = REQUEST_FORM + "(" + arg1 + "," + QString::number(arg2) + "," + QString::number(arg3) + "," +
-                                            QString::number(arg4, 'f', 1) + "," + QString::number(arg5, 'f', 1) + "," + QString::number(arg6, 'f', 1) +
-                                            "," + QString::number(arg7) +
-                                            "," + QString::number(arg8, 'f', 0) + "," + QString::number(arg9, 'f', 1) + ")";
-    short strlen = _formRequest.length();
+    QString formRequest = ":" + QStringLiteral("%1").arg(++formMessageID, 4, 10, QLatin1Char('0')) + "|";
+    QString _formRequest = REQUEST_FORM + "(" 
+                                        + arg1 + ","                            //mode (m1, m2) : QString
+                                        + QString::number(arg2) + ","           //x0 : int
+                                        + QString::number(arg3) + ","           //lx + x0 : int
+                                        + QString::number(arg4, 'f', 1) + ","   //ts : float
+                                        + QString::number(arg5, 'f', 1) + ","   //dx : float 
+                                        + QString::number(arg6, 'f', 1) + ","   //dy : float (dx = dy in most cases)
+                                        + QString::number(arg7) + ","           //override gps data : (int)bool
+                                        + QString::number(arg8, 'f', 0) + ","   //height : float
+                                        + QString::number(arg9, 'f', 1)         //speed : float 
+                                        + ")";
     QString hexlen;
-    hexlen.setNum(strlen, 16);
-    formRequest.append(hexlen + "|");
-    formRequest.append(_formRequest + "|");
-
-    uint16_t crc16 = SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length());
-    formRequest.append(QStringLiteral("%1").arg(crc16, 4, 16, QLatin1Char('0')) + "\n");
-
+    hexlen.setNum(_formRequest.length(), 16);
+    formRequest.append(hexlen + "|" + _formRequest + "|");
+    formRequest.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length()), 4, 16, QLatin1Char('0')) + "\n");
     return formRequest.toUtf8();
 }
 

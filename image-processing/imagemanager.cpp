@@ -73,6 +73,7 @@ bool ImageManager::removeImage(qint32 index)
         return false;
         break;
     default:
+        return false;
         break;
     }
 }

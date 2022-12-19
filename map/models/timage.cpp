@@ -2,11 +2,4 @@
 
 TImage::TImage(QObject *parent)
     : QObject{parent}
-{
-
-}
-
-void TImage::setupImage()
-{
-    
-}
+{}

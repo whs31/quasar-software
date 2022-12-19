@@ -8,20 +8,13 @@
 #include "sconfig.h"
 #include "disktools.h"
 
-enum ClearMode : short int
-{
-    ClearAll,
-    ClearTCP,
-    ClearPNG
-};
-
 class CacheManager : public QObject
 {
     Q_OBJECT
 public:
     static CacheManager* initializeCache();
     static void setupImageCache(void);
-    Q_INVOKABLE static void clearImageCache(ClearMode mode = ClearMode::ClearAll); 
+    Q_INVOKABLE static void clearImageCache(); 
 
     static QString getTcpDowloaderCache();
     static QString getMapProviderCache();

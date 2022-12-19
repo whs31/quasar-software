@@ -65,6 +65,6 @@ CacheManager::CacheManager()
 {
     initialize();
     setupImageCache();
-    Debug::Log("?[CACHEMANAGER] TCP Downloader directory: "+CacheManager::tcpDowloaderCache);
+    Debug::Log("?[CACHEMANAGER] TCP Downloader directory: " + CacheManager::tcpDowloaderCache);
 
 }

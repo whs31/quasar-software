@@ -104,6 +104,7 @@ private:
     //global variables
     double _conckc = 0;
 
+    //@TODO new class
     QString sar_mode = "m1";
     quint32 sar_lowerbound = 100;
     quint32 sar_upperbound = 3000;

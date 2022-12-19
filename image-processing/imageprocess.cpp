@@ -7,7 +7,7 @@ ImageProcess::ImageProcess(QObject *parent)
 
 bool ImageProcess::decode(QByteArray data, TImage &image)
 {
-    char *chardata = data.data();
+    char* chardata = data.data();
     uint16_t *metaMarker = reinterpret_cast<uint16_t *>(chardata + JPEG_HEADER_SIZE);
     if (*metaMarker == 0xE1FF)
     {

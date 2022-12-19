@@ -3,9 +3,8 @@
 
 CoreUI* CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
-CoreUI::CoreUI(QWidget *parent)
-    : QGoodWindow(parent)
-    , ui(new Ui::CoreUI)
+CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
+    ui(new Ui::CoreUI)
 {
     debugPointer = this;
     screenResolution = QGuiApplication::screens().first()->availableGeometry();
@@ -19,12 +18,17 @@ CoreUI::~CoreUI()
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
-    //tcpRemote->Disconnect();
     delete ui;
+    delete telemetryRemote;
+    delete formRemote;
+    delete consoleListenerRemote;
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-CoreUI* CoreUI::getDebugPointer(void)                       { return debugPointer;                                                                                                                           }
+CoreUI* CoreUI::getDebugPointer(void)                       
+{ 
+    return debugPointer;                                                                                                                           
+}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -112,8 +116,7 @@ void CoreUI::InitializeUI()
     Debug::Log("?[STARTUP] Session started at "+localTime.toString());
 
     //openssl check
-    bool b_ssl1 = QSslSocket::supportsSsl();
-    QString ssl1 = b_ssl1 ? "true" : "false";
+    QString ssl1 = QSslSocket::supportsSsl() ? "true" : "false";
     if (QSslSocket::supportsSsl())
         {
             Debug::Log("?[STARTUP] OpenSSL detected: "

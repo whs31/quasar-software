@@ -45,6 +45,7 @@ void TCPDownloader::clientDisconnected(void)
     if(_mode == 2) { ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData); }
     emit receivingFinished();
 }
+
 void TCPDownloader::serverRead(void)
 {
     (this->*readFile) (socket->readAll());

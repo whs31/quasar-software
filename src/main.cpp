@@ -1,8 +1,4 @@
-//  Main "#354041"
-//  Dark #2a3334
-//  Darker #22292a
-//  Text #fff5ee
-
+#include "buildprefs.h"
 
 #include <QWidget>
 #include <QApplication>
@@ -73,8 +69,8 @@ int main(int argc, char *argv[]) {
     CacheManager::initializeCache();
 
     QQuickStyle::setStyle("Material");                      //графика для QML
-    Style::initialize(false);                       //false при сборке релиза
-    TilesManager::initialize(false);              //false при сборке релиза
+    Style::initialize(ENABLE_CSS_UPDATE_ON_CHANGE);
+    TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
 
     qInstallMessageHandler(debugLogger);
     CoreUI window;

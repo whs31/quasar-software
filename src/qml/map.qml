@@ -121,9 +121,6 @@ Rectangle {
         mapView.center = coords;
         fc = filecounter;
     }
-    //-------------------------------------------------------------------------------}
-
-    //--------------------------route&gps--------------------------------------------{
     function drawPlane()
     {
         planeMapItem.coordinate = QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude);
@@ -141,7 +138,6 @@ Rectangle {
             if(FDynamicVariables.enablePredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
         }
     }
-
     function drawPredict(angle)
     {
         predictLine.path = [];
@@ -150,29 +146,19 @@ Rectangle {
         predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
-
     function clearPredict() { predictLine.path = []; }
-
     function panGPS()
     {
         mapView.center = currentQtCoordinates;
     }
-
     function drawRoute()
     {
         mapPolyline.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
     }
-
     function clearRoute()
     {
         mapPolyline.path = [];
     }
-
-    
-    //------------------------------------------------------------------------------}
-
-    //------------------------------------tooltip-----------------------------------
-
     function changeTooltipPosition()
     {
         if(FDynamicVariables.enableTooltip)
@@ -196,8 +182,6 @@ Rectangle {
             mapHoverCoordinatesTooltip.visible = false;
         }
     }
-    //---------------------------------------------------}
-
     function drawRuler()
     {
         rulerLine.path = [];
@@ -218,9 +202,6 @@ Rectangle {
         r2MapItem.visible = true;
         r2MapItem.coordinate = r_secondpoint;
     }
-
-
-
     function clearRuler()
     {
         rulerLine.path = [];
@@ -228,7 +209,6 @@ Rectangle {
         r1MapItem.visible = false;
         r2MapItem.visible = false;
     }
-
     function addImage(meta, gui, base64: string, checksumSuccess: bool)
     {
         imageUIModel.append({   "m_lat": meta[0],
@@ -265,7 +245,6 @@ Rectangle {
                                 "m_i_visible": true
                             });
     }
-
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
                                 "m_color": String(col), 
@@ -277,7 +256,6 @@ Rectangle {
                                 "m_zoom": zoomLevel
                             });
     }
-
     function markerRemove(i)
     {
         MarkerManager.removeMarker(i);
@@ -288,7 +266,6 @@ Rectangle {
         if(b) { return true; } 
         else { return false; }
     }
-
     ListModel { id: imageModel; }
     ListModel { id: imageUIModel; }
     ListModel { id: markerModel; }
@@ -438,8 +415,6 @@ Rectangle {
             }
             delegate: ImageSAR.Dialog { }
         }
-
-
         MapItemView
         {
             model: markerModel;
@@ -463,21 +438,10 @@ Rectangle {
             }
             delegate: Marker { }
         }
-        
-        MapPolyline {
-            id: mapPolyline;
-            line.width: 5;
-            opacity: 0.75;
-            line.color:
-                Material.primary;
-            path: [ ];
-            z: 7;
-        }
-
+        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; z: 7; }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 10; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 6; path: [ ]; }
         MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 6; path: []; }
-
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
             id: rulerTextMapItem
@@ -616,17 +580,15 @@ Rectangle {
                 }
             }
         }
-        
         Groups.ImageToolsGroup
         {
             id: imagePanel;
-            opacity: 0.75;
+            opacity: 0.9;
             anchors.top: parent.top;
             anchors.left: parent.left;
-            anchors.topMargin: -26;
-            anchors.leftMargin: -10;
+            anchors.topMargin: 3;
+            anchors.leftMargin: 3;
         }
-
         Groups.TelemetryPanel
         {
             id: telemetryPanel;
@@ -635,7 +597,6 @@ Rectangle {
             anchors.bottomMargin: 10;
             anchors.horizontalCenter: parent.horizontalCenter;
         }
-
         FloatingTooltip
         {
             id: mapHoverCoordinatesTooltip;
@@ -644,7 +605,6 @@ Rectangle {
             tooltipText: "Ш: 50.0000000 Д: 30.0000000";
             transparency: 0.5;
         }
-
         //left to right <<<<<<<<<
         MenuImages
         {
@@ -653,7 +613,6 @@ Rectangle {
             anchors.left: parent.left;
             anchors.top: parent.top;
         }
-
         ZoomSlider 
         {
             id: zoomSliderElement;
@@ -663,7 +622,6 @@ Rectangle {
             anchors.bottomMargin: 10;
             z: 100;
         }
-
         BottomToolbar
         {
             id: bottomToolbarElement;
@@ -672,7 +630,6 @@ Rectangle {
             anchors.bottom: zoomSliderElement.bottom;
             z: 100;
         }
-
         TiltSlider
         {
             id: tiltSliderElement;
@@ -682,9 +639,6 @@ Rectangle {
             anchors.bottomMargin: 10;
             z: 100;
         }
-        
-        
-
         Gesture {
             id: gesture;
             anchors.fill: parent;

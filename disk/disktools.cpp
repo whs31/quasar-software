@@ -40,17 +40,27 @@ void DiskTools::fetchDirectory()
     {
         for (QString filename : initialFileList)
         {
-            
-            ImageManager::newImage(filename, convertToRawData(filename));
+            if(!ImageManager::checkForOccurence(filename))
+            {
+                ImageManager::newImage(filename, convertToRawData(filename));
+            } else 
+            {
+                Debug::Log("?[DISK] Occurence found, skipping...");
+            }
         }
     } else {
-        Debug::Log("![IMG] Directory is empty, throwing warning window...");
+        Debug::Log("![DISK] Directory is empty, throwing warning window...");
         QMessageBox warningDialogue;
         warningDialogue.setWindowTitle("Изображения не найдены!");
         warningDialogue.setIcon(QMessageBox::Warning);
         warningDialogue.setText("В выбранном каталоге или кэше не найдены изображения!");
         warningDialogue.exec();
     }
+}
+
+void DiskTools::clearCache(void)
+{
+    CacheManager::clearImageCache();
 }
 
 QByteArray DiskTools::convertToRawData(QString path)

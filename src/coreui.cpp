@@ -196,7 +196,7 @@ void CoreUI::InitializeConnections()
         //connect(tcpRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
 
     //image-processing setup
-    DiskTools::fetchDirectory();
+    //DiskTools::fetchDirectory();
 
     //network connection
     if(SConfig::getHashBoolean("StartupConnectToSAR"))

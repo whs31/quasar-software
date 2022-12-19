@@ -21,7 +21,7 @@ class CacheManager : public QObject
 public:
     static CacheManager* initializeCache();
     static void setupImageCache(void);
-    static void clearImageCache(ClearMode mode = ClearMode::ClearAll);
+    Q_INVOKABLE static void clearImageCache(ClearMode mode = ClearMode::ClearAll); 
 
     static QString getTcpDowloaderCache();
     static QString getMapProviderCache();

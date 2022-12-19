@@ -59,14 +59,16 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 }
 
 int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
+    //cache setup
+    CacheManager::initializeCache();
+
+    //qml registration here
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
-
-    QApplication app(argc, argv);
-    //cache setup
-    CacheManager::initializeCache();
+    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize());
 
     QQuickStyle::setStyle("Material");                      //графика для QML
     Style::initialize(ENABLE_CSS_UPDATE_ON_CHANGE);

@@ -17,6 +17,7 @@ class ImageManager : public QObject
 public:
     static ImageManager* initialize(QObject *parent = nullptr);
     static void newImage(QString filename, QByteArray rawData);
+    static bool checkForOccurence(QString filename);
     Q_INVOKABLE static bool removeImage(qint32 index);
 
 signals:
@@ -26,7 +27,7 @@ private:
     static ImageManager* _instance;
     static QVector<TImage*> imageList;
 
-    static bool checkVector(QString filename);
+    
 };
 
 #endif // IMAGEMANAGER_H

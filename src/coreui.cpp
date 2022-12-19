@@ -39,9 +39,8 @@ CoreUI::~CoreUI()
     delete telemetryRemote;
     delete formRemote;
     delete consoleListenerRemote;
-    delete linker;
+    //delete linker;
     delete qml;
-    delete downloader;
     delete fTelemetry;
     delete fStaticVariables;
     delete fDynamicVariables;

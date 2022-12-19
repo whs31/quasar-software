@@ -67,10 +67,11 @@ else()
         map/backend/fdynamicvariables.h                     map/backend/fdynamicvariables.cpp
         map/backend/fstaticvariables.h                      map/backend/fstaticvariables.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
-            map/backend/smousestate.h                       map/backend/smousestate.cpp
+        map/backend/smousestate.h                           map/backend/smousestate.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp
+        map/global/qmldata.h                                map/global/qmldata.cpp
         json/jsonmanager.h                                  json/jsonmanager.cpp
         json/jsonconfig.h                                   json/jsonconfig.cpp
         network/remote.h                                    network/remote.cpp

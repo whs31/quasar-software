@@ -78,7 +78,7 @@ MapQuickItem {
         Rectangle {
             id: textOverlay;
             color: "#fff5ee";
-            width: (radarImageText.paintedWidth + 10);
+            width: (radarImageText.paintedWidth);
             height: (radarImageText.paintedHeight + 3);
             anchors.top: radarImage.bottom;
             anchors.topMargin: 5;
@@ -93,7 +93,7 @@ MapQuickItem {
                 font.family: "Arial";
                 font.weight: Font.Bold;
                 textFormat: Text.RichText;
-                text: "Изображение №" + Number(index + 1);
+                text: "\u00A0Изображение №" + Number(index + 1) + "\u00A0"; //пробелы здесь не просто так =) U+00A0 nbsp
                 horizontalAlignment: Text.AlignHCenter;
                 verticalAlignment: Text.AlignVCenter;
             }

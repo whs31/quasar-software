@@ -51,7 +51,6 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 
 void MarkerManager::removeMarker(qint32 index)
 {
-    int indexFixed = index + 1;
     markerList.remove(index);
     Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
 }

@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 
 RowLayout {
+    property bool mainImageVisibleState: true;
     spacing: 1;
     RoundButton {
         id: hideButton
@@ -23,7 +24,8 @@ RowLayout {
         Layout.preferredWidth: 40;
         Layout.preferredHeight: 40;
         onClicked: {
-            //remove();
+            mainImageVisibleState = !mainImageVisibleState;
+            imageModel.setProperty(index, "m_i_visible", mainImageVisibleState);
         }
     }
     RoundButton {
@@ -42,7 +44,7 @@ RowLayout {
         Layout.preferredWidth: 40;
         Layout.preferredHeight: 40;
         onClicked: {
-            //remove();
+            remove();
         }
     }
 }

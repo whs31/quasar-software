@@ -16,6 +16,7 @@ class ImageManager : public QObject
 public:
     static ImageManager* initialize(QObject *parent = nullptr);
     static void newImage(QString filename, QByteArray rawData);
+    Q_INVOKABLE static void removeImage(qint32 index);
 
 signals:
 

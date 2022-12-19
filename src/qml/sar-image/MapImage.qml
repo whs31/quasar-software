@@ -11,18 +11,11 @@ import QtGraphicalEffects 1.15
 
 
 MapQuickItem {
-//    function remove()
-//    {
-//        console.log(index);
-//        //индекс становится равным -1 после вызова remove(index).
-//        //сначала мы делаем все действия в бэкэнде, и только после этого убираем маркер из модели
-//        markerRemove(index);
-//        markerModel.remove(index);
-//    }
     id: sarimage;
     anchorPoint.x: -m_x0;
     anchorPoint.y: m_height / 2;
     z: 2;
+    visible: m_i_visible;
     zoomLevel: m_zoom;
     property real m_opacity: 1;
     opacity: m_opacity;

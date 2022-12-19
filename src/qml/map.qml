@@ -169,10 +169,7 @@ Rectangle {
         mapPolyline.path = [];
     }
 
-    function markerRemove(i)
-    {
-        MarkerManager.removeMarker(i);
-    }
+    
     //------------------------------------------------------------------------------}
 
     //------------------------------------tooltip-----------------------------------
@@ -265,8 +262,8 @@ Rectangle {
                                 "m_angle": meta[6],
                                 "m_driftAngle": meta[7],
                                 "m_base64": base64,
-                                "m_zoom": smath.mercatorZoomLevel(1, meta[0])
-                                
+                                "m_zoom": smath.mercatorZoomLevel(1, meta[0]),
+                                "m_i_visible": true
                             });
     }
 
@@ -280,6 +277,15 @@ Rectangle {
                                 "anchorY": anchorY,
                                 "m_zoom": zoomLevel
                             });
+    }
+
+    function markerRemove(i)
+    {
+        MarkerManager.removeMarker(i);
+    }
+    function imageRemove(i)
+    {
+        ImageManager.removeImage(i);
     }
 
     ListModel { id: imageModel; }

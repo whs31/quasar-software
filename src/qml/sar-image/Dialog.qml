@@ -11,6 +11,13 @@ import QtGraphicalEffects 1.15
 import "qrc:/qml/ui" as UI
 
 MapQuickItem {
+    function remove()
+    {
+        imageRemove(index);
+        imageModel.remove(index);
+        imageUIModel.remove(index);
+    }
+
     id: sarUI;
     property bool anim: m_visible;
     
@@ -68,8 +75,8 @@ MapQuickItem {
         Rectangle {
             id: textOverlay;
             color: "#fff5ee";
-            width: radarImageText.paintedWidth + 10;
-            height: radarImageText.paintedHeight + 3;
+            width: (radarImageText.paintedWidth + 10);
+            height: (radarImageText.paintedHeight + 3);
             anchors.top: radarImage.bottom;
             anchors.topMargin: 5;
             anchors.horizontalCenter: radarImage.horizontalCenter;

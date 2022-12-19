@@ -48,6 +48,12 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
     }
 }
 
+void ImageManager::removeImage(qint32 index)
+{
+    imageList.remove(index);
+    Debug::Log("[IMGMANAGER] Image " + QString::number(index) + " removed from map. List now contains = " + QString::number(imageList.length()));
+}
+
 bool ImageManager::checkVector(QString filename)
 {
     // check here

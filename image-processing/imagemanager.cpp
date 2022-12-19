@@ -48,10 +48,27 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
     }
 }
 
-void ImageManager::removeImage(qint32 index)
+bool ImageManager::removeImage(qint32 index)
 {
-    imageList.remove(index);
-    Debug::Log("[IMGMANAGER] Image " + QString::number(index) + " removed from map. List now contains = " + QString::number(imageList.length()));
+    QMessageBox askForClearTrack;
+        askForClearTrack.setWindowTitle("Удаление РЛИ");
+        askForClearTrack.setIcon(QMessageBox::Information);
+        askForClearTrack.setText("Вы уверены, что хотите удалить выбранное изображение с карты?");
+        askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+        askForClearTrack.setDefaultButton(QMessageBox::Yes); //maybe cancel(r)
+        int ret = askForClearTrack.exec(); //не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
+    switch (ret) {
+    case QMessageBox::Yes:
+        imageList.remove(index);
+        Debug::Log("[IMGMANAGER] Image " + QString::number(index) + " removed from map. List now contains = " + QString::number(imageList.length()));
+        return true;
+        break;
+    case QMessageBox::Cancel:
+        return false;
+        break;
+    default:
+        break;
+    }
 }
 
 bool ImageManager::checkVector(QString filename)

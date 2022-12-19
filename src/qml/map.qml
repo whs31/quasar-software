@@ -15,7 +15,6 @@ import "sar-image" as ImageSAR
 
 import SMath 1.0
 import MouseKeyHandler 1.0
-//import MouseHover 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 
@@ -285,7 +284,9 @@ Rectangle {
     }
     function imageRemove(i)
     {
-        ImageManager.removeImage(i);
+        var b = ImageManager.removeImage(i);
+        if(b) { return true; } 
+        else { return false; }
     }
 
     ListModel { id: imageModel; }

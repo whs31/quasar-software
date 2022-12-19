@@ -13,9 +13,12 @@ import "qrc:/qml/ui" as UI
 MapQuickItem {
     function remove()
     {
-        imageRemove(index);
-        imageModel.remove(index);
-        imageUIModel.remove(index);
+        var deleteCheck = imageRemove(index);
+        if(deleteCheck)
+        {
+            imageModel.remove(index);
+            imageUIModel.remove(index);
+        }
     }
 
     id: sarUI;

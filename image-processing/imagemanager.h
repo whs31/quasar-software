@@ -3,12 +3,13 @@
 
 #include <QObject>
 #include <QVector>
-#include <QSaveFile> //delete later
+#include <QMessageBox>
 
 #include "models/timage.h"
 #include "imageprocess.h"
 #include "disktools.h"
 #include "linkerqml.h"
+
 
 class ImageManager : public QObject
 {
@@ -16,7 +17,7 @@ class ImageManager : public QObject
 public:
     static ImageManager* initialize(QObject *parent = nullptr);
     static void newImage(QString filename, QByteArray rawData);
-    Q_INVOKABLE static void removeImage(qint32 index);
+    Q_INVOKABLE static bool removeImage(qint32 index);
 
 signals:
 

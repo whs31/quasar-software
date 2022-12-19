@@ -609,6 +609,16 @@ Rectangle {
                 }
             }
         }
+        
+        Groups.ImageToolsGroup
+        {
+            id: imagePanel;
+            opacity: 0.75;
+            anchors.top: parent.top;
+            anchors.left: parent.left;
+            anchors.topMargin: -26;
+            anchors.leftMargin: -10;
+        }
 
         Groups.TelemetryPanel
         {

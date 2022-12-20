@@ -1,3 +1,5 @@
+![](C:\Users\0\Documents\quasar\src\ui-resources\svg\logo\full-logo.svg)
+
 ### Графический интерфейс для РЛС "Квазар"
 
 #### Функционал программы

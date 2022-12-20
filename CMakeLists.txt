@@ -100,7 +100,7 @@ else()
         gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
         gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
         gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
-        src/fonts.qrc
+        src/fonts.qrc                                       src/vector-resources.qrc
         src/buildprefs.h
         ${SRCS} appiconwin32.rc
    )

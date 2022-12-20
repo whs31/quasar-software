@@ -9,7 +9,7 @@ class TImage : public QObject
 {
     Q_OBJECT
 public:
-    explicit TImage(QObject *parent = nullptr, QByteArray data = QByteArray(), QString filePath = "", ImageMode mode = ImageMode::Raw, qreal thetaAzimuthCorrection = 0);
+    explicit TImage(QObject *parent, QByteArray data = QByteArray(), QString filePath = "");//, //ImageMode mode = ImageMode::Raw, qreal thetaAzimuthCorrection = 0);
 
     QString cachedJPEGfilename = ""; //check
     QString base64 = "";

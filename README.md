@@ -1,4 +1,4 @@
-![](C:\Users\0\Documents\quasar\src\ui-resources\svg\logo\full-logo.svg)
+![](https://user-images.githubusercontent.com/75864292/208761644-cac6eb53-11bc-4ac2-aa44-478afe7ecfa8.png)
 
 ### Графический интерфейс для РЛС "Квазар"
 

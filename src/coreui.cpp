@@ -42,7 +42,6 @@ CoreUI::~CoreUI()
     delete consoleListenerRemote;
     delete qml;
     delete fStaticVariables;
-    delete fDynamicVariables;
     delete TilesManager::initialize();
     delete ImageManager::initialize();
     delete MarkerManager::initialize();
@@ -129,7 +128,6 @@ void CoreUI::updateProgress(float f)
     ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
 }
 void CoreUI::updateTelemetryLabels(int satcount) { ui->label_c_satcount->setText("Спутники: " + Style::StyleText(QString::number(satcount), Colors::Accent100, Format::Bold)); }
-void CoreUI::setCheckboxState(bool b) { ui->checkBox->setChecked(b); }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -190,11 +188,6 @@ void CoreUI::InitializeConnections()
     LinkerQML::initialize(qml);
 
     // qml types declaration
-    //fTelemetry = new FTelemetry();
-    //ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
-    fDynamicVariables = new FDynamicVariables();
-    ui->map->rootContext()->setContextProperty("FDynamicVariables", fDynamicVariables);
-    connect(fDynamicVariables, SIGNAL(followPlaneChanged(bool)), this, SLOT(setCheckboxState(bool)));
     fStaticVariables = new FStaticVariables();
     ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
 
@@ -276,13 +269,6 @@ void CoreUI::InitializeDockwidgets()
     ui->sarConsoleDock->move(screenResolution.width() / 1.5, screenResolution.height() / 3);
     ui->sarConsoleDock->setEnabled(false);
     ui->sarConsoleDock->setVisible(false);
-
-    ui->mapSettingsDock->setEnabled(true);
-    ui->mapSettingsDock->setVisible(true);
-    ui->mapSettingsDock->adjustSize();
-    ui->mapSettingsDock->move(screenResolution.width() / 2, screenResolution.height() / 4);
-    ui->mapSettingsDock->setEnabled(false);
-    ui->mapSettingsDock->setVisible(false);
 }
 
 void CoreUI::SendRemoteCommand(QString command, CommandType type)

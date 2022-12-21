@@ -7,11 +7,17 @@
 class RuntimeData : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(float latitude READ getLatitude WRITE setLatitude);//NOTIFY latitudeChanged);
-    Q_PROPERTY(float longitude READ getLongitude WRITE setLongitude);// NOTIFY longitudeChanged);
-    Q_PROPERTY(float elevation READ getElevation WRITE setElevation);// NOTIFY elevationChanged);
-    Q_PROPERTY(float speed READ getSpeed WRITE setSpeed );//NOTIFY);// speedChanged);
-    Q_PROPERTY(int satellites READ getSatellites WRITE setSatellites);// NOTIFY satsChanged);
+    Q_PROPERTY(qreal latitude READ getLatitude WRITE setLatitude);
+    Q_PROPERTY(qreal longitude READ getLongitude WRITE setLongitude);
+    Q_PROPERTY(qreal elevation READ getElevation WRITE setElevation);
+    Q_PROPERTY(qreal speed READ getSpeed WRITE setSpeed);
+    Q_PROPERTY(qint16 satellites READ getSatellites WRITE setSatellites);
+
+    Q_PROPERTY(bool followPlane READ getFollowPlane WRITE setFollowPlane);
+    Q_PROPERTY(bool drawTooltip READ getDrawTooltip WRITE setDrawTooltip);
+    Q_PROPERTY(bool drawRoute READ getDrawRoute WRITE setDrawRoute);
+    Q_PROPERTY(bool drawPredict READ getDrawPredict WRITE setDrawPredict);
+    Q_PROPERTY(bool drawDiagram READ getDrawDiagram WRITE setDrawDiagram);
     QML_ELEMENT
     
 public:
@@ -21,12 +27,22 @@ public:
     static qreal getElevation();
     static qreal getSpeed();
     static qint16 getSatellites();
+    static bool getFollowPlane();
+    static bool getDrawTooltip();
+    static bool getDrawRoute();
+    static bool getDrawPredict();
+    static bool getDrawDiagram();
 
     static void setLatitude(qreal value);
     static void setLongitude(qreal value);
     static void setElevation(qreal value);
     static void setSpeed(qreal value);
     static void setSatellites(qint16 value);
+    static void setFollowPlane(bool state);
+    static void setDrawTooltip(bool state);
+    static void setDrawRoute(bool state);
+    static void setDrawPredict(bool state);
+    static void setDrawDiagram(bool state);
 
 private:
     static RuntimeData* _instance;
@@ -41,6 +57,15 @@ private:
         qint16 satellites = -1; 
     };
     static Telemetry telemetry;
+    struct MapSettings
+    {
+        bool followPlane = false;
+        bool drawTooltip = true;
+        bool drawRoute = true;
+        bool drawPredict = true;
+        bool drawDiagram = true;
+    };
+    static MapSettings mapSettings;
 
 signals:
     // static void latitudeChanged();

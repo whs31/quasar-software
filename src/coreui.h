@@ -11,7 +11,6 @@
 #include <QScopedPointer>
 
 //qml types
-#include "backend/fdynamicvariables.h"
 #include "backend/fmousekeyhandler.h"
 
 #include "extension.h"
@@ -66,7 +65,6 @@ public slots:
     //gui public slots
     void updateProgress(float f);
     void updateTelemetryLabels(int satcount);
-    void setCheckboxState(bool b);
 
 private:
     //object pointers
@@ -80,7 +78,6 @@ private:
     QQuickItem* qml;
 
     //qml types
-    FDynamicVariables* fDynamicVariables;
     FStaticVariables* fStaticVariables;
 
     //timers
@@ -128,11 +125,6 @@ private slots:
     void Halftime();
 
     //gui slots
-    void on_checkBox_drawTooltip_stateChanged(int arg1);
-    void on_checkBox_drawTrack_stateChanged(int arg1);
-    void on_checkBox_stateChanged(int arg1);
-    void on_checkBox_drawPredict_stateChanged(int arg1);
-    void on_checkBox_drawDiagram_stateChanged(int arg1);
     void on_pushButton_clearTrack_clicked();
     void on_pushButton_placeMarker_clicked();
     void on_pushButton_reconnect_clicked();
@@ -140,7 +132,6 @@ private slots:
     void on_pushButton_launchContinuous_clicked();
     void on_pushButton_stopContinuous_clicked();
     void on_pushButton_showDebugConsoleDock_clicked();
-    void on_pushButton_showMapToolsDock_clicked();
     void on_spinBox_sarLowerBound_valueChanged(int arg1);
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);

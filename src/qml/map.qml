@@ -87,8 +87,8 @@ Rectangle {
         drawPlane();
         currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude,RuntimeData.longitude);
 
-        if(FDynamicVariables.followPlane) panGPS();
-        if(FDynamicVariables.enableRoute) drawRoute();
+        if(RuntimeData.followPlane) panGPS();
+        if(RuntimeData.drawRoute) drawRoute();
 
         onGUI();
     }
@@ -134,7 +134,7 @@ Rectangle {
             geometricalAngle = (atan*180)/Math.PI;
 
             planeMapItem.rotationAngle = angle;
-            if(FDynamicVariables.enablePredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
+            if(RuntimeData.drawPredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
         }
     }
     function drawPredict(angle)
@@ -160,7 +160,7 @@ Rectangle {
     }
     function changeTooltipPosition()
     {
-        if(FDynamicVariables.enableTooltip)
+        if(RuntimeData.drawTooltip)
         {
             if(mapMouseArea.pressed)
             {
@@ -349,7 +349,7 @@ Rectangle {
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";
-                value: "file:///"+OsmConfigPath;
+                value: "file:///" + OsmConfigPath; //variable being set in CoreUI.cpp
             }
             Component.onCompleted: console.info("[MAP] using osmconfig: " + OsmConfigPath);
         }
@@ -496,25 +496,25 @@ Rectangle {
             }
         }
         MapQuickItem {
-            property alias r2RotationAngle: r2Rotation.angle
-            id: r2MapItem
-            visible: false
-            width: 2
-            height: 2
+            property alias r2RotationAngle: r2Rotation.angle;
+            id: r2MapItem;
+            visible: false;
+            width: 2;
+            height: 2;
             transform: Rotation {
                 id: r2Rotation
                 origin.x: r2Source.width;
-                origin.y: r2Source.height/2;
-                angle: 0
+                origin.y: r2Source.height / 2;
+                angle: 0;
             }
-            anchorPoint.x: r2Source.width
-            anchorPoint.y: r2Source.height/2
+            anchorPoint.x: r2Source.width;
+            anchorPoint.y: r2Source.height / 2;
             z: 10;
             sourceItem: Image {
                 id: r2Source;
-                layer.enabled: true
-                transformOrigin: Item.Right
-                source: "qrc:/ui-resources/qml/temp.png"
+                layer.enabled: true;
+                transformOrigin: Item.Right;
+                source: "qrc:/ui-resources/qml/temp.png";
             }
             ColorOverlay {
                 id: r2Overlay;
@@ -525,10 +525,10 @@ Rectangle {
             }
         }
         MapQuickItem {
-            property alias rotationAngle: rotation.angle
-            id: planeMapItem
-            anchorPoint.x: 20
-            anchorPoint.y: 20
+            property alias rotationAngle: rotation.angle;
+            id: planeMapItem;
+            anchorPoint.x: 20;
+            anchorPoint.y: 20;
             transform: Rotation {
                 id: rotation;
                 origin.x: 20;
@@ -573,8 +573,8 @@ Rectangle {
             }
             Behavior on coordinate {
                 CoordinateAnimation {
-                    duration: 250
-                    easing.type: Easing.Linear
+                    duration: 250;
+                    easing.type: Easing.Linear;
                 }
             }
         }
@@ -612,7 +612,9 @@ Rectangle {
             tooltipText: "Ш: 50.0000000 Д: 30.0000000";
             transparency: 0.5;
         }
+
         //left to right <<<<<<<<<
+
         MenuImages
         {
             visible: false; //comment me

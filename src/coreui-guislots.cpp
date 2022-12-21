@@ -2,11 +2,6 @@
 #include "ui_coreui.h"
 
 //***************************************************************************************GUI SLOTS************************************************************************************************************
-void CoreUI::on_checkBox_drawTooltip_stateChanged(int arg1) { fDynamicVariables->setEnableTooltip(arg1 == 2 ? true : false); }
-void CoreUI::on_checkBox_drawTrack_stateChanged(int arg1) { fDynamicVariables->setEnableRoute(arg1 == 2 ? true : false); }
-void CoreUI::on_checkBox_drawPredict_stateChanged(int arg1) { fDynamicVariables->setEnablePredict(arg1 == 2 ? true : false); }
-void CoreUI::on_checkBox_drawDiagram_stateChanged(int arg1) { fDynamicVariables->setEnablePredictDiagram(arg1 == 2 ? true : false); }
-void CoreUI::on_checkBox_stateChanged(int arg1) { fDynamicVariables->setFollowPlane(arg1 == 2 ? true : false); }
 void CoreUI::on_pushButton_clearTrack_clicked()
 {
     QMessageBox askForClearTrack;
@@ -96,12 +91,5 @@ void CoreUI::on_pushButton_showSARConsole_clicked()
     {
         // throw password window =)
     }
-}
-void CoreUI::on_pushButton_showMapToolsDock_clicked()
-{
-    bool state = ui->mapSettingsDock->isEnabled();
-    state = !state;
-    ui->mapSettingsDock->setEnabled(state);
-    ui->mapSettingsDock->setVisible(state);
 }
 //************************************************************************************************************************************************************************************************************

@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
-import DiskManager 1.0
+import RuntimeData 1.0
 
 Rectangle 
 {
@@ -55,24 +55,68 @@ Rectangle
             checked: false;
             indicator.implicitWidth: 14;
             indicator.implicitHeight: 14;
-            text: "Следить за бортом";
+            
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.topMargin: 0;
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            
+            onCheckedChanged: {
+                RuntimeData.followPlane = checked;
+            }
+            contentItem: Rectangle {
+                Image {
+                    id: ico;
+                    width: 16;
+                    height: 16;
+                    source: "qrc:/ui-resources/white/plane.png";
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    smooth: true;
+                }
+                Text {
+                    text: "Следить за бортом";
+                    font.capitalization: Font.MixedCase; 
+                    font.pixelSize: 11;
+                    color: "#dae1e5";
+                    opacity: enabled ? 1.0 : 0.3
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.left: ico.right;
+                    anchors.leftMargin: 3;
+                }
+            }
         }
         CheckBox {
             id: checkboxDrawTooltip;
             checked: true;
             indicator.implicitWidth: 14;
             indicator.implicitHeight: 14;
-            text: "Координаты курсора";
             anchors.left: parent.left;
             anchors.top: checkboxFollowPlane.bottom;
             anchors.topMargin: -20;
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            onCheckedChanged: {
+                RuntimeData.drawTooltip = checked;
+            }
+            contentItem: Rectangle {
+                Image {
+                    id: ico0;
+                    width: 16;
+                    height: 16;
+                    source: "qrc:/ui-resources/white/eyedropper.png";
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    smooth: true;
+                }
+                Text {
+                    text: "Координаты курсора";
+                    font.capitalization: Font.MixedCase; 
+                    font.pixelSize: 11;
+                    color: "#dae1e5";
+                    opacity: enabled ? 1.0 : 0.3
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.left: ico0.right;
+                    anchors.leftMargin: 3;
+                }
+            }
         }
 
         CheckBox {
@@ -80,36 +124,99 @@ Rectangle
             checked: true;
             indicator.implicitWidth: 14;
             indicator.implicitHeight: 14;
-            text: "Траектория полёта";
             anchors.left: parent.left;
             anchors.top: checkboxDrawTooltip.bottom;
             anchors.topMargin: -10;
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            onCheckedChanged: {
+                RuntimeData.drawRoute = checked;
+            }
+            contentItem: Rectangle {
+                Image {
+                    id: ico1;
+                    width: 16;
+                    height: 16;
+                    source: "qrc:/ui-resources/white/route.png";
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    smooth: true;
+                }
+                Text {
+                    text: "Траектория полёта";
+                    font.capitalization: Font.MixedCase; 
+                    font.pixelSize: 11;
+                    color: "#dae1e5";
+                    opacity: enabled ? 1.0 : 0.3
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.left: ico1.right;
+                    anchors.leftMargin: 3;
+                }
+            }
         }
         CheckBox {
             id: checkboxDrawPredict;
             checked: true;
             indicator.implicitWidth: 14;
             indicator.implicitHeight: 14;
-            text: "Направление полёта";
             anchors.left: parent.left;
             anchors.top: checkboxDrawRoute.bottom;
             anchors.topMargin: -20;
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            onCheckedChanged: {
+                RuntimeData.drawPredict = checked;
+            }
+            contentItem: Rectangle {
+                Image {
+                    id: ico2;
+                    width: 16;
+                    height: 16;
+                    source: "qrc:/ui-resources/white/curve.png";
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    smooth: true;
+                }
+                Text {
+                    text: "Направление полёта";
+                    font.capitalization: Font.MixedCase; 
+                    font.pixelSize: 11;
+                    color: "#dae1e5";
+                    opacity: enabled ? 1.0 : 0.3
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.left: ico2.right;
+                    anchors.leftMargin: 3;
+                }
+            }
         }
         CheckBox {
             id: checkboxDrawDiagram;
             checked: true;
             indicator.implicitWidth: 14;
             indicator.implicitHeight: 14;
-            text: "Диаграмма направленности";
             anchors.left: parent.left;
             anchors.top: checkboxDrawPredict.bottom;
             anchors.topMargin: -20;
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            onCheckedChanged: {
+                RuntimeData.drawDiagram = checked;
+            }
+            contentItem: Rectangle {
+                Image {
+                    id: ico3;
+                    width: 14;
+                    height: 14;
+                    source: "qrc:/ui-resources/white/radar.png";
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    smooth: true;
+                }
+                Text {
+                    text: "Диаграмма направленности";
+                    font.capitalization: Font.MixedCase; 
+                    font.pixelSize: 11;
+                    color: "#dae1e5";
+                    opacity: enabled ? 1.0 : 0.3
+                    verticalAlignment: Text.AlignVCenter
+                    anchors.left: ico3.right;
+                    anchors.leftMargin: 3;
+                }
+            }
         }
     }
 }

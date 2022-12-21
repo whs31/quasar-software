@@ -63,8 +63,8 @@ else()
         windowextension/common.h
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
-        #map/backend/ftelemetry.h                           #map/backend/ftelemetry.cpp         reintegrated into new class runtimedata.h in 2.0.1alpha
-        map/backend/fdynamicvariables.h                     map/backend/fdynamicvariables.cpp
+        #map/backend/ftelemetry.h                           #map/backend/ftelemetry.cpp         reintegrated into new class runtimedata.h in 2.1.0alpha
+        #map/backend/fdynamicvariables.h                    #map/backend/fdynamicvariables.cpp  reintegrated into new class runtimedata.h in 2.1.0alpha
         map/backend/fstaticvariables.h                      map/backend/fstaticvariables.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/smousestate.h                           map/backend/smousestate.cpp

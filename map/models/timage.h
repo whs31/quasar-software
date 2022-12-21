@@ -4,12 +4,34 @@
 #include <QObject>
 #include <QColor>
 #include <QImage>
+#include <QByteArray>
+#include <QtEndian>
+#include <QDateTime>
+#include <QBuffer>
+#include <QPainter>
+#include <QPainterPath>
+#include <QImageReader>
+
+#include "schecksum.h"
+#include "smath.h"
+#include "debug.h"
+
+#define JPEG_HEADER_SIZE 20
+#define JPEG_CHECKSUM_SIZE 4
+
+enum ImageMode {
+    Raw,
+    GeometricAlphaMask,
+    ChannelSwapAlphaMask
+};
 
 class TImage : public QObject
 {
     Q_OBJECT
 public:
-    explicit TImage(QObject *parent, QByteArray data = QByteArray(), QString filePath = "");//, //ImageMode mode = ImageMode::Raw, qreal thetaAzimuthCorrection = 0);
+    explicit TImage(QObject *parent, QByteArray data = QByteArray(), QString filePath = "", ImageMode mode = ImageMode::Raw, qreal predefinedCorrection = 0,
+                    bool globalRadians = false, qreal thetaAzimuthCorrection = 0);
+    bool isValid();
 
     QString cachedJPEGfilename = ""; //check
     QString base64 = "";
@@ -17,13 +39,7 @@ public:
     qreal realHeight = 0;
     
     bool checksumMatch = false; //check
-    
     qint32 index = 0; //check
-
-    qreal horizontalCorrection = 0;
-    qreal verticalCorrection = 0;
-    qreal angleCorrection = 0;
-    qreal scaleCorrection = 0;
 
     struct Metadata
     {
@@ -62,18 +78,19 @@ public:
     QImage image; //check
 
 private:
-    bool decode();
-    void assignUIStrings();
-    QImage dataToQImage(QByteArray data);
+    bool decode(QByteArray data);
+    void assignUIStrings(QString filename);
+    QImage dataToQImage(QByteArray data, ImageMode mode);
     QString QImageToBase64(QImage image);
     QImage enableAlphaChannel(QImage image);
-    QImage applyAlphaMask(QImage image, qreal width, qreal height, qreal thetaAzimuthCorrection, qreal x0);
+    QImage applyAlphaMask(QImage image);
 
-//
-
+    bool valid = true;
+    qreal predefinedCorrection;
+    bool globalRadians;
+    qreal thetaAzimuthCorrection;
 
 signals:
-    void exception(QString exceptionCode);
 };
 
 #endif // TIMAGE_H

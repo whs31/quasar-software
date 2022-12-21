@@ -6,8 +6,8 @@
 #include <QMessageBox>
 
 #include "models/timage.h"
-#include "imageprocess.h"
 #include "linkerqml.h"
+#include "sconfig.h"
 
 
 class ImageManager : public QObject

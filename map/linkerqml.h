@@ -15,7 +15,7 @@ public:
     static void fixedUpdate();
     static void panGPS(void);
     static void clearRoute(void);
-    static void panImage(int filecounter);
+    static void panImage();
 
     static void addModel(TMarker& marker);
     static void addModel(TImage& image);

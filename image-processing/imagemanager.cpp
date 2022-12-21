@@ -26,30 +26,24 @@ bool ImageManager::checkForOccurence(QString filename)
 
 void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
-    QStringList _cutFilename;
-    _cutFilename = filenamePath.split("/");
-    QString filename = _cutFilename.last();
-
-    TImage *image = new TImage(initialize());
+    TImage *image = new TImage(initialize(), data, filenamePath, ImageMode::GeometricAlphaMask, 
+    SConfig::getHashFloat("AnglePredefinedCorrection"), SConfig::getHashBoolean("GlobalRadians"),
+    5.0); //TODO: sconfig value 
     image->index = imageList.length();
-    image->cachedJPEGfilename = filenamePath;
 
-    // save thread from disktools
-
-    ImageProcess imageProcess;
-    if (!imageProcess.decode(data, *image))
+    if (!image->isValid())
     {
         delete image;
-        Debug::Log("!![IMGMANAGER] Image discarded due to decoding error");
+        Debug::Log("!![IMGMANAGER] Image discarded due to decoding or another error");
         return;
     }
-    imageProcess.assignUIStrings(*image, filename);
-    image->image = imageProcess.dataToImage(data, ImageMode::GeometricAlphaMask, *image);
-    image->base64 = imageProcess.imageToBase64(image->image);
+
+    // save thread from disktools
 
     // append to vector when all functions which changing image is called
     imageList.append(image);
     LinkerQML::addModel(*image);
+    LinkerQML::panImage();
     // any logging only after it
 }
 

@@ -86,7 +86,7 @@ else()
         disk/cachemanager.h                                 disk/cachemanager.cpp
         disk/disktools.h                                    disk/disktools.cpp
         disk/savethread.h                                   disk/savethread.cpp
-        image-processing/imageprocess.h                     image-processing/imageprocess.cpp
+        #image-processing/imageprocess.h                    #image-processing/imageprocess.cpp  removed in 2.0alpha
         image-processing/imagemanager.h                     image-processing/imagemanager.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp

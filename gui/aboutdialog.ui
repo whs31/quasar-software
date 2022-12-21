@@ -35,8 +35,9 @@
    <double>1.000000000000000</double>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog {
-  background-color: #132623;
+   <string notr="true">QWidget {
+  background-color: #FFFFFF;
+  color: #FFFFFF
 }
 
 QDockWidget {
@@ -486,29 +487,13 @@ QMenu::right-arrow {
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap resource="../src/vector-resources.qrc">:/ui-resources/svg/logo/full-logo.svg</pixmap>
+         <pixmap resource="../src/vector-resources.qrc">:/ui-resources/svg/logo/black-full-logo.svg</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -556,23 +541,7 @@ QLabel:disabled {
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Версия программы v0.0.0pre</string>
@@ -638,23 +607,8 @@ QLabel:disabled {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+        <string notr="true">
+</string>
        </property>
        <property name="text">
         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;http://uav.radar-mms.com/gitlab/developers/rls/quasar&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#2980b9;&quot;&gt;GitLab&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -708,24 +662,7 @@ QLabel:disabled {
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">QWidget {
- color: #FFFFFF
- background-color: #FFFFFF;
-}
-
-Label {
-  background-color: #FFFFFF;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #FFFFFF;
-}
-
-QLabel:disabled {
-  background-color: #FFFFFF;
-  border: 0px solid #C9CDD0;
-  color: #FFFFFF;
-}</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -771,8 +708,8 @@ QLabel:disabled {
   min-width: 80px;
 }
 QPushButton {
-  background-color: #204040;
-  color: #dae1e5;
+  background-color: #CCCCCC;
+  color: #121212;
   border-radius: 4px;
   padding: 2px;
   outline: none;

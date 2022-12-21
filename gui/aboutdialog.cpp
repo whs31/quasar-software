@@ -6,7 +6,7 @@ AboutDialog::AboutDialog(QWidget *parent, QString softwareBuildVersion) :
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-    ui->softVersion->setText(Style::StyleText(softwareBuildVersion, softwareBuildVersion.contains("-") ? Colors::Accent100 : Colors::Info100, Format::Bold));
+    ui->softVersion->setText(Style::StyleText(softwareBuildVersion, softwareBuildVersion.contains("-") ? Colors::Accent100 : Colors::Warning100, Format::Bold));
 }
 
 AboutDialog::~AboutDialog()

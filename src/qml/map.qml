@@ -435,10 +435,10 @@ Rectangle {
             }
             delegate: Marker { }
         }
-        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; z: 7; }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 10; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 6; path: [ ]; }
-        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 6; path: []; }
+        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; z: 1; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 1; path: [ ]; }
+        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
             id: rulerTextMapItem

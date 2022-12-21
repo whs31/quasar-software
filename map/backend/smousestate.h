@@ -1,3 +1,9 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
 #ifndef SMOUSESTATE_H
 #define SMOUSESTATE_H
 

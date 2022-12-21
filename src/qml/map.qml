@@ -18,6 +18,8 @@ import MouseKeyHandler 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 
+import RuntimeData 1.0
+
 
 Rectangle {
     id: qqview
@@ -83,7 +85,7 @@ Rectangle {
     {
         //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
         drawPlane();
-        currentQtCoordinates = QtPositioning.coordinate(FTelemetry.latitude,FTelemetry.longitude);
+        currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude,RuntimeData.longitude);
 
         if(FDynamicVariables.followPlane) panGPS();
         if(FDynamicVariables.enableRoute) drawRoute();
@@ -94,10 +96,10 @@ Rectangle {
     //called after fixedupdate
     function onGUI()
     {
-        telemetryPanel.textLatitude = Number(FTelemetry.latitude).toFixed(7);
-        telemetryPanel.textLongitude = Number(FTelemetry.longitude).toFixed(7);
-        telemetryPanel.textElevation = "<font color=\"#a385cf\">" + Number(FTelemetry.elevation).toFixed(0) + "</font>";
-        telemetryPanel.textSpeed = "<font color=\"#a385cf\">" + Number(FTelemetry.speed).toFixed(1) + "</font>";
+        telemetryPanel.textLatitude = Number(RuntimeData.latitude).toFixed(7);
+        telemetryPanel.textLongitude = Number(RuntimeData.longitude).toFixed(7);
+        telemetryPanel.textElevation = "<font color=\"#a385cf\">" + Number(RuntimeData.elevation).toFixed(0) + "</font>";
+        telemetryPanel.textSpeed = "<font color=\"#a385cf\">" + Number(RuntimeData.speed).toFixed(1) + "</font>";
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -120,15 +122,15 @@ Rectangle {
     }
     function drawPlane()
     {
-        planeMapItem.coordinate = QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude);
+        planeMapItem.coordinate = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
         var atan = 0.0; var angle = 0.0; var geometricalAngle = 0.0;
-        var coord = QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude);
+        var coord = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
         var e = 5;
         if(Math.abs(currentQtCoordinates.distanceTo(coord)) > e && Math.abs(currentQtCoordinates.distanceTo(coord)) > e)
         {
             angle = currentQtCoordinates.azimuthTo(coord);
 
-            atan = Math.atan2(FTelemetry.longitude-currentQtCoordinates.longitude, FTelemetry.latitude-currentQtCoordinates.latitude);
+            atan = Math.atan2(RuntimeData.longitude-currentQtCoordinates.longitude, RuntimeData.latitude-currentQtCoordinates.latitude);
             geometricalAngle = (atan*180)/Math.PI;
 
             planeMapItem.rotationAngle = angle;
@@ -138,9 +140,9 @@ Rectangle {
     function drawPredict(angle)
     {
         predictLine.path = [];
-        var p_lat = FTelemetry.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
-        var p_lon = FTelemetry.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
-        predictLine.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
+        var p_lat = RuntimeData.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
+        var p_lon = RuntimeData.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
+        predictLine.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
     function clearPredict() { predictLine.path = []; }
@@ -150,7 +152,7 @@ Rectangle {
     }
     function drawRoute()
     {
-        mapPolyline.addCoordinate(QtPositioning.coordinate(FTelemetry.latitude, FTelemetry.longitude));
+        mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
     }
     function clearRoute()
     {
@@ -389,6 +391,9 @@ Rectangle {
             delegate: ImageSAR.MapImage { }
         }
 
+        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 1; path: [ ]; }
+        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
         MapItemView
         {
             model: imageUIModel;
@@ -435,10 +440,6 @@ Rectangle {
             }
             delegate: Marker { }
         }
-        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; z: 1; }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 1; path: [ ]; }
-        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
         MapQuickItem {
             property alias rulerRotationAngle: rulerRotation.angle
             id: rulerTextMapItem
@@ -577,6 +578,7 @@ Rectangle {
                 }
             }
         }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
         Groups.ImageToolsGroup
         {
             id: imagePanel;

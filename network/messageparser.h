@@ -8,6 +8,8 @@
 #include <cstring>
 
 #include "schecksum.h"
+#include "runtimedata.h"
+#include <QPair>
 
 enum DataType : short int
 {
@@ -27,7 +29,7 @@ public:
     static DataType checkReceivedDataType(QByteArray data);
     static DataType checkSendingDataType(QByteArray data);
 
-    static std::array<double, 6> parseTelemetry (QByteArray data);
+    static QPair<qreal, qint16> parseTelemetry (QByteArray data);
 
     static std::array<int, 4> parseFormResponse(QByteArray data);
     static QByteArray makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9);

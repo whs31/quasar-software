@@ -8,6 +8,9 @@ import DiskManager 1.0
 
 Rectangle 
 {
+    
+    property int containerHeight: 95;
+    
     RoundButton
     {
         id: expandButton;
@@ -42,7 +45,7 @@ Rectangle
         //collapsible panel
         property bool shown: false;
         visible: height > 0;
-        height: shown ? 100 : 0;
+        height: shown ? containerHeight : 0;
         Behavior on height {
             NumberAnimation {
                 easing.type: Easing.InOutQuad;

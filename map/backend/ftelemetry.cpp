@@ -1,3 +1,9 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
 #include "ftelemetry.h"
 
 FTelemetry::FTelemetry(QObject *parent)

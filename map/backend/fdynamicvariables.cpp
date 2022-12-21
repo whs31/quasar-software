@@ -1,3 +1,9 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
 #include "fdynamicvariables.h"
 
 FDynamicVariables::FDynamicVariables(QObject *parent)

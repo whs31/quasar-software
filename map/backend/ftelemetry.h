@@ -1,3 +1,9 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
 #ifndef FTELEMETRY_H
 #define FTELEMETRY_H
 

@@ -1,3 +1,10 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
+
 #ifndef FDYNAMICVARIABLES_H
 #define FDYNAMICVARIABLES_H
 

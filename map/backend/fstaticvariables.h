@@ -1,3 +1,9 @@
+/* 
+ * TODO:
+ * DEPRECATED
+ * rework in progress
+*/
+
 #ifndef FSTATICVARIABLES_H
 #define FSTATICVARIABLES_H
 

@@ -29,6 +29,7 @@
 
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
+#include "runtimedata.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }

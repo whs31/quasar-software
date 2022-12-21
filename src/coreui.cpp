@@ -15,8 +15,9 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
-    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize());
-    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize());
+    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize(this));
+    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize(this));
+    qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
 
     UXManager::initialize(this, CacheManager::getSettingsPath());
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
@@ -191,8 +192,8 @@ void CoreUI::InitializeConnections()
     LinkerQML::initialize(qml);
 
     // qml types declaration
-    fTelemetry = new FTelemetry();
-    ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
+    //fTelemetry = new FTelemetry();
+    //ui->map->rootContext()->setContextProperty("FTelemetry", fTelemetry);
     fDynamicVariables = new FDynamicVariables();
     ui->map->rootContext()->setContextProperty("FDynamicVariables", fDynamicVariables);
     connect(fDynamicVariables, SIGNAL(followPlaneChanged(bool)), this, SLOT(setCheckboxState(bool)));
@@ -376,22 +377,16 @@ void CoreUI::ReadTelemetry(QByteArray data)
 
     switch (dtype)
     {
-    case DataType::Telemetry:
-        std::array<double, 6> telemetry; // lat, lon, speed, elevation, sats
-        telemetry[4] = (double)0;
-        telemetry = MessageParser::parseTelemetry(data);
-        _conckc = telemetry[0];
-        fTelemetry->setLatitude((float)telemetry[0]);
-        fTelemetry->setLongitude((float)telemetry[1]);
-        fTelemetry->setSpeed((float)telemetry[2]);
-        fTelemetry->setElevation((float)telemetry[3]);
-        fTelemetry->setSats((short)telemetry[4]);
+    case DataType::Telemetry: { //TODO: fix conckc
+        short _conckc2 = (double)0;
+        QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
+        _conckc = pair.first;
         // direction
-        updateTelemetryLabels((int)telemetry[4]);
+        updateTelemetryLabels((int)pair.second);
 
         linker->fixedUpdate();
 
-        if ((int)telemetry[4] != 0 || _conckc != telemetry[0])
+        if ((int)_conckc2 != 0 || _conckc != pair.first)
         {
             Connected();
         }
@@ -400,7 +395,8 @@ void CoreUI::ReadTelemetry(QByteArray data)
             Disconnected();
         }
         break;
-    case DataType::FormResponse:
+    }
+    case DataType::FormResponse: {
         std::array<int, 4> responseList;
         responseList = MessageParser::parseFormResponse(data);
 
@@ -412,8 +408,10 @@ void CoreUI::ReadTelemetry(QByteArray data)
                        checksumCheck);
         }
         break;
-    default:
+    }
+    default: {
         break;
+    }
     }
 }
 

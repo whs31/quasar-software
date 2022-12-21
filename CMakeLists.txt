@@ -83,6 +83,7 @@ else()
         config/config.h                                     config/config.cpp
         config/sconfig.h                                    config/sconfig.cpp
         config/settingsdialog.h                             config/settingsdialog.cpp                                      config/settingsdialog.ui
+        config/runtimedata.h                                config/runtimedata.cpp
         disk/cachemanager.h                                 disk/cachemanager.cpp
         disk/disktools.h                                    disk/disktools.cpp
         disk/savethread.h                                   disk/savethread.cpp

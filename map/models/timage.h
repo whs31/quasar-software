@@ -30,7 +30,7 @@ class TImage : public QObject
     Q_OBJECT
 public:
     explicit TImage(QObject *parent, QByteArray data = QByteArray(), QString filePath = "", ImageMode mode = ImageMode::Raw, qreal predefinedCorrection = 0,
-                    bool globalRadians = false, qreal thetaAzimuthCorrection = 0);
+                    bool globalRadians = false, qreal thetaAzimuthCorrection = 0, bool globalDriftAngle = true);
     bool isValid();
 
     QString cachedJPEGfilename = ""; //check
@@ -89,6 +89,7 @@ private:
     qreal predefinedCorrection;
     bool globalRadians;
     qreal thetaAzimuthCorrection;
+    bool globalDriftAngle;
 
 signals:
 };

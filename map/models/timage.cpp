@@ -1,7 +1,9 @@
 #include "timage.h"
 
-TImage::TImage(QObject *parent, QByteArray data, QString filePath, ImageMode mode, qreal predefinedCorrection, bool globalRadians, qreal thetaAzimuthCorrection)
-    : QObject{parent}, predefinedCorrection(predefinedCorrection), globalRadians(globalRadians), thetaAzimuthCorrection(thetaAzimuthCorrection)
+TImage::TImage(QObject *parent, QByteArray data, QString filePath, ImageMode mode, qreal predefinedCorrection, bool globalRadians, qreal thetaAzimuthCorrection,
+                bool globalDriftAngle)
+    : QObject{parent}, predefinedCorrection(predefinedCorrection), globalRadians(globalRadians), thetaAzimuthCorrection(thetaAzimuthCorrection),
+    globalDriftAngle(globalDriftAngle)
 {
     cachedJPEGfilename = filePath;
 
@@ -55,7 +57,7 @@ bool TImage::decode(QByteArray data)
         if (globalRadians)
         {
             meta.angle = SMath::radiansToDegrees(meta.angle) + predefinedCorrection;
-            meta.driftAngle = SMath::radiansToDegrees(meta.driftAngle);
+            meta.driftAngle = globalDriftAngle ? SMath::radiansToDegrees(meta.driftAngle) : 0;
             meta.thetaAzimuth = SMath::radiansToDegrees(meta.thetaAzimuth);
         } else {
             meta.angle += predefinedCorrection;
@@ -79,7 +81,7 @@ void TImage::assignUIStrings(QString filename)
     gui.y0 = QString::number(meta.y0, 'f', 0) + " м";
     gui.angle = QString::number(meta.angle, 'f', 3) + "°" 
         + "<font color=\"#43a1ca\"> + " + QString::number(predefinedCorrection) + "°</font>";
-    gui.driftAngle = QString::number(meta.driftAngle, 'f', 3) + "°";
+    gui.driftAngle = globalDriftAngle ? QString::number(meta.driftAngle, 'f', 3) + "°" : "<font color=\"#b16573\">отключен в настройках</font>";
     gui.lx = QString::number(meta.lx, 'f', 0) + " м";
     gui.ly = QString::number(meta.ly, 'f', 0) + " м";
     gui.thetaAzimuth = QString::number(meta.thetaAzimuth, 'f', 3) + "°" 

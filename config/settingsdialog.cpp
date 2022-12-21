@@ -24,6 +24,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->useProfiler->setChecked(SConfig::getHashBoolean("ShowProfiler"));
     uiS->metaInRadians->setChecked(SConfig::getHashBoolean("GlobalRadians"));
     uiS->angleCorrection->setValue(SConfig::getHashFloat("AnglePredefinedCorrection"));
+    uiS->globalDriftAngle->setChecked(SConfig::getHashBoolean("GlobalDriftAngle"));
+    uiS->thetaAzimuthCorrection->setValue(SConfig::getHashFloat("AzimuthPredefinedCorrection"));
 }
 
 SettingsDialog::~SettingsDialog() { delete uiS; }
@@ -56,6 +58,8 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::setHashValue("ShowProfiler", uiS->useProfiler->isChecked());
     SConfig::setHashValue("GlobalRadians", uiS->metaInRadians->isChecked());
     SConfig::setHashValue("AnglePredefinedCorrection", uiS->angleCorrection->value());
+    SConfig::setHashValue("GlobalDriftAngle", uiS->globalDriftAngle->isChecked());
+    SConfig::setHashValue("AzimuthPredefinedCorrection", uiS->thetaAzimuthCorrection->value());
     accept();
 }
 

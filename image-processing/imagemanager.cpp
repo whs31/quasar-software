@@ -28,7 +28,7 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
     TImage *image = new TImage(initialize(), data, filenamePath, ImageMode::GeometricAlphaMask, 
     SConfig::getHashFloat("AnglePredefinedCorrection"), SConfig::getHashBoolean("GlobalRadians"),
-    5.0); //TODO: sconfig value 
+    SConfig::getHashFloat("AzimuthPredefinedCorrection"), SConfig::getHashBoolean("GlobalDriftAngle")); 
     image->index = imageList.length();
 
     if (!image->isValid())

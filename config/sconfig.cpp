@@ -62,6 +62,8 @@ void SConfig::loadSettings()
 
     setHashValue("AnglePredefinedCorrection", config->value("image/angle_predefined_correction"));
     setHashValue("GlobalRadians", config->value("image/angle_use_radians_globally"));
+    setHashValue("GlobalDriftAngle", config->value("image/angle_use_drift_angle"));
+    setHashValue("AzimuthPredefinedCorrection", config->value("image/angle_theta_azimuth_correction"));
     setHashValue("SaveNonContinuous", config->value("image/save_image_only_when_loading_finished"));
     setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
     setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
@@ -122,6 +124,8 @@ void SConfig::save()
 
     config->setValue("image/angle_predefined_correction", QString::number(getHashFloat("AnglePredefinedCorrection")));
     config->setValue("image/angle_use_radians_globally", getHashBoolean("GlobalRadians"));
+    config->setValue("image/angle_use_drift_angle", getHashBoolean("GlobalDriftAngle"));
+    config->setValue("image/angle_theta_azimuth_correction", QString::number(getHashFloat("AzimuthPredefinedCorrection")));
     config->setValue("image/use_base64_encoding_optimization", getHashBoolean("Base64Enabled"));
     config->setValue("image/save_image_only_when_loading_finished", getHashBoolean("SaveNonContinuous"));
     config->setValue("image/view_mode_default_directory", getHashString("ViewPath"));

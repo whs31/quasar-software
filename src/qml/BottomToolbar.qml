@@ -52,7 +52,7 @@ Item {
         display: AbstractButton.IconOnly;
         onClicked:
         {
-            panImage(fc);
+            panImage();
             if(FDynamicVariables.followPlane)
             {
                 FDynamicVariables.followPlane = false;

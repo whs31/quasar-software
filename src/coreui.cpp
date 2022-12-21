@@ -330,6 +330,7 @@ void CoreUI::on_settingsButton_clicked()
             {
                 if (s != SConfig::getHashString("ViewPath"))
                 {
+                    DiskTools::fetchDirectory();
                 }
                 else
                 {
@@ -378,15 +379,16 @@ void CoreUI::ReadTelemetry(QByteArray data)
     switch (dtype)
     {
     case DataType::Telemetry: { //TODO: fix conckc
-        short _conckc2 = (double)0;
+        short _conckc2 = (short)0;
         QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
         _conckc = pair.first;
+        _conckc2 = pair.second;
         // direction
         updateTelemetryLabels((int)pair.second);
 
         linker->fixedUpdate();
 
-        if ((int)_conckc2 != 0 || _conckc != pair.first)
+        if ((short)_conckc2 != 0 || _conckc != pair.first)
         {
             Connected();
         }

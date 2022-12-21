@@ -21,7 +21,7 @@ Rectangle
         height: 32;
         radius: 32;
         opacity: 1;
-        text: "Параметры изображений";
+        text: "Работа с изображениями";
         font.capitalization: Font.MixedCase; 
         font.pixelSize: 11;
         onClicked: box.shown = !box.shown;

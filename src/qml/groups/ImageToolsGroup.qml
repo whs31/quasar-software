@@ -8,7 +8,6 @@ import DiskManager 1.0
 
 Rectangle 
 {
-    
     property int containerHeight: 95;
     
     RoundButton
@@ -22,8 +21,6 @@ Rectangle
         height: 32;
         radius: 32;
         opacity: 1;
-        anchors.left: parent.left;
-        anchors.top: parent.top;
         text: "Параметры изображений";
         font.capitalization: Font.MixedCase; 
         font.pixelSize: 11;

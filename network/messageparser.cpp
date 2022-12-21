@@ -34,7 +34,7 @@ QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
     RuntimeData::setElevation(elv);
     RuntimeData::setSpeed(spd); //TODO: direction
     RuntimeData::setSatellites(sats);
-    return QPair(lat, sats);
+    return QPair<qreal, qint16>(lat, sats);
 }
 
 QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9)
@@ -54,7 +54,7 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
     QString hexlen;
     hexlen.setNum(_formRequest.length(), 16);
     formRequest.append(hexlen + "|" + _formRequest + "|");
-    formRequest.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length()), 4, 16, QLatin1Char('0')) + "\n");
+    formRequest.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length()), 4, 16, QLatin1Char('0')));
     return formRequest.toUtf8();
 }
 

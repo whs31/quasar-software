@@ -11,7 +11,6 @@
 #include <QScopedPointer>
 
 //qml types
-#include "backend/ftelemetry.h"
 #include "backend/fdynamicvariables.h"
 #include "backend/fmousekeyhandler.h"
 
@@ -81,7 +80,6 @@ private:
     QQuickItem* qml;
 
     //qml types
-    FTelemetry* fTelemetry;
     FDynamicVariables* fDynamicVariables;
     FStaticVariables* fStaticVariables;
 

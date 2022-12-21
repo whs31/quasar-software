@@ -16,5 +16,6 @@
         <file>qml/sar-image/MetadataGroup.qml</file>
         <file>qml/sar-image/ButtonTopGroup.qml</file>
         <file>qml/groups/ImageToolsGroup.qml</file>
+        <file>qml/groups/MapParametersGroup.qml</file>
     </qresource>
 </RCC>

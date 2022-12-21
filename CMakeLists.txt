@@ -63,7 +63,7 @@ else()
         windowextension/common.h
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
-        map/backend/ftelemetry.h                            map/backend/ftelemetry.cpp
+        #map/backend/ftelemetry.h                           #map/backend/ftelemetry.cpp         reintegrated into new class runtimedata.h in 2.0.1alpha
         map/backend/fdynamicvariables.h                     map/backend/fdynamicvariables.cpp
         map/backend/fstaticvariables.h                      map/backend/fstaticvariables.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
@@ -87,7 +87,7 @@ else()
         disk/cachemanager.h                                 disk/cachemanager.cpp
         disk/disktools.h                                    disk/disktools.cpp
         disk/savethread.h                                   disk/savethread.cpp
-        #image-processing/imageprocess.h                    #image-processing/imageprocess.cpp  removed in 2.0alpha
+        #image-processing/imageprocess.h                    #image-processing/imageprocess.cpp  removed in 2.0.0alpha
         image-processing/imagemanager.h                     image-processing/imagemanager.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp

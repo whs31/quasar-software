@@ -579,6 +579,14 @@ Rectangle {
             }
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
+        Groups.MapParametersGroup
+        {
+            id: mapParametersPanel;
+            anchors.top: parent.top;
+            anchors.left: parent.left;
+            anchors.topMargin: 3;
+            anchors.leftMargin: 190;
+        }
         Groups.ImageToolsGroup
         {
             id: imagePanel;

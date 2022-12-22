@@ -17,5 +17,6 @@
         <file>qml/sar-image/ButtonTopGroup.qml</file>
         <file>qml/groups/ImageToolsGroup.qml</file>
         <file>qml/groups/MapParametersGroup.qml</file>
+        <file>qml/ui/CustomCheckbox.qml</file>
     </qresource>
 </RCC>

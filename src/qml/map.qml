@@ -77,7 +77,7 @@ Rectangle {
 
     function qmlBackendStart()
     {
-        if(FStaticVariables.testMode) { defaultMapModeOnTestMode = 3; } else { defaultMapModeOnTestMode = 0; }
+        if(RuntimeData.global_useOSMMaps) { defaultMapModeOnTestMode = 3; } else { defaultMapModeOnTestMode = 0; }
     }
 
     //called every fixed time (0.5 s default)           call time equals to C_UPDATETIME in sconfig
@@ -140,8 +140,8 @@ Rectangle {
     function drawPredict(angle)
     {
         predictLine.path = [];
-        var p_lat = RuntimeData.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
-        var p_lon = RuntimeData.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(FStaticVariables.predictRange * 1000) );
+        var p_lat = RuntimeData.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
+        var p_lon = RuntimeData.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
         predictLine.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }

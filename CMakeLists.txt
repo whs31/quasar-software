@@ -65,7 +65,7 @@ else()
         map/linkerqml.h                                     map/linkerqml.cpp
         #map/backend/ftelemetry.h                           #map/backend/ftelemetry.cpp         reintegrated into new class runtimedata.h in 2.1.0alpha
         #map/backend/fdynamicvariables.h                    #map/backend/fdynamicvariables.cpp  reintegrated into new class runtimedata.h in 2.1.0alpha
-        map/backend/fstaticvariables.h                      map/backend/fstaticvariables.cpp
+        #map/backend/fstaticvariables.h                     #map/backend/fstaticvariables.cpp   reintegrated into new class runtimedata.h in 2.1.1alpha
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/smousestate.h                           map/backend/smousestate.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp

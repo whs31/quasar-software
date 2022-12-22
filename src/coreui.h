@@ -77,9 +77,6 @@ private:
     TCPDownloader *downloader;
     QQuickItem* qml;
 
-    //qml types
-    FStaticVariables* fStaticVariables;
-
     //timers
     QTimer *timer;
     QTimer *udpTimeout;
@@ -105,8 +102,6 @@ private:
     float sar_gps_velocity = 100;
 
     //private methods
-    void InitializeUI();
-    void InitializeConnections();
     void InitializeDockwidgets();
     void SendRemoteCommand(QString command, CommandType type);
 

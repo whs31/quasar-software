@@ -91,3 +91,6 @@ void RuntimeData::setDrawDiagram(bool state)
         return;
     mapSettings.drawDiagram = state;
 }
+
+bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::getHashBoolean("UseOSM"); }
+qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::getHashFloat("VelocityVectorLength"); }

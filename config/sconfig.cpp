@@ -1,28 +1,26 @@
 #include "sconfig.h"
 
-SConfig* SConfig::pointer;
+SConfig* SConfig::pointer = nullptr;
 Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
-FStaticVariables* SConfig::fStatic;
 
 QHash<QString, QVariant> SConfig::variantHash; 
 
-SConfig::SConfig(FStaticVariables* fStaticVariables)
+SConfig::SConfig(QObject* parent) : QObject{parent}
 {
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
     jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
-    fStatic = fStaticVariables;
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
 
     SConfig::loadSettings();
 }
 
-SConfig* SConfig::initialize(FStaticVariables* fStaticVariables)
+SConfig* SConfig::initialize(QObject* parent)
 {
     if(pointer != NULL)
         return pointer;
-    pointer = new SConfig(fStaticVariables);
+    pointer = new SConfig(parent);
     return pointer;
 }
 
@@ -69,10 +67,6 @@ void SConfig::loadSettings()
     setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
 
     setHashValue("StartupConnectToSAR", config->value("startup/connect_to_sar"));
-
-    fStatic->setTestMode(getHashBoolean("UseOSM"));
-    fStatic->setPredictRange(getHashFloat("VelocityVectorLength"));
-    fStatic->setUseBase64(getHashBoolean("Base64Enabled"));
 
     Debug::Log("?[SCONFIG] Config loaded.");
 }

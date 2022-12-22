@@ -14,17 +14,15 @@ Item {
 
     property bool checked: false;
 
-    width: checkboxIndicator.width + iconsize + 100 + 3;
+    width: checkboxIndicator.width + iconsize + 150 + 3;
     height: childrenRect.height;
     
     id: control;
-    antialiasing: true; 
             
     Rectangle {
         id: checkboxIndicator;
         color: primarycolor;
         anchors.left: parent.left;
-        
         implicitWidth: 16;
         implicitHeight: 16;
         radius: 4;
@@ -74,12 +72,14 @@ Item {
     Rectangle {
         id: checkboxContent;
         anchors.left: checkboxIndicator.right;
+        anchors.leftMargin: 3;
         Image {
             id: ico;
             width: iconsize;
             height: iconsize;
             source: iconsource;
             smooth: true;
+            antialiasing: true; 
         }
         Text {
             text: labeltext;
@@ -90,15 +90,14 @@ Item {
             verticalAlignment: Text.AlignVCenter
             anchors.left: ico.right;
             anchors.leftMargin: 3;
-        }
-        
+        } 
     }
 
     MouseArea {
         id: controlMouseArea;
         hoverEnabled: true;
         anchors.fill: parent
-        onEntered: { checkboxIndicator.color = Qt.lighter(primarycolor, 1.3); }
+        onEntered: { checkboxIndicator.color = Qt.lighter(primarycolor, 1.5); }
         onExited: { checkboxIndicator.color = primarycolor; }
         onClicked: { checked = !checked; animation_scalebounce.start(); animation_colorfadeinout.start(); }
         Rectangle {

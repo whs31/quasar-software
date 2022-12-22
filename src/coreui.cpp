@@ -17,17 +17,130 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize(this));
     qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize(this));
-    qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
 
+    // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
     TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
     
-
+    // get resolution for some ui rescaling and start new log in debug
     screenResolution = QGuiApplication::screens().first()->availableGeometry();
     Debug::NewSession();
-    InitializeUI();
-    InitializeConnections();
+
+    // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
+    ui->setupUi(this);
+
+    // custom window frame setup
+    setMargins(25, 0, 0, 170);
+    ui->header->setTitleBarWidget(new QWidget());
+    uiReady = true;
+    Debug::Log("[STARTUP] Starting UI initialization...");
+
+    // config
+    SConfig::initialize(this);
+    if (SConfig::getHashBoolean("UseOSM"))
+        Debug::Log("![STARTUP] Program is running in test mode!");
+    QMetaObject::invokeMethod(qml, "qmlBackendStart");
+
+    // qml types that require SConfig declared here
+    qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
+
+    // qml base setup
+    ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
+    ui->map->setSource(QUrl("qrc:/qml/map.qml"));
+    ui->map->show();
+    qml = ui->map->rootObject();
+
+    // debug logging misc code
+    QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
+    Debug::Log("[STARTUP] UI initialization finished");
+    Debug::Log("?[STARTUP] Session started at " + localTime.toString());
+
+    // openssl check
+    QString ssl1 = QSslSocket::supportsSsl() ? "true" : "false";
+    if (QSslSocket::supportsSsl())
+    {
+        Debug::Log("?[STARTUP] OpenSSL detected: " 
+                    + ssl1 
+                    + ", OpenSSL build version: " 
+                    + QSslSocket::sslLibraryBuildVersionString() 
+                    + ", OpenSSL ver.: " 
+                    + QSslSocket::sslLibraryVersionString());
+    }
+    else
+    {
+        Debug::Log("!!![STARTUP] OpenSSL detected: " 
+                    + ssl1 
+                    + ", OpenSSL build version: " 
+                    + QSslSocket::sslLibraryBuildVersionString() 
+                    + ", OpenSSL ver.: " 
+                    + QSslSocket::sslLibraryVersionString());
+        QMessageBox openSSLDialogue;
+        openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
+        openSSLDialogue.setIcon(QMessageBox::Critical);
+        openSSLDialogue.setText("Попробуйте переустановить программу.");
+        openSSLDialogue.exec();
+    }
+
+    // set default position and size of floating qdockwidgets
+    InitializeDockwidgets();
+
+    // any other ui-related startup code here!
+    ui->doubleSpinBox_height->setVisible(false);
+    ui->doubleSpinBox_velocity->setVisible(false);
+
+    // core
+    // (!) do not touch it.
+    Debug::Log("?[STARTUP] Setuping connections...");
+    timer = new QTimer(this);
+    udpTimeout = new QTimer(this);
+    uiTimer1 = new QTimer(this);
+    LinkerQML::initialize(qml);
+
+    // network setup
+    telemetryRemote = new UDPRemote();
+    formRemote = new UDPRemote();
+    consoleListenerRemote = new UDPRemote();
+    downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
+    connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
+
+    // network socket connections setup
+    connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
+    connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
+    connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
+    connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
+    connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
+
+    // network auto-connection on startup (deprecated)
+    if (SConfig::getHashBoolean("StartupConnectToSAR"))
+    {
+        telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
+        formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+        consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
+        Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
+        if (SConfig::getHashString("NetworkType") != "UDP")
+        {
+            SConfig::getHashString("NetworkType") = "UDP";
+            Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
+        }
+        Debug::Log("?[REMOTE] Connections ready.");
+    }
+
+    // ui misc initialization and assignment
+    ui->label_c_sarip->setText("Адрес РЛС: " + Style::StyleText(" (" + SConfig::getHashString("NetworkType") + ") ", Colors::Info300, Format::Bold) + Style::StyleText(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderip->setText("Адрес загрузчика: " + Style::StyleText(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
+    ui->label_c_loaderStatus->setText("Статус: " + Style::StyleText("ожидание подключения", Colors::Info100, Format::Italic));
+
+    // timers starts here
+    timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
+    udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);
+
+    // startup functions
+    Disconnected();
+    Debug::Log("[STARTUP] Connections set up successfully");
+
+    // execute any other startup code here
+    
 }
 
 CoreUI::~CoreUI()
@@ -41,7 +154,6 @@ CoreUI::~CoreUI()
     delete formRemote;
     delete consoleListenerRemote;
     delete qml;
-    delete fStaticVariables;
     delete TilesManager::initialize();
     delete ImageManager::initialize();
     delete MarkerManager::initialize();
@@ -58,37 +170,21 @@ CoreUI *CoreUI::getDebugPointer(void)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
-    if (uiReady)
-    {
-        if (msgtype == 0)
-        {
-            ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Text100, true));
-        }
-        else if (msgtype == 1)
-        {
-            ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info200, true));
-        }
-        else if (msgtype == 2)
-        {
-            ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning100, true));
-        }
-        else if (msgtype == 3)
-        {
-            ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error200, true));
-        }
-        else if (msgtype == 4)
-        {
-            ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error100, true));
-        }
-        QFont consoleFont = ui->debugConsole->font();
-        consoleFont.setPointSize(8);
-        ui->debugConsole->insertPlainText(_text);
-        ui->debugConsole->setTextColor(Qt::white);
-        ui->debugConsole->setFont(consoleFont);
-        QTextCursor c = ui->debugConsole->textCursor();
-        c.movePosition(QTextCursor::End);
-        ui->debugConsole->setTextCursor(c);
-    }
+    if (!uiReady)
+        return;
+    if (msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Text100, true)); }
+    else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info200, true)); }
+    else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning100, true)); }
+    else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error200, true)); }
+    else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error100, true)); }
+    QFont consoleFont = ui->debugConsole->font();
+    consoleFont.setPointSize(8);
+    ui->debugConsole->insertPlainText(_text);
+    ui->debugConsole->setTextColor(Qt::white);
+    ui->debugConsole->setFont(consoleFont);
+    QTextCursor m_cursor = ui->debugConsole->textCursor();
+    m_cursor.movePosition(QTextCursor::End);
+    ui->debugConsole->setTextCursor(m_cursor);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -131,127 +227,6 @@ void CoreUI::updateTelemetryLabels(int satcount) { ui->label_c_satcount->setText
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::InitializeUI()
-{
-    // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
-    ui->setupUi(this);
-
-    // custom window frame setup
-    setMargins(25, 0, 0, 170);
-    ui->header->setTitleBarWidget(new QWidget());
-    uiReady = true;
-    Debug::Log("[STARTUP] Starting UI initialization...");
-
-    // qml base setup
-    ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
-    ui->map->setSource(QUrl("qrc:/qml/map.qml"));
-    ui->map->show();
-    qml = ui->map->rootObject();
-
-    // debug logging misc code
-    QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
-    Debug::Log("[STARTUP] UI initialization finished");
-    Debug::Log("?[STARTUP] Session started at " + localTime.toString());
-
-    // openssl check
-    QString ssl1 = QSslSocket::supportsSsl() ? "true" : "false";
-    if (QSslSocket::supportsSsl())
-    {
-        Debug::Log("?[STARTUP] OpenSSL detected: " + ssl1 + ", OpenSSL build version: " + QSslSocket::sslLibraryBuildVersionString() + ", OpenSSL ver.: " + QSslSocket::sslLibraryVersionString());
-    }
-    else
-    {
-        Debug::Log("!!![STARTUP] OpenSSL detected: " + ssl1 + ", OpenSSL build version: " + QSslSocket::sslLibraryBuildVersionString() + ", OpenSSL ver.: " + QSslSocket::sslLibraryVersionString());
-        QMessageBox openSSLDialogue;
-        openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
-        openSSLDialogue.setIcon(QMessageBox::Critical);
-        openSSLDialogue.setText("Попробуйте переустановить программу.");
-        openSSLDialogue.exec();
-    }
-
-    // set default position and size of floating qdockwidgets
-    InitializeDockwidgets();
-
-    // any other ui startup code here!
-    ui->doubleSpinBox_height->setVisible(false);
-    ui->doubleSpinBox_velocity->setVisible(false);
-}
-
-void CoreUI::InitializeConnections()
-{
-    // core
-    //(!) do not touch it.
-    Debug::Log("?[STARTUP] Setuping connections...");
-    timer = new QTimer(this);
-    udpTimeout = new QTimer(this);
-    uiTimer1 = new QTimer(this);
-    LinkerQML::initialize(qml);
-
-    // qml types declaration
-    fStaticVariables = new FStaticVariables();
-    ui->map->rootContext()->setContextProperty("FStaticVariables", fStaticVariables);
-
-    // config
-    SConfig::initialize(fStaticVariables);
-    if (SConfig::getHashBoolean("UseOSM"))
-        Debug::Log("![STARTUP] Program is running in test mode!");
-    QMetaObject::invokeMethod(qml, "qmlBackendStart");
-
-    // network setup
-    telemetryRemote = new UDPRemote();
-    formRemote = new UDPRemote();
-    consoleListenerRemote = new UDPRemote();
-    downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
-    connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
-
-    // sar connections setup
-    connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
-    connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
-    // connect(uiTimer1, SIGNAL(timeout()), this, SLOT(updateLoaderLabel()));
-    connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
-    connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
-
-    // image-processing setup
-    // DiskTools::fetchDirectory();
-
-    // network connection
-    if (SConfig::getHashBoolean("StartupConnectToSAR"))
-    {
-        if (SConfig::getHashString("NetworkType") == "TCP")
-        {
-            qCritical() << "TCP usage in telemetry";
-        }
-        else
-        {
-            telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
-            consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-            qCritical() << SConfig::getHashString("LoaderIP") << ":" << SConfig::getHashString("ListenPort");
-            if (SConfig::getHashString("NetworkType") != "UDP")
-            {
-                SConfig::getHashString("NetworkType") = "UDP";
-                Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
-            }
-            Debug::Log("?[REMOTE] UDP client connected");
-        }
-    }
-
-    // ui misc initialization and assignment
-    ui->label_c_sarip->setText("Адрес РЛС: " + Style::StyleText(" (" + SConfig::getHashString("NetworkType") + ") ", Colors::Info300, Format::Bold) + Style::StyleText(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: " + Style::StyleText(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
-    ui->label_c_loaderStatus->setText("Статус: " + Style::StyleText("ожидание подключения", Colors::Info100, Format::Italic));
-
-    // timers starts here
-    timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
-    udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);
-
-    // startup functions
-    Disconnected();
-    Debug::Log("[STARTUP] Connections set up successfully");
-
-    // execute any other startup code here
-}
 
 void CoreUI::InitializeDockwidgets()
 {

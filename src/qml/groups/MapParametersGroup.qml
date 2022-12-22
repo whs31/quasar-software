@@ -101,6 +101,7 @@ Rectangle
             anchors.top: checkboxDrawPredict.bottom;
             anchors.topMargin: 10;
             iconsource: "qrc:/ui-resources/white/radar.png";
+            iconsize: 14;
             labeltext: "Диаграмма направленности";
 
             onCheckedChanged: { RuntimeData.drawDiagram = checked; }

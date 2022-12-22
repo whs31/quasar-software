@@ -13,14 +13,13 @@
 #include "config.h"
 #include "jsonconfig.h"
 
-#include "backend/fstaticvariables.h"
 #include "debug.h"
 
 class SConfig : public QObject
 {
     Q_OBJECT
 public:
-    static SConfig* initialize(FStaticVariables* fStaticVariables);
+    static SConfig* initialize(QObject* parent = nullptr);
 
     static void loadSettings();
     static void saveSettings();
@@ -39,11 +38,10 @@ public:
 signals:
 
 private:
-    explicit SConfig(FStaticVariables* fStaticVariables);
+    explicit SConfig(QObject* parent = nullptr);
     static SConfig* pointer;
     static Config* config;
     static JsonConfig* jsonConfig;
-    static FStaticVariables* fStatic;
 
     static QHash<QString, QVariant> variantHash;
     static void save();

@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <qqml.h>
+#include "sconfig.h"
 
 class RuntimeData : public QObject
 {
@@ -18,6 +19,9 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool drawRoute READ getDrawRoute WRITE setDrawRoute);
     Q_PROPERTY(bool drawPredict READ getDrawPredict WRITE setDrawPredict);
     Q_PROPERTY(bool drawDiagram READ getDrawDiagram WRITE setDrawDiagram);
+
+    Q_PROPERTY(bool global_useOSMMaps READ getGlobal_useOSMMaps);
+    Q_PROPERTY(qreal global_velocityVectorLength READ getGlobal_velocityVectorLength);
     QML_ELEMENT
     
 public:
@@ -27,17 +31,23 @@ public:
     static qreal getElevation();
     static qreal getSpeed();
     static qint16 getSatellites();
+
     static bool getFollowPlane();
     static bool getDrawTooltip();
     static bool getDrawRoute();
     static bool getDrawPredict();
     static bool getDrawDiagram();
 
+    static bool getGlobal_useOSMMaps();
+    static qreal getGlobal_velocityVectorLength();
+
+
     static void setLatitude(qreal value);
     static void setLongitude(qreal value);
     static void setElevation(qreal value);
     static void setSpeed(qreal value);
     static void setSatellites(qint16 value);
+
     static void setFollowPlane(bool state);
     static void setDrawTooltip(bool state);
     static void setDrawRoute(bool state);

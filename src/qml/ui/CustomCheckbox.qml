@@ -8,12 +8,13 @@ Item {
     property string iconsource: "qrc:/ui-resources/white/close.png";
     
     property string labeltext: "Not assigned";
-    property color primarycolor: "#dae1e5";
-    property color accentcolor: "#204040";
+    property color textcolor: "#dae1e5";
+    property color primarycolor: "#204040";
+    property color accentcolor: "#43a1ca";
 
     property bool checked: false;
 
-    width: childrenRect.width; 
+    width: checkboxIndicator.width + iconsize + 100 + 3;
     height: childrenRect.height;
     
     id: control;
@@ -21,15 +22,14 @@ Item {
             
     Rectangle {
         id: checkboxIndicator;
-        color: accentcolor;
+        color: primarycolor;
         anchors.left: parent.left;
-        //anchors.horizontalCenter: parent.horizontalCenter;
         
         implicitWidth: 16;
         implicitHeight: 16;
         radius: 4;
         Rectangle {
-            color: primarycolor;
+            color: textcolor;
             visible: control.checked
             width: parent.width / 2
             height: parent.height / 2
@@ -37,11 +37,37 @@ Item {
             y: parent.height / 2 - height / 2
             radius: 2
         }
-        MouseArea {
-            id: controlMouseArea;
-            hoverEnabled: true;
-            anchors.fill: parent
-            onClicked: { checked = !checked; }
+        SequentialAnimation {
+            id: animation_scalebounce;
+            PropertyAnimation {
+                target: checkboxIndicator
+                property: "scale"
+                to: 1.2
+                duration: 100;
+                easing.type: Easing.InOutQuad
+            }
+            PropertyAnimation {
+                target: checkboxIndicator
+                property: "scale"
+                to: 1.0
+                duration: 100;
+                easing.type: Easing.InOutQuad
+            }
+        }
+        SequentialAnimation {
+            id: animation_colorfadeinout;
+            ColorAnimation {
+                target: checkboxIndicator;
+                property: "color";
+                to: accentcolor;
+                duration: 100;
+            }
+            ColorAnimation {
+                target: checkboxIndicator;
+                property: "color";
+                to: primarycolor;
+                duration: 100;
+            }
         }
     }
 
@@ -59,11 +85,26 @@ Item {
             text: labeltext;
             font.capitalization: Font.MixedCase; 
             font.pixelSize: 11;
-            color: primarycolor;
+            color: textcolor;
             opacity: enabled ? 1.0 : 0.3
             verticalAlignment: Text.AlignVCenter
             anchors.left: ico.right;
             anchors.leftMargin: 3;
+        }
+        
+    }
+
+    MouseArea {
+        id: controlMouseArea;
+        hoverEnabled: true;
+        anchors.fill: parent
+        onEntered: { checkboxIndicator.color = Qt.lighter(primarycolor, 1.3); }
+        onExited: { checkboxIndicator.color = primarycolor; }
+        onClicked: { checked = !checked; animation_scalebounce.start(); animation_colorfadeinout.start(); }
+        Rectangle {
+            anchors.fill: parent;
+            color: "#FFFF00"
+            visible: false;
         }
     }
     

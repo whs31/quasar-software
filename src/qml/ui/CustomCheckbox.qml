@@ -106,5 +106,4 @@ Item {
             visible: false;
         }
     }
-    
 }

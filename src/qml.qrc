@@ -18,5 +18,6 @@
         <file>qml/groups/ImageToolsGroup.qml</file>
         <file>qml/groups/MapParametersGroup.qml</file>
         <file>qml/ui/CustomCheckbox.qml</file>
+        <file>qml/ui/CustomButton.qml</file>
     </qresource>
 </RCC>

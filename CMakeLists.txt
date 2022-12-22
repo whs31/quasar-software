@@ -63,20 +63,15 @@ else()
         windowextension/common.h
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
-        #map/backend/ftelemetry.h                           #map/backend/ftelemetry.cpp         reintegrated into new class runtimedata.h in 2.1.0alpha
-        #map/backend/fdynamicvariables.h                    #map/backend/fdynamicvariables.cpp  reintegrated into new class runtimedata.h in 2.1.0alpha
-        #map/backend/fstaticvariables.h                     #map/backend/fstaticvariables.cpp   reintegrated into new class runtimedata.h in 2.1.1alpha
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/smousestate.h                           map/backend/smousestate.cpp
         map/backend/ibackendiohandler.h                     map/backend/ibackendiohandler.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp
-        map/global/qmldata.h                                map/global/qmldata.cpp
         json/jsonmanager.h                                  json/jsonmanager.cpp
         json/jsonconfig.h                                   json/jsonconfig.cpp
         network/remote.h                                    network/remote.cpp
-        #network/tcpremote.h                                #network/tcpremote.cpp              removed in 1.9.0alpha
         network/udpremote.h                                 network/udpremote.cpp
         network/tcpdownloader.h                             network/tcpdownloader.cpp
         network/messageparser.h                             network/messageparser.cpp
@@ -88,7 +83,6 @@ else()
         disk/cachemanager.h                                 disk/cachemanager.cpp
         disk/disktools.h                                    disk/disktools.cpp
         disk/savethread.h                                   disk/savethread.cpp
-        #image-processing/imageprocess.h                    #image-processing/imageprocess.cpp  removed in 2.0.0alpha
         image-processing/imagemanager.h                     image-processing/imagemanager.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp

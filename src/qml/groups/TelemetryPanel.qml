@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle 
 {
-    property int containerHeight: 200;
+    property int containerHeight: 90;
 
     property string textLatitude: "00.0000000";
     property string textLongitude: "00.0000000";
@@ -101,19 +101,6 @@ Rectangle
             color: "#dae1e5";
             textFormat: Text.RichText;
             text: "Высота: " + "<font color=\"#c4bb4b\"><b>" + Number(RuntimeData.elevation).toFixed(0) + "</b></font>" + " <i>м</i>";
-            horizontalAlignment: Text.AlignHCenter;
-            verticalAlignment: Text.AlignVCenter;
-        }
-        Text {
-            id: satsText;
-            anchors.top: elevationText.bottom;
-            anchors.topMargin: 8;
-            anchors.left: parent.left;
-            anchors.leftMargin: 3;
-            color: "#dae1e5";
-            textFormat: Text.RichText;
-            text: "Количество спутников: " + "<font color=\"#bc9117\"><b>" + Number(RuntimeData.satellites) + "</b></font>";
-            font.pixelSize: 11;
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }

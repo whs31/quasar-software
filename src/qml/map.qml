@@ -585,6 +585,18 @@ Rectangle {
             }
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
+        Gesture {
+            id: gesture;
+            anchors.fill: parent;
+        }
+        Groups.PictogramGroup
+        {
+            id: pictogramGroup;
+            anchors.verticalCenter: parent.verticalCenter;
+            anchors.right: parent.right;
+            anchors.rightMargin: 53;
+        }
+
         Groups.MapParametersGroup
         {
             id: mapParametersPanel;
@@ -654,10 +666,6 @@ Rectangle {
             anchors.leftMargin: 10;
             anchors.bottomMargin: 10;
             z: 100;
-        }
-        Gesture {
-            id: gesture;
-            anchors.fill: parent;
         }
     }
     Connections {

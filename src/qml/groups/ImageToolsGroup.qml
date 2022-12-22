@@ -56,7 +56,7 @@ Rectangle
             iconsource: "qrc:/ui-resources/white/refresh.png";
             iconsize: 11;
             primarycolor: "#204040";
-            width: 155;
+            width: 145;
             height: 16;
             anchors.left: parent.left;
             anchors.top: parent.top;
@@ -72,7 +72,7 @@ Rectangle
             iconsize: 11;
             primarycolor: "#b16573";
             accentcolor: "#701828";
-            width: 155;
+            width: 145;
             height: 16;
             anchors.left: parent.left;
             anchors.top: fetchDirectoryButton.bottom;

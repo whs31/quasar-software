@@ -289,5 +289,8 @@
         <file>ui-resources/quasarlogo/icon.png</file>
         <file>ui-resources/white/hide.png</file>
         <file>ui-resources/white/trashbin.png</file>
+        <file>ui-resources/white/connection-info.png</file>
+        <file>ui-resources/white/link.png</file>
+        <file>ui-resources/white/satellite.png</file>
     </qresource>
 </RCC>

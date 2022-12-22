@@ -53,7 +53,7 @@ Rectangle {
     {
         id: m_container;
         width: childrenRect.width;
-        height: childrenRect.height;
+        //height: childrenRect.height;
         anchors.centerIn: parent;
         Image {
             id: ico;

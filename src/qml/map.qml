@@ -104,8 +104,8 @@ Rectangle {
     {
         telemetryPanel.textLatitude = Number(RuntimeData.latitude).toFixed(7);
         telemetryPanel.textLongitude = Number(RuntimeData.longitude).toFixed(7);
-        telemetryPanel.textElevation = "<font color=\"#a385cf\">" + Number(RuntimeData.elevation).toFixed(0) + "</font>";
-        telemetryPanel.textSpeed = "<font color=\"#a385cf\">" + Number(RuntimeData.speed).toFixed(1) + "</font>";
+        telemetryPanel.textElevation = Number(RuntimeData.elevation).toFixed(0);
+        telemetryPanel.textSpeed = Number(RuntimeData.speed).toFixed(1);
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -605,10 +605,11 @@ Rectangle {
         Groups.TelemetryPanel
         {
             id: telemetryPanel;
-            Material.background: Material.accent;
-            anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 10;
-            anchors.horizontalCenter: parent.horizontalCenter;
+            //Material.background: Material.accent;
+            anchors.top: parent.top;
+            anchors.topMargin: 3;
+            anchors.right: parent.right;
+            anchors.rightMargin: 190;
         }
         FloatingTooltip
         {

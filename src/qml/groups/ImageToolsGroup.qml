@@ -8,7 +8,7 @@ import DiskManager 1.0
 
 Rectangle 
 {
-    property int containerHeight: 95;
+    property int containerHeight: 70;
     
     RoundButton
     {
@@ -50,42 +50,34 @@ Rectangle
         }
         clip: true
 
-        RoundButton
+        UI.CustomButton
         {
             id: fetchDirectoryButton;
-            icon.source: "qrc:/ui-resources/white/refresh.png";
-            icon.color: "#dae1e5";
-            Material.background: "#204040"
-            icon.width: 12;
-            icon.height: 24;
-            height: 32;
-            radius: 32;
-            opacity: 1;
+            iconsource: "qrc:/ui-resources/white/refresh.png";
+            iconsize: 11;
+            primarycolor: "#204040";
+            width: 155;
+            height: 16;
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.topMargin: 10;
-            text: "Обновить каталог";
-            font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            labeltext: "Обновить каталог";
             onClicked: DiskManager.fetchDirectory();
             z: 99;
         }
-        RoundButton
+        UI.CustomButton
         {
             id: clearDirectoryButton;
-            icon.source: "qrc:/ui-resources/white/trashbin.png";
-            icon.color: "#dae1e5";
-            Material.background: "#b16573"
-            icon.width: 12;
-            icon.height: 24;
-            height: 32;
-            radius: 32;
-            opacity: 1;
+            iconsource: "qrc:/ui-resources/white/trashbin.png";
+            iconsize: 11;
+            primarycolor: "#b16573";
+            accentcolor: "#701828";
+            width: 155;
+            height: 16;
             anchors.left: parent.left;
             anchors.top: fetchDirectoryButton.bottom;
-            text: "Очистить кэш";
-            font.capitalization: Font.MixedCase;
-            font.pixelSize: 11;
+            anchors.topMargin: 5;
+            labeltext: "Очистить кэш";
             onClicked: DiskManager.clearCache();
             z: 99;
         }

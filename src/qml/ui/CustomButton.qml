@@ -5,20 +5,16 @@ import QtQuick.Controls.Material.impl 2.12
 
 Rectangle {
     property int iconsize: 16;
-    property int buttonwidth: 100;
-    property int buttonheight: 20;
     property string iconsource: "qrc:/ui-resources/white/close.png";
 
     property string labeltext: "Button text!";
     property color textcolor: "#dae1e5";
     property color primarycolor: "#204040";
-    property color accentcolor: "#43a1ca";
+    property color accentcolor: "#428585";
 
     signal clicked();
 
     id: control;
-    width: buttonwidth;
-    height: buttonheight;
     color: primarycolor;
     radius: 8;
 
@@ -26,7 +22,7 @@ Rectangle {
         id: animation_scaleup;
         target: control
         property: "scale"
-        to: 1.1
+        to: 1.05
         duration: 50;
         easing.type: Easing.InOutQuad
     }
@@ -66,6 +62,9 @@ Rectangle {
             source: iconsource;
             smooth: true;
             antialiasing: true;
+            
+            anchors.verticalCenter: parent.verticalCenter;
+            
         }
         Text {
             text: labeltext;
@@ -76,6 +75,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter
             anchors.left: ico.right;
             anchors.leftMargin: 3;
+            anchors.verticalCenter: parent.verticalCenter;
         }
     }
 

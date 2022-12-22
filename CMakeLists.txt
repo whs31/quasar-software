@@ -68,6 +68,7 @@ else()
         #map/backend/fstaticvariables.h                     #map/backend/fstaticvariables.cpp   reintegrated into new class runtimedata.h in 2.1.1alpha
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/smousestate.h                           map/backend/smousestate.cpp
+        map/backend/ibackendiohandler.h                     map/backend/ibackendiohandler.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp

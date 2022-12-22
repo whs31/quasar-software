@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle 
 {
-    property int containerHeight: 170;
+    property int containerHeight: 200;
     
     RoundButton
     {
@@ -105,6 +105,27 @@ Rectangle
             labeltext: "Диаграмма направленности";
 
             onCheckedChanged: { RuntimeData.drawDiagram = checked; }
+        }
+        RoundButton
+        {
+            id: clearTrackButton;
+            //icon.source: "qrc:/ui-resources/white/eraser.png";
+            //icon.color: "#dae1e5";
+            Material.background: "#b16573"
+            //icon.width: 6;
+            //icon.height: 11;
+            height: 28;
+            radius: 28;
+            opacity: 1;
+            anchors.left: checkboxDrawDiagram.left;
+            anchors.top: checkboxDrawDiagram.bottom;
+            anchors.topMargin: 5;
+            anchors.leftMargin: -5;
+            text: "Очистить трек полёта";
+            font.capitalization: Font.MixedCase; 
+            font.pixelSize: 11;
+            onClicked: ioHandler.clearTrack();
+            z: 99;
         }
     }
 }

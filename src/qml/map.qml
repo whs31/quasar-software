@@ -15,16 +15,22 @@ import "sar-image" as ImageSAR
 
 import SMath 1.0
 import MouseKeyHandler 1.0
+import IOHandler 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 
 import RuntimeData 1.0
 
 
+
 Rectangle {
     id: qqview
+
+    //types instantiation
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
+    IOHandler { id: ioHandler; }
+    
 
     Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
     property bool bottomPanning: false;
@@ -85,7 +91,7 @@ Rectangle {
     {
         //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
         drawPlane();
-        currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude,RuntimeData.longitude);
+        currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
 
         if(RuntimeData.followPlane) panGPS();
         if(RuntimeData.drawRoute) drawRoute();

@@ -1057,98 +1057,6 @@ QDialogButtonBox QPushButton {
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_clearTrack">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-  background-color: #b16573;
-  color: #dae1e5;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-  border: none;
-}
-
-QPushButton:disabled {
-  background-color: #23243b;
-  color: #Bebebf;
-  border-radius: 4px;
-  padding: 2px;
-}
-
-QPushButton:checked {
-  background-color: #Bebebf;
-  color: #23243b;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:disabled {
-  background-color: #ACB1B6;
-  color: #788D9C;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-}
-
-QPushButton:checked:selected {
-  background: #fafafc;
-}
-
-QPushButton:hover {
-  background-color: #FFA8A8;
-  color: #dae1e5;
-}
-
-QPushButton:pressed {
-  background-color: #701828;
-  color: #23243b;
-}
-
-QPushButton:selected {
-  background: #ACB1B6;
-  color: #19232D;
-}
-
-QPushButton::menu-indicator {
-  subcontrol-origin: padding;
-  subcontrol-position: bottom right;
-  bottom: 4px;
-}
-
-QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Очистить трек полета</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/ui-resources/white/eraser.png</normaloff>:/ui-resources/white/eraser.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>12</width>
-           <height>12</height>
-          </size>
-         </property>
-         <property name="autoDefault">
-          <bool>false</bool>
-         </property>
-         <property name="default">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="pushButton_placeMarker">
          <property name="enabled">
           <bool>true</bool>
@@ -1370,7 +1278,7 @@ QDialogButtonBox QPushButton {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>26</height>
+           <height>28</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -3141,8 +3049,8 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>300</width>
-          <height>362</height>
+          <width>310</width>
+          <height>382</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -4610,9 +4518,6 @@ QTextEdit:selected {
         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:700; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>

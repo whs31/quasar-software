@@ -12,6 +12,7 @@
 
 //qml types
 #include "backend/fmousekeyhandler.h"
+#include "backend/ibackendiohandler.h"
 
 #include "extension.h"
 #include "udpremote.h"
@@ -120,7 +121,6 @@ private slots:
     void Halftime();
 
     //gui slots
-    void on_pushButton_clearTrack_clicked();
     void on_pushButton_placeMarker_clicked();
     void on_pushButton_reconnect_clicked();
     void on_pushButton_formSingleImage_clicked();

@@ -40,16 +40,18 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     SConfig::initialize(this);
     if (SConfig::getHashBoolean("UseOSM"))
         Debug::Log("![STARTUP] Program is running in test mode!");
-    QMetaObject::invokeMethod(qml, "qmlBackendStart");
+
 
     // qml types that require SConfig declared here
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
+    qmlRegisterType<IBackendIOHandler>("IOHandler", 1, 0, "IOHandler");
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
     qml = ui->map->rootObject();
+    QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
     // debug logging misc code
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
@@ -140,7 +142,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     Debug::Log("[STARTUP] Connections set up successfully");
 
     // execute any other startup code here
-    
+
 }
 
 CoreUI::~CoreUI()

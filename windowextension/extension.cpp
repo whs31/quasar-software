@@ -467,7 +467,7 @@ bool QGoodWindow::isSystemThemeDark()
     GtkSettings *settings = gtk_settings_get_default();
     gchar *theme_name;
     g_object_get(settings, "gtk-theme-name", &theme_name, nullptr);
-    dark = QString(theme_name).endsWith("Dark", Qt::CaseInsensitive);
+    //dark = QString(theme_name).endsWith("Dark", Qt::CaseInsensitive);
 #endif
 #ifdef Q_OS_MAC
     dark = QString(macOSNative::themeName()).endsWith("Dark", Qt::CaseInsensitive);

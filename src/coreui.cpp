@@ -225,7 +225,6 @@ void CoreUI::updateProgress(float f)
     ui->progressBar_loader->setValue((int)f);
     ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
 }
-void CoreUI::updateTelemetryLabels(int satcount) { ui->label_c_satcount->setText("Спутники: " + Style::StyleText(QString::number(satcount), Colors::Accent100, Format::Bold)); }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -345,7 +344,6 @@ void CoreUI::ReadTelemetry(QByteArray data)
         _conckc = pair.first;
         _conckc2 = pair.second;
         // direction
-        updateTelemetryLabels((int)pair.second);
 
         linker->fixedUpdate();
 

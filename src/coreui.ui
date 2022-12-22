@@ -3494,38 +3494,6 @@ QProgressBar::chunk:disabled {
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_c_satcount">
-           <property name="font">
-            <font>
-             <family>Calibri</family>
-             <pointsize>9</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
-           </property>
-           <property name="text">
-            <string>Количество спутников: 0</string>
-           </property>
-          </widget>
-         </item>
-         <item>
           <widget class="QGroupBox" name="groupBox_Loader">
            <property name="font">
             <font>

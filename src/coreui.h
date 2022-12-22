@@ -65,7 +65,6 @@ public slots:
 
     //gui public slots
     void updateProgress(float f);
-    void updateTelemetryLabels(int satcount);
 
 private:
     //object pointers

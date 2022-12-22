@@ -64,7 +64,7 @@ Rectangle
             anchors.leftMargin: 3;
             color: "#dae1e5";
             textFormat: Text.RichText
-            text: "Широта: " + "<font color=\"#b4b4dc\"><b>" + textLatitude + "°";
+            text: "Широта: " + "<font color=\"#b4b4dc\"><b>" + Number(RuntimeData.latitude).toFixed(7) + "°";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -76,7 +76,7 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             textFormat: Text.RichText
-            text: "Долгота: " + "<font color=\"#b4b4dc\"><b>" + RuntimeData.longitude + "</b></font>" + "°";
+            text: "Долгота: " + "<font color=\"#b4b4dc\"><b>" + Number(RuntimeData.longitude).toFixed(7) + "</b></font>" + "°";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -88,7 +88,7 @@ Rectangle
             anchors.leftMargin: 3;
             color: "#dae1e5";
             textFormat: Text.RichText
-            text: "Скорость: " + "<font color=\"#c4bb4b\"><b>" + textSpeed + "</b></font>" + " <i>км/ч</i>";
+            text: "Скорость: " + "<font color=\"#c4bb4b\"><b>" + Number(RuntimeData.speed).toFixed(1) + "</b></font>" + " <i>км/ч</i>";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -99,8 +99,8 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             color: "#dae1e5";
-            textFormat: Text.RichText
-            text: "Высота: " + "<font color=\"#c4bb4b\"><b>" + textElevation + "</b></font>" + " <i>м</i>";
+            textFormat: Text.RichText;
+            text: "Высота: " + "<font color=\"#c4bb4b\"><b>" + Number(RuntimeData.elevation).toFixed(0) + "</b></font>" + " <i>м</i>";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -111,8 +111,8 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             color: "#dae1e5";
-            textFormat: Text.RichText
-            text: "Количество спутников: " + "<font color=\"#bc9117\"><b>" + textSatellites + "</b></font>";
+            textFormat: Text.RichText;
+            text: "Количество спутников: " + "<font color=\"#bc9117\"><b>" + Number(RuntimeData.satellites) + "</b></font>";
             font.pixelSize: 11;
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;

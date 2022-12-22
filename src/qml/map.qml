@@ -102,10 +102,10 @@ Rectangle {
     //called after fixedupdate
     function onGUI()
     {
-        telemetryPanel.textLatitude = Number(RuntimeData.latitude).toFixed(7);
-        telemetryPanel.textLongitude = Number(RuntimeData.longitude).toFixed(7);
-        telemetryPanel.textElevation = Number(RuntimeData.elevation).toFixed(0);
-        telemetryPanel.textSpeed = Number(RuntimeData.speed).toFixed(1);
+        // telemetryPanel.textLatitude = Number(RuntimeData.latitude).toFixed(7);
+        // telemetryPanel.textLongitude = Number(RuntimeData.longitude).toFixed(7);
+        // telemetryPanel.textElevation = Number(RuntimeData.elevation).toFixed(0);
+        // telemetryPanel.textSpeed = Number(RuntimeData.speed).toFixed(1);
     }
 
     //called 60 times per second (enable Timer ^^^^)

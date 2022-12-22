@@ -29,11 +29,11 @@ QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
     double elv =  jsonDocument.object().value("Elevation").toDouble(); 
     double sats =  jsonDocument.object().value("Sats").toDouble(); 
     double direction = jsonDocument.object().value("Direction").toDouble(); //TODO: direction
-    RuntimeData::setLatitude(lat);
-    RuntimeData::setLongitude(lon);
-    RuntimeData::setElevation(elv);
-    RuntimeData::setSpeed(spd); //TODO: direction
-    RuntimeData::setSatellites(sats);
+    RuntimeData::initialize()->setLatitude(lat);
+    RuntimeData::initialize()->setLongitude(lon);
+    RuntimeData::initialize()->setElevation(elv);
+    RuntimeData::initialize()->setSpeed(spd); //TODO: direction
+    RuntimeData::initialize()->setSatellites(sats);
     return QPair<qreal, qint16>(lat, sats);
 }
 

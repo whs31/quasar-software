@@ -5,6 +5,12 @@
 #include <qqml.h>
 #include "sconfig.h"
 
+enum MouseState : short int
+{
+    Blank,
+    MarkerPlacement
+};
+
 class RuntimeData : public QObject
 {
     Q_OBJECT
@@ -38,6 +44,7 @@ class RuntimeData : public QObject
     
 public:
     static RuntimeData* initialize(QObject* parent = nullptr);
+    static short int mouseState;
 
     // ==> GET ==>
     qreal getLatitude();

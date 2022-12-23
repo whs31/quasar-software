@@ -43,7 +43,7 @@ Item {
             ToolTip {
                 id: m_tooltip;
                 delay: 250;
-                timeout: 5000;
+                timeout: 15000;
                 visible: mouseAreaIco.containsMouse;
                 text: tooltiptext;
                 font.capitalization: Font.MixedCase;

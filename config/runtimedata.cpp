@@ -97,3 +97,102 @@ void RuntimeData::setDrawDiagram(bool state)
 
 bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::getHashBoolean("UseOSM"); }
 qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::getHashFloat("VelocityVectorLength"); }
+
+bool RuntimeData::getConnected() { return connectionStatus.connected; }
+void RuntimeData::setConnected(bool state) 
+{
+    if (state == connectionStatus.connected)
+        return;
+    connectionStatus.connected = state;
+    emit connectedChanged();
+}
+
+QString RuntimeData::getSARIP() { return connectionStatus.sarIP; }
+void RuntimeData::setSARIP(QString string) 
+{
+    if (string == connectionStatus.sarIP)
+        return;
+    connectionStatus.sarIP = string;
+    emit SARIPChanged();
+}
+
+QString RuntimeData::getPCIP() { return connectionStatus.pcIP; }
+void RuntimeData::setPCIP(QString string) 
+{
+    if (string == connectionStatus.pcIP)
+        return;
+    connectionStatus.pcIP = string;
+    emit PCIPChanged();
+}
+
+QString RuntimeData::getTelemetryPort() { return connectionStatus.telemetryPort; }
+void RuntimeData::setTelemetryPort(QString string) 
+{
+    if (string == connectionStatus.telemetryPort)
+        return;
+    connectionStatus.telemetryPort = string;
+    emit telemetryPortChanged();
+}
+
+QString RuntimeData::getLoaderPort() { return connectionStatus.loaderPort; }
+void RuntimeData::setLoaderPort(QString string) 
+{
+    if (string == connectionStatus.loaderPort)
+        return;
+    connectionStatus.loaderPort = string;
+    emit loaderPortChanged();
+}
+
+QString RuntimeData::getCommandPort() { return connectionStatus.commandPort; }
+void RuntimeData::setCommandPort(QString string) 
+{
+    if (string == connectionStatus.commandPort)
+        return;
+    connectionStatus.commandPort = string;
+    emit commandPortChanged();
+}
+
+QString RuntimeData::getListenPort() { return connectionStatus.listenPort; }
+void RuntimeData::setListenPort(QString string) 
+{
+    if (string == connectionStatus.listenPort)
+        return;
+    connectionStatus.listenPort = string;
+    emit listenPortChanged();
+}
+
+qreal RuntimeData::getLoadingProgress() { return connectionStatus.loadingProgress; }
+void RuntimeData::setLoadingProgress(qreal value) 
+{
+    if (value == connectionStatus.loadingProgress)
+        return;
+    connectionStatus.loadingProgress = value;
+    emit loadingProgressChanged();
+}
+
+qreal RuntimeData::getFormProgress() { return connectionStatus.formProgress; }
+void RuntimeData::setFormProgress(qreal value) 
+{
+    if (value == connectionStatus.formProgress)
+        return;
+    connectionStatus.formProgress = value;
+    emit formProgressChanged();
+}
+
+QString RuntimeData::getFormStatus() { return connectionStatus.formStatus; }
+void RuntimeData::setFormStatus(QString string) 
+{
+    if (string == connectionStatus.formStatus)
+        return;
+    connectionStatus.formStatus = string;
+    emit formStatusChanged();
+}
+
+QString RuntimeData::getLoaderStatus() { return connectionStatus.loaderStatus; }
+void RuntimeData::setLoaderStatus(QString string) 
+{
+    if (string == connectionStatus.loaderStatus)
+        return;
+    connectionStatus.loaderStatus = string;
+    emit loaderStatusChanged();
+}

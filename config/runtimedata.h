@@ -8,24 +8,38 @@
 class RuntimeData : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(qreal latitude READ getLatitude WRITE setLatitude NOTIFY latitudeChanged);
-    Q_PROPERTY(qreal longitude READ getLongitude WRITE setLongitude NOTIFY longitudeChanged);
-    Q_PROPERTY(qreal elevation READ getElevation WRITE setElevation NOTIFY elevationChanged);
-    Q_PROPERTY(qreal speed READ getSpeed WRITE setSpeed NOTIFY speedChanged);
-    Q_PROPERTY(qint16 satellites READ getSatellites WRITE setSatellites NOTIFY satellitesChanged);
+    Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude           NOTIFY latitudeChanged);
+    Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude          NOTIFY longitudeChanged);
+    Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation          NOTIFY elevationChanged);
+    Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed              NOTIFY speedChanged);
+    Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites         NOTIFY satellitesChanged);
 
-    Q_PROPERTY(bool followPlane READ getFollowPlane WRITE setFollowPlane);
-    Q_PROPERTY(bool drawTooltip READ getDrawTooltip WRITE setDrawTooltip);
-    Q_PROPERTY(bool drawRoute READ getDrawRoute WRITE setDrawRoute);
-    Q_PROPERTY(bool drawPredict READ getDrawPredict WRITE setDrawPredict);
-    Q_PROPERTY(bool drawDiagram READ getDrawDiagram WRITE setDrawDiagram);
+    Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
+    Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip);
+    Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute);
+    Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict);
+    Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram);
 
-    Q_PROPERTY(bool global_useOSMMaps READ getGlobal_useOSMMaps);
-    Q_PROPERTY(qreal global_velocityVectorLength READ getGlobal_velocityVectorLength);
+    Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps);
+    Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength);
+
+    Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected          NOTIFY connectedChanged);
+    Q_PROPERTY(QString sarIP                        READ getSARIP               WRITE setSARIP              NOTIFY SARIPChanged);
+    Q_PROPERTY(QString pcIP                         READ getPCIP                WRITE setPCIP               NOTIFY PCIPChanged);
+    Q_PROPERTY(QString telemetryPort                READ getTelemetryPort       WRITE setTelemetryPort      NOTIFY telemetryPortChanged);
+    Q_PROPERTY(QString loaderPort                   READ getLoaderPort          WRITE setLoaderPort         NOTIFY loaderPortChanged);
+    Q_PROPERTY(QString commandPort                  READ getCommandPort         WRITE setCommandPort        NOTIFY commandPortChanged);
+    Q_PROPERTY(QString listenPort                   READ getListenPort          WRITE setListenPort         NOTIFY listenPortChanged);
+    Q_PROPERTY(qreal formProgress                   READ getFormProgress        WRITE setFormProgress       NOTIFY formProgressChanged);
+    Q_PROPERTY(qreal loadingProgress                READ getLoadingProgress     WRITE setLoadingProgress    NOTIFY loadingProgressChanged);
+    Q_PROPERTY(QString formStatus                   READ getFormStatus          WRITE setFormStatus         NOTIFY formStatusChanged);
+    Q_PROPERTY(QString loaderStatus                 READ getLoaderStatus        WRITE setLoaderStatus       NOTIFY loaderStatusChanged);
     QML_ELEMENT
     
 public:
     static RuntimeData* initialize(QObject* parent = nullptr);
+
+    // ==> GET ==>
     qreal getLatitude();
     qreal getLongitude();
     qreal getElevation();
@@ -41,7 +55,19 @@ public:
     bool getGlobal_useOSMMaps();
     qreal getGlobal_velocityVectorLength();
 
+    bool getConnected();
+    QString getSARIP();
+    QString getPCIP();
+    QString getTelemetryPort();
+    QString getLoaderPort();
+    QString getCommandPort();
+    QString getListenPort();
+    qreal getLoadingProgress();
+    qreal getFormProgress();
+    QString getFormStatus();
+    QString getLoaderStatus();
 
+    // <== SET <==
     void setLatitude(qreal value);
     void setLongitude(qreal value);
     void setElevation(qreal value);
@@ -53,6 +79,18 @@ public:
     void setDrawRoute(bool state);
     void setDrawPredict(bool state);
     void setDrawDiagram(bool state);
+
+    void setConnected(bool state);
+    void setSARIP(QString string);
+    void setPCIP(QString string);
+    void setTelemetryPort(QString string);
+    void setLoaderPort(QString string);
+    void setCommandPort(QString string);
+    void setListenPort(QString string);
+    void setLoadingProgress(qreal value);
+    void setFormProgress(qreal value);
+    void setFormStatus(QString string);
+    void setLoaderStatus(QString string);
 
 private:
     static RuntimeData* _instance;
@@ -76,13 +114,42 @@ private:
         bool drawDiagram = true;
     };
     MapSettings mapSettings;
+    struct ConnectionStatus
+    {
+        bool connected = false;
+        QString sarIP = "127.0.0.1?";
+        QString pcIP = "127.0.0.1?";
+        QString telemetryPort = "00000?";
+        QString loaderPort = "00000?";
+        QString commandPort = "00000?";
+        QString listenPort = "00000?";
+        qreal formProgress = 0;
+        qreal loadingProgress = 0;
+        QString formStatus = "Ожидание подключения?";
+        QString loaderStatus = "Статус загрузчика";
+    };
+    ConnectionStatus connectionStatus;
 
 signals:
+    // =!= NOTIFY =!=
     void latitudeChanged();
     void longitudeChanged();
     void elevationChanged();
     void speedChanged();
     void satellitesChanged();
+
+    void connectedChanged();
+    void SARIPChanged();
+    void PCIPChanged();
+    void telemetryPortChanged();
+    void loaderPortChanged();
+    void commandPortChanged();
+    void listenPortChanged();
+    void formProgressChanged();
+    void loadingProgressChanged();
+    void formStatusChanged();
+    void loaderStatusChanged();
+  
 };
 
 #endif // RUNTIMEDATA_H

@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle 
 {
-    property int containerHeight: 90;
+    property int containerHeight: 110;
 
     property string textLatitude: "00.0000000";
     property string textLongitude: "00.0000000";
@@ -63,6 +63,8 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             color: "#dae1e5";
+            font.capitalization: Font.MixedCase; 
+            font.pixelSize: 13;
             textFormat: Text.RichText
             text: "Широта: " + "<font color=\"#b4b4dc\"><b>" + Number(RuntimeData.latitude).toFixed(7) + "°";
             horizontalAlignment: Text.AlignHCenter;
@@ -71,6 +73,8 @@ Rectangle
         Text {
             id: longitudeText;
             color: "#dae1e5";
+            font.capitalization: Font.MixedCase; 
+            font.pixelSize: 13;
             anchors.top: latitudeText.bottom;
             anchors.topMargin: 2;
             anchors.left: parent.left;
@@ -87,6 +91,8 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             color: "#dae1e5";
+            font.capitalization: Font.MixedCase; 
+            font.pixelSize: 13;
             textFormat: Text.RichText
             text: "Скорость: " + "<font color=\"#c4bb4b\"><b>" + Number(RuntimeData.speed).toFixed(1) + "</b></font>" + " <i>км/ч</i>";
             horizontalAlignment: Text.AlignHCenter;
@@ -99,6 +105,8 @@ Rectangle
             anchors.left: parent.left;
             anchors.leftMargin: 3;
             color: "#dae1e5";
+            font.capitalization: Font.MixedCase; 
+            font.pixelSize: 13;
             textFormat: Text.RichText;
             text: "Высота: " + "<font color=\"#c4bb4b\"><b>" + Number(RuntimeData.elevation).toFixed(0) + "</b></font>" + " <i>м</i>";
             horizontalAlignment: Text.AlignHCenter;

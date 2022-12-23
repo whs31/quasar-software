@@ -129,9 +129,13 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     }
 
     // ui misc initialization and assignment
-    ui->label_c_sarip->setText("Адрес РЛС: " + Style::StyleText(" (" + SConfig::getHashString("NetworkType") + ") ", Colors::Info300, Format::Bold) + Style::StyleText(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
-    ui->label_c_loaderip->setText("Адрес загрузчика: " + Style::StyleText(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
-    ui->label_c_loaderStatus->setText("Статус: " + Style::StyleText("ожидание подключения", Colors::Info100, Format::Italic));
+    RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
+    RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
+    RuntimeData::initialize()->setTelemetryPort(SConfig::getHashString("TelemetryPort"));
+    RuntimeData::initialize()->setLoaderPort(SConfig::getHashString("LoaderPort"));
+    RuntimeData::initialize()->setCommandPort(SConfig::getHashString("DialogPort"));
+    RuntimeData::initialize()->setListenPort(SConfig::getHashString("ListenPort"));
+    RuntimeData::initialize()->setLoaderStatus("ожидание подключения");
 
     // timers starts here
     timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
@@ -199,12 +203,12 @@ QQuickItem *CoreUI::getMapPointer(void) { return qml; }
 void CoreUI::Connected()
 {
     connected = true;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС установлено", Colors::Success100, Format::Bold));
+    RuntimeData::initialize()->setConnected(connected);
 }
 void CoreUI::Disconnected()
 {
     connected = false;
-    ui->label_c_connectionstatus->setText(Style::StyleText("Соединение с РЛС не установлено", Colors::Error200, Format::Bold));
+    RuntimeData::initialize()->setConnected(connected);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -302,8 +306,12 @@ void CoreUI::on_settingsButton_clicked()
             {
                 SConfig::loadSettings();
             }
-            ui->label_c_sarip->setText("Адрес РЛС: " + Style::StyleText(" (" + SConfig::getHashString("NetworkType") + ") ", Colors::Info300, Format::Bold) + Style::StyleText(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"), Colors::Info200, Format::Bold));
-            ui->label_c_loaderip->setText("Адрес загрузчика: " + Style::StyleText(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("LoaderPort"), Colors::Info200, Format::Bold));
+            RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
+            RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
+            RuntimeData::initialize()->setTelemetryPort(SConfig::getHashString("TelemetryPort"));
+            RuntimeData::initialize()->setLoaderPort(SConfig::getHashString("LoaderPort"));
+            RuntimeData::initialize()->setCommandPort(SConfig::getHashString("DialogPort"));
+            RuntimeData::initialize()->setListenPort(SConfig::getHashString("ListenPort"));
         }
         else
         {

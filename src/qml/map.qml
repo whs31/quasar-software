@@ -592,7 +592,9 @@ Rectangle {
         Groups.PictogramGroup
         {
             id: pictogramGroup;
-            anchors.verticalCenter: parent.verticalCenter;
+            anchors.top: telemetryPanel.bottom;
+            anchors.topMargin: telemetryPanel.containerHeight + 20;
+            //anchors.verticalCenter: parent.verticalCenter;
             anchors.right: parent.right;
             anchors.rightMargin: 53;
         }

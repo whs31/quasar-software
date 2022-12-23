@@ -3050,7 +3050,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>310</width>
-          <height>382</height>
+          <height>374</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3070,133 +3070,27 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <number>9</number>
          </property>
          <item>
-          <widget class="QGroupBox" name="groupBox">
+          <widget class="QPushButton" name="pushButton_reconnect">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>20</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>20</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>Calibri</family>
              <pointsize>9</pointsize>
-             <bold>true</bold>
             </font>
            </property>
            <property name="styleSheet">
-            <string notr="true">QGroupBox {
-  font-weight: bold;
-  border: 1px solid #616161;
-  border-radius: 4px;
-  padding: 2px;
-  margin-top: 6px;
-  margin-bottom: 4px;
-  color: #Bebebf
-}
-
-QGroupBox::title {
-  subcontrol-origin: margin;
-  subcontrol-position: top left;
-  left: 4px;
-  padding-left: 2px;
-  padding-right: 4px;
-  padding-top: -4px;
-}
-
-QGroupBox::indicator {
-  margin-left: 2px;
-  margin-top: 2px;
-  padding: 0;
-  height: 14px;
-  width: 14px;
-}
-
-QGroupBox::indicator:unchecked {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QGroupBox::indicator:unchecked:hover, QGroupBox::indicator:unchecked:focus, QGroupBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QGroupBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QGroupBox::indicator:checked {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QGroupBox::indicator:checked:hover, QGroupBox::indicator:checked:focus, QGroupBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QGroupBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}</string>
-           </property>
-           <property name="title">
-            <string>Статус подключения</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QLabel" name="label_c_connectionstatus">
-              <property name="font">
-               <font>
-                <family>Calibri</family>
-                <pointsize>11</pointsize>
-                <bold>true</bold>
-                <strikeout>false</strikeout>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
-              </property>
-              <property name="text">
-               <string>Соединение с РЛС не установлено</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_reconnect">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>20</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <family>Calibri</family>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QPushButton {
+            <string notr="true">QPushButton {
   background-color: #204040;
   color: #dae1e5;
   border-radius: 4px;
@@ -3237,124 +3131,25 @@ QDialogButtonBox QPushButton {
   /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
   min-width: 80px;
 }</string>
-              </property>
-              <property name="text">
-               <string>Повторное подключение</string>
-              </property>
-              <property name="icon">
-               <iconset resource="images.qrc">
-                <normaloff>:/ui-resources/white/refresh.png</normaloff>:/ui-resources/white/refresh.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>12</width>
-                <height>12</height>
-               </size>
-              </property>
-              <property name="default">
-               <bool>false</bool>
-              </property>
-              <property name="flat">
-               <bool>false</bool>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_c_sarip">
-              <property name="font">
-               <font>
-                <family>Calibri</family>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
-              </property>
-              <property name="text">
-               <string>Адрес РЛС: 192.168.0.2:88</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_c_loaderip">
-              <property name="font">
-               <font>
-                <family>Calibri</family>
-                <pointsize>9</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
-              </property>
-              <property name="text">
-               <string>Адрес загрузчика: 192.168.0.1:88</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_d_formImageStatus">
-           <property name="font">
-            <font>
-             <family>Calibri</family>
-             <pointsize>9</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
            </property>
            <property name="text">
-            <string>Статус формирования РЛИ:</string>
+            <string>Повторное подключение</string>
+           </property>
+           <property name="icon">
+            <iconset resource="images.qrc">
+             <normaloff>:/ui-resources/white/refresh.png</normaloff>:/ui-resources/white/refresh.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>12</width>
+             <height>12</height>
+            </size>
+           </property>
+           <property name="default">
+            <bool>false</bool>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
            </property>
           </widget>
          </item>

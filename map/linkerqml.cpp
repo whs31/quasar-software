@@ -56,3 +56,17 @@ void LinkerQML::addModel(TImage &image)
                               Q_ARG(QString, image.base64),
                               Q_ARG(bool, image.checksumMatch));
 }
+
+void LinkerQML::reconnect()
+{
+    emit signalReconnect();
+    qDebug()<<"1";
+}
+
+void LinkerQML::disconnect()
+{
+    emit signalDisconnect();
+}
+
+// void LinkerQML::signalReconnect(){}
+// void LinkerQML::signalDisconnect(){}

@@ -26,3 +26,13 @@ bool IBackendIOHandler::clearTrack(void)
     }
     return true;
 }
+
+void IBackendIOHandler::reconnect(void)
+{
+    LinkerQML::initialize()->reconnect();
+}
+
+void IBackendIOHandler::disconnect(void)
+{
+    LinkerQML::initialize()->disconnect();
+}

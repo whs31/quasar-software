@@ -98,6 +98,8 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     udpTimeout = new QTimer(this);
     uiTimer1 = new QTimer(this);
     LinkerQML::initialize(qml);
+    connect(LinkerQML::initialize(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
+    connect(LinkerQML::initialize(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
 
     // network setup
     telemetryRemote = new UDPRemote();

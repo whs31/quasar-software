@@ -9,8 +9,9 @@
 
 class LinkerQML : public QObject
 {
+    Q_OBJECT
 public:
-    static LinkerQML* initialize(QQuickItem* map);
+    static LinkerQML* initialize(QQuickItem* map = nullptr);
 
     static void fixedUpdate();
     static void panGPS(void);
@@ -19,6 +20,14 @@ public:
 
     static void addModel(TMarker& marker);
     static void addModel(TImage& image);
+
+signals:
+    void signalReconnect();
+    void signalDisconnect();
+
+public slots:
+    void reconnect();
+    void disconnect(); 
 
 protected:
     static QQuickItem* map;

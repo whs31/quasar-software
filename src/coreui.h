@@ -65,6 +65,8 @@ public slots:
 
     //gui public slots
     void updateProgress(float f);
+    void reconnectSlot();
+    void disconnectSlot();
 
 private:
     //object pointers
@@ -121,7 +123,6 @@ private slots:
 
     //gui slots
     void on_pushButton_placeMarker_clicked();
-    void on_pushButton_reconnect_clicked();
     void on_pushButton_formSingleImage_clicked();
     void on_pushButton_launchContinuous_clicked();
     void on_pushButton_stopContinuous_clicked();

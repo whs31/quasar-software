@@ -6,7 +6,7 @@ void CoreUI::on_pushButton_placeMarker_clicked()
 {
     RuntimeData::mouseState = MouseState::MarkerPlacement;
 }
-void CoreUI::on_pushButton_reconnect_clicked()
+void CoreUI::reconnectSlot()
 {
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
@@ -22,6 +22,9 @@ void CoreUI::on_pushButton_reconnect_clicked()
         Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
     }
     Debug::Log("?[REMOTE] UDP client connected");
+}
+void CoreUI::disconnectSlot()
+{
 }
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {

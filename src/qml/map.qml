@@ -623,6 +623,15 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: 190;
         }
+        Groups.NetworkGroup
+        {
+            id: networkPanel;
+            anchors.top: parent.top;
+            anchors.topMargin: 3;
+            anchors.right: parent.right;
+            anchors.rightMargin: 400;
+        }
+
         FloatingTooltip
         {
             id: mapHoverCoordinatesTooltip;

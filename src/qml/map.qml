@@ -95,17 +95,6 @@ Rectangle {
 
         if(RuntimeData.followPlane) panGPS();
         if(RuntimeData.drawRoute) drawRoute();
-
-        onGUI();
-    }
-
-    //called after fixedupdate
-    function onGUI()
-    {
-        // telemetryPanel.textLatitude = Number(RuntimeData.latitude).toFixed(7);
-        // telemetryPanel.textLongitude = Number(RuntimeData.longitude).toFixed(7);
-        // telemetryPanel.textElevation = Number(RuntimeData.elevation).toFixed(0);
-        // telemetryPanel.textSpeed = Number(RuntimeData.speed).toFixed(1);
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -216,6 +205,7 @@ Rectangle {
     }
     function addImage(meta, gui, base64: string, checksumSuccess: bool)
     {
+        console.log("qml!");
         imageUIModel.append({   "m_lat": meta[0],
                                 "m_lon": meta[1],
                                 "m_width": meta[9],

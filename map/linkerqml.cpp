@@ -5,9 +5,9 @@ LinkerQML *LinkerQML::_instance = nullptr;
 LinkerQML::LinkerQML(QObject *parent) : QObject{parent} {}
 LinkerQML *LinkerQML::initialize(QQuickItem *map)
 {
-    LinkerQML::map = map;
     if (_instance != nullptr)
         return _instance;
+    LinkerQML::map = map;
     _instance = new LinkerQML(); //TODO: add parent
     return _instance;
 }
@@ -60,7 +60,6 @@ void LinkerQML::addModel(TImage &image)
 void LinkerQML::reconnect()
 {
     emit signalReconnect();
-    qDebug()<<"1";
 }
 
 void LinkerQML::disconnect()

@@ -8,7 +8,7 @@ import DiskManager 1.0
 
 Rectangle 
 {
-    property int containerHeight: 70;
+    property int containerHeight: 130;
     
     RoundButton
     {
@@ -67,6 +67,37 @@ Rectangle
         }
         UI.CustomButton
         {
+            id: changeDirectoryButton;
+            iconsource: "qrc:/ui-resources/white/folder.png";
+            iconsize: 11;
+            primarycolor: "#204040";
+            width: 145;
+            height: 16;
+            anchors.left: parent.left;
+            anchors.top: fetchDirectoryButton.bottom;
+            anchors.topMargin: 10;
+            labeltext: "Изменить каталог";
+            onClicked: ioHandler.changeDirectory();
+            z: 99;
+        }
+        UI.CustomButton
+        {
+            id: clearMapButton;
+            iconsource: "qrc:/ui-resources/white/map.png";
+            iconsize: 11;
+            primarycolor: "#b16573";
+            accentcolor: "#701828";
+            width: 145;
+            height: 16;
+            anchors.left: parent.left;
+            anchors.top: changeDirectoryButton.bottom;
+            anchors.topMargin: 10;
+            labeltext: "Очистить карту";
+            onClicked: DiskManager.clearCache();
+            z: 99;
+        }
+        UI.CustomButton
+        {
             id: clearDirectoryButton;
             iconsource: "qrc:/ui-resources/white/trashbin.png";
             iconsize: 11;
@@ -75,8 +106,8 @@ Rectangle
             width: 145;
             height: 16;
             anchors.left: parent.left;
-            anchors.top: fetchDirectoryButton.bottom;
-            anchors.topMargin: 5;
+            anchors.top: clearMapButton.bottom;
+            anchors.topMargin: 10;
             labeltext: "Очистить кэш";
             onClicked: DiskManager.clearCache();
             z: 99;

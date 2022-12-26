@@ -292,5 +292,9 @@
         <file>ui-resources/white/connection-info.png</file>
         <file>ui-resources/white/link.png</file>
         <file>ui-resources/white/satellite.png</file>
+        <file>ui-resources/white/folder.png</file>
+        <file>ui-resources/white/map.png</file>
+        <file>ui-resources/white/unlink.png</file>
+        <file>ui-resources/white/url.png</file>
     </qresource>
 </RCC>

@@ -36,3 +36,14 @@ void IBackendIOHandler::disconnect(void)
 {
     LinkerQML::initialize()->disconnect();
 }
+
+void IBackendIOHandler::changeDirectory(void)
+{
+    QString pathNotNullCheck = QFileDialog::getExistingDirectory(nullptr,
+                                                                tr("Выберите папку c выходными изображениями РЛС"),
+                                                                QStandardPaths::displayName(QStandardPaths::HomeLocation));
+    if(pathNotNullCheck != NULL) 
+    { 
+        SConfig::setHashValue("ViewPath", pathNotNullCheck); 
+        }
+}

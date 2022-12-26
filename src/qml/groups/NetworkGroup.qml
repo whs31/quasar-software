@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle
 {
-    property int containerHeight: 110;
+    property int containerHeight: 75;
 
     property string textLatitude: "00.0000000";
     property string textLongitude: "00.0000000";
@@ -58,10 +58,10 @@ Rectangle
         UI.CustomButton
         {
             id: reconnectButton;
-            iconsource: "qrc:/ui-resources/white/refresh.png";
+            iconsource: "qrc:/ui-resources/white/url.png";
             iconsize: 11;
             primarycolor: "#204040";
-            width: 175;
+            width: 170;
             height: 16;
             anchors.left: parent.left;
             anchors.top: parent.top;
@@ -73,15 +73,15 @@ Rectangle
         UI.CustomButton
         {
             id: disconnectButton;
-            iconsource: "qrc:/ui-resources/white/close.png";
-            iconsize: 11;
+            iconsource: "qrc:/ui-resources/white/unlink.png";
+            iconsize: 14;
             primarycolor: "#b16573";
             accentcolor: "#701828";
-            width: 175;
+            width: 170;
             height: 16;
             anchors.left: parent.left;
             anchors.top: reconnectButton.bottom;
-            anchors.topMargin: 5;
+            anchors.topMargin: 10;
             labeltext: "Отключиться";
             onClicked: ioHandler.disconnect();
             z: 99;

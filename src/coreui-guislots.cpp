@@ -10,6 +10,7 @@ void CoreUI::reconnectSlot()
 {
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
+    consoleListenerRemote->Disconnect();
     Disconnected();
 
     telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
@@ -25,6 +26,11 @@ void CoreUI::reconnectSlot()
 }
 void CoreUI::disconnectSlot()
 {
+    telemetryRemote->Disconnect();
+    formRemote->Disconnect();
+    consoleListenerRemote->Disconnect();
+    Disconnected();
+    Debug::Log("?[REMOTE] All remotes disconnected.");
 }
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {

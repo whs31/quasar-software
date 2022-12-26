@@ -71,3 +71,8 @@ bool ImageManager::removeImage(qint32 index)
         break;
     }
 }
+
+void ImageManager::clearAll(void)
+{
+    imageList.clear();
+}

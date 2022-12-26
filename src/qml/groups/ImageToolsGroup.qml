@@ -5,6 +5,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
 import DiskManager 1.0
+import ImageManager 1.0
 
 Rectangle 
 {
@@ -93,7 +94,12 @@ Rectangle
             anchors.top: changeDirectoryButton.bottom;
             anchors.topMargin: 10;
             labeltext: "Очистить карту";
-            onClicked: DiskManager.clearCache();
+            onClicked: 
+            {
+                imageModel.clear();
+                imageUIModel.clear();
+                ImageManager.clearAll();
+            }
             z: 99;
         }
         UI.CustomButton

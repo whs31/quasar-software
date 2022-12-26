@@ -18,6 +18,7 @@ public:
     static void newImage(QString filename, QByteArray rawData);
     static bool checkForOccurence(QString filename);
     Q_INVOKABLE static bool removeImage(qint32 index);
+    Q_INVOKABLE static void clearAll(void);
 
 signals:
 

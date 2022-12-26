@@ -64,7 +64,6 @@ else()
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
-        map/backend/smousestate.h                           map/backend/smousestate.cpp
         map/backend/ibackendiohandler.h                     map/backend/ibackendiohandler.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp

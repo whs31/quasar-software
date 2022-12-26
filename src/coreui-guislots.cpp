@@ -4,7 +4,7 @@
 //***************************************************************************************GUI SLOTS************************************************************************************************************
 void CoreUI::on_pushButton_placeMarker_clicked()
 {
-    SMouseState::mouseState = MouseState::MarkerPlacement;
+    RuntimeData::mouseState = MouseState::MarkerPlacement;
 }
 void CoreUI::on_pushButton_reconnect_clicked()
 {

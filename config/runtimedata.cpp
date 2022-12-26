@@ -1,6 +1,7 @@
 #include "runtimedata.h"
 
 RuntimeData *RuntimeData::_instance = nullptr;
+short int RuntimeData::mouseState = MouseState::Blank;
 RuntimeData *RuntimeData::initialize(QObject *parent)
 {
     if (_instance != NULL)

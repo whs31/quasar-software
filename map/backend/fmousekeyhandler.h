@@ -5,8 +5,8 @@
 #include "qqml.h"
 #include <QClipboard>
 #include <QMessageBox>
-#include "backend/smousestate.h"
 #include "global/markermanager.h"
+#include "runtimedata.h"
 
 class FMouseKeyHandler : public QObject
 {

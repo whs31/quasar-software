@@ -1,0 +1,5 @@
+/home/defaultuser0/Рабочий стол/quasar/build/CMakeFiles/rebuild_cache.dir
+/home/defaultuser0/Рабочий стол/quasar/build/CMakeFiles/edit_cache.dir
+/home/defaultuser0/Рабочий стол/quasar/build/CMakeFiles/Quasar.dir
+/home/defaultuser0/Рабочий стол/quasar/build/CMakeFiles/Quasar_autogen_timestamp_deps.dir
+/home/defaultuser0/Рабочий стол/quasar/build/CMakeFiles/Quasar_autogen.dir

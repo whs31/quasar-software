@@ -4,7 +4,7 @@ QQuickItem *LinkerQML::map = nullptr;
 LinkerQML *LinkerQML::_instance = nullptr;
 LinkerQML::LinkerQML(QObject *parent) : QObject{parent} {}
 LinkerQML *LinkerQML::initialize(QQuickItem *map)
-{
+{ 
     if (_instance != nullptr)
         return _instance;
     LinkerQML::map = map;

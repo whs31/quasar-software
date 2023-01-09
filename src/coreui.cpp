@@ -45,6 +45,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     // qml types that require SConfig declared here
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
     qmlRegisterType<IBackendIOHandler>("IOHandler", 1, 0, "IOHandler");
+    qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());

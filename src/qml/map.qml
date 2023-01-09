@@ -19,6 +19,8 @@ import ImageManager 1.0
 
 import RuntimeData 1.0
 
+import FlightPrediction 1.0
+
 
 
 Rectangle {
@@ -32,6 +34,7 @@ Rectangle {
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
     IOHandler { id: ioHandler; }
+    Predict { id: predict; }
     
 
     Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
@@ -59,6 +62,9 @@ Rectangle {
     property real defaultLongitude: 30.28136;
     property real defaultZoom: 15.0;
     property int  defaultMapModeOnTestMode: 0;
+
+    //constants related to mapItems
+    property real movingThreshold: 5; //движение иконок начнется только если борт переместился более чем на 5 метров за итерацию
 
     property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
 
@@ -99,6 +105,11 @@ Rectangle {
 
         if(RuntimeData.followPlane) panGPS();
         if(RuntimeData.drawRoute) drawRoute();
+        if(RuntimeData.drawPredict || RuntimeData.drawDiagram) 
+        {
+            predict.x0 = RuntimeData.longitude;
+            predict.y0 = RuntimeData.latitude;
+        }
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -124,30 +135,34 @@ Rectangle {
     function drawPlane()
     {
         planeMapItem.coordinate = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
-        var atan = 0.0; var angle = 0.0; var geometricalAngle = 0.0;
-        var coord = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
-        var e = 5;
-        if(Math.abs(currentQtCoordinates.distanceTo(coord)) > e && Math.abs(currentQtCoordinates.distanceTo(coord)) > e)
+        if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
         {
-            angle = currentQtCoordinates.azimuthTo(coord);
-
-            atan = Math.atan2(RuntimeData.longitude-currentQtCoordinates.longitude, RuntimeData.latitude-currentQtCoordinates.latitude);
-            geometricalAngle = (atan*180)/Math.PI;
-
-            planeMapItem.rotationAngle = angle;
-            if(RuntimeData.drawPredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
+            predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
+            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude-currentQtCoordinates.longitude,
+                                                   RuntimeData.latitude - currentQtCoordinates.latitude) 
+                                                   * 180)  /  Math.PI;
+            planeMapItem.rotationAngle = predict.mercatorAngle;
+            if(RuntimeData.drawPredict) { drawPredict(); } else { clearPredict(); }
+            if(RuntimeData.drawDiagram) { drawDiagram(); } else { clearDiagram(); }
         }
     }
 
-    function drawPredict(angle)
+    function drawPredict()
     {
         predictLine.path = [];
-        var p_lat = RuntimeData.latitude+Math.sin((90-angle)*Math.PI/180) * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
-        var p_lon = RuntimeData.longitude+Math.cos((90-angle)*Math.PI/180) * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
-        predictLine.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
+        var p_lat = RuntimeData.latitude + Math.sin((90-predict.geometricalAngle)*Math.PI/180) 
+                                                 * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
+        var p_lon = RuntimeData.longitude + Math.cos((90-predict.geometricalAngle)*Math.PI/180) 
+                                                 * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
+        predictLine.addCoordinate(QtPositioning.coordinate(predict.y0, predict.x0));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
     function clearPredict()     { predictLine.path = []; }
+    function drawDiagram()
+    {
+
+    }
+    function clearDiagram()     { predictPoly.path = []; }
 
     function panGPS()           { mapView.center = currentQtCoordinates;}
 
@@ -394,7 +409,7 @@ Rectangle {
 
         MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 1; path: [ ]; }
-        MapPolygon { id: diagramPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
+        MapPolygon { id: predictPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
         MapItemView
         {
             model: imageUIModel;

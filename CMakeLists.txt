@@ -65,6 +65,7 @@ else()
         map/linkerqml.h                                     map/linkerqml.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/ibackendiohandler.h                     map/backend/ibackendiohandler.cpp
+        map/backend/flightprediction.h                      map/backend/flightprediction.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp

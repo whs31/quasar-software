@@ -145,6 +145,7 @@ Rectangle {
     function drawRoute()        { mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude)); }
     function clearRoute()       { mapPolyline.path = []; }
 
+    //rework using mouse handler class(!)
     function changeTooltipPosition()
     {
         if(RuntimeData.drawTooltip)
@@ -389,8 +390,8 @@ Rectangle {
         MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
-        MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; z: 1; 
-                      path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y1, longitude: predict.x1 },
+        MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; color: Material.primary; z: 1; 
+                      path: [ { latitude: predict.y0, longitude: predict.x0 },
                               { latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapItemView

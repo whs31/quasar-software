@@ -4,16 +4,43 @@ FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
 void FlightPrediction::updatePoints()
 {
+    const float x0 = 100;
+    const float lx = 2500;
+
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
     {
         setX10(getX0()  
                 + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
                 * qSin(SMath::degreesToRadians(m_angles.geometrical))
-              );
+        );
         setY10(getY0() 
                 + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
                 * qCos(SMath::degreesToRadians(m_angles.geometrical))
-              );
+        );
+        setX1(getX0()
+                + SMath::metersToDegrees(x0) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
+                + (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
+        setY1(getY0()
+                + SMath::metersToDegrees(x0) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
+                + (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
+        setX2(getX0()
+                + SMath::metersToDegrees(lx) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
+                + (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
+        setY2(getY0()
+                + SMath::metersToDegrees(lx) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
+                + (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
+        setX3(getX0()
+                + SMath::metersToDegrees(lx) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
+                - (SConfig::getHashFloat("DiagramThetaAzimuth") + SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
+        setY3(getY0()
+                + SMath::metersToDegrees(lx) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
+                - (SConfig::getHashFloat("DiagramThetaAzimuth") + SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2))
+        );
     }
     m_waitForAnotherAxisTrigger = false;
 }

@@ -382,12 +382,17 @@ Rectangle {
             delegate: ImageSAR.MapImage { }
         }
 
-        MapPolyline { id: mapPolyline; line.width: 5; opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: Material.primary; path: [ ]; }
+        MapPolyline { id: mapPolyline; line.width: 5; 
+                    opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: Material.primary; path: [ ]; 
+                    Behavior on opacity { NumberAnimation { duration: 1000; } } 
+        }
         MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
-                      path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; }
+                      path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; 
+                      Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; z: 1; 
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y1, longitude: predict.x1 },
-                              { latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } ]; }
+                              { latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } ]; 
+                      Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapItemView
         {
             model: imageUIModel;
@@ -442,12 +447,12 @@ Rectangle {
             height: 2
             transform: Rotation {
                 id: rulerRotation
-                origin.x: rulerText.width/2;
-                origin.y: rulerText.height/2;
+                origin.x: rulerText.width / 2;
+                origin.y: rulerText.height / 2;
                 angle: 0
             }
-            anchorPoint.x: rulerText.width/2
-            anchorPoint.y: rulerText.height/2
+            anchorPoint.x: rulerText.width / 2
+            anchorPoint.y: rulerText.height / 2
             z:10
             sourceItem: Text {
                 id: rulerText;

@@ -98,7 +98,8 @@ private:
     }; DiagramPredict m_diagramPredict;
 
     bool m_waitForAnotherAxisTrigger = false;
-    void updateVelocityVector();
+    
+    void updatePoints();
 };
 
 #endif // FLIGHTPREDICTION_H

@@ -99,17 +99,12 @@ Rectangle {
     //call time equals to C_UPDATETIME in sconfig
     function fixedUpdate()
     {
-        //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
-        drawPlane();
+        //сначала обновляем углы, потом изменяем переменную currentCoordinates. не иначе.
+        updateAngles();
         currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
 
-        if(RuntimeData.followPlane) panGPS();
-        if(RuntimeData.drawRoute) drawRoute();
-        if(RuntimeData.drawPredict || RuntimeData.drawDiagram) 
-        {
-            predict.x0 = RuntimeData.longitude;
-            predict.y0 = RuntimeData.latitude;
-        }
+        drawRoute();
+        if(RuntimeData.followPlane) panGPS(); 
     }
 
     //called 60 times per second (enable Timer ^^^^)
@@ -119,6 +114,21 @@ Rectangle {
         if(topPanning) { mapView.pan(0, -2); }
         if(leftPanning) { mapView.pan(-2, 0); }
         if(rightPanning) { mapView.pan(2, 0); }
+    }
+
+    function updateAngles()
+    {
+        if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
+        {
+            predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
+            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude - currentQtCoordinates.longitude,
+                                                   RuntimeData.latitude - currentQtCoordinates.latitude) * 180)  /  Math.PI;
+        }
+        if(RuntimeData.drawPredict || RuntimeData.drawDiagram) 
+        {
+            predict.x0 = RuntimeData.longitude;
+            predict.y0 = RuntimeData.latitude;
+        }
     }
 
     //=======================================================================================================
@@ -131,32 +141,8 @@ Rectangle {
         var coords = QtPositioning.coordinate(imageModel.get(imageModel.count - 1).m_lat, imageModel.get(imageModel.count - 1).m_lon);
         mapView.center = coords;
     }
-
-    function drawPlane()
-    {
-        planeMapItem.coordinate = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
-        if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
-        {
-            predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
-            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude - currentQtCoordinates.longitude,
-                                                   RuntimeData.latitude - currentQtCoordinates.latitude) 
-                                                   * 180)  /  Math.PI;
-            planeMapItem.rotationAngle = predict.mercatorAngle;
-        }
-    }
-
-    function drawDiagram()
-    {
-        clearDiagram();
-    }
-    function clearDiagram()     { predictPoly.path = []; }
-
-    function panGPS()           { mapView.center = currentQtCoordinates;}
-
-    function drawRoute()
-    {
-        mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
-    }
+    function panGPS()           { mapView.center = currentQtCoordinates; }
+    function drawRoute()        { mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude)); }
     function clearRoute()       { mapPolyline.path = []; }
 
     function changeTooltipPosition()
@@ -183,6 +169,7 @@ Rectangle {
         }
     }
 
+    //deprecated(!)
     function drawRuler()
     {
         rulerLine.path = [];
@@ -190,11 +177,12 @@ Rectangle {
         rulerLine.addCoordinate(r_secondpoint);
         rulerTextMapItem.visible = true;
 
-        var cc = QtPositioning.coordinate((r_firstpoint.latitude+r_secondpoint.latitude)/2, (r_firstpoint.longitude+r_secondpoint.longitude)/2);
+        var cc = QtPositioning.coordinate((r_firstpoint.latitude + r_secondpoint.latitude) / 2,
+                                          (r_firstpoint.longitude+r_secondpoint.longitude) / 2);
         var geoAngle = r_firstpoint.azimuthTo(r_secondpoint); //между N и выбранным вектором
-        var textAngle = geoAngle+0;
-        if(textAngle>90 & textAngle<270) { textAngle+=180 }
-        if(geoAngle>90 & geoAngle<270) { geoAngle +=180 }
+        var textAngle = geoAngle + 0;
+        if(textAngle > 90 & textAngle < 270) { textAngle += 180 }
+        if(geoAngle > 90 & geoAngle < 270) { geoAngle += 180 }
 
         rulerTextMapItem.coordinate = cc;
         rulerTextMapItem.rulerRotationAngle = textAngle;
@@ -367,7 +355,7 @@ Rectangle {
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1-(mapView.zoomLevel/18);
+        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
         onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
 
         MapItemView
@@ -394,10 +382,12 @@ Rectangle {
             delegate: ImageSAR.MapImage { }
         }
 
-        MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; }
+        MapPolyline { id: mapPolyline; line.width: 5; opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: Material.primary; path: [ ]; }
         MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; }
-        MapPolygon { id: predictPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
+        MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; z: 1; 
+                      path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y1, longitude: predict.x1 },
+                              { latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } ]; }
         MapItemView
         {
             model: imageUIModel;
@@ -537,8 +527,9 @@ Rectangle {
                 id: rotation;
                 origin.x: 20;
                 origin.y: 20;
-                angle: 0;
+                angle: predict.mercatorAngle;
             }
+            coordinate: QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
             z: 18;
             sourceItem: Item {
                 Image {

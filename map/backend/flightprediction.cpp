@@ -2,7 +2,7 @@
 
 FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
-void FlightPrediction::updateVelocityVector()
+void FlightPrediction::updatePoints()
 {
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
     {
@@ -46,7 +46,7 @@ void FlightPrediction::setX0(qreal value)
     if(!m_waitForAnotherAxisTrigger)
         m_waitForAnotherAxisTrigger = true;
     else
-        updateVelocityVector();
+        updatePoints();
     emit x0Changed();
 }
 
@@ -60,7 +60,7 @@ void FlightPrediction::setY0(qreal value)
     if(!m_waitForAnotherAxisTrigger)
         m_waitForAnotherAxisTrigger = true;
     else
-        updateVelocityVector();
+        updatePoints();
     emit y0Changed();
 }
 

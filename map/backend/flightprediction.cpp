@@ -2,6 +2,22 @@
 
 FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
+void FlightPrediction::updateVelocityVector()
+{
+    if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
+    {
+        setX10(getX0()  
+                + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
+                * qSin(SMath::degreesToRadians(m_angles.geometrical))
+              );
+        setY10(getY0() 
+                + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
+                * qCos(SMath::degreesToRadians(m_angles.geometrical))
+              );
+    }
+    m_waitForAnotherAxisTrigger = false;
+}
+
 qreal FlightPrediction::getGeometricalAngle() { return m_angles.geometrical; }
 void FlightPrediction::setGeometricalAngle(qreal value)
 {
@@ -27,6 +43,10 @@ void FlightPrediction::setX0(qreal value)
         return;
     m_velocityVector.start.setX(value);
     m_diagramPredict.baseStart.setX(value);
+    if(!m_waitForAnotherAxisTrigger)
+        m_waitForAnotherAxisTrigger = true;
+    else
+        updateVelocityVector();
     emit x0Changed();
 }
 
@@ -37,6 +57,10 @@ void FlightPrediction::setY0(qreal value)
         return;
     m_velocityVector.start.setY(value);
     m_diagramPredict.baseStart.setY(value);
+    if(!m_waitForAnotherAxisTrigger)
+        m_waitForAnotherAxisTrigger = true;
+    else
+        updateVelocityVector();
     emit y0Changed();
 }
 

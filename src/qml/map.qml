@@ -138,29 +138,16 @@ Rectangle {
         if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
         {
             predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
-            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude-currentQtCoordinates.longitude,
+            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude - currentQtCoordinates.longitude,
                                                    RuntimeData.latitude - currentQtCoordinates.latitude) 
                                                    * 180)  /  Math.PI;
             planeMapItem.rotationAngle = predict.mercatorAngle;
-            if(RuntimeData.drawPredict) { drawPredict(); } else { clearPredict(); }
-            if(RuntimeData.drawDiagram) { drawDiagram(); } else { clearDiagram(); }
         }
     }
 
-    function drawPredict()
-    {
-        predictLine.path = [];
-        var p_lat = RuntimeData.latitude + Math.sin((90-predict.geometricalAngle)*Math.PI/180) 
-                                                 * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
-        var p_lon = RuntimeData.longitude + Math.cos((90-predict.geometricalAngle)*Math.PI/180) 
-                                                 * ( smath.metersToDegrees(RuntimeData.global_velocityVectorLength * 1000) );
-        predictLine.addCoordinate(QtPositioning.coordinate(predict.y0, predict.x0));
-        predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
-    }
-    function clearPredict()     { predictLine.path = []; }
     function drawDiagram()
     {
-
+        clearDiagram();
     }
     function clearDiagram()     { predictPoly.path = []; }
 
@@ -408,7 +395,8 @@ Rectangle {
         }
 
         MapPolyline { id: mapPolyline; line.width: 5; opacity: 0.75; line.color: Material.primary; path: [ ]; }
-        MapPolyline { id: predictLine; line.width: 3; opacity: 0.4; line.color: Material.primary; z: 1; path: [ ]; }
+        MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
+                      path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; }
         MapPolygon { id: predictPoly; border.width: 3; opacity: 0.4; border.color: Material.primary; z: 1; path: []; }
         MapItemView
         {

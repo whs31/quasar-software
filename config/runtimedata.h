@@ -25,9 +25,9 @@ class RuntimeData : public QObject
     //настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
     Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip);
-    Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute);
-    Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict);
-    Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram);
+    Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute          NOTIFY drawRouteChanged);
+    Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict        NOTIFY drawPredictChanged);
+    Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram        NOTIFY drawDiagramChanged);
 
     //глобальные настройки из конфига, которые требуются во фронтэнде
     Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps);
@@ -150,6 +150,10 @@ signals:
     void elevationChanged();
     void speedChanged();
     void satellitesChanged();
+
+    void drawRouteChanged();
+    void drawPredictChanged();
+    void drawDiagramChanged();
 
     void connectedChanged();
     void SARIPChanged();

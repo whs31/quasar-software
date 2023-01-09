@@ -78,6 +78,7 @@ void RuntimeData::setDrawRoute(bool state)
     if (state == mapSettings.drawRoute)
         return;
     mapSettings.drawRoute = state;
+    emit drawRouteChanged();
 }
 
 bool RuntimeData::getDrawPredict() { return mapSettings.drawPredict; }
@@ -86,6 +87,7 @@ void RuntimeData::setDrawPredict(bool state)
     if (state == mapSettings.drawPredict)
         return;
     mapSettings.drawPredict = state;
+    emit drawPredictChanged();
 }
 
 bool RuntimeData::getDrawDiagram() { return mapSettings.drawDiagram; }
@@ -94,6 +96,7 @@ void RuntimeData::setDrawDiagram(bool state)
     if (state == mapSettings.drawDiagram)
         return;
     mapSettings.drawDiagram = state;
+    emit drawDiagramChanged();
 }
 
 bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::getHashBoolean("UseOSM"); }

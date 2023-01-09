@@ -4,6 +4,8 @@
 #include <QObject>
 #include <qqml.h>
 #include <QPoint>
+#include "smath.h"
+#include "sconfig.h"
 
 class FlightPrediction : public QObject //смысл класса прост: кумл дает на вход 2 точки - текущие и предыдущие координаты, получает все углы и точки для предиктов
 {
@@ -94,6 +96,9 @@ private:
         QPointF sideStart;
         QPointF sideEnd;
     }; DiagramPredict m_diagramPredict;
+
+    bool m_waitForAnotherAxisTrigger = false;
+    void updateVelocityVector();
 };
 
 #endif // FLIGHTPREDICTION_H

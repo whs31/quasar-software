@@ -11,8 +11,6 @@ import QtGraphicalEffects 1.0
 import "groups" as Groups
 import "sar-image" as ImageSAR
 
-//import
-
 import SMath 1.0
 import MouseKeyHandler 1.0
 import IOHandler 1.0
@@ -25,6 +23,10 @@ import RuntimeData 1.0
 
 Rectangle {
     id: qqview
+
+    //=======================================================================================================
+    //======                        ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ, ТИПЫ И КОНСТАНТЫ                           =======
+    //=======================================================================================================
 
     //types instantiation
     SMath { id: smath; }
@@ -65,8 +67,9 @@ Rectangle {
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
 
-    //===========================================================================================================================================================================================
-    //===========================================================================================================================================================================================
+    //=======================================================================================================
+    //======                        ОБЩИЕ ФУНКЦИИ ДЛЯ ВСЕГО QQW И ФРОНТЭНДА                           =======
+    //=======================================================================================================
 
     //called on map component initialized
     function awake()
@@ -86,7 +89,8 @@ Rectangle {
         if(RuntimeData.global_useOSMMaps) { defaultMapModeOnTestMode = 3; } else { defaultMapModeOnTestMode = 0; }
     }
 
-    //called every fixed time (0.5 s default)           call time equals to C_UPDATETIME in sconfig
+    //called every fixed time (0.5 s default)           
+    //call time equals to C_UPDATETIME in sconfig
     function fixedUpdate()
     {
         //сначала рисуем самолёт, потом уже присваиваем курренткоординатес, иначе угол не посчитается
@@ -106,8 +110,9 @@ Rectangle {
         if(rightPanning) { mapView.pan(2, 0); }
     }
 
-    //===========================================================================================================================================================================================
-    //===========================================================================================================================================================================================
+    //=======================================================================================================
+    //======                        ФУНКЦИИ КОРНЕВОГО КЛАССА КАРТЫ В QML                              =======
+    //=======================================================================================================
 
     function panImage()
     {
@@ -115,6 +120,7 @@ Rectangle {
         var coords = QtPositioning.coordinate(imageModel.get(imageModel.count - 1).m_lat, imageModel.get(imageModel.count - 1).m_lon);
         mapView.center = coords;
     }
+
     function drawPlane()
     {
         planeMapItem.coordinate = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
@@ -132,6 +138,7 @@ Rectangle {
             if(RuntimeData.drawPredict) { drawPredict(geometricalAngle); } else { clearPredict(); }
         }
     }
+
     function drawPredict(angle)
     {
         predictLine.path = [];
@@ -140,19 +147,16 @@ Rectangle {
         predictLine.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
         predictLine.addCoordinate(QtPositioning.coordinate(p_lat, p_lon));
     }
-    function clearPredict() { predictLine.path = []; }
-    function panGPS()
-    {
-        mapView.center = currentQtCoordinates;
-    }
+    function clearPredict()     { predictLine.path = []; }
+
+    function panGPS()           { mapView.center = currentQtCoordinates;}
+
     function drawRoute()
     {
         mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
     }
-    function clearRoute()
-    {
-        mapPolyline.path = [];
-    }
+    function clearRoute()       { mapPolyline.path = []; }
+
     function changeTooltipPosition()
     {
         if(RuntimeData.drawTooltip)
@@ -176,6 +180,7 @@ Rectangle {
             mapHoverCoordinatesTooltip.visible = false;
         }
     }
+
     function drawRuler()
     {
         rulerLine.path = [];
@@ -203,6 +208,7 @@ Rectangle {
         r1MapItem.visible = false;
         r2MapItem.visible = false;
     }
+
     function addImage(meta, gui, base64: string, checksumSuccess: bool)
     {
         console.log("qml!");
@@ -240,6 +246,7 @@ Rectangle {
                                 "m_i_visible": true
                             });
     }
+
     function addMarker(name: string, col: color, icon: string, latitude: real, longitude: real, anchorX: real, anchorY: real, zoomLevel: real){
         markerModel.append({    "m_name": name, 
                                 "m_color": String(col), 
@@ -251,16 +258,14 @@ Rectangle {
                                 "m_zoom": zoomLevel
                             });
     }
-    function markerRemove(i)
-    {
-        MarkerManager.removeMarker(i);
-    }
-    function imageRemove(i)
-    {
+
+    function markerRemove(i)    { MarkerManager.removeMarker(i); }
+    function imageRemove(i) {
         var b = ImageManager.removeImage(i);
         if(b) { return true; } 
         else { return false; }
     }
+
     ListModel { id: imageModel; }
     ListModel { id: imageUIModel; }
     ListModel { id: markerModel; }
@@ -274,7 +279,7 @@ Rectangle {
             hoverEnabled: true;
             propagateComposedEvents: true;
             cursorShape: markerPlacementCursorChange ? Qt.PointingHandCursor : Qt.CrossCursor;
-            //preventStealing: true; //never enable it, or gestures will be broken 
+            //preventStealing: true; //никогда не включать это на основной карте
             acceptedButtons: Qt.LeftButton | Qt.RightButton;
             z: 0;
             onEntered: {

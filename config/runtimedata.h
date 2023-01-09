@@ -14,21 +14,26 @@ enum MouseState : short int
 class RuntimeData : public QObject
 {
     Q_OBJECT
+
+    //телеметрия
     Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude           NOTIFY latitudeChanged);
     Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude          NOTIFY longitudeChanged);
     Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation          NOTIFY elevationChanged);
     Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed              NOTIFY speedChanged);
     Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites         NOTIFY satellitesChanged);
 
+    //настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
     Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip);
     Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute);
     Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict);
     Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram);
 
+    //глобальные настройки из конфига, которые требуются во фронтэнде
     Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps);
     Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength);
 
+    //сетевая информация
     Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected          NOTIFY connectedChanged);
     Q_PROPERTY(QString sarIP                        READ getSARIP               WRITE setSARIP              NOTIFY SARIPChanged);
     Q_PROPERTY(QString pcIP                         READ getPCIP                WRITE setPCIP               NOTIFY PCIPChanged);
@@ -40,6 +45,7 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal loadingProgress                READ getLoadingProgress     WRITE setLoadingProgress    NOTIFY loadingProgressChanged);
     Q_PROPERTY(QString formStatus                   READ getFormStatus          WRITE setFormStatus         NOTIFY formStatusChanged);
     Q_PROPERTY(QString loaderStatus                 READ getLoaderStatus        WRITE setLoaderStatus       NOTIFY loaderStatusChanged);
+    
     QML_ELEMENT
     
 public:

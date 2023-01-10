@@ -56,6 +56,33 @@ void RuntimeData::setSatellites(short value)
     emit satellitesChanged();
 }
 
+qreal RuntimeData::getPitch() { return aircraftAxes.pitch; }
+void RuntimeData::setPitch(qreal value)
+{
+    if (value == aircraftAxes.pitch)
+        return;
+    aircraftAxes.pitch = value;
+    emit pitchChanged();
+}
+
+qreal RuntimeData::getRoll() { return aircraftAxes.roll; }
+void RuntimeData::setRoll(qreal value)
+{
+    if (value == aircraftAxes.roll)
+        return;
+    aircraftAxes.roll = value;
+    emit rollChanged();
+}
+
+qreal RuntimeData::getYaw() { return aircraftAxes.yaw; }
+void RuntimeData::setYaw(qreal value)
+{
+    if (value == aircraftAxes.yaw)
+        return;
+    aircraftAxes.yaw = value;
+    emit yawChanged();
+}
+
 bool RuntimeData::getFollowPlane() { return mapSettings.followPlane; }
 void RuntimeData::setFollowPlane(bool state)
 {

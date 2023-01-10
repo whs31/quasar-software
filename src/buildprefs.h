@@ -5,3 +5,4 @@
 
 const bool ENABLE_LOCALHOST_TILESERVER = true;
 const bool ENABLE_CSS_UPDATE_ON_CHANGE = false;
+const bool USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY = true;

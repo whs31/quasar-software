@@ -1,5 +1,6 @@
 #include "coreui.h"
 #include "ui_coreui.h"
+#include "buildprefs.h"
 
 //***************************************************************************************GUI SLOTS************************************************************************************************************
 void CoreUI::on_pushButton_placeMarker_clicked()
@@ -14,9 +15,18 @@ void CoreUI::reconnectSlot()
     Disconnected();
 
     telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-    formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+    if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true)
+        {
+            QString correctedSarIP = SConfig::getHashString("SarIP");
+            correctedSarIP.chop(1); correctedSarIP.append("7");
+            formRemote->Connect(correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
+            Debug::Log("![REMOTE] Sending commands to autocorrected address: " + correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
+        } else { 
+            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort")); 
+            Debug::Log("?[REMOTE] Sending commands to address: " + SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+        }
     consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-    qCritical() << SConfig::getHashString("LoaderIP") << ":" << SConfig::getHashString("ListenPort");
+    Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
     if (SConfig::getHashString("NetworkType") != "UDP")
     {
         SConfig::getHashString("NetworkType") = "UDP";

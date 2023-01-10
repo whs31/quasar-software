@@ -22,6 +22,11 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed              NOTIFY speedChanged);
     Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites         NOTIFY satellitesChanged);
 
+    //значения связанных осей
+    Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch              NOTIFY pitchChanged);
+    Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll               NOTIFY rollChanged);
+    Q_PROPERTY(qreal yaw                            READ getYaw                 WRITE setYaw                NOTIFY yawChanged);
+
     //настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
     Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip);
@@ -52,12 +57,18 @@ public:
     static RuntimeData* initialize(QObject* parent = nullptr);
     static short int mouseState;
 
-    // ==> GET ==>
+    //======================================================================================================
+    //                                           ==> GET ==>
+    //======================================================================================================
     qreal getLatitude();
     qreal getLongitude();
     qreal getElevation();
     qreal getSpeed();
     qint16 getSatellites();
+
+    qreal getPitch();
+    qreal getRoll();
+    qreal getYaw();
 
     bool getFollowPlane();
     bool getDrawTooltip();
@@ -80,12 +91,18 @@ public:
     QString getFormStatus();
     QString getLoaderStatus();
 
-    // <== SET <==
+    //======================================================================================================
+    //                                           <== SET <==
+    //======================================================================================================
     void setLatitude(qreal value);
     void setLongitude(qreal value);
     void setElevation(qreal value);
     void setSpeed(qreal value);
     void setSatellites(qint16 value);
+    
+    void setPitch(qreal value);
+    void setRoll(qreal value);
+    void setYaw(qreal value);
 
     void setFollowPlane(bool state);
     void setDrawTooltip(bool state);
@@ -108,27 +125,31 @@ public:
 private:
     static RuntimeData* _instance;
     explicit RuntimeData(QObject *parent = nullptr);
-    struct Telemetry 
-    {
+
+    struct Telemetry {
         qreal latitude = 0;
         qreal longitude = 0;
         qreal elevation = 0;
         qreal speed = 0;
         qreal direction = -1; //TODO: direction
         qint16 satellites = -1; 
-    };
-    Telemetry telemetry;
-    struct MapSettings
-    {
+    }; Telemetry telemetry;
+
+    struct AircraftAxes {
+        qreal pitch = 0;
+        qreal roll = 0;
+        qreal yaw = 0;
+    }; AircraftAxes aircraftAxes;
+
+    struct MapSettings{
         bool followPlane = false;
         bool drawTooltip = true;
         bool drawRoute = true;
         bool drawPredict = true;
         bool drawDiagram = true;
-    };
-    MapSettings mapSettings;
-    struct ConnectionStatus
-    {
+    }; MapSettings mapSettings;
+    
+    struct ConnectionStatus {
         bool connected = false;
         QString sarIP = "127.0.0.1?";
         QString pcIP = "127.0.0.1?";
@@ -140,16 +161,21 @@ private:
         qreal loadingProgress = 0;
         QString formStatus = "Ожидание подключения?";
         QString loaderStatus = "Статус загрузчика";
-    };
-    ConnectionStatus connectionStatus;
+    }; ConnectionStatus connectionStatus;
 
 signals:
-    // =!= NOTIFY =!=
+    //======================================================================================================
+    //                                          =!= NOTIFY =!=
+    //======================================================================================================
     void latitudeChanged();
     void longitudeChanged();
     void elevationChanged();
     void speedChanged();
     void satellitesChanged();
+
+    void pitchChanged();
+    void rollChanged();
+    void yawChanged();
 
     void drawRouteChanged();
     void drawPredictChanged();

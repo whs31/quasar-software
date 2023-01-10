@@ -38,6 +38,7 @@ include_directories(
     func
     gui
     disk
+    emulator
 )
 
 if(NOT WIN32)
@@ -58,6 +59,7 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${executable_name} ${SOURCE}
+        emulator/flightemulator.h                           emulator/flightemulator.cpp
         windowextension/extension.h                         windowextension/extension.cpp
         windowextension/shadow.h                            windowextension/shadow.cpp
         windowextension/common.h

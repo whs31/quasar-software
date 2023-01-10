@@ -120,7 +120,14 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     if (SConfig::getHashBoolean("StartupConnectToSAR"))
     {
         telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-        formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+        if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true)
+        {
+            QString correctedSarIP = SConfig::getHashString("SarIP");
+            correctedSarIP.chop(1); correctedSarIP.append("7");
+            formRemote->Connect(correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
+        } else { 
+            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort")); 
+        }
         consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
         Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
         if (SConfig::getHashString("NetworkType") != "UDP")

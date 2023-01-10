@@ -26,12 +26,8 @@ private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();
 
-    void on_flightMode_clicked();
-    void on_viewMode_clicked();
-
 private:
     Ui::SettingsDialog *uiS;
-    bool mode = false;
 };
 
 #endif // SETTINGSDIALOG_H

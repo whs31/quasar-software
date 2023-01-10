@@ -390,14 +390,23 @@ Rectangle {
         MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
-        MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; color: Material.primary; z: 1; 
-                      path: [ { latitude: predict.y0, longitude: predict.x0 },
-                              { latitude: predict.y2, longitude: predict.x2 },
-                              { latitude: predict.y1, longitude: predict.x1 },
-                              { latitude: predict.y3, longitude: predict.x3 }
-                              //{ latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } 
-                            ]; 
-                      Behavior on opacity { NumberAnimation { duration: 1000 } } }
+        MapPolygon {  property var point0: QtPositioning.coordinate(predict.y0, predict.x0);
+                      property var point1: QtPositioning.coordinate(predict.y1, predict.x1);
+                      property var point2: QtPositioning.coordinate(predict.y2, predict.x2);
+                      property var point3: QtPositioning.coordinate(predict.y3, predict.x3);
+                      id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; color: Material.primary; z: 1;
+                      path: [ point0,
+                              point2,
+                              point1,
+                              point3
+                            ];
+
+                      Behavior on opacity { NumberAnimation { duration: 1000 } }
+                      Behavior on point0 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
+                      Behavior on point1 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
+                      Behavior on point2 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
+                      Behavior on point3 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
+        }
         MapItemView
         {
             model: imageUIModel;

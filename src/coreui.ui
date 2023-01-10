@@ -3050,7 +3050,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
           <x>0</x>
           <y>0</y>
           <width>300</width>
-          <height>309</height>
+          <height>284</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -3482,6 +3482,64 @@ QMainWindow::separator {
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="emulatorButton">
+       <property name="minimumSize">
+        <size>
+         <width>22</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>22</width>
+         <height>16</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  background-color: #204040;
+  color: #F6F7F9;
+  border-radius: 5px;
+  padding: 1px;
+  outline: none;
+  border: none;
+}
+QPushButton:hover {
+  background-color: #499c54;
+  color: #F6F7F9;
+}
+
+QPushButton:pressed {
+  background-color: #132623;
+}
+
+QPushButton:checked {
+  background-color: #bc9117;
+}
+</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="images.qrc">
+         <normaloff>:/ui-resources/white/input.png</normaloff>:/ui-resources/white/input.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>15</width>
+         <height>15</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="settingsButton">

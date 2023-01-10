@@ -13,8 +13,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent), uiS(new Ui::S
     uiS->vectorLength->setValue(SConfig::getHashFloat("VelocityVectorLength"));
     uiS->azimuth->setValue(SConfig::getHashFloat("DiagramThetaAzimuth"));
     uiS->useConsole->setChecked(SConfig::getHashBoolean("ShowConsole"));
-    if(SConfig::getHashBoolean("Mode")) { on_flightMode_clicked(); } else { on_viewMode_clicked(); }
-    uiS->saveAtEnd->setChecked(SConfig::getHashBoolean("SaveNonContinuous"));
     uiS->loaderIP->setText(SConfig::getHashString("LoaderIP"));
     uiS->loaderPort->setText(SConfig::getHashString("LoaderPort"));
     uiS->commandPort->setText(SConfig::getHashString("DialogPort"));
@@ -52,8 +50,6 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::setHashValue("DiagramThetaAzimuth", uiS->azimuth->value());
     SConfig::setHashValue("AntennaPosition", (uiS->antennaLeft->isChecked()) ? "left" : "right");
     SConfig::setHashValue("ShowConsole", uiS->useConsole->isChecked());
-    SConfig::setHashValue("Mode", mode);
-    SConfig::setHashValue("SaveNonContinuous", uiS->saveAtEnd->isChecked());
     SConfig::setHashValue("UseOSM", uiS->useOSM->isChecked());
     SConfig::setHashValue("ShowProfiler", uiS->useProfiler->isChecked());
     SConfig::setHashValue("GlobalRadians", uiS->metaInRadians->isChecked());
@@ -61,18 +57,4 @@ void SettingsDialog::on_buttonBox_accepted()
     SConfig::setHashValue("GlobalDriftAngle", uiS->globalDriftAngle->isChecked());
     SConfig::setHashValue("AzimuthPredefinedCorrection", uiS->thetaAzimuthCorrection->value());
     accept();
-}
-
-void SettingsDialog::on_flightMode_clicked()
-{
-    uiS->viewMode->setStyleSheet("");
-    uiS->flightMode->setStyleSheet("background-color: #2B6781;");
-    mode = true;
-}
-
-void SettingsDialog::on_viewMode_clicked()
-{
-    uiS->flightMode->setStyleSheet("");
-    uiS->viewMode->setStyleSheet("background-color: #bc9117;");
-    mode = false;
 }

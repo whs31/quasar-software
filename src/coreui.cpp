@@ -31,7 +31,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     ui->setupUi(this);
 
     // custom window frame setup
-    setMargins(25, 0, 0, 170);
+    setMargins(25, 0, 0, 200);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
@@ -268,7 +268,7 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::on_minButton_clicked() { showMinimized(); }
+void CoreUI::on_minButton_clicked()     { showMinimized(); }
 void CoreUI::on_minmaxButton_clicked()
 {
     if (!isMaximized())
@@ -282,7 +282,7 @@ void CoreUI::on_minmaxButton_clicked()
         ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
     }
 }
-void CoreUI::on_closeButton_clicked() { QApplication::quit(); }
+void CoreUI::on_closeButton_clicked()   { QApplication::quit(); }
 
 void CoreUI::on_settingsButton_clicked()
 {
@@ -333,11 +333,8 @@ void CoreUI::on_settingsButton_clicked()
     }
 }
 
-void CoreUI::on_infoButton_clicked()
-{
-    AboutDialog aboutDialog(this, PROJECT_VERSION);
-    aboutDialog.exec();
-}
+void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
+void CoreUI::on_emulatorButton_clicked()    { SConfig::setHashValue("EmulatorMode", !SConfig::getHashBoolean("EmulatorMode")); }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -470,6 +467,7 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
         sar_override_gps = 0;
     }
 }
+
 void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
 {
     sar_gps_height = arg1;

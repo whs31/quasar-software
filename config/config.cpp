@@ -4,7 +4,6 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
 {
     group_t general;
     general["sudo_password"] = "123";
-    general["program_mode"] = "false"; //"flight" = true, "view" = false
     checkValuesSimple(general);
 
     group_t utility;
@@ -41,7 +40,6 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     image["angle_use_radians_globally"] = "true";
     image["angle_use_drift_angle"] = true;
     image["angle_theta_azimuth_correction"] = 5.0;
-    image["save_image_only_when_loading_finished"] = "true";
     image["view_mode_default_directory"] = "C:/";
     checkValuesSimple(image);
 

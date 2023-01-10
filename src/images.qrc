@@ -296,5 +296,6 @@
         <file>ui-resources/white/map.png</file>
         <file>ui-resources/white/unlink.png</file>
         <file>ui-resources/white/url.png</file>
+        <file>ui-resources/white/input.png</file>
     </qresource>
 </RCC>

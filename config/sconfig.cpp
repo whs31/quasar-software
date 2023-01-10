@@ -35,7 +35,7 @@ void SConfig::setHashTable(QHash<QString, QVariant>* table) { variantHash = *tab
 void SConfig::loadSettings()
 {
     setHashValue("SudoPassword", config->value("general/sudo_password"));
-    setHashValue("Mode", config->value("general/program_mode"));
+    setHashValue("EmulatorMode", false);
 
     setHashValue("UseOSM", config->value("utility/use_osm_maps"));
     setHashValue("ShowProfiler", config->value("utility/display_profiler"));
@@ -62,7 +62,6 @@ void SConfig::loadSettings()
     setHashValue("GlobalRadians", config->value("image/angle_use_radians_globally"));
     setHashValue("GlobalDriftAngle", config->value("image/angle_use_drift_angle"));
     setHashValue("AzimuthPredefinedCorrection", config->value("image/angle_theta_azimuth_correction"));
-    setHashValue("SaveNonContinuous", config->value("image/save_image_only_when_loading_finished"));
     setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
     setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
 

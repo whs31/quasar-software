@@ -115,6 +115,7 @@ private slots:
     void on_closeButton_clicked();
     void on_settingsButton_clicked();
     void on_infoButton_clicked();
+    void on_emulatorButton_clicked();
 
     //utility slots
     void ReadTelemetry(QByteArray data);

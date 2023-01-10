@@ -26,6 +26,7 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch              NOTIFY pitchChanged);
     Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll               NOTIFY rollChanged);
     Q_PROPERTY(qreal yaw                            READ getYaw                 WRITE setYaw                NOTIFY yawChanged);
+    Q_PROPERTY(qreal throttle                       READ getThrottle            WRITE setThrottle           NOTIFY throttleChanged);
 
     //настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
@@ -37,6 +38,7 @@ class RuntimeData : public QObject
     //глобальные настройки из конфига, которые требуются во фронтэнде
     Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps);
     Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength);
+    Q_PROPERTY(bool global_emulatorEnabled          READ getEmulatorEnabled     WRITE setEmulatorEnabled    NOTIFY emulatorEnabledChanged);
 
     //сетевая информация
     Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected          NOTIFY connectedChanged);
@@ -69,6 +71,7 @@ public:
     qreal getPitch();
     qreal getRoll();
     qreal getYaw();
+    qreal getThrottle();
 
     bool getFollowPlane();
     bool getDrawTooltip();
@@ -78,6 +81,7 @@ public:
 
     bool getGlobal_useOSMMaps();
     qreal getGlobal_velocityVectorLength();
+    bool getEmulatorEnabled();
 
     bool getConnected();
     QString getSARIP();
@@ -103,12 +107,15 @@ public:
     void setPitch(qreal value);
     void setRoll(qreal value);
     void setYaw(qreal value);
+    void setThrottle(qreal value);
 
     void setFollowPlane(bool state);
     void setDrawTooltip(bool state);
     void setDrawRoute(bool state);
     void setDrawPredict(bool state);
     void setDrawDiagram(bool state);
+
+    void setEmulatorEnabled(bool state);
 
     void setConnected(bool state);
     void setSARIP(QString string);
@@ -126,6 +133,8 @@ private:
     static RuntimeData* _instance;
     explicit RuntimeData(QObject *parent = nullptr);
 
+    bool m_emulatorMode = false;
+
     struct Telemetry {
         qreal latitude = 0;
         qreal longitude = 0;
@@ -139,6 +148,7 @@ private:
         qreal pitch = 0;
         qreal roll = 0;
         qreal yaw = 0;
+        qreal throttle = 0;
     }; AircraftAxes aircraftAxes;
 
     struct MapSettings{
@@ -176,10 +186,13 @@ signals:
     void pitchChanged();
     void rollChanged();
     void yawChanged();
+    void throttleChanged();
 
     void drawRouteChanged();
     void drawPredictChanged();
     void drawDiagramChanged();
+
+    void emulatorEnabledChanged();
 
     void connectedChanged();
     void SARIPChanged();

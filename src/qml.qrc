@@ -22,5 +22,6 @@
         <file>qml/ui/ToolIcon.qml</file>
         <file>qml/groups/PictogramGroup.qml</file>
         <file>qml/groups/NetworkGroup.qml</file>
+        <file>qml/groups/EmulatorTextPanel.qml</file>
     </qresource>
 </RCC>

@@ -83,6 +83,15 @@ void RuntimeData::setYaw(qreal value)
     emit yawChanged();
 }
 
+qreal RuntimeData::getThrottle() { return aircraftAxes.throttle; }
+void RuntimeData::setThrottle(qreal value)
+{
+    if (value == aircraftAxes.throttle)
+        return;
+    aircraftAxes.throttle = value;
+    emit throttleChanged();
+}
+
 bool RuntimeData::getFollowPlane() { return mapSettings.followPlane; }
 void RuntimeData::setFollowPlane(bool state)
 {
@@ -96,7 +105,7 @@ void RuntimeData::setDrawTooltip(bool state)
 {
     if (state == mapSettings.drawTooltip)
         return;
-    mapSettings.drawTooltip = state;
+    mapSettings.drawTooltip = state; 
 }
 
 bool RuntimeData::getDrawRoute() { return mapSettings.drawRoute; }
@@ -128,6 +137,15 @@ void RuntimeData::setDrawDiagram(bool state)
 
 bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::getHashBoolean("UseOSM"); }
 qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::getHashFloat("VelocityVectorLength"); }
+
+bool RuntimeData::getEmulatorEnabled() { return m_emulatorMode; }
+void RuntimeData::setEmulatorEnabled(bool state) 
+{
+    if (state == m_emulatorMode)
+        return;
+    m_emulatorMode = state;
+    emit emulatorEnabledChanged();
+}
 
 bool RuntimeData::getConnected() { return connectionStatus.connected; }
 void RuntimeData::setConnected(bool state) 

@@ -58,6 +58,7 @@ public:
     void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3);
     bool getReady(void);
     QQuickItem* getMapPointer(void);
+    void keyPressEvent(QKeyEvent *event);
 
 public slots:
     //utility public slots

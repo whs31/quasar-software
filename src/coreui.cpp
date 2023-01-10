@@ -341,7 +341,10 @@ void CoreUI::on_settingsButton_clicked()
 }
 
 void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
-void CoreUI::on_emulatorButton_clicked()    { SConfig::setHashValue("EmulatorMode", !SConfig::getHashBoolean("EmulatorMode")); }
+void CoreUI::on_emulatorButton_clicked()    
+{ 
+    RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
+}
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -436,6 +439,38 @@ void CoreUI::ReadForm(QByteArray data)
 void CoreUI::Halftime()
 {
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand);
+}
+
+void CoreUI::keyPressEvent(QKeyEvent *event)
+{
+  switch (event->key())
+  {
+    case Qt::Key_W:
+    qDebug()<<"pitch down";
+    break;
+    case Qt::Key_S:
+    qDebug()<<"pitch up";
+    break;
+    case Qt::Key_A:
+    qDebug()<<"yaw left";
+    break;
+    case Qt::Key_D:
+    qDebug()<<"yaw right";
+    break;
+    case Qt::Key_Q:
+    qDebug()<<"roll left";
+    break;
+    case Qt::Key_E:
+    qDebug()<<"roll right";
+    break;
+
+    case Qt::Key_Z:
+    qDebug()<<"throttle up";
+    break;
+    case Qt::Key_X:
+    qDebug()<<"throttle down";
+    break;
+  }
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

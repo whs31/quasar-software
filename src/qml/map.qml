@@ -640,6 +640,15 @@ Rectangle {
             anchors.rightMargin: 400;
         }
 
+        Groups.EmulatorTextPanel
+        {
+            id: emulatorTextPanel;
+            visible: RuntimeData.global_emulatorEnabled;
+            anchors.top: parent.verticalCenter;
+            anchors.left: parent.left;
+            anchors.leftMargin: 3;
+        }
+
         FloatingTooltip
         {
             id: mapHoverCoordinatesTooltip;

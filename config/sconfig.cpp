@@ -35,7 +35,6 @@ void SConfig::setHashTable(QHash<QString, QVariant>* table) { variantHash = *tab
 void SConfig::loadSettings()
 {
     setHashValue("SudoPassword", config->value("general/sudo_password"));
-    setHashValue("EmulatorMode", false);
 
     setHashValue("UseOSM", config->value("utility/use_osm_maps"));
     setHashValue("ShowProfiler", config->value("utility/display_profiler"));

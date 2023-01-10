@@ -16,7 +16,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
-            text: "<b>Тангаж: <i>" + RuntimeData.pitch + "</i></b>";
+            text: "<b>Тангаж: <i>" + RuntimeData.pitch + "°</i></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
             style: Text.Raised;
@@ -27,7 +27,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
-            text: "<b>Крен: <i>" + RuntimeData.roll + "</i></b>";
+            text: "<b>Крен: <i>" + RuntimeData.roll + "°</i></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
             style: Text.Raised;
@@ -38,7 +38,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
-            text: "<b>Рысканье: <i>" + RuntimeData.yaw + "</i></b>";
+            text: "<b>Рысканье: <i>" + RuntimeData.yaw + "°</i></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
             style: Text.Raised;

@@ -155,6 +155,10 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     Disconnected();
     Debug::Log("[STARTUP] Connections set up successfully");
 
+    //emulator
+    this->installEventFilter(this);
+    flightEmulator = new FlightEmulator(this);
+
     // execute any other startup code here
 
 }
@@ -344,6 +348,8 @@ void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJ
 void CoreUI::on_emulatorButton_clicked()    
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
+    if(RuntimeData::initialize()->getEmulatorEnabled())
+        LinkerQML::startFlightEmulator();
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -441,36 +447,60 @@ void CoreUI::Halftime()
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand);
 }
 
-void CoreUI::keyPressEvent(QKeyEvent *event)
+// void CoreUI::keyPressEvent(QKeyEvent *event)
+// {
+//   switch (event->key())
+//   {
+//     case Qt::Key_W:
+//         flightEmulator->pitchChange(1);
+//     break;
+//     case Qt::Key_S:
+//         flightEmulator->pitchChange(-1);
+//     break;
+//     case Qt::Key_A:
+//         flightEmulator->yawChange(-1);
+//     break;
+//     case Qt::Key_D:
+//         flightEmulator->yawChange(1);
+//     break;
+//     case Qt::Key_Q:
+//         flightEmulator->rollChange(-1);
+//     break;
+//     case Qt::Key_E:
+//         flightEmulator->rollChange(1);
+//     break;
+//     case Qt::Key_Z:
+//         flightEmulator->throttleChange(1); 
+//     break;
+//     case Qt::Key_X:
+//         flightEmulator->throttleChange(-1);
+//     break;
+//   }
+// }
+bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
-  switch (event->key())
-  {
-    case Qt::Key_W:
-    qDebug()<<"pitch down";
-    break;
-    case Qt::Key_S:
-    qDebug()<<"pitch up";
-    break;
-    case Qt::Key_A:
-    qDebug()<<"yaw left";
-    break;
-    case Qt::Key_D:
-    qDebug()<<"yaw right";
-    break;
-    case Qt::Key_Q:
-    qDebug()<<"roll left";
-    break;
-    case Qt::Key_E:
-    qDebug()<<"roll right";
-    break;
 
-    case Qt::Key_Z:
-    qDebug()<<"throttle up";
-    break;
-    case Qt::Key_X:
-    qDebug()<<"throttle down";
-    break;
-  }
+    if ( event->type() == QEvent::KeyPress ) {
+
+        pressedKeys += ((QKeyEvent*)event)->key();
+        if ( pressedKeys.contains(Qt::Key_W) ) { flightEmulator->pitchChange(1); }
+        if ( pressedKeys.contains(Qt::Key_S) ) { flightEmulator->pitchChange(-1); }
+        if ( pressedKeys.contains(Qt::Key_A) ) { flightEmulator->yawChange(-1); }
+        if ( pressedKeys.contains(Qt::Key_D) ) { flightEmulator->yawChange(1); }
+        if ( pressedKeys.contains(Qt::Key_Q) ) { flightEmulator->rollChange(-1); }
+        if ( pressedKeys.contains(Qt::Key_E) ) { flightEmulator->rollChange(1); }
+        if ( pressedKeys.contains(Qt::Key_Z) ) { flightEmulator->throttleChange(1); }
+        if ( pressedKeys.contains(Qt::Key_X) ) { flightEmulator->throttleChange(-1); }
+
+    }
+    else if ( event->type() == QEvent::KeyRelease )
+    {
+
+        pressedKeys -= ((QKeyEvent*)event)->key();
+    }
+
+
+    return false;
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

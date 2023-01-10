@@ -9,6 +9,7 @@
 #include <QQmlContext>
 #include <QRect>
 #include <QScopedPointer>
+#include <QSet>
 
 //qml types
 #include "backend/fmousekeyhandler.h"
@@ -30,6 +31,7 @@
 #include "tilesmanager.h"
 #include "runtimedata.h"
 #include "backend/flightprediction.h"
+#include "flightemulator.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
@@ -58,7 +60,8 @@ public:
     void getConfig(QString s1, QString s2, QString s3, float f1, float f2, float f3, float f4, float f5, float f6, QString s4, QString s5, bool b1, bool b2, bool b3);
     bool getReady(void);
     QQuickItem* getMapPointer(void);
-    void keyPressEvent(QKeyEvent *event);
+    bool eventFilter(QObject* obj, QEvent* event);
+    //void keyPressEvent(QKeyEvent *event);
 
 public slots:
     //utility public slots
@@ -80,6 +83,7 @@ private:
     LinkerQML *linker;
     TCPDownloader *downloader;
     QQuickItem* qml;
+    FlightEmulator* flightEmulator;
 
     //timers
     QTimer *timer;
@@ -94,6 +98,7 @@ private:
 
     //global variables
     double _conckc = 0;
+    QSet<int> pressedKeys;
 
     //@TODO new class
     QString sar_mode = "m1";

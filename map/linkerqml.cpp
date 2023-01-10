@@ -57,15 +57,6 @@ void LinkerQML::addModel(TImage &image)
                               Q_ARG(bool, image.checksumMatch));
 }
 
-void LinkerQML::reconnect()
-{
-    emit signalReconnect();
-}
-
-void LinkerQML::disconnect()
-{
-    emit signalDisconnect();
-}
-
-// void LinkerQML::signalReconnect(){}
-// void LinkerQML::signalDisconnect(){}
+void LinkerQML::reconnect()             { emit signalReconnect(); } 
+void LinkerQML::disconnect()            { emit signalDisconnect(); }
+void LinkerQML::startFlightEmulator()   { QMetaObject::invokeMethod(map, "startEmulator"); }

@@ -13,13 +13,16 @@ class LinkerQML : public QObject
 public:
     static LinkerQML* initialize(QQuickItem* map = nullptr);
 
-    static void fixedUpdate();
+    static void fixedUpdate(void);
     static void panGPS(void);
     static void clearRoute(void);
-    static void panImage();
+    static void panImage(void);
 
     static void addModel(TMarker& marker);
     static void addModel(TImage& image);
+
+    //emulator
+    static void startFlightEmulator(void);
 
 signals:
     void signalReconnect();

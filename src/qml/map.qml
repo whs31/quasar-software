@@ -392,7 +392,11 @@ Rectangle {
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapPolygon { id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; color: Material.primary; z: 1; 
                       path: [ { latitude: predict.y0, longitude: predict.x0 },
-                              { latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } ]; 
+                              { latitude: predict.y2, longitude: predict.x2 },
+                              { latitude: predict.y1, longitude: predict.x1 },
+                              { latitude: predict.y3, longitude: predict.x3 }
+                              //{ latitude: predict.y2, longitude: predict.x2 }, { latitude: predict.y3, longitude: predict.x3 } 
+                            ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapItemView
         {

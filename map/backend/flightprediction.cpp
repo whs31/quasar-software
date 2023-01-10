@@ -4,13 +4,12 @@ FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
 void FlightPrediction::updatePoints()
 {
-    const float x0 = 100;
     const float lx = 2500;
+    qreal antennaPositionCorrection = SConfig::getHashString("AntennaPosition") == "right" ? 90 : -90;
 
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
     {
         float divergence = (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2;
-        float hypotenuse = sqrt(pow(lx, 2) + pow (lx * qTan(SMath::degreesToRadians(divergence)), 2));
         setX10(getX0()  
                 + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
                 * qSin(SMath::degreesToRadians(m_angles.geometrical))
@@ -19,30 +18,15 @@ void FlightPrediction::updatePoints()
                 + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
                 * qCos(SMath::degreesToRadians(m_angles.geometrical))
         );
-        setX1(getX0()
-                + SMath::metersToDegrees(x0) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
-                + divergence))
-        );
-        setY1(getY0()
-                + SMath::metersToDegrees(x0) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
-                + divergence))
-        );
-        setX2(getX0()
-                + SMath::metersToDegrees(hypotenuse) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
-                + divergence))
-        );
-        setY2(getY0()
-                + SMath::metersToDegrees(hypotenuse) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
-                + divergence))
-        );
-        setX3(getX0()
-                + SMath::metersToDegrees(hypotenuse) * qSin(SMath::degreesToRadians(m_angles.geometrical - 90 
-                - divergence))
-        );
-        setY3(getY0()
-                + SMath::metersToDegrees(hypotenuse) * qCos(SMath::degreesToRadians(m_angles.geometrical - 90 
-                - divergence))
-        );
+
+        //вычисляем точку, удаленную от борта на Lx и повернутую на угол 
+        QGeoCoordinate plane(getY0(), getX0());
+        QGeoCoordinate triangleBase = plane.atDistanceAndAzimuth(lx, getMercatorAngle() + antennaPositionCorrection); 
+        QGeoCoordinate triangleLeft = plane.atDistanceAndAzimuth(lx, getMercatorAngle() + antennaPositionCorrection - divergence);
+        QGeoCoordinate triangleRight = plane.atDistanceAndAzimuth(lx, getMercatorAngle() + antennaPositionCorrection + divergence);
+        setX1(triangleBase.longitude()); setY1(triangleBase.latitude());
+        setX2(triangleLeft.longitude()); setY2(triangleLeft.latitude());
+        setX3(triangleRight.longitude()); setY3(triangleRight.latitude());
     }
     m_waitForAnotherAxisTrigger = false;
 }

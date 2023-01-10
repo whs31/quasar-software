@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QtMath>
+#include <QGeoCoordinate>
+#include <QPointF>
+#include <QVector2D>
 
 class SMath : public QObject
 {
@@ -19,6 +22,12 @@ public:
     Q_INVOKABLE static qreal log(qreal base, qreal exponent);
     Q_INVOKABLE static qreal degreesToRadians(qreal degrees);
     Q_INVOKABLE static qreal radiansToDegrees(qreal radians);
+    
+    Q_INVOKABLE static QVector2D coordToMercator(QGeoCoordinate _point, quint8 _zoom = 20);
+    Q_INVOKABLE static qreal mercatorToLatitude(qreal y, quint8 _zoom = 20);
+    Q_INVOKABLE static qreal mercatorToLongitude(qreal x, quint8 _zoom = 20);
+
+private:
 
 signals:
 

@@ -56,6 +56,18 @@ void RuntimeData::setSatellites(short value)
     emit satellitesChanged();
 }
 
+qreal RuntimeData::getAzimuthalDirection() { return m_azimuthalDirection; }
+void RuntimeData::setAzimuthalDirection(qreal value)
+{
+    m_azimuthalDirection = value;
+}
+
+qreal RuntimeData::getFlatDirection() { return m_flatDirection; }
+void RuntimeData::setFlatDirection(qreal value)
+{
+    m_flatDirection = value;
+}
+
 qreal RuntimeData::getPitch() { return aircraftAxes.pitch; }
 void RuntimeData::setPitch(qreal value)
 {

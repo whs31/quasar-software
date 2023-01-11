@@ -48,7 +48,8 @@ if(NOT WIN32)
 endif()
 
 
-#link_directories(lib)
+include_directories (libplugin)
+link_directories(${CMAKE_SOURCE_DIR}/libplugin)
 
 file(GLOB SOURCE src/* )
 file(GLOB RES src/resources/*)
@@ -123,8 +124,7 @@ if(WIN32)
 
     target_link_libraries(${executable_name}
         Qt::WinExtras
-        #Gdi32
-        #User32
+        plugin
     )
 endif()
 
@@ -147,6 +147,7 @@ if((( ( UNIX ) AND NOT APPLE ) AND NOT ANDROID) AND ((QT_VERSION_MAJOR EQUAL 5))
     target_link_libraries(${executable_name}
         Qt::Test
         Qt::X11Extras
+        plugin
     )
 endif()
 

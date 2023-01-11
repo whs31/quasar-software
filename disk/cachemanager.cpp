@@ -6,6 +6,7 @@ QString CacheManager::tcpDowloaderCache;
 QString CacheManager::mapProviderCache;
 QString CacheManager::tileServerCache;
 QString CacheManager::dynamicResourcesCache;
+QString CacheManager::pluginCache;
 QString CacheManager::settingsPath;
 
 CacheManager *CacheManager::initializeCache(QObject *parent)
@@ -36,6 +37,13 @@ void CacheManager::initialize()
     {
         tiles.mkpath(tileServerCache);
     }
+
+    pluginCache = QCoreApplication::applicationDirPath() + "/app-plugins";
+    QDir plugins(pluginCache);
+    if (!plugins.exists())
+    {
+        plugins.mkpath(pluginCache);
+    }
     Debug::Log("?[CACHEMANAGER] Initial cache created");
 }
 
@@ -65,6 +73,7 @@ QString CacheManager::getTcpDowloaderCache() { return CacheManager::tcpDowloader
 QString CacheManager::getMapProviderCache() { return mapProviderCache; }
 QString CacheManager::getTileServerCache() { return tileServerCache; }
 QString CacheManager::getDynamicResourcesCache() { return dynamicResourcesCache; }
+QString CacheManager::getPluginsCache() { return pluginCache; }
 QString CacheManager::getSettingsPath() { return settingsPath; }
 
 CacheManager::CacheManager(QObject *parent) : QObject{parent}

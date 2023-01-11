@@ -22,6 +22,10 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed              NOTIFY speedChanged);
     Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites         NOTIFY satellitesChanged);
 
+    //геометрия, необходимая другим классам
+    Q_PROPERTY(qreal azimuthalDirection             READ getAzimuthalDirection  WRITE setAzimuthalDirection);
+    Q_PROPERTY(qreal flatDirection                  READ getFlatDirection       WRITE setFlatDirection);
+
     //значения связанных осей
     Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch              NOTIFY pitchChanged);
     Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll               NOTIFY rollChanged);
@@ -68,6 +72,9 @@ public:
     qreal getSpeed();
     qint16 getSatellites();
 
+    qreal getAzimuthalDirection();
+    qreal getFlatDirection();
+
     qreal getPitch();
     qreal getRoll();
     qreal getYaw();
@@ -103,6 +110,9 @@ public:
     void setElevation(qreal value);
     void setSpeed(qreal value);
     void setSatellites(qint16 value);
+
+    void setAzimuthalDirection(qreal value);
+    void setFlatDirection(qreal value);
     
     void setPitch(qreal value);
     void setRoll(qreal value);
@@ -143,6 +153,9 @@ private:
         qreal direction = -1; //TODO: direction
         qint16 satellites = -1; 
     }; Telemetry telemetry;
+
+    qreal m_azimuthalDirection = 0;
+    qreal m_flatDirection = 0;
 
     struct AircraftAxes {
         qreal pitch = 0;

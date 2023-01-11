@@ -18,6 +18,7 @@ public:
     static QString getMapProviderCache();
     static QString getTileServerCache();
     static QString getDynamicResourcesCache();
+    static QString getPluginsCache();
 
     static QString getSettingsPath();
 
@@ -31,6 +32,7 @@ private:
     static QString tcpDowloaderCache;
     static QString mapProviderCache;
     static QString tileServerCache;
+    static QString pluginCache;
     static QString dynamicResourcesCache;
 
     static QString settingsPath;

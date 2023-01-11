@@ -159,12 +159,33 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     this->installEventFilter(this);
     flightEmulator = new FlightEmulator(this);
 
+    //plugin system setup
+        QHash<QString, QVariant>* config = SConfig::getHashTable();
+        HostAPI = new PluginHostAPI;
+        // Отсюда начинается процедура добавления плагина
+        // Тут можно значения из конфига передавать для автозагрузки
+        QPluginLoader *pluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
+        QObject *plugin = pluginLoader->instance();
+        if(!plugin){
+           pluginLoader->unload();
+           delete pluginLoader;
+           Debug::Log("!![PLUGIN] Failed to load one of plugins. Unloading...");
+        } else {
+            PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(plugin);
+
+            pluginInterface->Init(this, config, HostAPI);
+            this->addDockWidget(Qt::RightDockWidgetArea, (QDockWidget *)pluginInterface->GetWidget());
+            //execute
+            HostAPI->execute("Terminal", "print", "Sample Text");
+        }
+
     // execute any other startup code here
 
 }
 
 CoreUI::~CoreUI()
 {
+    uiReady = false;
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
@@ -349,7 +370,9 @@ void CoreUI::on_emulatorButton_clicked()
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
     if(RuntimeData::initialize()->getEmulatorEnabled())
-        LinkerQML::startFlightEmulator();
+    {
+        flightEmulator->startEmulator();
+    } else { flightEmulator->stopEmulator(); }
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -447,36 +470,6 @@ void CoreUI::Halftime()
     SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand);
 }
 
-// void CoreUI::keyPressEvent(QKeyEvent *event)
-// {
-//   switch (event->key())
-//   {
-//     case Qt::Key_W:
-//         flightEmulator->pitchChange(1);
-//     break;
-//     case Qt::Key_S:
-//         flightEmulator->pitchChange(-1);
-//     break;
-//     case Qt::Key_A:
-//         flightEmulator->yawChange(-1);
-//     break;
-//     case Qt::Key_D:
-//         flightEmulator->yawChange(1);
-//     break;
-//     case Qt::Key_Q:
-//         flightEmulator->rollChange(-1);
-//     break;
-//     case Qt::Key_E:
-//         flightEmulator->rollChange(1);
-//     break;
-//     case Qt::Key_Z:
-//         flightEmulator->throttleChange(1); 
-//     break;
-//     case Qt::Key_X:
-//         flightEmulator->throttleChange(-1);
-//     break;
-//   }
-// }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
 

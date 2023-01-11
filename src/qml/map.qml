@@ -121,8 +121,10 @@ Rectangle {
         if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
         {
             predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
+            RuntimeData.azimuthalDirection = predict.mercatorAngle;
             predict.geometricalAngle = (Math.atan2(RuntimeData.longitude - currentQtCoordinates.longitude,
                                                    RuntimeData.latitude - currentQtCoordinates.latitude) * 180)  /  Math.PI;
+            RuntimeData.flatDirection = predict.geometricalAngle;
         }
         if(RuntimeData.drawPredict || RuntimeData.drawDiagram) 
         {

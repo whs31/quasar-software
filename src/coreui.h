@@ -33,6 +33,9 @@
 #include "backend/flightprediction.h"
 #include "flightemulator.h"
 
+#include <plugin.h>
+#include <pluginHostAPI.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
@@ -84,6 +87,7 @@ private:
     TCPDownloader *downloader;
     QQuickItem* qml;
     FlightEmulator* flightEmulator;
+    PluginHostAPI *HostAPI;
 
     //timers
     QTimer *timer;

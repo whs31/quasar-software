@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGeoCoordinate>
 #include "linkerqml.h"
+#include "udpemulator.h"
 
 class FlightEmulator : public QObject
 {
@@ -40,6 +41,7 @@ private:
     void changeVelocity(void);
     void calculateVelocities(float θ, float ϑ); //theta, upvartheta
     void moveByVelocity(void);
+    UDPEmulator* udpEmulator;
 
 private slots:
     void pitchReset();

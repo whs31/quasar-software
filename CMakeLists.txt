@@ -61,6 +61,7 @@ if(ANDROID)
 else()
     add_executable(${executable_name} ${SOURCE}
         emulator/flightemulator.h                           emulator/flightemulator.cpp
+        emulator/udpemulator.h                              emulator/udpemulator.cpp
         windowextension/extension.h                         windowextension/extension.cpp
         windowextension/shadow.h                            windowextension/shadow.cpp
         windowextension/common.h

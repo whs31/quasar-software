@@ -32,7 +32,7 @@ void FlightEmulator::changeVelocity(void)
         ϑ = 761.0521;
     if(ϑ < 12)
         ϑ = 11.58921;
-    RuntimeData::initialize()->setSpeed(ϑ);
+    udpEmulator->emulatorTelemetry.speed = (ϑ);
 }
 
 void FlightEmulator::calculateVelocities(float θ, float ϑ)
@@ -45,17 +45,20 @@ void FlightEmulator::calculateVelocities(float θ, float ϑ)
 
 void FlightEmulator::moveByVelocity(void)
 {
-    RuntimeData::initialize()->setLatitude(RuntimeData::initialize()->getLatitude() + SMath::metersToDegrees(ϑlat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
-    RuntimeData::initialize()->setLongitude(RuntimeData::initialize()->getLongitude() + SMath::metersToDegrees(ϑlon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.latitude = (RuntimeData::initialize()->getLatitude() + SMath::metersToDegrees(ϑlat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.longitude = (RuntimeData::initialize()->getLongitude() + SMath::metersToDegrees(ϑlon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
 }
 
 void FlightEmulator::startEmulator(void)
 {
+    udpEmulator = new UDPEmulator(this);
     LinkerQML::startFlightEmulator();
     RuntimeData::initialize()->setLatitude(DEFAULT_COORDINATE.latitude());
     RuntimeData::initialize()->setLongitude(DEFAULT_COORDINATE.longitude());
-    RuntimeData::initialize()->setSpeed(DEFAULT_SPEED);
-    RuntimeData::initialize()->setElevation(DEFAULT_ELEVATION);
+    udpEmulator->emulatorTelemetry.latitude = DEFAULT_COORDINATE.latitude();
+    udpEmulator->emulatorTelemetry.longitude = DEFAULT_COORDINATE.longitude();
+    udpEmulator->emulatorTelemetry.speed = DEFAULT_SPEED;
+    udpEmulator->emulatorTelemetry.elevation = DEFAULT_ELEVATION;
     LinkerQML::fixedUpdate();
     framerateTimer->start();
 }
@@ -63,6 +66,7 @@ void FlightEmulator::startEmulator(void)
 void FlightEmulator::stopEmulator(void)
 {
     framerateTimer->stop();
+    delete udpEmulator;
 }
 
 void FlightEmulator::throttleChange(int value)

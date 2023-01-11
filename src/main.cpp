@@ -40,17 +40,11 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
-
     
     QQuickStyle::setStyle("Material");                      //графика для QML
     qInstallMessageHandler(debugLogger);
 
     CoreUI window;
-
-	// QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/proximanova_regular.ttf");
-	// QFontDatabase::addApplicationFont("qrc:/ui-resources/fonts/HelveticaNeueCyr-Light.ttf");
-	// QFont proximaNova = QFont("Proxima Nova", 10, 1);
-	// QFont helveticaNeue = QFont("Helvetica Neue Embedded", 10, 1);
 
     window.show();
     window.showMaximized();

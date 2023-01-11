@@ -11,7 +11,7 @@ ColumnLayout {
     Text {
         id: text_d_infoLabel;
         color: "#dae1e5";
-        text: "Информация об изображении";
+        text: "Информация об изображении №" + Number(index + 1);
         font.pixelSize: 11
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;

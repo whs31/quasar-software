@@ -25,28 +25,28 @@ void FlightEmulator::Update(void)
 
 void FlightEmulator::changeVelocity(void)
 {
-    float ϑ = RuntimeData::initialize()->getSpeed();
-    float 𝐊 = (float)RuntimeData::initialize()->getThrottle() / 100; 𝐊 -= 0.5;
-    ϑ += 𝐊 * 10;
-    if(ϑ > 761)
-        ϑ = 761.0521;
-    if(ϑ < 12)
-        ϑ = 11.58921;
-    udpEmulator->emulatorTelemetry.speed = (ϑ);
+    float velocity = RuntimeData::initialize()->getSpeed();
+    float throttleCoeff = (float)RuntimeData::initialize()->getThrottle() / 100; throttleCoeff -= 0.5;
+    velocity += throttleCoeff * 10;
+    if(velocity > 761)
+        velocity = 761.0521;
+    if(velocity < 12)
+        velocity = 11.58921;
+    udpEmulator->emulatorTelemetry.speed = (velocity);
 }
 
-void FlightEmulator::calculateVelocities(float θ, float ϑ)
+void FlightEmulator::calculateVelocities(float azimuth, float velocity)
 {
     float yaw = RuntimeData::initialize()->getYaw() / 90;
-    float correction = qAbs(2 * qCos(qDegreesToRadians(θ))) + 1;
-    ϑlat = ϑ * qCos(qDegreesToRadians(θ + yaw * 3 * correction));
-    ϑlon = ϑ * qSin(qDegreesToRadians(θ + yaw * 3 * correction));
+    float correction = qAbs(2 * qCos(qDegreesToRadians(azimuth))) + 1;
+    velocity_lat = velocity * qCos(qDegreesToRadians(azimuth + yaw * 3 * correction));
+    velocity_lon = velocity * qSin(qDegreesToRadians(azimuth + yaw * 3 * correction));
 }
 
 void FlightEmulator::moveByVelocity(void)
 {
-    udpEmulator->emulatorTelemetry.latitude = (RuntimeData::initialize()->getLatitude() + SMath::metersToDegrees(ϑlat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
-    udpEmulator->emulatorTelemetry.longitude = (RuntimeData::initialize()->getLongitude() + SMath::metersToDegrees(ϑlon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.latitude = (RuntimeData::initialize()->getLatitude() + SMath::metersToDegrees(velocity_lat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.longitude = (RuntimeData::initialize()->getLongitude() + SMath::metersToDegrees(velocity_lon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
 }
 
 void FlightEmulator::startEmulator(void)

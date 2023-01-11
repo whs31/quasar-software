@@ -35,11 +35,11 @@ private:
 
     QTimer* framerateTimer;
 
-    float ϑlat = 0;
-    float ϑlon = 0; //upvartheta
+    float velocity_lat = 0;
+    float velocity_lon = 0;
 
     void changeVelocity(void);
-    void calculateVelocities(float θ, float ϑ); //theta, upvartheta
+    void calculateVelocities(float azimuth, float velocity);
     void moveByVelocity(void);
     UDPEmulator* udpEmulator;
 

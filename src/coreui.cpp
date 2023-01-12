@@ -155,28 +155,31 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     Disconnected();
     Debug::Log("[STARTUP] Connections set up successfully");
 
-    //emulator
+    // emulator
     this->installEventFilter(this);
     flightEmulator = new FlightEmulator(this);
 
-    //plugin system setup
+    // plugin system setup
         QHash<QString, QVariant>* config = SConfig::getHashTable();
         HostAPI = new PluginHostAPI;
         // Отсюда начинается процедура добавления плагина
         // Тут можно значения из конфига передавать для автозагрузки
-        QPluginLoader *pluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
-        QObject *plugin = pluginLoader->instance();
-        if(!plugin){
-           pluginLoader->unload();
-           delete pluginLoader;
-           Debug::Log("!![PLUGIN] Failed to load one of plugins. Unloading...");
+        QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
+        QObject *terminalPlugin = terminalPluginLoader->instance();
+        if(!terminalPlugin){
+           terminalPluginLoader->unload();
+           delete terminalPluginLoader;
+           plugins.terminalLoaded = false;
+           Debug::Log("![PLUGIN] Failed to load terminal plugin. Check your directory (app-plugins).");
         } else {
-            PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(plugin);
-
+            PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(terminalPlugin);
             pluginInterface->Init(this, config, HostAPI);
-            this->addDockWidget(Qt::RightDockWidgetArea, (QDockWidget *)pluginInterface->GetWidget());
+            this->addDockWidget(Qt::RightDockWidgetArea, (QDockWidget*) pluginInterface->GetWidget());
+            plugins.terminalLoaded = true;
+            plugins.terminal = pluginInterface->GetWidget();
+            plugins.terminal->setWindowTitle("Терминал РЛС VT100");
             //execute
-            HostAPI->execute("Terminal", "print", "Sample Text");
+            HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...");
         }
 
     // execute any other startup code here
@@ -202,10 +205,7 @@ CoreUI::~CoreUI()
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-CoreUI *CoreUI::getDebugPointer(void)
-{
-    return debugPointer;
-}
+CoreUI *CoreUI::getDebugPointer(void)   { return debugPointer; }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -271,31 +271,27 @@ void CoreUI::updateProgress(float f)
 void CoreUI::InitializeDockwidgets()
 {
     // чтобы все работало, надо их показать и тут же скрыть.
-    ui->debugConsoleDock->setEnabled(true);
-    ui->debugConsoleDock->setVisible(true);
-    ui->debugConsoleDock->adjustSize();
-    ui->debugConsoleDock->move(screenResolution.width() / 4, screenResolution.height() / 3);
+    // ui->debugConsoleDock->setEnabled(true);
+    // ui->debugConsoleDock->setVisible(true);
+    // ui->debugConsoleDock->adjustSize();
+    // ui->debugConsoleDock->move(screenResolution.width() / 4, screenResolution.height() / 3);
     ui->debugConsoleDock->setEnabled(false);
     ui->debugConsoleDock->setVisible(false);
 
-    ui->sarConsoleDock->setEnabled(true);
-    ui->sarConsoleDock->setVisible(true);
-    ui->sarConsoleDock->adjustSize();
-    ui->sarConsoleDock->move(screenResolution.width() / 1.5, screenResolution.height() / 3);
     ui->sarConsoleDock->setEnabled(false);
     ui->sarConsoleDock->setVisible(false);
+    // ui->sarConsoleDock->adjustSize();
+    // ui->sarConsoleDock->move(screenResolution.width() / 1.5, screenResolution.height() / 3);
+    // ui->sarConsoleDock->setEnabled(false);
+    // ui->sarConsoleDock->setVisible(false);
 }
 
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if (type == CommandType::TelemetryCommand)
-    {
         telemetryRemote->Send(command.toUtf8());
-    }
     else if (type == CommandType::FormCommand)
-    {
         formRemote->Send(command.toUtf8());
-    }
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -328,19 +324,13 @@ void CoreUI::on_settingsButton_clicked()
             if (sd.exec() == QDialog::Accepted)
             {
                 if (s != SConfig::getHashString("ViewPath"))
-                {
                     DiskTools::fetchDirectory();
-                }
                 else
-                {
                     Debug::Log("?[CONFIG] Path unchanged, no further scans");
-                }
                 SConfig::saveSettings();
             }
             else
-            {
                 SConfig::loadSettings();
-            }
             RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
             RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
             RuntimeData::initialize()->setTelemetryPort(SConfig::getHashString("TelemetryPort"));
@@ -359,10 +349,6 @@ void CoreUI::on_settingsButton_clicked()
             passwordWarning.exec();
         }
     }
-    else
-    {
-        // do nothing
-    }
 }
 
 void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
@@ -370,9 +356,9 @@ void CoreUI::on_emulatorButton_clicked()
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
     if(RuntimeData::initialize()->getEmulatorEnabled())
-    {
         flightEmulator->startEmulator();
-    } else { flightEmulator->stopEmulator(); }
+    else
+        flightEmulator->stopEmulator(); 
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -390,25 +376,17 @@ void CoreUI::ReadTelemetry(QByteArray data)
         QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
         _conckc = pair.first;
         _conckc2 = pair.second;
-        // direction
-
         linker->fixedUpdate();
-
         if ((short)_conckc2 != 0 || _conckc != pair.first)
-        {
             Connected();
-        }
-        else
-        {
+        else 
             Disconnected();
-        }
         break;
     }
     case DataType::FormResponse: {
         std::array<int, 4> responseList;
         responseList = MessageParser::parseFormResponse(data);
 
-        // temp
         if (!responseList.empty())
         {
             QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
@@ -417,9 +395,7 @@ void CoreUI::ReadTelemetry(QByteArray data)
         }
         break;
     }
-    default: {
-        break;
-    }
+    default: { break; }
     }
 }
 
@@ -429,10 +405,7 @@ void CoreUI::ReadSARConsole(QByteArray data)
     dataStr.replace(QRegExp("[\r]"), "");
     QStringList dataParsed = dataStr.split(QRegExp("[\n]"), QString::SkipEmptyParts);
     for (QString str : dataParsed)
-    {
         ui->sarConsole->append(str);
-    }
-    // qCritical()<<dataStr; //rework in future
 }
 
 void CoreUI::ReadForm(QByteArray data)
@@ -440,20 +413,16 @@ void CoreUI::ReadForm(QByteArray data)
     DataType dtype = MessageParser::checkReceivedDataType(data);
     switch (dtype)
     {
-    case DataType::Telemetry:
-    {
-        break;
-    }
+    case DataType::Telemetry: { break; }
     case DataType::FormResponse:
         std::array<int, 4> responseList;
         responseList = MessageParser::parseFormResponse(data);
-
-        // temp
         if (!responseList.empty())
         {
             QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
-            Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) + " with checksum check " +
-                       checksumCheck);
+            Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
+                        + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
+                        + " with checksum check " + checksumCheck);
             ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
             ui->progressBar_formImageStatus->setValue((int)40);
         }
@@ -465,14 +434,9 @@ void CoreUI::ReadForm(QByteArray data)
 
 // вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
 // эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
-void CoreUI::Halftime()
-{
-    SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand);
-}
-
+void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
-
     if ( event->type() == QEvent::KeyPress ) {
         pressedKeys += ((QKeyEvent*)event)->key();
         if ( pressedKeys.contains(Qt::Key_W) ) { flightEmulator->pitchChange(1); }

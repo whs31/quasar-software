@@ -12,6 +12,7 @@
 #include <QHostAddress>
 
 #include <plugin.h>
+#include <QDockWidget>
 
 #include "qvterminal.h"
 
@@ -35,7 +36,7 @@ public:
     explicit Terminal();
     ~Terminal();
     
-    void Show();
+    void Init(QWidget* _parent, QHash<QString, QVariant>* _config, PluginHostAPI* _HostAPI);
     
 public slots:
     QVariant print(QVariant cmd);

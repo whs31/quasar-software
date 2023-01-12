@@ -114,6 +114,14 @@ private:
     float sar_gps_height = 150;
     float sar_gps_velocity = 100;
 
+    //plugin system
+    struct Plugins 
+    {
+        bool terminalLoaded = false;
+
+        QWidget* terminal = nullptr;
+    }; Plugins plugins;
+
     //private methods
     void InitializeDockwidgets();
     void SendRemoteCommand(QString command, CommandType type);

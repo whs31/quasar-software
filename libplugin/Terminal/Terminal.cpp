@@ -5,32 +5,25 @@
 Terminal::Terminal()
 {
     plugin_name = "Terminal";
+    plugin_window = this;
 }
 
 Terminal::~Terminal()
 {
     qDebug() << "Destructor Terminal";
 
-    this->setUpdatesEnabled(false);
-    qDeleteAll(this->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
-    this->setUpdatesEnabled(true);
+    //this->setUpdatesEnabled(false);
+    //qDeleteAll(this->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    //this->setUpdatesEnabled(true);
 }
 
-void Terminal::Show(){
-       
-    //this->setParent(mdi_area);
-    this->setAttribute(Qt::WA_DeleteOnClose);
-    
-    this->resize(300, 300);
-    
-    this->showMaximized();
-    this->setFocus();
-    this->showNormal();
-    this->setWindowTitle(plugin_name);
-    
-    this->setWindowFlags(Qt::WindowTitleHint | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint);
-
-    PluginAPI->addMethod((void*)this, "print");
+void Terminal::Init(QWidget* _parent, QHash<QString, QVariant>* _config, PluginHostAPI* _HostAPI){
+	this->setParent(_parent);
+	this->setWindowTitle(plugin_name);
+	this->SetPluginHostAPI(_HostAPI);
+	this->SetConfig(_config);
+	
+	PluginAPI->addMethod((void*)this, "print");
     
     initTerminal();
     initSocket();

@@ -3,6 +3,7 @@
 .idea*
 
 build-*
+build
 cmake-build*
 
 # Python cache and images
@@ -18,9 +19,6 @@ cmake-build*
 *.a
 *.la
 *.lai
-*.so
-*.so.*
-*.dll
 *.dylib
 
 # Qt-es

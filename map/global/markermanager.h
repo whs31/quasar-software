@@ -18,6 +18,7 @@ public:
 
     static void newMarker(qreal latitude, qreal longitude, bool quiet = false);
     Q_INVOKABLE static void removeMarker(qint32 index);
+    Q_INVOKABLE static void removeMarkerFromCoordinates(QGeoCoordinate coordinate);
 
 signals:
 

@@ -68,3 +68,25 @@ void MarkerManager::removeMarker(qint32 index)
     markerList.remove(index);
     Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
 }
+
+void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
+{
+    for(size_t i = 0; i < RuntimeData::initialize()->autocaptureMarks.length(); i++)
+    {
+        if(coordinate.distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
+        {
+            RuntimeData::initialize()->autocaptureMarks.remove(i);
+            break;
+        }
+    }
+    for(size_t j = 0; j < markerList.length(); j++)
+    {
+        if(coordinate.distanceTo(QGeoCoordinate(markerList[j]->latitude, markerList[j]->longitude)) <= 10)
+        {
+            LinkerQML::removeMarker(j);
+            Debug::Log("[MARKER] Autocapture mark " + QString::number(j) + " removed from map.");
+            break;
+        }
+    }
+    
+}

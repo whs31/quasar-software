@@ -11,7 +11,8 @@ import QtGraphicalEffects 1.15
 MapQuickItem {
     //anchors must be set according to 32x32 rescaled image
     //e.g. middle will be QPoint(16, 16);
-
+    property bool removingTrigger: removeTrigger;
+    onRemovingTriggerChanged: remove();
 
     //property alias dialogShow: markerDialog.enabled;
     function remove()

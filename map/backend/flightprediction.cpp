@@ -2,6 +2,34 @@
 
 FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
+void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate p2, QGeoCoordinate p3)
+{
+    for(QGeoCoordinate point : RuntimeData::initialize()->autocaptureMarks)
+    {
+        float s1 = (p1.latitude() - point.latitude()) * (p2.longitude() - p2.longitude())-(p2.latitude() - p1.latitude()) * (p1.longitude() - point.longitude());
+        float s2 = (p2.latitude() - point.latitude()) * (p3.longitude() - p2.longitude()) - (p3.latitude() - p2.latitude()) * (p2.longitude() - point.longitude());
+        float s3 = (p3.latitude() - point.latitude()) * (p2.longitude() - p3.longitude()) - (p1.latitude() - p3.latitude()) * (p3.longitude() - point.longitude());
+        qInfo()<<s1<<s2<<s3;
+        if(s1 < 0 && s2 < 0 && s3 < 0)
+        {
+            qInfo()<<"found!!!! -";
+            MarkerManager::removeMarkerFromCoordinates(point);
+            return;
+        }
+        if(s1 > 0 && s2 > 0 && s3 > 0)
+        {
+            qInfo() << "found!!! +";
+            MarkerManager::removeMarkerFromCoordinates(point);
+            return;
+        }
+        else 
+        {
+            qDebug()<<"nothin'...";
+            continue;
+        }
+    }
+}
+
 void FlightPrediction::updatePoints()
 {
     const float lx = 2500;
@@ -27,6 +55,10 @@ void FlightPrediction::updatePoints()
         setX1(triangleBase.longitude()); setY1(triangleBase.latitude());
         setX2(triangleLeft.longitude()); setY2(triangleLeft.latitude());
         setX3(triangleRight.longitude()); setY3(triangleRight.latitude());
+        if(!RuntimeData::initialize()->autocaptureMarks.isEmpty())
+        {
+            calculateIntersections(plane, triangleRight, triangleLeft);
+        }
     }
     m_waitForAnotherAxisTrigger = false;
 }

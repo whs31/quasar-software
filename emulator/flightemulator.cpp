@@ -35,12 +35,10 @@ void FlightEmulator::changeVelocity(void)
         {
             velocity = 3;
         }
-        qCritical()<<"upper";
     }
     if(velocity < 2)
     {
         velocity = 3;
-        qCritical()<<"lower";
     }
     velocity += 10;
     udpEmulator->emulatorTelemetry.speed = (velocity);
@@ -94,7 +92,6 @@ void FlightEmulator::yawChange(int value)
     if(yaw > 90 || yaw < -90)
         return;
     RuntimeData::initialize()->setYaw(yaw);
-    //qWarning()<<RuntimeData::initialize()->getAzimuthalDirection();
     yawTimer->start(1000);
 }
 

@@ -60,3 +60,4 @@ void LinkerQML::addModel(TImage &image)
 void LinkerQML::reconnect()             { emit signalReconnect(); } 
 void LinkerQML::disconnect()            { emit signalDisconnect(); }
 void LinkerQML::startFlightEmulator()   { QMetaObject::invokeMethod(map, "startEmulator"); }
+void LinkerQML::removeMarker(int index) { QMetaObject::invokeMethod(map, "markerRemoveFromBackend", Q_ARG(QVariant, index)); }

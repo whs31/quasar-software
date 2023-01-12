@@ -251,11 +251,13 @@ Rectangle {
                                 "lon": longitude, 
                                 "anchorX": anchorX,
                                 "anchorY": anchorY,
-                                "m_zoom": zoomLevel
+                                "m_zoom": zoomLevel,
+                                "removeTrigger": false
                             });
     }
 
-    function markerRemove(i)    { MarkerManager.removeMarker(i); }
+    function markerRemove(i)               { MarkerManager.removeMarker(i); }
+    function markerRemoveFromBackend(i)    { markerModel.setProperty(i, "removeTrigger", true)  }
     function imageRemove(i) {
         var b = ImageManager.removeImage(i);
         if(b) { return true; } 

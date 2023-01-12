@@ -7,6 +7,8 @@
 #include "smath.h"
 #include <cmath>
 #include "sconfig.h"
+#include "runtimedata.h"
+#include "global/markermanager.h"
 
 class FlightPrediction : public QObject //смысл класса прост: кумл дает на вход 2 точки - текущие и предыдущие координаты, получает все углы и точки для предиктов
 {
@@ -59,6 +61,8 @@ public:
     void setY2(qreal value);
     void setX3(qreal value);
     void setY3(qreal value);
+
+    void calculateIntersections(QGeoCoordinate p1, QGeoCoordinate p2, QGeoCoordinate p3);
 
 signals:
     // =!= NOTIFY =!=

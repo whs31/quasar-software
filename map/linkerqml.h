@@ -24,6 +24,8 @@ public:
     //emulator
     static void startFlightEmulator(void);
 
+    static void removeMarker(int index);
+
 signals:
     void signalReconnect();
     void signalDisconnect();

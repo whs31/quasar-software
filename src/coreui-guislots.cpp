@@ -44,7 +44,11 @@ void CoreUI::disconnectSlot()
 }
 void CoreUI::on_pushButton_formSingleImage_clicked()
 {
-    QString request = MessageParser::makeFormRequest(sar_mode, sar_lowerbound, sar_upperbound, sar_time, sar_dx, sar_dx, sar_override_gps, sar_gps_height, sar_gps_velocity);
+    QString request = MessageParser::makeFormRequest(RuntimeData::initialize()->getFormMode(), RuntimeData::initialize()->getFormLowerBound(),
+                                                     RuntimeData::initialize()->getFormUpperBound(), RuntimeData::initialize()->getFormTime(),
+                                                     RuntimeData::initialize()->getFormStep(), RuntimeData::initialize()->getFormStep(),
+                                                     RuntimeData::initialize()->getFormOverrideGPSData(), RuntimeData::initialize()->getFormGPSHeight(),
+                                                     RuntimeData::initialize()->getFormGPSVelocity());
     SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
     ui->label_c_formImageStatus->setText(Style::StyleText("отправлен запрос на формирование", Colors::Info300, Format::NoFormat));

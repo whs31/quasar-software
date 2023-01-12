@@ -457,19 +457,19 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 
 void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
 {
-    sar_lowerbound = arg1;
+    RuntimeData::initialize()->setFormLowerBound(arg1);
 }
 void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
 {
-    sar_upperbound = arg1;
+    RuntimeData::initialize()->setFormUpperBound(arg1);
 }
 void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
 {
-    sar_time = arg1;
+    RuntimeData::initialize()->setFormTime(arg1);
 }
 void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
 {
-    sar_dx = arg1;
+    RuntimeData::initialize()->setFormStep(arg1);
 }
 void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
 {
@@ -479,7 +479,7 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
         ui->doubleSpinBox_velocity->setEnabled(true);
         ui->doubleSpinBox_height->setVisible(true);
         ui->doubleSpinBox_velocity->setVisible(true);
-        sar_override_gps = 1;
+        RuntimeData::initialize()->setFormOverrideGPSData(1);
     }
     else
     {
@@ -487,7 +487,7 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
         ui->doubleSpinBox_velocity->setEnabled(false);
         ui->doubleSpinBox_height->setVisible(false);
         ui->doubleSpinBox_velocity->setVisible(false);
-        sar_override_gps = 0;
+        RuntimeData::initialize()->setFormOverrideGPSData(0);
     }
     SAROutputConsoleEmulator sarConsoleEmulator;
     sarConsoleEmulator.sampleTest();
@@ -495,9 +495,9 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
 
 void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
 {
-    sar_gps_height = arg1;
+    RuntimeData::initialize()->setFormGPSHeight(arg1);
 }
 void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
 {
-    sar_gps_velocity = arg1;
+    RuntimeData::initialize()->setFormGPSVelocity(arg1);
 }

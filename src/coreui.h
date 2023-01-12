@@ -104,16 +104,6 @@ private:
     double _conckc = 0;
     QSet<int> pressedKeys;
 
-    //@TODO new class
-    QString sar_mode = "m1";
-    quint32 sar_lowerbound = 100;
-    quint32 sar_upperbound = 3000;
-    float sar_time = 1.0;
-    float sar_dx = 1;
-    int sar_override_gps = 0;
-    float sar_gps_height = 150;
-    float sar_gps_velocity = 100;
-
     //plugin system
     struct Plugins 
     {

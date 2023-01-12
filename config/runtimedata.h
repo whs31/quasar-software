@@ -15,47 +15,57 @@ class RuntimeData : public QObject
 {
     Q_OBJECT
 
-    //телеметрия
-    Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude           NOTIFY latitudeChanged);
-    Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude          NOTIFY longitudeChanged);
-    Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation          NOTIFY elevationChanged);
-    Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed              NOTIFY speedChanged);
-    Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites         NOTIFY satellitesChanged);
+    // телеметрия
+    Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude            NOTIFY latitudeChanged)
+    Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude           NOTIFY longitudeChanged)
+    Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation           NOTIFY elevationChanged)
+    Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed               NOTIFY speedChanged)
+    Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites          NOTIFY satellitesChanged)
 
-    //геометрия, необходимая другим классам
-    Q_PROPERTY(qreal azimuthalDirection             READ getAzimuthalDirection  WRITE setAzimuthalDirection);
-    Q_PROPERTY(qreal flatDirection                  READ getFlatDirection       WRITE setFlatDirection);
+    // геометрия, необходимая другим классам
+    Q_PROPERTY(qreal azimuthalDirection             READ getAzimuthalDirection  WRITE setAzimuthalDirection)
+    Q_PROPERTY(qreal flatDirection                  READ getFlatDirection       WRITE setFlatDirection)
 
-    //значения связанных осей
-    Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch              NOTIFY pitchChanged);
-    Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll               NOTIFY rollChanged);
-    Q_PROPERTY(qreal yaw                            READ getYaw                 WRITE setYaw                NOTIFY yawChanged);
-    Q_PROPERTY(qreal throttle                       READ getThrottle            WRITE setThrottle           NOTIFY throttleChanged);
+    // значения связанных осей
+    Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch               NOTIFY pitchChanged)
+    Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll                NOTIFY rollChanged)
+    Q_PROPERTY(qreal yaw                            READ getYaw                 WRITE setYaw                 NOTIFY yawChanged)
+    Q_PROPERTY(qreal throttle                       READ getThrottle            WRITE setThrottle            NOTIFY throttleChanged)
 
-    //настройки из выпадающего меню с чекбоксами инструментов карты
-    Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane);
-    Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip);
-    Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute          NOTIFY drawRouteChanged);
-    Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict        NOTIFY drawPredictChanged);
-    Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram        NOTIFY drawDiagramChanged);
+    // настройки из выпадающего меню с чекбоксами инструментов карты
+    Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane)
+    Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip)
+    Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute           NOTIFY drawRouteChanged)
+    Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict         NOTIFY drawPredictChanged)
+    Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram         NOTIFY drawDiagramChanged)
 
-    //глобальные настройки из конфига, которые требуются во фронтэнде
-    Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps);
-    Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength);
-    Q_PROPERTY(bool global_emulatorEnabled          READ getEmulatorEnabled     WRITE setEmulatorEnabled    NOTIFY emulatorEnabledChanged);
+    // глобальные настройки из конфига, которые требуются во фронтэнде
+    Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps)
+    Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength)
+    Q_PROPERTY(bool global_emulatorEnabled          READ getEmulatorEnabled     WRITE setEmulatorEnabled     NOTIFY emulatorEnabledChanged)
 
-    //сетевая информация
-    Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected          NOTIFY connectedChanged);
-    Q_PROPERTY(QString sarIP                        READ getSARIP               WRITE setSARIP              NOTIFY SARIPChanged);
-    Q_PROPERTY(QString pcIP                         READ getPCIP                WRITE setPCIP               NOTIFY PCIPChanged);
-    Q_PROPERTY(QString telemetryPort                READ getTelemetryPort       WRITE setTelemetryPort      NOTIFY telemetryPortChanged);
-    Q_PROPERTY(QString loaderPort                   READ getLoaderPort          WRITE setLoaderPort         NOTIFY loaderPortChanged);
-    Q_PROPERTY(QString commandPort                  READ getCommandPort         WRITE setCommandPort        NOTIFY commandPortChanged);
-    Q_PROPERTY(QString listenPort                   READ getListenPort          WRITE setListenPort         NOTIFY listenPortChanged);
-    Q_PROPERTY(qreal formProgress                   READ getFormProgress        WRITE setFormProgress       NOTIFY formProgressChanged);
-    Q_PROPERTY(qreal loadingProgress                READ getLoadingProgress     WRITE setLoadingProgress    NOTIFY loadingProgressChanged);
-    Q_PROPERTY(QString formStatus                   READ getFormStatus          WRITE setFormStatus         NOTIFY formStatusChanged);
-    Q_PROPERTY(QString loaderStatus                 READ getLoaderStatus        WRITE setLoaderStatus       NOTIFY loaderStatusChanged);
+    // сетевая информация
+    Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected           NOTIFY connectedChanged)
+    Q_PROPERTY(QString sarIP                        READ getSARIP               WRITE setSARIP               NOTIFY SARIPChanged)
+    Q_PROPERTY(QString pcIP                         READ getPCIP                WRITE setPCIP                NOTIFY PCIPChanged)
+    Q_PROPERTY(QString telemetryPort                READ getTelemetryPort       WRITE setTelemetryPort       NOTIFY telemetryPortChanged)
+    Q_PROPERTY(QString loaderPort                   READ getLoaderPort          WRITE setLoaderPort          NOTIFY loaderPortChanged)
+    Q_PROPERTY(QString commandPort                  READ getCommandPort         WRITE setCommandPort         NOTIFY commandPortChanged)
+    Q_PROPERTY(QString listenPort                   READ getListenPort          WRITE setListenPort          NOTIFY listenPortChanged)
+    Q_PROPERTY(qreal formProgress                   READ getFormProgress        WRITE setFormProgress        NOTIFY formProgressChanged)
+    Q_PROPERTY(qreal loadingProgress                READ getLoadingProgress     WRITE setLoadingProgress     NOTIFY loadingProgressChanged)
+    Q_PROPERTY(QString formStatus                   READ getFormStatus          WRITE setFormStatus          NOTIFY formStatusChanged)
+    Q_PROPERTY(QString loaderStatus                 READ getLoaderStatus        WRITE setLoaderStatus        NOTIFY loaderStatusChanged)
+
+    // параметры формирования 
+    Q_PROPERTY(QString formMode                     READ getFormMode            WRITE setFormMode            NOTIFY formModeChanged)
+    Q_PROPERTY(quint32 formLowerBound               READ getFormLowerBound      WRITE setFormLowerBound      NOTIFY formLowerBoundChanged)
+    Q_PROPERTY(quint32 formUpperBound               READ getFormUpperBound      WRITE setFormUpperBound      NOTIFY formUpperBoundChanged)
+    Q_PROPERTY(float formTime                       READ getFormTime            WRITE setFormTime            NOTIFY formTimeChanged)
+    Q_PROPERTY(float formStep                       READ getFormStep            WRITE setFormStep            NOTIFY formStepChanged)
+    Q_PROPERTY(int formOverrideGPSData              READ getFormOverrideGPSData WRITE setFormOverrideGPSData NOTIFY formOverrideGPSDataChanged)
+    Q_PROPERTY(float formGPSHeight                  READ getFormGPSHeight       WRITE setFormGPSHeight       NOTIFY formGPSHeightChanged)
+    Q_PROPERTY(float formGPSVelocity                READ getFormGPSVelocity     WRITE setFormGPSVelocity     NOTIFY formGPSVelocityChanged)
     
     QML_ELEMENT
     
@@ -102,6 +112,15 @@ public:
     QString getFormStatus();
     QString getLoaderStatus();
 
+    QString getFormMode();
+    quint32 getFormLowerBound();
+    quint32 getFormUpperBound();
+    float getFormTime();
+    float getFormStep();
+    int getFormOverrideGPSData();
+    float getFormGPSHeight();
+    float getFormGPSVelocity();
+
     //======================================================================================================
     //                                           <== SET <==
     //======================================================================================================
@@ -138,6 +157,15 @@ public:
     void setFormProgress(qreal value);
     void setFormStatus(QString string);
     void setLoaderStatus(QString string);
+
+    void setFormMode(QString string);
+    void setFormLowerBound(quint32 value);
+    void setFormUpperBound(quint32 value);
+    void setFormTime(float value);
+    void setFormStep(float value);
+    void setFormOverrideGPSData(int state);
+    void setFormGPSHeight(float value);
+    void setFormGPSVelocity(float value);
 
 private:
     static RuntimeData* _instance;
@@ -186,6 +214,19 @@ private:
         QString loaderStatus = "Статус загрузчика";
     }; ConnectionStatus connectionStatus;
 
+    struct FormParameters
+    {
+        QString mode = "m1";
+        quint32 lowerBound = 100;
+        quint32 upperBound = 3000;
+        float time = 1;
+        float step = 1;
+        int overrideGPS = 0;
+        float gpsHeight = 150;
+        float gpsVelocity = 100;
+    }; FormParameters formParameters;
+    
+
 signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=
@@ -218,6 +259,15 @@ signals:
     void loadingProgressChanged();
     void formStatusChanged();
     void loaderStatusChanged();
+
+    void formModeChanged();
+    void formLowerBoundChanged();
+    void formUpperBoundChanged();
+    void formTimeChanged();
+    void formStepChanged();
+    void formOverrideGPSDataChanged();
+    void formGPSHeightChanged();
+    void formGPSVelocityChanged();
   
 };
 

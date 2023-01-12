@@ -257,3 +257,75 @@ void RuntimeData::setLoaderStatus(QString string)
     connectionStatus.loaderStatus = string;
     emit loaderStatusChanged();
 }
+
+QString RuntimeData::getFormMode() { return formParameters.mode; }
+void RuntimeData::setFormMode(QString string) 
+{
+    if (string == formParameters.mode)
+        return;
+    formParameters.mode = string;
+    emit formModeChanged();
+}
+
+quint32 RuntimeData::getFormLowerBound() { return formParameters.lowerBound; }
+void RuntimeData::setFormLowerBound(quint32 value) 
+{
+    if (value == formParameters.lowerBound)
+        return;
+    formParameters.lowerBound = value;
+    emit formLowerBoundChanged();
+}
+
+quint32 RuntimeData::getFormUpperBound() { return formParameters.upperBound; }
+void RuntimeData::setFormUpperBound(quint32 value) 
+{
+    if (value == formParameters.upperBound)
+        return;
+    formParameters.upperBound = value;
+    emit formUpperBoundChanged();
+}
+
+float RuntimeData::getFormTime() { return formParameters.time; }
+void RuntimeData::setFormTime(float value) 
+{
+    if (value == formParameters.time)
+        return;
+    formParameters.time = value;
+    emit formTimeChanged();
+}
+
+float RuntimeData::getFormStep() { return formParameters.step; }
+void RuntimeData::setFormStep(float value) 
+{
+    if (value == formParameters.step)
+        return;
+    formParameters.step = value;
+    emit formStepChanged();
+}
+
+int RuntimeData::getFormOverrideGPSData() { return formParameters.overrideGPS; }
+void RuntimeData::setFormOverrideGPSData(int state) 
+{
+    if (state == formParameters.overrideGPS)
+        return;
+    formParameters.overrideGPS = state;
+    emit formOverrideGPSDataChanged();
+}
+
+float RuntimeData::getFormGPSHeight() { return formParameters.gpsHeight; }
+void RuntimeData::setFormGPSHeight(float value) 
+{
+    if (value == formParameters.gpsHeight)
+        return;
+    formParameters.gpsHeight = value;
+    emit formGPSHeightChanged();
+}
+
+float RuntimeData::getFormGPSVelocity() { return formParameters.gpsVelocity; }
+void RuntimeData::setFormGPSVelocity(float value) 
+{
+    if (value == formParameters.gpsVelocity)
+        return;
+    formParameters.gpsVelocity = value;
+    emit formGPSVelocityChanged();
+}

@@ -10,7 +10,6 @@ void SAROutputConsoleEmulator::send(QByteArray data)
 {
     QUdpSocket socket;
     socket.writeDatagram(data, QHostAddress(SConfig::getHashString("LoaderIP")), SConfig::getHashString("ListenPort").toUInt());
-    qDebug()<<SConfig::getHashString("LoaderIP")<<":"<<SConfig::getHashString("ListenPort").toUInt();
 }
 
 void SAROutputConsoleEmulator::sampleTest(void)

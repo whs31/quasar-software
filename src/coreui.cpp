@@ -159,6 +159,8 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     // plugin system setup
         QHash<QString, QVariant>* config = SConfig::getHashTable();
         HostAPI = new PluginHostAPI;
+        QObject* runtimeData = RuntimeData::initialize();
+        HostAPI->addData("Host.runtimeData", (void*) runtimeData, sizeof(runtimeData));
         // Отсюда начинается процедура добавления плагина
         // Тут можно значения из конфига передавать для автозагрузки
         QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
@@ -176,12 +178,12 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
             plugins.terminal = pluginInterface->GetWidget();
             plugins.terminal->setWindowTitle("Терминал РЛС VT100");
             //execute
-            HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...");
+            HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...\n");
         }
 
     // set default position and size of floating qdockwidgets
     InitializeDockwidgets();
-    
+
     // execute any other startup code here
 
 }

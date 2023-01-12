@@ -85,9 +85,6 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
         openSSLDialogue.exec();
     }
 
-    // set default position and size of floating qdockwidgets
-    InitializeDockwidgets();
-
     // any other ui-related startup code here!
     ui->doubleSpinBox_height->setVisible(false);
     ui->doubleSpinBox_velocity->setVisible(false);
@@ -182,6 +179,9 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
             HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...");
         }
 
+    // set default position and size of floating qdockwidgets
+    InitializeDockwidgets();
+    
     // execute any other startup code here
 
 }
@@ -270,20 +270,17 @@ void CoreUI::updateProgress(float f)
 
 void CoreUI::InitializeDockwidgets()
 {
-    // чтобы все работало, надо их показать и тут же скрыть.
-    // ui->debugConsoleDock->setEnabled(true);
-    // ui->debugConsoleDock->setVisible(true);
-    // ui->debugConsoleDock->adjustSize();
-    // ui->debugConsoleDock->move(screenResolution.width() / 4, screenResolution.height() / 3);
     ui->debugConsoleDock->setEnabled(false);
     ui->debugConsoleDock->setVisible(false);
 
     ui->sarConsoleDock->setEnabled(false);
     ui->sarConsoleDock->setVisible(false);
-    // ui->sarConsoleDock->adjustSize();
-    // ui->sarConsoleDock->move(screenResolution.width() / 1.5, screenResolution.height() / 3);
-    // ui->sarConsoleDock->setEnabled(false);
-    // ui->sarConsoleDock->setVisible(false);
+
+    if(plugins.terminalLoaded) 
+    {
+        plugins.terminal->setEnabled(false);
+        plugins.terminal->setVisible(false);
+    }
 }
 
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
@@ -401,6 +398,8 @@ void CoreUI::ReadTelemetry(QByteArray data)
 
 void CoreUI::ReadSARConsole(QByteArray data)
 {
+    if(plugins.terminalLoaded)
+        HostAPI->execute("Terminal", "print", data);
     QString dataStr = data.data();
     dataStr.replace(QRegExp("[\r]"), "");
     QStringList dataParsed = dataStr.split(QRegExp("[\n]"), QString::SkipEmptyParts);
@@ -488,6 +487,8 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
         ui->doubleSpinBox_velocity->setVisible(false);
         sar_override_gps = 0;
     }
+    SAROutputConsoleEmulator sarConsoleEmulator;
+    sarConsoleEmulator.sampleTest();
 }
 
 void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)

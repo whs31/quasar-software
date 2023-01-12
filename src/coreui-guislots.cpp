@@ -78,7 +78,7 @@ void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
 }
 void CoreUI::on_pushButton_showSARConsole_clicked()
 {
-    if (SConfig::getHashBoolean("ShowConsole"))
+    if (!plugins.terminalLoaded)
     {
         bool state = ui->sarConsoleDock->isEnabled();
         state = !state;
@@ -87,7 +87,10 @@ void CoreUI::on_pushButton_showSARConsole_clicked()
     }
     else
     {
-        // throw password window =)
+        bool state = plugins.terminal->isEnabled();
+        state = !state;
+        plugins.terminal->setEnabled(state);
+        plugins.terminal->setVisible(state);
     }
 }
 //************************************************************************************************************************************************************************************************************

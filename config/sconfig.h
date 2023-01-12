@@ -14,6 +14,7 @@
 #include "jsonconfig.h"
 
 #include "debug.h"
+#include "saroutputconsoleemulator.h"
 
 class SConfig : public QObject
 {

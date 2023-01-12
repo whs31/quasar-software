@@ -163,7 +163,14 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
         HostAPI->addData("Host.runtimeData", (void*) runtimeData, sizeof(runtimeData));
         // Отсюда начинается процедура добавления плагина
         // Тут можно значения из конфига передавать для автозагрузки
-        QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
+        #ifdef __linux__
+            QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
+        #elif _WIN32
+            QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.dll");
+        #else
+            Debug::Log("!![PLUGIN] Your operating system is not supported.");
+        #endif
+
         QObject *terminalPlugin = terminalPluginLoader->instance();
         if(!terminalPlugin){
            terminalPluginLoader->unload();

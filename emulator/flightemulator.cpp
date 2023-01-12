@@ -26,12 +26,23 @@ void FlightEmulator::Update(void)
 void FlightEmulator::changeVelocity(void)
 {
     float velocity = RuntimeData::initialize()->getSpeed();
-    float throttleCoeff = (float)RuntimeData::initialize()->getThrottle() / 100; throttleCoeff -= 0.5;
-    velocity += throttleCoeff * 10;
-    if(velocity > 761)
-        velocity = 761.0521;
-    if(velocity < 12)
-        velocity = 11.58921;
+    float th = (float)RuntimeData::initialize()->getThrottle();
+
+    if(velocity > 10 * th - 10)
+    {
+        velocity = (10 * th);
+        if(velocity < 2)
+        {
+            velocity = 3;
+        }
+        qCritical()<<"upper";
+    }
+    if(velocity < 2)
+    {
+        velocity = 3;
+        qCritical()<<"lower";
+    }
+    velocity += 10;
     udpEmulator->emulatorTelemetry.speed = (velocity);
 }
 
@@ -39,8 +50,8 @@ void FlightEmulator::calculateVelocities(float azimuth, float velocity)
 {
     float yaw = RuntimeData::initialize()->getYaw() / 90;
     float correction = qAbs(2 * qCos(qDegreesToRadians(azimuth))) + 1;
-    velocity_lat = velocity * qCos(qDegreesToRadians(azimuth + yaw * 3 * correction));
-    velocity_lon = velocity * qSin(qDegreesToRadians(azimuth + yaw * 3 * correction));
+    velocity_lat = velocity * qCos(qDegreesToRadians(azimuth + yaw * 6 * correction));
+    velocity_lon = velocity * qSin(qDegreesToRadians(azimuth + yaw * 6 * correction));
 }
 
 void FlightEmulator::moveByVelocity(void)

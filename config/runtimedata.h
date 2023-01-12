@@ -68,6 +68,10 @@ class RuntimeData : public QObject
     Q_PROPERTY(int formOverrideGPSData              READ getFormOverrideGPSData WRITE setFormOverrideGPSData NOTIFY formOverrideGPSDataChanged)
     Q_PROPERTY(float formGPSHeight                  READ getFormGPSHeight       WRITE setFormGPSHeight       NOTIFY formGPSHeightChanged)
     Q_PROPERTY(float formGPSVelocity                READ getFormGPSVelocity     WRITE setFormGPSVelocity     NOTIFY formGPSVelocityChanged)
+
+    // автозахват РЛИ
+    Q_PROPERTY(qreal autocaptureDistance           READ getAutocaptureDistance WRITE setAutocaptureDistance NOTIFY autocaptureDistanceChanged)
+    Q_PROPERTY(bool autocaptureEnabled             READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
     
     QML_ELEMENT
     
@@ -124,6 +128,9 @@ public:
     float getFormGPSHeight();
     float getFormGPSVelocity();
 
+    qreal getAutocaptureDistance() const;
+    bool getAutocaptureEnabled() const;
+
     //======================================================================================================
     //                                           <== SET <==
     //======================================================================================================
@@ -169,6 +176,9 @@ public:
     void setFormOverrideGPSData(int state);
     void setFormGPSHeight(float value);
     void setFormGPSVelocity(float value);
+
+    void setAutocaptureDistance(qreal newAutocaptureDistance);
+    void setAutocaptureEnabled(bool state);
 
 private:
     static RuntimeData* _instance;
@@ -229,6 +239,12 @@ private:
         float gpsVelocity = 100;
     }; FormParameters formParameters;
 
+    struct AutoCaptureVariables
+    {
+        qreal distance = 0;
+        bool enabled = false;
+    }; AutoCaptureVariables autocaptureVariables;
+
 signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=
@@ -270,7 +286,9 @@ signals:
     void formOverrideGPSDataChanged();
     void formGPSHeightChanged();
     void formGPSVelocityChanged();
-  
+
+    void autocaptureDistanceChanged();
+    void autocaptureEnabledChanged();
 };
 
 #endif // RUNTIMEDATA_H

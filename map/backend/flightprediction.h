@@ -33,7 +33,9 @@ class FlightPrediction : public QObject //смысл класса прост: к
     QML_ELEMENT
 public:
     FlightPrediction(QObject* parent = nullptr);
-    
+
+    const qreal AUTOCAPTURE_TOLERANCE_IN_METERS = 15;
+
     // ==> GET ==>
     qreal getGeometricalAngle();
     qreal getMercatorAngle();
@@ -62,7 +64,7 @@ public:
     void setX3(qreal value);
     void setY3(qreal value);
 
-    void calculateIntersections(QGeoCoordinate p1, QGeoCoordinate p2, QGeoCoordinate p3);
+    void calculateIntersections(QGeoCoordinate p1, QGeoCoordinate p2);
 
 signals:
     // =!= NOTIFY =!=

@@ -703,6 +703,21 @@ Rectangle {
             anchors.bottomMargin: 38;
             z: 100;
         }
+        Text {
+            id: closestACDistanceIndicator;
+            color: "#dae1e5";
+            font.capitalization: Font.MixedCase;
+            font.pixelSize: 12;
+            textFormat: Text.RichText
+            opacity: RuntimeData.autocaptureEnabled ? 1 : 0;
+            text: "Расстояние до ближайшей точки автозахвата: <b><i>" + Number(RuntimeData.autocaptureDistance / 1000).toFixed(3) + "</i></b> км";
+            horizontalAlignment: Text.AlignLeft;
+            verticalAlignment: Text.AlignVCenter;
+            anchors.left: parent.left;
+            anchors.bottom: parent.bottom;
+            anchors.margins: 3;
+            Behavior on opacity { NumberAnimation { duration: 1000; } }
+        }
     }
     Connections {
 

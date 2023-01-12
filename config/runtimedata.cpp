@@ -329,3 +329,21 @@ void RuntimeData::setFormGPSVelocity(float value)
     formParameters.gpsVelocity = value;
     emit formGPSVelocityChanged();
 }
+
+qreal RuntimeData::getAutocaptureDistance() const { return autocaptureVariables.distance; }
+void RuntimeData::setAutocaptureDistance(qreal newAutocaptureDistance)
+{
+    if (autocaptureVariables.distance == newAutocaptureDistance)
+        return;
+    autocaptureVariables.distance = newAutocaptureDistance;
+    emit autocaptureDistanceChanged();
+}
+
+bool RuntimeData::getAutocaptureEnabled() const { return autocaptureVariables.enabled; }
+void RuntimeData::setAutocaptureEnabled(bool state)
+{
+    if (autocaptureVariables.enabled == state)
+        return;
+    autocaptureVariables.enabled = state;
+    emit autocaptureEnabledChanged();
+}

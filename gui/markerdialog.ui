@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>247</width>
+    <width>272</width>
     <height>317</height>
    </rect>
   </property>
@@ -401,6 +401,87 @@ QMenu::right-arrow {
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
+    <widget class="QCheckBox" name="checkBox_autocapture">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+       <strikeout>false</strikeout>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QCheckBox {
+  background-color: #132623;
+  color: #dae1e5;
+  spacing: 4px;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+QCheckBox:focus {
+  border: none;
+}
+
+QCheckBox QWidget:disabled {
+  background-color: #132623;
+  color: #788D9C;
+}
+
+QCheckBox::indicator {
+  margin-left: 2px;
+  height: 14px;
+  width: 14px;
+}
+
+QCheckBox::indicator:unchecked {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
+}
+
+QCheckBox::indicator:unchecked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:checked {
+  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
+}
+
+QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
+  border: none;
+  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
+}
+
+QCheckBox::indicator:checked:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:disabled {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
+}
+
+QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
+  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
+}
+</string>
+     </property>
+     <property name="text">
+      <string>Цель для автозахвата РЛИ</string>
+     </property>
+     <property name="icon">
+      <iconset resource="../src/images.qrc">
+       <normaloff>:/ui-resources/white/newimage.png</normaloff>:/ui-resources/white/newimage.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLabel" name="label_d_markerName">
@@ -636,92 +717,12 @@ QAbstractScrollArea:disabled {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>215</width>
-        <height>126</height>
+        <width>240</width>
+        <height>39</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="1" column="2">
-        <widget class="QRadioButton" name="radioButton_flag">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Флаг</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="pixmap_d_defaultMarker">
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/default.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <spacer name="horizontalSpacer">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-          </font>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>15</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="2">
         <widget class="QRadioButton" name="radioButton_defaultMarker">
          <property name="font">
           <font>
@@ -730,14 +731,18 @@ QLabel:disabled {
           </font>
          </property>
          <property name="text">
-          <string>Стандартная иконка</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../src/map-resources.qrc">
+           <normaloff>:/map-resources/markers/default.png</normaloff>:/map-resources/markers/default.png</iconset>
          </property>
          <property name="checked">
           <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="2" column="2">
+       <item row="0" column="2">
         <widget class="QRadioButton" name="radioButton_sar">
          <property name="font">
           <font>
@@ -746,105 +751,28 @@ QLabel:disabled {
           </font>
          </property>
          <property name="text">
-          <string>Радар</string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../src/map-resources.qrc">
+           <normaloff>:/map-resources/markers/radar.png</normaloff>:/map-resources/markers/radar.png</iconset>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="pixmap_d_flag">
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
+       <item row="0" column="1">
+        <widget class="QRadioButton" name="radioButton_flag">
          <property name="font">
           <font>
            <family>Calibri</family>
+           <pointsize>9</pointsize>
           </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
          </property>
          <property name="text">
           <string/>
          </property>
-         <property name="pixmap">
-          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/flag.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="pixmap_d_sar">
-         <property name="minimumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>32</width>
-           <height>32</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QWidget {
- color: #D8d8d8
-}
-
-Label {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #D8d8d8;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #Bebebf;
-}</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="pixmap">
-          <pixmap resource="../src/map-resources.qrc">:/map-resources/markers/radar.png</pixmap>
-         </property>
-         <property name="scaledContents">
-          <bool>true</bool>
+         <property name="icon">
+          <iconset resource="../src/map-resources.qrc">
+           <normaloff>:/map-resources/markers/flag.png</normaloff>:/map-resources/markers/flag.png</iconset>
          </property>
         </widget>
        </item>

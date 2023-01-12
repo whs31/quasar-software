@@ -8,6 +8,7 @@
 #include "debug.h"
 #include "markerdialog.h"
 #include "linkerqml.h"
+#include "runtimedata.h"
 
 class MarkerManager : public QObject
 {

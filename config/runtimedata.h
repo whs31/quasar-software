@@ -4,6 +4,8 @@
 #include <QObject>
 #include <qqml.h>
 #include "sconfig.h"
+#include <QVector>
+#include <QGeoCoordinate>
 
 enum MouseState : short int
 {
@@ -72,6 +74,7 @@ class RuntimeData : public QObject
 public:
     static RuntimeData* initialize(QObject* parent = nullptr);
     static short int mouseState;
+    QVector<QGeoCoordinate> autocaptureMarks;
 
     //======================================================================================================
     //                                           ==> GET ==>
@@ -225,7 +228,6 @@ private:
         float gpsHeight = 150;
         float gpsVelocity = 100;
     }; FormParameters formParameters;
-    
 
 signals:
     //======================================================================================================

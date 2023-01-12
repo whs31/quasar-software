@@ -19,6 +19,13 @@ void TMarker::update(void)
         anchorX = 16;
         anchorY = 16;
         break;
+    case MarkerIcon::AutocaptureMark:
+    {
+        iconPath = "qrc:/map-resources/markers/autocapture.png";
+        anchorX = 16;
+        anchorY = 16;
+        break;
+    }
     default:
         iconPath = "qrc:/map-resources/markers/default.png";
         anchorX = 16;

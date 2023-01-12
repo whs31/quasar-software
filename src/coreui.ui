@@ -3401,13 +3401,13 @@ QMainWindow::separator {
        <property name="minimumSize">
         <size>
          <width>18</width>
-         <height>18</height>
+         <height>16</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>18</width>
-         <height>18</height>
+         <height>16</height>
         </size>
        </property>
        <property name="font">
@@ -3438,13 +3438,13 @@ QMainWindow::separator {
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>20</height>
+         <height>16</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>16777215</width>
-         <height>20</height>
+         <height>16</height>
         </size>
        </property>
        <property name="font">
@@ -3460,7 +3460,7 @@ QMainWindow::separator {
 }</string>
        </property>
        <property name="text">
-        <string>СПО РЛС &quot;Квазар&quot;</string>
+        <string>СПО РЛС «Квазар»</string>
        </property>
       </widget>
      </item>

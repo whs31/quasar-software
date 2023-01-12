@@ -1,5 +1,6 @@
 #include "markerdialog.h"
 #include "ui_markerdialog.h"
+#include <QDebug>
 
 MarkerDialog::MarkerDialog(qreal latitude, qreal longitude, TMarker &marker) :
     newmarker(marker),
@@ -37,6 +38,27 @@ void MarkerDialog::on_buttonBox_accepted()
     {
         newmarker.icon = MarkerIcon::SARImage;
     }
+    if(newmarker.autocapture)
+    {
+        newmarker.icon = MarkerIcon::AutocaptureMark;
+        newmarker.color = QColor("#b4b4dc");
+    }
+    qDebug()<<newmarker.icon;
     done(QDialog::Accepted);
+}
+
+
+void MarkerDialog::on_checkBox_autocapture_clicked(bool checked)
+{
+    ui->colorPicker->setEnabled(!checked);
+    ui->checkBox_saveXML->setEnabled(!checked);
+    ui->checkBox_screenAnchor->setEnabled(!checked);
+    ui->radioButton_defaultMarker->setEnabled(!checked);
+    ui->radioButton_flag->setEnabled(!checked);
+    ui->radioButton_sar->setEnabled(!checked);
+    ui->horizontalLayout->setEnabled(!checked);
+    ui->scrollArea->setEnabled(!checked);
+    newmarker.autocapture = checked;
+    ui->lineEdit_markerName->setText(checked ? "Цель для автозахвата" : "Новый маркер");
 }
 

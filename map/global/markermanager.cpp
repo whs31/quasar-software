@@ -28,7 +28,13 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
             // вызываем этот метод перед передачей в qml
             // для обновления anchorPoint и iconPath после присвоения иконки в диалоговом окне
             marker->update();
-            Debug::Log("[MARKER] Created new marker with name " + marker->name);
+            if(marker->autocapture)
+            {
+                RuntimeData::initialize()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
+                Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
+            } else {
+                Debug::Log("[MARKER] Created new marker with name " + marker->name);
+            }
             LinkerQML::addModel(*marker);
         }
         else
@@ -51,6 +57,14 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 
 void MarkerManager::removeMarker(qint32 index)
 {
+    for(size_t i = 0; i < RuntimeData::initialize()->autocaptureMarks.length(); i++)
+    {
+        if(QGeoCoordinate(markerList[index]->latitude, markerList[index]->longitude).distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
+        {
+            RuntimeData::initialize()->autocaptureMarks.remove(i);
+        }
+        break;
+    }
     markerList.remove(index);
     Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
 }

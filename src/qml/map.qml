@@ -607,9 +607,9 @@ Rectangle {
         {
             id: mainGroup;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 500;
+            anchors.bottomMargin: 50;
             anchors.left: parent.left;
-            anchors.leftMargin: 500;
+            anchors.leftMargin: 100;
         }
 
         Groups.PictogramGroup

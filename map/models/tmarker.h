@@ -7,7 +7,8 @@
 enum MarkerIcon : short int {
     GoogleDefaultMarker,
     Flag,
-    SARImage
+    SARImage,
+    AutocaptureMark
 };
 
 class TMarker : public QObject
@@ -15,11 +16,12 @@ class TMarker : public QObject
     Q_OBJECT
 public:
     explicit TMarker(QObject *parent = nullptr);
-    QColor color = QColor("#a385cf");
+    QColor color = QColor("#dae1e5");
     QString name = "Новый маркер";
     short int icon = MarkerIcon::GoogleDefaultMarker;
     qreal latitude = 0;
     qreal longitude = 0;
+    bool autocapture = false;
     bool scalable = false;
     bool save = true;
     

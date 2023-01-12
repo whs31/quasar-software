@@ -98,7 +98,6 @@ void FlightEmulator::rollChange(int value)
 
 void FlightEmulator::pitchChange(int value)
 {
-    qDebug()<<value;
     qreal pitch = RuntimeData::initialize()->getPitch() + value * 5;
     if(pitch > 45 || pitch < -45)
         return;

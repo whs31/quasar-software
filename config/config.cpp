@@ -21,6 +21,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["image_loader_port"] = "25555";
     network["dialog_port"] = "9845";
     network["console_listen_port"] = "9846";
+    network["use_old_execd_endline"] = "true";
     checkValuesSimple(network);
 
     group_t map;

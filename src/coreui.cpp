@@ -144,6 +144,9 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     RuntimeData::initialize()->setListenPort(SConfig::getHashString("ListenPort"));
     RuntimeData::initialize()->setLoaderStatus("ожидание подключения");
 
+    // autocapture setup
+    connect(RuntimeData::initialize(), SIGNAL(autocaptureSignal()), this, SLOT(on_pushButton_formSingleImage_clicked()));
+
     // timers starts here
     timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
     udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);

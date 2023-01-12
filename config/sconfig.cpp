@@ -48,6 +48,7 @@ void SConfig::loadSettings()
     setHashValue("LoaderPort", config->value("network/image_loader_port"));
     setHashValue("DialogPort", config->value("network/dialog_port"));
     setHashValue("ListenPort", config->value("network/console_listen_port"));
+    setHashValue("UseOldExecdEndline", config->value("network/use_old_execd_endline"));
 
     setHashValue("VelocityVectorLength", config->value("map/velocity_vector_length"));
     setHashValue("AntennaPosition", config->value("map/antenna_position"));

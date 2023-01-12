@@ -180,6 +180,8 @@ public:
     void setAutocaptureDistance(qreal newAutocaptureDistance);
     void setAutocaptureEnabled(bool state);
 
+    void autocapture(void);
+
 private:
     static RuntimeData* _instance;
     explicit RuntimeData(QObject *parent = nullptr);
@@ -289,6 +291,8 @@ signals:
 
     void autocaptureDistanceChanged();
     void autocaptureEnabledChanged();
+
+    void autocaptureSignal();
 };
 
 #endif // RUNTIMEDATA_H

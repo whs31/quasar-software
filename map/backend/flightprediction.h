@@ -34,7 +34,7 @@ class FlightPrediction : public QObject //смысл класса прост: к
 public:
     FlightPrediction(QObject* parent = nullptr);
 
-    const qreal AUTOCAPTURE_TOLERANCE_IN_METERS = 15;
+    const qreal AUTOCAPTURE_TOLERANCE_IN_METERS = 25;
 
     // ==> GET ==>
     qreal getGeometricalAngle();

@@ -347,3 +347,5 @@ void RuntimeData::setAutocaptureEnabled(bool state)
     autocaptureVariables.enabled = state;
     emit autocaptureEnabledChanged();
 }
+
+void RuntimeData::autocapture(void) { emit autocaptureSignal(); }

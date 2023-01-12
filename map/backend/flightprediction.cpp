@@ -21,6 +21,7 @@ void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate 
         if(SMath::degreesToMeters(distance) < AUTOCAPTURE_TOLERANCE_IN_METERS)
         {
             MarkerManager::removeMarkerFromCoordinates(point);
+            RuntimeData::initialize()->autocapture();
             return;
         }
     }

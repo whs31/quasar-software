@@ -439,7 +439,8 @@ void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
-        pressedKeys += ((QKeyEvent*)event)->key();
+        qDebug()<<"magic printf";
+        pressedKeys += (static_cast<QKeyEvent*>(event))->key();
         if ( pressedKeys.contains(Qt::Key_W) ) { flightEmulator->pitchChange(1); }
         if ( pressedKeys.contains(Qt::Key_S) ) { flightEmulator->pitchChange(-1); }
         if ( pressedKeys.contains(Qt::Key_A) ) { flightEmulator->yawChange(-1); }
@@ -450,7 +451,10 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         if ( pressedKeys.contains(Qt::Key_X) ) { flightEmulator->throttleChange(-1); }
         return 1;
     }
-    else if ( event->type() == QEvent::KeyRelease ) { pressedKeys -= ((QKeyEvent*)event)->key(); return 1; }
+    else if ( event->type() == QEvent::KeyRelease ) { pressedKeys -= (static_cast<QKeyEvent*>(event))->key(); return 1; }
+    else {
+        return QObject::eventFilter(obj, event);
+    }
     return false;
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

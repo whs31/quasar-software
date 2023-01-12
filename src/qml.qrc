@@ -8,7 +8,6 @@
         <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
-        <file>qml/MenuImages.qml</file>
         <file>qml/ui/RoundPane.qml</file>
         <file>qml/groups/TelemetryPanel.qml</file>
         <file>qml/sar-image/Dialog.qml</file>
@@ -23,5 +22,7 @@
         <file>qml/groups/PictogramGroup.qml</file>
         <file>qml/groups/NetworkGroup.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
+        <file>qml/groups/MainGroup.qml</file>
+        <file>qml/groups/main/AttitudeIndicator.qml</file>
     </qresource>
 </RCC>

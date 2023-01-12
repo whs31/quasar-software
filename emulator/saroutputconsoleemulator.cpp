@@ -14,9 +14,6 @@ void SAROutputConsoleEmulator::send(QByteArray data)
 
 void SAROutputConsoleEmulator::sampleTest(void)
 {
-    send("Hello world!");
-    send("Привет мир!");
-    send("\nNew line\n");
     char buf[16];
     for(int cnt = 0; cnt < 100; cnt++){
         sprintf(buf, "<%3d%%>\e[6D", cnt);

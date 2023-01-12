@@ -1,6 +1,4 @@
 import QtQuick 2.12
-import QtQuick.Dialogs 1.2
-import QtQuick.Window 2.2
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
@@ -604,6 +602,16 @@ Rectangle {
             id: gesture;
             anchors.fill: parent;
         }
+
+        Groups.MainGroup
+        {
+            id: mainGroup;
+            anchors.bottom: parent.bottom;
+            anchors.bottomMargin: 500;
+            anchors.left: parent.left;
+            anchors.leftMargin: 500;
+        }
+
         Groups.PictogramGroup
         {
             id: pictogramGroup;
@@ -667,13 +675,6 @@ Rectangle {
 
         //left to right <<<<<<<<<
 
-        MenuImages
-        {
-            visible: false; //comment me
-            enabled: false; //comment me
-            anchors.left: parent.left;
-            anchors.top: parent.top;
-        }
         ZoomSlider 
         {
             id: zoomSliderElement;
@@ -694,10 +695,10 @@ Rectangle {
         TiltSlider
         {
             id: tiltSliderElement;
-            anchors.left: parent.left;
-            anchors.bottom: parent.bottom;
-            anchors.leftMargin: 10;
-            anchors.bottomMargin: 10;
+            anchors.right: zoomSliderElement.left;
+            anchors.bottom: bottomToolbarElement.top;
+            anchors.rightMargin: 55;
+            anchors.bottomMargin: 38;
             z: 100;
         }
     }

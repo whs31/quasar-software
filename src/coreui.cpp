@@ -439,8 +439,8 @@ void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
-        qDebug()<<"magic printf";
         pressedKeys += (static_cast<QKeyEvent*>(event))->key();
+        qWarning()<<(int)Qt::Key_W<<"    "<<static_cast<QKeyEvent*>(event)->key();
         if ( pressedKeys.contains(Qt::Key_W) ) { flightEmulator->pitchChange(1); }
         if ( pressedKeys.contains(Qt::Key_S) ) { flightEmulator->pitchChange(-1); }
         if ( pressedKeys.contains(Qt::Key_A) ) { flightEmulator->yawChange(-1); }

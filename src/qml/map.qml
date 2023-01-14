@@ -617,8 +617,8 @@ Rectangle {
         Groups.PictogramGroup
         {
             id: pictogramGroup;
-            anchors.top: telemetryPanel.bottom;
-            anchors.topMargin: telemetryPanel.containerHeight + 20;
+            anchors.top: parent.top;
+            anchors.topMargin: 20;
             anchors.right: parent.right;
             anchors.rightMargin: 53;
         }
@@ -639,14 +639,6 @@ Rectangle {
             anchors.left: parent.left;
             anchors.topMargin: 3;
             anchors.leftMargin: 3;
-        }
-        Groups.TelemetryPanel
-        {
-            id: telemetryPanel;
-            anchors.top: parent.top;
-            anchors.topMargin: 3;
-            anchors.right: parent.right;
-            anchors.rightMargin: 190;
         }
         Groups.NetworkGroup
         {

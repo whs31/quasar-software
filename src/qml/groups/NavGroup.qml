@@ -40,4 +40,13 @@ Rectangle {
         anchors.bottom: coordinateIndicator.top;
         anchors.bottomMargin: 5;
     }
+
+    Nav.AltIndicator
+    {
+        id: altIndicator;
+        anchors.right: parent.right;
+        anchors.rightMargin: 5;
+        anchors.bottom: coordinateIndicator.top;
+        anchors.bottomMargin: 5;
+    }
 }

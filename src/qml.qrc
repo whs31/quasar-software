@@ -9,7 +9,6 @@
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>
-        <file>qml/groups/TelemetryPanel.qml</file>
         <file>qml/sar-image/Dialog.qml</file>
         <file>qml/sar-image/MapImage.qml</file>
         <file>qml/sar-image/MetadataGroup.qml</file>
@@ -27,5 +26,6 @@
         <file>qml/groups/navigation/AttitudeIndicator.qml</file>
         <file>qml/groups/navigation/CoordinateIndicator.qml</file>
         <file>qml/groups/navigation/SpeedIndicator.qml</file>
+        <file>qml/groups/navigation/AltIndicator.qml</file>
     </qresource>
 </RCC>

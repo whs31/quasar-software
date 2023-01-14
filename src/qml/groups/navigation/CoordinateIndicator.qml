@@ -46,7 +46,7 @@ Item {
     Rectangle
     {
         id: fground;
-        width: childrenRect.width + 15;
+        width: fgroundText.paintedWidth + 15;
         height: 12;
         color: "#2B6781";
         anchors.horizontalCenter: bground.horizontalCenter;

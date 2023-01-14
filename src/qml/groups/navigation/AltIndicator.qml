@@ -21,10 +21,10 @@ Item {
         width: 70;
         height: 36;
         radius: 2;
-        color: "#372b07";
+        color: "#27183d";
         border.width: 2;
-        border.color: "#886911";
-        anchors.right: bground.right;
+        border.color: "#4b2e75";
+        anchors.left: bground.left;
         anchors.verticalCenter: bground.verticalCenter;
         Rectangle
         {
@@ -32,12 +32,12 @@ Item {
             width: 70;
             height: 13;
             radius: 2;
-            color: "#886911";
+            color: "#4b2e75";
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
             Text {
                 id: labelText
-                text: "СКОРОСТЬ";
+                text: "ВЫСОТА";
                 font.bold: true;
                 font.pointSize: 7;
                 horizontalAlignment: Text.AlignHCenter;
@@ -46,47 +46,31 @@ Item {
             }
         }
         Text {
-            id: speedText;
+            id: altText;
             anchors.top: labelBG.bottom;
             anchors.topMargin: 2;
             //anchors.verticalCenterOffset: -1;
             anchors.horizontalCenter: parent.horizontalCenter;
-            anchors.horizontalCenterOffset: -8;
+            anchors.horizontalCenterOffset: -4;
             color: "#dae1e5";
             font.capitalization: Font.MixedCase;
             font.pixelSize: 14;
             textFormat: Text.RichText
-            text: "<font color=\"#dae1e5\"><b>" + Number(RuntimeData.speed).toFixed(1) + "</font></b>";
+            text: "<font color=\"#dae1e5\"><b>" + Number(RuntimeData.elevation).toFixed(0) + "</font></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }
         Text {
-            id: speedTextTooltip1;
-            anchors.verticalCenter: speedText.verticalCenter;
-            anchors.verticalCenterOffset: -5;
-            anchors.left: speedText.right;
+            id: altTextTooltip;
+            anchors.verticalCenter: altText.verticalCenter;
+            anchors.left: altText.right;
             anchors.leftMargin: 2;
-            color: "#c7a750";
+            color: "#a385cf";
             font.capitalization: Font.MixedCase;
             font.pixelSize: 10;
             textFormat: Text.RichText;
             font.bold: true;
-            text: "км";
-            horizontalAlignment: Text.AlignLeft;
-            verticalAlignment: Text.AlignVCenter;
-        }
-        Text {
-            id: speedTextTooltip2;
-            anchors.verticalCenter: speedText.verticalCenter;
-            anchors.verticalCenterOffset: 3;
-            anchors.left: speedText.right;
-            anchors.leftMargin: 5;
-            color: "#c7a750";
-            font.capitalization: Font.MixedCase;
-            font.pixelSize: 10;
-            textFormat: Text.RichText;
-            font.bold: true;
-            text: "ч";
+            text: "м";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }

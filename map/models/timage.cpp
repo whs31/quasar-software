@@ -22,7 +22,7 @@ TImage::TImage(QObject *parent, QByteArray data, QString filePath, ImageMode mod
         //конвертируем данные в картинку с альфа-каналом (если mode не Raw)
         image = dataToQImage(data, mode);
         //конвертируем в base64 обработанное изображение для упрощения передачи его в QML
-        base64 = QImageToBase64(image);
+        base64 = QImageToBase64(image);     
         //TODO: make small image triange from x0 point to lowerbound
     }
 

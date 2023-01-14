@@ -26,6 +26,7 @@ bool ImageManager::checkForOccurence(QString filename)
 
 void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
+    qCritical()<<"1";
     TImage *image = new TImage(initialize(), data, filenamePath, ImageMode::GeometricAlphaMask, 
     SConfig::getHashFloat("AnglePredefinedCorrection"), SConfig::getHashBoolean("GlobalRadians"),
     SConfig::getHashFloat("AzimuthPredefinedCorrection"), SConfig::getHashBoolean("GlobalDriftAngle")); 
@@ -42,6 +43,7 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
 
     // append to vector when all functions which changing image is called
     imageList.append(image);
+    Debug::Log("[IMGMANAGER] Image displayed");
     LinkerQML::addModel(*image);
     LinkerQML::panImage();
     // any logging only after it

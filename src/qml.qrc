@@ -24,5 +24,6 @@
         <file>qml/groups/EmulatorTextPanel.qml</file>
         <file>qml/groups/MainGroup.qml</file>
         <file>qml/groups/main/AttitudeIndicator.qml</file>
+        <file>qml/ui/StatusText.qml</file>
     </qresource>
 </RCC>

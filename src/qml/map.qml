@@ -8,6 +8,7 @@ import QtPositioning 5.12
 import QtGraphicalEffects 1.0
 import "groups" as Groups
 import "sar-image" as ImageSAR
+import "ui" as UI
 
 import SMath 1.0
 import MouseKeyHandler 1.0
@@ -207,7 +208,6 @@ Rectangle {
 
     function addImage(meta, gui, base64: string, checksumSuccess: bool)
     {
-        console.log("qml!");
         imageUIModel.append({   "m_lat": meta[0],
                                 "m_lon": meta[1],
                                 "m_width": meta[9],
@@ -237,7 +237,7 @@ Rectangle {
                                 "m_height": meta[10],
                                 "m_angle": meta[6],
                                 "m_driftAngle": meta[7],
-                                "m_base64": base64,
+                                "m_base64": base64, //base64 строка
                                 "m_zoom": smath.mercatorZoomLevel(1, meta[0]),
                                 "m_i_visible": true
                             });
@@ -717,6 +717,28 @@ Rectangle {
             anchors.bottom: parent.bottom;
             anchors.margins: 3;
             Behavior on opacity { NumberAnimation { duration: 1000; } }
+        }
+        UI.StatusText
+        {
+            id: flightStatus;
+            visible: false;
+            status: "@в разработке@";
+            prefix: "Статус полёта: ";
+            anchors.right: parent.horizontalCenter;
+            anchors.top: parent.top;
+            anchors.topMargin: 5;
+            anchors.rightMargin: 10;
+        }
+        UI.StatusText
+        {
+            id: formStatus;
+            status: RuntimeData.formStatus;
+            prefix: "Статус формирования: ";
+            //anchors.left: parent.horizontalCenter;
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top: parent.top;
+            anchors.topMargin: 5;
+            //anchors.leftMargin: 10;
         }
     }
     Connections {

@@ -51,7 +51,7 @@ void CoreUI::on_pushButton_formSingleImage_clicked()
                                                      RuntimeData::initialize()->getFormGPSVelocity());
     SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
-    ui->label_c_formImageStatus->setText(Style::StyleText("отправлен запрос на формирование", Colors::Info300, Format::NoFormat));
+    RuntimeData::initialize()->setFormStatus(Style::StyleText("отправлен запрос на формирование", Colors::Info300, Format::NoFormat));
     ui->progressBar_formImageStatus->setValue(10);
 }
 

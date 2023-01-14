@@ -264,14 +264,11 @@ void CoreUI::updateProgress(float f)
 {
     if (f > 0)
     {
-        ui->label_c_loaderStatus->setText("Статус: " + Style::StyleText("приём данных", Colors::Accent100, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("загрузка изображения", Colors::Warning100, Format::NoFormat));
+        RuntimeData::initialize()->setFormStatus(Style::StyleText("загрузка изображения", Colors::Info100, Format::NoFormat));
     }
     if (f > 99)
     {
-        ui->label_c_loaderStatus->setText("Статус: " + Style::StyleText("изображение получено", Colors::Success100, Format::Italic));
-        ui->label_c_formImageStatus->setText(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
-        uiTimer1->start(5000);
+        RuntimeData::initialize()->setFormStatus(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
     }
     ui->progressBar_loader->setValue((int)f);
     ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
@@ -434,7 +431,7 @@ void CoreUI::ReadForm(QByteArray data)
             Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
                         + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
                         + " with checksum check " + checksumCheck);
-            ui->label_c_formImageStatus->setText(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
+            RuntimeData::initialize()->setFormStatus(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
             ui->progressBar_formImageStatus->setValue((int)40);
         }
         break;

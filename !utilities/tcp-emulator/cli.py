@@ -8,7 +8,7 @@ import os
 chunk_size = 1024
 fileName = 'm1-15-12-2022_09-37-16.jpg'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_address = ('127.0.0.1', 10000)
+server_address = ('127.0.0.1', 10001)
 
 sock.connect(server_address)
 

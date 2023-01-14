@@ -103,7 +103,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     telemetryRemote = new UDPRemote();
     formRemote = new UDPRemote();
     consoleListenerRemote = new UDPRemote();
-    downloader = new TCPDownloader(this, DowloaderMode::SaveAtDisconnect);
+    downloader = new TCPDownloader(this);
     connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     // network socket connections setup

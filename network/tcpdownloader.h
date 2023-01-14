@@ -10,18 +10,11 @@
 #include <QTimer>
 #include "imagemanager.h"
 
-enum DowloaderMode : short int
-{
-    NoSave,
-    SaveContinuous,
-    SaveAtDisconnect
-};
-
 class TCPDownloader : public QObject
 {
     Q_OBJECT
 public:
-    explicit TCPDownloader(QObject *parent = nullptr, DowloaderMode mode = SaveAtDisconnect);
+    explicit TCPDownloader(QObject *parent = nullptr);
 
     float progress();
     QByteArray imageData64;
@@ -45,7 +38,7 @@ private:
     bool success = false;
     uint8_t splitIndex = 0;
     ImageManager* manager;
-    short int _mode;
+
 
     uint32_t fileSize = 0;
     QString filename;

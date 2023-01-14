@@ -713,7 +713,7 @@ Rectangle {
             text: "Расстояние до ближайшей точки автозахвата: <b><i>" + Number(RuntimeData.autocaptureDistance / 1000).toFixed(3) + "</i></b> км";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
-            anchors.left: parent.left;
+            anchors.horizontalCenter: parent.horizontalCenter;
             anchors.bottom: parent.bottom;
             anchors.margins: 3;
             Behavior on opacity { NumberAnimation { duration: 1000; } }
@@ -726,7 +726,7 @@ Rectangle {
             prefix: "Статус полёта: ";
             anchors.right: parent.horizontalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: 5;
+            anchors.topMargin: 25;
             anchors.rightMargin: 10;
         }
         UI.StatusText
@@ -737,7 +737,7 @@ Rectangle {
             //anchors.left: parent.horizontalCenter;
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top;
-            anchors.topMargin: 5;
+            anchors.topMargin: 25;
             //anchors.leftMargin: 10;
         }
     }

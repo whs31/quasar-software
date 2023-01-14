@@ -225,7 +225,7 @@ private:
         QString listenPort = "00000?";
         qreal formProgress = 0;
         qreal loadingProgress = 0;
-        QString formStatus = "Ожидание подключения?";
+        QString formStatus = "ожидание подключения";
         QString loaderStatus = "Статус загрузчика";
     }; ConnectionStatus connectionStatus;
 

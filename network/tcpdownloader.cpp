@@ -1,6 +1,6 @@
 #include "tcpdownloader.h"
 
-TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(parent), _mode(mode)
+TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 {
     server = new QTcpServer(this);
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
@@ -19,7 +19,6 @@ TCPDownloader::TCPDownloader(QObject *parent, DowloaderMode mode) : QObject(pare
 void TCPDownloader::clientConnected(void)
 {
 	Debug::Log("?[SERVER] Trying to connect to SAR...");
-    if(SConfig::getHashBoolean("SaveNonContinuous")) { _mode = 2; } else { _mode = 1; }
 	socket = server->nextPendingConnection();
 	if(!socket)
 	{

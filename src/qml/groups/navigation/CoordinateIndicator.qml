@@ -13,7 +13,7 @@ Item {
         color: "#173846";
         border.color: "#2B6781";
         border.width: 2;
-        radius: 5;
+        radius: 3;
         Text {
             id: latitudeText;
             anchors.verticalCenter: parent.verticalCenter;
@@ -51,6 +51,7 @@ Item {
         color: "#2B6781";
         anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.bottom;
+        anchors.verticalCenterOffset: 1;
         Text {
             id: fgroundText
             text: "ПОЛОЖЕНИЕ БОРТА";

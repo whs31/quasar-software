@@ -605,9 +605,9 @@ Rectangle {
             anchors.fill: parent;
         }
 
-        Groups.MainGroup
+        Groups.NavGroup
         {
-            id: mainGroup;
+            id: navGroup;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: 50;
             anchors.left: parent.left;

@@ -77,3 +77,5 @@ std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)
 
     return { response[0].toInt(), strlen, response[2].toInt(), checksumCheckResult };
 }
+
+size_t MessageParser::getMessageID(void)    { return formMessageID; }

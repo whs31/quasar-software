@@ -270,8 +270,7 @@ void CoreUI::updateProgress(float f)
     {
         RuntimeData::initialize()->setFormStatus(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
     }
-    ui->progressBar_loader->setValue((int)f);
-    ui->progressBar_formImageStatus->setValue((int)(f / 2) + 50);
+//    ui->progressBar_loader->setValue((int)f);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -432,7 +431,6 @@ void CoreUI::ReadForm(QByteArray data)
                         + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
                         + " with checksum check " + checksumCheck);
             RuntimeData::initialize()->setFormStatus(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
-            ui->progressBar_formImageStatus->setValue((int)40);
         }
         break;
     default:

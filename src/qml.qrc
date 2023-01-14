@@ -22,8 +22,8 @@
         <file>qml/groups/PictogramGroup.qml</file>
         <file>qml/groups/NetworkGroup.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
-        <file>qml/groups/MainGroup.qml</file>
-        <file>qml/groups/main/AttitudeIndicator.qml</file>
         <file>qml/ui/StatusText.qml</file>
+        <file>qml/groups/NavGroup.qml</file>
+        <file>qml/groups/navigation/AttitudeIndicator.qml</file>
     </qresource>
 </RCC>

@@ -19,12 +19,11 @@ Item {
         color: textcolor;
         opacity: enabled ? 1 : 0
         verticalAlignment: Text.AlignVCenter
-        style: Text.Raised;
         onTextChanged: {
             statusText.opacity = 1;
             timer.restart();
         }
-        Behavior on opacity { NumberAnimation { duration: 1000; } }
+        Behavior on opacity { NumberAnimation { duration: 200; } }
         Timer {
             id: timer;
             interval: 5000;

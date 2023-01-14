@@ -66,7 +66,7 @@ Rectangle
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.topMargin: 10;
-            labeltext: "Повторное подключение";
+            labeltext: "Подключиться";
             onClicked: ioHandler.reconnect();
             z: 99;
         }

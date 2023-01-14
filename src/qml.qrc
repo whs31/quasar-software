@@ -25,5 +25,6 @@
         <file>qml/ui/StatusText.qml</file>
         <file>qml/groups/NavGroup.qml</file>
         <file>qml/groups/navigation/AttitudeIndicator.qml</file>
+        <file>qml/groups/navigation/CoordinateIndicator.qml</file>
     </qresource>
 </RCC>

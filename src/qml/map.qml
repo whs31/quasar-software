@@ -609,9 +609,9 @@ Rectangle {
         {
             id: navGroup;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 50;
+            anchors.bottomMargin: 10;
             anchors.left: parent.left;
-            anchors.leftMargin: 100;
+            anchors.leftMargin: 10;
         }
 
         Groups.PictogramGroup

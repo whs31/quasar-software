@@ -12,9 +12,9 @@ Rectangle {
     id: base;
     color: "#dae1e5";
     anchors.centerIn: parent;
-    width: 180;
-    height: 90;
-    opacity: 0;
+    width: 250;
+    height: 150;
+    opacity: 0.7;
     border.width: 2;
     border.color: "#b2b9bb";
     Rectangle

@@ -436,7 +436,7 @@ QMenu::right-arrow {
       <property name="minimumSize">
        <size>
         <width>350</width>
-        <height>350</height>
+        <height>600</height>
        </size>
       </property>
       <property name="font">

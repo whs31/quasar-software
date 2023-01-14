@@ -14,7 +14,6 @@ Rectangle
     property string textLongitude: "00.0000000";
     property string textSpeed: "000.0";
     property string textElevation: "0000";
-    property string textSatellites: "--";
     
     RoundButton
     {

@@ -5,6 +5,8 @@ Item {
     id: base;
     width: childrenRect.width;
     height: childrenRect.height;
+    property bool speedDisplayMode: false;
+
     Rectangle
     {
         id: bground;
@@ -26,6 +28,22 @@ Item {
         border.color: "#886911";
         anchors.right: bground.right;
         anchors.verticalCenter: bground.verticalCenter;
+        MouseArea
+        {
+            id: changeSpeedModeArea;
+            propagateComposedEvents: true;
+            anchors.fill: parent;
+            onClicked:
+            {
+                if(speedDisplayMode === true)
+                {
+                    speedDisplayMode = false;
+                } else {
+                    speedDisplayMode = true;
+                }
+            }
+        }
+
         Rectangle
         {
             id: labelBG;
@@ -56,7 +74,8 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 14;
             textFormat: Text.RichText
-            text: "<font color=\"#dae1e5\"><b>" + Number(RuntimeData.speed).toFixed(1) + "</font></b>";
+            property real spd: speedDisplayMode ? RuntimeData.speed / 3.6 : RuntimeData.speed;
+            text: "<font color=\"#dae1e5\"><b>" + Number(spd).toFixed(1) + "</font></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -71,7 +90,7 @@ Item {
             font.pixelSize: 10;
             textFormat: Text.RichText;
             font.bold: true;
-            text: "км";
+            text: !speedDisplayMode ? "км" : " \u00A0м";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -86,7 +105,7 @@ Item {
             font.pixelSize: 10;
             textFormat: Text.RichText;
             font.bold: true;
-            text: "ч";
+            text: !speedDisplayMode ? "ч" : "с";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }

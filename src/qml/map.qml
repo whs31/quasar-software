@@ -618,7 +618,7 @@ Rectangle {
         {
             id: pictogramGroup;
             anchors.top: parent.top;
-            anchors.topMargin: 20;
+            anchors.topMargin: 200;
             anchors.right: parent.right;
             anchors.rightMargin: 53;
         }
@@ -646,7 +646,7 @@ Rectangle {
             anchors.top: parent.top;
             anchors.topMargin: 3;
             anchors.right: parent.right;
-            anchors.rightMargin: 400;
+            anchors.rightMargin: 202;
         }
 
         Groups.EmulatorTextPanel

@@ -13,7 +13,7 @@ Item {
         color: "#173846";
         border.color: "#2B6781";
         border.width: 2;
-        radius: 3;
+        radius: 12;
         Text {
             id: latitudeText;
             anchors.verticalCenter: parent.verticalCenter;

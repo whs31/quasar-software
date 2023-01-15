@@ -15,7 +15,7 @@ Item {
         color: "#132623";
         border.color: "#204040";
         border.width: 2;
-        radius: 3;
+        radius: 12;
     }
     Rectangle
     {

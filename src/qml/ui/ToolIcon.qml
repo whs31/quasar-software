@@ -42,6 +42,8 @@ Item {
                 anchors.fill: parent;
                 source: ico;
                 opacity: 1;
+                smooth: true;
+                antialiasing: true;
                 color: primarycolor;
             }
             MouseArea

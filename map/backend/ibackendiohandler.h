@@ -6,6 +6,7 @@
 #include "linkerqml.h"
 #include <QStandardPaths>
 #include <QFileDialog>
+#include "runtimedata.h"
 
 #include "sconfig.h"
 
@@ -18,6 +19,7 @@ public:
     Q_INVOKABLE void reconnect(void);
     Q_INVOKABLE void disconnect(void);
     Q_INVOKABLE void changeDirectory(void);
+    Q_INVOKABLE bool calibrateSeaLevel(void);
 };
 
 #endif // IBACKENDIOHANDLER_H

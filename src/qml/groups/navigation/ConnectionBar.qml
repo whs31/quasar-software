@@ -72,7 +72,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 11;
             font.bold: true;
-            onClicked: RuntimeData.seaLevel = RuntimeData.elevation;
+            onClicked: ioHandler.calibrateSeaLevel();
             z: 100;
         }
     }

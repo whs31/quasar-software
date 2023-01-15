@@ -47,3 +47,25 @@ void IBackendIOHandler::changeDirectory(void)
         SConfig::setHashValue("ViewPath", pathNotNullCheck); 
         }
 }
+
+bool IBackendIOHandler::calibrateSeaLevel(void)
+{
+    QMessageBox askForClearTrack;
+    askForClearTrack.setWindowTitle("Калибровка высоты");
+    askForClearTrack.setIcon(QMessageBox::Information);
+    askForClearTrack.setText("Калибровка высоты должна проводиться на земле. Убедитесь, что беспилотник находится на стартовой площадке.");
+    askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    askForClearTrack.setDefaultButton(QMessageBox::Cancel);
+    int ret = askForClearTrack.exec(); // не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
+    switch (ret)
+    {
+    case QMessageBox::Yes:
+        RuntimeData::initialize()->setSeaLevel(RuntimeData::initialize()->getElevation());
+        break;
+    case QMessageBox::Cancel:
+        break;
+    default:
+        break;
+    }
+    return true;
+}

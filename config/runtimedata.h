@@ -22,6 +22,7 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude           NOTIFY longitudeChanged)
     Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation           NOTIFY elevationChanged)
     Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed               NOTIFY speedChanged)
+    Q_PROPERTY(qreal seaLevel                       READ getSeaLevel            WRITE setSeaLevel            NOTIFY seaLevelChanged)
     Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites          NOTIFY satellitesChanged)
 
     // геометрия, необходимая другим классам
@@ -87,6 +88,7 @@ public:
     qreal getLongitude();
     qreal getElevation();
     qreal getSpeed();
+    qreal getSeaLevel();
     qint16 getSatellites();
 
     qreal getAzimuthalDirection();
@@ -138,6 +140,7 @@ public:
     void setLongitude(qreal value);
     void setElevation(qreal value);
     void setSpeed(qreal value);
+    void setSeaLevel(qreal value);
     void setSatellites(qint16 value);
 
     void setAzimuthalDirection(qreal value);
@@ -193,8 +196,12 @@ private:
         qreal longitude = 0;
         qreal elevation = 0;
         qreal speed = 0;
-        qreal direction = -1; //TODO: direction
-        qint16 satellites = -1; 
+        qreal direction = -1;
+        qreal pitchAngle = -1;
+        qreal rollAngle = -1;
+        qreal seaLevel = 0; 
+        qint16 satellites = -1;
+
     }; Telemetry telemetry;
 
     qreal m_azimuthalDirection = 0;
@@ -255,6 +262,7 @@ signals:
     void longitudeChanged();
     void elevationChanged();
     void speedChanged();
+    void seaLevelChanged();
     void satellitesChanged();
 
     void pitchChanged();

@@ -49,4 +49,14 @@ Rectangle {
         anchors.bottom: coordinateIndicator.top;
         anchors.bottomMargin: 5;
     }
+
+    Nav.ConnectionBar
+    {
+        id: connectionbar;
+        anchors.bottom: coordinateIndicator.top;
+        anchors.bottomMargin: 3;
+        anchors.horizontalCenter: parent.horizontalCenter;
+    }
+
+
 }

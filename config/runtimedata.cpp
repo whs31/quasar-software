@@ -47,6 +47,15 @@ void RuntimeData::setSpeed(qreal value)
     emit speedChanged();
 }
 
+qreal RuntimeData::getSeaLevel() { return telemetry.seaLevel; }
+void RuntimeData::setSeaLevel(qreal value)
+{
+    if (value == telemetry.seaLevel)
+        return;
+    telemetry.seaLevel = value;
+    emit seaLevelChanged();
+}
+
 qint16 RuntimeData::getSatellites() { return telemetry.satellites; }
 void RuntimeData::setSatellites(short value)
 {

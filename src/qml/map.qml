@@ -614,15 +614,6 @@ Rectangle {
             anchors.leftMargin: 10;
         }
 
-        Groups.PictogramGroup
-        {
-            id: pictogramGroup;
-            anchors.top: parent.top;
-            anchors.topMargin: 200;
-            anchors.right: parent.right;
-            anchors.rightMargin: 53;
-        }
-
         Groups.MapParametersGroup
         {
             id: mapParametersPanel;

@@ -2,6 +2,7 @@ import QtQuick 2.12
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
+import QtGraphicalEffects 1.15
 
 Item {
     property bool tooltipenabled: false;
@@ -14,11 +15,13 @@ Item {
     property string label: "00";
     
     id: control;
+    width: childrenRect.width + m_text.paintedWidth;
+    height: childrenRect.height;
 
     Rectangle {
         id: toolrect;
-        color: primarycolor;
-        opacity: 0.75;
+        color: "transparent";
+        opacity: 1;
         //anchors.fill: parent;
         width: basewidth;
         height: iconsize + 9;
@@ -34,6 +37,13 @@ Item {
             anchors.left: parent.left;
             anchors.leftMargin: 5;
             anchors.verticalCenter: parent.verticalCenter;
+            ColorOverlay {
+                id: iconColor;
+                anchors.fill: parent;
+                source: ico;
+                opacity: 1;
+                color: primarycolor;
+            }
             MouseArea
             {
                 id: mouseAreaIco;
@@ -61,7 +71,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 14;
             font.bold: true;
-            color: textcolor;
+            color: primarycolor;
             text: label;
             opacity: enabled ? 1.0 : 0.3
             verticalAlignment: Text.AlignVCenter

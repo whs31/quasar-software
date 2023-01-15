@@ -499,7 +499,6 @@ void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
     }
     SAROutputConsoleEmulator sarConsoleEmulator;
     sarConsoleEmulator.sampleTest();
-    qWarning()<<RuntimeData::initialize()->autocaptureMarks;
 }
 
 void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)

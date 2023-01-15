@@ -18,7 +18,6 @@
         <file>qml/ui/CustomCheckbox.qml</file>
         <file>qml/ui/CustomButton.qml</file>
         <file>qml/ui/ToolIcon.qml</file>
-        <file>qml/groups/PictogramGroup.qml</file>
         <file>qml/groups/NetworkGroup.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
         <file>qml/ui/StatusText.qml</file>
@@ -27,5 +26,6 @@
         <file>qml/groups/navigation/CoordinateIndicator.qml</file>
         <file>qml/groups/navigation/SpeedIndicator.qml</file>
         <file>qml/groups/navigation/AltIndicator.qml</file>
+        <file>qml/groups/navigation/ConnectionBar.qml</file>
     </qresource>
 </RCC>

@@ -14,7 +14,7 @@ Item {
         id: statusText;
         text: prefix + status;
         font.capitalization: Font.MixedCase;
-        font.pixelSize: 11;
+        font.pixelSize: 14;
         font.bold: true;
         color: textcolor;
         opacity: enabled ? 1 : 0

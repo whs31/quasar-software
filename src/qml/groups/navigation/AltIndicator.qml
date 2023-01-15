@@ -56,7 +56,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 14;
             textFormat: Text.RichText
-            text: "<font color=\"#dae1e5\"><b>" + Number(RuntimeData.elevation).toFixed(0) + "</font></b>";
+            text: "<font color=\"#dae1e5\"><b>" + Number(RuntimeData.elevation - RuntimeData.seaLevel).toFixed(0) + "</font></b>";
             horizontalAlignment: Text.AlignLeft;
             verticalAlignment: Text.AlignVCenter;
         }

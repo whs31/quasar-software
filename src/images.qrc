@@ -297,5 +297,9 @@
         <file>ui-resources/white/unlink.png</file>
         <file>ui-resources/white/url.png</file>
         <file>ui-resources/white/input.png</file>
+        <file>ui-resources/white/antenna.png</file>
+        <file>ui-resources/white/connection-information.png</file>
+        <file>ui-resources/white/mountain.png</file>
+        <file>ui-resources/white/sea-water.png</file>
     </qresource>
 </RCC>

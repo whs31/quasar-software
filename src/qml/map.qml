@@ -625,7 +625,6 @@ Rectangle {
         Groups.ImageToolsGroup
         {
             id: imagePanel;
-            // opacity: 0.9;
             anchors.top: parent.top;
             anchors.left: parent.left;
             anchors.topMargin: 3;

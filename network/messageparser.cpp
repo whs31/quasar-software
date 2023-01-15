@@ -40,16 +40,19 @@ QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
 QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9)
 {
     QString formRequest = ":" + QStringLiteral("%1").arg(++formMessageID, 4, 10, QLatin1Char('0')) + "|";
-    QString _formRequest = REQUEST_FORM + "(" 
-                                        + arg1 + ","                            //mode (m1, m2) : QString
-                                        + QString::number(arg2) + ","           //x0 : int
-                                        + QString::number(arg3) + ","           //lx + x0 : int
-                                        + QString::number(arg4, 'f', 1) + ","   //ts : float
-                                        + QString::number(arg5, 'f', 1) + ","   //dx : float 
-                                        + QString::number(arg6, 'f', 1) + ","   //dy : float (dx = dy in most cases)
-                                        + QString::number(arg7) + ","           //override gps data : (int)bool
-                                        + QString::number(arg8, 'f', 0) + ","   //height : float
-                                        + QString::number(arg9, 'f', 1)         //speed : float 
+    QString _formRequest = REQUEST_FORM + "("
+                                        + arg1 + ","                                //mode (m1, m2) : QString
+                                        + QString::number(arg2) + ","               //x0 : int
+                                        + QString::number(arg3) + ","               //lx + x0 : int
+                                        + QString::number(arg4, 'f', 1) + ","       //ts : float
+                                        + QString::number(arg5, 'f', 1) + ","       //dx : float
+                                        + QString::number(arg6, 'f', 1) + ","       //dy : float (dx = dy in most cases)
+                                        + QString::number(arg7) + ","               //override gps data : 1 or 0 (int)
+                                        + QString::number(arg8, 'f', 0) + ","       //height : float
+                                        + QString::number(arg9, 'f', 1) + ","       //speed : float
+                                        + QString::number(
+                                        RuntimeData::initialize()->getSeaLevel(),   //sealevel : float
+                                        'f', 1)
                                         + ")";
     QString hexlen;
     hexlen.setNum(_formRequest.length(), 16);

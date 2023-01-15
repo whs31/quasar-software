@@ -20,7 +20,7 @@ void FlightEmulator::Update(void)
     calculateVelocities(RuntimeData::initialize()->getFlatDirection(), RuntimeData::initialize()->getSpeed());
     moveByVelocity();
     udpEmulator->emulatorTelemetry.elevation = (RuntimeData::initialize()->getElevation() + 0.1);
-    qDebug()<<RuntimeData::initialize()->getElevation() << RuntimeData::initialize()->getSeaLevel();
+    //qDebug()<<RuntimeData::initialize()->getElevation() << RuntimeData::initialize()->getSeaLevel();
 
     LinkerQML::fixedUpdate();
 }

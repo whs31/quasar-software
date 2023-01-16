@@ -59,3 +59,49 @@ bool RecallHandler::calibrateSeaLevel(void)
     }
     return true;
 }
+
+bool RecallHandler::clearMap(void)
+{
+    QMessageBox box;
+    box.setWindowTitle("Очистка карты");
+    box.setIcon(QMessageBox::Information);
+    box.setText("Вы уверены, что хотите очистить карту от всех изображений?");
+    box.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    box.setDefaultButton(QMessageBox::Cancel);
+    int ret = box.exec();
+    switch (ret)
+    {
+    case QMessageBox::Yes:
+        return true;
+        break;
+    case QMessageBox::Cancel:
+        return false;
+        break;
+    default:
+        break;
+    }
+    return false;
+}
+
+bool RecallHandler::clearCache(void)
+{
+    QMessageBox box;
+    box.setWindowTitle("Очистка кэша");
+    box.setIcon(QMessageBox::Information);
+    box.setText("Вы уверены, что хотите очистить кэш программы? Все полученные в ходе полёта изображения исчезнут из памяти компьютера.");
+    box.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    box.setDefaultButton(QMessageBox::Cancel);
+    int ret = box.exec();
+    switch (ret)
+    {
+    case QMessageBox::Yes:
+        return true;
+        break;
+    case QMessageBox::Cancel:
+        return false;
+        break;
+    default:
+        break;
+    }
+    return false;
+}

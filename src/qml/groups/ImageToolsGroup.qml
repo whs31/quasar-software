@@ -96,9 +96,13 @@ Rectangle
             labeltext: "Очистить карту";
             onClicked: 
             {
-                imageModel.clear();
-                imageUIModel.clear();
-                ImageManager.clearAll();
+                var verify = ioHandler.clearMap();
+                if(verify)
+                {
+                    imageModel.clear();
+                    imageUIModel.clear();
+                    ImageManager.clearAll();
+                }
             }
             z: 99;
         }
@@ -115,7 +119,11 @@ Rectangle
             anchors.top: clearMapButton.bottom;
             anchors.topMargin: 10;
             labeltext: "Очистить кэш";
-            onClicked: DiskManager.clearCache();
+            onClicked: 
+            {
+                var verify = ioHandler.clearCache();
+                if(verify) { DiskManager.clearCache(); }
+            }
             z: 99;
         }
     }

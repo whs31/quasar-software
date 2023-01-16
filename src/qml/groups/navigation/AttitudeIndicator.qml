@@ -7,7 +7,8 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import "qrc:/qml/ui" as UI
 import RuntimeData 1.0
-import QtGraphicalEffects 1.15;
+import QtGraphicalEffects 1.15
+//import Math
 
 Rectangle {
     id: base;
@@ -24,12 +25,16 @@ Rectangle {
         id: indicator;
         anchors.fill: parent;
         color: "#BBBC88";
-        rotation: RuntimeData.roll;
+        border.width: 2;
+        border.color: "#dae1e5";
+        rotation: -RuntimeData.roll;
         visible: true;
         Rectangle
         {
             id: top;
             color: "#43a1ca";
+            border.width: 1;
+            border.color: "#b4b4dc";
             anchors.bottom: parent.verticalCenter;
             anchors.top: parent.top;
             anchors.topMargin: -100;
@@ -38,12 +43,14 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50;
             anchors.margins: 2;
-            anchors.bottomMargin: 0;
+            anchors.bottomMargin: -90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
         }
         Rectangle
         {
             id: bottom;
             color: "#7D5233";
+            border.width: 1;
+            border.color: "#b4b4dc";
             anchors.top: parent.verticalCenter;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: -100;
@@ -52,7 +59,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50;
             anchors.margins: 2;
-            anchors.topMargin: 0;
+            anchors.topMargin: 90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
             clip: true;
         }
     }

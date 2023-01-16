@@ -11,7 +11,7 @@ Item {
     {
         id: bground;
         width: 26;
-        height: 180;
+        height: 200;
         color: "#132623";
         border.color: "#204040";
         border.width: 2;

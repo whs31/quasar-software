@@ -355,10 +355,6 @@ void CoreUI::on_debugButton_clicked()
         ui->debugConsoleDock->setEnabled(state);
         ui->debugConsoleDock->setVisible(state);
     }
-    else
-    {
-        // throw password window =)
-    }
 }
 
 void CoreUI::ReadTelemetry(QByteArray data)
@@ -437,8 +433,8 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
         pressedKeys += (static_cast<QKeyEvent*>(event))->key();
-        if ( pressedKeys.contains(Qt::Key_W) || pressedKeys.contains(1062) ) { flightEmulator->pitchChange(1); }
-        if ( pressedKeys.contains(Qt::Key_S) || pressedKeys.contains(1067)) { flightEmulator->pitchChange(-1); }
+        if ( pressedKeys.contains(Qt::Key_W) || pressedKeys.contains(1062) ) { flightEmulator->pitchChange(-1); }
+        if ( pressedKeys.contains(Qt::Key_S) || pressedKeys.contains(1067)) { flightEmulator->pitchChange(1); }
         if ( pressedKeys.contains(Qt::Key_A) || pressedKeys.contains(1060)) { flightEmulator->yawChange(-1); }
         if ( pressedKeys.contains(Qt::Key_D) || pressedKeys.contains(1042)) { flightEmulator->yawChange(1); }
         if ( pressedKeys.contains(Qt::Key_Q) || pressedKeys.contains(1049)) { flightEmulator->rollChange(-1); }

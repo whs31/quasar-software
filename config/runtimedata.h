@@ -80,6 +80,7 @@ public:
     static RuntimeData* initialize(QObject* parent = nullptr);
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
+    void toggleConsole(void);
 
     //======================================================================================================
     //                                           ==> GET ==>
@@ -301,6 +302,7 @@ signals:
     void autocaptureEnabledChanged();
 
     void autocaptureSignal();
+    void toggleConsoleSignal();
 };
 
 #endif // RUNTIMEDATA_H

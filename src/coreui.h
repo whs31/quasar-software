@@ -123,19 +123,20 @@ private slots:
     void on_settingsButton_clicked();
     void on_infoButton_clicked();
     void on_emulatorButton_clicked();
+    void on_debugButton_clicked();
 
     //utility slots
     void ReadTelemetry(QByteArray data);
     void ReadForm(QByteArray data);
     void ReadSARConsole(QByteArray data);
-    void Halftime();
+    void Halftime(void);
+    void toggleConsoleSlot(void);
 
     //gui slots
     void on_pushButton_placeMarker_clicked();
     void on_pushButton_formSingleImage_clicked();
     void on_pushButton_launchContinuous_clicked();
     void on_pushButton_stopContinuous_clicked();
-    void on_pushButton_showDebugConsoleDock_clicked();
     void on_spinBox_sarLowerBound_valueChanged(int arg1);
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);
@@ -143,6 +144,5 @@ private slots:
     void on_checkBoxEnableManualGPS_stateChanged(int arg1);
     void on_doubleSpinBox_height_valueChanged(double arg1);
     void on_doubleSpinBox_velocity_valueChanged(double arg1);
-    void on_pushButton_showSARConsole_clicked();
 };
 #endif // COREUI_H

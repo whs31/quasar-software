@@ -65,36 +65,4 @@ void CoreUI::on_pushButton_stopContinuous_clicked()
 {
     formingContinuous = false;
 }
-
-void CoreUI::on_pushButton_showDebugConsoleDock_clicked()
-{
-    if (SConfig::getHashBoolean("ShowConsole"))
-    {
-        bool state = ui->debugConsoleDock->isEnabled();
-        state = !state;
-        ui->debugConsoleDock->setEnabled(state);
-        ui->debugConsoleDock->setVisible(state);
-    }
-    else
-    {
-        // throw password window =)
-    }
-}
-void CoreUI::on_pushButton_showSARConsole_clicked()
-{
-    if (!plugins.terminalLoaded)
-    {
-        bool state = ui->sarConsoleDock->isEnabled();
-        state = !state;
-        ui->sarConsoleDock->setEnabled(state);
-        ui->sarConsoleDock->setVisible(state);
-    }
-    else
-    {
-        bool state = plugins.terminal->isEnabled();
-        state = !state;
-        plugins.terminal->setEnabled(state);
-        plugins.terminal->setVisible(state);
-    }
-}
 //************************************************************************************************************************************************************************************************************

@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle
 {
-    property int containerHeight: 90;
+    property int containerHeight: 130;
 
     property string textLatitude: "00.0000000";
     property string textLongitude: "00.0000000";
@@ -85,6 +85,22 @@ Rectangle
             anchors.topMargin: 10;
             labeltext: "Отключиться";
             onClicked: ioHandler.disconnect();
+            z: 99;
+        }
+
+        UI.CustomButton
+        {
+            id: sarConsoleButton;
+            iconsource: "qrc:/ui-resources/white/command-line.png";
+            iconsize: 15;
+            primarycolor: "#204040";
+            width: 192;
+            height: 20;
+            anchors.left: parent.left;
+            anchors.top: disconnectButton.bottom;
+            anchors.topMargin: 20;
+            labeltext: "Консоль РЛС";
+            onClicked: ioHandler.toggleConsole();
             z: 99;
         }
     }

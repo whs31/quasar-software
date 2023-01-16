@@ -25,7 +25,7 @@ bool RecallHandler::clearTrack(void)
     return true;
 }
 
-void RecallHandler::reconnect(void)     { LinkerQML::initialize()->reconnect(); }
+void RecallHandler::reconnect(void)     { LinkerQML::initialize()->reconnect(); if(RuntimeData::initialize()->getConnected()) { LinkerQML::panGPS(); } }
 void RecallHandler::disconnect(void)    { LinkerQML::initialize()->disconnect(); }
 void RecallHandler::changeDirectory(void)
 {
@@ -105,3 +105,5 @@ bool RecallHandler::clearCache(void)
     }
     return false;
 }
+
+void RecallHandler::toggleConsole(void) { RuntimeData::initialize()->toggleConsole(); }

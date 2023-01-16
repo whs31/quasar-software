@@ -46,6 +46,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
+    connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
@@ -339,6 +340,20 @@ void CoreUI::on_emulatorButton_clicked()
     else
         flightEmulator->stopEmulator(); 
 }
+void CoreUI::on_debugButton_clicked()
+{
+    if (SConfig::getHashBoolean("ShowConsole"))
+    {
+        bool state = ui->debugConsoleDock->isEnabled();
+        state = !state;
+        ui->debugConsoleDock->setEnabled(state);
+        ui->debugConsoleDock->setVisible(state);
+    }
+    else
+    {
+        // throw password window =)
+    }
+}
 
 void CoreUI::ReadTelemetry(QByteArray data)
 {
@@ -431,6 +446,23 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         return QObject::eventFilter(obj, event);
     }
     return false;
+}
+void CoreUI::toggleConsoleSlot()
+{
+    if (!plugins.terminalLoaded)
+    {
+        bool state = ui->sarConsoleDock->isEnabled();
+        state = !state;
+        ui->sarConsoleDock->setEnabled(state);
+        ui->sarConsoleDock->setVisible(state);
+    }
+    else
+    {
+        bool state = plugins.terminal->isEnabled();
+        state = !state;
+        plugins.terminal->setEnabled(state);
+        plugins.terminal->setVisible(state);
+    }
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

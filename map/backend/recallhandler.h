@@ -22,6 +22,8 @@ public:
     Q_INVOKABLE bool calibrateSeaLevel(void);
     Q_INVOKABLE bool clearMap(void);
     Q_INVOKABLE bool clearCache(void);
+    Q_INVOKABLE void toggleConsole(void);
+
 };
 
 #endif // IRECALLHANDLER_H

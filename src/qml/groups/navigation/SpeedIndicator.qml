@@ -26,7 +26,7 @@ Item {
         color: "#372b07";
         border.width: 2;
         border.color: "#886911";
-        anchors.right: bground.right;
+        anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.verticalCenter;
         MouseArea
         {

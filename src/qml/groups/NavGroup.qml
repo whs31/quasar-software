@@ -7,8 +7,8 @@ import "navigation" as Nav
 
 Rectangle {
     id: mainGroup;
-    width: 490;
-    height: 270;
+    width: 430;
+    height: 260;
     color: "transparent";
     z: 98;
     Rectangle { id: mask1; width: 2; anchors.left: parent.left; anchors.bottom: parent.bottom; anchors.top: parent.top; color: "#dae1e5"; z: 99; opacity: 0.5; }
@@ -36,7 +36,7 @@ Rectangle {
     {
         id: speedIndicator;
         anchors.left: parent.left;
-        anchors.leftMargin: 60;
+        anchors.leftMargin: 33;
         anchors.bottom: coordinateIndicator.top;
         anchors.bottomMargin: 0;
     }
@@ -45,7 +45,7 @@ Rectangle {
     {
         id: altIndicator;
         anchors.right: parent.right;
-        anchors.rightMargin: 5;
+        anchors.rightMargin: -22;
         anchors.bottom: coordinateIndicator.top;
         anchors.bottomMargin: 0;
     }

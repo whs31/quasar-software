@@ -44,7 +44,7 @@ include_directories(
 if(NOT WIN32)
     include_directories (
       ${GTK2_INCLUDE_DIRS}
-      )
+    )
 endif()
 
 

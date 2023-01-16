@@ -301,5 +301,6 @@
         <file>ui-resources/white/connection-information.png</file>
         <file>ui-resources/white/mountain.png</file>
         <file>ui-resources/white/sea-water.png</file>
+        <file>ui-resources/white/marker-blank.png</file>
     </qresource>
 </RCC>

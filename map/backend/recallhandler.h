@@ -23,6 +23,7 @@ public:
     Q_INVOKABLE bool clearMap(void);
     Q_INVOKABLE bool clearCache(void);
     Q_INVOKABLE void toggleConsole(void);
+    Q_INVOKABLE void placeMarker(void);
 
 };
 

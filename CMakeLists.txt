@@ -80,7 +80,7 @@ else()
         network/udpremote.h                                 network/udpremote.cpp
         network/tcpdownloader.h                             network/tcpdownloader.cpp
         network/messageparser.h                             network/messageparser.cpp
-        src/coreui.h                                        src/coreui.cpp                                                 src/coreui-guislots.cpp
+        src/coreui.h                                        src/coreui.cpp
         config/config.h                                     config/config.cpp
         config/sconfig.h                                    config/sconfig.cpp
         config/settingsdialog.h                             config/settingsdialog.cpp                                      config/settingsdialog.ui

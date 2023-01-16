@@ -86,4 +86,26 @@ Item {
             }
         }
     }
+    RoundButton
+    {
+        id: markerButton;
+        icon.source: "qrc:/ui-resources/white/marker-blank.png";
+        icon.color: "#dae1e5";
+        icon.width: 40;
+        icon.height: 40;
+        width: 40;
+        height: 40;
+        radius: 10;
+        opacity: 1;
+        z: 100;
+        anchors.right: rulerButton.left;
+        anchors.verticalCenter: rulerButton.verticalCenter;
+        highlighted: true;
+        flat: false;
+        anchors.rightMargin: 20;
+        hoverEnabled: true;
+        enabled: true;
+        display: AbstractButton.IconOnly;
+        onClicked: { ioHandler.placeMarker(); }
+    }
 }

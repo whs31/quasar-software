@@ -1037,94 +1037,6 @@ QDialogButtonBox QPushButton {
          </property>
         </widget>
        </item>
-       <item>
-        <spacer name="horizontalSpacer">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_placeMarker">
-         <property name="enabled">
-          <bool>true</bool>
-         </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #dae1e5;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-  border: none;
-}
-
-QPushButton:disabled {
-  background-color: #203a40;
-  color: #Bebebf;
-  border-radius: 4px;
-  padding: 2px;
-}
-
-QPushButton:hover {
-  background-color: #499c54;
-  color: #dae1e5;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-  color: #23243b;
-}
-
-QPushButton:selected {
-  background: #ACB1B6;
-  color: #19232D;
-}
-
-QPushButton::menu-indicator {
-  subcontrol-origin: padding;
-  subcontrol-position: bottom right;
-  bottom: 4px;
-}
-
-QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Установить маркер</string>
-         </property>
-         <property name="icon">
-          <iconset resource="images.qrc">
-           <normaloff>:/ui-resources/white/marker.png</normaloff>:/ui-resources/white/marker.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>16</width>
-           <height>16</height>
-          </size>
-         </property>
-        </widget>
-       </item>
       </layout>
      </item>
      <item>
@@ -1982,25 +1894,6 @@ QAbstractSpinBox:selected {
           <double>100.000000000000000</double>
          </property>
         </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </item>

@@ -42,7 +42,7 @@ Rectangle
         anchors.leftMargin: 5;
         anchors.right: expandButton.right;
         anchors.rightMargin: 5;
-        opacity: 0.85;
+        opacity: 0.75;
         z: 99;
 
         //collapsible panel
@@ -75,7 +75,7 @@ Rectangle
         {
             id: disconnectButton;
             iconsource: "qrc:/ui-resources/white/unlink.png";
-            iconsize: 15;
+            iconsize: 17;
             primarycolor: "#b16573";
             accentcolor: "#701828";
             width: 192;

@@ -107,3 +107,4 @@ bool RecallHandler::clearCache(void)
 }
 
 void RecallHandler::toggleConsole(void) { RuntimeData::initialize()->toggleConsole(); }
+void RecallHandler::placeMarker(void)   { RuntimeData::mouseState = MouseState::MarkerPlacement; }

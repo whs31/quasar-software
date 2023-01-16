@@ -13,13 +13,15 @@ UDPEmulator::UDPEmulator(QObject *parent)
     }
 }
 
-QByteArray UDPEmulator::jsonEncode(float latitude, float longitude, float speed, float elevation, int satellites) {
+QByteArray UDPEmulator::jsonEncode(float latitude, float longitude, float speed, float elevation, int satellites, float pitch, float roll) {
     QJsonObject jsonData;
     jsonData["Latitude"] = latitude;
     jsonData["Longitude"] = longitude;
     jsonData["Speed"] = speed;
     jsonData["Elevation"] = elevation;
     jsonData["Sats"] = satellites;
+    jsonData["Pitch"] = pitch;
+    jsonData["Roll"] = roll;
 
     QJsonDocument jsonDoc(jsonData);
     return "$JSON" + jsonDoc.toJson();
@@ -37,7 +39,7 @@ void UDPEmulator::readSlot()
         if (datagram == MessageParser::REQUEST_TELEMETRY) {
             m_socket->writeDatagram(jsonEncode(emulatorTelemetry.latitude, emulatorTelemetry.longitude,
                                                emulatorTelemetry.speed, emulatorTelemetry.elevation,
-                                               emulatorTelemetry.sats), sender, senderPort);
+                                               emulatorTelemetry.sats, emulatorTelemetry.pitch, emulatorTelemetry.roll), sender, senderPort);
         }
     }
 }

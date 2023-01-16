@@ -99,7 +99,7 @@ void FlightEmulator::rollChange(int value)
     qreal roll = RuntimeData::initialize()->getRoll() + value;
     if(roll > 85 || roll < -85)
         return;
-    RuntimeData::initialize()->setRoll(roll);
+    udpEmulator->emulatorTelemetry.roll = (roll);
 }
 
 void FlightEmulator::pitchChange(int value)
@@ -107,7 +107,7 @@ void FlightEmulator::pitchChange(int value)
     qreal pitch = RuntimeData::initialize()->getPitch() + value;
     if(pitch > 85 || pitch < -85)
         return;
-    RuntimeData::initialize()->setPitch(pitch);
+    udpEmulator->emulatorTelemetry.pitch = (pitch);
 }
 
 void FlightEmulator::yawReset() { RuntimeData::initialize()->setYaw(0); }

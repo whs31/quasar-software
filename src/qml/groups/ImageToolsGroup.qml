@@ -9,7 +9,7 @@ import ImageManager 1.0
 
 Rectangle 
 {
-    property int containerHeight: 130;
+    property int containerHeight: 146;
     
     RoundButton
     {
@@ -19,12 +19,12 @@ Rectangle
         Material.background: "#204040"
         icon.width: 12;
         icon.height: 24;
-        height: 32;
-        radius: 32;
+        height: 36;
+        radius: 16;
         opacity: 1;
         text: "Работа с изображениями";
         font.capitalization: Font.MixedCase; 
-        font.pixelSize: 11;
+        font.pixelSize: 13;
         onClicked: box.shown = !box.shown;
         z: 100;
     }
@@ -32,7 +32,7 @@ Rectangle
     UI.RoundPane {
         id: box;
         anchors.top: expandButton.top;
-        anchors.topMargin: 10;
+        anchors.topMargin: 18;
         anchors.left: expandButton.left;
         anchors.leftMargin: 5;
         anchors.right: expandButton.right;
@@ -55,10 +55,10 @@ Rectangle
         {
             id: fetchDirectoryButton;
             iconsource: "qrc:/ui-resources/white/refresh.png";
-            iconsize: 11;
+            iconsize: 13;
             primarycolor: "#204040";
-            width: 145;
-            height: 16;
+            width: 167;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.topMargin: 10;
@@ -70,10 +70,10 @@ Rectangle
         {
             id: changeDirectoryButton;
             iconsource: "qrc:/ui-resources/white/folder.png";
-            iconsize: 11;
+            iconsize: 13;
             primarycolor: "#204040";
-            width: 145;
-            height: 16;
+            width: 167;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: fetchDirectoryButton.bottom;
             anchors.topMargin: 10;
@@ -85,11 +85,11 @@ Rectangle
         {
             id: clearMapButton;
             iconsource: "qrc:/ui-resources/white/map.png";
-            iconsize: 11;
+            iconsize: 13;
             primarycolor: "#b16573";
             accentcolor: "#701828";
-            width: 145;
-            height: 16;
+            width: 167;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: changeDirectoryButton.bottom;
             anchors.topMargin: 10;
@@ -106,11 +106,11 @@ Rectangle
         {
             id: clearDirectoryButton;
             iconsource: "qrc:/ui-resources/white/trashbin.png";
-            iconsize: 11;
+            iconsize: 13;
             primarycolor: "#b16573";
             accentcolor: "#701828";
-            width: 145;
-            height: 16;
+            width: 167;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: clearMapButton.bottom;
             anchors.topMargin: 10;

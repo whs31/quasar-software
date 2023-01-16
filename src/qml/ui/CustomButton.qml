@@ -11,6 +11,7 @@ Rectangle {
     property color textcolor: "#dae1e5";
     property color primarycolor: "#204040";
     property color accentcolor: "#428585";
+    property bool boldness: false;
 
     signal clicked();
 
@@ -69,7 +70,8 @@ Rectangle {
         Text {
             text: labeltext;
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 11;
+            font.pixelSize: 13;
+            font.bold: boldness;
             color: textcolor;
             opacity: enabled ? 1.0 : 0.3
             verticalAlignment: Text.AlignVCenter

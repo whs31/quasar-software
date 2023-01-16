@@ -84,7 +84,7 @@ Item {
         Text {
             text: labeltext;
             font.capitalization: Font.MixedCase; 
-            font.pixelSize: 11;
+            font.pixelSize: 13;
             color: textcolor;
             opacity: enabled ? 1.0 : 0.3
             verticalAlignment: Text.AlignVCenter

@@ -8,7 +8,7 @@ import RuntimeData 1.0
 
 Rectangle
 {
-    property int containerHeight: 75;
+    property int containerHeight: 90;
 
     property string textLatitude: "00.0000000";
     property string textLongitude: "00.0000000";
@@ -24,12 +24,12 @@ Rectangle
         Material.background: "#204040"
         icon.width: 12;
         icon.height: 24;
-        height: 32;
-        radius: 32;
+        height: 36;
+        radius: 16;
         opacity: 1;
         text: "Удаленное соединение с РЛС";
         font.capitalization: Font.MixedCase;
-        font.pixelSize: 11;
+        font.pixelSize: 13;
         onClicked: box.shown = !box.shown;
         z: 100;
     }
@@ -59,26 +59,27 @@ Rectangle
         {
             id: reconnectButton;
             iconsource: "qrc:/ui-resources/white/url.png";
-            iconsize: 11;
+            iconsize: 13;
             primarycolor: "#204040";
-            width: 170;
-            height: 16;
+            width: 192;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: parent.top;
-            anchors.topMargin: 10;
+            anchors.topMargin: 15;
             labeltext: "Подключиться";
             onClicked: ioHandler.reconnect();
+            boldness: true;
             z: 99;
         }
         UI.CustomButton
         {
             id: disconnectButton;
             iconsource: "qrc:/ui-resources/white/unlink.png";
-            iconsize: 14;
+            iconsize: 15;
             primarycolor: "#b16573";
             accentcolor: "#701828";
-            width: 170;
-            height: 16;
+            width: 192;
+            height: 20;
             anchors.left: parent.left;
             anchors.top: reconnectButton.bottom;
             anchors.topMargin: 10;

@@ -620,7 +620,7 @@ Rectangle {
             anchors.top: parent.top;
             anchors.left: parent.left;
             anchors.topMargin: 3;
-            anchors.leftMargin: 190;
+            anchors.leftMargin: 200;
         }
         Groups.ImageToolsGroup
         {
@@ -636,7 +636,7 @@ Rectangle {
             anchors.top: parent.top;
             anchors.topMargin: 3;
             anchors.right: parent.right;
-            anchors.rightMargin: 202;
+            anchors.rightMargin: 230;
         }
 
         Groups.EmulatorTextPanel

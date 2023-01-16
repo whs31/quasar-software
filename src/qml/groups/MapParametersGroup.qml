@@ -18,12 +18,12 @@ Rectangle
         Material.background: "#204040"
         icon.width: 12;
         icon.height: 24;
-        height: 32;
-        radius: 32;
+        height: 36;
+        radius: 16;
         opacity: 1;
         text: "Параметры интерактивной карты";
         font.capitalization: Font.MixedCase; 
-        font.pixelSize: 11;
+        font.pixelSize: 13;
         onClicked: box.shown = !box.shown;
         z: 100;
     }
@@ -55,7 +55,7 @@ Rectangle
             checked: false;
             anchors.left: parent.left;
             anchors.top: parent.top;
-            anchors.topMargin: 15;
+            anchors.topMargin: 17;
             iconsource: "qrc:/ui-resources/white/plane.png";
             labeltext: "Следить за бортом";
 
@@ -114,8 +114,8 @@ Rectangle
             accentcolor: "#701828";
             //height: 28;
             //opacity: 1;
-            width: 170;
-            height: 16;
+            width: 222;
+            height: 20;
             iconsize: 14;
             anchors.left: checkboxDrawDiagram.left;
             anchors.top: checkboxDrawDiagram.bottom;

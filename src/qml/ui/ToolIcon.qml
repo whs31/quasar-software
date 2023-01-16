@@ -71,7 +71,7 @@ Item {
         Text {
             id: m_text;
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 14;
+            font.pixelSize: 16;
             font.bold: true;
             color: primarycolor;
             text: label;

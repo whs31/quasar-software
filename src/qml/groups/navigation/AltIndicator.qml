@@ -11,17 +11,17 @@ Item {
     Rectangle
     {
         id: bground;
-        width: 22;
+        width: 26;
         height: 180;
         color: "#132623";
         border.color: "#204040";
         border.width: 2;
-        radius: 12;
+        radius: 13;
     }
     Rectangle
     {
         id: fground;
-        width: 70;
+        width: 80;
         height: 52;
         radius: 2;
         color: "#27183d";
@@ -42,7 +42,7 @@ Item {
         Rectangle
         {
             id: labelBG;
-            width: 70;
+            width: 80;
             height: 13;
             radius: 2;
             color: "#4b2e75";
@@ -52,7 +52,7 @@ Item {
                 id: labelText
                 text: "ВЫСОТА";
                 font.bold: true;
-                font.pointSize: 7;
+                font.pointSize: 8;
                 horizontalAlignment: Text.AlignHCenter;
                 anchors.centerIn: parent;
                 color: "#dae1e5";
@@ -61,12 +61,12 @@ Item {
         Text {
             id: altText;
             anchors.top: labelBG.bottom;
-            anchors.topMargin: 2;
+            anchors.topMargin: -1;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.horizontalCenterOffset: -4;
             color: "#dae1e5";
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 14;
+            font.pixelSize: 20;
             textFormat: Text.RichText
             text: altDisplayMode ? "<font color=\"#dae1e5\"><b>"
                                     + Number(RuntimeData.elevation - RuntimeData.seaLevel).toFixed(0) + "</font></b>" :
@@ -82,7 +82,7 @@ Item {
             anchors.leftMargin: 2;
             color: "#a385cf";
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 10;
+            font.pixelSize: 12;
             textFormat: Text.RichText;
             font.bold: true;
             text: "м";
@@ -92,7 +92,7 @@ Item {
         Rectangle
         {
             id: miscBG;
-            width: 70;
+            width: 80;
             height: 2;
             radius: 2;
             color: "#4b2e75";

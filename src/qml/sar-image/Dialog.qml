@@ -39,7 +39,7 @@ MapQuickItem {
             layer.enabled: true;
             transformOrigin: Item.Center;
             smooth: true;
-            source: "qrc:/map-resources/markers/radar.png";
+            source: "qrc:/map-resources/markers/image.png";
             visible: true;
         }
 
@@ -87,7 +87,7 @@ MapQuickItem {
                 color: "#121212"; //radarImageOverlay.color;
                 enabled: true;
                 anchors.fill: parent;
-                font.pointSize: 7;
+                font.pointSize: 8;
                 font.family: "Arial";
                 font.weight: Font.Bold;
                 textFormat: Text.RichText;

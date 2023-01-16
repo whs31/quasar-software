@@ -13,11 +13,11 @@ Item {
     {
         id: bground;
         width: 230;
-        height: 30;
+        height: 34;
         color: "#132623";
         border.color: "#204040";
         border.width: 2;
-        radius: 14;
+        radius: 17;
         opacity: 1;
         UI.ToolIcon {
             id: iconLinkStatus;
@@ -28,7 +28,7 @@ Item {
             anchors.right: parent.right;
             anchors.rightMargin: 7;
             anchors.verticalCenter: parent.verticalCenter;
-            basewidth: 30;
+            basewidth: 34;
             primarycolor: RuntimeData.connected ? "#73c924" : "#de3857";
             label: RuntimeData.connected ? "LNK" : "ERR";
         }
@@ -43,9 +43,9 @@ Item {
                             порт обратной связи <font color=\"#c7a750\"><b>" + RuntimeData.listenPort + "</b></font>";
             iconsource: "qrc:/ui-resources/white/connection-information.png";
             anchors.right: iconLinkStatus.left;
-            anchors.rightMargin: 0;
+            anchors.rightMargin: -5;
             anchors.verticalCenter: parent.verticalCenter;
-            basewidth: 30;
+            basewidth: 34;
             primarycolor: "#dae1e5";
             label: "";
         }
@@ -56,21 +56,21 @@ Item {
             iconsource: "qrc:/ui-resources/white/satellite.png";
             label: "<font color=\"#c4bb4b\">" + Number(RuntimeData.satellites) + "</font>";
             anchors.right: iconLinkInfo.left;
-            anchors.rightMargin: 0;
+            anchors.rightMargin: -5;
             anchors.verticalCenter: parent.verticalCenter;
-            basewidth: 30;
+            basewidth: 34;
             primarycolor: "#c4bb4b";
         }
         RoundButton
         {
             id: calibrateButton;
             Material.background: "#204040"
-            height: 30;
+            height: 34;
             radius: 15;
             opacity: 1;
             text: "CAL";
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 11;
+            font.pixelSize: 13;
             font.bold: true;
             onClicked: ioHandler.calibrateSeaLevel();
             z: 100;

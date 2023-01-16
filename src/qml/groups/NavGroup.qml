@@ -7,8 +7,8 @@ import "navigation" as Nav
 
 Rectangle {
     id: mainGroup;
-    width: 406;
-    height: 250;
+    width: 490;
+    height: 270;
     color: "transparent";
     z: 98;
     Rectangle { id: mask1; width: 2; anchors.left: parent.left; anchors.bottom: parent.bottom; anchors.top: parent.top; color: "#dae1e5"; z: 99; opacity: 0.5; }
@@ -36,9 +36,9 @@ Rectangle {
     {
         id: speedIndicator;
         anchors.left: parent.left;
-        anchors.leftMargin: 54;
+        anchors.leftMargin: 60;
         anchors.bottom: coordinateIndicator.top;
-        anchors.bottomMargin: 5;
+        anchors.bottomMargin: 0;
     }
 
     Nav.AltIndicator
@@ -47,7 +47,7 @@ Rectangle {
         anchors.right: parent.right;
         anchors.rightMargin: 5;
         anchors.bottom: coordinateIndicator.top;
-        anchors.bottomMargin: 5;
+        anchors.bottomMargin: 0;
     }
 
     Nav.ConnectionBar

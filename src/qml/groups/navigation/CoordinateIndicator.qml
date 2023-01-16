@@ -8,12 +8,12 @@ Item {
     Rectangle
     {
         id: bground;
-        width: 300;
-        height: 22;
+        width: 325;
+        height: 30;
         color: "#173846";
         border.color: "#2B6781";
         border.width: 2;
-        radius: 12;
+        radius: 15;
         Text {
             id: latitudeText;
             anchors.verticalCenter: parent.verticalCenter;
@@ -22,9 +22,9 @@ Item {
             anchors.leftMargin: 9;
             color: "#dae1e5";
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 12;
+            font.pixelSize: 13;
             textFormat: Text.RichText
-            text: "Широта: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.latitude).toFixed(6) + "°N";
+            text: "ШИРОТА: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.latitude).toFixed(6) + "°N";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -36,9 +36,9 @@ Item {
             anchors.rightMargin: 9;
             color: "#dae1e5";
             font.capitalization: Font.MixedCase;
-            font.pixelSize: 12;
+            font.pixelSize: 13;
             textFormat: Text.RichText
-            text: "Долгота: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.longitude).toFixed(6) + "°E";
+            text: "ДОЛГОТА: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.longitude).toFixed(6) + "°E";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -47,7 +47,7 @@ Item {
     {
         id: fground;
         width: fgroundText.paintedWidth + 15;
-        height: 12;
+        height: 14;
         color: "#2B6781";
         anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.bottom;
@@ -56,7 +56,7 @@ Item {
             id: fgroundText
             text: "ПОЛОЖЕНИЕ БОРТА";
             font.bold: true;
-            font.pointSize: 7;
+            font.pointSize: 8;
             horizontalAlignment: Text.AlignHCenter;
             anchors.centerIn: parent;
             color: "#dae1e5";

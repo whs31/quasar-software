@@ -5,5 +5,6 @@
         <file>map-resources/markers/preset.psd</file>
         <file>map-resources/markers/radar.png</file>
         <file>map-resources/markers/autocapture.png</file>
+        <file>map-resources/markers/image.png</file>
     </qresource>
 </RCC>

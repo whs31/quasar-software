@@ -10,18 +10,28 @@ Item {
 
     width: childrenRect.width;
 
-    Text {
-        id: statusText;
-        text: prefix + status;
-        font.capitalization: Font.MixedCase;
-        font.pixelSize: 14;
-        font.bold: true;
-        color: textcolor;
-        opacity: enabled ? 1 : 0
-        verticalAlignment: Text.AlignVCenter
-        onTextChanged: {
-            statusText.opacity = 1;
-            timer.restart();
+    Rectangle
+    {
+        id: bg;
+        opacity: enabled ? 1 : 0;
+        color: "#203a40";
+        radius: 20;
+        width: statusText.paintedWidth + 24;
+        height: statusText.implicitHeight + 6;
+        Text {
+            id: statusText;
+            text: prefix + status;
+            font.capitalization: Font.MixedCase;
+            font.pixelSize: 14;
+            font.bold: true;
+            color: textcolor;
+            anchors.centerIn: parent;
+            verticalAlignment: Text.AlignVCenter
+            onTextChanged: {
+                bg.opacity = 1;
+                timer.restart();
+            }
+            
         }
         Behavior on opacity { NumberAnimation { duration: 200; } }
         Timer {
@@ -30,7 +40,7 @@ Item {
             running: true;
             repeat: false;
             onTriggered: {
-                statusText.opacity = 0;
+                bg.opacity = 0;
             }
         }
     }

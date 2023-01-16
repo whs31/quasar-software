@@ -52,7 +52,7 @@ void CoreUI::on_pushButton_formSingleImage_clicked()
     SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
     RuntimeData::initialize()->setFormStatus(Style::StyleText("отправлен запрос на формирование №" +
-                                                               QString::number(MessageParser::getMessageID()), Colors::Info300, Format::NoFormat));
+                                                               QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
 }
 
 void CoreUI::on_pushButton_launchContinuous_clicked()

@@ -29,8 +29,6 @@ protected:
     float DEFAULT_ELEVATION = 100; //m
 
 private:
-    QTimer* pitchTimer;
-    QTimer* rollTimer;
     QTimer* yawTimer;
 
     QTimer* framerateTimer;
@@ -44,8 +42,6 @@ private:
     UDPEmulator* udpEmulator;
 
 private slots:
-    void pitchReset();
-    void rollReset();
     void yawReset();
 
     void Update(void);

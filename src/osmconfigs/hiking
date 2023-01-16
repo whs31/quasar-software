@@ -1,5 +1,5 @@
 {
-    "UrlTemplate" : "https://maps.geoapify.com/v1/tile/osm-bright-grey/%z/%x/%y.png?&apiKey=0d5122a5dbe245b8a448288666e25b4d",
+    "UrlTemplate" : "https://maps.geoapify.com/v1/tile/maptiler-3d/%z/%x/%y.png?&apiKey=0d5122a5dbe245b8a448288666e25b4d",
     "ImageFormat" : "png",
     "QImageFormat" : "Indexed8",
     "ID" : "thf-hike",

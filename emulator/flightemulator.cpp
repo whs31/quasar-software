@@ -6,11 +6,7 @@ FlightEmulator::FlightEmulator(QObject *parent)
     framerateTimer = new QTimer(this);
     framerateTimer->setInterval(DEFAULT_UPDATE_PERIOD);
     connect(framerateTimer, SIGNAL(timeout()), this, SLOT(Update()));
-    pitchTimer = new QTimer(this);
-    rollTimer = new QTimer(this);
     yawTimer = new QTimer(this);
-    connect(pitchTimer, SIGNAL(timeout()), this, SLOT(pitchReset()));
-    connect(rollTimer, SIGNAL(timeout()), this, SLOT(rollReset()));
     connect(yawTimer, SIGNAL(timeout()), this, SLOT(yawReset()));
 }
 
@@ -19,7 +15,7 @@ void FlightEmulator::Update(void)
     changeVelocity();
     calculateVelocities(RuntimeData::initialize()->getFlatDirection(), RuntimeData::initialize()->getSpeed());
     moveByVelocity();
-    udpEmulator->emulatorTelemetry.elevation = (RuntimeData::initialize()->getElevation() + 0.1);
+    udpEmulator->emulatorTelemetry.elevation = (RuntimeData::initialize()->getElevation() - RuntimeData::initialize()->getPitch() / 10);
     //qDebug()<<RuntimeData::initialize()->getElevation() << RuntimeData::initialize()->getSeaLevel();
 
     LinkerQML::fixedUpdate();
@@ -99,22 +95,18 @@ void FlightEmulator::yawChange(int value)
 
 void FlightEmulator::rollChange(int value)
 {
-    qreal roll = RuntimeData::initialize()->getRoll() + value * 5;
+    qreal roll = RuntimeData::initialize()->getRoll() + value;
     if(roll > 45 || roll < -45)
         return;
     RuntimeData::initialize()->setRoll(roll);
-    rollTimer->start(1000);;
 }
 
 void FlightEmulator::pitchChange(int value)
 {
-    qreal pitch = RuntimeData::initialize()->getPitch() + value * 5;
+    qreal pitch = RuntimeData::initialize()->getPitch() + value;
     if(pitch > 45 || pitch < -45)
         return;
     RuntimeData::initialize()->setPitch(pitch);
-    pitchTimer->start(1000);
 }
 
-void FlightEmulator::pitchReset() { RuntimeData::initialize()->setPitch(0); }
-void FlightEmulator::rollReset() { RuntimeData::initialize()->setRoll(0); }
 void FlightEmulator::yawReset() { RuntimeData::initialize()->setYaw(0); }

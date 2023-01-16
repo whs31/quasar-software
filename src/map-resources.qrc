@@ -6,5 +6,7 @@
         <file>map-resources/markers/radar.png</file>
         <file>map-resources/markers/autocapture.png</file>
         <file>map-resources/markers/image.png</file>
+        <file>map-resources/attitude-indicator/crosshair-1.png</file>
+        <file>map-resources/attitude-indicator/crosshair-2.png</file>
     </qresource>
 </RCC>

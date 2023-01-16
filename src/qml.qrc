@@ -27,5 +27,6 @@
         <file>qml/groups/navigation/SpeedIndicator.qml</file>
         <file>qml/groups/navigation/AltIndicator.qml</file>
         <file>qml/groups/navigation/ConnectionBar.qml</file>
+        <file>qml/groups/FormGroup.qml</file>
     </qresource>
 </RCC>

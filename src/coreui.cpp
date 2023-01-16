@@ -47,6 +47,8 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
+    connect(RuntimeData::initialize(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
+    connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
@@ -146,7 +148,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     RuntimeData::initialize()->setLoaderStatus("ожидание подключения");
 
     // autocapture setup
-    connect(RuntimeData::initialize(), SIGNAL(autocaptureSignal()), this, SLOT(on_pushButton_formSingleImage_clicked()));
+    connect(RuntimeData::initialize(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
 
     // timers starts here
     timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
@@ -250,6 +252,10 @@ void CoreUI::updateProgress(float f)
     if (f > 99)
     {
         RuntimeData::initialize()->setFormStatus(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
+        if(RuntimeData::initialize()->getFormingContinuous())
+        {
+            FormSingleImage();
+        }
     }
 //    ui->progressBar_loader->setValue((int)f);
 }
@@ -512,11 +518,6 @@ void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
 {
     RuntimeData::initialize()->setFormGPSVelocity(arg1);
 }
-
-void CoreUI::on_pushButton_placeMarker_clicked()
-{
-    RuntimeData::mouseState = MouseState::MarkerPlacement;
-}
 void CoreUI::reconnectSlot()
 {
     telemetryRemote->Disconnect();
@@ -552,7 +553,7 @@ void CoreUI::disconnectSlot()
     Disconnected();
     Debug::Log("?[REMOTE] All remotes disconnected.");
 }
-void CoreUI::on_pushButton_formSingleImage_clicked()
+void CoreUI::FormSingleImage()
 {
     QString request = MessageParser::makeFormRequest(RuntimeData::initialize()->getFormMode(), RuntimeData::initialize()->getFormLowerBound(),
                                                      RuntimeData::initialize()->getFormUpperBound(), RuntimeData::initialize()->getFormTime(),
@@ -565,13 +566,14 @@ void CoreUI::on_pushButton_formSingleImage_clicked()
                                                                QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
 }
 
-void CoreUI::on_pushButton_launchContinuous_clicked()
+void CoreUI::FormContinuousImages()
 {
-    formingContinuous = true;
-    on_pushButton_formSingleImage_clicked();
-}
-
-void CoreUI::on_pushButton_stopContinuous_clicked()
-{
-    formingContinuous = false;
+    if(RuntimeData::initialize()->getFormingContinuous())
+    {
+        RuntimeData::initialize()->setFormingContinuous(false);
+    } else {
+        RuntimeData::initialize()->setFormingContinuous(true);
+        FormSingleImage();
+    }
+    
 }

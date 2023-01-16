@@ -69,6 +69,7 @@ class RuntimeData : public QObject
     Q_PROPERTY(int formOverrideGPSData              READ getFormOverrideGPSData WRITE setFormOverrideGPSData NOTIFY formOverrideGPSDataChanged)
     Q_PROPERTY(float formGPSHeight                  READ getFormGPSHeight       WRITE setFormGPSHeight       NOTIFY formGPSHeightChanged)
     Q_PROPERTY(float formGPSVelocity                READ getFormGPSVelocity     WRITE setFormGPSVelocity     NOTIFY formGPSVelocityChanged)
+    Q_PROPERTY(bool formingContinuous               READ getFormingContinuous   WRITE setFormingContinuous   NOTIFY formingContinuousChanged)
 
     // автозахват РЛИ
     Q_PROPERTY(qreal autocaptureDistance           READ getAutocaptureDistance WRITE setAutocaptureDistance NOTIFY autocaptureDistanceChanged)
@@ -81,6 +82,8 @@ public:
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
     void toggleConsole(void);
+    void formSingleImage(void);
+    void formContinuous(void);
 
     //======================================================================================================
     //                                           ==> GET ==>
@@ -130,6 +133,7 @@ public:
     int getFormOverrideGPSData();
     float getFormGPSHeight();
     float getFormGPSVelocity();
+    bool getFormingContinuous();
 
     qreal getAutocaptureDistance() const;
     bool getAutocaptureEnabled() const;
@@ -180,6 +184,7 @@ public:
     void setFormOverrideGPSData(int state);
     void setFormGPSHeight(float value);
     void setFormGPSVelocity(float value);
+    void setFormingContinuous(bool state);
 
     void setAutocaptureDistance(qreal newAutocaptureDistance);
     void setAutocaptureEnabled(bool state);
@@ -247,6 +252,7 @@ private:
         int overrideGPS = 0;
         float gpsHeight = 150;
         float gpsVelocity = 100;
+        bool formingContinuous = false;
     }; FormParameters formParameters;
 
     struct AutoCaptureVariables
@@ -297,12 +303,15 @@ signals:
     void formOverrideGPSDataChanged();
     void formGPSHeightChanged();
     void formGPSVelocityChanged();
+    void formingContinuousChanged();
 
     void autocaptureDistanceChanged();
     void autocaptureEnabledChanged();
 
     void autocaptureSignal();
     void toggleConsoleSignal();
+    void formSingleImageSignal();
+    void formContinuousSignal();
 };
 
 #endif // RUNTIMEDATA_H

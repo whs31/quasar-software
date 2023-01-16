@@ -106,5 +106,7 @@ bool RecallHandler::clearCache(void)
     return false;
 }
 
-void RecallHandler::toggleConsole(void) { RuntimeData::initialize()->toggleConsole(); }
-void RecallHandler::placeMarker(void)   { RuntimeData::mouseState = MouseState::MarkerPlacement; }
+void RecallHandler::toggleConsole(void)     { RuntimeData::initialize()->toggleConsole(); }
+void RecallHandler::placeMarker(void)       { RuntimeData::mouseState = MouseState::MarkerPlacement; }
+void RecallHandler::formSingleImage(void)   { RuntimeData::initialize()->formSingleImage(); }
+void RecallHandler::formContinuously(void)  { RuntimeData::initialize()->formContinuous(); }

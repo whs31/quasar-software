@@ -10,7 +10,9 @@ RuntimeData *RuntimeData::initialize(QObject *parent)
     return _instance;
 }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
-void RuntimeData::toggleConsole(void) { emit toggleConsoleSignal(); }
+void RuntimeData::toggleConsole(void)   { emit toggleConsoleSignal(); }
+void RuntimeData::formSingleImage(void) { emit formSingleImageSignal(); }
+void RuntimeData::formContinuous(void) { emit formContinuousSignal(); }
 
 qreal RuntimeData::getLatitude() { return telemetry.latitude; }
 void RuntimeData::setLatitude(qreal value)
@@ -338,6 +340,15 @@ void RuntimeData::setFormGPSVelocity(float value)
         return;
     formParameters.gpsVelocity = value;
     emit formGPSVelocityChanged();
+}
+
+bool RuntimeData::getFormingContinuous() { return formParameters.formingContinuous; }
+void RuntimeData::setFormingContinuous(bool state) 
+{
+    if (state == formParameters.formingContinuous)
+        return;
+    formParameters.formingContinuous = state;
+    emit formingContinuousChanged();
 }
 
 qreal RuntimeData::getAutocaptureDistance() const { return autocaptureVariables.distance; }

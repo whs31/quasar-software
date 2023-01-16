@@ -614,6 +614,15 @@ Rectangle {
             anchors.leftMargin: 10;
         }
 
+        Groups.FormGroup
+        {
+            id: formGroup;
+            anchors.left: navGroup.right;
+            anchors.leftMargin: 10;
+            anchors.bottom: parent.bottom;
+            anchors.bottomMargin: 10;
+        }
+
         Groups.MapParametersGroup
         {
             id: mapParametersPanel;

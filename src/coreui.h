@@ -133,10 +133,8 @@ private slots:
     void toggleConsoleSlot(void);
 
     //gui slots
-    void on_pushButton_placeMarker_clicked();
-    void on_pushButton_formSingleImage_clicked();
-    void on_pushButton_launchContinuous_clicked();
-    void on_pushButton_stopContinuous_clicked();
+    void FormSingleImage();
+    void FormContinuousImages();
     void on_spinBox_sarLowerBound_valueChanged(int arg1);
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);

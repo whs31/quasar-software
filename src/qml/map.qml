@@ -12,7 +12,7 @@ import "ui" as UI
 
 import SMath 1.0
 import MouseKeyHandler 1.0
-import IOHandler 1.0
+import RecallHandler 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 
@@ -32,7 +32,7 @@ Rectangle {
     //types instantiation
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
-    IOHandler { id: ioHandler; }
+    RecallHandler { id: ioHandler; }
     Predict { id: predict; }
     
 

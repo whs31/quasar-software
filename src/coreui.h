@@ -13,7 +13,8 @@
 
 //qml types
 #include "backend/fmousekeyhandler.h"
-#include "backend/ibackendiohandler.h"
+#include "backend/recallhandler.h"
+#include "backend/flightprediction.h"
 
 #include "extension.h"
 #include "udpremote.h"
@@ -30,7 +31,6 @@
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 #include "runtimedata.h"
-#include "backend/flightprediction.h"
 #include "flightemulator.h"
 
 #include <plugin.h>
@@ -96,7 +96,6 @@ private:
 
     //global flags
     bool uiReady = false;
-    bool connected = false;
     bool autoUpdate = true;
     bool formingContinuous = false;
 

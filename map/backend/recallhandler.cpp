@@ -1,11 +1,9 @@
-#include "ibackendiohandler.h"
+#include "recallhandler.h"
 
-IBackendIOHandler::IBackendIOHandler(QObject *parent)
-    : QObject{parent}
-{
-}
+RecallHandler::RecallHandler(QObject *parent)
+    : QObject{parent} {}
 
-bool IBackendIOHandler::clearTrack(void)
+bool RecallHandler::clearTrack(void)
 {
     QMessageBox askForClearTrack;
     askForClearTrack.setWindowTitle("Очистка трека");
@@ -27,17 +25,9 @@ bool IBackendIOHandler::clearTrack(void)
     return true;
 }
 
-void IBackendIOHandler::reconnect(void)
-{
-    LinkerQML::initialize()->reconnect();
-}
-
-void IBackendIOHandler::disconnect(void)
-{
-    LinkerQML::initialize()->disconnect();
-}
-
-void IBackendIOHandler::changeDirectory(void)
+void RecallHandler::reconnect(void)     { LinkerQML::initialize()->reconnect(); }
+void RecallHandler::disconnect(void)    { LinkerQML::initialize()->disconnect(); }
+void RecallHandler::changeDirectory(void)
 {
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(nullptr,
                                                                 tr("Выберите папку c выходными изображениями РЛС"),
@@ -48,7 +38,7 @@ void IBackendIOHandler::changeDirectory(void)
         }
 }
 
-bool IBackendIOHandler::calibrateSeaLevel(void)
+bool RecallHandler::calibrateSeaLevel(void)
 {
     QMessageBox askForClearTrack;
     askForClearTrack.setWindowTitle("Калибровка высоты");

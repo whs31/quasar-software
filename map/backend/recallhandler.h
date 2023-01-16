@@ -1,5 +1,5 @@
-#ifndef IBACKENDIOHANDLER_H
-#define IBACKENDIOHANDLER_H
+#ifndef IRECALLHANDLER_H
+#define IRECALLHANDLER_H
 
 #include <QObject>
 #include <QMessageBox>
@@ -10,11 +10,11 @@
 
 #include "sconfig.h"
 
-class IBackendIOHandler : public QObject
+class RecallHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit IBackendIOHandler(QObject *parent = nullptr);
+    explicit RecallHandler(QObject *parent = nullptr);
     Q_INVOKABLE bool clearTrack(void);
     Q_INVOKABLE void reconnect(void);
     Q_INVOKABLE void disconnect(void);
@@ -22,4 +22,4 @@ public:
     Q_INVOKABLE bool calibrateSeaLevel(void);
 };
 
-#endif // IBACKENDIOHANDLER_H
+#endif // IRECALLHANDLER_H

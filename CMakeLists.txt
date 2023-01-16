@@ -69,7 +69,7 @@ else()
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
-        map/backend/ibackendiohandler.h                     map/backend/ibackendiohandler.cpp
+        map/backend/recallhandler.h                         map/backend/recallhandler.cpp
         map/backend/flightprediction.h                      map/backend/flightprediction.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp

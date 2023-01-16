@@ -44,7 +44,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
 
     // qml types that require SConfig declared here
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
-    qmlRegisterType<IBackendIOHandler>("IOHandler", 1, 0, "IOHandler");
+    qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
 
     // qml base setup
@@ -216,11 +216,7 @@ CoreUI::~CoreUI()
     delete Style::initialize();
 }
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 CoreUI *CoreUI::getDebugPointer(void)   { return debugPointer; }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if (!uiReady)
@@ -239,27 +235,11 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
     m_cursor.movePosition(QTextCursor::End);
     ui->debugConsole->setTextCursor(m_cursor);
 }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-bool CoreUI::getReady(void) { return uiReady; }
+bool CoreUI::getReady(void)             { return uiReady; }
 QQuickItem *CoreUI::getMapPointer(void) { return qml; }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void CoreUI::Connected()
-{
-    connected = true;
-    RuntimeData::initialize()->setConnected(connected);
-}
-void CoreUI::Disconnected()
-{
-    connected = false;
-    RuntimeData::initialize()->setConnected(connected);
-}
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+void CoreUI::Connected()                { RuntimeData::initialize()->setConnected(true); }
+void CoreUI::Disconnected()             { RuntimeData::initialize()->setConnected(false); }
 void CoreUI::updateProgress(float f)
 {
     if (f > 0)
@@ -272,9 +252,6 @@ void CoreUI::updateProgress(float f)
     }
 //    ui->progressBar_loader->setValue((int)f);
 }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 void CoreUI::InitializeDockwidgets()
 {
@@ -298,9 +275,7 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
     else if (type == CommandType::FormCommand)
         formRemote->Send(command.toUtf8());
 }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::on_minButton_clicked()     { showMinimized(); }
 void CoreUI::on_minmaxButton_clicked()
 {
@@ -316,7 +291,6 @@ void CoreUI::on_minmaxButton_clicked()
     }
 }
 void CoreUI::on_closeButton_clicked()   { QApplication::quit(); }
-
 void CoreUI::on_settingsButton_clicked()
 {
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
@@ -366,9 +340,6 @@ void CoreUI::on_emulatorButton_clicked()
         flightEmulator->stopEmulator(); 
 }
 
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::ReadTelemetry(QByteArray data)
 {
     udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);

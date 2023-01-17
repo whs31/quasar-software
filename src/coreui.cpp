@@ -435,28 +435,12 @@ void CoreUI::ReadForm(QByteArray data)
 void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
+    //qDebug()<<pressedKeys;
     if ( event->type() == QEvent::KeyPress ) {
         //qCritical()<<static_cast<QKeyEvent*>(event)->key();
-        switch (static_cast<QKeyEvent*>(event)->key()) {
-        case (Qt::Key_V):
-            if (static_cast<QKeyEvent*>(event)->modifiers()==Qt::ShiftModifier)
-                on_debugButton_clicked();
-            break;
-        case 1052:
-            if (static_cast<QKeyEvent*>(event)->modifiers()==Qt::ShiftModifier)
-                on_debugButton_clicked();
-            break;
-        case (Qt::Key_C):
-            if (static_cast<QKeyEvent*>(event)->modifiers()==Qt::ShiftModifier)
-                toggleConsoleSlot();
-            break;
-        case 1057:
-            if (static_cast<QKeyEvent*>(event)->modifiers()==Qt::ShiftModifier)
-                toggleConsoleSlot();
-            break;
-        default:
+        pressedKeys += (static_cast<QKeyEvent*>(event))->key();
+        if(RuntimeData::initialize()->getEmulatorEnabled())
         {
-            pressedKeys += (static_cast<QKeyEvent*>(event))->key();
             if ( pressedKeys.contains(Qt::Key_W) || pressedKeys.contains(1062) ) { flightEmulator->pitchChange(-1); }
             if ( pressedKeys.contains(Qt::Key_S) || pressedKeys.contains(1067)) { flightEmulator->pitchChange(1); }
             if ( pressedKeys.contains(Qt::Key_A) || pressedKeys.contains(1060)) { flightEmulator->yawChange(-1); }
@@ -465,9 +449,34 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
             if ( pressedKeys.contains(Qt::Key_E) || pressedKeys.contains(1059)) { flightEmulator->rollChange(1); }
             if ( pressedKeys.contains(Qt::Key_Z) || pressedKeys.contains(1071)) { flightEmulator->throttleChange(1); }
             if ( pressedKeys.contains(Qt::Key_X) || pressedKeys.contains(1063)) { flightEmulator->throttleChange(-1); }
-            return 1;
         }
+        if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::ShiftModifier)
+        {
+            if(pressedKeys.contains(Qt::Key_Delete)) { LinkerQML::clearRoute(); pressedKeys.clear(); }
+            if(pressedKeys.contains(Qt::Key_Space)) { FormContinuousImages(); pressedKeys.clear(); }
         }
+        else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
+        {
+            if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { on_debugButton_clicked(); pressedKeys.clear(); }
+            if(pressedKeys.contains(Qt::Key_C) || pressedKeys.contains(1057)) { toggleConsoleSlot(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->disconnect(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { on_settingsButton_clicked(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { on_infoButton_clicked(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, 
+                                                    tr("Выберите папку c выходными изображениями РЛС"), QStandardPaths::displayName(
+                                                    QStandardPaths::HomeLocation)); if(pathNotNullCheck != NULL) { SConfig::setHashValue(
+                                                    "ViewPath", pathNotNullCheck); } pressedKeys.clear(); }
+        }
+        else 
+        {
+            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->reconnect(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_M) || pressedKeys.contains(1068)) { RuntimeData::mouseState = MouseState::MarkerPlacement;pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_I) || pressedKeys.contains(1064)) { LinkerQML::panImage(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_P) || pressedKeys.contains(1047)) { LinkerQML::panGPS(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { DiskTools::fetchDirectory(); pressedKeys.clear(); }
+            if(pressedKeys.contains(Qt::Key_Space)) { FormSingleImage(); pressedKeys.clear();}
+        }
+        return 1;
     }
     else if ( event->type() == QEvent::KeyRelease ) { pressedKeys -= (static_cast<QKeyEvent*>(event))->key(); return 1; }
     else {

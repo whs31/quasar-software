@@ -17,12 +17,12 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize(this));
     qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize(this));
-
+    
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
-    ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
+    ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // get resolution for some ui rescaling and start new log in debug
     screenResolution = QGuiApplication::screens().first()->availableGeometry();
@@ -50,6 +50,9 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
     connect(RuntimeData::initialize(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
     connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
+
+    // qml ux/ui setup
+    qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());

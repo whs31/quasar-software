@@ -8,33 +8,33 @@ import QtPositioning 5.12
 import "qrc:/qml/ui" as UI
 import RuntimeData 1.0
 import QtGraphicalEffects 1.15
-//import Math
+import UX 1.0
 
 Rectangle {
     id: base;
-    color: "#dae1e5";
+    color: UX.textWhite;
     width: 312;
     height: 180;
     opacity: 1;
     radius: 6;
     border.width: 2;
-    border.color: "#b2b9bb";
+    border.color: UX.textFaded;
     clip: true;
     Rectangle
     {
         id: indicator;
         anchors.fill: parent;
-        color: "#BBBC88";
+        color: UX.errorDark;
         border.width: 2;
-        border.color: "#dae1e5";
+        border.color: UX.textWhite;
         rotation: -RuntimeData.roll;
         visible: true;
         Rectangle
         {
             id: top;
-            color: "#43a1ca";
+            color: UX.infoLighter;
             border.width: 1;
-            border.color: "#b4b4dc";
+            border.color: UX.textColored;
             anchors.bottom: parent.verticalCenter;
             anchors.top: parent.top;
             anchors.topMargin: -100;
@@ -48,9 +48,9 @@ Rectangle {
         Rectangle
         {
             id: bottom;
-            color: "#7D5233";
+            color: UX.miscBrown;
             border.width: 1;
-            border.color: "#b4b4dc";
+            border.color: UX.textColored;
             anchors.top: parent.verticalCenter;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: -100;
@@ -71,7 +71,8 @@ Rectangle {
             smooth: true; antialiasing: true; anchors.centerIn: parent; anchors.verticalCenterOffset: -2; }
     Rectangle { id: dot; width: 4; height: 4; radius: 2; anchors.centerIn: parent; smooth: true; antialiasing: true; }
     Rectangle { id: leftArm; height: 1; anchors.left: parent.left; anchors.right: crosshair1.left; anchors.verticalCenter: 
-                parent.verticalCenter; color: "#dae1e5"; }
+                parent.verticalCenter; color: UX.textWhite; }
     Rectangle { id: rightArm; height: 1; anchors.left: crosshair1.right; anchors.right: parent.right; anchors.verticalCenter: 
-                parent.verticalCenter; color: "#dae1e5"; }
+                parent.verticalCenter; color: UX.textWhite; }
+    Component.onCompleted: console.log(String(UX.textWhite));
 }

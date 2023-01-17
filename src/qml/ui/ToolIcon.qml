@@ -3,12 +3,13 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtGraphicalEffects 1.15
+import UX 1.0
 
 Item {
     property bool tooltipenabled: false;
     property string tooltiptext: "Tooltip text!";
-    property color primarycolor: "#204040";
-    property color textcolor: "#dae1e5";
+    property color primarycolor: UX.primaryLight;
+    property color textcolor: UX.textWhite;
     property int iconsize: 20;
     property string iconsource: "qrc:/ui-resources/white/close.png";
     property int basewidth: 50;
@@ -22,7 +23,6 @@ Item {
         id: toolrect;
         color: "transparent";
         opacity: 1;
-        //anchors.fill: parent;
         width: basewidth;
         height: iconsize + 9;
         radius: 15;
@@ -60,12 +60,6 @@ Item {
                 text: tooltiptext;
                 font.capitalization: Font.MixedCase;
                 font.pixelSize: 11;
-                // contentItem: Text {
-                //     color: "#21be2b"
-                // }
-                // background: Rectangle {
-                //     color: "#21be2b"
-                // }
             }
         }
         Text {

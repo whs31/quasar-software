@@ -7,6 +7,7 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
 import "qrc:/qml/ui" as UI
+import UX 1.0
 
 MapQuickItem {
     function remove()
@@ -62,7 +63,7 @@ MapQuickItem {
             anchors.fill: radarImage;
             source: radarImage;
             opacity: 0.75;
-            color: "#fff5ee";
+            color: UX.textWhite;
         }
         DropShadow {
             anchors.fill: radarImageOverlay;
@@ -75,7 +76,7 @@ MapQuickItem {
         }
         Rectangle {
             id: textOverlay;
-            color: "#fff5ee";
+            color: UX.textWhite;
             width: (radarImageText.paintedWidth);
             height: (radarImageText.paintedHeight + 3);
             anchors.top: radarImage.bottom;

@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import RuntimeData 1.0
+import UX 1.0
 
 Item {
     id: base;
@@ -12,8 +13,8 @@ Item {
         id: bground;
         width: 26;
         height: 200;
-        color: "#132623";
-        border.color: "#204040";
+        color: UX.primaryDarker;
+        border.color: UX.primaryLight;
         border.width: 2;
         radius: 13;
     }
@@ -23,9 +24,9 @@ Item {
         width: 80;
         height: 40;
         radius: 2;
-        color: "#372b07";
+        color: UX.warningDarkest;
         border.width: 2;
-        border.color: "#886911";
+        border.color: UX.warningDarker;
         anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.verticalCenter;
         MouseArea
@@ -50,7 +51,7 @@ Item {
             width: 80;
             height: 13;
             radius: 2;
-            color: "#886911";
+            color: UX.warningDarker;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
             Text {
@@ -60,7 +61,7 @@ Item {
                 font.pointSize: 8;
                 horizontalAlignment: Text.AlignHCenter;
                 anchors.centerIn: parent;
-                color: "#dae1e5";
+                color: UX.textWhite;
             }
         }
         Text {
@@ -70,7 +71,7 @@ Item {
             //anchors.verticalCenterOffset: -1;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.horizontalCenterOffset: -8;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 20;
             textFormat: Text.RichText
@@ -85,7 +86,7 @@ Item {
             anchors.verticalCenterOffset: -5;
             anchors.left: speedText.right;
             anchors.leftMargin: 2;
-            color: "#c7a750";
+            color: UX.warningLight;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText;
@@ -100,7 +101,7 @@ Item {
             anchors.verticalCenterOffset: 3;
             anchors.left: speedText.right;
             anchors.leftMargin: 5;
-            color: "#c7a750";
+            color: UX.warningLight;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText;

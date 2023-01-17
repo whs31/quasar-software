@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
+import UX 1.0
 
 Item {
     
@@ -14,7 +15,7 @@ Item {
     {
         id: zoomOut;
         icon.source: "qrc:/ui-resources/white/zoom-out.png";
-        icon.color: "#dae1e5";
+        icon.color: UX.textWhite;
         icon.width: 32;
         icon.height: 32;
         width: 40;
@@ -53,7 +54,7 @@ Item {
     {
         id: zoomIn;
         icon.source: "qrc:/ui-resources/white/zoom-in.png";
-        icon.color: "#dae1e5";
+        icon.color: UX.textWhite;
         icon.width: 32;
         icon.height: 32;
         width: 40;

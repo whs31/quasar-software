@@ -3,6 +3,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
+import UX 1.0
 
 Item {
     property alias transparency: tooltipBase.opacity;
@@ -14,20 +15,20 @@ Item {
         width: toolTipText.paintedWidth + 10 + tooltipPadding;
         height: toolTipText.paintedHeight + 3;
         opacity: 0.8;
-        color: "#132623";
+        color: UX.primaryDarker;
         radius: 5;
-        border.color: "#777777";
+        border.color: UX.primaryDarkest;
         z: 99;
 
         Text {
             id: toolTipText;
-            color: "#dae1e5"
+            color: UX.textWhite;
             text: qsTr("Sample tooltip text: e.g. latitude, longitude");
             anchors.left: parent.left;
             anchors.right: parent.right;
             anchors.top: parent.top;
             anchors.bottom: parent.bottom;
-            font.pixelSize: 10;
+            font.pixelSize: 12;
             horizontalAlignment: Text.AlignRight;
             verticalAlignment: Text.AlignVCenter;
             anchors.rightMargin: 5;

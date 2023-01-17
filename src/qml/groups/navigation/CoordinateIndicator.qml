@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import RuntimeData 1.0
+import UX 1.0
 
 Item {
     id: base;
@@ -10,8 +11,8 @@ Item {
         id: bground;
         width: 325;
         height: 30;
-        color: "#173846";
-        border.color: "#2B6781";
+        color: UX.infoDarker;
+        border.color: UX.infoDark;
         border.width: 2;
         radius: 15;
         Text {
@@ -20,7 +21,7 @@ Item {
             anchors.verticalCenterOffset: -1;
             anchors.left: parent.left;
             anchors.leftMargin: 9;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 13;
             textFormat: Text.RichText
@@ -34,7 +35,7 @@ Item {
             anchors.verticalCenterOffset: -1;
             anchors.right: parent.right;
             anchors.rightMargin: 9;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 13;
             textFormat: Text.RichText
@@ -48,7 +49,7 @@ Item {
         id: fground;
         width: fgroundText.paintedWidth + 15;
         height: 14;
-        color: "#2B6781";
+        color: UX.infoDark;
         anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.bottom;
         anchors.verticalCenterOffset: 1;
@@ -59,7 +60,7 @@ Item {
             font.pointSize: 8;
             horizontalAlignment: Text.AlignHCenter;
             anchors.centerIn: parent;
-            color: "#dae1e5";
+            color: UX.textWhite;
         }
     }
 }

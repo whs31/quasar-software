@@ -6,6 +6,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
+import UX 1.0
 
 
 MapQuickItem {
@@ -14,7 +15,6 @@ MapQuickItem {
     property bool removingTrigger: removeTrigger;
     onRemovingTriggerChanged: remove();
 
-    //property alias dialogShow: markerDialog.enabled;
     function remove()
     {
         //индекс становится равным -1 после вызова remove(index). 
@@ -62,9 +62,7 @@ MapQuickItem {
                 }
                 onExited: {
                     dialogFadeOut.start();
-                    //markerDialog.visible = false;
                     markerDialog.enabled = false;
-                    //dialogTimer.start();
                 }
                 Rectangle { //hitbox
                     anchors.fill: parent
@@ -85,7 +83,7 @@ MapQuickItem {
             verticalOffset: 5;
             radius: 8.0;
             samples: 17;
-            color: "#000000";
+            color: UX.primaryDarker;
             source: markerOverlay;
         }
         Rectangle {
@@ -99,7 +97,7 @@ MapQuickItem {
             radius: 10
             Text {
                 id: markerText;
-                color: "#000000";
+                color: UX.primaryDarker;
                 enabled: true;
                 anchors.fill: parent;
                 font.pointSize: 7;

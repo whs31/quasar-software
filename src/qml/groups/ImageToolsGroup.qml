@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
 import DiskManager 1.0
 import ImageManager 1.0
+import UX 1.0
 
 Rectangle 
 {
@@ -15,8 +16,8 @@ Rectangle
     {
         id: expandButton;
         icon.source: "qrc:/ui-resources/white/images.png";
-        icon.color: "#dae1e5";
-        Material.background: "#204040"
+        icon.color: UX.textWhite;
+        Material.background: UX.primaryLight;
         icon.width: 12;
         icon.height: 24;
         height: 36;
@@ -56,7 +57,7 @@ Rectangle
             id: fetchDirectoryButton;
             iconsource: "qrc:/ui-resources/white/refresh.png";
             iconsize: 13;
-            primarycolor: "#204040";
+            primarycolor: UX.primaryLight;
             width: 167;
             height: 20;
             anchors.left: parent.left;
@@ -71,7 +72,7 @@ Rectangle
             id: changeDirectoryButton;
             iconsource: "qrc:/ui-resources/white/folder.png";
             iconsize: 13;
-            primarycolor: "#204040";
+            primarycolor: UX.primaryLight;
             width: 167;
             height: 20;
             anchors.left: parent.left;
@@ -86,8 +87,8 @@ Rectangle
             id: clearMapButton;
             iconsource: "qrc:/ui-resources/white/map.png";
             iconsize: 13;
-            primarycolor: "#b16573";
-            accentcolor: "#701828";
+            primarycolor: UX.errorDark;
+            accentcolor: UX.errorDarker;
             width: 167;
             height: 20;
             anchors.left: parent.left;
@@ -111,8 +112,8 @@ Rectangle
             id: clearDirectoryButton;
             iconsource: "qrc:/ui-resources/white/trashbin.png";
             iconsize: 13;
-            primarycolor: "#b16573";
-            accentcolor: "#701828";
+            primarycolor: UX.errorDark;
+            accentcolor: UX.errorDarker;
             width: 167;
             height: 20;
             anchors.left: parent.left;

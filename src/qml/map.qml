@@ -17,6 +17,7 @@ import MarkerManager 1.0
 import ImageManager 1.0
 
 import RuntimeData 1.0
+import UX 1.0
 
 import FlightPrediction 1.0
 
@@ -44,13 +45,9 @@ Rectangle {
 
     //ux constants
     Material.theme: Material.Dark;
-    Material.accent: "#204040";
-    Material.primary: "#bc9117";
-    Material.background: "#132623";
-    property color accentDark: "#A2A2A2";
-    property color primaryLight: "#00B5EB";
-    property color primarySuperLight: "#97E3EE";
-    property color yellowColor: "#F6C413";
+    Material.accent: UX.primaryLight;
+    Material.primary: UX.warningDark;
+    Material.background: UX.primaryDarker;
 
     //ux settings
     layer.enabled: true;
@@ -482,7 +479,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 style: Text.Outline
                 font.family: "Verdana"
-                color: "#a385cf";
+                color: UX.accentLight;
                 text: "";
             }
         }
@@ -512,7 +509,7 @@ Rectangle {
                 anchors.fill: r1MapItem;
                 source: r1Source;
                 opacity: 1;
-                color: "#a385cf";
+                color: UX.accentLight;
             }
         }
         MapQuickItem {
@@ -541,7 +538,7 @@ Rectangle {
                 anchors.fill: r2MapItem;
                 source: r2Source;
                 opacity: 1;
-                color: "#a385cf";
+                color: UX.accentLight;
             }
         }
         MapQuickItem {
@@ -599,7 +596,7 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: "#a385cf"; z: 100; path: [ ]; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; }
         Gesture {
             id: gesture;
             anchors.fill: parent;
@@ -696,7 +693,7 @@ Rectangle {
         }
         Text {
             id: closestACDistanceIndicator;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText

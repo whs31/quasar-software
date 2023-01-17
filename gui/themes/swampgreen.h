@@ -8,7 +8,7 @@ class SwampGreen : public QObject
     Q_OBJECT
 public:
     explicit SwampGreen(QObject *parent = nullptr);
-        QString prm_darkest;
+        QString prm_darkest = "#0F1E1C";
         QString prm_darker = "#132623";
         QString prm_dark = "#203a40";
         QString prm_light = "#204040";

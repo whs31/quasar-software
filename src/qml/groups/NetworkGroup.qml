@@ -5,6 +5,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
 import RuntimeData 1.0
+import UX 1.0
 
 Rectangle
 {
@@ -20,8 +21,8 @@ Rectangle
     {
         id: expandButton;
         icon.source: "qrc:/ui-resources/white/link.png";
-        icon.color: "#dae1e5";
-        Material.background: "#204040"
+        icon.color: UX.textWhite;
+        Material.background: UX.primaryLight;
         icon.width: 12;
         icon.height: 24;
         height: 36;
@@ -60,7 +61,7 @@ Rectangle
             id: reconnectButton;
             iconsource: "qrc:/ui-resources/white/url.png";
             iconsize: 13;
-            primarycolor: "#204040";
+            primarycolor: UX.primaryLight;
             width: 192;
             height: 20;
             anchors.left: parent.left;
@@ -76,8 +77,8 @@ Rectangle
             id: disconnectButton;
             iconsource: "qrc:/ui-resources/white/unlink.png";
             iconsize: 17;
-            primarycolor: "#b16573";
-            accentcolor: "#701828";
+            primarycolor: UX.errorDark;
+            accentcolor: UX.errorDarker;
             width: 192;
             height: 20;
             anchors.left: parent.left;
@@ -93,7 +94,7 @@ Rectangle
             id: sarConsoleButton;
             iconsource: "qrc:/ui-resources/white/command-line.png";
             iconsize: 15;
-            primarycolor: "#204040";
+            primarycolor: UX.primaryLight;
             width: 192;
             height: 20;
             anchors.left: parent.left;

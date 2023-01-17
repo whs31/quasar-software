@@ -3,15 +3,16 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
+import UX 1.0
 
 Rectangle {
     id: dialogBase;
     width: 50
     height: 20
     opacity: 0.6;
-    color: "#132623";
+    color: UX.primaryDarker;
     radius: 5;
-    border.color: "#204040";
+    border.color: UX.light;
     z: 100;
 
     RoundButton {
@@ -30,12 +31,12 @@ Rectangle {
         font.pointSize: 7
         font.family: "Arial"
         font.bold: true
-        Material.background: "#b16573"
+        Material.background: UX.errorDark;
         hoverEnabled: false;
         scale: 1
         z: 100
         display: AbstractButton.IconOnly
-        icon.color: "#fff5ee"
+        icon.color: UX.textWhite;
         icon.source: "../ui-resources/white/close.png"
         icon.width: 8
         icon.height: 8

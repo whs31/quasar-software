@@ -5,6 +5,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
 import RuntimeData 1.0
+import UX 1.0
 
 Item {
     ColumnLayout
@@ -12,7 +13,7 @@ Item {
         spacing: -2;
         Text {
             id: pitchText;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -23,7 +24,7 @@ Item {
         }
         Text {
             id: rollText;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -34,7 +35,7 @@ Item {
         }
         Text {
             id: yawText;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -45,7 +46,7 @@ Item {
         }
         Text {
             id: throttleText;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText

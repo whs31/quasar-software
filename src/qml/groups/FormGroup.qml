@@ -5,6 +5,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import RuntimeData 1.0
 import "qrc:/qml/ui" as UI
+import UX 1.0
 
 Item {
     width: childrenRect.width;
@@ -13,7 +14,7 @@ Item {
     {
         id: formImageButton;
         iconsource: "qrc:/ui-resources/white/newimage.png";
-        primarycolor: "#204040";
+        primarycolor: UX.primaryLight;
         width: 320;
         height: 20;
         iconsize: 14;
@@ -26,7 +27,7 @@ Item {
     {
         id: continuousFormButton;
         iconsource: "qrc:/ui-resources/white/timer.png";
-        primarycolor: "#204040";
+        primarycolor: UX.primaryLight;
         width: 320;
         height: 20;
         anchors.top: formImageButton.bottom;

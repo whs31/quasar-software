@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import RuntimeData 1.0
 import "qrc:/qml/ui" as UI
+import UX 1.0
 
 Item {
     id: base;
@@ -14,8 +15,8 @@ Item {
         id: bground;
         width: 230;
         height: 34;
-        color: "#132623";
-        border.color: "#204040";
+        color: UX.primaryDarker;
+        border.color: UX.primaryLight;
         border.width: 2;
         radius: 17;
         opacity: 1;
@@ -29,7 +30,7 @@ Item {
             anchors.rightMargin: 7;
             anchors.verticalCenter: parent.verticalCenter;
             basewidth: 34;
-            primarycolor: RuntimeData.connected ? "#73c924" : "#de3857";
+            primarycolor: RuntimeData.connected ? UX.successLighter : UX.errorLighter;
             label: RuntimeData.connected ? "LNK" : "ERR";
         }
         UI.ToolIcon {
@@ -46,7 +47,7 @@ Item {
             anchors.rightMargin: -5;
             anchors.verticalCenter: parent.verticalCenter;
             basewidth: 34;
-            primarycolor: "#dae1e5";
+            primarycolor: UX.textWhite;
             label: "";
         }
         UI.ToolIcon {
@@ -59,12 +60,12 @@ Item {
             anchors.rightMargin: -5;
             anchors.verticalCenter: parent.verticalCenter;
             basewidth: 34;
-            primarycolor: "#c4bb4b";
+            primarycolor: UX.warningLighter;
         }
         RoundButton
         {
             id: calibrateButton;
-            Material.background: "#204040"
+            Material.background: UX.primaryLight
             height: 34;
             radius: 15;
             opacity: 1;

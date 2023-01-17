@@ -2,15 +2,16 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
+import UX 1.0
 
 Item {
     property int iconsize: 16;
     property string iconsource: "qrc:/ui-resources/white/close.png";
     
     property string labeltext: "Not assigned";
-    property color textcolor: "#dae1e5";
-    property color primarycolor: "#204040";
-    property color accentcolor: "#43a1ca";
+    property color textcolor: UX.textWhite;
+    property color primarycolor: UX.primaryLight;
+    property color accentcolor: UX.infoLighter;
 
     property bool checked: false;
 
@@ -102,7 +103,7 @@ Item {
         onClicked: { checked = !checked; animation_scalebounce.start(); animation_colorfadeinout.start(); }
         Rectangle {
             anchors.fill: parent;
-            color: "#FFFF00"
+            color: "#FFFF00";
             visible: false;
         }
     }

@@ -2,10 +2,11 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
+import UX 1.0
 
 Item {
     property string status: "EmptyStatustext";
-    property color textcolor: "#dae1e5";
+    property color textcolor: UX.textWhite;
     property string prefix: "Статус чего-либо: ";
 
     width: childrenRect.width;
@@ -14,7 +15,7 @@ Item {
     {
         id: bg;
         opacity: enabled ? 1 : 0;
-        color: "#203a40";
+        color: UX.primaryDark;
         radius: 20;
         width: statusText.paintedWidth + 24;
         height: statusText.implicitHeight + 6;

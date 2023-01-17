@@ -5,6 +5,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 import "qrc:/qml/ui" as UI
 import RuntimeData 1.0
+import UX 1.0
 
 Rectangle 
 {
@@ -14,8 +15,8 @@ Rectangle
     {
         id: expandButton;
         icon.source: "qrc:/ui-resources/white/earth.png";
-        icon.color: "#dae1e5";
-        Material.background: "#204040"
+        icon.color: UX.textWhite;
+        Material.background: UX.primaryLight;
         icon.width: 12;
         icon.height: 24;
         height: 36;
@@ -110,8 +111,8 @@ Rectangle
         {
             id: clearTrackButton;
             iconsource: "qrc:/ui-resources/white/eraser.png";
-            primarycolor: "#b16573";
-            accentcolor: "#701828";
+            primarycolor: UX.errorDark;
+            accentcolor: UX.errorDarker;
             //height: 28;
             //opacity: 1;
             width: 222;

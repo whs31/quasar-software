@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import RuntimeData 1.0
 import "qrc:/qml/ui" as UI
+import UX 1.0
 
 Item {
     id: base;
@@ -13,8 +14,8 @@ Item {
         id: bground;
         width: 26;
         height: 200;
-        color: "#132623";
-        border.color: "#204040";
+        color: UX.primaryDarker;
+        border.color: UX.primaryLight;
         border.width: 2;
         radius: 13;
     }
@@ -24,9 +25,9 @@ Item {
         width: 80;
         height: 52;
         radius: 2;
-        color: "#27183d";
+        color: UX.accentDarker;
         border.width: 2;
-        border.color: "#4b2e75";
+        border.color: UX.accentDark;
         anchors.horizontalCenter: bground.horizontalCenter;
         anchors.verticalCenter: bground.verticalCenter;
         MouseArea
@@ -45,7 +46,7 @@ Item {
             width: 80;
             height: 13;
             radius: 2;
-            color: "#4b2e75";
+            color: UX.accentDark;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
             Text {
@@ -55,7 +56,7 @@ Item {
                 font.pointSize: 8;
                 horizontalAlignment: Text.AlignHCenter;
                 anchors.centerIn: parent;
-                color: "#dae1e5";
+                color: UX.textWhite;
             }
         }
         Text {
@@ -64,7 +65,7 @@ Item {
             anchors.topMargin: -1;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.horizontalCenterOffset: -4;
-            color: "#dae1e5";
+            color: UX.textWhite;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 20;
             textFormat: Text.RichText
@@ -80,7 +81,7 @@ Item {
             anchors.verticalCenter: altText.verticalCenter;
             anchors.left: altText.right;
             anchors.leftMargin: 2;
-            color: "#a385cf";
+            color: UX.accentLight;
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText;
@@ -95,7 +96,7 @@ Item {
             width: 80;
             height: 2;
             radius: 2;
-            color: "#4b2e75";
+            color: UX.accentDark;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: 16;
@@ -109,7 +110,7 @@ Item {
                 anchors.topMargin: -4;
                 iconsize: 16;
                 iconsource: "qrc:/ui-resources/white/sea-water.png";
-                primarycolor: altDisplayMode ? "#a385cf" : "#dae1e5";
+                primarycolor: altDisplayMode ? UX.accentLight : UX.textWhite;
                 label: "";
                 smooth: true;
                 antialiasing: true;
@@ -124,7 +125,7 @@ Item {
                 anchors.topMargin: -4;
                 iconsize: 16;
                 iconsource: "qrc:/ui-resources/white/mountain.png";
-                primarycolor: altDisplayMode ? "#dae1e5" : "#a385cf";
+                primarycolor: altDisplayMode ? UX.textWhite : UX.accentLight;
                 label: "";
                 smooth: true;
                 antialiasing: true;

@@ -14,8 +14,8 @@ Item {
         id: bground;
         width: 26;
         height: 200;
-        color: UX.primaryDarker;
-        border.color: UX.primaryLight;
+        color: UX.accentDarker;
+        border.color: UX.accentDark;
         border.width: 2;
         radius: 13;
     }
@@ -24,7 +24,7 @@ Item {
         id: fground;
         width: 80;
         height: 52;
-        radius: 2;
+        radius: 12;
         color: UX.accentDarker;
         border.width: 2;
         border.color: UX.accentDark;
@@ -45,7 +45,7 @@ Item {
             id: labelBG;
             width: 80;
             height: 13;
-            radius: 2;
+            radius: 6;
             color: UX.accentDark;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
@@ -53,7 +53,7 @@ Item {
                 id: labelText
                 text: "ВЫСОТА";
                 font.bold: true;
-                font.pointSize: 8;
+                font.pointSize: 7;
                 horizontalAlignment: Text.AlignHCenter;
                 anchors.centerIn: parent;
                 color: UX.textWhite;

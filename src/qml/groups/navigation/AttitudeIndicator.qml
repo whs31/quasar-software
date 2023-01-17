@@ -44,6 +44,8 @@ Rectangle {
             anchors.rightMargin: -50;
             anchors.margins: 2;
             anchors.bottomMargin: -90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
+            Image { id: scaleTop; opacity: 0.9; width: 34; height: 180; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+                    smooth: true; antialiasing: true; anchors.bottom: parent.bottom; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
         Rectangle
         {
@@ -60,7 +62,9 @@ Rectangle {
             anchors.rightMargin: -50;
             anchors.margins: 2;
             anchors.topMargin: 90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
-            clip: true;
+            //clip: true;
+            Image { id: scaleBottom; opacity: 0.9; width: 34; height: 180; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+                    smooth: true; antialiasing: true; anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
     }
 

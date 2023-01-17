@@ -13,7 +13,7 @@ Item {
     UI.CustomButton
     {
         id: formImageButton;
-        iconsource: "qrc:/ui-resources/white/newimage.png";
+        iconsource: "qrc:/ui-resources/white/newimage.png"; //114855520 111111159808
         primarycolor: UX.primaryLight;
         width: 320;
         height: 20;
@@ -38,18 +38,42 @@ Item {
         onClicked: ioHandler.formContinuously();
         z: 99;
     }
-    Text {
-        id: diskSpaceText;
-        color: UX.textWhite;
-        font.capitalization: Font.MixedCase;
-        font.pixelSize: 12;
+    Rectangle
+    {
+        id: textBackground;
+        color: UX.primaryDark;
+        radius: 10;
+        width: diskSpaceText.paintedWidth + 15;
+        height: diskSpaceText.paintedHeight + 5;
         anchors.top: continuousFormButton.bottom;
         anchors.topMargin: 6;
-        textFormat: Text.RichText
-        text: "<b>Хранилище изображений заполнено на <i>" + Number(RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace).toFixed(0) +
-              "%</i></b>. Свободно " + Number(RuntimeData.freeDiskSpace / (10 * 1024 * 1024)).toFixed(1) + " Гб из " + Number(RuntimeData.totalDiskSpace / (10 * 1024 * 1024)).toFixed(1);
-        horizontalAlignment: Text.AlignLeft;
-        verticalAlignment: Text.AlignVCenter;
-        style: Text.Raised;
+        Text {
+            id: diskSpaceText;
+            color: UX.textColored;
+            font.capitalization: Font.MixedCase;
+            font.pixelSize: 13;
+            anchors.centerIn: parent;
+            textFormat: Text.RichText
+            text: RuntimeData.freeDiskSpace !== 0 ? "Хранилище изображений заполнено на <b>" + Number(RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace).toFixed(0) + "%</b>.<br>
+                  Свободно <b>" + Number(RuntimeData.freeDiskSpace).toFixed(1) + " ГБ </b> из <b>" + Number(RuntimeData.totalDiskSpace).toFixed(1) + " ГБ </b>" : "Невозможно определить состояние хранилища.";
+            horizontalAlignment: Text.AlignLeft;
+            verticalAlignment: Text.AlignVCenter;
+        }
+    }
+    UI.CustomButton
+    {
+        id: clearDiskButton;
+        iconsource: "qrc:/ui-resources/white/trashbin.png";
+        primarycolor: UX.errorDark;
+        accentcolor: UX.errorDarker;
+        width: 160;
+        height: 20;
+        anchors.top: textBackground.bottom;
+        anchors.topMargin: 6;
+        iconsize: 14;
+        labeltext: "Очистить хранилище";
+        boldness: false;
+        onClicked: ioHandler.clearSARDisk();
+        z: 99;
     }
 }

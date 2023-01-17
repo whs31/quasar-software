@@ -25,7 +25,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 13;
             textFormat: Text.RichText
-            text: "ШИРОТА: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.latitude).toFixed(6) + "°N";
+            text: "<font color=\"#43a1ca\"><b>Широта: </font><b>"  + Number(RuntimeData.latitude).toFixed(6) + "<font color=\"#b2b9bb\"><b>°N";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }
@@ -39,7 +39,7 @@ Item {
             font.capitalization: Font.MixedCase;
             font.pixelSize: 13;
             textFormat: Text.RichText
-            text: "ДОЛГОТА: " + "<font color=\"#43a1ca\"><b>" + Number(RuntimeData.longitude).toFixed(6) + "°E";
+            text: "<font color=\"#43a1ca\"><b>Долгота: </font><b>"  + Number(RuntimeData.longitude).toFixed(6) + "<font color=\"#b2b9bb\"><b>°E";
             horizontalAlignment: Text.AlignHCenter;
             verticalAlignment: Text.AlignVCenter;
         }

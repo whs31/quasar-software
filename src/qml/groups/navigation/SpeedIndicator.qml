@@ -13,8 +13,8 @@ Item {
         id: bground;
         width: 26;
         height: 200;
-        color: UX.primaryDarker;
-        border.color: UX.primaryLight;
+        color: UX.warningDarkest;
+        border.color: UX.warningDarker;
         border.width: 2;
         radius: 13;
     }
@@ -23,7 +23,7 @@ Item {
         id: fground;
         width: 80;
         height: 40;
-        radius: 2;
+        radius: 12;
         color: UX.warningDarkest;
         border.width: 2;
         border.color: UX.warningDarker;
@@ -50,7 +50,7 @@ Item {
             id: labelBG;
             width: 80;
             height: 13;
-            radius: 2;
+            radius: 6;
             color: UX.warningDarker;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
@@ -58,7 +58,7 @@ Item {
                 id: labelText
                 text: "СКОРОСТЬ";
                 font.bold: true;
-                font.pointSize: 8;
+                font.pointSize: 7;
                 horizontalAlignment: Text.AlignHCenter;
                 anchors.centerIn: parent;
                 color: UX.textWhite;

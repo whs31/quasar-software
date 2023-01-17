@@ -8,5 +8,6 @@
         <file>map-resources/markers/image.png</file>
         <file>map-resources/attitude-indicator/crosshair-1.png</file>
         <file>map-resources/attitude-indicator/crosshair-2.png</file>
+        <file>map-resources/attitude-indicator/scale-vertical.png</file>
     </qresource>
 </RCC>

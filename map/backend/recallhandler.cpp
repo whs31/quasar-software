@@ -110,3 +110,24 @@ void RecallHandler::toggleConsole(void)     { RuntimeData::initialize()->toggleC
 void RecallHandler::placeMarker(void)       { RuntimeData::mouseState = MouseState::MarkerPlacement; }
 void RecallHandler::formSingleImage(void)   { RuntimeData::initialize()->formSingleImage(); }
 void RecallHandler::formContinuously(void)  { RuntimeData::initialize()->formContinuous(); }
+void RecallHandler::clearSARDisk(void)      
+{ 
+    QMessageBox box;
+    box.setWindowTitle("Очистка хранилища РЛС");
+    box.setIcon(QMessageBox::Warning);
+    box.setText("Вы уверены, что хотите очистить хранилище изображений на РЛС? Это действие приведет к полному удалению всех снимков и голограмм. Его нельзя обратить!");
+    box.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    box.setDefaultButton(QMessageBox::Cancel);
+    int ret = box.exec();
+    switch (ret)
+    {
+    case QMessageBox::Yes:
+        RuntimeData::initialize()->clearSARDisk(); 
+        break;
+    case QMessageBox::Cancel:
+        return;
+        break;
+    default:
+        break;
+    }
+}

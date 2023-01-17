@@ -120,6 +120,9 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
     connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
 
+    // sar commands setup
+    connect(RuntimeData::initialize(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
+
     // network auto-connection on startup (deprecated)
     if (SConfig::getHashBoolean("StartupConnectToSAR"))
     {
@@ -402,12 +405,28 @@ void CoreUI::ReadTelemetry(QByteArray data)
 void CoreUI::ReadSARConsole(QByteArray data)
 {
     if(plugins.terminalLoaded)
+    {
         HostAPI->execute("Terminal", "print", data);
+    } else {
     QString dataStr = data.data();
     dataStr.replace(QRegExp("[\r]"), "");
     QStringList dataParsed = dataStr.split(QRegExp("[\n]"), QString::SkipEmptyParts);
     for (QString str : dataParsed)
         ui->sarConsole->append(str);
+    }
+    DataType dtype = MessageParser::checkReceivedDataType(data);
+    if(dtype == DataType::CommandResponse_FreeDiskSpace)
+    {
+        Debug::Log("[SAR] SAR responds with: " + data);
+        QStringList _split;
+        QString dataStr = data.data();
+        dataStr.remove("FREE_DISK_SPACE ");
+        //dataStr.replace('\n', '');
+        _split = dataStr.split(' ', Qt::SkipEmptyParts);
+        qCritical()<<_split;
+        RuntimeData::initialize()->setFreeDiskSpace(_split.first().toInt());
+        RuntimeData::initialize()->setTotalDiskSpace(_split.last().toInt());
+    }
 }
 
 void CoreUI::ReadForm(QByteArray data)
@@ -428,16 +447,6 @@ void CoreUI::ReadForm(QByteArray data)
             RuntimeData::initialize()->setFormStatus(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
         }
         break;
-    case DataType::CommandResponse_FreeDiskSpace:
-    {
-        Debug::Log("?[SAR] SAR responds with: " + data);
-        QStringList _split;
-        QString dataStr = data.data();
-        _split = dataStr.split(' ');
-        RuntimeData::initialize()->setFreeDiskSpace(_split[1].toInt());
-        RuntimeData::initialize()->setTotalDiskSpace(_split[2].toInt());
-        break;
-    }
     default: 
     {
         break;
@@ -515,6 +524,14 @@ void CoreUI::toggleConsoleSlot()
         plugins.terminal->setEnabled(state);
         plugins.terminal->setVisible(state);
     }
+}
+
+void CoreUI::SendClearCommand(void)
+{
+    Debug::Log("?[SAR] Clearing SAR storage...");
+    QString request = MessageParser::makeCommand(Command::CacheClear);
+            SendRemoteCommand(request, CommandType::FormCommand);
+            Debug::Log("[FORM] Sended to SAR: " + request);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

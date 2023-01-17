@@ -1,0 +1,3 @@
+#!/bin/bash
+rm -rfv /root/Work/readdata/data-nfs/*
+echo "Хранилище данных успешно очищено."

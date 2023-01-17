@@ -88,6 +88,7 @@ public:
     void toggleConsole(void);
     void formSingleImage(void);
     void formContinuous(void);
+    void clearSARDisk(void);
 
     //==============================================                 ====================================================
     //                 ==> GET ==>                                                        <== SET <==
@@ -194,13 +195,16 @@ signals:
     void autocaptureDistanceChanged();
     void autocaptureEnabledChanged();
 
+    void freeDiskSpaceChanged();
+    void totalDiskSpaceChanged();
+
+    // my signals
+
     void autocaptureSignal();
     void toggleConsoleSignal();
     void formSingleImageSignal();
     void formContinuousSignal();
-
-    void freeDiskSpaceChanged();
-    void totalDiskSpaceChanged();
+    void clearSARDiskSignal();
 
 private:
     static RuntimeData* _instance;

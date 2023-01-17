@@ -101,6 +101,9 @@ else()
         gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
         gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
         gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
+        gui/thememanager.h                                  gui/thememanager.cpp
+        gui/themes/dark.h                                   gui/themes/dark.cpp
+        gui/themes/swampgreen.h                             gui/themes/swampgreen.cpp
         src/fonts.qrc                                       src/vector-resources.qrc
         src/buildprefs.h
         ${SRCS} appiconwin32.rc

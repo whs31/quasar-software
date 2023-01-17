@@ -25,10 +25,11 @@ Rectangle
         Material.background: UX.primaryLight;
         icon.width: 12;
         icon.height: 24;
+        width: 225;
         height: 36;
         radius: 16;
         opacity: 1;
-        text: "Удаленное соединение с РЛС";
+        text: "Сетевое подключение";
         font.capitalization: Font.MixedCase;
         font.pixelSize: 13;
         onClicked: box.shown = !box.shown;

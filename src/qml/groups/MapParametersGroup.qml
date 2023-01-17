@@ -19,6 +19,7 @@ Rectangle
         Material.background: UX.primaryLight;
         icon.width: 12;
         icon.height: 24;
+        width: 255;
         height: 36;
         radius: 16;
         opacity: 1;

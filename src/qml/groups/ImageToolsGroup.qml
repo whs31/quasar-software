@@ -11,6 +11,7 @@ import UX 1.0
 Rectangle 
 {
     property int containerHeight: 146;
+    //width: childrenRect.width;
     
     RoundButton
     {
@@ -18,6 +19,7 @@ Rectangle
         icon.source: "qrc:/ui-resources/white/images.png";
         icon.color: UX.textWhite;
         Material.background: UX.primaryLight;
+        width: 200;
         icon.width: 12;
         icon.height: 24;
         height: 36;

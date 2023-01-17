@@ -4,5 +4,6 @@
 #endif // BUILDPREFS_H
 
 const bool ENABLE_LOCALHOST_TILESERVER = false;
+const short THEME_SETTING_ON_BUILD = 0;
 const bool ENABLE_CSS_UPDATE_ON_CHANGE = false;
 const bool USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY = true;

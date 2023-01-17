@@ -26,6 +26,7 @@
 #include "passworddialog.h"
 
 #include "style.h"
+#include "thememanager.h"
 #include "linkerqml.h"
 
 #include "tcpdownloader.h"

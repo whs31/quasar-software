@@ -369,4 +369,12 @@ void RuntimeData::setAutocaptureEnabled(bool state)
     emit autocaptureEnabledChanged();
 }
 
+qreal RuntimeData::getFreeDiskSpace() const { return sarCommonVariables.freeDiskSpace; }
+void RuntimeData::setFreeDiskSpace(qreal value) { if (sarCommonVariables.freeDiskSpace == value) return;
+sarCommonVariables.freeDiskSpace = value; emit freeDiskSpaceChanged(); }
+
+qreal RuntimeData::getTotalDiskSpace() const { return sarCommonVariables.totalDiskSpace; }
+void RuntimeData::setTotalDiskSpace(qreal value) { if (sarCommonVariables.totalDiskSpace == value) return;
+sarCommonVariables.totalDiskSpace = value; emit totalDiskSpaceChanged(); }
+
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }

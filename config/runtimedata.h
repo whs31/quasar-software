@@ -74,6 +74,10 @@ class RuntimeData : public QObject
     // автозахват РЛИ
     Q_PROPERTY(qreal autocaptureDistance           READ getAutocaptureDistance WRITE setAutocaptureDistance NOTIFY autocaptureDistanceChanged)
     Q_PROPERTY(bool autocaptureEnabled             READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
+
+    // общие переменные с РЛС
+    Q_PROPERTY(qreal freeDiskSpace                 READ getFreeDiskSpace       WRITE setFreeDiskSpace       NOTIFY freeDiskSpaceChanged)
+    Q_PROPERTY(qreal totalDiskSpace                READ getTotalDiskSpace      WRITE setTotalDiskSpace      NOTIFY totalDiskSpaceChanged)
     
     QML_ELEMENT
     
@@ -85,111 +89,118 @@ public:
     void formSingleImage(void);
     void formContinuous(void);
 
-    //======================================================================================================
-    //                                           ==> GET ==>
-    //======================================================================================================
-    qreal getLatitude();
-    qreal getLongitude();
-    qreal getElevation();
-    qreal getSpeed();
-    qreal getSeaLevel();
-    qint16 getSatellites();
+    //==============================================                 ====================================================
+    //                 ==> GET ==>                                                        <== SET <==
+    //==============================================                 ====================================================
+    qreal getLatitude();                                                void setLatitude(qreal value);
+    qreal getLongitude();                                               void setLongitude(qreal value);
+    qreal getElevation();                                               void setElevation(qreal value);
+    qreal getSpeed();                                                   void setSpeed(qreal value);
+    qreal getSeaLevel();                                                void setSeaLevel(qreal value);
+    qint16 getSatellites();                                             void setSatellites(qint16 value);
 
-    qreal getAzimuthalDirection();
-    qreal getFlatDirection();
+    qreal getAzimuthalDirection();                                      void setAzimuthalDirection(qreal value);
+    qreal getFlatDirection();                                           void setFlatDirection(qreal value);
 
-    qreal getPitch();
-    qreal getRoll();
-    qreal getYaw();
-    qreal getThrottle();
+    qreal getPitch();                                                   void setPitch(qreal value);
+    qreal getRoll();                                                    void setRoll(qreal value);
+    qreal getYaw();                                                     void setYaw(qreal value);
+    qreal getThrottle();                                                void setThrottle(qreal value);
 
-    bool getFollowPlane();
-    bool getDrawTooltip();
-    bool getDrawRoute();
-    bool getDrawPredict();
-    bool getDrawDiagram();
+    bool getFollowPlane();                                              void setFollowPlane(bool state);
+    bool getDrawTooltip();                                              void setDrawTooltip(bool state);
+    bool getDrawRoute();                                                void setDrawRoute(bool state);
+    bool getDrawPredict();                                              void setDrawPredict(bool state);
+    bool getDrawDiagram();                                              void setDrawDiagram(bool state);
 
-    bool getGlobal_useOSMMaps();
+    bool getGlobal_useOSMMaps(); 
     qreal getGlobal_velocityVectorLength();
-    bool getEmulatorEnabled();
+    bool getEmulatorEnabled();                                          void setEmulatorEnabled(bool state);
 
-    bool getConnected();
-    QString getSARIP();
-    QString getPCIP();
-    QString getTelemetryPort();
-    QString getLoaderPort();
-    QString getCommandPort();
-    QString getListenPort();
-    qreal getLoadingProgress();
-    qreal getFormProgress();
-    QString getFormStatus();
-    QString getLoaderStatus();
+    bool getConnected();                                                void setConnected(bool state);
+    QString getSARIP();                                                 void setSARIP(QString string);
+    QString getPCIP();                                                  void setPCIP(QString string);
+    QString getTelemetryPort();                                         void setTelemetryPort(QString string);
+    QString getLoaderPort();                                            void setLoaderPort(QString string);
+    QString getCommandPort();                                           void setCommandPort(QString string);
+    QString getListenPort();                                            void setListenPort(QString string);
+    qreal getLoadingProgress();                                         void setLoadingProgress(qreal value);
+    qreal getFormProgress();                                            void setFormProgress(qreal value);
+    QString getFormStatus();                                            void setFormStatus(QString string);
+    QString getLoaderStatus();                                          void setLoaderStatus(QString string);
 
-    QString getFormMode();
-    quint32 getFormLowerBound();
-    quint32 getFormUpperBound();
-    float getFormTime();
-    float getFormStep();
-    int getFormOverrideGPSData();
-    float getFormGPSHeight();
-    float getFormGPSVelocity();
-    bool getFormingContinuous();
+    QString getFormMode();                                              void setFormMode(QString string);
+    quint32 getFormLowerBound();                                        void setFormLowerBound(quint32 value);
+    quint32 getFormUpperBound();                                        void setFormUpperBound(quint32 value);
+    float getFormTime();                                                void setFormTime(float value);
+    float getFormStep();                                                void setFormStep(float value);
+    int getFormOverrideGPSData();                                       void setFormOverrideGPSData(int state);
+    float getFormGPSHeight();                                           void setFormGPSHeight(float value);
+    float getFormGPSVelocity();                                         void setFormGPSVelocity(float value);
+    bool getFormingContinuous();                                        void setFormingContinuous(bool state);
 
-    qreal getAutocaptureDistance() const;
-    bool getAutocaptureEnabled() const;
+    qreal getAutocaptureDistance() const;                               void setAutocaptureDistance(qreal newAutocaptureDistance);
+    bool getAutocaptureEnabled() const;                                 void setAutocaptureEnabled(bool state);
 
-    //======================================================================================================
-    //                                           <== SET <==
-    //======================================================================================================
-    void setLatitude(qreal value);
-    void setLongitude(qreal value);
-    void setElevation(qreal value);
-    void setSpeed(qreal value);
-    void setSeaLevel(qreal value);
-    void setSatellites(qint16 value);
-
-    void setAzimuthalDirection(qreal value);
-    void setFlatDirection(qreal value);
-    
-    void setPitch(qreal value);
-    void setRoll(qreal value);
-    void setYaw(qreal value);
-    void setThrottle(qreal value);
-
-    void setFollowPlane(bool state);
-    void setDrawTooltip(bool state);
-    void setDrawRoute(bool state);
-    void setDrawPredict(bool state);
-    void setDrawDiagram(bool state);
-
-    void setEmulatorEnabled(bool state);
-
-    void setConnected(bool state);
-    void setSARIP(QString string);
-    void setPCIP(QString string);
-    void setTelemetryPort(QString string);
-    void setLoaderPort(QString string);
-    void setCommandPort(QString string);
-    void setListenPort(QString string);
-    void setLoadingProgress(qreal value);
-    void setFormProgress(qreal value);
-    void setFormStatus(QString string);
-    void setLoaderStatus(QString string);
-
-    void setFormMode(QString string);
-    void setFormLowerBound(quint32 value);
-    void setFormUpperBound(quint32 value);
-    void setFormTime(float value);
-    void setFormStep(float value);
-    void setFormOverrideGPSData(int state);
-    void setFormGPSHeight(float value);
-    void setFormGPSVelocity(float value);
-    void setFormingContinuous(bool state);
-
-    void setAutocaptureDistance(qreal newAutocaptureDistance);
-    void setAutocaptureEnabled(bool state);
+    qreal getFreeDiskSpace() const;                                     void setFreeDiskSpace(qreal value);
+    qreal getTotalDiskSpace() const;                                    void setTotalDiskSpace(qreal value);
 
     void autocapture(void);
+
+signals:
+    //======================================================================================================
+    //                                          =!= NOTIFY =!=
+    //======================================================================================================
+    void latitudeChanged();
+    void longitudeChanged();
+    void elevationChanged();
+    void speedChanged();
+    void seaLevelChanged();
+    void satellitesChanged();
+
+    void pitchChanged();
+    void rollChanged();
+    void yawChanged();
+    void throttleChanged();
+
+    void drawRouteChanged();
+    void drawPredictChanged();
+    void drawDiagramChanged();
+
+    void emulatorEnabledChanged();
+
+    void connectedChanged();
+    void SARIPChanged();
+    void PCIPChanged();
+    void telemetryPortChanged();
+    void loaderPortChanged();
+    void commandPortChanged();
+    void listenPortChanged();
+    void formProgressChanged();
+    void loadingProgressChanged();
+    void formStatusChanged();
+    void loaderStatusChanged();
+
+    void formModeChanged();
+    void formLowerBoundChanged();
+    void formUpperBoundChanged();
+    void formTimeChanged();
+    void formStepChanged();
+    void formOverrideGPSDataChanged();
+    void formGPSHeightChanged();
+    void formGPSVelocityChanged();
+    void formingContinuousChanged();
+
+    void autocaptureDistanceChanged();
+    void autocaptureEnabledChanged();
+
+    void autocaptureSignal();
+    void toggleConsoleSignal();
+    void formSingleImageSignal();
+    void formContinuousSignal();
+
+    void freeDiskSpaceChanged();
+    void totalDiskSpaceChanged();
 
 private:
     static RuntimeData* _instance;
@@ -261,57 +272,11 @@ private:
         bool enabled = false;
     }; AutoCaptureVariables autocaptureVariables;
 
-signals:
-    //======================================================================================================
-    //                                          =!= NOTIFY =!=
-    //======================================================================================================
-    void latitudeChanged();
-    void longitudeChanged();
-    void elevationChanged();
-    void speedChanged();
-    void seaLevelChanged();
-    void satellitesChanged();
-
-    void pitchChanged();
-    void rollChanged();
-    void yawChanged();
-    void throttleChanged();
-
-    void drawRouteChanged();
-    void drawPredictChanged();
-    void drawDiagramChanged();
-
-    void emulatorEnabledChanged();
-
-    void connectedChanged();
-    void SARIPChanged();
-    void PCIPChanged();
-    void telemetryPortChanged();
-    void loaderPortChanged();
-    void commandPortChanged();
-    void listenPortChanged();
-    void formProgressChanged();
-    void loadingProgressChanged();
-    void formStatusChanged();
-    void loaderStatusChanged();
-
-    void formModeChanged();
-    void formLowerBoundChanged();
-    void formUpperBoundChanged();
-    void formTimeChanged();
-    void formStepChanged();
-    void formOverrideGPSDataChanged();
-    void formGPSHeightChanged();
-    void formGPSVelocityChanged();
-    void formingContinuousChanged();
-
-    void autocaptureDistanceChanged();
-    void autocaptureEnabledChanged();
-
-    void autocaptureSignal();
-    void toggleConsoleSignal();
-    void formSingleImageSignal();
-    void formContinuousSignal();
+    struct SARCommonVariables
+    {
+        qreal freeDiskSpace = 0;
+        qreal totalDiskSpace = 0;
+    }; SARCommonVariables sarCommonVariables;
 };
 
 #endif // RUNTIMEDATA_H

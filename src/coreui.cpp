@@ -259,6 +259,9 @@ void CoreUI::updateProgress(float f)
         if(RuntimeData::initialize()->getFormingContinuous())
         {
             FormSingleImage();
+            QString request = MessageParser::makeCommand(Command::StorageStatus);
+            SendRemoteCommand(request, CommandType::FormCommand);
+            Debug::Log("[FORM] Sended to SAR: " + request);
         }
     }
 //    ui->progressBar_loader->setValue((int)f);
@@ -425,8 +428,20 @@ void CoreUI::ReadForm(QByteArray data)
             RuntimeData::initialize()->setFormStatus(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
         }
         break;
-    default:
+    case DataType::CommandResponse_FreeDiskSpace:
+    {
+        Debug::Log("?[SAR] SAR responds with: " + data);
+        QStringList _split;
+        QString dataStr = data.data();
+        _split = dataStr.split(' ');
+        RuntimeData::initialize()->setFreeDiskSpace(_split[1].toInt());
+        RuntimeData::initialize()->setTotalDiskSpace(_split[2].toInt());
         break;
+    }
+    default: 
+    {
+        break;
+    }
     }
 }
 
@@ -575,6 +590,9 @@ void CoreUI::reconnectSlot()
         Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
     }
     Debug::Log("?[REMOTE] UDP client connected");
+    QString request = MessageParser::makeCommand(Command::StorageStatus);
+            SendRemoteCommand(request, CommandType::FormCommand);
+            Debug::Log("[FORM] Sended to SAR: " + request);
 }
 void CoreUI::disconnectSlot()
 {

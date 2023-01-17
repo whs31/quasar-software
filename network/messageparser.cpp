@@ -15,6 +15,8 @@ DataType MessageParser::checkReceivedDataType(QByteArray data)
         return DataType::Telemetry;
     if(dts.contains("|") && !dts.contains(MessageParser::REQUEST_FORM))
         return DataType::FormResponse;
+    if(dts.contains("FREE_DISK_SPACE"))
+        return DataType::CommandResponse_FreeDiskSpace;
     return DataType::Unrecognized;
 }
 QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
@@ -65,6 +67,31 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
     if(SConfig::getHashBoolean("UseOldExecdEndline"))
         formRequest.append("\n");
     return formRequest.toUtf8();
+}
+
+QByteArray MessageParser::makeCommand(Command command)
+{
+    QString fullCommand = ":" + QStringLiteral("%1").arg(++formMessageID, 4, 10, QLatin1Char('0')) + "|";
+    QString commandString = "";
+    switch (command)
+    {
+    case Command::CacheClear:
+        commandString = "$clear_storage()";
+        break;
+    case Command::StorageStatus:
+        commandString = "$storage_status()";
+        break;
+    default:
+        return "Incorrect command.";
+        break;
+    }
+    QString hexlen;
+    hexlen.setNum(commandString.length(), 16);
+    fullCommand.append(hexlen + "|" + commandString + "|");
+    fullCommand.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(fullCommand), fullCommand.length()), 4, 16, QLatin1Char('0')));
+    if(SConfig::getHashBoolean("UseOldExecdEndline"))
+        fullCommand.append("\n");
+    return fullCommand.toUtf8();
 }
 
 std::array<int, 4> MessageParser::parseFormResponse(QByteArray data)

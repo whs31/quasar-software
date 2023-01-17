@@ -31,7 +31,7 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     ui->setupUi(this);
 
     // custom window frame setup
-    setMargins(25, 0, 0, 200);
+    setMargins(25, 0, 0, 250);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");

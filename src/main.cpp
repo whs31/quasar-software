@@ -39,11 +39,11 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
 }
 
 int main(int argc, char *argv[]) {
+    //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
     QApplication app(argc, argv);
-    
+
     QQuickStyle::setStyle("Material");                      //графика для QML
     qInstallMessageHandler(debugLogger);
-
     CoreUI window;
 
     window.show();

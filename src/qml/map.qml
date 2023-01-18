@@ -341,7 +341,7 @@ Rectangle {
         tilt: 15;
         plugin: Plugin {
             id: mapPluginID;
-            name: "mapboxgl";
+            name: !RuntimeData.global_useOSMMaps ?  "osm" : "mapboxgl";
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";

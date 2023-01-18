@@ -41,6 +41,7 @@ public:
     static std::array<int, 4> parseFormResponse(QByteArray data);
     static QByteArray makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9);
     static QByteArray makeCommand(Command command);
+    static QByteArray makeCommand(QString string);
 
     static size_t getMessageID(void);
 

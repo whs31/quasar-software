@@ -144,5 +144,6 @@ private slots:
     void on_checkBoxEnableManualGPS_stateChanged(int arg1);
     void on_doubleSpinBox_height_valueChanged(double arg1);
     void on_doubleSpinBox_velocity_valueChanged(double arg1);
+    void on_pushButton_sendCustomCommand_clicked();
 };
 #endif // COREUI_H

@@ -88,7 +88,7 @@ Rectangle {
 
     function qmlBackendStart()
     {
-        if(RuntimeData.global_useOSMMaps) { defaultMapModeOnTestMode = 3; } else { defaultMapModeOnTestMode = 0; }
+        if(RuntimeData.global_useOSMMaps) { defaultMapModeOnTestMode = 5; } else { defaultMapModeOnTestMode = 0; }
     }
 
     //called every fixed time (0.5 s default)           
@@ -341,7 +341,7 @@ Rectangle {
         tilt: 15;
         plugin: Plugin {
             id: mapPluginID;
-            name: "osm";
+            name: "mapboxgl";
             PluginParameter {
                 id: parameterOSM;
                 name: "osm.mapping.providersrepository.address";

@@ -30,9 +30,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
-
-    // custom window frame setup
-    ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
 
@@ -54,6 +51,8 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
 
     // qml base setup
+    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); //https://forum.qt.io/topic/71942/connect-two-qquickwidgets/2
+    ui->applicationHeader->show();
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
@@ -192,16 +191,26 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         } else {
             PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(terminalPlugin);
             pluginInterface->Init(this, config, HostAPI);
-            this->addDockWidget(Qt::RightDockWidgetArea, (QDockWidget*) pluginInterface->GetWidget());
             plugins.terminalLoaded = true;
             plugins.terminal = pluginInterface->GetWidget();
-            plugins.terminal->setWindowTitle("Терминал РЛС VT100");
+            QDockWidget* titleReset = (QDockWidget*)plugins.terminal;
+            titleReset->setTitleBarWidget(new QWidget(plugins.terminal));
+            ui->terminalLayout->addWidget(plugins.terminal);
+            
             //execute
             HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...\n");
         }
 
     // set default position and size of floating qdockwidgets
-    InitializeDockwidgets();
+    ui->debugConsole->setEnabled(false);
+    ui->debugConsole->setVisible(false);
+    if(plugins.terminalLoaded) 
+    {
+        plugins.terminal->setEnabled(true);
+        plugins.terminal->setVisible(true);
+        ui->sarConsole->setEnabled(false);
+        ui->sarConsole->setVisible(false);
+    }
 
     // execute any other startup code here
 
@@ -269,21 +278,6 @@ void CoreUI::updateProgress(float f)
 //    ui->progressBar_loader->setValue((int)f);
 }
 
-void CoreUI::InitializeDockwidgets()
-{
-    ui->debugConsoleDock->setEnabled(false);
-    ui->debugConsoleDock->setVisible(false);
-
-    ui->sarConsoleDock->setEnabled(false);
-    ui->sarConsoleDock->setVisible(false);
-
-    if(plugins.terminalLoaded) 
-    {
-        plugins.terminal->setEnabled(false);
-        plugins.terminal->setVisible(false);
-    }
-}
-
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if (type == CommandType::TelemetryCommand)
@@ -293,19 +287,6 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 }
 
 void CoreUI::on_minButton_clicked()     { showMinimized(); }
-void CoreUI::on_minmaxButton_clicked()
-{
-    if (!isMaximized())
-    {
-        showMaximized();
-        ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-    } // restore
-    else
-    {
-        showNormal();
-        ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-    }
-}
 void CoreUI::on_closeButton_clicked()   { QApplication::quit(); }
 void CoreUI::on_settingsButton_clicked()
 {
@@ -357,13 +338,10 @@ void CoreUI::on_emulatorButton_clicked()
 }
 void CoreUI::on_debugButton_clicked()
 {
-    if (SConfig::getHashBoolean("ShowConsole"))
-    {
-        bool state = ui->debugConsoleDock->isEnabled();
-        state = !state;
-        ui->debugConsoleDock->setEnabled(state);
-        ui->debugConsoleDock->setVisible(state);
-    }
+    bool state = ui->debugConsole->isEnabled();
+    state = !state;
+    ui->debugConsole->setEnabled(state);
+    ui->debugConsole->setVisible(state);
 }
 
 void CoreUI::ReadTelemetry(QByteArray data)
@@ -509,20 +487,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 }
 void CoreUI::toggleConsoleSlot()
 {
-    if (!plugins.terminalLoaded)
-    {
-        bool state = ui->sarConsoleDock->isEnabled();
-        state = !state;
-        ui->sarConsoleDock->setEnabled(state);
-        ui->sarConsoleDock->setVisible(state);
-    }
-    else
-    {
-        bool state = plugins.terminal->isEnabled();
-        state = !state;
-        plugins.terminal->setEnabled(state);
-        plugins.terminal->setVisible(state);
-    }
 }
 
 void CoreUI::SendClearCommand(void)

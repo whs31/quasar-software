@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1193</width>
+    <width>1278</width>
     <height>697</height>
    </rect>
   </property>
@@ -425,8 +425,11 @@ QMenu::right-arrow {
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0">
+    <item row="0" column="0" rowspan="2">
      <widget class="QQuickWidget" name="map">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -450,6 +453,241 @@ QMenu::right-arrow {
       </property>
      </widget>
     </item>
+    <item row="1" column="1">
+     <widget class="QFrame" name="consolesFrame">
+      <property name="minimumSize">
+       <size>
+        <width>256</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>256</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="terminalFrame">
+         <property name="minimumSize">
+          <size>
+           <width>256</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QVBoxLayout" name="terminalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QTextEdit" name="sarConsole">
+              <property name="minimumSize">
+               <size>
+                <width>256</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>256</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>JetBrains Mono</family>
+                <pointsize>9</pointsize>
+                <bold>false</bold>
+                <strikeout>false</strikeout>
+                <kerning>true</kerning>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QTextEdit {
+  background-color: #121617;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #121617;
+}
+
+QTextEdit:focus {
+  border: 1px solid #73C7FF;
+}
+
+QTextEdit:selected {
+  background: #9FCBFF;
+  color: #C9CDD0;
+}</string>
+              </property>
+              <property name="autoFormatting">
+               <set>QTextEdit::AutoAll</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+              <property name="markdown">
+               <string/>
+              </property>
+              <property name="html">
+               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'JetBrains Mono'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Consolas'; font-size:8pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="placeholderText">
+               <string>Ожидание вывода с РЛС....</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="debugConsole">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>256</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>256</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>9</pointsize>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="cursor" stdset="0">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTextEdit {
+  background-color: #121617;
+  color: #FFFFFF;
+  border-radius: 4px;
+  border: 1px solid #121617;
+}
+
+QTextEdit:focus {
+  border: 1px solid #73C7FF;
+}
+
+QTextEdit:selected {
+  background: #9FCBFF;
+  color: #C9CDD0;
+}</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Plain</enum>
+            </property>
+            <property name="midLineWidth">
+             <number>0</number>
+            </property>
+            <property name="documentTitle">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QQuickWidget" name="applicationHeader">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>256</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>256</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="resizeMode">
+       <enum>QQuickWidget::SizeRootObjectToView</enum>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QDockWidget" name="mapToolsDock">
@@ -461,7 +699,7 @@ QMenu::right-arrow {
    </property>
    <property name="minimumSize">
     <size>
-     <width>1193</width>
+     <width>1278</width>
      <height>41</height>
     </size>
    </property>
@@ -809,7 +1047,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>26</height>
+           <height>23</height>
           </size>
          </property>
          <property name="maximumSize">
@@ -1795,1350 +2033,6 @@ QDialogButtonBox QPushButton {
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="debugConsoleDock">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>260</width>
-     <height>184</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QWidget {
-  color: #dae1e5;
-  background-color: #132623;
-}
-
-DockWidget {
-  outline: 1px solid #132623;
-  background-color: #FAFAFA;
-  border: 1px solid #132623;
-  border-radius: 4px;
-  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-}
-
-QDockWidget::title {
-  /* Better size for title bar */
-  padding: 3px;
-  spacing: 4px;
-  border: none;
-  background-color: #204040;
-}
-
-QDockWidget::close-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
-}
-
-QDockWidget::close-button:hover {
-  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
-}
-
-QDockWidget::close-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
-}
-
-QDockWidget::float-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
-}
-
-QDockWidget::float-button:hover {
-  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
-}
-
-QDockWidget::float-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
-}
-
-QTabBar, QDockWidget QTabBar {
-  qproperty-drawBase: 0;
-  border-radius: 4px;
-  margin: 0px;
-  padding: 2px;
-  border: 0;
-  /* left: 5px; move to the right by 5px - removed for fix */
-}
-
-QTabBar::close-button, QDockWidget QTabBar::close-button {
-  border: 0;
-  margin: 0;
-  padding: 4px;
-  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
-}
-
-QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
-  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
-}
-
-QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
-}
-
-QTabBar::tab, QDockWidget QTabBar::tab {
-  /* !selected and disabled ----------------------------------------- */
-  /* selected ------------------------------------------------------- */
-}
-
-QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
-  border-bottom: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
-  border-top: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
-  border-right: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
-  border-left: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
-  border-bottom: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
-  border-top: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
-  border-right: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
-  border-left: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
-  border-bottom: 2px solid #FAFAFA;
-  margin-top: 2px;
-}
-
-QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
-  border-top: 2px solid #FAFAFA;
-  margin-bottom: 2px;
-}
-
-QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
-  border-left: 2px solid #FAFAFA;
-  margin-right: 2px;
-}
-
-QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
-  border-right: 2px solid #FAFAFA;
-  margin-left: 2px;
-}
-
-QTabBar::tab:top, QDockWidget QTabBar::tab:top {
-  background-color: #C9CDD0;
-  margin-left: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  min-width: 5px;
-  border-bottom: 3px solid #C9CDD0;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
-  background-color: #B9BDC1;
-  border-bottom: 3px solid #37AEFE;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-bottom: 3px solid #73C7FF;
-  /* Fixes spyder-ide/spyder#9766 and #243 */
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
-  border-top: 3px solid #C9CDD0;
-  background-color: #C9CDD0;
-  margin-left: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  min-width: 5px;
-}
-
-QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
-  background-color: #B9BDC1;
-  border-top: 3px solid #37AEFE;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-top: 3px solid #73C7FF;
-  /* Fixes spyder-ide/spyder#9766 and #243 */
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-QTabBar::tab:left, QDockWidget QTabBar::tab:left {
-  background-color: #C9CDD0;
-  margin-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  min-height: 5px;
-}
-
-QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
-  background-color: #B9BDC1;
-  border-right: 3px solid #37AEFE;
-}
-
-QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-right: 3px solid #73C7FF;
-  /* Fixes different behavior #271 */
-  margin-right: 0px;
-  padding-right: -1px;
-}
-
-QTabBar::tab:right, QDockWidget QTabBar::tab:right {
-  background-color: #C9CDD0;
-  margin-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  min-height: 5px;
-}
-
-QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
-  background-color: #B9BDC1;
-  border-left: 3px solid #37AEFE;
-}
-
-QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-left: 3px solid #73C7FF;
-  /* Fixes different behavior #271 */
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
-QTabBar QToolButton, QDockWidget QTabBar QToolButton {
-  /* Fixes #136 */
-  background-color: #C9CDD0;
-  height: 12px;
-  width: 12px;
-}
-
-QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
-  background-color: #C9CDD0;
-}
-
-QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
-  border: 1px solid #9FCBFF;
-}
-
-QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
-  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
-}
-
-QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
-  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
-}
-
-QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
-  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
-}
-
-QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
-  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
-}</string>
-   </property>
-   <property name="floating">
-    <bool>false</bool>
-   </property>
-   <property name="features">
-    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
-   </property>
-   <property name="allowedAreas">
-    <set>Qt::BottomDockWidgetArea|Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
-   </property>
-   <property name="windowTitle">
-    <string>Отладочная консоль</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="debugConsoleDockLayout">
-    <layout class="QGridLayout" name="gridLayout_6">
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
-      <number>0</number>
-     </property>
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item row="0" column="0">
-      <widget class="QTextEdit" name="debugConsole">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="cursor" stdset="0">
-        <cursorShape>IBeamCursor</cursorShape>
-       </property>
-       <property name="autoFillBackground">
-        <bool>false</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QTextEdit {
-  background-color: #031613;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: 1px solid #204040;
-}
-
-QTextEdit:focus {
-  border: 1px solid #73C7FF;
-}
-
-QTextEdit:selected {
-  background: #9FCBFF;
-  color: #C9CDD0;
-}</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::NoFrame</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Plain</enum>
-       </property>
-       <property name="midLineWidth">
-        <number>0</number>
-       </property>
-       <property name="documentTitle">
-        <string/>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="header">
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>530</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>524287</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QWidget {
-  background-color: #204040;
-}
-QMainWindow::separator {
-  background-color: #204040;
-  border: 0px solid #FAFAFA;
-  spacing: 0px;
-  padding: 0px;
-}</string>
-   </property>
-   <property name="features">
-    <set>QDockWidget::NoDockWidgetFeatures</set>
-   </property>
-   <property name="allowedAreas">
-    <set>Qt::TopDockWidgetArea</set>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>4</number>
-   </attribute>
-   <widget class="QWidget" name="headerLayout">
-    <layout class="QHBoxLayout" name="horizontalLayout_5">
-     <item>
-      <widget class="QLabel" name="quasarlogo">
-       <property name="minimumSize">
-        <size>
-         <width>18</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>18</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="images.qrc">:/ui-resources/quasarlogo/logo-white.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-       <property name="margin">
-        <number>-1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="windowTitle">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QWidget {
- color: #dae1e5
-}</string>
-       </property>
-       <property name="text">
-        <string>СПО РЛС «Квазар»</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_4">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>1008</width>
-         <height>6</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="debugButton">
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/white/console.png</normaloff>:/ui-resources/white/console.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>16</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="emulatorButton">
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 5px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}
-
-QPushButton:checked {
-  background-color: #bc9117;
-}
-</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/white/input.png</normaloff>:/ui-resources/white/input.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>15</width>
-         <height>15</height>
-        </size>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="settingsButton">
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/windowextension/settings.png</normaloff>:/ui-resources/windowextension/settings.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>14</width>
-         <height>16</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="infoButton">
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/windowextension/info.png</normaloff>:/ui-resources/windowextension/info.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>14</width>
-         <height>16</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_6">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="minButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/windowextension/minimize.png</normaloff>:/ui-resources/windowextension/minimize.png</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="minmaxButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #204040;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #499c54;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/windowextension/maximize.png</normaloff>:/ui-resources/windowextension/maximize.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>12</width>
-         <height>12</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="closeButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>22</width>
-         <height>16</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-  background-color: #FF5252;
-  color: #F6F7F9;
-  border-radius: 0px;
-  padding: 1px;
-  outline: none;
-  border: none;
-}
-QPushButton:hover {
-  background-color: #FF8A80;
-  color: #F6F7F9;
-}
-
-QPushButton:pressed {
-  background-color: #D50000;
-}</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="icon">
-        <iconset resource="images.qrc">
-         <normaloff>:/ui-resources/windowextension/close.png</normaloff>:/ui-resources/windowextension/close.png</iconset>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>10</width>
-         <height>10</height>
-        </size>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="sarConsoleDock">
-   <property name="font">
-    <font>
-     <family>Calibri</family>
-     <pointsize>9</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QWidget {
-  color: #dae1e5;
-  background-color: #132623;
-}
-
-DockWidget {
-  outline: 1px solid #132623;
-  background-color: #FAFAFA;
-  border: 1px solid #132623;
-  border-radius: 4px;
-  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-}
-
-QDockWidget::title {
-  /* Better size for title bar */
-  padding: 3px;
-  spacing: 4px;
-  border: none;
-  background-color: #204040;
-}
-
-QDockWidget::close-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
-}
-
-QDockWidget::close-button:hover {
-  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
-}
-
-QDockWidget::close-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
-}
-
-QDockWidget::float-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
-}
-
-QDockWidget::float-button:hover {
-  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
-}
-
-QDockWidget::float-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
-}
-
-QTabBar, QDockWidget QTabBar {
-  qproperty-drawBase: 0;
-  border-radius: 4px;
-  margin: 0px;
-  padding: 2px;
-  border: 0;
-  /* left: 5px; move to the right by 5px - removed for fix */
-}
-
-QTabBar::close-button, QDockWidget QTabBar::close-button {
-  border: 0;
-  margin: 0;
-  padding: 4px;
-  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
-}
-
-QTabBar::close-button:hover, QDockWidget QTabBar::close-button:hover {
-  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
-}
-
-QTabBar::close-button:pressed, QDockWidget QTabBar::close-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
-}
-
-QTabBar::tab, QDockWidget QTabBar::tab {
-  /* !selected and disabled ----------------------------------------- */
-  /* selected ------------------------------------------------------- */
-}
-
-QTabBar::tab:top:selected:disabled, QDockWidget QTabBar::tab:top:selected:disabled {
-  border-bottom: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:bottom:selected:disabled, QDockWidget QTabBar::tab:bottom:selected:disabled {
-  border-top: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:left:selected:disabled, QDockWidget QTabBar::tab:left:selected:disabled {
-  border-right: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:right:selected:disabled, QDockWidget QTabBar::tab:right:selected:disabled {
-  border-left: 3px solid #DAEDFF;
-  color: #788D9C;
-  background-color: #C9CDD0;
-}
-
-QTabBar::tab:top:!selected:disabled, QDockWidget QTabBar::tab:top:!selected:disabled {
-  border-bottom: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:bottom:!selected:disabled, QDockWidget QTabBar::tab:bottom:!selected:disabled {
-  border-top: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:left:!selected:disabled, QDockWidget QTabBar::tab:left:!selected:disabled {
-  border-right: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:right:!selected:disabled, QDockWidget QTabBar::tab:right:!selected:disabled {
-  border-left: 3px solid #FAFAFA;
-  color: #788D9C;
-  background-color: #FAFAFA;
-}
-
-QTabBar::tab:top:!selected, QDockWidget QTabBar::tab:top:!selected {
-  border-bottom: 2px solid #FAFAFA;
-  margin-top: 2px;
-}
-
-QTabBar::tab:bottom:!selected, QDockWidget QTabBar::tab:bottom:!selected {
-  border-top: 2px solid #FAFAFA;
-  margin-bottom: 2px;
-}
-
-QTabBar::tab:left:!selected, QDockWidget QTabBar::tab:left:!selected {
-  border-left: 2px solid #FAFAFA;
-  margin-right: 2px;
-}
-
-QTabBar::tab:right:!selected, QDockWidget QTabBar::tab:right:!selected {
-  border-right: 2px solid #FAFAFA;
-  margin-left: 2px;
-}
-
-QTabBar::tab:top, QDockWidget QTabBar::tab:top {
-  background-color: #C9CDD0;
-  margin-left: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  min-width: 5px;
-  border-bottom: 3px solid #C9CDD0;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-QTabBar::tab:top:selected, QDockWidget QTabBar::tab:top:selected {
-  background-color: #B9BDC1;
-  border-bottom: 3px solid #37AEFE;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-QTabBar::tab:top:!selected:hover, QDockWidget QTabBar::tab:top:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-bottom: 3px solid #73C7FF;
-  /* Fixes spyder-ide/spyder#9766 and #243 */
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-QTabBar::tab:bottom, QDockWidget QTabBar::tab:bottom {
-  border-top: 3px solid #C9CDD0;
-  background-color: #C9CDD0;
-  margin-left: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  min-width: 5px;
-}
-
-QTabBar::tab:bottom:selected, QDockWidget QTabBar::tab:bottom:selected {
-  background-color: #B9BDC1;
-  border-top: 3px solid #37AEFE;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-QTabBar::tab:bottom:!selected:hover, QDockWidget QTabBar::tab:bottom:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-top: 3px solid #73C7FF;
-  /* Fixes spyder-ide/spyder#9766 and #243 */
-  padding-left: 3px;
-  padding-right: 3px;
-}
-
-QTabBar::tab:left, QDockWidget QTabBar::tab:left {
-  background-color: #C9CDD0;
-  margin-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  min-height: 5px;
-}
-
-QTabBar::tab:left:selected, QDockWidget QTabBar::tab:left:selected {
-  background-color: #B9BDC1;
-  border-right: 3px solid #37AEFE;
-}
-
-QTabBar::tab:left:!selected:hover, QDockWidget QTabBar::tab:left:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-right: 3px solid #73C7FF;
-  /* Fixes different behavior #271 */
-  margin-right: 0px;
-  padding-right: -1px;
-}
-
-QTabBar::tab:right, QDockWidget QTabBar::tab:right {
-  background-color: #C9CDD0;
-  margin-top: 2px;
-  padding-left: 2px;
-  padding-right: 2px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  min-height: 5px;
-}
-
-QTabBar::tab:right:selected, QDockWidget QTabBar::tab:right:selected {
-  background-color: #B9BDC1;
-  border-left: 3px solid #37AEFE;
-}
-
-QTabBar::tab:right:!selected:hover, QDockWidget QTabBar::tab:right:!selected:hover {
-  border: 1px solid #73C7FF;
-  border-left: 3px solid #73C7FF;
-  /* Fixes different behavior #271 */
-  margin-left: 0px;
-  padding-left: 0px;
-}
-
-QTabBar QToolButton, QDockWidget QTabBar QToolButton {
-  /* Fixes #136 */
-  background-color: #C9CDD0;
-  height: 12px;
-  width: 12px;
-}
-
-QTabBar QToolButton:pressed, QDockWidget QTabBar QToolButton:pressed {
-  background-color: #C9CDD0;
-}
-
-QTabBar QToolButton:pressed:hover, QDockWidget QTabBar QToolButton:pressed:hover {
-  border: 1px solid #9FCBFF;
-}
-
-QTabBar QToolButton::left-arrow:enabled, QDockWidget QTabBar QToolButton::left-arrow:enabled {
-  image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
-}
-
-QTabBar QToolButton::left-arrow:disabled, QDockWidget QTabBar QToolButton::left-arrow:disabled {
-  image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
-}
-
-QTabBar QToolButton::right-arrow:enabled, QDockWidget QTabBar QToolButton::right-arrow:enabled {
-  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
-}
-
-QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::right-arrow:disabled {
-  image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
-}</string>
-   </property>
-   <property name="floating">
-    <bool>false</bool>
-   </property>
-   <property name="features">
-    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
-   </property>
-   <property name="windowTitle">
-    <string>Консоль РЛС</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>2</number>
-   </attribute>
-   <widget class="QWidget" name="sarConsoleLayout">
-    <layout class="QVBoxLayout" name="verticalLayout_11">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <property name="leftMargin">
-      <number>0</number>
-     </property>
-     <property name="topMargin">
-      <number>0</number>
-     </property>
-     <property name="rightMargin">
-      <number>0</number>
-     </property>
-     <property name="bottomMargin">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QTextEdit" name="sarConsole">
-       <property name="font">
-        <font>
-         <family>Consolas</family>
-         <pointsize>9</pointsize>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QTextEdit {
-  background-color: #031613;
-  color: #FFFFFF;
-  border-radius: 4px;
-  border: 1px solid #204040;
-}
-
-QTextEdit:focus {
-  border: 1px solid #73C7FF;
-}
-
-QTextEdit:selected {
-  background: #9FCBFF;
-  color: #C9CDD0;
-}</string>
-       </property>
-       <property name="autoFormatting">
-        <set>QTextEdit::AutoAll</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-       <property name="markdown">
-        <string/>
-       </property>
-       <property name="html">
-        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Consolas'; font-size:9pt; font-weight:700; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="placeholderText">
-        <string>Ожидание вывода с РЛС....</string>
-       </property>
-      </widget>
      </item>
     </layout>
    </widget>

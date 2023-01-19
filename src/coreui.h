@@ -120,7 +120,6 @@ private:
 private slots:
     //header
     void on_minButton_clicked();
-    void on_minmaxButton_clicked();
     void on_closeButton_clicked();
     void on_settingsButton_clicked();
     void on_infoButton_clicked();

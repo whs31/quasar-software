@@ -12,56 +12,31 @@ ThemeManager *ThemeManager::get(QObject *parent, short themeInitializer)
 ThemeManager::ThemeManager(QObject *parent, short themeInitializer) : QObject{parent}
 {
     currentTheme = (CurrentTheme)themeInitializer;
-    if(currentTheme == CurrentTheme::Swamp)
+    SwampGreen theme_s;
+    Dark theme_d;
+    if(currentTheme == CurrentTheme::SwampTheme)
     {
-        SwampGreen theme;
-        prm_darkest         = theme.prm_darkest;
-        prm_darker          = theme.prm_darker;
-        prm_dark            = theme.prm_dark;
-        prm_light           = theme.prm_light;
-        prm_lighter         = theme.prm_lighter;
-        prm_lightest        = theme.prm_lightest;
-
-        txt_faded           = theme.txt_faded;
-        txt_colored         = theme.txt_colored;
-        txt_white           = theme.txt_white;
-        
-        wrn_darkest         = theme.wrn_darkest;
-        wrn_darker          = theme.wrn_darker;
-        wrn_dark            = theme.wrn_dark;
-        wrn_light           = theme.wrn_light;
-        wrn_lighter         = theme.wrn_lighter;
-        wrn_lightest        = theme.wrn_lightest;
-
-        acc_darkest         = theme.acc_darkest;
-        acc_darker          = theme.acc_darker;
-        acc_dark            = theme.acc_dark;
-        acc_light           = theme.acc_light;
-        acc_lighter         = theme.acc_lighter;
-        acc_lightest        = theme.acc_lightest;
-        
-        inf_darkest         = theme.inf_darkest;
-        inf_darker          = theme.inf_darker;
-        inf_dark            = theme.inf_dark;
-        inf_light           = theme.inf_light;
-        inf_lighter         = theme.inf_lighter;
-        inf_lightest        = theme.inf_lightest;
-
-        err_darkest         = theme.err_darkest;
-        err_darker          = theme.err_darker;
-        err_dark            = theme.err_dark;
-        err_light           = theme.err_light;
-        err_lighter         = theme.err_lighter;
-        err_lightest        = theme.err_lightest;
-
-        scs_darkest         = theme.scs_darkest;
-        scs_darker          = theme.scs_darker;
-        scs_dark            = theme.scs_dark;
-        scs_light           = theme.scs_light;
-        scs_lighter         = theme.scs_lighter;
-        scs_lightest        = theme.scs_lightest;
-
-        msc_brown           = theme.msc_brown;
+        prm_darkest = theme_s.prm_darkest; prm_darker = theme_s.prm_darker; prm_dark = theme_s.prm_dark; prm_light = theme_s.prm_light;
+        prm_lighter = theme_s.prm_lighter; prm_lightest = theme_s.prm_lightest; txt_faded = theme_s.txt_faded; txt_colored = theme_s.txt_colored;
+        txt_white = theme_s.txt_white; wrn_darkest = theme_s.wrn_darkest; wrn_darker = theme_s.wrn_darker; wrn_dark = theme_s.wrn_dark;
+        wrn_light = theme_s.wrn_light; wrn_lighter = theme_s.wrn_lighter; wrn_lightest = theme_s.wrn_lightest; acc_darkest = theme_s.acc_darkest;
+        acc_darker = theme_s.acc_darker; acc_dark = theme_s.acc_dark; acc_light = theme_s.acc_light; acc_lighter = theme_s.acc_lighter;
+        acc_lightest = theme_s.acc_lightest; inf_darkest = theme_s.inf_darkest; inf_darker = theme_s.inf_darker; inf_dark = theme_s.inf_dark;
+        inf_light = theme_s.inf_light; inf_lighter = theme_s.inf_lighter; inf_lightest = theme_s.inf_lightest; err_darkest = theme_s.err_darkest;
+        err_darker = theme_s.err_darker; err_dark = theme_s.err_dark; err_light = theme_s.err_light; err_lighter = theme_s.err_lighter;
+        err_lightest = theme_s.err_lightest; scs_darkest = theme_s.scs_darkest; scs_darker = theme_s.scs_darker; scs_dark = theme_s.scs_dark;
+        scs_light = theme_s.scs_light; scs_lighter = theme_s.scs_lighter; scs_lightest = theme_s.scs_lightest; msc_brown = theme_s.msc_brown;
+    } else if(currentTheme == CurrentTheme::DarkTheme) {
+        prm_darkest = theme_d.prm_darkest; prm_darker = theme_d.prm_darker; prm_dark = theme_d.prm_dark; prm_light = theme_d.prm_light;
+        prm_lighter = theme_d.prm_lighter; prm_lightest = theme_d.prm_lightest; txt_faded = theme_d.txt_faded; txt_colored = theme_d.txt_colored;
+        txt_white = theme_d.txt_white; wrn_darkest = theme_d.wrn_darkest; wrn_darker = theme_d.wrn_darker; wrn_dark = theme_d.wrn_dark;
+        wrn_light = theme_d.wrn_light; wrn_lighter = theme_d.wrn_lighter; wrn_lightest = theme_d.wrn_lightest; acc_darkest = theme_d.acc_darkest;
+        acc_darker = theme_d.acc_darker; acc_dark = theme_d.acc_dark; acc_light = theme_d.acc_light; acc_lighter = theme_d.acc_lighter;
+        acc_lightest = theme_d.acc_lightest; inf_darkest = theme_d.inf_darkest; inf_darker = theme_d.inf_darker; inf_dark = theme_d.inf_dark;
+        inf_light = theme_d.inf_light; inf_lighter = theme_d.inf_lighter; inf_lightest = theme_d.inf_lightest; err_darkest = theme_d.err_darkest;
+        err_darker = theme_d.err_darker; err_dark = theme_d.err_dark; err_light = theme_d.err_light; err_lighter = theme_d.err_lighter;
+        err_lightest = theme_d.err_lightest; scs_darkest = theme_d.scs_darkest; scs_darker = theme_d.scs_darker; scs_dark = theme_d.scs_dark;
+        scs_light = theme_d.scs_light; scs_lighter = theme_d.scs_lighter; scs_lightest = theme_d.scs_lightest; msc_brown = theme_d.msc_brown;
     }
 }
 

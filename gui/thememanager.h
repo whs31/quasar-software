@@ -10,8 +10,8 @@
 
 enum CurrentTheme : short
 {
-    Swamp,
-    Dark
+    SwampTheme,
+    DarkTheme
 };
 
 class ThemeManager : public QObject
@@ -109,7 +109,7 @@ public:
         QColor getSuccessLightest();            void setSuccessLightest(QColor color);
         QColor getMiscBrown();                  void setMiscBrown(QColor color);
         
-    CurrentTheme currentTheme = CurrentTheme::Swamp;
+    CurrentTheme currentTheme = CurrentTheme::SwampTheme;
 
 signals:
         void primaryDarkestChanged();

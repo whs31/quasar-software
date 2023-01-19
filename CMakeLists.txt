@@ -28,7 +28,6 @@ endif()
 include_directories(
     network
     src
-    src/resources
     misc
     config
     image-processing
@@ -39,6 +38,7 @@ include_directories(
     gui
     disk
     emulator
+    resources
 )
 
 if(NOT WIN32)
@@ -52,8 +52,6 @@ include_directories (libplugin)
 link_directories(${CMAKE_SOURCE_DIR}/libplugin)
 
 file(GLOB SOURCE src/* )
-file(GLOB RES src/resources/*)
-
 
 
 if(ANDROID)
@@ -106,6 +104,7 @@ else()
         gui/themes/swampgreen.h                             gui/themes/swampgreen.cpp
         src/fonts.qrc                                       src/vector-resources.qrc
         src/buildprefs.h
+
         ${SRCS} appiconwin32.rc
    )
 endif()

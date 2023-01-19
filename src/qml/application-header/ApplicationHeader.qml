@@ -12,6 +12,7 @@ Rectangle {
     color: "#293133";
 
     ApplicationHeader { id: applicationHeader; }
+    FontLoader { id: semiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
 
     Buttons.ClassicButton
     {
@@ -90,5 +91,18 @@ Rectangle {
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
         onClicked: { applicationHeader.info(); }
+    }
+    Text
+    {
+        id: terminalLabel;
+        text: "ТЕРМИНАЛ РЛС";
+        font.capitalization: Font.MixedCase;
+        font.pixelSize: 20;
+        font.family: semiBold.name;
+        color: "#dae1e5";
+        opacity: enabled ? 1.0 : 0.3;
+        verticalAlignment: Text.AlignVCenter;       horizontalAlignment: Text.AlignHCenter;
+        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.bottom: parent.bottom;  anchors.bottomMargin: 5;
     }
 }

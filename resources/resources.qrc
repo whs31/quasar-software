@@ -30,5 +30,31 @@
         <file>icons/target.png</file>
         <file>icons/trashbin.png</file>
         <file>icons/water.png</file>
+        <file>fonts/SofiaSans-Italic.ttf</file>
+        <file>icons/map-layers/hybrid.png</file>
+        <file>icons/map-layers/satellite.png</file>
+        <file>icons/map-layers/schema.png</file>
+        <file>resources.qrc</file>
+        <file>fonts/SofiaSans-Black.ttf</file>
+        <file>fonts/SofiaSans-BlackItalic.ttf</file>
+        <file>fonts/SofiaSans-Bold.ttf</file>
+        <file>fonts/SofiaSans-BoldItalic.ttf</file>
+        <file>fonts/SofiaSans-ExtraBlack.ttf</file>
+        <file>fonts/SofiaSans-ExtraBlackItalic.ttf</file>
+        <file>fonts/SofiaSans-ExtraBold.ttf</file>
+        <file>fonts/SofiaSans-ExtraBoldItalic.ttf</file>
+        <file>fonts/SofiaSans-ExtraLight.ttf</file>
+        <file>fonts/SofiaSans-ExtraLightItalic.ttf</file>
+        <file>fonts/SofiaSans-HairLine.ttf</file>
+        <file>fonts/SofiaSans-HairLineItalic.ttf</file>
+        <file>fonts/SofiaSans-Light.ttf</file>
+        <file>fonts/SofiaSans-LightItalic.ttf</file>
+        <file>fonts/SofiaSans-Medium.ttf</file>
+        <file>fonts/SofiaSans-MediumItalic.ttf</file>
+        <file>fonts/SofiaSans-Regular.ttf</file>
+        <file>fonts/SofiaSans-SemiBold.ttf</file>
+        <file>fonts/SofiaSans-SemiBoldItalic.ttf</file>
+        <file>fonts/SofiaSans-Thin.ttf</file>
+        <file>fonts/SofiaSans-ThinItalic.ttf</file>
     </qresource>
 </RCC>

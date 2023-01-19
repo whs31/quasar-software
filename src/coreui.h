@@ -121,12 +121,12 @@ private:
 
 private slots:
     //header
-    void on_minButton_clicked();
+    void MinimizeSlot();
     void CloseSlot();
-    void on_settingsButton_clicked();
-    void on_infoButton_clicked();
-    void on_emulatorButton_clicked();
-    void on_debugButton_clicked();
+    void SettingsSlot();
+    void InfoSlot();
+    void EmulatorSlot();
+    void DebugSlot();
 
     //utility slots
     void ReadTelemetry(QByteArray data);

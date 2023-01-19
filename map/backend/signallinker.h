@@ -9,6 +9,11 @@ class SignalLinker : public QObject
 public:
     static SignalLinker* get(QObject* parent = nullptr);
     void sendClose(void);
+    void sendMinimize(void);
+    void sendLog(void);
+    void sendSettings(void);
+    void sendInfo(void);
+    void sendEmulator(void);
     
 
 private:
@@ -17,6 +22,11 @@ private:
 
 signals:
     void closeSignal();
+    void minimizeSignal();
+    void settingsSignal();
+    void infoSignal();
+    void logSignal();
+    void emulatorSignal();
 
 };
 

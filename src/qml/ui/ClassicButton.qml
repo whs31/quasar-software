@@ -24,9 +24,9 @@ import QtQuick.Controls.Material.impl 2.12
 
 Rectangle {
     enum Mode {
-        IconAndLabel,
-        IconOnly,
-        LabelOnly
+        IconAndLabel = 1,
+        IconOnly = 2,
+        LabelOnly = 3
     }
 
     property int display_mode: ClassicButton.Mode.IconAndLabel;
@@ -91,8 +91,8 @@ Rectangle {
         anchors.centerIn: parent;
         Image {
             id: ico;
-            width: icon_px_size;
-            height: icon_px_size;
+            width: display_mode !== 3 ? icon_px_size : 0;
+            height: display_mode !== 3 ? icon_px_size : 0;
             source: icon_source;
             smooth: true;
             antialiasing: true;
@@ -101,7 +101,7 @@ Rectangle {
             
         }
         Text {
-            text: labeltext;
+            text: display_mode !== 2 ? label_text : "";
             font.capitalization: Font.MixedCase;
             font.pixelSize: label_text_size;
             font.bold: label_text_bold;

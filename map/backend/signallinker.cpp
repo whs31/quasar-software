@@ -8,3 +8,8 @@ SignalLinker *SignalLinker::get(QObject *parent) {
 } SignalLinker::SignalLinker(QObject *parent) : QObject{parent} {}
 
 void SignalLinker::sendClose(void) { emit closeSignal(); }
+void SignalLinker::sendMinimize(void) { emit minimizeSignal(); }
+void SignalLinker::sendLog(void) { emit logSignal(); }
+void SignalLinker::sendSettings(void) { emit settingsSignal(); }
+void SignalLinker::sendInfo(void) { emit infoSignal(); }
+void SignalLinker::sendEmulator(void) { emit emulatorSignal(); }

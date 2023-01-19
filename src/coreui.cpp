@@ -50,6 +50,11 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
     connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
+    connect(SignalLinker::get(), SIGNAL(minimizeSignal()), this, SLOT(MinimizeSlot()));
+    connect(SignalLinker::get(), SIGNAL(logSignal()), this, SLOT(DebugSlot()));
+    connect(SignalLinker::get(), SIGNAL(settingsSignal()), this, SLOT(SettingsSlot()));
+    connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
+    connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
@@ -295,9 +300,9 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
         formRemote->Send(command.toUtf8());
 }
 
-void CoreUI::on_minButton_clicked()     { showMinimized(); }
+void CoreUI::MinimizeSlot()     { showMinimized(); }
 void CoreUI::CloseSlot()   { QApplication::quit(); }
-void CoreUI::on_settingsButton_clicked()
+void CoreUI::SettingsSlot()
 {
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
     if (passwordDialog.exec() == QDialog::Accepted)
@@ -336,8 +341,8 @@ void CoreUI::on_settingsButton_clicked()
     }
 }
 
-void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
-void CoreUI::on_emulatorButton_clicked()    
+void CoreUI::InfoSlot()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
+void CoreUI::EmulatorSlot()    
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
     if(RuntimeData::initialize()->getEmulatorEnabled())
@@ -345,7 +350,7 @@ void CoreUI::on_emulatorButton_clicked()
     else
         flightEmulator->stopEmulator(); 
 }
-void CoreUI::on_debugButton_clicked()
+void CoreUI::DebugSlot()
 {
     bool state = ui->debugConsole->isEnabled();
     state = !state;
@@ -467,11 +472,11 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         }
         else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
         {
-            if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { on_debugButton_clicked(); pressedKeys.clear(); }
+            if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { DebugSlot(); pressedKeys.clear(); }
             if(pressedKeys.contains(Qt::Key_C) || pressedKeys.contains(1057)) { toggleConsoleSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->disconnect(); pressedKeys.clear();}
-            if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { on_settingsButton_clicked(); pressedKeys.clear();}
-            if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { on_infoButton_clicked(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { SettingsSlot(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { InfoSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, 
                                                     tr("Выберите папку c выходными изображениями РЛС"), QStandardPaths::displayName(
                                                     QStandardPaths::HomeLocation)); if(pathNotNullCheck != NULL) { SConfig::setHashValue(

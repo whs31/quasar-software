@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
-import "qrc:/qml/ui" as UI
+import "qrc:/qml/ui/buttons" as Buttons
 import ApplicationHeader 1.0
 
 Rectangle {
@@ -13,10 +13,10 @@ Rectangle {
 
     ApplicationHeader { id: applicationHeader; }
 
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: closeButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: parent.top;            anchors.topMargin: 6;
         anchors.right: parent.right;        anchors.rightMargin: 6;
         fixed_width: 47;            fixed_height: 27;
@@ -26,10 +26,10 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.close(); }
     }
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: minimizeButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.right: closeButton.left;        
         fixed_width: 47;            fixed_height: 27;
@@ -39,10 +39,10 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.minimize(); }
     }
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: emulatorButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: parent.left;      anchors.leftMargin: 6;    
         fixed_width: 27;            fixed_height: 27;
@@ -52,10 +52,10 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.emulator(); }
     }
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: debugButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: emulatorButton.right;      
         fixed_width: 27;            fixed_height: 27;
@@ -65,10 +65,10 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.log(); }
     }
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: settingsButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: debugButton.right;      anchors.leftMargin: 6;    
         fixed_width: 27;            fixed_height: 27;
@@ -78,10 +78,10 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.settings(); }
     }
-    UI.ClassicButton
+    Buttons.ClassicButton
     {
         id: infoButton;
-        display_mode: UI.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: settingsButton.right;       
         fixed_width: 27;            fixed_height: 27;

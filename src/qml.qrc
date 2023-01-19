@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
-        <file>qml/Gesture.qml</file>
         <file>qml/ZoomSlider.qml</file>
         <file>qml/TiltSlider.qml</file>
         <file>qml/BottomToolbar.qml</file>
@@ -29,6 +28,6 @@
         <file>qml/groups/navigation/ConnectionBar.qml</file>
         <file>qml/groups/FormGroup.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
-        <file>qml/ui/ClassicButton.qml</file>
+        <file>qml/ui/buttons/ClassicButton.qml</file>
     </qresource>
 </RCC>

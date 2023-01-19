@@ -60,13 +60,28 @@ Rectangle {
             to: background_secondary_color;
             duration: 100;
         }
+    ColorAnimation {
+        id: animation_hoverOff;
+        target: control;
+        property: "color";
+        to: background_color;
+        duration: 100;
+    }
+    SequentialAnimation {
+        id: animation_clickColorChange;
         ColorAnimation {
-            id: animation_hoverOff;
+            target: control;
+            property: "color";
+            to: Qt.darker(background_color, 1.5);
+            duration: 100;
+        }
+        ColorAnimation {
             target: control;
             property: "color";
             to: background_color;
             duration: 100;
         }
+    }
     SequentialAnimation {
         id: animation_click;
         PropertyAnimation {
@@ -120,7 +135,7 @@ Rectangle {
         anchors.fill: parent
         onEntered: { animation_hoverOn.start(); }
         onExited: { animation_hoverOff.start(); }
-        onClicked: { animation_click.start(); }
+        onClicked: { animation_click.start(); animation_clickColorChange.start(); }
     }
     Component.onCompleted: {
         controlMouseArea.clicked.connect(clicked);

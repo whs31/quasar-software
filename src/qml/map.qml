@@ -598,10 +598,6 @@ Rectangle {
             }
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; }
-        Gesture {
-            id: gesture;
-            anchors.fill: parent;
-        }
 
         Groups.NavGroup
         {

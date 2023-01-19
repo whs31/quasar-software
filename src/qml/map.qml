@@ -599,6 +599,14 @@ Rectangle {
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; }
 
+        Groups.TopBar
+        {
+            id: topBar;
+            anchors.top: parent.top;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+        }
+
         Groups.NavGroup
         {
             id: navGroup;
@@ -622,7 +630,7 @@ Rectangle {
             id: mapParametersPanel;
             anchors.top: parent.top;
             anchors.left: parent.left;
-            anchors.topMargin: 3;
+            anchors.topMargin: 3+70;
             anchors.leftMargin: 200;
         }
         Groups.ImageToolsGroup
@@ -630,14 +638,14 @@ Rectangle {
             id: imagePanel;
             anchors.top: parent.top;
             anchors.left: parent.left;
-            anchors.topMargin: 3;
+            anchors.topMargin: 3+70;
             anchors.leftMargin: 3;
         }
         Groups.NetworkGroup
         {
             id: networkPanel;
             anchors.top: parent.top;
-            anchors.topMargin: 3;
+            anchors.topMargin: 3+70;
             anchors.right: parent.right;
             anchors.rightMargin: 230;
         }
@@ -711,7 +719,7 @@ Rectangle {
             prefix: "Статус полёта: ";
             anchors.right: parent.horizontalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: 25;
+            anchors.topMargin: 25+70;
             anchors.rightMargin: 10;
         }
         UI.StatusText
@@ -722,7 +730,7 @@ Rectangle {
             //anchors.left: parent.horizontalCenter;
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top;
-            anchors.topMargin: 25;
+            anchors.topMargin: 25+70;
             //anchors.leftMargin: 10;
         }
     }

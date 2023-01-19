@@ -1,8 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
-import QtQuick.Controls.Material.impl 2.12
 import "qrc:/qml/ui/buttons" as Buttons
 import ApplicationHeader 1.0
 

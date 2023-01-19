@@ -10,10 +10,10 @@ class Dark : public QObject
 public:
     explicit Dark(QObject *parent = nullptr);
         QString prm_darkest;
-        QString prm_darker = "#132623";
-        QString prm_dark = "#203a40";
-        QString prm_light = "#204040";
-        QString prm_lighter = "#499c54";
+        QString prm_darker = "#121617";
+        QString prm_dark = "#293133";
+        QString prm_light = "#3e4c4f";
+        QString prm_lighter = "#6d848a";
         QString prm_lightest;
         QString txt_faded = "#b2b9bb";
         QString txt_colored = "#b4b4dc";

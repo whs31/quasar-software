@@ -4,7 +4,7 @@
     "QImageFormat" : "Indexed8",
     "MaximumZoomLevel" : 18,
     "ID" : "wmf-intl-1x",
-    "MapCopyRight" : "<a href='https://wikimediafoundation.org/wiki/Terms_of_Use'>WikiMedia Foundation</a>",
-    "DataCopyRight" : "<a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
-    "Timestamp" : "2019-02-01"
+    "MapCopyRight" : "RADAR-MMS",
+    "DataCopyRight" : "QuaSAR",
+    "Timestamp" : "2023-01-01"
 }

@@ -20,7 +20,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
-    Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
     TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
@@ -224,7 +223,11 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         plugins.terminal->setVisible(true);
         ui->sarConsole->setEnabled(false);
         ui->sarConsole->setVisible(false);
+        plugins.terminal->setStyleSheet("QFrame { \nbackground-color: #121617;\n  color: #121617;\n  border: 1px solid #121617;\n}");
     }
+
+    // qss only after plugins loaded
+    Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
 
     // execute any other startup code here
 

@@ -39,4 +39,56 @@ Rectangle {
         background_radius: 2;
         onClicked: { applicationHeader.minimize(); }
     }
+    UI.ClassicButton
+    {
+        id: emulatorButton;
+        display_mode: UI.ClassicButton.Mode.IconOnly;
+        anchors.top: closeButton.top;            
+        anchors.left: parent.left;      anchors.leftMargin: 6;    
+        fixed_width: 27;            fixed_height: 27;
+        icon_px_size: 16;           icon_source: "qrc:/icons/debug.png";
+        background_color: "#293133";
+        background_secondary_color: Qt.lighter(background_color, 1.5); 
+        background_radius: 2;
+        onClicked: { applicationHeader.emulator(); }
+    }
+    UI.ClassicButton
+    {
+        id: debugButton;
+        display_mode: UI.ClassicButton.Mode.IconOnly;
+        anchors.top: closeButton.top;            
+        anchors.left: emulatorButton.right;      
+        fixed_width: 27;            fixed_height: 27;
+        icon_px_size: 21;           icon_source: "qrc:/icons/command-line.png";
+        background_color: "#293133";
+        background_secondary_color: Qt.lighter(background_color, 1.5); 
+        background_radius: 2;
+        onClicked: { applicationHeader.log(); }
+    }
+    UI.ClassicButton
+    {
+        id: settingsButton;
+        display_mode: UI.ClassicButton.Mode.IconOnly;
+        anchors.top: closeButton.top;            
+        anchors.left: debugButton.right;      anchors.leftMargin: 6;    
+        fixed_width: 27;            fixed_height: 27;
+        icon_px_size: 18;           icon_source: "qrc:/icons/settings.png";
+        background_color: "#293133";
+        background_secondary_color: Qt.lighter(background_color, 1.5); 
+        background_radius: 2;
+        onClicked: { applicationHeader.settings(); }
+    }
+    UI.ClassicButton
+    {
+        id: infoButton;
+        display_mode: UI.ClassicButton.Mode.IconOnly;
+        anchors.top: closeButton.top;            
+        anchors.left: settingsButton.right;       
+        fixed_width: 27;            fixed_height: 27;
+        icon_px_size: 18;           icon_source: "qrc:/icons/info.png";
+        background_color: "#293133";
+        background_secondary_color: Qt.lighter(background_color, 1.5); 
+        background_radius: 2;
+        onClicked: { applicationHeader.info(); }
+    }
 }

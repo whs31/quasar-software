@@ -25,12 +25,12 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
-  background-color: #204040;
+  background-color: #121617;
 }
 
 QDockWidget {
-  outline: 1px solid #204040;
-  background-color: #FAFAFA;
+  outline: 1px solid #121617;
+  background-color: #121617;
   border: 1px solid #204040;
   border-radius: 4px;
   titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);

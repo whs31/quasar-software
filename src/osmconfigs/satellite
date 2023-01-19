@@ -1,5 +1,5 @@
 {
-    "UrlTemplate" : "https://maps.geoapify.com/v1/tile/maptiler-3d/%z/%x/%y.png?&apiKey=0d5122a5dbe245b8a448288666e25b4d",
+    "UrlTemplate" : "https://mt.google.com/vt/lyrs=s&hl=ru&z=%z&x=%x&y=%y",
     "ImageFormat" : "png",
     "QImageFormat" : "Indexed8",
     "MaximumZoomLevel" : 18,

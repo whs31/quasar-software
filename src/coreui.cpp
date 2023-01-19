@@ -643,3 +643,12 @@ void CoreUI::FormContinuousImages()
     }
     
 }
+
+void CoreUI::on_pushButton_sendCustomCommand_clicked()
+{
+    Debug::Log("?[SAR] Sending custom command!");
+    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
+    SendRemoteCommand(request, CommandType::FormCommand);
+    Debug::Log("[FORM] Sended to SAR: " + request);
+}
+

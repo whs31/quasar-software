@@ -46,6 +46,7 @@ windows:
     - mkdir -p $CI_PROJECT_TITLE/geoservices $CI_PROJECT_TITLE/imageformats $CI_PROJECT_TITLE/platforms
     - cp Quasar.exe $CI_PROJECT_TITLE
     - cp libplugin/plugin.dll $CI_PROJECT_TITLE
+    - cp compiled/qtgeoservices_googlemaps.dll $CI_PROJECT_TITLE/geoservices
     - cpwinlib iconv.dll $CI_PROJECT_TITLE
     - cpwinlib libbz2-1.dll $CI_PROJECT_TITLE
     - cpwinlib libcfitsio-3.dll $CI_PROJECT_TITLE

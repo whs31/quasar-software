@@ -52,6 +52,7 @@ else()
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
         map/backend/recallhandler.h                         map/backend/recallhandler.cpp
         map/backend/flightprediction.h                      map/backend/flightprediction.cpp
+        map/backend/signallinker.h                          map/backend/signallinker.cpp
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp
@@ -81,10 +82,11 @@ else()
         gui/aboutdialog.h                                   gui/aboutdialog.cpp                                            gui/aboutdialog.ui
         gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
         gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
-        gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
+        gui/applicationheader.h                             gui/applicationheader.cpp
         gui/thememanager.h                                  gui/thememanager.cpp
         gui/themes/dark.h                                   gui/themes/dark.cpp
         gui/themes/swampgreen.h                             gui/themes/swampgreen.cpp
+        gui/widgets/colorpicker.h                           gui/widgets/colorpicker.cpp
         src/fonts.qrc                                       src/vector-resources.qrc
         src/buildprefs.h
         resources/resources.qrc

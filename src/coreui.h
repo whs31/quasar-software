@@ -33,6 +33,8 @@
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 #include "runtimedata.h"
+#include "backend/signallinker.h"
+#include "applicationheader.h"
 #include "flightemulator.h"
 
 #include <plugin.h>
@@ -120,7 +122,7 @@ private:
 private slots:
     //header
     void on_minButton_clicked();
-    void on_closeButton_clicked();
+    void CloseSlot();
     void on_settingsButton_clicked();
     void on_infoButton_clicked();
     void on_emulatorButton_clicked();

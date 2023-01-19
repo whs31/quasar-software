@@ -4,11 +4,14 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import "qrc:/qml/ui" as UI
+import ApplicationHeader 1.0
 
 Rectangle {
     id: base;
     width: 256; height: 70;
     color: "#293133";
+
+    ApplicationHeader { id: applicationHeader; }
 
     UI.ClassicButton
     {
@@ -21,5 +24,6 @@ Rectangle {
         background_color: "#B16573";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        onClicked: { applicationHeader.close(); }
     }
 }

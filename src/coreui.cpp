@@ -46,16 +46,25 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
     connect(RuntimeData::initialize(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
     connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
+    
+    // signal linker setup
+    qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
+    connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
 
     // qml base setup
-    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); //https://forum.qt.io/topic/71942/connect-two-qquickwidgets/2
-    ui->applicationHeader->show();
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
+
+    // declare only-header qml types here
+    qmlRegisterType<ApplicationHeader>("ApplicationHeader", 1, 0, "ApplicationHeader");
+
+    // qml header setup
+    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); //https://forum.qt.io/topic/71942/connect-two-qquickwidgets/2
+    ui->applicationHeader->show();
     qml = ui->map->rootObject();
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
@@ -287,7 +296,7 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 }
 
 void CoreUI::on_minButton_clicked()     { showMinimized(); }
-void CoreUI::on_closeButton_clicked()   { QApplication::quit(); }
+void CoreUI::CloseSlot()   { QApplication::quit(); }
 void CoreUI::on_settingsButton_clicked()
 {
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));

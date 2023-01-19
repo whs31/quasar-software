@@ -87,6 +87,7 @@ else()
         gui/themes/swampgreen.h                             gui/themes/swampgreen.cpp
         src/fonts.qrc                                       src/vector-resources.qrc
         src/buildprefs.h
+        resources/resources.qrc
 
         ${SRCS} appiconwin32.rc
    )

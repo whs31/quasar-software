@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/">
+        <file>attitude/crosshair-1.png</file>
+        <file>attitude/crosshair-2.png</file>
+        <file>attitude/scale-vertical.png</file>
+        <file>icons/animated/antenna-green-0.png</file>
+        <file>icons/animated/antenna-green-1.png</file>
+        <file>icons/animated/antenna-green-2.png</file>
+        <file>icons/animated/antenna-red-0.png</file>
+        <file>icons/animated/antenna-red-1.png</file>
+        <file>icons/animated/antenna-red-2.png</file>
+        <file>icons/close.png</file>
+        <file>icons/command-line.png</file>
+        <file>icons/debug.png</file>
+        <file>icons/eraser.png</file>
+        <file>icons/folder.png</file>
+        <file>icons/gps.png</file>
+        <file>icons/image.png</file>
+        <file>icons/info.png</file>
+        <file>icons/map.png</file>
+        <file>icons/marker.png</file>
+        <file>icons/minus.png</file>
+        <file>icons/mountain.png</file>
+        <file>icons/plus.png</file>
+        <file>icons/protractor.png</file>
+        <file>icons/refresh.png</file>
+        <file>icons/ruler.png</file>
+        <file>icons/satellite.png</file>
+        <file>icons/settings.png</file>
+        <file>icons/target.png</file>
+        <file>icons/trashbin.png</file>
+        <file>icons/water.png</file>
+    </qresource>
+</RCC>

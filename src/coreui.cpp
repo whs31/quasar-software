@@ -4,7 +4,7 @@
 
 CoreUI *CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
-CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
+CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
                                   ui(new Ui::CoreUI)
 {
     debugPointer = this;
@@ -25,14 +25,13 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // get resolution for some ui rescaling and start new log in debug
-    screenResolution = QGuiApplication::screens().first()->availableGeometry();
+    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
     Debug::NewSession();
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
 
     // custom window frame setup
-    setMargins(25, 0, 0, 250);
     ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");

@@ -1,6 +1,8 @@
 #ifndef COREUI_H
 #define COREUI_H
 
+#include <QMainWindow>
+#include <QScreen>
 #include <QSslSocket>
 #include <QTimer>
 #include "qqml.h"
@@ -16,7 +18,6 @@
 #include "backend/recallhandler.h"
 #include "backend/flightprediction.h"
 
-#include "extension.h"
 #include "udpremote.h"
 #include "messageparser.h"
 #include "smath.h"
@@ -46,7 +47,7 @@ enum CommandType {
     FormCommand
 };
 
-class CoreUI : public QGoodWindow
+class CoreUI : public QMainWindow
 {
     Q_OBJECT
 

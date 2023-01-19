@@ -19,12 +19,6 @@ else()
     find_package(Qt5 OPTIONAL_COMPONENTS X11Extras)
 endif()
 
-if(NOT WIN32)
-    find_package(PkgConfig REQUIRED)
-    pkg_check_modules (GTK2 REQUIRED gtk+-2.0)
-endif()
-
-
 include_directories(
     network
     src
@@ -33,20 +27,12 @@ include_directories(
     image-processing
     map
     json
-    windowextension
     func
     gui
     disk
     emulator
     resources
 )
-
-if(NOT WIN32)
-    include_directories (
-      ${GTK2_INCLUDE_DIRS}
-    )
-endif()
-
 
 include_directories (libplugin)
 link_directories(${CMAKE_SOURCE_DIR}/libplugin)
@@ -61,9 +47,6 @@ else()
         emulator/flightemulator.h                           emulator/flightemulator.cpp
         emulator/udpemulator.h                              emulator/udpemulator.cpp
         emulator/saroutputconsoleemulator.h                 emulator/saroutputconsoleemulator.cpp
-        windowextension/extension.h                         windowextension/extension.cpp
-        windowextension/shadow.h                            windowextension/shadow.cpp
-        windowextension/common.h
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
@@ -122,35 +105,14 @@ target_link_libraries(${executable_name}
 
 
 if(WIN32)
-    target_compile_definitions(${executable_name} PRIVATE
-        QGOODWINDOW
-    )
-
     target_link_libraries(${executable_name}
-        Qt::WinExtras
         plugin
     )
 endif()
 
-
-if(UNIX AND NOT ANDROID AND NOT APPLE)
-    target_compile_definitions(${executable_name} PRIVATE
-        QGOODWINDOW
-    )
-
-    target_link_libraries(${executable_name}
-        X11
-        ${GTK2_LIBRARIES}
-    )
-endif()
-
 if((( ( UNIX ) AND NOT APPLE ) AND NOT ANDROID) AND ((QT_VERSION_MAJOR EQUAL 5)))
-    target_compile_definitions(${executable_name} PRIVATE
-        QGOODWINDOW
-    )
     target_link_libraries(${executable_name}
         Qt::Test
-        Qt::X11Extras
         plugin
     )
 endif()

@@ -596,21 +596,28 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; } //192.168.18.143
 
         Groups.TopBar
         {
             id: topBar;
             anchors.top: parent.top;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
+            anchors.left: parent.left; anchors.right: parent.right;
         }
+        Groups.BottomBar
+        {
+            id: bottomBar;
+            anchors.bottom: parent.bottom;
+            anchors.left: parent.left; anchors.right: parent.right;
+        }
+        Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
+                    anchors.bottom: bottomBar.top; }
 
         Groups.NavGroup
         {
             id: navGroup;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 10;
+            anchors.bottomMargin: 46;
             anchors.left: parent.left;
             anchors.leftMargin: 10;
         }
@@ -658,7 +665,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.bottom: parent.bottom;
             anchors.rightMargin: 10;
-            anchors.bottomMargin: 10;
+            anchors.bottomMargin: 46;
             z: 100;
         }
         Text {

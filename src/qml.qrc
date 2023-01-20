@@ -34,5 +34,6 @@
         <file>qml/ui/labels/RoundLabel.qml</file>
         <file>qml/ui/progress-bars/CircularProgressBar.qml</file>
         <file>qml/ui/layouts/Separator.qml</file>
+        <file>qml/groups/BottomBar.qml</file>
     </qresource>
 </RCC>

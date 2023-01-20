@@ -171,11 +171,11 @@ bool RuntimeData::getAutocaptureEnabled() const { return autocaptureVariables.en
 void RuntimeData::setAutocaptureEnabled(bool state) { if (autocaptureVariables.enabled == state) return;
 autocaptureVariables.enabled = state; emit autocaptureEnabledChanged(); }
 
-qreal RuntimeData::getFreeDiskSpace() const { return sarCommonVariables.freeDiskSpace / (1024 * 1024); }
+qreal RuntimeData::getFreeDiskSpace() const { return sarCommonVariables.freeDiskSpace / (1000 * 1000); }
 void RuntimeData::setFreeDiskSpace(qreal value) { if (sarCommonVariables.freeDiskSpace == value) return;
 sarCommonVariables.freeDiskSpace = value; emit freeDiskSpaceChanged(); }
 
-qreal RuntimeData::getTotalDiskSpace() const { return sarCommonVariables.totalDiskSpace / (1024 * 1024); }
+qreal RuntimeData::getTotalDiskSpace() const { return sarCommonVariables.totalDiskSpace / (1000 * 1000); }
 void RuntimeData::setTotalDiskSpace(qreal value) { if (sarCommonVariables.totalDiskSpace == value) return;
 sarCommonVariables.totalDiskSpace = value; emit totalDiskSpaceChanged(); }
 

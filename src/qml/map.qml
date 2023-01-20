@@ -83,7 +83,6 @@ Rectangle {
     function start()
     {
         zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
-        tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
     }
 
     function qmlBackendStart()
@@ -340,6 +339,7 @@ Rectangle {
         anchors.fill: parent;
         layer.smooth: true;
         tilt: 15;
+        gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
         plugin: Plugin {
             id: mapPluginID;
             name: "osm";
@@ -362,7 +362,6 @@ Rectangle {
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
-        onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
 
         MapItemView
         {
@@ -677,15 +676,6 @@ Rectangle {
             anchors.right: zoomSliderElement.left;
             anchors.rightMargin: 40;
             anchors.bottom: zoomSliderElement.bottom;
-            z: 100;
-        }
-        TiltSlider
-        {
-            id: tiltSliderElement;
-            anchors.right: zoomSliderElement.left;
-            anchors.bottom: bottomToolbarElement.top;
-            anchors.rightMargin: 55;
-            anchors.bottomMargin: 38;
             z: 100;
         }
         Text {

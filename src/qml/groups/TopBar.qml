@@ -6,6 +6,8 @@ import DiskManager 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
+import "qrc:/qml/ui/layouts" as Layouts
+import "qrc:/qml/ui/widgets" as CustomWidgets
 
 Rectangle {
     id: base;
@@ -29,7 +31,7 @@ Rectangle {
         label_text: RuntimeData.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : RuntimeData.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
         label_color: RuntimeData.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;          label_text_size: 17;
         label_text_family: fontBold.name;   label_text_bold: true;
-        background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLight;     
+        background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLighter;
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
         onClicked: 
@@ -200,5 +202,20 @@ Rectangle {
             var verify = ioHandler.clearCache();
             if(verify) { DiskManager.clearCache(); }
         }
+    }
+    Layouts.Separator
+    {
+        id: separator1;
+        fixed_height: 56;
+        line_color: UX.textWhite;
+        anchors.left: clearMapButton.right;  anchors.leftMargin: 6;
+        anchors.top: clearMapButton.top;
+    }
+    CustomWidgets.StorageStatusIndicator
+    {
+        id: storageStatusIndicator;
+        anchors.left: separator1.right;     anchors.leftMargin: 6;
+        anchors.top: separator1.top;
+        percentage: 50;
     }
 }

@@ -3,7 +3,6 @@
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
         <file>qml/ZoomSlider.qml</file>
-        <file>qml/TiltSlider.qml</file>
         <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
@@ -36,5 +35,6 @@
         <file>qml/ui/widgets/StorageStatusIndicator.qml</file>
         <file>qml/ui/labels/RoundLabel.qml</file>
         <file>qml/ui/progress-bars/CircularProgressBar.qml</file>
+        <file>qml/ui/layouts/Separator.qml</file>
     </qresource>
 </RCC>

@@ -627,15 +627,6 @@ Rectangle {
             anchors.left: parent.left;
             anchors.leftMargin: 10;
         }
-
-        Groups.MapParametersGroup
-        {
-            id: mapParametersPanel;
-            anchors.top: parent.top;
-            anchors.left: parent.left;
-            anchors.topMargin: 3+70;
-            anchors.leftMargin: 500;
-        }
         Groups.NetworkGroup
         {
             id: networkPanel;

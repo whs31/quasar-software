@@ -18,11 +18,13 @@ Rectangle {
     property color highlight_color: "#7D5233";
     property int frame_radius: 8;
     property int frame_width: 1;
+    property bool frame_filled: false;
+    property color frame_fill_color: "#FFFF00";
 
     property bool shown: false;
 
     id: control;
-    color: "transparent";
+    color: frame_filled ? frame_fill_color : "transparent";
     radius: frame_radius;
     border.width: frame_width;
     border.color: label_color;
@@ -41,7 +43,7 @@ Rectangle {
         id: animation_hoverOff;
         target: control;
         property: "color";
-        to: "transparent";
+        to: frame_filled ? frame_fill_color : "transparent";
         duration: 100;
     }
     SequentialAnimation {
@@ -55,7 +57,7 @@ Rectangle {
         ColorAnimation {
             target: control;
             property: "color";
-            to: "transparent";
+            to: frame_filled ? frame_fill_color : "transparent";
             duration: 70;
         }
     }

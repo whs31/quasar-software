@@ -477,6 +477,109 @@ Rectangle {
         label_textAlignment: Text.AlignHCenter;
         frame_radius: 2;                    frame_width: 0;
     }
+    Dropdowns.Dropdown
+    {
+        id: mapParametersDropDown;
+        anchors.left: rulerButton.left;
+        anchors.top: parent.bottom; anchors.topMargin: -2;
+
+        fixed_width: 220;       fixed_height: 17;           fixed_drop: 17*7;
+        label_text: "ПАРАМЕТРЫ КАРТЫ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontMedium.name; label_text_bold: true;
+        label_textAlignment: Text.AlignHCenter;
+        highlight_color: UX.primaryLight;
+        frame_radius: 2;                    frame_width: 0;
+        frame_fill_color: UX.primaryDark;   frame_filled: true;
+        container: Item {
+            Checkboxes.LightCheckbox
+            {
+                id: followPlaneCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                //anchors.top: tsInput.bottom;
+                label_text: "СЛЕДИТЬ ЗА БОРТОМ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: false;
+                onCheckedChanged: { RuntimeData.followPlane = checked; }
+            }
+            Checkboxes.LightCheckbox
+            {
+                id: cursorCoordsCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                anchors.top: followPlaneCheckbox.bottom;
+                label_text: "КООРДИНАТЫ КУРСОРА";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: true;
+                onCheckedChanged: { RuntimeData.drawTooltip = checked; }
+            }
+            Checkboxes.LightCheckbox
+            {
+                id: drawRouteCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                anchors.top: cursorCoordsCheckbox.bottom; anchors.topMargin: 17;
+                label_text: "ОТОБРАЖАТЬ ТРЕК ПОЛЁТА";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: true;
+                onCheckedChanged: { RuntimeData.drawRoute = checked; }
+            }
+            Checkboxes.LightCheckbox
+            {
+                id: drawVectorCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                anchors.top: drawRouteCheckbox.bottom;
+                label_text: "ОТОБРАЖАТЬ ВЕКТОР СКОРОСТИ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: true;
+                onCheckedChanged: { RuntimeData.drawPredict = checked; }
+            }
+            Checkboxes.LightCheckbox
+            {
+                id: drawDiagramCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                anchors.top: drawVectorCheckbox.bottom;
+                label_text: "ДИАГРАММА НАПРАВЛЕННОСТИ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: true;
+                onCheckedChanged: { RuntimeData.drawDiagram = checked; }
+            }
+            Buttons.LightButton
+            {
+                id: clearTrackButton;
+                anchors.top: drawDiagramCheckbox.bottom;
+                fixed_width: 220;               fixed_height: 17;
+                label_text: "ОЧИСТИТЬ ТРЕК";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
+                highlight_color: UX.textFaded;
+                frame_radius: 0;                frame_width: 1;
+                frame_enabled: false;
+                onClicked: {
+                    ioHandler.clearTrack();
+                }
+            }
+        }
+    }
     Buttons.LightToolButton
     {
         id: rulerButton;

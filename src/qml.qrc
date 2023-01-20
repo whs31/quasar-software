@@ -2,10 +2,7 @@
     <qresource prefix="/">
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
-        <file>qml/Gesture.qml</file>
         <file>qml/ZoomSlider.qml</file>
-        <file>qml/TiltSlider.qml</file>
-        <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>
@@ -13,21 +10,31 @@
         <file>qml/sar-image/MapImage.qml</file>
         <file>qml/sar-image/MetadataGroup.qml</file>
         <file>qml/sar-image/ButtonTopGroup.qml</file>
-        <file>qml/groups/ImageToolsGroup.qml</file>
-        <file>qml/groups/MapParametersGroup.qml</file>
         <file>qml/ui/CustomCheckbox.qml</file>
         <file>qml/ui/CustomButton.qml</file>
         <file>qml/ui/ToolIcon.qml</file>
-        <file>qml/groups/NetworkGroup.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
         <file>qml/ui/StatusText.qml</file>
         <file>qml/groups/NavGroup.qml</file>
         <file>qml/groups/navigation/AttitudeIndicator.qml</file>
-        <file>qml/groups/navigation/CoordinateIndicator.qml</file>
         <file>qml/groups/navigation/SpeedIndicator.qml</file>
-        <file>qml/groups/navigation/AltIndicator.qml</file>
         <file>qml/groups/navigation/ConnectionBar.qml</file>
-        <file>qml/groups/FormGroup.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
+        <file>qml/ui/buttons/ClassicButton.qml</file>
+        <file>qml/groups/TopBar.qml</file>
+        <file>qml/ui/labels/FramedLabel.qml</file>
+        <file>qml/ui/dropdowns/Dropdown.qml</file>
+        <file>qml/ui/buttons/LightButton.qml</file>
+        <file>qml/ui/buttons/LightToolButton.qml</file>
+        <file>qml/ui/widgets/StorageStatusIndicator.qml</file>
+        <file>qml/ui/labels/RoundLabel.qml</file>
+        <file>qml/ui/progress-bars/CircularProgressBar.qml</file>
+        <file>qml/ui/layouts/Separator.qml</file>
+        <file>qml/groups/BottomBar.qml</file>
+        <file>qml/ui/dropdowns/SideDropdown.qml</file>
+        <file>qml/ui/input/LineEdit.qml</file>
+        <file>qml/ui/checkboxes/LightCheckbox.qml</file>
+        <file>qml/ui/buttons/ImageButton.qml</file>
+        <file>qml/ui/buttons/SmallRoundButton.qml</file>
     </qresource>
 </RCC>

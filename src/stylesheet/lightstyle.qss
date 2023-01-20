@@ -8,7 +8,7 @@
   outline: 0;
 }
 QWidget {
-  background-color: #132623;
+  background-color: #121617;
   border: 0px solid #C9CDD0;
   padding: 0px;
   color: #dae1e5;
@@ -17,7 +17,7 @@ QWidget {
 }
 
 QWidget:disabled {
-  background-color: #132623;
+  background-color: #121617;
   color: #FAFAFA;
   selection-background-color: #313131;
   selection-color: #788D9C;
@@ -1494,60 +1494,7 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
   image: url(":/ui-resources/css/arrow_right_disabled.png");
 }
 
-/* QDockWiget ------------------------------------------------------------- */
-QDockWidget {
-  outline: 1px solid #C9CDD0;
-  background-color: #FAFAFA;
-  border: 1px solid #C9CDD0;
-  border-radius: 4px;
-  titlebar-close-icon: url(":/ui-resources/css/transparent.png");
-  titlebar-normal-icon: url(":/ui-resources/css/transparent.png");
-}
 
-QDockWidget::title {
-  padding: 3px;
-  spacing: 4px;
-  border: none;
-  background-color: #C9CDD0;
-}
-
-QDockWidget::close-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(":/ui-resources/css/window_close.png");
-}
-
-QDockWidget::close-button:hover {
-  image: url(":/ui-resources/css/window_close_focus.png");
-}
-
-QDockWidget::close-button:pressed {
-  image: url(":/ui-resources/css/window_close_pressed.png");
-}
-
-QDockWidget::float-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(":/ui-resources/css/window_undock.png");
-}
-
-QDockWidget::float-button:hover {
-  image: url(":/ui-resources/css/window_undock_focus.png");
-}
-
-QDockWidget::float-button:pressed {
-  image: url(":/ui-resources/css/window_undock_pressed.png");
-}
 
 /* QTreeView QListView QTableView ----------------------------------------- */
 QTreeView:branch:selected, QTreeView:branch:hover {

@@ -42,8 +42,8 @@ QVTerminal::QVTerminal(QWidget *parent, int font_size, int _lineWidth)
     font.setStyleHint(QFont::Monospace);
     font.setPointSize(font_size);
     format.setFont(font);
-    format.setForeground(QColor(187, 187, 187));
-    format.setBackground(QColor(0, 0, 0));
+    format.setForeground(QColor("#dae1e5"));
+    //format.setBackground(QColor("transparent"));
     setFormat(format);
 
     _layout = new QVTLayout();
@@ -384,7 +384,7 @@ void QVTerminal::paintEvent(QPaintEvent *paintEvent)
 
     QPainter p(viewport());
     p.setPen(QPen());
-    p.fillRect(viewport()->rect(), QColor(0x23, 0x26, 0x29));
+    p.fillRect(viewport()->rect(), QColor(18, 22, 23));
 
     p.translate(QPoint(xMargin, -verticalScrollBar()->value() + yMargin));
     p.setPen(QColor(187, 187, 187));

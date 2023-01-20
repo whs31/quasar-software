@@ -50,18 +50,6 @@ Item {
             primarycolor: UX.textWhite;
             label: "";
         }
-        UI.ToolIcon {
-            id: satellitesInfo;
-            tooltipenabled: true;
-            tooltiptext: "Количество спутников навигации";
-            iconsource: "qrc:/ui-resources/white/satellite.png";
-            label: "<font color=\"#c4bb4b\">" + Number(RuntimeData.satellites) + "</font>";
-            anchors.right: iconLinkInfo.left;
-            anchors.rightMargin: -5;
-            anchors.verticalCenter: parent.verticalCenter;
-            basewidth: 34;
-            primarycolor: UX.warningLighter;
-        }
         RoundButton
         {
             id: calibrateButton;

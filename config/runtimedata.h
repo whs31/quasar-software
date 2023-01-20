@@ -70,14 +70,15 @@ class RuntimeData : public QObject
     Q_PROPERTY(float formGPSHeight                  READ getFormGPSHeight       WRITE setFormGPSHeight       NOTIFY formGPSHeightChanged)
     Q_PROPERTY(float formGPSVelocity                READ getFormGPSVelocity     WRITE setFormGPSVelocity     NOTIFY formGPSVelocityChanged)
     Q_PROPERTY(bool formingContinuous               READ getFormingContinuous   WRITE setFormingContinuous   NOTIFY formingContinuousChanged)
+    Q_PROPERTY(int formingQueueMode                 READ getFormingQueueMode    WRITE setFormingQueueMode    NOTIFY formingQueueModeChanged)
 
     // автозахват РЛИ
-    Q_PROPERTY(qreal autocaptureDistance           READ getAutocaptureDistance WRITE setAutocaptureDistance NOTIFY autocaptureDistanceChanged)
-    Q_PROPERTY(bool autocaptureEnabled             READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
+    Q_PROPERTY(qreal autocaptureDistance            READ getAutocaptureDistance WRITE setAutocaptureDistance NOTIFY autocaptureDistanceChanged)
+    Q_PROPERTY(bool autocaptureEnabled              READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
 
     // общие переменные с РЛС
-    Q_PROPERTY(qreal freeDiskSpace                 READ getFreeDiskSpace       WRITE setFreeDiskSpace       NOTIFY freeDiskSpaceChanged)
-    Q_PROPERTY(qreal totalDiskSpace                READ getTotalDiskSpace      WRITE setTotalDiskSpace      NOTIFY totalDiskSpaceChanged)
+    Q_PROPERTY(qreal freeDiskSpace                  READ getFreeDiskSpace       WRITE setFreeDiskSpace       NOTIFY freeDiskSpaceChanged)
+    Q_PROPERTY(qreal totalDiskSpace                 READ getTotalDiskSpace      WRITE setTotalDiskSpace      NOTIFY totalDiskSpaceChanged)
     
     QML_ELEMENT
     
@@ -85,9 +86,6 @@ public:
     static RuntimeData* initialize(QObject* parent = nullptr);
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
-    void toggleConsole(void);
-    void formSingleImage(void);
-    void formContinuous(void);
     void clearSARDisk(void);
 
     //==============================================                 ====================================================
@@ -139,6 +137,7 @@ public:
     float getFormGPSHeight();                                           void setFormGPSHeight(float value);
     float getFormGPSVelocity();                                         void setFormGPSVelocity(float value);
     bool getFormingContinuous();                                        void setFormingContinuous(bool state);
+    int getFormingQueueMode();                                          void setFormingQueueMode(int state);
 
     qreal getAutocaptureDistance() const;                               void setAutocaptureDistance(qreal newAutocaptureDistance);
     bool getAutocaptureEnabled() const;                                 void setAutocaptureEnabled(bool state);
@@ -191,6 +190,7 @@ signals:
     void formGPSHeightChanged();
     void formGPSVelocityChanged();
     void formingContinuousChanged();
+    void formingQueueModeChanged();
 
     void autocaptureDistanceChanged();
     void autocaptureEnabledChanged();
@@ -198,12 +198,9 @@ signals:
     void freeDiskSpaceChanged();
     void totalDiskSpaceChanged();
 
-    // my signals
+    // my signals TODO: DEPRECATED 
 
     void autocaptureSignal();
-    void toggleConsoleSignal();
-    void formSingleImageSignal();
-    void formContinuousSignal();
     void clearSARDiskSignal();
 
 private:
@@ -268,6 +265,7 @@ private:
         float gpsHeight = 150;
         float gpsVelocity = 100;
         bool formingContinuous = false;
+        int queueMode = 0; //0 = Single     1 = Continuous 
     }; FormParameters formParameters;
 
     struct AutoCaptureVariables

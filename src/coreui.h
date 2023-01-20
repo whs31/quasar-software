@@ -1,6 +1,8 @@
 #ifndef COREUI_H
 #define COREUI_H
 
+#include <QMainWindow>
+#include <QScreen>
 #include <QSslSocket>
 #include <QTimer>
 #include "qqml.h"
@@ -16,7 +18,6 @@
 #include "backend/recallhandler.h"
 #include "backend/flightprediction.h"
 
-#include "extension.h"
 #include "udpremote.h"
 #include "messageparser.h"
 #include "smath.h"
@@ -32,6 +33,8 @@
 #include "tcpdownloader.h"
 #include "tilesmanager.h"
 #include "runtimedata.h"
+#include "backend/signallinker.h"
+#include "applicationheader.h"
 #include "flightemulator.h"
 
 #include <plugin.h>
@@ -46,7 +49,7 @@ enum CommandType {
     FormCommand
 };
 
-class CoreUI : public QGoodWindow
+class CoreUI : public QMainWindow
 {
     Q_OBJECT
 
@@ -118,32 +121,21 @@ private:
 
 private slots:
     //header
-    void on_minButton_clicked();
-    void on_minmaxButton_clicked();
-    void on_closeButton_clicked();
-    void on_settingsButton_clicked();
-    void on_infoButton_clicked();
-    void on_emulatorButton_clicked();
-    void on_debugButton_clicked();
+    void MinimizeSlot();
+    void CloseSlot();
+    void SettingsSlot();
+    void InfoSlot();
+    void EmulatorSlot();
+    void DebugSlot();
 
     //utility slots
     void ReadTelemetry(QByteArray data);
     void ReadForm(QByteArray data);
     void ReadSARConsole(QByteArray data);
     void Halftime(void);
-    void toggleConsoleSlot(void);
     void SendClearCommand(void);
 
     //gui slots
     void FormSingleImage();
-    void FormContinuousImages();
-    void on_spinBox_sarLowerBound_valueChanged(int arg1);
-    void on_spinBox_sarUpperBound_valueChanged(int arg1);
-    void on_doubleSpinBox_sarTime_valueChanged(double arg1);
-    void on_doubleSpinBox_sarDX_valueChanged(double arg1);
-    void on_checkBoxEnableManualGPS_stateChanged(int arg1);
-    void on_doubleSpinBox_height_valueChanged(double arg1);
-    void on_doubleSpinBox_velocity_valueChanged(double arg1);
-    void on_pushButton_sendCustomCommand_clicked();
 };
 #endif // COREUI_H

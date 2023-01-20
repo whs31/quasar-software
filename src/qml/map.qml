@@ -5,7 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.15
 import "groups" as Groups
 import "sar-image" as ImageSAR
 import "ui" as UI
@@ -83,7 +83,6 @@ Rectangle {
     function start()
     {
         zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
-        tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
     }
 
     function qmlBackendStart()
@@ -299,6 +298,7 @@ Rectangle {
             }
             onClicked:
             {
+                forceActiveFocus();
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
                 {
                     r_currentstate = 0;
@@ -340,6 +340,7 @@ Rectangle {
         anchors.fill: parent;
         layer.smooth: true;
         tilt: 15;
+        gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
         plugin: Plugin {
             id: mapPluginID;
             name: "osm";
@@ -362,7 +363,6 @@ Rectangle {
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
-        onTiltChanged: tiltSliderElement.tiltSliderValue = 1 - (mapView.tilt / 45);
 
         MapItemView
         {
@@ -597,53 +597,38 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; }
-        Gesture {
-            id: gesture;
-            anchors.fill: parent;
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; } //192.168.18.143
+
+        DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
+                     samples: 32; color: "#80000000"; source: topBar; cached: true; }
+        Groups.TopBar
+        {
+            id: topBar;
+            anchors.top: parent.top;
+            anchors.left: parent.left; anchors.right: parent.right;
+            z: 100;
         }
+
+        DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
+                     samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
+        Groups.BottomBar
+        {
+            id: bottomBar;
+            anchors.bottom: parent.bottom;
+            anchors.left: parent.left; anchors.right: parent.right;
+            z: 100;
+        }
+
+        Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
+                    anchors.bottom: bottomBar.top; }
 
         Groups.NavGroup
         {
             id: navGroup;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 10;
+            anchors.bottomMargin: 46;
             anchors.left: parent.left;
             anchors.leftMargin: 10;
-        }
-
-        Groups.FormGroup
-        {
-            id: formGroup;
-            anchors.left: navGroup.right;
-            anchors.leftMargin: 10;
-            anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 10;
-        }
-
-        Groups.MapParametersGroup
-        {
-            id: mapParametersPanel;
-            anchors.top: parent.top;
-            anchors.left: parent.left;
-            anchors.topMargin: 3;
-            anchors.leftMargin: 200;
-        }
-        Groups.ImageToolsGroup
-        {
-            id: imagePanel;
-            anchors.top: parent.top;
-            anchors.left: parent.left;
-            anchors.topMargin: 3;
-            anchors.leftMargin: 3;
-        }
-        Groups.NetworkGroup
-        {
-            id: networkPanel;
-            anchors.top: parent.top;
-            anchors.topMargin: 3;
-            anchors.right: parent.right;
-            anchors.rightMargin: 230;
         }
 
         Groups.EmulatorTextPanel
@@ -672,24 +657,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.bottom: parent.bottom;
             anchors.rightMargin: 10;
-            anchors.bottomMargin: 10;
-            z: 100;
-        }
-        BottomToolbar
-        {
-            id: bottomToolbarElement;
-            anchors.right: zoomSliderElement.left;
-            anchors.rightMargin: 40;
-            anchors.bottom: zoomSliderElement.bottom;
-            z: 100;
-        }
-        TiltSlider
-        {
-            id: tiltSliderElement;
-            anchors.right: zoomSliderElement.left;
-            anchors.bottom: bottomToolbarElement.top;
-            anchors.rightMargin: 55;
-            anchors.bottomMargin: 38;
+            anchors.bottomMargin: 46;
             z: 100;
         }
         Text {
@@ -704,7 +672,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.bottom: parent.bottom;
-            anchors.margins: 3;
+            anchors.margins: 23;
             Behavior on opacity { NumberAnimation { duration: 1000; } }
         }
         UI.StatusText
@@ -715,7 +683,7 @@ Rectangle {
             prefix: "Статус полёта: ";
             anchors.right: parent.horizontalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: 25;
+            anchors.topMargin: 25+200;
             anchors.rightMargin: 10;
         }
         UI.StatusText
@@ -726,7 +694,7 @@ Rectangle {
             //anchors.left: parent.horizontalCenter;
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top;
-            anchors.topMargin: 25;
+            anchors.topMargin: 25+200;
             //anchors.leftMargin: 10;
         }
     }

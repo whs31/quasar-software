@@ -31,11 +31,8 @@ void RecallHandler::changeDirectory(void)
 {
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(nullptr,
                                                                 tr("Выберите папку c выходными изображениями РЛС"),
-                                                                QStandardPaths::displayName(QStandardPaths::HomeLocation));
-    if(pathNotNullCheck != NULL) 
-    { 
-        SConfig::setHashValue("ViewPath", pathNotNullCheck); 
-        }
+                                                                QStandardPaths::displayName(QStandardPaths::DesktopLocation));
+    if(pathNotNullCheck != NULL) {  SConfig::setHashValue("ViewPath", pathNotNullCheck); }
 }
 
 bool RecallHandler::calibrateSeaLevel(void)
@@ -106,10 +103,7 @@ bool RecallHandler::clearCache(void)
     return false;
 }
 
-void RecallHandler::toggleConsole(void)     { RuntimeData::initialize()->toggleConsole(); }
 void RecallHandler::placeMarker(void)       { RuntimeData::mouseState = MouseState::MarkerPlacement; }
-void RecallHandler::formSingleImage(void)   { RuntimeData::initialize()->formSingleImage(); }
-void RecallHandler::formContinuously(void)  { RuntimeData::initialize()->formContinuous(); }
 void RecallHandler::clearSARDisk(void)      
 { 
     QMessageBox box;

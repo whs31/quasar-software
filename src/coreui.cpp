@@ -4,7 +4,7 @@
 
 CoreUI *CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
-CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
+CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
                                   ui(new Ui::CoreUI)
 {
     debugPointer = this;
@@ -20,20 +20,15 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
-    Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
     TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // get resolution for some ui rescaling and start new log in debug
-    screenResolution = QGuiApplication::screens().first()->availableGeometry();
+    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
     Debug::NewSession();
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
-
-    // custom window frame setup
-    setMargins(25, 0, 0, 250);
-    ui->header->setTitleBarWidget(new QWidget());
     uiReady = true;
     Debug::Log("[STARTUP] Starting UI initialization...");
 
@@ -47,9 +42,18 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
-    connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
-    connect(RuntimeData::initialize(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
-    connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
+    
+    
+    // signal linker setup
+    qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
+    connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
+    connect(SignalLinker::get(), SIGNAL(minimizeSignal()), this, SLOT(MinimizeSlot()));
+    connect(SignalLinker::get(), SIGNAL(logSignal()), this, SLOT(DebugSlot()));
+    connect(SignalLinker::get(), SIGNAL(settingsSignal()), this, SLOT(SettingsSlot()));
+    connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
+    connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
+    connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
+    //connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
@@ -58,6 +62,13 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
     ui->map->setSource(QUrl("qrc:/qml/map.qml"));
     ui->map->show();
+
+    // declare only-header qml types here
+    qmlRegisterType<ApplicationHeader>("ApplicationHeader", 1, 0, "ApplicationHeader");
+
+    // qml header setup
+    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); //https://forum.qt.io/topic/71942/connect-two-qquickwidgets/2
+    ui->applicationHeader->show();
     qml = ui->map->rootObject();
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
 
@@ -93,8 +104,6 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
     }
 
     // any other ui-related startup code here!
-    ui->doubleSpinBox_height->setVisible(false);
-    ui->doubleSpinBox_velocity->setVisible(false);
 
     // core
     // (!) do not touch it.
@@ -193,16 +202,30 @@ CoreUI::CoreUI(QWidget *parent) : QGoodWindow(parent),
         } else {
             PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(terminalPlugin);
             pluginInterface->Init(this, config, HostAPI);
-            this->addDockWidget(Qt::RightDockWidgetArea, (QDockWidget*) pluginInterface->GetWidget());
             plugins.terminalLoaded = true;
             plugins.terminal = pluginInterface->GetWidget();
-            plugins.terminal->setWindowTitle("Терминал РЛС VT100");
+            QDockWidget* titleReset = (QDockWidget*)plugins.terminal;
+            titleReset->setTitleBarWidget(new QWidget(plugins.terminal));
+            ui->terminalLayout->addWidget(plugins.terminal);
+            
             //execute
             HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...\n");
         }
 
     // set default position and size of floating qdockwidgets
-    InitializeDockwidgets();
+    ui->debugConsole->setEnabled(false);
+    ui->debugConsole->setVisible(false);
+    if(plugins.terminalLoaded) 
+    {
+        plugins.terminal->setEnabled(true);
+        plugins.terminal->setVisible(true);
+        ui->sarConsole->setEnabled(false);
+        ui->sarConsole->setVisible(false);
+        plugins.terminal->setStyleSheet("QFrame { \nbackground-color: #121617;\n  color: #121617;\n  border: 1px solid #121617;\n}");
+    }
+
+    // qss only after plugins loaded
+    Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
 
     // execute any other startup code here
 
@@ -270,21 +293,6 @@ void CoreUI::updateProgress(float f)
 //    ui->progressBar_loader->setValue((int)f);
 }
 
-void CoreUI::InitializeDockwidgets()
-{
-    ui->debugConsoleDock->setEnabled(false);
-    ui->debugConsoleDock->setVisible(false);
-
-    ui->sarConsoleDock->setEnabled(false);
-    ui->sarConsoleDock->setVisible(false);
-
-    if(plugins.terminalLoaded) 
-    {
-        plugins.terminal->setEnabled(false);
-        plugins.terminal->setVisible(false);
-    }
-}
-
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if (type == CommandType::TelemetryCommand)
@@ -293,22 +301,9 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
         formRemote->Send(command.toUtf8());
 }
 
-void CoreUI::on_minButton_clicked()     { showMinimized(); }
-void CoreUI::on_minmaxButton_clicked()
-{
-    if (!isMaximized())
-    {
-        showMaximized();
-        ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-    } // restore
-    else
-    {
-        showNormal();
-        ui->minmaxButton->setIcon(QIcon(":/ui-resources/windowextension/maximize.png"));
-    }
-}
-void CoreUI::on_closeButton_clicked()   { QApplication::quit(); }
-void CoreUI::on_settingsButton_clicked()
+void CoreUI::MinimizeSlot()     { showMinimized(); }
+void CoreUI::CloseSlot()   { QApplication::quit(); }
+void CoreUI::SettingsSlot()
 {
     PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
     if (passwordDialog.exec() == QDialog::Accepted)
@@ -347,8 +342,8 @@ void CoreUI::on_settingsButton_clicked()
     }
 }
 
-void CoreUI::on_infoButton_clicked()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
-void CoreUI::on_emulatorButton_clicked()    
+void CoreUI::InfoSlot()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
+void CoreUI::EmulatorSlot()    
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
     if(RuntimeData::initialize()->getEmulatorEnabled())
@@ -356,15 +351,12 @@ void CoreUI::on_emulatorButton_clicked()
     else
         flightEmulator->stopEmulator(); 
 }
-void CoreUI::on_debugButton_clicked()
+void CoreUI::DebugSlot()
 {
-    if (SConfig::getHashBoolean("ShowConsole"))
-    {
-        bool state = ui->debugConsoleDock->isEnabled();
-        state = !state;
-        ui->debugConsoleDock->setEnabled(state);
-        ui->debugConsoleDock->setVisible(state);
-    }
+    bool state = ui->debugConsole->isEnabled();
+    state = !state;
+    ui->debugConsole->setEnabled(state);
+    ui->debugConsole->setVisible(state);
 }
 
 void CoreUI::ReadTelemetry(QByteArray data)
@@ -477,15 +469,13 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::ShiftModifier)
         {
             if(pressedKeys.contains(Qt::Key_Delete)) { LinkerQML::clearRoute(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_Space)) { FormContinuousImages(); pressedKeys.clear(); }
         }
         else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
         {
-            if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { on_debugButton_clicked(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_C) || pressedKeys.contains(1057)) { toggleConsoleSlot(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { DebugSlot(); pressedKeys.clear(); }
             if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->disconnect(); pressedKeys.clear();}
-            if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { on_settingsButton_clicked(); pressedKeys.clear();}
-            if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { on_infoButton_clicked(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { SettingsSlot(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { InfoSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, 
                                                     tr("Выберите папку c выходными изображениями РЛС"), QStandardPaths::displayName(
                                                     QStandardPaths::HomeLocation)); if(pathNotNullCheck != NULL) { SConfig::setHashValue(
@@ -508,23 +498,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
     }
     return false;
 }
-void CoreUI::toggleConsoleSlot()
-{
-    if (!plugins.terminalLoaded)
-    {
-        bool state = ui->sarConsoleDock->isEnabled();
-        state = !state;
-        ui->sarConsoleDock->setEnabled(state);
-        ui->sarConsoleDock->setVisible(state);
-    }
-    else
-    {
-        bool state = plugins.terminal->isEnabled();
-        state = !state;
-        plugins.terminal->setEnabled(state);
-        plugins.terminal->setVisible(state);
-    }
-}
 
 void CoreUI::SendClearCommand(void)
 {
@@ -534,53 +507,6 @@ void CoreUI::SendClearCommand(void)
             Debug::Log("[FORM] Sended to SAR: " + request);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
-{
-    RuntimeData::initialize()->setFormLowerBound(arg1);
-}
-void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
-{
-    RuntimeData::initialize()->setFormUpperBound(arg1);
-}
-void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormTime(arg1);
-}
-void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormStep(arg1);
-}
-void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-    {
-        ui->doubleSpinBox_height->setEnabled(true);
-        ui->doubleSpinBox_velocity->setEnabled(true);
-        ui->doubleSpinBox_height->setVisible(true);
-        ui->doubleSpinBox_velocity->setVisible(true);
-        RuntimeData::initialize()->setFormOverrideGPSData(1);
-    }
-    else
-    {
-        ui->doubleSpinBox_height->setEnabled(false);
-        ui->doubleSpinBox_velocity->setEnabled(false);
-        ui->doubleSpinBox_height->setVisible(false);
-        ui->doubleSpinBox_velocity->setVisible(false);
-        RuntimeData::initialize()->setFormOverrideGPSData(0);
-    }
-    SAROutputConsoleEmulator sarConsoleEmulator;
-    sarConsoleEmulator.sampleTest();
-}
-
-void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormGPSHeight(arg1);
-}
-void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormGPSVelocity(arg1);
-}
 void CoreUI::reconnectSlot()
 {
     telemetryRemote->Disconnect();
@@ -632,23 +558,9 @@ void CoreUI::FormSingleImage()
                                                                QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
 }
 
-void CoreUI::FormContinuousImages()
-{
-    if(RuntimeData::initialize()->getFormingContinuous())
-    {
-        RuntimeData::initialize()->setFormingContinuous(false);
-    } else {
-        RuntimeData::initialize()->setFormingContinuous(true);
-        FormSingleImage();
-    }
-    
-}
 
-void CoreUI::on_pushButton_sendCustomCommand_clicked()
-{
-    Debug::Log("?[SAR] Sending custom command!");
-    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
-    SendRemoteCommand(request, CommandType::FormCommand);
-    Debug::Log("[FORM] Sended to SAR: " + request);
-}
+//    Debug::Log("?[SAR] Sending custom command!");
+//    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
+//    SendRemoteCommand(request, CommandType::FormCommand);
+//    Debug::Log("[FORM] Sended to SAR: " + request);
 

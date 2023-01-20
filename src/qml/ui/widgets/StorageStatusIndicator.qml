@@ -43,4 +43,31 @@ Item {
         base_color: UX.errorDark;
         anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.bottomMargin: -1;
     }
+    Labels.RoundLabel
+    {
+        id: tooltip1;
+        anchors.top: parent.top;    anchors.topMargin: 1;
+        anchors.left: clearSARCacheButton.horizontalCenter;
+
+        fixed_width: 65;        fixed_height: 13;
+        round_radius: 5;
+        label_text: "ХРАНИЛИЩЕ";
+        label_color: UX.primaryDarker;      round_color: UX.textWhite;
+        label_text_size: 10;    label_text_family: fontSemiBold.name;
+        label_text_bold: false;
+    }
+    Text {
+        id: percentageText;
+        text: percentage === 5 ? "?%" : Number(percentage).toFixed(0) + "%";
+        font.capitalization: Font.MixedCase;
+        font.pixelSize: 20;
+        font.family: fontBold.name;
+        font.bold: true;
+        color: UX.textWhite;
+        opacity: enabled ? 1.0 : 0.3;
+        verticalAlignment: Text.AlignVCenter;
+        horizontalAlignment: Text.AlignLeft;
+        anchors.top: tooltip1.bottom;   anchors.topMargin: 1;
+        anchors.left: clearSARCacheButton.right;    anchors.leftMargin: 4;
+    }
 }

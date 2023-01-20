@@ -36,5 +36,6 @@
         <file>qml/ui/layouts/Separator.qml</file>
         <file>qml/groups/BottomBar.qml</file>
         <file>qml/ui/dropdowns/SideDropdown.qml</file>
+        <file>qml/ui/input/LineEdit.qml</file>
     </qresource>
 </RCC>

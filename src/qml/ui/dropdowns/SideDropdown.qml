@@ -16,6 +16,7 @@ Rectangle {
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
     property int label_textAlignment: Text.AlignHCenter;
+    property bool label_uppercase: true;
 
     property color highlight_color: "#7D5233";
     property int frame_radius: 8;
@@ -77,12 +78,15 @@ Rectangle {
         height: shown ? fixed_drop_height : 0;
         clip: true;
         Behavior on height {
-            NumberAnimation {
+            NumberAnimation
+            {
+                duration: 100;
                 easing.type: Easing.InOutQuad;
             }
         }
         Behavior on width {
             NumberAnimation {
+                duration: 100;
                 easing.type: Easing.InOutQuad;
             }
         }
@@ -96,7 +100,6 @@ Rectangle {
         anchors.fill: parent;
         Text {
             text: label_text;
-            font.capitalization: Font.MixedCase;
             font.pixelSize: label_text_size;
             font.family: label_text_family;
             font.bold: label_text_bold;
@@ -106,6 +109,7 @@ Rectangle {
             horizontalAlignment: label_textAlignment;
             anchors.fill: parent;
             anchors.leftMargin: 5; anchors.rightMargin: 5;
+            font.capitalization: label_uppercase ? Font.AllUppercase : Font.MixedCase;
             z: 91;
         }
         z: 91;

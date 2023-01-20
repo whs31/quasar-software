@@ -583,6 +583,9 @@ QTextEdit:selected {
                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'JetBrains Mono'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Consolas'; font-size:8pt; font-weight:700;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
               </property>
@@ -1048,145 +1051,6 @@ QTabBar QToolButton::right-arrow:disabled, QDockWidget QTabBar QToolButton::righ
      </property>
      <item>
       <layout class="QHBoxLayout" name="secondRow">
-       <item>
-        <widget class="QComboBox" name="comboBox_sarMode">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>23</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>22</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <family>Calibri</family>
-           <pointsize>9</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QComboBox {
-  border: 1px solid #204040;
-  border-radius: 4px;
-  selection-background-color: #204040;
-  padding-left: 4px;
-  padding-right: 4px;
-  /* padding-right = 36; 4 + 16*2 See scrollbar size */
-  /* changed to 4px to fix #239 */
-  /* Fixes #103, #111 */
-  min-height: 1.5em;
-  /* padding-top: 2px;     removed to fix #132 */
-  /* padding-bottom: 2px;  removed to fix #132 */
-  /* min-width: 75px;      removed to fix #109 */
-  /* Needed to remove indicator - fix #132 */
-}
-
-QComboBox QAbstractItemView {
-  border: 0px solid #616161;
-  border-radius: 0;
-  background-color: #132623;
-  selection-background-color: #616161;
-}
-
-QComboBox QAbstractItemView:hover {
-  background-color: #204040;
-  color: #E0E1E3;
-}
-
-QComboBox QAbstractItemView:selected {
-  background: #132623;
-  color: #455364;
-}
-
-QComboBox QAbstractItemView:alternate {
-  background: #616161;
-}
-
-QComboBox:disabled {
-  background-color: #19232D;
-  color: #9DA9B5;
-}
-
-QComboBox:hover {
-  border: 1px solid #346792;
-}
-
-QComboBox:focus {
-  border: 1px solid #1A72BB;
-}
-
-QComboBox:on {
-  selection-background-color: #346792;
-}
-
-QComboBox::indicator {
-  border: none;
-  border-radius: 0;
-  background-color: transparent;
-  selection-background-color: transparent;
-  color: transparent;
-  selection-color: transparent;
-  /* Needed to remove indicator - fix #132 */
-}
-
-QComboBox::indicator:alternate {
-  background: #204040;
-}
-
-QComboBox::item {
-  /* Remove to fix #282, #285 and MR #288*/
-  /*&amp;:checked {
-            font-weight: bold;
-        }
-
-        &amp;:selected {
-            border: 0px solid transparent;
-        }
-        */
-}
-
-QComboBox::item:alternate {
-  background: #19232D;
-}
-
-QComboBox::drop-down {
-  subcontrol-origin: padding;
-  subcontrol-position: top right;
-  width: 12px;
-  border-left: 1px solid #204040;
-}
-
-QComboBox::down-arrow {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QComboBox::down-arrow:on, QComboBox::down-arrow:hover, QComboBox::down-arrow:focus {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}</string>
-         </property>
-         <property name="editable">
-          <bool>false</bool>
-         </property>
-         <property name="currentText">
-          <string/>
-         </property>
-         <property name="currentIndex">
-          <number>-1</number>
-         </property>
-         <property name="insertPolicy">
-          <enum>QComboBox::InsertAtTop</enum>
-         </property>
-         <property name="placeholderText">
-          <string>M1</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QSpinBox" name="spinBox_sarLowerBound">
          <property name="font">

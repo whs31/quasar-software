@@ -76,6 +76,7 @@ Rectangle {
         height: shown ? fixed_drop : 0;
         Behavior on height {
             NumberAnimation {
+                duration: 100;
                 easing.type: Easing.InOutQuad;
             }
         }
@@ -84,6 +85,7 @@ Rectangle {
 
         Loader { id: loader; opacity: shown ? 1 : 0; Behavior on opacity {
                 NumberAnimation {
+                    duration: 200;
                     easing.type: Easing.InOutQuad;
                 }
             } }

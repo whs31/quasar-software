@@ -7,6 +7,7 @@ import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
 import "qrc:/qml/ui/layouts" as Layouts
+import "qrc:/qml/ui/input" as Input
 import "qrc:/qml/ui/widgets" as CustomWidgets
 
 Rectangle {
@@ -209,7 +210,7 @@ Rectangle {
         anchors.left: panImageButton.left;
         anchors.bottom: separator1.bottom;
 
-        fixed_width: 186;       fixed_height: 17;           fixed_drop: 17*2;
+        fixed_width: 186;       fixed_height: 17;           fixed_drop: 17*8;
         label_text: "ПАРАМЕТРЫ ФОРМИРОВАНИЯ";
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontMedium.name; label_text_bold: true;
@@ -224,7 +225,8 @@ Rectangle {
                             clip: false;
                             id: formParametersModeDropdown;
                             fixed_width: 186;       fixed_height: 17;      fixed_drop_width: 64;        fixed_drop_height: 17*4;
-                            label_text: "РЕЖИМ";
+                            label_uppercase: true;
+                            label_text: "РЕЖИМ : " + RuntimeData.formMode;
                             label_color: UX.primaryDarker;          label_text_size: 12;                drop_color: UX.textWhite;
                             label_text_family: fontMedium.name;     label_text_bold: true;
                             label_textAlignment: Text.AlignRight;

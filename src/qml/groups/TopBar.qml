@@ -3,6 +3,7 @@ import UX 1.0
 import RuntimeData 1.0
 import SignalLinker 1.0
 import "qrc:/qml/ui/buttons" as Buttons
+import "qrc:/qml/ui/labels" as Labels
 
 Rectangle {
     id: base;
@@ -18,11 +19,13 @@ Rectangle {
     Buttons.ClassicButton
     {
         id: formImageButton;
-        display_mode: Buttons.ClassicButton.Mode.LabelOnly;
         anchors.bottom: parent.bottom;              anchors.bottomMargin: 14;
         anchors.left: parent.left;                  anchors.leftMargin: 8;
+
+        display_mode: Buttons.ClassicButton.Mode.LabelOnly;
         fixed_width: 188;                           fixed_height: 28;
-        label_text: "ФОРМИРОВАНИЕ РЛИ";     label_color: UX.textWhite;     label_text_size: 17;        
+        label_text: "ФОРМИРОВАНИЕ РЛИ";     
+        label_color: UX.textWhite;          label_text_size: 17;        
         label_text_family: fontBold.name;   label_text_bold: true;
         background_color: UX.infoLight;     background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
@@ -30,5 +33,18 @@ Rectangle {
         { 
             SignalLinker.formSingleImage(); 
         }
+    }
+    Labels.FramedLabel
+    {
+        id: formModeLabel;
+        anchors.bottom: formImageButton.top;    anchors.bottomMargin: 4;
+        anchors.left: formImageButton.left;
+
+        fixed_width: 51;    fixed_height: 17;
+        label_text: "РЕЖИМ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontMedium.name; label_text_bold: true;
+        frame_radius: 2;                    frame_width: 1;
+        label_textAlignment: Text.AlignHCenter;
     }
 }

@@ -107,7 +107,6 @@ bool RecallHandler::clearCache(void)
 }
 
 void RecallHandler::placeMarker(void)       { RuntimeData::mouseState = MouseState::MarkerPlacement; }
-void RecallHandler::formContinuously(void)  { RuntimeData::initialize()->formContinuous(); }
 void RecallHandler::clearSARDisk(void)      
 { 
     QMessageBox box;

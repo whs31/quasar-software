@@ -23,7 +23,6 @@ public:
     Q_INVOKABLE bool clearMap(void);
     Q_INVOKABLE bool clearCache(void);
     Q_INVOKABLE void placeMarker(void);
-    Q_INVOKABLE void formContinuously(void);
     Q_INVOKABLE void clearSARDisk(void);
 
 };

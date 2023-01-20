@@ -55,7 +55,7 @@ Rectangle {
         anchors.top: formModeLabel.top;
         
         fixed_width: 136;       fixed_height: 17;           fixed_drop: 17*2;
-        label_text: "ОДИНОЧНОЕ";
+        label_text: RuntimeData.formingQueueMode === 0 ? "ОДИНОЧНОЕ" : "НЕПРЕРЫВНОЕ";
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
@@ -75,6 +75,7 @@ Rectangle {
                 frame_enabled: false;
                 onClicked: {
                     formModeDropDown.shown = false;
+                    RuntimeData.formingQueueMode = 0;
                 }
             }
             Buttons.LightButton
@@ -91,6 +92,7 @@ Rectangle {
                 frame_enabled: false;
                 onClicked: {
                     formModeDropDown.shown = false;
+                    RuntimeData.formingQueueMode = 1;
                 }
             }
         }

@@ -599,22 +599,24 @@ Rectangle {
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; } //192.168.18.143
 
-        DropShadow { anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
+        DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
                      samples: 32; color: "#80000000"; source: topBar; cached: true; }
         Groups.TopBar
         {
             id: topBar;
             anchors.top: parent.top;
             anchors.left: parent.left; anchors.right: parent.right;
+            z: 100;
         }
 
-        DropShadow { anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
+        DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
                      samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
         Groups.BottomBar
         {
             id: bottomBar;
             anchors.bottom: parent.bottom;
             anchors.left: parent.left; anchors.right: parent.right;
+            z: 100;
         }
 
         Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;

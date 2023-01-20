@@ -298,23 +298,86 @@ Rectangle {
                                 }
                             }
                         }
-
-//            Buttons.LightButton
-//            {
-//                id: selectSingle;
-//                fixed_width: 136;               fixed_height: 17;
-//                label_text: "ОДИНОЧНОЕ";
-//                label_color: UX.primaryDarker;  label_text_size: 12;
-//                label_text_family: fontMedium.name;
-//                label_text_bold: true;         label_textAlignment: Text.AlignRight;
-//                highlight_color: UX.textFaded;
-//                frame_radius: 0;                frame_width: 1;
-//                frame_enabled: false;
-//                onClicked: {
-//                    formModeDropDown.shown = false;
-//                    RuntimeData.formingQueueMode = 0;
-//                }
-//            }
+                        Input.LineEdit
+                        {
+                            id: x0Input;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: formParametersModeDropdown.bottom;
+                            label_text: "БЛИЖНЯЯ ГРАНИЦА : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formLowerBound);
+                            input_text_postfix: " M";
+                            lower_bound: 50; upper_bound: 2000; decimal_precision: 0;
+                            onTxtChanged: {
+                                RuntimeData.formLowerBound = parseInt(input_text);
+                            }
+                        }
+                        Input.LineEdit
+                        {
+                            id: lxInput;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: x0Input.bottom;
+                            label_text: "ДАЛЬНЯЯ ГРАНИЦА : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formUpperBound);
+                            input_text_postfix: " M";
+                            lower_bound: 500; upper_bound: 10000; decimal_precision: 0;
+                            onTxtChanged: {
+                                RuntimeData.formUpperBound = parseInt(input_text);
+                            }
+                        }
+                        Input.LineEdit
+                        {
+                            id: dxInput;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: lxInput.bottom;
+                            label_text: "ПОПИКСЕЛЬНЫЙ ШАГ : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formStep);
+                            input_text_postfix: "";
+                            lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
+                            onTxtChanged: {
+                                RuntimeData.formStep = parseFloat(input_text);
+                            }
+                        }
+                        Input.LineEdit
+                        {
+                            id: tsInput;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: dxInput.bottom;
+                            label_text: "ВРЕМЯ ФОРМИРОВАНИЯ : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formTime);
+                            input_text_postfix: "  С";
+                            lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
+                            onTxtChanged: {
+                                RuntimeData.formTime = parseFloat(input_text);
+                            }
+                        }
         }
     }
     Layouts.Separator

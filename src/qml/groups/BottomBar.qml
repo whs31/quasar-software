@@ -204,7 +204,7 @@ Rectangle {
         frame_radius: 2;                frame_width: 1;
         frame_enabled: true;
         onClicked: {
-            if(RuntimeData.connected)
+            if(RuntimeData.connected) //TODO: if button pressed and not connected in 3 seconds -> disconnect!
             {
                 ioHandler.disconnect();
             } else {

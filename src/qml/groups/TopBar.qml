@@ -313,7 +313,7 @@ Rectangle {
                             frame_enabled: false;
                             selection_color: UX.infoLight;
                             input_text: Number(RuntimeData.formLowerBound);
-                            input_text_postfix: " M";
+                            input_text_postfix: " м";
                             lower_bound: 50; upper_bound: 2000; decimal_precision: 0;
                             onTxtChanged: {
                                 RuntimeData.formLowerBound = parseInt(input_text);
@@ -333,7 +333,7 @@ Rectangle {
                             frame_enabled: false;
                             selection_color: UX.infoLight;
                             input_text: Number(RuntimeData.formUpperBound);
-                            input_text_postfix: " M";
+                            input_text_postfix: " м";
                             lower_bound: 500; upper_bound: 10000; decimal_precision: 0;
                             onTxtChanged: {
                                 RuntimeData.formUpperBound = parseInt(input_text);
@@ -373,7 +373,7 @@ Rectangle {
                             frame_enabled: false;
                             selection_color: UX.infoLight;
                             input_text: Number(RuntimeData.formTime);
-                            input_text_postfix: "  С";
+                            input_text_postfix: "  с";
                             lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
                             onTxtChanged: {
                                 RuntimeData.formTime = parseFloat(input_text);
@@ -410,7 +410,7 @@ Rectangle {
                             frame_enabled: false;
                             selection_color: UX.infoLight;
                             input_text: Number(RuntimeData.formGPSHeight);
-                            input_text_postfix: " М";
+                            input_text_postfix: " м";
                             lower_bound: 0.1; upper_bound: 30000.0; decimal_precision: 1;
                             onTxtChanged: {
                                 RuntimeData.formGPSHeight = parseFloat(input_text);

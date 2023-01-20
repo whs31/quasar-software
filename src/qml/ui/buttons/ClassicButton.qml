@@ -133,7 +133,7 @@ Rectangle {
         anchors.fill: parent
         onEntered: { animation_hoverOn.start(); }
         onExited: { animation_hoverOff.start(); }
-        onClicked: { animation_click.start(); animation_clickColorChange.start(); }
+        onClicked: { animation_click.start(); animation_clickColorChange.start(); forceActiveFocus(); }
     }
     Component.onCompleted: {
         controlMouseArea.clicked.connect(clicked);

@@ -298,6 +298,7 @@ Rectangle {
             }
             onClicked:
             {
+                forceActiveFocus();
                 if(r_currentstate !== 0 & mouse.button === Qt.RightButton)
                 {
                     r_currentstate = 0;

@@ -94,6 +94,6 @@ Item {
         anchors.fill: parent
         onEntered: { checkboxIndicator.color = Qt.lighter(label_color, 1.5); }
         onExited: { checkboxIndicator.color = label_color; }
-        onClicked: { checked = !checked; animation_scalebounce.start(); animation_colorfadeinout.start(); }
+        onClicked: { checked = !checked; animation_scalebounce.start(); animation_colorfadeinout.start(); forceActiveFocus(); }
     }
 }

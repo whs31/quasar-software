@@ -61,5 +61,6 @@ Rectangle {
         label_textAlignment: Text.AlignRight;
         highlight_color: UX.infoLight;
         frame_radius: 2;                    frame_width: 1;
+        container: Rectangle { color: "#FF0000"; width: 50; height: 20; anchors.centerIn: parent; }
     }
 }

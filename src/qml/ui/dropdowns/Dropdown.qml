@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.12
 
 Rectangle {
+    property alias container : loader.sourceComponent
+
     property int fixed_width: 100;
     property int fixed_height: 25;
     property int fixed_drop: 200;
@@ -78,6 +80,8 @@ Rectangle {
         }
         clip: true;
         z: 90;
+
+        Loader { id: loader; }
     }
     Item
     {

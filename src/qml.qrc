@@ -3,7 +3,6 @@
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
         <file>qml/ZoomSlider.qml</file>
-        <file>qml/BottomToolbar.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>

@@ -228,4 +228,96 @@ Rectangle {
         anchors.left: storageStatusIndicator.right;  anchors.leftMargin: 6;
         anchors.top: clearMapButton.top;
     }
+    Labels.FramedLabel
+    {
+        id: mapToolsLabel;
+        anchors.top: separator2.top;
+        anchors.left: separator2.right; anchors.leftMargin: 63;
+
+        fixed_width: 176;    fixed_height: 13;
+        label_text: "ИНСТРУМЕНТЫ КАРТЫ";
+        label_color: UX.textWhite;          label_text_size: 14;
+        label_text_family: fontSemiBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignHCenter;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Buttons.LightToolButton
+    {
+        id: rulerButton;
+        anchors.bottom: separator2.bottom;
+        anchors.left: separator2.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.accentLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/ruler.png";
+        onClicked: {
+            if(r_currentstate !== 0) { r_currentstate = 1;
+                clearRuler(); } else {
+                r_currentstate = 1;
+            }
+        }
+    }
+    Buttons.LightToolButton
+    {
+        id: protractorButton;
+        anchors.bottom: rulerButton.bottom;
+        anchors.left: rulerButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.accentLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/protractor.png";
+        onClicked: {
+        }
+    }
+    Layouts.Separator
+    {
+        id: separator3;
+        fixed_height: 56;
+        line_color: UX.textWhite;
+        anchors.left: mapToolsLabel.right;  anchors.leftMargin: 63;
+        anchors.top: clearMapButton.top;
+    }
+    Labels.FramedLabel
+    {
+        id: mapUnitsLabel;
+        anchors.top: separator3.top;
+        anchors.left: separator3.right; anchors.leftMargin: 63;
+
+        fixed_width: 176;    fixed_height: 13;
+        label_text: "ОБЪЕКТЫ КАРТЫ";
+        label_color: UX.textWhite;          label_text_size: 14;
+        label_text_family: fontSemiBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignHCenter;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Buttons.LightToolButton
+    {
+        id: markerButton;
+        anchors.bottom: separator3.bottom;
+        anchors.left: separator3.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.primaryLighter;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/marker.png";
+        onClicked: {
+            ioHandler.placeMarker();
+        }
+    }
+    Layouts.Separator
+    {
+        id: separator4;
+        fixed_height: 56;
+        line_color: UX.textWhite;
+        anchors.left: mapUnitsLabel.right;  anchors.leftMargin: 65;
+        anchors.top: clearMapButton.top;
+    }
 }

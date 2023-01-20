@@ -661,14 +661,6 @@ Rectangle {
             anchors.bottomMargin: 10;
             z: 100;
         }
-        BottomToolbar
-        {
-            id: bottomToolbarElement;
-            anchors.right: zoomSliderElement.left;
-            anchors.rightMargin: 40;
-            anchors.bottom: zoomSliderElement.bottom;
-            z: 100;
-        }
         Text {
             id: closestACDistanceIndicator;
             color: UX.textWhite;

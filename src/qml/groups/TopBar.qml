@@ -2,6 +2,7 @@ import QtQuick 2.12
 import UX 1.0
 import RuntimeData 1.0
 import SignalLinker 1.0
+import DiskManager 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -26,7 +27,7 @@ Rectangle {
         display_mode: Buttons.ClassicButton.Mode.LabelOnly;
         fixed_width: 188;                           fixed_height: 28;
         label_text: RuntimeData.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : RuntimeData.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
-        label_color: RuntimeData.formingContinuous ? UX.primaryDarker : UX.textWhite;          label_text_size: 17;        
+        label_color: RuntimeData.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;          label_text_size: 17;
         label_text_family: fontBold.name;   label_text_bold: true;
         background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLight;     
         background_secondary_color: Qt.lighter(background_color, 1.5); 
@@ -105,5 +106,61 @@ Rectangle {
                 }
             }
         }
+    }
+    Buttons.LightToolButton
+    {
+        id: panImageButton;
+        anchors.top: formModeDropDown.top;
+        anchors.left: formModeDropDown.right;     anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.infoLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/image.png";
+        onClicked: { panImage(); RuntimeData.followPlane = false; }
+    }
+    Buttons.LightToolButton
+    {
+        id: panPlaneButton;
+        anchors.top: panImageButton.top;
+        anchors.left: panImageButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.infoLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/gps.png";
+        onClicked: { panGPS(); }
+    }
+    Buttons.LightToolButton
+    {
+        id: refreshCatalogueButton;
+        anchors.top: panPlaneButton.top;
+        anchors.left: panPlaneButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.successLighter;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/refresh.png";
+        onClicked: { DiskManager.fetchDirectory(); }
+    }
+    Buttons.LightToolButton
+    {
+        id: changeCatalogueButton;
+        anchors.top: refreshCatalogueButton.top;
+        anchors.left: refreshCatalogueButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 35;      fixed_height: 35;
+        frame_color: UX.textWhite;
+        highlight_color: UX.warningLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 23;
+        icon_source: "qrc:/icons/folder.png";
+        onClicked: { ioHandler.changeDirectory(); }
     }
 }

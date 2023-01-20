@@ -110,9 +110,7 @@ Rectangle {
             source: icon_source;
             smooth: true;
             antialiasing: true;
-            
             anchors.verticalCenter: parent.verticalCenter;
-            
         }
         Text {
             text: display_mode !== 2 ? label_text : "";

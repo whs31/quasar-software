@@ -10,57 +10,6 @@ import UX 1.0
 Item {
     RoundButton
     {
-        id: panButton;
-        icon.source: "qrc:/ui-resources/white/plane.png";
-        icon.color: UX.textWhite;
-        icon.width: 32;
-        icon.height: 32;
-        width: 40;
-        height: 40;
-        radius: 10;
-        opacity: 1;
-        z: 100;
-        anchors.right: parent.right;
-        anchors.bottom: parent.bottom;
-        highlighted: true;
-        flat: false;
-        hoverEnabled: true;
-        enabled: true;
-        display: AbstractButton.IconOnly;
-        onClicked: panGPS();
-    }
-    RoundButton
-    {
-        id: panImageButton;
-        icon.source: "qrc:/ui-resources/white/image.png";
-        icon.color: UX.textWhite;
-        icon.width: 32;
-        icon.height: 32;
-        width: 40;
-        height: 40;
-        radius: 10;
-        z: 100;
-        opacity: 1;
-        anchors.right: panButton.left;
-        anchors.verticalCenter: panButton.verticalCenter;
-        highlighted: true;
-        flat: false;
-        anchors.rightMargin: 0;
-        hoverEnabled: true;
-        enabled: true;
-        display: AbstractButton.IconOnly;
-        onClicked:
-        {
-            panImage();
-            if(FDynamicVariables.followPlane)
-            {
-                FDynamicVariables.followPlane = false;
-            }
-        }
-    }
-
-    RoundButton
-    {
         id: rulerButton;
         icon.source: "qrc:/ui-resources/white/ruler.png";
         icon.color: UX.textWhite;
@@ -71,8 +20,6 @@ Item {
         radius: 10;
         opacity: 1;
         z: 100;
-        anchors.right: panImageButton.left;
-        anchors.verticalCenter: panImageButton.verticalCenter;
         highlighted: true;
         flat: false;
         anchors.rightMargin: 20;

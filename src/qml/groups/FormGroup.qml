@@ -11,19 +11,6 @@ import UX 1.0
 Item {
     width: childrenRect.width;
     height: childrenRect.height;
-    UI.CustomButton
-    {
-        id: continuousFormButton;
-        iconsource: "qrc:/ui-resources/white/timer.png";
-        primarycolor: UX.primaryLight;
-        width: 320;
-        height: 20;
-        iconsize: 14;
-        labeltext: RuntimeData.formingContinuous ? "Непрерывное формирование включено" : "Непрерывное формирование выключено";
-        boldness: true;
-        onClicked: ioHandler.formContinuously();
-        z: 99;
-    }
     Rectangle
     {
         id: textBackground;
@@ -31,7 +18,6 @@ Item {
         radius: 10;
         width: diskSpaceText.paintedWidth + 15;
         height: diskSpaceText.paintedHeight + 5;
-        anchors.top: continuousFormButton.bottom;
         anchors.topMargin: 6;
         Text {
             id: diskSpaceText;

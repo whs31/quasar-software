@@ -30,5 +30,6 @@
         <file>qml/application-header/ApplicationHeader.qml</file>
         <file>qml/ui/buttons/ClassicButton.qml</file>
         <file>qml/groups/TopBar.qml</file>
+        <file>qml/ui/labels/FramedLabel.qml</file>
     </qresource>
 </RCC>

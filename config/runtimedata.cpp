@@ -10,7 +10,6 @@ RuntimeData *RuntimeData::initialize(QObject *parent)
     return _instance;
 }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
-void RuntimeData::toggleConsole(void)   { emit toggleConsoleSignal(); }
 void RuntimeData::formContinuous(void) { emit formContinuousSignal(); }
 
 qreal RuntimeData::getLatitude() { return telemetry.latitude; }

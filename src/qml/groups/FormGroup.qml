@@ -7,22 +7,10 @@ import RuntimeData 1.0
 import "qrc:/qml/ui" as UI
 import UX 1.0
 
+//114855520 111111159808 example cache clear string
 Item {
     width: childrenRect.width;
     height: childrenRect.height;
-    UI.CustomButton
-    {
-        id: formImageButton;
-        iconsource: "qrc:/ui-resources/white/newimage.png"; //114855520 111111159808
-        primarycolor: UX.primaryLight;
-        width: 320;
-        height: 20;
-        iconsize: 14;
-        labeltext: "Формирование одиночного изображения";
-        boldness: true;
-        onClicked: ioHandler.formSingleImage();
-        z: 99;
-    }
     UI.CustomButton
     {
         id: continuousFormButton;
@@ -30,8 +18,6 @@ Item {
         primarycolor: UX.primaryLight;
         width: 320;
         height: 20;
-        anchors.top: formImageButton.bottom;
-        anchors.topMargin: 6;
         iconsize: 14;
         labeltext: RuntimeData.formingContinuous ? "Непрерывное формирование включено" : "Непрерывное формирование выключено";
         boldness: true;

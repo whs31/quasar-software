@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
     QQuickStyle::setStyle("Material");                      //графика для QML
     qInstallMessageHandler(debugLogger);
     CoreUI window;
-    window.showFullScreen();
+    window.show();
+    //window.showFullScreen();
     return app.exec();
 }

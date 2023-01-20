@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1278</width>
-    <height>697</height>
+    <width>1366</width>
+    <height>768</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1366</width>
+    <height>768</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -17,7 +23,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>СПО QuaSAR</string>
+   <string>QuaSAR</string>
   </property>
   <property name="windowIcon">
    <iconset resource="images.qrc">

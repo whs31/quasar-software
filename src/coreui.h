@@ -133,7 +133,6 @@ private slots:
     void ReadForm(QByteArray data);
     void ReadSARConsole(QByteArray data);
     void Halftime(void);
-    void toggleConsoleSlot(void);
     void SendClearCommand(void);
 
     //gui slots

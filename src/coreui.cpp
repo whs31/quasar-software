@@ -42,7 +42,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
-    connect(RuntimeData::initialize(), SIGNAL(toggleConsoleSignal()), this, SLOT(toggleConsoleSlot()));
     connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
     
     // signal linker setup
@@ -476,7 +475,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
         {
             if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { DebugSlot(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_C) || pressedKeys.contains(1057)) { toggleConsoleSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->disconnect(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { SettingsSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { InfoSlot(); pressedKeys.clear();}
@@ -501,9 +499,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         return QObject::eventFilter(obj, event);
     }
     return false;
-}
-void CoreUI::toggleConsoleSlot()
-{
 }
 
 void CoreUI::SendClearCommand(void)

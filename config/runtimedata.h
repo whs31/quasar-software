@@ -85,7 +85,6 @@ public:
     static RuntimeData* initialize(QObject* parent = nullptr);
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
-    void toggleConsole(void);
     void formContinuous(void);
     void clearSARDisk(void);
 
@@ -200,7 +199,6 @@ signals:
     // my signals TODO: DEPRECATED 
 
     void autocaptureSignal();
-    void toggleConsoleSignal();
     void formContinuousSignal();
     void clearSARDiskSignal();
 

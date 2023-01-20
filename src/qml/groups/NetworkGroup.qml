@@ -89,22 +89,6 @@ Rectangle
             onClicked: ioHandler.disconnect();
             z: 99;
         }
-
-        UI.CustomButton
-        {
-            id: sarConsoleButton;
-            iconsource: "qrc:/ui-resources/white/command-line.png";
-            iconsize: 15;
-            primarycolor: UX.primaryLight;
-            width: 192;
-            height: 20;
-            anchors.left: parent.left;
-            anchors.top: disconnectButton.bottom;
-            anchors.topMargin: 20;
-            labeltext: "Консоль РЛС";
-            onClicked: ioHandler.toggleConsole();
-            z: 99;
-        }
     }
 }
 

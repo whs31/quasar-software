@@ -8,7 +8,7 @@
         anchors.right: parent.right;        anchors.rightMargin: 6;
         fixed_width: 47;            fixed_height: 27;
         icon_px_size: 15;           icon_source: "qrc:/ui-resources/white/close.png";
-        label_text: "Sample text";  label_color: "#de3857";     label_text_size: 12;        label_text_bold: false;
+        label_text: "Sample text";  label_color: "#de3857";     label_text_size: 12;        label_text_family: someFontLoader.name;
         background_color: "#B16573";
         background_secondary_color: "#701828"; 
         background_radius: 2;
@@ -37,6 +37,7 @@ Rectangle {
     property string label_text: "Sample text";
     property color label_color: "#de3857";
     property int label_text_size: 12;
+    property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
 
     property color background_color: "#701828";
@@ -117,6 +118,7 @@ Rectangle {
             text: display_mode !== 2 ? label_text : "";
             font.capitalization: Font.MixedCase;
             font.pixelSize: label_text_size;
+            font.family: label_text_family;
             font.bold: label_text_bold;
             color: label_color;
             opacity: enabled ? 1.0 : 0.3

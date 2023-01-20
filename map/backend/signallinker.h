@@ -14,6 +14,7 @@ public:
     void sendSettings(void);
     void sendInfo(void);
     void sendEmulator(void);
+    Q_INVOKABLE void formSingleImage(void); 
     
 
 private:
@@ -27,6 +28,7 @@ signals:
     void infoSignal();
     void logSignal();
     void emulatorSignal();
+    void formSingleImageSignal();
 
 };
 

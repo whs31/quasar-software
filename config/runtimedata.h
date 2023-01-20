@@ -86,7 +86,6 @@ public:
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
     void toggleConsole(void);
-    void formSingleImage(void);
     void formContinuous(void);
     void clearSARDisk(void);
 
@@ -198,11 +197,10 @@ signals:
     void freeDiskSpaceChanged();
     void totalDiskSpaceChanged();
 
-    // my signals
+    // my signals TODO: DEPRECATED 
 
     void autocaptureSignal();
     void toggleConsoleSignal();
-    void formSingleImageSignal();
     void formContinuousSignal();
     void clearSARDiskSignal();
 

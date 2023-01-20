@@ -15,7 +15,7 @@ Rectangle {
     property int label_textAlignment: Text.AlignHCenter;
 
     property color highlight_color: "#7D5233";
-    property int frame_radius: 8;
+    property int frame_radius: 0;
     property int frame_width: 1;
 
     signal clicked();

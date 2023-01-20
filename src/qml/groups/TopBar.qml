@@ -203,6 +203,118 @@ Rectangle {
             if(verify) { DiskManager.clearCache(); }
         }
     }
+    Dropdowns.Dropdown
+    {
+        id: formParametersDropDown;
+        anchors.left: panImageButton.left;
+        anchors.bottom: separator1.bottom;
+
+        fixed_width: 186;       fixed_height: 17;           fixed_drop: 17*2;
+        label_text: "ПАРАМЕТРЫ ФОРМИРОВАНИЯ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontMedium.name; label_text_bold: true;
+        label_textAlignment: Text.AlignRight;
+        highlight_color: UX.infoLight;
+        frame_radius: 2;                    frame_width: 1;
+        clip: false;
+        //enabled: RuntimeData.formingContinuous ? false : true;
+        container: Item {
+                        Dropdowns.SideDropdown
+                        {
+                            clip: false;
+                            id: formParametersModeDropdown;
+                            fixed_width: 186;       fixed_height: 17;      fixed_drop_width: 64;        fixed_drop_height: 17*4;
+                            label_text: "РЕЖИМ";
+                            label_color: UX.primaryDarker;          label_text_size: 12;                drop_color: UX.textWhite;
+                            label_text_family: fontMedium.name;     label_text_bold: true;
+                            label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                    frame_width: 0;
+                            container: Item {
+                                Buttons.LightButton
+                                {
+                                    id: m1Button;
+                                    fixed_width: 64;             fixed_height: 17;
+                                    label_text: "M1";
+                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: UX.textFaded;
+                                    frame_enabled: false;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        RuntimeData.formMode = "m1";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m2Button;
+                                    anchors.top: m1Button.bottom;
+                                    fixed_width: 64;               fixed_height: 17;
+                                    label_text: "M2";
+                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: UX.textFaded;
+                                    frame_enabled: false;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        RuntimeData.formMode = "m2";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m3Button;
+                                    anchors.top: m2Button.bottom;
+                                    fixed_width: 64;               fixed_height: 17;
+                                    label_text: "M3";
+                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: UX.textFaded;
+                                    frame_enabled: false;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        RuntimeData.formMode = "m3";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m4Button;
+                                    anchors.top: m3Button.bottom;
+                                    fixed_width: 64;               fixed_height: 17;
+                                    label_text: "M4";
+                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: UX.textFaded;
+                                    frame_enabled: false;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        RuntimeData.formMode = "m4";
+                                    }
+                                }
+                            }
+                        }
+
+//            Buttons.LightButton
+//            {
+//                id: selectSingle;
+//                fixed_width: 136;               fixed_height: 17;
+//                label_text: "ОДИНОЧНОЕ";
+//                label_color: UX.primaryDarker;  label_text_size: 12;
+//                label_text_family: fontMedium.name;
+//                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+//                highlight_color: UX.textFaded;
+//                frame_radius: 0;                frame_width: 1;
+//                frame_enabled: false;
+//                onClicked: {
+//                    formModeDropDown.shown = false;
+//                    RuntimeData.formingQueueMode = 0;
+//                }
+//            }
+        }
+    }
     Layouts.Separator
     {
         id: separator1;

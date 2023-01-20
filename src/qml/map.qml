@@ -598,22 +598,24 @@ Rectangle {
         }
         MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; } //192.168.18.143
 
+        DropShadow { anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
+                     samples: 32; color: "#80000000"; source: topBar; cached: true; }
         Groups.TopBar
         {
             id: topBar;
             anchors.top: parent.top;
             anchors.left: parent.left; anchors.right: parent.right;
         }
-        DropShadow { anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
-                     samples: 32; color: "#80000000"; source: topBar; cached: true; }
+
+        DropShadow { anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
+                     samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
         Groups.BottomBar
         {
             id: bottomBar;
             anchors.bottom: parent.bottom;
             anchors.left: parent.left; anchors.right: parent.right;
         }
-        DropShadow { anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
-                     samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
+
         Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
                     anchors.bottom: bottomBar.top; }
 
@@ -632,7 +634,7 @@ Rectangle {
             anchors.top: parent.top;
             anchors.left: parent.left;
             anchors.topMargin: 3+70;
-            anchors.leftMargin: 200;
+            anchors.leftMargin: 500;
         }
         Groups.NetworkGroup
         {
@@ -695,7 +697,7 @@ Rectangle {
             prefix: "Статус полёта: ";
             anchors.right: parent.horizontalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: 25+70;
+            anchors.topMargin: 25+200;
             anchors.rightMargin: 10;
         }
         UI.StatusText
@@ -706,7 +708,7 @@ Rectangle {
             //anchors.left: parent.horizontalCenter;
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top;
-            anchors.topMargin: 25+70;
+            anchors.topMargin: 25+200;
             //anchors.leftMargin: 10;
         }
     }

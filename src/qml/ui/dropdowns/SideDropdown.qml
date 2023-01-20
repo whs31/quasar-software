@@ -6,10 +6,12 @@ Rectangle {
 
     property int fixed_width: 100;
     property int fixed_height: 25;
-    property int fixed_drop: 200;
+    property int fixed_drop_height: 200;
+    property int fixed_drop_width: 200;
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
+    property color drop_color: "#de3857";
     property int label_text_size: 12;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
@@ -62,49 +64,36 @@ Rectangle {
     Rectangle
     {
         id: dropSection;
-        width: fixed_width;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.top: parent.bottom; anchors.topMargin: -frame_radius;
-        color: label_color;
+        anchors.left: parent.right;
+        anchors.top: parent.top;
+        color: drop_color;
         border.width: frame_width;
         radius: frame_radius;
         border.color: label_color;
 
         //collapsible panel
         visible: height > 0;
-        height: shown ? fixed_drop : 0;
+        width: shown ? fixed_drop_width : 0;
+        height: shown ? fixed_drop_height : 0;
+        clip: true;
         Behavior on height {
             NumberAnimation {
                 easing.type: Easing.InOutQuad;
             }
         }
-        //clip: true;
-        z: 90;
+        Behavior on width {
+            NumberAnimation {
+                easing.type: Easing.InOutQuad;
+            }
+        }
 
-        Loader { id: loader; opacity: shown ? 1 : 0; Behavior on opacity {
-                NumberAnimation {
-                    easing.type: Easing.InOutQuad;
-                }
-            } }
+        Loader { id: loader; }
     }
     Item
     {
         id: dropButton;
         width: childrenRect.width;
         anchors.fill: parent;
-        Image {
-            id: ico;
-            width: 11;
-            height: 11;
-            source: "qrc:/icons/down.png";
-            smooth: true;
-            antialiasing: true;
-            anchors.verticalCenter: parent.verticalCenter;
-            anchors.left: parent.left;
-            anchors.leftMargin: 4;
-            z: 91;
-        }
         Text {
             text: label_text;
             font.capitalization: Font.MixedCase;

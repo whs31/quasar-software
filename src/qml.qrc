@@ -35,5 +35,6 @@
         <file>qml/ui/progress-bars/CircularProgressBar.qml</file>
         <file>qml/ui/layouts/Separator.qml</file>
         <file>qml/groups/BottomBar.qml</file>
+        <file>qml/ui/dropdowns/SideDropdown.qml</file>
     </qresource>
 </RCC>

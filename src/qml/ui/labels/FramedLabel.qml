@@ -30,6 +30,7 @@ Rectangle {
         opacity: enabled ? 1.0 : 0.3;
         verticalAlignment: Text.AlignVCenter;
         horizontalAlignment: label_textAlignment;
+        lineHeight: 0.75;
         anchors.fill: parent;
     }
 }

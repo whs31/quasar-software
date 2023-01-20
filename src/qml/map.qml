@@ -628,14 +628,6 @@ Rectangle {
             anchors.left: parent.left;
             anchors.leftMargin: 10;
         }
-        Groups.NetworkGroup
-        {
-            id: networkPanel;
-            anchors.top: parent.top;
-            anchors.topMargin: 3+70;
-            anchors.right: parent.right;
-            anchors.rightMargin: 230;
-        }
 
         Groups.EmulatorTextPanel
         {
@@ -678,7 +670,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter;
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.bottom: parent.bottom;
-            anchors.margins: 3;
+            anchors.margins: 23;
             Behavior on opacity { NumberAnimation { duration: 1000; } }
         }
         UI.StatusText

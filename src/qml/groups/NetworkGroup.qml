@@ -48,7 +48,7 @@ Rectangle
         z: 99;
 
         //collapsible panel
-        property bool shown: true;
+        property bool shown: false;
         visible: height > 0;
         height: shown ? containerHeight : 0;
         Behavior on height {

@@ -633,14 +633,6 @@ Rectangle {
             anchors.topMargin: 3+70;
             anchors.leftMargin: 200;
         }
-        Groups.ImageToolsGroup
-        {
-            id: imagePanel;
-            anchors.top: parent.top;
-            anchors.left: parent.left;
-            anchors.topMargin: 3+70;
-            anchors.leftMargin: 3;
-        }
         Groups.NetworkGroup
         {
             id: networkPanel;

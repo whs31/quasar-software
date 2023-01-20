@@ -163,4 +163,42 @@ Rectangle {
         icon_source: "qrc:/icons/folder.png";
         onClicked: { ioHandler.changeDirectory(); }
     }
+    Buttons.LightToolButton
+    {
+        id: clearMapButton;
+        anchors.top: changeCatalogueButton.top;
+        anchors.left: changeCatalogueButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 22;      fixed_height: 16;
+        frame_color: UX.textWhite;
+        highlight_color: UX.errorDark;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 12;
+        icon_source: "qrc:/icons/eraser.png";
+        onClicked: {
+            var verify = ioHandler.clearMap();
+            if(verify) {
+                imageModel.clear();
+                imageUIModel.clear();
+                ImageManager.clearAll();
+            }
+        }
+    }
+    Buttons.LightToolButton
+    {
+        id: clearLocalCacheButton;
+        anchors.bottom: changeCatalogueButton.bottom;
+        anchors.left: changeCatalogueButton.right;    anchors.leftMargin: 6;
+
+        fixed_width: 22;      fixed_height: 16;
+        frame_color: UX.textWhite;
+        highlight_color: UX.errorDark;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 12;
+        icon_source: "qrc:/icons/trashbin.png";
+        onClicked: {
+            var verify = ioHandler.clearCache();
+            if(verify) { DiskManager.clearCache(); }
+        }
+    }
 }

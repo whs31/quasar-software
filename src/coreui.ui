@@ -618,7 +618,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <property name="font">
              <font>
-              <family>Calibri</family>
+              <family>Monospace</family>
               <pointsize>9</pointsize>
               <bold>false</bold>
              </font>

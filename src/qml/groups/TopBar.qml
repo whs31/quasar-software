@@ -220,4 +220,12 @@ Rectangle {
                         5 :
                         100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace);
     }
+    Layouts.Separator
+    {
+        id: separator2;
+        fixed_height: 56;
+        line_color: UX.textWhite;
+        anchors.left: storageStatusIndicator.right;  anchors.leftMargin: 6;
+        anchors.top: clearMapButton.top;
+    }
 }

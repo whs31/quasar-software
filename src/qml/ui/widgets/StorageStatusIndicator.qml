@@ -34,8 +34,6 @@ Item {
         end_angle: 5.06; //290 deg
         fixed_width: 55;
         fixed_height: 55;
-        minimumValue: 0;
-        maximumValue: 100;
         currentValue: percentage;  //Number(RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace).toFixed(0)
         line_width: 9;
 
@@ -69,5 +67,12 @@ Item {
         horizontalAlignment: Text.AlignLeft;
         anchors.top: tooltip1.bottom;   anchors.topMargin: 1;
         anchors.left: clearSARCacheButton.right;    anchors.leftMargin: 4;
+    }
+    onPercentageChanged:
+    {
+        if(percentage >= 0 & percentage < 33) { circularProgressBar.base_color = UX.successLighter; }
+        else if(percentage >= 33 & percentage < 66) { circularProgressBar.base_color = UX.warningLight; }
+        else if(percentage >= 66 & percentage < 80) { circularProgressBar.base_color = UX.warningDark; }
+        else if(percentage >= 80 & percentage <= 100) { circularProgressBar.base_color = UX.errorDark; }
     }
 }

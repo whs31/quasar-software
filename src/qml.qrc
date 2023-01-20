@@ -24,7 +24,6 @@
         <file>qml/groups/navigation/SpeedIndicator.qml</file>
         <file>qml/groups/navigation/AltIndicator.qml</file>
         <file>qml/groups/navigation/ConnectionBar.qml</file>
-        <file>qml/groups/FormGroup.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
         <file>qml/ui/buttons/ClassicButton.qml</file>
         <file>qml/groups/TopBar.qml</file>

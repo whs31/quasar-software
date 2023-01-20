@@ -216,6 +216,8 @@ Rectangle {
         id: storageStatusIndicator;
         anchors.left: separator1.right;     anchors.leftMargin: 6;
         anchors.top: separator1.top;
-        percentage: 50;
+        percentage: Number.isNaN(100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace)) ?
+                        5 :
+                        100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace);
     }
 }

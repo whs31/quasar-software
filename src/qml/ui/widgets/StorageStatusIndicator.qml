@@ -27,4 +27,20 @@ Item {
             ioHandler.clearSARDisk();
         }
     }
+    ProgressBars.CircularProgressBar
+    {
+        id: circularProgressBar;
+        start_angle: 0.349066; //20 deg
+        end_angle: 5.06; //290 deg
+        fixed_width: 55;
+        fixed_height: 55;
+        minimumValue: 0;
+        maximumValue: 100;
+        currentValue: percentage;  //Number(RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace).toFixed(0)
+        line_width: 9;
+
+        fill_color: UX.textWhite;
+        base_color: UX.errorDark;
+        anchors.bottom: parent.bottom; anchors.left: parent.left; anchors.bottomMargin: -1;
+    }
 }

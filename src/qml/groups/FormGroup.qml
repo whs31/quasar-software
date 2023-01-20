@@ -32,20 +32,4 @@ Item {
             verticalAlignment: Text.AlignVCenter;
         }
     }
-    UI.CustomButton
-    {
-        id: clearDiskButton;
-        iconsource: "qrc:/ui-resources/white/trashbin.png";
-        primarycolor: UX.errorDark;
-        accentcolor: UX.errorDarker;
-        width: 160;
-        height: 20;
-        anchors.top: textBackground.bottom;
-        anchors.topMargin: 6;
-        iconsize: 14;
-        labeltext: "Очистить хранилище";
-        boldness: false;
-        onClicked: ioHandler.clearSARDisk();
-        z: 99;
-    }
 }

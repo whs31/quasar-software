@@ -25,14 +25,22 @@ Rectangle {
 
         display_mode: Buttons.ClassicButton.Mode.LabelOnly;
         fixed_width: 188;                           fixed_height: 28;
-        label_text: "ФОРМИРОВАНИЕ РЛИ";     
-        label_color: UX.textWhite;          label_text_size: 17;        
+        label_text: RuntimeData.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : RuntimeData.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
+        label_color: RuntimeData.formingContinuous ? UX.primaryDarker : UX.textWhite;          label_text_size: 17;        
         label_text_family: fontBold.name;   label_text_bold: true;
-        background_color: UX.infoLight;     background_secondary_color: Qt.lighter(background_color, 1.5); 
+        background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLight;     
+        background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
         onClicked: 
         { 
-            SignalLinker.formSingleImage(); 
+            if(!RuntimeData.formingContinuous) { 
+                SignalLinker.formSingleImage(); 
+                if(RuntimeData.formingQueueMode === 1)
+                {
+                    RuntimeData.formingContinuous = true; 
+                }
+            }
+            else { RuntimeData.formingContinuous = false; }
         }
     }
     Labels.FramedLabel
@@ -61,6 +69,7 @@ Rectangle {
         label_textAlignment: Text.AlignRight;
         highlight_color: UX.infoLight;
         frame_radius: 2;                    frame_width: 1;
+        enabled: RuntimeData.formingContinuous ? false : true;
         container: Item {
             Buttons.LightButton
             {

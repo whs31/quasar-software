@@ -137,7 +137,6 @@ private slots:
 
     //gui slots
     void FormSingleImage();
-    void FormContinuousImages();
     void on_spinBox_sarLowerBound_valueChanged(int arg1);
     void on_spinBox_sarUpperBound_valueChanged(int arg1);
     void on_doubleSpinBox_sarTime_valueChanged(double arg1);

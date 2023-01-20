@@ -471,7 +471,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::ShiftModifier)
         {
             if(pressedKeys.contains(Qt::Key_Delete)) { LinkerQML::clearRoute(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_Space)) { FormContinuousImages(); pressedKeys.clear(); }
         }
         else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
         {
@@ -606,18 +605,6 @@ void CoreUI::FormSingleImage()
     Debug::Log("[FORM] Sended to SAR: " + request);
     RuntimeData::initialize()->setFormStatus(Style::StyleText("отправлен запрос на формирование №" +
                                                                QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
-}
-
-void CoreUI::FormContinuousImages()
-{
-    if(RuntimeData::initialize()->getFormingContinuous())
-    {
-        RuntimeData::initialize()->setFormingContinuous(false);
-    } else {
-        RuntimeData::initialize()->setFormingContinuous(true);
-        FormSingleImage();
-    }
-    
 }
 
 void CoreUI::on_pushButton_sendCustomCommand_clicked()

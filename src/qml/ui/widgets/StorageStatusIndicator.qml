@@ -63,10 +63,10 @@ Item {
         font.bold: true;
         color: UX.textWhite;
         opacity: enabled ? 1.0 : 0.3;
-        verticalAlignment: Text.AlignVCenter;
+        verticalAlignment: Text.AlignTop;
         horizontalAlignment: Text.AlignLeft;
-        anchors.top: tooltip1.bottom;   anchors.topMargin: 1;
-        anchors.left: clearSARCacheButton.right;    anchors.leftMargin: 4;
+        anchors.top: tooltip1.bottom;   anchors.topMargin: 0;
+        anchors.left: clearSARCacheButton.right;    anchors.leftMargin: 6;
     }
     onPercentageChanged:
     {

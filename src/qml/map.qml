@@ -5,7 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
-import QtGraphicalEffects 1.0
+import QtGraphicalEffects 1.15
 import "groups" as Groups
 import "sar-image" as ImageSAR
 import "ui" as UI
@@ -604,12 +604,16 @@ Rectangle {
             anchors.top: parent.top;
             anchors.left: parent.left; anchors.right: parent.right;
         }
+        DropShadow { anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
+                     samples: 32; color: "#80000000"; source: topBar; cached: true; }
         Groups.BottomBar
         {
             id: bottomBar;
             anchors.bottom: parent.bottom;
             anchors.left: parent.left; anchors.right: parent.right;
         }
+        DropShadow { anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
+                     samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
         Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
                     anchors.bottom: bottomBar.top; }
 

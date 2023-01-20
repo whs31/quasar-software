@@ -137,13 +137,5 @@ private slots:
 
     //gui slots
     void FormSingleImage();
-    void on_spinBox_sarLowerBound_valueChanged(int arg1);
-    void on_spinBox_sarUpperBound_valueChanged(int arg1);
-    void on_doubleSpinBox_sarTime_valueChanged(double arg1);
-    void on_doubleSpinBox_sarDX_valueChanged(double arg1);
-    void on_checkBoxEnableManualGPS_stateChanged(int arg1);
-    void on_doubleSpinBox_height_valueChanged(double arg1);
-    void on_doubleSpinBox_velocity_valueChanged(double arg1);
-    void on_pushButton_sendCustomCommand_clicked();
 };
 #endif // COREUI_H

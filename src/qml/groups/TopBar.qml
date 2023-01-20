@@ -8,6 +8,7 @@ import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
 import "qrc:/qml/ui/layouts" as Layouts
 import "qrc:/qml/ui/input" as Input
+import "qrc:/qml/ui/checkboxes" as Checkboxes
 import "qrc:/qml/ui/widgets" as CustomWidgets
 
 Rectangle {
@@ -376,6 +377,64 @@ Rectangle {
                             lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
                             onTxtChanged: {
                                 RuntimeData.formTime = parseFloat(input_text);
+                            }
+                        }
+                        Checkboxes.LightCheckbox
+                        {
+                            id: manualGPSCheckbox;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: tsInput.bottom;
+                            label_text: "КОРРЕКТИРОВКА GPS";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            contrast_color: UX.textWhite;
+                            highlight_color: UX.infoLight;
+                            checked: false;
+                            onCheckedChanged: {
+                                if(checked) { RuntimeData.formOverrideGPSData = 1; } else { RuntimeData.formOverrideGPSData = 0; }
+                            }
+                        }
+                        Input.LineEdit
+                        {
+                            id: heightInput;
+                            enabled: manualGPSCheckbox.checked;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: manualGPSCheckbox.bottom;
+                            label_text: "ВЫСОТА : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formGPSHeight);
+                            input_text_postfix: " М";
+                            lower_bound: 0.1; upper_bound: 30000.0; decimal_precision: 1;
+                            onTxtChanged: {
+                                RuntimeData.formGPSHeight = parseFloat(input_text);
+                            }
+                        }
+                        Input.LineEdit
+                        {
+                            id: velocityInput;
+                            enabled: manualGPSCheckbox.checked;
+                            fixed_width: 186;               fixed_height: 17;
+                            anchors.top: heightInput.bottom;
+                            label_text: "СКОРОСТЬ : ";
+                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: UX.textFaded;
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: UX.infoLight;
+                            input_text: Number(RuntimeData.formGPSVelocity);
+                            input_text_postfix: " км/ч";
+                            lower_bound: 0.05; upper_bound: 3000.0; decimal_precision: 2;
+                            onTxtChanged: {
+                                RuntimeData.formGPSVelocity = parseFloat(input_text);
                             }
                         }
         }

@@ -104,8 +104,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     }
 
     // any other ui-related startup code here!
-    ui->doubleSpinBox_height->setVisible(false);
-    ui->doubleSpinBox_velocity->setVisible(false);
 
     // core
     // (!) do not touch it.
@@ -509,53 +507,6 @@ void CoreUI::SendClearCommand(void)
             Debug::Log("[FORM] Sended to SAR: " + request);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-void CoreUI::on_spinBox_sarLowerBound_valueChanged(int arg1)
-{
-    RuntimeData::initialize()->setFormLowerBound(arg1);
-}
-void CoreUI::on_spinBox_sarUpperBound_valueChanged(int arg1)
-{
-    RuntimeData::initialize()->setFormUpperBound(arg1);
-}
-void CoreUI::on_doubleSpinBox_sarTime_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormTime(arg1);
-}
-void CoreUI::on_doubleSpinBox_sarDX_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormStep(arg1);
-}
-void CoreUI::on_checkBoxEnableManualGPS_stateChanged(int arg1)
-{
-    if (arg1 == 2)
-    {
-        ui->doubleSpinBox_height->setEnabled(true);
-        ui->doubleSpinBox_velocity->setEnabled(true);
-        ui->doubleSpinBox_height->setVisible(true);
-        ui->doubleSpinBox_velocity->setVisible(true);
-        RuntimeData::initialize()->setFormOverrideGPSData(1);
-    }
-    else
-    {
-        ui->doubleSpinBox_height->setEnabled(false);
-        ui->doubleSpinBox_velocity->setEnabled(false);
-        ui->doubleSpinBox_height->setVisible(false);
-        ui->doubleSpinBox_velocity->setVisible(false);
-        RuntimeData::initialize()->setFormOverrideGPSData(0);
-    }
-    SAROutputConsoleEmulator sarConsoleEmulator;
-    sarConsoleEmulator.sampleTest();
-}
-
-void CoreUI::on_doubleSpinBox_height_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormGPSHeight(arg1);
-}
-void CoreUI::on_doubleSpinBox_velocity_valueChanged(double arg1)
-{
-    RuntimeData::initialize()->setFormGPSVelocity(arg1);
-}
 void CoreUI::reconnectSlot()
 {
     telemetryRemote->Disconnect();
@@ -607,11 +558,9 @@ void CoreUI::FormSingleImage()
                                                                QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
 }
 
-void CoreUI::on_pushButton_sendCustomCommand_clicked()
-{
-    Debug::Log("?[SAR] Sending custom command!");
-    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
-    SendRemoteCommand(request, CommandType::FormCommand);
-    Debug::Log("[FORM] Sended to SAR: " + request);
-}
+
+//    Debug::Log("?[SAR] Sending custom command!");
+//    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
+//    SendRemoteCommand(request, CommandType::FormCommand);
+//    Debug::Log("[FORM] Sended to SAR: " + request);
 

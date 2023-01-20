@@ -19,6 +19,8 @@ Rectangle {
     property int frame_radius: 8;
     property int frame_width: 1;
 
+    property bool shown: false;
+
     id: control;
     color: "transparent";
     radius: frame_radius;
@@ -70,7 +72,6 @@ Rectangle {
         border.color: label_color;
 
         //collapsible panel
-        property bool shown: false;
         visible: height > 0;
         height: shown ? fixed_drop : 0;
         Behavior on height {
@@ -123,6 +124,6 @@ Rectangle {
         anchors.fill: parent;
         onEntered: { animation_hoverOn.start(); }
         onExited: { animation_hoverOff.start(); }
-        onClicked: { animation_clickColorChange.start(); dropSection.shown = !dropSection.shown; }
+        onClicked: { animation_clickColorChange.start(); shown = !shown; }
     }
 }

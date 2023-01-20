@@ -61,6 +61,38 @@ Rectangle {
         label_textAlignment: Text.AlignRight;
         highlight_color: UX.infoLight;
         frame_radius: 2;                    frame_width: 1;
-        container: Rectangle { color: "#FF0000"; width: 50; height: 20; anchors.centerIn: parent; }
+        container: Item {
+            Buttons.LightButton
+            {
+                id: selectSingle;
+                fixed_width: 136;               fixed_height: 17;
+                label_text: "ОДИНОЧНОЕ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                highlight_color: UX.textFaded;
+                frame_radius: 0;                frame_width: 1;
+                frame_enabled: false;
+                onClicked: {
+                    formModeDropDown.shown = false;
+                }
+            }
+            Buttons.LightButton
+            {
+                id: selectContinuous;
+                anchors.top: selectSingle.bottom;
+                fixed_width: 136;               fixed_height: 17;
+                label_text: "НЕПРЕРЫВНОЕ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                highlight_color: UX.textFaded;
+                frame_radius: 0;                frame_width: 1;
+                frame_enabled: false;
+                onClicked: {
+                    formModeDropDown.shown = false;
+                }
+            }
+        }
     }
 }

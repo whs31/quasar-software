@@ -56,5 +56,6 @@
         <file>fonts/SofiaSans-SemiBoldItalic.ttf</file>
         <file>fonts/SofiaSans-Thin.ttf</file>
         <file>fonts/SofiaSans-ThinItalic.ttf</file>
+        <file>icons/down.png</file>
     </qresource>
 </RCC>

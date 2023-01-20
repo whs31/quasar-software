@@ -4,6 +4,7 @@ import RuntimeData 1.0
 import SignalLinker 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
+import "qrc:/qml/ui/dropdowns" as Dropdowns
 
 Rectangle {
     id: base;
@@ -44,7 +45,21 @@ Rectangle {
         label_text: "РЕЖИМ";
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontMedium.name; label_text_bold: true;
-        frame_radius: 2;                    frame_width: 1;
         label_textAlignment: Text.AlignHCenter;
+        frame_radius: 2;                    frame_width: 1;
+    }
+    Dropdowns.Dropdown
+    {
+        id: formModeDropDown;
+        anchors.left: formModeLabel.right;  anchors.leftMargin: 1;
+        anchors.top: formModeLabel.top;
+        
+        fixed_width: 136;       fixed_height: 17;           fixed_drop: 17*2;
+        label_text: "ОДИНОЧНОЕ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontMedium.name; label_text_bold: true;
+        label_textAlignment: Text.AlignRight;
+        highlight_color: UX.infoLight;
+        frame_radius: 2;                    frame_width: 1;
     }
 }

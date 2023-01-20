@@ -31,5 +31,6 @@
         <file>qml/ui/buttons/ClassicButton.qml</file>
         <file>qml/groups/TopBar.qml</file>
         <file>qml/ui/labels/FramedLabel.qml</file>
+        <file>qml/ui/dropdowns/Dropdown.qml</file>
     </qresource>
 </RCC>

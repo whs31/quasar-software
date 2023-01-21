@@ -10,6 +10,7 @@ import "qrc:/qml/ui/layouts" as Layouts
 import "qrc:/qml/ui/widgets" as CustomWidgets
 
 Rectangle {
+    property bool speedDisplayMode: false;
     id: base;
     height: 36;
     color: UX.primaryDark;
@@ -432,6 +433,69 @@ Rectangle {
         {
             id: attitudeIndicator;
             anchors.centerIn: parent;
+        }
+    }
+    Rectangle
+    {
+        id: speedFrame;
+        width: 100;
+        height: 31;
+        color: UX.primaryDark;
+        radius: 12;
+        anchors.verticalCenter: attitudeFrame.top;
+        anchors.horizontalCenter: attitudeFrame.horizontalCenter;
+        Labels.FramedLabel
+        {
+            id: speedLabel;
+            anchors.verticalCenter: speedFrame.verticalCenter;
+            anchors.horizontalCenter: speedFrame.horizontalCenter;
+
+            fixed_width: 137;    fixed_height: 17;
+            property real spd: speedDisplayMode ? RuntimeData.speed / 3.6 : RuntimeData.speed;
+            label_text: Number(spd).toFixed(1);
+            label_color: UX.textWhite;
+            label_text_size: 24;
+            label_text_family: fontExtraBold.name; label_text_bold: true;
+            label_textAlignment: Text.AlignHCenter;
+            frame_radius: 2;                    frame_width: 0;
+        }
+        Rectangle
+        {
+            id: speedTooltipFrame;
+            width: 50;
+            height: 22;
+            color: UX.primaryDark;
+            radius: 6;
+            anchors.horizontalCenter: speedFrame.horizontalCenter;
+            anchors.top: speedLabel.bottom; anchors.topMargin: 3;
+            Labels.FramedLabel
+            {
+                id: speedTooltipLabel;
+                anchors.centerIn: parent;
+
+                fixed_width: 50;    fixed_height: 17;
+                label_text: speedDisplayMode ? "М/С" : "КМ/Ч";
+                label_color: UX.textWhite;
+                label_text_size: 14;
+                label_text_family: fontExtraBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignHCenter;
+                frame_radius: 2;                    frame_width: 0;
+            }
+        }
+        MouseArea
+        {
+            id: changeSpeedModeArea;
+            propagateComposedEvents: true;
+            anchors.fill: parent; anchors.bottomMargin: -22;
+            onClicked:
+            {
+                if(speedDisplayMode === true)
+                {
+                    speedDisplayMode = false;
+                } else {
+                    speedDisplayMode = true;
+                }
+            }
         }
     }
 }

@@ -42,7 +42,7 @@ Rectangle
             color: slider.pressed ? highlight_color : fill_color;
             border.color: fill_color;
             border.width: 1;
-            implicitWidth: fixed_height;
+            implicitWidth: 4;
             implicitHeight: fixed_height;
             x: slider.visualPosition * (fixed_width - width)
             y: slider.topPadding + slider.availableHeight / 2 - height / 2

@@ -227,6 +227,7 @@ Rectangle {
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                    frame_width: 0;
     }
+    //  ioHandler.calibrateSeaLevel();
     AnimatedImage
     {
         id: connectedAnimation;
@@ -498,4 +499,5 @@ Rectangle {
             }
         }
     }
+
 }

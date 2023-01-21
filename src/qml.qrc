@@ -9,15 +9,9 @@
         <file>qml/sar-image/MapImage.qml</file>
         <file>qml/sar-image/MetadataGroup.qml</file>
         <file>qml/sar-image/ButtonTopGroup.qml</file>
-        <file>qml/ui/CustomCheckbox.qml</file>
         <file>qml/ui/CustomButton.qml</file>
-        <file>qml/ui/ToolIcon.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
         <file>qml/ui/StatusText.qml</file>
-        <file>qml/groups/NavGroup.qml</file>
-        <file>qml/groups/navigation/AttitudeIndicator.qml</file>
-        <file>qml/groups/navigation/SpeedIndicator.qml</file>
-        <file>qml/groups/navigation/ConnectionBar.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
         <file>qml/ui/buttons/ClassicButton.qml</file>
         <file>qml/groups/TopBar.qml</file>

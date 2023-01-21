@@ -622,15 +622,6 @@ Rectangle {
         Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
                     anchors.bottom: bottomBar.top; }
 
-        Groups.NavGroup
-        {
-            id: navGroup;
-            anchors.bottom: parent.bottom;
-            anchors.bottomMargin: 46;
-            anchors.left: parent.left;
-            anchors.leftMargin: 500;
-        }
-
         Groups.EmulatorTextPanel
         {
             id: emulatorTextPanel;
@@ -671,7 +662,7 @@ Rectangle {
             prefix: "Статус полёта: ";
             anchors.right: parent.horizontalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: 25+200;
+            anchors.topMargin: 25+70;
             anchors.rightMargin: 10;
         }
         UI.StatusText
@@ -682,7 +673,7 @@ Rectangle {
             //anchors.left: parent.horizontalCenter;
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top;
-            anchors.topMargin: 25+200;
+            anchors.topMargin: 25+70;
             //anchors.leftMargin: 10;
         }
     }

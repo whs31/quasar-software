@@ -38,15 +38,31 @@ Rectangle
         clip: false;
         orientation: slider_horizontal ? Qt.Horizontal : Qt.Vertical;
         value: 2;
+        handle: Rectangle {
+            color: slider.pressed ? highlight_color : fill_color;
+            border.color: fill_color;
+            border.width: 1;
+            implicitWidth: fixed_height;
+            implicitHeight: fixed_height;
+            x: slider.visualPosition * (fixed_width - width)
+            y: slider.topPadding + slider.availableHeight / 2 - height / 2
+            radius: frame_radius;
+        }
+        background: Rectangle {
+            y: slider.topPadding + slider.availableHeight / 2 - height / 2;
+            implicitWidth: fixed_width;
+            implicitHeight: fixed_height;
+            width: fixed_width;
+            height: implicitHeight;
+            color: "transparent";
+            Rectangle {
+                width: slider.visualPosition * parent.width;
+                height: parent.height;
+                color: fill_color;
+                radius: frame_radius;
+            }
+        }
     }
-//    MouseArea {
-//        id: controlMouseArea;
-//        hoverEnabled: true;
-//        anchors.fill: parent;
-//        //onEntered: { animation_hoverOn.start(); }
-//        //onExited: { animation_hoverOff.start(); }
-//        //onClicked: { animation_click.start(); animation_clickColorChange.start(); forceActiveFocus(); }
-//    }
     Component.onCompleted: {
         slider.moved.connect(moved);
     }

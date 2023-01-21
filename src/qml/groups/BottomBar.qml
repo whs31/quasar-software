@@ -219,7 +219,7 @@ Rectangle {
         anchors.right: connectButton.left;  anchors.rightMargin: 0;
 
         fixed_width: 101;    fixed_height: 17;
-        label_text: RuntimeData.connected ? "ПОДКЛЮЧЕНО" : " НЕТ СВЯЗИ";
+        label_text: RuntimeData.connected ? "ПОДКЛЮЧЕНО" : "НЕТ СВЯЗИ";
         label_color: RuntimeData.connected ? UX.successLighter : UX.errorLighter;
         label_text_size: 14;
         label_text_family: fontExtraBold.name; label_text_bold: true;
@@ -233,5 +233,205 @@ Rectangle {
         anchors.right: connectedLabel.left; anchors.rightMargin: 0;
         anchors.bottom: connectedLabel.bottom; anchors.bottomMargin: -2;
         source: RuntimeData.connected ? "qrc:/icons/animated/gif_connected.gif" : "qrc:/icons/animated/gif_disconnected.gif";
+    }
+    Dropdowns.InverseDropdown
+    {
+        id: connectionInfoDropDown;
+        anchors.left: connectedAnimation.left;
+        anchors.bottom: parent.top; anchors.bottomMargin: -2;
+
+        fixed_width: 24;       fixed_height: 17;           fixed_drop: 17*6; fixed_drop_width: 300;
+        label_text: "";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontMedium.name; label_text_bold: true;
+        label_textAlignment: Text.AlignHCenter;
+        highlight_color: UX.primaryLight;
+        frame_radius: 2;                    frame_width: 0;
+        frame_fill_color: UX.primaryDark;   frame_filled: true;
+        container: Item {
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel1;
+                anchors.top: parent.top;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "IP-АДРЕС РЛС";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel2;
+                anchors.top: parent.top;
+                anchors.left: connectionInfoLabel1.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.sarIP;
+                label_color: UX.infoDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel3;
+                anchors.top: connectionInfoLabel1.bottom;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "IP-АДРЕС АРМ";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel4;
+                anchors.top: connectionInfoLabel3.top;
+                anchors.left: connectionInfoLabel3.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.pcIP;
+                label_color: UX.infoDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel5;
+                anchors.top: connectionInfoLabel3.bottom;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "ПОРТ ТЕЛЕМЕТРИИ:";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel6;
+                anchors.top: connectionInfoLabel5.top;
+                anchors.left: connectionInfoLabel5.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.telemetryPort;
+                label_color: UX.accentDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel7;
+                anchors.top: connectionInfoLabel6.bottom;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "ПОРТ ЗАГРУЗЧИКА:";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel8;
+                anchors.top: connectionInfoLabel7.top;
+                anchors.left: connectionInfoLabel7.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.loaderPort;
+                label_color: UX.accentDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel9;
+                anchors.top: connectionInfoLabel8.bottom;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "ПОРТ ОБРАТНОЙ СВЯЗИ:";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel10;
+                anchors.top: connectionInfoLabel9.top;
+                anchors.left: connectionInfoLabel9.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.listenPort;
+                label_color: UX.accentDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel11;
+                anchors.top: connectionInfoLabel10.bottom;
+                anchors.left: parent.left; anchors.leftMargin: 5;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: "ПОРТ ИНТЕРФЕЙСА ВЫПОЛНЕНИЯ КОМАНД:";
+                label_color: UX.primaryDarker;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: false;
+                label_textAlignment: Text.AlignLeft;
+                frame_radius: 2;                    frame_width: 0;
+            }
+            Labels.FramedLabel
+            {
+                id: connectionInfoLabel12;
+                anchors.top: connectionInfoLabel11.top;
+                anchors.left: connectionInfoLabel11.right;
+
+                fixed_width: 145;    fixed_height: 17;
+                label_text: RuntimeData.commandPort;
+                label_color: UX.accentDark;
+                label_text_size: 12;
+                label_text_family: fontSemiBold.name; label_text_bold: true;
+                label_textAlignment: Text.AlignRight;
+                frame_radius: 2;                    frame_width: 0;
+            }
+        }
+    }
+    Rectangle
+    {
+        id: attitudeFrame;
+        width: 288;
+        height: 168;
+        color: UX.primaryDark;
+        radius: 5;
+        anchors.left: parent.left;
+        anchors.bottom: parent.top;
+        CustomWidgets.AttitudeIndicator
+        {
+            id: attitudeIndicator;
+            anchors.centerIn: parent;
+        }
     }
 }

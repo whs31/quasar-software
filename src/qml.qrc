@@ -36,5 +36,7 @@
         <file>qml/ui/buttons/ImageButton.qml</file>
         <file>qml/ui/buttons/SmallRoundButton.qml</file>
         <file>qml/ui/input/FramedSlider.qml</file>
+        <file>qml/ui/dropdowns/InverseDropdown.qml</file>
+        <file>qml/ui/widgets/AttitudeIndicator.qml</file>
     </qresource>
 </RCC>

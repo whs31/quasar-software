@@ -13,13 +13,6 @@ Rectangle {
     color: "transparent";
     z: 98;
 
-    Nav.AttitudeIndicator
-    {
-        id: attitudeIndicator;
-        anchors.bottomMargin: -2;
-        anchors.horizontalCenter: parent.horizontalCenter;
-        visible: true;
-    }
     Nav.SpeedIndicator
     {
         id: speedIndicator;

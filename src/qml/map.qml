@@ -628,7 +628,7 @@ Rectangle {
             anchors.bottom: parent.bottom;
             anchors.bottomMargin: 46;
             anchors.left: parent.left;
-            anchors.leftMargin: 10;
+            anchors.leftMargin: 500;
         }
 
         Groups.EmulatorTextPanel

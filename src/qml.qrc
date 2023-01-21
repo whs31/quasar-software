@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>qml/map.qml</file>
         <file>qml/InlineDialog.qml</file>
-        <file>qml/ZoomSlider.qml</file>
         <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>
@@ -36,5 +35,6 @@
         <file>qml/ui/checkboxes/LightCheckbox.qml</file>
         <file>qml/ui/buttons/ImageButton.qml</file>
         <file>qml/ui/buttons/SmallRoundButton.qml</file>
+        <file>qml/ui/input/FramedSlider.qml</file>
     </qresource>
 </RCC>

@@ -82,7 +82,7 @@ Rectangle {
     //called right after awake
     function start()
     {
-        zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
+        topBar.z_level = mapView.zoomLevel;
     }
 
     function qmlBackendStart()
@@ -362,7 +362,7 @@ Rectangle {
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: zoomSliderElement.zoomSliderValue = 1 - (mapView.zoomLevel / 18);
+        onZoomLevelChanged: topBar.z_level = mapView.zoomLevel;
 
         MapItemView
         {
@@ -647,18 +647,6 @@ Rectangle {
             tooltipPadding: 10;
             tooltipText: "Ш: 50.0000000 Д: 30.0000000";
             transparency: 0.5;
-        }
-
-        //left to right <<<<<<<<<
-
-        ZoomSlider 
-        {
-            id: zoomSliderElement;
-            anchors.right: parent.right;
-            anchors.bottom: parent.bottom;
-            anchors.rightMargin: 10;
-            anchors.bottomMargin: 46;
-            z: 100;
         }
         Text {
             id: closestACDistanceIndicator;

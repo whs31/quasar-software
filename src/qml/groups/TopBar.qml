@@ -15,6 +15,7 @@ Rectangle {
     id: base;
     height: 70;
     color: UX.primaryDark;
+    property alias z_level: zoomSlider.slider_value;
     
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
@@ -219,7 +220,6 @@ Rectangle {
         highlight_color: UX.infoLight;
         frame_radius: 2;                    frame_width: 1;
         clip: false;
-        //enabled: RuntimeData.formingContinuous ? false : true;
         container: Item {
                         Dropdowns.SideDropdown
                         {
@@ -614,8 +614,70 @@ Rectangle {
         onClicked: {
         }
     }
+    Labels.FramedLabel
+    {
+        id: zoomLabel;
+        anchors.top: protractorButton.top;
+        anchors.left: protractorButton.right; anchors.leftMargin: 6;
+
+        fixed_width: 55;    fixed_height: 14;
+        label_text: "МАСШТАБ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontSemiBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignHCenter;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Buttons.LightToolButton
+    {
+        id: zoomOutButton;
+        anchors.top: zoomLabel.bottom; anchors.topMargin: 3;
+        anchors.left: zoomLabel.left;
+
+        fixed_width: 18;      fixed_height: 18;
+        frame_color: UX.textWhite;
+        highlight_color: UX.accentLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 12;
+        icon_source: "qrc:/icons/minus.png";
+        onClicked: {
+            if(mapView.zoomLevel > 2) { mapView.zoomLevel -= 0.5; }
+        }
+    }
+    Input.FramedSlider
+    {
+        id: zoomSlider;
+        anchors.top: zoomOutButton.top;
+        anchors.left: zoomOutButton.right; anchors.leftMargin: 2;
+        fixed_width: 167;      fixed_height: 18;
+        fill_color: UX.textWhite;
+        highlight_color: UX.accentLight;
+        frame_radius: 2;
+        slider_fromvalue: 2;
+        slider_tovalue: 18;
+        slider_horizontal: true;
+        slider_value: 2;
+        onMoved: { mapView.zoomLevel = slider_value; }
+    }
+    Buttons.LightToolButton
+    {
+        id: zoomInButton;
+        anchors.top: zoomLabel.bottom; anchors.topMargin: 3;
+        anchors.left: zoomSlider.right; anchors.leftMargin: 2;
+
+        fixed_width: 18;      fixed_height: 18;
+        frame_color: UX.textWhite;
+        highlight_color: UX.accentLight;
+        frame_radius: 2; frame_enabled: true;
+        icon_px_size: 12;
+        icon_source: "qrc:/icons/plus.png";
+        onClicked: {
+            if(mapView.zoomLevel < 18) { mapView.zoomLevel += 0.5; }
+        }
+    }
+
     Layouts.Separator
     {
+        //mapView.zoomLevel = (1-value)*18;
         id: separator3;
         fixed_height: 56;
         line_color: UX.textWhite;

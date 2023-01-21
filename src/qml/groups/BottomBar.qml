@@ -212,4 +212,26 @@ Rectangle {
             }
         }
     }
+    Labels.FramedLabel
+    {
+        id: connectedLabel;
+        anchors.bottom: parent.bottom;      anchors.bottomMargin: 8;
+        anchors.right: connectButton.left;  anchors.rightMargin: 0;
+
+        fixed_width: 101;    fixed_height: 17;
+        label_text: RuntimeData.connected ? "ПОДКЛЮЧЕНО" : " НЕТ СВЯЗИ";
+        label_color: RuntimeData.connected ? UX.successLighter : UX.errorLighter;
+        label_text_size: 14;
+        label_text_family: fontExtraBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignLeft;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    AnimatedImage
+    {
+        id: connectedAnimation;
+        width: 24; height: 24;
+        anchors.right: connectedLabel.left; anchors.rightMargin: 0;
+        anchors.bottom: connectedLabel.bottom; anchors.bottomMargin: -2;
+        source: RuntimeData.connected ? "qrc:/icons/animated/gif_connected.gif" : "qrc:/icons/animated/gif_disconnected.gif";
+    }
 }

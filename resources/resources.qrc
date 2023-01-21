@@ -57,5 +57,7 @@
         <file>fonts/SofiaSans-Thin.ttf</file>
         <file>fonts/SofiaSans-ThinItalic.ttf</file>
         <file>icons/down.png</file>
+        <file>icons/animated/gif_connected.gif</file>
+        <file>icons/animated/gif_disconnected.gif</file>
     </qresource>
 </RCC>

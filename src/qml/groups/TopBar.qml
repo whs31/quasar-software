@@ -503,7 +503,7 @@ Rectangle {
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
                 highlight_color: UX.infoLight;
-                checked: false;
+                checked: RuntimeData.followPlane;
                 onCheckedChanged: { RuntimeData.followPlane = checked; }
             }
             Checkboxes.LightCheckbox

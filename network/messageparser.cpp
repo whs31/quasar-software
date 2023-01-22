@@ -60,8 +60,7 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
                                         RuntimeData::initialize()->getSeaLevel(),   //sealevel : float
                                         'f', 1)
                                         + ")";
-    QString hexlen;
-    hexlen.setNum(_formRequest.length(), 16);
+    QString hexlen = QString("%1").arg(_formRequest.length(), 2, 16, QLatin1Char('0'));
     formRequest.append(hexlen + "|" + _formRequest + "|");
     formRequest.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(formRequest), formRequest.length()), 4, 16, QLatin1Char('0')));
     if(SConfig::getHashBoolean("UseOldExecdEndline"))

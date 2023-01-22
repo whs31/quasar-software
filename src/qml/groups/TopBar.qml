@@ -3,6 +3,7 @@ import UX 1.0
 import RuntimeData 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
+import ImageManager 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns

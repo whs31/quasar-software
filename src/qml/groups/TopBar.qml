@@ -714,6 +714,89 @@ Rectangle {
             ioHandler.placeMarker();
         }
     }
+
+    Labels.FramedLabel
+    {
+        id: totalImagesCountTooltip;
+        anchors.top: parent.top;
+        anchors.topMargin: 26;
+        anchors.right: separator4.left; anchors.rightMargin: 50;
+
+        fixed_width: 170;    fixed_height: 14;
+        label_text: "РАДИОЛОКАЦИОННЫЕ СНИМКИ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontSemiBold.name; label_text_bold: false;
+        label_textAlignment: Text.AlignLeft;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Labels.FramedLabel
+    {
+        id: autocaptureTargetsTooltip;
+        anchors.top: totalImagesCountTooltip.bottom;
+        anchors.topMargin: -1;
+        anchors.right: separator4.left; anchors.rightMargin: 50;
+
+        fixed_width: 170;    fixed_height: 14;
+        label_text: "ЦЕЛИ АВТОЗАХВАТА";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontSemiBold.name; label_text_bold: false;
+        label_textAlignment: Text.AlignLeft;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Labels.FramedLabel
+    {
+        id: autocaptureClosestEncounterTooltip;
+        anchors.top: autocaptureTargetsTooltip.bottom;
+        anchors.topMargin: -1;
+        anchors.right: separator4.left; anchors.rightMargin: 50;
+
+        fixed_width: 170;    fixed_height: 14;
+        label_text: "РАССТОЯНИЕ ДО БЛИЖАЙШЕЙ";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontSemiBold.name; label_text_bold: false;
+        label_textAlignment: Text.AlignLeft;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Labels.FramedLabel
+    {
+        id: totalImagesCountIndicator;
+        anchors.top: parent.top;
+        anchors.topMargin: 24;
+        anchors.right: separator4.left; anchors.rightMargin: 4;
+
+        fixed_width: 42;    fixed_height: 14;
+        label_text: "?";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontExtraBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignRight;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Labels.FramedLabel
+    {
+        id: autocaptureTargetsIndicator;
+        anchors.top: totalImagesCountIndicator.bottom;
+        anchors.right: separator4.left; anchors.rightMargin: 4;
+
+        fixed_width: 42;    fixed_height: 14;
+        label_text: "?";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontExtraBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignRight;
+        frame_radius: 2;                    frame_width: 0;
+    }
+    Labels.FramedLabel
+    {
+        id: autocaptureClosestEncounterIndicator;
+        anchors.top: autocaptureTargetsIndicator.bottom;
+        anchors.right: separator4.left; anchors.rightMargin: 4;
+
+        fixed_width: 42;    fixed_height: 14;
+        label_text: Number(RuntimeData.autocaptureDistance).toFixed(0) + " М";
+        label_color: UX.textWhite;          label_text_size: 12;
+        label_text_family: fontExtraBold.name; label_text_bold: true;
+        label_textAlignment: Text.AlignRight;
+        frame_radius: 2;                    frame_width: 0;
+    }
     Layouts.Separator
     {
         id: separator4;

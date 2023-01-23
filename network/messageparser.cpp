@@ -84,8 +84,7 @@ QByteArray MessageParser::makeCommand(Command command)
         return "Incorrect command.";
         break;
     }
-    QString hexlen;
-    hexlen.setNum(commandString.length(), 16);
+    QString hexlen = QString("%1").arg(commandString.length(), 2, 16, QLatin1Char('0'));
     fullCommand.append(hexlen + "|" + commandString + "|");
     fullCommand.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(fullCommand), fullCommand.length()), 4, 16, QLatin1Char('0')));
     if(SConfig::getHashBoolean("UseOldExecdEndline"))
@@ -97,8 +96,7 @@ QByteArray MessageParser::makeCommand(QString string)
 {
     QString fullCommand = ":" + QStringLiteral("%1").arg(++formMessageID, 4, 10, QLatin1Char('0')) + "|";
     QString commandString = string;
-    QString hexlen;
-    hexlen.setNum(commandString.length(), 16);
+    QString hexlen = QString("%1").arg(commandString.length(), 2, 16, QLatin1Char('0'));
     fullCommand.append(hexlen + "|" + commandString + "|");
     fullCommand.append(QStringLiteral("%1").arg(SChecksum::calculateCRC16(SChecksum::toCharPointer(fullCommand), fullCommand.length()), 4, 16, QLatin1Char('0')));
     if(SConfig::getHashBoolean("UseOldExecdEndline"))

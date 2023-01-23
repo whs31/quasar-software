@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>qml/map.qml</file>
-        <file>qml/InlineDialog.qml</file>
-        <file>qml/FloatingTooltip.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>
         <file>qml/sar-image/Dialog.qml</file>

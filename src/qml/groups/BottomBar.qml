@@ -170,7 +170,7 @@ Rectangle {
         anchors.right: seaIcon.left; anchors.rightMargin: 17;
 
         fixed_width: 142;    fixed_height: 12;
-        label_text: "<b>ШИРОТА:</b>     " + Number(RuntimeData.latitude).toFixed(5) + " °N";
+        label_text: "<b>ШИРОТА:</b>     " + Number(RuntimeData.telemetry.latitude).toFixed(5) + " °N";
         label_color: UX.textWhite;              label_text_size: 12;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;

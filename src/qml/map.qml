@@ -49,6 +49,11 @@ Rectangle {
     Material.accent: UX.primaryLight;
     Material.primary: UX.warningDark;
     Material.background: UX.primaryDarker;
+    FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
+    FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
+    FontLoader { id: fontSemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
+    FontLoader { id: fontBold; source: "qrc:/fonts/SofiaSans-Bold.ttf" }
+    FontLoader { id: fontExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf" }
 
     //ux settings
     layer.enabled: true;
@@ -165,7 +170,7 @@ Rectangle {
                 mapHoverCoordinatesTooltip.x = mapMouseArea.mouseX;
                 mapHoverCoordinatesTooltip.y = mapMouseArea.mouseY;
                 var coordToStr = mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY));
-                mapHoverCoordinatesTooltip.tooltipText = "➤ Ш: "+coordToStr.latitude.toFixed(5)+",  Д: "+coordToStr.longitude.toFixed(5);
+                mapHoverCoordinatesTooltip.label_text = "➤ Ш: "+coordToStr.latitude.toFixed(5)+",  Д: "+coordToStr.longitude.toFixed(5);
             }
         }
         else {
@@ -633,8 +638,15 @@ Rectangle {
             id: mapHoverCoordinatesTooltip;
             visible: true;
             tooltipPadding: 10;
-            tooltipText: "Ш: 50.0000000 Д: 30.0000000";
-            transparency: 0.5;
+            opacity: 0.8;
+            label_text: "Ш: 50.0000000 Д: 30.0000000";
+            label_color: UX.primaryDark;
+            label_text_size: 12;
+            label_text_family: fontBold.name;
+            label_text_bold: true;
+            frame_radius: 10;
+            frame_width: 0;
+            label_textAlignment: Text.AlignLeft;
         }
         Text {
             id: closestACDistanceIndicator;

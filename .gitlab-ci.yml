@@ -121,6 +121,7 @@ windows:
     - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/geoservices/qtgeoservices_mapboxgl.dll $CI_PROJECT_TITLE/geoservices
     - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/imageformats/qjpeg.dll $CI_PROJECT_TITLE/imageformats
     - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/imageformats/qsvg.dll $CI_PROJECT_TITLE/imageformats
+    - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/imageformats/qgif.dll $CI_PROJECT_TITLE/imageformats
     - cp /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/plugins/platforms/qwindows.dll $CI_PROJECT_TITLE/platforms
     - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/Qt $CI_PROJECT_TITLE
     - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtCharts $CI_PROJECT_TITLE

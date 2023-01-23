@@ -68,7 +68,6 @@ public:
     bool getReady(void);
     QQuickItem* getMapPointer(void);
     bool eventFilter(QObject* obj, QEvent* event);
-    //void keyPressEvent(QKeyEvent *event);
 
 public slots:
     //utility public slots

@@ -499,5 +499,58 @@ Rectangle {
             }
         }
     }
-
+    Rectangle
+    {
+        id: statusBar;
+        height: 24;
+        color: UX.primaryDarker;
+        radius: 12;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 4;
+        anchors.left: parent.left;
+        anchors.leftMargin: 4;
+        anchors.right: connectedAnimation.left;
+        anchors.rightMargin: 10;
+        Rectangle
+        {
+            id: statusBarTooltip;
+            width: 65;
+            height: 10;
+            radius: 3;
+            color: UX.primaryDark;
+            anchors.verticalCenter: parent.top;
+            anchors.horizontalCenter: parent.horizontalCenter;
+            Labels.FramedLabel
+            {
+                id: statusBarTooltipLabel;
+                anchors.fill: parent;
+                fixed_width: 60;
+                fixed_height: 9;
+                label_text: "СТАТУС";
+                label_color: UX.textFaded;
+                label_text_size: 9;
+                label_text_family: fontBold.name;
+                label_text_bold: true;
+                label_textAlignment: Text.AlignHCenter;
+                frame_radius: 2;
+                frame_width: 0;
+            }
+        }
+        Labels.FramedLabel
+        {
+            id: statusLabel;
+            anchors.fill: parent;
+            anchors.margins: 5; anchors.leftMargin: 8;
+            //fixed_width: 60;
+            fixed_height: 14;
+            label_text: RuntimeData.formStatus;
+            label_color: UX.textWhite;
+            label_text_size: 14;
+            label_text_family: fontBold.name;
+            label_text_bold: false;
+            label_textAlignment: Text.AlignLeft;
+            frame_radius: 2;
+            frame_width: 0;
+        }
+    }
 }

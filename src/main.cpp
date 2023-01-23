@@ -33,9 +33,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     ts << txt << '\n';
     CoreUI* pointer = CoreUI::getDebugPointer();
     if(pointer->getReady())
-    {
         pointer->debugStreamUpdate(txt, msgt);
-    }
 }
 
 int main(int argc, char *argv[]) {

@@ -43,7 +43,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     
-    
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
     connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
@@ -202,7 +201,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
 
     // execute any other startup code here
-
 }
 
 CoreUI::~CoreUI()
@@ -370,7 +368,6 @@ void CoreUI::ReadTelemetry(QByteArray data)
     case DataType::FormResponse: {
         std::array<int, 4> responseList;
         responseList = MessageParser::parseFormResponse(data);
-
         if (!responseList.empty())
         {
             QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";

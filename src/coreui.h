@@ -116,8 +116,8 @@ private:
     }; Plugins plugins;
 
     //private methods
-    void InitializeDockwidgets();
     void SendRemoteCommand(QString command, CommandType type);
+    void* LoadPlugin(QString path);
 
 private slots:
     //header

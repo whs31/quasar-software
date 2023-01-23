@@ -132,28 +132,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // sar commands setup
     connect(RuntimeData::initialize(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
 
-    // network auto-connection on startup (deprecated)
-    if (SConfig::getHashBoolean("StartupConnectToSAR"))
-    {
-        telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-        if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true)
-        {
-            QString correctedSarIP = SConfig::getHashString("SarIP");
-            correctedSarIP.chop(1); correctedSarIP.append("7");
-            formRemote->Connect(correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
-        } else { 
-            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort")); 
-        }
-        consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-        Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-        if (SConfig::getHashString("NetworkType") != "UDP")
-        {
-            SConfig::getHashString("NetworkType") = "UDP";
-            Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
-        }
-        Debug::Log("?[REMOTE] Connections ready.");
-    }
-
     // ui misc initialization and assignment
     RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
     RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
@@ -179,31 +157,27 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     flightEmulator = new FlightEmulator(this);
 
     // plugin system setup
-        QHash<QString, QVariant>* config = SConfig::getHashTable();
         HostAPI = new PluginHostAPI;
         QObject* runtimeData = RuntimeData::initialize();
         HostAPI->addData("Host.runtimeData", (void*) runtimeData, sizeof(runtimeData));
         // Отсюда начинается процедура добавления плагина
         // Тут можно значения из конфига передавать для автозагрузки
+        QString postfix;
         #ifdef __linux__
-            QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.so");
+            postfix = ".so";
         #elif _WIN32
-            QPluginLoader *terminalPluginLoader = new QPluginLoader(CacheManager::getPluginsCache()+"/libTerminal.dll");
+            postfix = ".dll";
         #else
             Debug::Log("!![PLUGIN] Your operating system is not supported.");
         #endif
-
-        QObject *terminalPlugin = terminalPluginLoader->instance();
-        if(!terminalPlugin){
-           terminalPluginLoader->unload();
-           delete terminalPluginLoader;
+        QString terminalPath = CacheManager::getPluginsCache()+"/libTerminal" + postfix;
+        PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath);
+        if(!terminalInterface){
            plugins.terminalLoaded = false;
            Debug::Log("![PLUGIN] Failed to load terminal plugin. Check your directory (app-plugins).");
         } else {
-            PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(terminalPlugin);
-            pluginInterface->Init(this, config, HostAPI);
             plugins.terminalLoaded = true;
-            plugins.terminal = pluginInterface->GetWidget();
+            plugins.terminal = terminalInterface->GetWidget();
             QDockWidget* titleReset = (QDockWidget*)plugins.terminal;
             titleReset->setTitleBarWidget(new QWidget(plugins.terminal));
             ui->terminalLayout->addWidget(plugins.terminal);
@@ -247,6 +221,21 @@ CoreUI::~CoreUI()
     delete ImageManager::initialize();
     delete MarkerManager::initialize();
     delete Style::initialize();
+}
+
+void* CoreUI::LoadPlugin(QString path)
+{
+    QHash<QString, QVariant>* config = SConfig::getHashTable();
+    QPluginLoader *pluginLoader = new QPluginLoader(path);
+    QObject *plugin = pluginLoader->instance();
+    if(!plugin){
+        pluginLoader->unload();
+        delete pluginLoader;
+        return nullptr;
+    }
+    PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(plugin);
+    pluginInterface->Init(this, config, HostAPI);
+    return pluginInterface;
 }
 
 CoreUI *CoreUI::getDebugPointer(void)   { return debugPointer; }

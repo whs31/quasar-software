@@ -506,7 +506,7 @@ Rectangle {
                 anchors.fill: r1MapItem;
                 source: r1Source;
                 opacity: 1;
-                color: UX.textWhites;
+                color: UX.textWhite;
             }
         }
         MapQuickItem {

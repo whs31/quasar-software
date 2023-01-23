@@ -3,7 +3,7 @@ TEMPLATE = lib
 CONFIG += plugin
 QT += widgets network
 DEFINES += Terminal_LIBRARY
-INCLUDEPATH += ../
+INCLUDEPATH += ../../libplugin
 LIBS += -L$$INCLUDEPATH -lplugin
 QMAKE_LFLAGS += -Wl,--rpath=$$INCLUDEPATH
 CONFIG += c++11

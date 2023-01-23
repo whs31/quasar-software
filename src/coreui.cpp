@@ -20,7 +20,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
-    TilesManager::initialize();
+    TilesManager::initialize(   );
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // get resolution for some ui rescaling and start new log in debug
@@ -225,7 +225,7 @@ CoreUI::~CoreUI()
 
 void* CoreUI::LoadPlugin(QString path)
 {
-    QHash<QString, QVariant>* config = nullptr;
+    QHash<QString, QVariant>* config = SConfig::get()->getPluginConfig();
     QPluginLoader *pluginLoader = new QPluginLoader(path);
     QObject *plugin = pluginLoader->instance();
     if(!plugin){

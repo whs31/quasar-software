@@ -20,7 +20,7 @@
 static const int xMargin = 3;
 static const int yMargin = 3;
 
-QVTerminal::QVTerminal(QWidget *parent, int font_size, int _lineWidth)
+QVTerminal::QVTerminal(QWidget *parent, QString font_family, int font_size, int _lineWidth)
     : QAbstractScrollArea(parent)
 {
     _device = Q_NULLPTR;
@@ -38,12 +38,12 @@ QVTerminal::QVTerminal(QWidget *parent, int font_size, int _lineWidth)
 
     QVTCharFormat format;
     QFont font;
-    font.setFamily("monospace");
+    font.setFamily(font_family);
     font.setStyleHint(QFont::Monospace);
     font.setPointSize(font_size);
     format.setFont(font);
-    format.setForeground(QColor("#dae1e5"));
-    //format.setBackground(QColor("transparent"));
+    format.setForeground(QColor(187, 187, 187));
+    format.setBackground(QColor(0, 0, 0));
     setFormat(format);
 
     _layout = new QVTLayout();
@@ -384,7 +384,7 @@ void QVTerminal::paintEvent(QPaintEvent *paintEvent)
 
     QPainter p(viewport());
     p.setPen(QPen());
-    p.fillRect(viewport()->rect(), QColor(18, 22, 23));
+    p.fillRect(viewport()->rect(), rectColor);
 
     p.translate(QPoint(xMargin, -verticalScrollBar()->value() + yMargin));
     p.setPen(QColor(187, 187, 187));
@@ -420,7 +420,7 @@ void QVTerminal::paintEvent(QPaintEvent *paintEvent)
 
     if (_cvisible)
     {
-        p.fillRect(QRect(_cursorPos.x() * _cw, _cursorPos.y() * _ch, _cw, _ch), QColor(187, 187, 187, 187));
+        p.fillRect(QRect(_cursorPos.x() * _cw, _cursorPos.y() * _ch, _cw, _ch), cursorColor);
     }
 }
 
@@ -461,4 +461,17 @@ void QVTerminal::contextMenuEvent(QContextMenuEvent *event)
 bool QVTerminal::viewportEvent(QEvent *event)
 {
     return QAbstractScrollArea::viewportEvent(event);
+}
+
+
+void QVTerminal::setRectColor(QString color){
+    rectColor = QColor(color);
+}
+void QVTerminal::setFontColor(QString color){
+    fontColor = QColor(color);
+    _format.setForeground(fontColor);
+    _curentFormat.setForeground(fontColor);
+}
+void QVTerminal::setCursorColor(QString color){
+    cursorColor = QColor(color);
 }

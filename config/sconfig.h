@@ -15,6 +15,7 @@
 
 #include "debug.h"
 #include "saroutputconsoleemulator.h"
+#include "thememanager.h"
 
 class SConfig : public QObject
 {
@@ -77,10 +78,11 @@ public:
     float getThetaAzimuthCorrection();                               void setThetaAzimuthCorrection(float value);        
     QString getDefaultCatalogue();                                   void setDefaultCatalogue(QString string);    
 
-    void loadSettings();                                       
-    void saveSettings();                                       
-    void saveQuiet();                                          
-    void discardSettings();                                        
+    void loadSettings(void);                                       
+    void saveSettings(void);                                       
+    void saveQuiet(void);                                          
+    void discardSettings(void);
+    QHash<QString, QVariant>* getPluginConfig(void);
 signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=                                            //
@@ -116,6 +118,7 @@ private:
     static JsonConfig* jsonConfig;
 
     void save();
+    QHash<QString, QVariant> m_pluginConfig;
 
     QString m_sudoPassword;
     bool m_debugConsole;
@@ -132,7 +135,6 @@ private:
     float m_velocityVectorLength;
     QString m_antennaPosition;
     float m_diagramThetaAzimuth;
-
     float m_angleCorrection;
     bool m_globalRadians;
     bool m_driftAngle;

@@ -13,7 +13,7 @@ class QVTerminal : public QAbstractScrollArea
 {
     Q_OBJECT
 public:
-    explicit QVTerminal(QWidget *parent = nullptr, int font_size = 10, int _lineWidth = 80);
+    explicit QVTerminal(QWidget *parent = nullptr, QString font_family = QString("monospace"), int font_size = 10, int _lineWidth = 80);
     ~QVTerminal() override;
 
     void setIODevice(QIODevice *device);
@@ -30,6 +30,10 @@ public:
     void setCrlf(bool crlf);
 
     QPoint cursorPos() const;
+    
+    void setRectColor(QString color);
+    void setFontColor(QString color);
+    void setCursorColor(QString color);
 
 signals:
     void cursorMoved(QPoint cursorPos);
@@ -45,6 +49,13 @@ protected slots:
     void toggleCursor();
 
 private:
+
+    // colors
+    QColor rectColor = QColor(0x23, 0x26, 0x29);
+    QColor fontColor = QColor(187, 187, 187);
+    QColor cursorColor = QColor(187, 187, 187, 187);
+
+
     QIODevice *_device;
 
     // parser

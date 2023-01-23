@@ -24,6 +24,7 @@ SConfig* SConfig::get(QObject* parent)
 
 void SConfig::loadSettings()
 {
+    // main config
     setSudoPassword(config->value("general/sudo_password").toString());
     setDebugConsole(config->value("general/enable_debug_console").toBool());
     
@@ -47,8 +48,17 @@ void SConfig::loadSettings()
     setUseDriftAngle(config->value("image/angle_use_drift_angle").toBool());
     setThetaAzimuthCorrection(config->value("image/angle_theta_azimuth_correction").toFloat());
     setDefaultCatalogue(config->value("image/view_mode_default_directory").toString());
+    
+    Debug::Log("?[CONFIG] Main config loaded.");
 
-    Debug::Log("?[SCONFIG] Config loaded.");
+    // plugin config
+    m_pluginConfig.insert("Terminal/font_size", 11);
+    m_pluginConfig.insert("Terminal/font_family", "monospace");
+    m_pluginConfig.insert("Terminal/rect_color", ThemeManager::get()->getPrimaryDarker());
+    m_pluginConfig.insert("Terminal/font_color", ThemeManager::get()->getTextWhite());
+    m_pluginConfig.insert("Terminal/cursor_color", ThemeManager::get()->getTextColored());
+
+    Debug::Log("?[CONFIG] Plugin config loaded.");
 }
 
 void SConfig::saveSettings()
@@ -68,6 +78,11 @@ void SConfig::saveQuiet()
 {
     save();
     Debug::Log("?[CONFIG] Config saved without dialog.");
+}
+
+QHash<QString, QVariant>* SConfig::getPluginConfig(void)
+{
+    return &m_pluginConfig;
 }
 
 void SConfig::save()

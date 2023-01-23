@@ -9,6 +9,7 @@ import QtGraphicalEffects 1.15
 import "groups" as Groups
 import "sar-image" as ImageSAR
 import "ui" as UI
+import "qrc:/qml/ui/widgets" as CustomWidgets
 
 import SMath 1.0
 import MouseKeyHandler 1.0
@@ -627,7 +628,7 @@ Rectangle {
             anchors.leftMargin: 3;
         }
 
-        FloatingTooltip
+        CustomWidgets.FloatingTooltip
         {
             id: mapHoverCoordinatesTooltip;
             visible: true;
@@ -649,28 +650,6 @@ Rectangle {
             anchors.bottom: parent.bottom;
             anchors.margins: 23;
             Behavior on opacity { NumberAnimation { duration: 1000; } }
-        }
-        UI.StatusText
-        {
-            id: flightStatus;
-            visible: false;
-            status: "@в разработке@";
-            prefix: "Статус полёта: ";
-            anchors.right: parent.horizontalCenter;
-            anchors.top: parent.top;
-            anchors.topMargin: 25+70;
-            anchors.rightMargin: 10;
-        }
-        UI.StatusText
-        {
-            id: formStatus;
-            status: RuntimeData.formStatus;
-            prefix: "Статус формирования: ";
-            //anchors.left: parent.horizontalCenter;
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top;
-            anchors.topMargin: 25+70;
-            //anchors.leftMargin: 10;
         }
     }
     Connections {

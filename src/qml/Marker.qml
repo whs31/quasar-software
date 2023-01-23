@@ -7,6 +7,7 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
 import UX 1.0
+import "qrc:/qml/ui/widgets" as CustomWidgets
 
 
 MapQuickItem {
@@ -109,7 +110,7 @@ MapQuickItem {
                 text: m_name;
             }
         }
-        InlineDialog {
+        CustomWidgets.InlineDialog {
             id: markerDialog;
             opacity: 0;
             enabled: false;

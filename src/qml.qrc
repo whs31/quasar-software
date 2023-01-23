@@ -11,7 +11,6 @@
         <file>qml/sar-image/ButtonTopGroup.qml</file>
         <file>qml/ui/CustomButton.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
-        <file>qml/ui/StatusText.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
         <file>qml/ui/buttons/ClassicButton.qml</file>
         <file>qml/groups/TopBar.qml</file>
@@ -32,5 +31,7 @@
         <file>qml/ui/input/FramedSlider.qml</file>
         <file>qml/ui/dropdowns/InverseDropdown.qml</file>
         <file>qml/ui/widgets/AttitudeIndicator.qml</file>
+        <file>qml/ui/widgets/FloatingTooltip.qml</file>
+        <file>qml/ui/widgets/InlineDialog.qml</file>
     </qresource>
 </RCC>

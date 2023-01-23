@@ -25,7 +25,7 @@ class SConfig : public QObject
     Q_PROPERTY(bool enableDebugConsole            READ getDebugConsole              WRITE setDebugConsole            NOTIFY debugConsoleChanged)
     
     // network
-    Q_PROPERTY(QString networkType                READ getNetworkType               WRITE setNetworkType             NOTIFY networkTypeChanged)
+    Q_PROPERTY(QString networkType                READ getNetworkType               WRITE ЫsetNetworkType             NOTIFY networkTypeChanged)
     Q_PROPERTY(QString de10IP                     READ getDE10IP                    WRITE setDE10IP                  NOTIFY de10IPChanged)
     Q_PROPERTY(QString telemetryPort              READ getTelemetryPort             WRITE setTelemetryPort           NOTIFY telemetryPortChanged)
     Q_PROPERTY(float telemetryFrequency           READ getTelemetryFrequency        WRITE setTelemetryFrequency      NOTIFY telemetryFrequencyChanged)

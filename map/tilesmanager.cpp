@@ -10,20 +10,17 @@ QString TilesManager::_cycle;
 QString TilesManager::_hiking;
 QString TilesManager::_nighttransit;
 
-bool TilesManager::useLocalTileServer; // change to false on release
-
-TilesManager::TilesManager(bool useLocalhost)
+TilesManager::TilesManager()
 {
-    useLocalTileServer = useLocalhost;
     InitializeConfig();
     Debug::Log("?[TILESERVER] Path initialized");
 }
 
-TilesManager* TilesManager::initialize(bool useLocalhost)
+TilesManager* TilesManager::initialize()
 {
     if(_instance != NULL)
         return _instance;
-    _instance = new TilesManager(useLocalhost);
+    _instance = new TilesManager();
     return _instance;
 }
 
@@ -88,26 +85,14 @@ void TilesManager::InitializeConfig()
     QTextStream out6(&nighttransit);
     out6 << _nighttransit;
     nighttransit.commit();
-
-    if (!useLocalTileServer)
-    {
-        _street = "{\r\n    \"UrlTemplate\" : \""
-                  "file:///" +
-                  CacheManager::getTileServerCache() + "/%z/%x/%y.png"
-                                                       "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
-                                                       "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
-                                                       "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
-                                                       "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
-    }
-    else
-    { // http://192.168.18.3/tiles/%z/%x/%y.png
-        _street = "{\r\n    \"UrlTemplate\" : \""
-                  "http://192.168.18.3/tiles/%z/%x/%y.png"
-                  "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
-                  "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
-                  "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
-                  "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
-    }
+    _street = "{\r\n    \"UrlTemplate\" : \""
+              "file:///" +
+              CacheManager::getTileServerCache() +
+                "/%z/%x/%y.png"
+                "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
+                "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
+                "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
+                "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
     QSaveFile street(CacheManager::getMapProviderCache() + "/street");
     street.open(QIODevice::WriteOnly);
     QTextStream out7(&street);

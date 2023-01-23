@@ -20,7 +20,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
-    TilesManager::initialize(ENABLE_LOCALHOST_TILESERVER);
+    TilesManager::initialize();
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // get resolution for some ui rescaling and start new log in debug

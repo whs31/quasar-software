@@ -15,11 +15,11 @@ class TilesManager : public QObject
 {
     Q_OBJECT
 public:
-    static TilesManager* initialize(bool useLocalhost = false);
+    static TilesManager* initialize();
     static void InitializeConfig();
 
 private:
-    explicit TilesManager(bool useLocalhost = false);
+    explicit TilesManager();
     static TilesManager* _instance;
     static QString _street;
     static QString _satellite;
@@ -28,8 +28,6 @@ private:
     static QString _cycle;
     static QString _hiking;
     static QString _nighttransit;
-
-    static bool useLocalTileServer;
 
 signals:
 

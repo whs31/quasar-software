@@ -350,10 +350,9 @@ void CoreUI::ReadTelemetry(QByteArray data)
 {
     udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
-
     switch (dtype)
     {
-    case DataType::Telemetry: { //TODO: fix conckc
+    case DataType::Telemetry: {
         short _conckc2 = (short)0;
         QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
         _conckc = pair.first;
@@ -399,7 +398,6 @@ void CoreUI::ReadSARConsole(QByteArray data)
         QStringList _split;
         QString dataStr = data.data();
         dataStr.remove("FREE_DISK_SPACE ");
-        //dataStr.replace('\n', '');
         _split = dataStr.split(' ', Qt::SkipEmptyParts);
         qCritical()<<_split;
         RuntimeData::initialize()->setFreeDiskSpace(_split.first().toInt());
@@ -437,9 +435,7 @@ void CoreUI::ReadForm(QByteArray data)
 void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
-    //qDebug()<<pressedKeys;
     if ( event->type() == QEvent::KeyPress ) {
-        //qCritical()<<static_cast<QKeyEvent*>(event)->key();
         pressedKeys += (static_cast<QKeyEvent*>(event))->key();
         if(RuntimeData::initialize()->getEmulatorEnabled())
         {
@@ -479,9 +475,8 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         return 1;
     }
     else if ( event->type() == QEvent::KeyRelease ) { pressedKeys -= (static_cast<QKeyEvent*>(event))->key(); return 1; }
-    else {
+    else
         return QObject::eventFilter(obj, event);
-    }
     return false;
 }
 
@@ -499,10 +494,8 @@ void CoreUI::reconnectSlot()
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
     Disconnected();
-
     telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-    if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true)
-        {
+    if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
             QString correctedSarIP = SConfig::getHashString("SarIP");
             correctedSarIP.chop(1); correctedSarIP.append("7");
             formRemote->Connect(correctedSarIP + ":" + SConfig::getHashString("DialogPort"));

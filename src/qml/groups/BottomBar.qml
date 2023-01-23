@@ -14,13 +14,11 @@ Rectangle {
     id: base;
     height: 36;
     color: UX.primaryDark;
-
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
     FontLoader { id: fontSemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
     FontLoader { id: fontBold; source: "qrc:/fonts/SofiaSans-Bold.ttf" }
     FontLoader { id: fontExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf" }
-
     Labels.FramedLabel
     {
         id: satsLabel;
@@ -227,7 +225,68 @@ Rectangle {
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                    frame_width: 0;
     }
-    //  ioHandler.calibrateSeaLevel();
+    Buttons.SmallRoundButton
+    {
+        id: checkConnectionButton;
+        fixed_width: 36;
+        fixed_height: 11;
+        anchors.left: connectButton.left;
+        anchors.bottom: connectButton.top;
+        anchors.bottomMargin: 3;
+
+        background_color: UX.textFaded;
+        background_radius: 8;
+        label_text: "CHECK";
+        label_color: UX.primaryDarker;
+        label_text_size: 10;
+        label_text_family: fontBold.name;
+        label_text_bold: false;
+        label_textAlignment: Text.AlignHCenter;
+        highlight_color: UX.warningLight;
+        onClicked: { console.log("check is not yet implemented!"); }
+    }
+    Buttons.SmallRoundButton
+    {
+        id: calibrateSeaLLevelButton;
+        fixed_width: 24;
+        fixed_height: 11;
+        anchors.left: checkConnectionButton.right;
+        anchors.leftMargin: 3;
+        anchors.bottom: connectButton.top;
+        anchors.bottomMargin: 3;
+
+        background_color: UX.textFaded;
+        background_radius: 8;
+        label_text: "CAL";
+        label_color: UX.primaryDarker;
+        label_text_size: 10;
+        label_text_family: fontBold.name;
+        label_text_bold: false;
+        label_textAlignment: Text.AlignHCenter;
+        highlight_color: UX.warningLight;
+        onClicked: { ioHandler.calibrateSeaLevel(); }
+    }
+    Buttons.SmallRoundButton
+    {
+        id: customCommandButton;
+        fixed_width: 89;
+        fixed_height: 11;
+        anchors.left: calibrateSeaLLevelButton.right;
+        anchors.leftMargin: 3;
+        anchors.bottom: connectButton.top;
+        anchors.bottomMargin: 3;
+
+        background_color: UX.textFaded;
+        background_radius: 8;
+        label_text: "COMMAND";
+        label_color: UX.primaryDarker;
+        label_text_size: 10;
+        label_text_family: fontBold.name;
+        label_text_bold: false;
+        label_textAlignment: Text.AlignHCenter;
+        highlight_color: UX.warningLight;
+        onClicked: { console.log("custom command is not yet implemented (needs custom window)!"); }
+    }
     AnimatedImage
     {
         id: connectedAnimation;
@@ -541,7 +600,6 @@ Rectangle {
             id: statusLabel;
             anchors.fill: parent;
             anchors.margins: 5; anchors.leftMargin: 8;
-            //fixed_width: 60;
             fixed_height: 14;
             label_text: RuntimeData.formStatus;
             label_color: UX.textWhite;

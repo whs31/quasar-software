@@ -2,8 +2,6 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 
 Rectangle {
-
-
     property int fixed_width: 100;
     property int fixed_height: 25;
 

@@ -22,32 +22,35 @@ class SConfig : public QObject
     Q_OBJECT
     
     // general
-    Q_PROPERTY(QString sudoPassword               READ getSudoPassword              WRITE setSudoPassword            NOTIFY sudoPasswordChanged)
-    Q_PROPERTY(bool enableDebugConsole            READ getDebugConsole              WRITE setDebugConsole            NOTIFY debugConsoleChanged)
+    Q_PROPERTY(QString sudoPassword               READ getSudoPassword              WRITE setSudoPassword             NOTIFY sudoPasswordChanged)
+    Q_PROPERTY(bool enableDebugConsole            READ getDebugConsole              WRITE setDebugConsole             NOTIFY debugConsoleChanged)
     
     // network
     Q_PROPERTY(QString networkType                READ getNetworkType               WRITE ЫsetNetworkType             NOTIFY networkTypeChanged)
-    Q_PROPERTY(QString de10IP                     READ getDE10IP                    WRITE setDE10IP                  NOTIFY de10IPChanged)
-    Q_PROPERTY(QString telemetryPort              READ getTelemetryPort             WRITE setTelemetryPort           NOTIFY telemetryPortChanged)
-    Q_PROPERTY(float telemetryFrequency           READ getTelemetryFrequency        WRITE setTelemetryFrequency      NOTIFY telemetryFrequencyChanged)
-    Q_PROPERTY(QString computerIP                 READ getComputerIP                WRITE setComputerIP              NOTIFY computerIPChanged)
-    Q_PROPERTY(QString loaderPort                 READ getLoaderPort                WRITE setLoaderPort              NOTIFY loaderPortChanged)
-    Q_PROPERTY(QString execdPort                  READ getExecdPort                 WRITE setExecdPort               NOTIFY execdPortChanged)
-    Q_PROPERTY(QString terminalPort               READ getTerminalPort              WRITE setTerminalPort            NOTIFY terminalPortChanged)
-    Q_PROPERTY(bool useOldExecdEndline            READ getUseOldExecdEndline        WRITE setUseOldExecdEndline      NOTIFY useOldExecdEndlineChanged)
+    Q_PROPERTY(QString de10IP                     READ getDE10IP                    WRITE setDE10IP                   NOTIFY de10IPChanged)
+    Q_PROPERTY(QString telemetryPort              READ getTelemetryPort             WRITE setTelemetryPort            NOTIFY telemetryPortChanged)
+    Q_PROPERTY(float telemetryFrequency           READ getTelemetryFrequency        WRITE setTelemetryFrequency       NOTIFY telemetryFrequencyChanged)
+    Q_PROPERTY(QString computerIP                 READ getComputerIP                WRITE setComputerIP               NOTIFY computerIPChanged)
+    Q_PROPERTY(QString loaderPort                 READ getLoaderPort                WRITE setLoaderPort               NOTIFY loaderPortChanged)
+    Q_PROPERTY(QString execdPort                  READ getExecdPort                 WRITE setExecdPort                NOTIFY execdPortChanged)
+    Q_PROPERTY(QString terminalPort               READ getTerminalPort              WRITE setTerminalPort             NOTIFY terminalPortChanged)
+    Q_PROPERTY(bool useOldExecdEndline            READ getUseOldExecdEndline        WRITE setUseOldExecdEndline       NOTIFY useOldExecdEndlineChanged)
 
     // map
-    Q_PROPERTY(bool onlineMaps                    READ getOnlineMaps                WRITE setOnlineMaps              NOTIFY onlineMapsChanged)
-    Q_PROPERTY(float velocityVectorLength         READ getVelocityVectorLength      WRITE setVelocityVectorLength    NOTIFY velocityVectorLengthChanged)
-    Q_PROPERTY(QString antennaPosition            READ getAntennaPosition           WRITE setAntennaPosition         NOTIFY antennaPositionChanged)
-    Q_PROPERTY(float diagramThetaAzimuth          READ getDiagramThetaAzimuth       WRITE setDiagramThetaAzimuth     NOTIFY diagramThetaAzimuthChanged)
+    Q_PROPERTY(bool onlineMaps                    READ getOnlineMaps                WRITE setOnlineMaps               NOTIFY onlineMapsChanged)
+    Q_PROPERTY(float velocityVectorLength         READ getVelocityVectorLength      WRITE setVelocityVectorLength     NOTIFY velocityVectorLengthChanged)
+    Q_PROPERTY(QString antennaPosition            READ getAntennaPosition           WRITE setAntennaPosition          NOTIFY antennaPositionChanged)
+    Q_PROPERTY(float diagramThetaAzimuth          READ getDiagramThetaAzimuth       WRITE setDiagramThetaAzimuth      NOTIFY diagramThetaAzimuthChanged)
+    Q_PROPERTY(qreal previousSessionLatitude      READ getPreviousSessionLatitude   WRITE setPreviousSessionLatitude  NOTIFY previousSessionLatitudeChanged)
+    Q_PROPERTY(qreal previousSessionLongitude     READ getPreviousSessionLongitude  WRITE setPreviousSessionLongitude NOTIFY previousSessionLongitudeChanged)
     
     // image
-    Q_PROPERTY(float angleCorrection              READ getAngleCorrection           WRITE setAngleCorrection         NOTIFY angleCorrectionChanged)
-    Q_PROPERTY(bool globalRadians                 READ getGlobalRadians             WRITE setGlobalRadians           NOTIFY globalRadiansChanged)
-    Q_PROPERTY(bool useDriftAngle                 READ getUseDriftAngle             WRITE setUseDriftAngle           NOTIFY useDriftAngleChanged)
-    Q_PROPERTY(float thetaAzimuthCorrection       READ getThetaAzimuthCorrection    WRITE setThetaAzimuthCorrection  NOTIFY thetaAzimuthCorrectionChanged)
-    Q_PROPERTY(QString defaultCatalogue           READ getDefaultCatalogue          WRITE setDefaultCatalogue        NOTIFY defaultCatalogueChanged)
+    Q_PROPERTY(float angleCorrection              READ getAngleCorrection           WRITE setAngleCorrection          NOTIFY angleCorrectionChanged)
+    Q_PROPERTY(bool globalRadians                 READ getGlobalRadians             WRITE setGlobalRadians            NOTIFY globalRadiansChanged)
+    Q_PROPERTY(bool useDriftAngle                 READ getUseDriftAngle             WRITE setUseDriftAngle            NOTIFY useDriftAngleChanged)
+    Q_PROPERTY(float thetaAzimuthCorrection       READ getThetaAzimuthCorrection    WRITE setThetaAzimuthCorrection   NOTIFY thetaAzimuthCorrectionChanged)
+    Q_PROPERTY(QString defaultCatalogue           READ getDefaultCatalogue          WRITE setDefaultCatalogue         NOTIFY defaultCatalogueChanged)
+
 
 public:
     static SConfig* get(QObject* parent = nullptr);
@@ -77,6 +80,8 @@ public:
     bool getUseDriftAngle();                                         void setUseDriftAngle(bool state);
     float getThetaAzimuthCorrection();                               void setThetaAzimuthCorrection(float value);        
     QString getDefaultCatalogue();                                   void setDefaultCatalogue(QString string);    
+    qreal getPreviousSessionLatitude();                              void setPreviousSessionLatitude(qreal value);
+    qreal getPreviousSessionLongitude();                             void setPreviousSessionLongitude(qreal value);
 
     void loadSettings(void);                                       
     void saveSettings(void);                                       
@@ -110,6 +115,9 @@ signals:
     void useDriftAngleChanged();
     void thetaAzimuthCorrectionChanged();
     void defaultCatalogueChanged();
+
+    void previousSessionLatitudeChanged();
+    void previousSessionLongitudeChanged();
 
 private:
     explicit SConfig(QObject* parent = nullptr);

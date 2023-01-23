@@ -24,6 +24,8 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["velocity_vector_length"] = "0.2";
     map["antenna_position"] = "r";
     map["diagram_theta_azimuth"] = "20";
+    map["previous_session_latitude"] = "60";
+    map["previous_session_longitude"] = "30";
     checkValuesSimple(map);
 
     group_t image;

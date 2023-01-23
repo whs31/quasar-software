@@ -15,27 +15,14 @@ DiskTools *DiskTools::initialize(QObject *parent)
 
 void DiskTools::fetchDirectory()
 {
-    bool mode = SConfig::getHashBoolean("Mode");
     QStringList initialFileList;
-    if (mode == false)
-    {
-        QDir initialDirectory(SConfig::getHashString("ViewPath"));
+        QDir initialDirectory(SConfig::get()->getDefaultCatalogue());
         initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
         initialDirectory.setNameFilters(QStringList("*.jpg"));
         for (QString entryString : initialDirectory.entryList())
         {
-            initialFileList.append(entryString.prepend(SConfig::getHashString("ViewPath") + "/"));
+            initialFileList.append(entryString.prepend(SConfig::get()->getDefaultCatalogue() + "/"));
         }
-    } else {
-        QDir initialDirectory(SConfig::getHashString("FlightPath"));
-
-        initialDirectory.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
-        initialDirectory.setNameFilters(QStringList("*.jpg"));
-        for (QString entryString : initialDirectory.entryList())
-        {
-            initialFileList.append(entryString.prepend(SConfig::getHashString("FlightPath") + "/"));
-        }
-    }
     if (!initialFileList.empty())
     {
         for (QString filename : initialFileList)

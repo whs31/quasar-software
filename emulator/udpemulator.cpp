@@ -4,10 +4,10 @@ UDPEmulator::UDPEmulator(QObject *parent)
     : QObject{parent}
 {
     m_socket = new QUdpSocket(this);
-    if (!m_socket->bind(QHostAddress("127.0.0.1"), SConfig::getHashString("TelemetryPort").toUInt())) {
+    if (!m_socket->bind(QHostAddress("127.0.0.1"), SConfig::get()->getTelemetryPort().toUInt())) {
         Debug::Log("!!Failed to bind the UDP telemetry socket emulator to the address and port.");
     } else {
-        Debug::Log("[EMULATOR] UDP telemetry emulator is working on address " + SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
+        Debug::Log("[EMULATOR] UDP telemetry emulator is working on address " + SConfig::get()->getDE10IP() + ":" + SConfig::get()->getTelemetryPort());
 
         connect(m_socket, SIGNAL(readyRead()), this, SLOT(readSlot()));
     }

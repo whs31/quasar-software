@@ -32,7 +32,7 @@ void RecallHandler::changeDirectory(void)
     QString pathNotNullCheck = QFileDialog::getExistingDirectory(nullptr,
                                                                 tr("Выберите папку c выходными изображениями РЛС"),
                                                                 QStandardPaths::displayName(QStandardPaths::DesktopLocation));
-    if(pathNotNullCheck != NULL) {  SConfig::setHashValue("ViewPath", pathNotNullCheck); }
+    if(pathNotNullCheck != NULL) {  SConfig::get()->setDefaultCatalogue(pathNotNullCheck); }
 }
 
 bool RecallHandler::calibrateSeaLevel(void)

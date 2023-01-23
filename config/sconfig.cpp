@@ -4,8 +4,6 @@ SConfig* SConfig::pointer = nullptr;
 Config* SConfig::config;
 JsonConfig* SConfig::jsonConfig;
 
-QHash<QString, QVariant> SConfig::variantHash; 
-
 SConfig::SConfig(QObject* parent) : QObject{parent}
 {
     pointer = this;
@@ -16,7 +14,7 @@ SConfig::SConfig(QObject* parent) : QObject{parent}
     SConfig::loadSettings();
 }
 
-SConfig* SConfig::initialize(QObject* parent)
+SConfig* SConfig::get(QObject* parent)
 {
     if(pointer != NULL)
         return pointer;
@@ -24,48 +22,31 @@ SConfig* SConfig::initialize(QObject* parent)
     return pointer;
 }
 
-void SConfig::setHashValue(QString key, QVariant value) { variantHash.insert(key, value); }
-QString SConfig::getHashString(QString key) { return variantHash.value(key).toString(); }
-float SConfig::getHashFloat(QString key) { return variantHash.value(key).toFloat(); }
-bool SConfig::getHashBoolean(QString key) { return variantHash.value(key).toBool(); }
-QVariant SConfig::get(QString key) { return variantHash.value(key); }
-QHash<QString, QVariant>* SConfig::getHashTable(void) { return &variantHash; }
-void SConfig::setHashTable(QHash<QString, QVariant>* table) { variantHash = *table; }
-
 void SConfig::loadSettings()
 {
-    setHashValue("SudoPassword", config->value("general/sudo_password"));
+    setSudoPassword(config->value("general/sudo_password").toString());
+    setDebugConsole(config->value("general/enable_debug_console").toBool());
+    
+    setNetworkType(config->value("network/protocol").toString());
+    setDE10IP(config->value("network/de10_ip").toString());
+    setTelemetryPort(config->value("network/telemetry_port").toString());
+    setTelemetryFrequency(config->value("network/telemetry_update_time").toFloat());
+    setComputerIP(config->value("network/computer_ip").toString());
+    setLoaderPort(config->value("network/image_loader_port").toString());
+    setExecdPort(config->value("network/execd_port").toString());
+    setTerminalPort(config->value("network/terminal_port").toString());
+    setUseOldExecdEndline(config->value("network/use_old_execd_endline").toBool());
 
-    setHashValue("UseOSM", config->value("utility/use_osm_maps"));
-    setHashValue("ShowProfiler", config->value("utility/display_profiler"));
-    setHashValue("ShowConsole", config->value("utility/enable_debug_console"));
+    setOnlineMaps(config->value("map/use_online_maps").toBool());
+    setVelocityVectorLength(config->value("map/velocity_vector_length").toFloat());
+    setAntennaPosition(config->value("map/antenna_position").toString());
+    setDiagramThetaAzimuth(config->value("map/diagram_theta_azimuth").toFloat());
 
-    setHashValue("NetworkType", config->value("network/core_type"));
-    setHashValue("SarIP", config->value("network/sar_ip"));
-    setHashValue("TelemetryPort", config->value("network/telemetry_port"));
-    setHashValue("TelemetryFrequency", config->value("network/telemetry_update_time"));
-    setHashValue("LoaderIP", config->value("network/image_loader_ip"));
-    setHashValue("LoaderPort", config->value("network/image_loader_port"));
-    setHashValue("DialogPort", config->value("network/dialog_port"));
-    setHashValue("ListenPort", config->value("network/console_listen_port"));
-    setHashValue("UseOldExecdEndline", config->value("network/use_old_execd_endline"));
-
-    setHashValue("VelocityVectorLength", config->value("map/velocity_vector_length"));
-    setHashValue("AntennaPosition", config->value("map/antenna_position"));
-
-    setHashValue("DiagramCaptureTime", config->value("diagram/diagram_capture_time"));
-    setHashValue("DiagramCaptureRange", config->value("diagram/diagram_capture_range"));
-    setHashValue("DiagramThetaAzimuth", config->value("diagram/diagram_theta_azimuth"));
-    setHashValue("DiagramDriftAngle", config->value("diagram/diagram_drift_angle"));
-
-    setHashValue("AnglePredefinedCorrection", config->value("image/angle_predefined_correction"));
-    setHashValue("GlobalRadians", config->value("image/angle_use_radians_globally"));
-    setHashValue("GlobalDriftAngle", config->value("image/angle_use_drift_angle"));
-    setHashValue("AzimuthPredefinedCorrection", config->value("image/angle_theta_azimuth_correction"));
-    setHashValue("ViewPath", config->value("image/view_mode_default_directory"));
-    setHashValue("FlightPath", CacheManager::getTcpDowloaderCache());
-
-    setHashValue("StartupConnectToSAR", config->value("startup/connect_to_sar"));
+    setAngleCorrection(config->value("image/angle_predefined_correction").toFloat());
+    setGlobalRadians(config->value("image/angle_use_radians_globally").toBool());
+    setUseDriftAngle(config->value("image/angle_use_drift_angle").toBool());
+    setThetaAzimuthCorrection(config->value("image/angle_theta_azimuth_correction").toFloat());
+    setDefaultCatalogue(config->value("image/view_mode_default_directory").toString());
 
     Debug::Log("?[SCONFIG] Config loaded.");
 }
@@ -91,40 +72,30 @@ void SConfig::saveQuiet()
 
 void SConfig::save()
 {
-    config->setValue("general/sudo_password", getHashString("SudoPassword"));
-    config->setValue("general/program_mode", getHashBoolean("Mode"));
+    config->setValue("general/sudo_password", getSudoPassword());
+    config->setValue("general/enable_debug_console", getDebugConsole());
+    
+    config->setValue("network/protocol", getNetworkType());
+    config->setValue("network/de10_ip", getDE10IP());
+    config->setValue("network/telemetry_port", getTelemetryPort());
+    config->setValue("network/telemetry_update_time", QString::number(getTelemetryFrequency()));
+    config->setValue("network/computer_ip", getComputerIP());
+    config->setValue("network/image_loader_port", getLoaderPort());
+    config->setValue("network/execd_port", getExecdPort());
+    config->setValue("network/terminal_port", getTerminalPort());
+    config->setValue("network/use_old_execd_endline", getUseOldExecdEndline());
 
-    config->setValue("utility/use_osm_maps", getHashBoolean("UseOSM"));
-    config->setValue("utility/display_profiler", getHashBoolean("ShowProfiler"));
-    config->setValue("utility/enable_debug_console", getHashBoolean("ShowConsole"));
+    config->setValue("map/use_online_maps", getOnlineMaps());
+    config->setValue("map/velocity_vector_length", QString::number(getVelocityVectorLength()));
+    config->setValue("map/antenna_position", getAntennaPosition());
+    config->setValue("map/diagram_theta_azimuth", QString::number(getDiagramThetaAzimuth()));
 
-    config->setValue("network/core_type", getHashString("NetworkType"));
-    config->setValue("network/sar_ip", getHashString("SarIP"));
-    config->setValue("network/telemetry_port", getHashString("TelemetryPort"));
-    config->setValue("network/telemetry_update_time", getHashFloat("TelemetryFrequency"));
-    config->setValue("network/image_loader_ip", getHashString("LoaderIP"));
-    config->setValue("network/image_loader_port", getHashString("LoaderPort"));
-    config->setValue("network/dialog_port", getHashString("DialogPort"));
-    config->setValue("network/console_listen_port", getHashString("ListenPort"));
+    config->setValue("image/angle_predefined_correction", QString::number(getAngleCorrection()));
+    config->setValue("image/angle_use_radians_globally", getGlobalRadians());
+    config->setValue("image/angle_use_drift_angle", getUseDriftAngle());
+    config->setValue("image/angle_theta_azimuth_correction", QString::number(getThetaAzimuthCorrection()));
+    config->setValue("image/view_mode_default_directory", getDefaultCatalogue());
 
-    config->setValue("map/velocity_vector_length", getHashFloat("VelocityVectorLength"));
-    config->setValue("map/antenna_position", getHashString("AntennaPosition"));
-
-    config->setValue("diagram/diagram_capture_time", QString::number(getHashFloat("DiagramCaptureTime")));
-    config->setValue("diagram/diagram_capture_range", QString::number(getHashFloat("DiagramCaptureRange")));
-    config->setValue("diagram/diagram_theta_azimuth", QString::number(getHashFloat("DiagramThetaAzimuth")));
-    config->setValue("diagram/diagram_drift_angle", QString::number(getHashFloat("DiagramDriftAngle")));
-
-    config->setValue("image/angle_predefined_correction", QString::number(getHashFloat("AnglePredefinedCorrection")));
-    config->setValue("image/angle_use_radians_globally", getHashBoolean("GlobalRadians"));
-    config->setValue("image/angle_use_drift_angle", getHashBoolean("GlobalDriftAngle"));
-    config->setValue("image/angle_theta_azimuth_correction", QString::number(getHashFloat("AzimuthPredefinedCorrection")));
-    config->setValue("image/use_base64_encoding_optimization", getHashBoolean("Base64Enabled"));
-    config->setValue("image/save_image_only_when_loading_finished", getHashBoolean("SaveNonContinuous"));
-    config->setValue("image/view_mode_default_directory", getHashString("ViewPath"));
-
-    config->setValue("startup/display_images_when_loaded", getHashBoolean("StartupShowAll"));
-    config->setValue("startup/connect_to_sar", getHashBoolean("StartupConnectToSAR"));
 }
 
 void SConfig::discardSettings()
@@ -145,3 +116,83 @@ void SConfig::discardSettings()
           break;
     }
 }
+
+QString SConfig::getSudoPassword() { return m_sudoPassword; }
+void SConfig::setSudoPassword(QString string) { if (string == m_sudoPassword) return;
+m_sudoPassword = string; emit sudoPasswordChanged(); }
+
+bool SConfig::getDebugConsole() { return m_debugConsole; }
+void SConfig::setDebugConsole(bool state) { if (state == m_debugConsole) return;
+m_debugConsole = state; emit debugConsoleChanged(); }
+
+QString SConfig::getNetworkType() { return m_networkType; }
+void SConfig::setNetworkType(QString string) { if (string == m_networkType) return;
+m_networkType = string; emit networkTypeChanged(); }
+
+QString SConfig::getDE10IP() { return m_de10IP; }
+void SConfig::setDE10IP(QString string) { if (string == m_de10IP) return;
+m_de10IP = string; emit de10IPChanged(); }
+
+QString SConfig::getTelemetryPort() { return m_telemetryPort; }
+void SConfig::setTelemetryPort(QString string) { if (string == m_telemetryPort) return;
+m_telemetryPort = string; emit telemetryPortChanged(); }
+
+float SConfig::getTelemetryFrequency() { return m_telemetryFrequency; }
+void SConfig::setTelemetryFrequency(float value) { if (value == m_telemetryFrequency) return;
+m_telemetryFrequency = value; emit telemetryFrequencyChanged(); }
+
+QString SConfig::getComputerIP() { return m_computerIP; }
+void SConfig::setComputerIP(QString string) { if (string == m_computerIP) return;
+m_computerIP = string; emit computerIPChanged(); }
+
+QString SConfig::getLoaderPort() { return m_loaderPort; }
+void SConfig::setLoaderPort(QString string) { if (string == m_loaderPort) return;
+m_loaderPort = string; emit loaderPortChanged(); }
+
+QString SConfig::getExecdPort() { return m_execdPort; }
+void SConfig::setExecdPort(QString string) { if (string == m_execdPort) return;
+m_execdPort = string; emit execdPortChanged(); }
+
+QString SConfig::getTerminalPort() { return m_terminalPort; }
+void SConfig::setTerminalPort(QString string) { if (string == m_terminalPort) return;
+m_terminalPort = string; emit terminalPortChanged(); }
+
+bool SConfig::getUseOldExecdEndline() { return m_useOldExecdEndline; }
+void SConfig::setUseOldExecdEndline(bool state) { if (state == m_useOldExecdEndline) return;
+m_useOldExecdEndline = state; emit useOldExecdEndlineChanged(); }
+
+bool SConfig::getOnlineMaps() { return m_onlineMaps; }
+void SConfig::setOnlineMaps(bool state) { if (state == m_onlineMaps) return;
+m_onlineMaps = state; emit onlineMapsChanged(); }
+
+float SConfig::getVelocityVectorLength() { return m_velocityVectorLength; }
+void SConfig::setVelocityVectorLength(float value) { if (value == m_velocityVectorLength) return;
+m_velocityVectorLength = value; emit velocityVectorLengthChanged(); }
+
+QString SConfig::getAntennaPosition() { return m_antennaPosition; }
+void SConfig::setAntennaPosition(QString string) { if (string == m_antennaPosition) return;
+m_antennaPosition = string; emit antennaPositionChanged(); }
+
+float SConfig::getDiagramThetaAzimuth() { return m_diagramThetaAzimuth; }
+void SConfig::setDiagramThetaAzimuth(float value) { if (value == m_diagramThetaAzimuth) return;
+m_diagramThetaAzimuth = value; emit diagramThetaAzimuthChanged(); }
+
+float SConfig::getAngleCorrection() { return m_angleCorrection; }
+void SConfig::setAngleCorrection(float value) { if (value == m_angleCorrection) return;
+m_angleCorrection = value; emit angleCorrectionChanged(); }
+
+bool SConfig::getGlobalRadians() { return m_globalRadians; }
+void SConfig::setGlobalRadians(bool state) { if (state == m_globalRadians) return;
+m_globalRadians = state; emit globalRadiansChanged(); }
+
+bool SConfig::getUseDriftAngle() { return m_driftAngle; }
+void SConfig::setUseDriftAngle(bool state) { if (state == m_driftAngle) return;
+m_driftAngle = state; emit useDriftAngleChanged(); }
+
+float SConfig::getThetaAzimuthCorrection() { return m_thetaAzimuthCorrection; }
+void SConfig::setThetaAzimuthCorrection(float value) { if (value == m_thetaAzimuthCorrection) return;
+m_thetaAzimuthCorrection = value; emit thetaAzimuthCorrectionChanged(); }
+
+QString SConfig::getDefaultCatalogue() { return m_defaultCatalogue; }
+void SConfig::setDefaultCatalogue(QString string) { if (string == m_defaultCatalogue) return;
+m_defaultCatalogue = string; emit defaultCatalogueChanged(); }

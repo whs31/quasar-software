@@ -30,17 +30,17 @@ void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate 
 void FlightPrediction::updatePoints()
 {
     float lx = RuntimeData::initialize()->getFormUpperBound();
-    qreal antennaPositionCorrection = SConfig::getHashString("AntennaPosition") == "right" ? 90 : -90;
+    qreal antennaPositionCorrection = SConfig::get()->getAntennaPosition() == "right" ? 90 : -90;
 
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
     {
-        float divergence = (SConfig::getHashFloat("DiagramThetaAzimuth") - SConfig::getHashFloat("AzimuthPredefinedCorrection")) / 2;
+        float divergence = (SConfig::get()->getDiagramThetaAzimuth() - SConfig::get()->getThetaAzimuthCorrection()) / 2;
         setX10(getX0()  
-                + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
+                + SMath::metersToDegrees(SConfig::get()->getVelocityVectorLength() * 1000)
                 * qSin(SMath::degreesToRadians(m_angles.geometrical))
         );
         setY10(getY0() 
-                + SMath::metersToDegrees(SConfig::getHashFloat("VelocityVectorLength") * 1000)
+                + SMath::metersToDegrees(SConfig::get()->getVelocityVectorLength() * 1000)
                 * qCos(SMath::degreesToRadians(m_angles.geometrical))
         );
 

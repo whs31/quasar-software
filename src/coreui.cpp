@@ -33,10 +33,11 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     Debug::Log("[STARTUP] Starting UI initialization...");
 
     // config
-    SConfig::initialize(this);
-    if (SConfig::getHashBoolean("UseOSM"))
-        Debug::Log("![STARTUP] Program is running in test mode!");
-
+    qmlRegisterSingletonInstance("Config", 1, 0, "Config", SConfig::get());
+    if (SConfig::get()->getOnlineMaps())
+        Debug::Log("[STARTUP] Using ONLINE map tileserver");
+    else
+        Debug::Log("[STARTUP] Using OFFLINE map tileserver");
 
     // qml types that require SConfig declared here
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
@@ -132,20 +133,21 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(RuntimeData::initialize(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
 
     // ui misc initialization and assignment
-    RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
-    RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
-    RuntimeData::initialize()->setTelemetryPort(SConfig::getHashString("TelemetryPort"));
-    RuntimeData::initialize()->setLoaderPort(SConfig::getHashString("LoaderPort"));
-    RuntimeData::initialize()->setCommandPort(SConfig::getHashString("DialogPort"));
-    RuntimeData::initialize()->setListenPort(SConfig::getHashString("ListenPort"));
-    RuntimeData::initialize()->setLoaderStatus("ожидание подключения");
+    RuntimeData::initialize()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
+    RuntimeData::initialize()->setPCIP(SConfig::get()->getComputerIP());
+    RuntimeData::initialize()->setTelemetryPort(SConfig::get()->getTelemetryPort());
+    RuntimeData::initialize()->setLoaderPort(SConfig::get()->getLoaderPort());
+    RuntimeData::initialize()->setCommandPort(SConfig::get()->getExecdPort());
+    RuntimeData::initialize()->setListenPort(SConfig::get()->getTerminalPort());
+    RuntimeData::initialize()->setLoaderStatus("Oжидание подключения...");
+    RuntimeData::initialize()->setFormStatus("Oжидание подключения...");
 
     // autocapture setup
     connect(RuntimeData::initialize(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
 
     // timers starts here
-    timer->start(SConfig::getHashFloat("TelemetryFrequency") * 1000);
-    udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);
+    timer->start(SConfig::get()->getTelemetryFrequency() * 1000);
+    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
 
     // startup functions
     Disconnected();
@@ -223,7 +225,7 @@ CoreUI::~CoreUI()
 
 void* CoreUI::LoadPlugin(QString path)
 {
-    QHash<QString, QVariant>* config = SConfig::getHashTable();
+    QHash<QString, QVariant>* config = nullptr;
     QPluginLoader *pluginLoader = new QPluginLoader(path);
     QObject *plugin = pluginLoader->instance();
     if(!plugin){
@@ -264,11 +266,11 @@ void CoreUI::updateProgress(float f)
 {
     if (f > 0)
     {
-        RuntimeData::initialize()->setFormStatus(Style::StyleText("загрузка изображения", Colors::Info100, Format::NoFormat));
+        RuntimeData::initialize()->setFormStatus("Загрузка изображения...");
     }
     if (f > 99)
     {
-        RuntimeData::initialize()->setFormStatus(Style::StyleText("изображение отображено на карте", Colors::Success100, Format::NoFormat));
+        RuntimeData::initialize()->setFormStatus("Изображение отображено на карте");
         if(RuntimeData::initialize()->getFormingContinuous())
         {
             FormSingleImage();
@@ -292,29 +294,29 @@ void CoreUI::MinimizeSlot()     { showMinimized(); }
 void CoreUI::CloseSlot()   { QApplication::quit(); }
 void CoreUI::SettingsSlot()
 {
-    PasswordDialog passwordDialog(this, SConfig::getHashString("SudoPassword"));
+    PasswordDialog passwordDialog(this, SConfig::get()->getSudoPassword());
     if (passwordDialog.exec() == QDialog::Accepted)
     {
-        if (passwordDialog.passwordCheck || SConfig::getHashString("SudoPassword").isEmpty())
+        if (passwordDialog.passwordCheck || SConfig::get()->getSudoPassword().isEmpty())
         {
             SettingsDialog sd(this);
-            QString s = SConfig::getHashString("ViewPath");
+            QString s = SConfig::get()->getDefaultCatalogue();
             if (sd.exec() == QDialog::Accepted)
             {
-                if (s != SConfig::getHashString("ViewPath"))
+                if (s != SConfig::get()->getDefaultCatalogue())
                     DiskTools::fetchDirectory();
                 else
                     Debug::Log("?[CONFIG] Path unchanged, no further scans");
-                SConfig::saveSettings();
+                SConfig::get()->saveSettings();
             }
             else
-                SConfig::loadSettings();
-            RuntimeData::initialize()->setSARIP("(" + SConfig::getHashString("NetworkType") + ") " + SConfig::getHashString("SarIP"));
-            RuntimeData::initialize()->setPCIP(SConfig::getHashString("LoaderIP"));
-            RuntimeData::initialize()->setTelemetryPort(SConfig::getHashString("TelemetryPort"));
-            RuntimeData::initialize()->setLoaderPort(SConfig::getHashString("LoaderPort"));
-            RuntimeData::initialize()->setCommandPort(SConfig::getHashString("DialogPort"));
-            RuntimeData::initialize()->setListenPort(SConfig::getHashString("ListenPort"));
+                SConfig::get()->loadSettings();
+            RuntimeData::initialize()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
+            RuntimeData::initialize()->setPCIP(SConfig::get()->getComputerIP());
+            RuntimeData::initialize()->setTelemetryPort(SConfig::get()->getTelemetryPort());
+            RuntimeData::initialize()->setLoaderPort(SConfig::get()->getLoaderPort());
+            RuntimeData::initialize()->setCommandPort(SConfig::get()->getExecdPort());
+            RuntimeData::initialize()->setListenPort(SConfig::get()->getTerminalPort());
         }
         else
         {
@@ -348,7 +350,7 @@ void CoreUI::DebugSlot()
 
 void CoreUI::ReadTelemetry(QByteArray data)
 {
-    udpTimeout->start(3 * SConfig::getHashFloat("TelemetryFrequency") * 1000);
+    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
     DataType dtype = MessageParser::checkReceivedDataType(data);
     switch (dtype)
     {
@@ -387,7 +389,7 @@ void CoreUI::ReadSARConsole(QByteArray data)
     } else {
     QString dataStr = data.data();
     dataStr.replace(QRegExp("[\r]"), "");
-    QStringList dataParsed = dataStr.split(QRegExp("[\n]"), QString::SkipEmptyParts);
+    QStringList dataParsed = dataStr.split(QRegExp("[\n]"));
     for (QString str : dataParsed)
         ui->sarConsole->append(str);
     }
@@ -420,7 +422,7 @@ void CoreUI::ReadForm(QByteArray data)
             Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
                         + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
                         + " with checksum check " + checksumCheck);
-            RuntimeData::initialize()->setFormStatus(Style::StyleText("получен ответ от РЛС", Colors::Accent100, Format::NoFormat));
+            RuntimeData::initialize()->setFormStatus("Получен ответ от РЛС");
         }
         break;
     default: 
@@ -460,8 +462,9 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
             if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { InfoSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, 
                                                     tr("Выберите папку c выходными изображениями РЛС"), QStandardPaths::displayName(
-                                                    QStandardPaths::HomeLocation)); if(pathNotNullCheck != NULL) { SConfig::setHashValue(
-                                                    "ViewPath", pathNotNullCheck); } pressedKeys.clear(); }
+                                                    QStandardPaths::HomeLocation)); if(pathNotNullCheck != NULL) {
+                                                    SConfig::get()->setDefaultCatalogue(pathNotNullCheck); }
+                                                    pressedKeys.clear(); }
         }
         else 
         {
@@ -494,21 +497,21 @@ void CoreUI::reconnectSlot()
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
     Disconnected();
-    telemetryRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("TelemetryPort"));
-    if(SConfig::getHashString("SarIP").endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
-            QString correctedSarIP = SConfig::getHashString("SarIP");
+    telemetryRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getTelemetryPort());
+    if(SConfig::get()->getDE10IP().endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
+            QString correctedSarIP = SConfig::get()->getDE10IP();
             correctedSarIP.chop(1); correctedSarIP.append("7");
-            formRemote->Connect(correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
-            Debug::Log("![REMOTE] Sending commands to autocorrected address: " + correctedSarIP + ":" + SConfig::getHashString("DialogPort"));
+            formRemote->Connect(correctedSarIP + ":" + SConfig::get()->getExecdPort());
+            Debug::Log("![REMOTE] Sending commands to autocorrected address: " + correctedSarIP + ":" + SConfig::get()->getExecdPort());
         } else { 
-            formRemote->Connect(SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort")); 
-            Debug::Log("?[REMOTE] Sending commands to address: " + SConfig::getHashString("SarIP") + ":" + SConfig::getHashString("DialogPort"));
+            formRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getExecdPort());
+            Debug::Log("?[REMOTE] Sending commands to address: " + SConfig::get()->getDE10IP() + ":" + SConfig::get()->getExecdPort());
         }
-    consoleListenerRemote->Connect(SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-    Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::getHashString("LoaderIP") + ":" + SConfig::getHashString("ListenPort"));
-    if (SConfig::getHashString("NetworkType") != "UDP")
+    consoleListenerRemote->Connect(SConfig::get()->getComputerIP() + ":" + SConfig::get()->getTerminalPort());
+    Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getTerminalPort());
+    if (SConfig::get()->getNetworkType() != "UDP")
     {
-        SConfig::getHashString("NetworkType") = "UDP";
+        SConfig::get()->getNetworkType() = "UDP";
         Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
     }
     Debug::Log("?[REMOTE] UDP client connected");
@@ -533,8 +536,8 @@ void CoreUI::FormSingleImage()
                                                      RuntimeData::initialize()->getFormGPSVelocity());
     SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
-    RuntimeData::initialize()->setFormStatus(Style::StyleText("отправлен запрос на формирование №" +
-                                                               QString::number(MessageParser::getMessageID()), Colors::Info100, Format::NoFormat));
+    RuntimeData::initialize()->setFormStatus("Отправлен запрос на формирование №" +
+                                                               QString::number(MessageParser::getMessageID()));
 }
 
 

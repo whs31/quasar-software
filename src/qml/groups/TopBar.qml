@@ -651,7 +651,7 @@ Rectangle {
         anchors.left: zoomOutButton.right; anchors.leftMargin: 2;
         fixed_width: 167;      fixed_height: 18;
         fill_color: UX.textWhite;
-        highlight_color: UX.textFaded;
+        highlight_color: UX.textWhite;
         frame_radius: 2;
         slider_fromvalue: 2;
         slider_tovalue: 18;

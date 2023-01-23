@@ -72,8 +72,8 @@ bool RuntimeData::getDrawDiagram() { return mapSettings.drawDiagram; }
 void RuntimeData::setDrawDiagram(bool state) { if (state == mapSettings.drawDiagram) return;
 mapSettings.drawDiagram = state; emit drawDiagramChanged(); }
 
-bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::getHashBoolean("UseOSM"); }
-qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::getHashFloat("VelocityVectorLength"); }
+bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::get()->getOnlineMaps(); }
+qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::get()->getVelocityVectorLength(); }
 
 bool RuntimeData::getEmulatorEnabled() { return m_emulatorMode; }
 void RuntimeData::setEmulatorEnabled(bool state) { if (state == m_emulatorMode) return;

@@ -26,10 +26,9 @@ bool ImageManager::checkForOccurence(QString filename)
 
 void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
-    qCritical()<<"1";
     TImage *image = new TImage(initialize(), data, filenamePath, ImageMode::GeometricAlphaMask, 
-    SConfig::getHashFloat("AnglePredefinedCorrection"), SConfig::getHashBoolean("GlobalRadians"),
-    SConfig::getHashFloat("AzimuthPredefinedCorrection"), SConfig::getHashBoolean("GlobalDriftAngle")); 
+    SConfig::get()->getAngleCorrection(), SConfig::get()->getGlobalRadians(),
+    SConfig::get()->getThetaAzimuthCorrection(), SConfig::get()->getUseDriftAngle());
     image->index = imageList.length();
 
     if (!image->isValid())

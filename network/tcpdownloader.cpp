@@ -4,7 +4,7 @@ TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 {
     server = new QTcpServer(this);
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
-    if(!server->listen(QHostAddress(SConfig::getHashString("LoaderIP")), SConfig::getHashString("LoaderPort").toUInt()))
+    if(!server->listen(QHostAddress(SConfig::get()->getComputerIP()), SConfig::get()->getLoaderPort().toUInt()))
     {
         Debug::Log("!![SERVER] TCP-IP server has failed to start.");
     } else {

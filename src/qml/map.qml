@@ -389,17 +389,17 @@ Rectangle {
         }
 
         MapPolyline { id: mapPolyline; line.width: 5; 
-                    opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: Material.primary; path: [ ]; 
+                    opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: UX.warningLighter; path: [ ];
                     Behavior on opacity { NumberAnimation { duration: 1000; } } 
         }
-        MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Material.primary; z: 1; 
+        MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: UX.warningLight; z: 1;
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapPolygon {  property var point0: QtPositioning.coordinate(predict.y0, predict.x0);
                       property var point1: QtPositioning.coordinate(predict.y1, predict.x1);
                       property var point2: QtPositioning.coordinate(predict.y2, predict.x2);
                       property var point3: QtPositioning.coordinate(predict.y3, predict.x3);
-                      id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Material.primary; color: Material.primary; z: 1;
+                      id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: UX.warningLight; color: UX.warningLighter; z: 1;
                       path: [ point0,
                               point2,
                               point1,
@@ -407,10 +407,6 @@ Rectangle {
                             ];
 
                       Behavior on opacity { NumberAnimation { duration: 1000 } }
-                      Behavior on point0 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
-                      Behavior on point1 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
-                      Behavior on point2 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
-                      Behavior on point3 { CoordinateAnimation { duration: 250; easing.type: Easing.Linear } }
         }
         MapItemView
         {
@@ -480,7 +476,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 style: Text.Outline
                 font.family: "Verdana"
-                color: UX.accentLight;
+                color: UX.textWhite;
                 text: "";
             }
         }
@@ -510,7 +506,7 @@ Rectangle {
                 anchors.fill: r1MapItem;
                 source: r1Source;
                 opacity: 1;
-                color: UX.accentLight;
+                color: UX.textWhites;
             }
         }
         MapQuickItem {
@@ -539,7 +535,7 @@ Rectangle {
                 anchors.fill: r2MapItem;
                 source: r2Source;
                 opacity: 1;
-                color: UX.accentLight;
+                color: UX.textWhite;
             }
         }
         MapQuickItem {
@@ -569,7 +565,7 @@ Rectangle {
                     anchors.fill: planeSource;
                     source: planeSource;
                     opacity: 0.75;
-                    color: Material.primary;
+                    color: UX.warningLighter;
                 }
                 DropShadow {
                     anchors.fill: overlayPlane;
@@ -584,7 +580,7 @@ Rectangle {
                     anchors.fill: overlayPlane;
                     radius: 5;
                     samples: 17;
-                    color: "#c4bb4b";
+                    color: UX.warningLight;
                     spread: 0.5;
                     transparentBorder: true;
                     source: overlayPlane;
@@ -597,7 +593,7 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.accentLight; z: 100; path: [ ]; } //192.168.18.143
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.textWhite; z: 100; path: [ ]; } //192.168.18.143
 
         DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
                      samples: 32; color: "#80000000"; source: topBar; cached: true; }

@@ -9,7 +9,7 @@ SAROutputConsoleEmulator::SAROutputConsoleEmulator(QObject *parent)
 void SAROutputConsoleEmulator::send(QByteArray data)
 {
     QUdpSocket socket;
-    socket.writeDatagram(data, QHostAddress("127.0.0.1"), SConfig::getHashString("ListenPort").toUInt());
+    socket.writeDatagram(data, QHostAddress("127.0.0.1"), SConfig::get()->getTerminalPort().toUInt());
 }
 
 void SAROutputConsoleEmulator::sampleTest(void)

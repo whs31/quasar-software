@@ -2484,7 +2484,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
 </string>
               </property>
               <property name="text">
-               <string>Использовать карты OpenStreetMap </string>
+               <string>Использовать онлайн-карты</string>
               </property>
              </widget>
             </item>

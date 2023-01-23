@@ -22,10 +22,11 @@ void CacheManager::initialize()
 {
     settingsPath = QCoreApplication::applicationDirPath() + "/appconfig";
     QDir settings(settingsPath);
-    if (!settings.exists())
-    {
+    if(!settings.exists())
         settings.mkpath(settingsPath);
-    }
+    QDir logs(settingsPath + "/logs");
+    if(!logs.exists())
+        logs.mkpath(settingsPath + "/logs");
 
     mapProviderCache = QCoreApplication::applicationDirPath() + "/apposmconfig";
     QDir osmconfigs(mapProviderCache);
@@ -33,17 +34,13 @@ void CacheManager::initialize()
 
     tileServerCache = QCoreApplication::applicationDirPath() + "/app-offline-tiles";
     QDir tiles(tileServerCache);
-    if (!tiles.exists())
-    {
+    if(!tiles.exists())
         tiles.mkpath(tileServerCache);
-    }
 
     pluginCache = QCoreApplication::applicationDirPath() + "/app-plugins";
     QDir plugins(pluginCache);
-    if (!plugins.exists())
-    {
+    if(!plugins.exists())
         plugins.mkpath(pluginCache);
-    }
     Debug::Log("?[CACHEMANAGER] Initial cache created");
 }
 
@@ -51,10 +48,8 @@ void CacheManager::setupImageCache()
 {
     tcpDowloaderCache = QCoreApplication::applicationDirPath() + "/appcache/tcpdcache";
     QDir tcp(tcpDowloaderCache);
-    if (!tcp.exists())
-    {
+    if (tcp.exists())
         tcp.mkpath(tcpDowloaderCache);
-    }
     Debug::Log("?[CACHEMANAGER] Image cache created");
 }
 
@@ -62,9 +57,7 @@ void CacheManager::clearImageCache()
 {
     QDir tcp(tcpDowloaderCache);
     if (tcp.exists())
-    {
         tcp.removeRecursively();
-    }
     Debug::Log("[CACHEMANAGER] Cache cleared");
     setupImageCache();
 }

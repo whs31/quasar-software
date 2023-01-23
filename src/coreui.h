@@ -68,7 +68,6 @@ public:
     bool getReady(void);
     QQuickItem* getMapPointer(void);
     bool eventFilter(QObject* obj, QEvent* event);
-    //void keyPressEvent(QKeyEvent *event);
 
 public slots:
     //utility public slots
@@ -116,8 +115,8 @@ private:
     }; Plugins plugins;
 
     //private methods
-    void InitializeDockwidgets();
     void SendRemoteCommand(QString command, CommandType type);
+    void* LoadPlugin(QString path);
 
 private slots:
     //header

@@ -208,6 +208,14 @@ float SConfig::getThetaAzimuthCorrection() { return m_thetaAzimuthCorrection; }
 void SConfig::setThetaAzimuthCorrection(float value) { if (value == m_thetaAzimuthCorrection) return;
 m_thetaAzimuthCorrection = value; emit thetaAzimuthCorrectionChanged(); }
 
+qreal SConfig::getPreviousSessionLatitude() { return m_previousSessionLatitude; }
+void SConfig::setPreviousSessionLatitude(qreal value) { if (value == m_previousSessionLatitude) return;
+m_previousSessionLatitude = value; emit previousSessionLatitudeChanged(); }
+
+qreal SConfig::getPreviousSessionLongitude() { return m_previousSessionLongitude; }
+void SConfig::setPreviousSessionLongitude(qreal value) { if (value == m_previousSessionLongitude) return;
+m_previousSessionLongitude = value; emit previousSessionLongitudeChanged(); }
+
 QString SConfig::getDefaultCatalogue() { return m_defaultCatalogue; }
 void SConfig::setDefaultCatalogue(QString string) { if (string == m_defaultCatalogue) return;
 m_defaultCatalogue = string; emit defaultCatalogueChanged(); }

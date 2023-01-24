@@ -14,7 +14,6 @@
 #include "jsonconfig.h"
 
 #include "debug.h"
-#include "saroutputconsoleemulator.h"
 #include "thememanager.h"
 
 class SConfig : public QObject
@@ -147,6 +146,8 @@ private:
     bool m_globalRadians;
     bool m_driftAngle;
     float m_thetaAzimuthCorrection;
+    qreal m_previousSessionLatitude;
+    qreal m_previousSessionLongitude;
     QString m_defaultCatalogue;
 };
 

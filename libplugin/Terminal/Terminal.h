@@ -36,7 +36,7 @@ public:
     explicit Terminal();
     ~Terminal();
     
-    void Init(QWidget* _parent, QHash<QString, QVariant>* _config, PluginHostAPI* _HostAPI);
+    void Init(QWidget* _parent, QObject* _config, PluginHostAPI* _HostAPI);
     
 public slots:
     QVariant print(QVariant cmd);

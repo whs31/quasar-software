@@ -51,6 +51,14 @@ class SConfig : public QObject
     Q_PROPERTY(QString defaultCatalogue           READ getDefaultCatalogue          WRITE setDefaultCatalogue         NOTIFY defaultCatalogueChanged)
 
 
+
+    // plugin-only
+    Q_PROPERTY(qint32 Terminal_font_size          READ getFont_Size)
+    Q_PROPERTY(QString Terminal_font_family       READ getFont_Family)
+    Q_PROPERTY(QColor Terminal_rect_color         READ getRect_Color)
+    Q_PROPERTY(QColor Terminal_font_color         READ getFont_Color)
+    Q_PROPERTY(QColor Terminal_cursor_color       READ getCursor_Color)
+
 public:
     static SConfig* get(QObject* parent = nullptr);
 
@@ -81,6 +89,12 @@ public:
     QString getDefaultCatalogue();                                   void setDefaultCatalogue(QString string);    
     qreal getPreviousSessionLatitude();                              void setPreviousSessionLatitude(qreal value);
     qreal getPreviousSessionLongitude();                             void setPreviousSessionLongitude(qreal value);
+
+    quint32 getFont_Size();                                          void setFont_Size(quint32 value);
+    QString getFont_Family();
+    QColor getRect_Color();
+    QColor getFont_Color();
+    QColor getCursor_Color();
 
     void loadSettings(void);                                       
     void saveSettings(void);                                       
@@ -118,6 +132,8 @@ signals:
     void previousSessionLatitudeChanged();
     void previousSessionLongitudeChanged();
 
+    void font_sizeChanged();
+
 private:
     explicit SConfig(QObject* parent = nullptr);
     static SConfig* pointer;
@@ -149,6 +165,8 @@ private:
     qreal m_previousSessionLatitude;
     qreal m_previousSessionLongitude;
     QString m_defaultCatalogue;
+
+    quint32 m_font_size = 11;
 };
 
 #endif // SCONFIG_H

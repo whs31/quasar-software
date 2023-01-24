@@ -14,8 +14,8 @@ public:
     virtual QWidget* GetWidget() = 0;
     virtual void SetParent(QWidget* _parent) = 0;
     virtual void SetPluginHostAPI(PluginHostAPI* _HostAPI) = 0;
-    virtual void SetConfig(QHash<QString, QVariant>* _config) = 0;
-    virtual void Init(QWidget* _parent, QHash<QString, QVariant>* _config, PluginHostAPI* _HostAPI) = 0;
+    virtual void SetConfig(QObject* _config) = 0;
+    virtual void Init(QWidget* _parent, QObject* _config, PluginHostAPI* _HostAPI) = 0;
 
 protected:
     QString plugin_name = "plugin";

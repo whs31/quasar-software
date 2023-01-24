@@ -33,16 +33,30 @@ void PluginHead::SetPluginHostAPI(PluginHostAPI* _HostAPI)
     PluginAPI = _HostAPI;
 }
 
-void PluginHead::SetConfig(QHash<QString, QVariant>* _config){
+void PluginHead::SetConfig(QObject* _config){
     config = _config;
 }
+
+QObject* PluginHead::GetConfig()
+{
+    return config;
+}
+
 
 QVariant PluginHead::fromConfig(QString key){
     if(!config){
         return QVariant::Invalid;
     }
-    key.prepend("/");
+    key.prepend("_");
     key.prepend(plugin_name);
-    return config->value(key);
+    return config->property((const char*)key.toUtf8().data());
+}
+
+QWidget* PluginHead::GetParent(){
+    return PluginParent;
+}
+
+PluginHostAPI* PluginHead::GetHostAPI(){
+    return PluginAPI;
 }
 

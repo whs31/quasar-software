@@ -17,7 +17,7 @@ Terminal::~Terminal()
     //this->setUpdatesEnabled(true);
 }
 
-void Terminal::Init(QWidget* _parent, QHash<QString, QVariant>* _config, PluginHostAPI* _HostAPI){
+void Terminal::Init(QWidget* _parent, QObject* _config, PluginHostAPI* _HostAPI){
 	this->setParent(_parent);
 	this->setWindowTitle(plugin_name);
 	this->SetPluginHostAPI(_HostAPI);

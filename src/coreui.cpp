@@ -225,7 +225,6 @@ CoreUI::~CoreUI()
 
 void* CoreUI::LoadPlugin(QString path)
 {
-    QHash<QString, QVariant>* config = SConfig::get()->getPluginConfig();
     QPluginLoader *pluginLoader = new QPluginLoader(path);
     QObject *plugin = pluginLoader->instance();
     if(!plugin){
@@ -234,7 +233,7 @@ void* CoreUI::LoadPlugin(QString path)
         return nullptr;
     }
     PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(plugin);
-    pluginInterface->Init(this, config, HostAPI);
+    pluginInterface->Init(this, (QObject*)SConfig::get(), HostAPI);
     return pluginInterface;
 }
 

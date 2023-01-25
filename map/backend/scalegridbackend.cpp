@@ -30,6 +30,28 @@ void ScaleGridBackend::recalculateGrid(void)
 {
     qreal newZoom = SMath::zoomLevelToDistance((18 - RuntimeData::initialize()->getCurrentZoomLevel()), 
                                                 RuntimeData::initialize()->getLatitude()) / 754369;
-    qCritical()<<RuntimeData::initialize()->getCurrentZoomLevel() << "  " << newZoom;
-    setCellSize(newZoom);
+    
+    if(RuntimeData::initialize()->getCurrentZoomLevel() >= 15.3)
+    {
+        setcellType(1);
+        setCellSize(newZoom); // 100 m
+    } else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 12 && RuntimeData::initialize()->getCurrentZoomLevel() < 15.3)
+    {
+        setcellType(2);
+        setCellSize(newZoom * 10); // 1 km
+    } else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 8 && RuntimeData::initialize()->getCurrentZoomLevel() < 12)
+    {
+        setcellType(3);
+        setCellSize(newZoom * 100); // 10 km
+    }
+    else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 5.5 && RuntimeData::initialize()->getCurrentZoomLevel() < 8)
+    {
+        setcellType(4);
+        setCellSize(newZoom * 1000); // 100 km
+    }
+    else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 3.5 && RuntimeData::initialize()->getCurrentZoomLevel() < 5.5)
+    {
+        setcellType(5);
+        // remove completely
+    }
 }

@@ -657,10 +657,13 @@ Rectangle {
             label_textAlignment: Text.AlignLeft;
         }
     }
+    DropShadow { z: 99; anchors.fill: infoWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
+                 samples: 32; color: "#80000000"; source: infoWindow; cached: true; }
     Windows.InfoWindow
     {
         id: infoWindow;
         anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+        z: 100;
     }
 
     Connections {

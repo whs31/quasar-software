@@ -717,7 +717,7 @@ QAbstractScrollArea:disabled {
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>240</width>
+        <width>248</width>
         <height>39</height>
        </rect>
       </property>

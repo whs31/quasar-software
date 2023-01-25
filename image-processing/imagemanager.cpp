@@ -51,13 +51,13 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
 
 bool ImageManager::removeImage(qint32 index)
 {
-    QMessageBox askForClearTrack;
-    askForClearTrack.setWindowTitle("Удаление РЛИ");
-    askForClearTrack.setIcon(QMessageBox::Information);
-    askForClearTrack.setText("Вы уверены, что хотите удалить выбранное изображение с карты?");
-    askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-    askForClearTrack.setDefaultButton(QMessageBox::Yes); // maybe cancel(r)
-    int ret = askForClearTrack.exec();                   // не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
+    QMessageBox box;
+    box.setWindowTitle("Удаление РЛИ");
+    box.setIcon(QMessageBox::Information);
+    box.setText("Вы уверены, что хотите удалить выбранное изображение с карты?");
+    box.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
+    box.setDefaultButton(QMessageBox::Yes); // maybe cancel(r)
+    int ret = box.exec();                   // не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
     switch (ret)
     {
     case QMessageBox::Yes:

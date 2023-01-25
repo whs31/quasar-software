@@ -487,8 +487,8 @@ Rectangle {
     Rectangle
     {
         id: attitudeFrame;
-        width: 288;
-        height: 168;
+        width: 288 * RuntimeData.widthCoefficient;
+        height: 168 * RuntimeData.heightCoefficient;
         color: UX.primaryDark;
         radius: 5;
         anchors.left: parent.left;
@@ -502,8 +502,8 @@ Rectangle {
     Rectangle
     {
         id: speedFrame;
-        width: 100;
-        height: 31;
+        width: 100 * RuntimeData.widthCoefficient;
+        height: 31 * RuntimeData.heightCoefficient;
         color: UX.primaryDark;
         radius: 12;
         anchors.verticalCenter: attitudeFrame.top;
@@ -514,11 +514,12 @@ Rectangle {
             anchors.verticalCenter: speedFrame.verticalCenter;
             anchors.horizontalCenter: speedFrame.horizontalCenter;
 
-            fixed_width: 137;    fixed_height: 17;
+            fixed_width: 137 * RuntimeData.widthCoefficient;
+            fixed_height: 17 * RuntimeData.heightCoefficient;
             property real spd: speedDisplayMode ? RuntimeData.speed / 3.6 : RuntimeData.speed;
             label_text: Number(spd).toFixed(1);
             label_color: UX.textWhite;
-            label_text_size: 24;
+            label_text_size: 24 * RuntimeData.heightCoefficient;
             label_text_family: fontExtraBold.name; label_text_bold: true;
             label_textAlignment: Text.AlignHCenter;
             frame_radius: 2;                    frame_width: 0;
@@ -526,21 +527,22 @@ Rectangle {
         Rectangle
         {
             id: speedTooltipFrame;
-            width: 50;
-            height: 22;
+            width: 50 * RuntimeData.widthCoefficient;
+            height: 22 * RuntimeData.heightCoefficient;
             color: UX.primaryDark;
             radius: 6;
             anchors.horizontalCenter: speedFrame.horizontalCenter;
-            anchors.top: speedLabel.bottom; anchors.topMargin: 3;
+            anchors.top: speedLabel.bottom; anchors.topMargin: 3 * RuntimeData.heightCoefficient;
             Labels.FramedLabel
             {
                 id: speedTooltipLabel;
                 anchors.centerIn: parent;
 
-                fixed_width: 50;    fixed_height: 17;
+                fixed_width: 50 * RuntimeData.widthCoefficient;
+                fixed_height: 17 * RuntimeData.heightCoefficient;
                 label_text: speedDisplayMode ? "М/С" : "КМ/Ч";
                 label_color: UX.textWhite;
-                label_text_size: 14;
+                label_text_size: 14 * RuntimeData.heightCoefficient;
                 label_text_family: fontExtraBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignHCenter;
                 frame_radius: 2;                    frame_width: 0;

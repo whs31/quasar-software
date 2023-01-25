@@ -20,11 +20,10 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     
     // ux and tiles must be called before ui initialization
     UXManager::initialize(this, CacheManager::getSettingsPath());
-    TilesManager::initialize(   );
+    TilesManager::initialize();
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
-    // get resolution for some ui rescaling and start new log in debug
-    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
+    // new session in log
     Debug::NewSession();
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
@@ -44,6 +43,14 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
+
+    // get resolution for some ui rescaling and start new log in debug
+    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
+    qDebug() << "Using screen resolution of current monitor: " << screenResolution.width() << "x" << screenResolution.height();
+    RuntimeData::initialize()->setWidthCoefficient((float)screenResolution.width() / 1366);
+    RuntimeData::initialize()->setHeightCoefficient((float)screenResolution.height() / 768);
+    qDebug() << "Recalculated coefficients for GUI: " << RuntimeData::initialize()->getWidthCoefficient() << ", "
+             << RuntimeData::initialize()->getHeightCoefficient();
     
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
@@ -334,10 +341,7 @@ void CoreUI::SettingsSlot()
 
 void CoreUI::InfoSlot()
 {
-    //AboutDialog aboutDialog(this, PROJECT_VERSION);
-    //aboutDialog.exec();
-
-    RuntimeData::initialize()->setInfoWindow(true);
+    RuntimeData::initialize()->setInfoWindow(!RuntimeData::initialize()->getInfoWindow());
 }
 void CoreUI::EmulatorSlot()    
 { 
@@ -534,6 +538,7 @@ void CoreUI::disconnectSlot()
     Disconnected();
     Debug::Log("?[REMOTE] All remotes disconnected.");
 }
+
 void CoreUI::FormSingleImage()
 {
     QString request = MessageParser::makeFormRequest(RuntimeData::initialize()->getFormMode(), RuntimeData::initialize()->getFormLowerBound(),

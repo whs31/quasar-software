@@ -44,6 +44,6 @@ int main(int argc, char *argv[]) {
     qInstallMessageHandler(debugLogger);
     CoreUI window;
     window.show();
-    //window.showFullScreen();
+    window.showFullScreen();
     return app.exec();
 }

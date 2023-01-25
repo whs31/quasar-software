@@ -78,7 +78,6 @@ else()
         misc/debug.h                                        misc/debug.cpp
         misc/profiler.h                                     misc/profiler.cpp
         misc/json-backup.qrc                                src/map-resources.qrc                                          src/qml.qrc
-        gui/aboutdialog.h                                   gui/aboutdialog.cpp                                            gui/aboutdialog.ui
         gui/passworddialog.h                                gui/passworddialog.cpp                                         gui/passworddialog.ui
         gui/markerdialog.h                                  gui/markerdialog.cpp                                           gui/markerdialog.ui
         gui/applicationheader.h                             gui/applicationheader.cpp

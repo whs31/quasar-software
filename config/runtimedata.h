@@ -84,12 +84,17 @@ class RuntimeData : public QObject
     // переменные карты и списков
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
 
-    // состояния дочерних "окон" на карте
+    // динамический рескейлинг интерфейса
+    Q_PROPERTY(qreal widthCoefficient               READ getWidthCoefficient    WRITE setWidthCoefficient    NOTIFY widthCoefficientChanged)
+    Q_PROPERTY(qreal heightCoefficient              READ getHeightCoefficient   WRITE setHeightCoefficient   NOTIFY heightCoefficientChanged)
+
+    // состояния дочерних "окон" на карте и всё, что к ним относится
     Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
     Q_PROPERTY(bool settingsWindow                  READ getSettingsWindow      WRITE setSettingsWindow      NOTIFY settingsWindowChanged)
     Q_PROPERTY(bool markerWindow                    READ getMarkerWindow        WRITE setMarkerWindow        NOTIFY markerWindowChanged)
     Q_PROPERTY(bool passwordWindow                  READ getPasswordWindow      WRITE setPasswordWindow      NOTIFY passwordWindowChanged)
     Q_PROPERTY(bool choiceWindow                    READ getChoiceWindow        WRITE setChoiceWindow        NOTIFY choiceWindowChanged)
+    Q_PROPERTY(QString enteredPassword              READ getEnteredPassword     WRITE setEnteredPassword     NOTIFY enteredPasswordChanged)
     
     QML_ELEMENT
     
@@ -159,11 +164,15 @@ public:
 
     int getTotalImageCount() const;                                     void setTotalImageCount(int value);
 
+    qreal getWidthCoefficient() const;                                  void setWidthCoefficient(qreal value);
+    qreal getHeightCoefficient() const;                                 void setHeightCoefficient(qreal value);
+
     bool getInfoWindow() const;                                         void setInfoWindow(bool state);
     bool getSettingsWindow() const;                                     void setSettingsWindow(bool state);
     bool getMarkerWindow() const;                                       void setMarkerWindow(bool state);
     bool getPasswordWindow() const;                                     void setPasswordWindow(bool state);
     bool getChoiceWindow() const;                                       void setChoiceWindow(bool state);
+    QString getEnteredPassword() const;                                 void setEnteredPassword(QString string);
 
     void autocapture(void);
 
@@ -226,11 +235,15 @@ signals:
 
     void totalImageCountChanged();
 
+    void widthCoefficientChanged();
+    void heightCoefficientChanged();
+
     void infoWindowChanged();
     void settingsWindowChanged();
     void markerWindowChanged();
     void passwordWindowChanged();
     void choiceWindowChanged();
+    void enteredPasswordChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -322,6 +335,12 @@ private:
         int totalImages = 0;
     }; MapVariables mapVariables;
 
+    struct DynamicRescaling
+    {
+        qreal widthK = 1;
+        qreal heightK = 1;
+    }; DynamicRescaling dynamicRescaling;
+
     struct WindowStates
     {
         bool info = false;
@@ -329,6 +348,7 @@ private:
         bool marker = false;
         bool password = false;
         bool choice = false;
+        QString enteredPassword = "";
     }; WindowStates windowStates;
 };
 

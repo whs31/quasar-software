@@ -13,11 +13,11 @@ import UX 1.0
 Rectangle {
     id: base;
     color: UX.textWhite;
-    width: 280;
-    height: 160;
+    width: 280 * RuntimeData.widthCoefficient;
+    height: 160 * RuntimeData.heightCoefficient ;
     opacity: 1;
     radius: 6;
-    border.width: 2;
+    border.width: 2 * RuntimeData.heightCoefficient;
     border.color: UX.textFaded;
     clip: true;
     Rectangle
@@ -37,14 +37,15 @@ Rectangle {
             border.color: UX.textWhite;
             anchors.bottom: parent.verticalCenter;
             anchors.top: parent.top;
-            anchors.topMargin: -100;
+            anchors.topMargin: -100 * RuntimeData.heightCoefficient;
             anchors.left: parent.left;
-            anchors.leftMargin: -50;
+            anchors.leftMargin: -50 * RuntimeData.widthCoefficient;
             anchors.right: parent.right;
-            anchors.rightMargin: -50;
+            anchors.rightMargin: -50 * RuntimeData.widthCoefficient;
             anchors.margins: 2;
             anchors.bottomMargin: -90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
-            Image { id: scaleTop; opacity: 0.9; width: 34; height: 180; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+            Image { id: scaleTop; opacity: 0.9; width: 34 * RuntimeData.widthCoefficient;
+                    height: 180 * RuntimeData.heightCoefficient; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.bottom: parent.bottom; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
         Rectangle
@@ -55,15 +56,16 @@ Rectangle {
             border.color: UX.textWhite;
             anchors.top: parent.verticalCenter;
             anchors.bottom: parent.bottom;
-            anchors.bottomMargin: -100;
+            anchors.bottomMargin: -100 * RuntimeData.heightCoefficient;
             anchors.left: parent.left;
-            anchors.leftMargin: -50;
+            anchors.leftMargin: -50 * RuntimeData.widthCoefficient;
             anchors.right: parent.right;
-            anchors.rightMargin: -50;
+            anchors.rightMargin: -50 * RuntimeData.widthCoefficient;
             anchors.margins: 2;
             anchors.topMargin: 90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
             //clip: true;
-            Image { id: scaleBottom; opacity: 0.9; width: 34; height: 180; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+            Image { id: scaleBottom; opacity: 0.9; width: 34 * RuntimeData.widthCoefficient;
+                    height: 180 * RuntimeData.heightCoefficient; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
     }

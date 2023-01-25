@@ -192,6 +192,14 @@ int RuntimeData::getTotalImageCount() const { return mapVariables.totalImages; }
 void RuntimeData::setTotalImageCount(int value) { if (mapVariables.totalImages == value) return;
 mapVariables.totalImages = value; emit totalImageCountChanged(); }
 
+qreal RuntimeData::getWidthCoefficient() const { return dynamicRescaling.widthK; }
+void RuntimeData::setWidthCoefficient(qreal value) { if (dynamicRescaling.widthK == value) return;
+dynamicRescaling.widthK = value; emit widthCoefficientChanged(); }
+
+qreal RuntimeData::getHeightCoefficient() const { return dynamicRescaling.heightK; }
+void RuntimeData::setHeightCoefficient(qreal value) { if (dynamicRescaling.heightK == value) return;
+dynamicRescaling.heightK = value; emit heightCoefficientChanged(); }
+
 bool RuntimeData::getInfoWindow() const { return windowStates.info; }
 void RuntimeData::setInfoWindow(bool state) { if (windowStates.info == state) return;
 windowStates.info = state; emit infoWindowChanged(); }
@@ -211,6 +219,10 @@ windowStates.password = state; emit passwordWindowChanged(); }
 bool RuntimeData::getChoiceWindow() const { return windowStates.choice; }
 void RuntimeData::setChoiceWindow(bool state) { if (windowStates.choice == state) return;
 windowStates.choice = state; emit choiceWindowChanged(); }
+
+QString RuntimeData::getEnteredPassword() const { return windowStates.enteredPassword; }
+void RuntimeData::setEnteredPassword(QString string) { if (windowStates.enteredPassword == string) return;
+windowStates.enteredPassword = string; emit enteredPasswordChanged(); }
 
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

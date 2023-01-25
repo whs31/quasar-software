@@ -12,6 +12,7 @@
 #include <QRect>
 #include <QScopedPointer>
 #include <QSet>
+#include <QDesktopWidget>
 
 //qml types
 #include "backend/fmousekeyhandler.h"
@@ -24,7 +25,6 @@
 #include "smath.h"
 
 #include "settingsdialog.h"
-#include "aboutdialog.h"
 #include "passworddialog.h"
 
 #include "style.h"
@@ -57,6 +57,7 @@ class CoreUI : public QMainWindow
 public:
     CoreUI(QWidget *parent = nullptr);
     ~CoreUI();
+
     //static public methods
     static CoreUI* getDebugPointer(void);
     static QRect screenResolution;

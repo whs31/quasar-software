@@ -4,6 +4,7 @@ import RuntimeData 1.0
 import Config 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
+import DynamicResolution 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -487,8 +488,8 @@ Rectangle {
     Rectangle
     {
         id: attitudeFrame;
-        width: 288 * RuntimeData.widthCoefficient;
-        height: 168 * RuntimeData.heightCoefficient;
+        width: 288 * DynamicResolution.kw;
+        height: 168 * DynamicResolution.kh;
         color: UX.primaryDark;
         radius: 5;
         anchors.left: parent.left;
@@ -502,8 +503,8 @@ Rectangle {
     Rectangle
     {
         id: speedFrame;
-        width: 100 * RuntimeData.widthCoefficient;
-        height: 31 * RuntimeData.heightCoefficient;
+        width: 100 * DynamicResolution.kw;
+        height: 31 * DynamicResolution.kh;
         color: UX.primaryDark;
         radius: 12;
         anchors.verticalCenter: attitudeFrame.top;
@@ -514,12 +515,12 @@ Rectangle {
             anchors.verticalCenter: speedFrame.verticalCenter;
             anchors.horizontalCenter: speedFrame.horizontalCenter;
 
-            fixed_width: 137 * RuntimeData.widthCoefficient;
-            fixed_height: 17 * RuntimeData.heightCoefficient;
+            fixed_width: 137 * DynamicResolution.kw;
+            fixed_height: 17 * DynamicResolution.kh;
             property real spd: speedDisplayMode ? RuntimeData.speed / 3.6 : RuntimeData.speed;
             label_text: Number(spd).toFixed(1);
             label_color: UX.textWhite;
-            label_text_size: 24 * RuntimeData.heightCoefficient;
+            label_text_size: 24 * DynamicResolution.kh;
             label_text_family: fontExtraBold.name; label_text_bold: true;
             label_textAlignment: Text.AlignHCenter;
             frame_radius: 2;                    frame_width: 0;
@@ -527,22 +528,22 @@ Rectangle {
         Rectangle
         {
             id: speedTooltipFrame;
-            width: 50 * RuntimeData.widthCoefficient;
-            height: 22 * RuntimeData.heightCoefficient;
+            width: 50 * DynamicResolution.kw;
+            height: 22 * DynamicResolution.kh;
             color: UX.primaryDark;
             radius: 6;
             anchors.horizontalCenter: speedFrame.horizontalCenter;
-            anchors.top: speedLabel.bottom; anchors.topMargin: 3 * RuntimeData.heightCoefficient;
+            anchors.top: speedLabel.bottom; anchors.topMargin: 3 * DynamicResolution.kh;
             Labels.FramedLabel
             {
                 id: speedTooltipLabel;
                 anchors.centerIn: parent;
 
-                fixed_width: 50 * RuntimeData.widthCoefficient;
-                fixed_height: 17 * RuntimeData.heightCoefficient;
+                fixed_width: 50 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: speedDisplayMode ? "М/С" : "КМ/Ч";
                 label_color: UX.textWhite;
-                label_text_size: 14 * RuntimeData.heightCoefficient;
+                label_text_size: 14 * DynamicResolution.kh;
                 label_text_family: fontExtraBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignHCenter;
                 frame_radius: 2;                    frame_width: 0;

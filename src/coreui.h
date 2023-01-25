@@ -24,6 +24,7 @@
 #include "messageparser.h"
 #include "smath.h"
 
+#include "dynamicresolution.h"
 #include "settingsdialog.h"
 #include "passworddialog.h"
 
@@ -93,6 +94,7 @@ private:
     QQuickItem* qml;
     FlightEmulator* flightEmulator;
     PluginHostAPI *HostAPI;
+    DynamicResolution* dynamicResolutionInstance;
 
     //timers
     QTimer *timer;

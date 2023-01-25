@@ -192,14 +192,6 @@ int RuntimeData::getTotalImageCount() const { return mapVariables.totalImages; }
 void RuntimeData::setTotalImageCount(int value) { if (mapVariables.totalImages == value) return;
 mapVariables.totalImages = value; emit totalImageCountChanged(); }
 
-qreal RuntimeData::getWidthCoefficient() const { return dynamicRescaling.widthK; }
-void RuntimeData::setWidthCoefficient(qreal value) { if (dynamicRescaling.widthK == value) return;
-dynamicRescaling.widthK = value; emit widthCoefficientChanged(); }
-
-qreal RuntimeData::getHeightCoefficient() const { return dynamicRescaling.heightK; }
-void RuntimeData::setHeightCoefficient(qreal value) { if (dynamicRescaling.heightK == value) return;
-dynamicRescaling.heightK = value; emit heightCoefficientChanged(); }
-
 bool RuntimeData::getInfoWindow() const { return windowStates.info; }
 void RuntimeData::setInfoWindow(bool state) { if (windowStates.info == state) return;
 windowStates.info = state; emit infoWindowChanged(); }

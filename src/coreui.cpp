@@ -45,12 +45,14 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
 
     // get resolution for some ui rescaling and start new log in debug
+    dynamicResolutionInstance = new DynamicResolution(this);
     screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
+    qmlRegisterSingletonInstance<DynamicResolution>("DynamicResolution", 1, 0, "DynamicResolution", dynamicResolutionInstance);
     qDebug() << "Using screen resolution of current monitor: " << screenResolution.width() << "x" << screenResolution.height();
-    RuntimeData::initialize()->setWidthCoefficient((float)screenResolution.width() / 1366);
-    RuntimeData::initialize()->setHeightCoefficient((float)screenResolution.height() / 768);
-    qDebug() << "Recalculated coefficients for GUI: " << RuntimeData::initialize()->getWidthCoefficient() << ", "
-             << RuntimeData::initialize()->getHeightCoefficient();
+    dynamicResolutionInstance->setWidthCoefficient((float)screenResolution.width() / 1366);
+    dynamicResolutionInstance->setHeightCoefficient((float)screenResolution.height() / 768);
+    qDebug() << "Recalculated coefficients for GUI: " << dynamicResolutionInstance->getWidthCoefficient() << ", "
+             << dynamicResolutionInstance->getHeightCoefficient();
     
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));

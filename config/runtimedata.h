@@ -38,6 +38,7 @@ class RuntimeData : public QObject
 
     // настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane         NOTIFY followPlaneChanged)
+    Q_PROPERTY(bool drawGrid                        READ getDrawGrid            WRITE setDrawGrid            NOTIFY drawGridChanged)
     Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip         NOTIFY drawTooltipChanged)
     Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute           NOTIFY drawRouteChanged)
     Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict         NOTIFY drawPredictChanged)
@@ -107,6 +108,7 @@ public:
     qreal getThrottle();                                                void setThrottle(qreal value);
 
     bool getFollowPlane();                                              void setFollowPlane(bool state);
+    bool getDrawGrid();                                                 void setDrawGrid(bool state);
     bool getDrawTooltip();                                              void setDrawTooltip(bool state);
     bool getDrawRoute();                                                void setDrawRoute(bool state);
     bool getDrawPredict();                                              void setDrawPredict(bool state);
@@ -164,6 +166,7 @@ signals:
     void throttleChanged();
 
     void followPlaneChanged();
+    void drawGridChanged();
     void drawTooltipChanged();
     void drawRouteChanged();
     void drawPredictChanged();
@@ -237,6 +240,7 @@ private:
 
     struct MapSettings{
         bool followPlane = false;
+        bool drawGrid = true;
         bool drawTooltip = true;
         bool drawRoute = true;
         bool drawPredict = true;

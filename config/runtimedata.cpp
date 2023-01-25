@@ -60,6 +60,10 @@ bool RuntimeData::getFollowPlane() { return mapSettings.followPlane; }
 void RuntimeData::setFollowPlane(bool state) { if (state == mapSettings.followPlane) return; 
 mapSettings.followPlane = state; emit followPlaneChanged(); }
 
+bool RuntimeData::getDrawGrid() { return mapSettings.drawGrid; }
+void RuntimeData::setDrawGrid(bool state) { if (state == mapSettings.drawGrid) return;
+mapSettings.drawGrid = state; emit drawGridChanged(); } 
+
 bool RuntimeData::getDrawTooltip() { return mapSettings.drawTooltip; }
 void RuntimeData::setDrawTooltip(bool state) { if (state == mapSettings.drawTooltip) return;
 mapSettings.drawTooltip = state; emit drawTooltipChanged(); } 

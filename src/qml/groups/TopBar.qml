@@ -483,7 +483,7 @@ Rectangle {
         anchors.left: rulerButton.left;
         anchors.top: parent.bottom; anchors.topMargin: -2;
 
-        fixed_width: 220;       fixed_height: 17;           fixed_drop: 17*7;
+        fixed_width: 220;       fixed_height: 17;           fixed_drop: 17*8;
         label_text: "ПАРАМЕТРЫ КАРТЫ";
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontMedium.name; label_text_bold: true;
@@ -508,9 +508,23 @@ Rectangle {
             }
             Checkboxes.LightCheckbox
             {
-                id: cursorCoordsCheckbox;
+                id: drawGridCheckbox;
                 fixed_width: 220;               fixed_height: 17;
                 anchors.top: followPlaneCheckbox.bottom;
+                label_text: "ОТОБРАЖАТЬ СЕТКУ НА КАРТЕ";
+                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_text_family: fontMedium.name;
+                label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                contrast_color: UX.textWhite;
+                highlight_color: UX.infoLight;
+                checked: true;
+                onCheckedChanged: { RuntimeData.drawGrid = checked; }
+            }
+            Checkboxes.LightCheckbox
+            {
+                id: cursorCoordsCheckbox;
+                fixed_width: 220;               fixed_height: 17;
+                anchors.top: drawGridCheckbox.bottom;
                 label_text: "КООРДИНАТЫ КУРСОРА";
                 label_color: UX.primaryDarker;  label_text_size: 12;
                 label_text_family: fontMedium.name;
@@ -571,7 +585,7 @@ Rectangle {
                 label_color: UX.primaryDarker;  label_text_size: 12;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-                highlight_color: UX.textFaded;
+                highlight_color: UX.errorDark;
                 frame_radius: 0;                frame_width: 1;
                 frame_enabled: false;
                 onClicked: {

@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/75864292/214577982-8cc4f0b0-45d5-4241-a21e-a9359ffddc04.png)
+![](https://user-images.githubusercontent.com/75864292/214578294-d61baa7b-40a4-406e-b308-fbd2110c4db6.png)
 
 ### Графический интерфейс для РЛС "Квазар"
 

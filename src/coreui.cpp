@@ -161,6 +161,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         HostAPI = new PluginHostAPI;
         QObject* runtimeData = RuntimeData::initialize();
         HostAPI->addData("Host.runtimeData", (void*) runtimeData, sizeof(runtimeData));
+        HostAPI->parseConfig(SConfig::get(), "appconfig/config2.ini");
         // Отсюда начинается процедура добавления плагина
         // Тут можно значения из конфига передавать для автозагрузки
         QString postfix;
@@ -172,7 +173,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
             Debug::Log("!![PLUGIN] Your operating system is not supported.");
         #endif
         QString terminalPath = CacheManager::getPluginsCache()+"/terminal" + postfix;
-        PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath); qCritical()<<terminalPath;
+        PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath);
         if(!terminalInterface){
            plugins.terminalLoaded = false;
            Debug::Log("![PLUGIN] Failed to load terminal plugin. Check your directory (app-plugins).");
@@ -232,7 +233,7 @@ void* CoreUI::LoadPlugin(QString path)
         delete pluginLoader;
         return nullptr;
     }
-    PluginInterface *pluginInterface = qobject_cast<PluginInterface *>(plugin);
+    PluginInterface *pluginInterface = qobject_cast<PluginInterface*>(plugin);
     pluginInterface->Init(this, (QObject*)SConfig::get(), HostAPI);
     return pluginInterface;
 }

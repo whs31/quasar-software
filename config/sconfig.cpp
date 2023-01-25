@@ -52,10 +52,9 @@ void SConfig::loadSettings()
     Debug::Log("?[CONFIG] Main config loaded.");
 
     // plugin config
-    m_pluginConfig.insert("Terminal/font_family", "monospace");
-    m_pluginConfig.insert("Terminal/rect_color", ThemeManager::get()->getPrimaryDarker());
-    m_pluginConfig.insert("Terminal/font_color", ThemeManager::get()->getTextWhite());
-    m_pluginConfig.insert("Terminal/cursor_color", ThemeManager::get()->getTextColored());
+    config->setValue("Terminal/rect_color", ThemeManager::get()->getPrimaryDarker());
+    config->setValue("Terminal/font_color", ThemeManager::get()->getTextWhite());
+    config->setValue("Terminal/cursor_color", ThemeManager::get()->getTextColored());
 
     Debug::Log("?[CONFIG] Plugin config loaded.");
 }
@@ -218,13 +217,3 @@ m_previousSessionLongitude = value; emit previousSessionLongitudeChanged(); }
 QString SConfig::getDefaultCatalogue() { return m_defaultCatalogue; }
 void SConfig::setDefaultCatalogue(QString string) { if (string == m_defaultCatalogue) return;
 m_defaultCatalogue = string; emit defaultCatalogueChanged(); }
-
-
-
-quint32 SConfig::getFont_Size() { return m_font_size; }
-void SConfig::setFont_Size(quint32 value) { if (value == m_font_size) return;
-m_font_size = value; emit font_sizeChanged(); }
-QString SConfig::getFont_Family() { return "monospace"; }
-QColor SConfig::getRect_Color() { return ThemeManager::get()->getPrimaryDarker(); }
-QColor SConfig::getFont_Color() { return ThemeManager::get()->getTextWhite(); }
-QColor SConfig::getCursor_Color() { return ThemeManager::get()->getTextColored(); }

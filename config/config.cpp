@@ -35,6 +35,14 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     image["angle_theta_azimuth_correction"] = "5.0";
     image["view_mode_default_directory"] = "C:/";
     checkValuesSimple(image);
+
+    group_t Terminal;
+    Terminal["font_size"] = "11";
+    Terminal["font_family"] = "monospace";
+    Terminal["rect_color"] = "#FFFFFF";
+    Terminal["font_color"] = "#FFFFFF";
+    Terminal["cursor_color"] = "#FFFFFF";
+    checkValuesSimple(Terminal);
 }
 
 void Config::checkValues(QString group, group_t *list){

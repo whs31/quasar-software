@@ -657,6 +657,12 @@ Rectangle {
             label_textAlignment: Text.AlignLeft;
         }
     }
+    Windows.InfoWindow
+    {
+        id: infoWindow;
+        anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+    }
+
     Connections {
 
     }

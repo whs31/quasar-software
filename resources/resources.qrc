@@ -61,5 +61,8 @@
         <file>icons/animated/gif_disconnected.gif</file>
         <file>logo/full-logo.png</file>
         <file>logo/full-logo_shadow.png</file>
+        <file>logo/gitlab.png</file>
+        <file>logo/radar-mms.png</file>
+        <file>logo/radar-mms_white.png</file>
     </qresource>
 </RCC>

@@ -334,8 +334,8 @@ void CoreUI::SettingsSlot()
 
 void CoreUI::InfoSlot()
 {
-    AboutDialog aboutDialog(this, PROJECT_VERSION);
-    aboutDialog.exec();
+    //AboutDialog aboutDialog(this, PROJECT_VERSION);
+    //aboutDialog.exec();
 
     RuntimeData::initialize()->setInfoWindow(true);
 }

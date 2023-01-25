@@ -332,7 +332,13 @@ void CoreUI::SettingsSlot()
     }
 }
 
-void CoreUI::InfoSlot()        { AboutDialog aboutDialog(this, PROJECT_VERSION); aboutDialog.exec(); }
+void CoreUI::InfoSlot()
+{
+    AboutDialog aboutDialog(this, PROJECT_VERSION);
+    aboutDialog.exec();
+
+    RuntimeData::initialize()->setInfoWindow(true);
+}
 void CoreUI::EmulatorSlot()    
 { 
     RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 

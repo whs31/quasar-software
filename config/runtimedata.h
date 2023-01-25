@@ -85,10 +85,11 @@ class RuntimeData : public QObject
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
 
     // состояния дочерних "окон" на карте
-    //Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
-    //Q_PROPERTY(bool settingsWindow                  READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
-    //Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
-    
+    Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
+    Q_PROPERTY(bool settingsWindow                  READ getSettingsWindow      WRITE setSettingsWindow      NOTIFY settingsWindowChanged)
+    Q_PROPERTY(bool markerWindow                    READ getMarkerWindow        WRITE setMarkerWindow        NOTIFY markerWindowChanged)
+    Q_PROPERTY(bool passwordWindow                  READ getPasswordWindow      WRITE setPasswordWindow      NOTIFY passwordWindowChanged)
+    Q_PROPERTY(bool choiceWindow                    READ getChoiceWindow        WRITE setChoiceWindow        NOTIFY choiceWindowChanged)
     
     QML_ELEMENT
     
@@ -158,6 +159,12 @@ public:
 
     int getTotalImageCount() const;                                     void setTotalImageCount(int value);
 
+    bool getInfoWindow() const;                                         void setInfoWindow(bool state);
+    bool getSettingsWindow() const;                                     void setSettingsWindow(bool state);
+    bool getMarkerWindow() const;                                       void setMarkerWindow(bool state);
+    bool getPasswordWindow() const;                                     void setPasswordWindow(bool state);
+    bool getChoiceWindow() const;                                       void setChoiceWindow(bool state);
+
     void autocapture(void);
 
 signals:
@@ -218,6 +225,12 @@ signals:
     void totalDiskSpaceChanged();
 
     void totalImageCountChanged();
+
+    void infoWindowChanged();
+    void settingsWindowChanged();
+    void markerWindowChanged();
+    void passwordWindowChanged();
+    void choiceWindowChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -308,6 +321,15 @@ private:
     {
         int totalImages = 0;
     }; MapVariables mapVariables;
+
+    struct WindowStates
+    {
+        bool info = false;
+        bool settings = false;
+        bool marker = false;
+        bool password = false;
+        bool choice = false;
+    }; WindowStates windowStates;
 };
 
 #endif // RUNTIMEDATA_H

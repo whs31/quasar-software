@@ -22,6 +22,7 @@ class SConfig : public QObject
     
     // general
     Q_PROPERTY(QString sudoPassword               READ getSudoPassword              WRITE setSudoPassword             NOTIFY sudoPasswordChanged)
+    Q_PROPERTY(QString projectVersion             READ getProjectVersion            WRITE setProjectVersion           NOTIFY projectVersionChanged)
     Q_PROPERTY(bool enableDebugConsole            READ getDebugConsole              WRITE setDebugConsole             NOTIFY debugConsoleChanged)
     
     // network
@@ -57,6 +58,7 @@ public:
     //                 ==> GET ==>                //                 //                  <== SET <==                   //
     //==============================================                 ====================================================
     QString getSudoPassword();                                       void setSudoPassword(QString string);    
+    QString getProjectVersion();                                     void setProjectVersion(QString string);
     bool getDebugConsole();                                          void setDebugConsole(bool state);
     QString getNetworkType();                                        void setNetworkType(QString string);
     QString getDE10IP();                                             void setDE10IP(QString string);
@@ -91,6 +93,7 @@ signals:
     //                                          =!= NOTIFY =!=                                            //
     //======================================================================================================
     void sudoPasswordChanged();
+    void projectVersionChanged();
     void debugConsoleChanged();
 
     void networkTypeChanged();
@@ -129,6 +132,7 @@ private:
     QHash<QString, QVariant> m_pluginConfig;
 
     QString m_sudoPassword;
+    QString m_projectVersion;
     bool m_debugConsole;
     QString m_networkType;
     QString m_de10IP;

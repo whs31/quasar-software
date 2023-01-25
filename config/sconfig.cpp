@@ -9,7 +9,10 @@ SConfig::SConfig(QObject* parent) : QObject{parent}
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
     jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
-    Debug::Log("?[SCONFIG] QuaSAR-UI build version: "+config->value("utility/version").toString());   
+    setProjectVersion(PROJECT_VERSION);
+
+    Debug::Log("?[SCONFIG] QuaSAR-UI build version: " + getProjectVersion());
+
 
     SConfig::loadSettings();
 }
@@ -133,6 +136,10 @@ void SConfig::discardSettings()
 QString SConfig::getSudoPassword() { return m_sudoPassword; }
 void SConfig::setSudoPassword(QString string) { if (string == m_sudoPassword) return;
 m_sudoPassword = string; emit sudoPasswordChanged(); }
+
+QString SConfig::getProjectVersion() { return m_projectVersion; }
+void SConfig::setProjectVersion(QString string) { if (string == m_projectVersion) return;
+m_projectVersion = string; emit projectVersionChanged(); }
 
 bool SConfig::getDebugConsole() { return m_debugConsole; }
 void SConfig::setDebugConsole(bool state) { if (state == m_debugConsole) return;

@@ -240,7 +240,7 @@ private:
 
     struct MapSettings{
         bool followPlane = false;
-        bool drawGrid = true;
+        bool drawGrid = false;
         bool drawTooltip = true;
         bool drawRoute = true;
         bool drawPredict = true;

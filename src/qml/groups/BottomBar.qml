@@ -1,6 +1,7 @@
 import QtQuick 2.12
 import UX 1.0
 import RuntimeData 1.0
+import Config 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
 import "qrc:/qml/ui/buttons" as Buttons
@@ -52,6 +53,7 @@ Rectangle {
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
         frame_width: 1; frame_radius: 1;
+        enabled: Config.onlineMaps;
         onClicked: { mapView.activeMapType = mapView.supportedMapTypes[5]; }
     }
     Buttons.ImageButton
@@ -64,6 +66,7 @@ Rectangle {
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
         frame_width: 1; frame_radius: 1;
+        enabled: Config.onlineMaps;
         onClicked: { mapView.activeMapType = mapView.supportedMapTypes[1]; }
     }
     Buttons.ImageButton
@@ -76,6 +79,7 @@ Rectangle {
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
         frame_width: 1; frame_radius: 1;
+        enabled: Config.onlineMaps;
         onClicked: { mapView.activeMapType = mapView.supportedMapTypes[4]; }
     }
     Labels.FramedLabel

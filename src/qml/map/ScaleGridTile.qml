@@ -6,8 +6,8 @@ Item {
     property int cell_size: 128;
 
     id: tile;
-    width: cell_size;
-    height: cell_size;
+    width: cell_size * 0.94;
+    height: cell_size * 0.87;
 
     Rectangle
     {
@@ -15,7 +15,7 @@ Item {
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.top: parent.top;
-        anchors.topMargin: cell_size / 4;
+        anchors.topMargin: tile.height / 4;
         height: 1.5;
         color: color_highlight;
     }
@@ -25,7 +25,7 @@ Item {
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
         anchors.left: parent.left;
-        anchors.leftMargin: cell_size / 4;
+        anchors.leftMargin: tile.width / 4;
         width: 1.5;
         color: color_highlight;
     }
@@ -35,7 +35,7 @@ Item {
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
-        anchors.bottomMargin: cell_size / 4;
+        anchors.bottomMargin: tile.height / 4;
         height: 1;
         color: color_main;
     }
@@ -45,7 +45,7 @@ Item {
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
-        anchors.rightMargin: cell_size / 4;
+        anchors.rightMargin: tile.width / 4;
         width: 1;
         color: color_main;
     }

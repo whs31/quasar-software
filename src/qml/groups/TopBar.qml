@@ -517,7 +517,7 @@ Rectangle {
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
                 highlight_color: UX.infoLight;
-                checked: true;
+                checked: false;
                 onCheckedChanged: { RuntimeData.drawGrid = checked; }
             }
             Checkboxes.LightCheckbox

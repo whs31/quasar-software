@@ -16,6 +16,10 @@ qreal SMath::mercatorZoomLevel(qreal dx, qreal latitude)
     }
     return log(2, 156543.03392 * qCos(latitude * M_PI / 180) / dx);
 }
+qreal SMath::zoomLevelToDistance(qreal zoomLevel, qreal latitude)
+{
+    return qPow(2, 28.8659 - zoomLevel + log(2, qCos(M_PI * latitude / 180)));
+}
 qreal SMath::log(qreal base, qreal exponent) { return (qLn(exponent) / qLn(base)); }
 qreal SMath::degreesToRadians(qreal degrees) { return (qDegreesToRadians(degrees)); }
 qreal SMath::radiansToDegrees(qreal radians) { return (qRadiansToDegrees(radians)); }

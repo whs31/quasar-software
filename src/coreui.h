@@ -17,6 +17,7 @@
 #include "backend/fmousekeyhandler.h"
 #include "backend/recallhandler.h"
 #include "backend/flightprediction.h"
+#include "backend/scalegridbackend.h"
 
 #include "udpremote.h"
 #include "messageparser.h"

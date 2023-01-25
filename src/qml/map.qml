@@ -90,7 +90,7 @@ Rectangle {
     //called right after awake
     function start()
     {
-        topBar.z_level = mapView.zoomLevel;
+        RuntimeData.currentZoomLevel = mapView.zoomLevel;
     }
 
     function qmlBackendStart()

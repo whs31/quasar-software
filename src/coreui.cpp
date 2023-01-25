@@ -43,6 +43,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
+    qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
     
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));

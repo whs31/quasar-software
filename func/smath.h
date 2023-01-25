@@ -18,6 +18,7 @@ public:
     Q_INVOKABLE static qreal metersToDegrees(qreal meters);
 
     Q_INVOKABLE static qreal mercatorZoomLevel(qreal dx, qreal latitude);
+    Q_INVOKABLE static qreal zoomLevelToDistance(qreal zoomLevel, qreal latitude = 0);
 
     Q_INVOKABLE static qreal log(qreal base, qreal exponent);
     Q_INVOKABLE static qreal degreesToRadians(qreal degrees);

@@ -21,6 +21,7 @@
    <string notr="true">QDialog {
   background-color: #132623;
 }
+background-color: #132623;
 
 QDockWidget {
   outline: 1px solid #204040;
@@ -493,6 +494,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget {
+background-color: #132623;
  color: #dae1e5
 }
 
@@ -580,6 +582,7 @@ QLineEdit:selected {
        </property>
        <property name="styleSheet">
         <string notr="true">QWidget {
+background-color: #132623;
  color: #dae1e5
 }
 
@@ -687,7 +690,7 @@ QDialogButtonBox QPushButton {
      </property>
      <property name="styleSheet">
       <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
+  color: #132623;
   background-color: #132623;
 }
 
@@ -718,7 +721,7 @@ QAbstractScrollArea:disabled {
         <x>0</x>
         <y>0</y>
         <width>248</width>
-        <height>39</height>
+        <height>62</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
@@ -797,7 +800,8 @@ QAbstractScrollArea:disabled {
   padding: 2px;
   margin-top: 6px;
   margin-bottom: 4px;
-  color: #Bebebf
+  color: #Bebebf;
+  background-color: #132623;
 }
 
 QGroupBox::title {
@@ -859,6 +863,7 @@ QGroupBox::indicator:checked:disabled {
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget {
+background-color: #132623;
  color: #dae1e5
 }
 
@@ -936,6 +941,7 @@ QLineEdit:selected {
         </property>
         <property name="styleSheet">
          <string notr="true">QWidget {
+background-color: #132623;
  color: #dae1e5
 }
 

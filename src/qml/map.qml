@@ -609,7 +609,7 @@ Rectangle {
         {
             id: grid;
             anchors.centerIn: parent;
-            opacity: RuntimeData.drawGrid ? 0.7 : 0;
+            opacity: RuntimeData.drawGrid ? 0.5 : 0;
         }
 
         DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;

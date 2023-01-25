@@ -16,7 +16,6 @@ Rectangle {
     id: base;
     height: 70;
     color: UX.primaryDark;
-    property alias z_level: zoomSlider.slider_value;
     
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
@@ -656,7 +655,7 @@ Rectangle {
         slider_fromvalue: 2;
         slider_tovalue: 18;
         slider_horizontal: true;
-        slider_value: 2;
+        slider_value: RuntimeData.currentZoomLevel;
         onMoved: { mapView.zoomLevel = slider_value; }
     }
     Buttons.LightToolButton

@@ -36,6 +36,10 @@ void RuntimeData::setAzimuthalDirection(qreal value) { m_azimuthalDirection = va
 qreal RuntimeData::getFlatDirection() { return m_flatDirection; }
 void RuntimeData::setFlatDirection(qreal value) { m_flatDirection = value; } 
 
+qreal RuntimeData::getCurrentZoomLevel() { return m_currentZoomLevel; }
+void RuntimeData::setCurrentZoomLevel(qreal value) { if (value == m_currentZoomLevel) return;
+m_currentZoomLevel = value; emit currentZoomLevelChanged(); }
+
 qreal RuntimeData::getPitch() { return aircraftAxes.pitch; }
 void RuntimeData::setPitch(qreal value) { if (value == aircraftAxes.pitch) return;
 aircraftAxes.pitch = value; emit pitchChanged(); }
@@ -54,11 +58,11 @@ aircraftAxes.throttle = value; emit throttleChanged(); }
 
 bool RuntimeData::getFollowPlane() { return mapSettings.followPlane; }
 void RuntimeData::setFollowPlane(bool state) { if (state == mapSettings.followPlane) return; 
-mapSettings.followPlane = state; }
+mapSettings.followPlane = state; emit followPlaneChanged(); }
 
 bool RuntimeData::getDrawTooltip() { return mapSettings.drawTooltip; }
 void RuntimeData::setDrawTooltip(bool state) { if (state == mapSettings.drawTooltip) return;
-mapSettings.drawTooltip = state; } //TODO: чзх где сигнал
+mapSettings.drawTooltip = state; emit drawTooltipChanged(); } 
 
 bool RuntimeData::getDrawRoute() { return mapSettings.drawRoute; }
 void RuntimeData::setDrawRoute(bool state) { if (state == mapSettings.drawRoute) return;
@@ -71,9 +75,6 @@ mapSettings.drawPredict = state; emit drawPredictChanged(); }
 bool RuntimeData::getDrawDiagram() { return mapSettings.drawDiagram; }
 void RuntimeData::setDrawDiagram(bool state) { if (state == mapSettings.drawDiagram) return;
 mapSettings.drawDiagram = state; emit drawDiagramChanged(); }
-
-bool RuntimeData::getGlobal_useOSMMaps() { return SConfig::get()->getOnlineMaps(); }
-qreal RuntimeData::getGlobal_velocityVectorLength() { return SConfig::get()->getVelocityVectorLength(); }
 
 bool RuntimeData::getEmulatorEnabled() { return m_emulatorMode; }
 void RuntimeData::setEmulatorEnabled(bool state) { if (state == m_emulatorMode) return;

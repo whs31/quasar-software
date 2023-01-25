@@ -28,6 +28,7 @@ class RuntimeData : public QObject
     // геометрия, необходимая другим классам
     Q_PROPERTY(qreal azimuthalDirection             READ getAzimuthalDirection  WRITE setAzimuthalDirection)
     Q_PROPERTY(qreal flatDirection                  READ getFlatDirection       WRITE setFlatDirection)
+    Q_PROPERTY(qreal currentZoomLevel               READ getCurrentZoomLevel    WRITE setCurrentZoomLevel    NOTIFY currentZoomLevelChanged)
 
     // значения связанных осей
     Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch               NOTIFY pitchChanged)
@@ -36,18 +37,16 @@ class RuntimeData : public QObject
     Q_PROPERTY(qreal throttle                       READ getThrottle            WRITE setThrottle            NOTIFY throttleChanged)
 
     // настройки из выпадающего меню с чекбоксами инструментов карты
-    Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane)
-    Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip)
+    Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane         NOTIFY followPlaneChanged)
+    Q_PROPERTY(bool drawTooltip                     READ getDrawTooltip         WRITE setDrawTooltip         NOTIFY drawTooltipChanged)
     Q_PROPERTY(bool drawRoute                       READ getDrawRoute           WRITE setDrawRoute           NOTIFY drawRouteChanged)
     Q_PROPERTY(bool drawPredict                     READ getDrawPredict         WRITE setDrawPredict         NOTIFY drawPredictChanged)
     Q_PROPERTY(bool drawDiagram                     READ getDrawDiagram         WRITE setDrawDiagram         NOTIFY drawDiagramChanged)
 
-    // глобальные настройки из конфига, которые требуются во фронтэнде
-    Q_PROPERTY(bool global_useOSMMaps               READ getGlobal_useOSMMaps)
-    Q_PROPERTY(qreal global_velocityVectorLength    READ getGlobal_velocityVectorLength)
+    // глобальные настройки НЕ из конфига, которые требуются во фронтэнде
     Q_PROPERTY(bool global_emulatorEnabled          READ getEmulatorEnabled     WRITE setEmulatorEnabled     NOTIFY emulatorEnabledChanged)
 
-    // сетевая информация
+    // сетевая информация 
     Q_PROPERTY(bool connected                       READ getConnected           WRITE setConnected           NOTIFY connectedChanged)
     Q_PROPERTY(QString sarIP                        READ getSARIP               WRITE setSARIP               NOTIFY SARIPChanged)
     Q_PROPERTY(QString pcIP                         READ getPCIP                WRITE setPCIP                NOTIFY PCIPChanged)
@@ -100,6 +99,7 @@ public:
 
     qreal getAzimuthalDirection();                                      void setAzimuthalDirection(qreal value);
     qreal getFlatDirection();                                           void setFlatDirection(qreal value);
+    qreal getCurrentZoomLevel();                                        void setCurrentZoomLevel(qreal value);
 
     qreal getPitch();                                                   void setPitch(qreal value);
     qreal getRoll();                                                    void setRoll(qreal value);
@@ -112,8 +112,6 @@ public:
     bool getDrawPredict();                                              void setDrawPredict(bool state);
     bool getDrawDiagram();                                              void setDrawDiagram(bool state);
 
-    bool getGlobal_useOSMMaps(); 
-    qreal getGlobal_velocityVectorLength();
     bool getEmulatorEnabled();                                          void setEmulatorEnabled(bool state);
 
     bool getConnected();                                                void setConnected(bool state);
@@ -158,11 +156,15 @@ signals:
     void seaLevelChanged();
     void satellitesChanged();
 
+    void currentZoomLevelChanged();
+
     void pitchChanged();
     void rollChanged();
     void yawChanged();
     void throttleChanged();
 
+    void followPlaneChanged();
+    void drawTooltipChanged();
     void drawRouteChanged();
     void drawPredictChanged();
     void drawDiagramChanged();
@@ -224,6 +226,7 @@ private:
 
     qreal m_azimuthalDirection = 0;
     qreal m_flatDirection = 0;
+    qreal m_currentZoomLevel = 2;
 
     struct AircraftAxes {
         qreal pitch = 0;

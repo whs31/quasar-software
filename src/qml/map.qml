@@ -19,6 +19,7 @@ import MarkerManager 1.0
 import ImageManager 1.0
 
 import RuntimeData 1.0
+import Config 1.0
 import UX 1.0
 
 import FlightPrediction 1.0
@@ -94,7 +95,7 @@ Rectangle {
 
     function qmlBackendStart()
     {
-        if(RuntimeData.global_useOSMMaps) { defaultMapModeOnTestMode = 1; } else { defaultMapModeOnTestMode = 0; }
+        if(Config.onlineMaps) { defaultMapModeOnTestMode = 1; } else { defaultMapModeOnTestMode = 0; }
         //      5 = schema      4 = hybrid      1 = satellite
     }
 
@@ -369,7 +370,9 @@ Rectangle {
 
         Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
-        onZoomLevelChanged: topBar.z_level = mapView.zoomLevel;
+        onZoomLevelChanged: {
+            RuntimeData.currentZoomLevel = mapView.zoomLevel;
+        }
 
         MapItemView
         {

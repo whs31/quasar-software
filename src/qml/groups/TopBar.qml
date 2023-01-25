@@ -778,7 +778,7 @@ Rectangle {
         anchors.right: separator4.left; anchors.rightMargin: 4;
 
         fixed_width: 42;    fixed_height: 14;
-        label_text: "?";
+        label_text: RuntimeData.totalImageCount;
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
@@ -791,7 +791,7 @@ Rectangle {
         anchors.right: separator4.left; anchors.rightMargin: 4;
 
         fixed_width: 42;    fixed_height: 14;
-        label_text: "?";
+        label_text: RuntimeData.totalAutocapCount;
         label_color: UX.textWhite;          label_text_size: 12;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;

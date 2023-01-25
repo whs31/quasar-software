@@ -176,6 +176,10 @@ bool RuntimeData::getAutocaptureEnabled() const { return autocaptureVariables.en
 void RuntimeData::setAutocaptureEnabled(bool state) { if (autocaptureVariables.enabled == state) return;
 autocaptureVariables.enabled = state; emit autocaptureEnabledChanged(); }
 
+int RuntimeData::getTotalAutocapCount() const { return autocaptureVariables.totalCount; }
+void RuntimeData::setTotalAutocapCount(int value) { if (autocaptureVariables.totalCount == value) return;
+autocaptureVariables.totalCount = value; emit totalAutocapCountChanged(); }
+
 qreal RuntimeData::getFreeDiskSpace() const { return sarCommonVariables.freeDiskSpace / (1000 * 1000); }
 void RuntimeData::setFreeDiskSpace(qreal value) { if (sarCommonVariables.freeDiskSpace == value) return;
 sarCommonVariables.freeDiskSpace = value; emit freeDiskSpaceChanged(); }
@@ -183,6 +187,10 @@ sarCommonVariables.freeDiskSpace = value; emit freeDiskSpaceChanged(); }
 qreal RuntimeData::getTotalDiskSpace() const { return sarCommonVariables.totalDiskSpace / (1000 * 1000); }
 void RuntimeData::setTotalDiskSpace(qreal value) { if (sarCommonVariables.totalDiskSpace == value) return;
 sarCommonVariables.totalDiskSpace = value; emit totalDiskSpaceChanged(); }
+
+int RuntimeData::getTotalImageCount() const { return mapVariables.totalImages; }
+void RuntimeData::setTotalImageCount(int value) { if (mapVariables.totalImages == value) return;
+mapVariables.totalImages = value; emit totalImageCountChanged(); }
 
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

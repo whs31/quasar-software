@@ -8,6 +8,7 @@
 #include "models/timage.h"
 #include "linkerqml.h"
 #include "sconfig.h"
+#include "runtimedata.h"
 
 
 class ImageManager : public QObject

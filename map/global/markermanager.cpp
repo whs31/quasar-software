@@ -31,6 +31,7 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
             if(marker->autocapture)
             {
                 RuntimeData::initialize()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
+                RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
                 Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
             } else {
                 Debug::Log("[MARKER] Created new marker with name " + marker->name);
@@ -62,6 +63,7 @@ void MarkerManager::removeMarker(qint32 index)
         if(QGeoCoordinate(markerList[index]->latitude, markerList[index]->longitude).distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
         {
             RuntimeData::initialize()->autocaptureMarks.remove(i);
+            RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
         }
         break;
     }
@@ -76,6 +78,7 @@ void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
         if(coordinate.distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
         {
             RuntimeData::initialize()->autocaptureMarks.remove(i);
+            RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
             break;
         }
     }
@@ -88,5 +91,4 @@ void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
             break;
         }
     }
-    
 }

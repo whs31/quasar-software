@@ -59,5 +59,7 @@
         <file>icons/down.png</file>
         <file>icons/animated/gif_connected.gif</file>
         <file>icons/animated/gif_disconnected.gif</file>
+        <file>logo/full-logo.png</file>
+        <file>logo/full-logo_shadow.png</file>
     </qresource>
 </RCC>

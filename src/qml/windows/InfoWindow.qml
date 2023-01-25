@@ -1,4 +1,7 @@
 import QtQuick 2.15
+import UX 1.0
+import RuntimeData 1.0
+import Config 1.0
 
 Rectangle {
     id: window;

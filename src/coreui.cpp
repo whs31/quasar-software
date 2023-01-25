@@ -171,8 +171,8 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         #else
             Debug::Log("!![PLUGIN] Your operating system is not supported.");
         #endif
-        QString terminalPath = CacheManager::getPluginsCache()+"/libTerminal" + postfix;
-        PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath);
+        QString terminalPath = CacheManager::getPluginsCache()+"/terminal" + postfix;
+        PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath); qCritical()<<terminalPath;
         if(!terminalInterface){
            plugins.terminalLoaded = false;
            Debug::Log("![PLUGIN] Failed to load terminal plugin. Check your directory (app-plugins).");
@@ -228,7 +228,7 @@ void* CoreUI::LoadPlugin(QString path)
     QPluginLoader *pluginLoader = new QPluginLoader(path);
     QObject *plugin = pluginLoader->instance();
     if(!plugin){
-        pluginLoader->unload();
+        pluginLoader->unload(); qCritical()<<pluginLoader->errorString();
         delete pluginLoader;
         return nullptr;
     }

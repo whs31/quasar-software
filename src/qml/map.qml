@@ -11,6 +11,7 @@ import "sar-image" as ImageSAR
 import "ui" as UI
 import "qrc:/qml/ui/widgets" as CustomWidgets
 import "map" as MapWidgets
+import "windows" as Windows
 
 import SMath 1.0
 import MouseKeyHandler 1.0
@@ -23,8 +24,6 @@ import Config 1.0
 import UX 1.0
 
 import FlightPrediction 1.0
-
-
 
 Rectangle {
     id: qqview

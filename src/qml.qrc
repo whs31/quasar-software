@@ -33,5 +33,6 @@
         <file>qml/ui/widgets/InlineDialog.qml</file>
         <file>qml/map/ScaleGrid.qml</file>
         <file>qml/map/ScaleGridTile.qml</file>
+        <file>qml/windows/InfoWindow.qml</file>
     </qresource>
 </RCC>

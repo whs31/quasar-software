@@ -29,7 +29,7 @@ void ScaleGridBackend::setcellType(quint8 newCellType)
 void ScaleGridBackend::recalculateGrid(void)
 {
     qreal newZoom = SMath::zoomLevelToDistance((18 - RuntimeData::initialize()->getCurrentZoomLevel()), 
-                                                RuntimeData::initialize()->getLatitude()) / (754369 * 1.02 * 0.95825);
+                                                0) / (754369 * 1.02 * 0.95825);
     
     if(RuntimeData::initialize()->getCurrentZoomLevel() >= 15.3)
     {

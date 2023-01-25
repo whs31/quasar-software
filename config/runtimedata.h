@@ -83,6 +83,11 @@ class RuntimeData : public QObject
 
     // переменные карты и списков
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
+
+    // состояния дочерних "окон" на карте
+    //Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
+    //Q_PROPERTY(bool settingsWindow                  READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
+    //Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
     
     
     QML_ELEMENT

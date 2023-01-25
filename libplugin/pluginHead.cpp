@@ -47,7 +47,7 @@ QVariant PluginHead::fromConfig(QString key){
     if(!config){
         return QVariant::Invalid;
     }
-    key.prepend("_");
+    key.prepend("/");
     key.prepend(plugin_name);
     return config->property((const char*)key.toUtf8().data());
 }

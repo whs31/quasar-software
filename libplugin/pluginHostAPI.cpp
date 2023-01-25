@@ -1,12 +1,37 @@
 #include <pluginHostAPI.h>
 #include <QMetaMethod>
 #include <QMetaObject>
+#include <QSettings>
+#include <QVariant>
 
 PluginHostAPI::PluginHostAPI()
 {
 
 }
 
+
+int PluginHostAPI::parseConfig(QObject* prop, QString path ){
+    if(!prop){
+        return -1;
+    }
+    
+    QSettings s(path, QSettings::IniFormat);
+    
+    if(!s.isWritable()){
+        return -2;
+    }
+    
+    if( !s.value("main/plugin_list").isValid() ){
+        s.setValue("main/plugin_list", "");
+    }
+    
+    QStringList keys = s.allKeys();
+    foreach (QString key, keys){
+        prop->setProperty(key.toUtf8().data(), s.value(key) );
+    }
+    
+    return 0;
+}
 
 void PluginHostAPI::addData(QString name, void* data, int size)
 {

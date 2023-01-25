@@ -45,8 +45,8 @@ windows:
     - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_SHARED_LINKER_FLAGS="-static -static-libgcc" && cmake --build .
     - mkdir -p $CI_PROJECT_TITLE/geoservices $CI_PROJECT_TITLE/imageformats $CI_PROJECT_TITLE/platforms $CI_PROJECT_TITLE/app-plugins
     - cp Quasar.exe $CI_PROJECT_TITLE
-    - cp compiled/win32/libTerminal.dll $CI_PROJECT_TITLE/app-plugins
-    - cp libplugin/plugin.dll $CI_PROJECT_TITLE
+    - cp compiled/win32/terminal.dll $CI_PROJECT_TITLE/app-plugins
+    - cp libplugin/libplugin.dll $CI_PROJECT_TITLE
     - cpwinlib iconv.dll $CI_PROJECT_TITLE
     - cpwinlib libbz2-1.dll $CI_PROJECT_TITLE
     - cpwinlib libcfitsio-3.dll $CI_PROJECT_TITLE

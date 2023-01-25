@@ -10,6 +10,7 @@ import "groups" as Groups
 import "sar-image" as ImageSAR
 import "ui" as UI
 import "qrc:/qml/ui/widgets" as CustomWidgets
+import "map" as MapWidgets
 
 import SMath 1.0
 import MouseKeyHandler 1.0
@@ -599,7 +600,15 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.textWhite; z: 100; path: [ ]; } //192.168.18.143
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.textWhite; z: 100; path: [ ]; }
+
+        MapWidgets.ScaleGrid
+        {
+            id: grid;
+//            anchors.left: parent.left;
+//            anchors.top: parent.top;
+            anchors.centerIn: parent;
+        }
 
         DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
                      samples: 32; color: "#80000000"; source: topBar; cached: true; }
@@ -610,7 +619,6 @@ Rectangle {
             anchors.left: parent.left; anchors.right: parent.right;
             z: 100;
         }
-
         DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
                      samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
         Groups.BottomBar
@@ -620,7 +628,6 @@ Rectangle {
             anchors.left: parent.left; anchors.right: parent.right;
             z: 100;
         }
-
         Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
                     anchors.bottom: bottomBar.top; }
 
@@ -647,21 +654,6 @@ Rectangle {
             frame_radius: 10;
             frame_width: 0;
             label_textAlignment: Text.AlignLeft;
-        }
-        Text {
-            id: closestACDistanceIndicator;
-            color: UX.textWhite;
-            font.capitalization: Font.MixedCase;
-            font.pixelSize: 12;
-            textFormat: Text.RichText
-            opacity: RuntimeData.autocaptureEnabled ? 1 : 0;
-            text: "Расстояние до ближайшей точки автозахвата: <b><i>" + Number(RuntimeData.autocaptureDistance / 1000).toFixed(3) + "</i></b> км";
-            horizontalAlignment: Text.AlignLeft;
-            verticalAlignment: Text.AlignVCenter;
-            anchors.horizontalCenter: parent.horizontalCenter;
-            anchors.bottom: parent.bottom;
-            anchors.margins: 23;
-            Behavior on opacity { NumberAnimation { duration: 1000; } }
         }
     }
     Connections {

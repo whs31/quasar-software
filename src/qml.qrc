@@ -31,5 +31,7 @@
         <file>qml/ui/widgets/AttitudeIndicator.qml</file>
         <file>qml/ui/widgets/FloatingTooltip.qml</file>
         <file>qml/ui/widgets/InlineDialog.qml</file>
+        <file>qml/map/ScaleGrid.qml</file>
+        <file>qml/map/ScaleGridTile.qml</file>
     </qresource>
 </RCC>

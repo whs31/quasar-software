@@ -1,5 +1,3 @@
-#FIX QGOODWINDOW
-
 cmake_minimum_required(VERSION 3.13)
 
 project(QuaSAR-UI)
@@ -50,6 +48,7 @@ else()
         map/tilesmanager.h                                  map/tilesmanager.cpp
         map/linkerqml.h                                     map/linkerqml.cpp
         map/backend/fmousekeyhandler.h                      map/backend/fmousekeyhandler.cpp
+        map/backend/scalegridbackend.h                      map/backend/scalegridbackend.cpp
         map/backend/recallhandler.h                         map/backend/recallhandler.cpp
         map/backend/flightprediction.h                      map/backend/flightprediction.cpp
         map/backend/signallinker.h                          map/backend/signallinker.cpp

@@ -2,13 +2,11 @@
 
 SConfig* SConfig::pointer = nullptr;
 Config* SConfig::config;
-JsonConfig* SConfig::jsonConfig;
 
 SConfig::SConfig(QObject* parent) : QObject{parent}
 {
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
-    jsonConfig = new JsonConfig(CacheManager::getSettingsPath() + "/config.json");
     setProjectVersion(PROJECT_VERSION);
 
     Debug::Log("?[SCONFIG] QuaSAR-UI build version: " + getProjectVersion());

@@ -133,7 +133,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     // network socket connections setup
-    connect(timer, SIGNAL(timeout()), this, SLOT(Halftime()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(TelemetryHeartbeat()));
     connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
     connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
@@ -160,7 +160,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
 
     // startup functions
-    Disconnected();
+    RuntimeData::get()->setConnected(false);
     Debug::Log("[STARTUP] Connections set up successfully");
 
     // emulator
@@ -271,8 +271,6 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 }
 
 bool CoreUI::getReady(void)             { return uiReady; }
-QQuickItem *CoreUI::getMapPointer(void) { return qml; }
-void CoreUI::Connected()                { RuntimeData::get()->setConnected(true); }
 void CoreUI::Disconnected()             { RuntimeData::get()->setConnected(false); }
 void CoreUI::updateProgress(float f)
 {
@@ -376,9 +374,9 @@ void CoreUI::ReadTelemetry(QByteArray data)
         _conckc2 = pair.second;
         linker->fixedUpdate();
         if ((short)_conckc2 != 0 || _conckc != pair.first)
-            Connected();
+            RuntimeData::get()->setConnected(true);
         else 
-            Disconnected();
+            RuntimeData::get()->setConnected(false);
         break;
     }
     case DataType::FormResponse: {
@@ -437,7 +435,8 @@ void CoreUI::ReadForm(QByteArray data)
             Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
                         + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
                         + " with checksum check " + checksumCheck);
-            RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
+            if(responseList[3] == 1)
+                RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
         }
         break;
     default: 
@@ -449,7 +448,7 @@ void CoreUI::ReadForm(QByteArray data)
 
 // вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
 // эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
-void CoreUI::Halftime()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
+void CoreUI::TelemetryHeartbeat()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
@@ -503,7 +502,7 @@ void CoreUI::SendClearCommand(void)
     Debug::Log("?[SAR] Clearing SAR storage...");
     QString request = MessageParser::makeCommand(Command::CacheClear);
             SendRemoteCommand(request, CommandType::FormCommand);
-            Debug::Log("[FORM] Sended to SAR: " + request);
+            Debug::Log("[EXECD] Sended to SAR: " + request);
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::reconnectSlot()
@@ -511,7 +510,7 @@ void CoreUI::reconnectSlot()
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
-    Disconnected();
+    RuntimeData::get()->setConnected(false);
     telemetryRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getTelemetryPort());
     if(SConfig::get()->getDE10IP().endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
             QString correctedSarIP = SConfig::get()->getDE10IP();
@@ -532,14 +531,14 @@ void CoreUI::reconnectSlot()
     Debug::Log("?[REMOTE] UDP client connected");
     QString request = MessageParser::makeCommand(Command::StorageStatus);
             SendRemoteCommand(request, CommandType::FormCommand);
-            Debug::Log("[FORM] Sended to SAR: " + request);
+            Debug::Log("[EXECD] Sended to SAR: " + request);
 }
 void CoreUI::disconnectSlot()
 {
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
-    Disconnected();
+    RuntimeData::get()->setConnected(false);
     Debug::Log("?[REMOTE] All remotes disconnected.");
 }
 
@@ -551,7 +550,7 @@ void CoreUI::FormSingleImage()
                                                      RuntimeData::get()->getFormOverrideGPSData(), RuntimeData::get()->getFormGPSHeight(),
                                                      RuntimeData::get()->getFormGPSVelocity());
     SendRemoteCommand(request, CommandType::FormCommand);
-    Debug::Log("[FORM] Sended to SAR: " + request);
+    Debug::Log("[EXECD] Sended to SAR: " + request);
     RuntimeData::get()->setFormStatus("Отправлен запрос на формирование №" +
                                                                QString::number(MessageParser::getMessageID()));
 }

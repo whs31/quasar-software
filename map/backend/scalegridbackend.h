@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include "smath.h"
-#include "runtimedata.h"
+#include "config/runtimedata.h"
 
 class ScaleGridBackend : public QObject
 {

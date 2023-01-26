@@ -8,7 +8,7 @@
 #include <cstring>
 
 #include "schecksum.h"
-#include "runtimedata.h"
+#include "config/runtimedata.h"
 #include <QPair>
 
 enum DataType : short int

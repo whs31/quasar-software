@@ -21,7 +21,6 @@ include_directories(
     network
     src
     misc
-    config
     image-processing
     map
     json
@@ -55,20 +54,18 @@ else()
         map/models/tmarker.h                                map/models/tmarker.cpp
         map/models/timage.h                                 map/models/timage.cpp
         map/global/markermanager.h                          map/global/markermanager.cpp
-        json/jsonmanager.h                                  json/jsonmanager.cpp
-        json/jsonconfig.h                                   json/jsonconfig.cpp
         network/remote.h                                    network/remote.cpp
         network/udpremote.h                                 network/udpremote.cpp
         network/tcpdownloader.h                             network/tcpdownloader.cpp
         network/messageparser.h                             network/messageparser.cpp
         src/coreui.h                                        src/coreui.cpp
-        config/config.h                                     config/config.cpp
-        config/sconfig.h                                    config/sconfig.cpp
-        config/settingsdialog.h                             config/settingsdialog.cpp                                      config/settingsdialog.ui
-        config/runtimedata.h                                config/runtimedata.cpp
-        disk/cachemanager.h                                 disk/cachemanager.cpp
-        disk/disktools.h                                    disk/disktools.cpp
-        disk/savethread.h                                   disk/savethread.cpp
+        src/config/config.h                                 src/config/config.cpp
+        src/config/sconfig.h                                src/config/sconfig.cpp
+        src/config/settingsdialog.h                         src/config/settingsdialog.cpp                                  src/config/settingsdialog.ui
+        src/config/runtimedata.h                            src/config/runtimedata.cpp
+        src/disk/cachemanager.h                             src/disk/cachemanager.cpp
+        src/disk/disktools.h                                src/disk/disktools.cpp
+        src/disk/savethread.h                               src/disk/savethread.cpp
         image-processing/imagemanager.h                     image-processing/imagemanager.cpp
         func/smath.h                                        func/smath.cpp
         func/stext.h                                        func/stext.cpp

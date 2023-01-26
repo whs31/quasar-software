@@ -2,7 +2,7 @@
 #define UDPEMULATOR_H
 
 #include <QObject>
-#include "sconfig.h"
+#include "config/sconfig.h"
 #include <QUdpSocket>
 #include "messageparser.h"
 #include <QJsonDocument>

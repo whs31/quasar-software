@@ -6,9 +6,9 @@
 #include "linkerqml.h"
 #include <QStandardPaths>
 #include <QFileDialog>
-#include "runtimedata.h"
 
-#include "sconfig.h"
+#include "config/runtimedata.h"
+#include "config/sconfig.h"
 
 class RecallHandler : public QObject
 {

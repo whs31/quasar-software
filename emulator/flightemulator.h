@@ -2,7 +2,7 @@
 #define FLIGHTEMULATOR_H
 
 #include <QObject>
-#include "runtimedata.h"
+#include "config/runtimedata.h"
 #include <QTimer>
 #include <QGeoCoordinate>
 #include "linkerqml.h"

@@ -9,9 +9,8 @@
 #include <QHash>
 #include <QVariant>
 
-#include "cachemanager.h"
+#include "disk/cachemanager.h"
 #include "config.h"
-#include "jsonconfig.h"
 
 #include "debug.h"
 #include "thememanager.h"
@@ -125,7 +124,6 @@ private:
     explicit SConfig(QObject* parent = nullptr);
     static SConfig* pointer;
     static Config* config;
-    static JsonConfig* jsonConfig;
 
     void save();
     QHash<QString, QVariant> m_pluginConfig;

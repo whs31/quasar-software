@@ -6,8 +6,8 @@
 #include <QPoint>
 #include "smath.h"
 #include <cmath>
-#include "sconfig.h"
-#include "runtimedata.h"
+#include "config/sconfig.h"
+#include "config/runtimedata.h"
 #include "global/markermanager.h"
 
 class FlightPrediction : public QObject //смысл класса прост: кумл дает на вход 2 точки - текущие и предыдущие координаты, получает все углы и точки для предиктов

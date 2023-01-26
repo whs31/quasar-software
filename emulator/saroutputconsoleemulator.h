@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QByteArray>
 #include <QUdpSocket>
-#include "sconfig.h"
+#include "config/sconfig.h"
 
 class SAROutputConsoleEmulator : public QObject
 {

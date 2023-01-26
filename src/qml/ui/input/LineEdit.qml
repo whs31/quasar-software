@@ -86,7 +86,15 @@ Rectangle {
             selectionColor: selection_color;
             onTextEdited: input_text = text;
             validator: DoubleValidator { locale: "en_EN"; bottom: lower_bound; top: upper_bound; decimals: decimal_precision; }
+            MouseArea {
+                id: cursorChanger;
+                anchors.fill: parent;
+                cursorShape: Qt.IBeamCursor;
+                onClicked: { input.forceActiveFocus(); }
+                onDoubleClicked: { input.selectAll(); }
+            }
         }
+
         Text {
             id: postfix;
             text: input_text_postfix;

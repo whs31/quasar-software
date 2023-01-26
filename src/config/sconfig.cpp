@@ -58,6 +58,11 @@ void SConfig::loadSettings()
     config->setValue("Terminal/cursor_color", ThemeManager::get()->getTextColored());
 
     Debug::Log("?[CONFIG] Plugin config loaded.");
+
+    m_previousSessionLatitude =  config->value("map/previous_session_latitude").toFloat();
+    m_previousSessionLongitude = config->value("map/previous_session_longitude").toFloat();
+    qDebug() << "Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
+    Debug::Log("?[CONFIG] Previous session restored.");
 }
 
 void SConfig::saveSettings()
@@ -212,12 +217,16 @@ void SConfig::setThetaAzimuthCorrection(float value) { if (value == m_thetaAzimu
 m_thetaAzimuthCorrection = value; emit thetaAzimuthCorrectionChanged(); }
 
 qreal SConfig::getPreviousSessionLatitude() { return m_previousSessionLatitude; }
-void SConfig::setPreviousSessionLatitude(qreal value) { if (value == m_previousSessionLatitude) return;
-m_previousSessionLatitude = value; emit previousSessionLatitudeChanged(); }
-
+void SConfig::setPreviousSessionLatitude(qreal value) { m_previousSessionLatitude = value; 
+config->setValue("map/previous_session_latitude", QString::number(value)); qInfo() << "Set session latitude to " << value;
+config->sync();
+}
+ 
 qreal SConfig::getPreviousSessionLongitude() { return m_previousSessionLongitude; }
-void SConfig::setPreviousSessionLongitude(qreal value) { if (value == m_previousSessionLongitude) return;
-m_previousSessionLongitude = value; emit previousSessionLongitudeChanged(); }
+void SConfig::setPreviousSessionLongitude(qreal value) { m_previousSessionLongitude = value; 
+config->setValue("map/previous_session_longitude", QString::number(value)); qInfo() << "Set session longitude to " << value;
+config->sync();
+}
 
 QString SConfig::getDefaultCatalogue() { return m_defaultCatalogue; }
 void SConfig::setDefaultCatalogue(QString string) { if (string == m_defaultCatalogue) return;

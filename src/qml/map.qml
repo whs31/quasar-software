@@ -33,37 +33,33 @@ Rectangle {
     //======                        ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ, ТИПЫ И КОНСТАНТЫ                           =======
     //=======================================================================================================
 
-    //types instantiation
+	// types instantiation
     SMath { id: smath; }
     MouseKeyHandler { id: mouseKeyHandler; }
     RecallHandler { id: ioHandler; }
     Predict { id: predict; }
 
-    //ux constants
-    Material.theme: Material.Dark;
-    Material.accent: UX.primaryLight;
-    Material.primary: UX.warningDark;
-    Material.background: UX.primaryDarker;
+	// ux constants
+	// deprecated
+	Material.theme: Material.Dark; Material.accent: UX.primaryLight; Material.primary: UX.warningDark; Material.background: UX.primaryDarker;
+	// fonts
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
     FontLoader { id: fontSemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
     FontLoader { id: fontBold; source: "qrc:/fonts/SofiaSans-Bold.ttf" }
     FontLoader { id: fontExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf" }
-
-    //ux settings
+	// settings
     layer.enabled: true;
     layer.samples: 4;
 
-    //defaults constants
-    property real defaultLatitude: 60.034;
-    property real defaultLongitude: 30.28136;
+	// defaults constants
     property real defaultZoom: 15.0;
     property int  defaultMapModeOnTestMode: 0;
 
     //constants related to mapItems
     property real movingThreshold: 5; //движение иконок начнется только если борт переместился более чем на 5 метров за итерацию
 
-    property var currentQtCoordinates: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
+	property var currentQtCoordinates: QtPositioning.coordinate(0, 0);
 
     //ruler
     property int r_currentstate: 0;
@@ -74,13 +70,14 @@ Rectangle {
     //======                        ОБЩИЕ ФУНКЦИИ ДЛЯ ВСЕГО QQW И ФРОНТЭНДА                           =======
     //=======================================================================================================
 
-    //called on map component initialized
+	// called on map component initialized
     function awake()
     {
         mapView.addMapItem(planeMapItem);
+		mapView.center = QtPositioning.coordinate(Config.previousSessionLatitude, Config.previousSessionLongitude);
     }
 
-    //called right after awake
+	// called right after awake
     function start()
     {
         RuntimeData.currentZoomLevel = mapView.zoomLevel;
@@ -92,8 +89,15 @@ Rectangle {
         //      5 = schema      4 = hybrid      1 = satellite
     }
 
-    //called every fixed time (0.5 s default)           
-    //call time equals to C_UPDATETIME in sconfig
+	function destructor()
+	{
+		console.warn("[QML] Called destructor.");
+		Config.previousSessionLatitude = mapView.center.latitude;
+		Config.previousSessionLongitude = mapView.center.longitude;
+	}
+
+	// called every fixed time (0.5 s default)
+	// call time equals to C_UPDATETIME in sconfig
     function fixedUpdate()
     {
         //сначала обновляем углы, потом изменяем переменную currentCoordinates. не иначе.
@@ -345,7 +349,7 @@ Rectangle {
         }
         
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
-        center: QtPositioning.coordinate(defaultLatitude, defaultLongitude);
+		center: QtPositioning.coordinate(1, 2);
         zoomLevel: defaultZoom;
         copyrightsVisible: false;
         z: 0;

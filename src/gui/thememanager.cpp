@@ -452,8 +452,7 @@ void ThemeManager::setSuccessLighter(QColor color)
     if (color == prm_darker)
         return;
     prm_darker = color;
-    emit
-    successLighterChanged();
+    emit successLighterChanged();
 }
 QColor ThemeManager::getSuccessLightest() { return scs_lightest; }
 void ThemeManager::setSuccessLightest(QColor color)

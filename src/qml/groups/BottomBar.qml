@@ -72,7 +72,7 @@ Rectangle {
         hover_color: UX.infoLight;
         frame_width: 1; frame_radius: 1;
         enabled: Config.onlineMaps;
-        onClicked: { mapView.activeMapType = mapView.supportedMapTypes[1]; }
+		onClicked: { mapView.activeMapType = mapView.supportedMapTypes[1]; }
     }
     Buttons.ImageButton
     {

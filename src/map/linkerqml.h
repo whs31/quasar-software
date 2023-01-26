@@ -15,6 +15,7 @@ public:
     static LinkerQML* initialize(QQuickItem* map = nullptr);
 
     static void fixedUpdate(void);
+    static void callDestructor(void);
     static void panGPS(void);
     static void clearRoute(void);
     static void panImage(void);

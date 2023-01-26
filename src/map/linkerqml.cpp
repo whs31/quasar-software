@@ -11,6 +11,10 @@ LinkerQML *LinkerQML::initialize(QQuickItem *map)
     _instance = new LinkerQML(); //TODO: add parent
     return _instance;
 }
+void LinkerQML::callDestructor(void)
+{
+    QMetaObject::invokeMethod(map, "destructor");
+}
 void LinkerQML::panGPS(void) { QMetaObject::invokeMethod(map, "panGPS"); }
 void LinkerQML::clearRoute(void) { QMetaObject::invokeMethod(map, "clearRoute"); }
 void LinkerQML::panImage() { QMetaObject::invokeMethod(map, "panImage"); }

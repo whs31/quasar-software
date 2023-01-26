@@ -299,7 +299,11 @@ void CoreUI::SendRemoteCommand(QString command, CommandType type)
 }
 
 void CoreUI::MinimizeSlot()     { showMinimized(); }
-void CoreUI::CloseSlot()   { QApplication::quit(); }
+void CoreUI::CloseSlot()
+{
+    LinkerQML::callDestructor();
+    QApplication::quit();
+}
 void CoreUI::SettingsSlot()
 {
     PasswordDialog passwordDialog(this, SConfig::get()->getSudoPassword());

@@ -11,7 +11,7 @@
 #include <QJsonDocument>
 #include "qcolor.h"
 
-#include "cachemanager.h"
+#include "disk/cachemanager.h"
 
 enum Colors : short int
 {

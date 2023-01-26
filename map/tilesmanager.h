@@ -7,7 +7,7 @@
 #include <QSaveFile>
 #include <QDir>
 
-#include "cachemanager.h"
+#include "disk/cachemanager.h"
 
 #include <QTextStream>
 

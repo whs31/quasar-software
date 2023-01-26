@@ -26,7 +26,6 @@ include_directories(
     json
     func
     gui
-    disk
     emulator
     resources
 )

@@ -33,7 +33,8 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     ts << txt << '\n';
     CoreUI* pointer = CoreUI::getDebugPointer();
     if(pointer->getReady())
-        pointer->debugStreamUpdate(txt, msgt);
+        if(!txt.contains("QDeclarativeGeoMap_QML_73") && !txt.contains("all providers resolved"))
+            pointer->debugStreamUpdate(txt, msgt);
 }
 
 int main(int argc, char *argv[]) {

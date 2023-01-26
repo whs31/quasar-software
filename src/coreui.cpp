@@ -13,6 +13,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // qml registration here
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
+    qmlRegisterType<SText>("SText", 1, 0, "SText");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize(this));
@@ -63,7 +64,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
     connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
     connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
-    //connect(RuntimeData::initialize(), SIGNAL(formContinuousSignal()), this, SLOT(FormContinuousImages()));
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
@@ -182,7 +182,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         #else
             Debug::Log("!![PLUGIN] Your operating system is not supported.");
         #endif
-        QString terminalPath = CacheManager::getPluginsCache()+"/terminal" + postfix;
+        QString terminalPath = CacheManager::getPluginsCache() + "/terminal" + postfix;
         PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath);
         if(!terminalInterface){
            plugins.terminalLoaded = false;
@@ -207,14 +207,14 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         plugins.terminal->setVisible(true);
         ui->sarConsole->setEnabled(false);
         ui->sarConsole->setVisible(false);
-        plugins.terminal->setStyleSheet("QFrame { \nbackground-color: #121617;\n  color: #121617;\n  border: 1px solid #121617;\n}");
     }
 
     // qss only after plugins loaded
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
 
     // execute any other startup code here
-    RuntimeData::get()->setStatusPopup("Версия программы " + SConfig::get()->getProjectVersion());
+    RuntimeData::get()->setStatusPopup("Версия программы " +
+                                        SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
 }
 
 CoreUI::~CoreUI()

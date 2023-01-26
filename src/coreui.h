@@ -23,6 +23,7 @@
 #include "udpremote.h"
 #include "messageparser.h"
 #include "smath.h"
+#include "stext.h"
 
 #include "dynamicresolution.h"
 #include "settingsdialog.h"

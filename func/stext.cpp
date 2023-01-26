@@ -20,3 +20,8 @@ QString SText::localNumeralEnding(int numeral)
     }
     return "ий";
 }
+
+QString SText::colorText(QString text, QColor color)
+{
+    return "<font color=\"" + color.name() + "\">" + text + "</font>";
+}

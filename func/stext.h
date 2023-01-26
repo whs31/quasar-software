@@ -2,6 +2,7 @@
 #define STEXT_H
 
 #include <QObject>
+#include <QColor>
 
 class SText : public QObject
 {
@@ -10,6 +11,7 @@ public:
     explicit SText(QObject *parent = nullptr);
 
     static QString localNumeralEnding(int numeral);
+    Q_INVOKABLE static QString colorText(QString text, QColor color);
 
 signals:
 

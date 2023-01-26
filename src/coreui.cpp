@@ -259,6 +259,7 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
     else if (msgtype == 2) { ui->debugConsole->setTextColor(ThemeManager::get()->getWarningLight()); }
     else if (msgtype == 3) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDark()); }
     else if (msgtype == 4) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDarker()); }
+
     QFont consoleFont = ui->debugConsole->font();
     consoleFont.setPointSize(8);
     ui->debugConsole->insertPlainText(_text);

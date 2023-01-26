@@ -334,7 +334,7 @@ Rectangle {
         anchors.left: connectedAnimation.left;
         anchors.bottom: parent.top; anchors.bottomMargin: -2 * DynamicResolution.kh;
 
-        fixed_width: 24 * DynamicResolution.kw;
+        fixed_width: 20 * DynamicResolution.kw;
         fixed_height: 17 * DynamicResolution.kh;
         fixed_drop: 17*6  * DynamicResolution.kh;
         fixed_drop_width: 300  * DynamicResolution.kw;
@@ -343,7 +343,7 @@ Rectangle {
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.primaryLight;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 3 * DynamicResolution.kw;                    frame_width: 0;
         frame_fill_color: UX.primaryDark;   frame_filled: true;
         container: Item {
             Labels.FramedLabel

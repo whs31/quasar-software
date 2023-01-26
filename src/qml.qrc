@@ -35,5 +35,6 @@
         <file>qml/map/ScaleGridTile.qml</file>
         <file>qml/windows/InfoWindow.qml</file>
         <file>qml/windows/StatusPopup.qml</file>
+        <file>qml/windows/DialogWindow.qml</file>
     </qresource>
 </RCC>

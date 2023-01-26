@@ -46,6 +46,7 @@ Rectangle {
     Buttons.ClassicButton
     {
         id: emulatorButton;
+        enabled: !applicationHeader.windowLockAlias;
         display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: parent.left;      anchors.leftMargin: 6;    
@@ -78,6 +79,7 @@ Rectangle {
     Buttons.ClassicButton
     {
         id: settingsButton;
+        enabled: !applicationHeader.windowLockAlias;
         display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: debugButton.right;      anchors.leftMargin: 6;    
@@ -94,6 +96,7 @@ Rectangle {
     Buttons.ClassicButton
     {
         id: infoButton;
+        enabled: !applicationHeader.windowLockAlias;
         display_mode: Buttons.ClassicButton.Mode.IconOnly;
         anchors.top: closeButton.top;            
         anchors.left: settingsButton.right;       

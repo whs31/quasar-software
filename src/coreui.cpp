@@ -347,6 +347,7 @@ void CoreUI::SettingsSlot()
 void CoreUI::InfoSlot()
 {
     RuntimeData::get()->setInfoWindow(!RuntimeData::get()->getInfoWindow());
+    RuntimeData::get()->setWindowLock(true);
 }
 void CoreUI::EmulatorSlot()    
 { 

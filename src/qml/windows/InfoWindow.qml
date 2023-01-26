@@ -110,6 +110,7 @@ Rectangle {
             frame_enabled: true;
             onClicked: {
                 RuntimeData.infoWindow = false;
+                RuntimeData.windowLock = false;
             }
         }
     }

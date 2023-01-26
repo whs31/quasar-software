@@ -53,6 +53,7 @@ Rectangle {
     radius: background_radius;
     width: fixed_width;
     height: fixed_height;
+    opacity: enabled ? 1 : 0.5;
 
     ColorAnimation {
             id: animation_hoverOn;

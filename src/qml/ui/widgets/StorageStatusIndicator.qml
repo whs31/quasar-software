@@ -4,6 +4,7 @@ import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/progress-bars" as ProgressBars
 import UX 1.0
 import DynamicResolution 1.0
+import RuntimeData 1.0
 
 Item {
     property real percentage: 50;
@@ -15,6 +16,7 @@ Item {
     Buttons.LightToolButton
     {
         id: clearSARCacheButton;
+        enabled: !RuntimeData.windowLock;
         anchors.bottom: parent.bottom;
         anchors.bottomMargin: 15 * DynamicResolution.kh;
         anchors.left: parent.left;

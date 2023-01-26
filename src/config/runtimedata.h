@@ -86,10 +86,10 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool settingsWindow                  READ getSettingsWindow      WRITE setSettingsWindow      NOTIFY settingsWindowChanged)
     Q_PROPERTY(bool markerWindow                    READ getMarkerWindow        WRITE setMarkerWindow        NOTIFY markerWindowChanged)
     Q_PROPERTY(bool passwordWindow                  READ getPasswordWindow      WRITE setPasswordWindow      NOTIFY passwordWindowChanged)
-    Q_PROPERTY(bool choiceWindow                    READ getChoiceWindow        WRITE setChoiceWindow        NOTIFY choiceWindowChanged)
     Q_PROPERTY(QString enteredPassword              READ getEnteredPassword     WRITE setEnteredPassword     NOTIFY enteredPasswordChanged)
     Q_PROPERTY(QString statusPopup                  READ getStatusPopup         WRITE setStatusPopup         NOTIFY statusPopupChanged)
     Q_PROPERTY(bool statusPopupTrigger              READ getStatusPopupTrigger  WRITE setStatusPopupTrigger  NOTIFY statusPopupTriggerChanged)
+    Q_PROPERTY(bool windowLock                      READ getWindowLock          WRITE setWindowLock          NOTIFY windowLockChanged)
     
     QML_ELEMENT
     
@@ -163,10 +163,10 @@ public:
     bool getSettingsWindow() const;                                     void setSettingsWindow(bool state);
     bool getMarkerWindow() const;                                       void setMarkerWindow(bool state);
     bool getPasswordWindow() const;                                     void setPasswordWindow(bool state);
-    bool getChoiceWindow() const;                                       void setChoiceWindow(bool state);
     QString getEnteredPassword() const;                                 void setEnteredPassword(QString string);
     QString getStatusPopup() const;                                     void setStatusPopup(QString string);
     bool getStatusPopupTrigger() const;                                 void setStatusPopupTrigger(bool state);
+    bool getWindowLock() const;                                         void setWindowLock(bool state);
 
     void autocapture(void);
 
@@ -235,10 +235,10 @@ signals:
     void settingsWindowChanged();
     void markerWindowChanged();
     void passwordWindowChanged();
-    void choiceWindowChanged();
     void enteredPasswordChanged();
     void statusPopupChanged();
     void statusPopupTriggerChanged();
+    void windowLockChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -337,10 +337,10 @@ private:
         bool settings = false;
         bool marker = false;
         bool password = false;
-        bool choice = false;
         QString enteredPassword = "";
         QString statusPopup = "";
         bool statusPopupTrigger = false;
+        bool windowLock = false;
     }; WindowStates windowStates;
 };
 

@@ -194,6 +194,7 @@ Rectangle {
     Buttons.LightToolButton
     {
         id: changeCatalogueButton;
+        enabled: !RuntimeData.windowLock;
         anchors.top: refreshCatalogueButton.top;
         anchors.left: refreshCatalogueButton.right;
         anchors.leftMargin: 6 * DynamicResolution.kw;
@@ -214,6 +215,7 @@ Rectangle {
     Buttons.LightToolButton
     {
         id: clearMapButton;
+        enabled: !RuntimeData.windowLock;
         anchors.top: changeCatalogueButton.top;
         anchors.left: changeCatalogueButton.right;
         anchors.leftMargin: 6 * DynamicResolution.kw;
@@ -241,6 +243,7 @@ Rectangle {
     Buttons.LightToolButton
     {
         id: clearLocalCacheButton;
+        enabled: !RuntimeData.windowLock;
         anchors.bottom: changeCatalogueButton.bottom;
         anchors.left: changeCatalogueButton.right;
         anchors.leftMargin: 6 * DynamicResolution.kw;
@@ -684,6 +687,7 @@ Rectangle {
             Buttons.LightButton
             {
                 id: clearTrackButton;
+                enabled: !RuntimeData.windowLock;
                 anchors.top: drawDiagramCheckbox.bottom;
                 fixed_width: 220 * DynamicResolution.kw;
                 fixed_height: 17 * DynamicResolution.kh;
@@ -858,6 +862,7 @@ Rectangle {
     Buttons.LightToolButton
     {
         id: markerButton;
+        enabled: !RuntimeData.windowLock;
         anchors.bottom: separator3.bottom;
         anchors.left: separator3.right;
         anchors.leftMargin: 6 * DynamicResolution.kw;

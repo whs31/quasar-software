@@ -255,6 +255,7 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: checkConnectionButton;
+        enabled: !RuntimeData.windowLock;
         fixed_width: 36 * DynamicResolution.kw;
         fixed_height: 11 * DynamicResolution.kh;
         anchors.left: connectButton.left;
@@ -277,6 +278,7 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: calibrateSeaLLevelButton;
+        enabled: !RuntimeData.windowLock;
         fixed_width: 24 * DynamicResolution.kw;
         fixed_height: 11 * DynamicResolution.kh;
         anchors.left: checkConnectionButton.right;
@@ -300,6 +302,7 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: customCommandButton;
+        enabled: !RuntimeData.windowLock;
         fixed_width: 89 * DynamicResolution.kw;
         fixed_height: 11 * DynamicResolution.kh;
         anchors.left: calibrateSeaLLevelButton.right;

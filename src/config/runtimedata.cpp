@@ -211,10 +211,6 @@ bool RuntimeData::getPasswordWindow() const { return windowStates.password; }
 void RuntimeData::setPasswordWindow(bool state) { if (windowStates.password == state) return;
 windowStates.password = state; emit passwordWindowChanged(); }
 
-bool RuntimeData::getChoiceWindow() const { return windowStates.choice; }
-void RuntimeData::setChoiceWindow(bool state) { if (windowStates.choice == state) return;
-windowStates.choice = state; emit choiceWindowChanged(); }
-
 QString RuntimeData::getEnteredPassword() const { return windowStates.enteredPassword; }
 void RuntimeData::setEnteredPassword(QString string) { if (windowStates.enteredPassword == string) return;
 windowStates.enteredPassword = string; emit enteredPasswordChanged(); }
@@ -226,6 +222,10 @@ windowStates.statusPopup = string; emit statusPopupChanged(); }
 bool RuntimeData::getStatusPopupTrigger() const { return windowStates.statusPopupTrigger; }
 void RuntimeData::setStatusPopupTrigger(bool state) { if (windowStates.statusPopupTrigger == state) return;
 windowStates.statusPopupTrigger = state; emit statusPopupTriggerChanged(); }
+
+bool RuntimeData::getWindowLock() const { return windowStates.windowLock; }
+void RuntimeData::setWindowLock(bool state) { if (windowStates.windowLock == state) return;
+windowStates.windowLock = state; emit windowLockChanged(); }
 
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

@@ -31,6 +31,7 @@ Rectangle {
     border.color: frame_enabled ? label_color : "transparent";
     width: fixed_width;
     height: fixed_height;
+    opacity: enabled ? 1 : 0.5;
 
     ColorAnimation {
         id: animation_hoverOn;

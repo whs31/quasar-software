@@ -20,7 +20,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize(this));
     
     // ux and tiles must be called before ui initialization
-    UXManager::initialize(this, CacheManager::getSettingsPath());
     TilesManager::initialize();
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
@@ -120,7 +119,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     Debug::Log("?[STARTUP] Setuping connections...");
     timer = new QTimer(this);
     udpTimeout = new QTimer(this);
-    uiTimer1 = new QTimer(this);
     LinkerQML::initialize(qml);
     connect(LinkerQML::initialize(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
     connect(LinkerQML::initialize(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
@@ -210,7 +208,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     }
 
     // qss only after plugins loaded
-    Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
+    ThemeManager::setStyleSheet();
 
     // execute any other startup code here
     RuntimeData::get()->setStatusPopup("Версия программы " +
@@ -234,7 +232,6 @@ CoreUI::~CoreUI()
     delete TilesManager::initialize();
     delete ImageManager::initialize();
     delete MarkerManager::initialize();
-    delete Style::initialize();
     Debug::Log("Session ended succesfully.");
 }
 
@@ -257,11 +254,11 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if (!uiReady)
         return;
-    if (msgtype == 0) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Text100, true)); }
-    else if (msgtype == 1) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Info200, true)); }
-    else if (msgtype == 2) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Warning100, true)); }
-    else if (msgtype == 3) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error200, true)); }
-    else if (msgtype == 4) { ui->debugConsole->setTextColor(UXManager::GetColor(Colors::Error100, true)); }
+    if (msgtype == 0) { ui->debugConsole->setTextColor(ThemeManager::get()->getTextWhite()); }
+    else if (msgtype == 1) { ui->debugConsole->setTextColor(ThemeManager::get()->getInfoLight()); }
+    else if (msgtype == 2) { ui->debugConsole->setTextColor(ThemeManager::get()->getWarningLight()); }
+    else if (msgtype == 3) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDark()); }
+    else if (msgtype == 4) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDarker()); }
     QFont consoleFont = ui->debugConsole->font();
     consoleFont.setPointSize(8);
     ui->debugConsole->insertPlainText(_text);

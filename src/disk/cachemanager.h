@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDir>
 #include <QFile>
+
 #include "disktools.h"
 
 class CacheManager : public QObject

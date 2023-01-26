@@ -17,26 +17,23 @@
 #include "config/settingsdialog.h"
 #include "config/runtimedata.h"
 
-//qml types
-#include "backend/fmousekeyhandler.h"
-#include "backend/recallhandler.h"
-#include "backend/flightprediction.h"
-#include "backend/scalegridbackend.h"
-#include "backend/signallinker.h"
-
-#include "udpremote.h"
-#include "messageparser.h"
-#include "smath.h"
-#include "stext.h"
-#include "dynamicresolution.h"
-#include "passworddialog.h"
-#include "style.h"
-#include "thememanager.h"
-#include "linkerqml.h"
-#include "tcpdownloader.h"
-#include "tilesmanager.h"
-#include "applicationheader.h"
-#include "flightemulator.h"
+#include "map/linkerqml.h"
+#include "map/tilesmanager.h"
+#include "map/backend/fmousekeyhandler.h"
+#include "map/backend/recallhandler.h"
+#include "map/backend/flightprediction.h"
+#include "map/backend/scalegridbackend.h"
+#include "map/backend/signallinker.h"
+#include "network/udpremote.h"
+#include "network/messageparser.h"
+#include "network/tcpdownloader.h"
+#include "func/smath.h"
+#include "func/stext.h"
+#include "gui/dynamicresolution.h"
+#include "gui/passworddialog.h"
+#include "gui/thememanager.h"
+#include "gui/applicationheader.h"
+#include "emulator/flightemulator.h"
 
 #include <plugin.h>
 #include <pluginHostAPI.h>
@@ -94,7 +91,6 @@ private:
     //timers
     QTimer *timer;
     QTimer *udpTimeout;
-    QTimer *uiTimer1;
 
     //global flags
     bool uiReady = false;

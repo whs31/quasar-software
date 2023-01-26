@@ -6,7 +6,7 @@
 #include <QStringList>
 #include <QFile>
 
-#include "imagemanager.h"
+#include "image-processing/imagemanager.h"
 
 class DiskTools : public QObject
 {

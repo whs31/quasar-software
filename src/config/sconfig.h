@@ -9,11 +9,11 @@
 #include <QHash>
 #include <QVariant>
 
-#include "disk/cachemanager.h"
 #include "config.h"
 
-#include "debug.h"
-#include "thememanager.h"
+#include "disk/cachemanager.h"
+#include "misc/debug.h"
+#include "gui/thememanager.h"
 
 class SConfig : public QObject
 {

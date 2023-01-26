@@ -8,6 +8,9 @@ Rectangle {
 
     property int icon_px_size: 16 * DynamicResolution.kh;
     property string icon_source: "qrc:/ui-resources/white/close.png";
+    property string tooltip_text: "Sample text";
+    property bool tooltip_enabled: false;
+    property string label_text_family: "helvetica";
 
     property color highlight_color: "#7D5233";
     property color frame_color: "#FF0000";
@@ -87,6 +90,24 @@ Rectangle {
         onEntered: { animation_hoverOn.start(); }
         onExited: { animation_hoverOff.start(); }
         onClicked: { animation_click.start(); animation_clickColorChange.start(); forceActiveFocus(); }
+    }
+    ToolTip {
+        id: m_tooltip;
+        delay: 750;
+        timeout: 5000;
+        visible: tooltip_enabled ? controlMouseArea.containsMouse : false;
+        font.capitalization: Font.AllUppercase;
+        font.pixelSize: 10;
+        contentItem: Text {
+            text: tooltip_text;
+            font: label_text_family;
+            color: "#121617";
+        }
+        background: Rectangle {
+            color: "#dae1e5";
+            radius: 10;
+            opacity: 0.75;
+        }
     }
     Component.onCompleted: {
         controlMouseArea.clicked.connect(clicked);

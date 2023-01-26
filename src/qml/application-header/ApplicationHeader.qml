@@ -22,6 +22,9 @@ Rectangle {
         background_color: "#B16573";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "Выход на рабочий стол";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.close(); }
     }
     Buttons.ClassicButton
@@ -35,6 +38,9 @@ Rectangle {
         background_color: "#293133";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "Свернуть окно";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.minimize(); }
     }
     Buttons.ClassicButton
@@ -48,6 +54,9 @@ Rectangle {
         background_color: "#293133";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "Эмулятор РЛС";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.emulator(); }
     }
     Buttons.ClassicButton
@@ -61,6 +70,9 @@ Rectangle {
         background_color: "#293133";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "Консоль отладки";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.log(); }
     }
     Buttons.ClassicButton
@@ -74,6 +86,9 @@ Rectangle {
         background_color: "#293133";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "Настройки ПО";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.settings(); }
     }
     Buttons.ClassicButton
@@ -87,6 +102,9 @@ Rectangle {
         background_color: "#293133";
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2;
+        tooltip_text: "О программе";
+        tooltip_enabled: true;
+        label_text_family: semiBold.name;
         onClicked: { applicationHeader.info(); }
     }
     Text

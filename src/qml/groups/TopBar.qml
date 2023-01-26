@@ -42,6 +42,8 @@ Rectangle {
         background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLighter;
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2 * DynamicResolution.kw;
+        tooltip_text: "Запуск формирования";
+        tooltip_enabled: true;
         onClicked: 
         { 
             if(!RuntimeData.formingContinuous) { 
@@ -144,6 +146,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/image.png";
+        tooltip_text: "Центрировать карту на последнем изображении";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: { panImage(); RuntimeData.followPlane = false; }
     }
     Buttons.LightToolButton
@@ -161,6 +166,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/gps.png";
+        tooltip_text: "Центрировать карту на БПЛА";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: { panGPS(); }
     }
     Buttons.LightToolButton
@@ -178,6 +186,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/refresh.png";
+        tooltip_text: "Обновить каталог с изображениями";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: { DiskManager.fetchDirectory(); }
     }
     Buttons.LightToolButton
@@ -195,6 +206,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/folder.png";
+        tooltip_text: "Изменить каталог изображений для просмотра";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: { ioHandler.changeDirectory(); }
     }
     Buttons.LightToolButton
@@ -212,6 +226,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/eraser.png";
+        tooltip_text: "Очистить карту";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             var verify = ioHandler.clearMap();
             if(verify) {
@@ -236,6 +253,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/trashbin.png";
+        tooltip_text: "Очистить кэш приложения";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             var verify = ioHandler.clearCache();
             if(verify) { DiskManager.clearCache(); }
@@ -696,6 +716,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/ruler.png";
+        tooltip_text: "Линейка";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             if(r_currentstate !== 0) { r_currentstate = 1;
                 clearRuler(); } else {
@@ -718,6 +741,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/protractor.png";
+        tooltip_text: "Угломер";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
         }
     }
@@ -754,6 +780,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/minus.png";
+        tooltip_text: "Уменьшить масштаб карты";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             if(mapView.zoomLevel > 2) { mapView.zoomLevel -= 0.5; }
         }
@@ -791,6 +820,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/plus.png";
+        tooltip_text: "Увеличить масштаб карты";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             if(mapView.zoomLevel < 18) { mapView.zoomLevel += 0.5; }
         }
@@ -838,6 +870,9 @@ Rectangle {
         frame_enabled: true;
         icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/marker.png";
+        tooltip_text: "Установить геометку";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             ioHandler.placeMarker();
         }

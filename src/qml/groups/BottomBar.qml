@@ -226,6 +226,8 @@ Rectangle {
         label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
         highlight_color: RuntimeData.connected ? UX.errorDark : UX.successLighter;
         frame_radius: 2;                frame_width: 1;
+        tooltip_text: "Подключение и отключение к РЛС";
+        tooltip_enabled: true;
         frame_enabled: true;
         onClicked: {
             if(RuntimeData.connected) //TODO: if button pressed and not connected in 3 seconds -> disconnect!
@@ -266,6 +268,8 @@ Rectangle {
         label_text_size: 10 * DynamicResolution.kh;
         label_text_family: fontBold.name;
         label_text_bold: false;
+        tooltip_text: "Проверка систем РЛС";
+        tooltip_enabled: true;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.warningLight;
         onClicked: { console.log("check is not yet implemented!"); }
@@ -289,6 +293,8 @@ Rectangle {
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.warningLight;
+        tooltip_text: "Калибровка высоты относительно поверхности";
+        tooltip_enabled: true;
         onClicked: { ioHandler.calibrateSeaLevel(); }
     }
     Buttons.SmallRoundButton
@@ -310,6 +316,8 @@ Rectangle {
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.warningLight;
+        tooltip_text: "Выполнить shell-команду на РЛС";
+        tooltip_enabled: true;
         onClicked: { console.log("custom command is not yet implemented (needs custom window)!"); }
     }
     AnimatedImage

@@ -10,6 +10,8 @@ Rectangle {
     property color highlight_color: "#FF0000";
     property int background_radius: 8 * DynamicResolution.kw;
 
+    property string tooltip_text: "Sample tooltip";
+    property bool tooltip_enabled: false;
     property string label_text: "Sample text";
     property color label_color: "#de3857";
     property int label_text_size: 12 * DynamicResolution.kh;
@@ -89,6 +91,24 @@ Rectangle {
         onEntered: { animation_hoverOn.start(); }
         onExited: { animation_hoverOff.start(); }
         onClicked: { animation_click.start(); animation_clickColorChange.start(); forceActiveFocus(); }
+    }
+    ToolTip {
+        id: m_tooltip;
+        delay: 750;
+        timeout: 5000;
+        visible: tooltip_enabled ? controlMouseArea.containsMouse : false;
+        font.capitalization: Font.AllUppercase;
+        font.pixelSize: 10;
+        contentItem: Text {
+            text: tooltip_text;
+            font: label_text_family;
+            color: "#121617";
+        }
+        background: Rectangle {
+            color: "#dae1e5";
+            radius: 10;
+            opacity: 0.75;
+        }
     }
     Component.onCompleted: {
         controlMouseArea.clicked.connect(clicked);

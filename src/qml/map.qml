@@ -19,6 +19,7 @@ import RecallHandler 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 
+import DynamicResolution 1.0
 import RuntimeData 1.0
 import Config 1.0
 import UX 1.0
@@ -37,13 +38,6 @@ Rectangle {
     MouseKeyHandler { id: mouseKeyHandler; }
     RecallHandler { id: ioHandler; }
     Predict { id: predict; }
-    
-
-    Timer { interval: 16; running: true; repeat: true; onTriggered: { update(); } }
-    property bool bottomPanning: false;
-    property bool topPanning: false;
-    property bool leftPanning: false;
-    property bool rightPanning: false;
 
     //ux constants
     Material.theme: Material.Dark;
@@ -108,15 +102,6 @@ Rectangle {
 
         drawRoute();
         if(RuntimeData.followPlane) panGPS(); 
-    }
-
-    //called 60 times per second (enable Timer ^^^^)
-    function update()
-    {
-        if(bottomPanning) { mapView.pan(0, 2); }
-        if(topPanning) { mapView.pan(0, -2); }
-        if(leftPanning) { mapView.pan(-2, 0); }
-        if(rightPanning) { mapView.pan(2, 0); }
     }
 
     function updateAngles()
@@ -652,7 +637,7 @@ Rectangle {
             label_text_size: 12;
             label_text_family: fontBold.name;
             label_text_bold: true;
-            frame_radius: 10;
+            frame_radius: 10 * DynamicResolution.kh;
             frame_width: 0;
             label_textAlignment: Text.AlignLeft;
         }

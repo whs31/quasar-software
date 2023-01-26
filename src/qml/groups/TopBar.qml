@@ -463,6 +463,7 @@ Rectangle {
                             fixed_width: 186 * DynamicResolution.kw;
                             fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: manualGPSCheckbox.bottom;
+                            anchors.topMargin: DynamicResolution.kh;
                             label_text: "ВЫСОТА : ";
                             label_color: UX.primaryDarker;
                             label_text_size: 12 * DynamicResolution.kh;

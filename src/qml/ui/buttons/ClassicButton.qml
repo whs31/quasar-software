@@ -19,7 +19,6 @@
 
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import DynamicResolution 1.0
 
 Rectangle {
     enum Mode {
@@ -29,21 +28,21 @@ Rectangle {
     }
 
     property int display_mode: ClassicButton.Mode.IconAndLabel;
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_width: 100;
+    property int fixed_height: 25;
 
-    property int icon_px_size: 16 * DynamicResolution.kw;
+    property int icon_px_size: 16;
     property string icon_source: "qrc:/ui-resources/white/close.png";
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12 * DynamicResolution.kh;
+    property int label_text_size: 12;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
 
     property color background_color: "#701828";
     property color background_secondary_color: "#7D5233"; 
-    property int background_radius: 8 * DynamicResolution.kw;
+    property int background_radius: 8;
 
     signal clicked();
 
@@ -120,10 +119,10 @@ Rectangle {
             font.family: label_text_family;
             font.bold: label_text_bold;
             color: label_color;
-            opacity: enabled ? 1.0 : 0.3
+            opacity: enabled ? 1.0 : 0.3;
             verticalAlignment: Text.AlignVCenter;
             anchors.left: ico.right;
-            anchors.leftMargin: 3 * DynamicResolution.kw;
+            anchors.leftMargin: 3;
             anchors.verticalCenter: parent.verticalCenter;
         }
     }

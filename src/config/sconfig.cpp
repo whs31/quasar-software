@@ -61,6 +61,7 @@ void SConfig::loadSettings()
 
     m_previousSessionLatitude =  config->value("map/previous_session_latitude").toFloat();
     m_previousSessionLongitude = config->value("map/previous_session_longitude").toFloat();
+    m_previousSessionZoom = config->value("map/previous_session_zoom").toFloat();
     qDebug() << "Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
     Debug::Log("?[CONFIG] Previous session restored.");
 }
@@ -225,6 +226,12 @@ config->sync();
 qreal SConfig::getPreviousSessionLongitude() { return m_previousSessionLongitude; }
 void SConfig::setPreviousSessionLongitude(qreal value) { m_previousSessionLongitude = value; 
 config->setValue("map/previous_session_longitude", QString::number(value)); qInfo() << "Set session longitude to " << value;
+config->sync();
+}
+
+qreal SConfig::getPreviousSessionZoom() { return m_previousSessionZoom; }
+void SConfig::setPreviousSessionZoom(qreal value) { m_previousSessionZoom = value; 
+config->setValue("map/previous_session_zoom", QString::number(value)); qInfo() << "Set session zoom to " << value;
 config->sync();
 }
 

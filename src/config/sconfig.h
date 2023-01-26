@@ -40,8 +40,9 @@ class SConfig : public QObject
     Q_PROPERTY(float velocityVectorLength         READ getVelocityVectorLength      WRITE setVelocityVectorLength     NOTIFY velocityVectorLengthChanged)
     Q_PROPERTY(QString antennaPosition            READ getAntennaPosition           WRITE setAntennaPosition          NOTIFY antennaPositionChanged)
     Q_PROPERTY(float diagramThetaAzimuth          READ getDiagramThetaAzimuth       WRITE setDiagramThetaAzimuth      NOTIFY diagramThetaAzimuthChanged)
-    Q_PROPERTY(qreal previousSessionLatitude      READ getPreviousSessionLatitude   WRITE setPreviousSessionLatitude  NOTIFY previousSessionLatitudeChanged)
-    Q_PROPERTY(qreal previousSessionLongitude     READ getPreviousSessionLongitude  WRITE setPreviousSessionLongitude NOTIFY previousSessionLongitudeChanged)
+    Q_PROPERTY(qreal previousSessionLatitude      READ getPreviousSessionLatitude   WRITE setPreviousSessionLatitude)
+    Q_PROPERTY(qreal previousSessionLongitude     READ getPreviousSessionLongitude  WRITE setPreviousSessionLongitude)
+    Q_PROPERTY(qreal previousSessionZoom          READ getPreviousSessionZoom       WRITE setPreviousSessionZoom)
     
     // image
     Q_PROPERTY(float angleCorrection              READ getAngleCorrection           WRITE setAngleCorrection          NOTIFY angleCorrectionChanged)
@@ -81,6 +82,7 @@ public:
     QString getDefaultCatalogue();                                   void setDefaultCatalogue(QString string);    
     qreal getPreviousSessionLatitude();                              void setPreviousSessionLatitude(qreal value);
     qreal getPreviousSessionLongitude();                             void setPreviousSessionLongitude(qreal value);
+    qreal getPreviousSessionZoom();                                  void setPreviousSessionZoom(qreal value);
 
     void loadSettings(void);                                       
     void saveSettings(void);                                       
@@ -116,9 +118,6 @@ signals:
     void thetaAzimuthCorrectionChanged();
     void defaultCatalogueChanged();
 
-    void previousSessionLatitudeChanged();
-    void previousSessionLongitudeChanged();
-
 
 private:
     explicit SConfig(QObject* parent = nullptr);
@@ -150,6 +149,7 @@ private:
     float m_thetaAzimuthCorrection;
     qreal m_previousSessionLatitude;
     qreal m_previousSessionLongitude;
+    qreal m_previousSessionZoom;
     QString m_defaultCatalogue;
 };
 

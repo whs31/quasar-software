@@ -26,6 +26,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     map["diagram_theta_azimuth"] = "20";
     map["previous_session_latitude"] = "60";
     map["previous_session_longitude"] = "30";
+    map["previous_session_zoom"] = "15";
     checkValuesSimple(map);
 
     group_t image;

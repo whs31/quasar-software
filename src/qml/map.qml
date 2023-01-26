@@ -53,7 +53,6 @@ Rectangle {
     layer.samples: 4;
 
 	// defaults constants
-    property real defaultZoom: 15.0;
     property int  defaultMapModeOnTestMode: 0;
 
     //constants related to mapItems
@@ -75,6 +74,7 @@ Rectangle {
     {
         mapView.addMapItem(planeMapItem);
 		mapView.center = QtPositioning.coordinate(Config.previousSessionLatitude, Config.previousSessionLongitude);
+		mapView.zoomLevel = Config.previousSessionZoom;
     }
 
 	// called right after awake
@@ -94,6 +94,7 @@ Rectangle {
 		console.warn("[QML] Called destructor.");
 		Config.previousSessionLatitude = mapView.center.latitude;
 		Config.previousSessionLongitude = mapView.center.longitude;
+		Config.previousSessionZoom = mapView.zoomLevel;
 	}
 
 	// called every fixed time (0.5 s default)
@@ -349,14 +350,14 @@ Rectangle {
         }
         
         activeMapType: mapView.supportedMapTypes[defaultMapModeOnTestMode]
-		center: QtPositioning.coordinate(1, 2);
-        zoomLevel: defaultZoom;
+		center: QtPositioning.coordinate(60, 30);
+		zoomLevel: 5;
         copyrightsVisible: false;
         z: 0;
 
         Component.onCompleted: { awake(); start(); }
 
-        Behavior on center { CoordinateAnimation { duration: 1000; easing.type: Easing.Linear } }
+		Behavior on center { CoordinateAnimation { duration: 500; easing.type: Easing.Linear } }
         Behavior on zoomLevel { NumberAnimation { duration: 100 } }
         onZoomLevelChanged: {
             RuntimeData.currentZoomLevel = mapView.zoomLevel;

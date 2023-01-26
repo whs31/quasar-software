@@ -12,14 +12,10 @@ void FMouseKeyHandler::setMouseState(qint16 state) { if(_mouseState == state) re
 
 void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 {
-    QMessageBox notifyAboutCopy;
-    notifyAboutCopy.setWindowTitle("Координаты скопированы");
-    notifyAboutCopy.setIcon(QMessageBox::Information);
-    notifyAboutCopy.setText("Координаты скопированы в буфер обмена!");
-    notifyAboutCopy.setStandardButtons(QMessageBox::Yes);
-    notifyAboutCopy.setDefaultButton(QMessageBox::Yes);
-    notifyAboutCopy.exec();
-    clipboard->setText("широта: " + QString::number(latitude) + ", долгота: " + QString::number(longitude));
+    RuntimeData::get()->setStatusPopup("Координаты скопированы в " +
+                                        SText::colorText("буфер обмена!", ThemeManager::get()->getWarningLight()));
+    RuntimeData::get()->setStatusPopupTrigger(true);
+    clipboard->setText("Широта: " + QString::number(latitude) + ", Долгота: " + QString::number(longitude));
 }
 
 void FMouseKeyHandler::placeMarker(qreal latitude, qreal longitude)

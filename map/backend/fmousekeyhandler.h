@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include "global/markermanager.h"
 #include "runtimedata.h"
+#include "stext.h"
 
 class FMouseKeyHandler : public QObject
 {

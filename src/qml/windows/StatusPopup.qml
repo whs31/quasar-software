@@ -3,6 +3,7 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import DynamicResolution 1.0
+import RuntimeData 1.0
 
 Item {
     property string status: "EmptyStatustext";
@@ -25,9 +26,13 @@ Item {
         anchors.centerIn: parent;
         verticalAlignment: Text.AlignVCenter
         Behavior on opacity { NumberAnimation { duration: 300; } }
-        onTextChanged: {
-            statusText.opacity = 1;
-            timer.restart();
+        property bool trigger: RuntimeData.statusPopupTrigger;
+        onTriggerChanged: {
+            if(trigger)
+            {
+                statusText.opacity = 1;
+                timer.restart();
+            }
         }
         Timer {
             id: timer;
@@ -36,6 +41,7 @@ Item {
             repeat: false;
             onTriggered: {
                 statusText.opacity = 0;
+                RuntimeData.statusPopupTrigger = false;
             }
         }
     }

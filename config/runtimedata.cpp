@@ -220,5 +220,9 @@ QString RuntimeData::getStatusPopup() const { return windowStates.statusPopup; }
 void RuntimeData::setStatusPopup(QString string) { if (windowStates.statusPopup == string) return;
 windowStates.statusPopup = string; emit statusPopupChanged(); }
 
+bool RuntimeData::getStatusPopupTrigger() const { return windowStates.statusPopupTrigger; }
+void RuntimeData::setStatusPopupTrigger(bool state) { if (windowStates.statusPopupTrigger == state) return;
+windowStates.statusPopupTrigger = state; emit statusPopupTriggerChanged(); }
+
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

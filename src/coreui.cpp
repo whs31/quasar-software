@@ -215,6 +215,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // execute any other startup code here
     RuntimeData::get()->setStatusPopup("Версия программы " +
                                         SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
+    RuntimeData::get()->setStatusPopupTrigger(true);
 }
 
 CoreUI::~CoreUI()

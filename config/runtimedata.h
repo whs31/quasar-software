@@ -92,6 +92,7 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool choiceWindow                    READ getChoiceWindow        WRITE setChoiceWindow        NOTIFY choiceWindowChanged)
     Q_PROPERTY(QString enteredPassword              READ getEnteredPassword     WRITE setEnteredPassword     NOTIFY enteredPasswordChanged)
     Q_PROPERTY(QString statusPopup                  READ getStatusPopup         WRITE setStatusPopup         NOTIFY statusPopupChanged)
+    Q_PROPERTY(bool statusPopupTrigger              READ getStatusPopupTrigger  WRITE setStatusPopupTrigger  NOTIFY statusPopupTriggerChanged)
     
     QML_ELEMENT
     
@@ -168,6 +169,7 @@ public:
     bool getChoiceWindow() const;                                       void setChoiceWindow(bool state);
     QString getEnteredPassword() const;                                 void setEnteredPassword(QString string);
     QString getStatusPopup() const;                                     void setStatusPopup(QString string);
+    bool getStatusPopupTrigger() const;                                 void setStatusPopupTrigger(bool state);
 
     void autocapture(void);
 
@@ -237,6 +239,7 @@ signals:
     void choiceWindowChanged();
     void enteredPasswordChanged();
     void statusPopupChanged();
+    void statusPopupTriggerChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -337,6 +340,7 @@ private:
         bool choice = false;
         QString enteredPassword = "";
         QString statusPopup = "";
+        bool statusPopupTrigger = false;
     }; WindowStates windowStates;
 };
 

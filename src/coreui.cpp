@@ -493,6 +493,7 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { DiskTools::fetchDirectory(); pressedKeys.clear(); }
             if(pressedKeys.contains(Qt::Key_Space)) { FormSingleImage(); pressedKeys.clear();}
         }
+        if(pressedKeys.contains(Qt::Key_Escape)) { RuntimeData::get()->closeAllWindows(); }
         return 1;
     }
     else if ( event->type() == QEvent::KeyRelease ) { pressedKeys -= (static_cast<QKeyEvent*>(event))->key(); return 1; }

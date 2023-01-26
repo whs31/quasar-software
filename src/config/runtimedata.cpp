@@ -4,6 +4,16 @@ RuntimeData *RuntimeData::_instance = nullptr;
 RuntimeData *RuntimeData::get(QObject *parent) { if (_instance != NULL) return _instance;
 _instance = new RuntimeData(parent); return _instance; }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
+void RuntimeData::closeAllWindows(void)
+{
+    setWindowLock(false);
+    setInfoWindow(false);
+    setSettingsWindow(false);
+    setMarkerWindow(false);
+    setPasswordWindow(false);
+    //also choice window must be closed somehow
+}
+
 
 quint8 RuntimeData::getMouseState() const { return m_mouseState; }
 void RuntimeData::setMouseState(quint8 state) { if (m_mouseState == state) return;

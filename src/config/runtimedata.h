@@ -97,6 +97,7 @@ public:
     static RuntimeData* get(QObject* parent = nullptr);
     QVector<QGeoCoordinate> autocaptureMarks;
     void clearSARDisk(void);
+    void closeAllWindows(void);
 
     //==============================================                 ====================================================
     //                 ==> GET ==>                                                        <== SET <==

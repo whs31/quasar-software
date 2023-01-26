@@ -2,7 +2,7 @@
 
 RuntimeData *RuntimeData::_instance = nullptr;
 short int RuntimeData::mouseState = MouseState::Blank;
-RuntimeData *RuntimeData::initialize(QObject *parent) { if (_instance != NULL) return _instance;
+RuntimeData *RuntimeData::get(QObject *parent) { if (_instance != NULL) return _instance;
 _instance = new RuntimeData(parent); return _instance; }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
 
@@ -215,6 +215,10 @@ windowStates.choice = state; emit choiceWindowChanged(); }
 QString RuntimeData::getEnteredPassword() const { return windowStates.enteredPassword; }
 void RuntimeData::setEnteredPassword(QString string) { if (windowStates.enteredPassword == string) return;
 windowStates.enteredPassword = string; emit enteredPasswordChanged(); }
+
+QString RuntimeData::getStatusPopup() const { return windowStates.statusPopup; }
+void RuntimeData::setStatusPopup(QString string) { if (windowStates.statusPopup == string) return;
+windowStates.statusPopup = string; emit statusPopupChanged(); }
 
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

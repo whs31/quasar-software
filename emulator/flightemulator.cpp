@@ -13,9 +13,9 @@ FlightEmulator::FlightEmulator(QObject *parent)
 void FlightEmulator::Update(void)
 {
     changeVelocity();
-    calculateVelocities(RuntimeData::initialize()->getFlatDirection(), RuntimeData::initialize()->getSpeed());
+    calculateVelocities(RuntimeData::get()->getFlatDirection(), RuntimeData::get()->getSpeed());
     moveByVelocity();
-    udpEmulator->emulatorTelemetry.elevation = (RuntimeData::initialize()->getElevation() + RuntimeData::initialize()->getPitch() / 10);
+    udpEmulator->emulatorTelemetry.elevation = (RuntimeData::get()->getElevation() + RuntimeData::get()->getPitch() / 10);
     //qDebug()<<RuntimeData::initialize()->getElevation() << RuntimeData::initialize()->getSeaLevel();
 
     LinkerQML::fixedUpdate();
@@ -23,8 +23,8 @@ void FlightEmulator::Update(void)
 
 void FlightEmulator::changeVelocity(void)
 {
-    float velocity = RuntimeData::initialize()->getSpeed();
-    float th = (float)RuntimeData::initialize()->getThrottle();
+    float velocity = RuntimeData::get()->getSpeed();
+    float th = (float)RuntimeData::get()->getThrottle();
 
     if(velocity > 10 * th - 10)
     {
@@ -44,25 +44,25 @@ void FlightEmulator::changeVelocity(void)
 
 void FlightEmulator::calculateVelocities(float azimuth, float velocity)
 {
-    float yaw = RuntimeData::initialize()->getYaw() / 90;
+    float yaw = RuntimeData::get()->getYaw() / 90;
     float correction = qAbs(2 * qCos(qDegreesToRadians(azimuth))) + 1;
-    float roll = RuntimeData::initialize()->getRoll() / 40;
+    float roll = RuntimeData::get()->getRoll() / 40;
     velocity_lat = velocity * qCos(qDegreesToRadians(azimuth + yaw * 6 * correction + roll));
     velocity_lon = velocity * qSin(qDegreesToRadians(azimuth + yaw * 6 * correction + roll));
 }
 
 void FlightEmulator::moveByVelocity(void)
 {
-    udpEmulator->emulatorTelemetry.latitude = (RuntimeData::initialize()->getLatitude() + SMath::metersToDegrees(velocity_lat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
-    udpEmulator->emulatorTelemetry.longitude = (RuntimeData::initialize()->getLongitude() + SMath::metersToDegrees(velocity_lon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.latitude = (RuntimeData::get()->getLatitude() + SMath::metersToDegrees(velocity_lat * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
+    udpEmulator->emulatorTelemetry.longitude = (RuntimeData::get()->getLongitude() + SMath::metersToDegrees(velocity_lon * 0.001 * DEFAULT_UPDATE_PERIOD / 3.6));
 }
 
 void FlightEmulator::startEmulator(void)
 {
     udpEmulator = new UDPEmulator(this);
     LinkerQML::startFlightEmulator();
-    RuntimeData::initialize()->setLatitude(DEFAULT_COORDINATE.latitude());
-    RuntimeData::initialize()->setLongitude(DEFAULT_COORDINATE.longitude());
+    RuntimeData::get()->setLatitude(DEFAULT_COORDINATE.latitude());
+    RuntimeData::get()->setLongitude(DEFAULT_COORDINATE.longitude());
     udpEmulator->emulatorTelemetry.latitude = DEFAULT_COORDINATE.latitude();
     udpEmulator->emulatorTelemetry.longitude = DEFAULT_COORDINATE.longitude();
     udpEmulator->emulatorTelemetry.speed = DEFAULT_SPEED;
@@ -79,24 +79,24 @@ void FlightEmulator::stopEmulator(void)
 
 void FlightEmulator::throttleChange(int value)
 {
-    qreal throttle = RuntimeData::initialize()->getThrottle() + value;
+    qreal throttle = RuntimeData::get()->getThrottle() + value;
     if(throttle > 100 || throttle < 0)
         return;
-    RuntimeData::initialize()->setThrottle(throttle);
+    RuntimeData::get()->setThrottle(throttle);
 }
 
 void FlightEmulator::yawChange(int value)
 {
-    qreal yaw = RuntimeData::initialize()->getYaw() + value * 5;
+    qreal yaw = RuntimeData::get()->getYaw() + value * 5;
     if(yaw > 90 || yaw < -90)
         return;
-    RuntimeData::initialize()->setYaw(yaw);
+    RuntimeData::get()->setYaw(yaw);
     yawTimer->start(1000);
 }
 
 void FlightEmulator::rollChange(int value)
 {
-    qreal roll = RuntimeData::initialize()->getRoll() + value;
+    qreal roll = RuntimeData::get()->getRoll() + value;
     if(roll > 85 || roll < -85)
         return;
     udpEmulator->emulatorTelemetry.roll = (roll);
@@ -104,10 +104,10 @@ void FlightEmulator::rollChange(int value)
 
 void FlightEmulator::pitchChange(int value)
 {
-    qreal pitch = RuntimeData::initialize()->getPitch() + value;
+    qreal pitch = RuntimeData::get()->getPitch() + value;
     if(pitch > 85 || pitch < -85)
         return;
     udpEmulator->emulatorTelemetry.pitch = (pitch);
 }
 
-void FlightEmulator::yawReset() { RuntimeData::initialize()->setYaw(0); }
+void FlightEmulator::yawReset() { RuntimeData::get()->setYaw(0); }

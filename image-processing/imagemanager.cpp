@@ -42,7 +42,7 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
 
     // append to vector when all functions which changing image is called
     imageList.append(image);
-    RuntimeData::initialize()->setTotalImageCount(imageList.length());
+    RuntimeData::get()->setTotalImageCount(imageList.length());
     Debug::Log("[IMGMANAGER] Image displayed");
     LinkerQML::addModel(*image);
     LinkerQML::panImage();
@@ -62,7 +62,7 @@ bool ImageManager::removeImage(qint32 index)
     {
     case QMessageBox::Yes:
         imageList.remove(index);
-        RuntimeData::initialize()->setTotalImageCount(imageList.length());
+        RuntimeData::get()->setTotalImageCount(imageList.length());
         Debug::Log("[IMGMANAGER] Image " + QString::number(index) + " removed from map. List now contains = " + QString::number(imageList.length()));
         return true;
         break;
@@ -78,5 +78,5 @@ bool ImageManager::removeImage(qint32 index)
 void ImageManager::clearAll(void)
 {
     imageList.clear();
-    RuntimeData::initialize()->setTotalImageCount(imageList.length());
+    RuntimeData::get()->setTotalImageCount(imageList.length());
 }

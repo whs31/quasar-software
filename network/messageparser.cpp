@@ -33,13 +33,13 @@ QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
     double pitch =  jsonDocument.object().value("Pitch").toDouble(); 
     double roll =  jsonDocument.object().value("Roll").toDouble(); 
     double direction = jsonDocument.object().value("Direction").toDouble(); 
-    RuntimeData::initialize()->setLatitude(lat);
-    RuntimeData::initialize()->setLongitude(lon);
-    RuntimeData::initialize()->setElevation(elv);
-    RuntimeData::initialize()->setSpeed(spd); 
-    RuntimeData::initialize()->setSatellites(sats);
-    RuntimeData::initialize()->setPitch(pitch);
-    RuntimeData::initialize()->setRoll(roll);
+    RuntimeData::get()->setLatitude(lat);
+    RuntimeData::get()->setLongitude(lon);
+    RuntimeData::get()->setElevation(elv);
+    RuntimeData::get()->setSpeed(spd); 
+    RuntimeData::get()->setSatellites(sats);
+    RuntimeData::get()->setPitch(pitch);
+    RuntimeData::get()->setRoll(roll);
     return QPair<qreal, qint16>(lat, sats);
 }
 
@@ -57,7 +57,7 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
                                         + QString::number(arg8, 'f', 0) + ","       //height : float
                                         + QString::number(arg9, 'f', 1) + ","       //speed : float
                                         + QString::number(
-                                        RuntimeData::initialize()->getSeaLevel(),   //sealevel : float
+                                        RuntimeData::get()->getSeaLevel(),   //sealevel : float
                                         'f', 1)
                                         + ")";
     QString hexlen = QString("%1").arg(_formRequest.length(), 2, 16, QLatin1Char('0'));

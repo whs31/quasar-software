@@ -25,7 +25,7 @@ bool RecallHandler::clearTrack(void)
     return true;
 }
 
-void RecallHandler::reconnect(void)     { LinkerQML::initialize()->reconnect(); if(RuntimeData::initialize()->getConnected()) { LinkerQML::panGPS(); } }
+void RecallHandler::reconnect(void)     { LinkerQML::initialize()->reconnect(); if(RuntimeData::get()->getConnected()) { LinkerQML::panGPS(); } }
 void RecallHandler::disconnect(void)    { LinkerQML::initialize()->disconnect(); }
 void RecallHandler::changeDirectory(void)
 {
@@ -47,7 +47,7 @@ bool RecallHandler::calibrateSeaLevel(void)
     switch (ret)
     {
     case QMessageBox::Yes:
-        RuntimeData::initialize()->setSeaLevel(RuntimeData::initialize()->getElevation());
+        RuntimeData::get()->setSeaLevel(RuntimeData::get()->getElevation());
         break;
     case QMessageBox::Cancel:
         break;
@@ -116,7 +116,7 @@ void RecallHandler::clearSARDisk(void)
     switch (ret)
     {
     case QMessageBox::Yes:
-        RuntimeData::initialize()->clearSARDisk(); 
+        RuntimeData::get()->clearSARDisk(); 
         break;
     case QMessageBox::Cancel:
         return;

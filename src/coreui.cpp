@@ -39,7 +39,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         Debug::Log("[STARTUP] Using OFFLINE map tileserver");
 
     // qml types that require SConfig declared here
-    qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::initialize(this));
+    qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::get(this));
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
@@ -140,20 +140,20 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
 
     // sar commands setup
-    connect(RuntimeData::initialize(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
+    connect(RuntimeData::get(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
 
     // ui misc initialization and assignment
-    RuntimeData::initialize()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
-    RuntimeData::initialize()->setPCIP(SConfig::get()->getComputerIP());
-    RuntimeData::initialize()->setTelemetryPort(SConfig::get()->getTelemetryPort());
-    RuntimeData::initialize()->setLoaderPort(SConfig::get()->getLoaderPort());
-    RuntimeData::initialize()->setCommandPort(SConfig::get()->getExecdPort());
-    RuntimeData::initialize()->setListenPort(SConfig::get()->getTerminalPort());
-    RuntimeData::initialize()->setLoaderStatus("Oжидание подключения...");
-    RuntimeData::initialize()->setFormStatus("Oжидание подключения...");
+    RuntimeData::get()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
+    RuntimeData::get()->setPCIP(SConfig::get()->getComputerIP());
+    RuntimeData::get()->setTelemetryPort(SConfig::get()->getTelemetryPort());
+    RuntimeData::get()->setLoaderPort(SConfig::get()->getLoaderPort());
+    RuntimeData::get()->setCommandPort(SConfig::get()->getExecdPort());
+    RuntimeData::get()->setListenPort(SConfig::get()->getTerminalPort());
+    RuntimeData::get()->setLoaderStatus("Oжидание подключения...");
+    RuntimeData::get()->setFormStatus("Oжидание подключения...");
 
     // autocapture setup
-    connect(RuntimeData::initialize(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
+    connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
 
     // timers starts here
     timer->start(SConfig::get()->getTelemetryFrequency() * 1000);
@@ -169,7 +169,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // plugin system setup
         HostAPI = new PluginHostAPI;
-        QObject* runtimeData = RuntimeData::initialize();
+        QObject* runtimeData = RuntimeData::get();
         HostAPI->addData("Host.runtimeData", (void*) runtimeData, sizeof(runtimeData));
         HostAPI->parseConfig(SConfig::get(), "appconfig/config2.ini");
         // Отсюда начинается процедура добавления плагина
@@ -214,6 +214,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     Style::initialize(this, ENABLE_CSS_UPDATE_ON_CHANGE);
 
     // execute any other startup code here
+    RuntimeData::get()->setStatusPopup("Версия программы " + SConfig::get()->getProjectVersion());
 }
 
 CoreUI::~CoreUI()
@@ -270,18 +271,18 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 
 bool CoreUI::getReady(void)             { return uiReady; }
 QQuickItem *CoreUI::getMapPointer(void) { return qml; }
-void CoreUI::Connected()                { RuntimeData::initialize()->setConnected(true); }
-void CoreUI::Disconnected()             { RuntimeData::initialize()->setConnected(false); }
+void CoreUI::Connected()                { RuntimeData::get()->setConnected(true); }
+void CoreUI::Disconnected()             { RuntimeData::get()->setConnected(false); }
 void CoreUI::updateProgress(float f)
 {
     if (f > 0)
     {
-        RuntimeData::initialize()->setFormStatus("Загрузка изображения...");
+        RuntimeData::get()->setFormStatus("Загрузка изображения...");
     }
     if (f > 99)
     {
-        RuntimeData::initialize()->setFormStatus("Изображение отображено на карте");
-        if(RuntimeData::initialize()->getFormingContinuous())
+        RuntimeData::get()->setFormStatus("Изображение отображено на карте");
+        if(RuntimeData::get()->getFormingContinuous())
         {
             FormSingleImage();
             QString request = MessageParser::makeCommand(Command::StorageStatus);
@@ -321,12 +322,12 @@ void CoreUI::SettingsSlot()
             }
             else
                 SConfig::get()->loadSettings();
-            RuntimeData::initialize()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
-            RuntimeData::initialize()->setPCIP(SConfig::get()->getComputerIP());
-            RuntimeData::initialize()->setTelemetryPort(SConfig::get()->getTelemetryPort());
-            RuntimeData::initialize()->setLoaderPort(SConfig::get()->getLoaderPort());
-            RuntimeData::initialize()->setCommandPort(SConfig::get()->getExecdPort());
-            RuntimeData::initialize()->setListenPort(SConfig::get()->getTerminalPort());
+            RuntimeData::get()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
+            RuntimeData::get()->setPCIP(SConfig::get()->getComputerIP());
+            RuntimeData::get()->setTelemetryPort(SConfig::get()->getTelemetryPort());
+            RuntimeData::get()->setLoaderPort(SConfig::get()->getLoaderPort());
+            RuntimeData::get()->setCommandPort(SConfig::get()->getExecdPort());
+            RuntimeData::get()->setListenPort(SConfig::get()->getTerminalPort());
         }
         else
         {
@@ -343,12 +344,12 @@ void CoreUI::SettingsSlot()
 
 void CoreUI::InfoSlot()
 {
-    RuntimeData::initialize()->setInfoWindow(!RuntimeData::initialize()->getInfoWindow());
+    RuntimeData::get()->setInfoWindow(!RuntimeData::get()->getInfoWindow());
 }
 void CoreUI::EmulatorSlot()    
 { 
-    RuntimeData::initialize()->setEmulatorEnabled(!RuntimeData::initialize()->getEmulatorEnabled()); 
-    if(RuntimeData::initialize()->getEmulatorEnabled())
+    RuntimeData::get()->setEmulatorEnabled(!RuntimeData::get()->getEmulatorEnabled()); 
+    if(RuntimeData::get()->getEmulatorEnabled())
         flightEmulator->startEmulator();
     else
         flightEmulator->stopEmulator(); 
@@ -415,8 +416,8 @@ void CoreUI::ReadSARConsole(QByteArray data)
         dataStr.remove("FREE_DISK_SPACE ");
         _split = dataStr.split(' ', Qt::SkipEmptyParts);
         qCritical()<<_split;
-        RuntimeData::initialize()->setFreeDiskSpace(_split.first().toInt());
-        RuntimeData::initialize()->setTotalDiskSpace(_split.last().toInt());
+        RuntimeData::get()->setFreeDiskSpace(_split.first().toInt());
+        RuntimeData::get()->setTotalDiskSpace(_split.last().toInt());
     }
 }
 
@@ -435,7 +436,7 @@ void CoreUI::ReadForm(QByteArray data)
             Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
                         + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
                         + " with checksum check " + checksumCheck);
-            RuntimeData::initialize()->setFormStatus("Получен ответ от РЛС");
+            RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
         }
         break;
     default: 
@@ -452,7 +453,7 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
         pressedKeys += (static_cast<QKeyEvent*>(event))->key();
-        if(RuntimeData::initialize()->getEmulatorEnabled())
+        if(RuntimeData::get()->getEmulatorEnabled())
         {
             if ( pressedKeys.contains(Qt::Key_W) || pressedKeys.contains(1062) ) { flightEmulator->pitchChange(-1); }
             if ( pressedKeys.contains(Qt::Key_S) || pressedKeys.contains(1067)) { flightEmulator->pitchChange(1); }
@@ -543,14 +544,14 @@ void CoreUI::disconnectSlot()
 
 void CoreUI::FormSingleImage()
 {
-    QString request = MessageParser::makeFormRequest(RuntimeData::initialize()->getFormMode(), RuntimeData::initialize()->getFormLowerBound(),
-                                                     RuntimeData::initialize()->getFormUpperBound(), RuntimeData::initialize()->getFormTime(),
-                                                     RuntimeData::initialize()->getFormStep(), RuntimeData::initialize()->getFormStep(),
-                                                     RuntimeData::initialize()->getFormOverrideGPSData(), RuntimeData::initialize()->getFormGPSHeight(),
-                                                     RuntimeData::initialize()->getFormGPSVelocity());
+    QString request = MessageParser::makeFormRequest(RuntimeData::get()->getFormMode(), RuntimeData::get()->getFormLowerBound(),
+                                                     RuntimeData::get()->getFormUpperBound(), RuntimeData::get()->getFormTime(),
+                                                     RuntimeData::get()->getFormStep(), RuntimeData::get()->getFormStep(),
+                                                     RuntimeData::get()->getFormOverrideGPSData(), RuntimeData::get()->getFormGPSHeight(),
+                                                     RuntimeData::get()->getFormGPSVelocity());
     SendRemoteCommand(request, CommandType::FormCommand);
     Debug::Log("[FORM] Sended to SAR: " + request);
-    RuntimeData::initialize()->setFormStatus("Отправлен запрос на формирование №" +
+    RuntimeData::get()->setFormStatus("Отправлен запрос на формирование №" +
                                                                QString::number(MessageParser::getMessageID()));
 }
 

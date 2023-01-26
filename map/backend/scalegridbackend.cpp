@@ -3,7 +3,7 @@
 ScaleGridBackend::ScaleGridBackend(QObject *parent)
     : QObject{parent}
 {
-    connect(RuntimeData::initialize(), SIGNAL(currentZoomLevelChanged()), this, SLOT(recalculateGrid()));
+    connect(RuntimeData::get(), SIGNAL(currentZoomLevelChanged()), this, SLOT(recalculateGrid()));
 }
 
 qreal ScaleGridBackend::getCellSize() const
@@ -28,28 +28,28 @@ void ScaleGridBackend::setcellType(quint8 newCellType)
 
 void ScaleGridBackend::recalculateGrid(void)
 {
-    qreal newZoom = SMath::zoomLevelToDistance((18 - RuntimeData::initialize()->getCurrentZoomLevel()), 
+    qreal newZoom = SMath::zoomLevelToDistance((18 - RuntimeData::get()->getCurrentZoomLevel()), 
                                                 0) / (754369 * 1.02 * 0.95825);
     
-    if(RuntimeData::initialize()->getCurrentZoomLevel() >= 15.3)
+    if(RuntimeData::get()->getCurrentZoomLevel() >= 15.3)
     {
         setcellType(1);
         setCellSize(newZoom); // 100 m
-    } else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 12 && RuntimeData::initialize()->getCurrentZoomLevel() < 15.3)
+    } else if(RuntimeData::get()->getCurrentZoomLevel() >= 12 && RuntimeData::get()->getCurrentZoomLevel() < 15.3)
     {
         setcellType(2);
         setCellSize(newZoom * 10); // 1 km
-    } else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 8 && RuntimeData::initialize()->getCurrentZoomLevel() < 12)
+    } else if(RuntimeData::get()->getCurrentZoomLevel() >= 8 && RuntimeData::get()->getCurrentZoomLevel() < 12)
     {
         setcellType(3);
         setCellSize(newZoom * 100); // 10 km
     }
-    else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 5.5 && RuntimeData::initialize()->getCurrentZoomLevel() < 8)
+    else if(RuntimeData::get()->getCurrentZoomLevel() >= 5.5 && RuntimeData::get()->getCurrentZoomLevel() < 8)
     {
         setcellType(4);
         setCellSize(newZoom * 1000); // 100 km
     }
-    else if(RuntimeData::initialize()->getCurrentZoomLevel() >= 3.5 && RuntimeData::initialize()->getCurrentZoomLevel() < 5.5)
+    else if(RuntimeData::get()->getCurrentZoomLevel() >= 3.5 && RuntimeData::get()->getCurrentZoomLevel() < 5.5)
     {
         setcellType(5);
         // remove completely

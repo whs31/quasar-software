@@ -30,8 +30,8 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
             marker->update();
             if(marker->autocapture)
             {
-                RuntimeData::initialize()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
-                RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
+                RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
+                RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
                 Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
             } else {
                 Debug::Log("[MARKER] Created new marker with name " + marker->name);
@@ -58,12 +58,12 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 
 void MarkerManager::removeMarker(qint32 index)
 {
-    for(size_t i = 0; i < RuntimeData::initialize()->autocaptureMarks.length(); i++)
+    for(size_t i = 0; i < RuntimeData::get()->autocaptureMarks.length(); i++)
     {
-        if(QGeoCoordinate(markerList[index]->latitude, markerList[index]->longitude).distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
+        if(QGeoCoordinate(markerList[index]->latitude, markerList[index]->longitude).distanceTo(RuntimeData::get()->autocaptureMarks[i]) <= 10)
         {
-            RuntimeData::initialize()->autocaptureMarks.remove(i);
-            RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
+            RuntimeData::get()->autocaptureMarks.remove(i);
+            RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
         }
         break;
     }
@@ -73,12 +73,12 @@ void MarkerManager::removeMarker(qint32 index)
 
 void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
 {
-    for(size_t i = 0; i < RuntimeData::initialize()->autocaptureMarks.length(); i++)
+    for(size_t i = 0; i < RuntimeData::get()->autocaptureMarks.length(); i++)
     {
-        if(coordinate.distanceTo(RuntimeData::initialize()->autocaptureMarks[i]) <= 10)
+        if(coordinate.distanceTo(RuntimeData::get()->autocaptureMarks[i]) <= 10)
         {
-            RuntimeData::initialize()->autocaptureMarks.remove(i);
-            RuntimeData::initialize()->setTotalAutocapCount(RuntimeData::initialize()->autocaptureMarks.length());
+            RuntimeData::get()->autocaptureMarks.remove(i);
+            RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
             break;
         }
     }

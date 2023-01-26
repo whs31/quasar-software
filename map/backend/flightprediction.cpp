@@ -4,24 +4,24 @@ FlightPrediction::FlightPrediction(QObject *parent) : QObject{parent} {}
 
 void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate p2)
 {
-    for(size_t i = 0; i < RuntimeData::initialize()->autocaptureMarks.length(); i++)
+    for(size_t i = 0; i < RuntimeData::get()->autocaptureMarks.length(); i++)
     {
-        QGeoCoordinate point = RuntimeData::initialize()->autocaptureMarks[i];
+        QGeoCoordinate point = RuntimeData::get()->autocaptureMarks[i];
         double len = std::sqrt((p2.latitude() - p1.latitude()) * (p2.latitude() - p1.latitude()) 
                                 + (p2.longitude() - p1.longitude()) * (p2.longitude() - p1.longitude()));
         double distance = std::abs((p2.longitude() - p1.longitude()) * point.latitude()
                                 - (p2.latitude() - p1.latitude()) * point.longitude() + p2.latitude() * p1.longitude() - p1.latitude() * p2.longitude()) / len;
         if(i == 0)
-            RuntimeData::initialize()->setAutocaptureDistance(SMath::degreesToMeters(distance));
-        if(RuntimeData::initialize()->getAutocaptureDistance() > SMath::degreesToMeters(distance))
+            RuntimeData::get()->setAutocaptureDistance(SMath::degreesToMeters(distance));
+        if(RuntimeData::get()->getAutocaptureDistance() > SMath::degreesToMeters(distance))
         {
-            RuntimeData::initialize()->setAutocaptureDistance(SMath::degreesToMeters(distance));
+            RuntimeData::get()->setAutocaptureDistance(SMath::degreesToMeters(distance));
         }
 
         if(SMath::degreesToMeters(distance) < AUTOCAPTURE_TOLERANCE_IN_METERS)
         {
             MarkerManager::removeMarkerFromCoordinates(point);
-            RuntimeData::initialize()->autocapture();
+            RuntimeData::get()->autocapture();
             return;
         }
     }
@@ -29,7 +29,7 @@ void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate 
 
 void FlightPrediction::updatePoints()
 {
-    float lx = RuntimeData::initialize()->getFormUpperBound();
+    float lx = RuntimeData::get()->getFormUpperBound();
     qreal antennaPositionCorrection = SConfig::get()->getAntennaPosition() == "right" ? 90 : -90;
 
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)
@@ -52,11 +52,11 @@ void FlightPrediction::updatePoints()
         setX1(triangleBase.longitude()); setY1(triangleBase.latitude());
         setX2(triangleLeft.longitude()); setY2(triangleLeft.latitude());
         setX3(triangleRight.longitude()); setY3(triangleRight.latitude());
-        RuntimeData::initialize()->setAutocaptureEnabled(false);
-        if(!RuntimeData::initialize()->autocaptureMarks.isEmpty())
+        RuntimeData::get()->setAutocaptureEnabled(false);
+        if(!RuntimeData::get()->autocaptureMarks.isEmpty())
         {
             calculateIntersections(plane, triangleBase);
-            RuntimeData::initialize()->setAutocaptureEnabled(true);
+            RuntimeData::get()->setAutocaptureEnabled(true);
         }
     }
     m_waitForAnotherAxisTrigger = false;

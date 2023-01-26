@@ -605,6 +605,19 @@ Rectangle {
             anchors.left: parent.left; anchors.right: parent.right;
             z: 100;
         }
+        Windows.StatusPopup
+        {
+            id: statusPopup;
+            z: 100;
+            anchors.horizontalCenter: parent.horizontalCenter; anchors.horizontalCenterOffset: 128;
+            anchors.bottom: bottomBar.top;
+            anchors.bottomMargin: 15 * DynamicResolution.kh;
+            status: RuntimeData.statusPopup;
+            label_color: UX.textWhite;
+            label_text_size: 14 * DynamicResolution.kh;
+            label_text_family: fontSemiBold.name;
+        }
+
         DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
                      samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
         Groups.BottomBar

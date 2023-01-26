@@ -91,11 +91,12 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool passwordWindow                  READ getPasswordWindow      WRITE setPasswordWindow      NOTIFY passwordWindowChanged)
     Q_PROPERTY(bool choiceWindow                    READ getChoiceWindow        WRITE setChoiceWindow        NOTIFY choiceWindowChanged)
     Q_PROPERTY(QString enteredPassword              READ getEnteredPassword     WRITE setEnteredPassword     NOTIFY enteredPasswordChanged)
+    Q_PROPERTY(QString statusPopup                  READ getStatusPopup         WRITE setStatusPopup         NOTIFY statusPopupChanged)
     
     QML_ELEMENT
     
 public:
-    static RuntimeData* initialize(QObject* parent = nullptr);
+    static RuntimeData* get(QObject* parent = nullptr);
     static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
     void clearSARDisk(void);
@@ -166,6 +167,7 @@ public:
     bool getPasswordWindow() const;                                     void setPasswordWindow(bool state);
     bool getChoiceWindow() const;                                       void setChoiceWindow(bool state);
     QString getEnteredPassword() const;                                 void setEnteredPassword(QString string);
+    QString getStatusPopup() const;                                     void setStatusPopup(QString string);
 
     void autocapture(void);
 
@@ -234,6 +236,7 @@ signals:
     void passwordWindowChanged();
     void choiceWindowChanged();
     void enteredPasswordChanged();
+    void statusPopupChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -333,6 +336,7 @@ private:
         bool password = false;
         bool choice = false;
         QString enteredPassword = "";
+        QString statusPopup = "";
     }; WindowStates windowStates;
 };
 

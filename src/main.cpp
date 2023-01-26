@@ -1,6 +1,8 @@
 #include <QApplication>
 #include "coreui.h"
 
+QString logName = "";
+
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -27,7 +29,8 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
         msgt = 4;
     break;
     }
-    QFile outFile(CacheManager::getSettingsPath() + "/logs/log" + ".txt");
+
+    QFile outFile(CacheManager::getSettingsPath() + "/logs/" + logName);
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';
@@ -42,6 +45,12 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     QQuickStyle::setStyle("Material");                      //графика для QML
+
+    #include <QDateTime>
+    QDateTime date = QDateTime::currentDateTime();
+    logName = date.toString("dd.MM.yyyy-hh:mm");
+    logName.prepend("log-");
+    logName.append(".txt");
     qInstallMessageHandler(debugLogger);
     CoreUI window;
     window.show();

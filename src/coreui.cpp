@@ -220,6 +220,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
 CoreUI::~CoreUI()
 {
+    Debug::Log("Ending current session...");
     uiReady = false;
     telemetryRemote->Disconnect();
     formRemote->Disconnect();
@@ -234,6 +235,7 @@ CoreUI::~CoreUI()
     delete ImageManager::initialize();
     delete MarkerManager::initialize();
     delete Style::initialize();
+    Debug::Log("Session ended succesfully.");
 }
 
 void* CoreUI::LoadPlugin(QString path)
@@ -291,7 +293,6 @@ void CoreUI::updateProgress(float f)
     }
 //    ui->progressBar_loader->setValue((int)f);
 }
-
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
     if (type == CommandType::TelemetryCommand)

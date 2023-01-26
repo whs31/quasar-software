@@ -1,22 +1,23 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.12
+import DynamicResolution 1.0
 
 Rectangle {
     property alias container : loader.sourceComponent
 
-    property int fixed_width: 100;
-    property int fixed_height: 25;
-    property int fixed_drop: 200;
+    property int fixed_width: 100 * DynamicResolution.kw;
+    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_drop: 200 * DynamicResolution.kh;
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12;
+    property int label_text_size: 12 * DynamicResolution.kh;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
     property int label_textAlignment: Text.AlignHCenter;
 
     property color highlight_color: "#7D5233";
-    property int frame_radius: 8;
+    property int frame_radius: 8 * DynamicResolution.kw;
     property int frame_width: 1;
     property bool frame_filled: false;
     property color frame_fill_color: "#FFFF00";
@@ -99,14 +100,14 @@ Rectangle {
         anchors.fill: parent;
         Image {
             id: ico;
-            width: 11;
-            height: 11;
+            width: 11 * DynamicResolution.kw;
+            height: 11 * DynamicResolution.kh;
             source: "qrc:/icons/down.png";
             smooth: true;
             antialiasing: true;
             anchors.verticalCenter: parent.verticalCenter;
             anchors.left: parent.left;
-            anchors.leftMargin: 4;
+            anchors.leftMargin: 4 * DynamicResolution.kw;
             z: 91;
         }
         Text {
@@ -120,7 +121,8 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter;
             horizontalAlignment: label_textAlignment;
             anchors.fill: parent;
-            anchors.leftMargin: 5; anchors.rightMargin: 5;
+            anchors.leftMargin: 5 * DynamicResolution.kw;
+            anchors.rightMargin: 5 * DynamicResolution.kw;
             z: 91;
         }
         z: 91;

@@ -1,14 +1,15 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import DynamicResolution 1.0
 
 Rectangle {
-    property int fixed_width: 100;
-    property int fixed_height: 25;
+    property int fixed_width: 100 * DynamicResolution.kw;
+    property int fixed_height: 25 * DynamicResolution.kh;
     property string image_source: "qrc:/ui-resources/white/close.png";
     property color frame_color: "#701828";
     property color hover_color: "#7D5233";
     property int frame_width: 1;
-    property int frame_radius: 2;
+    property int frame_radius: 2 * DynamicResolution.kw;
 
     signal clicked();
 

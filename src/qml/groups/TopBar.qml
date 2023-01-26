@@ -4,6 +4,7 @@ import RuntimeData 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
 import ImageManager 1.0
+import DynamicResolution 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -14,7 +15,7 @@ import "qrc:/qml/ui/widgets" as CustomWidgets
 
 Rectangle {
     id: base;
-    height: 70;
+    height: 70 * DynamicResolution.kh;
     color: UX.primaryDark;
     
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
@@ -26,17 +27,21 @@ Rectangle {
     Buttons.ClassicButton
     {
         id: formImageButton;
-        anchors.bottom: parent.bottom;              anchors.bottomMargin: 14;
-        anchors.left: parent.left;                  anchors.leftMargin: 8;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 14 * DynamicResolution.kh;
+        anchors.left: parent.left;
+        anchors.leftMargin: 8 * DynamicResolution.kw;
 
         display_mode: Buttons.ClassicButton.Mode.LabelOnly;
-        fixed_width: 188;                           fixed_height: 28;
+        fixed_width: 188 * DynamicResolution.kw;
+        fixed_height: 28 * DynamicResolution.kh;
         label_text: RuntimeData.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : RuntimeData.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
-        label_color: RuntimeData.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;          label_text_size: 17;
+        label_color: RuntimeData.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;
+        label_text_size: 17 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;
         background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLighter;
         background_secondary_color: Qt.lighter(background_color, 1.5); 
-        background_radius: 2;
+        background_radius: 2 * DynamicResolution.kw;
         onClicked: 
         { 
             if(!RuntimeData.formingContinuous) { 
@@ -52,37 +57,47 @@ Rectangle {
     Labels.FramedLabel
     {
         id: formModeLabel;
-        anchors.bottom: formImageButton.top;    anchors.bottomMargin: 4;
+        anchors.bottom: formImageButton.top;
+        anchors.bottomMargin: 4 * DynamicResolution.kh;
         anchors.left: formImageButton.left;
 
-        fixed_width: 51;    fixed_height: 17;
+        fixed_width: 51 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
         label_text: "РЕЖИМ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;          label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
-        frame_radius: 2;                    frame_width: 1;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 1;
     }
     Dropdowns.Dropdown
     {
         id: formModeDropDown;
-        anchors.left: formModeLabel.right;  anchors.leftMargin: 1;
+        anchors.left: formModeLabel.right;
+        anchors.leftMargin: 1 * DynamicResolution.kw;
         anchors.top: formModeLabel.top;
         
-        fixed_width: 136;       fixed_height: 17;           fixed_drop: 17*2;
+        fixed_width: 136 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
+        fixed_drop: 17*2 * DynamicResolution.kh;
         label_text: RuntimeData.formingQueueMode === 0 ? "ОДИНОЧНОЕ" : "НЕПРЕРЫВНОЕ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
         highlight_color: UX.infoLight;
-        frame_radius: 2;                    frame_width: 1;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 1;
         enabled: RuntimeData.formingContinuous ? false : true;
         container: Item {
             Buttons.LightButton
             {
                 id: selectSingle;
-                fixed_width: 136;               fixed_height: 17;
+                fixed_width: 136 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ОДИНОЧНОЕ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 highlight_color: UX.textFaded;
@@ -97,9 +112,11 @@ Rectangle {
             {
                 id: selectContinuous;
                 anchors.top: selectSingle.bottom;
-                fixed_width: 136;               fixed_height: 17;
+                fixed_width: 136 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "НЕПРЕРЫВНОЕ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 highlight_color: UX.textFaded;
@@ -116,13 +133,16 @@ Rectangle {
     {
         id: panImageButton;
         anchors.top: formModeDropDown.top;
-        anchors.left: formModeDropDown.right;     anchors.leftMargin: 6;
+        anchors.left: formModeDropDown.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.infoLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/image.png";
         onClicked: { panImage(); RuntimeData.followPlane = false; }
     }
@@ -130,13 +150,16 @@ Rectangle {
     {
         id: panPlaneButton;
         anchors.top: panImageButton.top;
-        anchors.left: panImageButton.right;    anchors.leftMargin: 6;
+        anchors.left: panImageButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.infoLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/gps.png";
         onClicked: { panGPS(); }
     }
@@ -144,13 +167,16 @@ Rectangle {
     {
         id: refreshCatalogueButton;
         anchors.top: panPlaneButton.top;
-        anchors.left: panPlaneButton.right;    anchors.leftMargin: 6;
+        anchors.left: panPlaneButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.successLighter;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/refresh.png";
         onClicked: { DiskManager.fetchDirectory(); }
     }
@@ -158,13 +184,16 @@ Rectangle {
     {
         id: changeCatalogueButton;
         anchors.top: refreshCatalogueButton.top;
-        anchors.left: refreshCatalogueButton.right;    anchors.leftMargin: 6;
+        anchors.left: refreshCatalogueButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.warningLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/folder.png";
         onClicked: { ioHandler.changeDirectory(); }
     }
@@ -172,13 +201,16 @@ Rectangle {
     {
         id: clearMapButton;
         anchors.top: changeCatalogueButton.top;
-        anchors.left: changeCatalogueButton.right;    anchors.leftMargin: 6;
+        anchors.left: changeCatalogueButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 22;      fixed_height: 16;
+        fixed_width: 22 * DynamicResolution.kw;
+        fixed_height: 16 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.errorDark;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 12;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/eraser.png";
         onClicked: {
             var verify = ioHandler.clearMap();
@@ -193,13 +225,16 @@ Rectangle {
     {
         id: clearLocalCacheButton;
         anchors.bottom: changeCatalogueButton.bottom;
-        anchors.left: changeCatalogueButton.right;    anchors.leftMargin: 6;
+        anchors.left: changeCatalogueButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 22;      fixed_height: 16;
+        fixed_width: 22 * DynamicResolution.kw;
+        fixed_height: 16 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.errorDark;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 12;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/trashbin.png";
         onClicked: {
             var verify = ioHandler.clearCache();
@@ -212,23 +247,32 @@ Rectangle {
         anchors.left: panImageButton.left;
         anchors.bottom: separator1.bottom;
 
-        fixed_width: 186;       fixed_height: 17;           fixed_drop: 17*8;
+        fixed_width: 186 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
+        fixed_drop: 17*8  * DynamicResolution.kh;
         label_text: "ПАРАМЕТРЫ ФОРМИРОВАНИЯ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
         highlight_color: UX.infoLight;
-        frame_radius: 2;                    frame_width: 1;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 1;
         clip: false;
         container: Item {
                         Dropdowns.SideDropdown
                         {
                             clip: false;
                             id: formParametersModeDropdown;
-                            fixed_width: 186;       fixed_height: 17;      fixed_drop_width: 64;        fixed_drop_height: 17*4;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
+                            fixed_drop_width: 64 * DynamicResolution.kw;
+                            fixed_drop_height: 17*4 * DynamicResolution.kh;
                             label_uppercase: true;
                             label_text: "РЕЖИМ : " + RuntimeData.formMode;
-                            label_color: UX.primaryDarker;          label_text_size: 12;                drop_color: UX.textWhite;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
+                            drop_color: UX.textWhite;
                             label_text_family: fontMedium.name;     label_text_bold: true;
                             label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -237,9 +281,11 @@ Rectangle {
                                 Buttons.LightButton
                                 {
                                     id: m1Button;
-                                    fixed_width: 64;             fixed_height: 17;
+                                    fixed_width: 64 * DynamicResolution.kw;
+                                    fixed_height: 17 * DynamicResolution.kh;
                                     label_text: "M1";
-                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_color: UX.primaryDarker;
+                                    label_text_size: 12 * DynamicResolution.kh;
                                     label_text_family: fontMedium.name;
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
                                     highlight_color: UX.textFaded;
@@ -253,9 +299,11 @@ Rectangle {
                                 {
                                     id: m2Button;
                                     anchors.top: m1Button.bottom;
-                                    fixed_width: 64;               fixed_height: 17;
+                                    fixed_width: 64 * DynamicResolution.kw;
+                                    fixed_height: 17 * DynamicResolution.kh;
                                     label_text: "M2";
-                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_color: UX.primaryDarker;
+                                    label_text_size: 12 * DynamicResolution.kh;
                                     label_text_family: fontMedium.name;
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
                                     highlight_color: UX.textFaded;
@@ -269,9 +317,11 @@ Rectangle {
                                 {
                                     id: m3Button;
                                     anchors.top: m2Button.bottom;
-                                    fixed_width: 64;               fixed_height: 17;
+                                    fixed_width: 64 * DynamicResolution.kw;
+                                    fixed_height: 17 * DynamicResolution.kh;
                                     label_text: "M3";
-                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_color: UX.primaryDarker;
+                                    label_text_size: 12 * DynamicResolution.kh;
                                     label_text_family: fontMedium.name;
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
                                     highlight_color: UX.textFaded;
@@ -285,9 +335,11 @@ Rectangle {
                                 {
                                     id: m4Button;
                                     anchors.top: m3Button.bottom;
-                                    fixed_width: 64;               fixed_height: 17;
+                                    fixed_width: 64 * DynamicResolution.kw;
+                                    fixed_height: 17 * DynamicResolution.kh;
                                     label_text: "M4";
-                                    label_color: UX.primaryDarker;  label_text_size: 12;
+                                    label_color: UX.primaryDarker;
+                                    label_text_size: 12 * DynamicResolution.kh;
                                     label_text_family: fontMedium.name;
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
                                     highlight_color: UX.textFaded;
@@ -302,10 +354,12 @@ Rectangle {
                         Input.LineEdit
                         {
                             id: x0Input;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: formParametersModeDropdown.bottom;
                             label_text: "БЛИЖНЯЯ ГРАНИЦА : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -322,10 +376,11 @@ Rectangle {
                         Input.LineEdit
                         {
                             id: lxInput;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: x0Input.bottom;
                             label_text: "ДАЛЬНЯЯ ГРАНИЦА : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;  label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -342,10 +397,12 @@ Rectangle {
                         Input.LineEdit
                         {
                             id: dxInput;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: lxInput.bottom;
                             label_text: "ПОПИКСЕЛЬНЫЙ ШАГ : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -362,10 +419,12 @@ Rectangle {
                         Input.LineEdit
                         {
                             id: tsInput;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: dxInput.bottom;
                             label_text: "ВРЕМЯ ФОРМИРОВАНИЯ : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -382,10 +441,12 @@ Rectangle {
                         Checkboxes.LightCheckbox
                         {
                             id: manualGPSCheckbox;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: tsInput.bottom;
                             label_text: "КОРРЕКТИРОВКА GPS";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             contrast_color: UX.textWhite;
@@ -399,10 +460,12 @@ Rectangle {
                         {
                             id: heightInput;
                             enabled: manualGPSCheckbox.checked;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: manualGPSCheckbox.bottom;
                             label_text: "ВЫСОТА : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;
+                            label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -420,10 +483,11 @@ Rectangle {
                         {
                             id: velocityInput;
                             enabled: manualGPSCheckbox.checked;
-                            fixed_width: 186;               fixed_height: 17;
+                            fixed_width: 186 * DynamicResolution.kw;
+                            fixed_height: 17 * DynamicResolution.kh;
                             anchors.top: heightInput.bottom;
                             label_text: "СКОРОСТЬ : ";
-                            label_color: UX.primaryDarker;  label_text_size: 12;
+                            label_color: UX.primaryDarker;  label_text_size: 12 * DynamicResolution.kh;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;
                             highlight_color: UX.textFaded;
@@ -442,15 +506,16 @@ Rectangle {
     Layouts.Separator
     {
         id: separator1;
-        fixed_height: 56;
+        fixed_height: 56 * DynamicResolution.kh;
         line_color: UX.textWhite;
-        anchors.left: clearMapButton.right;  anchors.leftMargin: 6;
+        anchors.left: clearMapButton.right;  anchors.leftMargin: 6 * DynamicResolution.kw;
         anchors.top: clearMapButton.top;
     }
     CustomWidgets.StorageStatusIndicator
     {
         id: storageStatusIndicator;
-        anchors.left: separator1.right;     anchors.leftMargin: 6;
+        anchors.left: separator1.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
         anchors.top: separator1.top;
         percentage: Number.isNaN(100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace)) ?
                         5 :
@@ -459,46 +524,54 @@ Rectangle {
     Layouts.Separator
     {
         id: separator2;
-        fixed_height: 56;
+        fixed_height: 56 * DynamicResolution.kh;
         line_color: UX.textWhite;
-        anchors.left: storageStatusIndicator.right;  anchors.leftMargin: 6;
+        anchors.left: storageStatusIndicator.right;  anchors.leftMargin: 6 * DynamicResolution.kw;
         anchors.top: clearMapButton.top;
     }
     Labels.FramedLabel
     {
         id: mapToolsLabel;
         anchors.top: separator2.top;
-        anchors.left: separator2.right; anchors.leftMargin: 63;
+        anchors.left: separator2.right; anchors.leftMargin: 63 * DynamicResolution.kw;
 
-        fixed_width: 176;    fixed_height: 13;
+        fixed_width: 176 * DynamicResolution.kw;
+        fixed_height: 13 * DynamicResolution.kh;
         label_text: "ИНСТРУМЕНТЫ КАРТЫ";
-        label_color: UX.textWhite;          label_text_size: 14;
+        label_color: UX.textWhite;          label_text_size: 14 * DynamicResolution.kh;
         label_text_family: fontSemiBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Dropdowns.Dropdown
     {
         id: mapParametersDropDown;
         anchors.left: rulerButton.left;
-        anchors.top: parent.bottom; anchors.topMargin: -2;
+        anchors.top: parent.bottom; anchors.topMargin: -2 * DynamicResolution.kh;
 
-        fixed_width: 220;       fixed_height: 17;           fixed_drop: 17*8;
+        fixed_width: 220 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
+        fixed_drop: 17*8 * DynamicResolution.kh;
         label_text: "ПАРАМЕТРЫ КАРТЫ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.primaryLight;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
         frame_fill_color: UX.primaryDark;   frame_filled: true;
         container: Item {
             Checkboxes.LightCheckbox
             {
                 id: followPlaneCheckbox;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 //anchors.top: tsInput.bottom;
                 label_text: "СЛЕДИТЬ ЗА БОРТОМ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -509,10 +582,12 @@ Rectangle {
             Checkboxes.LightCheckbox
             {
                 id: drawGridCheckbox;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 anchors.top: followPlaneCheckbox.bottom;
                 label_text: "ОТОБРАЖАТЬ СЕТКУ НА КАРТЕ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -523,10 +598,12 @@ Rectangle {
             Checkboxes.LightCheckbox
             {
                 id: cursorCoordsCheckbox;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 anchors.top: drawGridCheckbox.bottom;
                 label_text: "КООРДИНАТЫ КУРСОРА";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -537,10 +614,13 @@ Rectangle {
             Checkboxes.LightCheckbox
             {
                 id: drawRouteCheckbox;
-                fixed_width: 220;               fixed_height: 17;
-                anchors.top: cursorCoordsCheckbox.bottom; anchors.topMargin: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
+                anchors.top: cursorCoordsCheckbox.bottom;
+                anchors.topMargin: 17 * DynamicResolution.kh;
                 label_text: "ОТОБРАЖАТЬ ТРЕК ПОЛЁТА";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -551,10 +631,12 @@ Rectangle {
             Checkboxes.LightCheckbox
             {
                 id: drawVectorCheckbox;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 anchors.top: drawRouteCheckbox.bottom;
                 label_text: "ОТОБРАЖАТЬ ВЕКТОР СКОРОСТИ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -565,10 +647,12 @@ Rectangle {
             Checkboxes.LightCheckbox
             {
                 id: drawDiagramCheckbox;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 anchors.top: drawVectorCheckbox.bottom;
                 label_text: "ДИАГРАММА НАПРАВЛЕННОСТИ";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignRight;
                 contrast_color: UX.textWhite;
@@ -580,9 +664,11 @@ Rectangle {
             {
                 id: clearTrackButton;
                 anchors.top: drawDiagramCheckbox.bottom;
-                fixed_width: 220;               fixed_height: 17;
+                fixed_width: 220 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ОЧИСТИТЬ ТРЕК";
-                label_color: UX.primaryDarker;  label_text_size: 12;
+                label_color: UX.primaryDarker;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
                 highlight_color: UX.errorDark;
@@ -598,13 +684,16 @@ Rectangle {
     {
         id: rulerButton;
         anchors.bottom: separator2.bottom;
-        anchors.left: separator2.right;    anchors.leftMargin: 6;
+        anchors.left: separator2.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.accentLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/ruler.png";
         onClicked: {
             if(r_currentstate !== 0) { r_currentstate = 1;
@@ -617,13 +706,16 @@ Rectangle {
     {
         id: protractorButton;
         anchors.bottom: rulerButton.bottom;
-        anchors.left: rulerButton.right;    anchors.leftMargin: 6;
+        anchors.left: rulerButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.accentLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/protractor.png";
         onClicked: {
         }
@@ -632,26 +724,34 @@ Rectangle {
     {
         id: zoomLabel;
         anchors.top: protractorButton.top;
-        anchors.left: protractorButton.right; anchors.leftMargin: 6;
+        anchors.left: protractorButton.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 55;    fixed_height: 14;
+        fixed_width: 55 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: "МАСШТАБ";
-        label_color: UX.textWhite;          label_text_size: 12;
-        label_text_family: fontSemiBold.name; label_text_bold: true;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
+        label_text_family: fontSemiBold.name;
+        label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Buttons.LightToolButton
     {
         id: zoomOutButton;
-        anchors.top: zoomLabel.bottom; anchors.topMargin: 3;
+        anchors.top: zoomLabel.bottom;
+        anchors.topMargin: 3 * DynamicResolution.kh;
         anchors.left: zoomLabel.left;
 
-        fixed_width: 18;      fixed_height: 18;
+        fixed_width: 18 * DynamicResolution.kw;
+        fixed_height: 18 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.accentLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 12;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/minus.png";
         onClicked: {
             if(mapView.zoomLevel > 2) { mapView.zoomLevel -= 0.5; }
@@ -661,11 +761,13 @@ Rectangle {
     {
         id: zoomSlider;
         anchors.top: zoomOutButton.top;
-        anchors.left: zoomOutButton.right; anchors.leftMargin: 2;
-        fixed_width: 167;      fixed_height: 18;
+        anchors.left: zoomOutButton.right;
+        anchors.leftMargin: 2 * DynamicResolution.kw;
+        fixed_width: 167 * DynamicResolution.kw;
+        fixed_height: 18 * DynamicResolution.kh;
         fill_color: UX.textWhite;
         highlight_color: UX.textWhite;
-        frame_radius: 2;
+        frame_radius: 2 * DynamicResolution.kw;
         slider_fromvalue: 2;
         slider_tovalue: 18;
         slider_horizontal: true;
@@ -675,14 +777,18 @@ Rectangle {
     Buttons.LightToolButton
     {
         id: zoomInButton;
-        anchors.top: zoomLabel.bottom; anchors.topMargin: 3;
-        anchors.left: zoomSlider.right; anchors.leftMargin: 2;
+        anchors.top: zoomLabel.bottom;
+        anchors.topMargin: 3 * DynamicResolution.kh;
+        anchors.left: zoomSlider.right;
+        anchors.leftMargin: 2 * DynamicResolution.kw;
 
-        fixed_width: 18;      fixed_height: 18;
+        fixed_width: 18 * DynamicResolution.kw;
+        fixed_height: 18 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.accentLight;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 12;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 12 * DynamicResolution.kw;
         icon_source: "qrc:/icons/plus.png";
         onClicked: {
             if(mapView.zoomLevel < 18) { mapView.zoomLevel += 0.5; }
@@ -691,37 +797,45 @@ Rectangle {
 
     Layouts.Separator
     {
-        //mapView.zoomLevel = (1-value)*18;
         id: separator3;
-        fixed_height: 56;
+        fixed_height: 56 * DynamicResolution.kh;
         line_color: UX.textWhite;
-        anchors.left: mapToolsLabel.right;  anchors.leftMargin: 63;
+        anchors.left: mapToolsLabel.right;
+        anchors.leftMargin: 63 * DynamicResolution.kw;
         anchors.top: clearMapButton.top;
     }
     Labels.FramedLabel
     {
         id: mapUnitsLabel;
         anchors.top: separator3.top;
-        anchors.left: separator3.right; anchors.leftMargin: 63;
+        anchors.left: separator3.right;
+        anchors.leftMargin: 63 * DynamicResolution.kw;
 
-        fixed_width: 176;    fixed_height: 13;
+        fixed_width: 176 * DynamicResolution.kw;
+        fixed_height: 13 * DynamicResolution.kh;
         label_text: "ОБЪЕКТЫ КАРТЫ";
-        label_color: UX.textWhite;          label_text_size: 14;
-        label_text_family: fontSemiBold.name; label_text_bold: true;
+        label_color: UX.textWhite;
+        label_text_size: 14 * DynamicResolution.kh;
+        label_text_family: fontSemiBold.name;
+        label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Buttons.LightToolButton
     {
         id: markerButton;
         anchors.bottom: separator3.bottom;
-        anchors.left: separator3.right;    anchors.leftMargin: 6;
+        anchors.left: separator3.right;
+        anchors.leftMargin: 6 * DynamicResolution.kw;
 
-        fixed_width: 35;      fixed_height: 35;
+        fixed_width: 35 * DynamicResolution.kw;
+        fixed_height: 35 * DynamicResolution.kh;
         frame_color: UX.textWhite;
         highlight_color: UX.primaryLighter;
-        frame_radius: 2; frame_enabled: true;
-        icon_px_size: 23;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_enabled: true;
+        icon_px_size: 23 * DynamicResolution.kw;
         icon_source: "qrc:/icons/marker.png";
         onClicked: {
             ioHandler.placeMarker();
@@ -732,90 +846,115 @@ Rectangle {
     {
         id: totalImagesCountTooltip;
         anchors.top: parent.top;
-        anchors.topMargin: 26;
-        anchors.right: separator4.left; anchors.rightMargin: 50;
+        anchors.topMargin: 26 * DynamicResolution.kh;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 50 * DynamicResolution.kw;
 
-        fixed_width: 170;    fixed_height: 14;
+        fixed_width: 170 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: "РАДИОЛОКАЦИОННЫЕ СНИМКИ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontSemiBold.name; label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Labels.FramedLabel
     {
         id: autocaptureTargetsTooltip;
         anchors.top: totalImagesCountTooltip.bottom;
-        anchors.topMargin: -1;
-        anchors.right: separator4.left; anchors.rightMargin: 50;
+        anchors.topMargin: -1 * DynamicResolution.kh;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 50 * DynamicResolution.kw;
 
-        fixed_width: 170;    fixed_height: 14;
+        fixed_width: 170 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: "ЦЕЛИ АВТОЗАХВАТА";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontSemiBold.name; label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Labels.FramedLabel
     {
         id: autocaptureClosestEncounterTooltip;
         anchors.top: autocaptureTargetsTooltip.bottom;
-        anchors.topMargin: -1;
-        anchors.right: separator4.left; anchors.rightMargin: 50;
+        anchors.topMargin: -1 * DynamicResolution.kh;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 50 * DynamicResolution.kw;
 
-        fixed_width: 170;    fixed_height: 14;
+        fixed_width: 170 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: "РАССТОЯНИЕ ДО БЛИЖАЙШЕЙ";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontSemiBold.name; label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Labels.FramedLabel
     {
         id: totalImagesCountIndicator;
         anchors.top: parent.top;
-        anchors.topMargin: 24;
-        anchors.right: separator4.left; anchors.rightMargin: 4;
+        anchors.topMargin: 24 * DynamicResolution.kh;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 4 * DynamicResolution.kw;
 
-        fixed_width: 42;    fixed_height: 14;
+        fixed_width: 42 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: RuntimeData.totalImageCount;
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Labels.FramedLabel
     {
         id: autocaptureTargetsIndicator;
         anchors.top: totalImagesCountIndicator.bottom;
-        anchors.right: separator4.left; anchors.rightMargin: 4;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 4 * DynamicResolution.kw;
 
-        fixed_width: 42;    fixed_height: 14;
+        fixed_width: 42 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: RuntimeData.totalAutocapCount;
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Labels.FramedLabel
     {
         id: autocaptureClosestEncounterIndicator;
         anchors.top: autocaptureTargetsIndicator.bottom;
-        anchors.right: separator4.left; anchors.rightMargin: 4;
+        anchors.right: separator4.left;
+        anchors.rightMargin: 4 * DynamicResolution.kw;
 
-        fixed_width: 42;    fixed_height: 14;
+        fixed_width: 42 * DynamicResolution.kw;
+        fixed_height: 14 * DynamicResolution.kh;
         label_text: Number(RuntimeData.autocaptureDistance).toFixed(0) + " М";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignRight;
-        frame_radius: 2;                    frame_width: 0;
+        frame_radius: 2 * DynamicResolution.kw;
+        frame_width: 0;
     }
     Layouts.Separator
     {
         id: separator4;
-        fixed_height: 56;
+        fixed_height: 56 * DynamicResolution.kh;
         line_color: UX.textWhite;
-        anchors.left: mapUnitsLabel.right;  anchors.leftMargin: 65;
+        anchors.left: mapUnitsLabel.right;
+        anchors.leftMargin: 65 * DynamicResolution.kw;
         anchors.top: clearMapButton.top;
     }
 }

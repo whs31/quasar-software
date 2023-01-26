@@ -17,7 +17,7 @@ Rectangle {
     width: 280 * DynamicResolution.kw;
     height: 160 * DynamicResolution.kh ;
     opacity: 1;
-    radius: 6;
+    radius: 6 * DynamicResolution.kw;
     border.width: 2 * DynamicResolution.kh;
     border.color: UX.textFaded;
     clip: true;
@@ -76,7 +76,8 @@ Rectangle {
             smooth: true; antialiasing: true; anchors.centerIn: parent; anchors.verticalCenterOffset: -1; }
     Image { id: crosshair2; width: 34 * DynamicResolution.kw; height: 34 * DynamicResolution.kh; source: "qrc:/map-resources/attitude-indicator/crosshair-2.png";
             smooth: true; antialiasing: true; anchors.centerIn: parent; anchors.verticalCenterOffset: -2; }
-    Rectangle { id: dot; width: 4 * DynamicResolution.kw; height: 4 * DynamicResolution.kh; radius: 2; anchors.centerIn: parent; smooth: true; antialiasing: true; }
+    Rectangle { id: dot; width: 4 * DynamicResolution.kw; height: 4 * DynamicResolution.kh; radius: 2 * DynamicResolution.kw;
+                anchors.centerIn: parent; smooth: true; antialiasing: true; }
     Rectangle { id: leftArm; height: 1 * DynamicResolution.kh; anchors.left: parent.left; anchors.right: crosshair1.left; anchors.verticalCenter:
                 parent.verticalCenter; color: UX.textWhite; }
     Rectangle { id: rightArm; height: 1 * DynamicResolution.kh; anchors.left: crosshair1.right; anchors.right: parent.right; anchors.verticalCenter:

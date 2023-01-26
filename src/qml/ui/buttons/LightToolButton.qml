@@ -1,17 +1,18 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import DynamicResolution 1.0
 
 Rectangle {
-    property int fixed_width: 100;
-    property int fixed_height: 25;
+    property int fixed_width: 100 * DynamicResolution.kw;
+    property int fixed_height: 25 * DynamicResolution.kh;
 
-    property int icon_px_size: 16;
+    property int icon_px_size: 16 * DynamicResolution.kh;
     property string icon_source: "qrc:/ui-resources/white/close.png";
 
     property color highlight_color: "#7D5233";
     property color frame_color: "#FF0000";
     property bool frame_enabled: true;
-    property int frame_radius: 8;
+    property int frame_radius: 8 * DynamicResolution.kw;
     property int frame_width: 1;
 
     signal clicked();

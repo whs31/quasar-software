@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import DynamicResolution 1.0
 
 Canvas {
     id: canvas;
@@ -11,10 +12,10 @@ Canvas {
 
     property real centerWidth: width / 2;
     property real centerHeight: height / 2;
-    property real radius: (Math.min(canvas.width, canvas.height) / 2) - 5;
+    property real radius: (Math.min(canvas.width, canvas.height) / 2) - 5 * DynamicResolution.kw;
 
-    property real fixed_width: 240;
-    property real fixed_height: 240;
+    property real fixed_width: 240 * DynamicResolution.kw;
+    property real fixed_height: 240 * DynamicResolution.kw;
 
     property real minimumValue: 0;
     property real maximumValue: 100;

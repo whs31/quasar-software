@@ -24,7 +24,7 @@ public:
 
 protected:
     quint16 DEFAULT_UPDATE_PERIOD = 200; //ms
-    QGeoCoordinate DEFAULT_COORDINATE = QGeoCoordinate(60.0123, 30.0987);
+    QGeoCoordinate DEFAULT_COORDINATE = QGeoCoordinate(60.346, 30.78);
     float DEFAULT_SPEED = 50; //km-h
     float DEFAULT_ELEVATION = 100; //m
 

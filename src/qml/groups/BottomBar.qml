@@ -14,7 +14,7 @@ import "qrc:/qml/ui/widgets" as CustomWidgets
 Rectangle {
     property bool speedDisplayMode: false;
     id: base;
-    height: 36;
+    height: 36 * DynamicResolution.kh;
     color: UX.primaryDark;
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
@@ -24,32 +24,36 @@ Rectangle {
     Labels.FramedLabel
     {
         id: satsLabel;
-        anchors.bottom: parent.bottom;  anchors.bottomMargin: 8;
-        anchors.right: parent.right; anchors.rightMargin: 5;
+        anchors.bottom: parent.bottom;  anchors.bottomMargin: 8 * DynamicResolution.kh;
+        anchors.right: parent.right; anchors.rightMargin: 5 * DynamicResolution.kw;
 
-        fixed_width: 16;    fixed_height: 19;
+        fixed_width: 16 * DynamicResolution.kw;
+        fixed_height: 19 * DynamicResolution.kh;
         label_text: Number(RuntimeData.satellites);
-        label_color: UX.textWhite;              label_text_size: 16;
+        label_color: UX.textWhite;
+        label_text_size: 16 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
         frame_radius: 2;                        frame_width: 0;
     }
     Image {
         id: satsIcon;
-        width: 22;
-        height: 22;
+        width: 22 * DynamicResolution.kw;
+        height: 22 * DynamicResolution.kh;
         source: "qrc:/icons/satellite.png";
         smooth: true;
         antialiasing: true;
-        anchors.right: satsLabel.left;  anchors.rightMargin: 2;
+        anchors.right: satsLabel.left;
+        anchors.rightMargin: 2 * DynamicResolution.kw;
         anchors.verticalCenter: parent.verticalCenter;
     }
     Buttons.ImageButton
     {
         id: mapmodeSchemeButton;
-        anchors.right: satsIcon.left; anchors.rightMargin: 8;
-        anchors.top: parent.top; anchors.topMargin: 4;
-        fixed_width: 60;    fixed_height: 8;
+        anchors.right: satsIcon.left; anchors.rightMargin: 8 * DynamicResolution.kw;
+        anchors.top: parent.top; anchors.topMargin: 4 * DynamicResolution.kh;
+        fixed_width: 60 * DynamicResolution.kw;
+        fixed_height: 8 * DynamicResolution.kh;
         image_source: "qrc:/icons/map-layers/schema.png";
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
@@ -61,8 +65,8 @@ Rectangle {
     {
         id: mapmodeSatelliteButton;
         anchors.right: mapmodeSchemeButton.right;
-        anchors.top: mapmodeSchemeButton.bottom; anchors.topMargin: 2;
-        fixed_width: 60;    fixed_height: 8;
+        anchors.top: mapmodeSchemeButton.bottom; anchors.topMargin: 2 * DynamicResolution.kh;
+        fixed_width: 60 * DynamicResolution.kw;    fixed_height: 8 * DynamicResolution.kh;
         image_source: "qrc:/icons/map-layers/satellite.png";
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
@@ -74,8 +78,10 @@ Rectangle {
     {
         id: mapmodeHybridButton;
         anchors.right: mapmodeSatelliteButton.right;
-        anchors.top: mapmodeSatelliteButton.bottom; anchors.topMargin: 2;
-        fixed_width: 60;    fixed_height: 8;
+        anchors.top: mapmodeSatelliteButton.bottom;
+        anchors.topMargin: 2 * DynamicResolution.kh;
+        fixed_width: 60 * DynamicResolution.kw;
+        fixed_height: 8 * DynamicResolution.kh;
         image_source: "qrc:/icons/map-layers/hybrid.png";
         frame_color: UX.textWhite;
         hover_color: UX.infoLight;
@@ -87,11 +93,14 @@ Rectangle {
     {
         id: mapLayersLabel;
         anchors.verticalCenter: mapmodeSatelliteButton.verticalCenter;
-        anchors.right: mapmodeSatelliteButton.left; anchors.rightMargin: 3;
+        anchors.right: mapmodeSatelliteButton.left;
+        anchors.rightMargin: 3 * DynamicResolution.kw;
 
-        fixed_width: 40;    fixed_height: 26;
+        fixed_width: 40 * DynamicResolution.kw;
+        fixed_height: 26 * DynamicResolution.kh;
         label_text: "СЛОИ <br> КАРТЫ";
-        label_color: UX.textWhite;              label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignRight;
         frame_radius: 2;                        frame_width: 0;
@@ -99,12 +108,14 @@ Rectangle {
     Labels.FramedLabel
     {
         id: heightTerrainDisplayLabel;
-        anchors.top: parent.top; anchors.topMargin: 2;
+        anchors.top: parent.top; anchors.topMargin: 2 * DynamicResolution.kh;
         anchors.right: mapLayersLabel.left;
 
-        fixed_width: 65;    fixed_height: 17;
+        fixed_width: 65 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
         label_text: Number(RuntimeData.elevation - RuntimeData.seaLevel).toFixed(0) + " М";
-        label_color: UX.textWhite;              label_text_size: 16;
+        label_color: UX.textWhite;
+        label_text_size: 16 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
@@ -115,9 +126,10 @@ Rectangle {
         anchors.top: heightTerrainDisplayLabel.bottom;
         anchors.right: mapLayersLabel.left;
 
-        fixed_width: 65;    fixed_height: 12;
+        fixed_width: 65 * DynamicResolution.kw;
+        fixed_height: 12 * DynamicResolution.kh;
         label_text: Number(RuntimeData.elevation).toFixed(0) + " М";
-        label_color: UX.textWhite;                  label_text_size: 12;
+        label_color: UX.textWhite;                  label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name;      label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                            frame_width: 0;
@@ -125,25 +137,28 @@ Rectangle {
     Labels.FramedLabel
     {
         id: heightTerrainLabel;
-        anchors.top: parent.top; anchors.topMargin: 2;
+        anchors.top: parent.top;
+        anchors.topMargin: 2 * DynamicResolution.kh;
         anchors.right: heightTerrainDisplayLabel.left;
 
-        fixed_width: 130;    fixed_height: 17;
+        fixed_width: 130 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
         label_text: "ВЫСОТА: ";
-        label_color: UX.textWhite;              label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
     }
     Image {
         id: terrainIcon;
-        width: 16;
-        height: 16;
+        width: 16 * DynamicResolution.kw;
+        height: 16 * DynamicResolution.kh;
         source: "qrc:/icons/mountain.png";
         smooth: true;
         antialiasing: true;
-        anchors.right: heightTerrainLabel.left;  anchors.rightMargin: 2;
-        anchors.verticalCenter: heightTerrainLabel.verticalCenter; anchors.verticalCenterOffset: -1;
+        anchors.right: heightTerrainLabel.left;  anchors.rightMargin: 2 * DynamicResolution.kw;
+        anchors.verticalCenter: heightTerrainLabel.verticalCenter; anchors.verticalCenterOffset: -1 * DynamicResolution.kw;
     }
     Labels.FramedLabel
     {
@@ -151,32 +166,37 @@ Rectangle {
         anchors.top: heightTerrainDisplayLabel.bottom;
         anchors.right: heightSeaDisplayLabel.left;
 
-        fixed_width: 130;    fixed_height: 12;
+        fixed_width: 130 * DynamicResolution.kw;
+        fixed_height: 12 * DynamicResolution.kh;
         label_text: "НАД УРОВНЕМ МОРЯ: ";
-        label_color: UX.textWhite;              label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
     }
     Image {
         id: seaIcon;
-        width: 16;
-        height: 16;
+        width: 16 * DynamicResolution.kw;
+        height: 16 * DynamicResolution.kh;
         source: "qrc:/icons/water.png";
         smooth: true;
         antialiasing: true;
-        anchors.right: heightSeaLabel.left;  anchors.rightMargin: 2;
-        anchors.verticalCenter: heightSeaLabel.verticalCenter; anchors.verticalCenterOffset: -1;
+        anchors.right: heightSeaLabel.left;
+        anchors.rightMargin: 2 * DynamicResolution.kw;
+        anchors.verticalCenter: heightSeaLabel.verticalCenter;
+        anchors.verticalCenterOffset: -1 * DynamicResolution.kh;
     }
     Labels.FramedLabel
     {
         id: latitudeLabel;
-        anchors.top: parent.top; anchors.topMargin: 4;
-        anchors.right: seaIcon.left; anchors.rightMargin: 17;
+        anchors.top: parent.top; anchors.topMargin: 4 * DynamicResolution.kh;
+        anchors.right: seaIcon.left; anchors.rightMargin: 17 * DynamicResolution.kw;
 
-        fixed_width: 142;    fixed_height: 12;
+        fixed_width: 142 * DynamicResolution.kw;    fixed_height: 12 * DynamicResolution.kh;
         label_text: "<b>ШИРОТА:</b>     " + Number(RuntimeData.latitude).toFixed(5) + " °N";
-        label_color: UX.textWhite;              label_text_size: 12;
+        label_color: UX.textWhite;
+        label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
@@ -184,12 +204,12 @@ Rectangle {
     Labels.FramedLabel
     {
         id: longitudeLabel;
-        anchors.top: latitudeLabel.bottom; anchors.topMargin: 3;
-        anchors.right: seaIcon.left; anchors.rightMargin: 17;
+        anchors.top: latitudeLabel.bottom; anchors.topMargin: 3 * DynamicResolution.kh;
+        anchors.right: seaIcon.left; anchors.rightMargin: 17 * DynamicResolution.kw;
 
-        fixed_width: 142;    fixed_height: 12;
+        fixed_width: 142 * DynamicResolution.kw;    fixed_height: 12 * DynamicResolution.kh;
         label_text: "<b>ДОЛГОТА:</b>     " + Number(RuntimeData.longitude).toFixed(5) + " °E";
-        label_color: UX.textWhite;              label_text_size: 12;
+        label_color: UX.textWhite;              label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
@@ -197,11 +217,11 @@ Rectangle {
     Buttons.LightButton
     {
         id: connectButton;
-        anchors.bottom: parent.bottom; anchors.bottomMargin: 4;
-        anchors.right: longitudeLabel.left; anchors.rightMargin: 19;
-        fixed_width: 155;               fixed_height: 16;
+        anchors.bottom: parent.bottom; anchors.bottomMargin: 4 * DynamicResolution.kh;
+        anchors.right: longitudeLabel.left; anchors.rightMargin: 19 * DynamicResolution.kw;
+        fixed_width: 155 * DynamicResolution.kw;               fixed_height: 16 * DynamicResolution.kh;
         label_text: RuntimeData.connected ? "ОТКЛЮЧИТЬСЯ" : "ПОДКЛЮЧИТЬСЯ";
-        label_color: UX.textWhite;  label_text_size: 12;
+        label_color: UX.textWhite;  label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;
         label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
         highlight_color: RuntimeData.connected ? UX.errorDark : UX.successLighter;
@@ -219,13 +239,13 @@ Rectangle {
     Labels.FramedLabel
     {
         id: connectedLabel;
-        anchors.bottom: parent.bottom;      anchors.bottomMargin: 8;
-        anchors.right: connectButton.left;  anchors.rightMargin: 0;
+        anchors.bottom: parent.bottom;      anchors.bottomMargin: 8 * DynamicResolution.kh;
+        anchors.right: connectButton.left;
 
-        fixed_width: 101;    fixed_height: 17;
+        fixed_width: 101 * DynamicResolution.kw;    fixed_height: 17 * DynamicResolution.kh;
         label_text: RuntimeData.connected ? "ПОДКЛЮЧЕНО" : "НЕТ СВЯЗИ";
         label_color: RuntimeData.connected ? UX.successLighter : UX.errorLighter;
-        label_text_size: 14;
+        label_text_size: 14 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                    frame_width: 0;
@@ -233,17 +253,17 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: checkConnectionButton;
-        fixed_width: 36;
-        fixed_height: 11;
+        fixed_width: 36 * DynamicResolution.kw;
+        fixed_height: 11 * DynamicResolution.kh;
         anchors.left: connectButton.left;
         anchors.bottom: connectButton.top;
-        anchors.bottomMargin: 3;
+        anchors.bottomMargin: 3 * DynamicResolution.kh;
 
         background_color: UX.textFaded;
         background_radius: 8;
         label_text: "CHECK";
         label_color: UX.primaryDarker;
-        label_text_size: 10;
+        label_text_size: 10 * DynamicResolution.kh;
         label_text_family: fontBold.name;
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
@@ -253,18 +273,18 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: calibrateSeaLLevelButton;
-        fixed_width: 24;
-        fixed_height: 11;
+        fixed_width: 24 * DynamicResolution.kw;
+        fixed_height: 11 * DynamicResolution.kh;
         anchors.left: checkConnectionButton.right;
-        anchors.leftMargin: 3;
+        anchors.leftMargin: 3 * DynamicResolution.kw;
         anchors.bottom: connectButton.top;
-        anchors.bottomMargin: 3;
+        anchors.bottomMargin: 3 * DynamicResolution.kh;
 
         background_color: UX.textFaded;
         background_radius: 8;
         label_text: "CAL";
         label_color: UX.primaryDarker;
-        label_text_size: 10;
+        label_text_size: 10 * DynamicResolution.kh;
         label_text_family: fontBold.name;
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
@@ -274,18 +294,18 @@ Rectangle {
     Buttons.SmallRoundButton
     {
         id: customCommandButton;
-        fixed_width: 89;
-        fixed_height: 11;
+        fixed_width: 89 * DynamicResolution.kw;
+        fixed_height: 11 * DynamicResolution.kh;
         anchors.left: calibrateSeaLLevelButton.right;
-        anchors.leftMargin: 3;
+        anchors.leftMargin: 3 * DynamicResolution.kw;
         anchors.bottom: connectButton.top;
-        anchors.bottomMargin: 3;
+        anchors.bottomMargin: 3 * DynamicResolution.kh;
 
         background_color: UX.textFaded;
         background_radius: 8;
         label_text: "COMMAND";
         label_color: UX.primaryDarker;
-        label_text_size: 10;
+        label_text_size: 10 * DynamicResolution.kh;
         label_text_family: fontBold.name;
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
@@ -295,20 +315,23 @@ Rectangle {
     AnimatedImage
     {
         id: connectedAnimation;
-        width: 24; height: 24;
-        anchors.right: connectedLabel.left; anchors.rightMargin: 0;
-        anchors.bottom: connectedLabel.bottom; anchors.bottomMargin: -2;
+        width: 24 * DynamicResolution.kw; height: 24 * DynamicResolution.kh;
+        anchors.right: connectedLabel.left;
+        anchors.bottom: connectedLabel.bottom; anchors.bottomMargin: -2 * DynamicResolution.kh;
         source: RuntimeData.connected ? "qrc:/icons/animated/gif_connected.gif" : "qrc:/icons/animated/gif_disconnected.gif";
     }
     Dropdowns.InverseDropdown
     {
         id: connectionInfoDropDown;
         anchors.left: connectedAnimation.left;
-        anchors.bottom: parent.top; anchors.bottomMargin: -2;
+        anchors.bottom: parent.top; anchors.bottomMargin: -2 * DynamicResolution.kh;
 
-        fixed_width: 24;       fixed_height: 17;           fixed_drop: 17*6; fixed_drop_width: 300;
+        fixed_width: 24 * DynamicResolution.kw;
+        fixed_height: 17 * DynamicResolution.kh;
+        fixed_drop: 17*6  * DynamicResolution.kh;
+        fixed_drop_width: 300  * DynamicResolution.kw;
         label_text: "";
-        label_color: UX.textWhite;          label_text_size: 12;
+        label_color: UX.textWhite;          label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: UX.primaryLight;
@@ -319,12 +342,13 @@ Rectangle {
             {
                 id: connectionInfoLabel1;
                 anchors.top: parent.top;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "IP-АДРЕС РЛС";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -335,10 +359,11 @@ Rectangle {
                 anchors.top: parent.top;
                 anchors.left: connectionInfoLabel1.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.sarIP;
                 label_color: UX.infoDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -347,12 +372,13 @@ Rectangle {
             {
                 id: connectionInfoLabel3;
                 anchors.top: connectionInfoLabel1.bottom;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "IP-АДРЕС АРМ";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -363,10 +389,11 @@ Rectangle {
                 anchors.top: connectionInfoLabel3.top;
                 anchors.left: connectionInfoLabel3.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.pcIP;
                 label_color: UX.infoDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -375,12 +402,13 @@ Rectangle {
             {
                 id: connectionInfoLabel5;
                 anchors.top: connectionInfoLabel3.bottom;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ПОРТ ТЕЛЕМЕТРИИ:";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -391,10 +419,11 @@ Rectangle {
                 anchors.top: connectionInfoLabel5.top;
                 anchors.left: connectionInfoLabel5.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.telemetryPort;
                 label_color: UX.accentDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -403,12 +432,13 @@ Rectangle {
             {
                 id: connectionInfoLabel7;
                 anchors.top: connectionInfoLabel6.bottom;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ПОРТ ЗАГРУЗЧИКА:";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -419,10 +449,11 @@ Rectangle {
                 anchors.top: connectionInfoLabel7.top;
                 anchors.left: connectionInfoLabel7.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.loaderPort;
                 label_color: UX.accentDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -431,12 +462,13 @@ Rectangle {
             {
                 id: connectionInfoLabel9;
                 anchors.top: connectionInfoLabel8.bottom;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ПОРТ ОБРАТНОЙ СВЯЗИ:";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -447,10 +479,11 @@ Rectangle {
                 anchors.top: connectionInfoLabel9.top;
                 anchors.left: connectionInfoLabel9.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.listenPort;
                 label_color: UX.accentDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -459,12 +492,13 @@ Rectangle {
             {
                 id: connectionInfoLabel11;
                 anchors.top: connectionInfoLabel10.bottom;
-                anchors.left: parent.left; anchors.leftMargin: 5;
+                anchors.left: parent.left; anchors.leftMargin: 5 * DynamicResolution.kw;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: "ПОРТ ИНТЕРФЕЙСА ВЫПОЛНЕНИЯ КОМАНД:";
                 label_color: UX.primaryDarker;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
                 frame_radius: 2;                    frame_width: 0;
@@ -475,10 +509,11 @@ Rectangle {
                 anchors.top: connectionInfoLabel11.top;
                 anchors.left: connectionInfoLabel11.right;
 
-                fixed_width: 145;    fixed_height: 17;
+                fixed_width: 145 * DynamicResolution.kw;
+                fixed_height: 17 * DynamicResolution.kh;
                 label_text: RuntimeData.commandPort;
                 label_color: UX.accentDark;
-                label_text_size: 12;
+                label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
                 frame_radius: 2;                    frame_width: 0;
@@ -553,7 +588,7 @@ Rectangle {
         {
             id: changeSpeedModeArea;
             propagateComposedEvents: true;
-            anchors.fill: parent; anchors.bottomMargin: -22;
+            anchors.fill: parent; anchors.bottomMargin: -22 * DynamicResolution.kh;
             onClicked:
             {
                 if(speedDisplayMode === true)
@@ -568,20 +603,20 @@ Rectangle {
     Rectangle
     {
         id: statusBar;
-        height: 24;
+        height: 24 * DynamicResolution.kh;
         color: UX.primaryDarker;
         radius: 12;
         anchors.bottom: parent.bottom;
-        anchors.bottomMargin: 4;
+        anchors.bottomMargin: 4 * DynamicResolution.kh;
         anchors.left: parent.left;
-        anchors.leftMargin: 4;
+        anchors.leftMargin: 4 * DynamicResolution.kw;
         anchors.right: connectedAnimation.left;
-        anchors.rightMargin: 10;
+        anchors.rightMargin: 10 * DynamicResolution.kw;
         Rectangle
         {
             id: statusBarTooltip;
-            width: 65;
-            height: 10;
+            width: 65 * DynamicResolution.kw;
+            height: 10 * DynamicResolution.kh;
             radius: 3;
             color: UX.primaryDark;
             anchors.verticalCenter: parent.top;
@@ -590,11 +625,11 @@ Rectangle {
             {
                 id: statusBarTooltipLabel;
                 anchors.fill: parent;
-                fixed_width: 60;
-                fixed_height: 9;
+                fixed_width: 60 * DynamicResolution.kw;
+                fixed_height: 9 * DynamicResolution.kh;
                 label_text: "СТАТУС";
                 label_color: UX.textFaded;
-                label_text_size: 9;
+                label_text_size: 9 * DynamicResolution.kh;
                 label_text_family: fontBold.name;
                 label_text_bold: true;
                 label_textAlignment: Text.AlignHCenter;
@@ -606,11 +641,11 @@ Rectangle {
         {
             id: statusLabel;
             anchors.fill: parent;
-            anchors.margins: 5; anchors.leftMargin: 8;
-            fixed_height: 14;
+            anchors.margins: 5 * DynamicResolution.kw; anchors.leftMargin: 8 * DynamicResolution.kw;
+            fixed_height: 14 * DynamicResolution.kh;
             label_text: RuntimeData.formStatus;
             label_color: UX.textWhite;
-            label_text_size: 14;
+            label_text_size: 14 * DynamicResolution.kh;
             label_text_family: fontBold.name;
             label_text_bold: false;
             label_textAlignment: Text.AlignLeft;

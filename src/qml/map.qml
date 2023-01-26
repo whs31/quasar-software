@@ -614,6 +614,7 @@ Rectangle {
             anchors.bottomMargin: 15 * DynamicResolution.kh;
             status: RuntimeData.statusPopup;
             label_color: UX.textWhite;
+            outline_color: UX.primaryDark;
             label_text_size: 14 * DynamicResolution.kh;
             label_text_family: fontSemiBold.name;
         }

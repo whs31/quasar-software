@@ -8,6 +8,7 @@ import RuntimeData 1.0
 Item {
     property string status: "EmptyStatustext";
     property color label_color: "#FF0000";
+    property color outline_color: "#AA0000";
     property int label_text_size: 12 * DynamicResolution.kh;
     property string label_text_family: "Helvetica [Cronyx]";
 
@@ -21,6 +22,8 @@ Item {
         font.pixelSize: label_text_size;
         font.family: label_text_family;
         font.bold: true;
+        style: Text.Sunken;
+        styleColor: outline_color;
         color: label_color;
         opacity: 0;
         anchors.centerIn: parent;

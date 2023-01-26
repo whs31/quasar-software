@@ -103,7 +103,7 @@ bool RecallHandler::clearCache(void)
     return false;
 }
 
-void RecallHandler::placeMarker(void)       { RuntimeData::mouseState = MouseState::MarkerPlacement; }
+void RecallHandler::placeMarker(void)       { RuntimeData::get()->setMouseState(1); }
 void RecallHandler::clearSARDisk(void)      
 { 
     QMessageBox box;

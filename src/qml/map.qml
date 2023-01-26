@@ -320,7 +320,7 @@ Rectangle {
                 {
                     mouseKeyHandler.copyCoordinates(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
-                if(mouseKeyHandler.mouseState === 1 & mouse.button === Qt.LeftButton)
+                if(RuntimeData.mouseState === 1 & mouse.button === Qt.LeftButton)
                 {
                     mouseKeyHandler.placeMarker(mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).latitude, mapView.toCoordinate(Qt.point(mapMouseArea.mouseX,mapMouseArea.mouseY)).longitude);
                 }
@@ -640,6 +640,7 @@ Rectangle {
             anchors.leftMargin: 3;
         }
 
+        // отображение координат курсора
         CustomWidgets.FloatingTooltip
         {
             id: mapHoverCoordinatesTooltip;
@@ -654,6 +655,20 @@ Rectangle {
             frame_radius: 10 * DynamicResolution.kh;
             frame_width: 0;
             label_textAlignment: Text.AlignLeft;
+        }
+
+        // отображение полупрозрачного маркера, следующее за курсором
+        Image {
+            id: ghostMarker;
+            width: 32;
+            height: 32;
+            layer.enabled: true;
+            opacity: 0.5;
+            smooth: true;
+            source: "qrc:/map/markers/default.png";
+            x: mapMouseArea.mouseX - 16;
+            y: mapMouseArea.mouseY - 32;
+            visible: RuntimeData.mouseState === 1 ? true : false;
         }
     }
     DropShadow { z: 99; anchors.fill: infoWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;

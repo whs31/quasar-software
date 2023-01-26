@@ -46,7 +46,7 @@ Rectangle {
             anchors.margins: 2;
             anchors.bottomMargin: -90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
             Image { id: scaleTop; opacity: 0.9; width: 34 * DynamicResolution.kw;
-                    height: 180 * DynamicResolution.kh; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+                    height: 180 * DynamicResolution.kh; source: "qrc:/attitude/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.bottom: parent.bottom; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
         Rectangle
@@ -66,15 +66,15 @@ Rectangle {
             anchors.topMargin: 90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
             //clip: true;
             Image { id: scaleBottom; opacity: 0.9; width: 34 * DynamicResolution.kw;
-                    height: 180 * DynamicResolution.kh; source: "qrc:/map-resources/attitude-indicator/scale-vertical.png";
+                    height: 180 * DynamicResolution.kh; source: "qrc:/attitude/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter;  }
         }
     }
 
     // static parts
-    Image { id: crosshair1; width: 70 * DynamicResolution.kw; height: 70 * DynamicResolution.kh; source: "qrc:/map-resources/attitude-indicator/crosshair-1.png";
+    Image { id: crosshair1; width: 70 * DynamicResolution.kw; height: 70 * DynamicResolution.kh; source: "qrc:/attitude/crosshair-1.png";
             smooth: true; antialiasing: true; anchors.centerIn: parent; anchors.verticalCenterOffset: -1; }
-    Image { id: crosshair2; width: 34 * DynamicResolution.kw; height: 34 * DynamicResolution.kh; source: "qrc:/map-resources/attitude-indicator/crosshair-2.png";
+    Image { id: crosshair2; width: 34 * DynamicResolution.kw; height: 34 * DynamicResolution.kh; source: "qrc:/attitude/crosshair-2.png";
             smooth: true; antialiasing: true; anchors.centerIn: parent; anchors.verticalCenterOffset: -2; }
     Rectangle { id: dot; width: 4 * DynamicResolution.kw; height: 4 * DynamicResolution.kh; radius: 2 * DynamicResolution.kw;
                 anchors.centerIn: parent; smooth: true; antialiasing: true; }

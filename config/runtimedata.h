@@ -7,15 +7,12 @@
 #include <QVector>
 #include <QGeoCoordinate>
 
-enum MouseState : short int
-{
-    Blank,
-    MarkerPlacement
-};
-
 class RuntimeData : public QObject
 {
     Q_OBJECT
+
+    // мышь
+    Q_PROPERTY(quint8 mouseState                    READ getMouseState          WRITE setMouseState          NOTIFY mouseStateChanged)
 
     // телеметрия
     Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude            NOTIFY latitudeChanged)
@@ -98,13 +95,13 @@ class RuntimeData : public QObject
     
 public:
     static RuntimeData* get(QObject* parent = nullptr);
-    static short int mouseState;
     QVector<QGeoCoordinate> autocaptureMarks;
     void clearSARDisk(void);
 
     //==============================================                 ====================================================
     //                 ==> GET ==>                                                        <== SET <==
     //==============================================                 ====================================================
+    quint8 getMouseState() const;                                       void setMouseState(quint8 state);
     qreal getLatitude();                                                void setLatitude(qreal value);
     qreal getLongitude();                                               void setLongitude(qreal value);
     qreal getElevation();                                               void setElevation(qreal value);
@@ -177,6 +174,8 @@ signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=
     //======================================================================================================
+    void mouseStateChanged();
+
     void latitudeChanged();
     void longitudeChanged();
     void elevationChanged();
@@ -250,6 +249,7 @@ private:
     static RuntimeData* _instance;
     explicit RuntimeData(QObject *parent = nullptr);
 
+    quint8 m_mouseState = 0;
     bool m_emulatorMode = false;
 
     struct Telemetry {

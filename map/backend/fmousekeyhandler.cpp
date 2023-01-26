@@ -7,9 +7,6 @@ FMouseKeyHandler::FMouseKeyHandler(QObject *parent)
     clipboard = QApplication::clipboard();
 }
 
-qint16 FMouseKeyHandler::mouseState(void) { _mouseState = RuntimeData::mouseState; return _mouseState; }
-void FMouseKeyHandler::setMouseState(qint16 state) { if(_mouseState == state) return; _mouseState = state; RuntimeData::mouseState = state; emit mouseStateChanged(); }
-
 void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 {
     RuntimeData::get()->setStatusPopup("Координаты скопированы в " +
@@ -20,6 +17,6 @@ void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 
 void FMouseKeyHandler::placeMarker(qreal latitude, qreal longitude)
 {
-    setMouseState(MouseState::Blank);
+    RuntimeData::get()->setMouseState(0);
     MarkerManager::newMarker(latitude, longitude);
 }

@@ -1,10 +1,13 @@
 #include "runtimedata.h"
 
 RuntimeData *RuntimeData::_instance = nullptr;
-short int RuntimeData::mouseState = MouseState::Blank;
 RuntimeData *RuntimeData::get(QObject *parent) { if (_instance != NULL) return _instance;
 _instance = new RuntimeData(parent); return _instance; }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
+
+quint8 RuntimeData::getMouseState() const { return m_mouseState; }
+void RuntimeData::setMouseState(quint8 state) { if (m_mouseState == state) return;
+m_mouseState = state; emit mouseStateChanged(); }
 
 qreal RuntimeData::getLatitude() { return telemetry.latitude; }
 void RuntimeData::setLatitude(qreal value) { if (value == telemetry.latitude) return;

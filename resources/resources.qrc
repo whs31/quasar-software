@@ -64,5 +64,11 @@
         <file>logo/gitlab.png</file>
         <file>logo/radar-mms.png</file>
         <file>logo/radar-mms_white.png</file>
+        <file>map/markers/autocapture.png</file>
+        <file>map/markers/default.png</file>
+        <file>map/markers/flag.png</file>
+        <file>map/markers/image.png</file>
+        <file>map/markers/preset.psd</file>
+        <file>map/markers/radar.png</file>
     </qresource>
 </RCC>

@@ -302,7 +302,7 @@ Rectangle {
 		onClicked: {
 			RuntimeData.windowLock = true;
 			DialogWindowBackend.header = "КАЛИБРОВКА ВЫСОТЫ";
-			DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
+			DialogWindowBackend.icon = "qrc:/icons/dialog/info.png";
 			DialogWindowBackend.text = "Калибровка высоты должна проводиться на земле. Убедитесь, что беспилотник находится на стартовой площадке.";
 			DialogWindowBackend.show();
 			waitingForDialogResponse = true;

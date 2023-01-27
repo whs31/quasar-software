@@ -73,5 +73,9 @@
         <file>icons/dialog/error.png</file>
         <file>icons/dialog/info.png</file>
         <file>icons/dialog/warning.png</file>
+        <file>icons/left.png</file>
+        <file>icons/right.png</file>
+        <file>map/items/gpsarrow.png</file>
+        <file>map/items/temp.png</file>
     </qresource>
 </RCC>

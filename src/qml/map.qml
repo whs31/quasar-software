@@ -498,7 +498,7 @@ Rectangle {
                 id: r1Source;
                 layer.enabled: true
                 transformOrigin: Item.Right
-                source: "qrc:/ui-resources/qml/temp.png"
+				source: "qrc:/map/items/temp.png"
             }
             ColorOverlay {
                 id: r1Overlay;
@@ -556,7 +556,7 @@ Rectangle {
                     layer.enabled: true;
                     transformOrigin: Item.Center;
                     smooth: true;
-                    source: "qrc:/ui-resources/qml/gpsarrow.png";
+					source: "qrc:/map/items/gpsarrow.png";
                     visible: false;
                 }
                 ColorOverlay {

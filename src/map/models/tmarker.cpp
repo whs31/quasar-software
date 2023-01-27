@@ -10,24 +10,24 @@ void TMarker::update(void)
     switch (icon)
     {
     case MarkerIcon::SARImage:
-        iconPath = "qrc:/map-resources/markers/radar.png";
+        iconPath = "qrc:/map/markers/radar.png";
         anchorX = 16;
         anchorY = 16;
         break;
     case MarkerIcon::Flag:
-        iconPath = "qrc:/map-resources/markers/flag.png";
+        iconPath = "qrc:/map/markers/flag.png";
         anchorX = 16;
         anchorY = 16;
         break;
     case MarkerIcon::AutocaptureMark:
     {
-        iconPath = "qrc:/map-resources/markers/autocapture.png";
+        iconPath = "qrc:/map/markers/autocapture.png";
         anchorX = 16;
         anchorY = 16;
         break;
     }
     default:
-        iconPath = "qrc:/map-resources/markers/default.png";
+        iconPath = "qrc:/map/markers/default.png";
         anchorX = 16;
         anchorY = 32;
         break;

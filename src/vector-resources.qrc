@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>ui-resources/svg/logo/orange-icononly.svg</file>
-        <file>ui-resources/svg/logo/white-icononly.svg</file>
-        <file>ui-resources/svg/logo/full-logo.svg</file>
-        <file>ui-resources/svg/logo/full-logo.png</file>
-        <file>ui-resources/svg/logo/black-full-logo.svg</file>
-    </qresource>
-</RCC>

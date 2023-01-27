@@ -124,28 +124,21 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         openSSLDialogue.exec();
     }
 
-    // any other ui-related startup code here!
-
     // core
     // (!) do not touch it.
     Debug::Log("?[STARTUP] Setuping connections...");
-    timer = new QTimer(this);
-    udpTimeout = new QTimer(this);
     LinkerQML::get(qml);
     connect(LinkerQML::get(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
     connect(LinkerQML::get(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
 
     // network setup
-    telemetryRemote = new UDPRemote();
+    telemetryRemote = new TelemetryRemote(this);
     formRemote = new UDPRemote();
     consoleListenerRemote = new UDPRemote();
     downloader = new TCPDownloader(this);
     connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
 
     // network socket connections setup
-    connect(timer, SIGNAL(timeout()), this, SLOT(TelemetryHeartbeat()));
-    connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
-    connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
     connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
     connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
 
@@ -164,10 +157,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // autocapture setup
     connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
-
-    // timers starts here
-    timer->start(SConfig::get()->getTelemetryFrequency() * 1000);
-    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
 
     // startup functions
     RuntimeData::get()->setConnected(false);
@@ -225,19 +214,17 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // execute any other startup code here
     RuntimeData::get()->setStatusPopup("Версия программы " +
                                         SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
-    RuntimeData::get()->setStatusPopupTrigger(true);
+    RuntimeData::get()->setStatusPopupTrigger(true); //TODO: make it separate class
 }
 
 CoreUI::~CoreUI()
 {
     Debug::Log("Ending current session...");
     uiReady = false;
-    telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
 
     delete ui;
-    delete telemetryRemote;
     delete formRemote;
     delete consoleListenerRemote;
     delete qml;
@@ -283,7 +270,6 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 }
 
 bool CoreUI::getReady(void)             { return uiReady; }
-void CoreUI::Disconnected()             { RuntimeData::get()->setConnected(false); }
 void CoreUI::updateProgress(float f)
 {
     if (f > 0)
@@ -305,10 +291,7 @@ void CoreUI::updateProgress(float f)
 }
 void CoreUI::SendRemoteCommand(QString command, CommandType type)
 {
-    if (type == CommandType::TelemetryCommand)
-        telemetryRemote->Send(command.toUtf8());
-    else if (type == CommandType::FormCommand)
-        formRemote->Send(command.toUtf8());
+    formRemote->Send(command.toUtf8());
 }
 
 void CoreUI::MinimizeSlot()     { showMinimized(); }
@@ -372,39 +355,6 @@ void CoreUI::DebugSlot()
     ui->debugConsole->setVisible(state);
 }
 
-void CoreUI::ReadTelemetry(QByteArray data)
-{
-    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
-    DataType dtype = MessageParser::checkReceivedDataType(data);
-    switch (dtype)
-    {
-    case DataType::Telemetry: {
-        short _conckc2 = (short)0;
-        QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
-        _conckc = pair.first;
-        _conckc2 = pair.second;
-        linker->fixedUpdate();
-        if ((short)_conckc2 != 0 || _conckc != pair.first)
-            RuntimeData::get()->setConnected(true);
-        else 
-            RuntimeData::get()->setConnected(false);
-        break;
-    }
-    case DataType::FormResponse: {
-        std::array<int, 4> responseList;
-        responseList = MessageParser::parseFormResponse(data);
-        if (!responseList.empty())
-        {
-            QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
-            Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) + " with checksum check " +
-                       checksumCheck);
-        }
-        break;
-    }
-    default: { break; }
-    }
-}
-
 void CoreUI::ReadSARConsole(QByteArray data)
 {
     if(plugins.terminalLoaded)
@@ -430,7 +380,6 @@ void CoreUI::ReadSARConsole(QByteArray data)
         RuntimeData::get()->setTotalDiskSpace(_split.last().toInt());
     }
 }
-
 void CoreUI::ReadForm(QByteArray data)
 {
     DataType dtype = MessageParser::checkReceivedDataType(data);
@@ -450,16 +399,9 @@ void CoreUI::ReadForm(QByteArray data)
                 RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
         }
         break;
-    default: 
-    {
-        break;
-    }
+    default: break;
     }
 }
-
-// вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
-// эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
-void CoreUI::TelemetryHeartbeat()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
@@ -519,7 +461,6 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         return QObject::eventFilter(obj, event);
     return false;
 }
-
 void CoreUI::SendClearCommand(void)
 {
     Debug::Log("?[SAR] Clearing SAR storage...");
@@ -530,11 +471,10 @@ void CoreUI::SendClearCommand(void)
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::reconnectSlot()
 {
-    telemetryRemote->Disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
     RuntimeData::get()->setConnected(false);
-    telemetryRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getTelemetryPort());
+    telemetryRemote->connect(SConfig::get()->getDE10IP(), SConfig::get()->getTelemetryPort().toUInt(), SConfig::get()->getTelemetryFrequency());
     if(SConfig::get()->getDE10IP().endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
             QString correctedSarIP = SConfig::get()->getDE10IP();
             correctedSarIP.chop(1); correctedSarIP.append("7");
@@ -558,7 +498,7 @@ void CoreUI::reconnectSlot()
 }
 void CoreUI::disconnectSlot()
 {
-    telemetryRemote->Disconnect();
+    telemetryRemote->disconnect();
     formRemote->Disconnect();
     consoleListenerRemote->Disconnect();
     RuntimeData::get()->setConnected(false);

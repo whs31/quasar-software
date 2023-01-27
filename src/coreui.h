@@ -27,6 +27,7 @@
 #include "network/udpremote.h"
 #include "network/messageparser.h"
 #include "network/tcpdownloader.h"
+#include "network/modules/telemetryremote.h"
 #include "func/smath.h"
 #include "func/stext.h"
 #include "gui/dynamicresolution.h"
@@ -70,9 +71,6 @@ public:
     bool eventFilter(QObject* obj, QEvent* event);
 
 public slots:
-    //utility public slots
-    void Disconnected();
-
     //gui public slots
     void updateProgress(float f);
     void reconnectSlot();
@@ -82,26 +80,21 @@ private:
     //object pointers
     Ui::CoreUI *ui;
     static CoreUI* debugPointer;
-    UDPRemote *telemetryRemote;
-    UDPRemote *formRemote;
-    UDPRemote *consoleListenerRemote;
-    LinkerQML *linker;
-    TCPDownloader *downloader;
-    QQuickItem* qml;
-    FlightEmulator* flightEmulator;
-    PluginHostAPI *HostAPI;
-    DynamicResolution* dynamicResolutionInstance;
-
-    //timers
-    QTimer *timer;
-    QTimer *udpTimeout;
+    TelemetryRemote* telemetryRemote = nullptr;
+    UDPRemote* formRemote = nullptr;
+    UDPRemote* consoleListenerRemote = nullptr;
+    LinkerQML* linker = nullptr;
+    TCPDownloader* downloader = nullptr;
+    QQuickItem* qml = nullptr;
+    FlightEmulator* flightEmulator = nullptr;
+    PluginHostAPI* HostAPI = nullptr;
+    DynamicResolution* dynamicResolutionInstance = nullptr;
 
     //global flags
     bool uiReady = false;
     bool formingContinuous = false;
 
     //global variables
-    double _conckc = 0;
     QSet<int> pressedKeys;
     static QRect screenResolution;
 
@@ -127,10 +120,8 @@ private slots:
     void DebugSlot();
 
     //utility slots
-    void ReadTelemetry(QByteArray data);
     void ReadForm(QByteArray data);
     void ReadSARConsole(QByteArray data);
-    void TelemetryHeartbeat(void);
     void SendClearCommand(void);
 
     //gui slots

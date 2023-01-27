@@ -64,20 +64,20 @@ compile_commands.json
 
 # C# section
 
-/emulator/flight-emulator/quasar-flight-emulator/[Ll]ibrary/
-/emulator/flight-emulator/quasar-flight-emulator/[Tt]emp/
-/emulator/flight-emulator/quasar-flight-emulator/[Oo]bj/
-/emulator/flight-emulator/quasar-flight-emulator/[Bb]uild/
-/emulator/flight-emulator/quasar-flight-emulator/[Bb]uilds/
-/emulator/flight-emulator/quasar-flight-emulator/[Ll]ogs/
-/emulator/flight-emulator/quasar-flight-emulator/[Uu]ser[Ss]ettings/
+/emulator/flight-emulator/quasar-flight-emulator/Library
+/emulator/flight-emulator/quasar-flight-emulator/[Tt]emp
+/emulator/flight-emulator/quasar-flight-emulator/[Oo]bj
+/emulator/flight-emulator/quasar-flight-emulator/[Bb]uild
+/emulator/flight-emulator/quasar-flight-emulator/[Bb]uilds
+/emulator/flight-emulator/quasar-flight-emulator/[Ll]ogs
+/emulator/flight-emulator/quasar-flight-emulator/[Uu]ser[Ss]ettings
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
-/emulator/flight-emulator/quasar-flight-emulator/[Mm]emoryCaptures/
+/emulator/flight-emulator/quasar-flight-emulator/[Mm]emoryCaptures
 
 # Recordings can get excessive in size
-/emulator/flight-emulator/quasar-flight-emulator/[Rr]ecordings/
+/emulator/flight-emulator/quasar-flight-emulator/[Rr]ecordings
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*

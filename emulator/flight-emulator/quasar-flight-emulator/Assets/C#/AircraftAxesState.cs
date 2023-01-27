@@ -42,6 +42,7 @@ public class AircraftAxesState : MonoBehaviour
         throttle = Mathf.Clamp(Mathf.Lerp(throttle, throttle + delta_throttle / 150, 1), 0.01f, 1.0f);
 
         applyChanges();
+        log();
     }
 
     void getInput()
@@ -61,8 +62,13 @@ public class AircraftAxesState : MonoBehaviour
         rotorAnimator.speed = throttle;
 
         Quaternion startRotation = elevator.rotation;
-        Quaternion endRotation = Quaternion.Euler(delta_pitch * 600, elevator.rotation.eulerAngles.y, elevator.rotation.eulerAngles.z);
+        Quaternion endRotation = Quaternion.Euler(-delta_pitch * 600, elevator.rotation.eulerAngles.y, elevator.rotation.eulerAngles.z);
         elevator.rotation = Quaternion.Lerp(startRotation, endRotation, 2 * Time.deltaTime);
+    }
+
+    void log()
+    {
+        Debug.Log(string.Format("Pitch: {0} | Yaw: {1} | Roll: {2} | Throttle: {3}", pitch, yaw, roll, throttle));
     }
 
     IEnumerator maxThrottle()

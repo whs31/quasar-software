@@ -37,11 +37,9 @@ void DiskTools::fetchDirectory()
         }
     } else {
         Debug::Log("![DISK] Directory is empty, throwing warning window...");
-        QMessageBox warningDialogue;
-        warningDialogue.setWindowTitle("Изображения не найдены!");
-        warningDialogue.setIcon(QMessageBox::Warning);
-        warningDialogue.setText("В выбранном каталоге или кэше не найдены изображения!");
-        warningDialogue.exec();
+        RuntimeData::get()->setStatusPopup("В выбранном каталоге " +
+                                           SText::colorText("не найдены изображения!", ThemeManager::get()->getErrorLighter()));
+        RuntimeData::get()->setStatusPopupTrigger(true);
     }
 }
 

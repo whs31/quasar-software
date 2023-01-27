@@ -7,6 +7,9 @@
 #include <QFile>
 
 #include "image-processing/imagemanager.h"
+#include "config/runtimedata.h"
+#include "gui/thememanager.h"
+#include "func/stext.h"
 
 class DiskTools : public QObject
 {

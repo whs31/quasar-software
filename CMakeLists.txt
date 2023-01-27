@@ -25,13 +25,13 @@ include_directories(
 include_directories (libplugin)
 link_directories(${CMAKE_SOURCE_DIR}/libplugin)
 
-file(GLOB SOURCE src/* )
-
-
 if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${executable_name} ${SOURCE}
+        src/buildprefs.h
+        src/main.cpp
+        src/coreui.h                                        src/coreui.cpp                                                src/coreui.ui
         src/emulator/flightemulator.h                       src/emulator/flightemulator.cpp
         src/emulator/udpemulator.h                          src/emulator/udpemulator.cpp
         src/emulator/saroutputconsoleemulator.h             src/emulator/saroutputconsoleemulator.cpp
@@ -49,7 +49,6 @@ else()
         src/network/udpremote.h                             src/network/udpremote.cpp
         src/network/tcpdownloader.h                         src/network/tcpdownloader.cpp
         src/network/messageparser.h                         src/network/messageparser.cpp
-        src/coreui.h                                        src/coreui.cpp
         src/config/config.h                                 src/config/config.cpp
         src/config/sconfig.h                                src/config/sconfig.cpp
         src/config/settingsdialog.h                         src/config/settingsdialog.cpp                                  src/config/settingsdialog.ui
@@ -76,13 +75,13 @@ else()
         src/gui/windows/autocapturemarkwindowbackend.h      src/gui/windows/autocapturemarkwindowbackend.cpp
         src/gui/windows/settingswindowbackend.h             src/gui/windows/settingswindowbackend.cpp
         src/qml.qrc
-        src/buildprefs.h
+        src/qss.qrc
+        src/images.qrc
+        src/osmconfig.qrc
         resources/resources.qrc
-
         ${SRCS} appiconwin32.rc
    )
 endif()
-
 
 target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Widgets
@@ -93,7 +92,6 @@ target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt5::QuickControls2
 )
-
 
 if(WIN32)
     target_link_libraries(${executable_name}

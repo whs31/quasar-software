@@ -139,7 +139,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
 
     // sar commands setup
-    connect(RuntimeData::get(), SIGNAL(clearSARDiskSignal()), this, SLOT(SendClearCommand()));
+    connect(SignalLinker::get(), SIGNAL(clearSARStorageSignal()), this, SLOT(SendClearCommand()));
 
     // ui misc initialization and assignment
     RuntimeData::get()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());

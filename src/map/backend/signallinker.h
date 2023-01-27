@@ -15,6 +15,7 @@ public:
     void sendInfo(void);
     void sendEmulator(void);
     Q_INVOKABLE void formSingleImage(void); 
+    Q_INVOKABLE void clearSARStorage(void);
     
 
 private:
@@ -29,6 +30,7 @@ signals:
     void logSignal();
     void emulatorSignal();
     void formSingleImageSignal();
+    void clearSARStorageSignal();
 
 };
 

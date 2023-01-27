@@ -50,7 +50,7 @@ Rectangle {
 			fixed_height: 16 * DynamicResolution.kh;
 			label_text: DialogWindowBackend.header;
 			label_color: UX.textWhite;
-			label_text_size: 14 * DynamicResolution.kh;
+			label_text_size: 17 * DynamicResolution.kh;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignHCenter;
@@ -81,7 +81,7 @@ Rectangle {
 			anchors.bottom: parent.bottom;
 			anchors.bottomMargin: 14;
 			anchors.right: parent.horizontalCenter;
-			anchors.rightMargin: 25 * DynamicResolution.kw;
+			anchors.rightMargin: 15 * DynamicResolution.kw;
 			fixed_width: 103 * DynamicResolution.kw;
 			fixed_height: 20 * DynamicResolution.kh;
 			label_text: "ОК";
@@ -103,7 +103,7 @@ Rectangle {
 			anchors.bottom: parent.bottom;
 			anchors.bottomMargin: 14;
 			anchors.left: parent.horizontalCenter;
-			anchors.leftMargin: 25 * DynamicResolution.kw;
+			anchors.leftMargin: 15 * DynamicResolution.kw;
 			fixed_width: 103 * DynamicResolution.kw;
 			fixed_height: 20 * DynamicResolution.kh;
 			label_text: "ОТМЕНА";

@@ -15,3 +15,4 @@ void SignalLinker::sendInfo(void) { emit infoSignal(); }
 void SignalLinker::sendEmulator(void) { emit emulatorSignal(); }
 
 void SignalLinker::formSingleImage(void) { emit formSingleImageSignal(); }
+void SignalLinker::clearSARStorage(void) { emit clearSARStorageSignal(); }

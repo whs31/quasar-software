@@ -725,6 +725,8 @@ Rectangle {
             }
             Buttons.LightButton
             {
+				property bool waitingForDialogResponse: false;
+
                 id: clearTrackButton;
                 enabled: !RuntimeData.windowLock;
                 anchors.top: drawDiagramCheckbox.bottom;
@@ -735,12 +737,31 @@ Rectangle {
                 label_text_size: 12 * DynamicResolution.kh;
                 label_text_family: fontMedium.name;
                 label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-                highlight_color: UX.errorDark;
-                frame_radius: 0;                frame_width: 1;
-                frame_enabled: false;
-                onClicked: {
-                    ioHandler.clearTrack();
-                }
+				highlight_color: UX.errorDark;
+				frame_radius: 0;                frame_width: 1;
+				frame_enabled: false;
+				onClicked: {
+					RuntimeData.windowLock = true;
+					DialogWindowBackend.header = "ОЧИСТКА ТРЕКА";
+					DialogWindowBackend.icon = "qrc:/icons/dialog/info.png";
+					DialogWindowBackend.text = "Вы уверены, что хотите полностью очистить трек?";
+					DialogWindowBackend.show();
+					waitingForDialogResponse = true;
+				}
+				function handleResponse()
+				{
+					if(waitingForDialogResponse === true)
+					{
+						if(DialogWindowBackend.returnCode === 1)
+						{
+							clearRoute();
+							waitingForDialogResponse = false;
+						}
+					}
+				}
+				Component.onCompleted: {
+					DialogWindowBackend.returnCodeChanged.connect(handleResponse)
+				}
             }
         }
     }

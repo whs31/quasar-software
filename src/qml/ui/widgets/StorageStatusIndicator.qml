@@ -5,6 +5,9 @@ import "qrc:/qml/ui/progress-bars" as ProgressBars
 import UX 1.0
 import DynamicResolution 1.0
 import RuntimeData 1.0
+import SignalLinker 1.0
+import DialogWindowBackend 1.0
+
 
 Item {
     property real percentage: 50;
@@ -15,6 +18,8 @@ Item {
 
     Buttons.LightToolButton
     {
+		property bool waitingForDialogResponse: false;
+
         id: clearSARCacheButton;
         enabled: !RuntimeData.windowLock;
         anchors.bottom: parent.bottom;
@@ -29,9 +34,28 @@ Item {
         frame_radius: 11 * DynamicResolution.kw; frame_enabled: true;
         icon_px_size: 12 * DynamicResolution.kh;
         icon_source: "qrc:/icons/trashbin.png";
-        onClicked: {
-            ioHandler.clearSARDisk();
-        }
+		onClicked: {
+			RuntimeData.windowLock = true;
+			DialogWindowBackend.header = "ОЧИСТКА ХРАНИЛИЩА РЛС";
+			DialogWindowBackend.icon = "qrc:/icons/dialog/error.png";
+			DialogWindowBackend.text = "Вы уверены, что хотите очистить хранилище изображений на РЛС? Это действие приведет к полному удалению всех снимков и голограмм. Его нельзя обратить!";
+			DialogWindowBackend.show();
+			waitingForDialogResponse = true;
+		}
+		function handleResponse()
+		{
+			if(waitingForDialogResponse === true)
+			{
+				if(DialogWindowBackend.returnCode === 1)
+				{
+					SignalLinker.clearSARStorage();
+					waitingForDialogResponse = false;
+				}
+			}
+		}
+		Component.onCompleted: {
+			DialogWindowBackend.returnCodeChanged.connect(handleResponse)
+		}
     }
     ProgressBars.CircularProgressBar
     {

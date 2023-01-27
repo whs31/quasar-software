@@ -300,7 +300,8 @@ Rectangle {
         tooltip_text: "Калибровка высоты относительно поверхности";
         tooltip_enabled: true;
 		onClicked: {
-			DialogWindowBackend.header = "Калибровка высоты";
+			RuntimeData.windowLock = true;
+			DialogWindowBackend.header = "КАЛИБРОВКА ВЫСОТЫ";
 			DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
 			DialogWindowBackend.text = "Калибровка высоты должна проводиться на земле. Убедитесь, что беспилотник находится на стартовой площадке.";
 			DialogWindowBackend.show();

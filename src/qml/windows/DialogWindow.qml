@@ -89,13 +89,14 @@ Rectangle {
 			label_text_size: 14 * DynamicResolution.kh;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.textFaded;
+			highlight_color: UX.successLighter;
 			frame_radius: 6 * DynamicResolution.kw;
 			frame_width: 1 * DynamicResolution.kh;
 			frame_enabled: true;
 			onClicked: {
 				DialogWindowBackend.returnCode = 1;
 				DialogWindowBackend.shown = false;
+				RuntimeData.windowLock = false;
 			}
 		}
 		Buttons.LightButton
@@ -112,13 +113,14 @@ Rectangle {
 			label_text_size: 14 * DynamicResolution.kh;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.textFaded;
+			highlight_color: UX.errorDark;
 			frame_radius: 6 * DynamicResolution.kw;
 			frame_width: 1 * DynamicResolution.kh;
 			frame_enabled: true;
 			onClicked: {
 				DialogWindowBackend.returnCode = -1;
 				DialogWindowBackend.shown = false;
+				RuntimeData.windowLock = false;
 			}
 		}
 	}

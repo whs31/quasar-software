@@ -19,29 +19,6 @@ DataType MessageParser::checkReceivedDataType(QByteArray data)
         return DataType::FormResponse;
     return DataType::Unrecognized;
 }
-QPair<qreal, qint16> MessageParser::parseTelemetry(QByteArray data)
-{
-    QString dts = data.data();
-    dts.remove(0, MessageParser::REQUEST_TELEMETRY.length());
-
-    QJsonDocument jsonDocument = QJsonDocument::fromJson(dts.toUtf8());
-    double lat =  jsonDocument.object().value("Latitude").toDouble();
-    double lon =  jsonDocument.object().value("Longitude").toDouble();
-    double spd =  jsonDocument.object().value("Speed").toDouble();
-    double elv =  jsonDocument.object().value("Elevation").toDouble(); 
-    double sats =  jsonDocument.object().value("Sats").toDouble(); 
-    double pitch =  jsonDocument.object().value("Pitch").toDouble(); 
-    double roll =  jsonDocument.object().value("Roll").toDouble(); 
-    double direction = jsonDocument.object().value("Direction").toDouble(); 
-    RuntimeData::get()->setLatitude(lat);
-    RuntimeData::get()->setLongitude(lon);
-    RuntimeData::get()->setElevation(elv);
-    RuntimeData::get()->setSpeed(spd); 
-    RuntimeData::get()->setSatellites(sats);
-    RuntimeData::get()->setPitch(pitch);
-    RuntimeData::get()->setRoll(roll);
-    return QPair<qreal, qint16>(lat, sats);
-}
 
 QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 arg3, float arg4, float arg5, float arg6, int arg7, float arg8, float arg9)
 {

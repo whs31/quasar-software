@@ -251,6 +251,7 @@ Rectangle {
 					imageModel.clear();
 					imageUIModel.clear();
 					ImageManager.clearAll();
+					waitingForDialogResponse = false;
 				}
 			}
 		}
@@ -260,6 +261,8 @@ Rectangle {
     }
     Buttons.LightToolButton
     {
+		property bool waitingForDialogResponse: false;
+
         id: clearLocalCacheButton;
         enabled: !RuntimeData.windowLock;
         anchors.bottom: changeCatalogueButton.bottom;
@@ -278,9 +281,27 @@ Rectangle {
         tooltip_enabled: true;
         label_text_family: fontMedium.name;
         onClicked: {
-            var verify = ioHandler.clearCache();
-            if(verify) { DiskManager.clearCache(); }
-        }
+			RuntimeData.windowLock = true;
+			DialogWindowBackend.header = "ОЧИСТКА КЭША";
+			DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
+			DialogWindowBackend.text = "Вы уверены, что хотите очистить кэш программы? Все полученные в ходе полёта изображения исчезнут из памяти компьютера.";
+			DialogWindowBackend.show();
+			waitingForDialogResponse = true;
+		}
+		function handleResponse()
+		{
+			if(waitingForDialogResponse === true)
+			{
+				if(DialogWindowBackend.returnCode === 1)
+				{
+					DiskManager.clearCache();
+					waitingForDialogResponse = false;
+				}
+			}
+		}
+		Component.onCompleted: {
+			DialogWindowBackend.returnCodeChanged.connect(handleResponse)
+		}
     }
     Dropdowns.Dropdown
     {

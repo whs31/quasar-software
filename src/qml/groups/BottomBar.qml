@@ -314,6 +314,7 @@ Rectangle {
 				if(DialogWindowBackend.returnCode === 1)
 				{
 					RuntimeData.seaLevel = RuntimeData.elevation;
+                    waitingForDialogResponse = false;
 				}
 			}
 		}

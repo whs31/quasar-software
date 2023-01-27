@@ -12,5 +12,3 @@ void RecallHandler::changeDirectory(void)
                                                                 QStandardPaths::displayName(QStandardPaths::DesktopLocation));
     if(pathNotNullCheck != NULL) {  SConfig::get()->setDefaultCatalogue(pathNotNullCheck); }
 }
-
-void RecallHandler::placeMarker(void)       { RuntimeData::get()->setMouseState(1); }

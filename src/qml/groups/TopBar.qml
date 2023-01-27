@@ -939,7 +939,7 @@ Rectangle {
         tooltip_enabled: true;
         label_text_family: fontMedium.name;
         onClicked: {
-            ioHandler.placeMarker();
+			RuntimeData.mouseState = 1;
         }
     }
 

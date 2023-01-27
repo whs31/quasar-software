@@ -19,7 +19,6 @@ public:
     Q_INVOKABLE void reconnect(void);
     Q_INVOKABLE void disconnect(void);
     Q_INVOKABLE void changeDirectory(void);
-    Q_INVOKABLE void placeMarker(void);
 
 };
 

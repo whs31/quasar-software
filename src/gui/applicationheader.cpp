@@ -14,3 +14,7 @@ void ApplicationHeader::emulator(void) { SignalLinker::get()->sendEmulator(); }
 
 bool ApplicationHeader::getWindowLockAlias() const { return RuntimeData::get()->getWindowLock(); }
 void ApplicationHeader::emitWindowLockAliasChanged() { emit windowLockAliasChanged(); }
+
+QColor ApplicationHeader::getErrorDarkAlias() const { return ThemeManager::get()->getErrorDark(); }
+QColor ApplicationHeader::getPrimaryDarkAlias() const { return ThemeManager::get()->getPrimaryDark(); }
+QColor ApplicationHeader::getTextWhiteAlias() const { return ThemeManager::get()->getTextWhite(); }

@@ -36,5 +36,8 @@
         <file>qml/windows/InfoWindow.qml</file>
         <file>qml/windows/StatusPopup.qml</file>
         <file>qml/windows/DialogWindow.qml</file>
+        <file>qml/windows/MarkerWindow.qml</file>
+        <file>qml/windows/AutocaptureMarkWindow.qml</file>
+        <file>qml/windows/SettingsWindow.qml</file>
     </qresource>
 </RCC>

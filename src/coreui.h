@@ -34,6 +34,9 @@
 #include "gui/thememanager.h"
 #include "gui/applicationheader.h"
 #include "gui/windows/dialogwindowbackend.h"
+#include "gui/windows/autocapturemarkwindowbackend.h"
+#include "gui/windows/settingswindowbackend.h"
+#include "gui/windows/markerwindowbackend.h"
 #include "emulator/flightemulator.h"
 
 #include <plugin.h>

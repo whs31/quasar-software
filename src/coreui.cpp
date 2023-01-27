@@ -75,6 +75,9 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
     qmlRegisterSingletonInstance<DialogWindowBackend>("DialogWindowBackend", 1, 0, "DialogWindowBackend", DialogWindowBackend::get());
+    qmlRegisterSingletonInstance<MarkerWindowBackend>("MarkerWindowBackend", 1, 0, "MarkerWindowBackend", MarkerWindowBackend::get());
+    qmlRegisterSingletonInstance<AutocaptureMarkWindowBackend>("AutocaptureMarkWindowBackend", 1, 0, "AutocaptureMarkWindowBackend", AutocaptureMarkWindowBackend::get());
+    qmlRegisterSingletonInstance<SettingsWindowBackend>("SettingsWindowBackend", 1, 0, "SettingsWindowBackend", SettingsWindowBackend::get());
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
@@ -156,7 +159,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     RuntimeData::get()->setLoaderPort(SConfig::get()->getLoaderPort());
     RuntimeData::get()->setCommandPort(SConfig::get()->getExecdPort());
     RuntimeData::get()->setListenPort(SConfig::get()->getTerminalPort());
-    RuntimeData::get()->setLoaderStatus("Oжидание подключения...");
+    RuntimeData::get()->setLoaderStatus("Oжидание подключения..."); //TODO: remove me 
     RuntimeData::get()->setFormStatus("Oжидание подключения...");
 
     // autocapture setup

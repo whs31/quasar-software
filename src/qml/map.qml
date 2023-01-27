@@ -480,25 +480,25 @@ Rectangle {
             }
         }
         MapQuickItem {
-            property alias r1RotationAngle: r1Rotation.angle
-            id: r1MapItem
-            visible: false
-            width: 2
-            height: 2
+			property alias r1RotationAngle: r1Rotation.angle;
+			id: r1MapItem;
+			visible: false;
+			width: 2;
+			height: 2;
             transform: Rotation {
-                id: r1Rotation
+				id: r1Rotation;
                 origin.x: r1Source.width;
                 origin.y: r1Source.height/2;
-                angle: 0
+				angle: 0;
             }
-            anchorPoint.x: r1Source.width
-            anchorPoint.y: r1Source.height/2
+			anchorPoint.x: r1Source.width;
+			anchorPoint.y: r1Source.height/2;
             z: 10;
             sourceItem: Image {
                 id: r1Source;
-                layer.enabled: true
-                transformOrigin: Item.Right
-				source: "qrc:/map/items/temp.png"
+				layer.enabled: true;
+				transformOrigin: Item.Right;
+				source: "qrc:/map/items/temp.png";
             }
             ColorOverlay {
                 id: r1Overlay;

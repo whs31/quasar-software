@@ -97,7 +97,8 @@ Rectangle {
         Buttons.LightButton
         {
             id: closeInfoWindowButton;
-            anchors.bottom: parent.bottom; anchors.bottomMargin: 12;
+			anchors.bottom: parent.bottom;
+			anchors.bottomMargin: 12 * DynamicResolution.kh;
             anchors.horizontalCenter: parent.horizontalCenter;
             fixed_width: 103 * DynamicResolution.kw;
             fixed_height: 20 * DynamicResolution.kh;

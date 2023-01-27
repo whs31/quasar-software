@@ -70,5 +70,8 @@
         <file>map/markers/image.png</file>
         <file>map/markers/preset.psd</file>
         <file>map/markers/radar.png</file>
+        <file>icons/dialog/error.png</file>
+        <file>icons/dialog/info.png</file>
+        <file>icons/dialog/warning.png</file>
     </qresource>
 </RCC>

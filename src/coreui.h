@@ -33,6 +33,7 @@
 #include "gui/passworddialog.h"
 #include "gui/thememanager.h"
 #include "gui/applicationheader.h"
+#include "gui/windows/dialogwindowbackend.h"
 #include "emulator/flightemulator.h"
 
 #include <plugin.h>

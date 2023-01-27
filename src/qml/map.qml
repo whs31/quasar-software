@@ -685,6 +685,13 @@ Rectangle {
         z: 100;
     }
 
+	Windows.DialogWindow
+	{
+		id: dialogWindow;
+		anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+		z: 100;
+	}
+
     Connections {
 
     }

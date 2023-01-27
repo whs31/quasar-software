@@ -9,6 +9,7 @@
 #include "config/runtimedata.h"
 #include "config/sconfig.h"
 #include "map/linkerqml.h"
+#include "gui/windows/dialogwindowbackend.h"
 
 class RecallHandler : public QObject
 {

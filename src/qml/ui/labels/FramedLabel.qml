@@ -13,6 +13,7 @@ Rectangle {
     property int frame_radius: 8 * DynamicResolution.kw;
     property int frame_width: 1;
     property int label_textAlignment: Text.AlignHCenter;
+	property bool label_wrapping: false;
 
     id: frame;
     color: "transparent";
@@ -31,7 +32,8 @@ Rectangle {
         opacity: enabled ? 1.0 : 0.3;
         verticalAlignment: Text.AlignVCenter;
         horizontalAlignment: label_textAlignment;
-        lineHeight: 0.75;
+		lineHeight: label_wrapping ? 1 : 0.75;
         anchors.fill: parent;
+		wrapMode: label_wrapping ? Text.WordWrap : Text.NoWrap;
     }
 }

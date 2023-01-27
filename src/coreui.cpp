@@ -66,6 +66,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
+    qmlRegisterSingletonInstance<DialogWindowBackend>("DialogWindowBackend", 1, 0, "DialogWindowBackend", DialogWindowBackend::get());
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());

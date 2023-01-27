@@ -5,6 +5,7 @@ import Config 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
 import DynamicResolution 1.0
+import DialogWindowBackend 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -277,6 +278,8 @@ Rectangle {
     }
     Buttons.SmallRoundButton
     {
+		property bool waitingForDialogResponse: false;
+
         id: calibrateSeaLLevelButton;
         enabled: !RuntimeData.windowLock;
         fixed_width: 24 * DynamicResolution.kw;
@@ -284,8 +287,7 @@ Rectangle {
         anchors.left: checkConnectionButton.right;
         anchors.leftMargin: 3 * DynamicResolution.kw;
         anchors.bottom: connectButton.top;
-        anchors.bottomMargin: 3 * DynamicResolution.kh;
-
+		anchors.bottomMargin: 3 * DynamicResolution.kh;
         background_color: UX.textFaded;
         background_radius: 8;
         label_text: "CAL";
@@ -297,7 +299,26 @@ Rectangle {
         highlight_color: UX.warningLight;
         tooltip_text: "Калибровка высоты относительно поверхности";
         tooltip_enabled: true;
-        onClicked: { ioHandler.calibrateSeaLevel(); }
+		onClicked: {
+			DialogWindowBackend.header = "Калибровка высоты";
+			DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
+			DialogWindowBackend.text = "Калибровка высоты должна проводиться на земле. Убедитесь, что беспилотник находится на стартовой площадке.";
+			DialogWindowBackend.show();
+			waitingForDialogResponse = true;
+		}
+		function handleResponse()
+		{
+			if(waitingForDialogResponse === true)
+			{
+				if(DialogWindowBackend.returnCode === 1)
+				{
+					RuntimeData.seaLevel = RuntimeData.elevation;
+				}
+			}
+		}
+		Component.onCompleted: {
+			DialogWindowBackend.returnCodeChanged.connect(handleResponse)
+		}
     }
     Buttons.SmallRoundButton
     {

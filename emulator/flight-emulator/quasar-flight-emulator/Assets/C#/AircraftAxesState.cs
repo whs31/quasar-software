@@ -59,6 +59,10 @@ public class AircraftAxesState : MonoBehaviour
     void applyChanges()
     {
         rotorAnimator.speed = throttle;
+
+        Quaternion startRotation = elevator.rotation;
+        Quaternion endRotation = Quaternion.Euler(delta_pitch * 600, elevator.rotation.eulerAngles.y, elevator.rotation.eulerAngles.z);
+        elevator.rotation = Quaternion.Lerp(startRotation, endRotation, 2 * Time.deltaTime);
     }
 
     IEnumerator maxThrottle()

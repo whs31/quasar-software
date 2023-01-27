@@ -70,24 +70,15 @@ void SConfig::saveSettings()
 {
     save();
     Debug::Log("?[CONFIG] Config saved.");
-    QMessageBox notifyAboutRestart;
-    notifyAboutRestart.setWindowTitle("Сохранение настроек");
-    notifyAboutRestart.setIcon(QMessageBox::Information);
-    notifyAboutRestart.setText("Настройки сохранены. Некоторые параметры вступят в силу только после перезапуска программы.");
-    notifyAboutRestart.setStandardButtons(QMessageBox::Yes);
-    notifyAboutRestart.setDefaultButton(QMessageBox::Yes);
-    notifyAboutRestart.exec();
+    RuntimeData::get()->setStatusPopup("Настройки сохранены. Некоторые параметры вступят в силу " +
+                                       SText::colorText("только после перезапуска.", ThemeManager::get()->getWarningLight()));
+    RuntimeData::get()->setStatusPopupTrigger(true);
 }
 
 void SConfig::saveQuiet()
 {
     save();
     Debug::Log("?[CONFIG] Config saved without dialog.");
-}
-
-QHash<QString, QVariant>* SConfig::getPluginConfig(void)
-{
-    return &m_pluginConfig;
 }
 
 void SConfig::save()

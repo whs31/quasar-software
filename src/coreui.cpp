@@ -342,13 +342,8 @@ void CoreUI::SettingsSlot()
         }
         else
         {
-            QMessageBox passwordWarning;
-            passwordWarning.setWindowTitle("Ошибка");
-            passwordWarning.setIcon(QMessageBox::Critical);
-            passwordWarning.setText("Неверный пароль.");
-            passwordWarning.setStandardButtons(QMessageBox::Yes);
-            passwordWarning.setDefaultButton(QMessageBox::Yes);
-            passwordWarning.exec();
+            RuntimeData::get()->setStatusPopup("Был введен " + SText::colorText("неверный пароль.", ThemeManager::get()->getErrorLighter()));
+            RuntimeData::get()->setStatusPopupTrigger(true);
         }
     }
 }

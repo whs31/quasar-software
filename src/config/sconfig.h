@@ -88,7 +88,6 @@ public:
     void saveSettings(void);                                       
     void saveQuiet(void);                                          
     void discardSettings(void);
-    QHash<QString, QVariant>* getPluginConfig(void);
 signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=                                            //
@@ -125,7 +124,6 @@ private:
     static Config* config;
 
     void save();
-    QHash<QString, QVariant> m_pluginConfig;
 
     QString m_sudoPassword;
     QString m_projectVersion;

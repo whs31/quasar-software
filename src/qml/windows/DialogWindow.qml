@@ -94,9 +94,7 @@ Rectangle {
 			frame_width: 1 * DynamicResolution.kh;
 			frame_enabled: true;
 			onClicked: {
-				DialogWindowBackend.returnCode = 1;
-				DialogWindowBackend.shown = false;
-				RuntimeData.windowLock = false;
+				DialogWindowBackend.accept();
 			}
 		}
 		Buttons.LightButton
@@ -118,9 +116,7 @@ Rectangle {
 			frame_width: 1 * DynamicResolution.kh;
 			frame_enabled: true;
 			onClicked: {
-				DialogWindowBackend.returnCode = -1;
-				DialogWindowBackend.shown = false;
-				RuntimeData.windowLock = false;
+				DialogWindowBackend.cancel();
 			}
 		}
 	}

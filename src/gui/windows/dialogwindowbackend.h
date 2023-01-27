@@ -16,6 +16,8 @@ class DialogWindowBackend : public QObject
 public:
     static DialogWindowBackend* get(QObject* parent = nullptr);
     Q_INVOKABLE void show(void);
+    Q_INVOKABLE void cancel(void);
+    Q_INVOKABLE void accept(void);
 
     QString getHeader() const;                          void setHeader(const QString &newHeader);
     QString getIcon() const;                            void setIcon(const QString &newIcon);

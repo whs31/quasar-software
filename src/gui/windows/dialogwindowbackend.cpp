@@ -20,6 +20,21 @@ void DialogWindowBackend::show(void)
      setShown(true);
 }
 
+void DialogWindowBackend::cancel(void)
+{
+    setReturnCode(-1);
+    setShown(false);
+	RuntimeData::get()->setWindowLock(false);
+}
+
+void DialogWindowBackend::accept(void)
+{
+    setReturnCode(1);
+    setShown(false);
+	RuntimeData::get()->setWindowLock(false);
+}
+
+
 QString DialogWindowBackend::getHeader() const { return m_header; }
 void DialogWindowBackend::setHeader(const QString &newHeader)
 {

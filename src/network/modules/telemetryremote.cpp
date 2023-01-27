@@ -78,13 +78,13 @@ void TelemetryRemote::parseTelemetry(QString data)
     double roll =  jsonDocument.object().value("Roll").toDouble(); 
     double course = jsonDocument.object().value("Direction").toDouble(); 
 
-    RuntimeData::get()->setLatitude(latitude);
-    RuntimeData::get()->setLongitude(longitude);
-    RuntimeData::get()->setElevation(elevation);
-    RuntimeData::get()->setSpeed(speed); 
-    RuntimeData::get()->setSatellites(satellites);
-    RuntimeData::get()->setPitch(pitch);
-    RuntimeData::get()->setRoll(roll);
+    DataTelemetry::get()->setLatitude(latitude);
+    DataTelemetry::get()->setLongitude(longitude);
+    DataTelemetry::get()->setElevation(elevation);
+    DataTelemetry::get()->setSpeed(speed);
+    DataTelemetry::get()->setSatellites(satellites);
+    DataTelemetry::get()->setPitch(pitch);
+    DataTelemetry::get()->setRoll(roll);
 
     m_parsedDifferenceCheck = latitude;
     m_satteliteDifferenceCheck = satellites;

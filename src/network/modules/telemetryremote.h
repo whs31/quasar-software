@@ -9,8 +9,10 @@
 
 #include "network/udpremote.h"
 #include "misc/debug.h"
-#include "config/runtimedata.h" //will be replaced by respective data class (data/telemetry)
 #include "map/linkerqml.h"
+
+#include "data/datatelemetry.h"
+#include "config/runtimedata.h"
 
 class TelemetryRemote : public QObject
 {

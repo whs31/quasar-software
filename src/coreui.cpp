@@ -52,6 +52,9 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
 
+    // data types here
+    qmlRegisterSingletonInstance<DataTelemetry>("Telemetry", 1, 0, "Telemetry", DataTelemetry::get(this));
+
     // get resolution for some ui rescaling and start new log in debug
     dynamicResolutionInstance = new DynamicResolution(this);
     screenResolution = QGuiApplication::primaryScreen()->availableGeometry();

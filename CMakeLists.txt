@@ -27,6 +27,7 @@ else()
         src/buildprefs.h
         src/main.cpp
         src/coreui.h                                    src/coreui.cpp                                      src/coreui.ui
+        src/data/datatelemetry.h                        src/data/datatelemetry.cpp
         src/emulator/flightemulator.h                   src/emulator/flightemulator.cpp
         src/emulator/udpemulator.h                      src/emulator/udpemulator.cpp
         src/emulator/saroutputconsoleemulator.h         src/emulator/saroutputconsoleemulator.cpp

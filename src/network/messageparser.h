@@ -9,6 +9,7 @@
 
 #include "func/schecksum.h"
 #include "config/runtimedata.h"
+#include "data/datatelemetry.h"
 
 enum DataType : short int
 {

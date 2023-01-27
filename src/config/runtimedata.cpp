@@ -11,37 +11,12 @@ void RuntimeData::closeAllWindows(void)
     setSettingsWindow(false);
     setMarkerWindow(false);
     setPasswordWindow(false);
-    //also choice window must be closed somehow
 }
 
 
 quint8 RuntimeData::getMouseState() const { return m_mouseState; }
 void RuntimeData::setMouseState(quint8 state) { if (m_mouseState == state) return;
 m_mouseState = state; emit mouseStateChanged(); }
-
-qreal RuntimeData::getLatitude() { return telemetry.latitude; }
-void RuntimeData::setLatitude(qreal value) { if (value == telemetry.latitude) return;
-telemetry.latitude = value; emit latitudeChanged(); }
-
-qreal RuntimeData::getLongitude() { return telemetry.longitude; }
-void RuntimeData::setLongitude(qreal value) { if (value == telemetry.longitude) return;
-telemetry.longitude = value; emit longitudeChanged(); }
-
-qreal RuntimeData::getElevation() { return telemetry.elevation; }
-void RuntimeData::setElevation(qreal value) { if (value == telemetry.elevation) return;
-telemetry.elevation = value; emit elevationChanged(); }
-
-qreal RuntimeData::getSpeed() { return telemetry.speed; }
-void RuntimeData::setSpeed(qreal value) { if (value == telemetry.speed) return;
-telemetry.speed = value; emit speedChanged(); }
-
-qreal RuntimeData::getSeaLevel() { return telemetry.seaLevel; }
-void RuntimeData::setSeaLevel(qreal value) { if (value == telemetry.seaLevel) return;
-telemetry.seaLevel = value; emit seaLevelChanged(); }
-
-qint16 RuntimeData::getSatellites() { return telemetry.satellites; }
-void RuntimeData::setSatellites(short value) { if (value == telemetry.satellites) return; 
-telemetry.satellites = value; emit satellitesChanged(); }
 
 qreal RuntimeData::getAzimuthalDirection() { return m_azimuthalDirection; }
 void RuntimeData::setAzimuthalDirection(qreal value) { m_azimuthalDirection = value; }
@@ -52,22 +27,6 @@ void RuntimeData::setFlatDirection(qreal value) { m_flatDirection = value; }
 qreal RuntimeData::getCurrentZoomLevel() { return m_currentZoomLevel; }
 void RuntimeData::setCurrentZoomLevel(qreal value) { if (value == m_currentZoomLevel) return;
 m_currentZoomLevel = value; emit currentZoomLevelChanged(); }
-
-qreal RuntimeData::getPitch() { return aircraftAxes.pitch; }
-void RuntimeData::setPitch(qreal value) { if (value == aircraftAxes.pitch) return;
-aircraftAxes.pitch = value; emit pitchChanged(); }
-
-qreal RuntimeData::getRoll() { return aircraftAxes.roll; }
-void RuntimeData::setRoll(qreal value) { if (value == aircraftAxes.roll) return;
-aircraftAxes.roll = value; emit rollChanged(); }
-
-qreal RuntimeData::getYaw() { return aircraftAxes.yaw; }
-void RuntimeData::setYaw(qreal value) { if (value == aircraftAxes.yaw) return;
-aircraftAxes.yaw = value; emit yawChanged(); }
-
-qreal RuntimeData::getThrottle() { return aircraftAxes.throttle; }
-void RuntimeData::setThrottle(qreal value) { if (value == aircraftAxes.throttle) return;
-aircraftAxes.throttle = value; emit throttleChanged(); }
 
 bool RuntimeData::getFollowPlane() { return mapSettings.followPlane; }
 void RuntimeData::setFollowPlane(bool state) { if (state == mapSettings.followPlane) return; 

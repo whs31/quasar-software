@@ -40,6 +40,8 @@
 #include "gui/windows/markerwindowbackend.h"
 #include "emulator/flightemulator.h"
 
+#include "data/datatelemetry.h"
+
 #include <plugin.h>
 #include <pluginHostAPI.h>
 

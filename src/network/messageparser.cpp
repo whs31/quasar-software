@@ -34,7 +34,7 @@ QByteArray MessageParser::makeFormRequest(QString arg1, quint32 arg2, quint32 ar
                                         + QString::number(arg8, 'f', 0) + ","       //height : float
                                         + QString::number(arg9, 'f', 1) + ","       //speed : float
                                         + QString::number(
-                                        RuntimeData::get()->getSeaLevel(),   //sealevel : float
+                                        DataTelemetry::get()->getSeaLevel(),   //sealevel : float
                                         'f', 1)
                                         + ")";
     QString hexlen = QString("%1").arg(_formRequest.length(), 2, 16, QLatin1Char('0'));

@@ -5,11 +5,13 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
-import "qrc:/qml/ui" as UI
-import RuntimeData 1.0
 import QtGraphicalEffects 1.15
+
 import DynamicResolution 1.0
 import UX 1.0
+import Telemetry 1.0
+
+import "qrc:/qml/ui" as UI
 
 Rectangle {
     id: base;
@@ -28,7 +30,7 @@ Rectangle {
         color: UX.errorDark;
         border.width: 2;
         border.color: UX.textWhite;
-        rotation: -RuntimeData.roll;
+        rotation: -Telemetry.roll;
         visible: true;
         Rectangle
         {
@@ -44,7 +46,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50 * DynamicResolution.kw;
             anchors.margins: 2;
-            anchors.bottomMargin: -90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
+            anchors.bottomMargin: -90 * Math.sin(Telemetry.pitch * 3.14 / 180);
             Image { id: scaleTop; opacity: 0.9; width: 34 * DynamicResolution.kw;
                     height: 180 * DynamicResolution.kh; source: "qrc:/attitude/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.bottom: parent.bottom; anchors.horizontalCenter: parent.horizontalCenter;  }
@@ -63,7 +65,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50 * DynamicResolution.kw;
             anchors.margins: 2;
-            anchors.topMargin: 90 * Math.sin(RuntimeData.pitch * 3.14 / 180);
+            anchors.topMargin: 90 * Math.sin(Telemetry.pitch * 3.14 / 180);
             //clip: true;
             Image { id: scaleBottom; opacity: 0.9; width: 34 * DynamicResolution.kw;
                     height: 180 * DynamicResolution.kh; source: "qrc:/attitude/scale-vertical.png";

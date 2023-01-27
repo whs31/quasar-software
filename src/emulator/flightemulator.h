@@ -6,9 +6,10 @@
 #include <QGeoCoordinate>
 
 #include "udpemulator.h"
-
 #include "map/linkerqml.h"
 #include "config/runtimedata.h"
+
+#include "data/datatelemetry.h"
 
 class FlightEmulator : public QObject
 {

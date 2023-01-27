@@ -30,38 +30,7 @@
     <normaloff>:/ui-resources/quasarlogo/icon.png</normaloff>:/ui-resources/quasarlogo/icon.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget
-{
-	background-color: #121617;
-}
-QAbstractScrollArea {
-  background-color: #121617;
-  border: 1px solid #121617;
-  border-radius: 4px;
-  /* fix #159 */
-  padding: 2px;
-  /* remove min-height to fix #244 */
-  color: #121617;
-}
-QScrollBar:vertical {
-  background-color: #121617;
-  width: 16px;
-  margin: 16px 2px 16px 2px;
-  border: 1px solid #121617;
-  border-radius: 4px;
-}
-QScrollBar::handle:vertical {
-  background-color: #293133;
-  border: 1px solid #121617;
-  min-height: 8px;
-  border-radius: 4px;
-}
-QScrollBar::handle:vertical:hover {
-  background-color: #3e4c4f;
-  border: #3e4c4f;
-  border-radius: 4px;
-  min-height: 8px;
-}</string>
+   <string notr="true"/>
   </property>
   <property name="dockOptions">
    <set>QMainWindow::AllowNestedDocks|QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
@@ -159,7 +128,7 @@ QScrollBar::handle:vertical:hover {
           <enum>QFrame::NoFrame</enum>
          </property>
          <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
+          <enum>QFrame::Plain</enum>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <property name="spacing">

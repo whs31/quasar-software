@@ -29,6 +29,14 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
     uiReady = true;
+    this->setStyleSheet("QWidget\n{\n	background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n}\nQAbstractScrollArea "
+                        "{\n  background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n"
+                        "  border: 1px solid " + ThemeManager::get()->getPrimaryDarker().name() + ";\n  border-radius: 4px;\n  /* fix #159 */\n  padding: 2px;\n  "
+                        "\n  color: #121617;\n}\nQScrollBar:vertical {\n  background-color: #121617;\n  width: 16px;\n  "
+                        "margin: 16px 2px 16px 2px;\n  border: 1px solid #121617;\n  border-radius: 4px;\n}\nQScrollBar::handle:vertical "
+                        "{\n  background-color: #293133;\n  border: 1px solid #121617;\n  min-height: 8px;\n  border-radius: 4px;\n}\n"
+                        "QScrollBar::handle:vertical:hover {\n  background-color: #3e4c4f;\n  border: #3e4c4f;\n  border-radius: 4px;\n  "
+                        "min-height: 8px;\n}");
     Debug::Log("[STARTUP] Starting UI initialization...");
 
     // config

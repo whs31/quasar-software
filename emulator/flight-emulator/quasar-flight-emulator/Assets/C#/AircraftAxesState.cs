@@ -42,7 +42,7 @@ public class AircraftAxesState : MonoBehaviour
         throttle = Mathf.Clamp(Mathf.Lerp(throttle, throttle + delta_throttle / 150, 1), 0.01f, 1.0f);
 
         applyChanges();
-        log();
+        //log();
     }
 
     void getInput()

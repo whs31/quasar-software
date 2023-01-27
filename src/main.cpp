@@ -40,6 +40,7 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
             pointer->debugStreamUpdate(txt, msgt);
 }
 
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 int main(int argc, char *argv[]) {
     //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
     QApplication app(argc, argv);

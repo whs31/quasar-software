@@ -8,14 +8,14 @@
 #include "config/sconfig.h"
 #include "config/runtimedata.h"
 #include "map/linkerqml.h"
-#include "map/models/timage.h"
+#include "map/models/image.h"
 
 
 class ImageManager : public QObject
 {
     Q_OBJECT
 public:
-    static ImageManager* initialize(QObject *parent = nullptr);
+    static ImageManager* get(QObject *parent = nullptr);
     static void newImage(QString filename, QByteArray rawData);
     static bool checkForOccurence(QString filename);
     Q_INVOKABLE static bool removeImage(qint32 index);
@@ -26,7 +26,7 @@ signals:
 private:
     explicit ImageManager(QObject *parent = nullptr);
     static ImageManager* _instance;
-    static QVector<TImage*> imageList;
+    static QVector<Image*> imageList;
 
     
 };

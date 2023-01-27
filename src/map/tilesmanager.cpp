@@ -16,7 +16,7 @@ TilesManager::TilesManager()
     Debug::Log("?[TILESERVER] Path initialized");
 }
 
-TilesManager* TilesManager::initialize()
+TilesManager* TilesManager::get()
 {
     if(_instance != NULL)
         return _instance;

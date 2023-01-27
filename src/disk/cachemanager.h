@@ -11,7 +11,7 @@ class CacheManager : public QObject
 {
     Q_OBJECT
 public:
-    static CacheManager* initializeCache(QObject *parent = nullptr);
+    static CacheManager* get(QObject *parent = nullptr);
     static void setupImageCache(void);
     Q_INVOKABLE static void clearImageCache(); 
 

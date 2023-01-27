@@ -9,12 +9,12 @@ QString CacheManager::dynamicResourcesCache;
 QString CacheManager::pluginCache;
 QString CacheManager::settingsPath;
 
-CacheManager *CacheManager::initializeCache(QObject *parent)
+CacheManager *CacheManager::get(QObject *parent)
 {
     if (_instance != nullptr)
         return _instance;
     _instance = new CacheManager(parent);
-    DiskTools::initialize(initializeCache());
+    DiskTools::get(get());
     return _instance;
 }
 

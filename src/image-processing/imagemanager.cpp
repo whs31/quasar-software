@@ -1,13 +1,13 @@
 #include "imagemanager.h"
 
 ImageManager *ImageManager::_instance = nullptr;
-QVector<TImage *> ImageManager::imageList = {};
+QVector<Image *> ImageManager::imageList = {};
 ImageManager::ImageManager(QObject *parent)
     : QObject{parent}
 {
 }
 
-ImageManager *ImageManager::initialize(QObject *parent)
+ImageManager *ImageManager::get(QObject *parent)
 {
     if (_instance != NULL)
         return _instance;
@@ -18,7 +18,7 @@ ImageManager *ImageManager::initialize(QObject *parent)
 // returns true if occurence is found within an image vector
 bool ImageManager::checkForOccurence(QString filename)
 {
-    for (TImage *i : imageList)
+    for (Image *i : imageList)
         if (i->cachedJPEGfilename == filename)
             return true;
     return false;
@@ -26,7 +26,7 @@ bool ImageManager::checkForOccurence(QString filename)
 
 void ImageManager::newImage(QString filenamePath, QByteArray data)
 {
-    TImage *image = new TImage(initialize(), data, filenamePath, ImageMode::GeometricAlphaMask, 
+    Image *image = new Image(get(), data, filenamePath, ImageMode::GeometricAlphaMask, 
     SConfig::get()->getAngleCorrection(), SConfig::get()->getGlobalRadians(),
     SConfig::get()->getThetaAzimuthCorrection(), SConfig::get()->getUseDriftAngle());
     image->index = imageList.length();

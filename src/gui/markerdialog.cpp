@@ -2,7 +2,7 @@
 #include "ui_markerdialog.h"
 #include <QDebug>
 
-MarkerDialog::MarkerDialog(qreal latitude, qreal longitude, TMarker &marker) :
+MarkerDialog::MarkerDialog(qreal latitude, qreal longitude, Marker &marker) :
     newmarker(marker),
     ui(new Ui::MarkerDialog)
 {

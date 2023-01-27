@@ -1,6 +1,6 @@
-#include "timage.h"
+#include "image.h"
 
-TImage::TImage(QObject *parent, QByteArray data, QString filePath, ImageMode mode, qreal predefinedCorrection, bool globalRadians, qreal thetaAzimuthCorrection,
+Image::Image(QObject *parent, QByteArray data, QString filePath, ImageMode mode, qreal predefinedCorrection, bool globalRadians, qreal thetaAzimuthCorrection,
                 bool globalDriftAngle)
     : QObject{parent}, predefinedCorrection(predefinedCorrection), globalRadians(globalRadians), thetaAzimuthCorrection(thetaAzimuthCorrection),
     globalDriftAngle(globalDriftAngle)
@@ -28,12 +28,12 @@ TImage::TImage(QObject *parent, QByteArray data, QString filePath, ImageMode mod
 
 }
 
-bool TImage::isValid()
+bool Image::isValid()
 {
     return valid;
 }
 
-bool TImage::decode(QByteArray data)
+bool Image::decode(QByteArray data)
 {
     char* chardata = data.data();
     uint16_t *metaMarker = reinterpret_cast<uint16_t *>(chardata + JPEG_HEADER_SIZE);
@@ -71,7 +71,7 @@ bool TImage::decode(QByteArray data)
     }
 }
 
-void TImage::assignUIStrings(QString filename)
+void Image::assignUIStrings(QString filename)
 {
     gui.latitude = QString::number(meta.latitude, 'f', 8) + "°";
     gui.longitude = QString::number(meta.longitude, 'f', 8) + "°";
@@ -94,7 +94,7 @@ void TImage::assignUIStrings(QString filename)
     gui.creationTime = formattedTime;
 }
 
-QImage TImage::dataToQImage(QByteArray data, ImageMode mode)
+QImage Image::dataToQImage(QByteArray data, ImageMode mode)
 {
     data.reserve(sizeof(data));
     QImage qimage = QImage::fromData(data, "JPEG");
@@ -115,7 +115,7 @@ QImage TImage::dataToQImage(QByteArray data, ImageMode mode)
     return QImage();
 }
 
-QString TImage::QImageToBase64(QImage image)
+QString Image::QImageToBase64(QImage image)
 {
     QByteArray arr;
     QBuffer buffer(&arr);
@@ -123,7 +123,7 @@ QString TImage::QImageToBase64(QImage image)
     return QString::fromLatin1(arr.toBase64().data());
 }
 
-QImage TImage::enableAlphaChannel(QImage image)
+QImage Image::enableAlphaChannel(QImage image)
 {
     QImage sample(image.width(), image.height(), QImage::Format_ARGB32_Premultiplied); 
     sample.fill(QColor(254, 254, 254));
@@ -131,7 +131,7 @@ QImage TImage::enableAlphaChannel(QImage image)
     return image;
 }
 
-QImage TImage::applyAlphaMask(QImage image)
+QImage Image::applyAlphaMask(QImage image)
 {
     QPainter painter;
     painter.begin(&image);

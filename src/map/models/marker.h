@@ -1,5 +1,5 @@
-#ifndef TMARKER_H
-#define TMARKER_H
+#ifndef MARKER_H
+#define MARKER_H
 
 #include <QObject>
 #include <QColor>
@@ -11,11 +11,11 @@ enum MarkerIcon : short int {
     AutocaptureMark
 };
 
-class TMarker : public QObject
+class Marker : public QObject
 {
     Q_OBJECT
 public:
-    explicit TMarker(QObject *parent = nullptr);
+    explicit Marker(QObject *parent = nullptr);
     QColor color = QColor("#dae1e5");
     QString name = "Новый маркер";
     short int icon = MarkerIcon::GoogleDefaultMarker;
@@ -36,4 +36,4 @@ signals:
 
 };
 
-#endif // TMARKER_H
+#endif // MARKER_H

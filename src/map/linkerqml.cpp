@@ -3,7 +3,7 @@
 QQuickItem *LinkerQML::map = nullptr;
 LinkerQML *LinkerQML::_instance = nullptr;
 LinkerQML::LinkerQML(QObject *parent) : QObject{parent} {}
-LinkerQML *LinkerQML::initialize(QQuickItem *map)
+LinkerQML *LinkerQML::get(QQuickItem *map)
 { 
     if (_instance != nullptr)
         return _instance;
@@ -21,12 +21,12 @@ void LinkerQML::panImage() { QMetaObject::invokeMethod(map, "panImage"); }
 
 void LinkerQML::fixedUpdate() { QMetaObject::invokeMethod(map, "fixedUpdate"); }
 
-void LinkerQML::addModel(TMarker &marker)
+void LinkerQML::addModel(Marker &marker)
 {
     QMetaObject::invokeMethod(map, "addMarker", Q_ARG(QString, marker.name), Q_ARG(QColor, marker.color), Q_ARG(QString, marker.iconPath), Q_ARG(qreal, marker.latitude),
                               Q_ARG(qreal, marker.longitude), Q_ARG(qreal, marker.anchorX), Q_ARG(qreal, marker.anchorY), Q_ARG(qreal, marker.zoomLevel));
 }
-void LinkerQML::addModel(TImage &image)
+void LinkerQML::addModel(Image &image)
 {
     QVariantList metalist = {image.meta.latitude,
                              image.meta.longitude,

@@ -67,7 +67,6 @@ class ThemeManager : public QObject
     Q_PROPERTY(QColor successLighter   READ getSuccessLighter       WRITE setSuccessLighter         NOTIFY successLighterChanged)
     Q_PROPERTY(QColor successLightest  READ getSuccessLightest      WRITE setSuccessLightest        NOTIFY successLightestChanged)
         
-    Q_PROPERTY(QColor miscBrown        READ getMiscBrown            WRITE setMiscBrown              NOTIFY miscBrownChanged)
     QML_ELEMENT
 
 public:
@@ -114,53 +113,23 @@ public:
         QColor getSuccessLight();               void setSuccessLight(QColor color);
         QColor getSuccessLighter();             void setSuccessLighter(QColor color);
         QColor getSuccessLightest();            void setSuccessLightest(QColor color);
-        QColor getMiscBrown();                  void setMiscBrown(QColor color);
         
     CurrentTheme currentTheme = CurrentTheme::SwampTheme;
 
 signals:
-        void primaryDarkestChanged();
-        void primaryDarkerChanged();
-        void primaryDarkChanged();
-        void primaryLightChanged();
-        void primaryLighterChanged();
-        void primaryLightestChanged();
-        void textFadedChanged();
-        void textColoredChanged();
-        void textWhiteChanged();
-        void warningDarkestChanged();
-        void warningDarkerChanged();
-        void warningDarkChanged();
-        void warningLightChanged();
-        void warningLighterChanged();
-        void warningLightestChanged();
-        void accentDarkestChanged();
-        void accentDarkerChanged();
-        void accentDarkChanged();
-        void accentLightChanged();
-        void accentLighterChanged();
-        void accentLightestChanged();
-        void infoDarkestChanged();
-        void infoDarkerChanged();
-        void infoDarkChanged();
-        void infoLightChanged();
-        void infoLighterChanged();
-        void infoLightestChanged();
-        void errorDarkestChanged();
-        void errorDarkerChanged();
-        void errorDarkChanged();
-        void errorLightChanged();
-        void errorLighterChanged();
-        void errorLightestChanged();
-        void successDarkestChanged();
-        void successDarkerChanged();
-        void successDarkChanged();
-        void successLightChanged();
-        void successLighterChanged();
-        void successLightestChanged();
-        void miscBrownChanged();
-
-
+        void primaryDarkestChanged();   void primaryDarkerChanged();   void primaryDarkChanged();
+        void primaryLightChanged();     void primaryLighterChanged();  void primaryLightestChanged();
+        void textFadedChanged();        void textColoredChanged();     void textWhiteChanged();
+        void warningDarkestChanged();   void warningDarkerChanged();   void warningDarkChanged();
+        void warningLightChanged();     void warningLighterChanged();  void warningLightestChanged();
+        void accentDarkestChanged();    void accentDarkerChanged();    void accentDarkChanged();
+        void accentLightChanged();      void accentLighterChanged();   void accentLightestChanged();
+        void infoDarkestChanged();      void infoDarkerChanged();      void infoDarkChanged();
+        void infoLightChanged();        void infoLighterChanged();     void infoLightestChanged();
+        void errorDarkestChanged();     void errorDarkerChanged();     void errorDarkChanged();
+        void errorLightChanged();       void errorLighterChanged();    void errorLightestChanged();
+        void successDarkestChanged();   void successDarkerChanged();   void successDarkChanged();
+        void successLightChanged();     void successLighterChanged();  void successLightestChanged();
 
 private:
     static ThemeManager* _instance;
@@ -205,7 +174,7 @@ private:
         QColor scs_light;
         QColor scs_lighter;
         QColor scs_lightest;
-        QColor msc_brown;
+        QColor msc_brown; //refactor this into array
 
 };
 

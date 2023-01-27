@@ -55,7 +55,6 @@ ThemeManager::ThemeManager(QObject *parent, short themeInitializer) : QObject{pa
         scs_light = theme_s.scs_light;
         scs_lighter = theme_s.scs_lighter;
         scs_lightest = theme_s.scs_lightest;
-        msc_brown = theme_s.msc_brown;
     }
     else if (currentTheme == CurrentTheme::DarkTheme)
     {
@@ -98,7 +97,6 @@ ThemeManager::ThemeManager(QObject *parent, short themeInitializer) : QObject{pa
         scs_light = theme_d.scs_light;
         scs_lighter = theme_d.scs_lighter;
         scs_lightest = theme_d.scs_lightest;
-        msc_brown = theme_d.msc_brown;
     }
 }
 
@@ -461,12 +459,4 @@ void ThemeManager::setSuccessLightest(QColor color)
         return;
     prm_darker = color;
     emit successLightestChanged();
-}
-QColor ThemeManager::getMiscBrown() { return msc_brown; }
-void ThemeManager::setMiscBrown(QColor color)
-{
-    if (color == msc_brown)
-        return;
-    msc_brown = color;
-    emit miscBrownChanged();
 }

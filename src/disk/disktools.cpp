@@ -5,7 +5,7 @@ DiskTools::DiskTools(QObject *parent)
     : QObject{parent}
 {
 }
-DiskTools *DiskTools::initialize(QObject *parent)
+DiskTools *DiskTools::get(QObject *parent)
 {
     if (_instance != nullptr)
         return _instance;

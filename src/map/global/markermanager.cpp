@@ -1,6 +1,6 @@
 #include "markermanager.h"
 
-QVector<TMarker *> MarkerManager::markerList = {};
+QVector<Marker *> MarkerManager::markerList = {};
 MarkerManager *MarkerManager::_instance = nullptr;
 MarkerManager::MarkerManager(QObject *parent)
     : QObject{parent}
@@ -15,7 +15,7 @@ MarkerManager *MarkerManager::initialize()
 
 void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
 {
-    TMarker* marker = new TMarker(initialize());
+    Marker* marker = new Marker(initialize());
     if (!quiet)
     {
         MarkerDialog markerDialog(latitude, longitude, *marker);

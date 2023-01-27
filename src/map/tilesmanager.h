@@ -14,7 +14,7 @@ class TilesManager : public QObject
 {
     Q_OBJECT
 public:
-    static TilesManager* initialize();
+    static TilesManager* get();
     static void InitializeConfig();
 
 private:

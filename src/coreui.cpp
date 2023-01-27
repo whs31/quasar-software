@@ -9,18 +9,18 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 {
     debugPointer = this;
     // cache setup
-    CacheManager::initializeCache(this);
+    CacheManager::get(this);
 
     // qml registration here
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<SText>("SText", 1, 0, "SText");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
     qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
-    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::initialize(this));
-    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::initialize(this));
+    qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::get(this));
+    qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::get(this));
     
     // ux and tiles must be called before ui initialization
-    TilesManager::initialize();
+    TilesManager::get();
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
     // new session in log
@@ -131,9 +131,9 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     Debug::Log("?[STARTUP] Setuping connections...");
     timer = new QTimer(this);
     udpTimeout = new QTimer(this);
-    LinkerQML::initialize(qml);
-    connect(LinkerQML::initialize(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
-    connect(LinkerQML::initialize(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
+    LinkerQML::get(qml);
+    connect(LinkerQML::get(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
+    connect(LinkerQML::get(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
 
     // network setup
     telemetryRemote = new UDPRemote();
@@ -241,8 +241,8 @@ CoreUI::~CoreUI()
     delete formRemote;
     delete consoleListenerRemote;
     delete qml;
-    delete TilesManager::initialize();
-    delete ImageManager::initialize();
+    delete TilesManager::get();
+    delete ImageManager::get();
     delete MarkerManager::initialize();
     Debug::Log("Session ended succesfully.");
 }
@@ -482,7 +482,7 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         else if(static_cast<QKeyEvent*>(event)->modifiers() == Qt::AltModifier)
         {
             if(pressedKeys.contains(Qt::Key_V) || pressedKeys.contains(1052)) { DebugSlot(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->disconnect(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::get()->disconnect(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_O) || pressedKeys.contains(1065)) { SettingsSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_Y) || pressedKeys.contains(1053)) { InfoSlot(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { QString pathNotNullCheck = QFileDialog::getExistingDirectory(this, 
@@ -493,7 +493,7 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         }
         else 
         {
-            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::initialize()->reconnect(); pressedKeys.clear();}
+            if(pressedKeys.contains(Qt::Key_J) || pressedKeys.contains(1054)) { LinkerQML::get()->reconnect(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_M) || pressedKeys.contains(1068)) { RuntimeData::get()->setMouseState(1); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_I) || pressedKeys.contains(1064)) { LinkerQML::panImage(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_P) || pressedKeys.contains(1047)) { LinkerQML::panGPS(); pressedKeys.clear();}

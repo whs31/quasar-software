@@ -1,11 +1,11 @@
-#include "tmarker.h"
+#include "marker.h"
 
-TMarker::TMarker(QObject *parent)
+Marker::Marker(QObject *parent)
     : QObject{parent}
 {
 }
 
-void TMarker::update(void)
+void Marker::update(void)
 {
     switch (icon)
     {

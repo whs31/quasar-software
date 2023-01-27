@@ -1,5 +1,5 @@
-#ifndef TIMAGE_H
-#define TIMAGE_H
+#ifndef IMAGE_H
+#define IMAGE_H
 
 #include <QObject>
 #include <QColor>
@@ -25,11 +25,11 @@ enum ImageMode {
     ChannelSwapAlphaMask
 };
 
-class TImage : public QObject
+class Image : public QObject
 {
     Q_OBJECT
 public:
-    explicit TImage(QObject *parent, QByteArray data = QByteArray(), QString filePath = "", ImageMode mode = ImageMode::Raw, qreal predefinedCorrection = 0,
+    explicit Image(QObject *parent, QByteArray data = QByteArray(), QString filePath = "", ImageMode mode = ImageMode::Raw, qreal predefinedCorrection = 0,
                     bool globalRadians = false, qreal thetaAzimuthCorrection = 0, bool globalDriftAngle = true);
     bool isValid();
 
@@ -94,4 +94,4 @@ private:
 signals:
 };
 
-#endif // TIMAGE_H
+#endif // IMAGE_H

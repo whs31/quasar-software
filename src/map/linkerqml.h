@@ -5,14 +5,14 @@
 #include <QQuickItem>
 #include <QVector>
 
-#include "models/tmarker.h"
-#include "models/timage.h"
+#include "models/marker.h"
+#include "models/image.h"
 
 class LinkerQML : public QObject
 {
     Q_OBJECT
 public:
-    static LinkerQML* initialize(QQuickItem* map = nullptr);
+    static LinkerQML* get(QQuickItem* map = nullptr);
 
     static void fixedUpdate(void);
     static void callDestructor(void);
@@ -20,8 +20,8 @@ public:
     static void clearRoute(void);
     static void panImage(void);
 
-    static void addModel(TMarker& marker);
-    static void addModel(TImage& image);
+    static void addModel(Marker& marker);
+    static void addModel(Image& image);
 
     //emulator
     static void startFlightEmulator(void);

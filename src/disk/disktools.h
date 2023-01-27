@@ -15,7 +15,7 @@ class DiskTools : public QObject
 {
     Q_OBJECT
 public:
-    static DiskTools* initialize(QObject *parent = nullptr);
+    static DiskTools* get(QObject *parent = nullptr);
     Q_INVOKABLE static void fetchDirectory();
     Q_INVOKABLE static void clearCache(); //redirect to cachemanager due to internal issue with initializing it in main.cpp
 

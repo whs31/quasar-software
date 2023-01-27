@@ -24,7 +24,7 @@ signals:
 
 private:
     explicit MarkerManager(QObject *parent = nullptr);
-    static QVector<TMarker*> markerList;
+    static QVector<Marker*> markerList;
     static MarkerManager* _instance;
 };
 

@@ -1,5 +1,8 @@
 #include <QApplication>
 #include "coreui.h"
+#if defined(Q_OS_WIN)
+#include <windows.h>
+#endif
 
 QString logName = "";
 
@@ -40,8 +43,11 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
             pointer->debugStreamUpdate(txt, msgt);
 }
 
-#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+//#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
 int main(int argc, char *argv[]) {
+    #if defined(Q_OS_WIN)
+        FreeConsole();
+    #endif
     //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
     QApplication app(argc, argv);
 

@@ -35,28 +35,6 @@ void RecallHandler::changeDirectory(void)
     if(pathNotNullCheck != NULL) {  SConfig::get()->setDefaultCatalogue(pathNotNullCheck); }
 }
 
-bool RecallHandler::calibrateSeaLevel(void)
-{
-    QMessageBox askForClearTrack;
-    askForClearTrack.setWindowTitle("Калибровка высоты");
-    askForClearTrack.setIcon(QMessageBox::Information);
-    askForClearTrack.setText("Калибровка высоты должна проводиться на земле. Убедитесь, что беспилотник находится на стартовой площадке.");
-    askForClearTrack.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
-    askForClearTrack.setDefaultButton(QMessageBox::Cancel);
-    int ret = askForClearTrack.exec(); // не ставить шорт, иначе будет выход за границы буфера (енумы qt имеют неадекватные значения)
-    switch (ret)
-    {
-    case QMessageBox::Yes:
-        RuntimeData::get()->setSeaLevel(RuntimeData::get()->getElevation());
-        break;
-    case QMessageBox::Cancel:
-        break;
-    default:
-        break;
-    }
-    return true;
-}
-
 bool RecallHandler::clearMap(void)
 {
     QMessageBox box;

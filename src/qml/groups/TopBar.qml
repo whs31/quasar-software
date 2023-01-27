@@ -5,6 +5,7 @@ import SignalLinker 1.0
 import DiskManager 1.0
 import ImageManager 1.0
 import DynamicResolution 1.0
+import DialogWindowBackend 1.0
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -214,6 +215,8 @@ Rectangle {
     }
     Buttons.LightToolButton
     {
+		property bool waitingForDialogResponse: false;
+
         id: clearMapButton;
         enabled: !RuntimeData.windowLock;
         anchors.top: changeCatalogueButton.top;
@@ -232,13 +235,28 @@ Rectangle {
         tooltip_enabled: true;
         label_text_family: fontMedium.name;
         onClicked: {
-            var verify = ioHandler.clearMap();
-            if(verify) {
-                imageModel.clear();
-                imageUIModel.clear();
-                ImageManager.clearAll();
-            }
+			RuntimeData.windowLock = true;
+			DialogWindowBackend.header = "ОЧИСТКА КАРТЫ";
+			DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
+			DialogWindowBackend.text = "Вы уверены, что хотите очистить карту от всех изображений?";
+			DialogWindowBackend.show();
+			waitingForDialogResponse = true;
         }
+		function handleResponse()
+		{
+			if(waitingForDialogResponse === true)
+			{
+				if(DialogWindowBackend.returnCode === 1)
+				{
+					imageModel.clear();
+					imageUIModel.clear();
+					ImageManager.clearAll();
+				}
+			}
+		}
+		Component.onCompleted: {
+			DialogWindowBackend.returnCodeChanged.connect(handleResponse)
+		}
     }
     Buttons.LightToolButton
     {

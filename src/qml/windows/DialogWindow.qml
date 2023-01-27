@@ -16,8 +16,8 @@ Rectangle {
 	width: DialogWindowBackend.shown ? 473 * DynamicResolution.kh : 0;
 	radius: 35;
 	color: UX.primaryDark;
-	Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
-	Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
+	Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
+	Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
 
 	FontLoader { id: fontSemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
 	FontLoader { id: fontExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf" }
@@ -47,7 +47,7 @@ Rectangle {
 			anchors.topMargin: 8 * DynamicResolution.kh;
 			anchors.horizontalCenter: parent.horizontalCenter;
 			fixed_width: 176 * DynamicResolution.kw;
-			fixed_height: 13 * DynamicResolution.kh;
+			fixed_height: 16 * DynamicResolution.kh;
 			label_text: DialogWindowBackend.header;
 			label_color: UX.textWhite;
 			label_text_size: 14 * DynamicResolution.kh;

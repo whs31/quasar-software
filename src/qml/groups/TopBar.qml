@@ -610,7 +610,7 @@ Rectangle {
     Dropdowns.Dropdown
     {
         id: mapParametersDropDown;
-        anchors.left: rulerButton.left;
+        anchors.left: separator2.left;
         anchors.top: parent.bottom; anchors.topMargin: -2 * DynamicResolution.kh;
 
         fixed_width: 220 * DynamicResolution.kw;

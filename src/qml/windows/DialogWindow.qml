@@ -62,7 +62,7 @@ Rectangle {
 			id: mainText;
 			anchors.verticalCenter: parent.verticalCenter;
 			anchors.right: parent.right;
-			anchors.rightMargin: 40 * DynamicResolution.kw;
+            anchors.rightMargin: 30 * DynamicResolution.kw;
 			fixed_width: 324 * DynamicResolution.kw;
 			fixed_height: 68 * DynamicResolution.kh;
 			label_text: DialogWindowBackend.text;

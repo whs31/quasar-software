@@ -34,6 +34,6 @@ Rectangle {
         horizontalAlignment: label_textAlignment;
 		lineHeight: label_wrapping ? 1 : 0.75;
         anchors.fill: parent;
-		wrapMode: label_wrapping ? Text.WordWrap : Text.NoWrap;
+        wrapMode: label_wrapping ? Text.Wrap  : Text.NoWrap;
     }
 }

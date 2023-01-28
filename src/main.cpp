@@ -1,3 +1,6 @@
+//  https://github.com/noxware/qt-quick-flickable-and-zoomable-by-mouse-image-example
+//  вот тут написано как сделать херню которую я хочу
+
 #include <QApplication>
 #include "coreui.h"
 #if defined(Q_OS_WIN)
@@ -58,7 +61,7 @@ int main(int argc, char *argv[]) {
     logName.prepend("log-");
     logName.append(".txt");
     qInstallMessageHandler(debugLogger);
-    CoreUI window;
+    CoreUI window; 
     window.show();
     window.showFullScreen();
     return app.exec();

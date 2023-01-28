@@ -7,6 +7,7 @@
 class MarkerWindowBackend : public QObject
 {
     Q_OBJECT
+
 public:
     static MarkerWindowBackend* get(QObject* parent = nullptr);
 

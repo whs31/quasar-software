@@ -6,6 +6,9 @@ import SignalLinker 1.0
 import DiskManager 1.0
 import DynamicResolution 1.0
 import DialogWindowBackend 1.0
+
+import Telemetry 1.0
+
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -30,7 +33,7 @@ Rectangle {
 
         fixed_width: 16 * DynamicResolution.kw;
         fixed_height: 19 * DynamicResolution.kh;
-        label_text: Number(RuntimeData.satellites);
+        label_text: Number(Telemetry.satellites);
         label_color: UX.textWhite;
         label_text_size: 16 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;
@@ -114,7 +117,7 @@ Rectangle {
 
         fixed_width: 65 * DynamicResolution.kw;
         fixed_height: 17 * DynamicResolution.kh;
-        label_text: Number(RuntimeData.elevation - RuntimeData.seaLevel).toFixed(0) + " М";
+        label_text: Number(Telemetry.elevation - Telemetry.seaLevel).toFixed(0) + " М";
         label_color: UX.textWhite;
         label_text_size: 16 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name;       label_text_bold: true;
@@ -129,7 +132,7 @@ Rectangle {
 
         fixed_width: 65 * DynamicResolution.kw;
         fixed_height: 12 * DynamicResolution.kh;
-        label_text: Number(RuntimeData.elevation).toFixed(0) + " М";
+        label_text: Number(Telemetry.elevation).toFixed(0) + " М";
         label_color: UX.textWhite;                  label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontExtraBold.name;      label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
@@ -195,7 +198,7 @@ Rectangle {
         anchors.right: seaIcon.left; anchors.rightMargin: 17 * DynamicResolution.kw;
 
         fixed_width: 142 * DynamicResolution.kw;    fixed_height: 12 * DynamicResolution.kh;
-        label_text: "<b>ШИРОТА:</b>     " + Number(RuntimeData.latitude).toFixed(5) + " °N";
+        label_text: "<b>ШИРОТА:</b>     " + Number(Telemetry.latitude).toFixed(5) + " °N";
         label_color: UX.textWhite;
         label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: false;
@@ -209,7 +212,7 @@ Rectangle {
         anchors.right: seaIcon.left; anchors.rightMargin: 17 * DynamicResolution.kw;
 
         fixed_width: 142 * DynamicResolution.kw;    fixed_height: 12 * DynamicResolution.kh;
-        label_text: "<b>ДОЛГОТА:</b>     " + Number(RuntimeData.longitude).toFixed(5) + " °E";
+        label_text: "<b>ДОЛГОТА:</b>     " + Number(Telemetry.longitude).toFixed(5) + " °E";
         label_color: UX.textWhite;              label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
@@ -313,7 +316,7 @@ Rectangle {
 			{
 				if(DialogWindowBackend.returnCode === 1)
 				{
-					RuntimeData.seaLevel = RuntimeData.elevation;
+					Telemetry.seaLevel = Telemetry.elevation;
                     waitingForDialogResponse = false;
 				}
 			}
@@ -586,7 +589,7 @@ Rectangle {
 
             fixed_width: 137 * DynamicResolution.kw;
             fixed_height: 17 * DynamicResolution.kh;
-            property real spd: speedDisplayMode ? RuntimeData.speed / 3.6 : RuntimeData.speed;
+            property real spd: speedDisplayMode ? Telemetry.speed / 3.6 : Telemetry.speed;
             label_text: Number(spd).toFixed(1);
             label_color: UX.textWhite;
             label_text_size: 24 * DynamicResolution.kh;

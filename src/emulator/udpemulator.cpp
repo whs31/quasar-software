@@ -36,7 +36,7 @@ void UDPEmulator::readSlot()
         quint16 senderPort;
         m_socket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
-        if (datagram == MessageParser::REQUEST_TELEMETRY) {
+        if (datagram == "$JSON") {
             m_socket->writeDatagram(jsonEncode(emulatorTelemetry.latitude, emulatorTelemetry.longitude,
                                                emulatorTelemetry.speed, emulatorTelemetry.elevation,
                                                emulatorTelemetry.sats, emulatorTelemetry.pitch, emulatorTelemetry.roll), sender, senderPort);

@@ -6,25 +6,25 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
+import SMath 1.0
+import MouseKeyHandler 1.0
+import RecallHandler 1.0
+import MarkerManager 1.0
+import ImageManager 1.0
+import FlightPrediction 1.0
+
+import DynamicResolution 1.0
+import RuntimeData 1.0
+import Config 1.0
+import UX 1.0
+import Telemetry 1.0
+
 import "groups" as Groups
 import "sar-image" as ImageSAR
 import "ui" as UI
 import "qrc:/qml/ui/widgets" as CustomWidgets
 import "map" as MapWidgets
 import "windows" as Windows
-
-import SMath 1.0
-import MouseKeyHandler 1.0
-import RecallHandler 1.0
-import MarkerManager 1.0
-import ImageManager 1.0
-
-import DynamicResolution 1.0
-import RuntimeData 1.0
-import Config 1.0
-import UX 1.0
-
-import FlightPrediction 1.0
 
 Rectangle {
     id: qqview
@@ -103,7 +103,7 @@ Rectangle {
     {
         //сначала обновляем углы, потом изменяем переменную currentCoordinates. не иначе.
         updateAngles();
-        currentQtCoordinates = QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
+        currentQtCoordinates = QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude);
 
         drawRoute();
         if(RuntimeData.followPlane) panGPS(); 
@@ -111,18 +111,18 @@ Rectangle {
 
     function updateAngles()
     {
-        if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude))) > movingThreshold)
+        if(Math.abs(currentQtCoordinates.distanceTo(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude))) > movingThreshold)
         {
-            predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude));
+            predict.mercatorAngle = currentQtCoordinates.azimuthTo(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude));
             RuntimeData.azimuthalDirection = predict.mercatorAngle;
-            predict.geometricalAngle = (Math.atan2(RuntimeData.longitude - currentQtCoordinates.longitude,
-                                                   RuntimeData.latitude - currentQtCoordinates.latitude) * 180)  /  Math.PI;
+            predict.geometricalAngle = (Math.atan2(Telemetry.longitude - currentQtCoordinates.longitude,
+                                                   Telemetry.latitude - currentQtCoordinates.latitude) * 180)  /  Math.PI;
             RuntimeData.flatDirection = predict.geometricalAngle;
         }
         if(RuntimeData.drawPredict || RuntimeData.drawDiagram) 
         {
-            predict.x0 = RuntimeData.longitude;
-            predict.y0 = RuntimeData.latitude;
+            predict.x0 = Telemetry.longitude;
+            predict.y0 = Telemetry.latitude;
         }
     }
 
@@ -142,7 +142,7 @@ Rectangle {
         mapView.center = coords;
     }
     function panGPS()           { mapView.center = currentQtCoordinates; }
-    function drawRoute()        { mapPolyline.addCoordinate(QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude)); }
+    function drawRoute()        { mapPolyline.addCoordinate(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude)); }
     function clearRoute()       { mapPolyline.path = []; }
 
     //rework using mouse handler class(!)
@@ -548,7 +548,7 @@ Rectangle {
                 origin.y: 20;
                 angle: predict.mercatorAngle;
             }
-            coordinate: QtPositioning.coordinate(RuntimeData.latitude, RuntimeData.longitude);
+            coordinate: QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude);
             z: 18;
             sourceItem: Item {
                 Image {

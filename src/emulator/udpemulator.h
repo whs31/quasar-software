@@ -5,7 +5,6 @@
 #include <QUdpSocket>
 #include <QJsonDocument>
 
-#include "network/messageparser.h"
 #include "config/sconfig.h"
 
 class UDPEmulator : public QObject

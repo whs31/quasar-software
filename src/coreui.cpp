@@ -52,6 +52,19 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
 
+    // signal linker setup
+    qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
+    connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
+    connect(SignalLinker::get(), SIGNAL(minimizeSignal()), this, SLOT(MinimizeSlot()));
+    connect(SignalLinker::get(), SIGNAL(logSignal()), this, SLOT(DebugSlot()));
+    connect(SignalLinker::get(), SIGNAL(settingsSignal()), this, SLOT(SettingsSlot()));
+    connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
+    connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
+
+    // data types here
+    qmlRegisterSingletonInstance<DataTelemetry>("Telemetry", 1, 0, "Telemetry", DataTelemetry::get(this));
+    qmlRegisterSingletonInstance<DataSAR>("SAR", 1, 0, "SAR", DataSAR::get(this));
+
     // get resolution for some ui rescaling and start new log in debug
     dynamicResolutionInstance = new DynamicResolution(this);
     screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
@@ -61,16 +74,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     dynamicResolutionInstance->setHeightCoefficient((float)screenResolution.height() / 768);
     qDebug() << "Recalculated coefficients for GUI: " << dynamicResolutionInstance->getWidthCoefficient() << ", "
              << dynamicResolutionInstance->getHeightCoefficient();
-    
-    // signal linker setup
-    qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));
-    connect(SignalLinker::get(), SIGNAL(closeSignal()), this, SLOT(CloseSlot()));
-    connect(SignalLinker::get(), SIGNAL(minimizeSignal()), this, SLOT(MinimizeSlot()));
-    connect(SignalLinker::get(), SIGNAL(logSignal()), this, SLOT(DebugSlot()));
-    connect(SignalLinker::get(), SIGNAL(settingsSignal()), this, SLOT(SettingsSlot()));
-    connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
-    connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
-    connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), this, SLOT(FormSingleImage()));
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
@@ -88,7 +91,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<ApplicationHeader>("ApplicationHeader", 1, 0, "ApplicationHeader");
 
     // qml header setup
-    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); //https://forum.qt.io/topic/71942/connect-two-qquickwidgets/2
+    ui->applicationHeader->setSource(QUrl("qrc:/qml/application-header/ApplicationHeader.qml")); 
     ui->applicationHeader->show();
     qml = ui->map->rootObject();
     QMetaObject::invokeMethod(qml, "qmlBackendStart");
@@ -124,33 +127,12 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         openSSLDialogue.exec();
     }
 
-    // any other ui-related startup code here!
-
     // core
     // (!) do not touch it.
     Debug::Log("?[STARTUP] Setuping connections...");
-    timer = new QTimer(this);
-    udpTimeout = new QTimer(this);
     LinkerQML::get(qml);
     connect(LinkerQML::get(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
     connect(LinkerQML::get(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
-
-    // network setup
-    telemetryRemote = new UDPRemote();
-    formRemote = new UDPRemote();
-    consoleListenerRemote = new UDPRemote();
-    downloader = new TCPDownloader(this);
-    connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
-
-    // network socket connections setup
-    connect(timer, SIGNAL(timeout()), this, SLOT(TelemetryHeartbeat()));
-    connect(udpTimeout, SIGNAL(timeout()), this, SLOT(Disconnected()));
-    connect(telemetryRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadTelemetry(QByteArray)));
-    connect(formRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadForm(QByteArray)));
-    connect(consoleListenerRemote, SIGNAL(received(QByteArray)), this, SLOT(ReadSARConsole(QByteArray)));
-
-    // sar commands setup
-    connect(SignalLinker::get(), SIGNAL(clearSARStorageSignal()), this, SLOT(SendClearCommand()));
 
     // ui misc initialization and assignment
     RuntimeData::get()->setSARIP("(" + SConfig::get()->getNetworkType() + ") " + SConfig::get()->getDE10IP());
@@ -161,13 +143,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     RuntimeData::get()->setListenPort(SConfig::get()->getTerminalPort());
     RuntimeData::get()->setLoaderStatus("Oжидание подключения..."); //TODO: remove me 
     RuntimeData::get()->setFormStatus("Oжидание подключения...");
-
-    // autocapture setup
-    connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), this, SLOT(FormSingleImage()));
-
-    // timers starts here
-    timer->start(SConfig::get()->getTelemetryFrequency() * 1000);
-    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
 
     // startup functions
     RuntimeData::get()->setConnected(false);
@@ -208,6 +183,20 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
             HostAPI->execute("Terminal", "print", "Ожидание вывода с РЛС...\n");
         }
 
+    // network setup (must be after plugins setup 4 many reasons)
+    telemetryRemote = new TelemetryRemote(this);
+    feedBackRemote = new FeedbackRemote(this, HostAPI);
+    execdRemote = new ExecdRemote(this);
+    downloader = new TCPDownloader(this);
+    connect(downloader, SIGNAL(progressChanged(float)), this, SLOT(updateProgress(float)));
+
+    // sar commands setup
+    connect(SignalLinker::get(), SIGNAL(clearSARStorageSignal()), execdRemote, SLOT(executeClearCommand())); 
+    connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), execdRemote, SLOT(executeFormCommand()));
+
+    // autocapture setup
+    connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), execdRemote, SLOT(executeFormCommand())); 
+    
     // set default position and size of floating qdockwidgets
     ui->debugConsole->setEnabled(false);
     ui->debugConsole->setVisible(false);
@@ -225,21 +214,15 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // execute any other startup code here
     RuntimeData::get()->setStatusPopup("Версия программы " +
                                         SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
-    RuntimeData::get()->setStatusPopupTrigger(true);
+    RuntimeData::get()->setStatusPopupTrigger(true); //TODO: make it separate class
 }
 
 CoreUI::~CoreUI()
 {
     Debug::Log("Ending current session...");
     uiReady = false;
-    telemetryRemote->Disconnect();
-    formRemote->Disconnect();
-    consoleListenerRemote->Disconnect();
 
     delete ui;
-    delete telemetryRemote;
-    delete formRemote;
-    delete consoleListenerRemote;
     delete qml;
     delete TilesManager::get();
     delete ImageManager::get();
@@ -283,7 +266,6 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 }
 
 bool CoreUI::getReady(void)             { return uiReady; }
-void CoreUI::Disconnected()             { RuntimeData::get()->setConnected(false); }
 void CoreUI::updateProgress(float f)
 {
     if (f > 0)
@@ -292,26 +274,20 @@ void CoreUI::updateProgress(float f)
     }
     if (f > 99)
     {
+        execdRemote->sendCommand(ExecdCommand::StorageStatus);
         RuntimeData::get()->setFormStatus("Изображение отображено на карте");
         if(RuntimeData::get()->getFormingContinuous())
         {
-            FormSingleImage();
-            QString request = MessageParser::makeCommand(Command::StorageStatus);
-            SendRemoteCommand(request, CommandType::FormCommand);
-            Debug::Log("[FORM] Sended to SAR: " + request);
+            execdRemote->sendCommand(ExecdCommand::FormImage);
         }
     }
 //    ui->progressBar_loader->setValue((int)f);
 }
-void CoreUI::SendRemoteCommand(QString command, CommandType type)
-{
-    if (type == CommandType::TelemetryCommand)
-        telemetryRemote->Send(command.toUtf8());
-    else if (type == CommandType::FormCommand)
-        formRemote->Send(command.toUtf8());
-}
 
-void CoreUI::MinimizeSlot()     { showMinimized(); }
+void CoreUI::MinimizeSlot()
+{ 
+    showMinimized(); 
+}
 void CoreUI::CloseSlot()
 {
     LinkerQML::callDestructor();
@@ -366,100 +342,11 @@ void CoreUI::EmulatorSlot()
 }
 void CoreUI::DebugSlot()
 {
-    bool state = ui->debugConsole->isEnabled();
-    state = !state;
-    ui->debugConsole->setEnabled(state);
-    ui->debugConsole->setVisible(state);
+    bool isEnabled = ui->debugConsole->isEnabled();
+    ui->debugConsole->setEnabled(!isEnabled);
+    ui->debugConsole->setVisible(!isEnabled);
 }
 
-void CoreUI::ReadTelemetry(QByteArray data)
-{
-    udpTimeout->start(3 * SConfig::get()->getTelemetryFrequency() * 1000);
-    DataType dtype = MessageParser::checkReceivedDataType(data);
-    switch (dtype)
-    {
-    case DataType::Telemetry: {
-        short _conckc2 = (short)0;
-        QPair<qreal, qint16> pair = MessageParser::parseTelemetry(data);
-        _conckc = pair.first;
-        _conckc2 = pair.second;
-        linker->fixedUpdate();
-        if ((short)_conckc2 != 0 || _conckc != pair.first)
-            RuntimeData::get()->setConnected(true);
-        else 
-            RuntimeData::get()->setConnected(false);
-        break;
-    }
-    case DataType::FormResponse: {
-        std::array<int, 4> responseList;
-        responseList = MessageParser::parseFormResponse(data);
-        if (!responseList.empty())
-        {
-            QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
-            Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) + " with checksum check " +
-                       checksumCheck);
-        }
-        break;
-    }
-    default: { break; }
-    }
-}
-
-void CoreUI::ReadSARConsole(QByteArray data)
-{
-    if(plugins.terminalLoaded)
-    {
-        HostAPI->execute("Terminal", "print", data);
-    } else {
-    QString dataStr = data.data();
-    dataStr.replace(QRegExp("[\r]"), "");
-    QStringList dataParsed = dataStr.split(QRegExp("[\n]"));
-    for (QString str : dataParsed)
-        ui->sarConsole->append(str);
-    }
-    DataType dtype = MessageParser::checkReceivedDataType(data);
-    if(dtype == DataType::CommandResponse_FreeDiskSpace)
-    {
-        Debug::Log("[SAR] SAR responds with: " + data);
-        QStringList _split;
-        QString dataStr = data.data();
-        dataStr.remove("FREE_DISK_SPACE ");
-        _split = dataStr.split(' ', Qt::SkipEmptyParts);
-        qCritical()<<_split;
-        RuntimeData::get()->setFreeDiskSpace(_split.first().toInt());
-        RuntimeData::get()->setTotalDiskSpace(_split.last().toInt());
-    }
-}
-
-void CoreUI::ReadForm(QByteArray data)
-{
-    DataType dtype = MessageParser::checkReceivedDataType(data);
-    switch (dtype)
-    {
-    case DataType::Telemetry: { break; }
-    case DataType::FormResponse:
-        std::array<int, 4> responseList;
-        responseList = MessageParser::parseFormResponse(data);
-        if (!responseList.empty())
-        {
-            QString checksumCheck = (responseList[3] == 1) ? "success" : "failure";
-            Debug::Log("?[FORM] SAR responds with: pid " + QString::number(responseList[0]) + ", hexlen " 
-                        + QString::number(responseList[1]) + ", code" + QString::number(responseList[2]) 
-                        + " with checksum check " + checksumCheck);
-            if(responseList[3] == 1)
-                RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
-        }
-        break;
-    default: 
-    {
-        break;
-    }
-    }
-}
-
-// вызывается раз в SConfig::UPDATETIME (обычно 0.5 сек)
-// эта же функция вызывает обновление fixedUpdate в qml (только если пришел ответ от сервера телеметрии)
-void CoreUI::TelemetryHeartbeat()     { SendRemoteCommand(MessageParser::REQUEST_TELEMETRY, CommandType::TelemetryCommand); }
 bool CoreUI::eventFilter(QObject * obj, QEvent * event)
 {
     if ( event->type() == QEvent::KeyPress ) {
@@ -470,7 +357,9 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
             if ( pressedKeys.contains(Qt::Key_S) || pressedKeys.contains(1067)) { flightEmulator->pitchChange(1); }
             if ( pressedKeys.contains(Qt::Key_A) || pressedKeys.contains(1060)) { flightEmulator->yawChange(-1); }
             if ( pressedKeys.contains(Qt::Key_D) || pressedKeys.contains(1042)) { flightEmulator->yawChange(1); }
-            if ( pressedKeys.contains(Qt::Key_Q) || pressedKeys.contains(1049)) { flightEmulator->rollChange(-1); }
+            if ( pressedKeys.contains(Qt::Key_Q) || pressedKeys.contains(1049)) { flightEmulator->rollChange(-1); 
+                    SAROutputConsoleEmulator feedbackEmulator;
+                    feedbackEmulator.sampleTest(); }
             if ( pressedKeys.contains(Qt::Key_E) || pressedKeys.contains(1059)) { flightEmulator->rollChange(1); }
             if ( pressedKeys.contains(Qt::Key_Z) || pressedKeys.contains(1071)) { flightEmulator->throttleChange(1); }
             if ( pressedKeys.contains(Qt::Key_X) || pressedKeys.contains(1063)) { flightEmulator->throttleChange(-1); }
@@ -498,19 +387,19 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
             if(pressedKeys.contains(Qt::Key_I) || pressedKeys.contains(1064)) { LinkerQML::panImage(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_P) || pressedKeys.contains(1047)) { LinkerQML::panGPS(); pressedKeys.clear();}
             if(pressedKeys.contains(Qt::Key_U) || pressedKeys.contains(1043)) { DiskTools::fetchDirectory(); pressedKeys.clear(); }
-            if(pressedKeys.contains(Qt::Key_Space)) { FormSingleImage(); pressedKeys.clear();}
-        }
-        if(pressedKeys.contains(Qt::Key_Escape)) 
-        { 
-            RuntimeData::get()->closeAllWindows(); 
-            if(DialogWindowBackend::get()->getShown())
-                DialogWindowBackend::get()->cancel(); 
-        }
-        if(pressedKeys.contains(Qt::Key_Return)) 
-        { 
-            RuntimeData::get()->closeAllWindows(); 
-            if(DialogWindowBackend::get()->getShown())
-                DialogWindowBackend::get()->accept(); 
+            if(pressedKeys.contains(Qt::Key_Space)) { execdRemote->sendCommand(ExecdCommand::FormImage); pressedKeys.clear(); }
+            if (pressedKeys.contains(Qt::Key_Escape))
+            {
+                RuntimeData::get()->closeAllWindows();
+                if (DialogWindowBackend::get()->getShown())
+                DialogWindowBackend::get()->cancel();
+            }
+            if (pressedKeys.contains(Qt::Key_Return))
+            {
+                RuntimeData::get()->closeAllWindows();
+                if (DialogWindowBackend::get()->getShown())
+                DialogWindowBackend::get()->accept();
+            }
         }
         return 1;
     }
@@ -519,68 +408,29 @@ bool CoreUI::eventFilter(QObject * obj, QEvent * event)
         return QObject::eventFilter(obj, event);
     return false;
 }
-
-void CoreUI::SendClearCommand(void)
-{
-    Debug::Log("?[SAR] Clearing SAR storage...");
-    QString request = MessageParser::makeCommand(Command::CacheClear);
-            SendRemoteCommand(request, CommandType::FormCommand);
-            Debug::Log("[EXECD] Sended to SAR: " + request);
-}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void CoreUI::reconnectSlot()
 {
-    telemetryRemote->Disconnect();
-    formRemote->Disconnect();
-    consoleListenerRemote->Disconnect();
     RuntimeData::get()->setConnected(false);
-    telemetryRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getTelemetryPort());
+    telemetryRemote->connect(SConfig::get()->getDE10IP(), SConfig::get()->getTelemetryPort().toUInt(), SConfig::get()->getTelemetryFrequency());
+    feedBackRemote->connect(SConfig::get()->getComputerIP(), SConfig::get()->getTerminalPort().toUInt());
     if(SConfig::get()->getDE10IP().endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
             QString correctedSarIP = SConfig::get()->getDE10IP();
             correctedSarIP.chop(1); correctedSarIP.append("7");
-            formRemote->Connect(correctedSarIP + ":" + SConfig::get()->getExecdPort());
+            execdRemote->connect(correctedSarIP, SConfig::get()->getExecdPort().toUInt());
             Debug::Log("![REMOTE] Sending commands to autocorrected address: " + correctedSarIP + ":" + SConfig::get()->getExecdPort());
         } else { 
-            formRemote->Connect(SConfig::get()->getDE10IP() + ":" + SConfig::get()->getExecdPort());
+            execdRemote->connect(SConfig::get()->getDE10IP(), SConfig::get()->getExecdPort().toUInt());
             Debug::Log("?[REMOTE] Sending commands to address: " + SConfig::get()->getDE10IP() + ":" + SConfig::get()->getExecdPort());
         }
-    consoleListenerRemote->Connect(SConfig::get()->getComputerIP() + ":" + SConfig::get()->getTerminalPort());
-    Debug::Log("?[REMOTE] Listening to SAR on " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getTerminalPort());
-    if (SConfig::get()->getNetworkType() != "UDP")
-    {
-        SConfig::get()->getNetworkType() = "UDP";
-        Debug::Log("![WARNING] Connection type string unrecognized, using UDP by default");
-    }
-    Debug::Log("?[REMOTE] UDP client connected");
-    QString request = MessageParser::makeCommand(Command::StorageStatus);
-            SendRemoteCommand(request, CommandType::FormCommand);
-            Debug::Log("[EXECD] Sended to SAR: " + request);
+    execdRemote->sendCommand(ExecdCommand::StorageStatus);
+    Debug::Log("?[REMOTE] All remotes connected.");
 }
 void CoreUI::disconnectSlot()
 {
-    telemetryRemote->Disconnect();
-    formRemote->Disconnect();
-    consoleListenerRemote->Disconnect();
+    telemetryRemote->disconnect();
+    feedBackRemote->disconnect();
+    execdRemote->disconnect();
     RuntimeData::get()->setConnected(false);
     Debug::Log("?[REMOTE] All remotes disconnected.");
 }
-
-void CoreUI::FormSingleImage()
-{
-    QString request = MessageParser::makeFormRequest(RuntimeData::get()->getFormMode(), RuntimeData::get()->getFormLowerBound(),
-                                                     RuntimeData::get()->getFormUpperBound(), RuntimeData::get()->getFormTime(),
-                                                     RuntimeData::get()->getFormStep(), RuntimeData::get()->getFormStep(),
-                                                     RuntimeData::get()->getFormOverrideGPSData(), RuntimeData::get()->getFormGPSHeight(),
-                                                     RuntimeData::get()->getFormGPSVelocity());
-    SendRemoteCommand(request, CommandType::FormCommand);
-    Debug::Log("[EXECD] Sended to SAR: " + request);
-    RuntimeData::get()->setFormStatus("Отправлен запрос на формирование №" +
-                                                               QString::number(MessageParser::getMessageID()));
-}
-
-
-//    Debug::Log("?[SAR] Sending custom command!");
-//    QString request = MessageParser::makeCommand(ui->lineEdit_customCommand->text());
-//    SendRemoteCommand(request, CommandType::FormCommand);
-//    Debug::Log("[FORM] Sended to SAR: " + request);
-

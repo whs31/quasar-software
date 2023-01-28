@@ -19,5 +19,5 @@ void SAROutputConsoleEmulator::sampleTest(void)
         sprintf(buf, "<%3d%%>\e[6D", cnt);
         send(buf);
     }
-    send("FREE_DISK_SPACE 108250976 114855520");
+    send("*FREE_DISK_SPACE* 70061867 114855520");
 }

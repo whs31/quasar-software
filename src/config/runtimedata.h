@@ -14,24 +14,10 @@ class RuntimeData : public QObject
     // мышь
     Q_PROPERTY(quint8 mouseState                    READ getMouseState          WRITE setMouseState          NOTIFY mouseStateChanged)
 
-    // телеметрия
-    Q_PROPERTY(qreal latitude                       READ getLatitude            WRITE setLatitude            NOTIFY latitudeChanged)
-    Q_PROPERTY(qreal longitude                      READ getLongitude           WRITE setLongitude           NOTIFY longitudeChanged)
-    Q_PROPERTY(qreal elevation                      READ getElevation           WRITE setElevation           NOTIFY elevationChanged)
-    Q_PROPERTY(qreal speed                          READ getSpeed               WRITE setSpeed               NOTIFY speedChanged)
-    Q_PROPERTY(qreal seaLevel                       READ getSeaLevel            WRITE setSeaLevel            NOTIFY seaLevelChanged)
-    Q_PROPERTY(qint16 satellites                    READ getSatellites          WRITE setSatellites          NOTIFY satellitesChanged)
-
     // геометрия, необходимая другим классам
     Q_PROPERTY(qreal azimuthalDirection             READ getAzimuthalDirection  WRITE setAzimuthalDirection)
     Q_PROPERTY(qreal flatDirection                  READ getFlatDirection       WRITE setFlatDirection)
     Q_PROPERTY(qreal currentZoomLevel               READ getCurrentZoomLevel    WRITE setCurrentZoomLevel    NOTIFY currentZoomLevelChanged)
-
-    // значения связанных осей
-    Q_PROPERTY(qreal pitch                          READ getPitch               WRITE setPitch               NOTIFY pitchChanged)
-    Q_PROPERTY(qreal roll                           READ getRoll                WRITE setRoll                NOTIFY rollChanged)
-    Q_PROPERTY(qreal yaw                            READ getYaw                 WRITE setYaw                 NOTIFY yawChanged)
-    Q_PROPERTY(qreal throttle                       READ getThrottle            WRITE setThrottle            NOTIFY throttleChanged)
 
     // настройки из выпадающего меню с чекбоксами инструментов карты
     Q_PROPERTY(bool followPlane                     READ getFollowPlane         WRITE setFollowPlane         NOTIFY followPlaneChanged)
@@ -74,10 +60,6 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool autocaptureEnabled              READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
     Q_PROPERTY(int totalAutocapCount                READ getTotalAutocapCount   WRITE setTotalAutocapCount   NOTIFY totalAutocapCountChanged)
 
-    // общие переменные с РЛС
-    Q_PROPERTY(qreal freeDiskSpace                  READ getFreeDiskSpace       WRITE setFreeDiskSpace       NOTIFY freeDiskSpaceChanged)
-    Q_PROPERTY(qreal totalDiskSpace                 READ getTotalDiskSpace      WRITE setTotalDiskSpace      NOTIFY totalDiskSpaceChanged)
-
     // переменные карты и списков
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
 
@@ -103,21 +85,10 @@ public:
     //                 ==> GET ==>                                                        <== SET <==
     //==============================================                 ====================================================
     quint8 getMouseState() const;                                       void setMouseState(quint8 state);
-    qreal getLatitude();                                                void setLatitude(qreal value);
-    qreal getLongitude();                                               void setLongitude(qreal value);
-    qreal getElevation();                                               void setElevation(qreal value);
-    qreal getSpeed();                                                   void setSpeed(qreal value);
-    qreal getSeaLevel();                                                void setSeaLevel(qreal value);
-    qint16 getSatellites();                                             void setSatellites(qint16 value);
 
     qreal getAzimuthalDirection();                                      void setAzimuthalDirection(qreal value);
     qreal getFlatDirection();                                           void setFlatDirection(qreal value);
     qreal getCurrentZoomLevel();                                        void setCurrentZoomLevel(qreal value);
-
-    qreal getPitch();                                                   void setPitch(qreal value);
-    qreal getRoll();                                                    void setRoll(qreal value);
-    qreal getYaw();                                                     void setYaw(qreal value);
-    qreal getThrottle();                                                void setThrottle(qreal value);
 
     bool getFollowPlane();                                              void setFollowPlane(bool state);
     bool getDrawGrid();                                                 void setDrawGrid(bool state);
@@ -155,9 +126,6 @@ public:
     bool getAutocaptureEnabled() const;                                 void setAutocaptureEnabled(bool state);
     int getTotalAutocapCount() const;                                   void setTotalAutocapCount(int value);
 
-    qreal getFreeDiskSpace() const;                                     void setFreeDiskSpace(qreal value);
-    qreal getTotalDiskSpace() const;                                    void setTotalDiskSpace(qreal value);
-
     int getTotalImageCount() const;                                     void setTotalImageCount(int value);
 
     bool getInfoWindow() const;                                         void setInfoWindow(bool state);
@@ -177,19 +145,7 @@ signals:
     //======================================================================================================
     void mouseStateChanged();
 
-    void latitudeChanged();
-    void longitudeChanged();
-    void elevationChanged();
-    void speedChanged();
-    void seaLevelChanged();
-    void satellitesChanged();
-
     void currentZoomLevelChanged();
-
-    void pitchChanged();
-    void rollChanged();
-    void yawChanged();
-    void throttleChanged();
 
     void followPlaneChanged();
     void drawGridChanged();
@@ -227,9 +183,6 @@ signals:
     void autocaptureEnabledChanged();
     void totalAutocapCountChanged();
 
-    void freeDiskSpaceChanged();
-    void totalDiskSpaceChanged();
-
     void totalImageCountChanged();
 
     void infoWindowChanged();
@@ -253,29 +206,9 @@ private:
     quint8 m_mouseState = 0;
     bool m_emulatorMode = false;
 
-    struct Telemetry {
-        qreal latitude = 0;
-        qreal longitude = 0;
-        qreal elevation = 0;
-        qreal speed = 0;
-        qreal direction = -1;
-        qreal pitchAngle = -1;
-        qreal rollAngle = -1;
-        qreal seaLevel = 0; 
-        qint16 satellites = -1;
-
-    }; Telemetry telemetry;
-
     qreal m_azimuthalDirection = 0;
     qreal m_flatDirection = 0;
     qreal m_currentZoomLevel = 2;
-
-    struct AircraftAxes {
-        qreal pitch = 0;
-        qreal roll = 0;
-        qreal yaw = 0;
-        qreal throttle = 0;
-    }; AircraftAxes aircraftAxes;
 
     struct MapSettings{
         bool followPlane = false;
@@ -320,12 +253,6 @@ private:
         bool enabled = false;
         int totalCount = 0;
     }; AutoCaptureVariables autocaptureVariables;
-
-    struct SARCommonVariables
-    {
-        qreal freeDiskSpace = 0;
-        qreal totalDiskSpace = 0;
-    }; SARCommonVariables sarCommonVariables;
 
     struct MapVariables
     {

@@ -23,7 +23,7 @@ void LinkerQML::fixedUpdate() { QMetaObject::invokeMethod(map, "fixedUpdate"); }
 
 void LinkerQML::addModel(Marker &marker)
 {
-    QMetaObject::invokeMethod(map, "addMarker", Q_ARG(QString, marker.name), Q_ARG(QColor, marker.color), Q_ARG(QString, marker.iconPath), Q_ARG(qreal, marker.latitude),
+    QMetaObject::invokeMethod(map, "addMarker", Q_ARG(QString, marker.name), Q_ARG(QColor, marker.colorValue), Q_ARG(QString, marker.iconPath), Q_ARG(qreal, marker.latitude),
                               Q_ARG(qreal, marker.longitude), Q_ARG(qreal, marker.anchorX), Q_ARG(qreal, marker.anchorY), Q_ARG(qreal, marker.zoomLevel));
 }
 void LinkerQML::addModel(Image &image)

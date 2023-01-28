@@ -16,7 +16,7 @@ class MarkerManager : public QObject
 public:
     static MarkerManager* initialize();
 
-    static void newMarker(qreal latitude, qreal longitude, bool quiet = false);
+    static void newMarker(qreal latitude, qreal longitude);
     Q_INVOKABLE static void removeMarker(qint32 index);
     Q_INVOKABLE static void removeMarkerFromCoordinates(QGeoCoordinate coordinate);
 

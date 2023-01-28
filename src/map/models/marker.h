@@ -4,11 +4,24 @@
 #include <QObject>
 #include <QColor>
 
-enum MarkerIcon : short int {
-    GoogleDefaultMarker,
+enum MarkerIcon : short int
+{
+    Default,
     Flag,
-    SARImage,
-    AutocaptureMark
+    Radar,
+    Target
+};
+
+enum MarkerColor : short int
+{
+    Gray,
+    Brown,
+    Blue,
+    Green,
+    Teal,
+    Yellow,
+    Orange,
+    Red
 };
 
 class Marker : public QObject
@@ -16,21 +29,30 @@ class Marker : public QObject
     Q_OBJECT
 public:
     explicit Marker(QObject *parent = nullptr);
-    QColor color = QColor("#dae1e5");
+
+    void setColor(MarkerColor color);
+    void setIcon(MarkerIcon icon);
+    void setScalable(bool state) { state ? zoomLevel = 16 : zoomLevel = 0; }
+
+    qint8 getColor() { return (qint8)icon; }
+    qint8 getIcon() { return (qint8)color; }
+    bool getScalable() { return scalable; }
+
+    short int icon = MarkerIcon::Default;
+    short int color = MarkerColor::Gray;
     QString name = "Новый маркер";
-    short int icon = MarkerIcon::GoogleDefaultMarker;
     qreal latitude = 0;
     qreal longitude = 0;
     bool autocapture = false;
-    bool scalable = false;
     bool save = true;
-    
+
+
+    bool scalable = false;
+    QColor colorValue = QColor("#dae1e5");
+    QString iconPath = "qrc:/map-resources/markers/default.png";
     qreal zoomLevel = 0;
     qreal anchorX = 0;
     qreal anchorY = 0;
-    QString iconPath = "qrc:/map-resources/markers/default.png";
-
-    void update();
 
 signals:
 

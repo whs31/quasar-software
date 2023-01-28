@@ -23,27 +23,26 @@ MarkerDialog::~MarkerDialog()
 void MarkerDialog::on_buttonBox_accepted()
 {
     newmarker.name = ui->lineEdit_markerName->text();
-    newmarker.color = ui->colorPicker->getColor();
+    newmarker.setColor(MarkerColor::Brown);
     newmarker.latitude = ui->lineEdit_latitude->text().toDouble();
     newmarker.longitude = ui->lineEdit_longitude->text().toDouble();
     newmarker.save = ui->checkBox_saveXML->isChecked();
-    newmarker.scalable = !ui->checkBox_screenAnchor->isChecked();
+    newmarker.setScalable(!ui->checkBox_screenAnchor->isChecked());
     if(ui->radioButton_defaultMarker->isChecked())
     {
-        newmarker.icon = MarkerIcon::GoogleDefaultMarker;
+        newmarker.setIcon(MarkerIcon::Default);
     } else if(ui->radioButton_flag->isChecked())
     {
-        newmarker.icon = MarkerIcon::Flag;
+        newmarker.setIcon(MarkerIcon::Flag);
     } else if(ui->radioButton_sar->isChecked())
     {
-        newmarker.icon = MarkerIcon::SARImage;
+        newmarker.setIcon(MarkerIcon::Radar);
     }
     if(newmarker.autocapture)
     {
-        newmarker.icon = MarkerIcon::AutocaptureMark;
-        newmarker.color = QColor("#b4b4dc");
+        newmarker.setIcon(MarkerIcon::Target);
+        newmarker.setColor(MarkerColor::Red);
     }
-    qDebug()<<newmarker.icon;
     done(QDialog::Accepted);
 }
 

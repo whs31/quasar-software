@@ -43,7 +43,7 @@ else()
         src/map/models/marker.h                         src/map/models/marker.cpp
         src/map/models/image.h                          src/map/models/image.cpp
         src/map/global/markermanager.h                  src/map/global/markermanager.cpp
-        src/network/remote.h                            src/network/remote.cpp
+        src/network/modules/abstract/remote.h           src/network/modules/abstract/remote.cpp
         src/network/udpremote.h                         src/network/udpremote.cpp
         src/network/tcpdownloader.h                     src/network/tcpdownloader.cpp
         src/network/modules/telemetryremote.h           src/network/modules/telemetryremote.cpp

@@ -5,7 +5,7 @@
 #include <QUdpSocket>
 #include <QTcpSocket>
 
-#include "remote.h"
+#include "modules/abstract/remote.h"
 
 #include "misc/debug.h"
 

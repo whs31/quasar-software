@@ -20,7 +20,6 @@ public:
 
 private slots:
     void on_buttonBox_accepted();
-
     void on_checkBox_autocapture_clicked(bool checked);
 
 private:

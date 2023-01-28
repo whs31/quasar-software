@@ -13,47 +13,33 @@ MarkerManager *MarkerManager::initialize()
     return _instance;
 }
 
-void MarkerManager::newMarker(qreal latitude, qreal longitude, bool quiet)
+void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
     Marker* marker = new Marker(initialize());
-    if (!quiet)
-    {
-        MarkerDialog markerDialog(latitude, longitude, *marker);
-        if (markerDialog.exec() == QDialog::Accepted)
-        {
-            // only if save = true
-            // тут нужно чето придумать с индексами
-            markerList.append(marker); // save me to xml file
 
-            // вызываем этот метод перед передачей в qml
-            // для обновления anchorPoint и iconPath после присвоения иконки в диалоговом окне
-            marker->update();
-            if(marker->autocapture)
-            {
-                RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
-                RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
-                Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
-            } else {
-                Debug::Log("[MARKER] Created new marker with name " + marker->name);
-            }
-            LinkerQML::addModel(*marker);
-        }
-        else
+    MarkerDialog markerDialog(latitude, longitude, *marker);
+    if (markerDialog.exec() == QDialog::Accepted)
+    {
+        // only if save = true
+        // тут нужно чето придумать с индексами
+        markerList.append(marker); // save me to xml file
+
+        if(marker->autocapture)
         {
-            Debug::Log("[MARKER] Marker discarded");
-            delete marker;
+            RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
+            RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
+            Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
+        } else {
+            Debug::Log("[MARKER] Created new marker with name " + marker->name);
         }
-    } else {
-        marker->name = "Положение РЛС";
-        marker->color = QColor(255, 255, 255, 128);
-        marker->icon = MarkerIcon::SARImage;
-        marker->scalable = true;
-        marker->save = false;
-        marker->latitude = latitude;
-        marker->longitude = longitude;
-        marker->update();
         LinkerQML::addModel(*marker);
     }
+    else
+    {
+        Debug::Log("[MARKER] Marker discarded");
+        delete marker;
+    }
+
 }
 
 void MarkerManager::removeMarker(qint32 index)

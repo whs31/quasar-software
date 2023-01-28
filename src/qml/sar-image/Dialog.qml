@@ -40,7 +40,7 @@ MapQuickItem {
             layer.enabled: true;
             transformOrigin: Item.Center;
             smooth: true;
-            source: "qrc:/map-resources/markers/image.png";
+            source: "qrc:/map/markers/image.png";
             visible: true;
         }
 

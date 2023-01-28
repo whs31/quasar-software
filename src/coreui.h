@@ -28,6 +28,8 @@
 #include "network/messageparser.h"
 #include "network/tcpdownloader.h"
 #include "network/modules/telemetryremote.h"
+#include "network/modules/feedbackremote.h"
+#include "network/modules/execdremote.h"
 #include "func/smath.h"
 #include "func/stext.h"
 #include "gui/dynamicresolution.h"
@@ -44,6 +46,8 @@
 
 #include <plugin.h>
 #include <pluginHostAPI.h>
+
+#include "emulator/saroutputconsoleemulator.h" //remove me
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
@@ -83,8 +87,8 @@ private:
     Ui::CoreUI *ui;
     static CoreUI* debugPointer;
     TelemetryRemote* telemetryRemote = nullptr;
+    FeedbackRemote* feedBackRemote = nullptr;
     UDPRemote* formRemote = nullptr;
-    UDPRemote* consoleListenerRemote = nullptr;
     LinkerQML* linker = nullptr;
     TCPDownloader* downloader = nullptr;
     QQuickItem* qml = nullptr;

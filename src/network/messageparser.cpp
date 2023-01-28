@@ -11,8 +11,6 @@ MessageParser::MessageParser(QObject *parent)
 DataType MessageParser::checkReceivedDataType(QByteArray data)
 {
     QString dts = data.data();
-    if(dts.startsWith(MessageParser::REQUEST_TELEMETRY))
-        return DataType::Telemetry;
     if(dts.contains("FREE_DISK_SPACE"))
         return DataType::CommandResponse_FreeDiskSpace;
     if(dts.contains("|") && !dts.contains(MessageParser::REQUEST_FORM) && !dts.contains("FREE_DISK_SPACE"))

@@ -21,9 +21,6 @@ public:
     explicit TelemetryRemote(QObject *parent = nullptr);
     ~TelemetryRemote();
 
-    const qreal TIMEOUT_TIME = 5000; //ms
-    const QString REQUEST_TELEMETRY_MARKER = "$JSON";
-
     void connect(QString ip, quint16 port, qreal frequency);
     void disconnect(void);
 
@@ -31,6 +28,9 @@ signals:
     void timeout();
 
 private:
+    const qreal TIMEOUT_TIME = 5000; //ms
+    const QString REQUEST_TELEMETRY_MARKER = "$JSON";
+
     UDPRemote *udpRemote = nullptr;
     QTimer* updateTimer = nullptr;
     QTimer* timeoutTimer = nullptr;

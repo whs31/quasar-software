@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-class ExecdRemote: public QObject
+class ExecdRemote : public QObject
 {
     Q_OBJECT
 public:

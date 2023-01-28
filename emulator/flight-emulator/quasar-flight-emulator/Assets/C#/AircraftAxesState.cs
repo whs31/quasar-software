@@ -40,6 +40,15 @@ public class AircraftAxesState : MonoBehaviour
     {
         getInput();
         throttle = Mathf.Clamp(Mathf.Lerp(throttle, throttle + delta_throttle / 150, 1), 0.01f, 1.0f);
+        if (delta_pitch == 0)
+            pitch = 0;
+        if (delta_yaw == 0)
+            yaw = 0;
+        if (delta_roll == 0)
+            roll = 0;
+        pitch = Mathf.Clamp(Mathf.Lerp(pitch, pitch + delta_pitch / 15, 1), -1.0f, 1.0f);
+        yaw = Mathf.Clamp(Mathf.Lerp(yaw, yaw + delta_yaw / 15, 1), -1.0f, 1.0f);
+        roll = Mathf.Clamp(Mathf.Lerp(roll, roll + delta_roll / 5, 1), -1.0f, 1.0f);
 
         applyChanges();
         //log();
@@ -61,9 +70,9 @@ public class AircraftAxesState : MonoBehaviour
     {
         rotorAnimator.speed = throttle;
 
-        Quaternion startRotation = elevator.rotation;
-        Quaternion endRotation = Quaternion.Euler(-delta_pitch * 600, elevator.rotation.eulerAngles.y, elevator.rotation.eulerAngles.z);
-        elevator.rotation = Quaternion.Lerp(startRotation, endRotation, 2 * Time.deltaTime);
+        Quaternion startRotation = elevator.localRotation;
+        Quaternion endRotation = Quaternion.Euler(-delta_pitch * 600, elevator.localRotation.eulerAngles.y, elevator.localRotation.eulerAngles.z);
+        elevator.localRotation = Quaternion.Lerp(startRotation, endRotation, 2 * Time.deltaTime);
     }
 
     void log()

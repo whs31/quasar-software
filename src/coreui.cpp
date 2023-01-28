@@ -64,6 +64,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // data types here
     qmlRegisterSingletonInstance<DataTelemetry>("Telemetry", 1, 0, "Telemetry", DataTelemetry::get(this));
     qmlRegisterSingletonInstance<DataSAR>("SAR", 1, 0, "SAR", DataSAR::get(this));
+    qmlRegisterSingletonInstance<DataFormParameters>("FormParameters", 1, 0, "FormParameters", DataFormParameters::get(this));
 
     // get resolution for some ui rescaling and start new log in debug
     dynamicResolutionInstance = new DynamicResolution(this);
@@ -276,7 +277,7 @@ void CoreUI::updateProgress(float f)
     {
         execdRemote->sendCommand(ExecdCommand::StorageStatus);
         RuntimeData::get()->setFormStatus("Изображение отображено на карте");
-        if(RuntimeData::get()->getFormingContinuous())
+        if(DataFormParameters::get()->getFormingContinuous())
         {
             execdRemote->sendCommand(ExecdCommand::FormImage);
         }

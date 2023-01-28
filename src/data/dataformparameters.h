@@ -1,0 +1,65 @@
+#ifndef DATAFORMPARAMETERS_H
+#define DATAFORMPARAMETERS_H
+
+#include <QObject>
+
+class DataFormParameters : public QObject
+{
+    Q_OBJECT
+
+    // параметры формирования
+    Q_PROPERTY(QString formMode                     READ getFormMode            WRITE setFormMode            NOTIFY formModeChanged)
+    Q_PROPERTY(quint32 formLowerBound               READ getFormLowerBound      WRITE setFormLowerBound      NOTIFY formLowerBoundChanged)
+    Q_PROPERTY(quint32 formUpperBound               READ getFormUpperBound      WRITE setFormUpperBound      NOTIFY formUpperBoundChanged)
+    Q_PROPERTY(float formTime                       READ getFormTime            WRITE setFormTime            NOTIFY formTimeChanged)
+    Q_PROPERTY(float formStep                       READ getFormStep            WRITE setFormStep            NOTIFY formStepChanged)
+    Q_PROPERTY(int formOverrideGPSData              READ getFormOverrideGPSData WRITE setFormOverrideGPSData NOTIFY formOverrideGPSDataChanged)
+    Q_PROPERTY(float formGPSHeight                  READ getFormGPSHeight       WRITE setFormGPSHeight       NOTIFY formGPSHeightChanged)
+    Q_PROPERTY(float formGPSVelocity                READ getFormGPSVelocity     WRITE setFormGPSVelocity     NOTIFY formGPSVelocityChanged)
+    Q_PROPERTY(bool formingContinuous               READ getFormingContinuous   WRITE setFormingContinuous   NOTIFY formingContinuousChanged)
+    Q_PROPERTY(int formingQueueMode                 READ getFormingQueueMode    WRITE setFormingQueueMode    NOTIFY formingQueueModeChanged)
+
+public:
+    static DataFormParameters* get(QObject* parent = nullptr);
+
+    QString getFormMode();                                              void setFormMode(QString string);
+    quint32 getFormLowerBound();                                        void setFormLowerBound(quint32 value);
+    quint32 getFormUpperBound();                                        void setFormUpperBound(quint32 value);
+    float getFormTime();                                                void setFormTime(float value);
+    float getFormStep();                                                void setFormStep(float value);
+    int getFormOverrideGPSData();                                       void setFormOverrideGPSData(int state);
+    float getFormGPSHeight();                                           void setFormGPSHeight(float value);
+    float getFormGPSVelocity();                                         void setFormGPSVelocity(float value);
+    bool getFormingContinuous();                                        void setFormingContinuous(bool state);
+    int getFormingQueueMode();                                          void setFormingQueueMode(int state);
+
+signals:
+    void formModeChanged();
+    void formLowerBoundChanged();
+    void formUpperBoundChanged();
+    void formTimeChanged();
+    void formStepChanged();
+    void formOverrideGPSDataChanged();
+    void formGPSHeightChanged();
+    void formGPSVelocityChanged();
+    void formingContinuousChanged();
+    void formingQueueModeChanged();
+
+
+private:
+    static DataFormParameters* _instance;
+    explicit DataFormParameters(QObject *parent = nullptr);
+
+    QString mode = "m1";
+    quint32 lowerBound = 100;
+    quint32 upperBound = 3000;
+    float time = 1;
+    float step = 1;
+    int overrideGPS = 0;
+    float gpsHeight = 150;
+    float gpsVelocity = 100;
+    bool formingContinuous = false;
+    int queueMode = 0; //0 = Single     1 = Continuous
+};
+
+#endif // DATAFORMPARAMETERS_H

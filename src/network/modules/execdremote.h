@@ -10,6 +10,7 @@
 #include "config/runtimedata.h"
 #include "config/config.h"
 #include "data/datatelemetry.h"
+#include "data/dataformparameters.h"
 
 enum ExecdCommand : short int 
 {
@@ -29,9 +30,9 @@ public:
     void connect(QString ip, quint16 port);
     void disconnect(void);
 
+public slots:
     void sendCommand(ExecdCommand command);
 
-public slots:
     void executeFormCommand();
     void executeClearCommand();
 

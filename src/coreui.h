@@ -43,6 +43,7 @@
 
 #include "data/datatelemetry.h"
 #include "data/datasar.h"
+#include "data/dataformparameters.h"
 
 #include <plugin.h>
 #include <pluginHostAPI.h>

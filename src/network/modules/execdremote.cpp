@@ -112,15 +112,15 @@ QString ExecdRemote::makeCommand(QString string)
 
 QString ExecdRemote::makeFormArguments(void)
 {
-    return  "(" + RuntimeData::get()->getFormMode()                                     //mode (m1, m2) : QString
-            + "," + QString::number(RuntimeData::get()->getFormLowerBound())            //x0 : int              
-            + "," + QString::number(RuntimeData::get()->getFormUpperBound())            //lx + x0 : int
-            + "," + QString::number(RuntimeData::get()->getFormTime(), 'f', 1)          //ts : float
-            + "," + QString::number(RuntimeData::get()->getFormStep(), 'f', 1)          //dx : float
-            + "," + QString::number(RuntimeData::get()->getFormStep(), 'f', 1)          //dy : float (dx = dy in most cases)
-            + "," + QString::number(RuntimeData::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
-            + "," + QString::number(RuntimeData::get()->getFormGPSHeight(), 'f', 0)     //height : float
-            + "," + QString::number(RuntimeData::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
+    return  "(" + DataFormParameters::get()->getFormMode()                                     //mode (m1, m2) : QString
+            + "," + QString::number(DataFormParameters::get()->getFormLowerBound())            //x0 : int              
+            + "," + QString::number(DataFormParameters::get()->getFormUpperBound())            //lx + x0 : int
+            + "," + QString::number(DataFormParameters::get()->getFormTime(), 'f', 1)          //ts : float
+            + "," + QString::number(DataFormParameters::get()->getFormStep(), 'f', 1)          //dx : float
+            + "," + QString::number(DataFormParameters::get()->getFormStep(), 'f', 1)          //dy : float (dx = dy in most cases)
+            + "," + QString::number(DataFormParameters::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
+            + "," + QString::number(DataFormParameters::get()->getFormGPSHeight(), 'f', 0)     //height : float
+            + "," + QString::number(DataFormParameters::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
             + "," + QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)        //sealevel : float  
             + ")";                  
 }

@@ -8,6 +8,7 @@ import UX 1.0
 import RuntimeData 1.0
 import DynamicResolution 1.0
 import SAR 1.0
+import FormParameters 1.0
 
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
@@ -40,25 +41,25 @@ Rectangle {
         display_mode: Buttons.ClassicButton.Mode.LabelOnly;
         fixed_width: 188 * DynamicResolution.kw;
         fixed_height: 28 * DynamicResolution.kh;
-        label_text: RuntimeData.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : RuntimeData.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
-        label_color: RuntimeData.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;
+        label_text: FormParameters.formingQueueMode === 0 ? "ФОРМИРОВАНИЕ РЛИ" : FormParameters.formingContinuous ? "ОСТАНОВКА" : "ЗАПУСК ОЧЕРЕДИ";
+        label_color: FormParameters.formingQueueMode === 1 ? UX.primaryDarker : UX.textWhite;
         label_text_size: 17 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;
-        background_color: RuntimeData.formingQueueMode === 0 ? UX.infoLight : RuntimeData.formingContinuous ? UX.textWhite : UX.accentLighter;
+        background_color: FormParameters.formingQueueMode === 0 ? UX.infoLight : FormParameters.formingContinuous ? UX.textWhite : UX.accentLighter;
         background_secondary_color: Qt.lighter(background_color, 1.5); 
         background_radius: 2 * DynamicResolution.kw;
         tooltip_text: "Запуск формирования";
         tooltip_enabled: true;
         onClicked: 
         { 
-            if(!RuntimeData.formingContinuous) { 
+            if(!FormParameters.formingContinuous) { 
                 SignalLinker.formSingleImage(); 
-                if(RuntimeData.formingQueueMode === 1)
+                if(FormParameters.formingQueueMode === 1)
                 {
-                    RuntimeData.formingContinuous = true; 
+                    FormParameters.formingContinuous = true; 
                 }
             }
-            else { RuntimeData.formingContinuous = false; }
+            else { FormParameters.formingContinuous = false; }
         }
     }
     Labels.FramedLabel
@@ -87,7 +88,7 @@ Rectangle {
         fixed_width: 136 * DynamicResolution.kw;
         fixed_height: 17 * DynamicResolution.kh;
         fixed_drop: 17*2 * DynamicResolution.kh;
-        label_text: RuntimeData.formingQueueMode === 0 ? "ОДИНОЧНОЕ" : "НЕПРЕРЫВНОЕ";
+        label_text: FormParameters.formingQueueMode === 0 ? "ОДИНОЧНОЕ" : "НЕПРЕРЫВНОЕ";
         label_color: UX.textWhite;
         label_text_size: 12 * DynamicResolution.kh;
         label_text_family: fontMedium.name; label_text_bold: true;
@@ -95,7 +96,7 @@ Rectangle {
         highlight_color: UX.infoLight;
         frame_radius: 2 * DynamicResolution.kw;
         frame_width: 1;
-        enabled: RuntimeData.formingContinuous ? false : true;
+        enabled: FormParameters.formingContinuous ? false : true;
         container: Item {
             Buttons.LightButton
             {
@@ -112,7 +113,7 @@ Rectangle {
                 frame_enabled: false;
                 onClicked: {
                     formModeDropDown.shown = false;
-                    RuntimeData.formingQueueMode = 0;
+                    FormParameters.formingQueueMode = 0;
                 }
             }
             Buttons.LightButton
@@ -131,7 +132,7 @@ Rectangle {
                 frame_enabled: false;
                 onClicked: {
                     formModeDropDown.shown = false;
-                    RuntimeData.formingQueueMode = 1;
+                    FormParameters.formingQueueMode = 1;
                 }
             }
         }
@@ -335,7 +336,7 @@ Rectangle {
                             fixed_drop_width: 64 * DynamicResolution.kw;
                             fixed_drop_height: 17*4 * DynamicResolution.kh;
                             label_uppercase: true;
-                            label_text: "РЕЖИМ : " + RuntimeData.formMode;
+                            label_text: "РЕЖИМ : " + FormParameters.formMode;
                             label_color: UX.primaryDarker;
                             label_text_size: 12 * DynamicResolution.kh;
                             drop_color: UX.textWhite;
@@ -358,7 +359,7 @@ Rectangle {
                                     frame_enabled: false;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
-                                        RuntimeData.formMode = "m1";
+                                        FormParameters.formMode = "m1";
                                     }
                                 }
                                 Buttons.LightButton
@@ -376,7 +377,7 @@ Rectangle {
                                     frame_enabled: false;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
-                                        RuntimeData.formMode = "m2";
+                                        FormParameters.formMode = "m2";
                                     }
                                 }
                                 Buttons.LightButton
@@ -394,7 +395,7 @@ Rectangle {
                                     frame_enabled: false;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
-                                        RuntimeData.formMode = "m3";
+                                        FormParameters.formMode = "m3";
                                     }
                                 }
                                 Buttons.LightButton
@@ -412,7 +413,7 @@ Rectangle {
                                     frame_enabled: false;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
-                                        RuntimeData.formMode = "m4";
+                                        FormParameters.formMode = "m4";
                                     }
                                 }
                             }
@@ -432,11 +433,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formLowerBound);
+                            input_text: Number(FormParameters.formLowerBound);
                             input_text_postfix: " м";
                             lower_bound: 50; upper_bound: 2000; decimal_precision: 0;
                             onTxtChanged: {
-                                RuntimeData.formLowerBound = parseInt(input_text);
+                                FormParameters.formLowerBound = parseInt(input_text);
                             }
                         }
                         Input.LineEdit
@@ -453,11 +454,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formUpperBound);
+                            input_text: Number(FormParameters.formUpperBound);
                             input_text_postfix: " м";
                             lower_bound: 500; upper_bound: 10000; decimal_precision: 0;
                             onTxtChanged: {
-                                RuntimeData.formUpperBound = parseInt(input_text);
+                                FormParameters.formUpperBound = parseInt(input_text);
                             }
                         }
                         Input.LineEdit
@@ -475,11 +476,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formStep);
+                            input_text: Number(FormParameters.formStep);
                             input_text_postfix: "";
                             lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
                             onTxtChanged: {
-                                RuntimeData.formStep = parseFloat(input_text);
+                                FormParameters.formStep = parseFloat(input_text);
                             }
                         }
                         Input.LineEdit
@@ -497,11 +498,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formTime);
+                            input_text: Number(FormParameters.formTime);
                             input_text_postfix: "  с";
                             lower_bound: 0.1; upper_bound: 10; decimal_precision: 2;
                             onTxtChanged: {
-                                RuntimeData.formTime = parseFloat(input_text);
+                                FormParameters.formTime = parseFloat(input_text);
                             }
                         }
                         Checkboxes.LightCheckbox
@@ -519,7 +520,7 @@ Rectangle {
                             highlight_color: UX.infoLight;
                             checked: false;
                             onCheckedChanged: {
-                                if(checked) { RuntimeData.formOverrideGPSData = 1; } else { RuntimeData.formOverrideGPSData = 0; }
+                                if(checked) { FormParameters.formOverrideGPSData = 1; } else { FormParameters.formOverrideGPSData = 0; }
                             }
                         }
                         Input.LineEdit
@@ -539,11 +540,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formGPSHeight);
+                            input_text: Number(FormParameters.formGPSHeight);
                             input_text_postfix: " м";
                             lower_bound: 0.1; upper_bound: 30000.0; decimal_precision: 1;
                             onTxtChanged: {
-                                RuntimeData.formGPSHeight = parseFloat(input_text);
+                                FormParameters.formGPSHeight = parseFloat(input_text);
                             }
                         }
                         Input.LineEdit
@@ -561,11 +562,11 @@ Rectangle {
                             frame_radius: 0;                frame_width: 1;
                             frame_enabled: false;
                             selection_color: UX.infoDark;
-                            input_text: Number(RuntimeData.formGPSVelocity);
+                            input_text: Number(FormParameters.formGPSVelocity);
                             input_text_postfix: " км/ч";
                             lower_bound: 0.05; upper_bound: 3000.0; decimal_precision: 2;
                             onTxtChanged: {
-                                RuntimeData.formGPSVelocity = parseFloat(input_text);
+                                FormParameters.formGPSVelocity = parseFloat(input_text);
                             }
                         }
         }

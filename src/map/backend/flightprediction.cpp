@@ -29,7 +29,7 @@ void FlightPrediction::calculateIntersections(QGeoCoordinate p1, QGeoCoordinate 
 
 void FlightPrediction::updatePoints()
 {
-    float lx = RuntimeData::get()->getFormUpperBound();
+    float lx = DataFormParameters::get()->getFormUpperBound();
     qreal antennaPositionCorrection = SConfig::get()->getAntennaPosition() == "right" ? 90 : -90;
 
     if(m_velocityVector.start.x() != 0 && m_velocityVector.start.y() != 0)

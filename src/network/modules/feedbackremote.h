@@ -4,6 +4,8 @@
 #include <QObject>
 
 #include "network/udpremote.h"
+#include "data/datasar.h"
+
 #include <plugin.h>
 #include <pluginHostAPI.h>
 

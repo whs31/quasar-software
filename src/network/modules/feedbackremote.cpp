@@ -40,7 +40,7 @@ void FeedbackRemote::receiveFeedback(QByteArray data)
         dataString.remove(0, 1);
         Debug::Log("[SAR] Received storage status: " + dataString);
         _split = dataString.split(' ', Qt::SkipEmptyParts);
-        //RuntimeData::get()->setFreeDiskSpace(_split.first().toInt());
-        //RuntimeData::get()->setTotalDiskSpace(_split.last().toInt());
+        DataSAR::get()->setFreeDiskSpace(_split.first().toInt());
+        DataSAR::get()->setTotalDiskSpace(_split.last().toInt());
     }
 }

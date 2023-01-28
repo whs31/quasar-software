@@ -24,10 +24,11 @@ if(ANDROID)
     add_library(${PROJECT_NAME} SHARED ${SOURCE})
 else()
     add_executable(${executable_name} ${SOURCE}
-        src/buildprefs.h
         src/main.cpp
+        src/buildprefs.h
         src/coreui.h                                    src/coreui.cpp                                      src/coreui.ui
         src/data/datatelemetry.h                        src/data/datatelemetry.cpp
+        src/data/datasar.h                              src/data/datasar.cpp
         src/emulator/flightemulator.h                   src/emulator/flightemulator.cpp
         src/emulator/udpemulator.h                      src/emulator/udpemulator.cpp
         src/emulator/saroutputconsoleemulator.h         src/emulator/saroutputconsoleemulator.cpp
@@ -44,7 +45,6 @@ else()
         src/network/remote.h                            src/network/remote.cpp
         src/network/udpremote.h                         src/network/udpremote.cpp
         src/network/tcpdownloader.h                     src/network/tcpdownloader.cpp
-        src/network/messageparser.h                     src/network/messageparser.cpp
         src/network/modules/telemetryremote.h           src/network/modules/telemetryremote.cpp
         src/network/modules/execdremote.h               src/network/modules/execdremote.cpp
         src/network/modules/feedbackremote.h            src/network/modules/feedbackremote.cpp

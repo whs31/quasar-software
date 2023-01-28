@@ -60,10 +60,6 @@ class RuntimeData : public QObject
     Q_PROPERTY(bool autocaptureEnabled              READ getAutocaptureEnabled  WRITE setAutocaptureEnabled  NOTIFY autocaptureEnabledChanged)
     Q_PROPERTY(int totalAutocapCount                READ getTotalAutocapCount   WRITE setTotalAutocapCount   NOTIFY totalAutocapCountChanged)
 
-    // общие переменные с РЛС
-    Q_PROPERTY(qreal freeDiskSpace                  READ getFreeDiskSpace       WRITE setFreeDiskSpace       NOTIFY freeDiskSpaceChanged)
-    Q_PROPERTY(qreal totalDiskSpace                 READ getTotalDiskSpace      WRITE setTotalDiskSpace      NOTIFY totalDiskSpaceChanged)
-
     // переменные карты и списков
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
 
@@ -130,9 +126,6 @@ public:
     bool getAutocaptureEnabled() const;                                 void setAutocaptureEnabled(bool state);
     int getTotalAutocapCount() const;                                   void setTotalAutocapCount(int value);
 
-    qreal getFreeDiskSpace() const;                                     void setFreeDiskSpace(qreal value);
-    qreal getTotalDiskSpace() const;                                    void setTotalDiskSpace(qreal value);
-
     int getTotalImageCount() const;                                     void setTotalImageCount(int value);
 
     bool getInfoWindow() const;                                         void setInfoWindow(bool state);
@@ -189,9 +182,6 @@ signals:
     void autocaptureDistanceChanged();
     void autocaptureEnabledChanged();
     void totalAutocapCountChanged();
-
-    void freeDiskSpaceChanged();
-    void totalDiskSpaceChanged();
 
     void totalImageCountChanged();
 
@@ -263,12 +253,6 @@ private:
         bool enabled = false;
         int totalCount = 0;
     }; AutoCaptureVariables autocaptureVariables;
-
-    struct SARCommonVariables
-    {
-        qreal freeDiskSpace = 0;
-        qreal totalDiskSpace = 0;
-    }; SARCommonVariables sarCommonVariables;
 
     struct MapVariables
     {

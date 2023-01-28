@@ -33,7 +33,7 @@ Rectangle {
 
         fixed_width: 16 * DynamicResolution.kw;
         fixed_height: 19 * DynamicResolution.kh;
-        label_text: Number(RuntimeData.satellites);
+        label_text: Number(Telemetry.satellites);
         label_color: UX.textWhite;
         label_text_size: 16 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;

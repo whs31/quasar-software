@@ -25,7 +25,6 @@
 #include "map/backend/scalegridbackend.h"
 #include "map/backend/signallinker.h"
 #include "network/udpremote.h"
-#include "network/messageparser.h"
 #include "network/tcpdownloader.h"
 #include "network/modules/telemetryremote.h"
 #include "network/modules/feedbackremote.h"
@@ -43,6 +42,7 @@
 #include "emulator/flightemulator.h"
 
 #include "data/datatelemetry.h"
+#include "data/datasar.h"
 
 #include <plugin.h>
 #include <pluginHostAPI.h>
@@ -52,11 +52,6 @@
 QT_BEGIN_NAMESPACE
 namespace Ui { class CoreUI; }
 QT_END_NAMESPACE
-
-enum CommandType {
-    TelemetryCommand,
-    FormCommand
-};
 
 class CoreUI : public QMainWindow
 {
@@ -88,7 +83,7 @@ private:
     static CoreUI* debugPointer;
     TelemetryRemote* telemetryRemote = nullptr;
     FeedbackRemote* feedBackRemote = nullptr;
-    UDPRemote* formRemote = nullptr;
+    ExecdRemote* execdRemote = nullptr;
     LinkerQML* linker = nullptr;
     TCPDownloader* downloader = nullptr;
     QQuickItem* qml = nullptr;
@@ -113,7 +108,6 @@ private:
     }; Plugins plugins;
 
     //private methods
-    void SendRemoteCommand(QString command, CommandType type);
     void* LoadPlugin(QString path);
 
 private slots:
@@ -124,13 +118,5 @@ private slots:
     void InfoSlot();
     void EmulatorSlot();
     void DebugSlot();
-
-    //utility slots
-    void ReadForm(QByteArray data);
-    void ReadSARConsole(QByteArray data);
-    void SendClearCommand(void);
-
-    //gui slots
-    void FormSingleImage();
 };
 #endif // COREUI_H

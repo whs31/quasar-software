@@ -1,11 +1,14 @@
 import QtQuick 2.12
-import UX 1.0
-import RuntimeData 1.0
 import SignalLinker 1.0
 import DiskManager 1.0
 import ImageManager 1.0
-import DynamicResolution 1.0
 import DialogWindowBackend 1.0
+
+import UX 1.0
+import RuntimeData 1.0
+import DynamicResolution 1.0
+import SAR 1.0
+
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/dropdowns" as Dropdowns
@@ -13,6 +16,7 @@ import "qrc:/qml/ui/layouts" as Layouts
 import "qrc:/qml/ui/input" as Input
 import "qrc:/qml/ui/checkboxes" as Checkboxes
 import "qrc:/qml/ui/widgets" as CustomWidgets
+
 
 Rectangle {
     id: base;
@@ -580,9 +584,9 @@ Rectangle {
         anchors.left: separator1.right;
         anchors.leftMargin: 6 * DynamicResolution.kw;
         anchors.top: separator1.top;
-        percentage: Number.isNaN(100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace)) ?
+        percentage: Number.isNaN(100 * (1 - SAR.freeDiskSpace / SAR.totalDiskSpace)) ?
                         5 :
-                        100 * (1 - RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace);
+                        100 * (1 - SAR.freeDiskSpace / SAR.totalDiskSpace);
     }
     Layouts.Separator
     {

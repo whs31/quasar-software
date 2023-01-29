@@ -20,7 +20,7 @@ public:
     }
 
     void setValue(float value) { m_value = value; }
-
+    QString getValue() { return QString::number(m_value, 'f', 1); }
 
 signals:
 

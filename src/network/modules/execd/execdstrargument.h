@@ -20,6 +20,7 @@ public:
     }
 
     void setValue(QString value) { m_value = value; }
+    QString getValue() { return m_value; }
 
 signals:
 

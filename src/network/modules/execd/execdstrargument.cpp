@@ -5,4 +5,5 @@ ExecdStringArgument::ExecdStringArgument(QObject *parent, QString key, QString d
 {
     //logging
     qDebug() << "Key: " << key << ", defaults: " << defaultValue << ", description: " << description;
+    m_value = defaultValue;
 }

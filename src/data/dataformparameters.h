@@ -2,6 +2,7 @@
 #define DATAFORMPARAMETERS_H
 
 #include <QObject>
+#include "network/modules/execd/argumentlist.h"
 
 class DataFormParameters : public QObject
 {
@@ -52,7 +53,7 @@ private:
 
     QString mode = "m1";
     quint32 lowerBound = 100;
-    quint32 upperBound = 3000;
+    quint32 upperBound = 2000;
     float time = 1;
     float step = 1;
     int overrideGPS = 0;

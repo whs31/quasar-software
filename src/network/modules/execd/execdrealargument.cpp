@@ -5,4 +5,5 @@ ExecdRealArgument::ExecdRealArgument(QObject *parent, QString key, float default
 {
     //logging
     qDebug() << "Key: " << key << ", defaults: " << defaultValue << ", description: " << description;
+    m_value = defaultValue;
 }

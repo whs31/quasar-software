@@ -10,7 +10,6 @@
 #include "config/runtimedata.h"
 #include "config/config.h"
 #include "data/datatelemetry.h"
-#include "data/dataformparameters.h"
 #include "execd/argumentlist.h"
 
 enum ExecdCommand : short int 
@@ -54,9 +53,6 @@ private:
 
     UDPRemote *udpRemote = nullptr;
     size_t messageID = 0;
-
-    ArgumentList* argumentList;
-
 };
 
 #endif // EXECDREMOTE_H

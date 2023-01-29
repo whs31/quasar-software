@@ -5,7 +5,7 @@ ExecdRemote::ExecdRemote(QObject *parent)
 {
     udpRemote = new UDPRemote();
     QObject::connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(receiveResponse(QByteArray)));
-    argumentList = new ArgumentList(this);
+    ArgumentList::get(this);
 }
 
 ExecdRemote::~ExecdRemote()
@@ -113,15 +113,10 @@ QString ExecdRemote::makeCommand(QString string)
 
 QString ExecdRemote::makeFormArguments(void)
 {
-    return  "(" + DataFormParameters::get()->getFormMode()                                     //mode (m1, m2) : QString
-            + "," + QString::number(DataFormParameters::get()->getFormLowerBound())            //x0 : int              
-            + "," + QString::number(DataFormParameters::get()->getFormUpperBound())            //lx + x0 : int
-            + "," + QString::number(DataFormParameters::get()->getFormTime(), 'f', 1)          //ts : float
-            + "," + QString::number(DataFormParameters::get()->getFormStep(), 'f', 1)          //dx : float
-            + "," + QString::number(DataFormParameters::get()->getFormStep(), 'f', 1)          //dy : float (dx = dy in most cases)
-            + "," + QString::number(DataFormParameters::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
-            + "," + QString::number(DataFormParameters::get()->getFormGPSHeight(), 'f', 0)     //height : float
-            + "," + QString::number(DataFormParameters::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
-            + "," + QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)               //sealevel : float  
-            + ")";                  
+    return ArgumentList::get()->makeFormArguments();            
+
+            //QString::number(DataFormParameters::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
+            //QString::number(DataFormParameters::get()->getFormGPSHeight(), 'f', 0)     //height : float
+            //QString::number(DataFormParameters::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
+            //QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)               //sealevel : float  
 }

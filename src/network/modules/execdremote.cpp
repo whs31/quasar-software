@@ -5,6 +5,7 @@ ExecdRemote::ExecdRemote(QObject *parent)
 {
     udpRemote = new UDPRemote();
     QObject::connect(udpRemote, SIGNAL(received(QByteArray)), this, SLOT(receiveResponse(QByteArray)));
+    argumentList = new ArgumentList(this);
 }
 
 ExecdRemote::~ExecdRemote()
@@ -121,6 +122,6 @@ QString ExecdRemote::makeFormArguments(void)
             + "," + QString::number(DataFormParameters::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
             + "," + QString::number(DataFormParameters::get()->getFormGPSHeight(), 'f', 0)     //height : float
             + "," + QString::number(DataFormParameters::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
-            + "," + QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)        //sealevel : float  
+            + "," + QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)               //sealevel : float  
             + ")";                  
 }

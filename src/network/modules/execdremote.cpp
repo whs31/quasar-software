@@ -89,7 +89,7 @@ void ExecdRemote::sendCommand(ExecdCommand command)
     case ExecdCommand::FormImage:
     {
         Debug::Log("[EXECD REMOTE] Sending form command");
-        QByteArray request = makeCommand(FORM_MARKER + makeFormArguments()).toUtf8();
+        QByteArray request = makeCommand(FORM_MARKER + ArgumentList::get()->makeFormArguments()).toUtf8();
         udpRemote->Send(request);
         Debug::Log("[EXECD REMOTE] Sended to SAR: " + request);
         break;
@@ -109,14 +109,4 @@ QString ExecdRemote::makeCommand(QString string)
     if(SConfig::get()->getUseOldExecdEndline())
         fullCommand.append("\n");
     return fullCommand;
-}
-
-QString ExecdRemote::makeFormArguments(void)
-{
-    return ArgumentList::get()->makeFormArguments();            
-
-            //QString::number(DataFormParameters::get()->getFormOverrideGPSData())       //override gps data : 1 or 0 (int)
-            //QString::number(DataFormParameters::get()->getFormGPSHeight(), 'f', 0)     //height : float
-            //QString::number(DataFormParameters::get()->getFormGPSVelocity(), 'f', 1)   //speed : float
-            //QString::number(DataTelemetry::get()->getSeaLevel(), 'f', 1)               //sealevel : float  
 }

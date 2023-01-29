@@ -49,7 +49,6 @@ private:
 
     size_t getMessageID(void);
     QString makeCommand(QString string);
-    QString makeFormArguments(void);
 
     UDPRemote *udpRemote = nullptr;
     size_t messageID = 0;

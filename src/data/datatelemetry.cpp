@@ -22,8 +22,11 @@ void DataTelemetry::setSpeed(qreal value) { if (value == speed) return;
 speed = value; emit speedChanged(); }
 
 qreal DataTelemetry::getSeaLevel() { return seaLevel; }
-void DataTelemetry::setSeaLevel(qreal value) { if (value == seaLevel) return;
-seaLevel = value; emit seaLevelChanged(); }
+void DataTelemetry::setSeaLevel(qreal value) { 
+    if (value == seaLevel) return;
+    seaLevel = value; emit seaLevelChanged(); 
+    ArgumentList::get()->sealevel->setValue(value); 
+}
 
 qint16 DataTelemetry::getSatellites() { return satellites; }
 void DataTelemetry::setSatellites(short value) { if (value == satellites) return; 

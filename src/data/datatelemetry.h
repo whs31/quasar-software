@@ -2,6 +2,7 @@
 #define DATATELEMETRY_H
 
 #include <QObject>
+#include "network/modules/execd/argumentlist.h"
 
 class DataTelemetry : public QObject
 {

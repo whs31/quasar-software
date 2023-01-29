@@ -2,10 +2,9 @@
 #define ARGUMENTLIST_H
 
 #include <QObject>
+#include <QVector>
 
-#include "execdintargument.h"
-#include "execdrealargument.h"
-#include "execdstrargument.h"
+#include "execdargument.h"
 #include "misc/debug.h"
 
 class ArgumentList : public QObject
@@ -16,35 +15,38 @@ public:
 
     QString makeFormArguments(void);
 
-    ExecdStringArgument* filename       =  new ExecdStringArgument(this, "-f", "m1", "Имя файла");
-    ExecdIntArgument* mode              =  new ExecdIntArgument(this, "-m", 1, "Режим формирования");
-    ExecdRealArgument* timeshift        =  new ExecdRealArgument(this, "-t", 1, "Смещение по времени, с");
-    ExecdIntArgument* brightness        =  new ExecdIntArgument(this, "-b", 0, "Яркость изображения");
-    ExecdIntArgument* sealevel          =  new ExecdIntArgument(this, "-e", 120, "Начальная высота в точке старта");
-    ExecdStringArgument* windowfunction =  new ExecdStringArgument(this, "-w", "HAMMING", "Оконная функция");
-    ExecdIntArgument* interpolation     =  new ExecdIntArgument(this, "-i", 0, "Интерполяция параметров скорости и высоты");
-    ExecdRealArgument* time             =  new ExecdRealArgument(this, "--Ts", 1, "Время синтезирования, с");
-    ExecdRealArgument* striptime        =  new ExecdRealArgument(this, "--Tstrip", 1, "Время полосовой съемки, с");
-    ExecdIntArgument* freqinterp_x      =  new ExecdIntArgument(this, "--kR", 1, "Коэффициент частотной интерполяции по дальности");
-    ExecdIntArgument* freqintep_y       =  new ExecdIntArgument(this, "--kL", 1, "Коэффициент частотной интерполяции по путевой дальности");
-    ExecdIntArgument* jpegcompression   =  new ExecdIntArgument(this, "--jq", 80, "Качество компрессии JPEG");
+    ExecdArgument* filename       =  new ExecdArgument(this, ArgumentType::String, "-f", "m1", "Имя файла");
+    ExecdArgument* mode           =  new ExecdArgument(this, ArgumentType::Int, "-m", 1, "Режим формирования");
+    ExecdArgument* timeshift      =  new ExecdArgument(this, ArgumentType::Float, "-t", 1, "Смещение по времени, с");
+    ExecdArgument* brightness     =  new ExecdArgument(this, ArgumentType::Int, "-b", 0, "Яркость изображения");
+    ExecdArgument* sealevel       =  new ExecdArgument(this, ArgumentType::Int, "--e0", 120, "Начальная высота в точке старта");
+    ExecdArgument* elevation      =  new ExecdArgument(this, ArgumentType::Int, "-e", -1, "Текущая высота");
+    ExecdArgument* velocity       =  new ExecdArgument(this, ArgumentType::Float, "-v", -1, "Текущая скорость");
+    ExecdArgument* windowfunction =  new ExecdArgument(this, ArgumentType::String, "-w", "HAMMING", "Оконная функция");
+    ExecdArgument* interpolation  =  new ExecdArgument(this, ArgumentType::Int, "-i", 0, "Интерполяция параметров скорости и высоты");
+    ExecdArgument* time           =  new ExecdArgument(this, ArgumentType::Float, "--Ts", 1, "Время синтезирования, с");
+    ExecdArgument* striptime      =  new ExecdArgument(this, ArgumentType::Float, "--Tstrip", 1, "Время полосовой съемки, с");
+    ExecdArgument* freqinterp_x   =  new ExecdArgument(this, ArgumentType::Int, "--kR", 1, "Коэффициент частотной интерполяции по дальности");
+    ExecdArgument* freqintep_y    =  new ExecdArgument(this, ArgumentType::Int, "--kL", 1, "Коэффициент частотной интерполяции по путевой дальности");
+    ExecdArgument* jpegcompression=  new ExecdArgument(this, ArgumentType::Int, "--jq", 80, "Качество компрессии JPEG");
 
-    ExecdRealArgument* dx               =  new ExecdRealArgument(this, "--dx", 1, "Шаг по дальности, м");
-    ExecdRealArgument* dy               =  new ExecdRealArgument(this, "--dy", 1, "Шаг по путевой дальности, м");
-    ExecdIntArgument* x0                =  new ExecdIntArgument(this, "--x0", 100, "Ближняя граница по дальности");
-    ExecdIntArgument* y0                =  new ExecdIntArgument(this, "--y0", 200);
-    ExecdIntArgument* lx                =  new ExecdIntArgument(this, "--lx", 2000, "Дальняя граница по дальности");
-    ExecdIntArgument* ly                =  new ExecdIntArgument(this, "--ly", 400);
-    ExecdStringArgument* ip             =  new ExecdStringArgument(this, "--ip", "./img/");
-    ExecdStringArgument* im             =  new ExecdStringArgument(this, "--im", "out");
-    ExecdRealArgument* tshift2          =  new ExecdRealArgument(this, "--Tshift", 1);
-    ExecdStringArgument* remote         =  new ExecdStringArgument(this, "--remote", "None", "Сервер для передачи данных [address:port]");
+    ExecdArgument* dx             =  new ExecdArgument(this, ArgumentType::Float, "--dx", 1, "Шаг по дальности, м");
+    ExecdArgument* dy             =  new ExecdArgument(this, ArgumentType::Float, "--dy", 1, "Шаг по путевой дальности, м");
+    ExecdArgument* x0             =  new ExecdArgument(this, ArgumentType::Int, "--x0", 100, "Ближняя граница по дальности");
+    ExecdArgument* y0             =  new ExecdArgument(this, ArgumentType::Int, "--y0", 200);
+    ExecdArgument* lx             =  new ExecdArgument(this, ArgumentType::Int, "--lx", 2000, "Дальняя граница по дальности");
+    ExecdArgument* ly             =  new ExecdArgument(this, ArgumentType::Int, "--ly", 400);
+    ExecdArgument* ip             =  new ExecdArgument(this, ArgumentType::String, "--ip", "./img/");
+    ExecdArgument* im             =  new ExecdArgument(this, ArgumentType::String, "--im", "out");
+    ExecdArgument* tshift2        =  new ExecdArgument(this, ArgumentType::Float, "--Tshift", 1);
+    ExecdArgument* remote         =  new ExecdArgument(this, ArgumentType::String, "--remote", "None", "Сервер для передачи данных [address:port]");
 
 signals:
 
 private:
     static ArgumentList* _instance;
     explicit ArgumentList(QObject *parent = nullptr);
+    QVector<ExecdArgument*> args;
 
 };
 

@@ -50,9 +50,7 @@ else()
         src/network/modules/execdremote.h               src/network/modules/execdremote.cpp
         src/network/modules/feedbackremote.h            src/network/modules/feedbackremote.cpp
         src/network/modules/execd/argumentlist.h        src/network/modules/execd/argumentlist.cpp
-        src/network/modules/execd/execdintargument.h    src/network/modules/execd/execdintargument.cpp
-        src/network/modules/execd/execdrealargument.h   src/network/modules/execd/execdrealargument.cpp
-        src/network/modules/execd/execdstrargument.h    src/network/modules/execd/execdstrargument.cpp
+        src/network/modules/execd/execdargument.h    src/network/modules/execd/execdargument.cpp
         src/config/config.h                             src/config/config.cpp
         src/config/sconfig.h                            src/config/sconfig.cpp
         src/config/settingsdialog.h                     src/config/settingsdialog.cpp                       src/config/settingsdialog.ui

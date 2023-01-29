@@ -6,8 +6,13 @@ DataFormParameters *DataFormParameters::get(QObject *parent) { if (_instance != 
 DataFormParameters::DataFormParameters(QObject *parent) : QObject{parent} {}
 
 QString DataFormParameters::getFormMode() { return mode; }
-void DataFormParameters::setFormMode(QString string) { if (string == mode) return;
-    mode = string; emit formModeChanged(); string.remove(0, 1); ArgumentList::get(this)->mode->setValue(string.toInt()); }
+void DataFormParameters::setFormMode(QString string) 
+{ 
+    if (string == mode) return;
+    mode = string; emit formModeChanged(); 
+    string.remove(0, 1); 
+    ArgumentList::get(this)->mode->setValue(string); 
+}
 
 quint32 DataFormParameters::getFormLowerBound() { return lowerBound; }
 void DataFormParameters::setFormLowerBound(quint32 value) { if (value == lowerBound) return;
@@ -23,15 +28,28 @@ void DataFormParameters::setFormTime(float value) { if (value == time) return;
 
 float DataFormParameters::getFormStep() { return step; }
 void DataFormParameters::setFormStep(float value) { if (value == step) return;
-    step = value; emit formStepChanged(); ArgumentList::get()->dx->setValue(value); ArgumentList::get()->dx->setValue(value); }
+    step = value; emit formStepChanged(); ArgumentList::get()->dx->setValue(value); 
+    ArgumentList::get()->dx->setValue(value); 
+    ArgumentList::get()->dy->setValue(value); 
+}
 
 int DataFormParameters::getFormOverrideGPSData() { return overrideGPS; }
-void DataFormParameters::setFormOverrideGPSData(int state) { if (state == overrideGPS) return;
-    overrideGPS = state; emit formOverrideGPSDataChanged(); } //?
+void DataFormParameters::setFormOverrideGPSData(int state) { 
+    if (state == overrideGPS) return;
+    overrideGPS = state; emit formOverrideGPSDataChanged(); 
+    if(state == 1)
+    {
+        ArgumentList::get()->elevation->setValue(getFormGPSHeight()); 
+        ArgumentList::get()->velocity->setValue(getFormGPSVelocity()); 
+    } else if(state == 0) {
+        ArgumentList::get()->elevation->setValue(-1); 
+        ArgumentList::get()->velocity->setValue(-1); 
+    }
+} 
 
 float DataFormParameters::getFormGPSHeight() { return gpsHeight; }
 void DataFormParameters::setFormGPSHeight(float value) { if (value == gpsHeight) return;
-    gpsHeight = value; emit formGPSHeightChanged(); } //?
+    gpsHeight = value; emit formGPSHeightChanged(); } 
 
 float DataFormParameters::getFormGPSVelocity() { return gpsVelocity; }
 void DataFormParameters::setFormGPSVelocity(float value) { if (value == gpsVelocity) return;

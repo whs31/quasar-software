@@ -9,7 +9,7 @@ MarkerWindowBackend* MarkerWindowBackend::get(QObject* parent)
     return pointer;
 }
 MarkerWindowBackend::MarkerWindowBackend(QObject *parent)
-    : QObject{parent}
+    : WindowBackend{parent}
 {
-
+    show();
 }

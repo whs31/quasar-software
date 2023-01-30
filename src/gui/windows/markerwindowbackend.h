@@ -4,8 +4,9 @@
 #include <QObject>
 #include "config/runtimedata.h"
 #include "map/models/marker.h"
+#include "abstract/windowbackend.h"
 
-class MarkerWindowBackend : public QObject
+class MarkerWindowBackend : public WindowBackend
 {
     Q_OBJECT
 
@@ -21,10 +22,10 @@ private:
     QString m_name = "Marker Name";
     qreal m_lat = -1;
     qreal m_lon = -1;
-    bool m_saveToFile = true;
+    bool m_record = true;
     bool m_screenAnchor = true;
-    qint8 m_color = -1;
-    qint8 m_icon = -1;
+    qint8 m_colorCode = -1;
+    qint8 m_iconCode = -1;
 };
 
 #endif // MARKERWINDOWBACKEND_H

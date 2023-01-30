@@ -1,19 +1,21 @@
 import QtQuick 2.15
-import DialogWindowBackend 1.0
+import QtGraphicalEffects 1.15
+
+import "qrc:/qml/ui/buttons" as Buttons
+import "qrc:/qml/ui/labels" as Labels
+
 import UX 1.0
 import RuntimeData 1.0
 import Config 1.0
-import DynamicResolution 1.0
-import QtGraphicalEffects 1.15
-import "qrc:/qml/ui/buttons" as Buttons
-import "qrc:/qml/ui/labels" as Labels
+
+import DialogWindowBackend 1.0
 
 Rectangle {
 	id: window;
 	visible: width > 0;
 	enabled: DialogWindowBackend.shown;
-	height: DialogWindowBackend.shown ? 165 * DynamicResolution.kw : 0;
-	width: DialogWindowBackend.shown ? 473 * DynamicResolution.kh : 0;
+	height: DialogWindowBackend.shown ? 165 : 0;
+	width: DialogWindowBackend.shown ? 473 : 0;
 	radius: 35;
 	color: UX.primaryDark;
 	Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
@@ -31,10 +33,10 @@ Rectangle {
 			id: icon;
 			source: DialogWindowBackend.icon;
 			fillMode: Image.PreserveAspectFit;
-			width: 68 * DynamicResolution.kw;
-			height: 68 * DynamicResolution.kh;
+			width: 68;
+			height: 68;
 			anchors.left: parent.left;
-			anchors.leftMargin: 28 * DynamicResolution.kw;
+			anchors.leftMargin: 28;
 			anchors.verticalCenter: parent.verticalCenter;
 			smooth: true;
 			antialiasing: true;
@@ -44,13 +46,13 @@ Rectangle {
 		{
 			id: headerText;
 			anchors.top: parent.top;
-			anchors.topMargin: 8 * DynamicResolution.kh;
+			anchors.topMargin: 8;
 			anchors.horizontalCenter: parent.horizontalCenter;
-			fixed_width: 176 * DynamicResolution.kw;
-			fixed_height: 16 * DynamicResolution.kh;
+			fixed_width: 176;
+			fixed_height: 16;
 			label_text: DialogWindowBackend.header;
 			label_color: UX.textWhite;
-			label_text_size: 17 * DynamicResolution.kh;
+			label_text_size: 17;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignHCenter;
@@ -62,12 +64,12 @@ Rectangle {
 			id: mainText;
 			anchors.verticalCenter: parent.verticalCenter;
 			anchors.right: parent.right;
-            anchors.rightMargin: 30 * DynamicResolution.kw;
-			fixed_width: 324 * DynamicResolution.kw;
-			fixed_height: 68 * DynamicResolution.kh;
+			anchors.rightMargin: 30;
+			fixed_width: 324;
+			fixed_height: 68;
 			label_text: DialogWindowBackend.text;
 			label_color: UX.textWhite;
-			label_text_size: 14 * DynamicResolution.kh;
+			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignLeft;
@@ -81,17 +83,17 @@ Rectangle {
 			anchors.bottom: parent.bottom;
 			anchors.bottomMargin: 14;
 			anchors.right: parent.horizontalCenter;
-			anchors.rightMargin: 15 * DynamicResolution.kw;
-			fixed_width: 103 * DynamicResolution.kw;
-			fixed_height: 20 * DynamicResolution.kh;
+			anchors.rightMargin: 15;
+			fixed_width: 103;
+			fixed_height: 20;
 			label_text: "ОК";
 			label_color: UX.textWhite;
-			label_text_size: 14 * DynamicResolution.kh;
+			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
 			highlight_color: UX.successLighter;
-			frame_radius: 6 * DynamicResolution.kw;
-			frame_width: 1 * DynamicResolution.kh;
+			frame_radius: 6;
+			frame_width: 1;
 			frame_enabled: true;
 			onClicked: {
 				DialogWindowBackend.accept();
@@ -103,17 +105,17 @@ Rectangle {
 			anchors.bottom: parent.bottom;
 			anchors.bottomMargin: 14;
 			anchors.left: parent.horizontalCenter;
-			anchors.leftMargin: 15 * DynamicResolution.kw;
-			fixed_width: 103 * DynamicResolution.kw;
-			fixed_height: 20 * DynamicResolution.kh;
+			anchors.leftMargin: 15;
+			fixed_width: 103;
+			fixed_height: 20;
 			label_text: "ОТМЕНА";
 			label_color: UX.textWhite;
-			label_text_size: 14 * DynamicResolution.kh;
+			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
 			highlight_color: UX.errorDark;
-			frame_radius: 6 * DynamicResolution.kw;
-			frame_width: 1 * DynamicResolution.kh;
+			frame_radius: 6;
+			frame_width: 1;
 			frame_enabled: true;
 			onClicked: {
 				DialogWindowBackend.cancel();

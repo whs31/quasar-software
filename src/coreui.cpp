@@ -85,7 +85,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());
-    ui->map->setSource(QUrl("qrc:/qml/map.qml"));
+    ui->map->setSource(QUrl("qrc:/qml/CoreQML.qml"));
     ui->map->show();
 
     // declare only-header qml types here

@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/map.qml</file>
+        <file>qml/CoreQML.qml</file>
         <file>qml/Marker.qml</file>
         <file>qml/ui/RoundPane.qml</file>
         <file>qml/sar-image/Dialog.qml</file>
@@ -39,5 +39,6 @@
         <file>qml/windows/MarkerWindow.qml</file>
         <file>qml/windows/AutocaptureMarkWindow.qml</file>
         <file>qml/windows/SettingsWindow.qml</file>
+        <file>qml/ui/input/FramedLineEdit.qml</file>
     </qresource>
 </RCC>

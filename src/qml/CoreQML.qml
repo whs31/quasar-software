@@ -687,16 +687,19 @@ Rectangle {
 
 	DropShadow { z: 99; anchors.fill: dialogWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
 				 samples: 32; color: "#80000000"; source: dialogWindow; cached: true; }
-	Windows.DialogWindow
+	Windows.MarkerWindow
 	{
-		id: dialogWindow;
+		id: markerWindow;
 		anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
 		z: 100;
 	}
 
-    Connections {
-
-    }
+	Windows.DialogWindow
+	{
+		id: dialogWindow;
+		anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+		z: 101;
+	}
 }
 
 

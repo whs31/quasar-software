@@ -18,8 +18,8 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
     markerPointer = new Marker(get());
     MarkerWindowBackend::get()->setName(markerPointer->name);
-    MarkerWindowBackend::get()->setLatitude(markerPointer->latitude);
-    MarkerWindowBackend::get()->setLongitude(markerPointer->longitude);
+    MarkerWindowBackend::get()->setLatitude(latitude);
+    MarkerWindowBackend::get()->setLongitude(longitude);
     MarkerWindowBackend::get()->setRecord(markerPointer->save);
     MarkerWindowBackend::get()->setScreenAnchor(markerPointer->scalable);
     MarkerWindowBackend::get()->setColorCode(markerPointer->color);

@@ -11,7 +11,6 @@ MarkerWindowBackend* MarkerWindowBackend::get(QObject* parent)
 MarkerWindowBackend::MarkerWindowBackend(QObject *parent)
     : WindowBackend{parent}
 {
-    show();
 }
 
 QString MarkerWindowBackend::getName() const { return m_name; }
@@ -20,6 +19,7 @@ void MarkerWindowBackend::setName(const QString &newName)
     if (m_name == newName)
         return;
     m_name = newName;
+    m_name.append(" №" + QString::number(++counter));
     emit nameChanged();
 }
 

@@ -38,9 +38,9 @@ public:
     qint8 getIcon() { return (qint8)color; }
     bool getScalable() { return scalable; }
 
-    short int icon = MarkerIcon::Default;
+    short int icon = MarkerIcon::Flag;
     short int color = MarkerColor::Gray;
-    QString name = "Новый маркер";
+    QString name = "Объект";
     qreal latitude = 0;
     qreal longitude = 0;
     bool autocapture = false;

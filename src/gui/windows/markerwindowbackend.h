@@ -60,9 +60,11 @@ private:
     bool m_record = true;
     bool m_screenAnchor = true;
     qint8 m_colorCode = -1;
-    qint8 m_iconCode = -1;
+    qint8 m_iconCode = 1;
     qreal m_latitude;
     qreal m_longitude;
+    
+    int counter = 0;
 };
 
 #endif // MARKERWINDOWBACKEND_H

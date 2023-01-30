@@ -128,11 +128,11 @@ Rectangle {
 			frame_enabled: false;
 			frame_color: UX.primaryDarker;
 			selection_color: UX.warningLight;
-			input_text: "00.00000";
+			input_text: Number(MarkerWindowBackend.latitude).toFixed(5);
 			input_text_postfix: "°";
 			label_length: 10;
 			onTxtChanged: {
-				//FormParameters.formLowerBound = parseInt(input_text);
+				MarkerWindowBackend.latitude = parseFloat(input_text);
 			}
 		}
 		Labels.FramedLabel
@@ -171,11 +171,11 @@ Rectangle {
 			frame_enabled: false;
 			frame_color: UX.primaryDarker;
 			selection_color: UX.warningLight;
-			input_text: "00.00000";
+			input_text: Number(MarkerWindowBackend.longitude).toFixed(5);
 			input_text_postfix: "°";
 			label_length: 10;
 			onTxtChanged: {
-				//FormParameters.formLowerBound = parseInt(input_text);
+				MarkerWindowBackend.longitude = parseFloat(input_text);
 			}
 		}
 		Checkboxes.LightCheckbox
@@ -194,9 +194,9 @@ Rectangle {
 			label_textAlignment: Text.AlignLeft;
 			contrast_color: UX.primaryDarker;
 			highlight_color: UX.warningLight;
-			checked: false;
+			checked: true;
 			onCheckedChanged: {
-
+				MarkerWindowBackend.record = checked;
 			}
 		}
 		Checkboxes.LightCheckbox
@@ -215,9 +215,9 @@ Rectangle {
 			label_textAlignment: Text.AlignLeft;
 			contrast_color: UX.primaryDarker;
 			highlight_color: UX.warningLight;
-			checked: false;
+			checked: true;
 			onCheckedChanged: {
-
+				MarkerWindowBackend.screenAnchor = checked;
 			}
 		}
 		Labels.FramedLabel
@@ -251,7 +251,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 7;
 			}
 		}
 		Buttons.ClassicButton
@@ -268,7 +268,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 6;
 			}
 		}
 		Buttons.ClassicButton
@@ -285,7 +285,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 5;
 			}
 		}
 		Buttons.ClassicButton
@@ -302,7 +302,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 4;
 			}
 		}
 		Buttons.ClassicButton
@@ -319,7 +319,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 3;
 			}
 		}
 		Buttons.ClassicButton
@@ -336,7 +336,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 2;
 			}
 		}
 		Buttons.ClassicButton
@@ -353,7 +353,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 1;
 			}
 		}
 		Buttons.ClassicButton
@@ -370,7 +370,7 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				MarkerWindowBackend.colorCode = 0;
 			}
 		}
 		Labels.FramedLabel
@@ -391,7 +391,11 @@ Rectangle {
 			frame_width: 0;
 			label_wrapping: true;
 		}
+
 		Image {
+			property int markerIconState: 1;
+			property int maxMarkerIconEnumState: 3;
+
 			id: icon;
 			source: "qrc:/map/markers/flag.png";
 			fillMode: Image.PreserveAspectFit;
@@ -419,7 +423,17 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				if(icon.markerIconState < icon.maxMarkerIconEnumState)
+				{
+					icon.markerIconState += 1;
+				} else {
+					icon.markerIconState = 0;
+				}
+				MarkerWindowBackend.iconCode = icon.markerIconState;
+				if(icon.markerIconState === 0) { icon.source = "qrc:/map/markers/default.png"; }
+				if(icon.markerIconState === 1) { icon.source = "qrc:/map/markers/flag.png"; }
+				if(icon.markerIconState === 2) { icon.source = "qrc:/map/markers/radar.png"; }
+				if(icon.markerIconState === 3) { icon.source = "qrc:/map/markers/autocapture.png"; }
 			}
 		}
 		Buttons.ClassicButton
@@ -437,7 +451,17 @@ Rectangle {
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
-
+				if(icon.markerIconState > 0)
+				{
+					icon.markerIconState -= 1;
+				} else {
+					icon.markerIconState = icon.maxMarkerIconEnumState;
+				}
+				MarkerWindowBackend.iconCode = icon.markerIconState;
+				if(icon.markerIconState === 0) { icon.source = "qrc:/map/markers/default.png"; }
+				if(icon.markerIconState === 1) { icon.source = "qrc:/map/markers/flag.png"; }
+				if(icon.markerIconState === 2) { icon.source = "qrc:/map/markers/radar.png"; }
+				if(icon.markerIconState === 3) { icon.source = "qrc:/map/markers/autocapture.png"; }
 			}
 		}
 

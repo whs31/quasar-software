@@ -18,5 +18,5 @@ void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 void FMouseKeyHandler::placeMarker(qreal latitude, qreal longitude)
 {
     RuntimeData::get()->setMouseState(0);
-    MarkerManager::newMarker(latitude, longitude);
+    MarkerManager::get()->newMarker(latitude, longitude);
 }

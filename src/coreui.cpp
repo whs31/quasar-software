@@ -15,7 +15,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<SMath>("SMath", 1, 0, "SMath");
     qmlRegisterType<SText>("SText", 1, 0, "SText");
     qmlRegisterType<FMouseKeyHandler>("MouseKeyHandler", 1, 0, "MouseKeyHandler");
-    qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::initialize());
+    qmlRegisterSingletonInstance<MarkerManager>("MarkerManager", 1, 0, "MarkerManager", MarkerManager::get());
     qmlRegisterSingletonInstance<ImageManager>("ImageManager", 1, 0, "ImageManager", ImageManager::get(this));
     qmlRegisterSingletonInstance<DiskTools>("DiskManager", 1, 0, "DiskManager", DiskTools::get(this));
     
@@ -227,7 +227,7 @@ CoreUI::~CoreUI()
     delete qml;
     delete TilesManager::get();
     delete ImageManager::get();
-    delete MarkerManager::initialize();
+    delete MarkerManager::get();
     Debug::Log("Session ended succesfully.");
 }
 

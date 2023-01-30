@@ -1,45 +1,30 @@
 #include "markermanager.h"
 
-QVector<Marker *> MarkerManager::markerList = {};
 MarkerManager *MarkerManager::_instance = nullptr;
 MarkerManager::MarkerManager(QObject *parent)
     : QObject{parent}
 {}
-MarkerManager *MarkerManager::initialize()
+MarkerManager *MarkerManager::get(QObject *parent)
 {
     if (_instance != NULL)
         return _instance;
-    _instance = new MarkerManager();
+    _instance = new MarkerManager(parent);
     return _instance;
 }
 
 void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
-    Marker* marker = new Marker(initialize());
+    markerPointer = new Marker(get());
 
-    MarkerDialog markerDialog(latitude, longitude, *marker);
+    MarkerDialog markerDialog(latitude, longitude, *markerPointer);
     if (markerDialog.exec() == QDialog::Accepted)
     {
-        // only if save = true
-        // тут нужно чето придумать с индексами
-        markerList.append(marker); // save me to xml file
-
-        if(marker->autocapture)
-        {
-            RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(marker->latitude, marker->longitude));
-            RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
-            Debug::Log("?[MARKER] Created new autocapture mark with name " + marker->name);
-        } else {
-            Debug::Log("[MARKER] Created new marker with name " + marker->name);
-        }
-        LinkerQML::addModel(*marker);
+        dialogAccept();
     }
     else
     {
-        Debug::Log("[MARKER] Marker discarded");
-        delete marker;
+        dialogReject();
     }
-
 }
 
 void MarkerManager::removeMarker(qint32 index)
@@ -77,4 +62,29 @@ void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
             break;
         }
     }
+}
+
+void MarkerManager::dialogAccept()
+{
+    // only if save = true
+    // тут нужно чето придумать с индексами
+    markerList.append(markerPointer); // save me to xml file
+
+    if (markerPointer->autocapture)
+    {
+        RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(markerPointer->latitude, markerPointer->longitude));
+        RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
+        Debug::Log("?[MARKER] Created new autocapture mark with name " + markerPointer->name);
+    }
+    else
+    {
+        Debug::Log("[MARKER] Created new marker with name " + markerPointer->name);
+    }
+    LinkerQML::addModel(*markerPointer);
+}
+
+void MarkerManager::dialogReject()
+{
+    Debug::Log("[MARKER] Marker discarded");
+    markerPointer = nullptr;
 }

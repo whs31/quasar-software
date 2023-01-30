@@ -685,8 +685,8 @@ Rectangle {
         z: 100;
     }
 
-	DropShadow { z: 99; anchors.fill: dialogWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
-				 samples: 32; color: "#80000000"; source: dialogWindow; cached: true; }
+	DropShadow { z: 99; anchors.fill: markerWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
+				 samples: 32; color: "#80000000"; source: markerWindow; cached: true; }
 	Windows.MarkerWindow
 	{
 		id: markerWindow;
@@ -694,6 +694,8 @@ Rectangle {
 		z: 100;
 	}
 
+	DropShadow { z: 99; anchors.fill: dialogWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
+				 samples: 32; color: "#80000000"; source: dialogWindow; cached: true; }
 	Windows.DialogWindow
 	{
 		id: dialogWindow;

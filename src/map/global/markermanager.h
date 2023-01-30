@@ -14,18 +14,24 @@ class MarkerManager : public QObject
 {
     Q_OBJECT
 public:
-    static MarkerManager* initialize();
+    static MarkerManager* get(QObject *parent = Q_NULLPTR);
 
-    static void newMarker(qreal latitude, qreal longitude);
-    Q_INVOKABLE static void removeMarker(qint32 index);
-    Q_INVOKABLE static void removeMarkerFromCoordinates(QGeoCoordinate coordinate);
+    void newMarker(qreal latitude, qreal longitude);
+    Q_INVOKABLE void removeMarker(qint32 index);
+    Q_INVOKABLE void removeMarkerFromCoordinates(QGeoCoordinate coordinate);
 
 signals:
 
 private:
     explicit MarkerManager(QObject *parent = nullptr);
-    static QVector<Marker*> markerList;
+    QVector<Marker*> markerList;
     static MarkerManager* _instance;
+
+    Marker* markerPointer = nullptr;
+
+private slots:
+    void dialogAccept();
+    void dialogReject();
 };
 
 #endif // MARKERMANAGER_H

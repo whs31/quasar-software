@@ -50,7 +50,7 @@ else()
         src/network/modules/execdremote.h               src/network/modules/execdremote.cpp
         src/network/modules/feedbackremote.h            src/network/modules/feedbackremote.cpp
         src/network/modules/execd/argumentlist.h        src/network/modules/execd/argumentlist.cpp
-        src/network/modules/execd/execdargument.h    src/network/modules/execd/execdargument.cpp
+        src/network/modules/execd/execdargument.h       src/network/modules/execd/execdargument.cpp
         src/config/config.h                             src/config/config.cpp
         src/config/sconfig.h                            src/config/sconfig.cpp
         src/config/settingsdialog.h                     src/config/settingsdialog.cpp                       src/config/settingsdialog.ui
@@ -66,7 +66,6 @@ else()
         src/misc/profiler.h                             src/misc/profiler.cpp
         src/gui/dynamicresolution.h                     src/gui/dynamicresolution.cpp
         src/gui/passworddialog.h                        src/gui/passworddialog.cpp                          src/gui/passworddialog.ui
-        src/gui/markerdialog.h                          src/gui/markerdialog.cpp                            src/gui/markerdialog.ui
         src/gui/applicationheader.h                     src/gui/applicationheader.cpp
         src/gui/thememanager.h                          src/gui/thememanager.cpp
         src/gui/themes/dark.h                           src/gui/themes/dark.cpp

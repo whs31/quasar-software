@@ -47,7 +47,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter;
             fixed_width: 246 * DynamicResolution.kw;
             fixed_height: 24 * DynamicResolution.kh;
-            label_text: Config.projectVersion;
+			label_text: "Версия 5.8.7beta";//Config.projectVersion;
             label_color: UX.textFaded;
             label_text_size: 18 * DynamicResolution.kh;
             label_text_family: fontExtraBold.name;

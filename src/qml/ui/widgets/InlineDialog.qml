@@ -7,15 +7,15 @@ import UX 1.0
 
 Rectangle {
     id: dialogBase;
-    width: 50
-    height: 20
+	width: 24
+	height: 22
     opacity: 0.6;
     color: UX.primaryDarker;
     radius: 5;
 	border.color: UX.primaryDark;
     z: 100;
 
-	FontLoader { id: fnt; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
+	FontLoader { id: fnt; source: "qrc:/fonts/SofiaSans-SemiBold.ttf"; }
 
     RoundButton {
         id: roundButton

@@ -25,390 +25,11 @@
    <string>Параметры программы</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../src/images.qrc">
+   <iconset resource="../images.qrc">
     <normaloff>:/ui-resources/quasarlogo/icon.png</normaloff>:/ui-resources/quasarlogo/icon.png</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog {
-  background-color: #132623;
-}
-
-QDockWidget {
-  outline: 1px solid #204040;
-  background-color: #FAFAFA;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  titlebar-close-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-  titlebar-normal-icon: url(&quot;:/ui-resources/css/transparent.png&quot;);
-}
-
-QDockWidget::title {
-  /* Better size for title bar */
-  padding: 3px;
-  spacing: 4px;
-  border: none;
-  background-color: #204040;
-}
-
-QDockWidget::close-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_close.png&quot;);
-}
-
-QDockWidget::close-button:hover {
-  image: url(&quot;:/ui-resources/css/window_close_focus.png&quot;);
-}
-
-QDockWidget::close-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_close_pressed.png&quot;);
-}
-
-QDockWidget::float-button {
-  icon-size: 12px;
-  border: none;
-  background: transparent;
-  background-image: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  image: url(&quot;:/ui-resources/css/window_undock.png&quot;);
-}
-
-QDockWidget::float-button:hover {
-  image: url(&quot;:/ui-resources/css/window_undock_focus.png&quot;);
-}
-
-QDockWidget::float-button:pressed {
-  image: url(&quot;:/ui-resources/css/window_undock_pressed.png&quot;);
-}
-
-QScrollBar:horizontal {
-  height: 8px;
-  margin: 0px 16px 0px 16px;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  background-color: #204040;
-}
-
-QScrollBar:vertical {
-  background-color: #204040;
-  width: 8px;
-  margin: 16px 0px 16px 0px;
-  border: 1px solid #204040;
-  border-radius: 4px;
-}
-
-QScrollBar::handle:horizontal {
-  background-color: #204040;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  min-width: 8px;
-}
-
-QScrollBar::handle:horizontal:hover {
-  background-color: #499c54;
-  border: #499c54;
-  border-radius: 4px;
-  min-width: 8px;
-}
-
-QScrollBar::handle:horizontal:focus {
-  border: 1px solid #bc9117;
-}
-
-QScrollBar::handle:vertical {
-  background-color: #204040;
-  border: 1px solid #204040;
-  min-height: 8px;
-  border-radius: 4px;
-}
-
-QScrollBar::handle:vertical:hover {
-  background-color: #499c54;
-  border: #499c54;
-  border-radius: 4px;
-  min-height: 8px;
-}
-
-QScrollBar::handle:vertical:focus {
-  border: 1px solid #bc9117;
-}
-
-QScrollBar::add-line:horizontal {
-  margin: 0px 0px 0px 0px;
-  border-image: url(&quot;:/ui-resources/css/arrow_right_disabled.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: right;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::add-line:horizontal:hover, QScrollBar::add-line:horizontal:on {
-  border-image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: right;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::add-line:vertical {
-  margin: 3px 0px 3px 0px;
-  border-image: url(&quot;:/ui-resources/css/arrow_down_disabled.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: bottom;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on {
-  border-image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: bottom;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:horizontal {
-  margin: 0px 3px 0px 3px;
-  border-image: url(&quot;:/ui-resources/css/arrow_left_disabled.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: left;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on {
-  border-image: url(&quot;:/ui-resources/css/arrow_left.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: left;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical {
-  margin: 3px 0px 3px 0px;
-  border-image: url(&quot;:/ui-resources/css/arrow_up_disabled.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::sub-line:vertical:hover, QScrollBar::sub-line:vertical:on {
-  border-image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 12px;
-  width: 12px;
-  subcontrol-position: top;
-  subcontrol-origin: margin;
-}
-
-QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
-  background: none;
-}
-
-QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
-  background: none;
-}
-
-QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
-  background: none;
-}
-
-QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
-  background: none;
-}
-
-QMainWindow::separator {
-  background-color: #204040;
-  border: 0px solid #FAFAFA;
-  spacing: 0px;
-  padding: 0px;
-}
-
-QMainWindow::separator:hover {
-  background-color: #499c54;
-  border: 0px solid #73C7FF;
-}
-
-QMainWindow::separator:horizontal {
-  width: 2px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  image: url(&quot;:/ui-resources/css/toolbar_separator_vertical.png&quot;);
-}
-
-QMainWindow::separator:vertical {
-  height: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
-  image: url(&quot;:/ui-resources/css/toolbar_separator_horizontal.png&quot;);
-}
-
-QMenuBar {
-  background-color: #204040;
-  padding: 2px;
-  border: 1px solid #204040;
-  color: #19232D;
-  selection-background-color: #73C7FF;
-}
-
-QMenuBar:focus {
-  border: 1px solid #9FCBFF;
-}
-
-QMenuBar::item {
-  background: transparent;
-  padding: 4px;
-}
-
-QMenuBar::item:selected {
-  padding: 4px;
-  background: transparent;
-  border: 0px solid #C9CDD0;
-  background-color: #73C7FF;
-}
-
-QMenuBar::item:pressed {
-  padding: 4px;
-  border: 0px solid #C9CDD0;
-  background-color: #73C7FF;
-  color: #19232D;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
-
-/* QMenu ------------------------------------------------------------------
-
-https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu
-
---------------------------------------------------------------------------- */
-QMenu {
-  border: 0px solid #C9CDD0;
-  color: #19232D;
-  margin: 0px;
-  background-color: #CED1D4;
-  selection-background-color: #73C7FF;
-}
-
-QMenu::separator {
-  height: 1px;
-  background-color: #ACB1B6;
-  color: #19232D;
-}
-
-QMenu::item {
-  background-color: #CED1D4;
-  padding: 4px 24px 4px 28px;
-  /* Reserve space for selection border */
-  border: 1px transparent #C9CDD0;
-}
-
-QMenu::item:selected {
-  color: #19232D;
-  background-color: #73C7FF;
-}
-
-QMenu::item:pressed {
-  background-color: #73C7FF;
-}
-
-QMenu::icon {
-  padding-left: 10px;
-  width: 14px;
-  height: 14px;
-}
-
-QMenu::indicator {
-  padding-left: 8px;
-  width: 12px;
-  height: 12px;
-  /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
-  /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
-}
-
-QMenu::indicator:non-exclusive:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:unchecked:hover, QMenu::indicator:non-exclusive:unchecked:focus, QMenu::indicator:non-exclusive:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:checked:hover, QMenu::indicator:non-exclusive:checked:focus, QMenu::indicator:non-exclusive:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QMenu::indicator:non-exclusive:indeterminate:focus, QMenu::indicator:non-exclusive:indeterminate:hover, QMenu::indicator:non-exclusive:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-
-QMenu::indicator:exclusive:unchecked {
-  image: url(&quot;:/ui-resources/css/radio_unchecked.png&quot;);
-}
-
-QMenu::indicator:exclusive:unchecked:hover, QMenu::indicator:exclusive:unchecked:focus, QMenu::indicator:exclusive:unchecked:pressed {
-  border: none;
-  outline: none;
-  image: url(&quot;:/ui-resources/css/radio_unchecked_focus.png&quot;);
-}
-
-QMenu::indicator:exclusive:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/radio_unchecked_disabled.png&quot;);
-}
-
-QMenu::indicator:exclusive:checked {
-  border: none;
-  outline: none;
-  image: url(&quot;:/ui-resources/css/radio_checked.png&quot;);
-}
-
-QMenu::indicator:exclusive:checked:hover, QMenu::indicator:exclusive:checked:focus, QMenu::indicator:exclusive:checked:pressed {
-  border: none;
-  outline: none;
-  image: url(&quot;:/ui-resources/css/radio_checked_focus.png&quot;);
-}
-
-QMenu::indicator:exclusive:checked:disabled {
-  outline: none;
-  image: url(&quot;:/ui-resources/css/radio_checked_disabled.png&quot;);
-}
-
-QMenu::right-arrow {
-  margin: 5px;
-  padding-left: 12px;
-  image: url(&quot;:/ui-resources/css/arrow_right.png&quot;);
-  height: 12px;
-  width: 12px;
-}
-</string>
+   <string notr="true">background-color: #FFFFFF;</string>
   </property>
   <property name="sizeGripEnabled">
    <bool>true</bool>
@@ -425,51 +46,7 @@ QMenu::right-arrow {
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}
-QPushButton {
-  background-color: #204040;
-  color: #dae1e5;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-  border: none;
-}
-
-QPushButton:disabled {
-  background-color: #203a40;
-  color: #Bebebf;
-  border-radius: 4px;
-  padding: 2px;
-}
-
-QPushButton:hover {
-  background-color: #499c54;
-  color: #23243b;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-  color: #23243b;
-}
-
-QPushButton:selected {
-  background: #ACB1B6;
-  color: #19232D;
-}
-
-QPushButton::menu-indicator {
-  subcontrol-origin: padding;
-  subcontrol-position: bottom right;
-  bottom: 4px;
-}
-
-QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}</string>
+      <string notr="true"/>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -490,25 +67,7 @@ QDialogButtonBox QPushButton {
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #132623;
-}
-
-
-QAbstractScrollArea {
-  background-color: #132623;
-  border: 1px solid #132623;
-  border-radius: 4px;
-  /* fix #159 */
-  padding: 2px;
-  /* remove min-height to fix #244 */
-  color: #132623;
-}
-
-QAbstractScrollArea:disabled {
-  color: #132623;
-}</string>
+      <string notr="true"/>
      </property>
      <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
@@ -523,10 +82,13 @@ QAbstractScrollArea:disabled {
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
-        <width>697</width>
-        <height>707</height>
+        <y>-120</y>
+        <width>695</width>
+        <height>705</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_12">
        <item>
@@ -537,25 +99,7 @@ QAbstractScrollArea:disabled {
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">QWidget {
-  color: rgb(255, 255, 255);
-  background-color: #132623;
-}
-
-
-QAbstractScrollArea {
-  background-color: #132623;
-  border: 1px solid #132623;
-  border-radius: 4px;
-  /* fix #159 */
-  padding: 2px;
-  /* remove min-height to fix #244 */
-  color: #132623;
-}
-
-QAbstractScrollArea:disabled {
-  color: #132623;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -607,39 +151,7 @@ QAbstractScrollArea:disabled {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>127.0.0.1</string>
@@ -681,39 +193,7 @@ QLineEdit:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>25565</string>
@@ -735,23 +215,7 @@ QLineEdit:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Параметры разработчика</string>
@@ -766,33 +230,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QFrame {
-  border-radius: 4px;
-  border: 1px solid #203a40;
-  background-color: #203a40;
-  /* No frame */
-  /* HLine */
-  /* HLine */
-}
-
-QFrame[frameShape=&quot;0&quot;] {
-  border-radius: 4px;
-  border: 1px transparent #203a40;
-}
-
-.QFrame[frameShape=&quot;4&quot;] {
-  max-height: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-QFrame[frameShape=&quot;5&quot;] {
-  max-width: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-</string>
+             <string notr="true"/>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -809,23 +247,7 @@ QFrame[frameShape=&quot;5&quot;] {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Сетевой протокол</string>
@@ -860,79 +282,7 @@ QLabel:disabled {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QAbstractSpinBox {
-  background-color: #132623;
-  border: 1px solid #204040;
-  color: #dae1e5;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #204040;
-  border-bottom: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #204040;
-  border-top: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #499c54;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #204040;
-}
-
-QAbstractSpinBox:selected {
-  background: #499c54;
-  color: #c7a750;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="suffix">
                <string> км</string>
@@ -962,23 +312,7 @@ QAbstractSpinBox:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Коррекция угла для всех изображений</string>
@@ -1000,23 +334,7 @@ QLabel:disabled {
           <item row="24" column="0">
            <widget class="QLabel" name="label_6">
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Коррекция угла расхождения луча</string>
@@ -1033,23 +351,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Положение антенны</string>
@@ -1082,39 +384,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+             <string notr="true"/>
             </property>
             <property name="echoMode">
              <enum>QLineEdit::Password</enum>
@@ -1132,68 +402,7 @@ QLineEdit:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QCheckBox {
-  background-color: #132623;
-  color: #dae1e5;
-  spacing: 4px;
-  outline: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-QCheckBox:focus {
-  border: none;
-}
-
-QCheckBox QWidget:disabled {
-  background-color: #132623;
-  color: #788D9C;
-}
-
-QCheckBox::indicator {
-  margin-left: 2px;
-  height: 14px;
-  width: 14px;
-}
-
-QCheckBox::indicator:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QCheckBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Метаданные в радианах</string>
@@ -1203,68 +412,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
             <item>
              <widget class="QCheckBox" name="globalDriftAngle">
               <property name="styleSheet">
-               <string notr="true">QCheckBox {
-  background-color: #132623;
-  color: #dae1e5;
-  spacing: 4px;
-  outline: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-QCheckBox:focus {
-  border: none;
-}
-
-QCheckBox QWidget:disabled {
-  background-color: #132623;
-  color: #788D9C;
-}
-
-QCheckBox::indicator {
-  margin-left: 2px;
-  height: 14px;
-  width: 14px;
-}
-
-QCheckBox::indicator:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QCheckBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Учитывать угол сноса при геопривязке</string>
@@ -1279,6 +427,9 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              <font>
               <family>Calibri</family>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -1325,39 +476,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>9845</string>
@@ -1378,6 +497,9 @@ QLineEdit:selected {
                 <family>Calibri</family>
                </font>
               </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
               <property name="text">
                <string>Слева</string>
               </property>
@@ -1389,6 +511,9 @@ QLineEdit:selected {
                <font>
                 <family>Calibri</family>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Справа</string>
@@ -1410,23 +535,7 @@ QLineEdit:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Адрес РЛС</string>
@@ -1441,33 +550,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QFrame {
-  border-radius: 4px;
-  border: 1px solid #203a40;
-  background-color: #203a40;
-  /* No frame */
-  /* HLine */
-  /* HLine */
-}
-
-QFrame[frameShape=&quot;0&quot;] {
-  border-radius: 4px;
-  border: 1px transparent #203a40;
-}
-
-.QFrame[frameShape=&quot;4&quot;] {
-  max-height: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-QFrame[frameShape=&quot;5&quot;] {
-  max-width: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-</string>
+             <string notr="true"/>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -1504,23 +587,7 @@ QFrame[frameShape=&quot;5&quot;] {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Изменение пароля администратора</string>
@@ -1627,39 +694,7 @@ QLabel:disabled {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>127.0.0.1</string>
@@ -1672,6 +707,9 @@ QLineEdit:selected {
                <font>
                 <family>Calibri</family>
                </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>:</string>
@@ -1704,39 +742,7 @@ QLineEdit:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>10000</string>
@@ -1755,23 +761,7 @@ QLineEdit:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Сетевые параметры</string>
@@ -1788,23 +778,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>θ-азимут по умолчанию</string>
@@ -1821,23 +795,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Дальность отрисовки вектора движения борта</string>
@@ -1884,39 +842,7 @@ QLabel:disabled {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>1234</string>
@@ -1953,79 +879,7 @@ QLineEdit:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QAbstractSpinBox {
-  background-color: #132623;
-  border: 1px solid #204040;
-  color: #dae1e5;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #204040;
-  border-bottom: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #204040;
-  border-top: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #499c54;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #204040;
-}
-
-QAbstractSpinBox:selected {
-  background: #499c54;
-  color: #c7a750;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="suffix">
                <string>°</string>
@@ -2068,79 +922,7 @@ QAbstractSpinBox:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QAbstractSpinBox {
-  background-color: #132623;
-  border: 1px solid #204040;
-  color: #dae1e5;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #204040;
-  border-bottom: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #204040;
-  border-top: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #499c54;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #204040;
-}
-
-QAbstractSpinBox:selected {
-  background: #499c54;
-  color: #c7a750;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="suffix">
                <string> с</string>
@@ -2174,23 +956,7 @@ QAbstractSpinBox:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Каталог по умолчанию</string>
@@ -2205,33 +971,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QFrame {
-  border-radius: 4px;
-  border: 1px solid #203a40;
-  background-color: #203a40;
-  /* No frame */
-  /* HLine */
-  /* HLine */
-}
-
-QFrame[frameShape=&quot;0&quot;] {
-  border-radius: 4px;
-  border: 1px transparent #203a40;
-}
-
-.QFrame[frameShape=&quot;4&quot;] {
-  max-height: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-QFrame[frameShape=&quot;5&quot;] {
-  max-width: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-</string>
+             <string notr="true"/>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -2248,23 +988,7 @@ QFrame[frameShape=&quot;5&quot;] {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Общие параметры</string>
@@ -2280,23 +1004,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Адрес интерфейса формирования РЛИ</string>
@@ -2312,23 +1020,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Адрес интерфейса обратной связи с РЛС</string>
@@ -2343,33 +1035,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QFrame {
-  border-radius: 4px;
-  border: 1px solid #203a40;
-  background-color: #203a40;
-  /* No frame */
-  /* HLine */
-  /* HLine */
-}
-
-QFrame[frameShape=&quot;0&quot;] {
-  border-radius: 4px;
-  border: 1px transparent #203a40;
-}
-
-.QFrame[frameShape=&quot;4&quot;] {
-  max-height: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-QFrame[frameShape=&quot;5&quot;] {
-  max-width: 2px;
-  border: none;
-  background-color: #203a40;
-}
-
-</string>
+             <string notr="true"/>
             </property>
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -2386,23 +1052,7 @@ QFrame[frameShape=&quot;5&quot;] {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Параметры изображений и геопривязки</string>
@@ -2420,68 +1070,7 @@ QLabel:disabled {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QCheckBox {
-  background-color: #132623;
-  color: #dae1e5;
-  spacing: 4px;
-  outline: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-QCheckBox:focus {
-  border: none;
-}
-
-QCheckBox QWidget:disabled {
-  background-color: #132623;
-  color: #788D9C;
-}
-
-QCheckBox::indicator {
-  margin-left: 2px;
-  height: 14px;
-  width: 14px;
-}
-
-QCheckBox::indicator:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QCheckBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Использовать онлайн-карты</string>
@@ -2497,68 +1086,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QCheckBox {
-  background-color: #132623;
-  color: #dae1e5;
-  spacing: 4px;
-  outline: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-QCheckBox:focus {
-  border: none;
-}
-
-QCheckBox QWidget:disabled {
-  background-color: #132623;
-  color: #788D9C;
-}
-
-QCheckBox::indicator {
-  margin-left: 2px;
-  height: 14px;
-  width: 14px;
-}
-
-QCheckBox::indicator:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QCheckBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Включить профайлер</string>
@@ -2574,68 +1102,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QCheckBox {
-  background-color: #132623;
-  color: #dae1e5;
-  spacing: 4px;
-  outline: none;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-QCheckBox:focus {
-  border: none;
-}
-
-QCheckBox QWidget:disabled {
-  background-color: #132623;
-  color: #788D9C;
-}
-
-QCheckBox::indicator {
-  margin-left: 2px;
-  height: 14px;
-  width: 14px;
-}
-
-QCheckBox::indicator:unchecked {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:hover, QCheckBox::indicator:unchecked:focus, QCheckBox::indicator:unchecked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_focus.png&quot;);
-}
-
-QCheckBox::indicator:unchecked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_unchecked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:checked {
-  image: url(&quot;:/ui-resources/css/checkbox_checked.png&quot;);
-}
-
-QCheckBox::indicator:checked:hover, QCheckBox::indicator:checked:focus, QCheckBox::indicator:checked:pressed {
-  border: none;
-  image: url(&quot;:/ui-resources/css/checkbox_checked_focus.png&quot;);
-}
-
-QCheckBox::indicator:checked:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_checked_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:disabled {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_disabled.png&quot;);
-}
-
-QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hover, QCheckBox::indicator:indeterminate:pressed {
-  image: url(&quot;:/ui-resources/css/checkbox_indeterminate_focus.png&quot;);
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>Включить консоль отладки</string>
@@ -2654,23 +1121,7 @@ QCheckBox::indicator:indeterminate:focus, QCheckBox::indicator:indeterminate:hov
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Частота обновления данных телеметрии</string>
@@ -2687,23 +1138,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Параметры интерактивной карты</string>
@@ -2718,51 +1153,7 @@ QLabel:disabled {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}
-QPushButton {
-  background-color: #204040;
-  color: #dae1e5;
-  border-radius: 4px;
-  padding: 2px;
-  outline: none;
-  border: none;
-}
-
-QPushButton:disabled {
-  background-color: #203a40;
-  color: #Bebebf;
-  border-radius: 4px;
-  padding: 2px;
-}
-
-QPushButton:hover {
-  background-color: #499c54;
-  color: #23243b;
-}
-
-QPushButton:pressed {
-  background-color: #132623;
-  color: #23243b;
-}
-
-QPushButton:selected {
-  background: #ACB1B6;
-  color: #19232D;
-}
-
-QPushButton::menu-indicator {
-  subcontrol-origin: padding;
-  subcontrol-position: bottom right;
-  bottom: 4px;
-}
-
-QDialogButtonBox QPushButton {
-  /* Issue #194 #248 - Special case of QPushButton inside dialogs, for better UI */
-  min-width: 80px;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Указать</string>
@@ -2779,79 +1170,7 @@ QDialogButtonBox QPushButton {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QAbstractSpinBox {
-  background-color: #132623;
-  border: 1px solid #204040;
-  color: #dae1e5;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #204040;
-  border-bottom: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #204040;
-  border-top: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #499c54;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #204040;
-}
-
-QAbstractSpinBox:selected {
-  background: #499c54;
-  color: #c7a750;
-}</string>
+               <string notr="true"/>
               </property>
               <property name="suffix">
                <string>°</string>
@@ -2894,39 +1213,7 @@ QAbstractSpinBox:selected {
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">QLineEdit {
-  background-color: #203a40;
-  padding-top: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-bottom: 2px;
-  /* This QLineEdit fix  103, 111 */
-  padding-left: 4px;
-  padding-right: 4px;
-  border-style: solid;
-  border: 1px solid #204040;
-  border-radius: 4px;
-  color: #F2F2F2;
-}
-
-QLineEdit:disabled {
-  background-color: #203a40;
-  color: #9DA9B5;
-}
-
-QLineEdit:hover {
-  border: 1px solid #499c54;
-  color: #F2F2F2;
-}
-
-QLineEdit:focus {
-  border: 1px solid #bc9117;
-}
-
-QLineEdit:selected {
-  background-color: #bc9117;
-  color: #dae1e5;
-}
-</string>
+               <string notr="true"/>
               </property>
               <property name="text">
                <string>UDP</string>
@@ -2941,79 +1228,7 @@ QLineEdit:selected {
           <item row="24" column="2">
            <widget class="QDoubleSpinBox" name="thetaAzimuthCorrection">
             <property name="styleSheet">
-             <string notr="true">QAbstractSpinBox {
-  background-color: #132623;
-  border: 1px solid #204040;
-  color: #dae1e5;
-  /* This fixes 103, 111 */
-  padding-top: 2px;
-  /* This fixes 103, 111 */
-  padding-bottom: 2px;
-  padding-left: 4px;
-  padding-right: 4px;
-  border-radius: 4px;
-  /* min-width: 5px; removed to fix 109 */
-}
-
-QAbstractSpinBox:up-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: top right;
-  border-left: 1px solid #204040;
-  border-bottom: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-bottom: -1px;
-}
-
-QAbstractSpinBox::up-arrow, QAbstractSpinBox::up-arrow:disabled, QAbstractSpinBox::up-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::up-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_up.png&quot;);
-}
-
-QAbstractSpinBox:down-button {
-  background-color: transparent #204040;
-  subcontrol-origin: border;
-  subcontrol-position: bottom right;
-  border-left: 1px solid #204040;
-  border-top: 1px solid #204040;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin: 1px;
-  width: 12px;
-  margin-top: -1px;
-}
-
-QAbstractSpinBox::down-arrow, QAbstractSpinBox::down-arrow:disabled, QAbstractSpinBox::down-arrow:off {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-  height: 8px;
-  width: 8px;
-}
-
-QAbstractSpinBox::down-arrow:hover {
-  image: url(&quot;:/ui-resources/css/arrow_down.png&quot;);
-}
-
-QAbstractSpinBox:hover {
-  border: 1px solid #499c54;
-  color: #E0E1E3;
-}
-
-QAbstractSpinBox:focus {
-  border: 1px solid #204040;
-}
-
-QAbstractSpinBox:selected {
-  background: #499c54;
-  color: #c7a750;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="maximum">
              <double>360.000000000000000</double>
@@ -3035,23 +1250,7 @@ QAbstractSpinBox:selected {
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">QWidget {
- color: #dae1e5
-}
-
-Label {
-  background-color: #132623;
-  border: 0px solid #C9CDD0;
-  padding: 2px;
-  margin: 0px;
-  color: #dae1e5;
-}
-
-QLabel:disabled {
-  background-color: #313131;
-  border: 0px solid #C9CDD0;
-  color: #b2b9bb;
-}</string>
+             <string notr="true"/>
             </property>
             <property name="text">
              <string>Адрес загрузчика РЛИ</string>
@@ -3068,7 +1267,7 @@ QLabel:disabled {
   </layout>
  </widget>
  <resources>
-  <include location="../src/images.qrc"/>
+  <include location="../images.qrc"/>
  </resources>
  <connections/>
 </ui>

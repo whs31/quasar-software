@@ -7,7 +7,6 @@
 
 #include "config/runtimedata.h"
 #include "misc/debug.h"
-#include "gui/markerdialog.h"
 #include "map/linkerqml.h"
 #include "gui/windows/markerwindowbackend.h"
 

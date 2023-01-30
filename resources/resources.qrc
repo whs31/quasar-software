@@ -77,5 +77,6 @@
         <file>icons/right.png</file>
         <file>map/items/gpsarrow.png</file>
         <file>map/items/temp.png</file>
+        <file>map/items/dot.png</file>
     </qresource>
 </RCC>

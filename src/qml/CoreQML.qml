@@ -187,8 +187,6 @@ Rectangle {
 
         rulerTextMapItem.coordinate = cc;
         rulerTextMapItem.rulerRotationAngle = textAngle;
-        r1MapItem.r1RotationAngle = geoAngle;
-        r2MapItem.r2RotationAngle = geoAngle;
         r2MapItem.visible = true;
         r2MapItem.coordinate = r_secondpoint;
     }
@@ -480,62 +478,50 @@ Rectangle {
             }
         }
         MapQuickItem {
-			property alias r1RotationAngle: r1Rotation.angle;
 			id: r1MapItem;
 			visible: false;
 			width: 2;
 			height: 2;
-            transform: Rotation {
-				id: r1Rotation;
-                origin.x: r1Source.width;
-                origin.y: r1Source.height/2;
-				angle: 0;
-            }
-			anchorPoint.x: r1Source.width;
-			anchorPoint.y: r1Source.height/2;
+			anchorPoint.x: 8;
+			anchorPoint.y: 8;
             z: 10;
             sourceItem: Image {
                 id: r1Source;
 				layer.enabled: true;
-				transformOrigin: Item.Right;
-				source: "qrc:/map/items/temp.png";
-            }
-            ColorOverlay {
-                id: r1Overlay;
-                anchors.fill: r1MapItem;
-                source: r1Source;
-                opacity: 1;
-                color: UX.textWhite;
+				source: "qrc:/map/items/dot.png";
+				scale: 0.25;
+				ColorOverlay {
+					id: r1Overlay;
+					anchors.fill: parent;
+					source: r1Source;
+					opacity: 1;
+					color: UX.textWhite;
+					scale: 0.25;
+				}
             }
         }
         MapQuickItem {
-            property alias r2RotationAngle: r2Rotation.angle;
             id: r2MapItem;
             visible: false;
-            width: 2;
-            height: 2;
-            transform: Rotation {
-                id: r2Rotation
-                origin.x: r2Source.width;
-                origin.y: r2Source.height / 2;
-                angle: 0;
-            }
-            anchorPoint.x: r2Source.width;
-            anchorPoint.y: r2Source.height / 2;
+			width: 2;
+			height: 2;
+			anchorPoint.x: 8;
+			anchorPoint.y: 8;
             z: 10;
             sourceItem: Image {
                 id: r2Source;
                 layer.enabled: true;
-                transformOrigin: Item.Right;
-                source: "qrc:/ui-resources/qml/temp.png";
+				source: "qrc:/map/items/dot.png";
+				scale: 0.25;
+				ColorOverlay {
+					id: r2Overlay;
+					anchors.fill: parent;
+					source: r2Source;
+					opacity: 1;
+					color: UX.textWhite;
+				}
             }
-            ColorOverlay {
-                id: r2Overlay;
-                anchors.fill: r2MapItem;
-                source: r2Source;
-                opacity: 1;
-                color: UX.textWhite;
-            }
+
         }
         MapQuickItem {
             property alias rotationAngle: rotation.angle;

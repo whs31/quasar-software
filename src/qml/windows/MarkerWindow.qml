@@ -65,16 +65,20 @@ Rectangle {
 			label_textAlignment: Text.AlignLeft;
 			contrast_color: UX.primaryDarker;
 			highlight_color: UX.warningLight;
-			checked: MarkerWindowBackend.autocapture;
+			checked: false;
 			onCheckedChanged: {
 				MarkerWindowBackend.autocapture = checked;
 				if(checked)
 				{
 					icon.markerIconState = 3;
+					MarkerWindowBackend.colorCode = 7;
+					iconOverlay.color = color_redButton.background_color;
 				}
 				else
 				{
 					icon.markerIconState = 1;
+					MarkerWindowBackend.colorCode = 0;
+					iconOverlay.color = color_grayButton.background_color;
 				}
 			}
 			Component.onCompleted:
@@ -82,10 +86,14 @@ Rectangle {
 				if(checked)
 				{
 					icon.markerIconState = 3;
+					MarkerWindowBackend.colorCode = 7;
+					iconOverlay.color = color_redButton.background_color;
 				}
 				else
 				{
 					icon.markerIconState = 1;
+					MarkerWindowBackend.colorCode = 0;
+					iconOverlay.color = color_grayButton.background_color;
 				}
 			}
 		}
@@ -294,6 +302,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 7;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -312,6 +321,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 6;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -330,6 +340,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 5;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -348,6 +359,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 4;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -366,6 +378,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 3;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -384,6 +397,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 2;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -402,6 +416,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 1;
+				iconOverlay.color = background_color;
 			}
 		}
 		Buttons.ClassicButton
@@ -420,6 +435,7 @@ Rectangle {
 			background_radius: 5;
 			onClicked: {
 				MarkerWindowBackend.colorCode = 0;
+				iconOverlay.color = background_color;
 			}
 		}
 		Labels.FramedLabel
@@ -465,6 +481,15 @@ Rectangle {
 				if(markerIconState === 3) { source = "qrc:/map/markers/autocapture.png"; }
 
 				MarkerWindowBackend.iconCode = icon.markerIconState;
+			}
+			ColorOverlay
+			{
+				id: iconOverlay;
+				anchors.fill: parent;
+				source: icon;
+				smooth: true;
+				antialiasing: true;
+				color: "#FFFFFF";
 			}
 		}
 		Buttons.ClassicButton
@@ -536,6 +561,7 @@ Rectangle {
 			frame_enabled: true;
 			onClicked: {
 				MarkerWindowBackend.accept();
+				autocaptureCheckbox.checked = false;
 			}
 		}
 		Buttons.LightButton
@@ -558,6 +584,7 @@ Rectangle {
 			frame_enabled: true;
 			onClicked: {
 				MarkerWindowBackend.cancel();
+				autocaptureCheckbox.checked = false;
 			}
 		}
 	}

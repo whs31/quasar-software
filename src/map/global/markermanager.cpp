@@ -18,6 +18,7 @@ void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
     markerPointer = new Marker(get());
     MarkerWindowBackend::get()->counter++;
+    MarkerWindowBackend::get()->setAutocapture(false);
     MarkerWindowBackend::get()->setName(markerPointer->name);
     MarkerWindowBackend::get()->setLatitude(latitude);
     MarkerWindowBackend::get()->setLongitude(longitude);
@@ -42,6 +43,7 @@ void MarkerManager::removeMarker(qint32 index)
     }
     markerList.remove(index);
     Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
+    MarkerWindowBackend::get()->counter--;
 }
 
 void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
@@ -71,6 +73,7 @@ void MarkerManager::dialogReturn()
     if (MarkerWindowBackend::get()->getReturnCode() == 1)
     {
         markerPointer->name = MarkerWindowBackend::get()->getName();
+        markerPointer->autocapture = MarkerWindowBackend::get()->getAutocapture();
         markerPointer->latitude = MarkerWindowBackend::get()->getLatitude();
         markerPointer->longitude = MarkerWindowBackend::get()->getLongitude();
         markerPointer->save = MarkerWindowBackend::get()->getRecord();

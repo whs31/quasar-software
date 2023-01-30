@@ -24,6 +24,8 @@ MapQuickItem {
         markerModel.remove(index);
     }
 
+	FontLoader { id: fnt; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
+
     id: marker
     anchorPoint.x: anchorX;
     anchorPoint.y: anchorY;
@@ -65,11 +67,6 @@ MapQuickItem {
                     dialogFadeOut.start();
                     markerDialog.enabled = false;
                 }
-                Rectangle { //hitbox
-                    anchors.fill: parent
-                    color: "#FF0000";
-                    visible: false;
-                }
             }
         ColorOverlay {
             id: markerOverlay;
@@ -101,10 +98,11 @@ MapQuickItem {
                 color: UX.primaryDarker;
                 enabled: true;
                 anchors.fill: parent;
-                font.pointSize: 7;
-                font.family: "Arial";
+				font.pointSize: 9;
+				font.family: fnt.name;
                 font.weight: Font.Bold;
                 textFormat: Text.RichText;
+				font.capitalization: Font.AllUppercase;
                 horizontalAlignment: Text.AlignHCenter;
                 verticalAlignment: Text.AlignVCenter;
                 text: m_name;

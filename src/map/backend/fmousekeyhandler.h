@@ -16,7 +16,7 @@ class FMouseKeyHandler : public QObject
 public:
     explicit FMouseKeyHandler(QObject *parent = nullptr);
     Q_INVOKABLE void copyCoordinates(qreal latitude, qreal longitude);
-    Q_INVOKABLE void placeMarker(qreal latitude, qreal longitude); //in qml: if mousestate == MARKERPLACEMENT, draw ghost marker which follows cursor
+    Q_INVOKABLE void placeMarker(qreal latitude, qreal longitude);
 
 signals:
 

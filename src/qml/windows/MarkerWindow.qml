@@ -86,10 +86,10 @@ Rectangle {
 			frame_enabled: false;
 			frame_color: UX.primaryDarker;
 			selection_color: UX.warningLight;
-			input_text: "ИМЯ МАРКЕРА";
+			input_text: MarkerWindowBackend.name;
 			input_text_postfix: "";
 			onTxtChanged: {
-				//FormParameters.formLowerBound = parseInt(input_text);
+				MarkerWindowBackend.name = input_text;
 			}
 		}
 		Labels.FramedLabel

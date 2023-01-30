@@ -3,7 +3,9 @@
 MarkerManager *MarkerManager::_instance = nullptr;
 MarkerManager::MarkerManager(QObject *parent)
     : QObject{parent}
-{}
+{
+    QObject::connect(MarkerWindowBackend::get(), SIGNAL(returnCodeChanged()), this, SLOT(dialogReturn()));
+}
 MarkerManager *MarkerManager::get(QObject *parent)
 {
     if (_instance != NULL)
@@ -15,16 +17,15 @@ MarkerManager *MarkerManager::get(QObject *parent)
 void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
     markerPointer = new Marker(get());
+    MarkerWindowBackend::get()->setName(markerPointer->name);
+    MarkerWindowBackend::get()->setLatitude(markerPointer->latitude);
+    MarkerWindowBackend::get()->setLongitude(markerPointer->longitude);
+    MarkerWindowBackend::get()->setRecord(markerPointer->save);
+    MarkerWindowBackend::get()->setScreenAnchor(markerPointer->scalable);
+    MarkerWindowBackend::get()->setColorCode(markerPointer->color);
+    MarkerWindowBackend::get()->setIconCode(markerPointer->icon);
+    MarkerWindowBackend::get()->show();
 
-    MarkerDialog markerDialog(latitude, longitude, *markerPointer);
-    if (markerDialog.exec() == QDialog::Accepted)
-    {
-        dialogAccept();
-    }
-    else
-    {
-        dialogReject();
-    }
 }
 
 void MarkerManager::removeMarker(qint32 index)
@@ -64,27 +65,37 @@ void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
     }
 }
 
-void MarkerManager::dialogAccept()
+void MarkerManager::dialogReturn()
 {
-    // only if save = true
-    // тут нужно чето придумать с индексами
-    markerList.append(markerPointer); // save me to xml file
-
-    if (markerPointer->autocapture)
+    if (MarkerWindowBackend::get()->getReturnCode() == 1)
     {
-        RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(markerPointer->latitude, markerPointer->longitude));
-        RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
-        Debug::Log("?[MARKER] Created new autocapture mark with name " + markerPointer->name);
-    }
-    else
-    {
-        Debug::Log("[MARKER] Created new marker with name " + markerPointer->name);
-    }
-    LinkerQML::addModel(*markerPointer);
-}
+        markerPointer->name = MarkerWindowBackend::get()->getName();
+        markerPointer->latitude = MarkerWindowBackend::get()->getLatitude();
+        markerPointer->longitude = MarkerWindowBackend::get()->getLongitude();
+        markerPointer->save = MarkerWindowBackend::get()->getRecord();
+        markerPointer->setScalable(MarkerWindowBackend::get()->getScreenAnchor());
+        markerPointer->setColor((MarkerColor)MarkerWindowBackend::get()->getColorCode());
+        markerPointer->setIcon((MarkerIcon)MarkerWindowBackend::get()->getIconCode());
 
-void MarkerManager::dialogReject()
-{
-    Debug::Log("[MARKER] Marker discarded");
-    markerPointer = nullptr;
+        // only if save = true
+        // тут нужно чето придумать с индексами
+        markerList.append(markerPointer); // save me to xml file
+
+        if (markerPointer->autocapture)
+        {
+            RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(markerPointer->latitude, markerPointer->longitude));
+            RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
+            Debug::Log("?[MARKER] Created new autocapture mark with name " + markerPointer->name);
+        }
+        else
+        {
+            Debug::Log("[MARKER] Created new marker with name " + markerPointer->name);
+        }
+        LinkerQML::addModel(*markerPointer);
+    }
+    else if(MarkerWindowBackend::get()->getReturnCode() == -1)
+    {
+        Debug::Log("[MARKER] Marker discarded");
+        markerPointer = nullptr;
+    }
 }

@@ -9,6 +9,7 @@
 #include "misc/debug.h"
 #include "gui/markerdialog.h"
 #include "map/linkerqml.h"
+#include "gui/windows/markerwindowbackend.h"
 
 class MarkerManager : public QObject
 {
@@ -30,8 +31,7 @@ private:
     Marker* markerPointer = nullptr;
 
 private slots:
-    void dialogAccept();
-    void dialogReject();
+    void dialogReturn();
 };
 
 #endif // MARKERMANAGER_H

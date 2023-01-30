@@ -19,7 +19,7 @@ void MarkerWindowBackend::setName(const QString &newName)
     if (m_name == newName)
         return;
     m_name = newName;
-    m_name.append(" №" + QString::number(++counter));
+    m_name.append(" №" + QString::number(counter));
     emit nameChanged();
 }
 
@@ -57,6 +57,25 @@ void MarkerWindowBackend::setScreenAnchor(bool newScreenAnchor)
         return;
     m_screenAnchor = newScreenAnchor;
     emit screenAnchorChanged();
+}
+
+bool MarkerWindowBackend::getAutocapture() const { return m_autocapture; }
+void MarkerWindowBackend::setAutocapture(bool newAutocapture)
+{
+    if (m_autocapture == newAutocapture)
+        return;
+    m_autocapture = newAutocapture;
+    emit autocaptureChanged();
+    if(newAutocapture)
+    {
+        setName("Цель съемки");
+        setIconCode(MarkerIcon::Target);
+    }
+    else
+    {
+        setName("Объект");
+        setIconCode(MarkerIcon::Target);
+    }
 }
 
 qint8 MarkerWindowBackend::getColorCode() const { return m_colorCode; }

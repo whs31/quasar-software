@@ -16,7 +16,7 @@ Rectangle {
 	id: window;
 	visible: width > 0;
 	enabled: MarkerWindowBackend.shown;
-	height: MarkerWindowBackend.shown ? 382 : 0;
+	height: MarkerWindowBackend.shown ? 400 : 0;
 	width: MarkerWindowBackend.shown ? 260 : 0;
 	radius: 35;
 	color: UX.primaryDark;
@@ -49,11 +49,51 @@ Rectangle {
 			frame_radius: 2;
 			frame_width: 0;
 		}
+		Checkboxes.LightCheckbox
+		{
+			id: autocaptureCheckbox;
+			fixed_width: 240;
+			fixed_height: 20;
+			anchors.top: headerText.bottom;
+			anchors.topMargin: 6;
+			anchors.horizontalCenter: parent.horizontalCenter;
+			label_text: "ЦЕЛЬ ДЛЯ АВТОЗАХВАТА РЛИ";
+			label_color: UX.textWhite;
+			label_text_size: 14;
+			label_text_family: fontSemiBold.name;
+			label_text_bold: true;
+			label_textAlignment: Text.AlignLeft;
+			contrast_color: UX.primaryDarker;
+			highlight_color: UX.warningLight;
+			checked: MarkerWindowBackend.autocapture;
+			onCheckedChanged: {
+				MarkerWindowBackend.autocapture = checked;
+				if(checked)
+				{
+					icon.markerIconState = 3;
+				}
+				else
+				{
+					icon.markerIconState = 1;
+				}
+			}
+			Component.onCompleted:
+			{
+				if(checked)
+				{
+					icon.markerIconState = 3;
+				}
+				else
+				{
+					icon.markerIconState = 1;
+				}
+			}
+		}
 		Labels.FramedLabel
 		{
 			id: nameText;
-			anchors.top: parent.top;
-			anchors.topMargin: 48;
+			anchors.top: autocaptureCheckbox.bottom;
+			anchors.topMargin: 9;
 			anchors.left: parent.left;
 			anchors.leftMargin: 10;
 			fixed_width: 76;
@@ -237,10 +277,12 @@ Rectangle {
 			frame_radius: 2;
 			frame_width: 0;
 			label_wrapping: true;
+			enabled: !MarkerWindowBackend.autocapture;
 		}
 		Buttons.ClassicButton
 		{
 			id: color_redButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: colorText.bottom;
 			anchors.left: colorText.left;
@@ -257,6 +299,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_orangeButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_redButton.top;
 			anchors.left: color_redButton.right;
@@ -274,6 +317,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_yellowButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_orangeButton.top;
 			anchors.left: color_orangeButton.right;
@@ -291,6 +335,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_greenButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_yellowButton.top;
 			anchors.left: color_yellowButton.right;
@@ -308,6 +353,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_tealButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_greenButton.top;
 			anchors.left: color_greenButton.right;
@@ -325,6 +371,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_blueButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_tealButton.top;
 			anchors.left: color_tealButton.right;
@@ -342,6 +389,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_brownButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_blueButton.top;
 			anchors.left: color_blueButton.right;
@@ -359,6 +407,7 @@ Rectangle {
 		Buttons.ClassicButton
 		{
 			id: color_grayButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.top: color_brownButton.top;
 			anchors.left: color_brownButton.right;
@@ -376,6 +425,7 @@ Rectangle {
 		Labels.FramedLabel
 		{
 			id: iconText;
+			enabled: !MarkerWindowBackend.autocapture;
 			anchors.top: color_grayButton.bottom;
 			anchors.topMargin: 17;
 			anchors.horizontalCenter: parent.horizontalCenter;
@@ -407,10 +457,20 @@ Rectangle {
 			smooth: true;
 			antialiasing: true;
 			mipmap: true;
+			onMarkerIconStateChanged:
+			{
+				if(markerIconState === 0) { source = "qrc:/map/markers/default.png"; }
+				if(markerIconState === 1) { source = "qrc:/map/markers/flag.png"; }
+				if(markerIconState === 2) { source = "qrc:/map/markers/radar.png"; }
+				if(markerIconState === 3) { source = "qrc:/map/markers/autocapture.png"; }
+
+				MarkerWindowBackend.iconCode = icon.markerIconState;
+			}
 		}
 		Buttons.ClassicButton
 		{
 			id: rightButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.verticalCenter: icon.verticalCenter;
 			anchors.left: icon.right;
@@ -429,16 +489,12 @@ Rectangle {
 				} else {
 					icon.markerIconState = 0;
 				}
-				MarkerWindowBackend.iconCode = icon.markerIconState;
-				if(icon.markerIconState === 0) { icon.source = "qrc:/map/markers/default.png"; }
-				if(icon.markerIconState === 1) { icon.source = "qrc:/map/markers/flag.png"; }
-				if(icon.markerIconState === 2) { icon.source = "qrc:/map/markers/radar.png"; }
-				if(icon.markerIconState === 3) { icon.source = "qrc:/map/markers/autocapture.png"; }
 			}
 		}
 		Buttons.ClassicButton
 		{
 			id: leftButton;
+			enabled: !MarkerWindowBackend.autocapture;
 			display_mode: Buttons.ClassicButton.Mode.IconOnly;
 			anchors.verticalCenter: icon.verticalCenter;
 			anchors.right: icon.left;
@@ -457,11 +513,6 @@ Rectangle {
 				} else {
 					icon.markerIconState = icon.maxMarkerIconEnumState;
 				}
-				MarkerWindowBackend.iconCode = icon.markerIconState;
-				if(icon.markerIconState === 0) { icon.source = "qrc:/map/markers/default.png"; }
-				if(icon.markerIconState === 1) { icon.source = "qrc:/map/markers/flag.png"; }
-				if(icon.markerIconState === 2) { icon.source = "qrc:/map/markers/radar.png"; }
-				if(icon.markerIconState === 3) { icon.source = "qrc:/map/markers/autocapture.png"; }
 			}
 		}
 

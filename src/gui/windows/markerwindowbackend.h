@@ -14,11 +14,13 @@ class MarkerWindowBackend : public WindowBackend
     Q_PROPERTY(qreal longitude      READ getLongitude       WRITE setLongitude       NOTIFY longitudeChanged)
     Q_PROPERTY(bool record          READ getRecord          WRITE setRecord          NOTIFY recordChanged)
     Q_PROPERTY(bool screenAnchor    READ getScreenAnchor    WRITE setScreenAnchor    NOTIFY screenAnchorChanged)
+    Q_PROPERTY(bool autocapture     READ getAutocapture     WRITE setAutocapture     NOTIFY autocaptureChanged)
     Q_PROPERTY(qint8 colorCode      READ getColorCode       WRITE setColorCode       NOTIFY colorCodeChanged)
     Q_PROPERTY(qint8 iconCode       READ getIconCode        WRITE setIconCode        NOTIFY iconCodeChanged)
 
 public:
     static MarkerWindowBackend* get(QObject* parent = nullptr);
+    int counter = 0;
 
     QString getName() const;
     void setName(const QString &newName);
@@ -35,6 +37,9 @@ public:
     bool getScreenAnchor() const;
     void setScreenAnchor(bool newScreenAnchor);
 
+    bool getAutocapture() const;
+    void setAutocapture(bool newAutocapture);
+
     qint8 getColorCode() const;
     void setColorCode(qint8 newColorCode);
 
@@ -47,6 +52,7 @@ signals:
     void longitudeChanged();
     void recordChanged();
     void screenAnchorChanged();
+    void autocaptureChanged();
     void colorCodeChanged();
     void iconCodeChanged();
 
@@ -59,12 +65,11 @@ private:
     qreal m_lon = -1;
     bool m_record = true;
     bool m_screenAnchor = true;
+    bool m_autocapture = false;
     qint8 m_colorCode = -1;
     qint8 m_iconCode = 1;
     qreal m_latitude;
     qreal m_longitude;
-    
-    int counter = 0;
 };
 
 #endif // MARKERWINDOWBACKEND_H

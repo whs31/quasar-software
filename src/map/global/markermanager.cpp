@@ -17,6 +17,7 @@ MarkerManager *MarkerManager::get(QObject *parent)
 void MarkerManager::newMarker(qreal latitude, qreal longitude)
 {
     markerPointer = new Marker(get());
+    MarkerWindowBackend::get()->counter++;
     MarkerWindowBackend::get()->setName(markerPointer->name);
     MarkerWindowBackend::get()->setLatitude(latitude);
     MarkerWindowBackend::get()->setLongitude(longitude);
@@ -97,5 +98,6 @@ void MarkerManager::dialogReturn()
     {
         Debug::Log("[MARKER] Marker discarded");
         markerPointer = nullptr;
+        MarkerWindowBackend::get()->counter--;
     }
 }

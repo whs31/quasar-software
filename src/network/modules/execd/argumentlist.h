@@ -27,7 +27,7 @@ public:
     ExecdArgument* time           =  new ExecdArgument(this, ArgumentType::Float, "--Ts", 1, "Время синтезирования, с");
     ExecdArgument* striptime      =  new ExecdArgument(this, ArgumentType::Float, "--Tstrip", 1, "Время полосовой съемки, с");
     ExecdArgument* freqinterp_x   =  new ExecdArgument(this, ArgumentType::Int, "--kR", 1, "Коэффициент частотной интерполяции по дальности");
-    ExecdArgument* freqintep_y    =  new ExecdArgument(this, ArgumentType::Int, "--kL", 1, "Коэффициент частотной интерполяции по путевой дальности");
+    ExecdArgument* freqinterp_y   =  new ExecdArgument(this, ArgumentType::Int, "--kL", 1, "Коэффициент частотной интерполяции по путевой дальности");
     ExecdArgument* jpegcompression=  new ExecdArgument(this, ArgumentType::Int, "--jq", 80, "Качество компрессии JPEG");
 
     ExecdArgument* dx             =  new ExecdArgument(this, ArgumentType::Float, "--dx", 1, "Шаг по дальности, м");
@@ -40,6 +40,20 @@ public:
     ExecdArgument* im             =  new ExecdArgument(this, ArgumentType::String, "--im", "out");
     ExecdArgument* tshift2        =  new ExecdArgument(this, ArgumentType::Float, "--Tshift", 1);
     ExecdArgument* remote         =  new ExecdArgument(this, ArgumentType::String, "--remote", "None", "Сервер для передачи данных [address:port]");
+
+    //ExecdArgument* rect_x         =  new ExecdArgument(this, ArgumentType::Float, "--px", "-1", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* rect_y         =  new ExecdArgument(this, ArgumentType::Float, "--py", "-1", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* rect_edge         =  new ExecdArgument(this, ArgumentType::Float, "--ls", "50", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* focus_vel_min         =  new ExecdArgument(this, ArgumentType::Float, "--vmin", "-1", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* focus_vel_max         =  new ExecdArgument(this, ArgumentType::Float, "--vmax", "-1", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* drift_angle         =  new ExecdArgument(this, ArgumentType::Float, "--driftAngle", "-1", "Сервер для передачи данных [address:port]");
+    //ExecdArgument* focus_img_cnt=  new ExecdArgument(this, ArgumentType::Int, "--ni", "10", "Сервер для передачи данных [address:port]");
+    // -v --Ts --ni --driftAngle -f --px --py --ls --vmin --vmax
+    //$FOCUS( )
+
+
+
+    //filename: xx_xxx no fileformat
 
 signals:
 

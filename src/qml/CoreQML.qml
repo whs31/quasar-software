@@ -251,9 +251,7 @@ Rectangle {
     function markerRemove(i)               { MarkerManager.removeMarker(i); }
     function markerRemoveFromBackend(i)    { markerModel.setProperty(i, "removeTrigger", true)  }
     function imageRemove(i) {
-        var b = ImageManager.removeImage(i);
-        if(b) { return true; } 
-        else { return false; }
+        ImageManager.removeImage(i);
     }
 
     ListModel { id: imageModel; }

@@ -4,46 +4,72 @@ import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import UX 1.0
+import DialogWindowBackend 1.0
+import RuntimeData 1.0
+
+import "qrc:/qml/ui/buttons" as Buttons
+import "qrc:/qml/ui/labels" as Labels
 
 RowLayout {
     property bool mainImageVisibleState: true;
-    spacing: 1;
-    RoundButton {
-        id: hideButton
-        radius: 4
-        icon.cache: true
-        hoverEnabled: true;
-        scale: 1
-        z: 100
-        display: AbstractButton.IconOnly
-        icon.color: UX.textWhite;
-        icon.source: "qrc:/ui-resources/white/hide.png"
-        icon.width: 30;
-        icon.height: 30;
-        Layout.preferredWidth: 40;
-        Layout.preferredHeight: 40;
+    spacing: 4;
+    Buttons.LightToolButton
+    {
+        id: hideButton;
+        fixed_width: 30;
+        fixed_height: 30;
+        frame_color: UX.textWhite;
+        highlight_color: UX.infoLight;
+        frame_radius: 8;
+        frame_enabled: true;
+        icon_px_size: 18;
+        icon_source: "qrc:/ui-resources/white/hide.png";
+        tooltip_text: "Показать/скрыть изображение";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
             mainImageVisibleState = !mainImageVisibleState;
             imageModel.setProperty(index, "m_i_visible", mainImageVisibleState);
         }
     }
-    RoundButton {
+    Buttons.LightToolButton
+    {
+        property bool waitingForDialogResponse: false;
+
         id: deleteButton;
-        radius: 4;
-        icon.cache: true;
-        Material.background: UX.errorDark;
-        hoverEnabled: true;
-        scale: 1;
-        z: 100;
-        display: AbstractButton.IconOnly;
-        icon.color: UX.textWhite;
-        icon.source: "qrc:/ui-resources/white/trashbin.png";
-        icon.width: 30;
-        icon.height: 30;
-        Layout.preferredWidth: 40;
-        Layout.preferredHeight: 40;
+        enabled: !RuntimeData.windowLock;
+        fixed_width: 30;
+        fixed_height: 30;
+        frame_color: UX.textWhite;
+        highlight_color: UX.errorDark;
+        frame_radius: 8;
+        frame_enabled: true;
+        icon_px_size: 18;
+        icon_source: "qrc:/ui-resources/white/trashbin.png";
+        tooltip_text: "Показать/скрыть изображение";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
         onClicked: {
-            remove();
+            RuntimeData.windowLock = true;
+            DialogWindowBackend.header = "ОЧИСТКА КАРТЫ";
+            DialogWindowBackend.icon = "qrc:/icons/dialog/warning.png";
+            DialogWindowBackend.text = "Вы уверены, что хотите удалить это изображение с карты?";
+            DialogWindowBackend.show();
+            waitingForDialogResponse = true;
+        }
+        function handleResponse()
+        {
+            if(waitingForDialogResponse === true)
+            {
+                if(DialogWindowBackend.returnCode === 1)
+                {
+                    remove();
+                    waitingForDialogResponse = false;
+                }
+            }
+        }
+        Component.onCompleted: {
+            DialogWindowBackend.returnCodeChanged.connect(handleResponse)
         }
     }
 }

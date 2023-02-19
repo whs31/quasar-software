@@ -25,7 +25,6 @@ Image::Image(QObject *parent, QByteArray data, QString filePath, ImageMode mode,
         base64 = QImageToBase64(image);     
         //TODO: make small image triange from x0 point to lowerbound
     }
-
 }
 
 bool Image::isValid()

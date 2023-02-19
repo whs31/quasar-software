@@ -19,7 +19,7 @@ ArgumentList::ArgumentList(QObject *parent)
     args.append(time);
     args.append(striptime);
     args.append(freqinterp_x);
-    args.append(freqintep_y);
+    args.append(freqinterp_y);
     args.append(jpegcompression);
     args.append(dx);
     args.append(dy);

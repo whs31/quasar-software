@@ -12,12 +12,9 @@ import UX 1.0
 MapQuickItem {
     function remove()
     {
-        var deleteCheck = imageRemove(index);
-        if(deleteCheck)
-        {
-            imageModel.remove(index);
-            imageUIModel.remove(index);
-        }
+        imageRemove(index);
+        imageModel.remove(index);
+        imageUIModel.remove(index);
     }
 
     id: sarUI;
@@ -97,15 +94,17 @@ MapQuickItem {
                 verticalAlignment: Text.AlignVCenter;
             }
         }
-        UI.RoundPane
+        Rectangle
         {
             id: sarDialogBase;
+            width: childrenRect.width + 16;
+            height: childrenRect.height + 16;
+            color: UX.primaryDarker;
             anchors.left: textOverlay.right;
             anchors.leftMargin: 10;
             opacity: 0;
             radius: 10;
             z: 100;
-            Material.elevation: 10;
             Component.onCompleted: { visible = false; }
             NumberAnimation on opacity {
                 id: sardialogFadeIn;
@@ -123,6 +122,7 @@ MapQuickItem {
             }
             ColumnLayout
             {
+                anchors.centerIn: parent;
                 //columns: 2;
                 spacing: 1;
                 ButtonTopGroup { id: buttonColumn; }

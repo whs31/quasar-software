@@ -1,4 +1,5 @@
 #include "feedbackremote.h"
+#include <QDebug>
 
 FeedbackRemote::FeedbackRemote(QObject *parent, PluginHostAPI* pluginHostAPI)
     : QObject{parent}, pluginHostAPI(pluginHostAPI)
@@ -17,13 +18,15 @@ void FeedbackRemote::connect(QString ip, quint16 port)
 {
     disconnect();
     udpRemote->Connect(ip + ":" + QString::number(port));
-    Debug::Log("[FEEDBACK REMOTE] Listening to SAR on " + ip + ":" + QString::number(port));
+
+    qDebug() << "[FEEDBACK REMOTE] Listening to SAR on " << ip + ":" << port;
 }
 
 void FeedbackRemote::disconnect(void)
 {
     udpRemote->Disconnect();
-    Debug::Log("[FEEDBACK REMOTE] Disconnecting...");
+
+    qDebug() << "[FEEDBACK REMOTE] Disconnecting...";
 }
 
 void FeedbackRemote::receiveFeedback(QByteArray data)
@@ -38,7 +41,9 @@ void FeedbackRemote::receiveFeedback(QByteArray data)
         QStringList _split;
         dataString.remove(STORAGE_STATUS_MARKER);
         dataString.remove(0, 1);
-        Debug::Log("[SAR] Received storage status: " + dataString);
+
+        qDebug() << "[SAR] Received storage status: " << dataString;
+
         _split = dataString.split(' ', Qt::SkipEmptyParts);
         DataSAR::get()->setFreeDiskSpace(_split.first().toInt());
         DataSAR::get()->setTotalDiskSpace(_split.last().toInt());

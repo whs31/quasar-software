@@ -52,6 +52,7 @@ int main(int argc, char *argv[]) {
     #endif
     //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
     QApplication app(argc, argv);
+    qSetMessagePattern("[%{time process}] %{message}");
 
     QQuickStyle::setStyle("Material");                      //графика для QML
 

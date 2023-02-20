@@ -52,14 +52,14 @@ inline void WindowBackend::cancel()
 {
     setReturnCode(-1);
     setShown(false);
-    RuntimeData::get()->setWindowLock(false);
+    RuntimeData::get()->windowLockSet(false);
 }
 
 inline void WindowBackend::accept()
 {
     setReturnCode(1);
     setShown(false);
-    RuntimeData::get()->setWindowLock(false);
+    RuntimeData::get()->windowLockSet(false);
 }
 
 #endif // WINDOWBACKEND_H

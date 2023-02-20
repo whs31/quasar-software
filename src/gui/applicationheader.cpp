@@ -12,7 +12,7 @@ void ApplicationHeader::settings(void) { SignalLinker::get()->sendSettings(); }
 void ApplicationHeader::info(void) { SignalLinker::get()->sendInfo(); }
 void ApplicationHeader::emulator(void) { SignalLinker::get()->sendEmulator(); }
 
-bool ApplicationHeader::getWindowLockAlias() const { return RuntimeData::get()->getWindowLock(); }
+bool ApplicationHeader::getWindowLockAlias() const { return RuntimeData::get()->windowLock(); }
 void ApplicationHeader::emitWindowLockAliasChanged() { emit windowLockAliasChanged(); }
 
 QColor ApplicationHeader::getErrorDarkAlias() const { return ThemeManager::get()->getErrorDark(); }

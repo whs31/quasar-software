@@ -9,9 +9,9 @@ FMouseKeyHandler::FMouseKeyHandler(QObject *parent)
 
 void FMouseKeyHandler::copyCoordinates(qreal latitude, qreal longitude)
 {
-    RuntimeData::get()->setStatusPopup("Координаты скопированы в " +
+    RuntimeData::get()->statusPopupSet("Координаты скопированы в " +
                                         SText::colorText("буфер обмена!", ThemeManager::get()->getWarningLight()));
-    RuntimeData::get()->setStatusPopupTrigger(true);
+    RuntimeData::get()->statusPopupTriggerSet(true);
     clipboard->setText("Широта: " + QString::number(latitude) + ", Долгота: " + QString::number(longitude));
 }
 

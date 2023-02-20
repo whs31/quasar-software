@@ -6,7 +6,6 @@
 #include <qqml.h>
 
 #include "config/runtimedata.h"
-#include "misc/debug.h"
 #include "map/linkerqml.h"
 #include "gui/windows/markerwindowbackend.h"
 

@@ -1,4 +1,5 @@
 #include "tcpdownloader.h"
+#include <QDebug>
 
 TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 {
@@ -6,9 +7,9 @@ TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
     connect(server, SIGNAL(newConnection()), this, SLOT(clientConnected()));
     if(!server->listen(QHostAddress(SConfig::get()->getComputerIP()), SConfig::get()->getLoaderPort().toUInt()))
     {
-        Debug::Log("!![SERVER] TCP-IP server has failed to start.");
+        qCritical() << "[TCP] TCP-IP server has failed to start.";
     } else {
-        Debug::Log("?[SERVER] TCP-IP server started.");
+        qInfo() << "[TCP] TCP-IP server started.";
     }
     timer = new QTimer();
     timer->setInterval(TCP_TIMEOUT);
@@ -18,11 +19,13 @@ TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 
 void TCPDownloader::clientConnected(void)
 {
-	Debug::Log("?[SERVER] Trying to connect to SAR...");
+    qInfo() << "[TCP] Trying to connect to SAR...";
+
 	socket = server->nextPendingConnection();
 	if(!socket)
 	{
-		Debug::Log("!![SERVER] NextPendingConnection returned nullptr. Aborting connection.");
+        qCritical() << "[TCP] NextPendingConnection returned nullptr. Aborting connection.";
+
 		return;
 	}
     connect(socket, &QTcpSocket::readyRead, this, &TCPDownloader::serverRead);
@@ -33,14 +36,17 @@ void TCPDownloader::clientConnected(void)
     success = false;
     timer->start();
     splitIndex = 0;
-    Debug::Log("?[SERVER] SAR connected and ready to send image");
+
+    qInfo() << "[TCP] SAR connected and ready to send image";
 }
 
 void TCPDownloader::clientDisconnected(void)
 {
     socket->close();
     timer->stop();
-    (fileSize == imageData.size()) ? Debug::Log("?[SERVER] Image fully received from SAR") : Debug::Log("![SERVER] Something went wrong in receiving SAR image");
+
+    (fileSize == imageData.size()) ? qInfo() << "[TCP] Image fully received from SAR" : qWarning() << "[TCP] Something went wrong in receiving SAR image";
+
     ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData); 
     emit receivingFinished();
 }
@@ -61,8 +67,8 @@ void TCPDownloader::readFileInfo(QByteArray data)
 
     i+=sizeof(uint32_t);
 
-    Debug::Log("[SERVER] Name:" + filename);
-    Debug::Log("[SERVER] Filesize:" + QString::number(fileSize / (1024)) + " kB");
+    qDebug() << "[TCP] Name:" << filename;
+    qDebug() << "[TCP] Filesize:" << QString::number(fileSize / (1024)) << " kB";
 
     data.remove(0, i);
 

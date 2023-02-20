@@ -8,7 +8,6 @@
 #include <QJsonArray>
 
 #include "network/udpremote.h"
-#include "misc/debug.h"
 #include "map/linkerqml.h"
 
 #include "data/datatelemetry.h"

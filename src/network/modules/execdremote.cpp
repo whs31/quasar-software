@@ -1,4 +1,5 @@
 #include "execdremote.h"
+#include <QDebug>
 
 ExecdRemote::ExecdRemote(QObject *parent)
     : QObject{parent}
@@ -23,13 +24,15 @@ void ExecdRemote::connect(QString ip, quint16 port)
 {
     disconnect();
     udpRemote->Connect(ip + ":" + QString::number(port));
-    Debug::Log("[EXECD REMOTE] Listening to SAR on " + ip + ":" + QString::number(port));
+
+    qDebug() << "[EXECD REMOTE] Listening to SAR on " << ip << ":" << port;
 }
 
 void ExecdRemote::disconnect(void)
 {
     udpRemote->Disconnect();
-    Debug::Log("[EXECD REMOTE] Disconnecting...");
+
+    qDebug() << "[EXECD REMOTE] Disconnecting...";
 }
 
 void ExecdRemote::receiveResponse(QByteArray data)
@@ -53,13 +56,14 @@ void ExecdRemote::receiveResponse(QByteArray data)
         if(checksumCheckResult == 1)
         {
             RuntimeData::get()->setFormStatus("Получен ответ от РЛС");
-            Debug::Log("[EXECD REMOTE] Command received, response: " + response[0] + ", hexlen " 
-                    + QString::number(strlen) + ", code" + response[2] 
-                    + " with checksum check " + crcResultString);
+
+            qDebug() << "[EXECD REMOTE] Command received, response: " << response[0] << ", hexlen "
+                     << strlen << ", code" << response[2]
+                     << " with checksum check " << crcResultString;
         }
         else 
         {
-            Debug::Log("[EXECD REMOTE] Something with wrong checksum is received!");
+            qDebug() << "[EXECD REMOTE] Something with wrong checksum is received!";
         }
     }
 }
@@ -72,26 +76,35 @@ void ExecdRemote::sendCommand(ExecdCommand command)
     {
     case ExecdCommand::ClearStorage:
     {
-        Debug::Log("?[EXECD REMOTE] Clearing SAR storage");
+        qInfo() << "[EXECD REMOTE] Clearing SAR storage";
+
         QByteArray request = makeCommand(CACHE_CLEAR_COMMAND).toUtf8();
         udpRemote->Send(request);
-        Debug::Log("[EXECD REMOTE] Sended to SAR: " + request);
+
+        qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
+
         break;
     }
     case ExecdCommand::StorageStatus:
     {
-        Debug::Log("[EXECD REMOTE] Asking for disk storage status");
+        qDebug() << "[EXECD REMOTE] Asking for disk storage status";
+
         QByteArray request = makeCommand(STORAGE_STATUS_COMMAND).toUtf8();
         udpRemote->Send(request);
-        Debug::Log("[EXECD REMOTE] Sended to SAR: " + request);
+
+        qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
+
         break;
     }
     case ExecdCommand::FormImage:
     {
-        Debug::Log("[EXECD REMOTE] Sending form command");
+        qDebug() << "[EXECD REMOTE] Sending form command";
+
         QByteArray request = makeCommand(FORM_MARKER + ArgumentList::get()->makeFormArguments()).toUtf8();
         udpRemote->Send(request);
-        Debug::Log("[EXECD REMOTE] Sended to SAR: " + request);
+
+        qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
+
         break;
     }
 

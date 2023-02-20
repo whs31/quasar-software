@@ -10,7 +10,6 @@
 
 #include "themes/dark.h"
 #include "themes/swampgreen.h"
-#include "misc/debug.h"
 
 enum CurrentTheme : short
 {

@@ -1,4 +1,5 @@
 #include "udpremote.h"
+#include <QDebug>
 
 UDPRemote::UDPRemote()
 {
@@ -16,8 +17,10 @@ int UDPRemote::Connect(QString addr){
     QStringList l = addr.split(":");
     host.setAddress(l[0]);
     port = l[1].toInt();
-    Debug::Log("?[REMOTE] Binding:" + host.toString() + port);
-    return socket->bind(host,port);
+
+    qInfo() << "[REMOTE] Binding:" << host << port;
+
+    return socket->bind(host, port);
 }
 
 int UDPRemote::Disconnect(){

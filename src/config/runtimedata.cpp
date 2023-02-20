@@ -6,11 +6,11 @@ _instance = new RuntimeData(parent); return _instance; }
 RuntimeData::RuntimeData(QObject *parent) : QObject{parent} {}
 void RuntimeData::closeAllWindows(void)
 {
-    setWindowLock(false);
-    setInfoWindow(false);
-    setSettingsWindow(false);
-    setMarkerWindow(false);
-    setPasswordWindow(false);
+    windowLockSet(false);
+    infoWindowSet(false);
+    settingsWindowSet(false);
+    markerWindowSet(false);
+    passwordWindowSet(false);
 }
 
 
@@ -115,38 +115,6 @@ autocaptureVariables.totalCount = value; emit totalAutocapCountChanged(); }
 int RuntimeData::getTotalImageCount() const { return mapVariables.totalImages; }
 void RuntimeData::setTotalImageCount(int value) { if (mapVariables.totalImages == value) return;
 mapVariables.totalImages = value; emit totalImageCountChanged(); }
-
-bool RuntimeData::getInfoWindow() const { return windowStates.info; }
-void RuntimeData::setInfoWindow(bool state) { if (windowStates.info == state) return;
-windowStates.info = state; emit infoWindowChanged(); }
-
-bool RuntimeData::getSettingsWindow() const { return windowStates.settings; }
-void RuntimeData::setSettingsWindow(bool state) { if (windowStates.settings == state) return;
-windowStates.settings = state; emit settingsWindowChanged(); }
-
-bool RuntimeData::getMarkerWindow() const { return windowStates.marker; }
-void RuntimeData::setMarkerWindow(bool state) { if (windowStates.marker == state) return;
-windowStates.marker = state; emit markerWindowChanged(); }
-
-bool RuntimeData::getPasswordWindow() const { return windowStates.password; }
-void RuntimeData::setPasswordWindow(bool state) { if (windowStates.password == state) return;
-windowStates.password = state; emit passwordWindowChanged(); }
-
-QString RuntimeData::getEnteredPassword() const { return windowStates.enteredPassword; }
-void RuntimeData::setEnteredPassword(QString string) { if (windowStates.enteredPassword == string) return;
-windowStates.enteredPassword = string; emit enteredPasswordChanged(); }
-
-QString RuntimeData::getStatusPopup() const { return windowStates.statusPopup; }
-void RuntimeData::setStatusPopup(QString string) { if (windowStates.statusPopup == string) return;
-windowStates.statusPopup = string; emit statusPopupChanged(); }
-
-bool RuntimeData::getStatusPopupTrigger() const { return windowStates.statusPopupTrigger; }
-void RuntimeData::setStatusPopupTrigger(bool state) { if (windowStates.statusPopupTrigger == state) return;
-windowStates.statusPopupTrigger = state; emit statusPopupTriggerChanged(); }
-
-bool RuntimeData::getWindowLock() const { return windowStates.windowLock; }
-void RuntimeData::setWindowLock(bool state) { if (windowStates.windowLock == state) return;
-windowStates.windowLock = state; emit windowLockChanged(); }
 
 void RuntimeData::autocapture(void) { emit autocaptureSignal(); }
 void RuntimeData::clearSARDisk(void) { emit clearSARDiskSignal(); }

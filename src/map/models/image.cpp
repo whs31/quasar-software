@@ -1,4 +1,5 @@
 #include "image.h"
+#include <QDebug>
 
 Image::Image(QObject *parent, QByteArray data, QString filePath, ImageMode mode, qreal predefinedCorrection, bool globalRadians, qreal thetaAzimuthCorrection,
                 bool globalDriftAngle)
@@ -50,7 +51,7 @@ bool Image::decode(QByteArray data)
         QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 4, 16, QLatin1Char('0')); //TODO:  to uint16 -> crc16
         checksumMatch = (recalculatedChecksum == meta.checksum) ? 1 : 0;
         if (!checksumMatch)
-            Debug::Log("![IMAGETOOLS] Checksum seems to be incorrect");
+            qWarning() << "[IMAGE] Checksum seems to be incorrect";
 
         // геометрические преобразования
         if (globalRadians)
@@ -65,7 +66,7 @@ bool Image::decode(QByteArray data)
     }
     else
     {
-        Debug::Log("!![IMAGE] Marker error!");
+        qCritical() << "[IMAGE] Marker error!";
         return false;
     }
 }
@@ -110,7 +111,7 @@ QImage Image::dataToQImage(QByteArray data, ImageMode mode)
         qimage = applyAlphaMask(qimage);
         return qimage;
     }
-    Debug::Log("!![IMAGE] ImageMode is incorrect.");
+    qCritical() << "[IMAGE] ImageMode is incorrect";
     return QImage();
 }
 

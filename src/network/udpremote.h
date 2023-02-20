@@ -7,8 +7,6 @@
 
 #include "modules/abstract/remote.h"
 
-#include "misc/debug.h"
-
 class UDPRemote : public Remote
 {
     Q_OBJECT

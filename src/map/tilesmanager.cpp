@@ -1,4 +1,5 @@
 #include "tilesmanager.h"
+#include <QDebug>
 
 TilesManager* TilesManager::_instance = nullptr;
 
@@ -13,7 +14,8 @@ QString TilesManager::_nighttransit;
 TilesManager::TilesManager()
 {
     InitializeConfig();
-    Debug::Log("?[TILESERVER] Path initialized");
+
+    qInfo() << "[TILESERVER] Path initialized";
 }
 
 TilesManager* TilesManager::get()

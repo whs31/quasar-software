@@ -1,4 +1,5 @@
 #include "imagemanager.h"
+#include <QDebug>
 
 ImageManager *ImageManager::_instance = nullptr;
 QVector<Image *> ImageManager::imageList = {};
@@ -34,7 +35,9 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
     if (!image->isValid())
     {
         delete image;
-        Debug::Log("!![IMGMANAGER] Image discarded due to decoding or another error");
+
+        qCritical() << "[IMAGEMANAGER] Image discarded due to decoding or another error";
+
         return;
     }
 
@@ -43,7 +46,9 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
     // append to vector when all functions which changing image is called
     imageList.append(image);
     RuntimeData::get()->setTotalImageCount(imageList.length());
-    Debug::Log("[IMGMANAGER] Image displayed");
+
+    qDebug() << "[IMAGEMANAGER] Image displayed";
+
     LinkerQML::addModel(*image);
     LinkerQML::panImage();
     // any logging only after it
@@ -53,7 +58,8 @@ bool ImageManager::removeImage(qint32 index)
 {
     imageList.remove(index);
     RuntimeData::get()->setTotalImageCount(imageList.length());
-    Debug::Log("[IMGMANAGER] Image " + QString::number(index) + " removed from map. List now contains = " + QString::number(imageList.length()));
+
+    qDebug() << "[IMAGEMANAGER] Image " << QString::number(index) << " removed from map. List now contains = " << QString::number(imageList.length());
 }
 
 void ImageManager::clearAll(void)

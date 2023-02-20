@@ -125,8 +125,8 @@ MapQuickItem {
                 anchors.centerIn: parent;
                 //columns: 2;
                 spacing: 1;
-                ButtonTopGroup { id: buttonColumn; }
-                MetadataGroup { id: metadataColumn; }
+                ColumnButtons { id: buttonColumn; }
+                ColumnMetadata { id: metadataColumn; }
             }
         }
     }

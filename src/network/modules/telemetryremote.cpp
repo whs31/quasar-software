@@ -1,4 +1,5 @@
 #include "telemetryremote.h"
+#include <QDebug>
 
 TelemetryRemote::TelemetryRemote(QObject *parent)
     : QObject{parent}
@@ -24,8 +25,8 @@ void TelemetryRemote::connect(QString ip, quint16 port, qreal frequency)
     updateTimer->start(frequency * 1000);
     timeoutTimer->start(TIMEOUT_TIME);
     udpRemote->Connect(ip + ":" + QString::number(port));
-    Debug::Log("[TELEMETRY REMOTE] Listening to SAR on " + ip + ":" + QString::number(port) + " with frequency: "
-                + QString::number(frequency) + " s");
+
+    qDebug() << "[TELEMETRY REMOTE] Listening to SAR on " << ip << ":" << port << " with frequency: " << frequency << " s";
 }
 
 void TelemetryRemote::disconnect(void)
@@ -33,14 +34,16 @@ void TelemetryRemote::disconnect(void)
     udpRemote->Disconnect();
     updateTimer->stop();
     timeoutTimer->stop();
-    Debug::Log("[TELEMETRY REMOTE] Disconnecting...");
+
+    qDebug() << "[TELEMETRY REMOTE] Disconnecting...";
 }
 
 void TelemetryRemote::timeoutSlot(void)
 {
     emit timeout();
     RuntimeData::get()->setConnected(false);
-    Debug::Log("![TELEMETRY REMOTE] Reached TIMEOUT");
+
+    qDebug() << "![TELEMETRY REMOTE] Reached TIMEOUT";
 }
 
 void TelemetryRemote::askForTelemetry(void)     

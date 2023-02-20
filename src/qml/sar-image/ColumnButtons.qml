@@ -23,7 +23,7 @@ RowLayout {
         frame_radius: 8;
         frame_enabled: true;
         icon_px_size: 18;
-        icon_source: "qrc:/ui-resources/white/hide.png";
+        icon_source: "qrc:/icons/hide.png";
         tooltip_text: "Показать/скрыть изображение";
         tooltip_enabled: true;
         label_text_family: fontMedium.name;
@@ -45,7 +45,7 @@ RowLayout {
         frame_radius: 8;
         frame_enabled: true;
         icon_px_size: 18;
-        icon_source: "qrc:/ui-resources/white/trashbin.png";
+        icon_source: "qrc:/icons/trashbin.png";
         tooltip_text: "Показать/скрыть изображение";
         tooltip_enabled: true;
         label_text_family: fontMedium.name;

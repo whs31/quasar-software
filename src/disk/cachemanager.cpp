@@ -1,4 +1,5 @@
 #include "cachemanager.h"
+#include <QDebug>
 
 CacheManager *CacheManager::_instance = nullptr;
 
@@ -41,7 +42,8 @@ void CacheManager::initialize()
     QDir plugins(pluginCache);
     if(!plugins.exists())
         plugins.mkpath(pluginCache);
-    Debug::Log("?[CACHEMANAGER] Initial cache created");
+
+    qInfo() << "[CACHEMANAGER] Initial cache created";
 }
 
 void CacheManager::setupImageCache()
@@ -50,7 +52,7 @@ void CacheManager::setupImageCache()
     QDir tcp(tcpDowloaderCache);
     if (tcp.exists())
         tcp.mkpath(tcpDowloaderCache);
-    Debug::Log("?[CACHEMANAGER] Image cache created");
+    qInfo() << "[CACHEMANAGER] Image cache created";
 }
 
 void CacheManager::clearImageCache()
@@ -58,7 +60,9 @@ void CacheManager::clearImageCache()
     QDir tcp(tcpDowloaderCache);
     if (tcp.exists())
         tcp.removeRecursively();
-    Debug::Log("[CACHEMANAGER] Cache cleared");
+
+    qInfo() << "[CACHEMANAGER] Cache cleared";
+
     setupImageCache();
 }
 
@@ -73,5 +77,6 @@ CacheManager::CacheManager(QObject *parent) : QObject{parent}
 {
     initialize();
     setupImageCache();
-    Debug::Log("?[CACHEMANAGER] TCP Downloader directory: " + CacheManager::tcpDowloaderCache);
+
+    qInfo() << ("[CACHEMANAGER] TCP Downloader directory: " + CacheManager::tcpDowloaderCache);
 }

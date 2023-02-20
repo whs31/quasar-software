@@ -1,4 +1,5 @@
 #include "markermanager.h"
+#include <QDebug>
 
 MarkerManager *MarkerManager::_instance = nullptr;
 MarkerManager::MarkerManager(QObject *parent)
@@ -42,7 +43,9 @@ void MarkerManager::removeMarker(qint32 index)
         break;
     }
     markerList.remove(index);
-    Debug::Log("[MARKER] Marker " + QString::number(index) + " removed from map. Vector l = " + QString::number(markerList.length()));
+
+    qDebug() << "[MARKERMANAGER] Marker " << index << " removed from map. Total markers now: " << markerList.length();
+
     MarkerWindowBackend::get()->counter--;
 }
 
@@ -62,7 +65,9 @@ void MarkerManager::removeMarkerFromCoordinates(QGeoCoordinate coordinate)
         if(coordinate.distanceTo(QGeoCoordinate(markerList[j]->latitude, markerList[j]->longitude)) <= 10)
         {
             LinkerQML::removeMarker(j);
-            Debug::Log("[MARKER] Autocapture mark " + QString::number(j) + " removed from map.");
+
+            qDebug() << "[MARKERMANAGER] Autocapture mark " << j << " removed from map.";
+
             break;
         }
     }
@@ -89,17 +94,19 @@ void MarkerManager::dialogReturn()
         {
             RuntimeData::get()->autocaptureMarks.append(QGeoCoordinate(markerPointer->latitude, markerPointer->longitude));
             RuntimeData::get()->setTotalAutocapCount(RuntimeData::get()->autocaptureMarks.length());
-            Debug::Log("?[MARKER] Created new autocapture mark with name " + markerPointer->name);
+
+            qInfo() << "[MARKERMANAGER] Created new autocapture mark with name " << markerPointer->name;
         }
         else
         {
-            Debug::Log("[MARKER] Created new marker with name " + markerPointer->name);
+            qDebug() << "[MARKERMANAGER] Created new marker with name " << markerPointer->name;
         }
         LinkerQML::addModel(*markerPointer);
     }
     else if(MarkerWindowBackend::get()->getReturnCode() == -1)
     {
-        Debug::Log("[MARKER] Marker discarded");
+        qDebug() << "[MARKERMANAGER] Marker discarded";
+
         markerPointer = nullptr;
         MarkerWindowBackend::get()->counter--;
     }

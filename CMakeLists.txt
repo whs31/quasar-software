@@ -26,6 +26,7 @@ else()
     add_executable(${executable_name} ${SOURCE}
         src/main.cpp
         src/buildprefs.h
+        src/macro.h
         src/coreui.h                                    src/coreui.cpp                                      src/coreui.ui
         src/data/datatelemetry.h                        src/data/datatelemetry.cpp
         src/data/datasar.h                              src/data/datasar.cpp
@@ -62,8 +63,6 @@ else()
         src/func/smath.h                                src/func/smath.cpp
         src/func/stext.h                                src/func/stext.cpp
         src/func/schecksum.h                            src/func/schecksum.cpp
-        src/misc/debug.h                                src/misc/debug.cpp
-        src/misc/profiler.h                             src/misc/profiler.cpp
         src/gui/dynamicresolution.h                     src/gui/dynamicresolution.cpp
         src/gui/passworddialog.h                        src/gui/passworddialog.cpp                          src/gui/passworddialog.ui
         src/gui/applicationheader.h                     src/gui/applicationheader.cpp

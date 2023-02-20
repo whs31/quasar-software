@@ -5,7 +5,6 @@
 #include <QVector>
 
 #include "execdargument.h"
-#include "misc/debug.h"
 
 class ArgumentList : public QObject
 {

@@ -78,5 +78,6 @@
         <file>map/items/gpsarrow.png</file>
         <file>map/items/temp.png</file>
         <file>map/items/dot.png</file>
+        <file>icons/hide.png</file>
     </qresource>
 </RCC>

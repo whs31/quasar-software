@@ -9,7 +9,7 @@ SConfig::SConfig(QObject* parent) : QObject{parent}
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
     setProjectVersion(PROJECT_VERSION);
 
-    Debug::Log("?[SCONFIG] QuaSAR-UI build version: " + getProjectVersion());
+    qInfo() << "[SCONFIG] QuaSAR-UI build version: " + getProjectVersion();
 
 
     SConfig::loadSettings();
@@ -50,35 +50,36 @@ void SConfig::loadSettings()
     setThetaAzimuthCorrection(config->value("image/angle_theta_azimuth_correction").toFloat());
     setDefaultCatalogue(config->value("image/view_mode_default_directory").toString());
     
-    Debug::Log("?[CONFIG] Main config loaded.");
+    qDebug() << "[SCONFIG] Main config loaded.";
 
     // plugin config
     config->setValue("Terminal/rect_color", ThemeManager::get()->getPrimaryDarker());
     config->setValue("Terminal/font_color", ThemeManager::get()->getTextWhite());
     config->setValue("Terminal/cursor_color", ThemeManager::get()->getTextColored());
 
-    Debug::Log("?[CONFIG] Plugin config loaded.");
+    qInfo() << "[SCONFIG] Plugin config loaded.";
 
     m_previousSessionLatitude =  config->value("map/previous_session_latitude").toFloat();
     m_previousSessionLongitude = config->value("map/previous_session_longitude").toFloat();
     m_previousSessionZoom = config->value("map/previous_session_zoom").toFloat();
-    qDebug() << "Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
-    Debug::Log("?[CONFIG] Previous session restored.");
+
+    qDebug() << "[SCONFIG] Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
+    qInfo() << "[SCONFIG] Previous session restored.";
 }
 
 void SConfig::saveSettings()
 {
     save();
-    Debug::Log("?[CONFIG] Config saved.");
-    RuntimeData::get()->setStatusPopup("Настройки сохранены. Некоторые параметры вступят в силу " +
+    qInfo() << "[SCONFIG] Config saved.";
+    RuntimeData::get()->statusPopupSet("Настройки сохранены. Некоторые параметры вступят в силу " +
                                        SText::colorText("только после перезапуска.", ThemeManager::get()->getWarningLight()));
-    RuntimeData::get()->setStatusPopupTrigger(true);
+    RuntimeData::get()->statusPopupTriggerSet(true);
 }
 
 void SConfig::saveQuiet()
 {
     save();
-    Debug::Log("?[CONFIG] Config saved without dialog.");
+    qInfo() << "[SCONFIG] Config saved without dialog.";
 }
 
 void SConfig::save()

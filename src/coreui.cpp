@@ -1,6 +1,7 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 #include "buildprefs.h"
+#include <QDebug>
 
 CoreUI *CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
@@ -23,8 +24,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     TilesManager::get();
     ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
-    // new session in log
-    Debug::NewSession();
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
@@ -37,14 +36,16 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
                         "{\n  background-color: #293133;\n  border: 1px solid #121617;\n  min-height: 8px;\n  border-radius: 4px;\n}\n"
                         "QScrollBar::handle:vertical:hover {\n  background-color: #3e4c4f;\n  border: #3e4c4f;\n  border-radius: 4px;\n  "
                         "min-height: 8px;\n}");
-    Debug::Log("[STARTUP] Starting UI initialization...");
+
+    qDebug() << "[CORE] Starting UI initialization...";
 
     // config
     qmlRegisterSingletonInstance("Config", 1, 0, "Config", SConfig::get());
+
     if (SConfig::get()->getOnlineMaps())
-        Debug::Log("[STARTUP] Using ONLINE map tileserver");
+        qDebug() << "[CORE] Using ONLINE map tileserver";
     else
-        Debug::Log("[STARTUP] Using OFFLINE map tileserver");
+        qDebug() << "[CORE] Using OFFLINE map tileserver";
 
     // qml types that require SConfig declared here
     qmlRegisterSingletonInstance<RuntimeData>("RuntimeData", 1, 0, "RuntimeData", RuntimeData::get(this));
@@ -70,10 +71,12 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     dynamicResolutionInstance = new DynamicResolution(this);
     screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
     qmlRegisterSingletonInstance<DynamicResolution>("DynamicResolution", 1, 0, "DynamicResolution", dynamicResolutionInstance);
-    qDebug() << "Using screen resolution of current monitor: " << screenResolution.width() << "x" << screenResolution.height();
+
+    qDebug() << "[CORE] Using screen resolution of current monitor: " << screenResolution.width() << "x" << screenResolution.height();
     dynamicResolutionInstance->setWidthCoefficient((float)screenResolution.width() / 1366);
     dynamicResolutionInstance->setHeightCoefficient((float)screenResolution.height() / 768);
-    qDebug() << "Recalculated coefficients for GUI: " << dynamicResolutionInstance->getWidthCoefficient() << ", "
+
+    qDebug() << "[CORE] Recalculated coefficients for GUI: " << dynamicResolutionInstance->getWidthCoefficient() << ", "
              << dynamicResolutionInstance->getHeightCoefficient();
 
     // qml ux/ui setup
@@ -99,38 +102,34 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // debug logging misc code
     QDateTime localTime(QDateTime::currentDateTimeUtc().toLocalTime());
-    Debug::Log("[STARTUP] UI initialization finished");
-    Debug::Log("?[STARTUP] Session started at " + localTime.toString());
+
+    qDebug() << "[CORE] UI initialization finished";
+    qInfo() << "[CORE] Session started at " << localTime;
 
     // openssl check
     QString ssl1 = QSslSocket::supportsSsl() ? "true" : "false";
+
     if (QSslSocket::supportsSsl())
     {
-        Debug::Log("?[STARTUP] OpenSSL detected: " 
-                    + ssl1 
-                    + ", OpenSSL build version: " 
-                    + QSslSocket::sslLibraryBuildVersionString() 
-                    + ", OpenSSL ver.: " 
-                    + QSslSocket::sslLibraryVersionString());
+        qInfo() << "[CORE] OpenSSL detected: " << ssl1 << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString()
+                << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
     }
     else
     {
-        Debug::Log("!!![STARTUP] OpenSSL detected: " 
-                    + ssl1 
-                    + ", OpenSSL build version: " 
-                    + QSslSocket::sslLibraryBuildVersionString() 
-                    + ", OpenSSL ver.: " 
-                    + QSslSocket::sslLibraryVersionString());
+        qCritical() << "[CORE] OpenSSL detected: " << ssl1 << ", OpenSSL build version: " << QSslSocket::sslLibraryBuildVersionString()
+                    << ", OpenSSL ver.: " << QSslSocket::sslLibraryVersionString();
         QMessageBox openSSLDialogue;
         openSSLDialogue.setWindowTitle("Библиотека OpenSSL не обнаружена!");
         openSSLDialogue.setIcon(QMessageBox::Critical);
         openSSLDialogue.setText("Попробуйте переустановить программу.");
-        openSSLDialogue.exec();
+        openSSLDialogue.exec(); //? @TODO: maybe to qml?
     }
 
     // core
     // (!) do not touch it.
-    Debug::Log("?[STARTUP] Setuping connections...");
+
+    qInfo() << "[CORE] Setuping connections...";
+
     LinkerQML::get(qml);
     connect(LinkerQML::get(), SIGNAL(signalReconnect()), this, SLOT(reconnectSlot()));
     connect(LinkerQML::get(), SIGNAL(signalDisconnect()), this, SLOT(disconnectSlot()));
@@ -147,7 +146,8 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // startup functions
     RuntimeData::get()->setConnected(false);
-    Debug::Log("[STARTUP] Connections set up successfully");
+
+    qDebug() << "[CORE] Connections set up successfully";
 
     // emulator
     this->installEventFilter(this);
@@ -166,13 +166,15 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
         #elif _WIN32
             postfix = ".dll";
         #else
-            Debug::Log("!![PLUGIN] Your operating system is not supported.");
+            qCritical() << "[CORE] Your operating system is not supported.";
         #endif
         QString terminalPath = CacheManager::getPluginsCache() + "/terminal" + postfix;
         PluginInterface *terminalInterface = (PluginInterface *)LoadPlugin(terminalPath);
         if(!terminalInterface){
            plugins.terminalLoaded = false;
-           Debug::Log("![PLUGIN] Failed to load terminal plugin. Check your directory (app-plugins).");
+
+        qWarning() << "[CORE] Failed to load terminal plugin. Check your directory (app-plugins).";
+
         } else {
             plugins.terminalLoaded = true;
             plugins.terminal = terminalInterface->GetWidget();
@@ -213,14 +215,16 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     ThemeManager::setStyleSheet();
 
     // execute any other startup code here
-    RuntimeData::get()->setStatusPopup("Версия программы " +
+    RuntimeData::get()->statusPopupSet("Версия программы " +
                                         SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
-    RuntimeData::get()->setStatusPopupTrigger(true); //TODO: make it separate class
+    RuntimeData::get()->statusPopupTriggerSet(true); //TODO: make it separate class
+    RuntimeData::get()->infoWindowSet(false);
 }
 
 CoreUI::~CoreUI()
 {
-    Debug::Log("Ending current session...");
+    qInfo() << "[CORE] Ending current session...";
+
     uiReady = false;
 
     delete ui;
@@ -228,7 +232,7 @@ CoreUI::~CoreUI()
     delete TilesManager::get();
     delete ImageManager::get();
     delete MarkerManager::get();
-    Debug::Log("Session ended succesfully.");
+    qInfo() << "[CORE] Session ended succesfully.";
 }
 
 void* CoreUI::LoadPlugin(QString path)
@@ -308,7 +312,7 @@ void CoreUI::SettingsSlot()
                 if (s != SConfig::get()->getDefaultCatalogue())
                     DiskTools::fetchDirectory();
                 else
-                    Debug::Log("?[CONFIG] Path unchanged, no further scans");
+                    qInfo() << "[CORE] Path unchanged, no further scans";
                 SConfig::get()->saveSettings();
             }
             else
@@ -322,16 +326,16 @@ void CoreUI::SettingsSlot()
         }
         else
         {
-            RuntimeData::get()->setStatusPopup("Был введен " + SText::colorText("неверный пароль.", ThemeManager::get()->getErrorLighter()));
-            RuntimeData::get()->setStatusPopupTrigger(true);
+            RuntimeData::get()->statusPopupSet("Был введен " + SText::colorText("неверный пароль.", ThemeManager::get()->getErrorLighter()));
+            RuntimeData::get()->statusPopupTriggerSet(true);
         }
     }
 }
 
 void CoreUI::InfoSlot()
 {
-    RuntimeData::get()->setInfoWindow(!RuntimeData::get()->getInfoWindow());
-    RuntimeData::get()->setWindowLock(true);
+    RuntimeData::get()->infoWindowSet(!RuntimeData::get()->infoWindow());
+    RuntimeData::get()->windowLockSet(true);
 }
 void CoreUI::EmulatorSlot()    
 { 
@@ -419,13 +423,16 @@ void CoreUI::reconnectSlot()
             QString correctedSarIP = SConfig::get()->getDE10IP();
             correctedSarIP.chop(1); correctedSarIP.append("7");
             execdRemote->connect(correctedSarIP, SConfig::get()->getExecdPort().toUInt());
-            Debug::Log("![REMOTE] Sending commands to autocorrected address: " + correctedSarIP + ":" + SConfig::get()->getExecdPort());
+
+            qWarning() << "[CORE] Sending commands to autocorrected address: " << correctedSarIP + ":" << SConfig::get()->getExecdPort();
         } else { 
             execdRemote->connect(SConfig::get()->getDE10IP(), SConfig::get()->getExecdPort().toUInt());
-            Debug::Log("?[REMOTE] Sending commands to address: " + SConfig::get()->getDE10IP() + ":" + SConfig::get()->getExecdPort());
+
+            qInfo() << "[CORE] Sending commands to address: " << SConfig::get()->getDE10IP() << ":" << SConfig::get()->getExecdPort();
         }
     execdRemote->sendCommand(ExecdCommand::StorageStatus);
-    Debug::Log("?[REMOTE] All remotes connected.");
+
+    qInfo() << "[CORE] All remotes connected";
 }
 void CoreUI::disconnectSlot()
 {
@@ -433,5 +440,6 @@ void CoreUI::disconnectSlot()
     feedBackRemote->disconnect();
     execdRemote->disconnect();
     RuntimeData::get()->setConnected(false);
-    Debug::Log("?[REMOTE] All remotes disconnected.");
+
+    qInfo() << "[CORE] All remotes disconnected";
 }

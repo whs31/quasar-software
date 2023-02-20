@@ -1,4 +1,5 @@
 #include "disktools.h"
+#include <QDebug>
 
 DiskTools *DiskTools::_instance = nullptr;
 DiskTools::DiskTools(QObject *parent)
@@ -32,14 +33,15 @@ void DiskTools::fetchDirectory()
                 ImageManager::newImage(filename, convertToRawData(filename));
             } else 
             {
-                Debug::Log("?[DISK] Occurence found, skipping...");
+                qDebug() << "[DISK] Occurence found, skipping...";
             }
         }
     } else {
-        Debug::Log("![DISK] Directory is empty, throwing warning window...");
-        RuntimeData::get()->setStatusPopup("В выбранном каталоге " +
+        qWarning() << "[DISK] Directory is empty, throwing warning window...";
+
+        RuntimeData::get()->statusPopupSet("В выбранном каталоге " +
                                            SText::colorText("не найдены изображения!", ThemeManager::get()->getErrorLighter()));
-        RuntimeData::get()->setStatusPopupTrigger(true);
+        RuntimeData::get()->statusPopupTriggerSet(true);
     }
 }
 
@@ -56,7 +58,8 @@ QByteArray DiskTools::convertToRawData(QString path)
         QByteArray rawData = imageFile.readAll();
         return rawData;
     } else {
-        Debug::Log("!!Error opening the image file for converting to raw bytes data");
+        qInfo() << "!!Error opening the image file for converting to raw bytes data";
+
         return QByteArray();
     }
 }

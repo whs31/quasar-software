@@ -6,6 +6,7 @@
 #include "sconfig.h"
 #include <QVector>
 #include <QGeoCoordinate>
+#include "macro.h"
 
 class RuntimeData : public QObject
 {
@@ -52,16 +53,14 @@ class RuntimeData : public QObject
     Q_PROPERTY(int totalImageCount                  READ getTotalImageCount     WRITE setTotalImageCount     NOTIFY totalImageCountChanged)
 
     // состояния дочерних "окон" на карте и всё, что к ним относится
-    Q_PROPERTY(bool infoWindow                      READ getInfoWindow          WRITE setInfoWindow          NOTIFY infoWindowChanged)
-    Q_PROPERTY(bool settingsWindow                  READ getSettingsWindow      WRITE setSettingsWindow      NOTIFY settingsWindowChanged)
-    Q_PROPERTY(bool markerWindow                    READ getMarkerWindow        WRITE setMarkerWindow        NOTIFY markerWindowChanged)
-    Q_PROPERTY(bool passwordWindow                  READ getPasswordWindow      WRITE setPasswordWindow      NOTIFY passwordWindowChanged)
-    Q_PROPERTY(QString enteredPassword              READ getEnteredPassword     WRITE setEnteredPassword     NOTIFY enteredPasswordChanged)
-    Q_PROPERTY(QString statusPopup                  READ getStatusPopup         WRITE setStatusPopup         NOTIFY statusPopupChanged)
-    Q_PROPERTY(bool statusPopupTrigger              READ getStatusPopupTrigger  WRITE setStatusPopupTrigger  NOTIFY statusPopupTriggerChanged)
-    Q_PROPERTY(bool windowLock                      READ getWindowLock          WRITE setWindowLock          NOTIFY windowLockChanged)
-    
-    QML_ELEMENT
+    PROPERTY(bool, infoWindow) EMIT infoWindowChanged END
+    PROPERTY(bool, settingsWindow) EMIT settingsWindowChanged END
+    PROPERTY(bool, markerWindow) EMIT markerWindowChanged END
+    PROPERTY(bool, passwordWindow) EMIT passwordWindowChanged END
+    PROPERTY(QString, enteredPassword) EMIT enteredPasswordChanged END
+    PROPERTY(QString, statusPopup) EMIT statusPopupChanged END
+    PROPERTY(bool, statusPopupTrigger) EMIT statusPopupTriggerChanged END
+    PROPERTY(bool, windowLock) EMIT windowLockChanged END
     
 public:
     static RuntimeData* get(QObject* parent = nullptr);
@@ -105,15 +104,6 @@ public:
 
     int getTotalImageCount() const;                                     void setTotalImageCount(int value);
 
-    bool getInfoWindow() const;                                         void setInfoWindow(bool state);
-    bool getSettingsWindow() const;                                     void setSettingsWindow(bool state);
-    bool getMarkerWindow() const;                                       void setMarkerWindow(bool state);
-    bool getPasswordWindow() const;                                     void setPasswordWindow(bool state);
-    QString getEnteredPassword() const;                                 void setEnteredPassword(QString string);
-    QString getStatusPopup() const;                                     void setStatusPopup(QString string);
-    bool getStatusPopupTrigger() const;                                 void setStatusPopupTrigger(bool state);
-    bool getWindowLock() const;                                         void setWindowLock(bool state);
-
     void autocapture(void);
 
 signals:
@@ -150,15 +140,6 @@ signals:
     void totalAutocapCountChanged();
 
     void totalImageCountChanged();
-
-    void infoWindowChanged();
-    void settingsWindowChanged();
-    void markerWindowChanged();
-    void passwordWindowChanged();
-    void enteredPasswordChanged();
-    void statusPopupChanged();
-    void statusPopupTriggerChanged();
-    void windowLockChanged();
 
     // my signals TODO: DEPRECATED 
 
@@ -210,18 +191,6 @@ private:
     {
         int totalImages = 0;
     }; MapVariables mapVariables;
-
-    struct WindowStates
-    {
-        bool info = false;
-        bool settings = false;
-        bool marker = false;
-        bool password = false;
-        QString enteredPassword = "";
-        QString statusPopup = "";
-        bool statusPopupTrigger = false;
-        bool windowLock = false;
-    }; WindowStates windowStates;
 };
 
 #endif // RUNTIMEDATA_H

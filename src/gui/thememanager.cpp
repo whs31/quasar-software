@@ -1,4 +1,5 @@
 #include "thememanager.h"
+#include <QDebug>
 
 ThemeManager *ThemeManager::_instance = nullptr;
 ThemeManager *ThemeManager::get(QObject *parent, short themeInitializer)
@@ -105,7 +106,7 @@ void ThemeManager::setStyleSheet(void)
     QFile qss(":/stylesheet/lightstyle.qss");
     if (!qss.exists())
     {
-        Debug::Log("!![QSS] Unable to set test stylesheet, file not found\n");
+        qCritical() << "[THEMEMANAGER] Unable to set test stylesheet, file not found";
     }
     else
     {

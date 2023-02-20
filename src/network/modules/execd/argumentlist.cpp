@@ -1,4 +1,5 @@
 #include "argumentlist.h"
+#include <QDebug>
 
 ArgumentList *ArgumentList::_instance = nullptr;
 ArgumentList *ArgumentList::get(QObject *parent) { if (_instance != NULL) return _instance;
@@ -6,7 +7,8 @@ ArgumentList *ArgumentList::get(QObject *parent) { if (_instance != NULL) return
 ArgumentList::ArgumentList(QObject *parent)
     : QObject{parent}
 {
-    Debug::Log("?[EXECD REMOTE] Assigned execd ARGUMENT LIST");
+    qInfo() << "[ARGUMENTLIST] Assigned execd ARGUMENT LIST";
+
     args.append(filename);
     args.append(mode);
     args.append(timeshift);

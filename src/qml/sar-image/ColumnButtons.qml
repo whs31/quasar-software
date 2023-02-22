@@ -52,6 +52,8 @@ RowLayout {
         label_text_family: fontMedium.name;
         onClicked: {
             RuntimeData.windowLock = true;
+            FocusWindowBackend.filename = m_filename;
+            FocusWindowBackend.base64 = imageModel.get(index).m_base64;
             FocusWindowBackend.show();
             waitingForDialogResponse = true;
         }

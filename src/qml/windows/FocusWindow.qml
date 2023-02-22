@@ -279,12 +279,36 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
             anchors.topMargin: 33;
-            boundsMovement: Flickable.StopAtBounds
+            //boundsMovement: Flickable.StopAtBounds
             clip: true;
             pixelAligned: true;
             contentWidth: imageView.width; //TODO
             contentHeight: imageView.height; //TODO
 
+            Rectangle
+            {
+                id: imageBackground;
+                width: 752;
+                height: 280;
+                radius: 15;
+                color: UX.primaryDarkest;
+                Glow {
+                    anchors.fill: imageSource;
+                    radius: 8;
+                    samples: 17;
+                    spread: 0.1;
+                    color: "white";
+                    source: imageSource;
+                }
+                Image {
+                    id: imageSource;
+                    anchors.fill: parent;
+                    smooth: true;
+                    source: "qrc:/icons/debug.png";
+                    visible: true;
+                    cache: false;
+                }
+            }
         }
         Labels.FramedLabel
         {
@@ -303,6 +327,14 @@ Rectangle {
             frame_radius: 2;
             frame_width: 0;
             label_wrapping: true;
+        }
+        property bool shownAlias: FocusWindowBackend.shown;
+        onShownAliasChanged: {
+            if(shownAlias)
+            {
+                imageSource.source = "";
+                imageSource.source = "data:image/png;base64," + FocusWindowBackend.base64;
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ Rectangle {
     property int fixed_height: 25;
 
     property int icon_px_size: 16;
-    property string icon_source: "qrc:/ui-resources/white/close.png";
+    property string icon_source: "qrc:/icons/close.png";
 
     property string tooltip_text: "Sample tooltip";
     property bool tooltip_enabled: false;

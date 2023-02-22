@@ -54,6 +54,7 @@ class RuntimeData : public QObject
 
     // состояния дочерних "окон" на карте и всё, что к ним относится
     PROPERTY(bool, infoWindow) EMIT infoWindowChanged END
+    PROPERTY(bool, focusWindow) EMIT focusWindowChanged END
     PROPERTY(bool, settingsWindow) EMIT settingsWindowChanged END
     PROPERTY(bool, markerWindow) EMIT markerWindowChanged END
     PROPERTY(bool, passwordWindow) EMIT passwordWindowChanged END

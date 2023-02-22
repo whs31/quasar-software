@@ -75,10 +75,10 @@ else()
         src/gui/windows/markerwindowbackend.h           src/gui/windows/markerwindowbackend.cpp
         src/gui/windows/autocapturemarkwindowbackend.h  src/gui/windows/autocapturemarkwindowbackend.cpp
         src/gui/windows/settingswindowbackend.h         src/gui/windows/settingswindowbackend.cpp
+        src/gui/windows/focuswindowbackend.h            src/gui/windows/focuswindowbackend.cpp
 
         src/qml.qrc
         src/qss.qrc
-        src/images.qrc                                  #marked as deprecated, to be removed soon
         src/osmconfig.qrc
         resources/resources.qrc
         ${SRCS} appiconwin32.rc

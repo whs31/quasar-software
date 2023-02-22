@@ -1,7 +1,11 @@
 #include "coreui.h"
 #include "ui_coreui.h"
 #include "buildprefs.h"
+
+#include "gui/windows/focuswindowbackend.h"
+
 #include <QDebug>
+
 
 CoreUI *CoreUI::debugPointer;
 QRect CoreUI::screenResolution;
@@ -85,6 +89,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<MarkerWindowBackend>("MarkerWindowBackend", 1, 0, "MarkerWindowBackend", MarkerWindowBackend::get());
     qmlRegisterSingletonInstance<AutocaptureMarkWindowBackend>("AutocaptureMarkWindowBackend", 1, 0, "AutocaptureMarkWindowBackend", AutocaptureMarkWindowBackend::get());
     qmlRegisterSingletonInstance<SettingsWindowBackend>("SettingsWindowBackend", 1, 0, "SettingsWindowBackend", SettingsWindowBackend::get());
+    qmlRegisterSingletonInstance<FocusWindowBackend>("FocusWindowBackend", 1, 0, "FocusWindowBackend", FocusWindowBackend::get());
 
     // qml base setup
     ui->map->rootContext()->setContextProperty("OsmConfigPath", CacheManager::getMapProviderCache());

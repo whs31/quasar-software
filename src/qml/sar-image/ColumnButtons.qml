@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
 import UX 1.0
 import DialogWindowBackend 1.0
+import FocusWindowBackend 1.0
 import RuntimeData 1.0
 
 import "qrc:/qml/ui/buttons" as Buttons
@@ -32,6 +33,44 @@ RowLayout {
             imageModel.setProperty(index, "m_i_visible", mainImageVisibleState);
         }
     }
+    Buttons.LightToolButton
+    {
+        property bool waitingForDialogResponse: false;
+
+        id: focusButton;
+        enabled: !RuntimeData.windowLock;
+        fixed_width: 30;
+        fixed_height: 30;
+        frame_color: UX.textWhite;
+        highlight_color: UX.infoLight;
+        frame_radius: 8;
+        frame_enabled: true;
+        icon_px_size: 18;
+        icon_source: "qrc:/icons/crosshair.png";
+        tooltip_text: "Фокусировка изображения";
+        tooltip_enabled: true;
+        label_text_family: fontMedium.name;
+        onClicked: {
+            RuntimeData.windowLock = true;
+            FocusWindowBackend.show();
+            waitingForDialogResponse = true;
+        }
+        function handleResponse()
+        {
+            if(waitingForDialogResponse === true)
+            {
+                if(FocusWindowBackend.returnCode === 1)
+                {
+                    //
+                    waitingForDialogResponse = false;
+                }
+            }
+        }
+        Component.onCompleted: {
+            FocusWindowBackend.returnCodeChanged.connect(handleResponse)
+        }
+    }
+
     Buttons.LightToolButton
     {
         property bool waitingForDialogResponse: false;

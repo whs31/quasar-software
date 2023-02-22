@@ -686,6 +686,15 @@ Rectangle {
 		anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
 		z: 101;
 	}
+
+    DropShadow { z: 99; anchors.fill: focusWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
+                 samples: 32; color: "#80000000"; source: focusWindow; cached: true; }
+    Windows.FocusWindow
+    {
+        id: focusWindow;
+        anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+        z: 101;
+    }
 }
 
 

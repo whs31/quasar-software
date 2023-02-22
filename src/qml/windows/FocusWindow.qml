@@ -271,6 +271,12 @@ Rectangle {
             }
         }
 
+        WheelHandler { id: wheelHandler;
+            property real maxZoom: 100;
+            property real zoom: 1;
+            readonly property real zoom_sensivity: 3;
+        }
+
         Flickable
         {
             id: imageView;
@@ -279,7 +285,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter;
             anchors.top: parent.top;
             anchors.topMargin: 33;
-            //boundsMovement: Flickable.StopAtBounds
+            boundsMovement: Flickable.StopAtBounds
             clip: true;
             pixelAligned: true;
             contentWidth: imageView.width; //TODO
@@ -288,18 +294,10 @@ Rectangle {
             Rectangle
             {
                 id: imageBackground;
-                width: 752;
-                height: 280;
+                width: 752 * wheelHandler.zoom;
+                height: 280 * wheelHandler.zoom;
                 radius: 15;
                 color: UX.primaryDarkest;
-                Glow {
-                    anchors.fill: imageSource;
-                    radius: 8;
-                    samples: 17;
-                    spread: 0.1;
-                    color: "white";
-                    source: imageSource;
-                }
                 Image {
                     id: imageSource;
                     anchors.fill: parent;

@@ -13,6 +13,7 @@ public:
     static ArgumentList* get(QObject* parent = nullptr);
 
     QString makeFormArguments(void);
+    QString makeFocusArguments(void);
 
     ExecdArgument* filename       =  new ExecdArgument(this, ArgumentType::String, "-f", "m1", "Имя файла");
     ExecdArgument* mode           =  new ExecdArgument(this, ArgumentType::Int, "-m", 1, "Режим формирования");
@@ -40,19 +41,17 @@ public:
     ExecdArgument* tshift2        =  new ExecdArgument(this, ArgumentType::Float, "--Tshift", 1);
     ExecdArgument* remote         =  new ExecdArgument(this, ArgumentType::String, "--remote", "None", "Сервер для передачи данных [address:port]");
 
-    //ExecdArgument* rect_x         =  new ExecdArgument(this, ArgumentType::Float, "--px", "-1", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* rect_y         =  new ExecdArgument(this, ArgumentType::Float, "--py", "-1", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* rect_edge         =  new ExecdArgument(this, ArgumentType::Float, "--ls", "50", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* focus_vel_min         =  new ExecdArgument(this, ArgumentType::Float, "--vmin", "-1", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* focus_vel_max         =  new ExecdArgument(this, ArgumentType::Float, "--vmax", "-1", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* drift_angle         =  new ExecdArgument(this, ArgumentType::Float, "--driftAngle", "-1", "Сервер для передачи данных [address:port]");
-    //ExecdArgument* focus_img_cnt=  new ExecdArgument(this, ArgumentType::Int, "--ni", "10", "Сервер для передачи данных [address:port]");
+    ExecdArgument* rect_x         =  new ExecdArgument(this, ArgumentType::Float, "--px", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* rect_y         =  new ExecdArgument(this, ArgumentType::Float, "--py", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* rect_edge      =  new ExecdArgument(this, ArgumentType::Float, "--ls", "50", "Сервер для передачи данных [address:port]");
+    ExecdArgument* focus_time     =  new ExecdArgument(this, ArgumentType::Float, "--Ts", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* focus_vel_min  =  new ExecdArgument(this, ArgumentType::Float, "--vmin", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* focus_vel_max  =  new ExecdArgument(this, ArgumentType::Float, "--vmax", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* drift_angle    =  new ExecdArgument(this, ArgumentType::Float, "--driftAngle", "-1", "Сервер для передачи данных [address:port]");
+    ExecdArgument* focus_img_cnt  =  new ExecdArgument(this, ArgumentType::Int, "--ni", "10", "Сервер для передачи данных [address:port]");
     // -v --Ts --ni --driftAngle -f --px --py --ls --vmin --vmax
     //$FOCUS( )
 
-
-
-    //filename: xx_xxx no fileformat
 
 signals:
 
@@ -60,7 +59,7 @@ private:
     static ArgumentList* _instance;
     explicit ArgumentList(QObject *parent = nullptr);
     QVector<ExecdArgument*> args;
-
+    QVector<ExecdArgument*> focus_args;
 };
 
 #endif // ARGUMENTLIST_H

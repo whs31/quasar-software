@@ -70,6 +70,7 @@ void ExecdRemote::receiveResponse(QByteArray data)
 
 void ExecdRemote::executeClearCommand() { sendCommand(ExecdCommand::ClearStorage); }
 void ExecdRemote::executeFormCommand() { sendCommand(ExecdCommand::FormImage); } // спросить у вовы как это нормально сделать через коннекты))))))
+void ExecdRemote::executeFocusCommand() { sendCommand(ExecdCommand::Focus); }
 void ExecdRemote::sendCommand(ExecdCommand command)
 {
     switch (command)
@@ -101,6 +102,17 @@ void ExecdRemote::sendCommand(ExecdCommand command)
         qDebug() << "[EXECD REMOTE] Sending form command";
 
         QByteArray request = makeCommand(FORM_MARKER + ArgumentList::get()->makeFormArguments()).toUtf8();
+        udpRemote->Send(request);
+
+        qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
+
+        break;
+    }
+    case ExecdCommand::Focus:
+    {
+        qDebug() << "[EXECD REMOTE] Sending focus command";
+
+        QByteArray request = makeCommand(FOCUS_MARKER + ArgumentList::get()->makeFocusArguments()).toUtf8();
         udpRemote->Send(request);
 
         qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;

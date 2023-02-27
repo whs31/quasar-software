@@ -18,10 +18,10 @@ Image::Image(QObject *parent, QByteArray data, QString filePath, ImageMode mode,
 
     if(valid)
     {
-        //конвертируем метаданные в строки для интерфейса, сохраняем время приема картинки
-        assignUIStrings(gui.filename);
         //конвертируем данные в картинку с альфа-каналом (если mode не Raw)
         image = dataToQImage(data, mode);
+        //конвертируем метаданные в строки для интерфейса, сохраняем время приема картинки
+        assignUIStrings(gui.filename);
         //конвертируем в base64 обработанное изображение для упрощения передачи его в QML
         base64 = QImageToBase64(image);     
         //TODO: make small image triange from x0 point to lowerbound
@@ -87,7 +87,7 @@ void Image::assignUIStrings(QString filename)
     gui.thetaAzimuth = QString::number(meta.thetaAzimuth, 'f', 3) + "°" 
         + "<font color=\"#43a1ca\"> [ " + QString::number(meta.thetaAzimuth - thetaAzimuthCorrection) + "° ]</font>";
     gui.checksum = "<font color=\"#a385cf\">0x" + QStringLiteral("%1").arg(meta.checksum, 4, 16, QLatin1Char('0')).toUpper() + "</font>"; //@TODO to uint16
-    gui.filename = "<font color=\"#c7a750\">" + filename + "</font>";
+    gui.filename = filename;
 
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy в hh:mm");
@@ -100,6 +100,7 @@ QImage Image::dataToQImage(QByteArray data, ImageMode mode)
     QImage qimage = QImage::fromData(data, "JPEG");
     realWidth = qimage.width();
     realHeight = qimage.height();
+    meta.ly = realHeight;
       
     if (mode == ImageMode::Raw)
         return qimage;

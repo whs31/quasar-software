@@ -225,6 +225,7 @@ Rectangle {
                                 "m_lon": meta[1],
                                 "m_x0": meta[4],
                                 "m_y0": meta[5],
+                                "m_dx": meta[2],
                                 "m_width": meta[9],
                                 "m_height": meta[10],
                                 "m_angle": meta[6],

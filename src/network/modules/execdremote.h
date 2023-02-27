@@ -16,6 +16,7 @@ enum ExecdCommand : short int
     StorageStatus,
     ClearStorage,
     FormImage,
+    Focus,
     CheckServices
 };
 
@@ -34,6 +35,7 @@ public slots:
 
     void executeFormCommand();
     void executeClearCommand();
+    void executeFocusCommand();
 
 signals:
 
@@ -45,6 +47,7 @@ private:
     const QString CACHE_CLEAR_COMMAND = "$clear_storage()";
     const QString STORAGE_STATUS_COMMAND = "$storage_status()";
     const QString FORM_MARKER = "$FORM";
+    const QString FOCUS_MARKER = "$FOCUS";
 
     size_t getMessageID(void);
     QString makeCommand(QString string);

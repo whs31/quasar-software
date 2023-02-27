@@ -29,7 +29,6 @@ void DataFormParameters::setFormTime(float value) { if (value == time) return;
 float DataFormParameters::getFormStep() { return step; }
 void DataFormParameters::setFormStep(float value) { if (value == step) return;
     step = value; emit formStepChanged(); ArgumentList::get()->dx->setValue(value); 
-    ArgumentList::get()->dx->setValue(value); 
     ArgumentList::get()->dy->setValue(value); 
 }
 
@@ -62,3 +61,73 @@ void DataFormParameters::setFormingContinuous(bool state) { if (state == forming
 int DataFormParameters::getFormingQueueMode() { return queueMode; }
 void DataFormParameters::setFormingQueueMode(int state) { if (state == queueMode) return;
     queueMode = state; emit formingQueueModeChanged(); }
+
+QString DataFormParameters::filename() const
+{
+    return m_filename;
+}
+
+void DataFormParameters::filenameSet(const QString &newFilename)
+{
+    if (m_filename == newFilename)
+        return;
+    m_filename = newFilename;
+    ArgumentList::get()->filename->setValue(filename());
+    emit filenameChanged();
+}
+
+qreal DataFormParameters::focusX() const
+{
+    return m_focusX;
+}
+
+void DataFormParameters::focusXSet(qreal newFocusX)
+{
+    if (qFuzzyCompare(m_focusX, newFocusX))
+        return;
+    m_focusX = newFocusX;
+    emit focusXChanged();
+    ArgumentList::get()->rect_x->setValue(focusX());
+}
+
+qreal DataFormParameters::focusY() const
+{
+    return m_focusY;
+}
+
+void DataFormParameters::focusYSet(qreal newFocusY)
+{
+    if (qFuzzyCompare(m_focusY, newFocusY))
+        return;
+    m_focusY = newFocusY;
+    emit focusYChanged();
+    ArgumentList::get()->rect_y->setValue(focusY());
+}
+
+qreal DataFormParameters::focusL() const
+{
+    return m_focusL;
+}
+
+void DataFormParameters::focusLSet(qreal newFocusL)
+{
+    if (qFuzzyCompare(m_focusL, newFocusL))
+        return;
+    m_focusL = newFocusL;
+    emit focusLChanged();
+    ArgumentList::get()->rect_edge->setValue(focusL());
+}
+
+qreal DataFormParameters::focusTime() const
+{
+    return m_focusTime;
+}
+
+void DataFormParameters::focusTimeSet(qreal newFocusTime)
+{
+    if (qFuzzyCompare(m_focusTime, newFocusTime))
+        return;
+    m_focusTime = newFocusTime;
+    emit focusTimeChanged();
+    ArgumentList::get()->focus_time->setValue(focusTime());
+}

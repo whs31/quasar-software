@@ -66,6 +66,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(SignalLinker::get(), SIGNAL(infoSignal()), this, SLOT(InfoSlot()));
     connect(SignalLinker::get(), SIGNAL(emulatorSignal()), this, SLOT(EmulatorSlot()));
 
+
     // data types here
     qmlRegisterSingletonInstance<DataTelemetry>("Telemetry", 1, 0, "Telemetry", DataTelemetry::get(this));
     qmlRegisterSingletonInstance<DataSAR>("SAR", 1, 0, "SAR", DataSAR::get(this));
@@ -201,6 +202,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // sar commands setup
     connect(SignalLinker::get(), SIGNAL(clearSARStorageSignal()), execdRemote, SLOT(executeClearCommand())); 
     connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), execdRemote, SLOT(executeFormCommand()));
+    connect(SignalLinker::get(), SIGNAL(focusSignal()), execdRemote, SLOT(executeFocusCommand()));
 
     // autocapture setup
     connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), execdRemote, SLOT(executeFormCommand())); 

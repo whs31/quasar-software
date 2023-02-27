@@ -173,7 +173,7 @@ Rectangle {
 
             fixed_width: 114;
             fixed_height: 14;
-            label_text: "NOT IMPLEMENTED"; //реворк
+            label_text: "X: " + Number(FocusWindowBackend.x).toFixed(0) + " m,   Y: " + Number(FocusWindowBackend.y).toFixed() + " m";
             label_color: UX.textWhite;
             label_text_size: 12;
             label_text_family: fontExtraBold.name;
@@ -306,8 +306,54 @@ Rectangle {
                     visible: true;
                     cache: false;
                 }
+                MouseArea
+                {
+                    id: mouseArea;
+                    anchors.fill: parent;
+                    hoverEnabled: true;
+                    propagateComposedEvents: true;
+                    onPositionChanged:
+                    {
+                        FocusWindowBackend.x = (mouseX / width) * FocusWindowBackend.lx * FocusWindowBackend.step + FocusWindowBackend.offset;
+                        FocusWindowBackend.y = ((mouseY / height) - 0.5) * FocusWindowBackend.ly * FocusWindowBackend.step;
+                        mouseCross.requestPaint();
+                    }
+                    onClicked: hoverEnabled = !hoverEnabled;
+                    Canvas
+                    {
+                        id: mouseCross;
+                        anchors.fill: parent;
+                        onPaint:
+                        {
+                            // ❮❮❮ Mouse cross ❯❯❯
+                            let ctx = getContext('2d');
+
+                            ctx.clearRect(0, 0, width, height);
+                            ctx.beginPath();
+                            ctx.strokeStyle = UX.textFaded;
+                            ctx.fillStyle = UX.textFaded;
+                            ctx.lineWidth = 1.5;
+                            ctx.globalAlpha = 0.7;
+                            ctx.moveTo(mouseArea.mouseX, 0);
+                            ctx.lineTo(mouseArea.mouseX, height);
+                            ctx.moveTo(0, mouseArea.mouseY);
+                            ctx.lineTo(width, mouseArea.mouseY);
+                            let kx = width / FocusWindowBackend.lx;
+                            let ky = height / FocusWindowBackend.ly;
+                            ctx.moveTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
+                            ctx.lineTo(mouseArea.mouseX + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
+                            ctx.lineTo(mouseArea.mouseX + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
+                            ctx.lineTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
+                            ctx.lineTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
+                            ctx.stroke();
+                            ctx.fill();
+                        }
+                    }
+                }
             }
         }
+
+
         Labels.FramedLabel
         {
             id: filenameLabel;

@@ -33,6 +33,17 @@ ArgumentList::ArgumentList(QObject *parent)
     args.append(im);
     args.append(tshift2);
     args.append(remote);
+
+    focus_args.append(filename);
+    focus_args.append(velocity);
+    focus_args.append(focus_time);
+    focus_args.append(rect_x);
+    focus_args.append(rect_y);
+    focus_args.append(rect_edge);
+    focus_args.append(focus_vel_max);
+    focus_args.append(focus_vel_min);
+    focus_args.append(drift_angle);
+    focus_args.append(focus_img_cnt);
 }
 
 QString ArgumentList::makeFormArguments(void)
@@ -49,6 +60,25 @@ QString ArgumentList::makeFormArguments(void)
         }
         if(args[arg]->isChanged())
             returnString.append(" " + args[arg]->key + " " + args[arg]->getValue());
+    }
+    returnString.append(")");
+    return returnString;
+}
+
+QString ArgumentList::makeFocusArguments(void)
+{
+    QString returnString = "(";
+    bool noSpaceFlag = false;
+    for(size_t arg = 0; arg < focus_args.length(); arg++)
+    {
+        if(focus_args[arg]->isChanged() && !noSpaceFlag)
+        {
+            returnString.append(focus_args[arg]->key + " " + focus_args[arg]->getValue());
+            noSpaceFlag = true;
+            continue;
+        }
+        if(focus_args[arg]->isChanged())
+            returnString.append(" " + focus_args[arg]->key + " " + focus_args[arg]->getValue());
     }
     returnString.append(")");
     return returnString;

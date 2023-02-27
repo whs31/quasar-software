@@ -20,6 +20,13 @@ class DataFormParameters : public QObject
     Q_PROPERTY(bool formingContinuous               READ getFormingContinuous   WRITE setFormingContinuous   NOTIFY formingContinuousChanged)
     Q_PROPERTY(int formingQueueMode                 READ getFormingQueueMode    WRITE setFormingQueueMode    NOTIFY formingQueueModeChanged)
 
+    // параметры фокусировки
+    Q_PROPERTY(QString filename                     READ filename               WRITE filenameSet            NOTIFY filenameChanged)
+    Q_PROPERTY(qreal focusX                         READ focusX                 WRITE focusXSet              NOTIFY focusXChanged)
+    Q_PROPERTY(qreal focusY                         READ focusY                 WRITE focusYSet              NOTIFY focusYChanged)
+    Q_PROPERTY(qreal focusL                         READ focusL                 WRITE focusLSet              NOTIFY focusLChanged)
+    Q_PROPERTY(qreal focusTime                      READ focusTime              WRITE focusTimeSet           NOTIFY focusTimeChanged)
+
 public:
     static DataFormParameters* get(QObject* parent = nullptr);
 
@@ -34,6 +41,21 @@ public:
     bool getFormingContinuous();                                        void setFormingContinuous(bool state);
     int getFormingQueueMode();                                          void setFormingQueueMode(int state);
 
+    QString filename() const;
+    void filenameSet(const QString &newFilename);
+
+    qreal focusX() const;
+    void focusXSet(qreal newFocusX);
+
+    qreal focusY() const;
+    void focusYSet(qreal newFocusY);
+
+    qreal focusL() const;
+    void focusLSet(qreal newFocusL);
+
+    qreal focusTime() const;
+    void focusTimeSet(qreal newFocusTime);
+
 signals:
     void formModeChanged();
     void formLowerBoundChanged();
@@ -46,6 +68,16 @@ signals:
     void formingContinuousChanged();
     void formingQueueModeChanged();
 
+
+    void filenameChanged();
+
+    void focusXChanged();
+
+    void focusYChanged();
+
+    void focusLChanged();
+
+    void focusTimeChanged();
 
 private:
     static DataFormParameters* _instance;
@@ -61,6 +93,11 @@ private:
     float gpsVelocity = 100;
     bool formingContinuous = false;
     int queueMode = 0; //0 = Single     1 = Continuous
+    QString m_filename;
+    qreal m_focusX;
+    qreal m_focusY;
+    qreal m_focusL;
+    qreal m_focusTime;
 };
 
 #endif // DATAFORMPARAMETERS_H

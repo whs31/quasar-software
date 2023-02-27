@@ -8,6 +8,9 @@ import DialogWindowBackend 1.0
 import FocusWindowBackend 1.0
 import RuntimeData 1.0
 
+import SignalLinker 1.0
+import FormParameters 1.0
+
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 
@@ -54,6 +57,10 @@ RowLayout {
             RuntimeData.windowLock = true;
             FocusWindowBackend.filename = m_filename;
             FocusWindowBackend.base64 = imageModel.get(index).m_base64;
+            FocusWindowBackend.lx = imageModel.get(index).m_width;
+            FocusWindowBackend.ly = imageModel.get(index).m_height;
+            FocusWindowBackend.step = imageModel.get(index).m_dx;
+            FocusWindowBackend.offset = imageModel.get(index).m_x0;
             FocusWindowBackend.show();
             waitingForDialogResponse = true;
         }
@@ -63,7 +70,14 @@ RowLayout {
             {
                 if(FocusWindowBackend.returnCode === 1)
                 {
-                    //
+                    //form parameters
+                    FormParameters.focusX = FocusWindowBackend.x;
+                    console.log(FormParameters.focusX)
+                    FormParameters.focusY = FocusWindowBackend.y;
+                    FormParameters.focusL = FocusWindowBackend.sideLength;
+                    FormParameters.focusTime = FocusWindowBackend.time;
+                    FormParameters.filename = FocusWindowBackend.filename;
+                    SignalLinker.focus();
                     waitingForDialogResponse = false;
                 }
             }

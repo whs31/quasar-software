@@ -32,11 +32,12 @@ QString FocusWindowBackend::filename() const
     return m_filename;
 }
 
-void FocusWindowBackend::filenameSet(const QString &newFilename)
+void FocusWindowBackend::filenameSet(QString newFilename)
 {
     if (m_filename == newFilename)
         return;
     m_filename = newFilename;
+    m_filename.chop(4);
     emit filenameChanged();
 }
 
@@ -66,6 +67,45 @@ void FocusWindowBackend::ySet(qreal newY)
     emit yChanged();
 }
 
+qreal FocusWindowBackend::lx() const
+{
+    return m_lx;
+}
+
+void FocusWindowBackend::lxSet(qreal newLX)
+{
+    if (qFuzzyCompare(m_lx, newLX))
+        return;
+    m_lx = newLX;
+    emit lxChanged();
+}
+
+qreal FocusWindowBackend::ly() const
+{
+    return m_ly;
+}
+
+void FocusWindowBackend::lySet(qreal newLY)
+{
+    if (qFuzzyCompare(m_ly, newLY))
+        return;
+    m_ly = newLY;
+    emit lyChanged();
+}
+
+qreal FocusWindowBackend::step() const
+{
+    return m_step;
+}
+
+void FocusWindowBackend::stepSet(qreal newStep)
+{
+    if (qFuzzyCompare(m_step, newStep))
+        return;
+    m_step = newStep;
+    emit stepChanged();
+}
+
 qreal FocusWindowBackend::time() const
 {
     return m_time;
@@ -90,4 +130,17 @@ void FocusWindowBackend::sideLengthSet(qreal newSideLength)
         return;
     m_sideLength = newSideLength;
     emit sideLengthChanged();
+}
+
+qreal FocusWindowBackend::offset() const
+{
+    return m_offset;
+}
+
+void FocusWindowBackend::offsetSet(qreal newOffset)
+{
+    if (qFuzzyCompare(m_offset, newOffset))
+        return;
+    m_offset = newOffset;
+    emit offsetChanged();
 }

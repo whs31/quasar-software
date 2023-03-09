@@ -27,7 +27,7 @@ import "map" as MapWidgets
 import "windows" as Windows
 
 Rectangle {
-    id: qqview
+	id: root;
 
     //=======================================================================================================
     //======                        ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ, ТИПЫ И КОНСТАНТЫ                           =======
@@ -40,8 +40,6 @@ Rectangle {
     Predict { id: predict; }
 
 	// ux constants
-	// deprecated
-	Material.theme: Material.Dark; Material.accent: UX.primaryLight; Material.primary: UX.warningDark; Material.background: UX.primaryDarker;
 	// fonts
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
@@ -53,7 +51,7 @@ Rectangle {
     layer.samples: 4;
 
 	// defaults constants
-    property int  defaultMapModeOnTestMode: 0;
+	property int defaultMapModeOnTestMode: 0;
 
     //constants related to mapItems
     property real movingThreshold: 5; //движение иконок начнется только если борт переместился более чем на 5 метров за итерацию
@@ -64,6 +62,11 @@ Rectangle {
     property int r_currentstate: 0;
     property var r_firstpoint: QtPositioning.coordinate(0.0, 0.0);
     property var r_secondpoint: QtPositioning.coordinate(0.0, 0.0);
+
+	//tabs
+	property int currentTab: 0; // 0 - map, 1 - focus
+	property alias tabWorkspaceWidth: mapView.width;
+	property alias tabWorkspaceHeight: mapView.height;
 
     //=======================================================================================================
     //======                        ОБЩИЕ ФУНКЦИИ ДЛЯ ВСЕГО QQW И ФРОНТЭНДА                           =======
@@ -331,7 +334,10 @@ Rectangle {
         } 
 
         id: mapView
-        anchors.fill: parent;
+		anchors.top: topBar.bottom;
+		anchors.bottom: bottomBar.top;
+		anchors.left: parent.left;
+		anchors.right: parent.right;
         layer.smooth: true;
         tilt: 15;
         gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
@@ -586,41 +592,6 @@ Rectangle {
             opacity: RuntimeData.drawGrid ? 0.5 : 0;
         }
 
-        DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16;
-                     samples: 32; color: "#80000000"; source: topBar; cached: true; }
-        Groups.TopBar
-        {
-            id: topBar;
-            anchors.top: parent.top;
-            anchors.left: parent.left; anchors.right: parent.right;
-            z: 100;
-        }
-        Windows.StatusPopup
-        {
-            id: statusPopup;
-            z: 100;
-            anchors.horizontalCenter: parent.horizontalCenter; anchors.horizontalCenterOffset: 128;
-            anchors.bottom: bottomBar.top;
-			anchors.bottomMargin: 25 * DynamicResolution.kh;
-            status: RuntimeData.statusPopup;
-            label_color: UX.textWhite;
-            outline_color: UX.primaryDark;
-			label_text_size: 15 * DynamicResolution.kh;
-            label_text_family: fontSemiBold.name;
-        }
-
-        DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16;
-                     samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
-        Groups.BottomBar
-        {
-            id: bottomBar;
-            anchors.bottom: parent.bottom;
-            anchors.left: parent.left; anchors.right: parent.right;
-            z: 100;
-        }
-        Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom;
-                    anchors.bottom: bottomBar.top; }
-
         Groups.EmulatorTextPanel
         {
             id: emulatorTextPanel;
@@ -661,8 +632,32 @@ Rectangle {
             visible: RuntimeData.mouseState === 1 ? true : false;
         }
     }
-    DropShadow { z: 99; anchors.fill: infoWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16;
-                 samples: 32; color: "#80000000"; source: infoWindow; cached: true; }
+
+	DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16; samples: 32; color: "#80000000"; source: topBar; cached: true; }
+	Groups.TopBar { id: topBar;
+		anchors.top: parent.top;
+		anchors.left: parent.left; anchors.right: parent.right;
+		z: 100;
+	}
+	Windows.StatusPopup { id: statusPopup;
+		z: 100;
+		anchors.horizontalCenter: parent.horizontalCenter; anchors.horizontalCenterOffset: 128;
+		anchors.bottom: bottomBar.top;
+		anchors.bottomMargin: 25 * DynamicResolution.kh;
+		status: RuntimeData.statusPopup;
+		label_color: UX.textWhite;
+		outline_color: UX.primaryDark;
+		label_text_size: 15 * DynamicResolution.kh;
+		label_text_family: fontSemiBold.name;
+	}
+	DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16; samples: 32; color: "#80000000"; source: bottomBar; cached: true; }
+	Groups.BottomBar { id: bottomBar;
+		anchors.bottom: parent.bottom;
+		anchors.left: parent.left; anchors.right: parent.right;
+		z: 100;
+	}
+	Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom; anchors.bottom: bottomBar.top; }
+	DropShadow { z: 99; anchors.fill: infoWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16; samples: 32; color: "#80000000"; source: infoWindow; cached: true; }
     Windows.InfoWindow
     {
         id: infoWindow;
@@ -693,7 +688,7 @@ Rectangle {
     Windows.FocusWindow
     {
         id: focusWindow;
-        anchors.centerIn: parent; anchors.horizontalCenterOffset: 128;
+		anchors.centerIn: mapView;
         z: 101;
     }
 }

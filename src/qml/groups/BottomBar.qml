@@ -560,8 +560,8 @@ Rectangle {
     Rectangle
     {
         id: attitudeFrame;
-        width: 288 * DynamicResolution.kw;
-        height: 168 * DynamicResolution.kh;
+		width: 208 * DynamicResolution.kw;
+		height: 118 * DynamicResolution.kh;
         color: UX.primaryDark;
         radius: 5;
         anchors.left: parent.left;

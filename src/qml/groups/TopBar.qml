@@ -46,7 +46,7 @@ Rectangle {
         label_text_size: 17 * DynamicResolution.kh;
         label_text_family: fontBold.name;   label_text_bold: true;
         background_color: FormParameters.formingQueueMode === 0 ? UX.infoLight : FormParameters.formingContinuous ? UX.textWhite : UX.accentLighter;
-        background_secondary_color: Qt.lighter(background_color, 1.5); 
+		background_secondary_color: Qt.lighter(background_color, 1.1);
         background_radius: 2 * DynamicResolution.kw;
         tooltip_text: "Запуск формирования";
         tooltip_enabled: true;

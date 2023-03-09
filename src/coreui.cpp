@@ -31,11 +31,10 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
-    uiReady = true;
     this->setStyleSheet("QWidget\n{\n	background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n}\nQAbstractScrollArea "
                         "{\n  background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n"
                         "  border: 1px solid " + ThemeManager::get()->getPrimaryDarker().name() + ";\n  border-radius: 4px;\n  /* fix #159 */\n  padding: 2px;\n  "
-                        "\n  color: #121617;\n}\nQScrollBar:vertical {\n  background-color: #121617;\n  width: 16px;\n  "
+                        "\n  color: #3B4252;\n}\nQScrollBar:vertical {\n  background-color: #3B4252;\n  width: 16px;\n  "
                         "margin: 16px 2px 16px 2px;\n  border: 1px solid #121617;\n  border-radius: 4px;\n}\nQScrollBar::handle:vertical "
                         "{\n  background-color: #293133;\n  border: 1px solid #121617;\n  min-height: 8px;\n  border-radius: 4px;\n}\n"
                         "QScrollBar::handle:vertical:hover {\n  background-color: #3e4c4f;\n  border: #3e4c4f;\n  border-radius: 4px;\n  "
@@ -231,9 +230,6 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 CoreUI::~CoreUI()
 {
     qInfo() << "[CORE] Ending current session...";
-
-    uiReady = false;
-
     delete ui;
     delete qml;
     delete TilesManager::get();
@@ -259,8 +255,6 @@ void* CoreUI::LoadPlugin(QString path)
 CoreUI *CoreUI::getDebugPointer(void)   { return debugPointer; }
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
-    if (!uiReady)
-        return;
     if (msgtype == 0) { ui->debugConsole->setTextColor(ThemeManager::get()->getTextWhite()); }
     else if (msgtype == 1) { ui->debugConsole->setTextColor(ThemeManager::get()->getInfoLight()); }
     else if (msgtype == 2) { ui->debugConsole->setTextColor(ThemeManager::get()->getWarningLight()); }
@@ -269,7 +263,7 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 
     QFont consoleFont = ui->debugConsole->font();
     consoleFont.setPointSize(8);
-    ui->debugConsole->insertPlainText(_text);
+    ui->debugConsole->append(_text);
     ui->debugConsole->setTextColor(Qt::white);
     ui->debugConsole->setFont(consoleFont);
     QTextCursor m_cursor = ui->debugConsole->textCursor();
@@ -277,7 +271,6 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
     ui->debugConsole->setTextCursor(m_cursor);
 }
 
-bool CoreUI::getReady(void)             { return uiReady; }
 void CoreUI::updateProgress(float f)
 {
     if (f > 0)

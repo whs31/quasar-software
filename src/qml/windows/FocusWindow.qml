@@ -13,14 +13,11 @@ import "qrc:/qml/ui/input" as Input
 
 Rectangle {
     id: window;
-    visible: width > 0;
+	visible: FocusWindowBackend.shown;
     enabled: FocusWindowBackend.shown;
-    height: FocusWindowBackend.shown ? 382 : 0;
-    width: FocusWindowBackend.shown ? 781 : 0;
-    radius: 35;
+	height: FocusWindowBackend.shown ? root.tabWorkspaceHeight : 0;
+	width: FocusWindowBackend.shown ? root.tabWorkspaceWidth : 0;
     color: UX.primaryDark;
-    Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
-    Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
 
     FontLoader { id: fontBold; source: "qrc:/fonts/SofiaSans-Bold.ttf" }
     FontLoader { id: fontExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf" }

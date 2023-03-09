@@ -16,13 +16,13 @@ import "qrc:/qml/ui" as UI
 Rectangle {
     id: base;
     color: UX.textWhite;
-    width: 280 * DynamicResolution.kw;
-    height: 160 * DynamicResolution.kh ;
+	width: 200 * DynamicResolution.kw;
+	height: 110 * DynamicResolution.kh ;
     opacity: 1;
     radius: 6 * DynamicResolution.kw;
     border.width: 2 * DynamicResolution.kh;
     border.color: UX.textFaded;
-    clip: true;
+	clip: true;
     Rectangle
     {
         id: indicator;

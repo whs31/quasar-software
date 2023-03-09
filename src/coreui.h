@@ -69,7 +69,6 @@ public:
     void debugStreamUpdate(QString _text, int msgtype);
 
     //public getters
-    bool getReady(void);
     bool eventFilter(QObject* obj, QEvent* event);
 
 public slots:
@@ -93,7 +92,6 @@ private:
     DynamicResolution* dynamicResolutionInstance = nullptr;
 
     //global flags
-    bool uiReady = false;
     bool formingContinuous = false;
 
     //global variables

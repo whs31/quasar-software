@@ -8,6 +8,8 @@
 #endif
 
 QString logName = "";
+bool m_pointer_reset_flag = false;
+QScopedPointer<CoreUI> core;
 
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
@@ -15,23 +17,23 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     int msgt = 0;
     switch (type) {
     case QtDebugMsg:
-        txt = QString("%1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg);
         msgt = 0;
         break;
     case QtWarningMsg:
-        txt = QString("%1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg);
         msgt = 2;
     break;
     case QtInfoMsg:
-        txt = QString("%1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg);
         msgt = 1;
     break;
     case QtCriticalMsg:
-        txt = QString("%1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg);
         msgt = 3;
     break;
     case QtFatalMsg:
-        txt = QString("%1").arg(msg+"\r\n");
+        txt = QString("%1").arg(msg);
         msgt = 4;
     break;
     }
@@ -40,10 +42,8 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';
-    CoreUI* pointer = CoreUI::getDebugPointer();
-    if(pointer->getReady())
-        if(!txt.contains("QDeclarativeGeoMap_QML_73") && !txt.contains("all providers resolved"))
-            pointer->debugStreamUpdate(txt, msgt);
+    if(m_pointer_reset_flag)
+        core.get()->debugStreamUpdate(txt, msgt);
 }
 
 int main(int argc, char *argv[]) {
@@ -54,17 +54,18 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qSetMessagePattern("[%{time process}] %{message}");
 
-    QQuickStyle::setStyle("Material");                      //графика для QML
+    QQuickStyle::setStyle("Material");
 
     #include <QDateTime>
     QDateTime date = QDateTime::currentDateTime();
     logName = date.toString("dd.MM.yyyy-hh:mm");
     logName.prepend("log-");
     logName.append(".txt");
+    core.reset(new CoreUI());
+    m_pointer_reset_flag = true;
     qInstallMessageHandler(debugLogger);
-    CoreUI window; 
-    window.show();
-    window.showMaximized();
+    core.get()->show();
+    core.get()->showMaximized();
     //window.showFullScreen();
     return app.exec();
 }

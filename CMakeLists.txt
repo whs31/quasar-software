@@ -69,13 +69,16 @@ else()
         src/gui/thememanager.h                          src/gui/thememanager.cpp
         src/gui/themes/dark.h                           src/gui/themes/dark.cpp
         src/gui/themes/swampgreen.h                     src/gui/themes/swampgreen.cpp
-        src/gui/widgets/colorpicker.h                   src/gui/widgets/colorpicker.cpp
+	#src/gui/widgets/colorpicker.h                   src/gui/widgets/colorpicker.cpp			-removed
         src/gui/windows/abstract/windowbackend.h        src/gui/windows/abstract/windowbackend.cpp
         src/gui/windows/dialogwindowbackend.h           src/gui/windows/dialogwindowbackend.cpp
         src/gui/windows/markerwindowbackend.h           src/gui/windows/markerwindowbackend.cpp
         src/gui/windows/autocapturemarkwindowbackend.h  src/gui/windows/autocapturemarkwindowbackend.cpp
         src/gui/windows/settingswindowbackend.h         src/gui/windows/settingswindowbackend.cpp
         src/gui/windows/focuswindowbackend.h            src/gui/windows/focuswindowbackend.cpp
+
+	# new modules (after refork)
+	src/theme/include/theme.hpp			src/theme/src/theme.cpp					src/theme/src/theme_p.hpp
 
         src/qml.qrc
         src/qss.qrc

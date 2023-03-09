@@ -84,7 +84,7 @@ else()
         src/qss.qrc
         src/osmconfig.qrc
         resources/resources.qrc
-	uml/architecturediagram.qmodel
+	#uml/architecturediagram.qmodel
         ${SRCS} appiconwin32.rc
    )
 endif()

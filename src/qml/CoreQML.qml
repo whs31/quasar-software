@@ -407,9 +407,22 @@ Rectangle {
                               point1,
                               point3
                             ];
-
                       Behavior on opacity { NumberAnimation { duration: 1000 } }
         }
+//		Image { id: polygonPattern;
+//			source: "qrc:/map/patterns/diagonal.png";
+//			fillMode: Image.Tile;
+//			sourceSize.width: 64;
+//			sourceSize.height: 64;
+//			visible: false;
+//			rotation: planeMapItem.rotationAngle;
+//		}
+//		OpacityMask { id: polygonPatternMask;
+//			source: polygonPattern;
+//			maskSource: predictPoly;
+//			anchors.fill: predictPoly;
+//		}
+
         MapItemView
         {
             model: imageUIModel;

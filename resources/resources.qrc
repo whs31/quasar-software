@@ -80,5 +80,6 @@
         <file>map/items/dot.png</file>
         <file>icons/hide.png</file>
         <file>icons/crosshair.png</file>
+        <file>map/patterns/diagonal.png</file>
     </qresource>
 </RCC>

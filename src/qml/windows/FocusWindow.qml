@@ -33,7 +33,7 @@ Rectangle {
 			anchors.top: parent.top;
 			anchors.topMargin: 8;
 			anchors.left: parent.left;
-			anchors.leftMargin: 8;
+			anchors.leftMargin: 3;
 			fixed_width: 282;
 			fixed_height: 13;
 			label_text: "ФОКУСИРОВКА ИЗОБРАЖЕНИЯ";
@@ -201,6 +201,8 @@ Rectangle {
 			frame_enabled: true;
 			onClicked: {
 				FocusWindowBackend.cancel();
+				imageView.returnToBounds();
+				imageSource.zoom = 0;
 			}
 		}
 		Buttons.LightButton
@@ -223,6 +225,8 @@ Rectangle {
 			frame_enabled: true;
 			onClicked: {
 				FocusWindowBackend.accept();
+				imageSource.zoom = 0;
+				imageView.returnToBounds();
 			}
 		}
 
@@ -260,7 +264,7 @@ Rectangle {
 			frame_radius: 5;
 			frame_width: 0;
 			frame_enabled: false;
-			frame_color: UX.primaryDarker;
+			frame_color: UX.primaryDarkest;
 			selection_color: UX.warningLight;
 			input_text: Number(FocusWindowBackend.time).toFixed(1);
 			input_text_postfix: " с";
@@ -278,7 +282,7 @@ Rectangle {
 			anchors.bottom: timeText.top;
 			anchors.margins: 10;
 
-			boundsBehavior: Flickable.DragOverBounds
+			boundsBehavior: Flickable.StopAtBounds
 			clip: true;
 			pixelAligned: true;
 			interactive: true;
@@ -289,9 +293,8 @@ Rectangle {
 			Rectangle
 			{
 				id: imageBackground;
-				width: Math.max(imageSource.width * imageSource.scale, root.width);
-				height: Math.max(imageSource.height * imageSource.scale, root.height);
-				radius: 15;
+				width: Math.max(imageSource.width * imageSource.scale, window.width);
+				height: Math.max(imageSource.height * imageSource.scale, window.height);
 				color: UX.primaryDarkest;
 				anchors.centerIn: parent;
 
@@ -309,6 +312,7 @@ Rectangle {
 
 					property real zoom: 0.0;
 					property real zoomStep: 0.1;
+
 					MouseArea
 					{
 						id: mouseArea;
@@ -316,18 +320,24 @@ Rectangle {
 						hoverEnabled: true;
 						propagateComposedEvents: true;
 						acceptedButtons: Qt.RightButton;
-						onPositionChanged:
+						function adjustCoordinates()
 						{
-							FocusWindowBackend.x = (mouseX / width) * FocusWindowBackend.lx * FocusWindowBackend.step + FocusWindowBackend.offset;
-							FocusWindowBackend.y = ((mouseY / height) - 0.5) * FocusWindowBackend.ly * FocusWindowBackend.step;
+							FocusWindowBackend.x = (mouseArea.mouseX / width) * FocusWindowBackend.lx * FocusWindowBackend.step + FocusWindowBackend.offset - 10;
+							FocusWindowBackend.y = ((mouseArea.mouseY / height) - 0.5) * FocusWindowBackend.ly * FocusWindowBackend.step;
 						}
+						onPositionChanged: adjustCoordinates();
 						onWheel: {
 							if (wheel.angleDelta.y > 0)
 								imageSource.zoom = Number((imageSource.zoom + imageSource.zoomStep).toFixed(1))
 							else
-								if (imageSource.zoom > 0) imageSource.zoom = Number((imageSource.zoom - imageSource.zoomStep).toFixed(1))
+							{
+								if (imageSource.zoom > 0) imageSource.zoom = Number((imageSource.zoom - imageSource.zoomStep).toFixed(1));
+								imageView.returnToBounds();
+							}
 
-							wheel.accepted=true
+							mouseArea.hoverEnabled = true;
+							//adjustCoordinates();
+							wheel.accepted = true;
 						}
 						onClicked: hoverEnabled = !hoverEnabled;
 						Rectangle { id: crosshair;
@@ -335,45 +345,20 @@ Rectangle {
 							height: width;
 							x: mouseArea.mouseX - width / 2;
 							y: mouseArea.mouseY - height / 2;
-							opacity: 0.5;
-							color: UX.warningLight;
+							opacity: 1;
+							color: "#00000000";
 							border.width: 2;
 							border.color: UX.textFaded;
+							Image { id: pattern;
+								anchors.fill: parent;
+								source: "qrc:/map/patterns/diagonal.png";
+								fillMode: Image.Tile;
+								sourceSize.width: 64;
+								sourceSize.height: 64;
+							}
 						}
 					}
 				}
-
-//				Canvas
-//				{
-//					id: mouseCross;
-//					anchors.fill: parent;
-//					clip: true;
-//					onPaint:
-//					{
-//						// ❮❮❮ Mouse cross ❯❯❯
-//						let ctx = getContext('2d');
-
-//						ctx.clearRect(0, 0, width, height);
-//						ctx.beginPath();
-//						ctx.strokeStyle = UX.textFaded;
-//						ctx.fillStyle = UX.textFaded;
-//						ctx.lineWidth = 1.5;
-//						ctx.globalAlpha = 0.7;
-//						ctx.moveTo(mouseArea.mouseX, 0);
-//						ctx.lineTo(mouseArea.mouseX, height);
-//						ctx.moveTo(0, mouseArea.mouseY);
-//						ctx.lineTo(width, mouseArea.mouseY);
-//						let kx = imageSource.width / FocusWindowBackend.lx;
-//						let ky = kx;//imageSource.height / FocusWindowBackend.ly;
-//						ctx.moveTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
-//						ctx.lineTo(mouseArea.mouseX + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
-//						ctx.lineTo(mouseArea.mouseX + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
-//						ctx.lineTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY + (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
-//						ctx.lineTo(mouseArea.mouseX - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * kx, mouseArea.mouseY - (FocusWindowBackend.sideLength * FocusWindowBackend.step) * ky);
-//						ctx.stroke();
-//						ctx.fill();
-//					}
-//				}
 			}
 		}
 

@@ -7,12 +7,11 @@
 #include <QDebug>
 
 
-CoreUI *CoreUI::debugPointer;
+bool CoreUI::uiReady = false;
 QRect CoreUI::screenResolution;
 CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
                                   ui(new Ui::CoreUI)
 {
-    debugPointer = this;
     // cache setup
     CacheManager::get(this);
 
@@ -31,6 +30,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
+    uiReady = true;
     this->setStyleSheet("QWidget\n{\n	background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n}\nQAbstractScrollArea "
                         "{\n  background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n"
                         "  border: 1px solid " + ThemeManager::get()->getPrimaryDarker().name() + ";\n  border-radius: 4px;\n  /* fix #159 */\n  padding: 2px;\n  "
@@ -230,6 +230,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 CoreUI::~CoreUI()
 {
     qInfo() << "[CORE] Ending current session...";
+    uiReady = false;
     delete ui;
     delete qml;
     delete TilesManager::get();
@@ -252,7 +253,6 @@ void* CoreUI::LoadPlugin(QString path)
     return pluginInterface;
 }
 
-CoreUI *CoreUI::getDebugPointer(void)   { return debugPointer; }
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
     if (msgtype == 0) { ui->debugConsole->setTextColor(ThemeManager::get()->getTextWhite()); }

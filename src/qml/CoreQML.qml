@@ -649,6 +649,7 @@ Rectangle {
 	DropShadow { z: 99; anchors.fill: topBar; horizontalOffset: -12; verticalOffset: 9; radius: 16; samples: 32; color: "#80000000"; source: topBar; cached: true; }
 	Groups.TopBar { id: topBar;
 		anchors.top: parent.top;
+		enabled: !focusWindow.enabled;
 		anchors.left: parent.left; anchors.right: parent.right;
 		z: 100;
 	}

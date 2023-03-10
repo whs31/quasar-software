@@ -41,5 +41,6 @@
         <file>qml/windows/SettingsWindow.qml</file>
         <file>qml/ui/input/FramedLineEdit.qml</file>
         <file>qml/windows/FocusWindow.qml</file>
+        <file>qml/windows/DebugConsoleWindow.qml</file>
     </qresource>
 </RCC>

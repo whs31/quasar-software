@@ -3,14 +3,22 @@
 
 #include <QApplication>
 #include "coreui.h"
+#include <QList>
+#include <QPair>
 #if defined(Q_OS_WIN)
 #include <windows.h>
 #endif
 
-QString logName = "";
-bool m_pointer_reset_flag = false;
-QScopedPointer<CoreUI> core;
 
+
+
+//! @brief Логгер для кастомной имплементации консоли отладки.
+//! @details Сохраняет логи в отдельный файл, перенаправляет их в консоль отладки
+//!          и задает цвет для разных типов сообщений.
+QString logName = "";
+QScopedPointer<CoreUI> core;
+QList<QPair<int, QString>> cachedDebugInfo;
+bool releaseCacheFlag = false;
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
 {
     QString txt;
@@ -42,8 +50,16 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';
-    if(m_pointer_reset_flag)
+    if(core.get() != nullptr)
+    {
         core.get()->debugStreamUpdate(txt, msgt);
+        if(not releaseCacheFlag)
+            for (QPair<int, QString> message : cachedDebugInfo) {
+                core.get()->debugStreamUpdate(message.second, message.first);
+            }
+    }
+    else
+        cachedDebugInfo.append(QPair<int, QString>(msgt, txt));
 }
 
 int main(int argc, char *argv[]) {
@@ -54,18 +70,14 @@ int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     qSetMessagePattern("[%{time process}] %{message}");
 
-    QQuickStyle::setStyle("Material");
-
     #include <QDateTime>
     QDateTime date = QDateTime::currentDateTime();
     logName = date.toString("dd.MM.yyyy-hh:mm");
     logName.prepend("log-");
     logName.append(".txt");
-    core.reset(new CoreUI());
-    m_pointer_reset_flag = true;
     qInstallMessageHandler(debugLogger);
+    core.reset(new CoreUI());
     core.get()->show();
-    core.get()->showMaximized();
-    //window.showFullScreen();
+    core.get()->showFullScreen();
     return app.exec();
 }

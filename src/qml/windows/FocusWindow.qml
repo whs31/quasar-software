@@ -41,7 +41,7 @@ Rectangle {
 			label_text_size: 17;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
-			label_textAlignment: Text.ALignLeft;
+			label_textAlignment: Text.AlignLeft;
 			frame_radius: 2;
 			frame_width: 0;
 		}

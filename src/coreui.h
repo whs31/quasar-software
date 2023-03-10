@@ -63,7 +63,7 @@ public:
     ~CoreUI();
 
     //static public methods
-    static CoreUI* getDebugPointer(void);
+    static bool uiReady;
 
     //public methods
     void debugStreamUpdate(QString _text, int msgtype);

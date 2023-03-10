@@ -3,6 +3,7 @@
 #include "buildprefs.h"
 
 #include "gui/windows/focuswindowbackend.h"
+#include "theme/include/theme.hpp"
 
 #include <QDebug>
 
@@ -72,16 +73,15 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<DataFormParameters>("FormParameters", 1, 0, "FormParameters", DataFormParameters::get(this));
 
     // get resolution for some ui rescaling and start new log in debug
-    dynamicResolutionInstance = new DynamicResolution(this);
-    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
-    qmlRegisterSingletonInstance<DynamicResolution>("DynamicResolution", 1, 0, "DynamicResolution", dynamicResolutionInstance);
 
-    qDebug() << "[CORE] Using screen resolution of current monitor: " << screenResolution.width() << "x" << screenResolution.height();
+    screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
+    qmlRegisterSingletonInstance<Theme>("Theme", 1, 0, "Theme", Theme::get());
+    Theme::get()->setWindowDimension(screenResolution.width(), screenResolution.height());
+
+    dynamicResolutionInstance = new DynamicResolution(this);
+    qmlRegisterSingletonInstance<DynamicResolution>("DynamicResolution", 1, 0, "DynamicResolution", dynamicResolutionInstance);
     dynamicResolutionInstance->setWidthCoefficient((float)screenResolution.width() / 1366);
     dynamicResolutionInstance->setHeightCoefficient((float)screenResolution.height() / 768);
-
-    qDebug() << "[CORE] Recalculated coefficients for GUI: " << dynamicResolutionInstance->getWidthCoefficient() << ", "
-             << dynamicResolutionInstance->getHeightCoefficient();
 
     // qml ux/ui setup
     qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());

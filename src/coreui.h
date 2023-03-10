@@ -89,6 +89,8 @@ private:
     QQuickItem* qml = nullptr;
     FlightEmulator* flightEmulator = nullptr;
     PluginHostAPI* HostAPI = nullptr;
+
+    __attribute__ ((deprecated("Deprecated. Use Theme interface instead")))
     DynamicResolution* dynamicResolutionInstance = nullptr;
 
     //global flags

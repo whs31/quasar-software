@@ -47,7 +47,7 @@ windows:
     - cp Quasar.exe $CI_PROJECT_TITLE
     - cp compiled/win32/terminal.dll $CI_PROJECT_TITLE/app-plugins  #terminal plugin for vt100 support
     - cp libplugin/plugin.dll $CI_PROJECT_TITLE                     #plugin interface 
-    - cp resources/themes/dark.json $CI_PROJECT_TITLE/themes        #default theme
+    - cp resources/themes/nord.json $CI_PROJECT_TITLE/themes        #default theme
     - cpwinlib iconv.dll $CI_PROJECT_TITLE
     - cpwinlib libbz2-1.dll $CI_PROJECT_TITLE
     - cpwinlib libcfitsio-3.dll $CI_PROJECT_TITLE

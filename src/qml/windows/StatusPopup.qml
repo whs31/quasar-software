@@ -2,18 +2,18 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
-import DynamicResolution 1.0
+import Theme 1.0
 import RuntimeData 1.0
 
 Item {
     property string status: "EmptyStatustext";
     property color label_color: "#FF0000";
     property color outline_color: "#AA0000";
-    property int label_text_size: 12 * DynamicResolution.kh;
+    property int label_text_size: 12 * Theme.scalingFactor.y;
     property string label_text_family: "Helvetica [Cronyx]";
 
-    width: statusText.paintedWidth + 5 * DynamicResolution.kw;
-    height: statusText.paintedHeight + 5 * DynamicResolution.kh;
+    width: statusText.paintedWidth + 5 * Theme.scalingFactor.x;
+    height: statusText.paintedHeight + 5 * Theme.scalingFactor.y;
 
     Text {
         id: statusText;

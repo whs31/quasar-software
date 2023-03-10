@@ -1,16 +1,16 @@
 import QtQuick 2.15
-import DynamicResolution 1.0
+import Theme 1.0
 
 Rectangle {
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_width: 100 * Theme.scalingFactor.x;
+    property int fixed_height: 25 * Theme.scalingFactor.y;
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12 * DynamicResolution.kh;
+    property int label_text_size: 12 * Theme.scalingFactor.y;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
-    property int frame_radius: 8 * DynamicResolution.kw;
+    property int frame_radius: 8 * Theme.scalingFactor.x;
     property int frame_width: 1;
     property int label_textAlignment: Text.AlignHCenter;
 	property bool label_wrapping: false;

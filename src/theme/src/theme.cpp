@@ -23,11 +23,10 @@ void Theme::setWindowDimension(float width, float height)
     d->setWindowDimension(width, height);
 }
 
-QList<QString> Theme::color() const { return m_color; }
-void Theme::setColor(const QList<QString>& list) {
-    if (m_color == list) return;
-    m_color = list;
-    emit colorChanged();
+QString Theme::color(QString key)
+{
+    Q_D(Theme);
+    return d->m_color.value(key);
 }
 QPointF Theme::scalingFactor() const { return m_scalingFactor; }
 void Theme::setScalingFactor(QPointF factor) {
@@ -88,14 +87,13 @@ void ThemePrivate::applyTheme(QString theme)
             _file.close();
             QJsonDocument _doc = QJsonDocument::fromJson(_val.toUtf8());
             QJsonObject _object = _doc.object();
-            QList<QString> _theme_list;
+            m_color.clear();
             for(QString key : _object.keys())
             {
-                _theme_list.append(_object.value(key).toString());
+                m_color.insert(key, _object.value(key).toString());
             }
-            q->setColor(_theme_list);
 
-            qInfo() << "[THEME] Theme set: " << q->color();
+            qInfo() << "[THEME] Theme set.";
 
             break;
         }

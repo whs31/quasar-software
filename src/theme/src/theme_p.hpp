@@ -16,4 +16,5 @@ class ThemePrivate
 
     private:
         Theme* q_ptr;
+        QHash<QString, QString> m_color;
 };

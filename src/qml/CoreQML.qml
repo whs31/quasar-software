@@ -13,7 +13,7 @@ import MarkerManager 1.0
 import ImageManager 1.0
 import FlightPrediction 1.0
 
-import DynamicResolution 1.0
+import Theme 1.0
 import RuntimeData 1.0
 import Config 1.0
 import UX 1.0
@@ -626,7 +626,7 @@ Rectangle {
             label_text_size: 12;
             label_text_family: fontBold.name;
             label_text_bold: true;
-            frame_radius: 10 * DynamicResolution.kh;
+			frame_radius: 10 * Theme.scalingFactor.y;
             frame_width: 0;
             label_textAlignment: Text.AlignLeft;
         }
@@ -657,11 +657,11 @@ Rectangle {
 		z: 100;
 		anchors.horizontalCenter: parent.horizontalCenter; anchors.horizontalCenterOffset: 128;
 		anchors.bottom: bottomBar.top;
-		anchors.bottomMargin: 25 * DynamicResolution.kh;
+		anchors.bottomMargin: 25 * Theme.scalingFactor.y;
 		status: RuntimeData.statusPopup;
 		label_color: UX.textWhite;
 		outline_color: UX.primaryDark;
-		label_text_size: 15 * DynamicResolution.kh;
+		label_text_size: 15 * Theme.scalingFactor.y;
 		label_text_family: fontSemiBold.name;
 	}
 	DropShadow { z: 99; anchors.fill: bottomBar; horizontalOffset: -12; verticalOffset: -9; radius: 16; samples: 32; color: "#80000000"; source: bottomBar; cached: true; }

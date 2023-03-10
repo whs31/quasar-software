@@ -75,7 +75,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     // get resolution for some ui rescaling and start new log in debug
 
     screenResolution = QGuiApplication::primaryScreen()->availableGeometry();
-    qmlRegisterSingletonInstance<Theme>("Theme", 1, 0, "Theme", Theme::get());
+    qmlRegisterSingletonInstance<Theme>("Theme", 1, 0, "Theme", Theme::get(this));
     Theme::get()->setWindowDimension(screenResolution.width(), screenResolution.height());
 
     dynamicResolutionInstance = new DynamicResolution(this);

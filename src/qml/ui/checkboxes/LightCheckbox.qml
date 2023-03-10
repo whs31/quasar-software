@@ -1,14 +1,14 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import DynamicResolution 1.0
+import Theme 1.0
 
 Item {
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_width: 100 * Theme.scalingFactor.x;
+    property int fixed_height: 25 * Theme.scalingFactor.y;
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12 * DynamicResolution.kh;
+    property int label_text_size: 12 * Theme.scalingFactor.y;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
     property int label_textAlignment: Text.AlignHCenter;
@@ -28,10 +28,10 @@ Item {
         color: label_color;
         anchors.right: parent.right;
         anchors.verticalCenter: parent.verticalCenter;
-        anchors.rightMargin: 3 * DynamicResolution.kw;
-        implicitWidth: 14 * DynamicResolution.kw;
-        implicitHeight: 14 * DynamicResolution.kh;
-        radius: 4 * DynamicResolution.kw;
+        anchors.rightMargin: 3 * Theme.scalingFactor.x;
+        implicitWidth: 14 * Theme.scalingFactor.x;
+        implicitHeight: 14 * Theme.scalingFactor.y;
+        radius: 4 * Theme.scalingFactor.x;
         Rectangle {
             color: contrast_color;
             visible: control.checked;
@@ -39,7 +39,7 @@ Item {
             height: parent.height / 2;
             x: parent.width / 2 - width / 2;
             y: parent.height / 2 - height / 2;
-            radius: 2 * DynamicResolution.kw;
+            radius: 2 * Theme.scalingFactor.x;
         }
         SequentialAnimation {
             id: animation_scalebounce;
@@ -85,7 +85,7 @@ Item {
         opacity: enabled ? 1.0 : 0.3;
         verticalAlignment: Text.AlignVCenter;
         anchors.right: checkboxIndicator.left;
-        anchors.rightMargin: 7 * DynamicResolution.kw;
+        anchors.rightMargin: 7 * Theme.scalingFactor.x;
         anchors.verticalCenter: parent.verticalCenter;
     }
 

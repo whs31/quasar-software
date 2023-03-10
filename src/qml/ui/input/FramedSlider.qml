@@ -2,15 +2,15 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Styles 1.4
-import DynamicResolution 1.0
+import Theme 1.0
 
 Rectangle
 {
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kw;
+    property int fixed_width: 100 * Theme.scalingFactor.x;
+    property int fixed_height: 25 * Theme.scalingFactor.x;
     property color fill_color: "#de3857";
     property color highlight_color: "#FF0000";
-    property int frame_radius: 0 * DynamicResolution.kw;
+    property int frame_radius: 0 * Theme.scalingFactor.x;
     property int frame_width: 1;
 
     property real slider_fromvalue: 0;

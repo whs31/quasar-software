@@ -2,7 +2,7 @@ import QtQuick 2.15
 import UX 1.0
 import RuntimeData 1.0
 import Config 1.0
-import DynamicResolution 1.0
+import Theme 1.0
 import QtGraphicalEffects 1.15
 
 import FocusWindowBackend 1.0

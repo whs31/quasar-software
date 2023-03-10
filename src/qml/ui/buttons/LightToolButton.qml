@@ -1,12 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import DynamicResolution 1.0
+import Theme 1.0
 
 Rectangle {
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_width: 100 * Theme.scalingFactor.x;
+    property int fixed_height: 25 * Theme.scalingFactor.y;
 
-    property int icon_px_size: 16 * DynamicResolution.kh;
+    property int icon_px_size: 16 * Theme.scalingFactor.y;
     property string icon_source: "qrc:/ui-resources/white/close.png";
     property string tooltip_text: "Sample text";
     property bool tooltip_enabled: false;
@@ -15,7 +15,7 @@ Rectangle {
     property color highlight_color: "#7D5233";
     property color frame_color: "#FF0000";
     property bool frame_enabled: true;
-    property int frame_radius: 8 * DynamicResolution.kw;
+    property int frame_radius: 8 * Theme.scalingFactor.x;
     property int frame_width: 1;
 
     signal clicked();

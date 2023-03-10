@@ -1,22 +1,22 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import DynamicResolution 1.0
+import Theme 1.0
 
 Rectangle {
 
-    property int fixed_width: 100 * DynamicResolution.kw;
-    property int fixed_height: 25 * DynamicResolution.kh;
+    property int fixed_width: 100 * Theme.scalingFactor.x;
+    property int fixed_height: 25 * Theme.scalingFactor.y;
 
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12 * DynamicResolution.kh;
+    property int label_text_size: 12 * Theme.scalingFactor.y;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
     property int label_textAlignment: Text.AlignHCenter;
 
     property color highlight_color: "#7D5233";
     property color selection_color: "#FF0000";
-    property int frame_radius: 0 * DynamicResolution.kw;
+    property int frame_radius: 0 * Theme.scalingFactor.x;
     property int frame_width: 1;
 	property color frame_color: "#FFFF00";
 	property bool frame_enabled: true;
@@ -91,7 +91,7 @@ Rectangle {
             verticalAlignment: Text.AlignVCenter;
             horizontalAlignment: label_textAlignment;
             anchors.right: parent.right;
-            anchors.rightMargin: 5 * DynamicResolution.kw;
+            anchors.rightMargin: 5 * Theme.scalingFactor.x;
         }
     }
     Component.onCompleted: {

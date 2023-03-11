@@ -6,7 +6,7 @@ import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/input" as Input
 import "qrc:/qml/ui/checkboxes" as Checkboxes
 
-import UX 1.0
+import Theme 1.0
 import RuntimeData 1.0
 import Config 1.0
 
@@ -19,7 +19,7 @@ Rectangle {
 	height: MarkerWindowBackend.shown ? 400 : 0;
 	width: MarkerWindowBackend.shown ? 260 : 0;
 	radius: 35;
-	color: UX.primaryDark;
+    color: Theme.color("dark1");
 	Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
 	Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
 
@@ -41,7 +41,7 @@ Rectangle {
 			fixed_width: 219;
 			fixed_height: 16;
 			label_text: "УСТАНОВКА ГЕОМЕТКИ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 15;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
@@ -58,13 +58,13 @@ Rectangle {
 			anchors.topMargin: 6;
 			anchors.horizontalCenter: parent.horizontalCenter;
 			label_text: "ЦЕЛЬ ДЛЯ АВТОЗАХВАТА РЛИ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignLeft;
-			contrast_color: UX.primaryDarker;
-			highlight_color: UX.warningLight;
+            contrast_color: Theme.color("dark2");
+            highlight_color: Theme.color("yellow");
 			checked: false;
 			onCheckedChanged: {
 				MarkerWindowBackend.autocapture = checked;
@@ -107,7 +107,7 @@ Rectangle {
 			fixed_width: 76;
 			fixed_height: 20;
 			label_text: "НАЗВАНИЕ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -123,17 +123,17 @@ Rectangle {
 			fixed_height: 22;
 			anchors.bottom: nameText.bottom;
 			anchors.left: nameText.right;
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignRight;
-			highlight_color: UX.primaryDarker;
+            highlight_color: Theme.color("dark2");
 			frame_radius: 5;
 			frame_width: 0;
 			frame_enabled: false;
-			frame_color: UX.primaryDarker;
-			selection_color: UX.warningLight;
+            frame_color: Theme.color("dark0");
+            selection_color: Theme.color("yellow");
 			input_text: MarkerWindowBackend.name;
 			input_text_postfix: "";
 			onTxtChanged: {
@@ -149,7 +149,7 @@ Rectangle {
 			fixed_width: 67;
 			fixed_height: 20;
 			label_text: "ШИРОТА";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -165,17 +165,17 @@ Rectangle {
 			fixed_height: 22;
 			anchors.bottom: latText.bottom;
 			anchors.left: latText.right;
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignRight;
-			highlight_color: UX.primaryDarker;
+            highlight_color: Theme.color("dark2");
 			frame_radius: 5;
 			frame_width: 0;
 			frame_enabled: false;
-			frame_color: UX.primaryDarker;
-			selection_color: UX.warningLight;
+            frame_color: Theme.color("dark0");
+            selection_color: Theme.color("yellow");
 			input_text: Number(MarkerWindowBackend.latitude).toFixed(5);
 			input_text_postfix: "°";
 			label_length: 10;
@@ -192,7 +192,7 @@ Rectangle {
 			fixed_width: 67;
 			fixed_height: 20;
 			label_text: "ДОЛГОТА";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -208,17 +208,17 @@ Rectangle {
 			fixed_height: 22;
 			anchors.bottom: lonText.bottom;
 			anchors.left: lonText.right;
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignRight;
-			highlight_color: UX.primaryDarker;
+            highlight_color: Theme.color("dark2");
 			frame_radius: 5;
 			frame_width: 0;
 			frame_enabled: false;
-			frame_color: UX.primaryDarker;
-			selection_color: UX.warningLight;
+            frame_color: Theme.color("dark0");
+            selection_color: Theme.color("yellow");
 			input_text: Number(MarkerWindowBackend.longitude).toFixed(5);
 			input_text_postfix: "°";
 			label_length: 10;
@@ -235,13 +235,13 @@ Rectangle {
 			anchors.topMargin: 9;
 			anchors.horizontalCenter: parent.horizontalCenter;
 			label_text: "СОХРАНИТЬ ГЕОМЕТКУ В ФАЙЛ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignLeft;
-			contrast_color: UX.primaryDarker;
-			highlight_color: UX.warningLight;
+            contrast_color: Theme.color("dark2");
+            highlight_color: Theme.color("yellow");
 			checked: true;
 			onCheckedChanged: {
 				MarkerWindowBackend.record = checked;
@@ -256,13 +256,13 @@ Rectangle {
 			anchors.topMargin: 9;
 			anchors.horizontalCenter: parent.horizontalCenter;
 			label_text: "ПРИВЯЗКА РАЗМЕРА К ЭКРАНУ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
 			label_textAlignment: Text.AlignLeft;
-			contrast_color: UX.primaryDarker;
-			highlight_color: UX.warningLight;
+            contrast_color: Theme.color("dark2");
+            highlight_color: Theme.color("yellow");
 			checked: true;
 			onCheckedChanged: {
 				MarkerWindowBackend.screenAnchor = checked;
@@ -277,7 +277,7 @@ Rectangle {
 			fixed_width: 240;
 			fixed_height: 20;
 			label_text: "ЦВЕТ ГЕОМЕТКИ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -448,7 +448,7 @@ Rectangle {
 			fixed_width: 240;
 			fixed_height: 20;
 			label_text: "ЗНАЧОК ГЕОМЕТКИ";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -504,7 +504,7 @@ Rectangle {
 			fixed_height: 30;
 			icon_px_size: 24;
 			icon_source: "qrc:/icons/right.png";
-			background_color: UX.primaryDark;
+            background_color: Theme.color("dark2");
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
@@ -528,7 +528,7 @@ Rectangle {
 			fixed_height: 30;
 			icon_px_size: 24;
 			icon_source: "qrc:/icons/left.png";
-			background_color: UX.primaryDark;
+            background_color: Theme.color("dark2");
 			background_secondary_color: Qt.lighter(background_color, 1.5);
 			background_radius: 5;
 			onClicked: {
@@ -551,11 +551,11 @@ Rectangle {
 			fixed_width: 70;
 			fixed_height: 20;
 			label_text: "ОК";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.successLighter;
+            highlight_color: Theme.color("green");
 			frame_radius: 6;
 			frame_width: 1;
 			frame_enabled: true;
@@ -574,11 +574,11 @@ Rectangle {
 			fixed_width: 70
 			fixed_height: 20;
 			label_text: "ОТМЕНА";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.errorDark;
+            highlight_color: Theme.color("red");
 			frame_radius: 6;
 			frame_width: 1;
 			frame_enabled: true;

@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.15
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 
-import UX 1.0
+import Theme 1.0
 import RuntimeData 1.0
 import Config 1.0
 
@@ -17,7 +17,7 @@ Rectangle {
 	height: DialogWindowBackend.shown ? 165 : 0;
 	width: DialogWindowBackend.shown ? 473 : 0;
 	radius: 35;
-	color: UX.primaryDark;
+    color: Theme.color("dark1");
 	Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
 	Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.InOutCubic; } }
 
@@ -51,7 +51,7 @@ Rectangle {
 			fixed_width: 176;
 			fixed_height: 16;
 			label_text: DialogWindowBackend.header;
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 17;
 			label_text_family: fontExtraBold.name;
 			label_text_bold: true;
@@ -68,7 +68,7 @@ Rectangle {
 			fixed_width: 324;
 			fixed_height: 68;
 			label_text: DialogWindowBackend.text;
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontSemiBold.name;
 			label_text_bold: true;
@@ -87,11 +87,11 @@ Rectangle {
 			fixed_width: 103;
 			fixed_height: 20;
 			label_text: "ОК";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.successLighter;
+            highlight_color: Theme.color("green");
 			frame_radius: 6;
 			frame_width: 1;
 			frame_enabled: true;
@@ -109,11 +109,11 @@ Rectangle {
 			fixed_width: 103;
 			fixed_height: 20;
 			label_text: "ОТМЕНА";
-			label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontBold.name;
 			label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-			highlight_color: UX.errorDark;
+            highlight_color: Theme.color("red");
 			frame_radius: 6;
 			frame_width: 1;
 			frame_enabled: true;

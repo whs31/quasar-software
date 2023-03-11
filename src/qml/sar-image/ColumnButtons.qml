@@ -3,7 +3,7 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
-import UX 1.0
+import Theme 1.0
 import DialogWindowBackend 1.0
 import FocusWindowBackend 1.0
 import RuntimeData 1.0
@@ -22,8 +22,8 @@ RowLayout {
         id: hideButton;
         fixed_width: 30;
         fixed_height: 30;
-        frame_color: UX.textWhite;
-        highlight_color: UX.infoLight;
+        frame_color: Theme.color("light1");
+        highlight_color: Theme.color("color1");
         frame_radius: 8;
         frame_enabled: true;
         icon_px_size: 18;
@@ -44,8 +44,8 @@ RowLayout {
         enabled: !RuntimeData.windowLock;
         fixed_width: 30;
         fixed_height: 30;
-        frame_color: UX.textWhite;
-        highlight_color: UX.infoLight;
+        frame_color: Theme.color("light1");
+        highlight_color: Theme.color("color1");
         frame_radius: 8;
         frame_enabled: true;
         icon_px_size: 18;
@@ -95,8 +95,8 @@ RowLayout {
         enabled: !RuntimeData.windowLock;
         fixed_width: 30;
         fixed_height: 30;
-        frame_color: UX.textWhite;
-        highlight_color: UX.errorDark;
+        frame_color: Theme.color("light1");
+        highlight_color: Theme.color("red");
         frame_radius: 8;
         frame_enabled: true;
         icon_px_size: 18;

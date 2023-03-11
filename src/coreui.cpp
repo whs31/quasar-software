@@ -1,12 +1,35 @@
 #include "coreui.h"
 #include "ui_coreui.h"
-#include "buildprefs.h"
-
 #include "gui/windows/focuswindowbackend.h"
 #include "theme/include/theme.hpp"
+#include "config/settingsdialog.h"
+#include "config/runtimedata.h"
+#include "map/tilesmanager.h"
+#include "map/backend/fmousekeyhandler.h"
+#include "map/backend/recallhandler.h"
+#include "map/backend/flightprediction.h"
+#include "map/backend/scalegridbackend.h"
+#include "map/backend/signallinker.h"
+#include "func/smath.h"
+#include "func/stext.h"
+#include "gui/passworddialog.h"
+#include "gui/applicationheader.h"
+#include "gui/windows/dialogwindowbackend.h"
+#include "gui/windows/autocapturemarkwindowbackend.h"
+#include "gui/windows/settingswindowbackend.h"
+#include "gui/windows/markerwindowbackend.h"
+#include "data/datatelemetry.h"
+#include "data/datasar.h"
+#include "data/dataformparameters.h"
 
 #include <QDebug>
-
+#include "qqml.h"
+#include <QQuickStyle>
+#include <QQmlEngine>
+#include <QQmlContext>
+#include <QRect>
+#include <QScreen>
+#include <QSslSocket>
 
 bool CoreUI::uiReady = false;
 QRect CoreUI::screenResolution;
@@ -26,15 +49,14 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     
     // ux and tiles must be called before ui initialization
     TilesManager::get();
-    ThemeManager::get(this, THEME_SETTING_ON_BUILD);
     
 
     // ui setup. do not call any unintentional code before ui is initialized (uiReady == true)
     ui->setupUi(this);
     uiReady = true;
-    this->setStyleSheet("QWidget\n{\n	background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n}\nQAbstractScrollArea "
-                        "{\n  background-color: " + ThemeManager::get()->getPrimaryDarker().name() + ";\n"
-                        "  border: 1px solid " + ThemeManager::get()->getPrimaryDarker().name() + ";\n  border-radius: 4px;\n  /* fix #159 */\n  padding: 2px;\n  "
+    this->setStyleSheet("QWidget\n{\n	background-color: " + Theme::get(this)->color("dark1") + ";\n}\nQAbstractScrollArea "
+                        "{\n  background-color: " + Theme::get()->color("dark1") + ";\n"
+                        "  border: 1px solid " + Theme::get()->color("dark1") + ";\n  border-radius: 4px;\n  /* fix #159 */\n  padding: 2px;\n  "
                         "\n  color: #3B4252;\n}\nQScrollBar:vertical {\n  background-color: #3B4252;\n  width: 16px;\n  "
                         "margin: 16px 2px 16px 2px;\n  border: 1px solid #121617;\n  border-radius: 4px;\n}\nQScrollBar::handle:vertical "
                         "{\n  background-color: #293133;\n  border: 1px solid #121617;\n  min-height: 8px;\n  border-radius: 4px;\n}\n"
@@ -78,13 +100,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterSingletonInstance<Theme>("Theme", 1, 0, "Theme", Theme::get(this));
     Theme::get()->setWindowDimension(screenResolution.width(), screenResolution.height());
 
-    dynamicResolutionInstance = new DynamicResolution(this);
-    qmlRegisterSingletonInstance<DynamicResolution>("DynamicResolution", 1, 0, "DynamicResolution", dynamicResolutionInstance);
-    dynamicResolutionInstance->setWidthCoefficient((float)screenResolution.width() / 1366);
-    dynamicResolutionInstance->setHeightCoefficient((float)screenResolution.height() / 768);
-
     // qml ux/ui setup
-    qmlRegisterSingletonInstance<ThemeManager>("UX", 1, 0, "UX", ThemeManager::get());
     qmlRegisterSingletonInstance<DialogWindowBackend>("DialogWindowBackend", 1, 0, "DialogWindowBackend", DialogWindowBackend::get());
     qmlRegisterSingletonInstance<MarkerWindowBackend>("MarkerWindowBackend", 1, 0, "MarkerWindowBackend", MarkerWindowBackend::get());
     qmlRegisterSingletonInstance<AutocaptureMarkWindowBackend>("AutocaptureMarkWindowBackend", 1, 0, "AutocaptureMarkWindowBackend", AutocaptureMarkWindowBackend::get());
@@ -218,11 +234,11 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     }
 
     // qss only after plugins loaded
-    ThemeManager::setStyleSheet();
+    Theme::get()->setQWidgetsStylesheet();
 
     // execute any other startup code here
     RuntimeData::get()->statusPopupSet("Версия программы " +
-                                        SText::colorText(SConfig::get()->getProjectVersion(), ThemeManager::get()->getAccentLighter()));
+                                        SText::colorText(SConfig::get()->getProjectVersion(), Theme::get()->color("accent")));
     RuntimeData::get()->statusPopupTriggerSet(true); //TODO: make it separate class
     RuntimeData::get()->infoWindowSet(false);
 }
@@ -255,11 +271,11 @@ void* CoreUI::LoadPlugin(QString path)
 
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
-    if (msgtype == 0) { ui->debugConsole->setTextColor(ThemeManager::get()->getTextWhite()); }
-    else if (msgtype == 1) { ui->debugConsole->setTextColor(ThemeManager::get()->getInfoLight()); }
-    else if (msgtype == 2) { ui->debugConsole->setTextColor(ThemeManager::get()->getWarningLight()); }
-    else if (msgtype == 3) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDark()); }
-    else if (msgtype == 4) { ui->debugConsole->setTextColor(ThemeManager::get()->getErrorDarker()); }
+    if (msgtype == 0) { ui->debugConsole->setTextColor(Theme::get()->color("light1")); }
+    else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color1")); }
+    else if (msgtype == 2) { ui->debugConsole->setTextColor(Theme::get()->color("yellow")); }
+    else if (msgtype == 3) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
+    else if (msgtype == 4) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
 
     QFont consoleFont = ui->debugConsole->font();
     consoleFont.setPointSize(8);
@@ -326,7 +342,7 @@ void CoreUI::SettingsSlot()
         }
         else
         {
-            RuntimeData::get()->statusPopupSet("Был введен " + SText::colorText("неверный пароль.", ThemeManager::get()->getErrorLighter()));
+            RuntimeData::get()->statusPopupSet("Был введен " + SText::colorText("неверный пароль.", Theme::get()->color("red")));
             RuntimeData::get()->statusPopupTriggerSet(true);
         }
     }
@@ -419,7 +435,7 @@ void CoreUI::reconnectSlot()
     RuntimeData::get()->setConnected(false);
     telemetryRemote->connect(SConfig::get()->getDE10IP(), SConfig::get()->getTelemetryPort().toUInt(), SConfig::get()->getTelemetryFrequency());
     feedBackRemote->connect(SConfig::get()->getComputerIP(), SConfig::get()->getTerminalPort().toUInt());
-    if(SConfig::get()->getDE10IP().endsWith("48") && USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY == true) {
+    if(SConfig::get()->getDE10IP().endsWith("48") and USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY) {
             QString correctedSarIP = SConfig::get()->getDE10IP();
             correctedSarIP.chop(1); correctedSarIP.append("7");
             execdRemote->connect(correctedSarIP, SConfig::get()->getExecdPort().toUInt());

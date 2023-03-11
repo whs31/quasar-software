@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import UX 1.0
+import Theme 1.0
 import ScaleGridBackend 1.0
 
 Item {
@@ -25,8 +25,8 @@ Item {
             {
                 id: testTile;
                 cell_size: backend.cellSize;
-                color_highlight: UX.textFaded;
-                color_main: Qt.darker(UX.textFaded, 1.2);
+                color_highlight: Theme.color("light0");
+                color_main: Qt.darker(Theme.color("light0"), 1.2);
             }
         }
     }

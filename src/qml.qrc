@@ -2,12 +2,10 @@
     <qresource prefix="/">
         <file>qml/CoreQML.qml</file>
         <file>qml/Marker.qml</file>
-        <file>qml/ui/RoundPane.qml</file>
         <file>qml/sar-image/Dialog.qml</file>
         <file>qml/sar-image/MapImage.qml</file>
         <file>qml/sar-image/ColumnMetadata.qml</file>
         <file>qml/sar-image/ColumnButtons.qml</file>
-        <file>qml/ui/CustomButton.qml</file>
         <file>qml/groups/EmulatorTextPanel.qml</file>
         <file>qml/application-header/ApplicationHeader.qml</file>
         <file>qml/ui/buttons/ClassicButton.qml</file>

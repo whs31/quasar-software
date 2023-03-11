@@ -5,7 +5,8 @@ import QtQuick.Controls.Material.impl 2.12
 import QtQuick.Layouts 1.15
 
 import Telemetry 1.0
-import UX 1.0
+
+import Theme 1.0
 
 import "qrc:/qml/ui" as UI
 
@@ -15,7 +16,7 @@ Item {
         spacing: -2;
         Text {
             id: pitchText;
-            color: UX.textWhite;
+            color: Theme.color("light1");
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -26,7 +27,7 @@ Item {
         }
         Text {
             id: rollText;
-            color: UX.textWhite;
+            color: Theme.color("light1");
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -37,7 +38,7 @@ Item {
         }
         Text {
             id: yawText;
-            color: UX.textWhite;
+            color: Theme.color("light1");
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText
@@ -48,7 +49,7 @@ Item {
         }
         Text {
             id: throttleText;
-            color: UX.textWhite;
+            color: Theme.color("light1");
             font.capitalization: Font.MixedCase;
             font.pixelSize: 12;
             textFormat: Text.RichText

@@ -6,6 +6,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QCoreApplication>
+#include <QApplication>
 
 Theme *Theme::_instance = nullptr;
 Theme *Theme::get(QObject *parent) {
@@ -33,6 +34,21 @@ void Theme::setScalingFactor(QPointF factor) {
     if (m_scalingFactor == factor) return;
     m_scalingFactor = factor;
     emit scalingFactorChanged();
+}
+
+void Theme::setQWidgetsStylesheet()
+{
+    QFile qss(":/stylesheet/lightstyle.qss");
+    if (!qss.exists())
+    {
+        qCritical() << "[THEME] Unable to set test stylesheet, file not found";
+    }
+    else
+    {
+        qss.open(QFile::ReadOnly | QFile::Text);
+        QTextStream ts(&qss);
+        qApp->setStyleSheet(ts.readAll());
+    }
 }
 
 /****************************************************************************************************************************************************************

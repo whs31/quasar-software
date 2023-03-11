@@ -2,7 +2,6 @@ import QtQuick 2.15
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
 import "qrc:/qml/ui/progress-bars" as ProgressBars
-import UX 1.0
 import Theme 1.0
 import RuntimeData 1.0
 import SignalLinker 1.0
@@ -29,8 +28,8 @@ Item {
 
         fixed_width: 22 * Theme.scalingFactor.x;
         fixed_height: 22 * Theme.scalingFactor.y;
-        frame_color: UX.textWhite;
-        highlight_color: UX.errorDark;
+        frame_color: Theme.color("light1");
+        highlight_color: Theme.color("red");
         frame_radius: 11 * Theme.scalingFactor.x; frame_enabled: true;
         icon_px_size: 12 * Theme.scalingFactor.y;
         icon_source: "qrc:/icons/trashbin.png";
@@ -67,8 +66,8 @@ Item {
         currentValue: percentage;  //Number(RuntimeData.freeDiskSpace / RuntimeData.totalDiskSpace).toFixed(0)
         line_width: 9 * Theme.scalingFactor.x;
 
-        fill_color: UX.textWhite;
-        base_color: UX.errorDark;
+        fill_color: Theme.color("light1");
+        base_color: Theme.color("red");
         anchors.bottom: parent.bottom; anchors.left: parent.left;
         anchors.bottomMargin: -1 * Theme.scalingFactor.y;
     }
@@ -82,7 +81,8 @@ Item {
         fixed_height: 14 * Theme.scalingFactor.y;
         round_radius: 5 * Theme.scalingFactor.x;
         label_text: "ХРАНИЛИЩЕ";
-        label_color: UX.primaryDarker;      round_color: UX.textWhite;
+        label_color: Theme.color("dark1");
+        round_color: Theme.color("light1");
         label_text_size: 10 * Theme.scalingFactor.y;
         label_text_family: fontSemiBold.name;
         label_text_bold: false;
@@ -94,7 +94,7 @@ Item {
         font.pixelSize: 20 * Theme.scalingFactor.y;
         font.family: fontBold.name;
         font.bold: true;
-        color: UX.textWhite;
+        color: Theme.color("light1");
         opacity: enabled ? 1.0 : 0.3;
         verticalAlignment: Text.AlignTop;
         horizontalAlignment: Text.AlignLeft;
@@ -103,9 +103,9 @@ Item {
     }
     onPercentageChanged:
     {
-        if(percentage >= 0 & percentage < 33) { circularProgressBar.base_color = UX.successLighter; }
-        else if(percentage >= 33 & percentage < 66) { circularProgressBar.base_color = UX.warningLight; }
-        else if(percentage >= 66 & percentage < 80) { circularProgressBar.base_color = UX.warningDark; }
-        else if(percentage >= 80 & percentage <= 100) { circularProgressBar.base_color = UX.errorDark; }
+        if(percentage >= 0 & percentage < 33) { circularProgressBar.base_color = Theme.color("green"); }
+        else if(percentage >= 33 & percentage < 66) { circularProgressBar.base_color = Theme.color("yellow"); }
+        else if(percentage >= 66 & percentage < 80) { circularProgressBar.base_color = Theme.color("orange"); }
+        else if(percentage >= 80 & percentage <= 100) { circularProgressBar.base_color = Theme.color("red"); }
     }
 }

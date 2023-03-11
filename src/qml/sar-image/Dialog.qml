@@ -7,7 +7,7 @@ import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
 import "qrc:/qml/ui" as UI
-import UX 1.0
+import Theme 1.0
 
 MapQuickItem {
     function remove()
@@ -60,7 +60,7 @@ MapQuickItem {
             anchors.fill: radarImage;
             source: radarImage;
             opacity: 0.75;
-            color: UX.textWhite;
+            color: Theme.color("light1");
         }
         DropShadow {
             anchors.fill: radarImageOverlay;
@@ -73,7 +73,7 @@ MapQuickItem {
         }
         Rectangle {
             id: textOverlay;
-            color: UX.textWhite;
+            color: Theme.color("light1");
             width: (radarImageText.paintedWidth);
             height: (radarImageText.paintedHeight + 3);
             anchors.top: radarImage.bottom;
@@ -99,7 +99,7 @@ MapQuickItem {
             id: sarDialogBase;
             width: childrenRect.width + 16;
             height: childrenRect.height + 16;
-            color: UX.primaryDarker;
+            color: Theme.color("dark1");
             anchors.left: textOverlay.right;
             anchors.leftMargin: 10;
             opacity: 0;

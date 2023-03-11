@@ -12,7 +12,6 @@
 #include "config.h"
 
 #include "disk/cachemanager.h"
-#include "gui/thememanager.h"
 
 class SConfig : public QObject
 {

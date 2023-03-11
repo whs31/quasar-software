@@ -2,13 +2,9 @@
 #define FMOUSEKEYHANDLER_H
 
 #include <QObject>
-#include "qqml.h"
-#include <QClipboard>
-#include <QMessageBox>
 
 #include "map/global/markermanager.h"
 #include "config/runtimedata.h"
-#include "func/stext.h"
 
 class FMouseKeyHandler : public QObject
 {

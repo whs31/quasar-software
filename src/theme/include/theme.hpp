@@ -26,6 +26,8 @@ class Theme : public QObject
         //!        окна меняются.
         void setWindowDimension(float width, float height);
 
+        void setQWidgetsStylesheet();
+
         signals:
         void colorsChanged();
         void scalingFactorChanged();

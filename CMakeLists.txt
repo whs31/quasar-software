@@ -25,22 +25,22 @@ if(ANDROID)
 else()
     add_executable(${executable_name} ${SOURCE}
         src/main.cpp
-        src/buildprefs.h
+        #src/buildprefs.h                                                                                       -removed
         src/macro.h
         src/coreui.h                                    src/coreui.cpp                                      src/coreui.ui
         src/data/datatelemetry.h                        src/data/datatelemetry.cpp
         src/data/datasar.h                              src/data/datasar.cpp
         src/data/dataformparameters.h                   src/data/dataformparameters.cpp
-        src/emulator/flightemulator.h                   src/emulator/flightemulator.cpp
-        src/emulator/udpemulator.h                      src/emulator/udpemulator.cpp
-        src/emulator/saroutputconsoleemulator.h         src/emulator/saroutputconsoleemulator.cpp
-        src/map/tilesmanager.h                          src/map/tilesmanager.cpp
-        src/map/linkerqml.h                             src/map/linkerqml.cpp
+        src/emulator/flightemulator.h                   src/emulator/flightemulator.cpp                     #marked as deprecated, to be reworked soon
+        src/emulator/udpemulator.h                      src/emulator/udpemulator.cpp                        #marked as deprecated, to be reworked soon
+        src/emulator/saroutputconsoleemulator.h         src/emulator/saroutputconsoleemulator.cpp           #marked as deprecated, to be reworked soon
+        src/map/tilesmanager.h                          src/map/tilesmanager.cpp                            #marked as deprecated, to be reworked soon
+        src/map/linkerqml.h                             src/map/linkerqml.cpp                               #marked as deprecated, to be reworked soon
         src/map/backend/fmousekeyhandler.h              src/map/backend/fmousekeyhandler.cpp                #marked as deprecated, to be reworked soon
-        src/map/backend/scalegridbackend.h              src/map/backend/scalegridbackend.cpp
+        src/map/backend/scalegridbackend.h              src/map/backend/scalegridbackend.cpp                #planned to rework
         src/map/backend/recallhandler.h                 src/map/backend/recallhandler.cpp                   #marked as deprecated, can be splitted into 3 methods
         src/map/backend/flightprediction.h              src/map/backend/flightprediction.cpp
-        src/map/backend/signallinker.h                  src/map/backend/signallinker.cpp
+        src/map/backend/signallinker.h                  src/map/backend/signallinker.cpp                    #marked as deprecated, to be reworked soon
         src/map/models/marker.h                         src/map/models/marker.cpp
         src/map/models/image.h                          src/map/models/image.cpp
         src/map/global/markermanager.h                  src/map/global/markermanager.cpp
@@ -53,29 +53,29 @@ else()
         src/network/modules/execd/argumentlist.h        src/network/modules/execd/argumentlist.cpp
         src/network/modules/execd/execdargument.h       src/network/modules/execd/execdargument.cpp
         src/config/config.h                             src/config/config.cpp
-        src/config/sconfig.h                            src/config/sconfig.cpp
+        src/config/sconfig.h                            src/config/sconfig.cpp                              #marked as deprecated, to be reworked soon
         src/config/settingsdialog.h                     src/config/settingsdialog.cpp                       src/config/settingsdialog.ui
         src/config/runtimedata.h                        src/config/runtimedata.cpp
-        src/disk/cachemanager.h                         src/disk/cachemanager.cpp
-        src/disk/disktools.h                            src/disk/disktools.cpp
-        src/disk/savethread.h                           src/disk/savethread.cpp
+        src/disk/cachemanager.h                         src/disk/cachemanager.cpp                           #marked as deprecated, to be reworked soon
+        src/disk/disktools.h                            src/disk/disktools.cpp                              #marked as deprecated, to be reworked soon
+        src/disk/savethread.h                           src/disk/savethread.cpp                             #marked as deprecated, to be reworked soon
         src/image-processing/imagemanager.h             src/image-processing/imagemanager.cpp
         src/func/smath.h                                src/func/smath.cpp
         src/func/stext.h                                src/func/stext.cpp
         src/func/schecksum.h                            src/func/schecksum.cpp
-        src/gui/dynamicresolution.h                     src/gui/dynamicresolution.cpp
+        #src/gui/dynamicresolution.h                     src/gui/dynamicresolution.cpp                          -removed
         src/gui/passworddialog.h                        src/gui/passworddialog.cpp                          src/gui/passworddialog.ui
         src/gui/applicationheader.h                     src/gui/applicationheader.cpp
-        src/gui/thememanager.h                          src/gui/thememanager.cpp
-        src/gui/themes/dark.h                           src/gui/themes/dark.cpp
-        src/gui/themes/swampgreen.h                     src/gui/themes/swampgreen.cpp
+        #src/gui/thememanager.h                          src/gui/thememanager.cpp                               -removed
+        #src/gui/themes/dark.h                           src/gui/themes/dark.cpp                                -removed
+        #src/gui/themes/swampgreen.h                     src/gui/themes/swampgreen.cpp                          -removed
 	#src/gui/widgets/colorpicker.h                   src/gui/widgets/colorpicker.cpp			-removed
         src/gui/windows/abstract/windowbackend.h        src/gui/windows/abstract/windowbackend.cpp
         src/gui/windows/dialogwindowbackend.h           src/gui/windows/dialogwindowbackend.cpp
         src/gui/windows/markerwindowbackend.h           src/gui/windows/markerwindowbackend.cpp
         src/gui/windows/autocapturemarkwindowbackend.h  src/gui/windows/autocapturemarkwindowbackend.cpp
         src/gui/windows/settingswindowbackend.h         src/gui/windows/settingswindowbackend.cpp
-        src/gui/windows/focuswindowbackend.h            src/gui/windows/focuswindowbackend.cpp
+        src/gui/windows/focuswindowbackend.h            src/gui/windows/focuswindowbackend.cpp              #planned to rework
 
 	# new modules (after refork)
 	src/theme/include/theme.hpp			src/theme/src/theme.cpp					src/theme/src/theme_p.hpp
@@ -84,7 +84,6 @@ else()
         src/qss.qrc
         src/osmconfig.qrc
         resources/resources.qrc
-	#uml/architecturediagram.qmodel
         ${SRCS} appiconwin32.rc
    )
 endif()

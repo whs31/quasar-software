@@ -2,48 +2,14 @@
 #define COREUI_H
 
 #include <QMainWindow>
-#include <QScreen>
-#include <QSslSocket>
 #include <QTimer>
-#include "qqml.h"
-#include <QQuickStyle>
-#include <QQmlEngine>
-#include <QQmlContext>
-#include <QRect>
-#include <QScopedPointer>
-#include <QSet>
-#include <QDesktopWidget>
-
-#include "config/settingsdialog.h"
-#include "config/runtimedata.h"
 
 #include "map/linkerqml.h"
-#include "map/tilesmanager.h"
-#include "map/backend/fmousekeyhandler.h"
-#include "map/backend/recallhandler.h"
-#include "map/backend/flightprediction.h"
-#include "map/backend/scalegridbackend.h"
-#include "map/backend/signallinker.h"
-#include "network/udpremote.h"
 #include "network/tcpdownloader.h"
 #include "network/modules/telemetryremote.h"
 #include "network/modules/feedbackremote.h"
 #include "network/modules/execdremote.h"
-#include "func/smath.h"
-#include "func/stext.h"
-#include "gui/dynamicresolution.h"
-#include "gui/passworddialog.h"
-#include "gui/thememanager.h"
-#include "gui/applicationheader.h"
-#include "gui/windows/dialogwindowbackend.h"
-#include "gui/windows/autocapturemarkwindowbackend.h"
-#include "gui/windows/settingswindowbackend.h"
-#include "gui/windows/markerwindowbackend.h"
 #include "emulator/flightemulator.h"
-
-#include "data/datatelemetry.h"
-#include "data/datasar.h"
-#include "data/dataformparameters.h"
 
 #include <plugin.h>
 #include <pluginHostAPI.h>
@@ -71,6 +37,8 @@ public:
     //public getters
     bool eventFilter(QObject* obj, QEvent* event);
 
+    const bool USE_JETSON_IP_IN_CONFIG_FOR_TELEMETRY = false;
+
 public slots:
     //gui public slots
     void updateProgress(float f);
@@ -90,8 +58,7 @@ private:
     FlightEmulator* flightEmulator = nullptr;
     PluginHostAPI* HostAPI = nullptr;
 
-    __attribute__ ((deprecated("Deprecated. Use Theme interface instead")))
-    DynamicResolution* dynamicResolutionInstance = nullptr;
+    //__attribute__ ((deprecated("Deprecated. Use Theme interface instead")))
 
     //global flags
     bool formingContinuous = false;

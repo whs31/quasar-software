@@ -1,6 +1,5 @@
 import QtQuick 2.12
 import Theme 1.0
-import UX 1.0
 import RuntimeData 1.0
 import Config 1.0
 import SignalLinker 1.0
@@ -20,7 +19,7 @@ Rectangle {
     property bool speedDisplayMode: false;
     id: base;
 	height: 36 * Theme.scalingFactor.y;
-    color: UX.primaryDark;
+    color: Theme.color("dark1");
     FontLoader { id: fontRegular; source: "qrc:/fonts/SofiaSans-Regular.ttf" }
     FontLoader { id: fontMedium; source: "qrc:/fonts/SofiaSans-Medium.ttf" }
     FontLoader { id: fontSemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf" }
@@ -35,7 +34,7 @@ Rectangle {
 		fixed_width: 16 * Theme.scalingFactor.x;
 		fixed_height: 19 * Theme.scalingFactor.y;
         label_text: Number(Telemetry.satellites);
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 16 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;   label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
@@ -60,8 +59,8 @@ Rectangle {
 		fixed_width: 60 * Theme.scalingFactor.x;
 		fixed_height: 8 * Theme.scalingFactor.y;
         image_source: "qrc:/icons/map-layers/schema.png";
-        frame_color: UX.textWhite;
-        hover_color: UX.infoLight;
+        frame_color: Theme.color("light1");
+        hover_color: Theme.color("color1");
         frame_width: 1; frame_radius: 1;
         enabled: Config.onlineMaps;
         onClicked: { mapView.activeMapType = mapView.supportedMapTypes[5]; }
@@ -73,8 +72,8 @@ Rectangle {
 		anchors.top: mapmodeSchemeButton.bottom; anchors.topMargin: 2 * Theme.scalingFactor.y;
 		fixed_width: 60 * Theme.scalingFactor.x;    fixed_height: 8 * Theme.scalingFactor.y;
         image_source: "qrc:/icons/map-layers/satellite.png";
-        frame_color: UX.textWhite;
-        hover_color: UX.infoLight;
+        frame_color: Theme.color("light1");
+        hover_color: Theme.color("color1");
         frame_width: 1; frame_radius: 1;
         enabled: Config.onlineMaps;
 		onClicked: { mapView.activeMapType = mapView.supportedMapTypes[1]; }
@@ -88,8 +87,8 @@ Rectangle {
 		fixed_width: 60 * Theme.scalingFactor.x;
 		fixed_height: 8 * Theme.scalingFactor.y;
         image_source: "qrc:/icons/map-layers/hybrid.png";
-        frame_color: UX.textWhite;
-        hover_color: UX.infoLight;
+        frame_color: Theme.color("light1");
+        hover_color: Theme.color("color1");
         frame_width: 1; frame_radius: 1;
         enabled: Config.onlineMaps;
         onClicked: { mapView.activeMapType = mapView.supportedMapTypes[4]; }
@@ -104,7 +103,7 @@ Rectangle {
 		fixed_width: 40 * Theme.scalingFactor.x;
 		fixed_height: 26 * Theme.scalingFactor.y;
         label_text: "СЛОИ <br> КАРТЫ";
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignRight;
@@ -119,7 +118,7 @@ Rectangle {
 		fixed_width: 65 * Theme.scalingFactor.x;
 		fixed_height: 17 * Theme.scalingFactor.y;
         label_text: Number(Telemetry.elevation - Telemetry.seaLevel).toFixed(0) + " М";
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 16 * Theme.scalingFactor.y;
         label_text_family: fontExtraBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
@@ -134,7 +133,7 @@ Rectangle {
 		fixed_width: 65 * Theme.scalingFactor.x;
 		fixed_height: 12 * Theme.scalingFactor.y;
         label_text: Number(Telemetry.elevation).toFixed(0) + " М";
-		label_color: UX.textWhite;                  label_text_size: 12 * Theme.scalingFactor.y;
+        label_color: Theme.color("light1");                label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontExtraBold.name;      label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                            frame_width: 0;
@@ -149,7 +148,7 @@ Rectangle {
 		fixed_width: 130 * Theme.scalingFactor.x;
 		fixed_height: 17 * Theme.scalingFactor.y;
         label_text: "ВЫСОТА: ";
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontExtraBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
@@ -174,7 +173,7 @@ Rectangle {
 		fixed_width: 130 * Theme.scalingFactor.x;
 		fixed_height: 12 * Theme.scalingFactor.y;
         label_text: "НАД УРОВНЕМ МОРЯ: ";
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;       label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
@@ -200,7 +199,7 @@ Rectangle {
 
 		fixed_width: 142 * Theme.scalingFactor.x;    fixed_height: 12 * Theme.scalingFactor.y;
         label_text: "<b>ШИРОТА:</b>     " + Number(Telemetry.latitude).toFixed(5) + " °N";
-        label_color: UX.textWhite;
+        label_color: Theme.color("light1");
 		label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
@@ -214,7 +213,7 @@ Rectangle {
 
 		fixed_width: 142 * Theme.scalingFactor.x;    fixed_height: 12 * Theme.scalingFactor.y;
         label_text: "<b>ДОЛГОТА:</b>     " + Number(Telemetry.longitude).toFixed(5) + " °E";
-		label_color: UX.textWhite;              label_text_size: 12 * Theme.scalingFactor.y;
+        label_color: Theme.color("light1");              label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;       label_text_bold: false;
         label_textAlignment: Text.AlignLeft;
         frame_radius: 2;                        frame_width: 0;
@@ -226,10 +225,10 @@ Rectangle {
 		anchors.right: longitudeLabel.left; anchors.rightMargin: 19 * Theme.scalingFactor.x;
 		fixed_width: 155 * Theme.scalingFactor.x;               fixed_height: 16 * Theme.scalingFactor.y;
         label_text: RuntimeData.connected ? "ОТКЛЮЧИТЬСЯ" : "ПОДКЛЮЧИТЬСЯ";
-		label_color: UX.textWhite;  label_text_size: 12 * Theme.scalingFactor.y;
+        label_color: Theme.color("light1");  label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;
         label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
-        highlight_color: RuntimeData.connected ? UX.errorDark : UX.successLighter;
+        highlight_color: RuntimeData.connected ? Theme.color("red") : Theme.color("green");
         frame_radius: 2;                frame_width: 1;
         tooltip_text: "Подключение и отключение к РЛС";
         tooltip_enabled: true;
@@ -251,7 +250,7 @@ Rectangle {
 
 		fixed_width: 101 * Theme.scalingFactor.x;    fixed_height: 17 * Theme.scalingFactor.y;
         label_text: RuntimeData.connected ? "ПОДКЛЮЧЕНО" : "НЕТ СВЯЗИ";
-        label_color: RuntimeData.connected ? UX.successLighter : UX.errorLighter;
+        label_color: RuntimeData.connected ? Theme.color("green") : Theme.color("red");
 		label_text_size: 14 * Theme.scalingFactor.y;
         label_text_family: fontExtraBold.name; label_text_bold: true;
         label_textAlignment: Text.AlignLeft;
@@ -267,17 +266,17 @@ Rectangle {
         anchors.bottom: connectButton.top;
 		anchors.bottomMargin: 3 * Theme.scalingFactor.y;
 
-        background_color: UX.textFaded;
+        background_color: Theme.color("light0");
         background_radius: 8;
         label_text: "CHECK";
-        label_color: UX.primaryDarker;
+        label_color: Theme.color("dark1");
 		label_text_size: 10 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;
         label_text_bold: false;
         tooltip_text: "Проверка систем РЛС";
         tooltip_enabled: true;
         label_textAlignment: Text.AlignHCenter;
-        highlight_color: UX.warningLight;
+        highlight_color: Theme.color("yellow");
         onClicked: { console.log("check is not yet implemented!"); }
     }
     Buttons.SmallRoundButton
@@ -292,15 +291,15 @@ Rectangle {
 		anchors.leftMargin: 3 * Theme.scalingFactor.x;
         anchors.bottom: connectButton.top;
 		anchors.bottomMargin: 3 * Theme.scalingFactor.y;
-        background_color: UX.textFaded;
+        background_color: Theme.color("light0");
         background_radius: 8;
         label_text: "CAL";
-        label_color: UX.primaryDarker;
+        label_color: Theme.color("dark1");
 		label_text_size: 10 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
-        highlight_color: UX.warningLight;
+        highlight_color: Theme.color("yellow");
         tooltip_text: "Калибровка высоты относительно поверхности";
         tooltip_enabled: true;
 		onClicked: {
@@ -337,15 +336,15 @@ Rectangle {
         anchors.bottom: connectButton.top;
 		anchors.bottomMargin: 3 * Theme.scalingFactor.y;
 
-        background_color: UX.textFaded;
+        background_color: Theme.color("light0");
         background_radius: 8;
         label_text: "COMMAND";
-        label_color: UX.primaryDarker;
+        label_color: Theme.color("dark1");
 		label_text_size: 10 * Theme.scalingFactor.y;
         label_text_family: fontBold.name;
         label_text_bold: false;
         label_textAlignment: Text.AlignHCenter;
-        highlight_color: UX.warningLight;
+        highlight_color: Theme.color("yellow");
         tooltip_text: "Выполнить shell-команду на РЛС";
         tooltip_enabled: true;
         onClicked: { console.log("custom command is not yet implemented (needs custom window)!"); }
@@ -369,12 +368,12 @@ Rectangle {
 		fixed_drop: 17*6  * Theme.scalingFactor.y;
 		fixed_drop_width: 300  * Theme.scalingFactor.x;
         label_text: "";
-		label_color: UX.textWhite;          label_text_size: 12 * Theme.scalingFactor.y;
+        label_color: Theme.color("light1");          label_text_size: 12 * Theme.scalingFactor.y;
         label_text_family: fontMedium.name; label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
-        highlight_color: UX.primaryLight;
+        highlight_color: Theme.color("dark3");
 		frame_radius: 3 * Theme.scalingFactor.x;                    frame_width: 0;
-        frame_fill_color: UX.primaryDark;   frame_filled: true;
+        frame_fill_color: Theme.color("dark1");   frame_filled: true;
         container: Item {
             Labels.FramedLabel
             {
@@ -385,7 +384,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "IP-АДРЕС РЛС";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -400,7 +399,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.sarIP;
-                label_color: UX.infoDark;
+                label_color: Theme.color("color0");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -415,7 +414,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "IP-АДРЕС АРМ";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -430,7 +429,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.pcIP;
-                label_color: UX.infoDark;
+                label_color: Theme.color("color0");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -445,7 +444,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "ПОРТ ТЕЛЕМЕТРИИ:";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -460,7 +459,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.telemetryPort;
-                label_color: UX.accentDark;
+                label_color: Theme.color("accent");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -475,7 +474,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "ПОРТ ЗАГРУЗЧИКА:";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -490,7 +489,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.loaderPort;
-                label_color: UX.accentDark;
+                label_color: Theme.color("accent");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -505,7 +504,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "ПОРТ ОБРАТНОЙ СВЯЗИ:";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -520,7 +519,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.listenPort;
-                label_color: UX.accentDark;
+                label_color: Theme.color("accent");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -535,7 +534,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: "ПОРТ ИНТЕРФЕЙСА ВЫПОЛНЕНИЯ КОМАНД:";
-                label_color: UX.primaryDarker;
+                label_color: Theme.color("dark1");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: false;
                 label_textAlignment: Text.AlignLeft;
@@ -550,7 +549,7 @@ Rectangle {
 				fixed_width: 145 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: RuntimeData.commandPort;
-                label_color: UX.accentDark;
+                label_color: Theme.color("accent");
 				label_text_size: 12 * Theme.scalingFactor.y;
                 label_text_family: fontSemiBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignRight;
@@ -563,7 +562,7 @@ Rectangle {
         id: attitudeFrame;
 		width: 208 * Theme.scalingFactor.x;
 		height: 118 * Theme.scalingFactor.y;
-        color: UX.primaryDark;
+        color: Theme.color("dark1");
         radius: 5;
         anchors.left: parent.left;
         anchors.bottom: parent.top;
@@ -578,7 +577,7 @@ Rectangle {
         id: speedFrame;
 		width: 100 * Theme.scalingFactor.x;
 		height: 31 * Theme.scalingFactor.y;
-        color: UX.primaryDark;
+        color: Theme.color("dark1");
         radius: 12;
         anchors.verticalCenter: attitudeFrame.top;
         anchors.horizontalCenter: attitudeFrame.horizontalCenter;
@@ -592,7 +591,7 @@ Rectangle {
 			fixed_height: 17 * Theme.scalingFactor.y;
             property real spd: speedDisplayMode ? Telemetry.speed / 3.6 : Telemetry.speed;
             label_text: Number(spd).toFixed(1);
-            label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 24 * Theme.scalingFactor.y;
             label_text_family: fontExtraBold.name; label_text_bold: true;
             label_textAlignment: Text.AlignHCenter;
@@ -603,7 +602,7 @@ Rectangle {
             id: speedTooltipFrame;
 			width: 50 * Theme.scalingFactor.x;
 			height: 22 * Theme.scalingFactor.y;
-            color: UX.primaryDark;
+            color: Theme.color("dark1");
             radius: 6;
             anchors.horizontalCenter: speedFrame.horizontalCenter;
 			anchors.top: speedLabel.bottom; anchors.topMargin: 3 * Theme.scalingFactor.y;
@@ -615,7 +614,7 @@ Rectangle {
 				fixed_width: 50 * Theme.scalingFactor.x;
 				fixed_height: 17 * Theme.scalingFactor.y;
                 label_text: speedDisplayMode ? "М/С" : "КМ/Ч";
-                label_color: UX.textWhite;
+                label_color: Theme.color("light1");
 				label_text_size: 14 * Theme.scalingFactor.y;
                 label_text_family: fontExtraBold.name; label_text_bold: true;
                 label_textAlignment: Text.AlignHCenter;
@@ -642,7 +641,7 @@ Rectangle {
     {
         id: statusBar;
 		height: 24 * Theme.scalingFactor.y;
-        color: UX.primaryDarker;
+        color: Theme.color("dark1");
         radius: 12;
         anchors.bottom: parent.bottom;
 		anchors.bottomMargin: 4 * Theme.scalingFactor.y;
@@ -656,7 +655,7 @@ Rectangle {
 			width: 65 * Theme.scalingFactor.x;
 			height: 10 * Theme.scalingFactor.y;
             radius: 3;
-            color: UX.primaryDark;
+            color: Theme.color("dark1");
             anchors.verticalCenter: parent.top;
             anchors.horizontalCenter: parent.horizontalCenter;
             Labels.FramedLabel
@@ -666,7 +665,7 @@ Rectangle {
 				fixed_width: 60 * Theme.scalingFactor.x;
 				fixed_height: 9 * Theme.scalingFactor.y;
                 label_text: "СТАТУС";
-                label_color: UX.textFaded;
+                label_color: Theme.color("light0");
 				label_text_size: 9 * Theme.scalingFactor.y;
                 label_text_family: fontBold.name;
                 label_text_bold: true;
@@ -682,7 +681,7 @@ Rectangle {
 			anchors.margins: 5 * Theme.scalingFactor.x; anchors.leftMargin: 8 * Theme.scalingFactor.x;
 			fixed_height: 14 * Theme.scalingFactor.y;
             label_text: RuntimeData.formStatus;
-            label_color: UX.textWhite;
+            label_color: Theme.color("light1");
 			label_text_size: 14 * Theme.scalingFactor.y;
             label_text_family: fontBold.name;
             label_text_bold: false;

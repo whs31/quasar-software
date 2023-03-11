@@ -1,4 +1,7 @@
 #include "disktools.h"
+#include "theme/include/theme.hpp"
+#include "func/stext.h"
+
 #include <QDebug>
 
 DiskTools *DiskTools::_instance = nullptr;
@@ -40,7 +43,7 @@ void DiskTools::fetchDirectory()
         qWarning() << "[DISK] Directory is empty, throwing warning window...";
 
         RuntimeData::get()->statusPopupSet("В выбранном каталоге " +
-                                           SText::colorText("не найдены изображения!", ThemeManager::get()->getErrorLighter()));
+                                           SText::colorText("не найдены изображения!", Theme::get()->color("red")));
         RuntimeData::get()->statusPopupTriggerSet(true);
     }
 }
@@ -58,7 +61,7 @@ QByteArray DiskTools::convertToRawData(QString path)
         QByteArray rawData = imageFile.readAll();
         return rawData;
     } else {
-        qInfo() << "!!Error opening the image file for converting to raw bytes data";
+        qInfo() << "[DISK] Error opening the image file for converting to raw bytes data";
 
         return QByteArray();
     }

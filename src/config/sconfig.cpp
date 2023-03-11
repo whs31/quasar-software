@@ -1,4 +1,6 @@
 #include "sconfig.h"
+#include "theme/include/theme.hpp"
+#include "func/stext.h"
 
 SConfig* SConfig::pointer = nullptr;
 Config* SConfig::config;
@@ -53,9 +55,9 @@ void SConfig::loadSettings()
     qDebug() << "[SCONFIG] Main config loaded.";
 
     // plugin config
-    config->setValue("Terminal/rect_color", ThemeManager::get()->getPrimaryDarker());
-    config->setValue("Terminal/font_color", ThemeManager::get()->getTextWhite());
-    config->setValue("Terminal/cursor_color", ThemeManager::get()->getTextColored());
+    config->setValue("Terminal/rect_color", Theme::get()->color("dark1"));
+    config->setValue("Terminal/font_color", Theme::get()->color("light1"));
+    config->setValue("Terminal/cursor_color", Theme::get()->color("color3"));
 
     qInfo() << "[SCONFIG] Plugin config loaded.";
 
@@ -72,7 +74,7 @@ void SConfig::saveSettings()
     save();
     qInfo() << "[SCONFIG] Config saved.";
     RuntimeData::get()->statusPopupSet("Настройки сохранены. Некоторые параметры вступят в силу " +
-                                       SText::colorText("только после перезапуска.", ThemeManager::get()->getWarningLight()));
+                                       SText::colorText("только после перезапуска.", Theme::get()->color("yellow")));
     RuntimeData::get()->statusPopupTriggerSet(true);
 }
 
@@ -211,19 +213,19 @@ m_thetaAzimuthCorrection = value; emit thetaAzimuthCorrectionChanged(); }
 
 qreal SConfig::getPreviousSessionLatitude() { return m_previousSessionLatitude; }
 void SConfig::setPreviousSessionLatitude(qreal value) { m_previousSessionLatitude = value; 
-config->setValue("map/previous_session_latitude", QString::number(value)); qInfo() << "Set session latitude to " << value;
+config->setValue("map/previous_session_latitude", QString::number(value)); qInfo() << "[CONFIG] Set session latitude to " << value;
 config->sync();
 }
  
 qreal SConfig::getPreviousSessionLongitude() { return m_previousSessionLongitude; }
 void SConfig::setPreviousSessionLongitude(qreal value) { m_previousSessionLongitude = value; 
-config->setValue("map/previous_session_longitude", QString::number(value)); qInfo() << "Set session longitude to " << value;
+config->setValue("map/previous_session_longitude", QString::number(value)); qInfo() << "[CONFIG] Set session longitude to " << value;
 config->sync();
 }
 
 qreal SConfig::getPreviousSessionZoom() { return m_previousSessionZoom; }
 void SConfig::setPreviousSessionZoom(qreal value) { m_previousSessionZoom = value; 
-config->setValue("map/previous_session_zoom", QString::number(value)); qInfo() << "Set session zoom to " << value;
+config->setValue("map/previous_session_zoom", QString::number(value)); qInfo() << "[CONFIG] Set session zoom to " << value;
 config->sync();
 }
 

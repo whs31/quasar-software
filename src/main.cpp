@@ -53,10 +53,12 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     if(core.get() != nullptr)
     {
         core.get()->debugStreamUpdate(txt, msgt);
-        if(not releaseCacheFlag)
-            for (QPair<int, QString> message : cachedDebugInfo) {
+        if(not releaseCacheFlag) {
+            releaseCacheFlag = true;
+            for (QPair<int, QString> message : qAsConst(cachedDebugInfo)) {
                 core.get()->debugStreamUpdate(message.second, message.first);
             }
+        }
     }
     else
         cachedDebugInfo.append(QPair<int, QString>(msgt, txt));

@@ -6,7 +6,7 @@ import QtQuick.Controls.Material.impl 2.12
 import QtLocation 5.12
 import QtPositioning 5.12
 import QtGraphicalEffects 1.15
-import UX 1.0
+import Theme 1.0
 import "qrc:/qml/ui/widgets" as CustomWidgets
 
 
@@ -81,7 +81,7 @@ MapQuickItem {
             verticalOffset: 5;
             radius: 8.0;
             samples: 17;
-            color: UX.primaryDarker;
+            color: Theme.color("dark1");
             source: markerOverlay;
         }
         Rectangle {
@@ -95,7 +95,7 @@ MapQuickItem {
             radius: 10
             Text {
                 id: markerText;
-                color: UX.primaryDarker;
+                color: Theme.color("dark1");
                 enabled: true;
                 anchors.fill: parent;
 				font.pointSize: 9;

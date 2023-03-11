@@ -3,16 +3,16 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
-import UX 1.0
+import Theme 1.0
 
 Rectangle {
     id: dialogBase;
 	width: 24
 	height: 22
     opacity: 0.6;
-    color: UX.primaryDarker;
+    color: Theme.color("dark1");
     radius: 5;
-	border.color: UX.primaryDark;
+    border.color: Theme.color("dark2");
     z: 100;
 
 	FontLoader { id: fnt; source: "qrc:/fonts/SofiaSans-SemiBold.ttf"; }
@@ -34,12 +34,12 @@ Rectangle {
 		font.family: fnt.name;
 		font.bold: true;
 		font.capitalization: Font.AllUppercase;
-        Material.background: UX.errorDark;
+        Material.background: Theme.color("red");
         hoverEnabled: false;
         scale: 1
         z: 100
 		display: AbstractButton.IconOnly;
-        icon.color: UX.textWhite;
+        icon.color: Theme.color("light1");
 		icon.source: "qrc:/icons/close.png";
 		icon.width: 8;
 		icon.height: 8;

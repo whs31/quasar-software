@@ -5,7 +5,6 @@
 
 #include "map/backend/signallinker.h"
 #include "config/runtimedata.h"
-#include "gui/thememanager.h"
 
 class ApplicationHeader : public QObject
 {

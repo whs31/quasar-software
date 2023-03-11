@@ -16,7 +16,6 @@ import FlightPrediction 1.0
 import Theme 1.0
 import RuntimeData 1.0
 import Config 1.0
-import UX 1.0
 import Telemetry 1.0
 
 import "groups" as Groups
@@ -391,17 +390,17 @@ Rectangle {
         }
 
         MapPolyline { id: mapPolyline; line.width: 5; 
-                    opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: UX.warningLighter; path: [ ];
+                    opacity: RuntimeData.drawRoute ? 0.75 : 0; line.color: Theme.color("yellow"); path: [ ];
                     Behavior on opacity { NumberAnimation { duration: 1000; } } 
         }
-        MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: UX.warningLight; z: 1;
+        MapPolyline { id: predictLine; line.width: 3; opacity: RuntimeData.drawPredict ? 0.4 : 0; line.color: Theme.color("yellow"); z: 1;
                       path: [ { latitude: predict.y0, longitude: predict.x0 }, { latitude: predict.y10, longitude: predict.x10 } ]; 
                       Behavior on opacity { NumberAnimation { duration: 1000 } } }
         MapPolygon {  property var point0: QtPositioning.coordinate(predict.y0, predict.x0);
                       property var point1: QtPositioning.coordinate(predict.y1, predict.x1);
                       property var point2: QtPositioning.coordinate(predict.y2, predict.x2);
                       property var point3: QtPositioning.coordinate(predict.y3, predict.x3);
-                      id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: UX.warningLight; color: UX.warningLighter; z: 1;
+                      id: predictPoly; border.width: 3; opacity: RuntimeData.drawDiagram ? 0.4 : 0; border.color: Theme.color("yellow"); color: Theme.color("yellow"); z: 1;
                       path: [ point0,
                               point2,
                               point1,
@@ -491,7 +490,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 style: Text.Outline
                 font.family: "Verdana"
-                color: UX.textWhite;
+                color: Theme.color("light1");
                 text: "";
             }
         }
@@ -513,7 +512,7 @@ Rectangle {
 					anchors.fill: parent;
 					source: r1Source;
 					opacity: 1;
-					color: UX.textWhite;
+                    color: Theme.color("light1");
 					scale: 0.25;
 				}
             }
@@ -536,7 +535,7 @@ Rectangle {
 					anchors.fill: parent;
 					source: r2Source;
 					opacity: 1;
-					color: UX.textWhite;
+                    color: Theme.color("light1");
 				}
             }
 
@@ -568,7 +567,7 @@ Rectangle {
                     anchors.fill: planeSource;
                     source: planeSource;
                     opacity: 0.75;
-                    color: UX.warningLighter;
+                    color: Theme.color("yellow");
                 }
                 DropShadow {
                     anchors.fill: overlayPlane;
@@ -583,7 +582,7 @@ Rectangle {
                     anchors.fill: overlayPlane;
                     radius: 5;
                     samples: 17;
-                    color: UX.warningLight;
+                    color: Theme.color("yellow");
                     spread: 0.5;
                     transparentBorder: true;
                     source: overlayPlane;
@@ -596,7 +595,7 @@ Rectangle {
                 }
             }
         }
-        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: UX.textWhite; z: 100; path: [ ]; }
+        MapPolyline { id: rulerLine; line.width: 4; opacity: 0.8; line.color: Theme.color("light1"); z: 100; path: [ ]; }
 
         MapWidgets.ScaleGrid
         {
@@ -622,7 +621,7 @@ Rectangle {
             tooltipPadding: 10;
             opacity: 0.8;
             label_text: "Ш: 50.0000000 Д: 30.0000000";
-            label_color: UX.primaryDark;
+            label_color: Theme.color("dark1");
             label_text_size: 12;
             label_text_family: fontBold.name;
             label_text_bold: true;
@@ -659,8 +658,8 @@ Rectangle {
 		anchors.bottom: bottomBar.top;
 		anchors.bottomMargin: 25 * Theme.scalingFactor.y;
 		status: RuntimeData.statusPopup;
-		label_color: UX.textWhite;
-		outline_color: UX.primaryDark;
+        label_color: Theme.color("light1");
+        outline_color: Theme.color("dark2");
 		label_text_size: 15 * Theme.scalingFactor.y;
 		label_text_family: fontSemiBold.name;
 	}
@@ -670,7 +669,7 @@ Rectangle {
 		anchors.left: parent.left; anchors.right: parent.right;
 		z: 100;
 	}
-	Rectangle { id: terminalOutline; color: UX.primaryDark; width: 5; anchors.right: parent.right; anchors.top: topBar.bottom; anchors.bottom: bottomBar.top; }
+    Rectangle { id: terminalOutline; color: Theme.color("dark2"); width: 5; anchors.right: parent.right; anchors.top: topBar.bottom; anchors.bottom: bottomBar.top; }
 	DropShadow { z: 99; anchors.fill: infoWindow; horizontalOffset: 12; verticalOffset: 12; radius: 16; samples: 32; color: "#80000000"; source: infoWindow; cached: true; }
     Windows.InfoWindow
     {

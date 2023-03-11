@@ -3,7 +3,6 @@ import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls.Material.impl 2.12
-import UX 1.0
 import Theme 1.0
 
 Item {
@@ -23,9 +22,9 @@ Item {
         width: toolTipText.paintedWidth + tooltipPadding * Theme.scalingFactor.x;
         height: toolTipText.paintedHeight - 2 * Theme.scalingFactor.y;
         opacity: 1;
-        color: UX.textWhite;
+        color: Theme.color("light1");
         radius: frame_radius;
-        border.color: UX.textWhite;
+        border.color: Theme.color("light1");
         z: 99;
 
         Text {

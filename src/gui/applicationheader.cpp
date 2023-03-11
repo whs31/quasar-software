@@ -1,4 +1,5 @@
 #include "applicationheader.h"
+#include "theme/include/theme.hpp"
 
 
 ApplicationHeader::ApplicationHeader(QObject *parent) : QObject{parent}
@@ -15,6 +16,6 @@ void ApplicationHeader::emulator(void) { SignalLinker::get()->sendEmulator(); }
 bool ApplicationHeader::getWindowLockAlias() const { return RuntimeData::get()->windowLock(); }
 void ApplicationHeader::emitWindowLockAliasChanged() { emit windowLockAliasChanged(); }
 
-QColor ApplicationHeader::getErrorDarkAlias() const { return ThemeManager::get()->getErrorDark(); }
-QColor ApplicationHeader::getPrimaryDarkAlias() const { return ThemeManager::get()->getPrimaryDark(); }
-QColor ApplicationHeader::getTextWhiteAlias() const { return ThemeManager::get()->getTextWhite(); }
+QColor ApplicationHeader::getErrorDarkAlias() const { return Theme::get()->color("red"); }
+QColor ApplicationHeader::getPrimaryDarkAlias() const { return Theme::get()->color("dark1"); }
+QColor ApplicationHeader::getTextWhiteAlias() const { return Theme::get()->color("light1"); }

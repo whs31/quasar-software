@@ -83,7 +83,7 @@ QString ArgumentList::makeFocusArguments(void)
     }
     QString remoteAddress = " --remote " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getLoaderPort();
     returnString.append(remoteAddress);
-    qDebug() << "[ARGUMENT] Assigned remote: " << remoteAddress;
+    qWarning() << "[ARGUMENT] Assigned remote: " << remoteAddress;
     returnString.append(")");
     return returnString;
 }

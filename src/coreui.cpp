@@ -220,6 +220,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     connect(SignalLinker::get(), SIGNAL(clearSARStorageSignal()), execdRemote, SLOT(executeClearCommand())); 
     connect(SignalLinker::get(), SIGNAL(formSingleImageSignal()), execdRemote, SLOT(executeFormCommand()));
     connect(SignalLinker::get(), SIGNAL(focusSignal()), execdRemote, SLOT(executeFocusCommand()));
+    connect(SignalLinker::get(), SIGNAL(reformSignal()), execdRemote, SLOT(executeFormCommand()));
 
     // autocapture setup
     connect(RuntimeData::get(), SIGNAL(autocaptureSignal()), execdRemote, SLOT(executeFormCommand())); 

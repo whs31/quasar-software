@@ -71,8 +71,10 @@ Rectangle {
 		fixed_width: 51 * Theme.scalingFactor.x;
 		fixed_height: 17 * Theme.scalingFactor.y;
         label_text: "РЕЖИМ";
-		label_color: Theme.color("light1");          label_text_size: 12 * Theme.scalingFactor.y;
-        label_text_family: fontMedium.name; label_text_bold: true;
+        label_color: Theme.color("light1");
+        label_text_size: 12 * Theme.scalingFactor.y;
+        label_text_family: fontMedium.name;
+        label_text_bold: true;
         label_textAlignment: Text.AlignHCenter;
 		frame_radius: 2 * Theme.scalingFactor.x;
         frame_width: 1;
@@ -310,6 +312,7 @@ Rectangle {
     Dropdowns.Dropdown
     {
         id: formParametersDropDown;
+        enabled: true;
         anchors.left: panImageButton.left;
         anchors.bottom: separator1.bottom;
 

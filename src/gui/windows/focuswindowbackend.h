@@ -21,6 +21,7 @@ class FocusWindowBackend : public WindowBackend
 public:
     static FocusWindowBackend* get(QObject* parent = nullptr);
     Q_INVOKABLE void show(void) override;
+    Q_INVOKABLE void reform(void);
 
     QString base64() const;             void base64Set(const QString &newBase64);
     QString filename() const;           void filenameSet(QString newFilename);

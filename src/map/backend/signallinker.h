@@ -17,6 +17,7 @@ public:
     Q_INVOKABLE void formSingleImage(void); 
     Q_INVOKABLE void clearSARStorage(void);
     Q_INVOKABLE void focus(void);
+    Q_INVOKABLE void reform(void);
     
 
 private:
@@ -33,6 +34,7 @@ signals:
     void formSingleImageSignal();
     void clearSARStorageSignal();
     void focusSignal();
+    void reformSignal();
 };
 
 #endif // SIGNALLINKER_H

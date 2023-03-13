@@ -144,3 +144,10 @@ void FocusWindowBackend::offsetSet(qreal newOffset)
     m_offset = newOffset;
     emit offsetChanged();
 }
+
+void FocusWindowBackend::reform(void)
+{
+    setReturnCode(2);
+    setShown(false);
+    RuntimeData::get()->windowLockSet(false);
+}

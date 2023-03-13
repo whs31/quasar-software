@@ -80,6 +80,12 @@ RowLayout {
                     SignalLinker.focus();
                     waitingForDialogResponse = false;
                 }
+                else if(FocusWindowBackend.returnCode === 2)
+                {
+                    FormParameters.filename = FocusWindowBackend.filename;
+                    SignalLinker.reform();
+                    waitingForDialogResponse = false;
+                }
             }
         }
         Component.onCompleted: {

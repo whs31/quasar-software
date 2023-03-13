@@ -211,9 +211,9 @@ Rectangle {
 			anchors.bottomMargin: 14;
 			anchors.right: cancelButton.left;
 			anchors.rightMargin: 15;
-			fixed_width: 103 ;
+            fixed_width: 150;
 			fixed_height: 20;
-			label_text: "ОК";
+            label_text: "ФОКУСИРОВКА";
             label_color: Theme.color("light1");
 			label_text_size: 14;
 			label_text_family: fontBold.name;
@@ -228,6 +228,30 @@ Rectangle {
 				imageView.returnToBounds();
 			}
 		}
+        Buttons.LightButton
+        {
+            id: reformButton;
+            anchors.bottom: parent.bottom;
+            anchors.bottomMargin: 14;
+            anchors.right: okButton.left;
+            anchors.rightMargin: 30;
+            fixed_width: 180;
+            fixed_height: 20;
+            label_text: "ПЕРЕФОРМИРОВАНИЕ";
+            label_color: Theme.color("light1");
+            label_text_size: 14;
+            label_text_family: fontBold.name;
+            label_text_bold: true;         label_textAlignment: Text.AlignHCenter;
+            highlight_color: Theme.color("accent");
+            frame_radius: 6;
+            frame_width: 1;
+            frame_enabled: true;
+            onClicked: {
+                FocusWindowBackend.reform();
+                imageSource.zoom = 0;
+                imageView.returnToBounds();
+            }
+        }
 
 		Labels.FramedLabel
 		{

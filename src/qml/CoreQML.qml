@@ -12,6 +12,7 @@ import RecallHandler 1.0
 import MarkerManager 1.0
 import ImageManager 1.0
 import FlightPrediction 1.0
+import RouteLogger 1.0
 
 import Theme 1.0
 import RuntimeData 1.0
@@ -89,6 +90,7 @@ Rectangle {
     {
         if(Config.onlineMaps) { defaultMapModeOnTestMode = 1; } else { defaultMapModeOnTestMode = 0; }
         //      5 = schema      4 = hybrid      1 = satellite
+        RouteLogger.newRoute(new Date().toDateString());
     }
 
 	function destructor()
@@ -126,6 +128,7 @@ Rectangle {
             predict.x0 = Telemetry.longitude;
             predict.y0 = Telemetry.latitude;
         }
+        RouteLogger.addPoint(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude, -1));
     }
 
     function startEmulator()

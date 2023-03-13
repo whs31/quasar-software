@@ -641,7 +641,7 @@ Rectangle {
     {
         id: statusBar;
 		height: 24 * Theme.scalingFactor.y;
-        color: Theme.color("dark1");
+        color: Theme.color("dark0");
         radius: 12;
         anchors.bottom: parent.bottom;
 		anchors.bottomMargin: 4 * Theme.scalingFactor.y;

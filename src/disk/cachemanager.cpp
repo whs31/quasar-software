@@ -48,7 +48,7 @@ void CacheManager::initialize()
 
 void CacheManager::setupImageCache()
 {
-    tcpDowloaderCache = QCoreApplication::applicationDirPath() + "/appcache/tcpdcache";
+    tcpDowloaderCache = QCoreApplication::applicationDirPath() + "/cache";
     QDir tcp(tcpDowloaderCache);
     if (tcp.exists())
         tcp.mkpath(tcpDowloaderCache);

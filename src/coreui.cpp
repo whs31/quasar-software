@@ -5,6 +5,7 @@
 #include "config/settingsdialog.h"
 #include "config/runtimedata.h"
 #include "map/tilesmanager.h"
+#include "map/backend/routelogger.h"
 #include "map/backend/fmousekeyhandler.h"
 #include "map/backend/recallhandler.h"
 #include "map/backend/flightprediction.h"
@@ -78,6 +79,7 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
     qmlRegisterType<RecallHandler>("RecallHandler", 1, 0, "RecallHandler");
     qmlRegisterType<FlightPrediction>("FlightPrediction", 1, 0, "Predict");
     qmlRegisterType<ScaleGridBackend>("ScaleGridBackend", 1, 0, "ScaleGridBackend");
+    qmlRegisterSingletonInstance<RouteLogger>("RouteLogger", 1, 0, "RouteLogger", new RouteLogger(this));
 
     // signal linker setup
     qmlRegisterSingletonInstance<SignalLinker>("SignalLinker", 1, 0, "SignalLinker", SignalLinker::get(this));

@@ -51,6 +51,7 @@ Rectangle {
         tooltip_enabled: true;
         onClicked: 
         { 
+            FormParameters.filename = "m1"; //reset to default value
             if(!FormParameters.formingContinuous) { 
                 SignalLinker.formSingleImage(); 
                 if(FormParameters.formingQueueMode === 1)

@@ -295,6 +295,90 @@ Rectangle {
 				FocusWindowBackend.time = parseFloat(input_text);
 			}
 		}
+        Labels.FramedLabel
+        {
+            id: timeshiftText;
+            anchors.bottom: reformButton.top;
+            anchors.bottomMargin: 8;
+            anchors.left: reformButton.left;
+            fixed_width: 174;
+            fixed_height: 20;
+            label_text: "СДВИГ ПО ВРЕМЕНИ";
+            label_color: Theme.color("light1");
+            label_text_size: 14;
+            label_text_family: fontSemiBold.name;
+            label_text_bold: true;
+            label_textAlignment: Text.AlignLeft;
+            frame_radius: 2;
+            frame_width: 0;
+            label_wrapping: true;
+        }
+        Input.FramedLineEdit
+        {
+            id: timeshiftInput;
+            fixed_width: 55;
+            fixed_height: 22;
+            anchors.verticalCenter: timeText.verticalCenter;
+            anchors.left: timeshiftText.right;
+            label_color: Theme.color("light1");
+            label_text_size: 14;
+            label_text_family: fontExtraBold.name;
+            label_text_bold: true;
+            label_textAlignment: Text.AlignRight;
+            highlight_color: Theme.color("dark2");
+            frame_radius: 5;
+            frame_width: 0;
+            frame_enabled: false;
+            frame_color: Theme.color("dark1");
+            selection_color: Theme.color("yellow");
+            input_text: Number(FormParameters.timeshift).toFixed(1);
+            input_text_postfix: " с";
+            onTxtChanged: {
+                FormParameters.timeshift = parseFloat(input_text);
+            }
+        }
+        Labels.FramedLabel
+        {
+            id: reformVelocityText;
+            anchors.bottom: reformButton.top;
+            anchors.bottomMargin: 8;
+            anchors.left: coordsLabelValue.right;
+            fixed_width: 174;
+            fixed_height: 20;
+            label_text: "CКОРОСТЬ ПЕРЕФОРМИРОВАНИЯ";
+            label_color: Theme.color("light1");
+            label_text_size: 14;
+            label_text_family: fontSemiBold.name;
+            label_text_bold: true;
+            label_textAlignment: Text.AlignLeft;
+            frame_radius: 2;
+            frame_width: 0;
+            label_wrapping: true;
+        }
+        Input.FramedLineEdit
+        {
+            id: timeshiftInput;
+            fixed_width: 55;
+            fixed_height: 22;
+            anchors.verticalCenter: reformVelocityText.verticalCenter;
+            anchors.left: reformVelocityText.right;
+            label_color: Theme.color("light1");
+            label_text_size: 14;
+            label_text_family: fontExtraBold.name;
+            label_text_bold: true;
+            label_textAlignment: Text.AlignRight;
+            highlight_color: Theme.color("dark2");
+            frame_radius: 5;
+            frame_width: 0;
+            frame_enabled: false;
+            frame_color: Theme.color("dark1");
+            selection_color: Theme.color("yellow");
+            input_text: Number(FormParameters.velocity).toFixed(1);
+            input_text_postfix: " с";
+            onTxtChanged: {
+                FormParameters.velocity = parseFloat(input_text);
+            }
+        }
 
 		Flickable
 		{

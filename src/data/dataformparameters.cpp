@@ -131,3 +131,31 @@ void DataFormParameters::focusTimeSet(qreal newFocusTime)
     emit focusTimeChanged();
     ArgumentList::get()->focus_time->setValue(focusTime());
 }
+
+float DataFormParameters::getTimeshift() const
+{
+    return m_timeshift;
+}
+
+void DataFormParameters::setTimeshift(float newTimeshift)
+{
+    if (qFuzzyCompare(m_timeshift, newTimeshift))
+        return;
+    m_timeshift = newTimeshift;
+    emit timeshiftChanged();
+    ArgumentList::get()->timeshift->setValue(getTimeshift());
+}
+
+float DataFormParameters::getReformVelocity() const
+{
+    return m_reformVelocity;
+}
+
+void DataFormParameters::setReformVelocity(float newReformVelocity)
+{
+    if (qFuzzyCompare(m_reformVelocity, newReformVelocity))
+        return;
+    m_reformVelocity = newReformVelocity;
+    emit reformVelocityChanged();
+    ArgumentList::get()->velocity->setValue(getReformVelocity());
+}

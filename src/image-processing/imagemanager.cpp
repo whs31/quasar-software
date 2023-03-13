@@ -56,7 +56,8 @@ void ImageManager::newImage(QString filenamePath, QByteArray data)
 
 bool ImageManager::removeImage(qint32 index)
 {
-    imageList.remove(index);
+    if(index < imageList.length())
+        imageList.remove(index);
     RuntimeData::get()->setTotalImageCount(imageList.length());
 
     qDebug() << "[IMAGEMANAGER] Image " << QString::number(index) << " removed from map. List now contains = " << QString::number(imageList.length());

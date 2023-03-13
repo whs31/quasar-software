@@ -1,6 +1,7 @@
 #include "sconfig.h"
 #include "theme/include/theme.hpp"
 #include "func/stext.h"
+#include "network/modules/execd/argumentlist.h"
 
 SConfig* SConfig::pointer = nullptr;
 Config* SConfig::config;
@@ -67,6 +68,7 @@ void SConfig::loadSettings()
 
     qDebug() << "[SCONFIG] Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
     qInfo() << "[SCONFIG] Previous session restored.";
+    ArgumentList::get(this)->remote->setValue(getComputerIP() + ":" + getLoaderPort());
 }
 
 void SConfig::saveSettings()

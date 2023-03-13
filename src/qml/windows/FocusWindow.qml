@@ -303,19 +303,14 @@ Rectangle {
 					smooth: true;
 					source: "qrc:/icons/debug.png";
 					visible: true;
-					cache: false;
-					anchors.centerIn: parent;
-					fillMode: Image.PreserveAspectFit
-					transformOrigin: Item.Center
-					scale: Math.min(window.width / width, window.height / height, 1) + zoom
+                    cache: false;
+                    anchors.centerIn: parent;
+                    fillMode: Image.PreserveAspectFit;
+                    transformOrigin: Item.Center;
+                    scale: 1 + zoom;
 
-                    property real zoom: 1;
-					property real zoomStep: 0.1;
-                    onZoomChanged:
-                    {
-                        if(zoom < 1)
-                            zoom = 1;
-                    }
+                    property real zoom: 0.0;
+                    property real zoomStep: 0.1;
 
 					MouseArea
 					{
@@ -339,8 +334,7 @@ Rectangle {
 								imageView.returnToBounds();
 							}
 
-							mouseArea.hoverEnabled = true;
-							//adjustCoordinates();
+                            mouseArea.hoverEnabled = true;
 							wheel.accepted = true;
 						}
 						onClicked: hoverEnabled = !hoverEnabled;

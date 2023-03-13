@@ -1,4 +1,5 @@
 #include "argumentlist.h"
+#include "config/sconfig.h"
 #include <QDebug>
 
 ArgumentList *ArgumentList::_instance = nullptr;
@@ -71,7 +72,7 @@ QString ArgumentList::makeFocusArguments(void)
     bool noSpaceFlag = false;
     for(size_t arg = 0; arg < focus_args.length(); arg++)
     {
-        if(focus_args[arg]->isChanged() && !noSpaceFlag)
+        if(focus_args[arg]->isChanged() and not noSpaceFlag)
         {
             returnString.append(focus_args[arg]->key + " " + focus_args[arg]->getValue());
             noSpaceFlag = true;
@@ -80,6 +81,8 @@ QString ArgumentList::makeFocusArguments(void)
         if(focus_args[arg]->isChanged())
             returnString.append(" " + focus_args[arg]->key + " " + focus_args[arg]->getValue());
     }
+    QString remoteAddress = " --remote " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getLoaderPort();
+    returnString.append(remoteAddress);
     returnString.append(")");
     return returnString;
 }

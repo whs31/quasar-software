@@ -357,7 +357,7 @@ Rectangle {
         }
         Input.FramedLineEdit
         {
-            id: timeshiftInput;
+            id: velocityInput;
             fixed_width: 55;
             fixed_height: 22;
             anchors.verticalCenter: reformVelocityText.verticalCenter;

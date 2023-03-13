@@ -40,6 +40,7 @@ public:
     ExecdArgument* im             =  new ExecdArgument(this, ArgumentType::String, "--im", "out");
     ExecdArgument* tshift2        =  new ExecdArgument(this, ArgumentType::Float, "--Tshift", 1);
     ExecdArgument* remote         =  new ExecdArgument(this, ArgumentType::String, "--remote", "None", "Сервер для передачи данных [address:port]");
+    ExecdArgument* timedur        =  new ExecdArgument(this, ArgumentType::Int, "--td", "10");
 
     ExecdArgument* rect_x         =  new ExecdArgument(this, ArgumentType::Float, "--px", "-1", "Сервер для передачи данных [address:port]");
     ExecdArgument* rect_y         =  new ExecdArgument(this, ArgumentType::Float, "--py", "-1", "Сервер для передачи данных [address:port]");

@@ -34,6 +34,7 @@ ArgumentList::ArgumentList(QObject *parent)
     args.append(im);
     args.append(tshift2);
     args.append(remote);
+    args.append(timedur);
 
     focus_args.append(filename);
     focus_args.append(velocity);

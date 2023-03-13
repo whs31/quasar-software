@@ -301,7 +301,8 @@ Rectangle {
             id: timeshiftText;
             anchors.bottom: reformButton.top;
             anchors.bottomMargin: 8;
-            anchors.left: reformVelocityText.left;
+            anchors.left: reformVelocityInput.right;
+            anchors.leftMargin: 15;
             fixed_width: 150;
             fixed_height: 20;
             label_text: "СДВИГ ПО ВРЕМЕНИ";
@@ -345,7 +346,7 @@ Rectangle {
             anchors.bottomMargin: 8;
             anchors.left: coordsLabelValue.right;
             anchors.leftMargin: 20;
-            fixed_width: 200;
+            fixed_width: 220;
             fixed_height: 20;
             label_text: "CКОРОСТЬ ПЕРЕФОРМИРОВАНИЯ";
             label_color: Theme.color("light1");
@@ -375,10 +376,10 @@ Rectangle {
             frame_enabled: false;
             frame_color: Theme.color("dark1");
             selection_color: Theme.color("yellow");
-            input_text: Number(FormParameters.velocity).toFixed(1);
+            input_text: Number(FormParameters.reformVelocity).toFixed(1);
             input_text_postfix: " с";
             onTxtChanged: {
-                FormParameters.velocity = parseFloat(input_text);
+                FormParameters.reformVelocity = parseFloat(input_text);
             }
         }
 

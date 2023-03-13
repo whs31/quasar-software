@@ -110,8 +110,8 @@ private:
     qreal m_focusY;
     qreal m_focusL;
     qreal m_focusTime;
-    float m_timeshift;
-    float m_reformVelocity;
+    float m_timeshift = 1;
+    float m_reformVelocity = -1;
 };
 
 #endif // DATAFORMPARAMETERS_H

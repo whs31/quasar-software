@@ -321,7 +321,7 @@ Rectangle {
 						acceptedButtons: Qt.RightButton;
 						function adjustCoordinates()
 						{
-							FocusWindowBackend.x = (mouseArea.mouseX / width) * FocusWindowBackend.lx * FocusWindowBackend.step + FocusWindowBackend.offset - 10;
+                            FocusWindowBackend.x = (mouseArea.mouseX / width) * FocusWindowBackend.lx * FocusWindowBackend.step + FocusWindowBackend.offset;
 							FocusWindowBackend.y = ((mouseArea.mouseY / height) - 0.5) * FocusWindowBackend.ly * FocusWindowBackend.step;
 						}
 						onPositionChanged: adjustCoordinates();

@@ -11,6 +11,7 @@ RouteLogger::RouteLogger(QObject *parent)
 void RouteLogger::newRoute(QString name)
 {
     m_current_filename = CacheManager::getTcpDowloaderCache() + "/" + name + ".txt";
+    m_current_filename.prepend("routetrack-");
     QFile route(m_current_filename);
     if(route.open(QIODevice::ReadWrite))
     {

@@ -44,6 +44,7 @@ void CacheManager::initialize()
         plugins.mkpath(pluginCache);
 
     qInfo() << "[CACHEMANAGER] Initial cache created";
+    setupImageCache();
 }
 
 void CacheManager::setupImageCache()

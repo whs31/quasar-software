@@ -90,7 +90,7 @@ Rectangle {
     {
         if(Config.onlineMaps) { defaultMapModeOnTestMode = 1; } else { defaultMapModeOnTestMode = 0; }
         //      5 = schema      4 = hybrid      1 = satellite
-        RouteLogger.newRoute(new Date().toDateString());
+        RouteLogger.newRoute(new Date().toLocaleTimeString(Qt.locale(), Locale.LongFormat));
     }
 
 	function destructor()

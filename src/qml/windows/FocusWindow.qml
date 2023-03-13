@@ -5,6 +5,7 @@ import Theme 1.0
 import QtGraphicalEffects 1.15
 
 import FocusWindowBackend 1.0
+import FormParameters 1.0
 
 import "qrc:/qml/ui/buttons" as Buttons
 import "qrc:/qml/ui/labels" as Labels
@@ -300,8 +301,8 @@ Rectangle {
             id: timeshiftText;
             anchors.bottom: reformButton.top;
             anchors.bottomMargin: 8;
-            anchors.left: reformButton.left;
-            fixed_width: 174;
+            anchors.left: reformVelocityText.left;
+            fixed_width: 150;
             fixed_height: 20;
             label_text: "СДВИГ ПО ВРЕМЕНИ";
             label_color: Theme.color("light1");
@@ -343,7 +344,8 @@ Rectangle {
             anchors.bottom: reformButton.top;
             anchors.bottomMargin: 8;
             anchors.left: coordsLabelValue.right;
-            fixed_width: 174;
+            anchors.leftMargin: 20;
+            fixed_width: 200;
             fixed_height: 20;
             label_text: "CКОРОСТЬ ПЕРЕФОРМИРОВАНИЯ";
             label_color: Theme.color("light1");

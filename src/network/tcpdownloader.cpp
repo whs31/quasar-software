@@ -61,7 +61,7 @@ void TCPDownloader::readFileInfo(QByteArray data)
     readFile = &TCPDownloader::readFileBody;
 
     uint8_t i = data.indexOf('\n') + 1; // maybe + 1;
-    filename = &data.left(i - 1).data() ['\0'];
+    filename = data.left(i - 2).data();
     memcpy(&fileSize, data.mid(i, sizeof(uint32_t)).data(), sizeof(uint32_t));
 
     i+=sizeof(uint32_t);

@@ -309,8 +309,13 @@ Rectangle {
 					transformOrigin: Item.Center
 					scale: Math.min(window.width / width, window.height / height, 1) + zoom
 
-					property real zoom: 0.0;
+                    property real zoom: 1;
 					property real zoomStep: 0.1;
+                    onZoomChanged:
+                    {
+                        if(zoom < 1)
+                            zoom = 1;
+                    }
 
 					MouseArea
 					{
@@ -330,7 +335,7 @@ Rectangle {
 								imageSource.zoom = Number((imageSource.zoom + imageSource.zoomStep).toFixed(1))
 							else
 							{
-								if (imageSource.zoom > 0) imageSource.zoom = Number((imageSource.zoom - imageSource.zoomStep).toFixed(1));
+                                if (imageSource.zoom > 0) imageSource.zoom = Number((imageSource.zoom - imageSource.zoomStep).toFixed(1));
 								imageView.returnToBounds();
 							}
 

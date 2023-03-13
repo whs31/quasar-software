@@ -292,8 +292,8 @@ Rectangle {
 			Rectangle
 			{
 				id: imageBackground;
-				width: Math.max(imageSource.width * imageSource.scale, window.width);
-				height: Math.max(imageSource.height * imageSource.scale, window.height);
+                width: imageSource.width * imageSource.scale;
+                height: imageSource.height * imageSource.scale;
                 color: Theme.color("dark1");
 				anchors.centerIn: parent;
 

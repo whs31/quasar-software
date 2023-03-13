@@ -15,7 +15,7 @@
 //! @brief Логгер для кастомной имплементации консоли отладки.
 //! @details Сохраняет логи в отдельный файл, перенаправляет их в консоль отладки
 //!          и задает цвет для разных типов сообщений.
-QString logName = "";
+QString logName;
 QScopedPointer<CoreUI> core;
 QList<QPair<int, QString>> cachedDebugInfo;
 bool releaseCacheFlag = false;
@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 
     #include <QDateTime>
     QDateTime date = QDateTime::currentDateTime();
-    logName = date.toString("dd.MM.yyyy-hh:mm");
+    logName = date.toString("dd_MM_yyyy-hh_mm");
     logName.prepend("log-");
     logName.append(".txt");
     qInstallMessageHandler(debugLogger);

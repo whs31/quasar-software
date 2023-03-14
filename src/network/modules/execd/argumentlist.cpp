@@ -82,9 +82,9 @@ QString ArgumentList::makeFocusArguments(void)
         if(focus_args[arg]->isChanged())
             returnString.append(" " + focus_args[arg]->key + " " + focus_args[arg]->getValue());
     }
-    //QString remoteAddress = " --remote " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getLoaderPort();
-    //returnString.append(remoteAddress);
-    //qWarning() << "[ARGUMENT] Assigned remote: " << remoteAddress;
+    QString remoteAddress = " --remote " + SConfig::get()->getComputerIP() + ":" + SConfig::get()->getLoaderPort();
+    returnString.append(remoteAddress);
+    qWarning() << "[ARGUMENT] Assigned remote: " << remoteAddress;
     returnString.append(")");
     return returnString;
 }

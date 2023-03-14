@@ -10,10 +10,13 @@ SConfig::SConfig(QObject* parent) : QObject{parent}
 {
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
-    setProjectVersion("PROJECT_VERSION"); // temp
+    #ifdef QMAKE_COMPILATOR
+    setProjectVersion("test-qmake-build-ver");
+    #else
+    setProjectVersion(PROJECT_VERSION);
+    #endif
 
     qInfo() << "[SCONFIG] QuaSAR-UI build version: " + getProjectVersion();
-
 
     SConfig::loadSettings();
 }
@@ -41,6 +44,7 @@ void SConfig::loadSettings()
     setExecdPort(config->value("network/execd_port").toString());
     setTerminalPort(config->value("network/terminal_port").toString());
     setUseOldExecdEndline(config->value("network/use_old_execd_endline").toBool());
+    setUseProxy(config->value("network/use_proxy").toBool());
 
     setOnlineMaps(config->value("map/use_online_maps").toBool());
     setVelocityVectorLength(config->value("map/velocity_vector_length").toFloat());
@@ -56,7 +60,8 @@ void SConfig::loadSettings()
     qDebug() << "[SCONFIG] Main config loaded.";
 
     // plugin config
-    config->setValue("Terminal/rect_color", Theme::get()->color("dark1"));
+    config->setValue("Terminal/rect_color", Theme::get()->color("dark0"));
+    config->setValue("Terminal/font_size", 9);
     config->setValue("Terminal/font_color", Theme::get()->color("light1"));
     config->setValue("Terminal/cursor_color", Theme::get()->color("color3"));
 
@@ -68,7 +73,10 @@ void SConfig::loadSettings()
 
     qDebug() << "[SCONFIG] Previous latitude: " << getPreviousSessionLatitude() << ", longitude: " << getPreviousSessionLongitude();
     qInfo() << "[SCONFIG] Previous session restored.";
-    ArgumentList::get(this)->remote->setValue(getComputerIP() + ":" + getLoaderPort());
+    if(getUseProxy())
+        ArgumentList::get(this)->remote->setValue(getDE10IP() + ":" + getLoaderPort());
+    else
+        ArgumentList::get(this)->remote->setValue(getComputerIP() + ":" + getLoaderPort());
 }
 
 void SConfig::saveSettings()
@@ -100,6 +108,7 @@ void SConfig::save()
     config->setValue("network/execd_port", getExecdPort());
     config->setValue("network/terminal_port", getTerminalPort());
     config->setValue("network/use_old_execd_endline", getUseOldExecdEndline());
+    config->setValue("network/use_proxy", getUseProxy());
 
     config->setValue("map/use_online_maps", getOnlineMaps());
     config->setValue("map/velocity_vector_length", QString::number(getVelocityVectorLength()));
@@ -233,4 +242,19 @@ config->sync();
 
 QString SConfig::getDefaultCatalogue() { return m_defaultCatalogue; }
 void SConfig::setDefaultCatalogue(QString string) { if (string == m_defaultCatalogue) return;
-m_defaultCatalogue = string; emit defaultCatalogueChanged(); }
+    m_defaultCatalogue = string; emit defaultCatalogueChanged(); }
+
+bool SConfig::getUseProxy() const
+{
+    return m_useProxy;
+}
+
+void SConfig::setUseProxy(bool newUseProxy)
+{
+    if (m_useProxy == newUseProxy)
+        return;
+    m_useProxy = newUseProxy;
+    emit useProxyChanged();
+    if(m_useProxy)
+        qWarning() << "[SCONFIG] Using proxy connection!";
+}

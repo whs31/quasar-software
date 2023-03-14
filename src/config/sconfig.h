@@ -32,6 +32,7 @@ class SConfig : public QObject
     Q_PROPERTY(QString execdPort                  READ getExecdPort                 WRITE setExecdPort                NOTIFY execdPortChanged)
     Q_PROPERTY(QString terminalPort               READ getTerminalPort              WRITE setTerminalPort             NOTIFY terminalPortChanged)
     Q_PROPERTY(bool useOldExecdEndline            READ getUseOldExecdEndline        WRITE setUseOldExecdEndline       NOTIFY useOldExecdEndlineChanged)
+    Q_PROPERTY(bool useProxy                      READ getUseProxy                  WRITE setUseProxy                 NOTIFY useProxyChanged)
 
     // map
     Q_PROPERTY(bool onlineMaps                    READ getOnlineMaps                WRITE setOnlineMaps               NOTIFY onlineMapsChanged)
@@ -86,6 +87,9 @@ public:
     void saveSettings(void);                                       
     void saveQuiet(void);                                          
     void discardSettings(void);
+    bool getUseProxy() const;
+    void setUseProxy(bool newUseProxy);
+
 signals:
     //======================================================================================================
     //                                          =!= NOTIFY =!=                                            //
@@ -115,6 +119,8 @@ signals:
     void thetaAzimuthCorrectionChanged();
     void defaultCatalogueChanged();
 
+
+    void useProxyChanged();
 
 private:
     explicit SConfig(QObject* parent = nullptr);
@@ -147,6 +153,7 @@ private:
     qreal m_previousSessionLongitude;
     qreal m_previousSessionZoom;
     QString m_defaultCatalogue;
+    bool m_useProxy;
 };
 
 #endif // SCONFIG_H

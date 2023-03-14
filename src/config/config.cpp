@@ -17,6 +17,7 @@ Config::Config(QString fn) : QSettings(fn, QSettings::IniFormat)
     network["execd_port"] = "9845";
     network["terminal_port"] = "9846";
     network["use_old_execd_endline"] = "true";
+    network["use_proxy"] = "false";
     checkValuesSimple(network);
 
     group_t map;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>814</width>
-    <height>595</height>
+    <width>394</width>
+    <height>175</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,11 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QGridLayout" name="mainLayout"/>
+    <layout class="QGridLayout" name="mainLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+    </layout>
    </item>
    <item>
     <widget class="QDialogButtonBox" name="buttonBox">

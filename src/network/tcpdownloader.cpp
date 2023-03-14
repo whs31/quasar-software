@@ -100,30 +100,27 @@ void TCPDownloader::clientDisconnected(void)
             }
             if (!initialFileList.empty())
             {
-                for (QString filename : initialFileList)
+                for(QString filestr : initialFileList)
                 {
-                    TCPDebug debug(nullptr, initialFileList);
-                    debug.exec();
+                    if(filestr.contains("e.jpg"))
+                    {
+                        QPixmap pixmap(filestr);
+                        TCPDebug debug(nullptr, pixmap);
+                        debug.exec();
+                    }
                 }
+                TCPDebug debug(nullptr, initialFileList);
+                debug.exec();
+                if (savefolder.exists())
+                    savefolder.removeRecursively();
             }
         }
     }
 #endif
 
-    if(filename != "e.jpg" and not filename.contains(".zip"))
+    if(not filename.contains(".zip"))
     {
         ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData);
-    }
-    else if(not filename.contains(".zip"))
-    {
-        QPixmap pixmap;
-        pixmap.loadFromData(imageData, "JPG");
-        TCPDebug debug(nullptr, pixmap);
-        debug.exec();
-    }
-    else
-    {
-       qCritical() << "[TCP] Fatal error.";
     }
     emit receivingFinished();
 }

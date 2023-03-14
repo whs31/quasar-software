@@ -282,7 +282,7 @@ void CoreUI::debugStreamUpdate(QString _text, int msgtype)
     if(Theme::get() != nullptr and QGuiApplication::instance() != nullptr and uiReady)
     {
         if (msgtype == 0) { ui->debugConsole->setTextColor(Theme::get()->color("light1")); }
-        else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color1")); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color3")); }
         else if (msgtype == 2) { ui->debugConsole->setTextColor(Theme::get()->color("yellow")); }
         else if (msgtype == 3) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
         else if (msgtype == 4) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }

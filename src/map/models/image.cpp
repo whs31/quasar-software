@@ -93,6 +93,14 @@ void Image::assignUIStrings(QString filename)
     gui.checksum = "<font color=\"#a385cf\">0x" + QStringLiteral("%1").arg(meta.checksum, 4, 16, QLatin1Char('0')).toUpper() + "</font>"; //@TODO to uint16
     gui.filename = filename;
 
+    // new
+    gui.velocity = QString::number(meta.velocity, 'f', 1);
+    gui.height = QString::number(meta.height, 'f', 1);
+    gui.mode = QString::number(meta.mode);
+    gui.tS = QString::number(meta.ts, 'f', 1);
+    gui.timeShift = QString::number(meta.timeshift, 'f', 1);
+    gui.kR = QString::number(meta.kr, 'f', 1);
+
     QDateTime date = QDateTime::currentDateTime();
     QString formattedTime = date.toString("dd.MM.yyyy в hh:mm");
     gui.creationTime = formattedTime;

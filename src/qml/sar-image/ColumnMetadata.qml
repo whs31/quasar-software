@@ -135,6 +135,54 @@ ColumnLayout {
         font.bold: false;
     }
     Text {
+        id: text_c_14;
+        color: Theme.color("light1");
+        text: "Навигационная скорость: " + m_velocity;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
+        id: text_c_15;
+        color: Theme.color("light1");
+        text: "Навигационная высота: " + m_elevation;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
+        id: text_c_16;
+        color: Theme.color("light1");
+        text: "Время синтезирования: " + m_ts;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
+        id: text_c_17;
+        color: Theme.color("light1");
+        text: "Смещение по времени: " + m_timeshift;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
+        id: text_c_18;
+        color: Theme.color("light1");
+        text: "Режим: " + m_mode;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
+        id: text_c_19;
+        color: Theme.color("light1");
+        text: "Коэффициент ЧИ: " + m_kr;
+        font.pixelSize: 10;
+        font.family: fontMedium.name;
+        font.bold: false;
+    }
+    Text {
         id: text_c_hash;
         color: Theme.color("light1");
         text: "Хэш файла: " + m_hash;

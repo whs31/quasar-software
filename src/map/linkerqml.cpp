@@ -52,7 +52,14 @@ void LinkerQML::addModel(Image &image)
                            image.gui.thetaAzimuth,
                            image.gui.checksum,
                            image.gui.filename,
-                           image.gui.creationTime};
+                           image.gui.creationTime,
+                           image.gui.velocity,
+                           image.gui.height,
+                           image.gui.tS,
+                           image.gui.timeShift,
+                           image.gui.mode,
+                           image.gui.kR
+                          };
 
     QMetaObject::invokeMethod(map, "addImage",
                               Q_ARG(QVariant, QVariant::fromValue(metalist)),

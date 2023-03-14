@@ -224,6 +224,12 @@ Rectangle {
                                 "m_hash": gui[11],
                                 "m_filename": gui[12],
                                 "m_datetime": gui[13],
+                                "m_velocity": gui[14],
+                                "m_elevation": gui[15],
+                                "m_ts": gui[16],
+                                "m_timeshift": gui[17],
+                                "m_mode": gui[18],
+                                "m_kr": gui[19],
                                 "m_checksumMatch": checksumSuccess ? "<font color=\"#73c924\">да</font>" : "<font color=\"#b16573\">нет</font>",
                                 "m_visible": false
                             });

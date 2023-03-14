@@ -82,6 +82,12 @@ public:
         QString checksum = "";
         QString filename = "";
         QString creationTime = "";
+        QString velocity;
+        QString height;
+        QString mode;
+        QString kR;
+        QString tS;
+        QString timeShift;
     };
     Metadata meta; //check
     Interface gui; //check

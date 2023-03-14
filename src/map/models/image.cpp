@@ -53,7 +53,7 @@ bool Image::decode(QByteArray data)
         memcpy((char *)structData, (char *)&meta, *metaSize);
         uint32_t recalculatedChecksum = SChecksum::calculateCRC16(structData, *metaSize);
         QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 4, 16, QLatin1Char('0'));
-        free(structData);
+        //free(structData);
         checksumMatch = (recalculatedChecksum == meta.checksum) ? 1 : 0;
         if (!checksumMatch)
             qWarning() << "[IMAGE] Checksum seems to be incorrect";

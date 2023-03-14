@@ -61,6 +61,7 @@ RowLayout {
             FocusWindowBackend.ly = imageModel.get(index).m_height;
             FocusWindowBackend.step = imageModel.get(index).m_dx;
             FocusWindowBackend.offset = imageModel.get(index).m_x0;
+            FormParameters.reformVelocity = parseFloat(imageUIModel.get(index).m_velocity);
             FocusWindowBackend.show();
             waitingForDialogResponse = true;
         }
@@ -78,6 +79,7 @@ RowLayout {
                     FormParameters.focusTime = FocusWindowBackend.time;
                     FormParameters.filename = FocusWindowBackend.filename;
                     SignalLinker.focus();
+                    FormParameters.reformVelocity = -1;
                     waitingForDialogResponse = false;
                 }
                 else if(FocusWindowBackend.returnCode === 2)

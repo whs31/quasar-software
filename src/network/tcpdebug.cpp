@@ -5,7 +5,7 @@ TCPDebug::TCPDebug(QWidget *parent, QPixmap pixmap) :
     QDialog(parent),
     ui(new Ui::TCPDebug)
 {
-    ui->setupUi(this);h
+    ui->setupUi(this);
     ui->img->setPixmap(pixmap);
 }
 

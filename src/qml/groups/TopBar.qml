@@ -319,7 +319,7 @@ Rectangle {
 
 		fixed_width: 186 * Theme.scalingFactor.x;
 		fixed_height: 17 * Theme.scalingFactor.y;
-		fixed_drop: 17*8  * Theme.scalingFactor.y;
+        fixed_drop: 17*9  * Theme.scalingFactor.y;
         label_text: "ПАРАМЕТРЫ ФОРМИРОВАНИЯ";
 		label_color: Theme.color("light1");
 		label_text_size: 12 * Theme.scalingFactor.y;
@@ -492,7 +492,7 @@ Rectangle {
 							fixed_width: 186 * Theme.scalingFactor.x;
 							fixed_height: 17 * Theme.scalingFactor.y;
                             anchors.top: dxInput.bottom;
-                            label_text: "ВРЕМЯ ФОРМИРОВАНИЯ : ";
+                            label_text: "ВРЕМЯ СИНТЕЗИРОВАНИЯ : ";
 							label_color: Theme.color("dark1");
 							label_text_size: 12 * Theme.scalingFactor.y;
                             label_text_family: fontMedium.name;
@@ -508,12 +508,36 @@ Rectangle {
                                 FormParameters.formTime = parseFloat(input_text);
                             }
                         }
+                        Input.LineEdit
+                        {
+                            id: timedurInput;
+                            fixed_width: 186 * Theme.scalingFactor.x;
+                            fixed_height: 17 * Theme.scalingFactor.y;
+                            anchors.top: tsInput.bottom;
+                            label_text: "ДЛИТЕЛЬНОСТЬ ЗАПИСИ : ";
+                            label_color: Theme.color("dark1");
+                            label_text_size: 12 * Theme.scalingFactor.y;
+                            label_text_family: fontMedium.name;
+                            label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                            highlight_color: Theme.color("light1");
+                            frame_radius: 0;                frame_width: 1;
+                            frame_enabled: false;
+                            selection_color: Theme.color("color1");
+                            input_text: Number(FormParameters.timedur);
+                            input_text_postfix: "  с";
+                            lower_bound: 1; upper_bound: 100; decimal_precision: 0;
+                            onTxtChanged: {
+                                if (parseFloat(input_text) < (FormParameters.formTime + 1))
+                                    input_text = Number(FormParameters.formTime + 1);
+                                FormParameters.timedur = parseFloat(input_text);
+                            }
+                        }
                         Checkboxes.LightCheckbox
                         {
                             id: manualGPSCheckbox;
 							fixed_width: 186 * Theme.scalingFactor.x;
 							fixed_height: 17 * Theme.scalingFactor.y;
-                            anchors.top: tsInput.bottom;
+                            anchors.top: timedurInput.bottom;
                             label_text: "КОРРЕКТИРОВКА GPS";
 							label_color: Theme.color("dark1");
 							label_text_size: 12 * Theme.scalingFactor.y;

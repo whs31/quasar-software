@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QGeoCoordinate>
+#include <QFile>
 
 class RouteLogger : public QObject
 {
@@ -15,6 +16,7 @@ public:
 
 private:
     QString m_current_filename;
+    QFile* route;
 
 };
 

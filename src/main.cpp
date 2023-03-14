@@ -80,6 +80,6 @@ int main(int argc, char *argv[]) {
     qInstallMessageHandler(debugLogger);
     core.reset(new CoreUI());
     core.get()->show();
-    core.get()->showFullScreen();
+    core.get()->showMaximized();
     return app.exec();
 }

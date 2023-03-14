@@ -159,3 +159,20 @@ void DataFormParameters::setReformVelocity(float newReformVelocity)
     emit reformVelocityChanged();
     ArgumentList::get()->velocity->setValue(getReformVelocity());
 }
+
+int DataFormParameters::getTimedur() const
+{
+    return m_timedur;
+}
+
+void DataFormParameters::setTimedur(int newTimedur)
+{
+    if (m_timedur == newTimedur)
+        return;
+    if(newTimedur < (time + 1))
+        m_timedur = time + 1;
+    else
+        m_timedur = newTimedur;
+    emit timedurChanged();
+    ArgumentList::get()->timedur->setValue(getTimedur());
+}

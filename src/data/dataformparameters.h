@@ -21,6 +21,7 @@ class DataFormParameters : public QObject
     Q_PROPERTY(int formingQueueMode                 READ getFormingQueueMode    WRITE setFormingQueueMode    NOTIFY formingQueueModeChanged)
     Q_PROPERTY(float timeshift                      READ getTimeshift           WRITE setTimeshift           NOTIFY timeshiftChanged)
     Q_PROPERTY(float reformVelocity                 READ getReformVelocity      WRITE setReformVelocity      NOTIFY reformVelocityChanged)
+    Q_PROPERTY(int timedur                          READ getTimedur             WRITE setTimedur             NOTIFY timedurChanged)
 
     // параметры фокусировки
     Q_PROPERTY(QString filename                     READ filename               WRITE filenameSet            NOTIFY filenameChanged)
@@ -64,6 +65,9 @@ public:
     float getReformVelocity() const;
     void setReformVelocity(float newReformVelocity);
 
+    int getTimedur() const;
+    void setTimedur(int newTimedur);
+
 signals:
     void formModeChanged();
     void formLowerBoundChanged();
@@ -91,6 +95,8 @@ signals:
 
     void reformVelocityChanged();
 
+    void timedurChanged();
+
 private:
     static DataFormParameters* _instance;
     explicit DataFormParameters(QObject *parent = nullptr);
@@ -112,6 +118,7 @@ private:
     qreal m_focusTime;
     float m_timeshift = 1;
     float m_reformVelocity = -1;
+    int m_timedur = 2;
 };
 
 #endif // DATAFORMPARAMETERS_H

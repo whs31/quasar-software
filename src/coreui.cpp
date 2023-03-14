@@ -274,20 +274,22 @@ void* CoreUI::LoadPlugin(QString path)
 
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
-    if (msgtype == 0) { ui->debugConsole->setTextColor(Theme::get()->color("light1")); }
-    else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color1")); }
-    else if (msgtype == 2) { ui->debugConsole->setTextColor(Theme::get()->color("yellow")); }
-    else if (msgtype == 3) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
-    else if (msgtype == 4) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
-
-    QFont consoleFont = ui->debugConsole->font();
-    consoleFont.setPointSize(8);
-    ui->debugConsole->append(_text);
-    ui->debugConsole->setTextColor(Qt::white);
-    ui->debugConsole->setFont(consoleFont);
-    QTextCursor m_cursor = ui->debugConsole->textCursor();
-    m_cursor.movePosition(QTextCursor::End);
-    ui->debugConsole->setTextCursor(m_cursor);
+    if(Theme::get() != nullptr and QGuiApplication::instance() != nullptr)
+    {
+        if (msgtype == 0) { ui->debugConsole->setTextColor(Theme::get()->color("light1")); }
+        else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color1")); }
+        else if (msgtype == 2) { ui->debugConsole->setTextColor(Theme::get()->color("yellow")); }
+        else if (msgtype == 3) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
+        else if (msgtype == 4) { ui->debugConsole->setTextColor(Theme::get()->color("red")); }
+        QFont consoleFont = ui->debugConsole->font();
+        consoleFont.setPointSize(8);
+        ui->debugConsole->append(_text);
+        ui->debugConsole->setTextColor(Qt::white);
+        ui->debugConsole->setFont(consoleFont);
+        QTextCursor m_cursor = ui->debugConsole->textCursor();
+        m_cursor.movePosition(QTextCursor::End);
+        ui->debugConsole->setTextCursor(m_cursor);
+    }
 }
 
 void CoreUI::updateProgress(float f)

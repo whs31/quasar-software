@@ -377,7 +377,7 @@ Rectangle {
             frame_color: Theme.color("dark1");
             selection_color: Theme.color("yellow");
             input_text: Number(FormParameters.reformVelocity).toFixed(1);
-            input_text_postfix: " с";
+            input_text_postfix: " м/с";
             onTxtChanged: {
                 FormParameters.reformVelocity = parseFloat(input_text);
             }
@@ -396,21 +396,12 @@ Rectangle {
 			clip: true;
 			pixelAligned: true;
 			interactive: true;
-			contentWidth: imageBackground.width; //TODO
-			contentHeight: imageBackground.height; //TODO
+            contentWidth: imageSource.width * imageSource.scale; //TODO
+            contentHeight: imageSource.height * imageSource.scale; //TODO
 			flickDeceleration: 100000;
-
-			Rectangle
-			{
-				id: imageBackground;
-                width: imageSource.sourceSize.width * imageSource.scale;
-                height: imageSource.sourceSize.height * imageSource.scale;
-                color: Theme.color("dark1");
-				anchors.centerIn: parent;
 
 				Image {
 					id: imageSource;
-					anchors.fill: parent;
 					smooth: true;
 					source: "qrc:/icons/debug.png";
 					visible: true;
@@ -466,9 +457,8 @@ Rectangle {
 								sourceSize.height: 64;
 							}
 						}
-					}
-				}
-			}
+
+                    }
 		}
 
 
@@ -499,4 +489,5 @@ Rectangle {
 			}
 		}
 	}
+}
 }

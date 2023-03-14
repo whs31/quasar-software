@@ -61,7 +61,7 @@ RowLayout {
             FocusWindowBackend.ly = imageModel.get(index).m_height;
             FocusWindowBackend.step = imageModel.get(index).m_dx;
             FocusWindowBackend.offset = imageModel.get(index).m_x0;
-            FormParameters.reformVelocity = parseFloat(imageUIModel.get(index).m_velocity);
+            FormParameters.reformVelocity = imageUIModel.get(index).m_velocity;
             FocusWindowBackend.show();
             waitingForDialogResponse = true;
         }

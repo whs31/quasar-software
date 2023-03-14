@@ -361,7 +361,7 @@ Rectangle {
         Input.FramedLineEdit
         {
             id: reformVelocityInput;
-            fixed_width: 55;
+            fixed_width: 80;
             fixed_height: 22;
             anchors.verticalCenter: reformVelocityText.verticalCenter;
             anchors.left: reformVelocityText.right;
@@ -377,7 +377,7 @@ Rectangle {
             frame_color: Theme.color("dark1");
             selection_color: Theme.color("yellow");
             input_text: Number(FormParameters.reformVelocity).toFixed(1);
-            input_text_postfix: " м/с";
+            input_text_postfix: " км/ч";
             onTxtChanged: {
                 FormParameters.reformVelocity = parseFloat(input_text);
             }

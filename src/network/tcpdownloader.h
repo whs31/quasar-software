@@ -10,7 +10,6 @@
 #include <QTimer>
 
 #include "image-processing/imagemanager.h"
-#include "tcpdebug.h"
 
 class TCPDownloader : public QObject
 {

@@ -83,6 +83,7 @@ else()
 	# new modules (after refork)
 	src/theme/include/theme.hpp			src/theme/src/theme.cpp					src/theme/src/theme_p.hpp
         src/map/backend/routelogger.h                   src/map/backend/routelogger.cpp
+        src/network/tcpdebug.h                          src/network/tcpdebug.cpp                                src/network/tcpdebug.ui
 
         src/qml.qrc
         src/qss.qrc

@@ -1,4 +1,6 @@
 #include "tcpdownloader.h"
+#include "tcpdebug.h"
+
 #include <QDebug>
 
 TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
@@ -47,7 +49,15 @@ void TCPDownloader::clientDisconnected(void)
 
     (fileSize == imageData.size()) ? qInfo() << "[TCP] Image fully received from SAR" : qWarning() << "[TCP] Something went wrong in receiving SAR image";
 
-    ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData); 
+    if(filename != "e.jpg")
+        ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData);
+    else
+    {
+        QPixmap pixmap;
+        pixmap.loadFromData(imageData, "JPG");
+        TCPDebug debug(nullptr, pixmap);
+        debug.exec();
+    }
     emit receivingFinished();
 }
 
@@ -82,7 +92,6 @@ void TCPDownloader::readFileBody(QByteArray data)
     timer->start();
     if(data.size()){
         imageData.append(data);
-        imageData64.append(data.toBase64());
     }
     progress();
 }

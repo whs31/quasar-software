@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
 
-#set(CMAKE_C_COMPILER "C:/Users/User/Documents/aqt/Tools/mingw810_64/bin/gcc.exe") #remove before push
-#set(CMAKE_CXX_COMPILER "C:/Users/User/Documents/aqt/Tools/mingw810_64/bin/g++.exe") #remove before push
-
 project(QuaSAR-UI)
 set(executable_name Quasar)
  

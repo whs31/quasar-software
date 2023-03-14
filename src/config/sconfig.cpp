@@ -10,7 +10,7 @@ SConfig::SConfig(QObject* parent) : QObject{parent}
 {
     pointer = this;
     config = new Config(CacheManager::getSettingsPath() + "/config2.ini");
-    setProjectVersion(PROJECT_VERSION);
+    setProjectVersion("PROJECT_VERSION"); // temp
 
     qInfo() << "[SCONFIG] QuaSAR-UI build version: " + getProjectVersion();
 

@@ -1,7 +1,12 @@
 #include "tcpdownloader.h"
 #include "tcpdebug.h"
+#include "disk/cachemanager.h"
+#include "QtGui/private/qzipreader_p.h"
 
 #include <QDebug>
+#include <QFile>
+#include <QDir>
+#include <QImage>
 
 TCPDownloader::TCPDownloader(QObject *parent) : QObject(parent)
 {
@@ -47,16 +52,72 @@ void TCPDownloader::clientDisconnected(void)
     socket->close();
     timer->stop();
 
-    (fileSize == imageData.size()) ? qInfo() << "[TCP] Image fully received from SAR" : qWarning() << "[TCP] Something went wrong in receiving SAR image";
+    (fileSize == imageData.size()) ? qInfo() << "[TCP] Package fully received from SAR" : qWarning() << "[TCP] Something went wrong in receiving SAR image";
 
-    if(filename != "e.jpg")
+    if(filename.contains(".zip"))
+    {
+        qDebug() << "[TCP] Received ZIP package for debugging!";
+
+        QDir savefolder(CacheManager::getTcpDowloaderCache() + "/zip");
+        if (!savefolder.exists())
+            savefolder.mkpath(CacheManager::getTcpDowloaderCache() + "/zip");
+        QFile save_archive(CacheManager::getTcpDowloaderCache() + "/zip/" + filename);
+        if(save_archive.open(QIODevice::WriteOnly))
+        {
+            save_archive.write(imageData);
+            save_archive.close();
+        }
+        QZipReader zip(CacheManager::getTcpDowloaderCache() + "/zip/" + filename);
+        if (zip.exists()) {
+            // вывод информации об архиве
+            qDebug() << "Number of items in the zip archive =" << zip.count();
+            foreach (QZipReader::FileInfo info, zip.fileInfoList())
+            {
+                if(info.isFile)
+                    qDebug() << "File:" << info.filePath << info.size;
+                else if (info.isDir)
+                    qDebug() << "Dir:" << info.filePath;
+                else
+                    qDebug() << "SymLink:" << info.filePath;
+            }
+            QString filename_dir = filename;
+            filename_dir.chop(4);
+            QDir extractFolder(CacheManager::getTcpDowloaderCache() + "/zip/" + filename_dir);
+            if (!extractFolder.exists())
+                extractFolder.mkpath(CacheManager::getTcpDowloaderCache() + "/zip/" + filename_dir);
+            zip.extractAll(CacheManager::getTcpDowloaderCache() + "/zip/" + filename_dir);
+
+            QStringList initialFileList;
+            extractFolder.setFilter(QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+            extractFolder.setNameFilters(QStringList("*.jpg"));
+            for (QString entryString : extractFolder.entryList())
+            {
+                initialFileList.append(entryString.prepend(CacheManager::getTcpDowloaderCache() + "/zip/" + filename_dir + "/"));
+            }
+            if (!initialFileList.empty())
+            {
+                for (QString filename : initialFileList)
+                {
+                    TCPDebug debug(nullptr, initialFileList);
+                    debug.exec();
+                }
+            }
+        }
+    }
+    else if(filename != "e.jpg")
+    {
         ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData);
-    else
+    }
+    else if(not filename.contains(".zip"))
     {
         QPixmap pixmap;
         pixmap.loadFromData(imageData, "JPG");
         TCPDebug debug(nullptr, pixmap);
         debug.exec();
+    }
+    else
+    {
+       qCritical() << "[TCP] Fatal error.";
     }
     emit receivingFinished();
 }

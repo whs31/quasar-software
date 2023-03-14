@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPixmap>
+#include <QStringList>
 
 namespace Ui {
 class TCPDebug;
@@ -14,6 +15,7 @@ class TCPDebug : public QDialog
 
 public:
     explicit TCPDebug(QWidget *parent = nullptr, QPixmap pixmap = QPixmap());
+    explicit TCPDebug(QWidget *parent = nullptr, QStringList pathList = {});
     ~TCPDebug();
 
 private:

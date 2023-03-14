@@ -33,8 +33,6 @@ class FlightPrediction : public QObject //смысл класса прост: к
     Q_PROPERTY(qreal y2                 READ getY2                  WRITE setY2                 NOTIFY y2Changed);
     Q_PROPERTY(qreal x3                 READ getX3                  WRITE setX3                 NOTIFY x3Changed);
     Q_PROPERTY(qreal y3                 READ getY3                  WRITE setY3                 NOTIFY y3Changed);
-
-    QML_ELEMENT
 public:
     FlightPrediction(QObject* parent = nullptr);
 

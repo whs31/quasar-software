@@ -45,10 +45,14 @@ bool Image::decode(QByteArray data)
         memcpy(&meta, (chardata + JPEG_HEADER_SIZE + 4), *metaSize);
 
         // проверка контрольной суммы
-        char* structData = (char*)malloc(sizeof(meta)); 
+        char* structData = (char*)malloc(sizeof(meta));
+
+        qInfo() << "[IMAGE] New meta fields: velocity" << meta.velocity << ", height" << meta.height << ", TShift" << meta.timeshift
+                << ", ts" << meta.ts << ", mode" << meta.mode << ", KR" << meta.kr;
+
         memcpy((char *)structData, (char *)&meta, *metaSize);
         uint32_t recalculatedChecksum = SChecksum::calculateCRC16(structData, *metaSize);
-        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 4, 16, QLatin1Char('0')); //TODO:  to uint16 -> crc16
+        QString recalculatedChecksumHex = QString("%1").arg(recalculatedChecksum, 4, 16, QLatin1Char('0'));
         checksumMatch = (recalculatedChecksum == meta.checksum) ? 1 : 0;
         if (!checksumMatch)
             qWarning() << "[IMAGE] Checksum seems to be incorrect";

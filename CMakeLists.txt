@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC_SEARCH_PATHS src/)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Core )
-find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets Test REQUIRED Network Location Positioning)
-find_package(Qt5 REQUIRED COMPONENTS QuickControls2 GuiPrivate)
+find_package(Qt5 COMPONENTS Gui Widgets QuickWidgets Test REQUIRED Network Location Positioning )
+find_package(Qt5 REQUIRED COMPONENTS QuickControls2 )
 
 include_directories(
     src
@@ -97,7 +97,6 @@ target_link_libraries(${executable_name}
     Qt${QT_VERSION_MAJOR}::Network
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
-    Qt${QT_VERSION_MAJOR}::GuiPrivate
     Qt5::QuickControls2
 )
 

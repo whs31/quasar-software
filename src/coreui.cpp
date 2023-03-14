@@ -66,6 +66,12 @@ CoreUI::CoreUI(QWidget *parent) : QMainWindow(parent),
 
     qDebug() << "[CORE] Starting UI initialization...";
 
+    #ifdef QMAKE_COMPILATOR
+    qWarning() << "[CORE] Using QMAKE_COMPILATOR build settings";
+    #else
+    qInfo() << "[CORE] Using CMake build settings";
+    #endif
+
     // config
     qmlRegisterSingletonInstance("Config", 1, 0, "Config", SConfig::get());
 

@@ -124,6 +124,8 @@ RESOURCES += \
     resources/resources.qrc \
     appiconwin32.rc \
 
+DEFINES += QMAKE_COMPILATOR
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

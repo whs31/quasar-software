@@ -1,7 +1,10 @@
 #include "tcpdownloader.h"
 #include "tcpdebug.h"
 #include "disk/cachemanager.h"
+
+#ifdef QMAKE_COMPILATOR
 #include "QtGui/private/qzipreader_p.h"
+#endif
 
 #include <QDebug>
 #include <QFile>
@@ -54,6 +57,7 @@ void TCPDownloader::clientDisconnected(void)
 
     (fileSize == imageData.size()) ? qInfo() << "[TCP] Package fully received from SAR" : qWarning() << "[TCP] Something went wrong in receiving SAR image";
 
+#ifdef QMAKE_COMPILATOR
     if(filename.contains(".zip"))
     {
         qDebug() << "[TCP] Received ZIP package for debugging!";
@@ -104,7 +108,9 @@ void TCPDownloader::clientDisconnected(void)
             }
         }
     }
-    else if(filename != "e.jpg")
+#endif
+
+    if(filename != "e.jpg" and not filename.contains(".zip"))
     {
         ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData);
     }

@@ -45,7 +45,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50 * Theme.scalingFactor.x;
             anchors.margins: 2;
-            anchors.bottomMargin: -90 * Math.sin(Telemetry.pitch * 3.14 / 180);
+            anchors.bottomMargin: -90 * Math.sin(Telemetry.pitch);
             Image { id: scaleTop; opacity: 0.9; width: 34 * Theme.scalingFactor.x;
                     height: 180 * Theme.scalingFactor.y; source: "qrc:/attitude/scale-vertical.png";
                     smooth: true; antialiasing: true; anchors.bottom: parent.bottom; anchors.horizontalCenter: parent.horizontalCenter;  }
@@ -64,7 +64,7 @@ Rectangle {
             anchors.right: parent.right;
             anchors.rightMargin: -50 * Theme.scalingFactor.x;
             anchors.margins: 2;
-            anchors.topMargin: 90 * Math.sin(Telemetry.pitch * 3.14 / 180);
+            anchors.topMargin: 90 * Math.sin(Telemetry.pitch);
             //clip: true;
             Image { id: scaleBottom; opacity: 0.9; width: 34 * Theme.scalingFactor.x;
                     height: 180 * Theme.scalingFactor.y; source: "qrc:/attitude/scale-vertical.png";

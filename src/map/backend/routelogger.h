@@ -11,7 +11,8 @@ class RouteLogger : public QObject
 public:
     explicit RouteLogger(QObject *parent = nullptr);
     Q_INVOKABLE void newRoute(QString name = "unnamed route");
-    Q_INVOKABLE void addPoint(QGeoCoordinate point);
+    Q_INVOKABLE void addPoint(QGeoCoordinate point, float speed, int satellites);
+    Q_INVOKABLE void closeHandle();
     signals:
 
 private:

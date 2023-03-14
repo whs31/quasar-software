@@ -11,12 +11,11 @@
 
 
 
-
 //! @brief Логгер для кастомной имплементации консоли отладки.
 //! @details Сохраняет логи в отдельный файл, перенаправляет их в консоль отладки
 //!          и задает цвет для разных типов сообщений.
 QString logName;
-QScopedPointer<CoreUI> core;
+CoreUI* corePointer;
 QList<QPair<int, QString>> cachedDebugInfo;
 bool releaseCacheFlag = false;
 void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg)
@@ -50,13 +49,13 @@ void debugLogger(QtMsgType type, const QMessageLogContext &, const QString & msg
     outFile.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream ts(&outFile);
     ts << txt << '\n';
-    if(core.get() != nullptr)
+    if(corePointer != nullptr)
     {
-        core.get()->debugStreamUpdate(txt, msgt);
+        corePointer->debugStreamUpdate(txt, msgt);
         if(not releaseCacheFlag) {
             releaseCacheFlag = true;
             for (QPair<int, QString> message : qAsConst(cachedDebugInfo)) {
-                core.get()->debugStreamUpdate(message.second, message.first);
+                corePointer->debugStreamUpdate(message.second, message.first);
             }
         }
     }
@@ -68,6 +67,7 @@ int main(int argc, char *argv[]) {
     #if defined(Q_OS_WIN)
         FreeConsole();
     #endif
+
     //qputenv("QT_DEBUG_PLUGINS", QByteArray("1"));
     QApplication app(argc, argv);
     qSetMessagePattern("[%{time process}] %{message}");
@@ -78,8 +78,11 @@ int main(int argc, char *argv[]) {
     logName.prepend("log-");
     logName.append(".txt");
     qInstallMessageHandler(debugLogger);
-    core.reset(new CoreUI());
-    core.get()->show();
-    core.get()->showMaximized();
+
+    CoreUI core;
+    corePointer = &core;
+
+    core.show();
+    core.showMaximized();
     return app.exec();
 }

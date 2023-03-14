@@ -90,11 +90,12 @@ Rectangle {
     {
         if(Config.onlineMaps) { defaultMapModeOnTestMode = 1; } else { defaultMapModeOnTestMode = 0; }
         //      5 = schema      4 = hybrid      1 = satellite
-        RouteLogger.newRoute(new Date().toDateString() + "_" + new Date().toLocaleTimeString(Qt.locale(), Locale.LongFormat).replace(':', "-").replace(':', '-'));
+        RouteLogger.newRoute(new Date().toLocaleDateString("en-US") + "_" + new Date().toLocaleTimeString(Qt.locale(), Locale.LongFormat).replace(':', "-").replace(':', '-'));
     }
 
 	function destructor()
 	{
+        RouteLogger.closeHandle();
 		console.warn("[QML] Called destructor.");
 		Config.previousSessionLatitude = mapView.center.latitude;
 		Config.previousSessionLongitude = mapView.center.longitude;
@@ -128,7 +129,7 @@ Rectangle {
             predict.x0 = Telemetry.longitude;
             predict.y0 = Telemetry.latitude;
         }
-        RouteLogger.addPoint(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude, -1));
+        RouteLogger.addPoint(QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude, Telemetry.elevation), Telemetry.speed, Telemetry.satellites);
     }
 
     function startEmulator()

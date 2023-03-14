@@ -251,7 +251,6 @@ CoreUI::~CoreUI()
     qInfo() << "[CORE] Ending current session...";
     uiReady = false;
     delete ui;
-    delete qml;
     delete TilesManager::get();
     delete ImageManager::get();
     delete MarkerManager::get();
@@ -274,7 +273,7 @@ void* CoreUI::LoadPlugin(QString path)
 
 void CoreUI::debugStreamUpdate(QString _text, int msgtype)
 {
-    if(Theme::get() != nullptr and QGuiApplication::instance() != nullptr)
+    if(Theme::get() != nullptr and QGuiApplication::instance() != nullptr and uiReady)
     {
         if (msgtype == 0) { ui->debugConsole->setTextColor(Theme::get()->color("light1")); }
         else if (msgtype == 1) { ui->debugConsole->setTextColor(Theme::get()->color("color1")); }

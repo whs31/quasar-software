@@ -53,7 +53,18 @@ public:
         float lx = 0;
         float ly = 0;
         float thetaAzimuth = 0;
-        uint32_t checksum = 0;
+        float velocity = 0;
+        float height = 0;
+        float kr = 0;
+        float timeshift = 0;
+        float ts = 0;
+        float r1 = 0;
+        float r2 = 0;
+        uint8_t mode = 0;
+        uint8_t imagetype = 0;
+        uint32_t r3 = 0;
+        uint32_t r4 = 0;
+        uint16_t checksum = 0;
     };
     struct Interface
     {

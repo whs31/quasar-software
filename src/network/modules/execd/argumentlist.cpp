@@ -46,6 +46,7 @@ ArgumentList::ArgumentList(QObject *parent)
     focus_args.append(focus_vel_min);
     focus_args.append(drift_angle);
     focus_args.append(focus_img_cnt);
+    focus_args.append(sealevel);
 }
 
 QString ArgumentList::makeFormArguments(void)

@@ -337,7 +337,7 @@ Rectangle {
 							fixed_width: 186 * Theme.scalingFactor.x;
 							fixed_height: 17 * Theme.scalingFactor.y;
 							fixed_drop_width: 64 * Theme.scalingFactor.x;
-							fixed_drop_height: 17*4 * Theme.scalingFactor.y;
+                            fixed_drop_height: 17*7 * Theme.scalingFactor.y;
                             label_uppercase: true;
                             label_text: "РЕЖИМ : " + FormParameters.formMode;
 							label_color: Theme.color("dark1");
@@ -360,6 +360,8 @@ Rectangle {
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
 									highlight_color: Theme.color("light0");
                                     frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>0.5</b> м, макс. дальность: <b>8</b> км, макс. скорость: 500 км/ч";
+                                    tooltip_enabled: true;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
                                         FormParameters.formMode = "m1";
@@ -378,6 +380,8 @@ Rectangle {
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
 									highlight_color: Theme.color("light0");
                                     frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>1</b> м, макс. дальность: <b>15</b> км, макс. скорость: 500 км/ч";
+                                    tooltip_enabled: true;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
                                         FormParameters.formMode = "m2";
@@ -396,6 +400,8 @@ Rectangle {
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
 									highlight_color: Theme.color("light0");
                                     frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>1.5</b> м, макс. дальность: <b>17</b> км, макс. скорость: 500 км/ч";
+                                    tooltip_enabled: true;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
                                         FormParameters.formMode = "m3";
@@ -414,9 +420,71 @@ Rectangle {
                                     label_text_bold: true;         label_textAlignment: Text.AlignRight;
 									highlight_color: Theme.color("light0");
                                     frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>0.3</b> м, макс. дальность: <b>9</b> км, макс. скорость: 200 км/ч";
+                                    tooltip_enabled: true;
                                     onClicked: {
                                         formParametersModeDropdown.shown = false;
                                         FormParameters.formMode = "m4";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m5Button;
+                                    anchors.top: m4Button.bottom;
+                                    fixed_width: 64 * Theme.scalingFactor.x;
+                                    fixed_height: 17 * Theme.scalingFactor.y;
+                                    label_text: "M5";
+                                    label_color: Theme.color("dark1");
+                                    label_text_size: 12 * Theme.scalingFactor.y;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: Theme.color("light0");
+                                    frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>0.8</b> м, макс. дальность: <b>15</b> км, L-диапазон, макс. скорость: 185 км/ч";
+                                    tooltip_enabled: true;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        FormParameters.formMode = "m5";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m6Button;
+                                    anchors.top: m5Button.bottom;
+                                    fixed_width: 64 * Theme.scalingFactor.x;
+                                    fixed_height: 17 * Theme.scalingFactor.y;
+                                    label_text: "M6";
+                                    label_color: Theme.color("dark1");
+                                    label_text_size: 12 * Theme.scalingFactor.y;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: Theme.color("light0");
+                                    frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>0.5</b> м, макс. дальность: <b>30</b> км, макс. скорость: 120 км/ч";
+                                    tooltip_enabled: true;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        FormParameters.formMode = "m6";
+                                    }
+                                }
+                                Buttons.LightButton
+                                {
+                                    id: m7Button;
+                                    anchors.top: m6Button.bottom;
+                                    fixed_width: 64 * Theme.scalingFactor.x;
+                                    fixed_height: 17 * Theme.scalingFactor.y;
+                                    label_text: "M7";
+                                    label_color: Theme.color("dark1");
+                                    label_text_size: 12 * Theme.scalingFactor.y;
+                                    label_text_family: fontMedium.name;
+                                    label_text_bold: true;         label_textAlignment: Text.AlignRight;
+                                    highlight_color: Theme.color("light0");
+                                    frame_enabled: false;
+                                    tooltip_text: "Разрешение: <b>0.3</b> м, макс. дальность: <b>17</b> км, макс. скорость: 120 км/ч";
+                                    tooltip_enabled: true;
+                                    onClicked: {
+                                        formParametersModeDropdown.shown = false;
+                                        FormParameters.formMode = "m7";
                                     }
                                 }
                             }
@@ -449,7 +517,7 @@ Rectangle {
 							fixed_width: 186 * Theme.scalingFactor.x;
 							fixed_height: 17 * Theme.scalingFactor.y;
                             anchors.top: x0Input.bottom;
-                            label_text: "ДАЛЬНЯЯ ГРАНИЦА : ";
+                            label_text: "ПРОТЯЖЕННОСТЬ КАДРА : ";
 							label_color: Theme.color("dark1");  label_text_size: 12 * Theme.scalingFactor.y;
                             label_text_family: fontMedium.name;
                             label_text_bold: true;         label_textAlignment: Text.AlignRight;

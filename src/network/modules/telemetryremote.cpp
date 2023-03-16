@@ -80,6 +80,8 @@ void TelemetryRemote::parseTelemetry(QString data)
     double pitch =  jsonDocument.object().value("Pitch").toDouble(); 
     double roll =  jsonDocument.object().value("Roll").toDouble(); 
     double course = jsonDocument.object().value("Direction").toDouble(); 
+    if(qFuzzyCompare(latitude * longitude, 0))
+        return;
 
     DataTelemetry::get()->setLatitude(latitude);
     DataTelemetry::get()->setLongitude(longitude);

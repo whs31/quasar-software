@@ -277,7 +277,7 @@ Rectangle {
         tooltip_enabled: true;
         label_textAlignment: Text.AlignHCenter;
         highlight_color: Theme.color("yellow");
-        onClicked: { console.log("check is not yet implemented!"); }
+        onClicked: { SignalLinker.ping(); }
     }
     Buttons.SmallRoundButton
     {

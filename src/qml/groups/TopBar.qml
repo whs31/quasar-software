@@ -51,6 +51,8 @@ Rectangle {
         tooltip_enabled: true;
         onClicked: 
         { 
+            FormParameters.formGPSVelocity = -1;
+            FormParameters.reformVelocity = -1;
             FormParameters.filename = "m1"; //reset to default value
             if(!FormParameters.formingContinuous) { 
                 SignalLinker.formSingleImage(); 

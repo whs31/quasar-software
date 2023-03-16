@@ -71,6 +71,7 @@ void ExecdRemote::receiveResponse(QByteArray data)
 void ExecdRemote::executeClearCommand() { sendCommand(ExecdCommand::ClearStorage); }
 void ExecdRemote::executeFormCommand() { sendCommand(ExecdCommand::FormImage); } // спросить у вовы как это нормально сделать через коннекты))))))
 void ExecdRemote::executeFocusCommand() { sendCommand(ExecdCommand::Focus); }
+void ExecdRemote::executePingCommand() { sendCommand(ExecdCommand::Ping); }
 void ExecdRemote::sendCommand(ExecdCommand command)
 {
     switch (command)
@@ -118,6 +119,15 @@ void ExecdRemote::sendCommand(ExecdCommand command)
         qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
 
         break;
+    }
+    case ExecdCommand::Ping:
+    {
+        qDebug() << "[EXECD REMOTE] Sending PING command";
+
+        QByteArray request = makeCommand(PING_COMMAND).toUtf8();
+        udpRemote->Send(request);
+
+        qDebug() << "[EXECD REMOTE] Sended to SAR: " << request;
     }
 
     default:

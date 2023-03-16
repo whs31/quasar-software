@@ -18,7 +18,7 @@ public:
     Q_INVOKABLE void clearSARStorage(void);
     Q_INVOKABLE void focus(void);
     Q_INVOKABLE void reform(void);
-    
+    Q_INVOKABLE void ping(void);
 
 private:
     static SignalLinker* _instance;
@@ -35,6 +35,7 @@ signals:
     void clearSARStorageSignal();
     void focusSignal();
     void reformSignal();
+    void pingSignal();
 };
 
 #endif // SIGNALLINKER_H

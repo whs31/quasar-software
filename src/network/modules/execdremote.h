@@ -17,7 +17,8 @@ enum ExecdCommand : short int
     ClearStorage,
     FormImage,
     Focus,
-    CheckServices
+    CheckServices,
+    Ping
 };
 
 class ExecdRemote : public QObject
@@ -36,6 +37,7 @@ public slots:
     void executeFormCommand();
     void executeClearCommand();
     void executeFocusCommand();
+    void executePingCommand();
 
 signals:
 
@@ -48,6 +50,7 @@ private:
     const QString STORAGE_STATUS_COMMAND = "$storage_status()";
     const QString FORM_MARKER = "$FORM";
     const QString FOCUS_MARKER = "$FOCUS";
+    const QString PING_COMMAND = "$ping_de10()";
 
     size_t getMessageID(void);
     QString makeCommand(QString string);

@@ -9,6 +9,6 @@
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
-    qmlRegisterSingletonInstance<Config::Paths>("Path", 1, 0, "Path", Config::Paths::get(this));
+    qmlRegisterSingletonInstance<Config::Paths>("Paths", 1, 0, "Paths", Config::Paths::get(this));
     qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
 }

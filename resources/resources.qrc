@@ -85,5 +85,12 @@
         <file>icons/console/handle.png</file>
         <file>icons/console/header.png</file>
         <file>fonts/UbuntuMono.ttf</file>
+        <file>osmconfigs/cycle</file>
+        <file>osmconfigs/hiking</file>
+        <file>osmconfigs/night-transit</file>
+        <file>osmconfigs/satellite</file>
+        <file>osmconfigs/street</file>
+        <file>osmconfigs/terrain</file>
+        <file>osmconfigs/transit</file>
     </qresource>
 </RCC>

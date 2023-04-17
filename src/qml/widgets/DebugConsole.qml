@@ -153,12 +153,10 @@ Rectangle { id: control;
                     parent.color = "#343434";
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: {
-                    parent.color = "#000000";
-                }
+                onReleased: parent.color = "#000000";
                 onPositionChanged: {
                     if(pressed) {
-                        let global_pos = mapToGlobal(mouseX, mouseY);
+                        let global_pos = mapToItem(control, mouseX, mouseY);
                         control.width = global_pos.x - offset.x;
                         control.height = global_pos.y - offset.y;
                     }

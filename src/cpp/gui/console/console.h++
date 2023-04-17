@@ -81,7 +81,7 @@ class Console : public QObject
                                 console.get()->append(txt);                                                 \
                                 if(not releaseCacheFlag) {                                                  \
                                     releaseCacheFlag = true;                                                \
-                                    for(auto message : cachedDebugInfo) {                                   \
+                                for(auto message : qAsConst(cachedDebugInfo)) {                             \
                                         console.get()->append(message);                                     \
                                     }                                                                       \
                                 }                                                                           \

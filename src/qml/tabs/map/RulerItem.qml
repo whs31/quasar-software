@@ -56,7 +56,7 @@ MapItemView {
                 Text {
                     id: segmentLengthText;
                     anchors.centerIn: parent;
-                    text: segmentLength < 1000 ? segmentLength + " м" : segmentLength / 1000 + " км"
+                    text: segmentLength < 1000 ? Number(segmentLength).toFixed(0) + " м" : Number(segmentLength / 1000).toFixed(1) + " км"
                     font.family: root.s_FontBold;
                     font.bold: true;
                     color: Theme.color("dark0");

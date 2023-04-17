@@ -28,5 +28,6 @@
         <file>ui/widgets/InlineDialog.qml</file>
         <file>ui/widgets/StorageStatusIndicator.qml</file>
         <file>tabs/map/RulerItem.qml</file>
+        <file>layouts/topbar/Header.qml</file>
     </qresource>
 </RCC>

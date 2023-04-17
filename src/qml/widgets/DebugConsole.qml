@@ -159,8 +159,8 @@ Rectangle { id: control;
                 onPositionChanged: {
                     if(pressed) {
                         let global_pos = mapToGlobal(mouseX, mouseY);
-                        control.width = global_pos.x + offset.x;
-                        control.height = global_pos.y + offset.y;
+                        control.width = global_pos.x - offset.x;
+                        control.height = global_pos.y - offset.y;
                     }
                 }
             }

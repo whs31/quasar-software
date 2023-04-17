@@ -24,7 +24,7 @@ Rectangle {
     property bool label_text_bold: false;
 
     property color background_color: "#701828";
-    property color background_secondary_color: "#7D5233"; 
+    property color background_secondary_color: "#7D5233";
     property int background_radius: 8;
 
     signal clicked();

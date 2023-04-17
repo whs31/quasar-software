@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
 
     CONSOLE_INIT;
 
+    Entry entry;
+
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/entry.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
@@ -25,8 +27,6 @@ int main(int argc, char *argv[])
         }
         , Qt::QueuedConnection);
     engine.load(url);
-
-    Entry entry;
 
     return app.exec();
 }

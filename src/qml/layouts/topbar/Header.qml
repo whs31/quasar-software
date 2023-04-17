@@ -24,4 +24,24 @@ Item {
             Qt.quit();
         }
     }
+
+    Buttons.ClassicButton { id: btn_MinimizeButton;
+        display_mode: Buttons.ClassicButton.Mode.IconOnly;
+        anchors.top: btn_QuitButton.top;
+        anchors.right: btn_QuitButton.left;
+        fixed_width: 47;
+        fixed_height: 27;
+        icon_px_size: 15;
+        icon_source: "qrc:/icons/minus.png";
+        background_color: Theme.color("dark2");
+        background_secondary_color: Qt.lighter(background_color, 1.5);
+        background_radius: 2;
+        tooltip_text: "Свернуть окно";
+        tooltip_enabled: true;
+        label_text_family: root.s_FontSemiBold;
+        onClicked: {
+            root.showMinimized();
+        }
+    }
+
 }

@@ -16,6 +16,11 @@ Window { id: root;
     Component.onCompleted: showFullScreen();
     color: Theme.color("dark0");
 
+    onVisibilityChanged: {
+        if(visibility !== 3)
+            showFullScreen();
+    }
+
     FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }
     FontLoader { id: font_SemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf"; }
     FontLoader { id: font_Bold; source: "qrc:/fonts/SofiaSans-Bold.ttf"; }

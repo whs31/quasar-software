@@ -92,17 +92,19 @@ Rectangle {
     }
 
     Buttons.ClassicButton { id: btn_ToggleConsole;
-        display_mode: Buttons.ClassicButton.Mode.IconOnly;
+        display_mode: Buttons.ClassicButton.Mode.IconAndLabel;
         anchors.top: parent.top;
         anchors.right: parent.right;
-        anchors.rightMargin: 6;
-        fixed_width: 24 ;
-        fixed_height: 20;
+        fixed_width: 100;
+        fixed_height: 18;
+        label_text: "Консоль";
+        label_text_size: 14;
+        label_color: Theme.color("light1");
         icon_px_size: 18;
         icon_source: "qrc:/icons/command-line.png";
+        background_radius: 0;
         background_color: Theme.color("dark2");
         background_secondary_color: Qt.lighter(background_color, 1.5);
-        background_radius: 2;
         tooltip_text: "Консоль отладки";
         tooltip_enabled: true;
         label_text_family: root.s_FontSemiBold;

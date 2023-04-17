@@ -28,11 +28,12 @@ namespace Map
                 segmentCenter
             };
 
-            int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+            __qml int rowCount(const QModelIndex &parent = QModelIndex()) const override;
             QVariant data(const QModelIndex &index, int role) const override;
             QHash<int, QByteArray> roleNames() const override;
 
             __qml void setRoute(const QList<QGeoCoordinate> &_path);
+            __qml void resetRoute();
             __qml void insertPoint(const QGeoCoordinate & _point, quint16 _index);
             __qml void removePoint(quint16 _index);
             __qml void updatePoint(const QGeoCoordinate & _point, int _index);

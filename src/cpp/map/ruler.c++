@@ -69,6 +69,15 @@ void Ruler::setRoute(const QList<QGeoCoordinate> &_path)
 
 }
 
+void Ruler::resetRoute()
+{
+    beginRemoveRows(QModelIndex(), 0 , m_segments.size() - 1);
+    m_segments.clear();
+    m_path.clear();
+    m_segmentsCenter.clear();
+    endRemoveRows();
+}
+
 void Ruler::insertPoint(const QGeoCoordinate &_point, quint16 _index)
 {
     quint16 pointsCount = m_segments.size() + 1;

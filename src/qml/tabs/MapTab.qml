@@ -2,6 +2,9 @@ import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
 import Paths 1.0
+import RulerModel 1.0
+
+import "map" as MapTab;
 
 Map { id: c_Map;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
@@ -28,4 +31,16 @@ Map { id: c_Map;
     zoomLevel: 5;
     copyrightsVisible: false;
     z: 0;
+
+    MouseArea { id: c_MapMouseArea;
+        hoverEnabled: true;
+        anchors.fill: parent;
+
+        onClicked: {
+            c_RulerModel.insertPoint(c_Map.toCoordinate(Qt.point(mouseX, mouseY)), 0);
+        }
+    }
+
+    RulerModel { id: c_RulerModel; }
+    MapTab.RulerItem { id: c_Ruler; }
 }

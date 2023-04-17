@@ -27,5 +27,6 @@
         <file>ui/widgets/FloatingTooltip.qml</file>
         <file>ui/widgets/InlineDialog.qml</file>
         <file>ui/widgets/StorageStatusIndicator.qml</file>
+        <file>tabs/map/RulerItem.qml</file>
     </qresource>
 </RCC>

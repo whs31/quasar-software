@@ -69,7 +69,7 @@ Rectangle { id: control;
                 onEntered: parent.color = "#563A3D";
                 onExited: parent.color = "#343434";
                 onClicked: {
-                    control.visible = false;
+                    root.b_ConsoleShown = false;
                 }
             }
 

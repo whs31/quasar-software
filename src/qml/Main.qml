@@ -10,7 +10,7 @@ import "layouts" as Layouts
 import "tabs" as Tabs
 
 Window { id: root;
-    property bool b_ConsoleShown: false;
+    property bool b_ConsoleShown: true;
 
     width: 640;
     height: 480;

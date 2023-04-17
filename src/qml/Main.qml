@@ -10,6 +10,8 @@ import "layouts" as Layouts
 import "tabs" as Tabs
 
 Window { id: root;
+    property bool b_ConsoleShown: false;
+
     width: 640;
     height: 480;
     visible: true;
@@ -31,9 +33,12 @@ Window { id: root;
     property string s_FontBold: font_Bold.name;
     property string s_FontExtraBold: font_ExtraBold.name;
 
-    Widgets.DebugConsole { id: c_DebugConsole; }
+    Widgets.DebugConsole { id: c_DebugConsole;
+        enabled: b_ConsoleShown;
+        visible: b_ConsoleShown;
+    }
     DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 12; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; }
+                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; visible: b_ConsoleShown; }
 
 
     Layouts.TopBar { id: c_TopBar;

@@ -7,7 +7,6 @@ Rectangle { id: control;
     height: 400;
     x: 150;
     y: 300; // относительно верхнего левого
-    visible: true;
     color: "#232323";
     border.width: 0.5;
     border.color: "#343434";

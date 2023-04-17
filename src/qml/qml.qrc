@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>entry.qml</file>
+        <file>Main.qml</file>
         <file>widgets/DebugConsole.qml</file>
         <file>layouts/TopBar.qml</file>
         <file>layouts/BottomBar.qml</file>

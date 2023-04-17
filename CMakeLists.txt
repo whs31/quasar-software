@@ -23,10 +23,12 @@ include_directories(src/cpp)
 
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
+    src/cpp/config/*
 )
 
 set(PROJECT_SOURCES
     src/cpp/main.c++
+    src/cpp/definitions.h++
     src/cpp/entry.h++    src/cpp/entry.c++
 
     src/qml/qml.qrc

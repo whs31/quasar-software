@@ -1,10 +1,10 @@
 #include "entry.h++"
 #include "gui/console/console.h++"
 
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QDebug>
-#include <qqml.h>
+#include <QtGui/QGuiApplication>
+#include <QtQml/QQmlApplicationEngine>
+#include <QtCore/QDebug>
+#include <QtQml/qqml.h>
 
 
 CONSOLE_DECLARE;
@@ -18,11 +18,11 @@ int main(int argc, char *argv[])
     Entry entry;
 
     QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/entry.qml"));
+    const QUrl url(QStringLiteral("qrc:/Main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
         &app, [url](QObject *obj, const QUrl &objUrl)
         {
-            if (!obj && url == objUrl)
+            if (not obj and url == objUrl)
                 QCoreApplication::exit(-1);
         }
         , Qt::QueuedConnection);

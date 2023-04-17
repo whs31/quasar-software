@@ -1,6 +1,6 @@
 #pragma once
 
-#include <QObject>
+#include <QtCore/QObject>
 
 //! @brief
 #define CONSOLE_DECLARE QONSOLE_DECLARE_PRIVATE

@@ -1,13 +1,10 @@
 #pragma once
 
-#include <QObject>
-#include <QPointF>
-#include <QHash>
+#include "definitions.h++"
+#include <QtCore/QObject>
+#include <QtCore/QPointF>
+#include <QtCore/QHash>
 #include <vector>
-
-#define __signal void
-#define __deprecated __attribute__((deprecated))
-#define __qml Q_INVOKABLE
 
 namespace GUI
 {

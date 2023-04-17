@@ -1,7 +1,7 @@
 #pragma once
 
-#include <QObject>
-#define __signal void
+#include <QtCore/QObject>
+#include "definitions.h++"
 
 class Entry : public QObject
 {

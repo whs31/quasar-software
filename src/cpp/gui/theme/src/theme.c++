@@ -1,11 +1,11 @@
 #include "theme_p.h++"
-#include <QDebug>
-#include <QStringList>
-#include <QDir>
-#include <QFile>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QStringList>
+#include <QtCore/QDir>
+#include <QtCore/QFile>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QJsonObject>
+#include <QtCore/QCoreApplication>
 
 using namespace GUI;
 

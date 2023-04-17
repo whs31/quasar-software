@@ -1,6 +1,6 @@
 #include "console_p.h++"
-#include <qqml.h>
-#include <QCoreApplication>
+#include <QtQml/qqml.h>
+#include <QtCore/QCoreApplication>
 
 Console::Console(QObject* parent)
     : QObject{parent}

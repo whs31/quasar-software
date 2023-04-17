@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../console.h++"
-#include <QMap>
+#include <QtCore/QMap>
 #include <functional>
-#define __signal void
+#include "definitions.h++"
 
 class ConsolePrivate : public QObject
 {

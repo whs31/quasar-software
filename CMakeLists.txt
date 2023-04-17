@@ -24,6 +24,7 @@ include_directories(src/cpp)
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
     src/cpp/config/*
+    src/cpp/map/*
 )
 
 set(PROJECT_SOURCES

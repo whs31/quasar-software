@@ -64,7 +64,15 @@ Window { id: root;
         anchors.left: parent.left;
         anchors.right: parent.right;
 
-        visible: c_TabBar.i_CurrentTab === 0;
+        opacity: c_TabBar.i_CurrentTab === 0;
         enabled: c_TabBar.i_CurrentTab === 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    Tabs.FocusTab { id: c_FocusTab;
+        anchors.fill: c_MapTab;
+        opacity: c_TabBar.i_CurrentTab === 1;
+        enabled: c_TabBar.i_CurrentTab === 1;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 }

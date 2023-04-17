@@ -90,4 +90,4 @@ class Console : public QObject
                                 cachedDebugInfo.append(txt);                                                \
                             }
 
-#define QONSOLE_INIT_PRIVATE console.reset(new Console());                                                  \
+#define QONSOLE_INIT_PRIVATE console.reset(new Console());

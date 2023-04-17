@@ -55,4 +55,16 @@ Window { id: root;
     }
     DropShadow { z: 99; anchors.fill: c_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
                      samples: 32; color: "#30000000"; source: c_BottomBar; cached: true; }
+
+    // tabs
+
+    Tabs.MapTab { id: c_MapTab;
+        anchors.top: c_TabBar.bottom;
+        anchors.bottom: c_BottomBar.top;
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+
+        visible: c_TabBar.i_CurrentTab === 0;
+        enabled: c_TabBar.i_CurrentTab === 0;
+    }
 }

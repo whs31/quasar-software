@@ -24,20 +24,15 @@ int Ruler::rowCount(const QModelIndex &parent) const
 
 QVariant Ruler::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid()){
+    if (not index.isValid())
         return QVariant();
-    }
-    switch(role){
-    case SegmentRoles::index:
-        return index.row();
-    case SegmentRoles::segment:
-        return m_segments.at(index.row());
-    case SegmentRoles::segmentLength:
-        return std::round(m_path.at(index.row()).distanceTo(m_path.at(index.row() + 1)));
-    case SegmentRoles::segmentCenter:
-        return QVariant::fromValue(m_segmentsCenter.at(index.row()));
-    default:
-        return QVariant();
+
+    switch(role) {
+        case SegmentRoles::index: return index.row();
+        case SegmentRoles::segment: return m_segments.at(index.row());
+        case SegmentRoles::segmentLength: return std::round(m_path.at(index.row()).distanceTo(m_path.at(index.row() + 1)));
+        case SegmentRoles::segmentCenter: return QVariant::fromValue(m_segmentsCenter.at(index.row()));
+        default: return QVariant();
     }
 }
 

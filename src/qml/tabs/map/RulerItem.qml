@@ -20,6 +20,14 @@ MapItemView {
         }
 
         MapQuickItem {
+            coordinate: segment[1];
+            zoomLevel: 0;
+            anchorPoint.x: 8;
+            anchorPoint.y: 8;
+            sourceItem: Rectangle { width: 16; height: 16; color: "red"; }
+        }
+
+        MapQuickItem {
             coordinate: segmentCenter;
             anchorPoint.x: segmentLegthItem.width / 2;
             anchorPoint.y: segmentLegthItem.height / 2;

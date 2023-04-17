@@ -1,4 +1,6 @@
 #include "theme_p.h++"
+#include "config/paths.h++"
+
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>
 #include <QtCore/QDir>
@@ -89,7 +91,7 @@ void ThemePrivate::applyTheme(QString theme)
             qDebug().nospace() << "[THEME] Found default theme " << theme;
 
             QString _val;
-            QFile _file(QCoreApplication::applicationDirPath() + "/themes/" + name);
+            QFile _file(Config::Paths::themes() + "/" + name);
             _file.open(QIODevice::ReadOnly | QIODevice::Text);
             _val = _file.readAll();
             _file.close();
@@ -97,12 +99,9 @@ void ThemePrivate::applyTheme(QString theme)
             QJsonObject _object = _doc.object();
             m_color.clear();
             for(const QString &key : _object.keys())
-            {
                 m_color.insert(key, _object.value(key).toString());
-            }
 
             qInfo() << "[THEME] Theme set.";
-
             break;
         }
     }

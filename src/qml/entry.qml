@@ -16,6 +16,16 @@ Window { id: root;
     Component.onCompleted: showFullScreen();
     color: Theme.color("dark0");
 
+    FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }
+    FontLoader { id: font_SemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf"; }
+    FontLoader { id: font_Bold; source: "qrc:/fonts/SofiaSans-Bold.ttf"; }
+    FontLoader { id: font_ExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf"; }
+
+    property string s_FontMedium: font_Medium.name;
+    property string s_FontSemiBold: font_SemiBold.name;
+    property string s_FontBold: font_Bold.name;
+    property string s_FontExtraBold: font_ExtraBold.name;
+
     Widgets.DebugConsole { id: c_DebugConsole; }
     DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 12; verticalOffset: 12; radius: 16;
                      samples: 32; color: "#30000000"; source: c_DebugConsole; cached: true; }
@@ -29,7 +39,7 @@ Window { id: root;
     }
 
     Layouts.TabSwitcher { id: c_TabBar;
-        height: 24;
+        height: 20;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.top: c_TopBar.bottom;

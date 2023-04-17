@@ -5,8 +5,8 @@ import ConsoleWidget 1.0
 Rectangle { id: control;
     width: 600;
     height: 400;
-    x: 75;
-    y: 75; // относительно верхнего левого
+    x: 150;
+    y: 300; // относительно верхнего левого
     visible: true;
     color: "#232323";
     border.width: 0.5;

@@ -12,10 +12,11 @@ CONSOLE_DECLARE;
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
-
-    CONSOLE_INIT;
+    qInstallMessageHandler(consoleHandler);
 
     Entry entry;
+
+    CONSOLE_INIT;
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/Main.qml"));
@@ -27,6 +28,8 @@ int main(int argc, char *argv[])
         }
         , Qt::QueuedConnection);
     engine.load(url);
+
+
 
     return app.exec();
 }

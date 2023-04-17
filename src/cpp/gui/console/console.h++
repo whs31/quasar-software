@@ -1,8 +1,11 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include <QtCore/QList>
 
-//! @brief
+//! @brief      Логгер для кастомной имплементации консоли отладки.
+//! @details        Сохраняет логи в отдельный файл, перенаправляет их в консоль отладки
+//!                 и задает цвет для разных типов сообщений.
 #define CONSOLE_DECLARE QONSOLE_DECLARE_PRIVATE
 
 //! @brief
@@ -45,7 +48,8 @@ class Console : public QObject
 
 
 #define QONSOLE_DECLARE_PRIVATE QScopedPointer<Console> console;                                            \
-                        bool _init_ = false;                                                                \
+                        QList<QString> cachedDebugInfo;                                                     \
+                        bool releaseCacheFlag = false;                                                      \
                         void consoleHandler(QtMsgType type, const QMessageLogContext&, const QString& msg)  \
                         {                                                                                   \
                             QString txt;                                                                    \
@@ -72,13 +76,18 @@ class Console : public QObject
                                 msgt = 4;                                                                   \
                                 break;                                                                      \
                             }                                                                               \
-                            if(1)                                                                      \
-                                console->append(txt);                                                       \
-                            else {                                                                          \
-                                                                                                            \
+                            if(not console.isNull())                                                        \
+                            {                                                                               \
+                                console.get()->append(txt);                                                 \
+                                if(not releaseCacheFlag) {                                                  \
+                                    releaseCacheFlag = true;                                                \
+                                    for(auto message : cachedDebugInfo) {                                   \
+                                        console.get()->append(message);                                     \
+                                    }                                                                       \
+                                }                                                                           \
                             }                                                                               \
+                            else                                                                            \
+                                cachedDebugInfo.append(txt);                                                \
                             }
 
 #define QONSOLE_INIT_PRIVATE console.reset(new Console());                                                  \
-                    _init_ = true;                                                                          \
-                    qInstallMessageHandler(consoleHandler);

@@ -20,7 +20,7 @@ Map { id: c_Map;
             value: "file:///" + Paths.mapConfig();
         }
 
-        Component.onCompleted: console.info("[MAP] using osmconfig: " + Paths.mapConfig());
+        Component.onCompleted: console.info("[MAP] Using osmconfig: " + Paths.mapConfig());
     }
 
     activeMapType: c_Map.supportedMapTypes[i_MapMode];

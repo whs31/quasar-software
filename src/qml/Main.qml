@@ -28,7 +28,7 @@ Window { id: root;
 
     Widgets.DebugConsole { id: c_DebugConsole; }
     DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 12; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#30000000"; source: c_DebugConsole; cached: true; }
+                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; }
 
 
     Layouts.TopBar { id: c_TopBar;
@@ -45,7 +45,7 @@ Window { id: root;
         anchors.top: c_TopBar.bottom;
     }
     DropShadow { z: 99; anchors.fill: c_TabBar; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#30000000"; source: c_TabBar; cached: true; }
+                     samples: 32; color: "#80000000"; source: c_TabBar; cached: true; }
 
     Layouts.BottomBar { id: c_BottomBar;
         height: 40;
@@ -54,7 +54,7 @@ Window { id: root;
         anchors.bottom: parent.bottom;
     }
     DropShadow { z: 99; anchors.fill: c_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
-                     samples: 32; color: "#30000000"; source: c_BottomBar; cached: true; }
+                     samples: 32; color: "#80000000"; source: c_BottomBar; cached: true; }
 
     // tabs
 

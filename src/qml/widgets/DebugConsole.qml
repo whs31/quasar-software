@@ -123,7 +123,6 @@ Rectangle { id: control;
             anchors.fill: parent;
             anchors.leftMargin: 3;
             color: "#ECEFF4";
-            cursorVisible: true;
             text: "";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;

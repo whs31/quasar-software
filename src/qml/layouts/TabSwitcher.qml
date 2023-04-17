@@ -8,6 +8,8 @@ Rectangle {
 
     color: Theme.color("dark1");
     Buttons.ClassicButton { id: btn_MapTab;
+        property bool b_Active: i_CurrentTab === 0;
+
         anchors.left: parent.left;
         anchors.top: parent.top;
 
@@ -15,8 +17,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "КАРТА";
         label_text_family: root.s_FontBold;
-        background_color: Theme.color("dark1");
-        background_secondary_color: Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
+        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/map.png";
@@ -27,6 +29,8 @@ Rectangle {
     }
 
     Buttons.ClassicButton { id: btn_FocusTab;
+        property bool b_Active: i_CurrentTab === 1;
+
         anchors.left: btn_MapTab.right ;
         anchors.top: parent.top;
 
@@ -34,8 +38,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "ФОКУСИРОВКА";
         label_text_family: root.s_FontBold;
-        background_color: Theme.color("dark1");
-        background_secondary_color: Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
+        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/crosshair.png";

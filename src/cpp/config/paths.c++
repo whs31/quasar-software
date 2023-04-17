@@ -25,7 +25,7 @@ Paths::Paths(QObject *parent) : QObject{parent}
     if(not dir.exists())
     {
         dir.mkpath(mapConfig());
-        qInfo() << "Created map config folder at " << mapConfig();
+        qInfo() << "[PATH] Created map config folder at " << mapConfig();
     }
 
     this->createMapConfigs();
@@ -34,14 +34,14 @@ Paths::Paths(QObject *parent) : QObject{parent}
     if(not dir1.exists())
     {
         dir1.mkpath(plugins());
-        qInfo() << "Created plugins folder at " << plugins();
+        qInfo() << "[PATH] Created plugins folder at " << plugins();
     }
 
     QDir dir2(config());
     if(not dir2.exists())
     {
         dir2.mkpath(config());
-        qInfo() << "Created config folder at " << config();
+        qInfo() << "[PATH] Created config folder at " << config();
     }
 
     QDir dir3(logs());
@@ -72,7 +72,7 @@ void Paths::createImageCache(void)
     QDir dir(imageCache());
     if(not dir.exists())
         dir.mkpath(imageCache());
-    qInfo() << "Created image cache at " << imageCache();
+    qInfo() << "[PATH] Created image cache at " << imageCache();
 }
 
 void Paths::clearImageCache(void)
@@ -80,7 +80,7 @@ void Paths::clearImageCache(void)
     QDir dir(imageCache());
     if(dir.exists())
         dir.removeRecursively();
-    qWarning() << "Deleted image cache";
+    qWarning() << "[PATH] Deleted image cache";
     createImageCache();
 }
 
@@ -168,6 +168,6 @@ void Paths::createMapConfigs(void)
     QTextStream out7(&street);
     out7 << _street;
     street.commit();
-    qDebug() << "Map configs placed in folder";
+    qDebug() << "[PATH] Map configs placed in folder";
 }
 

@@ -81,5 +81,9 @@
         <file>icons/hide.png</file>
         <file>icons/crosshair.png</file>
         <file>map/patterns/diagonal.png</file>
+        <file>icons/console/cross.png</file>
+        <file>icons/console/handle.png</file>
+        <file>icons/console/header.png</file>
+        <file>fonts/UbuntuMono.ttf</file>
     </qresource>
 </RCC>

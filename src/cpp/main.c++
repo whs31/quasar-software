@@ -1,5 +1,5 @@
 #include "entry.h++"
-//#include "gui/console/console.hpp"
+#include "gui/console/console.h++"
 
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
@@ -7,13 +7,13 @@
 #include <qqml.h>
 
 
-//CONSOLE_DECLARE;
+CONSOLE_DECLARE;
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    //CONSOLE_INIT;
+    CONSOLE_INIT;
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/entry.qml"));

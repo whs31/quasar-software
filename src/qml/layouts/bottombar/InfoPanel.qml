@@ -268,4 +268,97 @@ Item {
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignVCenter;
     }
+
+    Rectangle { id: rect_Separator3;
+        width: 2;
+        height: 32;
+        anchors.verticalCenter: parent.verticalCenter;
+        anchors.left: txt_DirectionValue.right;
+        color: Theme.color("dark3");
+    }
+
+    Image { id: ico_Satellites;
+        width: 16;
+        height: 16;
+        anchors.left: rect_Separator3.right;
+        anchors.leftMargin: 8;
+        anchors.top: parent.top;
+        anchors.topMargin: 6;
+        source: "qrc:/icons/bottombar/satellite.png";
+    }
+
+    Text { id: txt_Satellites;
+        color: Theme.color("light0");
+        font.weight: Font.Bold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 13;
+        text: "<font color=\"" + Theme.color("red") + "\">" + Number(i_SatellitesCount).toFixed(0) + "</font> спутников";
+        width: 110;
+        height: 12;
+        anchors.top: ico_Satellites.top;
+        anchors.topMargin: 2;
+        anchors.left: ico_Satellites.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Image { id: ico_DelayIcon;
+        width: 16;
+        height: 16;
+        anchors.left: ico_Satellites.left;
+        anchors.top: ico_Satellites.bottom;
+        anchors.topMargin: 2;
+        source: "qrc:/icons/bottombar/ping.png";
+    }
+
+    Text { id: txt_Delay;
+        color: Theme.color("light0");
+        font.weight: Font.Bold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 13;
+        text: "Задержка <font color=\"" + Theme.color("red") + "\">" + Number(fl_ConnectionDelay).toFixed(1) + " с </font>";
+        width: 110;
+        height: 12;
+        anchors.top: ico_DelayIcon.top;
+        anchors.topMargin: 2;
+        anchors.left: ico_DelayIcon.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Rectangle { id: rect_Separator4;
+        width: 2;
+        height: 32;
+        anchors.verticalCenter: parent.verticalCenter;
+        anchors.left: txt_Delay.right;
+        color: Theme.color("dark3");
+    }
+
+    Image { id: ico_Disk;
+        width: 16;
+        height: 16;
+        anchors.left: rect_Separator4.right;
+        anchors.leftMargin: 8;
+        anchors.top: parent.top;
+        anchors.topMargin: 6;
+        source: "qrc:/icons/bottombar/disc.png";
+    }
+
+    Text { id: txt_Disk;
+        color: Theme.color("light0");
+        font.weight: Font.ExtraBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 12;
+        text: "ХРАНИЛИЩЕ НА РЛС";
+        width: 82;
+        height: 12;
+        anchors.top: ico_Disk.top;
+        anchors.topMargin: 2;
+        anchors.left: ico_Disk.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
 }

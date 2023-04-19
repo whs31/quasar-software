@@ -4,6 +4,7 @@
 #include "definitions.h++"
 #include "configdef.h++"
 
+class QSettings;
 
 namespace Config
 {
@@ -18,8 +19,11 @@ namespace Config
         map_t m_map;
         image_t m_image;
 
+        static Config* instance;
+        QSettings* ini;
+
         public:
-            explicit Config(QObject *parent = nullptr);
+            static Config* get(QObject* parent = nullptr);
             virtual ~Config() = default;
 
             network_t network() const;
@@ -33,5 +37,8 @@ namespace Config
                 __signal networkChanged();
                 __signal mapChanged();
                 __signal imageChanged();
+
+        private:
+            explicit Config(QObject *parent = nullptr);
     };
 } // namespace Config;

@@ -12,7 +12,11 @@ CONSOLE_DECLARE;
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    QCoreApplication::setApplicationName(PROJECT_NAME);
+    QCoreApplication::setApplicationVersion(PROJECT_VERSION);
+    QCoreApplication::setOrganizationName("Radar-MMS");
     qInstallMessageHandler(consoleHandler);
+    qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
     Entry entry;
 

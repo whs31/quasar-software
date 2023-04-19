@@ -1,9 +1,23 @@
 #include "config.h++"
+#include "paths.h++"
+
+#include <QtCore/QSettings>
+#include <QtCore/QDebug>
+
+Config::Config* Config::Config::instance = nullptr;
+Config::Config *Config::Config::get(QObject* parent)
+{
+    if(instance != nullptr)
+        return instance;
+    instance = new Config(parent);
+    return instance;
+}
 
 Config::Config::Config(QObject *parent)
     : QObject{parent}
+    , ini(new QSettings(Paths::config() + "/config.ini", QSettings::IniFormat, this))
 {
-
+    qDebug().noquote() << "[CONFIG] Storing config in" << ini->fileName();
 }
 
 Config::network_t Config::Config::network() const { return m_network; }

@@ -1,6 +1,7 @@
 #include "entry.h++"
 #include "gui/theme/include/theme.h++"
 #include "config/paths.h++"
+#include "config/config.h++"
 #include "map/ruler.h++"
 
 #include <QtCore/QCoreApplication>
@@ -12,5 +13,7 @@ Entry::Entry(QObject *parent)
 {
     qmlRegisterSingletonInstance<Config::Paths>("Paths", 1, 0, "Paths", Config::Paths::get(this));
     qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
+    qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get(this));
+
     qmlRegisterType<Map::Ruler>("RulerModel", 1, 0, "RulerModel");
 }

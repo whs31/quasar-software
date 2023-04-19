@@ -7,31 +7,31 @@ namespace Config
 {
     struct network_t
     {
-        QString remoteIP;
-        QString localIP;
-        QString telemetryPort;
-        QString lfsPort;
-        QString execdPort;
-        QString feedbackPort;
-        float telemetryFrequency;
-        bool useProxy;
+        QString remoteIP = "-";
+        QString localIP = "-";
+        QString telemetryPort = "-";
+        QString lfsPort = "-";
+        QString execdPort = "-";
+        QString feedbackPort = "-";
+        float telemetryFrequency = -1;
+        bool useProxy = false;
     };
 
     struct map_t
     {
-        double storedLatitude;
-        double storedLongitude;
-        float storedZoomLevel;
-        bool antennaPosition;
+        double storedLatitude = -1;
+        double storedLongitude = -1;
+        float storedZoomLevel = -1;
+        bool antennaPosition = false;
     };
 
     struct image_t
     {
-        float angleCorrection;
-        bool useRadians;
-        bool useDriftAngle;
-        float thetaAzimuthCorrection;
-        QString storedCatalogue;
+        float angleCorrection = -1;
+        bool useRadians = false;
+        bool useDriftAngle = false;
+        float thetaAzimuthCorrection = -1;
+        QString storedCatalogue = "-";
     };
 } // namespace Config;
 

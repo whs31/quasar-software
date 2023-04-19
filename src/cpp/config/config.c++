@@ -24,7 +24,10 @@ void Config::Config::load()
 {
     qInfo() << "[CONFIG] Loading settings from file";
     for(const auto& key : ini->allKeys())
+    {
         map()->insert(key, ini->value(key));
+        emit map()->valueChanged(key, map()->value(key));
+    }
 }
 
 void Config::Config::revert()

@@ -1,0 +1,50 @@
+import QtQuick 2.15
+import Theme 1.0
+
+Item {
+    width: 312;
+    height: 46;
+
+    Rectangle {
+        color: Theme.color("dark0");
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 7;
+        height: 30;
+        radius: 15;
+
+        // interactive widget here
+
+        Text {
+            color: Theme.color("red");
+            font.weight: Font.ExtraBold;
+            font.family: root.s_FontMain;
+            font.pixelSize: 15;
+            text: "НЕТ ПОДКЛЮЧЕНИЯ";
+            width: 230;
+            height: 26;
+            anchors.bottom: parent.bottom;
+            anchors.left: parent.left;
+            anchors.leftMargin: 30;
+        }
+    }
+
+    Rectangle {
+        color: Theme.color("dark1");
+        width: 111;
+        height: 12;
+        radius: 3;
+        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.top: parent.top;
+
+        Text {
+            anchors.centerIn: parent;
+            text: "СТАТУС";
+            font.family: root.s_FontMain;
+            font.weight: Font.DemiBold;
+            font.pixelSize: 10;
+            color: Theme.color("light0");
+        }
+    }
+}

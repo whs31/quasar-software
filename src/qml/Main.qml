@@ -64,7 +64,7 @@ Window { id: root;
                      samples: 32; color: "#80000000"; source: c_TabBar; cached: true; }
 
     Layouts.BottomBar { id: c_BottomBar;
-        height: 40;
+        height: 46;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;

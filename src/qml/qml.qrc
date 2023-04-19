@@ -29,5 +29,6 @@
         <file>ui/widgets/StorageStatusIndicator.qml</file>
         <file>tabs/map/RulerItem.qml</file>
         <file>layouts/topbar/Header.qml</file>
+        <file>layouts/bottombar/StatusWidget.qml</file>
     </qresource>
 </RCC>

@@ -15,7 +15,7 @@ Config::Config *Config::Config::get(QObject* parent)
 
 void Config::Config::save()
 {
-    ini->setValue("network/remoteIP", network().remoteIP);
+    //ini->setValue("network/remoteIP", network().remoteIP);
 }
 
 void Config::Config::load()
@@ -33,28 +33,27 @@ void Config::Config::reset()
 
 }
 
+QQmlPropertyMap* Config::Config::map()
+{
+    return &m_values;
+}
+
+void Config::Config::sync()
+{
+    emit m_values.valueChanged("asd", "asd");
+}
+
 Config::Config::Config(QObject *parent)
     : QObject{parent}
     , ini(new QSettings(Paths::config() + "/config.ini", QSettings::IniFormat, this))
 {
     qDebug().noquote() << "[CONFIG] Storing config in" << ini->fileName();
+
+    for(const auto &key : defaults.keys())
+        map()->insert(key, defaults.value(key));
     this->load();
 }
 
-Config::network_t Config::Config::network() const { return m_network; }
-void Config::Config::setNetwork(const network_t& other) {
-    m_network = other;
-    emit networkChanged();
-}
+namespace Config {
 
-Config::map_t Config::Config::map() const { return m_map; }
-void Config::Config::setMap(const map_t& other) {
-    m_map = other;
-    emit mapChanged();
-}
-
-Config::image_t Config::Config::image() const { return m_image; }
-void Config::Config::setImage(const image_t& other) {
-    m_image = other;
-    emit imageChanged();
 }

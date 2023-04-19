@@ -24,8 +24,8 @@ Window { id: root;
     }
 
     Component.onCompleted: {
+        console.error(Config.map().network_remoteIP);
         showFullScreen();
-        console.log(Config.network);
     }
 
     FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }

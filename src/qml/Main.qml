@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 
 import Theme 1.0
+import Config 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -15,12 +16,16 @@ Window { id: root;
     width: 640;
     height: 480;
     visible: true;
-    Component.onCompleted: showFullScreen();
     color: Theme.color("dark0");
 
     onVisibilityChanged: {
         if(visibility !== 3)
             showFullScreen();
+    }
+
+    Component.onCompleted: {
+        showFullScreen();
+        console.log(Config.network);
     }
 
     FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }

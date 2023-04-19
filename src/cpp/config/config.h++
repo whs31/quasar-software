@@ -26,6 +26,11 @@ namespace Config
             static Config* get(QObject* parent = nullptr);
             virtual ~Config() = default;
 
+            void save();
+            void load();
+            void revert();
+            void reset();
+
             network_t network() const;
             void setNetwork(const network_t& other);
             map_t map() const;

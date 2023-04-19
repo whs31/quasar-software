@@ -13,11 +13,32 @@ Config::Config *Config::Config::get(QObject* parent)
     return instance;
 }
 
+void Config::Config::save()
+{
+    ini->setValue("network/remoteIP", network().remoteIP);
+}
+
+void Config::Config::load()
+{
+
+}
+
+void Config::Config::revert()
+{
+
+}
+
+void Config::Config::reset()
+{
+
+}
+
 Config::Config::Config(QObject *parent)
     : QObject{parent}
     , ini(new QSettings(Paths::config() + "/config.ini", QSettings::IniFormat, this))
 {
     qDebug().noquote() << "[CONFIG] Storing config in" << ini->fileName();
+    this->load();
 }
 
 Config::network_t Config::Config::network() const { return m_network; }

@@ -7,6 +7,9 @@ namespace Config
 {
     struct network_t
     {
+        Q_GADGET
+        public:
+
         QString remoteIP = "-";
         QString localIP = "-";
         QString telemetryPort = "-";
@@ -19,6 +22,9 @@ namespace Config
 
     struct map_t
     {
+        Q_GADGET
+        public:
+
         double storedLatitude = -1;
         double storedLongitude = -1;
         float storedZoomLevel = -1;
@@ -27,6 +33,9 @@ namespace Config
 
     struct image_t
     {
+        Q_GADGET
+        public:
+
         float angleCorrection = -1;
         bool useRadians = false;
         bool useDriftAngle = false;

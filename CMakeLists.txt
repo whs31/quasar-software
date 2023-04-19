@@ -26,6 +26,7 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/config/*
     src/cpp/map/*
     src/cpp/scenegraph/*
+    src/cpp/network/*
 )
 
 set(PROJECT_SOURCES

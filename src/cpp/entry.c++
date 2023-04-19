@@ -4,6 +4,7 @@
 #include "config/config.h++"
 #include "map/ruler.h++"
 #include "scenegraph/cpu/statusindicator.h++"
+#include "network/network.h++"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
@@ -15,6 +16,7 @@ Entry::Entry(QObject *parent)
     qmlRegisterSingletonInstance<Config::Paths>("Paths", 1, 0, "Paths", Config::Paths::get(this));
     qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
     qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get(this));
+    qmlRegisterSingletonInstance<Network::Network>("Network", 1, 0, "Network", Network::Network::get(this));
 
     qmlRegisterType<Map::Ruler>("RulerModel", 1, 0, "RulerModel");
     qmlRegisterType<StatusIndicator>("StatusIndicator", 1, 0, "StatusIndicator");

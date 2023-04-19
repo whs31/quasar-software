@@ -15,7 +15,23 @@ namespace Config
 
         static Config* instance;
         const QMap<QString, QVariant> defaults = {
-            {"network_remoteIP", "127.0.0.1"}
+            {"remoteIP", "127.0.0.1"},
+            {"localIP", "127.0.0.1"},
+            {"telemetryPort", "9955"},
+            {"lfsPort", "10000"},
+            {"execdPort", "9845"},
+            {"feedbackPort", "9846"},
+            {"telemetryFrequency", "0.1"},
+            {"proxyEnabled", "false"},
+            {"storedLatitude", "60"},
+            {"storedLongitude", "30"},
+            {"storedZoomLevel", "6"},
+            {"storedCatalogue", "C:/"},
+            {"antennaAlignment", "false"},
+            {"angleCorrection", "0"},
+            {"useRadians", "false"},
+            {"useDriftAngle", "true"},
+            {"thetaAzimuthCorrection", "5"}
         };
         QQmlPropertyMap m_values;
         QSettings* ini;

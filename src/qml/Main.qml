@@ -24,7 +24,6 @@ Window { id: root;
     }
 
     Component.onCompleted: {
-        console.error(Config.map().network_remoteIP);
         showFullScreen();
     }
 

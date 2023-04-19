@@ -15,12 +15,16 @@ Config::Config *Config::Config::get(QObject* parent)
 
 void Config::Config::save()
 {
-    //ini->setValue("network/remoteIP", network().remoteIP);
+    qInfo() << "[CONFIG] Saving settings to file";
+    for(const auto& key : map()->keys())
+        ini->setValue(key, map()->value(key));
 }
 
 void Config::Config::load()
 {
-
+    qInfo() << "[CONFIG] Loading settings from file";
+    for(const auto& key : ini->allKeys())
+        map()->insert(key, ini->value(key));
 }
 
 void Config::Config::revert()
@@ -51,7 +55,10 @@ Config::Config::Config(QObject *parent)
 
     for(const auto &key : defaults.keys())
         map()->insert(key, defaults.value(key));
-    this->load();
+    if(ini->allKeys().empty())
+        this->save();
+    else
+        this->load();
 }
 
 namespace Config {

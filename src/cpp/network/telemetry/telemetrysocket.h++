@@ -1,11 +1,14 @@
 #pragma once
 
-#include <QtNetwork/QUdpSocket>
+#include "network/abstractudpsocket.h++"
 
-class TelemetrySocket : public QUdpSocket
+namespace Network
 {
-    Q_OBJECT
+    class TelemetrySocket : public AbstractUDPSocket
+    {
+        Q_OBJECT
 
-    public:
-        TelemetrySocket();
-};
+        public:
+            TelemetrySocket(QObject* parent = nullptr);
+    };
+} // namespace Network

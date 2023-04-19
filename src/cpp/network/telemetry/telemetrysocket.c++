@@ -1,7 +1,9 @@
-
 #include "telemetrysocket.h++"
 
-TelemetrySocket::TelemetrySocket()
+using namespace Network;
+
+TelemetrySocket::TelemetrySocket(QObject* parent)
+    : AbstractUDPSocket{parent}
 {
 
 }

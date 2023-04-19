@@ -17,7 +17,10 @@ void Config::Config::save()
 {
     qInfo() << "[CONFIG] Saving settings to file";
     for(const auto& key : map()->keys())
+    {
         ini->setValue(key, map()->value(key));
+        emit map()->valueChanged(key, map()->value(key));
+    }
 }
 
 void Config::Config::load()

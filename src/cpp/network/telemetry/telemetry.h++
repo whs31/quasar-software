@@ -3,6 +3,7 @@
 #include "definitions.h++"
 #include "telemetrydatagram.h++"
 #include <QtCore/QObject>
+#include <QtCore/QMetaType>
 
 namespace Network
 {
@@ -76,3 +77,4 @@ namespace Network
     };
 } // namespace Network
 
+Q_DECLARE_METATYPE(Network::Telemetry*)

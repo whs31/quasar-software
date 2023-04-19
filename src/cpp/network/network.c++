@@ -17,5 +17,17 @@ Network::Network::Network(QObject *parent)
     , telemetrySocket(new TelemetrySocket(this, m_telemetry))
 {
     qDebug() << "[NETWORK] Beginning network setup";
+
 }
 
+
+
+namespace Network {
+    Telemetry *Network::telemetry() const { return m_telemetry; }
+    void Network::setTelemetry(Telemetry* other) {
+        if (m_telemetry == other)
+            return;
+        m_telemetry = other;
+        emit telemetryChanged();
+    }
+}

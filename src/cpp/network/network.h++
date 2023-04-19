@@ -1,14 +1,16 @@
 #pragma once
 
+#include "definitions.h++"
+#include "telemetry/telemetry.h++"
 #include <QtCore/QObject>
 
 namespace Network
 {
-    class Telemetry;
     class TelemetrySocket;
     class Network : public QObject
     {
         Q_OBJECT
+        Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
 
         static Network* instance;
 
@@ -19,7 +21,11 @@ namespace Network
 
             TelemetrySocket* telemetrySocket;
 
+            Telemetry *telemetry() const;
+            void setTelemetry(Telemetry* other);
+
             signals:
+                __signal telemetryChanged();
 
         private:
             explicit Network(QObject *parent = nullptr);

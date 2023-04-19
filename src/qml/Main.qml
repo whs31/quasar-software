@@ -5,6 +5,7 @@ import QtGraphicalEffects 1.15
 
 import Theme 1.0
 import Config 1.0
+import Network 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -25,6 +26,7 @@ Window { id: root;
 
     Component.onCompleted: {
         showFullScreen();
+        console.log(Network.telemetry.latitude);
     }
 
     FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }

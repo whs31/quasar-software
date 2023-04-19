@@ -177,7 +177,94 @@ Item {
         height: 12;
         anchors.top: txt_Sea.top;
         anchors.left: txt_Sea.right;
-        anchors.leftMargin: 2;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Rectangle { id: rect_Separator2;
+        width: 2;
+        height: 32;
+        anchors.verticalCenter: parent.verticalCenter;
+        anchors.left: txt_SeaValue.right;
+        color: Theme.color("dark3");
+    }
+
+    Image { id: ico_SpeedIcon;
+        width: 16;
+        height: 16;
+        anchors.left: rect_Separator2.right;
+        anchors.leftMargin: 8;
+        anchors.top: parent.top;
+        anchors.topMargin: 6;
+        source: "qrc:/icons/bottombar/speed.png";
+    }
+
+    Text { id: txt_Speed;
+        color: Theme.color("light0");
+        font.weight: Font.ExtraBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 12;
+        text: "СКОРОСТЬ:";
+        width: 82;
+        height: 12;
+        anchors.top: ico_SpeedIcon.top;
+        anchors.topMargin: 2;
+        anchors.left: ico_SpeedIcon.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Text { id: txt_SpeedValue;
+        color: Theme.color("light0");
+        font.weight: Font.DemiBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 16;
+        text: Number(fl_Velocity).toFixed(0) + " км/ч";
+        width: 74;
+        height: 16;
+        anchors.top: txt_Speed.top;
+        anchors.topMargin: -4;
+        anchors.left: txt_Speed.right;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Image { id: ico_DirectionIcon;
+        width: 16;
+        height: 16;
+        anchors.left: ico_SpeedIcon.left;
+        anchors.top: ico_SpeedIcon.bottom;
+        anchors.topMargin: 2;
+        source: "qrc:/icons/bottombar/compass.png";
+    }
+
+    Text { id: txt_Direction;
+        color: Theme.color("light0");
+        font.weight: Font.ExtraBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 12;
+        text: "АЗИМУТ:";
+        width: 82;
+        height: 12;
+        anchors.top: ico_DirectionIcon.top;
+        anchors.topMargin: 2;
+        anchors.left: ico_DirectionIcon.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    Text { id: txt_DirectionValue;
+        color: Theme.color("light0");
+        font.weight: Font.DemiBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 12;
+        text: Number(fl_Direction).toFixed(1) + "°";
+        width: 74;
+        height: 12;
+        anchors.top: txt_Direction.top;
+        anchors.left: txt_Direction.right;
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignVCenter;
     }

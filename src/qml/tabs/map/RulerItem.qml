@@ -36,12 +36,6 @@ MapItemView {
             coordinate: segmentCenter;
             anchorPoint.x: segmentLegthItem.width / 2;
             anchorPoint.y: segmentLegthItem.height / 2;
-            transform: Rotation {
-                id: rotationSegment;
-                origin.x: segmentLegthItem.width / 2;
-                origin.y: segmentLegthItem.height / 2;
-                angle: c_RulerModel ? c_RulerModel.calculateAngle(segmentItem.path[0], segmentItem.path[segmentItem.path.length - 1]) : 0;
-            }
 
             sourceItem: Rectangle {
                 id: segmentLegthItem;

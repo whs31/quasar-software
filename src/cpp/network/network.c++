@@ -1,4 +1,6 @@
 #include "network.h++"
+#include "telemetry/telemetry.h++"
+#include "telemetry/telemetrysocket.h++"
 #include <QtCore/QDebug>
 
 Network::Network* Network::Network::instance = nullptr;
@@ -11,6 +13,8 @@ Network::Network* Network::Network::get(QObject *parent) {
 
 Network::Network::Network(QObject *parent)
     : QObject{parent}
+    , m_telemetry(new Telemetry(this))
+    , telemetrySocket(new TelemetrySocket(this, m_telemetry))
 {
     qDebug() << "[NETWORK] Beginning network setup";
 }

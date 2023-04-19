@@ -17,6 +17,7 @@ AbstractUDPSocket::~AbstractUDPSocket()
 
 bool Network::AbstractUDPSocket::connect(const QString &address)
 {
+    QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);
     if(not address.contains(":")) {
         qCritical() << "[SOCKET] Incorrect host address";
         return false;
@@ -36,6 +37,7 @@ bool Network::AbstractUDPSocket::connect(const QString &address)
 
 void AbstractUDPSocket::disconnect()
 {
+    QObject::disconnect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);
     qDebug().noquote() << "[SOCKET] Disconnecting from" << this->peerAddress();
     this->close();
     m_hostaddress.clear();

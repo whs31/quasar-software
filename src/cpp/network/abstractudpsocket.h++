@@ -14,8 +14,8 @@ namespace Network
             explicit AbstractUDPSocket(QObject *parent = nullptr);
             virtual ~AbstractUDPSocket();
 
-            virtual bool connect(const QString& address);
-            virtual void disconnect();
+            __qml virtual bool connect(const QString& address);
+            __qml virtual void disconnect();
             virtual bool send(QByteArray data);
 
             signals:

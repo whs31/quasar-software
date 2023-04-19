@@ -92,5 +92,6 @@
         <file>osmconfigs/street</file>
         <file>osmconfigs/terrain</file>
         <file>osmconfigs/transit</file>
+        <file>fonts/Overpass.ttf</file>
     </qresource>
 </RCC>

@@ -16,7 +16,7 @@ Rectangle {
         fixed_width: 150;
         fixed_height: parent.height;
         label_text: "КАРТА";
-        label_text_family: root.s_FontBold;
+        label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
         background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
@@ -37,7 +37,7 @@ Rectangle {
         fixed_width: 150;
         fixed_height: parent.height;
         label_text: "ФОКУСИРОВКА";
-        label_text_family: root.s_FontBold;
+        label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
         background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
@@ -58,7 +58,7 @@ Rectangle {
         fixed_width: 150;
         fixed_height: parent.height;
         label_text: "НАСТРОЙКИ";
-        label_text_family: root.s_FontBold;
+        label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
         background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
@@ -79,7 +79,7 @@ Rectangle {
         fixed_width: 150;
         fixed_height: parent.height;
         label_text: "О ПРОГРАММЕ";
-        label_text_family: root.s_FontBold;
+        label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
         background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
         label_color: Theme.color("light1");
@@ -107,7 +107,7 @@ Rectangle {
         background_secondary_color: Qt.lighter(background_color, 1.5);
         tooltip_text: "Консоль отладки";
         tooltip_enabled: true;
-        label_text_family: root.s_FontSemiBold;
+        label_text_family: root.s_FontMain;
         onClicked: {
             root.b_ConsoleShown = !root.b_ConsoleShown;
         }

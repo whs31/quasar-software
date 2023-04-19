@@ -25,6 +25,7 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
     src/cpp/config/*
     src/cpp/map/*
+    src/cpp/scenegraph/*
 )
 
 set(PROJECT_SOURCES

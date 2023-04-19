@@ -1,5 +1,6 @@
 import QtQuick 2.15
 import Theme 1.0
+import StatusIndicator 1.0
 
 Item {
     enum ConnectionStatus {
@@ -30,6 +31,37 @@ Item {
         radius: 15;
 
         // interactive widget here
+        StatusIndicator { id: c_Indicator;
+            width: 20;
+            height: 20;
+            anchors.left: parent.left;
+            anchors.leftMargin: 5;
+            anchors.verticalCenter: parent.verticalCenter;
+            anchors.verticalCenterOffset: -5;
+            state: i_ConnectionStatus;
+            errorColor: Theme.color("red");
+            warnColor: Theme.color("orange");
+            successColor: Theme.color("green");
+
+            SequentialAnimation {
+                NumberAnimation {
+                    target: c_Indicator;
+                    property: "opacity";
+                    from: 0;
+                    to: 1;
+                    duration: 500;
+                }
+                NumberAnimation {
+                    target: c_Indicator;
+                    property: "opacity";
+                    from: 1;
+                    to: 0;
+                    duration: 500;
+                }
+                loops: Animation.Infinite;
+                running: true;
+            }
+        }
 
         Text {
             color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");

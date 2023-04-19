@@ -2,8 +2,23 @@ import QtQuick 2.15
 import Theme 1.0
 
 Item {
+    enum ConnectionStatus {
+        Unconnected,
+        SemiConnected,
+        Connected
+    }
+
+    property int i_ConnectionStatus: StatusWidget.ConnectionStatus.Unconnected;
+
     width: 312;
     height: 46;
+
+    MouseArea {
+        anchors.fill: parent;
+        onClicked: {
+            i_ConnectionStatus = StatusWidget.ConnectionStatus.Connected; // replace to network access
+        }
+    }
 
     Rectangle {
         color: Theme.color("dark0");
@@ -17,11 +32,11 @@ Item {
         // interactive widget here
 
         Text {
-            color: Theme.color("red");
+            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
             font.weight: Font.ExtraBold;
             font.family: root.s_FontMain;
             font.pixelSize: 15;
-            text: "НЕТ ПОДКЛЮЧЕНИЯ";
+            text: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? "ПОДКЛЮЧЕНО К РЛС" : "НЕТ ПОДКЛЮЧЕНИЯ К РЛС";
             width: 230;
             height: 26;
             anchors.bottom: parent.bottom;

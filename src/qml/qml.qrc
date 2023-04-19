@@ -30,5 +30,6 @@
         <file>tabs/map/RulerItem.qml</file>
         <file>layouts/topbar/Header.qml</file>
         <file>layouts/bottombar/StatusWidget.qml</file>
+        <file>layouts/bottombar/InfoPanel.qml</file>
     </qresource>
 </RCC>

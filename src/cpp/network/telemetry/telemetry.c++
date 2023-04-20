@@ -8,21 +8,6 @@ Telemetry::Telemetry(QObject *parent)
 
 }
 
-
-uint32_t Telemetry::marker() const { return datagram.marker; }
-void Telemetry::setMarker(uint32_t other) {
-    if (datagram.marker == other) return;
-    datagram.marker = other;
-    emit markerChanged();
-}
-
-uint8_t Telemetry::version() const { return datagram.version; }
-void Telemetry::setVersion(uint8_t other) {
-    if (datagram.version == other) return;
-    datagram.version = other;
-    emit versionChanged();
-}
-
 double Telemetry::latitude() const { return datagram.latitude; }
 void Telemetry::setLatitude(double other) {
     if (qFuzzyCompare(datagram.latitude, other)) return;
@@ -100,9 +85,9 @@ void Telemetry::setCourse(double other) {
     emit courseChanged();
 }
 
-uint64_t Telemetry::time() const { return datagram.time; }
-void Telemetry::setTime(uint64_t other) {
-    if (datagram.time == other) return;
-    datagram.time = other;
+QDateTime Telemetry::time() const { /*return datagram.time;*/ } // make good conversion
+void Telemetry::setTime(const QDateTime& other) {
+//    if (datagram.time == other) return;
+//    datagram.time = other;
     emit timeChanged();
 }

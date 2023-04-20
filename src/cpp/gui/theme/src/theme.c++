@@ -35,6 +35,11 @@ QString Theme::color(QString key)
     return d->m_color.value(key);
 }
 
+QString Theme::colorText(const QString& text, const QString& theme_color_name)
+{
+    return ("<font color=\"" + this->color(theme_color_name) + "\">" + text + "</font>");
+}
+
 QPointF Theme::scalingFactor() const { return m_scalingFactor; }
 void Theme::setScalingFactor(QPointF factor) {
     if (m_scalingFactor == factor) return;

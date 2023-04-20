@@ -12,7 +12,7 @@ Item {
     property real fl_Direction: Network.telemetry.course;
     property int i_SatellitesCount: -1; //Network.telemetry.satellites;
     property real fl_ConnectionDelay: Network.networkDelay;
-    property real fl_RemoteDiskSpace: 0.5;
+    property real fl_RemoteDiskSpace: 0.0;
 
     width: 915;
     height: 46;
@@ -294,7 +294,7 @@ Item {
         font.weight: Font.Bold;
         font.family: root.s_FontMain;
         font.pixelSize: 13;
-        text: "<font color=\"" + Theme.color("red") + "\">" + Number(i_SatellitesCount).toFixed(0) + "</font> спутников";
+        text: Theme.colorText(Number(i_SatellitesCount).toFixed(0), "red") + " спутников";
         width: 110;
         height: 12;
         anchors.top: ico_Satellites.top;
@@ -315,15 +315,12 @@ Item {
     }
 
     Text { id: txt_Delay;
-        property string s_CurrentColor: fl_ConnectionDelay < 3 ? Theme.color("green")
-                                                               : fl_ConnectionDelay < 8 ? Theme.color("yellow")
-                                                                                        : Theme.color("red");
-
+        property string s_CurrentColor: fl_ConnectionDelay < 3 ? "green" : fl_ConnectionDelay < 8 ? "yellow" : "red";
         color: Theme.color("light0");
         font.weight: Font.Bold;
         font.family: root.s_FontMain;
         font.pixelSize: 13;
-        text: "Задержка <font color=\"" + s_CurrentColor + "\">" + Number(fl_ConnectionDelay).toFixed(1) + " с </font>";
+        text: "Задержка " + Theme.colorText( + Number(fl_ConnectionDelay).toFixed(1) + " с", s_CurrentColor);
         width: 110;
         height: 12;
         anchors.top: ico_DelayIcon.top;

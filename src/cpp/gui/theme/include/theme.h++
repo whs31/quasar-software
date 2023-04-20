@@ -33,6 +33,9 @@ namespace GUI
             //! @brief
             __qml QString color(QString key);
 
+            //! @brief
+            __qml QString colorText(const QString& text, const QString& theme_color_name);
+
             //! @brief Сеттер и геттер для параметра scalingFactor.
             QPointF scalingFactor() const;
             void setScalingFactor(QPointF factor);

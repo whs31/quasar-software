@@ -31,21 +31,21 @@ namespace Network
 {
     struct __packed TelemetryDatagram
     {
-        uint32_t marker;
-        uint8_t version;
-        double latitude;
-        double longitude;
-        double altitude;
-        double velocity_course;
-        double velocity_east;
-        double velocity_north;
-        double velocity_vertical;
-        double pitch;
-        double roll;
-        double yaw;
-        double course;
-        uint64_t time;
-        bool valid;
+        uint32_t marker; // const
+        uint8_t version; // const
+        double latitude; // rad
+        double longitude; // rad
+        double altitude; // m
+        double velocity_course; // m s
+        double velocity_east; // m s
+        double velocity_north; // m s
+        double velocity_vertical; // m s
+        double pitch; // rad
+        double roll; // rad
+        double yaw; // rad
+        double course; // rad
+        uint64_t time; //
+        bool valid; // unix time * 1000
         uint16_t crc16;
     };
 } // namespace Network;

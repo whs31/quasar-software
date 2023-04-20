@@ -1,5 +1,5 @@
 #include "ruler.h++"
-#include "tools/geomath.h++"
+#include "utils/numeric.c++"
 #include <QtCore/QDebug>
 
 using namespace Map;
@@ -221,8 +221,8 @@ QGeoCoordinate Ruler::calculateCenter(quint16 _index)
 qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2)
 {
     qreal result;
-    QPair<qreal, qreal> coord1 = Map::math::geoCoordToWebMercator(_coord1);
-    QPair<qreal, qreal> coord2 = Map::math::geoCoordToWebMercator(_coord2);
+    QPointF coord1 = Utilities::Numeric::geoCoordToWebMercator(_coord1);
+    QPointF coord2 = Utilities::Numeric::geoCoordToWebMercator(_coord2);
     qreal newLong1 = _coord1.longitude();
     qreal newLong2 = _coord2.longitude();
 
@@ -231,8 +231,8 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord1.longitude() + shift < 0){
             newLong1 = _coord1.longitude() + shift;
             newLong2 = (_coord2.longitude() + shift) - 360;
-            coord1 = Map::math::geoCoordToWebMercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
-            coord2 = Map::math::geoCoordToWebMercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
+            coord1 = Utilities::Numeric::geoCoordToWebMercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
+            coord2 = Utilities::Numeric::geoCoordToWebMercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
         }
     }
     else if (_coord2.longitude() < 0 && _coord1.longitude() > 0){
@@ -240,11 +240,11 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord2.longitude() + shift < 0){
             newLong1 = (_coord1.longitude() + shift) - 360;
             newLong2 = _coord2.longitude() + shift;
-            coord2 = Map::math::geoCoordToWebMercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
-            coord1 = Map::math::geoCoordToWebMercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
+            coord2 = Utilities::Numeric::geoCoordToWebMercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
+            coord1 = Utilities::Numeric::geoCoordToWebMercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
         }
     }
-    qreal angle = qAtan2(abs(coord1.second - coord2.second) , abs(coord1.first - coord2.first)) * 180 / M_PI;
+    qreal angle = qAtan2(abs(coord1.y() - coord2.y()) , abs(coord1.x() - coord2.x())) * 180 / M_PI;
     result = ((_coord1.latitude() < _coord2.latitude() && newLong1 < newLong2) || (_coord1.latitude() > _coord2.latitude() && newLong1 > newLong2)) ? angle - 90 : 90 - angle;
 
     return result;

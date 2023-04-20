@@ -12,6 +12,7 @@ TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
     QObject::connect(m_updateTimer, &QTimer::timeout, this, [this](){
         this->send(REQUEST_KEY);
     });
+    QObject::connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);
 }
 
 void TelemetrySocket::start()
@@ -31,4 +32,9 @@ void TelemetrySocket::setFrequency(float other) {
     if (qFuzzyCompare(m_frequency, other)) return;
     m_frequency = other;
     emit frequencyChanged();
+}
+
+void TelemetrySocket::processTelemetry(QByteArray data)
+{
+    emit ping();
 }

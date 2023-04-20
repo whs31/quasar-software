@@ -4,6 +4,8 @@
 #include "telemetry/telemetry.h++"
 #include <QtCore/QObject>
 
+class QTimer;
+
 namespace Network
 {
     class TelemetrySocket;
@@ -14,6 +16,7 @@ namespace Network
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
 
         static Network* instance;
+        QTimer* m_network_delay_timer;
 
         Telemetry* m_telemetry;
         float m_networkDelay;
@@ -26,7 +29,7 @@ namespace Network
             __qml void startTelemetrySocket(float frequency);
             __qml void stopTelemetrySocket();
 
-            Telemetry *telemetry() const;
+            Telemetry* telemetry() const;
             void setTelemetry(Telemetry* other);
 
             float networkDelay() const;

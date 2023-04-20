@@ -31,5 +31,10 @@ namespace Network
 
             signals:
                 __signal frequencyChanged();
+                __signal ping();
+
+        private:
+            private slots:
+                void processTelemetry(QByteArray data);
     };
 } // namespace Network

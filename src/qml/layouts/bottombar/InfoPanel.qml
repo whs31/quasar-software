@@ -1,15 +1,16 @@
 import QtQuick 2.15
 import Theme 1.0
+import Network 1.0
 
 Item {
-    property real fl_Latitude: 0.0;
-    property real fl_Longitude: 0.0;
-    property real fl_Altitude: 0.0;
-    property real fl_SeaAltitude: 0.0;
-    property real fl_Velocity: 0.0;
-    property real fl_Direction: 0.0;
-    property int i_SatellitesCount: 0;
-    property real fl_ConnectionDelay: 0.0;
+    property real fl_Latitude: Network.telemetry.latitude;
+    property real fl_Longitude: Network.telemetry.longitude;
+    property real fl_Altitude: Network.telemetry.altitude;
+    property real fl_SeaAltitude: Network.telemetry.altitude;
+    property real fl_Velocity: Network.telemetry.velocityCourse;
+    property real fl_Direction: Network.telemetry.course;
+    property int i_SatellitesCount: -1; //Network.telemetry.satellites;
+    property real fl_ConnectionDelay: Network.networkDelay;
     property real fl_RemoteDiskSpace: 0.0;
 
     width: 915;
@@ -313,11 +314,15 @@ Item {
     }
 
     Text { id: txt_Delay;
+        property string s_CurrentColor: fl_ConnectionDelay < 3 ? Theme.color("green")
+                                                               : fl_ConnectionDelay < 8 ? Theme.color("yellow")
+                                                                                        : Theme.color("red");
+
         color: Theme.color("light0");
         font.weight: Font.Bold;
         font.family: root.s_FontMain;
         font.pixelSize: 13;
-        text: "Задержка <font color=\"" + Theme.color("red") + "\">" + Number(fl_ConnectionDelay).toFixed(1) + " с </font>";
+        text: "Задержка <font color=\"" + s_CurrentColor + "\">" + Number(fl_ConnectionDelay).toFixed(1) + " с </font>";
         width: 110;
         height: 12;
         anchors.top: ico_DelayIcon.top;

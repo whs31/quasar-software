@@ -29,6 +29,6 @@ namespace Utilities
             __qml static float degreesToRadians(float degrees) noexcept(true);
             __qml static float radiansToDegrees(float radians) noexcept(true);
 
-            __qml static QPointF geoCoordToWebMercator(const QGeoCoordinate& point, quint8 zoom = 19) noexcept(true);
+            __qml static QPointF geoCoordToWebMercator(const QGeoCoordinate& point, uint8_t zoom = 19) noexcept(true);
     };
 } // namespace Utilities;

@@ -40,7 +40,6 @@ set(PROJECT_SOURCES
     ${SRCS} resources/appiconwin32.rc
 )
 
-
 add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
     ${CPP_SOURCES}

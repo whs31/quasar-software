@@ -3,13 +3,13 @@
 #include <cmath>
 #include <QtPositioning/QGeoCoordinate>
 
-Utilities::Numeric::Numeric(QObject *parent)
+using namespace Utilities;
+
+Numeric::Numeric(QObject *parent)
     : QObject{parent}
 {
 
 }
-
-namespace Utilities {
 
 float Numeric::degreesToKilometers(double degrees) noexcept(true)
 {
@@ -48,9 +48,9 @@ float Numeric::radiansToDegrees(float radians) noexcept(true)
     return (radians * 180 / M_PI);
 }
 
-QPointF Numeric::geoCoordToWebMercator(const QGeoCoordinate& point, quint8 zoom) noexcept(true)
+QPointF Numeric::geoCoordToWebMercator(const QGeoCoordinate& point, uint8_t zoom) noexcept(true)
 {
     return QPointF((1.0 - asinh(tan(point.latitude() * M_PI / 180.0)) / M_PI) / 2.0 * (1 << zoom),
                    (point.longitude() + 180.0) / 360.0 * (1 << zoom));
 }
-} // namespace Utilities;
+

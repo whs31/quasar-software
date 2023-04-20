@@ -1,5 +1,5 @@
 #include "ruler.h++"
-#include "utils/numeric.c++"
+#include "utils/numeric.h++"
 #include <QtCore/QDebug>
 
 using namespace Map;

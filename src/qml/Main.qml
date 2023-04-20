@@ -26,7 +26,6 @@ Window { id: root;
 
     Component.onCompleted: {
         showFullScreen();
-        console.log(Network.telemetry.latitude);
     }
 
     FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }

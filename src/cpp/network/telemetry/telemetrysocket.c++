@@ -16,7 +16,7 @@ TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
 
 void TelemetrySocket::start()
 {
-    m_updateTimer->start(frequency());
+    m_updateTimer->start((int)(frequency() * 1'000));
     qDebug().noquote() << "[TELEMETRY] Started reading at frequency of" << frequency();
 }
 

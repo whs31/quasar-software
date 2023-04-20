@@ -1,6 +1,7 @@
 #include "console_p.h++"
 #include <QtQml/qqml.h>
 #include <QtCore/QCoreApplication>
+#include "network/network.h++"
 
 Console::Console(QObject* parent)
     : QObject{parent}
@@ -39,4 +40,16 @@ void ConsolePrivate::quit()
 {
     qInfo() << "[CONSOLE] Shutting down...";
     QCoreApplication::quit();
+}
+
+void ConsolePrivate::force_telemetry_socket_start()
+{
+    qDebug() << "[CONSOLE] Forcing start of telemetry socket at default frequency";
+    Network::Network::get()->startTelemetrySocket(0.2);
+}
+
+void ConsolePrivate::force_telemetry_socket_stop()
+{
+    qWarning() << "[CONSOLE] Forcing stop of telemetry socket";
+    Network::Network::get()->stopTelemetrySocket();
 }

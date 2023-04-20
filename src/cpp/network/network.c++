@@ -11,6 +11,17 @@ Network::Network* Network::Network::get(QObject *parent) {
     return instance;
 }
 
+void Network::Network::startTelemetrySocket(float frequency)
+{
+    this->telemetrySocket->setFrequency(frequency);
+    this->telemetrySocket->start();
+}
+
+void Network::Network::stopTelemetrySocket()
+{
+    this->telemetrySocket->stop();
+}
+
 Network::Network::Network(QObject *parent)
     : QObject{parent}
     , m_telemetry(new Telemetry(this))
@@ -29,5 +40,12 @@ namespace Network {
             return;
         m_telemetry = other;
         emit telemetryChanged();
+    }
+
+    float Network::networkDelay() const { return m_networkDelay; }
+    void Network::setNetworkDelay(float other) {
+        if (qFuzzyCompare(m_networkDelay, other)) return;
+        m_networkDelay = other;
+        emit networkDelayChanged();
     }
 }

@@ -1,9 +1,10 @@
 #pragma once
 
+#include "definitions.h++"
 #include "../console.h++"
 #include <QtCore/QMap>
 #include <functional>
-#include "definitions.h++"
+
 
 class ConsolePrivate : public QObject
 {
@@ -13,17 +14,21 @@ class ConsolePrivate : public QObject
 
     QMap<QString, std::function<void()>> command_list = {
         { "quit", [this](){ quit(); } },
+        { "force_telemetry_socket_start", [this](){ force_telemetry_socket_start(); } },
+        { "force_telemetry_socket_stop", [this](){ force_telemetry_socket_stop(); } }
     };
 
     public:
         ConsolePrivate(Console* parent);
         virtual ~ConsolePrivate() = default;
 
-        Q_INVOKABLE void sendCommand(QString command);
+        __qml void sendCommand(QString command);
 
         signals:
             __signal appendSignal(const QString& text);
 
     private:
         void quit();
+        void force_telemetry_socket_start();
+        void force_telemetry_socket_stop();
 };

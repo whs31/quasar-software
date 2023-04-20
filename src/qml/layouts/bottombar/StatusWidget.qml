@@ -1,6 +1,6 @@
 import QtQuick 2.15
 import Theme 1.0
-import StatusIndicator 1.0
+import Widgets.Status 1.0
 
 Item {
     enum ConnectionStatus {

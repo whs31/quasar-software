@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import Theme 1.0
 import Network 1.0
+import Widgets.Status 1.0
 
 Item {
     property real fl_Latitude: Network.telemetry.latitude;
@@ -11,7 +12,7 @@ Item {
     property real fl_Direction: Network.telemetry.course;
     property int i_SatellitesCount: -1; //Network.telemetry.satellites;
     property real fl_ConnectionDelay: Network.networkDelay;
-    property real fl_RemoteDiskSpace: 0.0;
+    property real fl_RemoteDiskSpace: 0.5;
 
     width: 915;
     height: 46;
@@ -362,6 +363,35 @@ Item {
         anchors.top: ico_Disk.top;
         anchors.topMargin: 2;
         anchors.left: ico_Disk.right;
+        anchors.leftMargin: 5;
+        horizontalAlignment: Text.AlignLeft;
+        verticalAlignment: Text.AlignVCenter;
+    }
+
+    ProgressBar { id: c_DiskProgressBar;
+        width: 107;
+        height: 10;
+        anchors.left: ico_Disk.left;
+        anchors.top: ico_Disk.bottom;
+        anchors.topMargin: 7;
+        value: fl_RemoteDiskSpace * 100;
+        errorColor: Theme.color("red");
+        warnColor: Theme.color("yellow");
+        successColor: Theme.color("green");
+        backgroundColor: Theme.color("light0");
+    }
+
+    Text { id: txt_DiskValue;
+        color: Theme.color("light0");
+        font.weight: Font.ExtraBold;
+        font.family: root.s_FontMain;
+        font.pixelSize: 12;
+        text: Number(fl_RemoteDiskSpace * 100).toFixed(0) + "%";
+        width: 40;
+        height: 12;
+        anchors.top: c_DiskProgressBar.top;
+        anchors.topMargin: -1;
+        anchors.left: c_DiskProgressBar.right;
         anchors.leftMargin: 5;
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignVCenter;

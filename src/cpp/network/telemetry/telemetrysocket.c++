@@ -51,7 +51,7 @@ void TelemetrySocket::requestTelemetry()
     stream.setByteOrder(QDataStream::BigEndian);
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
-    TelemetryRequest request = { MARKER, 0x01, (uint16_t)this->port(), (int32_t)(this->frequency() * 1'000), 0 };
+    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (int32_t)(this->frequency() * 1'000), 0 };
     uint16_t crc = Utilities::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 

@@ -72,7 +72,7 @@ namespace Network
         }
     };
 
-    struct __packed TelemetryRequest
+    struct TelemetryRequest
     {
         uint32_t marker = 0x55bb55bb;
         uint8_t init_flag; //0x00 ends stream, 0x01 begins stream
@@ -87,6 +87,17 @@ namespace Network
             dataStream << data.port;
             dataStream << data.interval_ms;
             dataStream << data.crc16;
+
+            return dataStream;
+        }
+
+        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data)
+        {
+            dataStream >> data.marker;
+            dataStream >> data.init_flag;
+            dataStream >> data.port;
+            dataStream >> data.interval_ms;
+            dataStream >> data.crc16;
 
             return dataStream;
         }

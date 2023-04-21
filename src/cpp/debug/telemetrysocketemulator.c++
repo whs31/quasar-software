@@ -1,4 +1,5 @@
 #include "telemetrysocketemulator.h++"
+#include "network/telemetry/telemetrydatagram.h++"
 #include <QtCore/QDebug>
 #include <QtCore/QDataStream>
 #include <QtNetwork/QUdpSocket>
@@ -49,9 +50,14 @@ void TelemetrySocketEmulator::read()
     buf.resize(socket->pendingDatagramSize());
     while(socket->hasPendingDatagrams())
         socket->readDatagram(buf.data(), (int64_t)socket->pendingDatagramSize(), &m_hostaddress, &m_port);
-    qDebug().noquote() << "Received by server: " << buf;
 
-    uint32_t test = *(uint32_t*)buf.data();
-    qCritical() << Qt::hex << test;
+    QDataStream stream(&buf, QIODevice::ReadWrite);
+    stream.setByteOrder(QDataStream::BigEndian);
+
+    Network::TelemetryRequest received;
+    stream >> received;
+
+    qDebug().noquote().nospace() << "[TELSRV] RECEIVED PACKAGE " << Qt::hex << "<b>0x" << received.marker << " 0x" << received.init_flag
+                                 << Qt::dec << "</b> port[<b>" << received.port << "</b>] interval[<b>"<< received.interval_ms << "</b>] crc[<b>" << received.crc16 << "</b>]";
 }
 

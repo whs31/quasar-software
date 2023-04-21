@@ -1,6 +1,6 @@
 #pragma once
 
-#include "definitions.h++"
+#include <definitions.h++>
 #include <QtCore/QObject>
 #include <QtCore/QPointF>
 
@@ -12,9 +12,9 @@ namespace Utilities
     {
         Q_OBJECT
 
-        __globalconstexpr double MAP_SCALE_RATIO = 156'543.03392;
-        __globalconstexpr double KILOMETERS_IN_DEGREE = 111.111;
-        __globalconstexpr double INVERSE_MAP_SCALE_RATIO = 28.8659;
+        constexpr __global double MAP_SCALE_RATIO = 156'543.03392;
+        constexpr __global double KILOMETERS_IN_DEGREE = 111.111;
+        constexpr __global double INVERSE_MAP_SCALE_RATIO = 28.8659;
 
         public:
             Numeric(QObject* parent = nullptr);

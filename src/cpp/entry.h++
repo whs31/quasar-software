@@ -1,7 +1,7 @@
 #pragma once
 
+#include <definitions.h++>
 #include <QtCore/QObject>
-#include "definitions.h++"
 
 class Entry : public QObject
 {

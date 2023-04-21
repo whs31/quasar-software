@@ -1,9 +1,9 @@
 #pragma once
 
+#include <definitions.h++>
 #include <QtCore/QObject>
 #include <QtCore/QMap>
 #include <QtQml/QQmlPropertyMap>
-#include "definitions.h++"
 
 class QSettings;
 

@@ -20,6 +20,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 )
 
 include_directories(src/cpp)
+add_subdirectory(src/cpp/global)
 
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
@@ -28,11 +29,11 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/scenegraph/*
     src/cpp/network/*
     src/cpp/utils/*
+    src/cpp/debug/*
 )
 
 set(PROJECT_SOURCES
     src/cpp/main.c++
-    src/cpp/definitions.h++
     src/cpp/entry.h++    src/cpp/entry.c++
 
     src/qml/qml.qrc
@@ -52,6 +53,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
+    Pattern
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

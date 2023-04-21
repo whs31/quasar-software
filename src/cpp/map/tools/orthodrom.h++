@@ -1,5 +1,6 @@
 #pragma once
 
+#include <definitions.h++>
 #include <QtCore/QObject>
 #include <QtCore/QtGlobal>
 #include <QtCore/QtMath>

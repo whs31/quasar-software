@@ -12,6 +12,8 @@ namespace Debug
     {
         Q_OBJECT
 
+        constexpr __global uint32_t MARKER = 0x55AA55AA;
+
         struct DatagramOut
         {
             static_assert(sizeof(double) == 8); // remove later
@@ -43,8 +45,13 @@ namespace Debug
             uint16_t crc16;
         };
 
+        QUdpSocket* socket;
+
         public:
             TelemetrySocketEmulator(QObject* parent = nullptr);
+
+            void startTelemetryServer(const QString& address = "127.0.0.1:9955");
+            void stop();
 
             signals:
 

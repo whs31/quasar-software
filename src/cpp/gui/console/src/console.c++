@@ -1,7 +1,8 @@
 #include "console_p.h++"
+#include "network/network.h++"
+#include "debug/telemetrysocketemulator.h++"
 #include <QtQml/qqml.h>
 #include <QtCore/QCoreApplication>
-#include "network/network.h++"
 
 Console::Console(QObject* parent)
     : QObject{parent}
@@ -42,14 +43,28 @@ void ConsolePrivate::quit()
     QCoreApplication::quit();
 }
 
-void ConsolePrivate::force_telemetry_socket_start()
+void ConsolePrivate::telsock_start()
 {
     qDebug() << "[CONSOLE] Forcing start of telemetry socket at default frequency";
     Network::Network::get()->startTelemetrySocket(0.2);
 }
 
-void ConsolePrivate::force_telemetry_socket_stop()
+void ConsolePrivate::telsock_stop()
 {
     qWarning() << "[CONSOLE] Forcing stop of telemetry socket";
     Network::Network::get()->stopTelemetrySocket();
+}
+
+void ConsolePrivate::telsrv_start()
+{
+    if(not this->m_telemetry_socket_emulator)
+        m_telemetry_socket_emulator = new Debug::TelemetrySocketEmulator(this);
+    m_telemetry_socket_emulator->startTelemetryServer(); // add args
+}
+
+void ConsolePrivate::telsrv_stop()
+{
+    if(not this->m_telemetry_socket_emulator)
+        return;
+    m_telemetry_socket_emulator->stop();
 }

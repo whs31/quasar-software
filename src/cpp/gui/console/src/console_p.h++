@@ -6,16 +6,23 @@
 #include <functional>
 
 
+namespace Debug {
+    class TelemetrySocketEmulator;
+}
+
 class ConsolePrivate : public QObject
 {
     Q_OBJECT
     Q_DECLARE_PUBLIC(Console)
     Console* q_ptr;
+    Debug::TelemetrySocketEmulator* m_telemetry_socket_emulator;
 
     QMap<QString, std::function<void()>> command_list = {
         { "quit", [this](){ quit(); } },
-        { "force_telemetry_socket_start", [this](){ force_telemetry_socket_start(); } },
-        { "force_telemetry_socket_stop", [this](){ force_telemetry_socket_stop(); } }
+        { "telsock_start", [this](){ telsock_start(); } },
+        { "telsock_stop", [this](){ telsock_stop(); } },
+        { "telsrv_start", [this](){ telsrv_start(); } },
+        { "telsrv_stop", [this](){ telsrv_stop(); } }
     };
 
     public:
@@ -28,7 +35,9 @@ class ConsolePrivate : public QObject
             __signal appendSignal(const QString& text);
 
     private:
-        void quit();
-        void force_telemetry_socket_start();
-        void force_telemetry_socket_stop();
+        void __concommand quit();
+        void __concommand telsock_start();
+        void __concommand telsock_stop();
+        void __concommand telsrv_start();
+        void __concommand telsrv_stop();
 };

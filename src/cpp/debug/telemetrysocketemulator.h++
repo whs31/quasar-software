@@ -3,8 +3,10 @@
 #include <definitions.h++>
 #include <QtCore/QObject>
 #include <QtNetwork/QHostAddress>
+#include "network/telemetry/telemetrydatagram.h++"
 
 class QUdpSocket;
+class QTimer;
 
 namespace Debug
 {
@@ -12,42 +14,27 @@ namespace Debug
     {
         Q_OBJECT
 
-        constexpr __global uint32_t MARKER = 0x55AA55AA;
-
-        struct DatagramOut
-        {
-            static_assert(sizeof(double) == 8); // remove later
-
-            uint32_t marker;
-            uint8_t version;
-            double latitude;
-            double longitude;
-            double elevation;
-            double velocity_course;
-            double velocity_east;
-            double velocity_north;
-            double velocity_vertical;
-            double pitch;
-            double roll;
-            double yaw;
-            double course;
-            uint64_t time;
-            bool valid;
-            uint16_t crc16;
-        };
-
-        struct DatagramIn
-        {
-            uint32_t marker;
-            uint8_t init_flag;
-            uint16_t port;
-            int32_t interval_ms;
-            uint16_t crc16;
-        };
+        constexpr __global uint32_t MARKER = 0x55BB55BB;
 
         QUdpSocket* socket;
+        QTimer* timer;
+        QTimer* stopTimer;
         QHostAddress m_hostaddress;
         uint16_t m_port;
+
+        struct LocalData
+        {
+            double latitude = 60;
+            double longitude = 30;
+            float altitude = 100;
+            float velocity = 50;
+            float velocity_vertical = 1;
+            float pitch = 90;
+            float roll = 0;
+            float yaw;
+            float course = yaw;
+            uint64_t time = 0;
+        } local_data;
 
         public:
             TelemetrySocketEmulator(QObject* parent = nullptr);
@@ -59,5 +46,7 @@ namespace Debug
         private:
             private slots:
                 void read();
+                void sendTelemetry();
+                Network::TelemetryDatagram generateTelemetry();
     };
 } // namespace Debug;

@@ -32,7 +32,7 @@ Network::Network::Network(QObject* parent)
 void Network::Network::startTelemetrySocket(float frequency)
 {
     this->telemetrySocket->setFrequency(frequency);
-    this->telemetrySocket->start();
+    this->telemetrySocket->start("127.0.0.1:9955");
 }
 
 void Network::Network::stopTelemetrySocket()

@@ -25,6 +25,7 @@ void Console::sendCommand(const QString& command)
 ConsolePrivate::ConsolePrivate(Console* parent)
     : QObject{parent}
     , q_ptr(parent)
+    , m_telemetry_socket_emulator(new Debug::TelemetrySocketEmulator(this))
 {
     qmlRegisterSingletonInstance("ConsoleWidget", 1, 0, "Impl", this);
 }
@@ -57,14 +58,14 @@ void ConsolePrivate::telsock_stop()
 
 void ConsolePrivate::telsrv_start()
 {
-    if(not this->m_telemetry_socket_emulator)
-        m_telemetry_socket_emulator = new Debug::TelemetrySocketEmulator(this);
+    if(not m_telemetry_socket_emulator)
+        return;
     m_telemetry_socket_emulator->startTelemetryServer(); // add args
 }
 
 void ConsolePrivate::telsrv_stop()
 {
-    if(not this->m_telemetry_socket_emulator)
+    if(not m_telemetry_socket_emulator)
         return;
     m_telemetry_socket_emulator->stop();
 }

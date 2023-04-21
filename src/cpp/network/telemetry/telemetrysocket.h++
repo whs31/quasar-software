@@ -23,7 +23,7 @@ namespace Network
         public:
             TelemetrySocket(QObject* parent = nullptr, Telemetry* output = nullptr);
 
-            void start();
+            void start(const QString& address);
             void stop();
 
             float frequency() const;
@@ -36,5 +36,6 @@ namespace Network
         private:
             private slots:
                 void processTelemetry(QByteArray data);
+                void requestTelemetry();
     };
 } // namespace Network

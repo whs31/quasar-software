@@ -2,7 +2,7 @@
 
 #include <definitions.h++>
 #include <QtCore/QObject>
-
+#include <QtNetwork/QHostAddress>
 
 class QUdpSocket;
 
@@ -46,14 +46,18 @@ namespace Debug
         };
 
         QUdpSocket* socket;
+        QHostAddress m_hostaddress;
+        uint16_t m_port;
 
         public:
             TelemetrySocketEmulator(QObject* parent = nullptr);
+            virtual ~TelemetrySocketEmulator();
 
             void startTelemetryServer(const QString& address = "127.0.0.1:9955");
             void stop();
 
-            signals:
-
+        private:
+            private slots:
+                void read();
     };
 } // namespace Debug;

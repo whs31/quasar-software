@@ -15,7 +15,7 @@ AbstractUDPSocket::~AbstractUDPSocket()
 }
 
 
-bool Network::AbstractUDPSocket::connect(const QString &address)
+bool Network::AbstractUDPSocket::connect(const QString& address)
 {
     QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);
     if(not address.contains(":")) {
@@ -51,6 +51,7 @@ bool AbstractUDPSocket::send(QByteArray data)
         qWarning() << "[SOCKET] Trying to write to null host";
         return false;
     }
+    qWarning() << data;
     return this->writeDatagram(data, m_hostaddress, m_port);
 }
 
@@ -63,7 +64,8 @@ void AbstractUDPSocket::readSocket()
 
     QByteArray buffer;
     buffer.resize(this->pendingDatagramSize());
-    this->readDatagram(buffer.data(), (int64_t)buffer.size(), &m_hostaddress, &m_port);
+    while(this->hasPendingDatagrams())
+        this->readDatagram(buffer.data(), (int64_t)this->pendingDatagramSize(), &m_hostaddress, &m_port);
 
     emit this->received(buffer);
 }

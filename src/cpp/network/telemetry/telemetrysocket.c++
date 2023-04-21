@@ -9,20 +9,21 @@ TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
     , m_updateTimer(new QTimer(this))
     , m_output(output)
 {
-    QObject::connect(m_updateTimer, &QTimer::timeout, this, [this](){
-        this->send(REQUEST_KEY);
-    });
+    QObject::connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::requestTelemetry);
     QObject::connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);
 }
 
-void TelemetrySocket::start()
+void TelemetrySocket::start(const QString& address)
 {
-    m_updateTimer->start((int)(frequency() * 1'000));
-    qDebug().noquote() << "[TELEMETRY] Started reading at frequency of" << frequency();
+    this->connect(address);
+    this->requestTelemetry();
+    m_updateTimer->start((int)(30 * 1'000));
+    qDebug().noquote() << "[TELEMETRY] Started reading at frequency of" << 1 / frequency() << "Hz";
 }
 
 void TelemetrySocket::stop()
 {
+    this->disconnect();
     m_updateTimer->stop();
     qDebug() << "[TELEMETRY] Stopped reading";
 }
@@ -37,4 +38,10 @@ void TelemetrySocket::setFrequency(float other) {
 void TelemetrySocket::processTelemetry(QByteArray data)
 {
     emit ping();
+    qCritical() << data;
+}
+
+void TelemetrySocket::requestTelemetry()
+{
+    this->send(REQUEST_KEY);
 }

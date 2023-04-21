@@ -30,7 +30,7 @@ pub struct Datagram{
 
 namespace Network
 {
-    struct __packed TelemetryDatagram
+    struct TelemetryDatagram
     {
         uint32_t marker; // const
         uint8_t version; // const
@@ -67,6 +67,28 @@ namespace Network
             dataStream << data.time;
             dataStream << data.valid;
             dataStream << data.crc16;
+
+            return dataStream;
+        }
+
+        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryDatagram& data)
+        {
+            dataStream >> data.marker;
+            dataStream >> data.version;
+            dataStream >> data.latitude;
+            dataStream >> data.longitude;
+            dataStream >> data.altitude;
+            dataStream >> data.velocity_course;
+            dataStream >> data.velocity_east;
+            dataStream >> data.velocity_north;
+            dataStream >> data.velocity_vertical;
+            dataStream >> data.pitch;
+            dataStream >> data.roll;
+            dataStream >> data.yaw;
+            dataStream >> data.course;
+            dataStream >> data.time;
+            dataStream >> data.valid;
+            dataStream >> data.crc16;
 
             return dataStream;
         }

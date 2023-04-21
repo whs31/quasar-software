@@ -1,4 +1,5 @@
 #include "telemetrysocket.h++"
+#include "telemetry.h++"
 #include "telemetrydatagram.h++"
 #include "utils/utils.h++"
 #include <QtCore/QTimer>
@@ -10,7 +11,7 @@ using namespace Network;
 TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
     : AbstractUDPSocket{parent}
     , m_updateTimer(new QTimer(this))
-    , m_output(output)
+    , output(output)
 {
     QObject::connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::requestTelemetry);
     QObject::connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);
@@ -41,7 +42,14 @@ void TelemetrySocket::setFrequency(float other) {
 void TelemetrySocket::processTelemetry(QByteArray data)
 {
     emit ping();
-    qCritical() << data;
+    QDataStream stream(&data, ReadOnly);
+    TelemetryDatagram received;
+    stream >> received;
+
+//    qDebug().noquote().nospace() << "[TELSOCK] RECEIVED PACKAGE " << Qt::hex << "<b>0x" << received.marker << " 0x" << received.version
+//                                 << Qt::dec << "</b> lat[<b>" << received.latitude << "</b>] lon[<b>"<< received.longitude << "</b>] alt[<b>"
+//                                 << received.altitude << "</b>]";
+    output->setLatitude(received.latitude);
 }
 
 void TelemetrySocket::requestTelemetry()

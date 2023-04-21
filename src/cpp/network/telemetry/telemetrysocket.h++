@@ -17,7 +17,7 @@ namespace Network
 
         QTimer* m_updateTimer;
         float m_frequency = 0.2;
-        Telemetry* m_output;
+        Telemetry* output;
 
 
         public:

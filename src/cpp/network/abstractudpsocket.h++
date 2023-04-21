@@ -17,6 +17,7 @@ namespace Network
             __qml virtual bool connect(const QString& address);
             __qml virtual void disconnect();
             virtual bool send(QByteArray data);
+            virtual uint16_t port() { return m_port; }
 
             signals:
                 __signal received(QByteArray data);

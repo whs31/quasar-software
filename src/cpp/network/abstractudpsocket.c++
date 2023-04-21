@@ -51,7 +51,6 @@ bool AbstractUDPSocket::send(QByteArray data)
         qWarning() << "[SOCKET] Trying to write to null host";
         return false;
     }
-    qWarning() << data;
     return this->writeDatagram(data, m_hostaddress, m_port);
 }
 

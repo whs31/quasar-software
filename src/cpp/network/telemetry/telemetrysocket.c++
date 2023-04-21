@@ -1,6 +1,9 @@
 #include "telemetrysocket.h++"
+#include "telemetrydatagram.h++"
+#include "utils/utils.h++"
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
+#include <QtCore/QDataStream>
 
 using namespace Network;
 
@@ -43,5 +46,16 @@ void TelemetrySocket::processTelemetry(QByteArray data)
 
 void TelemetrySocket::requestTelemetry()
 {
-    this->send(REQUEST_KEY);
+    QByteArray buffer;
+    QDataStream stream(&buffer, QIODevice::WriteOnly);
+    stream.setByteOrder(QDataStream::BigEndian);
+    stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
+
+    TelemetryRequest request = { MARKER, 0x01, (uint16_t)this->port(), (int32_t)(this->frequency() * 1'000), 0 };
+    uint16_t crc = Utilities::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
+    request.crc16 = crc;
+
+    stream << request;
+
+    this->send(buffer);
 }

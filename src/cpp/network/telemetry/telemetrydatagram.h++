@@ -26,6 +26,7 @@ pub struct Datagram{
 
 #include <definitions.h++>
 #include <cstdint>
+#include <QtCore/QDataStream>
 
 namespace Network
 {
@@ -47,5 +48,47 @@ namespace Network
         uint64_t time; //
         bool valid; // unix time * 1000
         uint16_t crc16;
+
+        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data)
+        {
+            dataStream << data.marker;
+            dataStream << data.version;
+            dataStream << data.latitude;
+            dataStream << data.longitude;
+            dataStream << data.altitude;
+            dataStream << data.velocity_course;
+            dataStream << data.velocity_east;
+            dataStream << data.velocity_north;
+            dataStream << data.velocity_vertical;
+            dataStream << data.pitch;
+            dataStream << data.roll;
+            dataStream << data.yaw;
+            dataStream << data.course;
+            dataStream << data.time;
+            dataStream << data.valid;
+            dataStream << data.crc16;
+
+            return dataStream;
+        }
+    };
+
+    struct __packed TelemetryRequest
+    {
+        uint32_t marker = 0x55bb55bb;
+        uint8_t init_flag; //0x00 ends stream, 0x01 begins stream
+        uint16_t port;
+        int32_t interval_ms;
+        uint16_t crc16;
+
+        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data)
+        {
+            dataStream << data.marker;
+            dataStream << data.init_flag;
+            dataStream << data.port;
+            dataStream << data.interval_ms;
+            dataStream << data.crc16;
+
+            return dataStream;
+        }
     };
 } // namespace Network;

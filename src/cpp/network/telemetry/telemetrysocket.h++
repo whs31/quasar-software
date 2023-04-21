@@ -13,7 +13,7 @@ namespace Network
         Q_OBJECT
         Q_PROPERTY(float frequency READ frequency WRITE setFrequency NOTIFY frequencyChanged)
 
-        constexpr static const char* REQUEST_KEY = "$JSON";
+        constexpr __global uint32_t MARKER = 0x55bb55bb;
 
         QTimer* m_updateTimer;
         float m_frequency = 0.2;

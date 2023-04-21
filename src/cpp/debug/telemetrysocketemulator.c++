@@ -24,7 +24,6 @@ TelemetrySocketEmulator::~TelemetrySocketEmulator()
 void TelemetrySocketEmulator::startTelemetryServer(const QString& address)
 {
     qInfo().noquote() << "[DEBUG] Starting telemetry server emulator at" << address;
-    qDebug() << socket;
     m_hostaddress.setAddress(address.split(":").first());
     m_port = address.split(":").last().toUShort();
     if(not address.contains(":"))
@@ -50,6 +49,9 @@ void TelemetrySocketEmulator::read()
     buf.resize(socket->pendingDatagramSize());
     while(socket->hasPendingDatagrams())
         socket->readDatagram(buf.data(), (int64_t)socket->pendingDatagramSize(), &m_hostaddress, &m_port);
-    qDebug() << buf;
+    qDebug().noquote() << "Received by server: " << buf;
+
+    uint32_t test = *(uint32_t*)buf.data();
+    qCritical() << Qt::hex << test;
 }
 

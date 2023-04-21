@@ -32,3 +32,13 @@ double Utilities::log(double base, double exponent) noexcept(true)
 {
     return (std::log(exponent) / std::log(base));
 }
+
+uint16_t Utilities::crc16_ccitt(const char* data, size_t size)
+{
+    const unsigned char* udata = reinterpret_cast<const unsigned char*>(data);
+    uint16_t crc = 0xFFFF;
+    while(size--)
+        crc = (crc << 8) ^ CRC16_TABLE[(crc >> 8) ^* data++];
+
+    return crc;
+}

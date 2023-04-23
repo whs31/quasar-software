@@ -22,7 +22,7 @@ namespace Network
         Q_PROPERTY(double roll READ roll WRITE setRoll NOTIFY rollChanged)
         Q_PROPERTY(double yaw READ yaw WRITE setYaw NOTIFY yawChanged)
         Q_PROPERTY(double course READ course WRITE setCourse NOTIFY courseChanged)
-        Q_PROPERTY(QDateTime time READ time WRITE setTime NOTIFY timeChanged)
+        Q_PROPERTY(uint64_t time READ time WRITE setTime NOTIFY timeChanged)
 
         QDateTime m_datetime;
 
@@ -64,8 +64,8 @@ namespace Network
             double course() const;
             void setCourse(double other);
 
-            QDateTime time() const;
-            void setTime(const QDateTime& other);
+            uint64_t time() const;
+            void setTime(const uint64_t& other);
 
             signals:
                 __signal latitudeChanged();

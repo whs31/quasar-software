@@ -58,7 +58,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setRoll(Utilities::Numeric::radiansToDegrees(received.roll));
     output->setYaw(Utilities::Numeric::radiansToDegrees(received.yaw));
     output->setCourse(Utilities::Numeric::radiansToDegrees(received.course));
-    output->setTime(QDateTime::fromSecsSinceEpoch(received.time));
+    output->setTime(received.time);
 
     uint16_t crc = CRC_CHECK ? Utilities::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;

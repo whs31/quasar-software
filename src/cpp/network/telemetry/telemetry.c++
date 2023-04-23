@@ -85,9 +85,9 @@ void Telemetry::setCourse(double other) {
     emit courseChanged();
 }
 
-QDateTime Telemetry::time() const { /*return datagram.time;*/ } // make good conversion
-void Telemetry::setTime(const QDateTime& other) {
-//    if (datagram.time == other) return;
-//    datagram.time = other;
+uint64_t Telemetry::time() const { return datagram.time; }
+void Telemetry::setTime(const uint64_t& other) {
+    if (datagram.time == other) return;
+    datagram.time = other;
     emit timeChanged();
 }

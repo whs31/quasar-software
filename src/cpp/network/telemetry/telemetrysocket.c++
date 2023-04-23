@@ -2,6 +2,7 @@
 #include "telemetry.h++"
 #include "telemetrydatagram.h++"
 #include "utils/utils.h++"
+#include "utils/numeric.h++"
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
 #include <QtCore/QDataStream>
@@ -46,10 +47,23 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     TelemetryDatagram received;
     stream >> received;
 
-//    qDebug().noquote().nospace() << "[TELSOCK] RECEIVED PACKAGE " << Qt::hex << "<b>0x" << received.marker << " 0x" << received.version
-//                                 << Qt::dec << "</b> lat[<b>" << received.latitude << "</b>] lon[<b>"<< received.longitude << "</b>] alt[<b>"
-//                                 << received.altitude << "</b>]";
-    output->setLatitude(received.latitude);
+    output->setLatitude(Utilities::Numeric::radiansToDegrees(received.latitude));
+    output->setLongitude(Utilities::Numeric::radiansToDegrees(received.longitude));
+    output->setAltitude(received.altitude);
+    output->setVelocityCourse(received.velocity_course);
+    output->setVelocityEast(received.velocity_east);
+    output->setVelocityNorth(received.velocity_north);
+    output->setVelocityCourse(received.velocity_course);
+    output->setPitch(Utilities::Numeric::radiansToDegrees(received.pitch));
+    output->setRoll(Utilities::Numeric::radiansToDegrees(received.roll));
+    output->setYaw(Utilities::Numeric::radiansToDegrees(received.yaw));
+    output->setCourse(Utilities::Numeric::radiansToDegrees(received.course));
+    output->setTime(QDateTime::fromSecsSinceEpoch(received.time));
+
+    uint16_t crc = CRC_CHECK ? Utilities::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
+                             : received.crc16;
+    if(crc != received.crc16)
+        qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
 }
 
 void TelemetrySocket::requestTelemetry()

@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import Theme 1.0
 import Widgets.Status 1.0
+import Network 1.0
 
 Item {
     enum ConnectionStatus {
@@ -9,7 +10,7 @@ Item {
         Connected
     }
 
-    property int i_ConnectionStatus: StatusWidget.ConnectionStatus.Unconnected;
+    property int i_ConnectionStatus: Network.connected;
 
     width: 312;
     height: 46;

@@ -40,9 +40,6 @@ void Network::Network::stopTelemetrySocket()
     this->telemetrySocket->stop();
 }
 
-
-
-
 namespace Network {
     Telemetry *Network::telemetry() const { return m_telemetry; }
     void Network::setTelemetry(Telemetry* other) {
@@ -57,5 +54,19 @@ namespace Network {
         if (qFuzzyCompare(m_networkDelay, other)) return;
         m_networkDelay = other;
         emit networkDelayChanged();
+
+        if(networkDelay() >= DISCONNECT_DELAY_THRESHOLD)
+            setConnected(0);
+        else if(networkDelay() >= SEMICONNECT_DELAY_THRESHOLD)
+            setConnected(1);
+        else
+            setConnected(2);
+    }
+
+    int Network::connected() const { return m_connected; }
+    void Network::setConnected(int other) {
+        if (m_connected == other) return;
+        m_connected = other;
+        emit connectedChanged();
     }
 }

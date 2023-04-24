@@ -23,3 +23,33 @@ TCPSocket::TCPSocket(QObject *parent)
 
 }
 
+void TCPSocket::clientConnected()
+{
+
+}
+
+void TCPSocket::serverRead()
+{
+
+}
+
+void TCPSocket::clientDisconnected()
+{
+
+}
+
+void TCPSocket::connectionTimeout()
+{
+
+}
+
+void TCPSocket::readFileInfo(QByteArray data)
+{
+
+}
+
+void TCPSocket::readFileBody(QByteArray data)
+{
+
+}
+

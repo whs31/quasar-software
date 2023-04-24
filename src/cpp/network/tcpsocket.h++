@@ -43,9 +43,9 @@ namespace Network
                 __signal progressChanged(float progress);
 
         private:
-                void (TCPSocket::*readFile)(QByteArray data);
-                void readFileInfo(QByteArray data);
-                void readFileBody(QByteArray data);
+            void (TCPSocket::*readFile)(QByteArray data);
+            void readFileInfo(QByteArray data);
+            void readFileBody(QByteArray data);
 
     };
 } // namespace Network;

@@ -42,8 +42,13 @@ void TelemetrySocket::setFrequency(float other) {
 
 void TelemetrySocket::processTelemetry(QByteArray data)
 {
-    emit ping();
+    // это временная проверка. ее нужно заменить на другую
+//    uint32_t marker = *(uint32_t*)data.data();
+//    if(marker == MARKER)
+//        return;
+
     QDataStream stream(&data, ReadOnly);
+    stream.setByteOrder(QDataStream::BigEndian);
     TelemetryDatagram received;
     stream >> received;
 
@@ -64,6 +69,8 @@ void TelemetrySocket::processTelemetry(QByteArray data)
                              : received.crc16;
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
+
+    emit ping();
 }
 
 void TelemetrySocket::requestTelemetry()

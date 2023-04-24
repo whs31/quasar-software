@@ -47,8 +47,6 @@ namespace Config
             void revert();
             void reset();
 
-            signals:
-
         private:
             explicit Config(QObject *parent = nullptr);
     };

@@ -2,6 +2,7 @@ import QtQuick 2.15
 import Theme 1.0
 import Widgets.Status 1.0
 import Network 1.0
+import Config 1.0
 
 Item {
     enum ConnectionStatus {
@@ -18,7 +19,14 @@ Item {
     MouseArea {
         anchors.fill: parent;
         onClicked: {
-            i_ConnectionStatus = StatusWidget.ConnectionStatus.Connected; // replace to network access
+            if(!Network.connected)
+            {
+                Network.startTelemetrySocket(Config.map().telemetryFrequency);
+            }
+            else
+            {
+                Network.stopTelemetrySocket();
+            }
         }
     }
 

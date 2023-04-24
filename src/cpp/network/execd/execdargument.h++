@@ -12,7 +12,7 @@ struct execdargument_t
 
     enum Type
     {
-        Float,
+        Float = 0,
         Integer,
         String
     };

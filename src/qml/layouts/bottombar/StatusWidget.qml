@@ -21,7 +21,7 @@ Item {
         onClicked: {
             if(!Network.connected)
             {
-                Network.startTelemetrySocket(Config.map().telemetryFrequency);
+                Network.startTelemetrySocket(Config.map().remoteIP + ":" + Config.map().telemetryPort, Config.map().telemetryFrequency);
             }
             else
             {

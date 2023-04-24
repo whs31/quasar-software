@@ -1,6 +1,7 @@
 #include "console_p.h++"
 #include "network/network.h++"
 #include "debug/telemetrysocketemulator.h++"
+#include "config/config.h++"
 #include <QtQml/qqml.h>
 #include <QtCore/QCoreApplication>
 
@@ -35,7 +36,7 @@ void ConsolePrivate::sendCommand(QString command)
     if(command_list.contains(command))
         command_list[command]();
     else
-        qWarning() << "[CONSOLE] Unrecognized console command (" << command << ")";
+        qWarning().nospace().noquote() << "[CONSOLE] Unrecognized console command [" << command << "]";
 }
 
 void ConsolePrivate::quit()
@@ -47,7 +48,8 @@ void ConsolePrivate::quit()
 void ConsolePrivate::telsock_start()
 {
     qDebug() << "[CONSOLE] Forcing start of telemetry socket at default frequency";
-    Network::Network::get()->startTelemetrySocket(0.2);
+    Network::Network::get()->startTelemetrySocket(QString(Config::Config::get()->map()->value("remoteIP").toString() + ":" +
+                                                          Config::Config::get()->map()->value("telemetryPort").toString()), 0.2);
 }
 
 void ConsolePrivate::telsock_stop()

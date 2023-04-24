@@ -9,6 +9,8 @@ class QTimer;
 namespace Network
 {
     class TelemetrySocket;
+    class ExecdSocket;
+
     class Network : public QObject
     {
         Q_OBJECT
@@ -30,8 +32,12 @@ namespace Network
             static Network* get(QObject* parent = nullptr);
 
             TelemetrySocket* telemetrySocket;
+            ExecdSocket* execdSocket;
 
-            __qml void startTelemetrySocket(float frequency);
+            __qml void startTelemetrySocket(const QString& address, float frequency);
+            __qml void startExecdSocked(const QString& address);
+
+            __qml void stopExecdSocket();
             __qml void stopTelemetrySocket();
 
             Telemetry* telemetry() const;

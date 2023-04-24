@@ -1,6 +1,7 @@
 #include "network.h++"
 #include "telemetry/telemetry.h++"
 #include "telemetry/telemetrysocket.h++"
+#include "execd/execdsocket.h++"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 
@@ -16,6 +17,7 @@ Network::Network::Network(QObject* parent)
     : QObject{parent}
     , m_telemetry(new Telemetry(this))
     , telemetrySocket(new TelemetrySocket(this, m_telemetry))
+    , execdSocket(new ExecdSocket(this))
     , m_network_delay_timer(new QTimer(this))
 {
     qDebug() << "[NETWORK] Beginning network setup";
@@ -29,10 +31,20 @@ Network::Network::Network(QObject* parent)
 }
 
 
-void Network::Network::startTelemetrySocket(float frequency)
+void Network::Network::startTelemetrySocket(const QString& address, float frequency)
 {
     this->telemetrySocket->setFrequency(frequency);
-    this->telemetrySocket->start("127.0.0.1:9955");
+    this->telemetrySocket->start(address);
+}
+
+void Network::Network::startExecdSocked(const QString& address)
+{
+    this->execdSocket->start(address);
+}
+
+void Network::Network::stopExecdSocket()
+{
+    this->execdSocket->stop();
 }
 
 void Network::Network::stopTelemetrySocket()

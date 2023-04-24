@@ -48,6 +48,6 @@ namespace Config
             void reset();
 
         private:
-            explicit Config(QObject *parent = nullptr);
+            explicit Config(QObject* parent = nullptr);
     };
 } // namespace Config;

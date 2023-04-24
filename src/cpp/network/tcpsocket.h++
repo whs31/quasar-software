@@ -13,6 +13,8 @@ namespace Network
     {
         Q_OBJECT
 
+        constexpr __global uint32_t TCP_TIMEOUT = 10'000;
+
         QTcpServer* server;
         QTcpSocket* socket;
         QTimer* timer;

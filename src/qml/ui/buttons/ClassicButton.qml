@@ -133,7 +133,7 @@ Rectangle {
         }
         background: Rectangle {
             color: "#dae1e5";
-            radius: 10;
+            radius: 2;
             opacity: 0.75;
         }
     }

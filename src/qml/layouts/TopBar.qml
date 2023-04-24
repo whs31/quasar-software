@@ -4,7 +4,7 @@ import Theme 1.0
 import "topbar" as Top
 
 Rectangle {
-    color: Theme.color("dark2");
+    color: Theme.color("dark1");
 
     Top.Header { id: c_TopBarHeader;
         anchors.top: parent.top;

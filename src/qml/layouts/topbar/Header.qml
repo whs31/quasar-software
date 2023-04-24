@@ -19,10 +19,8 @@ Item {
         background_radius: 2;
         tooltip_text: "Выход на рабочий стол";
         tooltip_enabled: true;
-        label_text_family: root.s_FontSemiBold;
-        onClicked: {
-            Qt.quit();
-        }
+        label_text_family: root.s_FontMain;
+        onClicked: Qt.quit();
     }
 
     Buttons.ClassicButton { id: btn_MinimizeButton;
@@ -34,14 +32,12 @@ Item {
         fixed_height: 27;
         icon_px_size: 15;
         icon_source: "qrc:/icons/minus.png";
-        background_color: Theme.color("dark2");
+        background_color: Theme.color("dark1");
         background_secondary_color: Qt.lighter(background_color, 1.5);
         background_radius: 2;
         tooltip_text: "Свернуть окно";
         tooltip_enabled: true;
-        label_text_family: root.s_FontSemiBold;
-        onClicked: {
-            root.showMinimized();
-        }
+        label_text_family: root.s_FontMain;
+        onClicked: root.showMinimized();
     }
 }

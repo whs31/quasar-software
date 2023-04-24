@@ -6,7 +6,7 @@ import "../ui/buttons" as Buttons
 Rectangle {
     property int i_CurrentTab: 0;
 
-    color: Theme.color("dark1");
+    color: Theme.color("dark0");
     Buttons.ClassicButton { id: btn_MapTab;
         property bool b_Active: i_CurrentTab === 0;
 
@@ -17,8 +17,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "КАРТА";
         label_text_family: root.s_FontMain;
-        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
-        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
+        background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/map.png";
@@ -38,8 +38,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "ФОКУСИРОВКА";
         label_text_family: root.s_FontMain;
-        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
-        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
+        background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/crosshair.png";
@@ -59,8 +59,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "НАСТРОЙКИ";
         label_text_family: root.s_FontMain;
-        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
-        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
+        background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/settings.png";
@@ -80,8 +80,8 @@ Rectangle {
         fixed_height: parent.height;
         label_text: "О ПРОГРАММЕ";
         label_text_family: root.s_FontMain;
-        background_color: b_Active ? Theme.color("dark2") : Theme.color("dark1");
-        background_secondary_color: b_Active ? Theme.color("dark0") : Theme.color("dark3");
+        background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
+        background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_source: "qrc:/icons/info.png";
@@ -89,27 +89,5 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 3;
-    }
-
-    Buttons.ClassicButton { id: btn_ToggleConsole;
-        display_mode: Buttons.ClassicButton.Mode.IconAndLabel;
-        anchors.top: parent.top;
-        anchors.right: parent.right;
-        fixed_width: 100;
-        fixed_height: 18;
-        label_text: "Консоль";
-        label_text_size: 14;
-        label_color: Theme.color("light1");
-        icon_px_size: 18;
-        icon_source: "qrc:/icons/command-line.png";
-        background_radius: 0;
-        background_color: Theme.color("dark2");
-        background_secondary_color: Qt.lighter(background_color, 1.5);
-        tooltip_text: "Консоль отладки";
-        tooltip_enabled: true;
-        label_text_family: root.s_FontMain;
-        onClicked: {
-            root.b_ConsoleShown = !root.b_ConsoleShown;
-        }
     }
 }

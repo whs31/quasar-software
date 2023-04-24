@@ -27,6 +27,9 @@ namespace Network
             void executeCommand(const QString& command);
             void executeCommand(Command command);
 
+            signals:
+                __signal ping();
+
         private:
             QString wrap(const QString& string);
             QByteArray finalize(const QString& string);

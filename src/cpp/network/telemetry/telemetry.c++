@@ -4,9 +4,7 @@ using namespace Network;
 
 Telemetry::Telemetry(QObject *parent)
     : QObject{parent}
-{
-
-}
+{ }
 
 double Telemetry::latitude() const { return datagram.latitude; }
 void Telemetry::setLatitude(double other) {

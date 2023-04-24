@@ -6,7 +6,6 @@
 #include <QtCore/QDebug>
 #include <QtQml/qqml.h>
 
-
 CONSOLE_DECLARE;
 
 int main(int argc, char *argv[])

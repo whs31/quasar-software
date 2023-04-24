@@ -74,5 +74,8 @@ void ExecdSocket::processResult(QByteArray data)
         qDebug() << "[EXECD] Command executed successfully";
     else
         qWarning() << "[EXECD] Failed to execute command due to crc16 mismatch";
+
+    if(receivedCrc16 != 0)
+        emit ping();
 }
 

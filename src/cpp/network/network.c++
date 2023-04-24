@@ -28,6 +28,9 @@ Network::Network::Network(QObject* parent)
     QObject::connect(m_network_delay_timer, &QTimer::timeout, this, [this](){
         setNetworkDelay(networkDelay() + 0.1);
     });
+    QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){
+        setNetworkDelay(0);
+    });
 }
 
 

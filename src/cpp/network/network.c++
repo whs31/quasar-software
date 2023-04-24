@@ -37,6 +37,12 @@ void Network::Network::startTelemetrySocket(const QString& address, float freque
     this->telemetrySocket->start(address);
 }
 
+void Network::Network::stopTelemetrySocket()
+{
+    this->telemetrySocket->stop();
+}
+
+
 void Network::Network::startExecdSocked(const QString& address)
 {
     this->execdSocket->start(address);
@@ -47,9 +53,9 @@ void Network::Network::stopExecdSocket()
     this->execdSocket->stop();
 }
 
-void Network::Network::stopTelemetrySocket()
+void Network::Network::executeCommand(const QString& command)
 {
-    this->telemetrySocket->stop();
+
 }
 
 namespace Network {

@@ -35,10 +35,11 @@ namespace Network
             ExecdSocket* execdSocket;
 
             __qml void startTelemetrySocket(const QString& address, float frequency);
-            __qml void startExecdSocked(const QString& address);
-
-            __qml void stopExecdSocket();
             __qml void stopTelemetrySocket();
+
+            __qml void startExecdSocked(const QString& address);
+            __qml void stopExecdSocket();
+            __qml void executeCommand(const QString& command);
 
             Telemetry* telemetry() const;
             void setTelemetry(Telemetry* other);

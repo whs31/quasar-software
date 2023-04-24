@@ -14,5 +14,10 @@ namespace Network
 
             void start(const QString& address);
             void stop();
+
+
+        private:
+            private slots:
+                void processResult(QByteArray data);
     };
 }

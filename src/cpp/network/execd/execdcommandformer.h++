@@ -6,7 +6,6 @@
 #include <QtCore/QVariant>
 #include <QtCore/QMap>
 #include <QtCore/QMetaType>
-#include <QtQml/QQmlPropertyMap>
 #include "execdargument.h++"
 
 #define execd_string execdargument_t::String

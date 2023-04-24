@@ -4,7 +4,6 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QVariant>
-#include <QtCore/QMetaType>
 
 struct execdargument_t
 {
@@ -48,4 +47,4 @@ private:
     QVariant value = default_value;
 };
 
-Q_DECLARE_METATYPE(execdargument_t);
+//Q_DECLARE_METATYPE(execdargument_t);

@@ -5,6 +5,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QSaveFile>
 #include <QtCore/QDebug>
+#include <QtPositioning/QGeoCoordinate>
 #include <cmath>
 
 TelemetryEmulator::TelemetryEmulator(QObject *parent)
@@ -76,10 +77,23 @@ void TelemetryEmulator::update()
 //    this->setVelocity_horizontal(0);
 //    this->setVelocity_vertical(0);
     float velocity_delta = sin(this->pitch() / 180 * M_PI) * VELOCITY_CHANGE_COEFFICIENT;
-//    if(velocity_delta > 0)
     velocity_delta = velocity_delta * (1 - velocity_horizontal() / SPEED_UPPER_BOUND);
     this->setVelocity_horizontal(velocity_horizontal() + velocity_delta);
+
+    float vertical_velocity_delta = cos(2 * this->pitch() / 180 * M_PI) * VELOCITY_CHANGE_COEFFICIENT / 10;
+    if(pitch() > 90 or pitch() < -90)
+        vertical_velocity_delta *= -1;
+    vertical_velocity_delta = vertical_velocity_delta * (1 - velocity_vertical() / (SPEED_UPPER_BOUND / 10));
+    this->setVelocity_vertical(velocity_vertical() + vertical_velocity_delta);
+
+    this->setAltitude(this->altitude() + velocity_vertical());
+
     this->setTime(QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss"));
+
+    QGeoCoordinate old_coords = { latitude(), longitude() };
+    QGeoCoordinate new_coords = old_coords.atDistanceAndAzimuth(velocity_horizontal() * UPDATE_INTERVAL_MS / 1'000, course());
+    this->setLatitude(new_coords.latitude());
+    this->setLongitude(new_coords.longitude());
 }
 
 double TelemetryEmulator::latitude() const { return m_latitude; }

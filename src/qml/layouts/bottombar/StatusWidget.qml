@@ -18,17 +18,16 @@ Item {
 
     MouseArea {
         anchors.fill: parent;
-        onClicked: {
-            if(!Network.connected)
-            {
-                console.error(Config.map().telemetryFrequency)
-                Network.startTelemetrySocket(Config.map().remoteIP + ":" + Config.map().telemetryPort, Config.map().telemetryFrequency);
-            }
-            else
-            {
-                Network.stopTelemetrySocket();
-            }
-        }
+//        onClicked: {
+//            if(!Network.connected)
+//            {
+//                Network.startTelemetrySocket(Config.map().remoteIP + ":" + Config.map().telemetryPort, Config.map().telemetryFrequency);
+//            }
+//            else
+//            {
+//                Network.stopTelemetrySocket();
+//            }
+//        }
     }
 
     Rectangle {

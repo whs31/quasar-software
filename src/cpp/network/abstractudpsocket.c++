@@ -3,7 +3,7 @@
 
 using namespace Network;
 
-AbstractUDPSocket::AbstractUDPSocket(QObject *parent)
+AbstractUDPSocket::AbstractUDPSocket(QObject* parent)
     : QUdpSocket{parent}
 {
 
@@ -66,5 +66,5 @@ void AbstractUDPSocket::readSocket()
     while(this->hasPendingDatagrams())
         this->readDatagram(buffer.data(), (int64_t)this->pendingDatagramSize(), &m_hostaddress, &m_port);
 
-    emit this->received(buffer);
+    emit received(buffer);
 }

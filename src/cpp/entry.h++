@@ -8,5 +8,5 @@ class Entry : public QObject
     Q_OBJECT
 
     public:
-        explicit Entry(QObject *parent = nullptr);
+        explicit Entry(QObject* parent = nullptr);
 };

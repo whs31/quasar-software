@@ -6,7 +6,7 @@
 #include <QtCore/QTimer>
 
 Network::Network* Network::Network::instance = nullptr;
-Network::Network* Network::Network::get(QObject *parent) {
+Network::Network* Network::Network::get(QObject* parent) {
     if(instance != nullptr)
         return instance;
     instance = new Network(parent);
@@ -33,7 +33,6 @@ Network::Network::Network(QObject* parent)
     });
 }
 
-
 void Network::Network::startTelemetrySocket(const QString& address, float frequency)
 {
     this->telemetrySocket->setFrequency(frequency);
@@ -46,7 +45,7 @@ void Network::Network::stopTelemetrySocket()
 }
 
 
-void Network::Network::startExecdSocked(const QString& address)
+void Network::Network::startExecdSocket(const QString& address)
 {
     this->execdSocket->start(address);
 }

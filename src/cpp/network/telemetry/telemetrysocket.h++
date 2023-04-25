@@ -15,6 +15,8 @@ namespace Network
         Q_PROPERTY(float frequency READ frequency WRITE setFrequency NOTIFY frequencyChanged)
 
         constexpr __global uint32_t MARKER = 0x55bb55bb;
+        constexpr __global uint32_t RECV_MARKER_LITTLE = 0xaa55aa55;
+        constexpr __global uint32_t RECV_MARKER_BIG = 0x55aa55aa;
         constexpr __global bool CRC_CHECK = false;
 
         QTimer* m_updateTimer;

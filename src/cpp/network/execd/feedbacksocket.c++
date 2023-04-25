@@ -1,4 +1,3 @@
-
 #include "feedbacksocket.h++"
 
 FeedbackSocket::FeedbackSocket(QObject *parent)

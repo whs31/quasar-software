@@ -42,15 +42,21 @@ void TelemetrySocket::setFrequency(float other) {
 
 void TelemetrySocket::processTelemetry(QByteArray data)
 {
-    // это временная проверка. ее нужно заменить на другую
-//    uint32_t marker = *(uint32_t*)data.data();
-//    if(marker == MARKER)
-//        return;
+    uint32_t marker = *(uint32_t*)data.data();
+    if(marker != RECV_MARKER_LITTLE) {
+        qWarning() << "[TELEMETRY] Triggered first marker mismatch";
+        return;
+    }
 
     QDataStream stream(&data, ReadOnly);
     stream.setByteOrder(QDataStream::BigEndian);
     TelemetryDatagram received;
     stream >> received;
+
+    if(received.marker != RECV_MARKER_BIG) {
+        qWarning() << "[TELEMETRY] Triggered second marker mismatch";
+        return;
+    }
 
     output->setLatitude(Utilities::Numeric::radiansToDegrees(received.latitude));
     output->setLongitude(Utilities::Numeric::radiansToDegrees(received.longitude));

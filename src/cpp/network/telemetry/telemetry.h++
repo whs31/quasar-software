@@ -29,7 +29,7 @@ namespace Network
         TelemetryDatagram datagram;
 
         public:
-            explicit Telemetry(QObject *parent = nullptr);
+            explicit Telemetry(QObject* parent = nullptr);
 
             double latitude() const;
             void setLatitude(double other);

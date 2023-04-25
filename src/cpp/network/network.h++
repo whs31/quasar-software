@@ -37,7 +37,7 @@ namespace Network
             __qml void startTelemetrySocket(const QString& address, float frequency);
             __qml void stopTelemetrySocket();
 
-            __qml void startExecdSocked(const QString& address);
+            __qml void startExecdSocket(const QString& address);
             __qml void stopExecdSocket();
             __qml void executeCommand(const QString& command);
 

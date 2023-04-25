@@ -1,14 +1,16 @@
 #include "entry.h++"
 #include "gui/console/console.h++"
 
-#include <QtGui/QGuiApplication>
-#include <QtQml/QQmlApplicationEngine>
 #include <QtCore/QDebug>
+#include <QtGui/QGuiApplication>
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlComponent>
 #include <QtQml/qqml.h>
+#include <QtQuick/QQuickWindow>
 
 CONSOLE_DECLARE;
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QGuiApplication app(argc, argv);
     QCoreApplication::setApplicationName(PROJECT_NAME);
@@ -17,20 +19,23 @@ int main(int argc, char *argv[])
     qInstallMessageHandler(consoleHandler);
     qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
+    const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
     Entry entry;
 
     CONSOLE_INIT;
+    console->setParent(&entry);
 
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/Main.qml"));
-    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
-        &app, [url](QObject *obj, const QUrl &objUrl)
-        {
-            if (not obj and url == objUrl)
-                QCoreApplication::exit(-1);
-        }
-        , Qt::QueuedConnection);
-    engine.load(url);
+    QQmlEngine engine;
 
+    QQmlComponent component(&engine);
+    QQuickWindow::setDefaultAlphaBuffer(true);
+    component.loadUrl(qml_entry);
+    if(component.isReady())
+        component.create();
+    else
+    {
+        qInstallMessageHandler(0);
+        qCritical() << "FA" << component.errorString();
+    }
     return app.exec();
 }

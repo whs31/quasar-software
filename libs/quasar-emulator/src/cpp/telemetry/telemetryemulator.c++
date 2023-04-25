@@ -87,6 +87,7 @@ float TelemetryEmulator::pitch() const { return m_pitch; }
 void TelemetryEmulator::setPitch(float other) {
     if (qFuzzyCompare(m_pitch, other)) return;
     if(other >= 360) other -= 360;
+    if(other <= -360) other += 360;
     m_pitch = other;
     emit pitchChanged();
 }
@@ -95,6 +96,7 @@ float TelemetryEmulator::roll() const { return m_roll; }
 void TelemetryEmulator::setRoll(float other) {
     if (qFuzzyCompare(m_roll, other)) return;
     if(other >= 360) other -= 360;
+    if(other <= -360) other += 360;
     m_roll = other;
     emit rollChanged();
 }
@@ -103,6 +105,7 @@ float TelemetryEmulator::course() const { return m_course; }
 void TelemetryEmulator::setCourse(float other) {
     if (qFuzzyCompare(m_course, other)) return;
     if(other >= 360) other -= 360;
+    if(other <= -360) other += 360;
     m_course = other;
     emit courseChanged();
 }

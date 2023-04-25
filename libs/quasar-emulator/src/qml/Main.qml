@@ -21,11 +21,20 @@ Window { id: root;
     View3D { id: c_3DView;
         anchors.fill: parent;
         camera: camera;
+
+        environment: SceneEnvironment {
+            id: sceneEnvironment;
+            clearColor: "#202329";
+            backgroundMode: SceneEnvironment.Color;
+            antialiasingMode: SceneEnvironment.SSAA;
+            antialiasingQuality: SceneEnvironment.VeryHigh;
+        }
+
         //renderMode: View3D.Overlay;
 
         PerspectiveCamera {
             id: camera;
-            position: Qt.vector3d(0, 200, 300);
+            position: Qt.vector3d(0, 70, 100);
             eulerRotation.x: -30;
         }
 
@@ -33,17 +42,23 @@ Window { id: root;
             eulerRotation.x: -30;
         }
 
-        Model { id: model_Cube;
-            visible: true
-            position: Qt.vector3d(0, 0, 0)
-            source: "#Cube"
-            materials: [ DefaultMaterial {
-                    diffuseMap: Texture {
-                        id: texture
-                        source: "qrc:/checkers.png"
-                    }
+        Node {
+            id: node_HelicopterNode;
+
+            Model {
+                id: mesh_HelicopterMesh;
+                source: "qrc:/meshes/model.mesh";
+
+                eulerRotation.y: 180;
+
+                DefaultMaterial {
+                    id: mat_Placeholder;
+                    diffuseColor: "#d8dee9";
                 }
-            ]
+                materials: [
+                    mat_Placeholder
+                ]
+            }
         }
     }
 

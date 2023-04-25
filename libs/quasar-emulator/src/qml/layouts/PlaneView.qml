@@ -5,6 +5,8 @@ import Telemetry 1.0
 View3D { id: c_3DView;
     focus: true;
     Keys.onPressed: (event)=> {
+                        if(event.key === Qt.Key_L)
+                            console.log("Debug key pressed");
                         if (event.key === Qt.Key_D)
                             root.yaw = 1;
                         if (event.key === Qt.Key_A)

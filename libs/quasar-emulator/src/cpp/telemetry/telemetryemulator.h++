@@ -43,6 +43,8 @@ class TelemetryEmulator : public QObject
         __qml void start(double latitude = 60, double longitude = 30, float altitude = 300, float start_velocity = 30);
         __qml void stop();
 
+        __qml QString getOsmConfig();
+
         double latitude() const;
         void setLatitude(double other);
 

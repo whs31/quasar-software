@@ -1,6 +1,10 @@
 #include "telemetryemulator.h++"
 #include <QtCore/QTimer>
 #include <QtCore/QDateTime>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDir>
+#include <QtCore/QSaveFile>
+#include <QtCore/QDebug>
 
 TelemetryEmulator::TelemetryEmulator(QObject *parent)
     : QObject{parent}
@@ -36,6 +40,31 @@ void TelemetryEmulator::stop()
     this->setRoll(0);
     this->setCourse(0);
     this->setTime("БПЛА не в полете");
+}
+
+QString TelemetryEmulator::getOsmConfig()
+{
+    QString config_path = QCoreApplication::applicationDirPath() + "/mapconfig";
+
+    QDir dir(config_path);
+    if(not dir.exists())
+    {
+        dir.mkpath(config_path);
+        qInfo() << "[PATH] Created map config folder at " << config_path;
+    }
+
+    QString _satellite;
+    QFile f_satellite(":/satellite");
+    f_satellite.open(QIODevice::ReadOnly);
+    _satellite = f_satellite.readAll();
+
+    QSaveFile satellite(config_path + "/satellite");
+    satellite.open(QIODevice::WriteOnly);
+    QTextStream out1(&satellite);
+    out1 << _satellite;
+    satellite.commit();
+
+    return config_path;
 }
 
 void TelemetryEmulator::update()

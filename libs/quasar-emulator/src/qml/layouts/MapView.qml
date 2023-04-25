@@ -5,7 +5,19 @@ import Telemetry 1.0
 
 Map {
     center: QtPositioning.coordinate(Telemetry.latitude, Telemetry.longitude);
-    opacity: 0.5;
+    opacity: 0.75;
     zoomLevel: 15;
-    plugin: Plugin { name: "osm"; }
+    tilt: 45;
+    activeMapType: supportedMapTypes[1];
+    copyrightsVisible: false;
+    plugin: Plugin {
+        name: "osm";
+
+        PluginParameter {
+            name: "osm.mapping.providersrepository.address";
+            value: "file:///" + Telemetry.getOsmConfig();
+        }
+
+        Component.onCompleted: console.info("[MAP] Using osmconfig: " + Telemetry.getOsmConfig());
+    }
 }

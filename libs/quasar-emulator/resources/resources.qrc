@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>Overpass.ttf</file>
-        <file>checkers.png</file>
         <file>meshes/model.mesh</file>
         <file>satellite</file>
+        <file>images/gpsarrow.png</file>
     </qresource>
 </RCC>

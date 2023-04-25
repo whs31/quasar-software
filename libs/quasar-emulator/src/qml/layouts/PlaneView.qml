@@ -66,7 +66,7 @@ View3D { id: c_3DView;
             source: "qrc:/meshes/model.mesh";
 
             eulerRotation.x: Telemetry.pitch;
-            eulerRotation.y: Telemetry.course - 180;
+            eulerRotation.y: -Telemetry.course + 180;
             eulerRotation.z: Telemetry.roll;
 
             DefaultMaterial {

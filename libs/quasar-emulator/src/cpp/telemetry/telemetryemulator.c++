@@ -5,6 +5,7 @@
 #include <QtCore/QDir>
 #include <QtCore/QSaveFile>
 #include <QtCore/QDebug>
+#include <cmath>
 
 TelemetryEmulator::TelemetryEmulator(QObject *parent)
     : QObject{parent}
@@ -20,7 +21,7 @@ void TelemetryEmulator::start(double latitude, double longitude, float altitude,
     this->setLatitude(latitude);
     this->setLongitude(longitude);
     this->setAltitude(altitude);
-    this->setVelocity_horizontal(start_velocity);
+    this->setVelocity_horizontal(0);
     this->setVelocity_vertical(0);
     this->setPitch(0);
     this->setRoll(0);
@@ -74,6 +75,10 @@ void TelemetryEmulator::update()
 //    this->setAltitude(0);
 //    this->setVelocity_horizontal(0);
 //    this->setVelocity_vertical(0);
+    float velocity_delta = sin(this->pitch() / 180 * M_PI) * VELOCITY_CHANGE_COEFFICIENT;
+//    if(velocity_delta > 0)
+    velocity_delta = velocity_delta * (1 - velocity_horizontal() / SPEED_UPPER_BOUND);
+    this->setVelocity_horizontal(velocity_horizontal() + velocity_delta);
     this->setTime(QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss"));
 }
 

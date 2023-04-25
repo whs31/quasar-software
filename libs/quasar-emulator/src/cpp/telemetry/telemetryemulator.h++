@@ -23,6 +23,8 @@ class TelemetryEmulator : public QObject
     Q_PROPERTY(bool inFlight READ inFlight WRITE setInFlight NOTIFY inFlightChanged)
 
     constexpr __global uint32_t UPDATE_INTERVAL_MS = 100;
+    constexpr __global float VELOCITY_CHANGE_COEFFICIENT = 0.40f;
+    constexpr __global float SPEED_UPPER_BOUND = 50;
 
     QTimer* timer;
 

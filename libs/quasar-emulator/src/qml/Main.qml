@@ -23,6 +23,8 @@ Window { id: root;
     property int roll: 0;
     property int yaw: 0;
     function updateAxes() {
+        if(!lyo_3D.focus)
+            lyo_3D.forceActiveFocus();
         if(pitch === -1)
             Telemetry.pitch -= 1;
         if(pitch === 1)

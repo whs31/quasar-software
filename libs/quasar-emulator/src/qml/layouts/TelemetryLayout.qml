@@ -18,7 +18,7 @@ Rectangle {
     color: "#2e3440";
     radius: 6;
 
-    Component.onCompleted: Telemetry.start(60, 30);
+    Component.onCompleted: Telemetry.start(60, 30, 500, 10);
 
     GridLayout {
         anchors.fill: parent;

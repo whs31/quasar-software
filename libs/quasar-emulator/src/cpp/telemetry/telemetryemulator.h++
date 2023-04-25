@@ -40,9 +40,8 @@ class TelemetryEmulator : public QObject
     public:
         explicit TelemetryEmulator(QObject* parent = nullptr);
 
-        __qml void start(double latitude = 60, double longitude = 30);
+        __qml void start(double latitude = 60, double longitude = 30, float altitude = 300, float start_velocity = 30);
         __qml void stop();
-
 
         double latitude() const;
         void setLatitude(double other);
@@ -72,7 +71,7 @@ class TelemetryEmulator : public QObject
         void setTime(const QString& other);
 
         bool inFlight() const;
-        void setInFlight(bool newInFlight);
+        void setInFlight(bool other);
 
         signals:
             __signal latitudeChanged();

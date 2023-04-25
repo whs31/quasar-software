@@ -17,6 +17,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Location
     Positioning
     QuickControls2
+    Quick3D
 )
 
 include_directories(src/cpp)
@@ -45,6 +46,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
+    Qt${QT_VERSION_MAJOR}::Quick3D
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

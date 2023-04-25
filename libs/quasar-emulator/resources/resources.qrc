@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Overpass.ttf</file>
+        <file>checkers.png</file>
     </qresource>
 </RCC>

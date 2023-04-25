@@ -9,9 +9,18 @@ TelemetryEmulator::TelemetryEmulator(QObject *parent)
     QObject::connect(timer, &QTimer::timeout, this, &TelemetryEmulator::update);
 }
 
-void TelemetryEmulator::start(double latitude, double longitude)
+void TelemetryEmulator::start(double latitude, double longitude, float altitude, float start_velocity)
 {
     timer->start(UPDATE_INTERVAL_MS);
+
+    this->setLatitude(latitude);
+    this->setLongitude(longitude);
+    this->setAltitude(altitude);
+    this->setVelocity_horizontal(start_velocity);
+    this->setVelocity_vertical(0);
+    this->setPitch(0);
+    this->setRoll(0);
+    this->setCourse(0);
 }
 
 void TelemetryEmulator::stop()
@@ -31,14 +40,11 @@ void TelemetryEmulator::stop()
 
 void TelemetryEmulator::update()
 {
-    this->setLatitude(0);
-    this->setLongitude(0);
-    this->setAltitude(0);
-    this->setVelocity_horizontal(0);
-    this->setVelocity_vertical(0);
-    this->setPitch(0);
-    this->setRoll(0);
-    this->setCourse(0);
+//    this->setLatitude(0);
+//    this->setLongitude(0);
+//    this->setAltitude(0);
+//    this->setVelocity_horizontal(0);
+//    this->setVelocity_vertical(0);
     this->setTime(QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss"));
 }
 

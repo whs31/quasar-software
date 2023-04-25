@@ -1,21 +1,24 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
+import Telemetry 1.0
 
 Rectangle {
-    property real latitude: 0.0;
-    property real longitude: 0.0;
-    property real altitude: 0.0;
-    property real velocity: 0.0;
-    property real velocity_vertical: 0.0;
-    property real pitch: 0.0;
-    property real roll: 0.0;
-    property real course: 0.0;
-    property string time: "--";
+    property real latitude: Telemetry.latitude;
+    property real longitude: Telemetry.longitude;
+    property real altitude: Telemetry.altitude;
+    property real velocity: Telemetry.velocity_horizontal;
+    property real velocity_vertical: Telemetry.velocity_vertical;
+    property real pitch: Telemetry.pitch;
+    property real roll: Telemetry.roll;
+    property real course: Telemetry.course;
+    property string time: Telemetry.time;
 
     border.color: "#3b4252";
     border.width: 3;
     color: "#2e3440";
     radius: 6;
+
+    Component.onCompleted: Telemetry.start(60, 30);
 
     GridLayout {
         anchors.fill: parent;
@@ -34,7 +37,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#ebcb8b";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -53,7 +56,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#ebcb8b";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -72,7 +75,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#8fbcbb";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -92,7 +95,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#d08770";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -112,7 +115,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#d08770";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -132,7 +135,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#a3be8c";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -152,7 +155,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#a3be8c";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -172,7 +175,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#a3be8c";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;
@@ -192,7 +195,7 @@ Rectangle {
             Layout.alignment: Qt.AlignTop;
             horizontalAlignment: Text.AlignRight;
             Layout.fillWidth: true;
-            color: "#5e81ac";
+            color: "#bf616a";
             font.family: root.s_FontMain;
             font.weight: Font.ExtraBold;
             font.pixelSize: 12;

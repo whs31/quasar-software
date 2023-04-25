@@ -1,5 +1,3 @@
-//#include "entry.h++"
-
 #include <QtCore/QDebug>
 #include <QtCore/QtGlobal>
 #include <QtGui/QGuiApplication>
@@ -7,7 +5,8 @@
 #include <QtQml/QQmlComponent>
 #include <QtQml/qqml.h>
 #include <QtQuick/QQuickWindow>
-#include <iostream>
+
+#include "telemetry/telemetryemulator.h++"
 
 int main(int argc, char* argv[])
 {
@@ -19,7 +18,9 @@ int main(int argc, char* argv[])
     qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
-    //Entry entry;
+
+    TelemetryEmulator emulator;
+    qmlRegisterSingletonInstance<TelemetryEmulator>("Telemetry", 1, 0, "Telemetry", &emulator);
 
     QQmlEngine engine;
     QObject::connect(&engine, &QQmlEngine::quit, qApp, &QCoreApplication::quit);

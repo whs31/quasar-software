@@ -23,7 +23,11 @@ class ConsolePrivate : public QObject
         { "telsock_stop", [this](){ telsock_stop(); } },
         { "telsrv_start", [this](){ telsrv_start(); } },
         { "telsrv_stop", [this](){ telsrv_stop(); } },
-        { "sim", [this](){ sim(); }}
+        { "execdsock_start", [this](){ execdsock_start(); } },
+        { "execdsock_stop", [this](){ execdsock_stop(); } },
+        { "tcp_start", [this](){ tcp_start(); } },
+        { "tcp_stop", [this](){ tcp_stop(); } },
+        { "sim", [this](){ sim(); } }
     };
 
     public:
@@ -41,5 +45,9 @@ class ConsolePrivate : public QObject
         void __concommand telsock_stop();
         void __concommand telsrv_start();
         void __concommand telsrv_stop();
+        void __concommand execdsock_start();
+        void __concommand execdsock_stop();
+        void __concommand tcp_start();
+        void __concommand tcp_stop();
         void __concommand sim();
 };

@@ -10,6 +10,7 @@ namespace Network
 {
     class TelemetrySocket;
     class ExecdSocket;
+    class TCPSocket;
 
     class Network : public QObject
     {
@@ -33,6 +34,7 @@ namespace Network
 
             TelemetrySocket* telemetrySocket;
             ExecdSocket* execdSocket;
+            TCPSocket* tcpSocket;
 
             __qml void startTelemetrySocket(const QString& address, float frequency);
             __qml void stopTelemetrySocket();
@@ -40,6 +42,9 @@ namespace Network
             __qml void startExecdSocket(const QString& address);
             __qml void stopExecdSocket();
             __qml void executeCommand(const QString& command);
+
+            __qml void startTCPSocket(const QString& address);
+            __qml void stopTCPSocket();
 
             Telemetry* telemetry() const;
             void setTelemetry(Telemetry* other);

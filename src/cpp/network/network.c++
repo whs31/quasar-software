@@ -2,6 +2,7 @@
 #include "telemetry/telemetry.h++"
 #include "telemetry/telemetrysocket.h++"
 #include "execd/execdsocket.h++"
+#include "tcpsocket.h++"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 
@@ -18,6 +19,7 @@ Network::Network::Network(QObject* parent)
     , m_telemetry(new Telemetry(this))
     , telemetrySocket(new TelemetrySocket(this, m_telemetry))
     , execdSocket(new ExecdSocket(this))
+    , tcpSocket(new TCPSocket(this))
     , m_network_delay_timer(new QTimer(this))
 {
     qDebug() << "[NETWORK] Beginning network setup";
@@ -35,29 +37,39 @@ Network::Network::Network(QObject* parent)
 
 void Network::Network::startTelemetrySocket(const QString& address, float frequency)
 {
-    this->telemetrySocket->setFrequency(frequency);
-    this->telemetrySocket->start(address);
+    telemetrySocket->setFrequency(frequency);
+    telemetrySocket->start(address);
 }
 
 void Network::Network::stopTelemetrySocket()
 {
-    this->telemetrySocket->stop();
+    telemetrySocket->stop();
 }
 
 
 void Network::Network::startExecdSocket(const QString& address)
 {
-    this->execdSocket->start(address);
+    execdSocket->start(address);
 }
 
 void Network::Network::stopExecdSocket()
 {
-    this->execdSocket->stop();
+    execdSocket->stop();
 }
 
 void Network::Network::executeCommand(const QString& command)
 {
 
+}
+
+void Network::Network::startTCPSocket(const QString &address)
+{
+    tcpSocket->startServer(address);
+}
+
+void Network::Network::stopTCPSocket()
+{
+    tcpSocket->stopServer();
 }
 
 namespace Network {

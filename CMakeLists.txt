@@ -19,7 +19,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     QuickControls2
 )
 
-include_directories(src/cpp)
+include_directories(src/cpp libs)
 add_subdirectory(src/cpp/global)
 
 file(GLOB_RECURSE CPP_SOURCES
@@ -30,6 +30,8 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/network/*
     src/cpp/utils/*
     src/cpp/debug/*
+
+    libs/imgui/*
 )
 
 set(PROJECT_SOURCES

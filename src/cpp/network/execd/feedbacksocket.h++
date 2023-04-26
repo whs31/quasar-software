@@ -2,9 +2,23 @@
 
 #include "../abstractudpsocket.h++"
 
-class FeedbackSocket : public Network::AbstractUDPSocket
+namespace Network
 {
-    Q_OBJECT
-public:
-    explicit FeedbackSocket(QObject *parent = nullptr);
-};
+    class FeedbackSocket : public Network::AbstractUDPSocket
+    {
+        Q_OBJECT
+
+        public:
+            explicit FeedbackSocket(QObject* parent = nullptr);
+
+            void start(const QString& address);
+            void stop();
+
+            signals:
+                __signal textReceived(QString text);
+
+        private:
+            private slots:
+                void processResult(QByteArray data);
+    };
+} // namespace Network;

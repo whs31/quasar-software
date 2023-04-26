@@ -2,6 +2,7 @@
 #include "telemetry/telemetry.h++"
 #include "telemetry/telemetrysocket.h++"
 #include "execd/execdsocket.h++"
+#include "execd/feedbacksocket.h++"
 #include "tcpsocket.h++"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
@@ -19,6 +20,7 @@ Network::Network::Network(QObject* parent)
     , m_telemetry(new Telemetry(this))
     , telemetrySocket(new TelemetrySocket(this, m_telemetry))
     , execdSocket(new ExecdSocket(this))
+    , feedbackSocket(new FeedbackSocket(this))
     , tcpSocket(new TCPSocket(this))
     , m_network_delay_timer(new QTimer(this))
 {
@@ -47,14 +49,16 @@ void Network::Network::stopTelemetrySocket()
 }
 
 
-void Network::Network::startExecdSocket(const QString& address)
+void Network::Network::startExecdSocket(const QString& execd_address, const QString& feedback_address)
 {
-    execdSocket->start(address);
+    execdSocket->start(execd_address);
+    feedbackSocket->start(feedback_address);
 }
 
 void Network::Network::stopExecdSocket()
 {
     execdSocket->stop();
+    feedbackSocket->stop();
 }
 
 void Network::Network::executeCommand(const QString& command)

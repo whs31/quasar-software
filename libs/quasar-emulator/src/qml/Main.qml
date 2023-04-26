@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
-import QtQuick3D 1.15
 
 import Telemetry 1.0
 import "layouts" as Layouts
@@ -41,12 +40,12 @@ Window { id: root;
 
     Timer { interval: 20; repeat: true; running: true; onTriggered: updateAxes(); }
 
-    Layouts.PlaneView {  id: lyo_3D;
-        anchors.left: parent.left;
-        anchors.right: parent.horizontalCenter;
-        anchors.top: parent.top;
-        anchors.bottom: parent.bottom;
-    }
+//    Layouts.PlaneView {  id: lyo_3D;
+//        anchors.left: parent.left;
+//        anchors.right: parent.horizontalCenter;
+//        anchors.top: parent.top;
+//        anchors.bottom: parent.bottom;
+//    }
 
     Layouts.MapView { id: lyo_Map;
         anchors.right: parent.right;

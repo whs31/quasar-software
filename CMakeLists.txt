@@ -21,6 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 
 include_directories(src/cpp)
 add_subdirectory(src/cpp/global)
+add_subdirectory(libs/quasar-emulator)
 
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*

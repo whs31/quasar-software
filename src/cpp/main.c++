@@ -1,11 +1,14 @@
 #include "entry.h++"
 #include "gui/console/console.h++"
+#include "gui/imgui/imguiexample.h++"
+#include "scenegraph/imgui/imguiitem.h++"
 
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
 #include <QtQml/qqml.h>
+#include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
 
 Console* console = nullptr;
@@ -61,6 +64,8 @@ int main(int argc, char* argv[])
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
     Entry entry;
 
+    qmlRegisterType<ImGuiItem>("ImGUI", 1, 0, "ImGUI");
+
     Console console_instance;
     console = &console_instance;
     console->setParent(&entry);
@@ -78,6 +83,13 @@ int main(int argc, char* argv[])
         qInstallMessageHandler(0);
         qCritical() << "FATAL QML ERROR: " << component.errorString();
     }
+
+    Gui gui;
+    ImGuiItem* imguiItem = engine.rootContext()->findChild<ImGuiItem*>("imgui1");
+    qCritical() << imguiItem;
+    QObject::connect(imguiItem, &ImGuiItem::frame, imguiItem, [&gui] {
+        gui.frame();
+    });
 
     return app.exec();
 }

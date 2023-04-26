@@ -65,6 +65,7 @@ int main(int argc, char* argv[])
     Entry entry;
 
     qmlRegisterType<ImGuiItem>("ImGUI", 1, 0, "ImGUI");
+    qmlRegisterType<ImGuiExample>("ImGuiExample", 1, 0, "ImGuiExample");
 
     Console console_instance;
     console = &console_instance;
@@ -83,13 +84,6 @@ int main(int argc, char* argv[])
         qInstallMessageHandler(0);
         qCritical() << "FATAL QML ERROR: " << component.errorString();
     }
-
-    Gui gui;
-    ImGuiItem* imguiItem = engine.rootContext()->findChild<ImGuiItem*>("imgui1");
-    qCritical() << imguiItem;
-    QObject::connect(imguiItem, &ImGuiItem::frame, imguiItem, [&gui] {
-        gui.frame();
-    });
 
     return app.exec();
 }

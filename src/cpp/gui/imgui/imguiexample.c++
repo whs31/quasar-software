@@ -1,6 +1,12 @@
 #include "imguiexample.h++"
 
-void Gui::frame()
+ImGuiExample::ImGuiExample(QObject *parent)
+    : QObject{parent}
+{
+
+}
+
+void ImGuiExample::frame()
 {
     // 1. Show a simple window.
     // Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets automatically appears in a window called "Debug".

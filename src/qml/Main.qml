@@ -7,6 +7,7 @@ import Theme 1.0
 import Config 1.0
 import Network 1.0
 import ImGUI 1.0
+import ImGuiExample 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -94,10 +95,20 @@ Window { id: root;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 
-    ImGUI { id: qa;
+    ImGuiExample { id: imgui_Example;
+
+    }
+
+    ImGUI { id: lyo_ImGUIWindow;
         objectName: "imgui1"
         anchors.fill: parent
         //focus: true // for keybord input
-        // note that transforms other than 2D translation are NOT supported
+
+        Connections {
+            target: imgui_Example;
+            onFrame: imgui_Example.frame();
+        }
     }
+
+
 }

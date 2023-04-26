@@ -5,7 +5,7 @@
 
 namespace Network
 {
-    class FeedbackSocket : public Network::AbstractUDPSocket
+    class FeedbackSocket : public AbstractUDPSocket
     {
         Q_OBJECT
         constexpr __global const char* STORAGE_STATUS_MARKER = "*FREE_DISK_SPACE*";

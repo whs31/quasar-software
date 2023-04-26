@@ -1,6 +1,7 @@
 #include "console_p.h++"
 #include "network/network.h++"
 #include "debug/telemetrysocketemulator.h++"
+#include "debug/feedbackemulator.h++"
 #include "config/config.h++"
 #include <QtCore/QCoreApplication>
 #include <QtCore/QProcess>
@@ -28,6 +29,7 @@ ConsolePrivate::ConsolePrivate(Console* parent)
     : QObject{parent}
     , q_ptr(parent)
     , m_telemetry_socket_emulator(new Debug::TelemetrySocketEmulator(this))
+    , m_feedbackemulator(new Debug::FeedbackEmulator(this))
 {
     qmlRegisterSingletonInstance("ConsoleWidget", 1, 0, "Impl", this);
 }
@@ -77,7 +79,9 @@ void ConsolePrivate::telsrv_stop()
 void ConsolePrivate::execdsock_start()
 {
     Network::Network::get()->startExecdSocket(QString(CONFIG("remoteIP").toString() + ":" +
-                                                      CONFIG("execdPort").toString()));
+                                                      CONFIG("execdPort").toString()),
+                                              QString(CONFIG("localIP").toString() + ":" +
+                                                      CONFIG("feedbackPort").toString()));
 }
 
 void ConsolePrivate::execdsock_stop()
@@ -94,6 +98,17 @@ void ConsolePrivate::tcp_start()
 void ConsolePrivate::tcp_stop()
 {
     Network::Network::get()->stopTCPSocket();
+}
+
+void ConsolePrivate::feedbackemu_init()
+{
+    m_feedbackemulator->setAddress(QString("127.0.0.1:" +
+                                           CONFIG("feedbackPort").toString()));
+}
+
+void ConsolePrivate::feedbackemu_vt100()
+{
+    m_feedbackemulator->testVT100();
 }
 
 void ConsolePrivate::sim()

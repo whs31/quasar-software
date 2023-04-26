@@ -2,8 +2,9 @@
 #include "network/network.h++"
 #include "debug/telemetrysocketemulator.h++"
 #include "config/config.h++"
-#include <QtQml/qqml.h>
 #include <QtCore/QCoreApplication>
+#include <QtCore/QProcess>
+#include <QtQml/qqml.h>
 
 Console::Console(QObject* parent)
     : QObject{parent}
@@ -70,4 +71,13 @@ void ConsolePrivate::telsrv_stop()
     if(not m_telemetry_socket_emulator)
         return;
     m_telemetry_socket_emulator->stop();
+}
+
+void ConsolePrivate::sim()
+{
+    #ifdef Q_OS_WIN
+        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/libs/quasar-emulator/QuaSAR-Emulator.exe", {});
+    #else
+        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/libs/quasar-emulator/QuaSAR-Emulator", {});
+    #endif
 }

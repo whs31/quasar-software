@@ -85,7 +85,7 @@ void TelemetrySocketEmulator::read()
 void TelemetrySocketEmulator::sendTelemetry()
 {
     if(m_hostaddress.isNull() or m_port == 0) {
-        qWarning() << "[DEBUG] Trying to write to null host";
+        qWarning() << "[DEBUG] Trying to write to null host (debug socket)";
         return;
     }
 

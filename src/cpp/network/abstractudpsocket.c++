@@ -29,7 +29,7 @@ bool Network::AbstractUDPSocket::connect(const QString& address)
         qCritical() << "[SOCKET] Incorrect port";
         return false;
     }
-    qDebug().noquote() << "[SOCKET] Binding UPD socket on" << address;
+    qDebug().noquote() << "[SOCKET] Binding UDP socket on" << address;
     m_hostaddress = ip;
     m_port = port;
     return this->bind(ip, port);

@@ -25,9 +25,11 @@ namespace Network
         uint32_t fileSize = 0;
         QString filename;
 
-
         public:
             explicit TCPSocket(QObject* parent = nullptr);
+
+            void startServer(const QString& address);
+            void stopServer();
 
             float progress();
             QByteArray imageData64;

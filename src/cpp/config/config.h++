@@ -5,6 +5,9 @@
 #include <QtCore/QMap>
 #include <QtQml/QQmlPropertyMap>
 
+//! @brief Useful macro for accessing config from c++
+#define CONFIG Config::Config::get()->map()->value
+
 class QSettings;
 
 namespace Config

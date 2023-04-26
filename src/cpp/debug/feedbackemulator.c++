@@ -21,6 +21,7 @@ void FeedbackEmulator::setAddress(const QString& address)
     ip = address.split(":").first();
     port = address.split(":").last().toUInt();
     started = true;
+    qDebug().noquote() << "[DEBUG] Beginning emulator of SAR console on" << address;
 }
 
 void FeedbackEmulator::send(QByteArray data)
@@ -36,11 +37,12 @@ void FeedbackEmulator::send(QByteArray data)
 void FeedbackEmulator::testVT100()
 {
     char buf[16];
-    for(size_t i = 0; i < 100; i++){
-        sprintf(buf, "<%3d%%>\e[6D", i);
-        this->send(buf);
-    }
+//    for(size_t i = 0; i < 100; i++){
+//        sprintf(buf, "<%3d%%>\e[6D", i);
+//        this->send(buf);
+//    }
     this->send("*FREE_DISK_SPACE* 70061867 114855520");
+    qDebug() << "[DEBUG] VT100 test complete";
 }
 
 

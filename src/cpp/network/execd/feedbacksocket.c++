@@ -5,14 +5,14 @@ using namespace Network;
 FeedbackSocket::FeedbackSocket(QObject* parent)
     : AbstractUDPSocket{parent}
 {
-
+    QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult);
 }
 
 
 void FeedbackSocket::start(const QString& address)
 {
     this->connect(address);
-    qInfo().noquote() << "[FEEDBACK] Started listening to SAR on " << address;
+    qInfo().noquote() << "[FEEDBACK] Started listening to SAR on" << address;
 }
 
 void FeedbackSocket::stop()

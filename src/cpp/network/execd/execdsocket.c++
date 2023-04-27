@@ -32,7 +32,7 @@ void ExecdSocket::executeCommand(const QString& command)
 
     QByteArray wrapped = finalize(wrap(command));
     this->send(wrapped);
-    qDebug().noquote() << "[EXECD] Sended command" << command << "as" << wrapped;
+    qDebug().noquote() << "[EXECD] Sended command" << command; // << "as" << wrapped; @no longer needed because of imgui socket console
 }
 
 void ExecdSocket::executeCommand(Command command)

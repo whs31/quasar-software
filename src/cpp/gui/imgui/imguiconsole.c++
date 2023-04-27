@@ -50,6 +50,15 @@ void ImGuiConsole::frame()
 
     ImGui::ShowDemoWindow();
     ImGui::End();
+
+    ImGui::Begin("Execd Socket");
+
+    ImGui::End();
+
+    ImGui::Begin("Feedback Socket");
+
+    ImGui::End();
+    //!@todo Save imgui ini file and theme. Plot socket graph. TCP Socket. Image decoding window.
 }
 
 void ImGuiConsole::telsockAppend(const QString& string)

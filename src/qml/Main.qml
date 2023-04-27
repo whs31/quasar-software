@@ -48,14 +48,16 @@ Window { id: root;
 //    }
 
     ImGUI { id: lyo_ImGUIWindow;
-        anchors.fill: parent;
+        anchors.top: c_TabBar.bottom;
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+        anchors.bottom: c_BottomBar.top;
         focus: true;
+
+        visible: b_ConsoleShown;
+        enabled: b_ConsoleShown;
         z: 1000;
     }
-
-    DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 12; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; visible: b_ConsoleShown; }
-
 
     Layouts.TopBar { id: c_TopBar;
         height: 70;
@@ -105,8 +107,6 @@ Window { id: root;
     ImGuiExample { id: imgui_Example;
 
     }
-
-
 
     Connections {
         target: lyo_ImGUIWindow;

@@ -333,8 +333,8 @@ void ImGuiItem::updatePolish()
         const ImDrawIdx *indexBufOffset = nullptr;
         ImGuiRenderer::FrameDesc::CmdListEntry e;
 
-        e.vbuf = QByteArray((const char *) cmdList->VtxBuffer.Data, cmdList->VtxBuffer.Size * sizeof(ImDrawVert));
-        e.ibuf = QByteArray((const char *) cmdList->IdxBuffer.Data, cmdList->IdxBuffer.Size * sizeof(ImDrawIdx));
+        e.vbuf = QByteArray((const char*) cmdList->VtxBuffer.Data, cmdList->VtxBuffer.Size * sizeof(ImDrawVert));
+        e.ibuf = QByteArray((const char*) cmdList->IdxBuffer.Data, cmdList->IdxBuffer.Size * sizeof(ImDrawIdx));
 
         for (int i = 0; i < cmdList->CmdBuffer.Size; ++i) {
             const ImDrawCmd *cmd = &cmdList->CmdBuffer[i];

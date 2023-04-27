@@ -42,10 +42,17 @@ Window { id: root;
     property string s_FontExtraBold: font_ExtraBold.name;
     property string s_FontMain: font_Main.name;
 
-    Widgets.DebugConsole { id: c_DebugConsole;
-        enabled: b_ConsoleShown;
-        visible: b_ConsoleShown;
+//    Widgets.DebugConsole { id: c_DebugConsole;
+//        enabled: b_ConsoleShown;
+//        visible: b_ConsoleShown;
+//    }
+
+    ImGUI { id: lyo_ImGUIWindow;
+        anchors.fill: parent;
+        focus: true;
+        z: 1000;
     }
+
     DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 12; verticalOffset: 12; radius: 16;
                      samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; visible: b_ConsoleShown; }
 
@@ -99,16 +106,10 @@ Window { id: root;
 
     }
 
-    ImGUI { id: lyo_ImGUIWindow;
-        objectName: "imgui1"
-        anchors.fill: parent
-        //focus: true // for keybord input
 
-        Connections {
-            target: imgui_Example;
-            onFrame: imgui_Example.frame();
-        }
+
+    Connections {
+        target: lyo_ImGUIWindow;
+        function onFrame() { imgui_Example.frame(); }
     }
-
-
 }

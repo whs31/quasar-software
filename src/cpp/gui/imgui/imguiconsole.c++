@@ -1,5 +1,5 @@
 #include "imguiconsole.h++"
-//#include "gui/theme/include/theme.h++"
+#include "gui/theme/include/theme.h++"
 #include <imgui/imgui.h>
 #include <QtCore/QDebug>
 
@@ -8,6 +8,36 @@ using namespace Debug;
 ImGuiConsole::ImGuiConsole(QObject *parent)
     : QObject{parent}
 {
+    ImGuiStyle* style = &ImGui::GetStyle();
+    style->Colors[ImGuiCol_WindowBg] = THEME->hexToFloatColor(THEME->color("dark0"));
+    style->Colors[ImGuiCol_Text] = THEME->hexToFloatColor(THEME->color("light1"));
+    style->Colors[ImGuiCol_TextDisabled] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_PopupBg] = THEME->hexToFloatColor(THEME->color("dark1"));
+    style->Colors[ImGuiCol_Border] = THEME->hexToFloatColor(THEME->color("dark1"));
+    style->Colors[ImGuiCol_BorderShadow] = THEME->hexToFloatColor(THEME->color("dark0"));
+    style->Colors[ImGuiCol_FrameBg] = THEME->hexToFloatColor(THEME->color("dark1"));
+    style->Colors[ImGuiCol_FrameBgHovered] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_FrameBgActive] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_TitleBg] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_TitleBgCollapsed] = THEME->hexToFloatColor(THEME->color("dark1"));
+    style->Colors[ImGuiCol_TitleBgActive] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_ScrollbarBg] = THEME->hexToFloatColor(THEME->color("dark1"));
+    style->Colors[ImGuiCol_ScrollbarGrab] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_ScrollbarGrabHovered] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_ScrollbarGrabActive] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_SliderGrab] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_SliderGrabActive] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_Button] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_ButtonHovered] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_ButtonActive] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_Header] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_HeaderHovered] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_HeaderActive] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_ResizeGrip] = THEME->hexToFloatColor(THEME->color("dark3"));
+    style->Colors[ImGuiCol_ResizeGripHovered] = THEME->hexToFloatColor(THEME->color("light0"));
+    style->Colors[ImGuiCol_ResizeGripActive] = THEME->hexToFloatColor(THEME->color("dark2"));
+    style->Colors[ImGuiCol_TextSelectedBg] = THEME->hexToFloatColor(THEME->color("accent"));
+
     //ImGui::GetStyle().FrameRounding = 12;
     for(int i = 0; i < 100; i++)
         telsockAppend("asd" + QString::number(i));

@@ -39,8 +39,6 @@ ImGuiConsole::ImGuiConsole(QObject *parent)
     style->Colors[ImGuiCol_TextSelectedBg] = THEME->hexToFloatColor(THEME->color("accent"));
 
     //ImGui::GetStyle().FrameRounding = 12;
-    for(int i = 0; i < 100; i++)
-        telsockAppend("asd" + QString::number(i));
 }
 
 void ImGuiConsole::frame()
@@ -56,5 +54,10 @@ void ImGuiConsole::frame()
 
 void ImGuiConsole::telsockAppend(const QString& string)
 {
-    telsock_data.append(string + "\n");
+    telsock_data.append(string + "\r\n");
+    if(telsock_data.size() > INT_MAX / 2)
+    {
+        telsock_data.clear();
+        telsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
+    }
 }

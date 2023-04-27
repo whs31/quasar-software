@@ -76,6 +76,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
 
+    emit rawData("latitude" + QString::number(output->latitude()));
     emit ping();
 }
 

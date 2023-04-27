@@ -65,6 +65,11 @@ Window { id: root;
         function onFrame() { imgui_DebugConsole.frame(); }
     }
 
+    Connections {
+        target: Network;
+        function onTelsock(data) { imgui_DebugConsole.telsockAppend(data); }
+    }
+
     Layouts.TopBar { id: c_TopBar;
         height: 70;
         anchors.left: parent.left;

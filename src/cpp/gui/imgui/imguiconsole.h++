@@ -14,8 +14,7 @@ namespace Debug
             explicit ImGuiConsole(QObject* parent = nullptr);
 
             __qml void frame();
-
-            void telsockAppend(const QString& string);
+            __qml void telsockAppend(const QString& string);
     };
 }// namespace Debug;
 

@@ -14,6 +14,7 @@ import "tabs" as Tabs
 
 Window { id: root;
     property bool b_ConsoleShown: true;
+    property bool b_DebugShown: false;
 
     width: 640;
     height: 480;
@@ -41,10 +42,10 @@ Window { id: root;
     property string s_FontExtraBold: font_ExtraBold.name;
     property string s_FontMain: font_Main.name;
 
-//    Widgets.DebugConsole { id: c_DebugConsole;
-//        enabled: b_ConsoleShown;
-//        visible: b_ConsoleShown;
-//    }
+    Widgets.DebugConsole { id: c_DebugConsole;
+        enabled: b_ConsoleShown;
+        visible: b_ConsoleShown;
+    }
 
     ImRenderLayer { id: lyo_ImGUIWindow;
         anchors.top: c_TabBar.bottom;
@@ -53,8 +54,8 @@ Window { id: root;
         anchors.bottom: c_BottomBar.top;
         focus: true;
 
-        visible: b_ConsoleShown;
-        enabled: b_ConsoleShown;
+        visible: b_DebugShown;
+        enabled: b_DebugShown;
         z: 1000;
     }
 

@@ -1,6 +1,6 @@
 #include "entry.h++"
 #include "gui/console/console.h++"
-#include "gui/imgui/imguiexample.h++"
+#include "gui/imgui/imguiconsole.h++"
 #include "scenegraph/imgui/imguiitem.h++"
 
 #include <QtCore/QDebug>
@@ -64,8 +64,8 @@ int main(int argc, char* argv[])
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
     Entry entry;
 
-    qmlRegisterType<ImGuiItem>("ImGUI", 1, 0, "ImGUI");
-    qmlRegisterType<ImGuiExample>("ImGuiExample", 1, 0, "ImGuiExample");
+    qmlRegisterType<ImGuiItem>("ImGUI", 1, 0, "ImRenderLayer");
+    qmlRegisterType<Debug::ImGuiConsole>("ImGUI", 1, 0, "ImDebugConsole");
 
     Console console_instance;
     console = &console_instance;

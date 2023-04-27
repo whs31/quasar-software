@@ -7,7 +7,6 @@ import Theme 1.0
 import Config 1.0
 import Network 1.0
 import ImGUI 1.0
-import ImGuiExample 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -47,7 +46,7 @@ Window { id: root;
 //        visible: b_ConsoleShown;
 //    }
 
-    ImGUI { id: lyo_ImGUIWindow;
+    ImRenderLayer { id: lyo_ImGUIWindow;
         anchors.top: c_TabBar.bottom;
         anchors.left: parent.left;
         anchors.right: parent.right;
@@ -57,6 +56,12 @@ Window { id: root;
         visible: b_ConsoleShown;
         enabled: b_ConsoleShown;
         z: 1000;
+    }
+
+    ImDebugConsole { id: imgui_DebugConsole; }
+    Connections {
+        target: lyo_ImGUIWindow;
+        function onFrame() { imgui_DebugConsole.frame(); }
     }
 
     Layouts.TopBar { id: c_TopBar;
@@ -102,14 +107,5 @@ Window { id: root;
         opacity: c_TabBar.i_CurrentTab === 1;
         enabled: c_TabBar.i_CurrentTab === 1;
         Behavior on opacity { NumberAnimation { duration: 200; } }
-    }
-
-    ImGuiExample { id: imgui_Example;
-
-    }
-
-    Connections {
-        target: lyo_ImGUIWindow;
-        function onFrame() { imgui_Example.frame(); }
     }
 }

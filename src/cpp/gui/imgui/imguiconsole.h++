@@ -12,9 +12,6 @@ namespace Debug
         public:
             explicit ImGuiConsole(QObject* parent = nullptr);
             __qml void frame();
-
-        private:
-            bool show_demo_window = true;
-            bool show_another_window = false;
     };
 }// namespace Debug;
+

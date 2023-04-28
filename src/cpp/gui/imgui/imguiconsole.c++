@@ -1,6 +1,7 @@
 #include "imguiconsole.h++"
 //#include "gui/theme/include/theme.h++"
 #include <imgui/imgui.h>
+#include <imgui/implot.h>
 #include <QtCore/QDebug>
 
 using namespace Debug;
@@ -100,6 +101,32 @@ void ImGuiConsole::frame()
 
         ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
                             0, "Network Load (bytes)", FLT_MIN, 256, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
+    }
+    ImGui::End();
+
+
+    ImGui::SetNextWindowSize(ImVec2(525, 400), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(5, 505), ImGuiCond_FirstUseEver);
+    ImGui::Begin("TCP Socket");
+    {
+
+    }
+    ImGui::End();
+
+    ImGui::SetNextWindowSize(ImVec2(520, 340), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(530, 505), ImGuiCond_FirstUseEver);
+    ImGui::Begin("Network");
+    {
+
+        ImPlot::CreateContext();
+        ImPlot::BeginPlot("Network Summary");
+        ImPlot::SetupAxesLimits(0, GRAPH_SIZE, 0, 256);
+        ImPlot::PlotBars("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotBars("Execd Socket", execdsock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotBars("Feedback Socket", feedbacksock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotBars("TCP Socket", tcpsock_graph_data, GRAPH_SIZE);
+        ImPlot::EndPlot();
+        ImPlot::DestroyContext();
     }
     ImGui::End();
 

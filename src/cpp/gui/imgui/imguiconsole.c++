@@ -17,31 +17,70 @@ void ImGuiConsole::frame()
     if(set_up == false)
         setup();
 
-    ImGui::SetNextWindowSize(ImVec2(430, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(525, 500), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowPos(ImVec2(5, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Execd Socket");
     {
+        const int size_of_graph = 100;
 
+        ImGui::InputTextMultiline("ExecdsockData", execdsock_data.toLocal8Bit().data(), execdsock_data.length() * sizeof(char),
+                                  ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_graph), ImGuiInputTextFlags_ReadOnly);
+
+        if(skip_frames == 9)
+        {
+            for(size_t i = 1; i < GRAPH_SIZE; ++i)
+                execdsock_graph_data[i-1] = execdsock_graph_data[i];
+
+            if(execdsock_load_size)
+            {
+                execdsock_graph_data[GRAPH_SIZE - 1] = execdsock_load_size;
+                execdsock_load_size = 0;
+            }
+            else
+                execdsock_graph_data[GRAPH_SIZE - 1] = execdsock_load_size;
+        }
+
+        ImGui::PlotHistogram("", execdsock_graph_data, GRAPH_SIZE,
+                             0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(430, 500), ImGuiCond_FirstUseEver);
-    ImGui::SetNextWindowPos(ImVec2(440, 5), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(520, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(530, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Feedback Socket");
     {
+        const int size_of_graph = 100;
 
+        ImGui::InputTextMultiline("FeedbacksockData", feedbacksock_data.toLocal8Bit().data(), feedbacksock_data.length() * sizeof(char),
+                                  ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_graph), ImGuiInputTextFlags_ReadOnly);
+
+        if(skip_frames == 9)
+        {
+            for(size_t i = 1; i < GRAPH_SIZE; ++i)
+                feedbacksock_graph_data[i-1] = feedbacksock_graph_data[i];
+
+            if(feedbacksock_load_size)
+            {
+                feedbacksock_graph_data[GRAPH_SIZE - 1] = feedbacksock_load_size;
+                feedbacksock_load_size = 0;
+            }
+            else
+                feedbacksock_graph_data[GRAPH_SIZE - 1] = feedbacksock_load_size;
+        }
+
+        ImGui::PlotHistogram("", feedbacksock_graph_data, GRAPH_SIZE,
+                             0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 
     ImGui::SetNextWindowSize(ImVec2(860, 500), ImGuiCond_FirstUseEver);
-    ImGui::SetNextWindowPos(ImVec2(875, 5), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(1055, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Telemetry Socket");
     {
-        static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
-        const int size_of_telsock_graph = 100;
+        const int size_of_graph = 100;
 
         ImGui::InputTextMultiline("TelsockData", telsock_data.toLocal8Bit().data(), telsock_data.length() * sizeof(char),
-                              ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_telsock_graph), flags);
+                              ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_graph), ImGuiInputTextFlags_ReadOnly);
 
         if(skip_frames++ == 9)
         {
@@ -60,9 +99,7 @@ void ImGuiConsole::frame()
         }
 
         ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
-                            0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_telsock_graph));
-
-        ImGui::ShowDemoWindow();
+                            0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 
@@ -77,6 +114,39 @@ void ImGuiConsole::telsockAppend(const QString& string)
     {
         telsock_data.clear();
         telsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
+    }
+}
+
+void ImGuiConsole::execdsockAppend(const QString& string)
+{
+    execdsock_data.prepend(string + "\n");
+    execdsock_load_size = string.size() * sizeof(char);
+    if(execdsock_data.size() > INT_MAX / 2)
+    {
+        execdsock_data.clear();
+        execdsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
+    }
+}
+
+void ImGuiConsole::feedbacksockAppend(const QString& string)
+{
+    feedbacksock_data.prepend(string + "\n");
+    feedbacksock_load_size = string.size() * sizeof(char);
+    if(feedbacksock_data.size() > INT_MAX / 2)
+    {
+        feedbacksock_data.clear();
+        feedbacksock_data.append("Socket console was cleared because of buffer overflow. \r\n");
+    }
+}
+
+void ImGuiConsole::tcpsockAppend(const QString& string)
+{
+    tcpsock_data.prepend(string + "\n");
+    tcpsock_load_size = string.size() * sizeof(char);
+    if(tcpsock_data.size() > INT_MAX / 2)
+    {
+        tcpsock_data.clear();
+        tcpsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
     }
 }
 

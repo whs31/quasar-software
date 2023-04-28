@@ -8,6 +8,7 @@
 #include <QQuickStyle>
 
 #include "telemetry/telemetryemulator.h++"
+#include "telemetry/telemetrysocketemulator.h++"
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +24,9 @@ int main(int argc, char* argv[])
     QQuickStyle::setStyle("Material");
 
     TelemetryEmulator emulator;
+    Debug::TelemetrySocketEmulator telsrv(&emulator);
     qmlRegisterSingletonInstance<TelemetryEmulator>("Telemetry", 1, 0, "Telemetry", &emulator);
+    qmlRegisterSingletonInstance<Debug::TelemetrySocketEmulator>("Telemetry", 1, 0, "TelemetrySocket", &telsrv);
 
     QQmlEngine engine;
     QObject::connect(&engine, &QQmlEngine::quit, qApp, &QCoreApplication::quit);

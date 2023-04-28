@@ -1,5 +1,5 @@
 #include "imguiconsole.h++"
-#include "gui/theme/include/theme.h++"
+//#include "gui/theme/include/theme.h++"
 #include <imgui/imgui.h>
 #include <QtCore/QDebug>
 
@@ -17,42 +17,55 @@ void ImGuiConsole::frame()
     if(set_up == false)
         setup();
 
-    ImGui::Begin("Telemetry Socket");
-    static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
-    const int size_of_telsock_graph = 100;
+    ImGui::SetNextWindowSize(ImVec2(430, 500));
+    ImGui::SetNextWindowPos(ImVec2(5, 5));
+    ImGui::Begin("Execd Socket");
+    {
 
-    ImGui::InputTextMultiline("TelsockData", telsock_data.toLocal8Bit().data(), telsock_data.length() * sizeof(char),
+    }
+    ImGui::End();
+
+    ImGui::SetNextWindowSize(ImVec2(430, 500));
+    ImGui::SetNextWindowPos(ImVec2(440, 5));
+    ImGui::Begin("Feedback Socket");
+    {
+
+    }
+    ImGui::End();
+
+    ImGui::SetNextWindowSize(ImVec2(860, 500));
+    ImGui::SetNextWindowPos(ImVec2(875, 5));
+    ImGui::Begin("Telemetry Socket");
+    {
+        static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
+        const int size_of_telsock_graph = 100;
+
+        ImGui::InputTextMultiline("TelsockData", telsock_data.toLocal8Bit().data(), telsock_data.length() * sizeof(char),
                               ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_telsock_graph), flags);
 
-    if(skip_frames++ == 9)
-    {
-        for(size_t i = 1; i < GRAPH_SIZE; ++i)
-            telsock_graph_data[i-1] = telsock_graph_data[i];
-
-        if(telsock_load_size)
+        if(skip_frames++ == 9)
         {
-            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
-            telsock_load_size = 0;
+            for(size_t i = 1; i < GRAPH_SIZE; ++i)
+                telsock_graph_data[i-1] = telsock_graph_data[i];
+
+            if(telsock_load_size)
+            {
+                telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
+                telsock_load_size = 0;
+            }
+            else
+                telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
+
+          skip_frames = 0;
         }
-        else
-            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
 
-        skip_frames = 0;
+        ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
+                            0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_telsock_graph));
+
+        ImGui::ShowDemoWindow();
     }
-
-    ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
-                          0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_telsock_graph));
-
-    ImGui::ShowDemoWindow();
     ImGui::End();
 
-    ImGui::Begin("Execd Socket");
-
-    ImGui::End();
-
-    ImGui::Begin("Feedback Socket");
-
-    ImGui::End();
     //!@todo Save imgui ini file and theme. Plot socket graph. TCP Socket. Image decoding window.
 }
 
@@ -145,4 +158,8 @@ void ImGuiConsole::setup()
     style.FrameRounding = 3;
     style.PopupRounding = 4;
     style.ChildRounding = 4;
+
+    auto& io = ImGui::GetIO();
+    io.IniFilename = NULL;
+    io.LogFilename = NULL;
 }

@@ -24,7 +24,7 @@ namespace Config
             {"lfsPort", "10000"},
             {"execdPort", "9845"},
             {"feedbackPort", "9846"},
-            {"telemetryFrequency", "1.1"},
+            {"telemetryFrequency", "0.1"},
             {"proxyEnabled", "false"},
             {"storedLatitude", "60"},
             {"storedLongitude", "30"},

@@ -45,7 +45,7 @@ namespace Network
         double roll; // rad
         double yaw; // rad
         double course; // rad
-        uint64_t time; //
+        quint64 time; //
         bool valid; // unix time * 1000
         uint16_t crc16;
 

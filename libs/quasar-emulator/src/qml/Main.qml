@@ -40,12 +40,12 @@ Window { id: root;
 
     Timer { interval: 20; repeat: true; running: true; onTriggered: updateAxes(); }
 
-//    Layouts.PlaneView {  id: lyo_3D;
-//        anchors.left: parent.left;
-//        anchors.right: parent.horizontalCenter;
-//        anchors.top: parent.top;
-//        anchors.bottom: parent.bottom;
-//    }
+    Layouts.PlaneView {  id: lyo_3D;
+        anchors.left: parent.left;
+        anchors.right: parent.horizontalCenter;
+        anchors.top: parent.top;
+        anchors.bottom: parent.bottom;
+    }
 
     Layouts.MapView { id: lyo_Map;
         anchors.right: parent.right;

@@ -17,24 +17,24 @@ void ImGuiConsole::frame()
     if(set_up == false)
         setup();
 
-    ImGui::SetNextWindowSize(ImVec2(430, 500));
-    ImGui::SetNextWindowPos(ImVec2(5, 5));
+    ImGui::SetNextWindowSize(ImVec2(430, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(5, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Execd Socket");
     {
 
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(430, 500));
-    ImGui::SetNextWindowPos(ImVec2(440, 5));
+    ImGui::SetNextWindowSize(ImVec2(430, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(440, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Feedback Socket");
     {
 
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(860, 500));
-    ImGui::SetNextWindowPos(ImVec2(875, 5));
+    ImGui::SetNextWindowSize(ImVec2(860, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(875, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Telemetry Socket");
     {
         static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
@@ -66,7 +66,7 @@ void ImGuiConsole::frame()
     }
     ImGui::End();
 
-    //!@todo Save imgui ini file and theme. Plot socket graph. TCP Socket. Image decoding window.
+    //!@todo Save theme. TCP Socket. Image decoding window.
 }
 
 void ImGuiConsole::telsockAppend(const QString& string)

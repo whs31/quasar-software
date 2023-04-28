@@ -1,4 +1,7 @@
 #pragma once
+#define __global static inline
+#define __qml Q_INVOKABLE
+#define __signal void
 
 #include <QtCore/QObject>
 
@@ -17,8 +20,10 @@ namespace Debug
         public:
             explicit FeedbackEmulator(QObject *parent = nullptr);
 
-            void setAddress(const QString& address);
+            __qml void setAddress(const QString& address);
+            __qml void testVT100();
+
+        private:
             void send(QByteArray data);
-            void testVT100();
     };
 } // namespace Debug;

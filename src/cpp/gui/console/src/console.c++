@@ -1,7 +1,5 @@
 #include "console_p.h++"
 #include "network/network.h++"
-#include "debug/telemetrysocketemulator.h++"
-#include "debug/feedbackemulator.h++"
 #include "config/config.h++"
 #include <QtCore/QCoreApplication>
 #include <QtCore/QProcess>
@@ -28,8 +26,6 @@ void Console::sendCommand(const QString& command)
 ConsolePrivate::ConsolePrivate(Console* parent)
     : QObject{parent}
     , q_ptr(parent)
-    , m_telemetry_socket_emulator(new Debug::TelemetrySocketEmulator(this))
-    , m_feedbackemulator(new Debug::FeedbackEmulator(this))
 {
     qmlRegisterSingletonInstance("ConsoleWidget", 1, 0, "Impl", this);
 }
@@ -62,20 +58,6 @@ void ConsolePrivate::telsock_stop()
     Network::Network::get()->stopTelemetrySocket();
 }
 
-void ConsolePrivate::telsrv_start()
-{
-    if(not m_telemetry_socket_emulator)
-        return;
-    m_telemetry_socket_emulator->startTelemetryServer("127.0.0.1:9955");
-}
-
-void ConsolePrivate::telsrv_stop()
-{
-    if(not m_telemetry_socket_emulator)
-        return;
-    m_telemetry_socket_emulator->stop();
-}
-
 void ConsolePrivate::execdsock_start()
 {
     Network::Network::get()->startExecdSocket(QString(CONFIG("remoteIP").toString() + ":" +
@@ -100,22 +82,11 @@ void ConsolePrivate::tcp_stop()
     Network::Network::get()->stopTCPSocket();
 }
 
-void ConsolePrivate::feedbackemu_init()
-{
-    m_feedbackemulator->setAddress(QString("127.0.0.1:" +
-                                           CONFIG("feedbackPort").toString()));
-}
-
-void ConsolePrivate::feedbackemu_vt100()
-{
-    m_feedbackemulator->testVT100();
-}
-
 void ConsolePrivate::sim()
 {
     #ifdef Q_OS_WIN
-        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/libs/quasar-emulator/QuaSAR-Emulator.exe", {});
+        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator.exe", {});
     #else
-        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/libs/quasar-emulator/QuaSAR-Emulator", {});
+        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator", {});
     #endif
 }

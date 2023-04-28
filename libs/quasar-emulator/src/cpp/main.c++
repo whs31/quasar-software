@@ -9,6 +9,7 @@
 
 #include "telemetry/telemetryemulator.h++"
 #include "telemetry/telemetrysocketemulator.h++"
+#include "execd/feedbackemulator.h++"
 
 int main(int argc, char* argv[])
 {
@@ -25,8 +26,10 @@ int main(int argc, char* argv[])
 
     TelemetryEmulator emulator;
     Debug::TelemetrySocketEmulator telsrv(&emulator);
+    Debug::FeedbackEmulator feedback(&emulator);
     qmlRegisterSingletonInstance<TelemetryEmulator>("Telemetry", 1, 0, "Telemetry", &emulator);
     qmlRegisterSingletonInstance<Debug::TelemetrySocketEmulator>("Telemetry", 1, 0, "TelemetrySocket", &telsrv);
+    qmlRegisterSingletonInstance<Debug::FeedbackEmulator>("Execd", 1, 0, "Feedback", &feedback);
 
     QQmlEngine engine;
     QObject::connect(&engine, &QQmlEngine::quit, qApp, &QCoreApplication::quit);

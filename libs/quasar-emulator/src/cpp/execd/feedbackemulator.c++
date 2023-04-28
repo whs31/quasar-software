@@ -1,5 +1,6 @@
 #include "feedbackemulator.h++"
 #include <QtCore/QDebug>
+#include <QtCore/QThread>
 #include <QtNetwork/QUdpSocket>
 
 using namespace Debug;
@@ -37,10 +38,11 @@ void FeedbackEmulator::send(QByteArray data)
 void FeedbackEmulator::testVT100()
 {
     char buf[16];
-//    for(size_t i = 0; i < 100; i++){
-//        sprintf(buf, "<%3d%%>\e[6D", i);
-//        this->send(buf);
-//    }
+    for(size_t i = 0; i < 100; i++){
+        sprintf(buf, "<%3d%%>\e[6D", i);
+        this->send(buf);
+        QThread::msleep(25);
+    }
     this->send("*FREE_DISK_SPACE* 70061867 114855520");
     qDebug() << "[DEBUG] VT100 test complete";
 }

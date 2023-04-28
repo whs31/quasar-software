@@ -21,5 +21,6 @@ Item {
     Connections {
         target: Network;
         function onTelsock(data) { imgui_DebugConsole.telsockAppend(data); }
+        function onFeedbacksock(data) { imgui_DebugConsole.feedbacksockAppend(data); }
     }
 }

@@ -30,6 +30,7 @@ include_directories(src/cpp)
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/telemetry/*
     src/cpp/utils/*
+    src/cpp/execd/*
 )
 
 set(PROJECT_SOURCES

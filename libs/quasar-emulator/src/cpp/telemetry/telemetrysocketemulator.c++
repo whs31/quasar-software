@@ -59,6 +59,7 @@ void TelemetrySocketEmulator::stop()
 
 void TelemetrySocketEmulator::read()
 {
+    qDebug() << "Received something";
     QByteArray buf;
     buf.resize(socket->pendingDatagramSize());
     while(socket->hasPendingDatagrams())

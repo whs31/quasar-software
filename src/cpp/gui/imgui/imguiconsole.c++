@@ -41,7 +41,7 @@ void ImGuiConsole::frame()
         }
 
         ImGui::PlotHistogram("", execdsock_graph_data, GRAPH_SIZE,
-                             0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
+                             0, "Network Load (bytes)", FLT_MIN, 256, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 
@@ -69,7 +69,7 @@ void ImGuiConsole::frame()
         }
 
         ImGui::PlotHistogram("", feedbacksock_graph_data, GRAPH_SIZE,
-                             0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
+                             0, "Network Load (bytes)", FLT_MIN, 256, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 
@@ -99,7 +99,7 @@ void ImGuiConsole::frame()
         }
 
         ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
-                            0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
+                            0, "Network Load (bytes)", FLT_MIN, 256, ImVec2(ImGui::GetWindowWidth(), size_of_graph));
     }
     ImGui::End();
 

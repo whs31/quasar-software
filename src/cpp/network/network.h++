@@ -63,6 +63,8 @@ namespace Network
                 __signal connectedChanged();
 
                 __signal __profile telsock(const QString& data);
+                __signal __profile execdsock(const QString& data);
+                __signal __profile feedbacksock(const QString& data);
 
         private:
             explicit Network(QObject* parent = nullptr);

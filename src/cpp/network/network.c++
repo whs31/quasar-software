@@ -36,6 +36,8 @@ Network::Network::Network(QObject* parent)
         setNetworkDelay(0);
     });
     QObject::connect(telemetrySocket, &TelemetrySocket::rawData, this, &Network::telsock);
+    //! @todo execdsock
+    QObject::connect(feedbackSocket, &FeedbackSocket::rawData, this, &Network::feedbacksock);
 }
 
 void Network::Network::startTelemetrySocket(const QString& address, float frequency)

@@ -33,5 +33,6 @@
         <file>layouts/bottombar/InfoPanel.qml</file>
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
+        <file>tabs/map/UAVRoute.qml</file>
     </qresource>
 </RCC>

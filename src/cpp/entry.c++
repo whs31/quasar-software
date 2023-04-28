@@ -3,6 +3,7 @@
 #include "config/paths.h++"
 #include "config/config.h++"
 #include "map/ruler.h++"
+#include "map/route.h++"
 #include "scenegraph/cpu/statusindicator.h++"
 #include "scenegraph/cpu/progressbar.h++"
 #include "network/network.h++"
@@ -20,6 +21,7 @@ Entry::Entry(QObject *parent)
     qmlRegisterSingletonInstance<Network::Network>("Network", 1, 0, "Network", Network::Network::get(this));
 
     qmlRegisterType<Map::Ruler>("RulerModel", 1, 0, "RulerModel");
+    qmlRegisterType<Map::Route>("Route", 1, 0, "Route");
     qmlRegisterType<ProgressBar>("Widgets.Status", 1, 0, "ProgressBar");
     qmlRegisterType<StatusIndicator>("Widgets.Status", 1, 0, "StatusIndicator");
 }

@@ -17,7 +17,7 @@ namespace Map
         public:
             explicit RouteLogger(QObject* parent = nullptr);
 
-            void createLog(const QString& log_name);
+            void createLog(const QString& log_name = QString());
             void setFormat(const QString& format);
             void append(const QGeoCoordinate& point, float speed, int satellites);
             void commit();

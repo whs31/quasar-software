@@ -41,6 +41,7 @@ Map { id: c_Map;
         }
     }
 
+
     MapTab.UAV {}
 
     RulerModel { id: c_RulerModel; }

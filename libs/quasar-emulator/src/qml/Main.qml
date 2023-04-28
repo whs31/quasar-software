@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.12
 
 import Telemetry 1.0
 import "layouts" as Layouts
@@ -9,10 +10,19 @@ Window { id: root;
     width: 1200;
     height: 600;
     visible: true;
-    color: "#202329";
+    color: "#222222";
+
+    Material.theme: Material.Dark;
+    Material.accent: Material.Purple;
 
     Component.onCompleted: {
         show();
+    }
+
+    MouseArea {
+        anchors.fill: parent;
+        propagateComposedEvents: true;
+        onClicked: lyo_3D.forceActiveFocus();
     }
 
     FontLoader { id: font_Main; source: "qrc:/Overpass.ttf"; }
@@ -42,14 +52,15 @@ Window { id: root;
 
     Layouts.PlaneView {  id: lyo_3D;
         anchors.left: parent.left;
-        anchors.right: parent.horizontalCenter;
+        anchors.right: parent.right;
+        anchors.rightMargin: 500;
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
     }
 
     Layouts.MapView { id: lyo_Map;
         anchors.right: parent.right;
-        anchors.left: parent.horizontalCenter;
+        anchors.left: lyo_3D.right;
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
         anchors.margins: 30;
@@ -60,6 +71,16 @@ Window { id: root;
         anchors.top: parent.top;
         anchors.margins: 6;
         width: 300;
-        height: 230;
+        height: 250;
+        opacity: 0.7;
+    }
+
+    Layouts.ControlsLayout { id: lyo_Controls;
+        anchors.left: parent.left;
+        anchors.bottom: parent.bottom;
+        anchors.top: lyo_Telemetry.bottom;
+        anchors.margins: 6;
+        width: 170;
+        opacity: 0.7;
     }
 }

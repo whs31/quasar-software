@@ -40,13 +40,11 @@ View3D { id: c_3DView;
 
     environment: SceneEnvironment {
         id: sceneEnvironment;
-        clearColor: "#202329";
+        clearColor: "#222222";
         backgroundMode: SceneEnvironment.Color;
         antialiasingMode: SceneEnvironment.SSAA;
         antialiasingQuality: SceneEnvironment.VeryHigh;
     }
-
-    //renderMode: View3D.Overlay;
 
     PerspectiveCamera {
         id: camera;

@@ -1,8 +1,11 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+
 import Telemetry 1.0
 
-Rectangle {
+Pane {
     property real latitude: Telemetry.latitude;
     property real longitude: Telemetry.longitude;
     property real altitude: Telemetry.altitude;
@@ -13,11 +16,8 @@ Rectangle {
     property real course: Telemetry.course;
     property string time: Telemetry.time;
 
-    border.color: "#3b4252";
-    border.width: 3;
-    color: "#2e3440";
-    radius: 6;
-
+    Material.elevation: 15;
+    opacity: 0.5;
     Component.onCompleted: Telemetry.start(60, 30, 500, 10);
 
     GridLayout {

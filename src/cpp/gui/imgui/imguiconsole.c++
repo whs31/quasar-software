@@ -115,11 +115,11 @@ void ImGuiConsole::frame()
 
     ImGui::SetNextWindowSize(ImVec2(1390, 400), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowPos(ImVec2(530, 505), ImGuiCond_FirstUseEver);
-    ImGui::Begin("Network");
+    ImGui::Begin("Network", nullptr, ImGuiWindowFlags_NoCollapse);
     {
-
         ImPlot::CreateContext();
         ImPlot::BeginPlot("Network Summary");
+        ImPlot::SetupAxes("Time, 1/10 s","Data, bytes");
         ImPlot::SetupAxesLimits(0, GRAPH_SIZE, 0, 256);
         ImPlot::PlotShaded("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
         ImPlot::PlotShaded("Execd Socket", execdsock_graph_data, GRAPH_SIZE);

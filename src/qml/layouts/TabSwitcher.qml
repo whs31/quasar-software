@@ -27,6 +27,15 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 0;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
     }
 
     Buttons.ClassicButton { id: btn_FocusTab;
@@ -49,6 +58,15 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 1;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
     }
 
     Buttons.ClassicButton { id: btn_NetworkTab;
@@ -71,6 +89,15 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 2;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
     }
 
     Buttons.ClassicButton { id: btn_SettingsTab;
@@ -93,6 +120,15 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 3;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
     }
 
     Buttons.ClassicButton { id: btn_InfoTab;
@@ -115,5 +151,14 @@ Rectangle {
         label_text_size: 15;
 
         onClicked: i_CurrentTab = 4;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
     }
 }

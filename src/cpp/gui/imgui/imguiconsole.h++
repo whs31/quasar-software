@@ -8,7 +8,7 @@ namespace Debug
     class ImGuiConsole : public QObject
     {
         Q_OBJECT
-        constexpr __global int FRAMERATE = 6;
+        constexpr __global int FRAMERATE = 10;
         constexpr __global int GRAPH_SECONDS_COUNT = 30;
         constexpr __global int GRAPH_SIZE = FRAMERATE * GRAPH_SECONDS_COUNT;
 

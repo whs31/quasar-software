@@ -37,5 +37,5 @@ void FeedbackSocket::processResult(QByteArray data)
     }
 
     emit textReceived(data);
-    emit rawData("[ IN ]" + data);
+    emit rawData("[ IN ] " + data);
 }

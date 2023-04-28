@@ -2,7 +2,7 @@
 #include <QtCore/QString>
 #include <cmath>
 
-uint16_t Utilities::crc16(char* data, size_t size) noexcept
+uint16_t Utilities::crc16(char* data, int size) noexcept
 {
     uint16_t crc = 0xFFFF;
     for(size_t i = 0; i < size; i++)

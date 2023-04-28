@@ -45,8 +45,9 @@ Window { id: root;
         enabled: b_ConsoleShown && i_CurrentTabAlias !== 2;
         visible: b_ConsoleShown && i_CurrentTabAlias !== 2;
     }
-
-
+    DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: b_ConsoleShown && i_CurrentTabAlias !== 2;
+                     visible: b_ConsoleShown && i_CurrentTabAlias !== 2; }
 
     Layouts.TopBar { id: c_TopBar;
         height: 70;

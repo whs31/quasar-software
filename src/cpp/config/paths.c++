@@ -48,15 +48,29 @@ Paths::Paths(QObject *parent) : QObject{parent}
     if(not dir3.exists())
     {
         dir3.mkpath(logs());
-        qInfo() << "Created logs folder at " << logs();
+        qInfo() << "[PATH] Created logs folder at " << logs();
     }
 
     QDir dir4(themes());
     if(not dir4.exists())
     {
         dir4.mkpath(themes());
-        qInfo() << "Created themes folder at" << themes();
+        qInfo() << "[PATH] Created themes folder at" << themes();
     }
+
+    QString default_theme_buffer;
+
+    QFile default_theme_source(":/themes/nord.json");
+    default_theme_source.open(QIODevice::ReadOnly);
+    default_theme_buffer = default_theme_source.readAll();
+
+    QSaveFile default_theme_destination(themes() + "/nord.json");
+    default_theme_destination.open(QIODevice::WriteOnly);
+    QTextStream out1(&default_theme_destination);
+    out1 << default_theme_buffer;
+    default_theme_destination.commit();
+
+    qInfo() << "[PATH] Default theme placed in folder";
 }
 
 QString Paths::root() { return QCoreApplication::applicationDirPath(); }

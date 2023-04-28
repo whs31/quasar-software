@@ -86,7 +86,18 @@ void ConsolePrivate::sim()
 {
     #ifdef Q_OS_WIN
         QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator.exe", {});
+        qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
+        qDebug().noquote().nospace() << QCoreApplication::applicationDirPath() << "/QuaSAR-Emulator.exe";
     #else
         QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator", {});
-    #endif
+        qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
+        qDebug().noquote().nospace() << QCoreApplication::applicationDirPath() << "/QuaSAR-Emulator";
+#endif
+}
+
+void ConsolePrivate::nets()
+{
+    execdsock_start();
+    telsock_start();
+    tcp_start();
 }

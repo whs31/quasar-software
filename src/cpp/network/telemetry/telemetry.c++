@@ -9,6 +9,7 @@ Telemetry::Telemetry(QObject *parent)
 double Telemetry::latitude() const { return datagram.latitude; }
 void Telemetry::setLatitude(double other) {
     if (qFuzzyCompare(datagram.latitude, other)) return;
+    if (qFuzzyCompare(other, 0)) return;
     datagram.latitude = other;
     emit latitudeChanged();
 }
@@ -16,6 +17,7 @@ void Telemetry::setLatitude(double other) {
 double Telemetry::longitude() const { return datagram.longitude; }
 void Telemetry::setLongitude(double other) {
     if (qFuzzyCompare(datagram.longitude, other)) return;
+    if (qFuzzyCompare(other, 0)) return;
     datagram.longitude = other;
     emit longitudeChanged();
 }

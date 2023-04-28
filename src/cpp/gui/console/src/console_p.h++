@@ -25,7 +25,8 @@ class ConsolePrivate : public QObject
         { "execdsock_stop", [this](){ execdsock_stop(); } },
         { "tcp_start", [this](){ tcp_start(); } },
         { "tcp_stop", [this](){ tcp_stop(); } },
-        { "sim", [this](){ sim(); } }
+        { "sim", [this](){ sim(); } },
+        { "nets", [this](){ nets(); } }
     };
 
     public:
@@ -46,4 +47,5 @@ class ConsolePrivate : public QObject
         void __concommand tcp_start();
         void __concommand tcp_stop();
         void __concommand sim();
+        void __concommand nets();
 };

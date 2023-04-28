@@ -1,64 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>attitude/crosshair-1.png</file>
-        <file>attitude/crosshair-2.png</file>
-        <file>attitude/scale-vertical.png</file>
-        <file>icons/animated/antenna-green-0.png</file>
-        <file>icons/animated/antenna-green-1.png</file>
-        <file>icons/animated/antenna-green-2.png</file>
-        <file>icons/animated/antenna-red-0.png</file>
-        <file>icons/animated/antenna-red-1.png</file>
-        <file>icons/animated/antenna-red-2.png</file>
         <file>icons/close.png</file>
-        <file>icons/command-line.png</file>
-        <file>icons/debug.png</file>
-        <file>icons/eraser.png</file>
-        <file>icons/folder.png</file>
-        <file>icons/gps.png</file>
-        <file>icons/image.png</file>
-        <file>icons/info.png</file>
-        <file>icons/map.png</file>
-        <file>icons/marker.png</file>
         <file>icons/minus.png</file>
-        <file>icons/mountain.png</file>
-        <file>icons/plus.png</file>
-        <file>icons/protractor.png</file>
-        <file>icons/refresh.png</file>
-        <file>icons/ruler.png</file>
-        <file>icons/satellite.png</file>
-        <file>icons/settings.png</file>
-        <file>icons/target.png</file>
-        <file>icons/trashbin.png</file>
-        <file>icons/water.png</file>
-        <file>fonts/SofiaSans-Italic.ttf</file>
-        <file>icons/map-layers/hybrid.png</file>
-        <file>icons/map-layers/satellite.png</file>
-        <file>icons/map-layers/schema.png</file>
         <file>resources.qrc</file>
-        <file>fonts/SofiaSans-Black.ttf</file>
-        <file>fonts/SofiaSans-BlackItalic.ttf</file>
-        <file>fonts/SofiaSans-Bold.ttf</file>
-        <file>fonts/SofiaSans-BoldItalic.ttf</file>
-        <file>fonts/SofiaSans-ExtraBlack.ttf</file>
-        <file>fonts/SofiaSans-ExtraBlackItalic.ttf</file>
-        <file>fonts/SofiaSans-ExtraBold.ttf</file>
-        <file>fonts/SofiaSans-ExtraBoldItalic.ttf</file>
-        <file>fonts/SofiaSans-ExtraLight.ttf</file>
-        <file>fonts/SofiaSans-ExtraLightItalic.ttf</file>
-        <file>fonts/SofiaSans-HairLine.ttf</file>
-        <file>fonts/SofiaSans-HairLineItalic.ttf</file>
-        <file>fonts/SofiaSans-Light.ttf</file>
-        <file>fonts/SofiaSans-LightItalic.ttf</file>
-        <file>fonts/SofiaSans-Medium.ttf</file>
-        <file>fonts/SofiaSans-MediumItalic.ttf</file>
-        <file>fonts/SofiaSans-Regular.ttf</file>
-        <file>fonts/SofiaSans-SemiBold.ttf</file>
-        <file>fonts/SofiaSans-SemiBoldItalic.ttf</file>
-        <file>fonts/SofiaSans-Thin.ttf</file>
-        <file>fonts/SofiaSans-ThinItalic.ttf</file>
-        <file>icons/down.png</file>
-        <file>icons/animated/gif_connected.gif</file>
-        <file>icons/animated/gif_disconnected.gif</file>
         <file>logo/full-logo.png</file>
         <file>logo/full-logo_shadow.png</file>
         <file>logo/gitlab.png</file>
@@ -70,16 +14,9 @@
         <file>map/markers/image.png</file>
         <file>map/markers/preset.psd</file>
         <file>map/markers/radar.png</file>
-        <file>icons/dialog/error.png</file>
-        <file>icons/dialog/info.png</file>
-        <file>icons/dialog/warning.png</file>
-        <file>icons/left.png</file>
-        <file>icons/right.png</file>
         <file>map/items/gpsarrow.png</file>
         <file>map/items/temp.png</file>
         <file>map/items/dot.png</file>
-        <file>icons/hide.png</file>
-        <file>icons/crosshair.png</file>
         <file>map/patterns/diagonal.png</file>
         <file>icons/console/cross.png</file>
         <file>icons/console/handle.png</file>
@@ -108,5 +45,6 @@
         <file>icons/tabs/info.png</file>
         <file>icons/tabs/plot.png</file>
         <file>icons/tabs/settings.png</file>
+        <file>themes/nord.json</file>
     </qresource>
 </RCC>

@@ -6,7 +6,6 @@ import QtGraphicalEffects 1.15
 import Theme 1.0
 import Config 1.0
 import Network 1.0
-import ImGUI 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -14,7 +13,7 @@ import "tabs" as Tabs
 
 Window { id: root;
     property bool b_ConsoleShown: true;
-    property bool b_DebugShown: false;
+    property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
 
     width: 640;
     height: 480;
@@ -43,32 +42,11 @@ Window { id: root;
     property string s_FontMain: font_Main.name;
 
     Widgets.DebugConsole { id: c_DebugConsole;
-        enabled: b_ConsoleShown;
-        visible: b_ConsoleShown;
+        enabled: b_ConsoleShown && i_CurrentTabAlias !== 2;
+        visible: b_ConsoleShown && i_CurrentTabAlias !== 2;
     }
 
-    ImRenderLayer { id: lyo_ImGUIWindow;
-        anchors.top: c_TabBar.bottom;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.bottom: c_BottomBar.top;
-        focus: true;
 
-        visible: b_DebugShown;
-        enabled: b_DebugShown;
-        z: 1000;
-    }
-
-    ImDebugConsole { id: imgui_DebugConsole; }
-    Connections {
-        target: lyo_ImGUIWindow;
-        function onFrame() { imgui_DebugConsole.frame(); }
-    }
-
-    Connections {
-        target: Network;
-        function onTelsock(data) { imgui_DebugConsole.telsockAppend(data); }
-    }
 
     Layouts.TopBar { id: c_TopBar;
         height: 70;
@@ -112,6 +90,13 @@ Window { id: root;
         anchors.fill: c_MapTab;
         opacity: c_TabBar.i_CurrentTab === 1;
         enabled: c_TabBar.i_CurrentTab === 1;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    Tabs.NetworkTab { id: c_NetworkTab;
+        anchors.fill: c_MapTab;
+        opacity: c_TabBar.i_CurrentTab === 2;
+        enabled: c_TabBar.i_CurrentTab === 2;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 }

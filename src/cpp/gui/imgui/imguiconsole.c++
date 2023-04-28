@@ -9,6 +9,66 @@ int ImGuiConsole::skip_frames = 0;
 ImGuiConsole::ImGuiConsole(QObject *parent)
     : QObject{parent}
 {
+
+}
+
+void ImGuiConsole::frame()
+{
+    if(set_up == false)
+        setup();
+
+    ImGui::Begin("Telemetry Socket");
+    static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
+    const int size_of_telsock_graph = 100;
+
+    ImGui::InputTextMultiline("TelsockData", telsock_data.toLocal8Bit().data(), telsock_data.length() * sizeof(char),
+                              ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_telsock_graph), flags);
+
+    if(skip_frames++ == 9)
+    {
+        for(size_t i = 1; i < GRAPH_SIZE; ++i)
+            telsock_graph_data[i-1] = telsock_graph_data[i];
+
+        if(telsock_load_size)
+        {
+            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
+            telsock_load_size = 0;
+        }
+        else
+            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
+
+        skip_frames = 0;
+    }
+
+    ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
+                          0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_telsock_graph));
+
+    ImGui::ShowDemoWindow();
+    ImGui::End();
+
+    ImGui::Begin("Execd Socket");
+
+    ImGui::End();
+
+    ImGui::Begin("Feedback Socket");
+
+    ImGui::End();
+    //!@todo Save imgui ini file and theme. Plot socket graph. TCP Socket. Image decoding window.
+}
+
+void ImGuiConsole::telsockAppend(const QString& string)
+{
+    telsock_data.prepend(string + "\n");
+    telsock_load_size = string.size() * sizeof(char);
+    if(telsock_data.size() > INT_MAX / 2)
+    {
+        telsock_data.clear();
+        telsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
+    }
+}
+
+void ImGuiConsole::setup()
+{
     auto &colors = ImGui::GetStyle().Colors;
     colors[ImGuiCol_WindowBg] = ImVec4{0.1f, 0.1f, 0.13f, 1.0f};
     colors[ImGuiCol_MenuBarBg] = ImVec4{0.16f, 0.16f, 0.21f, 1.0f};
@@ -85,56 +145,4 @@ ImGuiConsole::ImGuiConsole(QObject *parent)
     style.FrameRounding = 3;
     style.PopupRounding = 4;
     style.ChildRounding = 4;
-}
-
-void ImGuiConsole::frame()
-{
-    ImGui::Begin("Telemetry Socket");
-    static ImGuiInputTextFlags flags = ImGuiInputTextFlags_ReadOnly;
-    const int size_of_telsock_graph = 100;
-
-    ImGui::InputTextMultiline("TelsockData", telsock_data.toLocal8Bit().data(), telsock_data.length() * sizeof(char),
-                              ImVec2(-FLT_MIN, ImGui::GetWindowHeight() - 34 - size_of_telsock_graph), flags);
-
-    if(skip_frames++ == 9)
-    {
-        for(size_t i = 1; i < GRAPH_SIZE; ++i)
-            telsock_graph_data[i-1] = telsock_graph_data[i];
-
-        if(telsock_load_size)
-        {
-            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
-            telsock_load_size = 0;
-        }
-        else
-            telsock_graph_data[GRAPH_SIZE - 1] = telsock_load_size;
-
-        skip_frames = 0;
-    }
-
-    ImGui::PlotHistogram("", telsock_graph_data, GRAPH_SIZE,
-                          0, "Network Load (bytes)", FLT_MAX, FLT_MAX, ImVec2(ImGui::GetWindowWidth(), size_of_telsock_graph));
-
-    ImGui::ShowDemoWindow();
-    ImGui::End();
-
-    ImGui::Begin("Execd Socket");
-
-    ImGui::End();
-
-    ImGui::Begin("Feedback Socket");
-
-    ImGui::End();
-    //!@todo Save imgui ini file and theme. Plot socket graph. TCP Socket. Image decoding window.
-}
-
-void ImGuiConsole::telsockAppend(const QString& string)
-{
-    telsock_data.prepend(string + "\n");
-    telsock_load_size = string.size() * sizeof(char);
-    if(telsock_data.size() > INT_MAX / 2)
-    {
-        telsock_data.clear();
-        telsock_data.append("Socket console was cleared because of buffer overflow. \r\n");
-    }
 }

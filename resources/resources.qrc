@@ -103,5 +103,10 @@
         <file>icons/bottombar/satellite.png</file>
         <file>icons/bottombar/sea-level.png</file>
         <file>icons/bottombar/speed.png</file>
+        <file>icons/tabs/earth.png</file>
+        <file>icons/tabs/image.png</file>
+        <file>icons/tabs/info.png</file>
+        <file>icons/tabs/plot.png</file>
+        <file>icons/tabs/settings.png</file>
     </qresource>
 </RCC>

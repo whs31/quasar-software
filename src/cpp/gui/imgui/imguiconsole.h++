@@ -13,6 +13,8 @@ namespace Debug
         constexpr __global int GRAPH_SIZE = FRAMERATE * GRAPH_SECONDS_COUNT;
         static int skip_frames;
 
+        bool set_up = false;
+
         QString telsock_data;
         float telsock_graph_data[GRAPH_SIZE] = { };
         int telsock_load_size = 0;
@@ -22,6 +24,9 @@ namespace Debug
 
             __qml void frame();
             __qml void telsockAppend(const QString& string);
+
+        private:
+            void setup();
     };
 }// namespace Debug;
 

@@ -31,5 +31,6 @@
         <file>layouts/topbar/Header.qml</file>
         <file>layouts/bottombar/StatusWidget.qml</file>
         <file>layouts/bottombar/InfoPanel.qml</file>
+        <file>tabs/NetworkTab.qml</file>
     </qresource>
 </RCC>

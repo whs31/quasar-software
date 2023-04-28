@@ -113,7 +113,7 @@ void ImGuiConsole::frame()
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(520, 340), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowSize(ImVec2(1390, 400), ImGuiCond_FirstUseEver);
     ImGui::SetNextWindowPos(ImVec2(530, 505), ImGuiCond_FirstUseEver);
     ImGui::Begin("Network");
     {
@@ -121,10 +121,10 @@ void ImGuiConsole::frame()
         ImPlot::CreateContext();
         ImPlot::BeginPlot("Network Summary");
         ImPlot::SetupAxesLimits(0, GRAPH_SIZE, 0, 256);
-        ImPlot::PlotBars("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotBars("Execd Socket", execdsock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotBars("Feedback Socket", feedbacksock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotBars("TCP Socket", tcpsock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotShaded("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotShaded("Execd Socket", execdsock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotShaded("Feedback Socket", feedbacksock_graph_data, GRAPH_SIZE);
+        ImPlot::PlotShaded("TCP Socket", tcpsock_graph_data, GRAPH_SIZE);
         ImPlot::EndPlot();
         ImPlot::DestroyContext();
     }

@@ -42,9 +42,9 @@ namespace Utilities
         , 0x6E17, 0x7E36, 0x4E55, 0x5E74, 0x2E93, 0x3EB2, 0x0ED1, 0x1EF0
     };
 
-    uint16_t crc16(char* data, size_t size) noexcept(true);
-    uint16_t crc16_ccitt(const char* data, size_t size);
-    char* stringToCharPointer(const QString& string) noexcept(true);
-    double log(double base, double exponent) noexcept(true);
+    uint16_t crc16(char* data, int size) noexcept;
+    uint16_t crc16_ccitt(const char* data, int size);
+    char* stringToCharPointer(const QString& string) noexcept;
+    double log(double base, double exponent) noexcept;
 } // namespace Network;
 

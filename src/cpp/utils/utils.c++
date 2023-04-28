@@ -2,7 +2,7 @@
 #include <QtCore/QString>
 #include <cmath>
 
-uint16_t Utilities::crc16(char* data, size_t size) noexcept(true)
+uint16_t Utilities::crc16(char* data, size_t size) noexcept
 {
     uint16_t crc = 0xFFFF;
     for(size_t i = 0; i < size; i++)
@@ -23,17 +23,17 @@ uint16_t Utilities::crc16(char* data, size_t size) noexcept(true)
     return crc;
 }
 
-char* Utilities::stringToCharPointer(const QString& string) noexcept(true)
+char* Utilities::stringToCharPointer(const QString& string) noexcept
 {
     return string.toLocal8Bit().data();
 }
 
-double Utilities::log(double base, double exponent) noexcept(true)
+double Utilities::log(double base, double exponent) noexcept
 {
     return (std::log(exponent) / std::log(base));
 }
 
-uint16_t Utilities::crc16_ccitt(const char* data, size_t size)
+uint16_t Utilities::crc16_ccitt(const char* data, int size)
 {
     const unsigned char* udata = reinterpret_cast<const unsigned char*>(data);
     uint16_t crc = 0xFFFF;

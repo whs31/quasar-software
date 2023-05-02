@@ -1,5 +1,6 @@
 #include "route.h++"
 #include "tools/routelogger.h++"
+#include <QtCore/QFile>
 #include <QtPositioning/QGeoCoordinate>
 
 using namespace Map;
@@ -18,9 +19,17 @@ Route::~Route()
 
 void Route::append(const QGeoCoordinate& coord, float speed, int satellites)
 {
-    if(m_fullRoute.empty())
+    static bool created_log = false;
+    if(m_fullRoute.empty() and not created_log) {
         logger->createLog();
-    logger->append(coord, speed, satellites);
+        created_log = true;
+    }
+
+    if(logger->current_file)
+        logger->append(coord, speed, satellites);
+
+    if(coord.latitude() == 0 or coord.longitude() == 0)
+        return;
 
     m_fullRoute.push_back(QVariant::fromValue(coord));
     emit fullRouteChanged();

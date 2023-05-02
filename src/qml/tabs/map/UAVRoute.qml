@@ -6,6 +6,9 @@ import Route 1.0
 import Theme 1.0
 
 MapPolyline {
+    layer.enabled: true;
+    layer.samples: 16;
+
     property var qgeo_CurrentCoord: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
     property real fl_CurrentSpeed: Network.telemetry.velocityCourse;
     property int i_CurrentSats: -1;

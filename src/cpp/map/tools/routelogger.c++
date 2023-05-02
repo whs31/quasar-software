@@ -47,6 +47,8 @@ void RouteLogger::setFormat(const QString& format)
 
 void RouteLogger::append(const QGeoCoordinate& point, float speed, int satellites)
 {
+    if(not current_file)
+        return;
     current_file->open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append);
     QTextStream stream(current_file);
     stream << "\n\t\t\t<trkpt lat=\"" << QString::number(point.latitude(), 'f', 6) << "\" lon=\""

@@ -11,10 +11,12 @@ namespace Map
     class RouteLogger : public QObject
     {
         Q_OBJECT
-        QFile* current_file;
+
         QString format = "gpx";
 
         public:
+            QFile* current_file;
+
             explicit RouteLogger(QObject* parent = nullptr);
 
             void createLog(const QString& log_name = QString());

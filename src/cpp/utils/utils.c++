@@ -28,9 +28,9 @@ char* Utilities::stringToCharPointer(const QString& string) noexcept
     return string.toLocal8Bit().data();
 }
 
-double Utilities::log(double base, double exponent) noexcept
+double Utilities::log(double base, double value) noexcept
 {
-    return (std::log(exponent) / std::log(base));
+    return (std::log(value) / std::log(base));
 }
 
 uint16_t Utilities::crc16_ccitt(const char* data, int size)

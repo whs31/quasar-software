@@ -61,10 +61,10 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setLatitude(received.latitude);
     output->setLongitude(received.longitude);
     output->setAltitude(received.altitude);
-    output->setVelocityCourse(received.velocity_course);
-    output->setVelocityEast(received.velocity_east);
-    output->setVelocityNorth(received.velocity_north);
-    output->setVelocityCourse(received.velocity_course);
+    output->setVelocityCourse(received.velocity_course * 3.6);
+    output->setVelocityEast(received.velocity_east * 3.6);
+    output->setVelocityNorth(received.velocity_north * 3.6);
+    output->setVelocityCourse(received.velocity_course * 3.6);
     output->setPitch(Utilities::Numeric::radiansToDegrees(received.pitch));
     output->setRoll(Utilities::Numeric::radiansToDegrees(received.roll));
     output->setYaw(Utilities::Numeric::radiansToDegrees(received.yaw));

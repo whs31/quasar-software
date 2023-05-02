@@ -290,11 +290,12 @@ Item {
     }
 
     Text { id: txt_Satellites;
+        property string s_CurrentColor: i_SatellitesCount < 3 ? "red" : i_SatellitesCount < 6 ? "yellow" : "green";
         color: Theme.color("light0");
         font.weight: Font.Bold;
         font.family: root.s_FontMain;
         font.pixelSize: 13;
-        text: Theme.colorText(Number(i_SatellitesCount).toFixed(0), "red") + " спутников";
+        text: Theme.colorText(Number(i_SatellitesCount).toFixed(0), s_CurrentColor) + " спутников";
         width: 110;
         height: 12;
         anchors.top: ico_Satellites.top;

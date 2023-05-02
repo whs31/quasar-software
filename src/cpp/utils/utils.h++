@@ -5,8 +5,10 @@
 
 class QString;
 
+//! @namespace Пространство имен для утилит и полезных алгоритмов.
 namespace Utilities
 {
+    //! @variable Таблица для CRC16 CCIT.
     constexpr __global uint16_t CRC16_TABLE[256] = {
           0x0000, 0x1021, 0x2042, 0x3063, 0x4084, 0x50A5, 0x60C6, 0x70E7
         , 0x8108, 0x9129, 0xA14A, 0xB16B, 0xC18C, 0xD1AD, 0xE1CE, 0xF1EF
@@ -42,14 +44,33 @@ namespace Utilities
         , 0x6E17, 0x7E36, 0x4E55, 0x5E74, 0x2E93, 0x3EB2, 0x0ED1, 0x1EF0
     };
 
+    //! @brief  Вычисляет контрольную сумму CRC16 из данных указанного размера.
+    //! @param      char* data - указатель на данные,
+    //! @param      int size - размер данных для вычисления.
+    //! @return     CRC16 выбранных данных.
     uint16_t crc16(char* data, int size) noexcept;
 
+    //! @brief  Вычисляет контрольную сумму CRC16 по алгоритму CCIT из данных указанного размера.
+    //! @param      char* data - указатель на данные,
+    //! @param      int size - размер данных для вычисления.
+    //! @return     CRC16 выбранных данных по алгоритму CCIT.
     uint16_t crc16_ccitt(const char* data, int size);
 
+    //! @brief  Конвертирует QString в указатель на char.
+    //! @param      QString string - строка для конвертации.
+    //! @return     Указатель на char из выбранной строки.
     char* stringToCharPointer(const QString& string) noexcept;
 
-    double log(double base, double exponent) noexcept;
+    //! @brief  Вычисляет логарифм по заданному основанию.
+    //! @param      double base - основание логарифма,
+    //! @param      double value - значение логарифма.
+    //! @return     Значение вычисленного логарифма.
+    double log(double base, double value) noexcept;
 
+    //! @brief  Возвращает случайное целочисленное значение в указанном диапазоне.
+    //! @param      int range_min - минимальный предел диапазона,
+    //! @param      int range_max - максимальный предел диапазона.
+    //! @return     Случайное значение в указанном диапазоне.
     int randomInRange(int range_min, int range_max);
 } // namespace Network;
 

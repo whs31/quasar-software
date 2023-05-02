@@ -1,6 +1,7 @@
 #include "routelogger.h++"
 #include "config/paths.h++"
 #include <QtCore/QFile>
+#include <QtCore/QDir>
 #include <QtCore/QDebug>
 #include <QtCore/QDateTime>
 #include <QtCore/QTextStream>
@@ -10,7 +11,11 @@ using namespace Map;
 
 RouteLogger::RouteLogger(QObject* parent)
     : QObject{parent}
-{ }
+{
+    QDir route_logs_dir(Config::Paths::logs() + "/route");
+    if(not route_logs_dir.exists())
+        route_logs_dir.mkpath(Config::Paths::logs() + "/route");
+}
 
 void RouteLogger::createLog(const QString& log_name)
 {
@@ -22,8 +27,8 @@ void RouteLogger::createLog(const QString& log_name)
 
     qDebug().noquote() << "[ROUTELOG] Created new route log as" << filename;
 
-    if(current_file)
-        delete current_file;
+//    if(current_file)
+//        delete current_file;
 
     current_file = new QFile(filename);
     current_file->open(QIODevice::WriteOnly);

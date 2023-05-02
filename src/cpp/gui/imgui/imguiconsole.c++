@@ -118,19 +118,21 @@ void ImGuiConsole::frame()
     ImGui::Begin("Network", nullptr, ImGuiWindowFlags_NoCollapse);
     {
         ImPlot::CreateContext();
-        ImPlot::BeginPlot("Network Summary");
-        ImPlot::SetupAxes("Time, 1/10 s","Data, bytes");
-        ImPlot::SetupAxesLimits(0, GRAPH_SIZE, 0, 256);
-        ImPlot::PlotShaded("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotShaded("Execd Socket", execdsock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotShaded("Feedback Socket", feedbacksock_graph_data, GRAPH_SIZE);
-        ImPlot::PlotShaded("TCP Socket", tcpsock_graph_data, GRAPH_SIZE);
-        ImPlot::EndPlot();
+        if(ImPlot::BeginPlot("Network Summary"))
+        {
+            ImPlot::SetupAxesLimits(0, GRAPH_SIZE, 0, 256);
+            ImPlot::SetupAxes("Time, 1/10 s","Data, bytes");
+            ImPlot::PlotShaded("Telemetry Socket", telsock_graph_data, GRAPH_SIZE);
+            ImPlot::PlotShaded("Execd Socket", execdsock_graph_data, GRAPH_SIZE);
+            ImPlot::PlotShaded("Feedback Socket", feedbacksock_graph_data, GRAPH_SIZE);
+            ImPlot::PlotShaded("TCP Socket", tcpsock_graph_data, GRAPH_SIZE);
+            ImPlot::EndPlot();
+        }
         ImPlot::DestroyContext();
     }
     ImGui::End();
 
-    //!@todo Save theme. TCP Socket. Image decoding window.
+    //!@todo TCP Socket. Image decoding window.
 }
 
 void ImGuiConsole::telsockAppend(const QString& string)

@@ -10,7 +10,8 @@ MapPolyline {
     property real fl_CurrentSpeed: Network.telemetry.velocityCourse;
     property int i_CurrentSats: -1;
 
-        // on changed
+    onQgeo_CurrentCoordChanged: c_Route.append(qgeo_CurrentCoord, fl_CurrentSpeed, i_CurrentSats);
+
     line.width: 5;
     line.color: Theme.color("yellow");
     path: c_Route.fullRoute;

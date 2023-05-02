@@ -42,7 +42,8 @@ Map { id: c_Map;
     }
 
 
-    MapTab.UAV {}
+    MapTab.UAV { }
+    MapTab.UAVRoute { }
 
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; }

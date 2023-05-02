@@ -46,7 +46,7 @@ namespace Network
         double yaw = 0; // rad
         double course = 0; // rad
         quint64 time = 0; //
-        bool valid = false; // unix time * 1000
+        uint8_t satellites = 0;
         uint16_t crc16 = 0x0;
 
         friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data)
@@ -65,7 +65,7 @@ namespace Network
             dataStream << data.yaw;
             dataStream << data.course;
             dataStream << data.time;
-            dataStream << data.valid;
+            dataStream << data.satellites;
             dataStream << data.crc16;
 
             return dataStream;
@@ -87,7 +87,7 @@ namespace Network
             dataStream >> data.yaw;
             dataStream >> data.course;
             dataStream >> data.time;
-            dataStream >> data.valid;
+            dataStream >> data.satellites;
             dataStream >> data.crc16;
 
             return dataStream;
@@ -99,7 +99,7 @@ namespace Network
         uint32_t marker = 0x55bb55bb;
         uint8_t init_flag = 0x00; //0x00 ends stream, 0x01 begins stream
         uint16_t port = 0;
-        int32_t interval_ms = 0;
+        uint32_t interval_ms = 0;
         uint16_t crc16 = 0x0;
 
         friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data)

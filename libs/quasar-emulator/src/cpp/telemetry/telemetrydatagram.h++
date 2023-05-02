@@ -29,22 +29,22 @@ pub struct Datagram{
 
 struct TelemetryDatagram
 {
-    uint32_t marker; // const
-    uint8_t version; // const
-    double latitude; // rad
-    double longitude; // rad
-    double altitude; // m
-    double velocity_course; // m s
-    double velocity_east; // m s
-    double velocity_north; // m s
-    double velocity_vertical; // m s
-    double pitch; // rad
-    double roll; // rad
-    double yaw; // rad
-    double course; // rad
-    quint64 time; //
-    bool valid; // unix time * 1000
-    uint16_t crc16;
+    uint32_t marker = 0x0; // const
+    uint8_t version = 0x0; // const
+    double latitude = 0; // rad
+    double longitude = 0; // rad
+    double altitude = 0; // m
+    double velocity_course = 0; // m s
+    double velocity_east = 0; // m s
+    double velocity_north = 0; // m s
+    double velocity_vertical = 0; // m s
+    double pitch = 0; // rad
+    double roll = 0; // rad
+    double yaw = 0; // rad
+    double course = 0; // rad
+    quint64 time = 0; //
+    uint8_t satellites = 0;
+    uint16_t crc16 = 0x0;
 
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data)
     {
@@ -62,7 +62,7 @@ struct TelemetryDatagram
         dataStream << data.yaw;
         dataStream << data.course;
         dataStream << data.time;
-        dataStream << data.valid;
+        dataStream << data.satellites;
         dataStream << data.crc16;
 
         return dataStream;
@@ -84,7 +84,7 @@ struct TelemetryDatagram
         dataStream >> data.yaw;
         dataStream >> data.course;
         dataStream >> data.time;
-        dataStream >> data.valid;
+        dataStream >> data.satellites;
         dataStream >> data.crc16;
 
         return dataStream;
@@ -96,7 +96,7 @@ struct TelemetryRequest
     uint32_t marker = 0x55bb55bb;
     uint8_t init_flag; //0x00 ends stream, 0x01 begins stream
     uint16_t port;
-    int32_t interval_ms;
+    uint32_t interval_ms;
     uint16_t crc16;
 
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data)

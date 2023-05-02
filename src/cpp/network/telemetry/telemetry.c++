@@ -91,3 +91,10 @@ void Telemetry::setTime(const uint64_t& other) {
     datagram.time = other;
     emit timeChanged();
 }
+
+int Telemetry::satellites() const { return datagram.satellites; }
+void Telemetry::setSatellites(int other) {
+    if (datagram.satellites == other) return;
+    datagram.satellites = other;
+    emit satellitesChanged();
+}

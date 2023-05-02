@@ -45,8 +45,13 @@ namespace Utilities
     };
 
     uint16_t crc16(char* data, int size) noexcept;
+
     uint16_t crc16_ccitt(const char* data, int size);
+
     char* stringToCharPointer(const QString& string) noexcept;
+
     double log(double base, double exponent) noexcept;
+
+    int randomInRange(int range_min, int range_max);
 } // namespace Network;
 

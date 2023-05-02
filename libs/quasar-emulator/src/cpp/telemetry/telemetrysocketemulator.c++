@@ -103,8 +103,8 @@ TelemetryDatagram TelemetrySocketEmulator::generateTelemetry()
     TelemetryDatagram datagram = {
         0x55AA55AA,
         0x01,
-        Utilities::Numeric::degreesToRadians(emulator->latitude()),
-        Utilities::Numeric::degreesToRadians(emulator->longitude()),
+        emulator->latitude(),
+        emulator->longitude(),
         emulator->altitude(),
         emulator->velocity_horizontal(),
         sin(emulator->velocity_horizontal()),
@@ -115,7 +115,7 @@ TelemetryDatagram TelemetrySocketEmulator::generateTelemetry()
         Utilities::Numeric::degreesToRadians(emulator->course()),
         Utilities::Numeric::degreesToRadians(emulator->course()),
         (uint64_t)QDateTime::currentSecsSinceEpoch(),
-        true,
+        static_cast<uint8_t>(Utilities::randomInRange(1, 15)),
         0
     };
     uint16_t crc = Utilities::crc16_ccitt((const char*)&datagram, sizeof(TelemetryDatagram) - sizeof(uint16_t));

@@ -10,7 +10,7 @@ Item {
     property real fl_SeaAltitude: Network.telemetry.altitude;
     property real fl_Velocity: Network.telemetry.velocityCourse;
     property real fl_Direction: Network.telemetry.course;
-    property int i_SatellitesCount: -1; //Network.telemetry.satellites;
+    property int i_SatellitesCount: Network.telemetry.satellites;
     property real fl_ConnectionDelay: Network.networkDelay;
     property real fl_RemoteDiskSpace: 0.0;
 

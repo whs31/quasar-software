@@ -58,8 +58,8 @@ void TelemetrySocket::processTelemetry(QByteArray data)
         return;
     }
 
-    output->setLatitude(Utilities::Numeric::radiansToDegrees(received.latitude));
-    output->setLongitude(Utilities::Numeric::radiansToDegrees(received.longitude));
+    output->setLatitude(received.latitude);
+    output->setLongitude(received.longitude);
     output->setAltitude(received.altitude);
     output->setVelocityCourse(received.velocity_course);
     output->setVelocityEast(received.velocity_east);
@@ -70,6 +70,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setYaw(Utilities::Numeric::radiansToDegrees(received.yaw));
     output->setCourse(Utilities::Numeric::radiansToDegrees(received.course));
     output->setTime(received.time);
+    output->setSatellites(received.satellites);
 
     uint16_t crc = CRC_CHECK ? Utilities::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
@@ -82,7 +83,8 @@ void TelemetrySocket::processTelemetry(QByteArray data)
                  + QString::number(received.velocity_east, 'f', 1) + " " + QString::number(received.velocity_north, 'f', 1) + " "
                  + QString::number(received.velocity_vertical, 'f', 1) + " " + QString::number(received.pitch, 'f', 2) + " "
                  + QString::number(received.roll, 'f', 2) + " " +  QString::number(received.yaw, 'f', 2) + " "
-                 + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " 0x" + QString::number(received.crc16, 16));
+                 + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " " + QString::number(received.satellites)
+                 + " 0x" + QString::number(received.crc16, 16));
     emit ping();
 }
 
@@ -93,7 +95,7 @@ void TelemetrySocket::requestTelemetry()
     stream.setByteOrder(QDataStream::BigEndian);
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
-    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (int32_t)(this->frequency() * 1'000), 0 };
+    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (uint32_t)(this->frequency() * 1'000), 0 };
     uint16_t crc = Utilities::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 

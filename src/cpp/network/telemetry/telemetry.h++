@@ -23,9 +23,9 @@ namespace Network
         Q_PROPERTY(double yaw READ yaw WRITE setYaw NOTIFY yawChanged)
         Q_PROPERTY(double course READ course WRITE setCourse NOTIFY courseChanged)
         Q_PROPERTY(uint64_t time READ time WRITE setTime NOTIFY timeChanged)
+        Q_PROPERTY(int satellites READ satellites WRITE setSatellites NOTIFY satellitesChanged)
 
         QDateTime m_datetime;
-
         TelemetryDatagram datagram;
 
         public:
@@ -67,6 +67,9 @@ namespace Network
             uint64_t time() const;
             void setTime(const uint64_t& other);
 
+            int satellites() const;
+            void setSatellites(int other);
+
             signals:
                 __signal latitudeChanged();
                 __signal longitudeChanged();
@@ -80,6 +83,7 @@ namespace Network
                 __signal yawChanged();
                 __signal courseChanged();
                 __signal timeChanged();
+                __signal satellitesChanged();
     };
 } // namespace Network
 

@@ -42,3 +42,8 @@ uint16_t Utilities::crc16_ccitt(const char* data, int size)
 
     return crc;
 }
+
+int Utilities::randomInRange(int range_min, int range_max)
+{
+    return range_min + (std::rand() % (range_max - range_min + 1));
+}

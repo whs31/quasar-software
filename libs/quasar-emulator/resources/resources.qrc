@@ -4,5 +4,6 @@
         <file>meshes/model.mesh</file>
         <file>satellite</file>
         <file>images/gpsarrow.png</file>
+        <file>images/placeholder.jpg</file>
     </qresource>
 </RCC>

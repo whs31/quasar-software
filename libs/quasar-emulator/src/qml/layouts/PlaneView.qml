@@ -48,7 +48,7 @@ View3D { id: c_3DView;
 
     PerspectiveCamera {
         id: camera;
-        position: Qt.vector3d(0, 40, 100);
+        position: Qt.vector3d(mesh_HelicopterMesh.fl_uavX, mesh_HelicopterMesh.fl_uavY + 40, mesh_HelicopterMesh.fl_uavZ + 100);
         eulerRotation.x: -10;
     }
 
@@ -59,9 +59,22 @@ View3D { id: c_3DView;
     Node {
         id: node_HelicopterNode;
 
-        Model {
-            id: mesh_HelicopterMesh;
+        NumberAnimation {
+            target: mesh_HelicopterMesh
+            property: "fl_uavZ";
+            to: -100000;
+            duration: 10000;
+            easing.type: Easing.InOutQuad;
+            running: true;
+        }
+
+        Model { id: mesh_HelicopterMesh;
+            property real fl_uavX: 0;
+            property real fl_uavY: 0;
+            property real fl_uavZ: 0;
+
             source: "qrc:/meshes/model.mesh";
+            position: Qt.vector3d(fl_uavX, fl_uavY, fl_uavZ);
 
             eulerRotation.x: Telemetry.pitch;
             eulerRotation.y: -Telemetry.course + 180;
@@ -75,5 +88,25 @@ View3D { id: c_3DView;
                 mat_Placeholder
             ]
         }
+
+//        Model {
+//            source: "#Rectangle"
+//            scale: Qt.vector3d(100000, 100000, 1);
+//            position: Qt.vector3d(0, 0, -10);
+//            eulerRotation.x: -90;
+//            materials: DefaultMaterial {
+//                diffuseMap: Texture {
+//                    source: "qrc:/images/placeholder.jpg"
+//                    tilingModeHorizontal: Texture.Repeat;
+//                    tilingModeVertical: Texture.Repeat;
+//                    scaleU: 100000;
+//                    scaleV: 100000;
+//                }
+//                normalMap: Texture {
+//                    source: "images/grass_n.jpg";
+//                }
+//                bumpAmount: 0.6;
+//            }
+//        }
     }
 }

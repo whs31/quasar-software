@@ -69,22 +69,22 @@ Rectangle {
         }
     }
 
-    Buttons.ClassicButton { id: btn_NetworkTab;
+    Buttons.ClassicButton { id: btn_PlannerTab;
         property bool b_Active: i_CurrentTab === 2;
 
         anchors.left: btn_FocusTab.right ;
         anchors.top: parent.top;
 
-        fixed_width: 240;
+        fixed_width: 260;
         fixed_height: parent.height;
-        label_text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
+        label_text: "ПЛАНИРОВЩИК ЗАДАНИЙ";
         label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
         background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
         label_color: Theme.color("light1");
         background_radius: 0;
         icon_px_size: 16;
-        icon_source: "qrc:/icons/tabs/plot.png";
+        icon_source: "qrc:/icons/tabs/plan.png";
         label_text_bold: true;
         label_text_size: 15;
 
@@ -100,8 +100,39 @@ Rectangle {
         }
     }
 
-    Buttons.ClassicButton { id: btn_SettingsTab;
+    Buttons.ClassicButton { id: btn_NetworkTab;
         property bool b_Active: i_CurrentTab === 3;
+
+        anchors.left: btn_PlannerTab.right ;
+        anchors.top: parent.top;
+
+        fixed_width: 240;
+        fixed_height: parent.height;
+        label_text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
+        label_text_family: root.s_FontMain;
+        background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
+        background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");
+        label_color: Theme.color("light1");
+        background_radius: 0;
+        icon_px_size: 16;
+        icon_source: "qrc:/icons/tabs/plot.png";
+        label_text_bold: true;
+        label_text_size: 15;
+
+        onClicked: i_CurrentTab = 3;
+
+        Rectangle {
+            color: Theme.color("light1");
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.verticalCenter: parent.top;
+            height: 2;
+            visible: parent.b_Active;
+        }
+    }
+
+    Buttons.ClassicButton { id: btn_SettingsTab;
+        property bool b_Active: i_CurrentTab === 4;
 
         anchors.left: btn_NetworkTab.right;
         anchors.top: parent.top;
@@ -119,7 +150,7 @@ Rectangle {
         label_text_bold: true;
         label_text_size: 15;
 
-        onClicked: i_CurrentTab = 3;
+        onClicked: i_CurrentTab = 4;
 
         Rectangle {
             color: Theme.color("light1");
@@ -132,7 +163,7 @@ Rectangle {
     }
 
     Buttons.ClassicButton { id: btn_InfoTab;
-        property bool b_Active: i_CurrentTab === 4;
+        property bool b_Active: i_CurrentTab === 5;
 
         anchors.left: btn_SettingsTab.right;
         anchors.top: parent.top;
@@ -150,7 +181,7 @@ Rectangle {
         label_text_bold: true;
         label_text_size: 15;
 
-        onClicked: i_CurrentTab = 4;
+        onClicked: i_CurrentTab = 5;
 
         Rectangle {
             color: Theme.color("light1");

@@ -46,5 +46,6 @@
         <file>icons/tabs/plot.png</file>
         <file>icons/tabs/settings.png</file>
         <file>themes/nord.json</file>
+        <file>icons/tabs/plan.png</file>
     </qresource>
 </RCC>

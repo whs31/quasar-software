@@ -7,7 +7,7 @@ Item {
         anchors.fill: parent;
         focus: true;
 
-        enabled: root.i_CurrentTabAlias === 2;
+        enabled: root.i_CurrentTabAlias === 3;
         z: 1000;
     }
 

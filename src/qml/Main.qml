@@ -42,12 +42,12 @@ Window { id: root;
     property string s_FontMain: font_Main.name;
 
     Widgets.DebugConsole { id: c_DebugConsole;
-        enabled: b_ConsoleShown && i_CurrentTabAlias !== 2;
-        visible: b_ConsoleShown && i_CurrentTabAlias !== 2;
+        enabled: b_ConsoleShown && i_CurrentTabAlias !== 3;
+        visible: b_ConsoleShown && i_CurrentTabAlias !== 3;
     }
     DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: b_ConsoleShown && i_CurrentTabAlias !== 2;
-                     visible: b_ConsoleShown && i_CurrentTabAlias !== 2; }
+                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: b_ConsoleShown && i_CurrentTabAlias !== 3;
+                     visible: b_ConsoleShown && i_CurrentTabAlias !== 3; }
 
     Layouts.TopBar { id: c_TopBar;
         height: 70;
@@ -96,8 +96,8 @@ Window { id: root;
 
     Tabs.NetworkTab { id: c_NetworkTab;
         anchors.fill: c_MapTab;
-        opacity: c_TabBar.i_CurrentTab === 2;
-        enabled: c_TabBar.i_CurrentTab === 2;
+        opacity: c_TabBar.i_CurrentTab === 3;
+        enabled: c_TabBar.i_CurrentTab === 3;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 }

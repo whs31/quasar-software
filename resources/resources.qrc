@@ -47,5 +47,8 @@
         <file>icons/tabs/settings.png</file>
         <file>themes/nord.json</file>
         <file>icons/tabs/plan.png</file>
+        <file>icons/toolbar/map/Rectangle 29.png</file>
+        <file>icons/toolbar/map/Rectangle 30.png</file>
+        <file>icons/toolbar/map/Rectangle 31.png</file>
     </qresource>
 </RCC>

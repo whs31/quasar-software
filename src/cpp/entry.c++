@@ -4,6 +4,7 @@
 #include "config/config.h++"
 #include "map/ruler.h++"
 #include "map/route.h++"
+#include "map/clickhandler.h++"
 #include "scenegraph/cpu/statusindicator.h++"
 #include "scenegraph/cpu/progressbar.h++"
 #include "network/network.h++"
@@ -19,6 +20,7 @@ Entry::Entry(QObject *parent)
     qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
     qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get(this));
     qmlRegisterSingletonInstance<Network::Network>("Network", 1, 0, "Network", Network::Network::get(this));
+    qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get(this));
 
     qmlRegisterType<Map::Ruler>("RulerModel", 1, 0, "RulerModel");
     qmlRegisterType<Map::Route>("Route", 1, 0, "Route");

@@ -3,6 +3,7 @@ import QtLocation 5.15
 import QtPositioning 5.15
 import Paths 1.0
 import RulerModel 1.0
+import ClickHandler 1.0
 
 import "map" as MapTab;
 
@@ -35,9 +36,19 @@ Map { id: c_Map;
     MouseArea { id: c_MapMouseArea;
         hoverEnabled: true;
         anchors.fill: parent;
+        acceptedButtons: Qt.LeftButton | Qt.RightButton;
 
         onClicked: {
-            c_RulerModel.insertPoint(c_Map.toCoordinate(Qt.point(mouseX, mouseY)), 0);
+            if(ClickHandler.state === ClickHandler.RulerActive)
+            {
+                if(mouse.button === Qt.LeftButton)
+                    c_RulerModel.insertPoint(c_Map.toCoordinate(Qt.point(mouseX, mouseY)), 0);
+                if(mouse.button === Qt.RightButton)
+                {
+                    c_RulerModel.resetRoute();
+                    console.error("asd");
+                }
+            }
         }
     }
 

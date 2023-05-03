@@ -22,5 +22,8 @@ uint32_t ipAddressToHex(const QString& ip_address)
     uint8_t ch4 = ip_address.split('.').at(3).toUInt();
 
     uint32_t ret = ch4 | (ch3 << 8) | (ch2 << 16) | (ch1 << 24);
+    #ifdef QT_DEBUG
+        qDebug().noquote() << "[UTILITIES] Converted" << ip_address << "to" << Qt::hex << ret << Qt::dec;
+    #endif
     return ret;
 }

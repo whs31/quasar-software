@@ -35,5 +35,6 @@
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
         <file>layouts/topbar/MapToolbar.qml</file>
+        <file>layouts/topbar/map/MapModeLayout.qml</file>
     </qresource>
 </RCC>

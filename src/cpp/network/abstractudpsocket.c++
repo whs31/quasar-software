@@ -14,7 +14,6 @@ AbstractUDPSocket::~AbstractUDPSocket()
     this->disconnect();
 }
 
-
 bool Network::AbstractUDPSocket::connect(const QString& address)
 {
     QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);

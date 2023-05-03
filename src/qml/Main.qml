@@ -14,6 +14,7 @@ import "tabs" as Tabs
 Window { id: root;
     property bool b_ConsoleShown: true;
     property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
+    property alias i_CurrentMapMode: c_MapTab.i_MapMode;
 
     width: 640;
     height: 480;

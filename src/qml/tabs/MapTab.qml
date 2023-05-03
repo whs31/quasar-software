@@ -46,5 +46,5 @@ Map { id: c_Map;
     MapTab.UAVRoute { }
 
     RulerModel { id: c_RulerModel; }
-    MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: RulerModel.lastLatitude; fl_LastLongitude: RulerModel.lastLongitude; }
+    MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
 }

@@ -11,18 +11,18 @@ namespace Map
     class Ruler : public QAbstractListModel
     {
         Q_OBJECT
-        Q_PROPERTY(double lastLatitude READ lastLatitude WRITE setLastLatitude NOTIFY lastLatitudeChanged)
-        Q_PROPERTY(double lastLongitude READ lastLongitude WRITE setLastLongitude NOTIFY lastLongitudeChanged)
-        Q_PROPERTY(double totalLength READ totalLength WRITE setTotalLength NOTIFY totalLengthChanged)
+        Q_PROPERTY(qreal lastLatitude READ lastLatitude WRITE setLastLatitude NOTIFY lastLatitudeChanged)
+        Q_PROPERTY(qreal lastLongitude READ lastLongitude WRITE setLastLongitude NOTIFY lastLongitudeChanged)
+        Q_PROPERTY(qreal totalLength READ totalLength WRITE setTotalLength NOTIFY totalLengthChanged)
 
         QList<QVariantList> m_segments;
         QList<QGeoCoordinate> m_path;
         QList<QGeoCoordinate> m_segmentsCenter;
         Orthodrom m_orthodrom;
 
-        double m_lastLatitude;
-        double m_lastLongitude;
-        double m_totalLength;
+        qreal m_lastLatitude = 0;
+        qreal m_lastLongitude = 0;
+        qreal m_totalLength = 0;
 
         public:
             explicit Ruler(QObject *parent = nullptr);
@@ -47,14 +47,14 @@ namespace Map
             __qml QGeoCoordinate calculateCenter(quint16 _index);
             __qml qreal calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2);
 
-            double totalLength() const;
-            void setTotalLength(double other);
+            qreal totalLength() const;
+            void setTotalLength(qreal other);
 
-            double lastLatitude() const;
-            void setLastLatitude(double other);
+            qreal lastLatitude() const;
+            void setLastLatitude(qreal other);
 
-            double lastLongitude() const;
-            void setLastLongitude(double other);
+            qreal lastLongitude() const;
+            void setLastLongitude(qreal other);
 
             signals:
                 __signal totalLengthChanged();

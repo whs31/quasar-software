@@ -7,7 +7,6 @@ using namespace Map;
 Ruler::Ruler(QObject *parent)
     : QAbstractListModel{parent}
 {
-
 }
 
 Ruler::~Ruler()
@@ -61,7 +60,6 @@ void Ruler::setRoute(const QList<QGeoCoordinate> &_path)
     for (int i = 0; i< m_path.size(); ++i){
         updatePoint(m_path.at(i), i);
     }
-
 }
 
 void Ruler::resetRoute()
@@ -254,22 +252,22 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
     return result;
 }
 
-double Ruler::totalLength() const { return m_totalLength; }
-void Ruler::setTotalLength(double other) {
+qreal Ruler::totalLength() const { return m_totalLength; }
+void Ruler::setTotalLength(qreal other) {
     if (qFuzzyCompare(m_totalLength, other)) return;
     m_totalLength = other;
     emit totalLengthChanged();
 }
 
-double Ruler::lastLatitude() const { return m_lastLatitude; }
-void Ruler::setLastLatitude(double other) {
+qreal Ruler::lastLatitude() const { return m_lastLatitude; }
+void Ruler::setLastLatitude(qreal other) {
     if (qFuzzyCompare(m_lastLatitude, other)) return;
     m_lastLatitude = other;
     emit lastLatitudeChanged();
 }
 
-double Ruler::lastLongitude() const { return m_lastLongitude; }
-void Ruler::setLastLongitude(double other) {
+qreal Ruler::lastLongitude() const { return m_lastLongitude; }
+void Ruler::setLastLongitude(qreal other) {
     if (qFuzzyCompare(m_lastLongitude, other)) return;
     m_lastLongitude = other;
     emit lastLongitudeChanged();

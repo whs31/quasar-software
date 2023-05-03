@@ -23,7 +23,6 @@ MapItemView { id: orthodromSegments;
 
         MapQuickItem {
             coordinate: QtPositioning.coordinate(fl_LastLatitude, fl_LastLongitude);
-            onCoordinateChanged: console.log(coordinate);
             visible: fl_LastLongitude !== 0;
             zoomLevel: 0;
             anchorPoint.x: 8;

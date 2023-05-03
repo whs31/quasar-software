@@ -29,16 +29,7 @@ Window { id: root;
         showFullScreen();
     }
 
-    FontLoader { id: font_Medium; source: "qrc:/fonts/SofiaSans-Medium.ttf"; }
-    FontLoader { id: font_SemiBold; source: "qrc:/fonts/SofiaSans-SemiBold.ttf"; }
-    FontLoader { id: font_Bold; source: "qrc:/fonts/SofiaSans-Bold.ttf"; }
-    FontLoader { id: font_ExtraBold; source: "qrc:/fonts/SofiaSans-ExtraBold.ttf"; }
     FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
-
-    property string s_FontMedium: font_Medium.name;
-    property string s_FontSemiBold: font_SemiBold.name;
-    property string s_FontBold: font_Bold.name;
-    property string s_FontExtraBold: font_ExtraBold.name;
     property string s_FontMain: font_Main.name;
 
     Widgets.DebugConsole { id: c_DebugConsole;

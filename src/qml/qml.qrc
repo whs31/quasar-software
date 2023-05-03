@@ -34,5 +34,6 @@
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
+        <file>layouts/topbar/MapToolbar.qml</file>
     </qresource>
 </RCC>

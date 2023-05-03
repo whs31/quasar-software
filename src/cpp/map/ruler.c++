@@ -66,6 +66,8 @@ void Ruler::setRoute(const QList<QGeoCoordinate> &_path)
 
 void Ruler::resetRoute()
 {
+    setLastLatitude(0);
+    setLastLongitude(0);
     beginRemoveRows(QModelIndex(), 0 , m_segments.size() - 1);
     m_segments.clear();
     m_path.clear();
@@ -73,8 +75,10 @@ void Ruler::resetRoute()
     endRemoveRows();
 }
 
-void Ruler::insertPoint(const QGeoCoordinate &_point, quint16 _index)
+void Ruler::insertPoint(const QGeoCoordinate& _point, quint16 _index)
 {
+    setLastLatitude(_point.latitude());
+    setLastLongitude(_point.longitude());
     quint16 pointsCount = m_segments.size() + 1;
     if (_index > m_path.size() || _index < 0){
         qWarning() << "[MAP] Ruler : \t неправильный индекс при добавлении точки в маршрут. index: " << _index;
@@ -248,4 +252,25 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
     result = ((_coord1.latitude() < _coord2.latitude() && newLong1 < newLong2) || (_coord1.latitude() > _coord2.latitude() && newLong1 > newLong2)) ? angle - 90 : 90 - angle;
 
     return result;
+}
+
+double Ruler::totalLength() const { return m_totalLength; }
+void Ruler::setTotalLength(double other) {
+    if (qFuzzyCompare(m_totalLength, other)) return;
+    m_totalLength = other;
+    emit totalLengthChanged();
+}
+
+double Ruler::lastLatitude() const { return m_lastLatitude; }
+void Ruler::setLastLatitude(double other) {
+    if (qFuzzyCompare(m_lastLatitude, other)) return;
+    m_lastLatitude = other;
+    emit lastLatitudeChanged();
+}
+
+double Ruler::lastLongitude() const { return m_lastLongitude; }
+void Ruler::setLastLongitude(double other) {
+    if (qFuzzyCompare(m_lastLongitude, other)) return;
+    m_lastLongitude = other;
+    emit lastLongitudeChanged();
 }

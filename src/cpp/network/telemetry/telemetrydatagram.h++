@@ -49,49 +49,8 @@ namespace Network
         uint8_t satellites = 0;
         uint16_t crc16 = 0x0;
 
-        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data)
-        {
-            dataStream << data.marker;
-            dataStream << data.version;
-            dataStream << data.latitude;
-            dataStream << data.longitude;
-            dataStream << data.altitude;
-            dataStream << data.velocity_course;
-            dataStream << data.velocity_east;
-            dataStream << data.velocity_north;
-            dataStream << data.velocity_vertical;
-            dataStream << data.pitch;
-            dataStream << data.roll;
-            dataStream << data.yaw;
-            dataStream << data.course;
-            dataStream << data.time;
-            dataStream << data.satellites;
-            dataStream << data.crc16;
-
-            return dataStream;
-        }
-
-        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryDatagram& data)
-        {
-            dataStream >> data.marker;
-            dataStream >> data.version;
-            dataStream >> data.latitude;
-            dataStream >> data.longitude;
-            dataStream >> data.altitude;
-            dataStream >> data.velocity_course;
-            dataStream >> data.velocity_east;
-            dataStream >> data.velocity_north;
-            dataStream >> data.velocity_vertical;
-            dataStream >> data.pitch;
-            dataStream >> data.roll;
-            dataStream >> data.yaw;
-            dataStream >> data.course;
-            dataStream >> data.time;
-            dataStream >> data.satellites;
-            dataStream >> data.crc16;
-
-            return dataStream;
-        }
+        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data);
+        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryDatagram& data);
     };
 
     struct TelemetryRequest
@@ -102,26 +61,73 @@ namespace Network
         uint32_t interval_ms = 0;
         uint16_t crc16 = 0x0;
 
-        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data)
-        {
-            dataStream << data.marker;
-            dataStream << data.init_flag;
-            dataStream << data.port;
-            dataStream << data.interval_ms;
-            dataStream << data.crc16;
-
-            return dataStream;
-        }
-
-        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data)
-        {
-            dataStream >> data.marker;
-            dataStream >> data.init_flag;
-            dataStream >> data.port;
-            dataStream >> data.interval_ms;
-            dataStream >> data.crc16;
-
-            return dataStream;
-        }
+        friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data);
+        friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data);
     };
+
+    inline QDataStream &operator <<(QDataStream &dataStream, const TelemetryDatagram &data)
+    {
+        dataStream << data.marker;
+        dataStream << data.version;
+        dataStream << data.latitude;
+        dataStream << data.longitude;
+        dataStream << data.altitude;
+        dataStream << data.velocity_course;
+        dataStream << data.velocity_east;
+        dataStream << data.velocity_north;
+        dataStream << data.velocity_vertical;
+        dataStream << data.pitch;
+        dataStream << data.roll;
+        dataStream << data.yaw;
+        dataStream << data.course;
+        dataStream << data.time;
+        dataStream << data.satellites;
+        dataStream << data.crc16;
+
+        return dataStream;
+    }
+
+    inline QDataStream &operator >>(QDataStream &dataStream, TelemetryDatagram &data)
+    {
+        dataStream >> data.marker;
+        dataStream >> data.version;
+        dataStream >> data.latitude;
+        dataStream >> data.longitude;
+        dataStream >> data.altitude;
+        dataStream >> data.velocity_course;
+        dataStream >> data.velocity_east;
+        dataStream >> data.velocity_north;
+        dataStream >> data.velocity_vertical;
+        dataStream >> data.pitch;
+        dataStream >> data.roll;
+        dataStream >> data.yaw;
+        dataStream >> data.course;
+        dataStream >> data.time;
+        dataStream >> data.satellites;
+        dataStream >> data.crc16;
+
+        return dataStream;
+    }
+
+    inline QDataStream &operator <<(QDataStream &dataStream, const TelemetryRequest &data)
+    {
+        dataStream << data.marker;
+        dataStream << data.init_flag;
+        dataStream << data.port;
+        dataStream << data.interval_ms;
+        dataStream << data.crc16;
+
+        return dataStream;
+    }
+
+    inline QDataStream &operator >>(QDataStream &dataStream, TelemetryRequest &data)
+    {
+        dataStream >> data.marker;
+        dataStream >> data.init_flag;
+        dataStream >> data.port;
+        dataStream >> data.interval_ms;
+        dataStream >> data.crc16;
+
+        return dataStream;
+    }
 } // namespace Network;

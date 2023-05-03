@@ -75,9 +75,9 @@ Rectangle {
         anchors.left: btn_FocusTab.right ;
         anchors.top: parent.top;
 
-        fixed_width: 220;
+        fixed_width: 240;
         fixed_height: parent.height;
-        label_text: "СЕТЕВАЯ ИНФОРМАЦИЯ";
+        label_text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
         label_text_family: root.s_FontMain;
         background_color: b_Active ? Theme.color("dark1") : Theme.color("dark0");
         background_secondary_color: b_Active ? Theme.color("dark3") : Theme.color("dark2");

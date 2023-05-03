@@ -18,6 +18,7 @@ Network::Network* Network::Network::get(QObject* parent) {
 Network::Network::Network(QObject* parent)
     : QObject{parent}
     , m_telemetry(new Telemetry(this))
+    , m_remoteData(new RemoteData(this))
     , telemetrySocket(new TelemetrySocket(this, m_telemetry))
     , execdSocket(new ExecdSocket(this))
     , feedbackSocket(new FeedbackSocket(this))
@@ -38,6 +39,11 @@ Network::Network::Network(QObject* parent)
     QObject::connect(telemetrySocket, &TelemetrySocket::rawData, this, &Network::telsock);
     //! @todo execdsock
     QObject::connect(feedbackSocket, &FeedbackSocket::rawData, this, &Network::feedbacksock);
+
+    QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
+        float space = free / (float)total;
+        remoteData()->setStorageSpace(space);
+    });
 }
 
 void Network::Network::startTelemetrySocket(const QString& address, float frequency)
@@ -80,12 +86,20 @@ void Network::Network::stopTCPSocket()
 }
 
 namespace Network {
-    Telemetry *Network::telemetry() const { return m_telemetry; }
+    Telemetry* Network::telemetry() const { return m_telemetry; }
     void Network::setTelemetry(Telemetry* other) {
         if (m_telemetry == other)
             return;
         m_telemetry = other;
         emit telemetryChanged();
+    }
+
+    RemoteData* Network::remoteData() const { return m_remoteData; }
+    void Network::setRemoteData(RemoteData* other) {
+        if (m_remoteData == other)
+            return;
+        m_remoteData = other;
+        emit remoteDataChanged();
     }
 
     float Network::networkDelay() const { return m_networkDelay; }

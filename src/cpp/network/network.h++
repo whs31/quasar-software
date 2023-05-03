@@ -2,6 +2,7 @@
 
 #include <definitions.h++>
 #include "telemetry/telemetry.h++"
+#include "execd/remotedata.h++"
 #include <QtCore/QObject>
 
 class QTimer;
@@ -17,6 +18,7 @@ namespace Network
     {
         Q_OBJECT
         Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
+        Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
 
@@ -27,6 +29,8 @@ namespace Network
         QTimer* m_network_delay_timer;
 
         Telemetry* m_telemetry;
+        RemoteData* m_remoteData;
+
         float m_networkDelay = DISCONNECT_DELAY_THRESHOLD + 0.1f;
         int m_connected = 0;
 
@@ -51,6 +55,9 @@ namespace Network
             Telemetry* telemetry() const;
             void setTelemetry(Telemetry* other);
 
+            RemoteData* remoteData() const;
+            void setRemoteData(RemoteData* other);
+
             float networkDelay() const;
             void setNetworkDelay(float other);
 
@@ -59,6 +66,7 @@ namespace Network
 
             signals:
                 __signal telemetryChanged();
+                __signal remoteDataChanged();
                 __signal networkDelayChanged();
                 __signal connectedChanged();
 

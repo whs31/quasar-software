@@ -44,10 +44,7 @@ Map { id: c_Map;
                 if(mouse.button === Qt.LeftButton)
                     c_RulerModel.insertPoint(c_Map.toCoordinate(Qt.point(mouseX, mouseY)), 0);
                 if(mouse.button === Qt.RightButton)
-                {
                     c_RulerModel.resetRoute();
-                    console.error("asd");
-                }
             }
         }
     }

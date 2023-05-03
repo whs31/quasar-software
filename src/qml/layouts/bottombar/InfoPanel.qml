@@ -12,7 +12,7 @@ Item {
     property real fl_Direction: Network.telemetry.course;
     property int i_SatellitesCount: Network.telemetry.satellites;
     property real fl_ConnectionDelay: Network.networkDelay;
-    property real fl_RemoteDiskSpace: 0.0;
+    property real fl_RemoteDiskSpace: Network.remoteData.storageSpace;
 
     width: 915;
     height: 46;

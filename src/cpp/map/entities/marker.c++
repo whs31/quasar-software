@@ -31,42 +31,16 @@ Marker::Marker(double latitude, double longitude, const QString &name, const QSt
 
 
 QGeoCoordinate Marker::position() const { return m_position; }
-void Marker::setPosition(const QGeoCoordinate &other) {
-    if (m_position == other)
-        return;
-    m_position = other;
-    emit positionChanged();
-}
+void Marker::setPosition(const QGeoCoordinate &other) { m_position = other; }
 
 QString Marker::name() const { return m_name; }
-void Marker::setName(const QString &other) {
-    if (m_name == other)
-        return;
-    m_name = other;
-    emit nameChanged();
-}
+void Marker::setName(const QString &other) { m_name = other; }
 
 QString Marker::icon() const { return m_icon; }
-void Marker::setIcon(const QString &other) {
-    if (m_icon == other)
-        return;
-    m_icon = other;
-    emit iconChanged();
-}
+void Marker::setIcon(const QString &other) { m_icon = other; }
 
 QString Marker::color() const { return m_color; }
-
-void Marker::setColor(const QString &other) {
-    if (m_color == other)
-        return;
-    m_color = other;
-    emit colorChanged();
-}
+void Marker::setColor(const QString &other) { m_color = other; }
 
 QPointF Marker::anchor() const { return m_anchor; }
-void Marker::setAnchor(QPointF other) {
-    if (m_anchor == other)
-        return;
-    m_anchor = other;
-    emit anchorChanged();
-}
+void Marker::setAnchor(QPointF other) { m_anchor = other; }

@@ -10,17 +10,11 @@ namespace Map
     class Marker
     {
         Q_GADGET
-        Q_PROPERTY(QGeoCoordinate position READ position WRITE setPosition NOTIFY positionChanged)
-        Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
-        Q_PROPERTY(QString icon READ icon WRITE setIcon NOTIFY iconChanged)
-        Q_PROPERTY(QString color READ color WRITE setColor NOTIFY colorChanged)
-        Q_PROPERTY(QPointF anchor READ anchor WRITE setAnchor NOTIFY anchorChanged)
-
-        QGeoCoordinate m_position;
-        QString m_name;
-        QString m_icon;
-        QString m_color;
-        QPointF m_anchor;
+        Q_PROPERTY(QGeoCoordinate position READ position WRITE setPosition)
+        Q_PROPERTY(QString name READ name WRITE setName)
+        Q_PROPERTY(QString icon READ icon WRITE setIcon)
+        Q_PROPERTY(QString color READ color WRITE setColor)
+        Q_PROPERTY(QPointF anchor READ anchor WRITE setAnchor)
 
         public:
             Marker();
@@ -42,12 +36,12 @@ namespace Map
             QPointF anchor() const;
             void setAnchor(QPointF other);
 
-            signals:
-                __signal positionChanged();
-                __signal nameChanged();
-                __signal iconChanged();
-                __signal colorChanged();
-                __signal anchorChanged();
+        private:
+            QGeoCoordinate m_position;
+            QString m_name;
+            QString m_icon;
+            QString m_color;
+            QPointF m_anchor;
     };
 } // namespace Map;
 

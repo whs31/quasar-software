@@ -17,10 +17,12 @@ Rectangle {
     property int frame_radius: 8;
     property int frame_width: 1;
 
+    property color background_color: "transparent";
+
     signal clicked();
 
     id: control;
-    color: "transparent";
+    color: background_color;
     radius: frame_radius;
     border.width: frame_width;
     border.color: frame_enabled ? frame_color : "transparent";
@@ -39,7 +41,7 @@ Rectangle {
         id: animation_hoverOff;
         target: control;
         property: "color";
-        to: "transparent";
+        to: background_color;
         duration: 100;
     }
     SequentialAnimation {
@@ -53,7 +55,7 @@ Rectangle {
         ColorAnimation {
             target: control;
             property: "color";
-            to: "transparent";
+            to: background_color;
             duration: 70;
         }
     }

@@ -14,6 +14,7 @@ namespace Map
             enum MouseState {
                 Idle,
                 RulerActive,
+                ProtractorActive,
                 MarkerActive
             };
             Q_ENUM(MouseState);
@@ -32,6 +33,6 @@ namespace Map
 
         private:
             static ClickHandler* instance;
-            MouseState m_state = RulerActive;
+            MouseState m_state = Idle;
     };
 } // namespace Map;

@@ -53,5 +53,12 @@
         <file>icons/toolbar/map/sat-disabled.png</file>
         <file>icons/toolbar/map/schema-active.png</file>
         <file>icons/toolbar/map/schema-disabled.png</file>
+        <file>icons/toolbar/map/eraser.png</file>
+        <file>icons/toolbar/map/gps.png</file>
+        <file>icons/toolbar/map/hidden.png</file>
+        <file>icons/toolbar/map/map.png</file>
+        <file>icons/toolbar/map/protractor.png</file>
+        <file>icons/toolbar/map/ruler.png</file>
+        <file>icons/toolbar/map/trash.png</file>
     </qresource>
 </RCC>

@@ -124,7 +124,6 @@ Rectangle {
         delay: 750;
         timeout: 5000;
         visible: tooltip_enabled ? controlMouseArea.containsMouse : false;
-        font.capitalization: Font.AllUppercase;
         font.pixelSize: 10;
         contentItem: Text {
             text: tooltip_text;

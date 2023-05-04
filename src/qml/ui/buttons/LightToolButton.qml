@@ -1,13 +1,12 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import Theme 1.0
 
 Rectangle {
-    property int fixed_width: 100 * Theme.scalingFactor.x;
-    property int fixed_height: 25 * Theme.scalingFactor.y;
+    property int fixed_width: 100;
+    property int fixed_height: 25;
 
-    property int icon_px_size: 16 * Theme.scalingFactor.y;
-    property string icon_source: "qrc:/ui-resources/white/close.png";
+    property int icon_px_size: 16;
+    property string icon_source: "qrc:/icons/close.png";
     property string tooltip_text: "Sample text";
     property bool tooltip_enabled: false;
     property string label_text_family: "helvetica";
@@ -15,7 +14,7 @@ Rectangle {
     property color highlight_color: "#7D5233";
     property color frame_color: "#FF0000";
     property bool frame_enabled: true;
-    property int frame_radius: 8 * Theme.scalingFactor.x;
+    property int frame_radius: 8;
     property int frame_width: 1;
 
     signal clicked();
@@ -30,12 +29,12 @@ Rectangle {
     opacity: enabled ? 1 : 0.5;
 
     ColorAnimation {
-            id: animation_hoverOn;
-            target: control;
-            property: "color";
-            to: highlight_color;
-            duration: 100;
-        }
+        id: animation_hoverOn;
+        target: control;
+        property: "color";
+        to: highlight_color;
+        duration: 100;
+    }
     ColorAnimation {
         id: animation_hoverOff;
         target: control;
@@ -97,7 +96,6 @@ Rectangle {
         delay: 750;
         timeout: 5000;
         visible: tooltip_enabled ? controlMouseArea.containsMouse : false;
-        font.capitalization: Font.AllUppercase;
         font.pixelSize: 10;
         contentItem: Text {
             text: tooltip_text;
@@ -106,7 +104,7 @@ Rectangle {
         }
         background: Rectangle {
             color: "#dae1e5";
-            radius: 10;
+            radius: 2;
             opacity: 0.75;
         }
     }

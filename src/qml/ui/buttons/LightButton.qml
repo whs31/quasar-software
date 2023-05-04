@@ -1,25 +1,23 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
-import Theme 1.0
-
 
 Rectangle {
 
     property bool frame_enabled: true;
-    property int fixed_width: 100 * Theme.scalingFactor.x;
-    property int fixed_height: 25 * Theme.scalingFactor.y;
+    property int fixed_width: 100;
+    property int fixed_height: 25;
 
     property string tooltip_text: "Sample tooltip";
     property bool tooltip_enabled: false;
     property string label_text: "Sample text";
     property color label_color: "#de3857";
-    property int label_text_size: 12 * Theme.scalingFactor.y;
+    property int label_text_size: 12;
     property string label_text_family: "Helvetica [Cronyx]";
     property bool label_text_bold: false;
     property int label_textAlignment: Text.AlignHCenter;
 
     property color highlight_color: "#7D5233";
-    property int frame_radius: 0 * Theme.scalingFactor.x;
+    property int frame_radius: 0;
     property int frame_width: 1;
 
     signal clicked();
@@ -91,8 +89,8 @@ Rectangle {
         verticalAlignment: Text.AlignVCenter;
         horizontalAlignment: label_textAlignment;
         anchors.fill: parent;
-        anchors.leftMargin: 5 * Theme.scalingFactor.x;
-        anchors.rightMargin: 5 * Theme.scalingFactor.x;
+        anchors.leftMargin: 5;
+        anchors.rightMargin: 5;
     }
 
     MouseArea {
@@ -108,7 +106,6 @@ Rectangle {
         delay: 750;
         timeout: 5000;
         visible: tooltip_enabled ? controlMouseArea.containsMouse : false;
-        font.capitalization: Font.AllUppercase;
         font.pixelSize: 10;
         contentItem: Text {
             text: tooltip_text;
@@ -117,7 +114,7 @@ Rectangle {
         }
         background: Rectangle {
             color: "#dae1e5";
-            radius: 10;
+            radius: 2;
             opacity: 0.75;
         }
     }

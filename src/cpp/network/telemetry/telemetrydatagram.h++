@@ -1,10 +1,12 @@
 #pragma once
 
-/* Telemetry Datagram in Rust
- *
+/*
+Telemetry Datagram in Rust
+
 #[repr(C, packed)]
 #[derive(Serialize)]
-pub struct Datagram{
+pub struct Datagram
+{
     marker : u32,
     version : u8,
     lat : f64,
@@ -24,7 +26,7 @@ pub struct Datagram{
 }
 */
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <cstdint>
 #include <QtCore/QDataStream>
 

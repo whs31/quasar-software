@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 #include <QtCore/QtGlobal>
 #include <QtCore/QtMath>
@@ -10,14 +10,6 @@ namespace Map
 {
     class Orthodrom
     {
-        double A1;
-        double A2;
-
-        QGeoCoordinate _coord1;
-        QGeoCoordinate _coord2;
-
-        QVariantList orthodromPath;
-
         public:
             Orthodrom(const QGeoCoordinate &coord1, const QGeoCoordinate &coord2);
             explicit Orthodrom();
@@ -30,6 +22,15 @@ namespace Map
         private:
             void setPoints(quint16 spacing);
             qreal getDistance();
+
+        private:
+            double A1;
+            double A2;
+
+            QGeoCoordinate _coord1;
+            QGeoCoordinate _coord2;
+
+            QVariantList orthodromPath;
     };
 } // namespace Map;
 

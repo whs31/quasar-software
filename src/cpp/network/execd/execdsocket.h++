@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include "network/abstractudpsocket.h++"
 
 namespace Network
@@ -8,7 +8,6 @@ namespace Network
     class ExecdSocket : public AbstractUDPSocket
     {
         Q_OBJECT
-        uint16_t message_uid = 0;
 
         public:
             enum Command
@@ -36,5 +35,8 @@ namespace Network
 
             private slots:
                 void processResult(QByteArray data);
+
+        private:
+            uint16_t message_uid = 0;
     };
 }

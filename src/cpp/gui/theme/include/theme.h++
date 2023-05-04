@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 #include <QtCore/QPointF>
 #include <QtCore/QHash>
@@ -8,8 +8,6 @@
 #include <imgui/imgui.h>
 
 #define THEME GUI::Theme::get()
-
-class ImVec4;
 
 namespace GUI
 {
@@ -21,9 +19,6 @@ namespace GUI
 
         //! @brief Вектор динамического скейлинга интерфейса по осям X и Y.
         Q_PROPERTY(QPointF scalingFactor READ scalingFactor WRITE setScalingFactor NOTIFY scalingFactorChanged)
-
-        static Theme* _instance;
-        QPointF m_scalingFactor;
 
         public:
             static Theme* get(QObject* parent = nullptr);
@@ -45,8 +40,8 @@ namespace GUI
             ImVec4 hexToFloatColor(const QString& hex, float alpha = 1) const;
 
             //! @brief Сеттер и геттер для параметра scalingFactor.
-            QPointF scalingFactor() const;
-            void setScalingFactor(QPointF factor);
+            __getter QPointF scalingFactor() const;
+            __setter void setScalingFactor(QPointF factor);
 
             //! @brief Задает размеры окна извне. Необходимо вызывать каждый раз, когда размеры
             //!        окна меняются.
@@ -65,5 +60,9 @@ namespace GUI
 
         private:
             explicit Theme(QObject* parent = nullptr);
+
+        private:
+            static Theme* _instance;
+            QPointF m_scalingFactor;
     };
 } // namespace GUI;

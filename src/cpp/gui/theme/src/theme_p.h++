@@ -8,9 +8,6 @@ namespace GUI
     {
         Q_DECLARE_PUBLIC(Theme)
 
-        Theme* q_ptr;
-        QHash<QString, QString> m_color;
-
         public:
             ThemePrivate(Theme* parent);
             virtual ~ThemePrivate() = default;
@@ -20,5 +17,9 @@ namespace GUI
             void applyTheme(QString theme);
 
             std::vector<QString> foundThemes;
+
+        private:
+            Theme* q_ptr;
+            QHash<QString, QString> m_color;
     };
 } // namespace GUI;

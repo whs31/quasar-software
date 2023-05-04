@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 #include <QtCore/QMap>
 #include <QtQml/QQmlPropertyMap>
@@ -16,7 +16,6 @@ namespace Config
     {
         Q_OBJECT
 
-        static Config* instance;
         const QMap<QString, QVariant> defaults = {
             {"remoteIP", "127.0.0.1"},
             {"localIP", "127.0.0.1"},
@@ -36,12 +35,11 @@ namespace Config
             {"useDriftAngle", "true"},
             {"thetaAzimuthCorrection", "5"}
         };
-        QQmlPropertyMap m_values;
-        QSettings* ini;
 
         public:
             static Config* get(QObject* parent = nullptr);
             virtual ~Config() = default;
+
             __qml QQmlPropertyMap* map();
 
             void sync();
@@ -52,5 +50,10 @@ namespace Config
 
         private:
             explicit Config(QObject* parent = nullptr);
+
+        private:
+            static Config* instance;
+            QQmlPropertyMap m_values;
+            QSettings* ini;
     };
 } // namespace Config;

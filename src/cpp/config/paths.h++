@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 
 namespace Config
@@ -8,8 +8,6 @@ namespace Config
     class Paths : public QObject
     {
         Q_OBJECT
-
-        static Paths* instance;
 
         public:
             static Paths* get(QObject* parent = nullptr);
@@ -28,5 +26,8 @@ namespace Config
         private:
             explicit Paths(QObject* parent = nullptr);
             void createMapConfigs(void);
+
+        private:
+            static Paths* instance;
     };
 } // namespace Config;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 
 class QTcpServer;
@@ -14,16 +14,6 @@ namespace Network
         Q_OBJECT
 
         constexpr __global uint32_t TCP_TIMEOUT = 10'000;
-
-        QTcpServer* server;
-        QTcpSocket* socket;
-        QTimer* timer;
-        QByteArray imageData;
-
-        bool success = false;
-        uint8_t splitIndex = 0;
-        uint32_t fileSize = 0;
-        QString filename;
 
         public:
             explicit TCPSocket(QObject* parent = nullptr);
@@ -49,5 +39,15 @@ namespace Network
             void readFileInfo(QByteArray data);
             void readFileBody(QByteArray data);
 
+        private:
+            QTcpServer* server;
+            QTcpSocket* socket;
+            QTimer* timer;
+            QByteArray imageData;
+
+            bool success = false;
+            uint8_t splitIndex = 0;
+            uint32_t fileSize = 0;
+            QString filename;
     };
 } // namespace Network;

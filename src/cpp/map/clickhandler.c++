@@ -9,17 +9,14 @@ ClickHandler *ClickHandler::get(QObject* parent) {
     return instance;
 }
 
-ClickHandler::ClickHandler(QObject *parent)
+ClickHandler::ClickHandler(QObject* parent)
     : QObject{parent}
 {
 
 }
 
-
-
 Map::ClickHandler::MouseState ClickHandler::state() const { return m_state; }
-void ClickHandler::setState(const MouseState& other)
-{
+void ClickHandler::setState(const MouseState& other) {
     if (m_state == other)
         return;
     m_state = other;

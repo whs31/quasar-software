@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QString>
 #include <QtCore/QPointF>
 #include <QtPositioning/QGeoCoordinate>
@@ -21,20 +21,20 @@ namespace Map
             Marker(const QGeoCoordinate& coordinates, const QString& name, const QString& icon, QPointF anchors);
             Marker(double latitude, double longitude, const QString& name, const QString& icon, QPointF anchors);
 
-            QGeoCoordinate position() const;
-            void setPosition(const QGeoCoordinate& other);
+            __getter QGeoCoordinate position() const;
+            __setter void setPosition(const QGeoCoordinate& other);
 
-            QString name() const;
-            void setName(const QString& other);
+            __getter QString name() const;
+            __setter void setName(const QString& other);
 
-            QString icon() const;
-            void setIcon(const QString& other);
+            __getter QString icon() const;
+            __setter void setIcon(const QString& other);
 
-            QString color() const;
-            void setColor(const QString& other);
+            __getter QString color() const;
+            __setter void setColor(const QString& other);
 
-            QPointF anchor() const;
-            void setAnchor(QPointF other);
+            __getter QPointF anchor() const;
+            __setter void setAnchor(QPointF other);
 
         private:
             QGeoCoordinate m_position;

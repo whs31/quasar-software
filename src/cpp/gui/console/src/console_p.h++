@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include "../console.h++"
 #include <QtCore/QMap>
 #include <functional>
@@ -15,7 +15,6 @@ class ConsolePrivate : public QObject
 {
     Q_OBJECT
     Q_DECLARE_PUBLIC(Console)
-    Console* q_ptr;
 
     QMap<QString, std::function<void()>> command_list = {
         { "quit", [this](){ quit(); } },
@@ -48,4 +47,7 @@ class ConsolePrivate : public QObject
         void __concommand tcp_stop();
         void __concommand sim();
         void __concommand nets();
+
+    private:
+        Console* q_ptr;
 };

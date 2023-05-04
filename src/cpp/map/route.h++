@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 #include <QtCore/QVariantList>
 
@@ -18,11 +18,6 @@ namespace Map
 
         constexpr __global int RECENT_ROUTE_SIZE = 1000;
 
-        QVariantList m_fullRoute;
-        QVariantList m_recentRoute;
-
-        RouteLogger* logger;
-
         public:
             explicit Route(QObject* parent = nullptr);
             virtual ~Route();
@@ -30,16 +25,21 @@ namespace Map
             __qml void append(const QGeoCoordinate& coord, float speed = -1, int satellites = -1);
             __qml void clear();
 
+            __getter QVariantList fullRoute() const;
+            __setter void setFullRoute(const QVariantList& other);
 
-            QVariantList fullRoute() const;
-            void setFullRoute(const QVariantList& other);
+            __getter QVariantList recentRoute() const;
+            __setter void setRecentRoute(const QVariantList& other);
 
-            QVariantList recentRoute() const;
-            void setRecentRoute(const QVariantList& other);
+            signals:
+                __signal fullRouteChanged();
+                __signal recentRouteChanged();
 
-        signals:
-            __signal fullRouteChanged();
-            __signal recentRouteChanged();
+        private:
+            QVariantList m_fullRoute;
+            QVariantList m_recentRoute;
+
+            RouteLogger* logger;
     };
 } // namespace Map
 

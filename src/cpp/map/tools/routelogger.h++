@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 
 class QGeoCoordinate;
@@ -12,8 +12,6 @@ namespace Map
     {
         Q_OBJECT
 
-        QString format = "gpx";
-
         public:
             QFile* current_file;
 
@@ -23,6 +21,9 @@ namespace Map
             void setFormat(const QString& format);
             void append(const QGeoCoordinate& point, float speed, int satellites);
             void commit();
+
+        private:
+            QString format = "gpx";
     };
 } // namespace Map
 

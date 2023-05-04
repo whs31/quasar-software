@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include "telemetry/telemetry.h++"
 #include "execd/remotedata.h++"
 #include <QtCore/QObject>
@@ -25,15 +25,6 @@ namespace Network
         constexpr __global float DISCONNECT_DELAY_THRESHOLD = 10.0f;
         constexpr __global float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
 
-        static Network* instance;
-        QTimer* m_network_delay_timer;
-
-        Telemetry* m_telemetry;
-        RemoteData* m_remoteData;
-
-        float m_networkDelay = DISCONNECT_DELAY_THRESHOLD + 0.1f;
-        int m_connected = 0;
-
         public:
             static Network* get(QObject* parent = nullptr);
 
@@ -52,17 +43,17 @@ namespace Network
             __qml void startTCPSocket(const QString& address);
             __qml void stopTCPSocket();
 
-            Telemetry* telemetry() const;
-            void setTelemetry(Telemetry* other);
+            __getter Telemetry* telemetry() const;
+            __setter void setTelemetry(Telemetry* other);
 
-            RemoteData* remoteData() const;
-            void setRemoteData(RemoteData* other);
+            __getter RemoteData* remoteData() const;
+            __setter void setRemoteData(RemoteData* other);
 
-            float networkDelay() const;
-            void setNetworkDelay(float other);
+            __getter float networkDelay() const;
+            __setter void setNetworkDelay(float other);
 
-            int connected() const;
-            void setConnected(int other);
+            __getter int connected() const;
+            __setter void setConnected(int other);
 
             signals:
                 __signal telemetryChanged();
@@ -76,5 +67,15 @@ namespace Network
 
         private:
             explicit Network(QObject* parent = nullptr);
+
+        private:
+            static Network* instance;
+            QTimer* m_network_delay_timer;
+
+            Telemetry* m_telemetry;
+            RemoteData* m_remoteData;
+
+            float m_networkDelay = DISCONNECT_DELAY_THRESHOLD + .1f;
+            int m_connected = 0;
     };
 } // namespace Network;

@@ -1,12 +1,15 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 
 namespace Map
 {
     class ClickHandler : public QObject
     {
+        Q_OBJECT
+        Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
+
         public:
             enum MouseState {
                 Idle,
@@ -15,23 +18,20 @@ namespace Map
             };
             Q_ENUM(MouseState);
 
-        private:
-            Q_OBJECT
-            Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
-
-            static ClickHandler* instance;
-            MouseState m_state = RulerActive;
-
         public:
             static ClickHandler* get(QObject* parent = nullptr);
 
-            MouseState state() const;
-            void setState(const MouseState &newState);
+            __getter MouseState state() const;
+            __setter void setState(const MouseState& other);
 
             signals:
                 __signal stateChanged();
 
         private:
             explicit ClickHandler(QObject* parent = nullptr);
+
+        private:
+            static ClickHandler* instance;
+            MouseState m_state = RulerActive;
     };
 } // namespace Map;

@@ -7,3 +7,5 @@
 #define __global static inline
 #define __concommand
 #define __profile
+#define __setter
+#define __getter

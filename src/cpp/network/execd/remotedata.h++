@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QObject>
 
 namespace Network
@@ -10,15 +10,16 @@ namespace Network
         Q_OBJECT
         Q_PROPERTY(float storageSpace READ storageSpace WRITE setStorageSpace NOTIFY storageSpaceChanged)
 
-        float m_storageSpace = 0;
-
         public:
             explicit RemoteData(QObject* parent = nullptr);
 
-            float storageSpace() const;
-            void setStorageSpace(float other);
+            __getter float storageSpace() const;
+            __setter void setStorageSpace(float other);
 
             signals:
                 __signal storageSpaceChanged();
+
+        private:
+            float m_storageSpace = 0;
     };
 } // namespace Network;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include "telemetrydatagram.h++"
 #include <QtCore/QObject>
 #include <QtCore/QMetaType>
@@ -25,50 +25,47 @@ namespace Network
         Q_PROPERTY(uint64_t time READ time WRITE setTime NOTIFY timeChanged)
         Q_PROPERTY(int satellites READ satellites WRITE setSatellites NOTIFY satellitesChanged)
 
-        QDateTime m_datetime;
-        TelemetryDatagram datagram;
-
         public:
             explicit Telemetry(QObject* parent = nullptr);
 
-            double latitude() const;
-            void setLatitude(double other);
+            __getter double latitude() const;
+            __setter void setLatitude(double other);
 
-            double longitude() const;
-            void setLongitude(double other);
+            __getter double longitude() const;
+            __setter void setLongitude(double other);
 
-            double altitude() const;
-            void setAltitude(double other);
+            __getter double altitude() const;
+            __setter void setAltitude(double other);
 
-            double velocityCourse() const;
-            void setVelocityCourse(double other);
+            __getter double velocityCourse() const;
+            __setter void setVelocityCourse(double other);
 
-            double velocityEast() const;
-            void setVelocityEast(double other);
+            __getter double velocityEast() const;
+            __setter void setVelocityEast(double other);
 
-            double velocityNorth() const;
-            void setVelocityNorth(double other);
+            __getter double velocityNorth() const;
+            __setter void setVelocityNorth(double other);
 
-            double velocityVertical() const;
-            void setVelocityVertical(double other);
+            __getter double velocityVertical() const;
+            __setter void setVelocityVertical(double other);
 
-            double pitch() const;
-            void setPitch(double other);
+            __getter double pitch() const;
+            __setter void setPitch(double other);
 
-            double roll() const;
-            void setRoll(double other);
+            __getter double roll() const;
+            __setter void setRoll(double other);
 
-            double yaw() const;
-            void setYaw(double other);
+            __getter double yaw() const;
+            __setter void setYaw(double other);
 
-            double course() const;
-            void setCourse(double other);
+            __getter double course() const;
+            __setter void setCourse(double other);
 
-            uint64_t time() const;
-            void setTime(const uint64_t& other);
+            __getter uint64_t time() const;
+            __setter void setTime(const uint64_t& other);
 
-            int satellites() const;
-            void setSatellites(int other);
+            __getter int satellites() const;
+            __setter void setSatellites(int other);
 
             signals:
                 __signal latitudeChanged();
@@ -84,6 +81,10 @@ namespace Network
                 __signal courseChanged();
                 __signal timeChanged();
                 __signal satellitesChanged();
+
+        private:
+            QDateTime m_datetime;
+            TelemetryDatagram datagram;
     };
 } // namespace Network
 

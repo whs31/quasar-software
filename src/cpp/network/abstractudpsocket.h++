@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include <QtCore/QByteArray>
 #include <QtNetwork/QUdpSocket>
 
@@ -16,6 +16,7 @@ namespace Network
 
             __qml virtual bool connect(const QString& address);
             __qml virtual void disconnect();
+
             virtual bool send(QByteArray data);
             virtual uint16_t port() { return m_port; }
 
@@ -24,11 +25,11 @@ namespace Network
                 __signal socketDisconnected();
 
         private:
-            QHostAddress m_hostaddress;
-            uint16_t m_port = 0;
-
             private slots:
                 virtual void readSocket();
 
+        private:
+            QHostAddress m_hostaddress;
+            uint16_t m_port = 0;
     };
 } // namespace Network;

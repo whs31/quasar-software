@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h++>
+#include <definitions.h>
 #include "../abstractudpsocket.h++"
 
 namespace Network
@@ -8,6 +8,7 @@ namespace Network
     class FeedbackSocket : public AbstractUDPSocket
     {
         Q_OBJECT
+
         constexpr __global const char* STORAGE_STATUS_MARKER = "*FREE_DISK_SPACE*";
 
         public:

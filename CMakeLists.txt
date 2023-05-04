@@ -54,7 +54,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
-    Pattern
+    Definitions
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

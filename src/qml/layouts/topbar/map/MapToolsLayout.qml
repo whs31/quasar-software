@@ -74,7 +74,7 @@ Item {
         tooltip_enabled: true;
         label_text_family: root.s_FontMain;
         onClicked: {
-
+            root.map_pan_image();
         }
     }
 
@@ -95,7 +95,7 @@ Item {
         tooltip_enabled: true;
         label_text_family: root.s_FontMain;
         onClicked: {
-
+            root.map_pan_uav();
         }
     }
 
@@ -118,7 +118,7 @@ Item {
         checked: false;
 
         onCheckedChanged: {
-
+            root.b_MapShowGrid = checked;
         }
     }
 }

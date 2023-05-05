@@ -9,6 +9,10 @@ import "map" as MapTab;
 
 Map { id: c_Map;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
+    property bool b_ShowGrid: false;
+    property bool b_ShowTrack: true;
+    property bool b_ShowDiagram: true;
+    property bool b_ShowCursorCoords: true;
 
     layer.enabled: true;
     layer.samples: 8;

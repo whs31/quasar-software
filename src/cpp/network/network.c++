@@ -19,12 +19,13 @@ Network::Network::Network(QObject* parent)
     : QObject{parent}
     , m_telemetry(new Telemetry(this))
     , m_remoteData(new RemoteData(this))
-    , telemetrySocket(new TelemetrySocket(this, m_telemetry))
     , execdSocket(new ExecdSocket(this))
     , feedbackSocket(new FeedbackSocket(this))
     , tcpSocket(new TCPSocket(this))
     , m_network_delay_timer(new QTimer(this))
 {
+    telemetrySocket = new TelemetrySocket(this, m_telemetry);
+
     qDebug() << "[NETWORK] Beginning network setup";
     m_network_delay_timer->start(100);
     QObject::connect(telemetrySocket, &TelemetrySocket::ping, this, [this](){

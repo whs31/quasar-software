@@ -16,6 +16,36 @@ Window { id: root;
     property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
     property alias i_CurrentMapMode: c_MapTab.i_MapMode;
 
+    property alias b_MapShowGrid: c_MapTab.b_ShowGrid;
+    property alias b_MapShowTrack: c_MapTab.b_ShowTrack;
+    property alias b_MapShowDiagram: c_MapTab.b_ShowDiagram;
+    property alias b_MapShowCursorCoords: c_MapTab.b_ShowCursorCoords;
+
+    function map_pan_image()
+    {
+
+    }
+
+    function map_pan_uav()
+    {
+
+    }
+
+    function map_hide_entities()
+    {
+
+    }
+
+    function map_clear_track()
+    {
+
+    }
+
+    function map_clear_entities()
+    {
+
+    }
+
     width: 640;
     height: 480;
     visible: true;

@@ -23,7 +23,7 @@ Item {
         checked: true;
 
         onCheckedChanged: {
-
+            root.b_MapShowTrack = checked;
         }
     }
 
@@ -45,7 +45,7 @@ Item {
         checked: true;
 
         onCheckedChanged: {
-
+            root.b_MapShowDiagram = checked;
         }
     }
 
@@ -67,7 +67,7 @@ Item {
         checked: true;
 
         onCheckedChanged: {
-
+            root.b_MapShowCursorCoords = checked;
         }
     }
 }

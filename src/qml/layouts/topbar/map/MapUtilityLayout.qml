@@ -24,6 +24,7 @@ Item {
         tooltip_enabled: true;
         label_text_family: root.s_FontMain;
         onClicked: {
+            root.map_hide_entities();
         }
     }
 
@@ -45,6 +46,7 @@ Item {
         tooltip_enabled: true;
         label_text_family: root.s_FontMain;
         onClicked: {
+            root.map_clear_track();
         }
     }
 
@@ -66,6 +68,7 @@ Item {
         tooltip_enabled: true;
         label_text_family: root.s_FontMain;
         onClicked: {
+            root.map_clear_entities();
         }
     }
 }

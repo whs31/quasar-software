@@ -16,6 +16,7 @@ namespace Map
         ImageMetaHeader header;
         ImageMetadata meta;
         image_file_t path;
+        bool valid = false;
     };
 } // namespace Map;
 

@@ -9,3 +9,5 @@
 #define __profile
 #define __setter
 #define __getter
+#define __reserved [[maybe_unused]]
+#define __unused __reserved

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include "tools/orthodrom.h++"
 #include <QtCore/QObject>
 #include <QtCore/QAbstractListModel>

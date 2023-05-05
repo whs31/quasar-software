@@ -8,6 +8,7 @@ include_directories(include)
 
 set(SRC
     include/definitions.h
+    include/Definitions
 )
 
 add_library(${PROJECT_NAME} ${SRC})

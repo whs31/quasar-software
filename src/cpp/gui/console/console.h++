@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Definitions>
 #include <QtCore/QObject>
 #include <QtCore/QList>
 

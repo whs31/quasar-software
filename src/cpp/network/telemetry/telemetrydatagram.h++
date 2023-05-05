@@ -26,7 +26,7 @@ pub struct Datagram
 }
 */
 
-#include <definitions.h>
+#include <Definitions>
 #include <cstdint>
 #include <QtCore/QDataStream>
 

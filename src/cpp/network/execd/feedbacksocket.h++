@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include "../abstractudpsocket.h++"
 
 namespace Network

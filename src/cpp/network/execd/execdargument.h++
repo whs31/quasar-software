@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QVariant>

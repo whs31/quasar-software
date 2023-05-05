@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include "telemetry/telemetry.h++"
 #include "execd/remotedata.h++"
 #include <QtCore/QObject>

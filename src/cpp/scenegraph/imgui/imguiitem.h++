@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QSGRenderNode>
 #include <QtGui/QImage>

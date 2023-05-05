@@ -1,6 +1,6 @@
 #pragma once
 
-#include <definitions.h>
+#include <Definitions>
 #include <QtCore/QString>
 #include <QtCore/QPointF>
 #include <QtPositioning/QGeoCoordinate>

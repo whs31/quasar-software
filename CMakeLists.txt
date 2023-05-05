@@ -24,6 +24,7 @@ add_subdirectory(src/cpp/global)
 
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
+    src/cpp/filesystem/*
     src/cpp/config/*
     src/cpp/map/*
     src/cpp/scenegraph/*

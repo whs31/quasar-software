@@ -10,6 +10,20 @@ Item {
         width: 225;
     }
 
+    MapLayouts.MapOptionsLayout { id: layout_MapOptions;
+        anchors.left: layout_MapTools.right;
+        anchors.top: parent.top;
+        anchors.bottom: parent.bottom;
+        width: 265;
+    }
+
+    MapLayouts.MapUtilityLayout { id: layout_MapUtils;
+        anchors.left: layout_MapOptions.right;
+        anchors.top: parent.top;
+        anchors.bottom: parent.bottom;
+        width: 300;
+    }
+
     MapLayouts.MapModeLayout { id: layout_MapMode;
         anchors.right: parent.right;
         anchors.rightMargin: 500;

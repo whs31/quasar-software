@@ -82,9 +82,11 @@ Item {
         color: label_color;
         opacity: enabled ? 1.0 : 0.3;
         verticalAlignment: Text.AlignVCenter;
+        horizontalAlignment: label_textAlignment;
         anchors.right: checkboxIndicator.left;
         anchors.rightMargin: 7;
         anchors.verticalCenter: parent.verticalCenter;
+        width: fixed_width - 10 - checkboxIndicator.width;
     }
 
     MouseArea {

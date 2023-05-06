@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
+import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
 import Config 1.0
@@ -11,115 +12,96 @@ import "widgets" as Widgets
 import "layouts" as Layouts
 import "tabs" as Tabs
 
-Window { id: root;
-    property bool b_ConsoleShown: true;
-    property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
-    property alias i_CurrentMapMode: c_MapTab.i_MapMode;
+Window { id: window_root;
+    Material.theme: Material.Dark;
+    Material.accent: Material.Purple;
 
-    property alias b_MapShowGrid: c_MapTab.b_ShowGrid;
-    property alias b_MapShowTrack: c_MapTab.b_ShowTrack;
-    property alias b_MapShowDiagram: c_MapTab.b_ShowDiagram;
-    property alias b_MapShowCursorCoords: c_MapTab.b_ShowCursorCoords;
-
-    function map_pan_image()
-    {
-
-    }
-
-    function map_pan_uav()
-    {
-
-    }
-
-    function map_hide_entities()
-    {
-
-    }
-
-    function map_clear_track()
-    {
-
-    }
-
-    function map_clear_entities()
-    {
-
-    }
-
+    title: "СПО РЛС «‎Квазар»";
     width: 640;
     height: 480;
     visible: true;
     color: Theme.color("dark0");
+    Component.onCompleted: showMaximized();
 
-    onVisibilityChanged: {
-        if(visibility !== 3)
-            showFullScreen();
-    }
+    Item { id: root;
+        anchors.fill: parent;
 
-    Component.onCompleted: {
-        showFullScreen();
-    }
+        property bool b_ConsoleShown: true;
+        property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
+        property alias i_CurrentMapMode: c_MapTab.i_MapMode;
 
-    FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
-    property string s_FontMain: font_Main.name;
+        property alias b_MapShowGrid: c_MapTab.b_ShowGrid;
+        property alias b_MapShowTrack: c_MapTab.b_ShowTrack;
+        property alias b_MapShowDiagram: c_MapTab.b_ShowDiagram;
+        property alias b_MapShowCursorCoords: c_MapTab.b_ShowCursorCoords;
 
-    Widgets.DebugConsole { id: c_DebugConsole;
-        enabled: b_ConsoleShown && i_CurrentTabAlias !== 3;
-        visible: b_ConsoleShown && i_CurrentTabAlias !== 3;
-    }
-    DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: b_ConsoleShown && i_CurrentTabAlias !== 3;
-                     visible: b_ConsoleShown && i_CurrentTabAlias !== 3; }
+        FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
+        property string s_FontMain: font_Main.name;
 
-    Layouts.TopBar { id: c_TopBar;
-        height: 70;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.top: parent.top;
-    }
+        function map_pan_image() {}
+        function map_pan_uav() {}
+        function map_hide_entities() {}
+        function map_clear_track() {}
+        function map_clear_entities() {}
 
-    Layouts.TabSwitcher { id: c_TabBar;
-        height: 20;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.top: c_TopBar.bottom;
-    }
-    DropShadow { z: 99; anchors.fill: c_TabBar; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_TabBar; cached: true; }
+        Widgets.DebugConsole { id: c_DebugConsole;
+            enabled: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
+            visible: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
+        }
+        DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                         samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
+                         visible: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3; }
 
-    Layouts.BottomBar { id: c_BottomBar;
-        height: 46;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.bottom: parent.bottom;
-    }
-    DropShadow { z: 99; anchors.fill: c_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_BottomBar; cached: true; }
+        Layouts.TopBar { id: c_TopBar;
+            height: 70;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.top: parent.top;
+        }
 
-    // tabs
+        Layouts.TabSwitcher { id: c_TabBar;
+            height: 20;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.top: c_TopBar.bottom;
+        }
+        DropShadow { z: 99; anchors.fill: c_TabBar; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                         samples: 32; color: "#80000000"; source: c_TabBar; cached: true; }
 
-    Tabs.MapTab { id: c_MapTab;
-        anchors.top: c_TabBar.bottom;
-        anchors.bottom: c_BottomBar.top;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
+        Layouts.BottomBar { id: c_BottomBar;
+            height: 46;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
+            anchors.bottom: parent.bottom;
+        }
+        DropShadow { z: 99; anchors.fill: c_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
+                         samples: 32; color: "#80000000"; source: c_BottomBar; cached: true; }
 
-        opacity: c_TabBar.i_CurrentTab === 0;
-        enabled: c_TabBar.i_CurrentTab === 0;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-    }
+        // tabs
 
-    Tabs.FocusTab { id: c_FocusTab;
-        anchors.fill: c_MapTab;
-        opacity: c_TabBar.i_CurrentTab === 1;
-        enabled: c_TabBar.i_CurrentTab === 1;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-    }
+        Tabs.MapTab { id: c_MapTab;
+            anchors.top: c_TabBar.bottom;
+            anchors.bottom: c_BottomBar.top;
+            anchors.left: parent.left;
+            anchors.right: parent.right;
 
-    Tabs.NetworkTab { id: c_NetworkTab;
-        anchors.fill: c_MapTab;
-        opacity: c_TabBar.i_CurrentTab === 3;
-        enabled: c_TabBar.i_CurrentTab === 3;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
+            opacity: c_TabBar.i_CurrentTab === 0;
+            enabled: c_TabBar.i_CurrentTab === 0;
+            Behavior on opacity { NumberAnimation { duration: 200; } }
+        }
+
+        Tabs.FocusTab { id: c_FocusTab;
+            anchors.fill: c_MapTab;
+            opacity: c_TabBar.i_CurrentTab === 1;
+            enabled: c_TabBar.i_CurrentTab === 1;
+            Behavior on opacity { NumberAnimation { duration: 200; } }
+        }
+
+        Tabs.NetworkTab { id: c_NetworkTab;
+            anchors.fill: c_MapTab;
+            opacity: c_TabBar.i_CurrentTab === 3;
+            enabled: c_TabBar.i_CurrentTab === 3;
+            Behavior on opacity { NumberAnimation { duration: 200; } }
+        }
     }
 }

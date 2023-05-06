@@ -6,12 +6,12 @@ import "topbar" as Top
 Rectangle {
     color: Theme.color("dark1");
 
-    Top.Header { id: c_TopBarHeader;
-        anchors.top: parent.top;
-        anchors.bottom: parent.bottom;
-        anchors.right: parent.right;
-        width: 255;
-    }
+//    Top.Header { id: c_TopBarHeader;
+//        anchors.top: parent.top;
+//        anchors.bottom: parent.bottom;
+//        anchors.right: parent.right;
+//        width: 255;
+//    }
 
     Top.MapToolbar { id: c_TopBarMap;
         anchors.top: parent.top;

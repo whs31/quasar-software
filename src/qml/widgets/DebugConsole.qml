@@ -49,7 +49,7 @@ Rectangle { id: control;
             }
             onPositionChanged: {
                 if(pressed) {
-                    let global_pos = mapToGlobal(mouseX, mouseY);
+                    let global_pos = mapToItem(root, mouseX, mouseY);
                     control.x = global_pos.x - offset.x;
                     control.y = global_pos.y - offset.y;
                 }

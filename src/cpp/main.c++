@@ -10,6 +10,7 @@
 #include <QtQml/qqml.h>
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
+#include <QtQuickControls2/QQuickStyle>
 
 Console* console = nullptr;
 QList<QString> cachedDebugInfo;
@@ -62,6 +63,9 @@ int main(int argc, char* argv[])
     qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
+    qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
+    QQuickStyle::setStyle("Material");
+
     Entry entry;
 
     qmlRegisterType<ImGuiItem>("ImGUI", 1, 0, "ImRenderLayer");

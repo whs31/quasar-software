@@ -14,7 +14,10 @@ import "tabs" as Tabs
 
 Window { id: window_root;
     Material.theme: Material.Dark;
-    Material.accent: Material.Purple;
+    Material.accent: Theme.color("color3");
+    Material.primary: Theme.color("orange");
+    Material.foreground: Theme.color("light0");
+    Material.background: Theme.color("dark0");
 
     title: "СПО РЛС «‎Квазар»";
     width: 640;
@@ -27,30 +30,17 @@ Window { id: window_root;
         anchors.fill: parent;
 
         property bool b_ConsoleShown: true;
-        property alias i_CurrentTabAlias: c_TabBar.i_CurrentTab;
-        property alias i_CurrentMapMode: c_MapTab.i_MapMode;
-
-        property alias b_MapShowGrid: c_MapTab.b_ShowGrid;
-        property alias b_MapShowTrack: c_MapTab.b_ShowTrack;
-        property alias b_MapShowDiagram: c_MapTab.b_ShowDiagram;
-        property alias b_MapShowCursorCoords: c_MapTab.b_ShowCursorCoords;
-
-        FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
         property string s_FontMain: font_Main.name;
 
-        function map_pan_image() {}
-        function map_pan_uav() {}
-        function map_hide_entities() {}
-        function map_clear_track() {}
-        function map_clear_entities() {}
+        FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
 
         Widgets.DebugConsole { id: c_DebugConsole;
-            enabled: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
-            visible: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
+            enabled: root.b_ConsoleShown;
+            visible: root.b_ConsoleShown;
         }
         DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                         samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3;
-                         visible: root.b_ConsoleShown && root.i_CurrentTabAlias !== 3; }
+                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown;
+                     visible: root.b_ConsoleShown; }
 
         Layouts.TopBar { id: c_TopBar;
             height: 70;
@@ -59,49 +49,68 @@ Window { id: window_root;
             anchors.top: parent.top;
         }
 
-        Layouts.TabSwitcher { id: c_TabBar;
-            height: 20;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
-            anchors.top: c_TopBar.bottom;
-        }
-        DropShadow { z: 99; anchors.fill: c_TabBar; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                         samples: 32; color: "#80000000"; source: c_TabBar; cached: true; }
-
-        Layouts.BottomBar { id: c_BottomBar;
+        Layouts.BottomBar { id: layout_BottomBar;
             height: 46;
             anchors.left: parent.left;
             anchors.right: parent.right;
             anchors.bottom: parent.bottom;
         }
-        DropShadow { z: 99; anchors.fill: c_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
-                         samples: 32; color: "#80000000"; source: c_BottomBar; cached: true; }
+        DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
+                         samples: 32; color: "#80000000"; source: layout_BottomBar; cached: true; }
 
-        // tabs
+        TabBar { id: control_TabBar;
+            anchors.left: parent.left;
+            anchors.rightMargin: 100;
+            anchors.right: parent.right;
+            anchors.top: parent.top;
+            contentHeight: 25;
+            background: Rectangle { color: Material.background; }
 
-        Tabs.MapTab { id: c_MapTab;
-            anchors.top: c_TabBar.bottom;
-            anchors.bottom: c_BottomBar.top;
+            TabButton {
+                text: "ИНТЕРАКТИВНАЯ КАРТА";
+                font.family: root.s_FontMain;
+                font.weight: Font.Bold;
+            }
+
+            TabButton {
+                text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
+                font.family: root.s_FontMain;
+                font.weight: Font.Bold;
+            }
+
+            TabButton {
+                text: "ПЛАНИРОВЩИК ЗАДАНИЙ";
+                font.family: root.s_FontMain;
+                font.weight: Font.Bold;
+            }
+
+            TabButton {
+                text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
+                font.family: root.s_FontMain;
+                font.weight: Font.Bold;
+            }
+
+            TabButton {
+                text: "НАСТРОЙКИ";
+                font.family: root.s_FontMain;
+                font.weight: Font.Bold;
+            }
+        }
+
+        SwipeView { id: view_MainView;
+            anchors.top: control_TabBar.bottom;
+            anchors.bottom: layout_BottomBar.top;
             anchors.left: parent.left;
             anchors.right: parent.right;
+            interactive: false;
 
-            opacity: c_TabBar.i_CurrentTab === 0;
-            enabled: c_TabBar.i_CurrentTab === 0;
-            Behavior on opacity { NumberAnimation { duration: 200; } }
-        }
+            currentIndex: control_TabBar.currentIndex;
 
-        Tabs.FocusTab { id: c_FocusTab;
-            anchors.fill: c_MapTab;
-            opacity: c_TabBar.i_CurrentTab === 1;
-            enabled: c_TabBar.i_CurrentTab === 1;
-            Behavior on opacity { NumberAnimation { duration: 200; } }
-        }
-
-        Tabs.NetworkTab { id: c_NetworkTab;
-            anchors.fill: c_MapTab;
-            opacity: c_TabBar.i_CurrentTab === 3;
-            enabled: c_TabBar.i_CurrentTab === 3;
-            Behavior on opacity { NumberAnimation { duration: 200; } }
+            Tabs.MapTab { id: c_MapTab; }
+            Tabs.FocusTab { id: c_FocusTab; }
+            Tabs.PlannerTab { id: c_PlannerTab; }
+            Tabs.NetworkTab { id: c_NetworkTab; }
+            Tabs.SettingsTab { id: c_SettingsTab; }
         }
     }
 }

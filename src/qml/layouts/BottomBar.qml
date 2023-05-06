@@ -7,34 +7,34 @@ import "../ui/buttons" as Buttons
 Rectangle {
     color: Theme.color("dark1");
 
-    Bottom.StatusWidget { id: c_StatusWidget;
-        anchors.left: parent.left;
-        anchors.leftMargin: 6;
-        anchors.top: parent.top;
-    }
+//    Bottom.StatusWidget { id: c_StatusWidget;
+//        anchors.left: parent.left;
+//        anchors.leftMargin: 6;
+//        anchors.top: parent.top;
+//    }
 
-    Bottom.InfoPanel { id: c_InfoPanel;
-        anchors.left: c_StatusWidget.right;
-        anchors.leftMargin: 16;
-        anchors.top: parent.top;
-    }
+//    Bottom.InfoPanel { id: c_InfoPanel;
+//        anchors.left: c_StatusWidget.right;
+//        anchors.leftMargin: 16;
+//        anchors.top: parent.top;
+//    }
 
-    Buttons.ClassicButton { id: btn_ToggleConsole;
-        anchors.bottom: parent.bottom;
-        anchors.right: parent.right;
-        anchors.margins: 6;
-        fixed_width: 155;
-        fixed_height: 19;
-        label_color: Theme.color("light1");
-        label_text: "Консоль разработчика";
-        icon_px_size: 15;
-        icon_source: "qrc:/icons/bottombar/console.png";
-        background_radius: 0;
-        background_color: Theme.color("dark3");
-        background_secondary_color: Qt.lighter(background_color, 1.5);
-        label_text_family: root.s_FontMain;
-        onClicked: {
-            root.b_ConsoleShown = !root.b_ConsoleShown;
-        }
-    }
+//    Buttons.ClassicButton { id: btn_ToggleConsole;
+//        anchors.bottom: parent.bottom;
+//        anchors.right: parent.right;
+//        anchors.margins: 6;
+//        fixed_width: 155;
+//        fixed_height: 19;
+//        label_color: Theme.color("light1");
+//        label_text: "Консоль разработчика";
+//        icon_px_size: 15;
+//        icon_source: "qrc:/icons/bottombar/console.png";
+//        background_radius: 0;
+//        background_color: Theme.color("dark3");
+//        background_secondary_color: Qt.lighter(background_color, 1.5);
+//        label_text_family: root.s_FontMain;
+//        onClicked: {
+//            root.b_ConsoleShown = !root.b_ConsoleShown;
+//        }
+//    }
 }

@@ -39,5 +39,7 @@
         <file>layouts/topbar/map/MapToolsLayout.qml</file>
         <file>layouts/topbar/map/MapOptionsLayout.qml</file>
         <file>layouts/topbar/map/MapUtilityLayout.qml</file>
+        <file>tabs/PlannerTab.qml</file>
+        <file>tabs/SettingsTab.qml</file>
     </qresource>
 </RCC>

@@ -5,6 +5,7 @@ import QtLocation 5.15
 import QtPositioning 5.15
 
 import Paths 1.0
+import Theme 1.0
 import RulerModel 1.0
 import ClickHandler 1.0
 
@@ -66,16 +67,17 @@ Map { id: c_Map;
 
     // ui
 
-    Pane { id: panel_Panel1;
+    Pane { id: panel_Tools;
         Material.elevation: 30;
         anchors.top: parent.top;
         anchors.left: parent.left;
         anchors.margins: 5;
+        opacity: 0.85;
 
         Column {
-            spacing: 30;
+            spacing: 15;
 
-            Column { id: layout_Tools;
+            Column {
                 RoundButton { id: button_Ruler;
                     checkable: true;
                     checked: ClickHandler.state === ClickHandler.RulerActive;
@@ -109,7 +111,7 @@ Map { id: c_Map;
                 }
             }
 
-            Column { id: layout_Navigation;
+            Column {
                 RoundButton { id: button_PanUAV;
                     height: 44;
                     width: 44;
@@ -131,6 +133,153 @@ Map { id: c_Map;
         }
     }
 
+    Pane { id: panel_Entities;
+        anchors.top: panel_Tools.bottom;
+        anchors.topMargin: 30;
+        anchors.left: parent.left;
+        anchors.margins: 5;
+        opacity: 0.85;
+
+        Column {
+            RoundButton { id: button_Marker;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/toolbar/map/marker.png";
+                Material.elevation: 30;
+                //onPressed:
+            }
+
+            RoundButton { id: button_PlannerPoint;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/toolbar/map/pin.png";
+                Material.elevation: 30;
+                //onPressed:
+            }
+        }
+    }
+
+    Pane { id: panel_Parameters;
+        property bool b_Expanded: false;
+
+        anchors.top: parent.top;
+        anchors.right: parent.right;
+        anchors.margins: 5;
+        opacity: 0.85;
+        width: b_Expanded ? implicitWidth : 0;
+        height: b_Expanded ? implicitHeight : 0;
+        visible: height > 0;
+        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        clip: true;
+
+        Column {
+            spacing: -5;
+
+            CheckBox { id: checkbox_FollowUAV;
+                font.family: root.s_FontMain;
+                checked: false;
+                text: "Следить за БПЛА";
+                //onCheckedChanged: binding)
+            }
+
+            CheckBox { id: checkbox_EnableGrid;
+                font.family: root.s_FontMain;
+                checked: false;
+                text: "Отображать масштабную сетку";
+                //onCheckedChanged:
+            }
+
+            CheckBox { id: checkbox_ShowCursorCoords;
+                font.family: root.s_FontMain;
+                checked: true;
+                text: "Отображать координаты курсора";
+                //onCheckedChanged:
+            }
+
+            CheckBox { id: checkbox_ShowTrack;
+                font.family: root.s_FontMain;
+                checked: true;
+                text: "Отображать трек полёта";
+                //onCheckedChanged:
+            }
+
+            CheckBox { id: checkbox_ShowDiagram;
+                font.family: root.s_FontMain;
+                checked: true;
+                text: "Отображать диаграмму направленности";
+                //onCheckedChanged:
+            }
+
+            RoundButton { id: button_ClearTrack;
+                radius: 4;
+                icon.source: "qrc:/icons/toolbar/map/eraser.png";
+                height: 44;
+                font.family: root.s_FontMain;
+                width: checkbox_ShowDiagram.width;
+                text: "Очистить трек полёта";
+                Material.background: Theme.color("red");
+                //onPressed:
+            }
+        }
+    }
+
+    RoundButton { id: button_ExpandParameters;
+        anchors.top: parent.top;
+        anchors.right: parent.right;
+        anchors.margins: 5;
+        checkable: true;
+        height: 40;
+        width: 40;
+        radius: 4;
+        icon.source: "qrc:/icons/toolbar/map/expand.png";
+        Material.elevation: 30;
+        Material.background: Material.background;
+        Material.primary: Material.primary;
+        Material.accent: Material.accent;
+        onCheckedChanged: panel_Parameters.b_Expanded = checked;
+    }
+
+    Row { id: layout_ImageTools;
+        anchors.left: parent.left;
+        anchors.bottom: parent.bottom;
+        anchors.margins: 5;
+
+        RoundButton { id: button_FetchImages;
+            font.family: root.s_FontMain;
+            height: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/toolbar/map/refresh.png";
+            Material.elevation: 30;
+            Material.background: Material.background;
+            //onPressed:
+        }
+
+        RoundButton { id: button_ChooseCatalogue;
+            font.family: root.s_FontMain;
+            height: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/toolbar/map/folder.png";
+            Material.elevation: 30;
+            Material.background: Material.background;
+            text: "Изменить каталог РЛИ";
+            //onPressed:
+        }
+
+        RoundButton { id: button_ClearLocalCache;
+            font.family: root.s_FontMain;
+            height: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/toolbar/map/trash.png";
+            Material.elevation: 30;
+            Material.background: Material.background;
+            text: "Очистить кэш";
+            //onPressed:
+        }
+    }
+
     Row { id: layout_MapMode;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
@@ -138,7 +287,8 @@ Map { id: c_Map;
 
         ComboBox { id: control_MapMode;
             font.family: root.s_FontMain;
-            width: 200;
+            font.weight: Font.Bold;
+            width: 170;
             currentIndex: 2;
             model: ["Оффлайн-карта", "Схема", "Спутник", "Гибрид"];
 

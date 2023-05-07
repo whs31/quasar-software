@@ -1,7 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/close.png</file>
-        <file>icons/minus.png</file>
         <file>resources.qrc</file>
         <file>logo/full-logo.png</file>
         <file>logo/full-logo_shadow.png</file>
@@ -60,5 +58,11 @@
         <file>icons/toolbar/map/protractor.png</file>
         <file>icons/toolbar/map/ruler.png</file>
         <file>icons/toolbar/map/trash.png</file>
+        <file>icons/toolbar/map/folder.png</file>
+        <file>icons/toolbar/map/refresh.png</file>
+        <file>icons/toolbar/map/marker.png</file>
+        <file>icons/toolbar/map/pin.png</file>
+        <file>icons/toolbar/map/right-arrow.png</file>
+        <file>icons/toolbar/map/expand.png</file>
     </qresource>
 </RCC>

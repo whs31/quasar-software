@@ -21,8 +21,8 @@ Window { id: window_root;
     Material.background: Theme.color("dark1");
 
     title: "СПО РЛС «‎Квазар»";
-    width: 640;
-    height: 480;
+    width: 1280;
+    height: 720;
     visible: true;
     color: Theme.color("dark0");
     Component.onCompleted: showMaximized();
@@ -54,7 +54,6 @@ Window { id: window_root;
 
         TabBar { id: control_TabBar;
             anchors.left: parent.left;
-            anchors.rightMargin: 100;
             anchors.right: parent.right;
             anchors.top: parent.top;
             contentHeight: 25;
@@ -69,12 +68,6 @@ Window { id: window_root;
 
             TabButton {
                 text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
-                font.family: root.s_FontMain;
-                font.weight: Font.Bold;
-            }
-
-            TabButton {
-                text: "ПЛАНИРОВЩИК ЗАДАНИЙ";
                 font.family: root.s_FontMain;
                 font.weight: Font.Bold;
             }
@@ -98,12 +91,10 @@ Window { id: window_root;
             anchors.left: parent.left;
             anchors.right: parent.right;
             interactive: false;
-
             currentIndex: control_TabBar.currentIndex;
 
             Tabs.MapTab { id: c_MapTab; }
             Tabs.FocusTab { id: c_FocusTab; }
-            Tabs.PlannerTab { id: c_PlannerTab; }
             Tabs.NetworkTab { id: c_NetworkTab; }
             Tabs.SettingsTab { id: c_SettingsTab; }
         }

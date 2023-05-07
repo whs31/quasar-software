@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 import QtQuick.Controls.Material 2.15
+import QtQuick.Controls.Styles 1.4
 
 import Theme 1.0
 import Config 1.0
@@ -65,6 +66,7 @@ Window { id: window_root;
             anchors.top: parent.top;
             contentHeight: 25;
             background: Rectangle { color: Material.background; }
+            z: 50;
 
             TabButton {
                 text: "ИНТЕРАКТИВНАЯ КАРТА";

@@ -1,8 +1,8 @@
 import QtQuick 2.15
+
 import Theme 1.0
 import Widgets.Status 1.0
 import Network 1.0
-import Config 1.0
 
 Item {
     enum ConnectionStatus {
@@ -16,20 +16,6 @@ Item {
     width: 312;
     height: 46;
 
-    MouseArea {
-        anchors.fill: parent;
-//        onClicked: {
-//            if(!Network.connected)
-//            {
-//                Network.startTelemetrySocket(Config.map().remoteIP + ":" + Config.map().telemetryPort, Config.map().telemetryFrequency);
-//            }
-//            else
-//            {
-//                Network.stopTelemetrySocket();
-//            }
-//        }
-    }
-
     Rectangle {
         color: Theme.color("dark0");
         anchors.left: parent.left;
@@ -39,7 +25,6 @@ Item {
         height: 30;
         radius: 15;
 
-        // interactive widget here
         StatusIndicator { id: c_Indicator;
             width: 20;
             height: 20;

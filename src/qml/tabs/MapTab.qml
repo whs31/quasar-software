@@ -66,64 +66,92 @@ Map { id: c_Map;
 
     // ui
 
-    Column { id: layout_Tools;
+    Pane { id: panel_Panel1;
+        Material.elevation: 30;
         anchors.top: parent.top;
         anchors.left: parent.left;
+        anchors.margins: 5;
 
-        RoundButton { id: button_Ruler;
-            checkable: true;
-            checked: ClickHandler.state === ClickHandler.RulerActive;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/ruler.png";
-            Material.elevation: 30;
-            onCheckedChanged: {
-                if(checked && ClickHandler.state === ClickHandler.Idle)
-                    ClickHandler.state = ClickHandler.RulerActive;
-                else
-                    ClickHandler.state = ClickHandler.Idle;
+        Column {
+            spacing: 30;
+
+            Column { id: layout_Tools;
+                RoundButton { id: button_Ruler;
+                    checkable: true;
+                    checked: ClickHandler.state === ClickHandler.RulerActive;
+                    height: 44;
+                    width: 44;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/ruler.png";
+                    Material.elevation: 30;
+                    onCheckedChanged: {
+                        if(checked && ClickHandler.state === ClickHandler.Idle)
+                            ClickHandler.state = ClickHandler.RulerActive;
+                        else
+                            ClickHandler.state = ClickHandler.Idle;
+                    }
+                }
+
+                RoundButton { id: button_Protractor;
+                    checkable: true;
+                    checked: ClickHandler.state === ClickHandler.ProtractorActive;
+                    height: 44;
+                    width: 44;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/protractor.png";
+                    Material.elevation: 30;
+                    onCheckedChanged: {
+                        if(checked && ClickHandler.state === ClickHandler.Idle)
+                            ClickHandler.state = ClickHandler.ProtractorActive;
+                        else
+                            ClickHandler.state = ClickHandler.Idle;
+                    }
+                }
             }
-        }
 
-        RoundButton { id: button_Protractor;
-            checkable: true;
-            checked: ClickHandler.state === ClickHandler.ProtractorActive;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/protractor.png";
-            Material.elevation: 30;
-            onCheckedChanged: {
-                if(checked && ClickHandler.state === ClickHandler.Idle)
-                    ClickHandler.state = ClickHandler.ProtractorActive;
-                else
-                    ClickHandler.state = ClickHandler.Idle;
+            Column { id: layout_Navigation;
+                RoundButton { id: button_PanUAV;
+                    height: 44;
+                    width: 44;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/gps.png";
+                    Material.elevation: 30;
+                    onPressed: c_Map.center = c_UAV.coordinate;
+                }
+
+                RoundButton { id: button_PanLastImage;
+                    height: 44;
+                    width: 44;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/map.png";
+                    Material.elevation: 30;
+                    //onPressed: c_Map.center = c_UAV.coordinate;
+                }
             }
         }
     }
 
-    Column { id: layout_Navigation;
-        anchors.top: layout_Tools.bottom;
-        anchors.topMargin: 30;
-        anchors.left: parent.left;
+    Row { id: layout_MapMode;
+        anchors.right: parent.right;
+        anchors.bottom: parent.bottom;
+        anchors.margins: 5;
 
-        RoundButton { id: button_PanUAV;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/gps.png";
-            Material.elevation: 30;
-            onPressed: c_Map.center = c_UAV.coordinate;
-        }
+        ComboBox { id: control_MapMode;
+            font.family: root.s_FontMain;
+            width: 200;
+            currentIndex: 2;
+            model: ["Оффлайн-карта", "Схема", "Спутник", "Гибрид"];
 
-        RoundButton { id: button_PanLastImage;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/map.png";
-            Material.elevation: 30;
-            //onPressed: c_Map.center = c_UAV.coordinate;
+            onCurrentValueChanged: {
+                if(currentValue === "Оффлайн-карта")
+                    i_MapMode = 0;
+                if(currentValue === "Схема")
+                    i_MapMode = 5;
+                if(currentValue === "Спутник")
+                    i_MapMode = 1;
+                if(currentValue === "Гибрид")
+                    i_MapMode = 4;
+            }
         }
     }
 }

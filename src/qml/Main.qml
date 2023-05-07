@@ -18,7 +18,7 @@ Window { id: window_root;
     Material.accent: Theme.color("color3");
     Material.primary: Theme.color("orange");
     Material.foreground: Theme.color("light0");
-    Material.background: Theme.color("dark0");
+    Material.background: Theme.color("dark1");
 
     title: "СПО РЛС «‎Квазар»";
     width: 640;
@@ -42,13 +42,6 @@ Window { id: window_root;
         DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
                      samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown;
                      visible: root.b_ConsoleShown; }
-
-        Layouts.TopBar { id: c_TopBar;
-            height: 70;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
-            anchors.top: parent.top;
-        }
 
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;

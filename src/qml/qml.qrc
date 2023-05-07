@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>Main.qml</file>
         <file>widgets/DebugConsole.qml</file>
-        <file>layouts/TopBar.qml</file>
         <file>layouts/BottomBar.qml</file>
         <file>tabs/MapTab.qml</file>
         <file>tabs/FocusTab.qml</file>
@@ -27,17 +26,11 @@
         <file>ui/widgets/InlineDialog.qml</file>
         <file>ui/widgets/StorageStatusIndicator.qml</file>
         <file>tabs/map/RulerItem.qml</file>
-        <file>layouts/topbar/Header.qml</file>
         <file>layouts/bottombar/StatusWidget.qml</file>
         <file>layouts/bottombar/InfoPanel.qml</file>
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
-        <file>layouts/topbar/MapToolbar.qml</file>
-        <file>layouts/topbar/map/MapModeLayout.qml</file>
-        <file>layouts/topbar/map/MapToolsLayout.qml</file>
-        <file>layouts/topbar/map/MapOptionsLayout.qml</file>
-        <file>layouts/topbar/map/MapUtilityLayout.qml</file>
         <file>tabs/PlannerTab.qml</file>
         <file>tabs/SettingsTab.qml</file>
     </qresource>

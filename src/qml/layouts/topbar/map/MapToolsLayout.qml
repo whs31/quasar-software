@@ -6,57 +6,6 @@ import "../../../ui/checkboxes" as Checkboxes
 import "../../../ui/buttons" as Buttons
 
 Item {
-    Buttons.LightToolButton { id: button_Ruler;
-        anchors.top: parent.top;
-        anchors.left: parent.left;
-        anchors.leftMargin: 7;
-        anchors.topMargin: 5;
-
-        fixed_width: 35;
-        fixed_height: 35;
-        frame_color: Theme.color("light1");
-        background_color: ClickHandler.state === ClickHandler.RulerActive ? Theme.color("color3") : "transparent";
-        highlight_color: Theme.color("color3");
-        frame_radius: 2;
-        frame_enabled: true;
-        icon_px_size: 22;
-        icon_source: "qrc:/icons/toolbar/map/ruler.png";
-        tooltip_text: "Линейка карты";
-        tooltip_enabled: true;
-        label_text_family: root.s_FontMain;
-        onClicked: {
-            if(ClickHandler.state !== ClickHandler.RulerActive)
-                ClickHandler.state = ClickHandler.RulerActive;
-            else
-                ClickHandler.state = ClickHandler.Idle;
-        }
-    }
-
-    Buttons.LightToolButton { id: button_Protractor;
-        anchors.top: button_Ruler.top;
-        anchors.left: button_Ruler.right;
-        anchors.leftMargin: 6;
-
-        fixed_width: 35;
-        fixed_height: 35;
-        frame_color: Theme.color("light1");
-        highlight_color: Theme.color("color3");
-        background_color: ClickHandler.state === ClickHandler.ProtractorActive ? Theme.color("color3") : "transparent";
-        frame_radius: 2;
-        frame_enabled: true;
-        icon_px_size: 22;
-        icon_source: "qrc:/icons/toolbar/map/protractor.png";
-        tooltip_text: "Инструмент измерения углов";
-        tooltip_enabled: true;
-        label_text_family: root.s_FontMain;
-        onClicked: {
-            if(ClickHandler.state !== ClickHandler.ProtractorActive)
-                ClickHandler.state = ClickHandler.ProtractorActive;
-            else
-                ClickHandler.state = ClickHandler.Idle;
-        }
-    }
-
     Buttons.LightToolButton { id: button_PanImage;
         anchors.top: button_Protractor.top;
         anchors.left: button_Protractor.right;

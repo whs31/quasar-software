@@ -5,7 +5,6 @@
         <file>layouts/TopBar.qml</file>
         <file>layouts/BottomBar.qml</file>
         <file>tabs/MapTab.qml</file>
-        <file>layouts/TabSwitcher.qml</file>
         <file>tabs/FocusTab.qml</file>
         <file>ui/buttons/ClassicButton.qml</file>
         <file>ui/buttons/ImageButton.qml</file>

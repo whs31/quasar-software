@@ -105,7 +105,7 @@ Map { id: c_Map;
 
     Column { id: layout_Navigation;
         anchors.top: layout_Tools.bottom;
-        anchors.bottomMargin: 30;
+        anchors.topMargin: 30;
         anchors.left: parent.left;
 
         RoundButton { id: button_PanUAV;
@@ -115,6 +115,15 @@ Map { id: c_Map;
             icon.source: "qrc:/icons/toolbar/map/gps.png";
             Material.elevation: 30;
             onPressed: c_Map.center = c_UAV.coordinate;
+        }
+
+        RoundButton { id: button_PanLastImage;
+            height: 44;
+            width: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/toolbar/map/map.png";
+            Material.elevation: 30;
+            //onPressed: c_Map.center = c_UAV.coordinate;
         }
     }
 }

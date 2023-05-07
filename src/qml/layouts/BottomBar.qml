@@ -15,13 +15,22 @@ Rectangle {
         anchors.top: parent.top;
     }
 
-    Bottom.InfoPanel { id: c_InfoPanel;
+    Flickable {
         anchors.left: c_StatusWidget.right;
         anchors.leftMargin: 16;
         anchors.top: parent.top;
+        anchors.bottom: parent.bottom;
+        anchors.right: button_ToggleDebug.left;
+        anchors.rightMargin: 100;
+        clip: true;
+        interactive: true;
+        contentWidth: c_InfoPanel.width;
+        flickableDirection: Flickable.HorizontalFlick;
+
+        Bottom.InfoPanel { id: c_InfoPanel; }
     }
 
-    RoundButton {
+    RoundButton { id: button_ToggleDebug;
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
         height: 40;

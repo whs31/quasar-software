@@ -5,32 +5,11 @@
         <file>layouts/BottomBar.qml</file>
         <file>tabs/MapTab.qml</file>
         <file>tabs/FocusTab.qml</file>
-        <file>ui/buttons/ClassicButton.qml</file>
-        <file>ui/buttons/ImageButton.qml</file>
-        <file>ui/buttons/LightButton.qml</file>
-        <file>ui/buttons/LightToolButton.qml</file>
-        <file>ui/buttons/SmallRoundButton.qml</file>
-        <file>ui/checkboxes/LightCheckbox.qml</file>
-        <file>ui/dropdowns/Dropdown.qml</file>
-        <file>ui/dropdowns/InverseDropdown.qml</file>
-        <file>ui/dropdowns/SideDropdown.qml</file>
-        <file>ui/input/FramedLineEdit.qml</file>
-        <file>ui/input/FramedSlider.qml</file>
-        <file>ui/input/LineEdit.qml</file>
-        <file>ui/labels/FramedLabel.qml</file>
-        <file>ui/labels/RoundLabel.qml</file>
-        <file>ui/layouts/Separator.qml</file>
-        <file>ui/progress-bars/CircularProgressBar.qml</file>
-        <file>ui/widgets/AttitudeIndicator.qml</file>
-        <file>ui/widgets/FloatingTooltip.qml</file>
-        <file>ui/widgets/InlineDialog.qml</file>
-        <file>ui/widgets/StorageStatusIndicator.qml</file>
         <file>tabs/map/RulerItem.qml</file>
         <file>layouts/bottombar/StatusWidget.qml</file>
         <file>layouts/bottombar/InfoPanel.qml</file>
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
-        <file>tabs/SettingsTab.qml</file>
     </qresource>
 </RCC>

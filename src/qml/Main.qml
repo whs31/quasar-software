@@ -52,9 +52,39 @@ Window { id: window_root;
         DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
                          samples: 32; color: "#80000000"; source: layout_BottomBar; cached: true; }
 
+        Row { id: layout_TabBarButtons;
+            anchors.right: parent.right;
+            anchors.top: parent.top;
+            anchors.rightMargin: -1;
+            anchors.margins: -7;
+            spacing: -5;
+
+            RoundButton { id: button_Settings;
+                font.family: root.s_FontMain;
+                height: 40;
+                radius: 4;
+                icon.source: "qrc:/icons/tabs/settings.png";
+                Material.elevation: 30;
+                Material.background: Material.background;
+                flat: true;
+                //onPressed:
+            }
+
+            RoundButton { id: button_About;
+                font.family: root.s_FontMain;
+                height: 40;
+                radius: 4;
+                icon.source: "qrc:/icons/tabs/info.png";
+                Material.elevation: 30;
+                Material.background: Material.background;
+                flat: true;
+                //onPressed:
+            }
+        }
+
         TabBar { id: control_TabBar;
             anchors.left: parent.left;
-            anchors.right: parent.right;
+            anchors.right: layout_TabBarButtons.left;
             anchors.top: parent.top;
             contentHeight: 25;
             background: Rectangle { color: Material.background; }
@@ -77,12 +107,6 @@ Window { id: window_root;
                 font.family: root.s_FontMain;
                 font.weight: Font.Bold;
             }
-
-            TabButton {
-                text: "НАСТРОЙКИ";
-                font.family: root.s_FontMain;
-                font.weight: Font.Bold;
-            }
         }
 
         SwipeView { id: view_MainView;
@@ -96,7 +120,6 @@ Window { id: window_root;
             Tabs.MapTab { id: c_MapTab; }
             Tabs.FocusTab { id: c_FocusTab; }
             Tabs.NetworkTab { id: c_NetworkTab; }
-            Tabs.SettingsTab { id: c_SettingsTab; }
         }
     }
 }

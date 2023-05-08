@@ -1,37 +1,63 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+
+import Theme 1.0
 import Network 1.0
 
 import "network" as NetworkTab
 
-Item {
-    NetworkTab.SocketConsole {
-        name: "КОНСОЛЬ ТЕЛЕМЕТРИИ";
-        anchors.left: parent.left;
-        anchors.top: parent.top;
-        anchors.margins: 5;
-        width: 400;
-        height: 400;
+Pane {
+    Material.background: Theme.color("dark0");
+
+    Flickable {
+        anchors.fill: parent;
+        clip: true;
+        interactive: true;
+        flickableDirection: Flickable.HorizontalAndVerticalFlick;
+        contentHeight: 1000;
+        contentWidth: 1896;
+
+        NetworkTab.SocketConsole { id: panel_TelemetryConsole;
+            name: "СОКЕТ ТЕЛЕМЕТРИИ";
+            anchors.left: parent.left;
+            anchors.top: parent.top;
+            anchors.margins: 5;
+            width: 670;
+            height: 450;
+        }
+
+        NetworkTab.SocketConsole { id: panel_ExecdConsole;
+            name: "СОКЕТ КОМАНД";
+            anchors.left: panel_TelemetryConsole.right;
+            anchors.top: parent.top;
+            anchors.margins: 5;
+            width: 370;
+            height: 450;
+        }
+
+        NetworkTab.SocketConsole { id: panel_FeedbackConsole;
+            name: "СОКЕТ ОБРАТНОЙ СВЯЗИ";
+            anchors.left: panel_ExecdConsole.right;
+            anchors.top: parent.top;
+            anchors.margins: 5;
+            width: 450;
+            height: 450;
+        }
+
+        NetworkTab.SocketConsole { id: panel_LFSConsole;
+            name: "СОКЕТ TCP-IP";
+            anchors.right: parent.right;
+            anchors.top: parent.top;
+            anchors.margins: 5;
+            width: 380;
+            height: 450;
+        }
     }
 
-//    ImRenderLayer { id: lyo_ImGUIWindow;
-//        anchors.fill: parent;
-//        anchors.topMargin: 15;
-//        focus: true;
-
-//        enabled: true;
-//        z: 1000;
-//    }
-
-//    ImDebugConsole { id: imgui_DebugConsole; }
-
-//    Connections {
-//        target: lyo_ImGUIWindow;
-//        function onFrame() { imgui_DebugConsole.frame(); }
-//    }
-
-//    Connections {
-//        target: Network;
-//        function onTelsock(data) { imgui_DebugConsole.telsockAppend(data); }
-//        function onFeedbacksock(data) { imgui_DebugConsole.feedbacksockAppend(data); }
-//    }
+    Connections {
+        target: Network;
+        function onTelemetrySocketMetrics(data, size_bytes) { panel_TelemetryConsole.logdata(data, size_bytes); }
+        function onFeedbackSocketMetrics(data, size_bytes) { panel_FeedbackConsole.logdata(data, size_bytes); }
+    }
 }

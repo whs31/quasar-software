@@ -4,12 +4,23 @@ import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
 
-Page {
+Pane {
     property string name: "Socket Console";
 
-    Material.elevation: 100;
+    function logdata(str, sizeof)
+    {
+        textarea.append(str);
+    }
 
-    header: Rectangle {
+
+    Material.elevation: 6;
+    Material.background: Theme.color("dark1");
+
+    Rectangle { id: header;
+        anchors.top: parent.top;
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+        anchors.margins: -12;
         color: Theme.color("dark2");
         height: 24;
 
@@ -18,14 +29,45 @@ Page {
             anchors.leftMargin: 3;
             text: name;
             font.family: root.mainfont;
-            color: Theme.color("light0");
+            color: Theme.color("light1");
             font.bold: true;
             font.pixelSize: 15;
         }
     }
 
-    Rectangle {
-        color: Theme.color("dark1");
-        anchors.fill: parent;
+    Rectangle { id: textareabackground;
+        color: Theme.color("dark0");
+        anchors.top: header.bottom;
+        anchors.topMargin: 12;
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+        anchors.bottom: parent.bottom; // temp;
+        anchors.bottomMargin: 100;
+
+        TextArea { id: textarea;
+            anchors.fill: parent;
+            anchors.topMargin: 0;
+            anchors.bottomMargin: 0;
+            anchors.margins: 5;
+            placeholderText: "Нет вывода с сокета.";
+            placeholderTextColor: Theme.color("dark3");
+            font.family: root.monofont;
+            color: Theme.color("light0");
+            font.bold: true;
+            font.pixelSize: 12;
+            selectByMouse: true;
+            readOnly: true;
+            selectedTextColor: "#2E3440";
+            selectionColor: "#B48EAD";
+            textFormat: Text.RichText;
+            wrapMode: Text.WordWrap;
+            background: null;
+
+            function append(strAdd) {
+                text = strAdd + text;
+                if(lineCount >= 20)
+                    text = "";
+            }
+        }
     }
 }

@@ -1,7 +1,18 @@
 import QtQuick 2.15
 import Network 1.0
 
+import "network" as NetworkTab
+
 Item {
+    NetworkTab.SocketConsole {
+        name: "КОНСОЛЬ ТЕЛЕМЕТРИИ";
+        anchors.left: parent.left;
+        anchors.top: parent.top;
+        anchors.margins: 5;
+        width: 400;
+        height: 400;
+    }
+
 //    ImRenderLayer { id: lyo_ImGUIWindow;
 //        anchors.fill: parent;
 //        anchors.topMargin: 15;

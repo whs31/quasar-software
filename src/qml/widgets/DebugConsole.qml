@@ -13,7 +13,6 @@ Rectangle { id: control;
     z: 100;
     clip: true;
 
-    FontLoader { id: monoFont; source: "qrc:/fonts/UbuntuMono.ttf"; }
     Connections
     {
         target: Impl;
@@ -98,7 +97,7 @@ Rectangle { id: control;
             selectedTextColor: "#2E3440";
             selectionColor: "#B48EAD";
             textFormat: Text.RichText;
-            font.family: monoFont.name;
+            font.family: root.monofont;
             font.pixelSize: 13;
             wrapMode: Text.WordWrap;
             function append(strAdd)
@@ -127,7 +126,7 @@ Rectangle { id: control;
             selectByMouse: true;
             selectedTextColor: "#2E3440";
             selectionColor: "#B48EAD";
-            font.family: monoFont.name;
+            font.family: root.monofont;
             font.pixelSize: 13;
             onAccepted:
             {

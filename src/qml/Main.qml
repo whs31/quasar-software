@@ -36,8 +36,11 @@ ApplicationWindow  { id: window_root;
 
         property bool b_ConsoleShown: true;
         property string s_FontMain: font_Main.name;
+        property string mainfont: font_Main.name;
+        property string monofont: font_Mono.name;
 
         FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
+        FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
         Widgets.DebugConsole { id: c_DebugConsole;
             enabled: root.b_ConsoleShown;

@@ -23,6 +23,7 @@ namespace Network
             signals:
                 __signal received(QByteArray data);
                 __signal socketDisconnected();
+                __signal socketMetrics(const QString& data, int size_bytes);
 
         private:
             private slots:

@@ -20,7 +20,6 @@ namespace Network
             signals:
                 __signal textReceived(QByteArray text);
                 __signal diskSpaceReceived(long free, long total);
-                __signal socketMetrics(QByteArray data, int size_bytes);
 
         private:
             private slots:

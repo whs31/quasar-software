@@ -15,7 +15,7 @@ Pane {
     Material.background: Theme.color("dark0");
 
     implicitWidth: 400;
-    implicitHeight: 600;
+    implicitHeight: 500;
 
     Image { id: image_Logo;
         anchors.horizontalCenter: parent.horizontalCenter;
@@ -42,7 +42,7 @@ Pane {
     Row { id: layout_Logos;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.top: image_Logo.bottom;
-        anchors.topMargin: 280;
+        anchors.topMargin: 180;
 
         Image {
             width: 200;

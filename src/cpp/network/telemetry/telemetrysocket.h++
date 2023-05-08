@@ -31,7 +31,6 @@ namespace Network
             signals:
                 __signal frequencyChanged();
                 __signal ping();
-                __signal socketMetrics(const QString& data, int size_bytes);
 
         private:
             private slots:

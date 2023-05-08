@@ -12,8 +12,6 @@ class ProgressBar : public QQuickPaintedItem
     Q_PROPERTY(QString backgroundColor READ backgroundColor WRITE setBackgroundColor NOTIFY backgroundColorChanged)
     Q_PROPERTY(int value READ value WRITE setValue NOTIFY valueChanged)
 
-
-
     public:
         ProgressBar(QQuickItem* parent = nullptr);
         void paint(QPainter* painter) override;

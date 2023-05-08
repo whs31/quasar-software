@@ -5,7 +5,6 @@
 #include <QtCore/QPointF>
 #include <QtCore/QHash>
 #include <vector>
-#include <imgui/imgui.h>
 
 #define THEME GUI::Theme::get()
 
@@ -35,9 +34,6 @@ namespace GUI
 
             //! @brief
             __qml QString colorText(const QString& text, const QString& theme_color_name);
-
-            //! @brief
-            ImVec4 hexToFloatColor(const QString& hex, float alpha = 1) const;
 
             //! @brief Сеттер и геттер для параметра scalingFactor.
             __getter QPointF scalingFactor() const;

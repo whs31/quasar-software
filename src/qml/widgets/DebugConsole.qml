@@ -100,7 +100,7 @@ Rectangle { id: control;
             textFormat: Text.RichText;
             font.family: monoFont.name;
             font.pixelSize: 13;
-            wrapMode: Text.NoWrap;
+            wrapMode: Text.WordWrap;
             function append(strAdd)
             {
                 textArea.text = textArea.text + strAdd;

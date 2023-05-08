@@ -9,7 +9,6 @@
 #include <QtCore/QJsonObject>
 #include <QtCore/QCoreApplication>
 #include <QtGui/QColor>
-#include <imgui/imgui.h>
 #include <memory>
 
 using namespace GUI;
@@ -43,17 +42,6 @@ QString Theme::colorText(const QString& text, const QString& theme_color_name)
     return ("<font color=\"" + this->color(theme_color_name) + "\">" + text + "</font>");
 }
 
-ImVec4 Theme::hexToFloatColor(const QString& hex, float alpha) const
-{
-    QColor col(hex);
-    ImVec4 vec;
-    vec.x = col.red() / (float)255;
-    vec.y = col.green() / (float)255;
-    vec.z = col.blue() / (float)255;
-    vec.w = alpha;
-    return vec;
-}
-
 QPointF Theme::scalingFactor() const { return m_scalingFactor; }
 void Theme::setScalingFactor(QPointF factor) {
     if (m_scalingFactor == factor) return;
@@ -65,8 +53,6 @@ void Theme::setQWidgetsStylesheet()
 {
     qWarning() << "[THEME] Function setQWidgetsStylesheet is deprecated since 17.04.2023.";
 }
-
-
 
 ThemePrivate::ThemePrivate(Theme* parent)
     : q_ptr(parent)

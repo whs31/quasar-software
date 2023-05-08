@@ -30,8 +30,6 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/scenegraph/*
     src/cpp/network/*
     src/cpp/utils/*
-
-    libs/imgui/*
 )
 
 set(PROJECT_SOURCES

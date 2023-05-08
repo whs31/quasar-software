@@ -20,8 +20,7 @@ Rectangle {
         anchors.leftMargin: 16;
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;
-        anchors.right: button_ToggleDebug.left;
-        anchors.rightMargin: 100;
+        anchors.right: layout_SharedToolbar.left;
         clip: true;
         interactive: true;
         contentWidth: c_InfoPanel.width;
@@ -30,13 +29,27 @@ Rectangle {
         Bottom.InfoPanel { id: c_InfoPanel; }
     }
 
-    RoundButton { id: button_ToggleDebug;
+    Row { id: layout_SharedToolbar;
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
-        height: 40;
-        width: 40;
-        radius: 4;
-        icon.source: "qrc:/icons/bottombar/console.png";
-        onPressed: root.b_ConsoleShown = !root.b_ConsoleShown;
+
+        RoundButton { id: button_FormImage;
+            font.family: root.s_FontMain;
+            font.weight: Font.Bold;
+            height: 44;
+            radius: 4;
+            Material.elevation: 30;
+            Material.background: Theme.color("color0");
+            text: "ФОРМИРОВАНИЕ ИЗОБРАЖЕНИЯ";
+            //onPressed:
+        }
+
+        RoundButton { id: button_ToggleDebug;
+            height: 44;
+            width: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/bottombar/console.png";
+            onPressed: root.b_ConsoleShown = !root.b_ConsoleShown;
+        }
     }
 }

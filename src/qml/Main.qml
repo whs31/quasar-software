@@ -15,8 +15,8 @@ import "tabs" as Tabs
 
 Window { id: window_root;
     Material.theme: Material.Dark;
-    Material.accent: Theme.color("color3");
-    Material.primary: Theme.color("orange");
+    Material.accent: Theme.color("color1");
+    Material.primary: Theme.color("accent");
     Material.foreground: Theme.color("light0");
     Material.background: Theme.color("dark1");
 

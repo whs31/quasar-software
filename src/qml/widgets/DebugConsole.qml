@@ -92,7 +92,7 @@ Rectangle { id: control;
             background: Rectangle{
                 color:"#232323";
             }
-            text: "[GUI] Console initialized";
+            text: "[CONSOLE] Beginning logging...";
             selectByMouse: true;
             readOnly: true;
             selectedTextColor: "#2E3440";

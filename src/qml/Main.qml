@@ -14,7 +14,7 @@ import "layouts" as Layouts
 import "tabs" as Tabs
 import "windows" as Windows
 
-Window { id: window_root;
+ApplicationWindow  { id: window_root;
     Material.theme: Material.Dark;
     Material.accent: Theme.color("color1");
     Material.primary: Theme.color("accent");
@@ -130,6 +130,8 @@ Window { id: window_root;
             anchors.right: parent.right;
             interactive: false;
             currentIndex: control_TabBar.currentIndex;
+            contentWidth: view_MainView.width;
+            contentHeight: view_MainView.height;
 
             Tabs.MapTab { id: c_MapTab; }
             Tabs.FocusTab { id: c_FocusTab; }

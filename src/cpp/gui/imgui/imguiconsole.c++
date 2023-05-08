@@ -18,8 +18,8 @@ void ImGuiConsole::frame()
     if(set_up == false)
         setup();
 
-    ImGui::SetNextWindowSize(ImVec2(525, 500));
-    ImGui::SetNextWindowPos(ImVec2(5, 5));
+    ImGui::SetNextWindowSize(ImVec2(525, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(5, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Execd Socket");
     {
         const int size_of_graph = 100;
@@ -46,8 +46,8 @@ void ImGuiConsole::frame()
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(520, 500));
-    ImGui::SetNextWindowPos(ImVec2(530, 5));
+    ImGui::SetNextWindowSize(ImVec2(520, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(530, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Feedback Socket");
     {
         const int size_of_graph = 100;
@@ -74,8 +74,8 @@ void ImGuiConsole::frame()
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(860, 500));
-    ImGui::SetNextWindowPos(ImVec2(1055, 5));
+    ImGui::SetNextWindowSize(ImVec2(860, 500), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(1055, 5), ImGuiCond_FirstUseEver);
     ImGui::Begin("Telemetry Socket");
     {
         const int size_of_graph = 100;
@@ -105,16 +105,16 @@ void ImGuiConsole::frame()
     ImGui::End();
 
 
-    ImGui::SetNextWindowSize(ImVec2(525, 400));
-    ImGui::SetNextWindowPos(ImVec2(5, 505));
+    ImGui::SetNextWindowSize(ImVec2(525, 400), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(5, 505), ImGuiCond_FirstUseEver);
     ImGui::Begin("TCP Socket");
     {
 
     }
     ImGui::End();
 
-    ImGui::SetNextWindowSize(ImVec2(1390, 400));
-    ImGui::SetNextWindowPos(ImVec2(530, 505));
+    ImGui::SetNextWindowSize(ImVec2(1390, 400), ImGuiCond_FirstUseEver);
+    ImGui::SetNextWindowPos(ImVec2(530, 505), ImGuiCond_FirstUseEver);
     ImGui::Begin("Network", nullptr, ImGuiWindowFlags_NoCollapse);
     {
         ImPlot::CreateContext();
@@ -132,7 +132,6 @@ void ImGuiConsole::frame()
     }
     ImGui::End();
 
-    //!@todo TCP Socket. Image decoding window.
 }
 
 void ImGuiConsole::telsockAppend(const QString& string)

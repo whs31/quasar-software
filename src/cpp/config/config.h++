@@ -21,6 +21,7 @@ namespace Config
             {"localIP", "127.0.0.1"},
             {"telemetryPort", "9955"},
             {"lfsPort", "10000"},
+            {"stripPort", "48455"},
             {"execdPort", "9845"},
             {"feedbackPort", "9846"},
             {"telemetryFrequency", "0.1"},

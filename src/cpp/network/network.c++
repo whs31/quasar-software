@@ -37,9 +37,9 @@ Network::Network::Network(QObject* parent)
     QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){
         setNetworkDelay(0);
     });
-    QObject::connect(telemetrySocket, &TelemetrySocket::rawData, this, &Network::telsock);
+    QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
     //! @todo execdsock
-    QObject::connect(feedbackSocket, &FeedbackSocket::rawData, this, &Network::feedbacksock);
+    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
 
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;

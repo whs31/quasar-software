@@ -28,6 +28,7 @@ ConsolePrivate::ConsolePrivate(Console* parent)
     , q_ptr(parent)
 {
     qmlRegisterSingletonInstance("ConsoleWidget", 1, 0, "Impl", this);
+    qInfo() << "$ Console initialized";
 }
 
 void ConsolePrivate::sendCommand(QString command)

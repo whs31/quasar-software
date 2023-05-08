@@ -61,9 +61,11 @@ namespace Network
                 __signal networkDelayChanged();
                 __signal connectedChanged();
 
-                __signal __profile telsock(const QString& data);
-                __signal __profile execdsock(const QString& data);
-                __signal __profile feedbacksock(const QString& data);
+                __signal __profile telemetrySocketMetrics(const QString& data, int size_bytes);
+                __signal __profile execdSocketMetrics(const QString& data, int size_bytes);
+                __signal __profile feedbackSocketMetrics(const QString& data, int size_bytes);
+                __signal __profile lfsSocketMetrics(const QString& msg, int size_bytes);
+                __signal __profile stripSocketMetrics(const QString msg, int size_bytes);
 
         private:
             explicit Network(QObject* parent = nullptr);

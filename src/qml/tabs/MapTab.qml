@@ -18,10 +18,6 @@ Map { id: c_Map;
     property bool b_ShowDiagram: true;
     property bool b_ShowCursorCoords: true;
 
-    layer.enabled: true;
-    layer.samples: 8;
-    layer.smooth: true;
-
     tilt: 15;
     gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {

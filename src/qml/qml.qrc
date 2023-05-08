@@ -11,5 +11,6 @@
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
+        <file>windows/InfoWindow.qml</file>
     </qresource>
 </RCC>

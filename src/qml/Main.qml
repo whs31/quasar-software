@@ -12,6 +12,7 @@ import Network 1.0
 import "widgets" as Widgets
 import "layouts" as Layouts
 import "tabs" as Tabs
+import "windows" as Windows
 
 Window { id: window_root;
     Material.theme: Material.Dark;
@@ -29,6 +30,9 @@ Window { id: window_root;
 
     Item { id: root;
         anchors.fill: parent;
+        layer.smooth: true;
+        layer.samples: 6;
+        layer.enabled: true;
 
         property bool b_ConsoleShown: true;
         property string s_FontMain: font_Main.name;
@@ -42,6 +46,11 @@ Window { id: window_root;
         DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
                      samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown;
                      visible: root.b_ConsoleShown; }
+
+        Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
+        DropShadow { z: 98; anchors.fill: c_InfoWindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                     samples: 32; color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown;
+                     visible: c_InfoWindow.b_Shown; }
 
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;
@@ -78,7 +87,12 @@ Window { id: window_root;
                 Material.elevation: 30;
                 Material.background: Material.background;
                 flat: true;
-                //onPressed:
+                onPressed: {
+                    if(c_InfoWindow.b_Shown)
+                        c_InfoWindow.b_Shown = false;
+                    else
+                        c_InfoWindow.b_Shown = true;
+                }
             }
         }
 

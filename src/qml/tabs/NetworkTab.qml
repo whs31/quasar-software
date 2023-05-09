@@ -53,6 +53,15 @@ Pane {
             width: 380;
             height: 450;
         }
+
+        NetworkTab.SocketConsole { id: panel_StripConsole;
+            name: "СОКЕТ UDP LFS";
+            anchors.left: parent.left;
+            anchors.top: panel_TelemetryConsole.bottom;
+            anchors.margins: 5;
+            width: 380;
+            height: 450;
+        }
     }
 
     Connections {

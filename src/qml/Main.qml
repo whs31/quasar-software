@@ -55,6 +55,8 @@ ApplicationWindow  { id: window_root;
                      samples: 32; color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown;
                      visible: c_InfoWindow.b_Shown; }
 
+        Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
+
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;
             anchors.left: parent.left;
@@ -79,7 +81,12 @@ ApplicationWindow  { id: window_root;
                 Material.elevation: 30;
                 Material.background: Material.background;
                 flat: true;
-                //onPressed:
+                onPressed: {
+                    if(c_SettingsWindow.visible === true)
+                        c_SettingsWindow.hide();
+                    else
+                        c_SettingsWindow.show();
+                }
             }
 
             RoundButton { id: button_About;

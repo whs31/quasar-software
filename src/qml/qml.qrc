@@ -13,5 +13,6 @@
         <file>tabs/map/UAVRoute.qml</file>
         <file>windows/InfoWindow.qml</file>
         <file>tabs/network/SocketConsole.qml</file>
+        <file>windows/SettingsWindow.qml</file>
     </qresource>
 </RCC>

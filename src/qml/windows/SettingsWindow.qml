@@ -167,20 +167,15 @@ Window {
                         font.weight: Font.Bold;
                         font.pixelSize: 14;
                         width: 250;
-                        //currentIndex: Config.map().antennaAlignment ? 1 : 0;
-                        currentIndex: 1;
+                        currentIndex: Config.antennaAlignment ? 1 : 0;
                         model: [ "Слева", "Справа" ];
                         Layout.alignment: Qt.AlignRight;
 
                         onCurrentValueChanged: {
-//                            if(currentValue === "Оффлайн-карта")
-//                                i_MapMode = 0;
-//                            if(currentValue === "Схема")
-//                                i_MapMode = 5;
-//                            if(currentValue === "Спутник")
-//                                i_MapMode = 1;
-//                            if(currentValue === "Гибрид")
-//                                i_MapMode = 4;
+                            if(currentValue === "Слева")
+                                Config.antennaAlignment = 0;
+                            else
+                                Config.antennaAlignment = 1;
                         }
                     }
                 }
@@ -227,7 +222,10 @@ Window {
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
             text: "Применить";
-            onPressed: hide();
+            onPressed: {
+                Config.save();
+                hide();
+            }
         }
 
         RoundButton { id: button_Cancel;
@@ -238,8 +236,11 @@ Window {
             radius: 4;
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
-            text: "Отменить";
-            onPressed: hide();
+            text: "Отмена";
+            onPressed: {
+                Config.revert();
+                hide();
+            }
         }
     }
 }

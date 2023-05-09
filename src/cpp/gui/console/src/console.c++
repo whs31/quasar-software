@@ -48,9 +48,8 @@ void ConsolePrivate::quit()
 void ConsolePrivate::telsock_start()
 {
     qDebug() << "[CONSOLE] Forcing start of telemetry socket at default frequency";
-    Network::Network::get()->startTelemetrySocket(QString(CONFIG("remoteIP").toString() + ":" +
-                                                          CONFIG("telemetryPort").toString()),
-                                                          CONFIG("telemetryFrequency").toFloat());
+    Network::Network::get()->startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort),
+                                                  CONFIG(telemetryFrequency));
 }
 
 void ConsolePrivate::telsock_stop()
@@ -61,10 +60,8 @@ void ConsolePrivate::telsock_stop()
 
 void ConsolePrivate::execdsock_start()
 {
-    Network::Network::get()->startExecdSocket(QString(CONFIG("remoteIP").toString() + ":" +
-                                                      CONFIG("execdPort").toString()),
-                                              QString(CONFIG("localIP").toString() + ":" +
-                                                      CONFIG("feedbackPort").toString()));
+    Network::Network::get()->startExecdSocket(CONFIG(remoteIP) + ":" + CONFIG(execdPort),
+                                              CONFIG(localIP) + ":" + CONFIG(feedbackPort));
 }
 
 void ConsolePrivate::execdsock_stop()
@@ -74,8 +71,7 @@ void ConsolePrivate::execdsock_stop()
 
 void ConsolePrivate::tcp_start()
 {
-    Network::Network::get()->startTCPSocket(QString(CONFIG("localIP").toString() + ":" +
-                                                    CONFIG("lfsPort").toString()));
+    Network::Network::get()->startTCPSocket(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort));
 }
 
 void ConsolePrivate::tcp_stop()

@@ -12,6 +12,7 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
 //#include <QtConcurrent/QtConcurrent>
+#include <cmath>
 
 using namespace Processing;
 
@@ -88,7 +89,66 @@ void ImageProcessing::asyncProcess(const QString& filename)
         else
             qCritical() << "[PROCESSING] Failed to save image";
     }
+    else
+    {
+        QImage sample(image_data.width(), image_data.height(), QImage::Format_ARGB32_Premultiplied);
+        sample.fill(QColor(254, 254, 254));
+        image_data.setAlphaChannel(sample);
 
+        QPainter painter;
+        QPainterPath path;
+        QBrush brush(Qt::transparent, Qt::SolidPattern);
+        QPolygon p1, p2;
+
+        brush.setStyle(Qt::SolidPattern);
+        brush.setColor(Qt::transparent);
+        painter.begin(&image_data);
+        painter.setCompositionMode(QPainter::CompositionMode_Source);
+        painter.setPen(QPen(Qt::transparent, 10));
+        painter.setRenderHint(QPainter::Antialiasing);
+
+        const int top[8] = {
+            0, (int)((image.meta.ly / 2) - 2
+               * image.meta.x0
+               * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               / 2))),
+            0, 0,
+            (int)image.meta.lx, 0,
+            (int)image.meta.lx, (int)((image.meta.ly / 2) -
+                                (2 * image.meta.x0 + image.meta.lx)
+                                * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                / 2)))
+        };
+
+        const int bottom[8] = {
+            0, (int)((image.meta.ly / 2) + 2
+               * image.meta.x0
+               * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               / 2))),
+            0, (int)image.meta.ly,
+            (int)image.meta.lx, (int)image.meta.ly,
+            (int)image.meta.lx, (int)((image.meta.ly / 2)
+                                + (2 * image.meta.x0 + image.meta.lx)
+                                * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                / 2)))
+        };
+
+        p1.setPoints(4, top);
+        p2.setPoints(4, bottom);
+        painter.drawPolygon(p1);
+        painter.drawPolygon(p2);
+        path.addPolygon(p1);
+        path.addPolygon(p2);
+
+        painter.fillPath(path, brush);
+        painter.end();
+
+        bool ret = image_data.save(Config::Paths::imageCache() + "/lod0/" + target_filename);
+        if(ret)
+            qInfo() << "[PROCESSING] Image saved successfully with correction";
+        else
+            qCritical() << "[PROCESSING] Failed to save image";
+    }
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

@@ -8,20 +8,6 @@ import Theme 1.0
 import Config 1.0
 
 /*
-            {"remoteIP", "127.0.0.1"}, // network
-            {"localIP", "127.0.0.1"},
-            {"telemetryPort", "9955"},
-            {"lfsPort", "10000"},
-            {"stripPort", "48455"},
-            {"execdPort", "9845"},
-            {"feedbackPort", "9846"},
-            {"telemetryFrequency", "0.1"},
-            {"proxyEnabled", "false"},
-            {"storedLatitude", "60"},  // map
-            {"storedLongitude", "30"},
-            {"storedZoomLevel", "6"},
-            {"storedCatalogue", "C:/"},
-            {"antennaAlignment", "false"}, // uav
             {"angleCorrection", "0"}, // geopositioning
             {"useRadians", "false"},
             {"useDriftAngle", "true"},
@@ -55,7 +41,8 @@ Window {
     }
 
     ScrollView { id: view;
-        property bool b_GlobalValid: validator_1.b_Valid;
+        property bool b_GlobalValid: validator_1.b_Valid && validator_2.b_Valid && validator_3.b_Valid && validator_4.b_Valid &&
+                                     validator_5.b_Valid && validator_6.b_Valid && validator_7.b_Valid;
 
         width: parent.width;
         height : parent.height;
@@ -75,7 +62,7 @@ Window {
 
             Pane { id: panel_Network;
                 x: 25;
-                height: 500;
+                height: 490;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -124,6 +111,173 @@ Window {
                         color: b_Valid ? Theme.color("light1") : Theme.color("red");
 
                         onEditingFinished: Config.remoteIP = text;
+                    }
+
+                    Text {
+                        text: "IP-адрес АРМ:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_2;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.localIP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.localIP = text;
+                    }
+
+                    Text {
+                        text: "Порт сокета телеметрии:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_3;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.telemetryPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.telemetryPort = text;
+                    }
+
+                    Text {
+                        text: "Порт сокета выполнения команд:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_4;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.execdPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.execdPort = text;
+                    }
+
+                    Text {
+                        text: "Порт сокета обратной связи:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_5;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.feedbackPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.feedbackPort = text;
+                    }
+
+                    Text {
+                        text: "Порт TCP-загрузчика:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_6;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.tcpLFSPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.tcpLFSPort = text;
+                    }
+
+                    Text {
+                        text: "Порт UDP-загрузчика:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_7;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.udpLFSPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.udpLFSPort = text;
+                    }
+
+                    Text {
+                        text: "Частота запроса телеметрии:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    Row {
+                        Layout.alignment: Qt.AlignRight;
+
+                        Item {
+                            Text {
+                                anchors.fill: parent;
+                                anchors.topMargin: 10;
+                                anchors.leftMargin: 3;
+                                text: Number(slider_1.value * 1000).toFixed(0) + " мс";
+                                font.family: root.mainfont;
+                                color: Theme.color("light1");
+                                font.pixelSize: 14;
+                                font.bold: true;
+                                verticalAlignment: Text.AlignVCenter;
+                            }
+                        }
+
+                        Slider { id: slider_1;
+                            from: 0.01;
+                            value: Config.telemetryFrequency;
+                            to: 2;
+                            onValueChanged: Config.telemetryFrequency = value;
+                        }
+                    }
+
+                    CheckBox {
+                        checked: Config.proxyEnabled;
+                        text: "Использовать прокси";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: Config.proxyEnabled = checked;
                     }
                 }
             }
@@ -189,7 +343,7 @@ Window {
 
             Pane { id: panel_Geopositioning;
                 x: 25;
-                height: 250;
+                height: 180;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -209,6 +363,70 @@ Window {
                         color: Theme.color("light1");
                         font.bold: true;
                         font.pixelSize: 15;
+                    }
+                }
+
+                GridLayout {
+                    columns: 2;
+                    anchors.top: header4.bottom;
+                    anchors.margins: 5;
+                    anchors.left: parent.left;
+                    anchors.right: parent.right;
+
+                    Text {
+                        text: "Общая коррекция угла:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    SpinBox {
+                        Layout.alignment: Qt.AlignRight;
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        font.bold: true;
+                        from: -180;
+                        to: 180;
+                        value: Config.angleCorrection;
+                        onValueChanged: Config.angleCorrection = value;
+                        textFromValue: function(value, locale) { return Number(value).toLocaleString(locale, 'f', 0) + "°"; }
+                    }
+
+                    Text {
+                        text: "Коррекция тета-азимута:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    SpinBox {
+                        Layout.alignment: Qt.AlignRight;
+                        font.family: root.mainfont;
+                        font.bold: true;
+                        font.pixelSize: 14;
+                        from: 0;
+                        to: 30;
+                        value: Config.thetaAzimuthCorrection;
+                        onValueChanged: Config.thetaAzimuthCorrection = value;
+                        textFromValue: function(value, locale) { return Number(value).toLocaleString(locale, 'f', 0) + "°"; }
+                    }
+
+                    CheckBox {
+                        checked: Config.useRadians;
+                        text: "Телеметрия в радианах";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: Config.useRadians = checked;
+                    }
+
+                    CheckBox {
+                        checked: Config.useDriftAngle;
+                        text: "Учитывать угол сноса";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: Config.useDriftAngle = checked;
                     }
                 }
             }

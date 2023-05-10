@@ -9,7 +9,6 @@ import QtQuick.Dialogs 1.3
 import Theme 1.0
 import Config 1.0
 import Network 1.0
-import Paths 1.0
 import Filesystem 1.0
 
 import "widgets" as Widgets

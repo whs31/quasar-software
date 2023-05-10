@@ -4,11 +4,11 @@ import QtQuick.Controls.Material 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
-import Paths 1.0
 import Theme 1.0
-import RulerModel 1.0
+import Ruler 1.0
 import ClickHandler 1.0
 import Filesystem 1.0
+import Config 1.0
 
 import "map" as MapTab;
 

@@ -33,15 +33,14 @@ bool Filesystem::fetchImageDirectory()
 
             QFile::copy(initial_file_list.at(i), Config::Paths::imageCache() + "/lod0/" + initial_directory.entryList().at(i));
             emit imageCached(initial_directory.entryList().at(i));
-
-            return true;
         }
         else
             qDebug() << "[FILESYSTEM] Occurence found, skipping...";
     }
+    return true;
 }
 
-Filesystem::Filesystem(QObject *parent)
+Filesystem::Filesystem(QObject* parent)
     : QObject{parent}
 {
 

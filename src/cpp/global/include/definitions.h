@@ -18,4 +18,6 @@
 #define DECLARE_SINGLETON_IMPL(x) x* x::instance = nullptr; x* x::get(QObject* parent) { if(instance != nullptr) return instance; instance = new x(parent); return instance; }
 
 // useful macros
+#define QML_EXPOSE_INSTANCE(type, import_module, name, instance) qmlRegisterSingletonInstance<type>(import_module, 1, 0, name, instance);
+#define QML_EXPOSE_INSTANTIABLE(type, import_module, name) qmlRegisterType<type>(import_module, 1, 0, name);
 

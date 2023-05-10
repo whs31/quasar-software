@@ -3,9 +3,11 @@
 #include "config/paths.h++"
 #include "config/config.h++"
 #include "filesystem/filesystem.h++"
+#include "processing/imageprocessing.h++"
 #include "map/ruler.h++"
 #include "map/route.h++"
 #include "map/clickhandler.h++"
+#include "map/imagemodel.h++"
 #include "scenegraph/cpu/statusindicator.h++"
 #include "scenegraph/cpu/progressbar.h++"
 #include "network/network.h++"
@@ -17,15 +19,16 @@
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
-    qmlRegisterSingletonInstance<Config::Paths>("Paths", 1, 0, "Paths", Config::Paths::get(this));
-    qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get(this));
-    qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
-    qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get(this));
-    qmlRegisterSingletonInstance<Network::Network>("Network", 1, 0, "Network", Network::Network::get(this));
-    qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get(this));
+    QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get(this));
+    QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get(this));
+    QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get(this));
+    QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get(this));
+    QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get(this));
+    QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get(this));
+    QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImageModel", Processing::ImageProcessing::get(this)->model());
 
-    qmlRegisterType<Map::Ruler>("RulerModel", 1, 0, "RulerModel");
-    qmlRegisterType<Map::Route>("Route", 1, 0, "Route");
-    qmlRegisterType<ProgressBar>("Widgets.Status", 1, 0, "ProgressBar");
-    qmlRegisterType<StatusIndicator>("Widgets.Status", 1, 0, "StatusIndicator");
+    QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
+    QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
+    QML_EXPOSE_INSTANTIABLE(ProgressBar, "Widgets.Status", "ProgressBar");
+    QML_EXPOSE_INSTANTIABLE(StatusIndicator, "Widgets.Status", "StatusIndicator");
 }

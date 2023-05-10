@@ -17,6 +17,8 @@ namespace Network
     class Network : public QObject
     {
         Q_OBJECT
+        DECLARE_SINGLETON(Network);
+
         Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
         Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
@@ -26,8 +28,6 @@ namespace Network
         constexpr __global float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
 
         public:
-            static Network* get(QObject* parent = nullptr);
-
             TelemetrySocket* telemetrySocket;
             ExecdSocket* execdSocket;
             FeedbackSocket* feedbackSocket;
@@ -71,7 +71,6 @@ namespace Network
             explicit Network(QObject* parent = nullptr);
 
         private:
-            static Network* instance;
             QTimer* m_network_delay_timer;
 
             Telemetry* m_telemetry;

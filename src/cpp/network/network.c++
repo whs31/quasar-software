@@ -7,15 +7,11 @@
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 
-Network::Network* Network::Network::instance = nullptr;
-Network::Network* Network::Network::get(QObject* parent) {
-    if(instance != nullptr)
-        return instance;
-    instance = new Network(parent);
-    return instance;
-}
+namespace Network {
 
-Network::Network::Network(QObject* parent)
+DECLARE_SINGLETON_IMPL(Network)
+
+Network::Network(QObject* parent)
     : QObject{parent}
     , m_telemetry(new Telemetry(this))
     , m_remoteData(new RemoteData(this))
@@ -47,80 +43,80 @@ Network::Network::Network(QObject* parent)
     });
 }
 
-void Network::Network::startTelemetrySocket(const QString& address, float frequency)
+void Network::startTelemetrySocket(const QString& address, float frequency)
 {
     telemetrySocket->setFrequency(frequency);
     telemetrySocket->start(address);
 }
 
-void Network::Network::stopTelemetrySocket()
+void Network::stopTelemetrySocket()
 {
     telemetrySocket->stop();
 }
 
 
-void Network::Network::startExecdSocket(const QString& execd_address, const QString& feedback_address)
+void Network::startExecdSocket(const QString& execd_address, const QString& feedback_address)
 {
     execdSocket->start(execd_address);
     feedbackSocket->start(feedback_address);
 }
 
-void Network::Network::stopExecdSocket()
+void Network::stopExecdSocket()
 {
     execdSocket->stop();
     feedbackSocket->stop();
 }
 
-void Network::Network::executeCommand(const QString& command)
+void Network::executeCommand(const QString& command)
 {
 
 }
 
-void Network::Network::startTCPSocket(const QString &address)
+void Network::startTCPSocket(const QString &address)
 {
     tcpSocket->startServer(address);
 }
 
-void Network::Network::stopTCPSocket()
+void Network::stopTCPSocket()
 {
     tcpSocket->stopServer();
 }
 
-namespace Network {
-    Telemetry* Network::telemetry() const { return m_telemetry; }
-    void Network::setTelemetry(Telemetry* other) {
-        if (m_telemetry == other)
-            return;
-        m_telemetry = other;
-        emit telemetryChanged();
-    }
 
-    RemoteData* Network::remoteData() const { return m_remoteData; }
-    void Network::setRemoteData(RemoteData* other) {
-        if (m_remoteData == other)
-            return;
-        m_remoteData = other;
-        emit remoteDataChanged();
-    }
+Telemetry* Network::telemetry() const { return m_telemetry; }
+void Network::setTelemetry(Telemetry* other) {
+    if (m_telemetry == other)
+        return;
+    m_telemetry = other;
+    emit telemetryChanged();
+}
 
-    float Network::networkDelay() const { return m_networkDelay; }
-    void Network::setNetworkDelay(float other) {
-        if (qFuzzyCompare(m_networkDelay, other)) return;
-        m_networkDelay = other;
-        emit networkDelayChanged();
+RemoteData* Network::remoteData() const { return m_remoteData; }
+void Network::setRemoteData(RemoteData* other) {
+    if (m_remoteData == other)
+        return;
+    m_remoteData = other;
+    emit remoteDataChanged();
+}
 
-        if(networkDelay() >= DISCONNECT_DELAY_THRESHOLD)
-            setConnected(0);
-        else if(networkDelay() >= SEMICONNECT_DELAY_THRESHOLD)
-            setConnected(1);
-        else
-            setConnected(2);
-    }
+float Network::networkDelay() const { return m_networkDelay; }
+void Network::setNetworkDelay(float other) {
+    if (qFuzzyCompare(m_networkDelay, other)) return;
+    m_networkDelay = other;
+    emit networkDelayChanged();
 
-    int Network::connected() const { return m_connected; }
-    void Network::setConnected(int other) {
-        if (m_connected == other) return;
-        m_connected = other;
-        emit connectedChanged();
-    }
+    if(networkDelay() >= DISCONNECT_DELAY_THRESHOLD)
+        setConnected(0);
+    else if(networkDelay() >= SEMICONNECT_DELAY_THRESHOLD)
+        setConnected(1);
+    else
+        setConnected(2);
+}
+
+int Network::connected() const { return m_connected; }
+void Network::setConnected(int other) {
+    if (m_connected == other) return;
+    m_connected = other;
+    emit connectedChanged();
+}
 }

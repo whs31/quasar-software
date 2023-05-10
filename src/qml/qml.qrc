@@ -14,5 +14,6 @@
         <file>windows/InfoWindow.qml</file>
         <file>tabs/network/SocketConsole.qml</file>
         <file>windows/SettingsWindow.qml</file>
+        <file>tabs/map/MapImage.qml</file>
     </qresource>
 </RCC>

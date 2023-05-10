@@ -9,6 +9,7 @@ import Ruler 1.0
 import ClickHandler 1.0
 import Filesystem 1.0
 import Config 1.0
+import Images 1.0
 
 import "map" as MapTab;
 
@@ -61,6 +62,14 @@ Map { id: c_Map;
 
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
+
+    MapItemView {
+        model: ImageModel;
+        add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
+        delegate: MapTab.MapImage { }
+    }
+
 
     // ui
 

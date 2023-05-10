@@ -149,6 +149,10 @@ void ImageProcessing::asyncProcess(const QString& filename)
         else
             qCritical() << "[PROCESSING] Failed to save image";
     }
+
+    image.path.first = Config::Paths::imageCache() + "/lod0/" + target_filename;
+
+    model()->add(image);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

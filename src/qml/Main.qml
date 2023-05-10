@@ -51,6 +51,7 @@ ApplicationWindow  { id: window_root;
         selectFolder: true;
         onAccepted: {
             console.log("[GUI] Selected folder " + window_FileDialog.fileUrl);
+            Config.storedCatalogue = fileUrl;
             Filesystem.fetchImageDirectory();
         }
         onRejected: {

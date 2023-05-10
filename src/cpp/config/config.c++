@@ -12,6 +12,7 @@ DECLARE_SINGLETON_IMPL(Config)
 
 Config::Config::~Config()
 {
+    this->save();
     this->sync();
 }
 
@@ -312,7 +313,10 @@ void Config::setStoredCatalogue(const QString& other)
 {
     if (m_storedCatalogue == other)
         return;
-    m_storedCatalogue = other;
+    if(other.startsWith("file:///"))
+        m_storedCatalogue = other.right(other.size() - strlen("file:///"));
+    else
+        m_storedCatalogue = other;
     emit storedCatalogueChanged();
 }
 

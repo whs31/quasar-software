@@ -2,6 +2,7 @@
 #include "gui/theme/include/theme.h++"
 #include "config/paths.h++"
 #include "config/config.h++"
+#include "filesystem/filesystem.h++"
 #include "map/ruler.h++"
 #include "map/route.h++"
 #include "map/clickhandler.h++"
@@ -17,8 +18,9 @@ Entry::Entry(QObject *parent)
     : QObject{parent}
 {
     qmlRegisterSingletonInstance<Config::Paths>("Paths", 1, 0, "Paths", Config::Paths::get(this));
-    qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
     qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get(this));
+    qmlRegisterSingletonInstance<GUI::Theme>("Theme", 1, 0, "Theme", GUI::Theme::get(this));
+    qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get(this));
     qmlRegisterSingletonInstance<Network::Network>("Network", 1, 0, "Network", Network::Network::get(this));
     qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get(this));
 

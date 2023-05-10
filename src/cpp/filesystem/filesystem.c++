@@ -10,7 +10,7 @@ using namespace OS;
 
 DECLARE_SINGLETON_IMPL(Filesystem)
 
-void Filesystem::fetchImageDirectory()
+bool Filesystem::fetchImageDirectory()
 {
     QStringList initial_file_list;
     QDir initial_directory(CONFIG(storedCatalogue), {"*.jpg"}, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
@@ -21,7 +21,7 @@ void Filesystem::fetchImageDirectory()
     if(initial_file_list.empty())
     {
         qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window...";
-        return;
+        return false;
     }
 
     for (const QString& filename : initial_file_list) {
@@ -29,6 +29,7 @@ void Filesystem::fetchImageDirectory()
         {
             qInfo() << "[FILESYSTEM] Found image" << filename;
             // IMPL HERE
+            return true;
         }
         else
             qDebug() << "[FILESYSTEM] Occurence found, skipping...";

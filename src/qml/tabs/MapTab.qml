@@ -8,6 +8,7 @@ import Paths 1.0
 import Theme 1.0
 import RulerModel 1.0
 import ClickHandler 1.0
+import Filesystem 1.0
 
 import "map" as MapTab;
 
@@ -250,7 +251,11 @@ Map { id: c_Map;
             icon.source: "qrc:/icons/toolbar/map/refresh.png";
             Material.elevation: 30;
             Material.background: Material.background;
-            //onPressed:
+            onPressed: {
+                let ret = Filesystem.fetchImageDirectory();
+                if(!ret)
+                    messagebox_ErrorFetchingImages.open();
+            }
         }
 
         RoundButton { id: button_ChooseCatalogue;

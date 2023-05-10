@@ -4,6 +4,7 @@ import QtQuick.Controls 2.15
 import QtGraphicalEffects 1.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Dialogs 1.3
 
 import Theme 1.0
 import Config 1.0
@@ -27,6 +28,19 @@ ApplicationWindow  { id: window_root;
     visible: true;
     color: Theme.color("dark0");
     Component.onCompleted: showMaximized();
+
+    MessageDialog { id: messagebox_ErrorFetchingImages;
+        Material.theme: Material.Dark;
+        Material.accent: Theme.color("color1");
+        Material.primary: Theme.color("accent");
+        Material.foreground: Theme.color("light0");
+        Material.background: Theme.color("dark1");
+
+        title: "Не найдены изображения";
+        text: "В целевой папке не найдены радиолокационные изображения.";
+        standardButtons: StandardButton.Close;
+        icon: StandardIcon.Warning;
+    }
 
     Item { id: root;
         anchors.fill: parent;

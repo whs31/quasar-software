@@ -11,7 +11,7 @@ namespace OS
         DECLARE_SINGLETON(Filesystem)
 
         public:
-            __qml void fetchImageDirectory();
+            __qml bool fetchImageDirectory();
 
             signals:
 

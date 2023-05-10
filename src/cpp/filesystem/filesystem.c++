@@ -30,7 +30,10 @@ bool Filesystem::fetchImageDirectory()
         if(not checkOcurrence(Config::Paths::imageCache() + "/lod0", initial_directory.entryList().at(i)))
         {
             qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << initial_directory.entryList().at(i) << " at path " << initial_file_list.at(i).left(15) << "...";
-            // IMPL HERE
+
+            QFile::copy(initial_file_list.at(i), Config::Paths::imageCache() + "/lod0/" + initial_directory.entryList().at(i));
+            emit imageCached(initial_directory.entryList().at(i));
+
             return true;
         }
         else

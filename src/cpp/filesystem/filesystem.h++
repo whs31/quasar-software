@@ -14,6 +14,7 @@ namespace OS
             __qml bool fetchImageDirectory();
 
             signals:
+                __signal imageCached(const QString& filename);
 
         private:
             Filesystem(QObject* parent = nullptr);

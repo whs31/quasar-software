@@ -19,7 +19,7 @@ namespace Map
         image_file_t path;
         bool valid = false;
 
-        friend QDebug operator<< (QDebug d, const Map::Image& image);
+        friend QDebug& operator<< (QDebug& d, Map::Image& image);
     };
 } // namespace Map;
 

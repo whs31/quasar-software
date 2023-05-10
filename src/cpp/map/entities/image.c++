@@ -1,14 +1,14 @@
 #include "image.h++"
 #include <QtCore/QDebug>
 
-using namespace Map;
+namespace Map {
 
 Image::Image()
 {
 
 }
 
-QDebug operator<< (QDebug d, const Map::Image& image)
+QDebug& operator<< (QDebug& d, Image& image)
 {
     d << "name: " << image.filename
       << "marker: " << image.header.meta_marker
@@ -41,4 +41,5 @@ QDebug operator<< (QDebug d, const Map::Image& image)
       << "valid: " << image.valid;
 
     return d;
+}
 }

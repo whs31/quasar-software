@@ -30,37 +30,44 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     char* data_ptr = data.data();
     uint16_t* marker = reinterpret_cast<uint16_t*>(data_ptr + image.header.JPEG_HEADER_SIZE);
-    if(*marker == image.header.meta_marker or *marker == qFromLittleEndian<uint16_t>(image.header.meta_marker))
+    if(*marker != image.header.meta_marker and *marker != qFromBigEndian<uint16_t>(image.header.meta_marker))
     {
-        // заполнение структуры метаданными
-        uint16_t* meta_size = reinterpret_cast<uint16_t *>(data_ptr + image.header.JPEG_HEADER_SIZE + sizeof(uint16_t));
-        *meta_size = qToBigEndian(*meta_size) - sizeof(uint16_t);
-        memcpy(&image.meta, (data_ptr + image.header.JPEG_HEADER_SIZE + sizeof(uint32_t)), *meta_size);
-
-        // проверка контрольной суммы
-        char* crc_data = (char*)&image.meta;
-        uint16_t crc16 = Utilities::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
-
-        image.valid = crc16 == image.meta.crc16;
-        if(not image.valid)
-            qWarning() << "[PROCESSING] Image CRC16 seems to be incorrect";
-
-        // геометрические преобразования
-        if(CONFIG(useRadians))
-        {
-            image.meta.angle = Utilities::Numeric::radiansToDegrees(image.meta.angle) + CONFIG(angleCorrection);
-            image.meta.drift_angle = CONFIG(useDriftAngle) ? Utilities::Numeric::radiansToDegrees(image.meta.drift_angle) : 0;
-            image.meta.div = Utilities::Numeric::radiansToDegrees(image.meta.div);
-        }
-        else
-            image.meta.angle += CONFIG(angleCorrection);
-    }
-    else
-    {
-        qCritical() << "[PROCESSING] Marker mismatch!";
+        qCritical().noquote().nospace() << "[PROCESSING] Marker mismatch: expected 0x"
+                                        << Qt::hex << image.header.meta_marker << " or 0x"
+                                        << qFromBigEndian<uint16_t>(image.header.meta_marker)
+                                        << ", received 0x" << *marker << Qt::dec;
         return;
     }
 
+    // заполнение структуры метаданными
+    uint16_t *meta_size = reinterpret_cast<uint16_t *>(data_ptr + image.header.JPEG_HEADER_SIZE
+                                                       + sizeof(uint16_t));
+    *meta_size = qToBigEndian(*meta_size) - sizeof(uint16_t);
+    memcpy(&image.meta, (data_ptr + image.header.JPEG_HEADER_SIZE + sizeof(uint32_t)), *meta_size);
+
+    // проверка контрольной суммы
+    char *crc_data = (char *) &image.meta;
+    uint16_t crc16 = Utilities::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
+
+    image.valid = crc16 == image.meta.crc16;
+    if(not image.valid)
+        qWarning().noquote().nospace() << "[PROCESSING] Image CRC16 seems to be incorrect: expected 0x"
+                                       << Qt::hex << crc16 << ", received 0x" << image.meta.crc16 << Qt::dec;
+
+    // геометрические преобразования
+    if(CONFIG(useRadians))
+    {
+        image.meta.angle = Utilities::Numeric::radiansToDegrees(image.meta.angle)
+                           + CONFIG(angleCorrection);
+        image.meta.drift_angle = CONFIG(useDriftAngle)
+                                     ? Utilities::Numeric::radiansToDegrees(image.meta.drift_angle)
+                                     : 0;
+        image.meta.div = Utilities::Numeric::radiansToDegrees(image.meta.div);
+    }
+    else
+        image.meta.angle += CONFIG(angleCorrection);
+
+    //! @todo: ly != real height
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -84,6 +91,6 @@ void ImageProcessing::processImage(const QString& filename)
 {
     qDebug() << "[PROCESSING] Received image to process" << filename;
 
-    this->processImage(filename);
+    this->asyncProcess(filename);
 }
 

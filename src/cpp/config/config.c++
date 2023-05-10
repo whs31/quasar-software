@@ -6,13 +6,8 @@
 
 #define QSTRING_CAST(x) QVariant(x).toString()
 
-Config::Config* Config::Config::instance = nullptr;
-Config::Config *Config::Config::get(QObject* parent)
-{
-    if(instance != nullptr)
-        return instance;
-    instance = new Config(parent);
-    return instance;
+namespace Config {
+DECLARE_SINGLETON_IMPL(Config)
 }
 
 Config::Config::~Config()

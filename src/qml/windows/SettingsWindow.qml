@@ -55,6 +55,8 @@ Window {
     }
 
     ScrollView { id: view;
+        property bool b_GlobalValid: validator_1.b_Valid;
+
         width: parent.width;
         height : parent.height;
         contentWidth: column.width;
@@ -95,30 +97,33 @@ Window {
                         font.pixelSize: 15;
                     }
                 }
-            }
 
-            Pane { id: panel_Map;
-                x: 25;
-                height: 200;
-                width: view.width - 50;
-                Material.elevation: 50;
-
-                Rectangle { id: header2;
-                    anchors.top: parent.top;
+                GridLayout {
+                    columns: 2;
+                    anchors.top: header1.bottom;
+                    anchors.margins: 5;
                     anchors.left: parent.left;
                     anchors.right: parent.right;
-                    anchors.margins: -12;
-                    color: Theme.color("dark2");
-                    height: 24;
 
                     Text {
-                        anchors.fill: parent;
-                        anchors.leftMargin: 3;
-                        text: "КАРТА";
+                        text: "IP-адрес РЛС:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
-                        font.bold: true;
-                        font.pixelSize: 15;
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_1;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.remoteIP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.remoteIP = text;
                     }
                 }
             }
@@ -148,7 +153,8 @@ Window {
                     }
                 }
 
-                RowLayout {
+                GridLayout {
+                    columns: 2;
                     anchors.top: header3.bottom;
                     anchors.margins: 5;
                     anchors.left: parent.left;
@@ -215,6 +221,7 @@ Window {
 
         RoundButton { id: button_Save;
             width: 200;
+            enabled: view.b_GlobalValid;
             font.family: root.s_FontMain;
             font.weight: Font.Bold;
             height: 44;

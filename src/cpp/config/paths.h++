@@ -8,10 +8,9 @@ namespace Config
     class Paths : public QObject
     {
         Q_OBJECT
+        DECLARE_SINGLETON(Paths)
 
         public:
-            static Paths* get(QObject* parent = nullptr);
-
             __qml static QString root();
             __qml static QString imageCache();
             __qml static QString mapConfig();
@@ -26,8 +25,5 @@ namespace Config
         private:
             explicit Paths(QObject* parent = nullptr);
             void createMapConfigs(void);
-
-        private:
-            static Paths* instance;
     };
 } // namespace Config;

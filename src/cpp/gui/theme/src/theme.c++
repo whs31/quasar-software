@@ -13,23 +13,11 @@
 
 using namespace GUI;
 
-Theme *Theme::_instance = nullptr;
-Theme *Theme::get(QObject *parent) {
-    if (_instance != nullptr)
-        return _instance;
-    _instance = new Theme(parent);
-    return _instance;
-}
+DECLARE_SINGLETON_IMPL(Theme)
 
 Theme::Theme(QObject *parent)
     : QObject{parent}
     , d_ptr(new ThemePrivate(this)) {}
-
-void Theme::setWindowDimension(float width, float height)
-{
-    Q_D(Theme);
-    d->setWindowDimension(width, height);
-}
 
 QString Theme::color(QString key)
 {
@@ -42,32 +30,10 @@ QString Theme::colorText(const QString& text, const QString& theme_color_name)
     return ("<font color=\"" + this->color(theme_color_name) + "\">" + text + "</font>");
 }
 
-QPointF Theme::scalingFactor() const { return m_scalingFactor; }
-void Theme::setScalingFactor(QPointF factor) {
-    if (m_scalingFactor == factor) return;
-    m_scalingFactor = factor;
-    //emit scalingFactorChanged();
-}
-
-void Theme::setQWidgetsStylesheet()
-{
-    qWarning() << "[THEME] Function setQWidgetsStylesheet is deprecated since 17.04.2023.";
-}
-
 ThemePrivate::ThemePrivate(Theme* parent)
     : q_ptr(parent)
 {
     findThemesInFolder();
-}
-
-void ThemePrivate::setWindowDimension(float w, float h)
-{
-    Q_Q(Theme);
-    QPointF _factor(w / q->BASE_RESOLUTION[0], h / q->BASE_RESOLUTION[1]);
-    q->setScalingFactor(_factor);
-
-    qDebug().nospace() << "[THEME] Using screen resolution of current monitor: " << w << "x" << h;
-    qDebug().nospace() << "[THEME] Recalculated coefficients for GUI: " << q->scalingFactor().x() << ", " << q->scalingFactor().y();
 }
 
 void ThemePrivate::findThemesInFolder()

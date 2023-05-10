@@ -9,14 +9,8 @@
 
 using namespace Config;
 
-Paths *Paths::instance = nullptr;
-Paths *Paths::get(QObject *parent)
-{
-    if(instance != nullptr)
-        return instance;
-    instance = new Paths(parent);
-    return instance;
-}
+DECLARE_SINGLETON_IMPL(Paths)
+
 Paths::Paths(QObject *parent) : QObject{parent}
 {
     this->createImageCache();

@@ -14,6 +14,8 @@ namespace Config
     class Config : public QObject
     {
         Q_OBJECT
+        DECLARE_SINGLETON(Config)
+
         Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
         Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
         Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
@@ -37,7 +39,6 @@ namespace Config
         Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
 
         public:
-            static Config* get(QObject* parent = nullptr);
             virtual ~Config();
 
             __qml void sync();
@@ -145,7 +146,6 @@ namespace Config
                 {"thetaAzimuthCorrection", "5"}
             };
 
-            static Config* instance;
             QSettings* ini;
 
             QString m_remoteIP;

@@ -12,7 +12,6 @@ namespace GUI
             ThemePrivate(Theme* parent);
             virtual ~ThemePrivate() = default;
 
-            void setWindowDimension(float w, float h);
             void findThemesInFolder();
             void applyTheme(QString theme);
 

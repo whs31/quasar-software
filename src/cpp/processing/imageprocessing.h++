@@ -25,5 +25,9 @@ namespace Processing
         private:
             explicit ImageProcessing(QObject *parent = nullptr);
             Map::ImageModel* m_model;
+
+            void __async asyncProcess(const QString& filename);
+
+            QByteArray fileToByteArray(const QString& path);
     };
 } // namespace Processing;

@@ -18,6 +18,8 @@ namespace Map
         ImageMetadata meta;
         image_file_t path;
         bool valid = false;
+
+        friend QDebug operator<< (QDebug d, const Map::Image& image);
     };
 } // namespace Map;
 

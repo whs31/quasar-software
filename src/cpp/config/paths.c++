@@ -79,7 +79,11 @@ void Paths::createImageCache(void)
 {
     QDir dir(imageCache());
     if(not dir.exists())
+    {
         dir.mkpath(imageCache());
+        dir.mkpath(imageCache() + "/lod0");
+        dir.mkpath(imageCache() + "/lod1");
+    }
     qInfo() << "[PATH] Created image cache at " << imageCache();
 }
 

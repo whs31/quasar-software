@@ -3,19 +3,20 @@
 #include <Definitions>
 #include <QtCore/QObject>
 
-class Filesystem : public QObject
+namespace OS
 {
-    Q_OBJECT
+    class Filesystem : public QObject
+    {
+        Q_OBJECT
+        DECLARE_SINGLETON(Filesystem)
 
-    public:
-        static Filesystem* get(QObject* parent = nullptr);
+        public:
+            __qml void fetchImageDirectory();
 
-        signals:
+            signals:
 
-    private:
-        Filesystem(QObject* parent = nullptr);
-
-    private:
-        static Filesystem* instance;
-};
-
+        private:
+            Filesystem(QObject* parent = nullptr);
+            bool checkOcurrence(QString target_folder, QString filename);
+    };
+} // namespace OS;

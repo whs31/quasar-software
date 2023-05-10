@@ -8,6 +8,10 @@
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
+#include <QtGui/QImage>
+#include <QtGui/QPainter>
+#include <QtGui/QPainterPath>
+//#include <QtConcurrent/QtConcurrent>
 
 using namespace Processing;
 
@@ -67,7 +71,24 @@ void ImageProcessing::asyncProcess(const QString& filename)
     else
         image.meta.angle += CONFIG(angleCorrection);
 
-    //! @todo: ly != real height
+    QImage image_data(image.path.first);
+
+    if(CONFIG(overrideImageHeight))
+        image.meta.ly = image_data.height();
+
+    QString target_filename = filename;
+    target_filename.chop(3);
+    target_filename += "png";
+
+    if(not CONFIG(cutImage))
+    {
+        bool ret = image_data.save(Config::Paths::imageCache() + "/lod0/" + target_filename);
+        if(ret)
+            qInfo() << "[PROCESSING] Image saved successfully without correction";
+        else
+            qCritical() << "[PROCESSING] Failed to save image";
+    }
+
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -92,5 +113,14 @@ void ImageProcessing::processImage(const QString& filename)
     qDebug() << "[PROCESSING] Received image to process" << filename;
 
     this->asyncProcess(filename);
+
+    //! @todo busy
 }
 
+bool ImageProcessing::busy() const { return m_busy; }
+void ImageProcessing::setBusy(bool other) {
+    if (m_busy == other)
+        return;
+    m_busy = other;
+    emit busyChanged();
+}

@@ -32,6 +32,8 @@ namespace Config
         Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
         Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
         Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
+        Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
+        Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
 
         Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
         Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
@@ -41,11 +43,11 @@ namespace Config
         public:
             virtual ~Config();
 
-            __qml void sync();
-            __qml void save();
-            __qml void load();
-            __qml void revert();
-            __qml void reset();
+            __exposed void sync();
+            __exposed void save();
+            __exposed void load();
+            __exposed void revert();
+            __exposed void reset();
 
             __getter QString remoteIP() const;
             __setter void setRemoteIP(const QString& other);
@@ -101,6 +103,12 @@ namespace Config
             __getter float telemetryFrequency() const;
             __setter void setTelemetryFrequency(float other);
 
+            __getter bool overrideImageHeight() const;
+            __setter void setOverrideImageHeight(bool other);
+
+            __getter bool cutImage() const;
+            __setter void setCutImage(bool other);
+
             signals:
                 __signal remoteIPChanged();
                 __signal localIPChanged();
@@ -120,6 +128,8 @@ namespace Config
                 __signal storedZoomLevelChanged();
                 __signal storedCatalogueChanged();
                 __signal telemetryFrequencyChanged();
+                __signal overrideImageHeightChanged();
+                __signal cutImageChanged();
 
             private:
             explicit Config(QObject* parent = nullptr);
@@ -143,7 +153,9 @@ namespace Config
                 {"angleCorrection", "0"},
                 {"useRadians", "true"},
                 {"useDriftAngle", "true"},
-                {"thetaAzimuthCorrection", "5"}
+                {"thetaAzimuthCorrection", "5"},
+                {"overrideImageHeight", "true"},
+                {"cutImage", "true"}
             };
 
             QSettings* ini;
@@ -166,5 +178,7 @@ namespace Config
             double m_storedZoomLevel;
             QString m_storedCatalogue;
             float m_telemetryFrequency;
+            bool m_overrideImageHeight;
+            bool m_cutImage;
     };
 } // namespace Config;

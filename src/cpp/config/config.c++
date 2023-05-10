@@ -38,6 +38,8 @@ void Config::Config::save()
     ini->setValue("useRadians", QSTRING_CAST(useRadians()));
     ini->setValue("useDriftAngle", QSTRING_CAST(useDriftAngle()));
     ini->setValue("thetaAzimuthCorrection", QSTRING_CAST(thetaAzimuthCorrection()));
+    ini->setValue("overrideImageHeight", QSTRING_CAST(overrideImageHeight()));
+    ini->setValue("cutImage", QSTRING_CAST(cutImage()));
 }
 
 void Config::Config::load()
@@ -62,6 +64,8 @@ void Config::Config::load()
     setUseRadians(ini->value("useRadians").toBool());
     setUseDriftAngle(ini->value("useDriftAngle").toBool());
     setThetaAzimuthCorrection(ini->value("thetaAzimuthCorrection").toFloat());
+    setOverrideImageHeight(ini->value("overrideImageHeight").toBool());
+    setCutImage(ini->value("cutImage").toBool());
 }
 
 void Config::Config::revert()
@@ -95,6 +99,23 @@ Config::Config::Config(QObject* parent)
 }
 
 namespace Config {
+bool Config::overrideImageHeight() const { return m_overrideImageHeight; }
+void Config::setOverrideImageHeight(bool other)
+{
+    if (m_overrideImageHeight == other)
+        return;
+    m_overrideImageHeight = other;
+    emit overrideImageHeightChanged();
+}
+
+bool Config::cutImage() const { return m_cutImage; }
+void Config::setCutImage(bool other)
+{
+    if (m_cutImage == other)
+        return;
+    m_cutImage = other;
+    emit cutImageChanged();
+}
 
 QString Config::remoteIP() const
 {

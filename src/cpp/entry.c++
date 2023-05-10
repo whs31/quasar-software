@@ -31,4 +31,6 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
     QML_EXPOSE_INSTANTIABLE(ProgressBar, "Widgets.Status", "ProgressBar");
     QML_EXPOSE_INSTANTIABLE(StatusIndicator, "Widgets.Status", "StatusIndicator");
+
+    connect(OS::Filesystem::get(), &OS::Filesystem::imageCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processImage);
 }

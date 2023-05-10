@@ -17,6 +17,9 @@ namespace Processing
         public:
             Map::ImageModel* model() const;
 
+            public slots:
+                void __slot processImage(const QString& filename);
+
             signals:
 
         private:

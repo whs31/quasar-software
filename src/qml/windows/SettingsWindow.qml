@@ -247,29 +247,27 @@ Window {
                         Layout.alignment: Qt.AlignLeft;
                     }
 
-                    Row {
+                    SpinBox { id: sb_1;
                         Layout.alignment: Qt.AlignRight;
-
-                        Item {
-                            Text {
-                                anchors.fill: parent;
-                                anchors.topMargin: 10;
-                                anchors.leftMargin: 3;
-                                text: Number(slider_1.value * 1000).toFixed(0) + " мс";
-                                font.family: root.mainfont;
-                                color: Theme.color("light1");
-                                font.pixelSize: 14;
-                                font.bold: true;
-                                verticalAlignment: Text.AlignVCenter;
-                            }
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        font.bold: true;
+                        from: 0;
+                        to: 2 * 1000;
+                        stepSize: 10;
+                        value: 0;
+                        property real fl_ValueReal: value / 1000;
+                        onValueChanged: Config.telemetryFrequency = fl_ValueReal;
+                        validator: DoubleValidator {
+                            bottom: Math.min(sb_1.from, sb_1.to);
+                            top:  Math.max(sb_1.from, sb_1.to);
+                        }
+                        textFromValue: function(value, locale) { return Number(value / 1000).toLocaleString(locale, 'f', 2) + " с"; }
+                        valueFromText: function(text, locale) {
+                            return Number.fromLocaleString(locale, text) * 1000
                         }
 
-                        Slider { id: slider_1;
-                            from: 0.01;
-                            value: Config.telemetryFrequency;
-                            to: 2;
-                            onValueChanged: Config.telemetryFrequency = value;
-                        }
+                        Component.onCompleted: value = Config.telemetryFrequency;
                     }
 
                     CheckBox {
@@ -464,6 +462,7 @@ Window {
             text: "Отмена";
             onPressed: {
                 Config.revert();
+                sb_1.value = Config.telemetryFrequency;
                 hide();
             }
         }

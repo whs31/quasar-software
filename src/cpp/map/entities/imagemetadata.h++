@@ -8,7 +8,7 @@ namespace Map
     //! @struct Стуктура заголовка метаданных РЛИ. Сериализована в Big endian.
     struct ImageMetaHeader
     {
-        const uint8_t JPEG_HEADER_SIZE = 20;    //! @variable Размер заголовка JPEG до начала метаданных.
+        uint8_t JPEG_HEADER_SIZE = 20;          //! @variable Размер заголовка JPEG до начала метаданных.
         uint16_t meta_marker = 0xFFE1;          //! @variable Маркер начала метаданных. Big-endian.
         uint16_t meta_size;                     //! @variable Размер метаданных. Big-endian.
     };

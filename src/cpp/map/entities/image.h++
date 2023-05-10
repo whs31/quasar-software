@@ -13,6 +13,7 @@ namespace Map
     {
         Image();
 
+        QString filename;
         ImageMetaHeader header;
         ImageMetadata meta;
         image_file_t path;

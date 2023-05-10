@@ -2,6 +2,7 @@
 
 #include <Definitions>
 #include <QtCore/QAbstractListModel>
+#include <QtCore/QVector>
 
 #include "entities/image.h++"
 
@@ -14,6 +15,8 @@ namespace Map
         public:
             enum ModelRole
             {
+                Index,
+                Filename,
                 Latitude,
                 Longitude,
                 DX,
@@ -34,20 +37,23 @@ namespace Map
                 ImageType,
                 Crc16,
                 Valid,
-                LOD1File,
-                LOD0File
+                LOD1FilePath,
+                LOD0FilePath
             };
 
-            explicit ImageModel(QObject *parent = nullptr);
+            explicit ImageModel(QObject* parent = nullptr);
 
             QHash<int, QByteArray> roleNames() const override;
 
             int rowCount(const QModelIndex &parent = QModelIndex()) const override;
             QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
             bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
-            bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
-            bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) override;
+
+            __qml void add(const Image& image);
+            __qml void remove(int index);
+            __qml void clear();
 
         private:
+            QVector<Image> storage;
     };
 } // namespace Map;

@@ -130,6 +130,7 @@ void Ruler::insertPoint(const QGeoCoordinate& _point, quint16 _index)
 void Ruler::removePoint(quint16 _index)
 {
     quint16 pointsCount = m_segments.size() + 1;
+
     if (_index > pointsCount -1 || _index < 0){
         qWarning() << "[MAP] RouteOrthodromSegmentsModel : \t неправильный индекс при удаление точки из маршрута. index: " << _index;
         return;

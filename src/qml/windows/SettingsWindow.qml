@@ -462,7 +462,7 @@ Window {
             text: "Отмена";
             onPressed: {
                 Config.revert();
-                sb_1.value = Config.telemetryFrequency;
+//                sb_1.value = Config.telemetryFrequency;
                 hide();
             }
         }

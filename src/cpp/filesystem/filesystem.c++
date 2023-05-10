@@ -35,7 +35,10 @@ bool Filesystem::fetchImageDirectory()
             emit imageCached(initial_directory.entryList().at(i));
         }
         else
+        {
             qDebug() << "[FILESYSTEM] Occurence found, skipping...";
+            emit imageCached(initial_directory.entryList().at(i));
+        }
     }
     return true;
 }

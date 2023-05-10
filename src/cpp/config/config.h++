@@ -141,7 +141,7 @@ namespace Config
                 {"storedCatalogue", "C:/"},
                 {"antennaAlignment", "false"},
                 {"angleCorrection", "0"},
-                {"useRadians", "false"},
+                {"useRadians", "true"},
                 {"useDriftAngle", "true"},
                 {"thetaAzimuthCorrection", "5"}
             };

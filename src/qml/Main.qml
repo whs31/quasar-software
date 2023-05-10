@@ -9,6 +9,8 @@ import QtQuick.Dialogs 1.3
 import Theme 1.0
 import Config 1.0
 import Network 1.0
+import Paths 1.0
+import Filesystem 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -40,6 +42,20 @@ ApplicationWindow  { id: window_root;
         text: "В целевой папке не найдены радиолокационные изображения.";
         standardButtons: StandardButton.Close;
         icon: StandardIcon.Warning;
+    }
+
+    FileDialog { id: window_FileDialog;
+        property string s_Url: window_FileDialog.fileUrl;
+        title: "Выберите каталог с радиолокационными изображениями";
+        folder: Paths.imageCache();
+        selectFolder: true;
+        onAccepted: {
+            console.log("[GUI] Selected folder " + window_FileDialog.fileUrl);
+            Filesystem.fetchImageDirectory();
+        }
+        onRejected: {
+            console.log("[GUI] Folder selection cancelled");
+        }
     }
 
     Item { id: root;

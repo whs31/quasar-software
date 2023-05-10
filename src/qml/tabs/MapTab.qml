@@ -266,7 +266,9 @@ Map { id: c_Map;
             Material.elevation: 30;
             Material.background: Material.background;
             text: "Изменить каталог РЛИ";
-            //onPressed:
+            onPressed: {
+                window_FileDialog.open();
+            }
         }
 
         RoundButton { id: button_ClearLocalCache;

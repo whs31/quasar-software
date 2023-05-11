@@ -52,6 +52,8 @@ namespace Map
             __qml void remove(int index);
             __qml void clear();
 
+            QVector<Image>* direct();
+
         private:
             QVector<Image> storage;
     };

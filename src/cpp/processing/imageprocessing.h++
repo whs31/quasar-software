@@ -19,8 +19,10 @@ namespace Processing
         public:
             Map::ImageModel* model() const;
 
-            bool busy() const;
-            void setBusy(bool other);
+            __getter bool busy() const;
+            __setter void setBusy(bool other);
+
+            bool exists(const QString& name);
 
             public slots:
                 void __slot processImage(const QString& filename);

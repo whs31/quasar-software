@@ -151,6 +151,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
     }
 
     image.path.first = Config::Paths::imageCache() + "/lod0/" + target_filename;
+    QFile::remove(Config::Paths::imageCache() + "/lod0/" + target_filename);
 
     model()->add(image);
 }
@@ -187,4 +188,14 @@ void ImageProcessing::setBusy(bool other) {
         return;
     m_busy = other;
     emit busyChanged();
+}
+
+bool ImageProcessing::exists(const QString& name)
+{
+    for(Map::Image image : *model()->direct())
+    {
+        if(image.filename == name)
+            return true;
+    }
+    return false;
 }

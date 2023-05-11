@@ -1,6 +1,7 @@
 #include "filesystem.h++"
 #include "config/config.h++"
 #include "config/paths.h++"
+#include "processing/imageprocessing.h++"
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -27,7 +28,8 @@ bool Filesystem::fetchImageDirectory()
     }
 
     for (int i = 0; i < initial_directory.entryList().size(); ++i) {
-        if(not checkOcurrence(Config::Paths::imageCache() + "/lod0", initial_directory.entryList().at(i)))
+        //if(not checkOcurrence(Config::Paths::imageCache() + "/lod0", initial_directory.entryList().at(i)))
+        if(not Processing::ImageProcessing::get()->exists(initial_directory.entryList().at(i)))
         {
             qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << initial_directory.entryList().at(i) << " at path " << initial_file_list.at(i).left(15) << "...";
 
@@ -35,10 +37,7 @@ bool Filesystem::fetchImageDirectory()
             emit imageCached(initial_directory.entryList().at(i));
         }
         else
-        {
             qDebug() << "[FILESYSTEM] Occurence found, skipping...";
-            emit imageCached(initial_directory.entryList().at(i));
-        }
     }
     return true;
 }

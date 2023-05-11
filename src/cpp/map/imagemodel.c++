@@ -142,4 +142,6 @@ void ImageModel::clear()
     qDebug() << "[IMAGE] Model cleared";
 }
 
+QVector<Image>* ImageModel::direct() { return &storage; }
+
 

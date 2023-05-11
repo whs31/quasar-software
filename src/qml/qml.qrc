@@ -16,5 +16,6 @@
         <file>windows/SettingsWindow.qml</file>
         <file>tabs/map/MapImage.qml</file>
         <file>windows/MessageWindow.qml</file>
+        <file>tabs/map/MapImageUI.qml</file>
     </qresource>
 </RCC>

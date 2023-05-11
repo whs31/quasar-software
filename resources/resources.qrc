@@ -2,9 +2,7 @@
     <qresource prefix="/">
         <file>resources.qrc</file>
         <file>logo/full-logo.png</file>
-        <file>logo/full-logo_shadow.png</file>
         <file>logo/gitlab.png</file>
-        <file>logo/radar-mms.png</file>
         <file>logo/radar-mms_white.png</file>
         <file>map/markers/autocapture.png</file>
         <file>map/markers/default.png</file>
@@ -13,8 +11,6 @@
         <file>map/markers/preset.psd</file>
         <file>map/markers/radar.png</file>
         <file>map/items/gpsarrow.png</file>
-        <file>map/items/temp.png</file>
-        <file>map/items/dot.png</file>
         <file>map/patterns/diagonal.png</file>
         <file>icons/console/cross.png</file>
         <file>icons/console/handle.png</file>

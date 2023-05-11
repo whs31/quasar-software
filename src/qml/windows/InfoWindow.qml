@@ -50,7 +50,7 @@ Pane {
             fillMode: Image.PreserveAspectFit;
             smooth: true;
             antialiasing: true;
-            source: "qrc:/logo/radar-mms.png";
+            source: "qrc:/logo/radar-mms_white.png";
             mipmap: true;
 
             MouseArea {

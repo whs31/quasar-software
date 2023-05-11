@@ -13,9 +13,9 @@ namespace Map
         Q_OBJECT
 
         public:
-            enum ModelRole
+            enum ModelRoles
             {
-                Index,
+                Index = Qt::UserRole + 1,
                 Filename,
                 Latitude,
                 Longitude,
@@ -44,9 +44,9 @@ namespace Map
             explicit ImageModel(QObject* parent = nullptr);
 
             QHash<int, QByteArray> roleNames() const override;
-            int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-            QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-            bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+            int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+            QVariant data(const QModelIndex& index, int role) const override;
+            bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
             __qml void add(const Image& image);
             __qml void remove(int index);

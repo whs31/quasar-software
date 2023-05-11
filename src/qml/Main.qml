@@ -30,18 +30,7 @@ ApplicationWindow  { id: window_root;
     color: Theme.color("dark0");
     Component.onCompleted: showMaximized();
 
-    MessageDialog { id: messagebox_ErrorFetchingImages;
-        Material.theme: Material.Dark;
-        Material.accent: Theme.color("color1");
-        Material.primary: Theme.color("accent");
-        Material.foreground: Theme.color("light0");
-        Material.background: Theme.color("dark1");
-
-        title: "Не найдены изображения";
-        text: "В целевой папке не найдены радиолокационные изображения.";
-        standardButtons: StandardButton.Close;
-        icon: StandardIcon.Warning;
-    }
+    Windows.MessageWindow { id: messagebox; }
 
     FileDialog { id: window_FileDialog;
         property string s_Url: window_FileDialog.fileUrl;

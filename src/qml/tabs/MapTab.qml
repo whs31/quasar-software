@@ -70,7 +70,6 @@ Map { id: c_Map;
         delegate: MapTab.MapImage { }
     }
 
-
     // ui
 
     Pane { id: panel_Tools;
@@ -263,7 +262,7 @@ Map { id: c_Map;
             onPressed: {
                 let ret = Filesystem.fetchImageDirectory();
                 if(!ret)
-                    messagebox_ErrorFetchingImages.open();
+                    messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
             }
         }
 
@@ -275,9 +274,7 @@ Map { id: c_Map;
             Material.elevation: 30;
             Material.background: Material.background;
             text: "Изменить каталог РЛИ";
-            onPressed: {
-                window_FileDialog.open();
-            }
+            onPressed: window_FileDialog.open();
         }
 
         RoundButton { id: button_ClearLocalCache;

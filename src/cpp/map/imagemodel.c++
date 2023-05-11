@@ -10,30 +10,30 @@ ImageModel::ImageModel(QObject *parent)
 
 QHash<int, QByteArray> ImageModel::roleNames() const
 {
-    QHash<int, QByteArray> roles = QAbstractListModel::roleNames();
-    roles[ModelRole::Index] = "index";
-    roles[ModelRole::Filename] = "filename";
-    roles[ModelRole::Latitude] = "latitude";
-    roles[ModelRole::Longitude] = "longitude";
-    roles[ModelRole::DX] = "dx";
-    roles[ModelRole::DY] = "dy";
-    roles[ModelRole::X0] = "x0";
-    roles[ModelRole::Y0] = "y0";
-    roles[ModelRole::Angle] = "angle";
-    roles[ModelRole::DriftAngle] = "drift_angle";
-    roles[ModelRole::LX] = "lx";
-    roles[ModelRole::LY] = "ly";
-    roles[ModelRole::Div] = "div";
-    roles[ModelRole::Velocity] = "velocity";
-    roles[ModelRole::Altitude] = "altitude";
-    roles[ModelRole::KR] = "kr";
-    roles[ModelRole::TimeShift] = "time_shift";
-    roles[ModelRole::TimeDuration] = "time_duration";
-    roles[ModelRole::Mode] = "mode";
-    roles[ModelRole::Crc16] = "crc16";
-    roles[ModelRole::Valid] = "valid";
-    roles[ModelRole::LOD1FilePath] = "lod1";
-    roles[ModelRole::LOD0FilePath] = "lod0";
+    QHash<int, QByteArray> roles;
+    roles[Index] = "index";
+    roles[Filename] = "filename";
+    roles[Latitude] = "latitude";
+    roles[Longitude] = "longitude";
+    roles[DX] = "dx";
+    roles[DY] = "dy";
+    roles[X0] = "x0";
+    roles[Y0] = "y0";
+    roles[Angle] = "angle";
+    roles[DriftAngle] = "drift_angle";
+    roles[LX] = "lx";
+    roles[LY] = "ly";
+    roles[Div] = "div";
+    roles[Velocity] = "velocity";
+    roles[Altitude] = "altitude";
+    roles[KR] = "kr";
+    roles[TimeShift] = "time_shift";
+    roles[TimeDuration] = "time_duration";
+    roles[Mode] = "mode";
+    roles[Crc16] = "crc16";
+    roles[Valid] = "valid";
+    roles[LOD1FilePath] = "lod1";
+    roles[LOD0FilePath] = "lod0";
     return roles;
 }
 
@@ -120,6 +120,8 @@ void ImageModel::add(const Image& image)
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     storage.push_back(image);
     endInsertRows();
+
+    qDebug() << "[IMAGE] Model received new image. Now it contains" << rowCount() << "images";
 }
 
 void ImageModel::remove(int index)
@@ -127,6 +129,8 @@ void ImageModel::remove(int index)
     beginRemoveRows(QModelIndex(), index, index);
     storage.remove(index);
     endRemoveRows();
+
+    qDebug() << "[IMAGE] Model lost an image. Now it contains" << rowCount() << "images";
 }
 
 void ImageModel::clear()
@@ -134,6 +138,8 @@ void ImageModel::clear()
     beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
     storage.clear();
     endRemoveRows();
+
+    qDebug() << "[IMAGE] Model cleared";
 }
 
 

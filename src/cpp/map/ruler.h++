@@ -16,7 +16,7 @@ namespace Map
         Q_PROPERTY(qreal totalLength READ totalLength WRITE setTotalLength NOTIFY totalLengthChanged)
 
         public:
-            explicit Ruler(QObject *parent = nullptr);
+            explicit Ruler(QObject* parent = nullptr);
             ~Ruler() override;
 
             enum SegmentRoles {
@@ -28,15 +28,15 @@ namespace Map
 
             QVariant data(const QModelIndex &index, int role) const override;
             QHash<int, QByteArray> roleNames() const override;
+            int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
-            __qml int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-            __qml void setRoute(const QList<QGeoCoordinate> &_path);
-            __qml void resetRoute();
-            __qml void insertPoint(const QGeoCoordinate & _point, quint16 _index);
-            __qml void removePoint(quint16 _index);
-            __qml void updatePoint(const QGeoCoordinate & _point, int _index);
-            __qml QGeoCoordinate calculateCenter(quint16 _index);
-            __qml qreal calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2);
+            __exposed void setRoute(const QList<QGeoCoordinate> &_path);
+            __exposed void resetRoute();
+            __exposed void insertPoint(const QGeoCoordinate & _point, quint16 _index);
+            __exposed void removePoint(quint16 _index);
+            __exposed void updatePoint(const QGeoCoordinate & _point, int _index);
+            __exposed QGeoCoordinate calculateCenter(quint16 _index);
+            __exposed qreal calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2);
 
             __getter qreal totalLength() const;
             __setter void setTotalLength(qreal other);

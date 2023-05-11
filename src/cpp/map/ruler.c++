@@ -21,7 +21,7 @@ int Ruler::rowCount(const QModelIndex &parent) const
     return m_segments.size();
 }
 
-QVariant Ruler::data(const QModelIndex &index, int role) const
+QVariant Ruler::data(const QModelIndex& index, int role) const
 {
     if (not index.isValid())
         return QVariant();
@@ -45,7 +45,7 @@ QHash<int, QByteArray> Ruler::roleNames() const
     return roles;
 }
 
-void Ruler::setRoute(const QList<QGeoCoordinate> &_path)
+void Ruler::setRoute(const QList<QGeoCoordinate>& _path)
 {
     beginResetModel();
     m_segments.clear();

@@ -7,13 +7,6 @@ import QtQuick.Layouts 1.15
 import Theme 1.0
 import Config 1.0
 
-/*
-            {"angleCorrection", "0"}, // geopositioning
-            {"useRadians", "false"},
-            {"useDriftAngle", "true"},
-            {"thetaAzimuthCorrection", "5"}
-*/
-
 Window {
     Material.theme: Material.Dark;
     Material.accent: Theme.color("color1");
@@ -28,18 +21,6 @@ Window {
     modality: Qt.NonModal;
     title: "Параметры";
 
-    Text { id: text_Header;
-        text: "НАСТРОЙКИ ПРОГРАММЫ";
-        anchors.horizontalCenter: parent.horizontalCenter;
-        anchors.top: parent.top;
-        anchors.topMargin: 4;
-        horizontalAlignment: Text.AlignHCenter;
-        font.family: root.mainfont;
-        color: Theme.color("light1");
-        font.bold: true;
-        font.pixelSize: 15;
-    }
-
     ScrollView { id: view;
         property bool b_GlobalValid: validator_1.b_Valid && validator_2.b_Valid && validator_3.b_Valid && validator_4.b_Valid &&
                                      validator_5.b_Valid && validator_6.b_Valid && validator_7.b_Valid;
@@ -51,8 +32,8 @@ Window {
         clip : true;
         anchors.left: parent.left;
         anchors.right: parent.right;
-        anchors.top: text_Header.bottom;
-        anchors.topMargin: 15;
+        anchors.top: parent.top;
+        anchors.topMargin: 5;
         anchors.bottom: buttonGroup.top;
         anchors.bottomMargin: 5;
 
@@ -62,7 +43,7 @@ Window {
 
             Pane { id: panel_Network;
                 x: 25;
-                height: 490;
+                height: 470;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -341,7 +322,7 @@ Window {
 
             Pane { id: panel_Geopositioning;
                 x: 25;
-                height: 180;
+                height: 230;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -425,6 +406,22 @@ Window {
                         font.family: root.mainfont;
                         font.pixelSize: 14;
                         onCheckedChanged: Config.useDriftAngle = checked;
+                    }
+
+                    CheckBox {
+                        checked: Config.overrideImageHeight;
+                        text: "Коррекция РЛИ по путевой дальности";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: Config.overrideImageHeight = checked;
+                    }
+
+                    CheckBox {
+                        checked: Config.cutImage;
+                        text: "Использовать маску для РЛИ";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: Config.cutImage = checked;
                     }
                 }
             }

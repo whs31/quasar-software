@@ -335,7 +335,12 @@ void Config::setStoredCatalogue(const QString& other)
     if (m_storedCatalogue == other)
         return;
     if(other.startsWith("file:///"))
+    {
         m_storedCatalogue = other.right(other.size() - strlen("file:///"));
+        #if !defined Q_OS_WINDOWS
+        m_storedCatalogue.prepend('/');
+        #endif
+    }
     else
         m_storedCatalogue = other;
     emit storedCatalogueChanged();

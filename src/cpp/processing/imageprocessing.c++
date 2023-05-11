@@ -153,6 +153,10 @@ void ImageProcessing::asyncProcess(const QString& filename)
     image.path.first = Config::Paths::imageCache() + "/lod0/" + target_filename;
     QFile::remove(Config::Paths::imageCache() + "/lod0/" + filename);
 
+    image.opacity = INITIAL_OPACITY;
+    image.shown = INITIAL_VISIBILITY;
+    image.mercator_zoom_level = Utilities::Numeric::mercatorZoomLevel(image.meta.latitude, image.meta.dx);
+
     model()->add(image);
 }
 

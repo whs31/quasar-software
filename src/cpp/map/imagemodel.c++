@@ -34,6 +34,9 @@ QHash<int, QByteArray> ImageModel::roleNames() const
     roles[Valid] = "valid";
     roles[LOD1FilePath] = "lod1";
     roles[LOD0FilePath] = "lod0";
+    roles[Transparency] = "transparency";
+    roles[Shown] = "shown";
+    roles[MercatorZoomLevel] = "mercator_zoom_level";
     return roles;
 }
 
@@ -72,6 +75,9 @@ QVariant ImageModel::data(const QModelIndex& index, int role) const
         case Valid: return QVariant::fromValue(storage[index.row()].valid);
         case LOD1FilePath: return QVariant::fromValue(storage[index.row()].path.second);
         case LOD0FilePath: return QVariant::fromValue(storage[index.row()].path.first);
+        case Transparency: return QVariant::fromValue(storage[index.row()].opacity);
+        case Shown: return QVariant::fromValue(storage[index.row()].shown);
+        case MercatorZoomLevel: return QVariant::fromValue(storage[index.row()].mercator_zoom_level);
 
         default: return "Error reading from model";
     }
@@ -106,6 +112,9 @@ bool ImageModel::setData(const QModelIndex& index, const QVariant& value, int ro
             case Valid: storage[index.row()].valid = value.toBool(); break;
             case LOD1FilePath: storage[index.row()].path.second = value.toString(); break;
             case LOD0FilePath: storage[index.row()].path.first = value.toString(); break;
+            case Transparency: storage[index.row()].opacity = value.toFloat(); break;
+            case Shown: storage[index.row()].shown = value.toBool(); break;
+            case MercatorZoomLevel: storage[index.row()].mercator_zoom_level = value.toDouble(); break;
 
             default: return false;
         }
@@ -140,6 +149,13 @@ void ImageModel::clear()
     endRemoveRows();
 
     qDebug() << "[IMAGE] Model cleared";
+}
+
+QGeoCoordinate ImageModel::lastImagePosition()
+{
+    if(storage.empty())
+        return {0, 0};
+    return {storage.last().meta.latitude, storage.last().meta.longitude};
 }
 
 QVector<Image>* ImageModel::direct() { return &storage; }

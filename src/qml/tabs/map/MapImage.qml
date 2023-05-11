@@ -6,9 +6,9 @@ MapQuickItem  {
     anchorPoint.x: -x0;
     anchorPoint.y: ly / 2;
     z: 2;
-    visible: true; // expose
-    zoomLevel: 0; // expose
-    property real m_opacity: 1; // expose
+    visible: shown;
+    zoomLevel: mercator_zoom_level;
+    property real m_opacity: transparency;
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item {
@@ -25,5 +25,4 @@ MapQuickItem  {
             source: "file://" + lod0;
         }
     }
-    Component.onCompleted: console.error(x0, lod0);
 }

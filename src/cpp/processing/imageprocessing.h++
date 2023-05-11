@@ -16,6 +16,9 @@ namespace Processing
 
         Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
+        constexpr __global float INITIAL_OPACITY = 1;
+        constexpr __global bool INITIAL_VISIBILITY = true;
+
         public:
             Map::ImageModel* model();
 

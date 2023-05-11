@@ -4,6 +4,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QVector>
+#include <QtPositioning/QGeoCoordinate>
 
 #include "entities/image.h++"
 
@@ -39,7 +40,10 @@ namespace Map
                 Crc16,
                 Valid,
                 LOD1FilePath,
-                LOD0FilePath
+                LOD0FilePath,
+                Transparency,
+                Shown,
+                MercatorZoomLevel
             };
 
             explicit ImageModel(QObject* parent = nullptr);
@@ -51,6 +55,8 @@ namespace Map
             __exposed void add(const Image& image);
             __exposed void remove(int index);
             __exposed void clear();
+
+            __exposed QGeoCoordinate lastImagePosition();
 
             QVector<Image>* direct();
 

@@ -132,7 +132,10 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/map.png";
                     Material.elevation: 30;
-                    //onPressed: c_Map.center = c_UAV.coordinate;
+                    onPressed: {
+                        console.log("[GUI] Panned at " + ImagesModel.lastImagePosition());
+                        c_Map.center = ImagesModel.lastImagePosition();
+                    }
                 }
             }
         }

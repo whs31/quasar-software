@@ -19,6 +19,10 @@ namespace Map
         image_file_t path;
         bool valid = false;
 
+        float opacity = 1;
+        bool shown = true;
+        double mercator_zoom_level;
+
         friend QDebug& operator<< (QDebug& d, Map::Image& image);
     };
 } // namespace Map;

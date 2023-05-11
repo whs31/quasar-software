@@ -64,7 +64,7 @@ Map { id: c_Map;
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
 
     MapItemView {
-        model: ImageModel;
+        model: ImagesModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImage { }

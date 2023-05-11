@@ -17,7 +17,7 @@ namespace Processing
         Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
 
         public:
-            Map::ImageModel* model() const;
+            Map::ImageModel* model();
 
             __getter bool busy() const;
             __setter void setBusy(bool other);
@@ -31,7 +31,7 @@ namespace Processing
                 __signal busyChanged();
 
         private:
-            explicit ImageProcessing(QObject *parent = nullptr);
+            explicit ImageProcessing(QObject* parent = nullptr);
             Map::ImageModel* m_model;
 
             void __async asyncProcess(const QString& filename);

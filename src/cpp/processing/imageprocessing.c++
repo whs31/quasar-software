@@ -151,7 +151,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
     }
 
     image.path.first = Config::Paths::imageCache() + "/lod0/" + target_filename;
-    QFile::remove(Config::Paths::imageCache() + "/lod0/" + target_filename);
+    QFile::remove(Config::Paths::imageCache() + "/lod0/" + filename);
 
     model()->add(image);
 }
@@ -168,7 +168,7 @@ QByteArray ImageProcessing::fileToByteArray(const QString& path)
     return file.readAll();
 }
 
-Map::ImageModel* ImageProcessing::model() const
+Map::ImageModel* ImageProcessing::model()
 {
     return this->m_model;
 }

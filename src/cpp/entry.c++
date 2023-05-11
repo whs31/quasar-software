@@ -24,8 +24,8 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get(this));
     QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get(this));
     QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get(this));
+    QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get(this)->model());
     QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get(this));
-    QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImageModel", Processing::ImageProcessing::get(this)->model());
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");

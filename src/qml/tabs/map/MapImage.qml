@@ -22,7 +22,7 @@ MapQuickItem  {
                 angle: angle + drift_angle;
             }
             smooth: true;
-            source: lod0;
+            source: "file://" + lod0;
         }
     }
     Component.onCompleted: console.error(x0, lod0);

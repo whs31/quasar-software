@@ -33,7 +33,7 @@ Window {
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.top: parent.top;
-        anchors.topMargin: 5;
+        anchors.topMargin: 20;
         anchors.bottom: buttonGroup.top;
         anchors.bottomMargin: 5;
 

@@ -13,8 +13,6 @@
 
 using namespace GUI;
 
-DECLARE_SINGLETON_IMPL(Theme)
-
 Theme::Theme(QObject *parent)
     : QObject{parent}
     , d_ptr(new ThemePrivate(this)) {}

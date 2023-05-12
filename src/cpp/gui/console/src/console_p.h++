@@ -32,21 +32,21 @@ class ConsolePrivate : public QObject
         ConsolePrivate(Console* parent);
         virtual ~ConsolePrivate() = default;
 
-        __qml void sendCommand(QString command);
+        __exposed void sendCommand(QString command);
 
         signals:
             __signal appendSignal(const QString& text);
 
     private:
-        void __concommand quit();
-        void __concommand telsock_start();
-        void __concommand telsock_stop();
-        void __concommand execdsock_start();
-        void __concommand execdsock_stop();
-        void __concommand tcp_start();
-        void __concommand tcp_stop();
-        void __concommand sim();
-        void __concommand nets();
+        void quit();
+        void telsock_start();
+        void telsock_stop();
+        void execdsock_start();
+        void execdsock_stop();
+        void tcp_start();
+        void tcp_stop();
+        void sim();
+        void nets();
 
     private:
         Console* q_ptr;

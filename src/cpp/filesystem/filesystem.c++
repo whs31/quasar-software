@@ -9,8 +9,6 @@
 
 using namespace OS;
 
-DECLARE_SINGLETON_IMPL(Filesystem)
-
 bool Filesystem::fetchImageDirectory()
 {
     qDebug().noquote() << "[FILESYSTEM] Fetching images from" << CONFIG(storedCatalogue);

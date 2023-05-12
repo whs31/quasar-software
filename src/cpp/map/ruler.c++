@@ -252,24 +252,3 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
 
     return result;
 }
-
-qreal Ruler::totalLength() const { return m_totalLength; }
-void Ruler::setTotalLength(qreal other) {
-    if (qFuzzyCompare(m_totalLength, other)) return;
-    m_totalLength = other;
-    emit totalLengthChanged();
-}
-
-qreal Ruler::lastLatitude() const { return m_lastLatitude; }
-void Ruler::setLastLatitude(qreal other) {
-    if (qFuzzyCompare(m_lastLatitude, other)) return;
-    m_lastLatitude = other;
-    emit lastLatitudeChanged();
-}
-
-qreal Ruler::lastLongitude() const { return m_lastLongitude; }
-void Ruler::setLastLongitude(qreal other) {
-    if (qFuzzyCompare(m_lastLongitude, other)) return;
-    m_lastLongitude = other;
-    emit lastLongitudeChanged();
-}

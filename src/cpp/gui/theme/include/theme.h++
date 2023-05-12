@@ -14,7 +14,7 @@ namespace GUI
     class Theme : public QObject
     {
         Q_OBJECT
-        DECLARE_SINGLETON(Theme)
+        DEFINE_AS_SINGLETON(Theme)
         Q_DECLARE_PRIVATE(Theme)
 
         public:
@@ -24,10 +24,10 @@ namespace GUI
             const QString DEFAULT_THEME = "nord.json";
 
             //! @brief
-            __qml QString color(QString key);
+            __exposed QString color(QString key);
 
             //! @brief
-            __qml QString colorText(const QString& text, const QString& theme_color_name);
+            __exposed QString colorText(const QString& text, const QString& theme_color_name);
 
             signals:
                 __signal colorsChanged();

@@ -14,31 +14,31 @@ namespace Config
     class Config : public QObject
     {
         Q_OBJECT
-        DECLARE_SINGLETON(Config)
+        DEFINE_AS_SINGLETON(Config)
 
-        Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
-        Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
-        Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
-        Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
-        Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
-        Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
-        Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
-        Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
-        Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
+        PROPERTY_DEF(QString, remoteIP, setRemoteIP, m_remoteIP)
+        PROPERTY_DEF(QString, localIP, setLocalIP, m_localIP)
+        PROPERTY_DEF(QString, telemetryPort, setTelemetryPort, m_telemetryPort)
+        PROPERTY_DEF(QString, tcpLFSPort, setTcpLFSPort, m_tcpLFSPort)
+        PROPERTY_DEF(QString, udpLFSPort, setUdpLFSPort, m_udpLFSPort)
+        PROPERTY_DEF(QString, execdPort, setExecdPort, m_execdPort)
+        PROPERTY_DEF(QString, feedbackPort, setFeedbackPort, m_feedbackPort)
+        PROPERTY_DEF(float, telemetryFrequency, setTelemetryFrequency, m_telemetryFrequency)
+        PROPERTY_DEF(bool, proxyEnabled, setProxyEnabled, m_proxyEnabled)
 
-        Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
+        PROPERTY_DEF(bool, antennaAlignment, setAntennaAlignment, m_antennaAlignment)
 
-        Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
-        Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
-        Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
-        Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
-        Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
-        Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
+        PROPERTY_DEF(float, angleCorrection, setAngleCorrection, m_angleCorrection)
+        PROPERTY_DEF(bool, useRadians, setUseRadians, m_useRadians)
+        PROPERTY_DEF(bool, useDriftAngle, setUseDriftAngle, m_useDriftAngle)
+        PROPERTY_DEF(float, thetaAzimuthCorrection, setThetaAzimuthCorrection, m_thetaAzimuthCorrection)
+        PROPERTY_DEF(bool, overrideImageHeight, setOverrideImageHeight, m_overrideImageHeight)
+        PROPERTY_DEF(bool, cutImage, setCutImage, m_cutImage)
 
-        Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
-        Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
-        Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
-        Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
+        PROPERTY_DEF(double, storedLatitude, setStoredLatitude, m_storedLatitude)
+        PROPERTY_DEF(double, storedLongitude, setStoredLongitude, m_storedLongitude)
+        PROPERTY_DEF(double, storedZoomLevel, setStoredZoomLevel, m_storedZoomLevel)
+        PROPERTY_DEF(QString, storedCatalogue, setStoredCatalogue, m_storedCatalogue)
 
         public:
             virtual ~Config();
@@ -49,89 +49,29 @@ namespace Config
             __exposed void revert();
             __exposed void reset();
 
-            __getter QString remoteIP() const;
-            __setter void setRemoteIP(const QString& other);
-
-            __getter QString localIP() const;
-            __setter void setLocalIP(const QString& other);
-
-            __getter QString telemetryPort() const;
-            __setter void setTelemetryPort(const QString& other);
-
-            __getter QString tcpLFSPort() const;
-            __setter void setTcpLFSPort(const QString& other);
-
-            __getter QString udpLFSPort() const;
-            __setter void setUdpLFSPort(const QString& other);
-
-            __getter QString execdPort() const;
-            __setter void setExecdPort(const QString& other);
-
-            __getter QString feedbackPort() const;
-            __setter void setFeedbackPort(const QString& other);
-
-            __getter bool proxyEnabled() const;
-            __setter void setProxyEnabled(bool other);
-
-            __getter bool antennaAlignment() const;
-            __setter void setAntennaAlignment(bool other);
-
-            __getter float angleCorrection() const;
-            __setter void setAngleCorrection(float other);
-
-            __getter bool useRadians() const;
-            __setter void setUseRadians(bool other);
-
-            __getter bool useDriftAngle() const;
-            __setter void setUseDriftAngle(bool other);
-
-            __getter float thetaAzimuthCorrection() const;
-            __setter void setThetaAzimuthCorrection(float other);
-
-            __getter double storedLatitude() const;
-            __setter void setStoredLatitude(double other);
-
-            __getter double storedLongitude() const;
-            __setter void setStoredLongitude(double other);
-
-            __getter double storedZoomLevel() const;
-            __setter void setStoredZoomLevel(double other);
-
-            __getter QString storedCatalogue() const;
-            __setter void setStoredCatalogue(const QString& other);
-
-            __getter float telemetryFrequency() const;
-            __setter void setTelemetryFrequency(float other);
-
-            __getter bool overrideImageHeight() const;
-            __setter void setOverrideImageHeight(bool other);
-
-            __getter bool cutImage() const;
-            __setter void setCutImage(bool other);
-
             signals:
-                __signal remoteIPChanged();
-                __signal localIPChanged();
-                __signal telemetryPortChanged();
-                __signal tcpLFSPortChanged();
-                __signal udpLFSPortChanged();
-                __signal execdPortChanged();
-                __signal feedbackPortChanged();
-                __signal proxyEnabledChanged();
-                __signal antennaAlignmentChanged();
-                __signal angleCorrectionChanged();
-                __signal useRadiansChanged();
-                __signal useDriftAngleChanged();
-                __signal thetaAzimuthCorrectionChanged();
-                __signal storedLatitudeChanged();
-                __signal storedLongitudeChanged();
-                __signal storedZoomLevelChanged();
-                __signal storedCatalogueChanged();
-                __signal telemetryFrequencyChanged();
-                __signal overrideImageHeightChanged();
-                __signal cutImageChanged();
+                __property_signal remoteIPChanged();
+                __property_signal localIPChanged();
+                __property_signal telemetryPortChanged();
+                __property_signal tcpLFSPortChanged();
+                __property_signal udpLFSPortChanged();
+                __property_signal execdPortChanged();
+                __property_signal feedbackPortChanged();
+                __property_signal proxyEnabledChanged();
+                __property_signal antennaAlignmentChanged();
+                __property_signal angleCorrectionChanged();
+                __property_signal useRadiansChanged();
+                __property_signal useDriftAngleChanged();
+                __property_signal thetaAzimuthCorrectionChanged();
+                __property_signal storedLatitudeChanged();
+                __property_signal storedLongitudeChanged();
+                __property_signal storedZoomLevelChanged();
+                __property_signal storedCatalogueChanged();
+                __property_signal telemetryFrequencyChanged();
+                __property_signal overrideImageHeightChanged();
+                __property_signal cutImageChanged();
 
-            private:
+        private:
             explicit Config(QObject* parent = nullptr);
 
         private:

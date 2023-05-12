@@ -46,29 +46,3 @@ void Route::clear()
     setRecentRoute(QVariantList());
     logger->commit();
 }
-
-QVariantList Route::fullRoute() const
-{
-    return m_fullRoute;
-}
-
-void Route::setFullRoute(const QVariantList& other)
-{
-    if (m_fullRoute == other)
-        return;
-    m_fullRoute = other;
-    emit fullRouteChanged();
-}
-
-QVariantList Route::recentRoute() const
-{
-    return m_recentRoute;
-}
-
-void Route::setRecentRoute(const QVariantList& other)
-{
-    if (m_recentRoute == other)
-        return;
-    m_recentRoute = other;
-    emit recentRouteChanged();
-}

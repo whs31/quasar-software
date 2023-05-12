@@ -11,9 +11,9 @@ namespace Map
     class Ruler : public QAbstractListModel
     {
         Q_OBJECT
-        Q_PROPERTY(qreal lastLatitude READ lastLatitude WRITE setLastLatitude NOTIFY lastLatitudeChanged)
-        Q_PROPERTY(qreal lastLongitude READ lastLongitude WRITE setLastLongitude NOTIFY lastLongitudeChanged)
-        Q_PROPERTY(qreal totalLength READ totalLength WRITE setTotalLength NOTIFY totalLengthChanged)
+        PROPERTY_DEF(qreal, lastLatitude, setLastLatitude, m_lastLatitude)
+        PROPERTY_DEF(qreal, lastLongitude, setLastLongitude, m_lastLongitude)
+        PROPERTY_DEF(qreal, totalLength, setTotalLength, m_totalLength)
 
         public:
             explicit Ruler(QObject* parent = nullptr);
@@ -38,19 +38,10 @@ namespace Map
             __exposed QGeoCoordinate calculateCenter(quint16 _index);
             __exposed qreal calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2);
 
-            __getter qreal totalLength() const;
-            __setter void setTotalLength(qreal other);
-
-            __getter qreal lastLatitude() const;
-            __setter void setLastLatitude(qreal other);
-
-            __getter qreal lastLongitude() const;
-            __setter void setLastLongitude(qreal other);
-
             signals:
-                __signal totalLengthChanged();
-                __signal lastLatitudeChanged();
-                __signal lastLongitudeChanged();
+                __property_signal totalLengthChanged();
+                __property_signal lastLatitudeChanged();
+                __property_signal lastLongitudeChanged();
 
         private:
             QList<QVariantList> m_segments;

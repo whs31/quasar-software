@@ -33,13 +33,6 @@ void TelemetrySocket::stop()
     qDebug() << "[TELEMETRY] Stopped reading";
 }
 
-float TelemetrySocket::frequency() const { return m_frequency; }
-void TelemetrySocket::setFrequency(float other) {
-    if (qFuzzyCompare(m_frequency, other)) return;
-    m_frequency = other;
-    emit frequencyChanged();
-}
-
 void TelemetrySocket::processTelemetry(QByteArray data)
 {
     uint32_t marker = *(uint32_t*)data.data();

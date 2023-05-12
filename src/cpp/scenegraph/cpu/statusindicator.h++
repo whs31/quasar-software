@@ -6,32 +6,20 @@
 class StatusIndicator : public QQuickPaintedItem
 {
     Q_OBJECT
-    Q_PROPERTY(QString errorColor READ errorColor WRITE setErrorColor NOTIFY errorColorChanged)
-    Q_PROPERTY(QString warnColor READ warnColor WRITE setWarnColor NOTIFY warnColorChanged)
-    Q_PROPERTY(QString successColor READ successColor WRITE setSuccessColor NOTIFY successColorChanged)
-    Q_PROPERTY(int state READ state WRITE setState NOTIFY stateChanged)
+    PROPERTY_DEF(QString, errorColor, setErrorColor, m_errorColor)
+    PROPERTY_DEF(QString, warnColor, setWarnColor, m_warnColor)
+    PROPERTY_DEF(QString, successColor, setSuccessColor, m_successColor)
+    PROPERTY_DEF(int, state, setState, m_state)
 
     public:
         StatusIndicator(QQuickItem* parent = nullptr);
         void paint(QPainter* painter) override;
 
-        __getter QString errorColor() const;
-        __setter void setErrorColor(const QString& other);
-
-        __getter QString warnColor() const;
-        __setter void setWarnColor(const QString& other);
-
-        __getter QString successColor() const;
-        __setter void setSuccessColor(const QString& other);
-
-        __getter int state() const;
-        __setter void setState(int other);
-
         signals:
-            __signal errorColorChanged();
-            __signal warnColorChanged();
-            __signal successColorChanged();
-            __signal stateChanged();
+            __property_signal errorColorChanged();
+            __property_signal warnColorChanged();
+            __property_signal successColorChanged();
+            __property_signal stateChanged();
 
     private:
         QString m_errorColor = "#ff0000";

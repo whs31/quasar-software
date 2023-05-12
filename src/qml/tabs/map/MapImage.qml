@@ -1,6 +1,6 @@
 import QtQuick 2.15
-import QtLocation 5.12
-import QtPositioning 5.12
+import QtLocation 5.15
+import QtPositioning 5.15
 
 MapQuickItem  {
     anchorPoint.x: -x0;
@@ -15,14 +15,18 @@ MapQuickItem  {
         Image {
             id: imageSource;
             layer.enabled: true;
+            layer.smooth: true;
+            layer.samples: 8;
+            asynchronous: true;
             transform: Rotation {
                 id: imageRotation;
                 origin.x: -x0;
                 origin.y: ly / 2;
-                angle: angle + drift_angle;
+                angle: model.angle + drift_angle;
             }
             smooth: true;
-            source: "file://" + lod0;
+            antialiasing: true;
+            source: "file:///" + lod0;
         }
     }
 }

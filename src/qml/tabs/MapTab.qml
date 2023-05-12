@@ -63,12 +63,24 @@ Map { id: c_Map;
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
 
+    // main image view
     MapItemView {
         model: ImagesModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImage { }
+
+        Connections { target: ImagesModel; function onAdded() { button_PanLastImage.self(); } }
     }
+
+    MapItemView {
+        model: ImagesModel;
+        add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
+        delegate: MapTab.MapImageUI { }
+    }
+
+    // ui image view
 
     // ui
 
@@ -127,15 +139,17 @@ Map { id: c_Map;
                 }
 
                 RoundButton { id: button_PanLastImage;
+                    function self() {
+                        console.log("[GUI] Panned at " + ImagesModel.lastImagePosition());
+                        c_Map.center = ImagesModel.lastImagePosition();
+                    }
+
                     height: 44;
                     width: 44;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/map.png";
                     Material.elevation: 30;
-                    onPressed: {
-                        console.log("[GUI] Panned at " + ImagesModel.lastImagePosition());
-                        c_Map.center = ImagesModel.lastImagePosition();
-                    }
+                    onPressed: self();
                 }
             }
         }

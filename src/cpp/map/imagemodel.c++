@@ -129,6 +129,7 @@ void ImageModel::add(const Image& image)
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     storage.push_back(image);
     endInsertRows();
+    emit added();
 
     qDebug() << "[IMAGE] Model received new image. Now it contains" << rowCount() << "images";
 }

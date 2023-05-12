@@ -60,6 +60,9 @@ namespace Map
 
             QVector<Image>* direct();
 
+            signals:
+                __signal added();
+
         protected:
             QHash<int, QByteArray> roleNames() const override;
 

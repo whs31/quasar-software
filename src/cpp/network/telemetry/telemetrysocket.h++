@@ -12,7 +12,7 @@ namespace Network
     class TelemetrySocket : public AbstractUDPSocket
     {
         Q_OBJECT
-        Q_PROPERTY(float frequency READ frequency WRITE setFrequency NOTIFY frequencyChanged)
+        PROPERTY_DEF(float, frequency, setFrequency, m_frequency)
 
         constexpr __global uint32_t MARKER = 0x55bb55bb;
         constexpr __global uint32_t RECV_MARKER_LITTLE = 0xaa55aa55;
@@ -25,11 +25,9 @@ namespace Network
             void start(const QString& address);
             void stop();
 
-            __getter float frequency() const;
-            __setter void setFrequency(float other);
-
             signals:
-                __signal frequencyChanged();
+                __property_signal frequencyChanged();
+
                 __signal ping();
 
         private:

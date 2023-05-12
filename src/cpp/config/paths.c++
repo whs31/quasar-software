@@ -9,8 +9,6 @@
 
 using namespace Config;
 
-DECLARE_SINGLETON_IMPL(Paths)
-
 Paths::Paths(QObject *parent) : QObject{parent}
 {
     this->createImageCache();

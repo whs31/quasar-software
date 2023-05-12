@@ -16,13 +16,10 @@
 
 using namespace Processing;
 
-DECLARE_SINGLETON_IMPL(ImageProcessing)
-
 ImageProcessing::ImageProcessing(QObject* parent)
     : QObject{parent}
     , m_model(new Map::ImageModel(this))
 {
-
 }
 
 void ImageProcessing::asyncProcess(const QString& filename)
@@ -184,14 +181,6 @@ void ImageProcessing::processImage(const QString& filename)
     this->asyncProcess(filename);
 
     //! @todo busy
-}
-
-bool ImageProcessing::busy() const { return m_busy; }
-void ImageProcessing::setBusy(bool other) {
-    if (m_busy == other)
-        return;
-    m_busy = other;
-    emit busyChanged();
 }
 
 bool ImageProcessing::exists(const QString& name)

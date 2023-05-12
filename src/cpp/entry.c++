@@ -19,13 +19,13 @@
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
-    QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get(this));
-    QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get(this));
-    QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get(this));
-    QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get(this));
-    QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get(this));
-    QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get(this)->model());
-    QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get(this));
+    QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
+    QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
+    QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());
+    QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
+    QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get());
+    QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
+    QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");

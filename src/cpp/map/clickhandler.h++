@@ -7,32 +7,26 @@ namespace Map
 {
     class ClickHandler : public QObject
     {
+        public: enum MouseState {
+            Idle,
+            RulerActive,
+            ProtractorActive,
+            MarkerActive
+        };
+
         Q_OBJECT
-        Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
+        DEFINE_AS_SINGLETON(ClickHandler)
+        Q_ENUM(MouseState);
+        PROPERTY_DEF(MouseState, state, setState, m_state)
 
         public:
-            enum MouseState {
-                Idle,
-                RulerActive,
-                ProtractorActive,
-                MarkerActive
-            };
-            Q_ENUM(MouseState);
-
-        public:
-            static ClickHandler* get(QObject* parent = nullptr);
-
-            __getter MouseState state() const;
-            __setter void setState(const MouseState& other);
-
             signals:
-                __signal stateChanged();
+                __property_signal stateChanged();
 
         private:
             explicit ClickHandler(QObject* parent = nullptr);
 
         private:
-            static ClickHandler* instance;
             MouseState m_state = Idle;
     };
 } // namespace Map;

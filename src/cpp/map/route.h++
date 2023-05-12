@@ -13,8 +13,8 @@ namespace Map
     class Route : public QObject
     {
         Q_OBJECT
-        Q_PROPERTY(QVariantList fullRoute READ fullRoute WRITE setFullRoute NOTIFY fullRouteChanged)
-        Q_PROPERTY(QVariantList recentRoute READ recentRoute WRITE setRecentRoute NOTIFY recentRouteChanged)
+        PROPERTY_DEF(QVariantList, fullRoute, setFullRoute, m_fullRoute)
+        PROPERTY_DEF(QVariantList, recentRoute, setRecentRoute, m_recentRoute)
 
         constexpr __global int RECENT_ROUTE_SIZE = 1000;
 
@@ -22,18 +22,12 @@ namespace Map
             explicit Route(QObject* parent = nullptr);
             virtual ~Route();
 
-            __qml void append(const QGeoCoordinate& coord, float speed = -1, int satellites = -1);
-            __qml void clear();
-
-            __getter QVariantList fullRoute() const;
-            __setter void setFullRoute(const QVariantList& other);
-
-            __getter QVariantList recentRoute() const;
-            __setter void setRecentRoute(const QVariantList& other);
+            __exposed void append(const QGeoCoordinate& coord, float speed = -1, int satellites = -1);
+            __exposed void clear();
 
             signals:
-                __signal fullRouteChanged();
-                __signal recentRouteChanged();
+                __property_signal fullRouteChanged();
+                __property_signal recentRouteChanged();
 
         private:
             QVariantList m_fullRoute;

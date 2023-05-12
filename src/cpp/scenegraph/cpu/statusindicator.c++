@@ -47,32 +47,3 @@ void StatusIndicator::paint(QPainter* painter)
         break;
     }
 }
-
-QString StatusIndicator::errorColor() const { return m_errorColor; }
-void StatusIndicator::setErrorColor(const QString &other) {
-    if (m_errorColor == other) return;
-    m_errorColor = other;
-    emit errorColorChanged();
-}
-
-QString StatusIndicator::warnColor() const { return m_warnColor; }
-void StatusIndicator::setWarnColor(const QString &other) {
-    if (m_warnColor == other) return;
-    m_warnColor = other;
-    emit warnColorChanged();
-}
-
-QString StatusIndicator::successColor() const { return m_successColor; }
-void StatusIndicator::setSuccessColor(const QString &other) {
-    if (m_successColor == other) return;
-    m_successColor = other;
-    emit successColorChanged();
-}
-
-int StatusIndicator::state() const { return m_state; }
-void StatusIndicator::setState(int other) {
-    if (m_state == other) return;
-    m_state = other;
-    emit stateChanged();
-    this->update();
-}

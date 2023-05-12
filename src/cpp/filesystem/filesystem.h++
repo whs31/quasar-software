@@ -8,10 +8,10 @@ namespace OS
     class Filesystem : public QObject
     {
         Q_OBJECT
-        DECLARE_SINGLETON(Filesystem)
+        DEFINE_AS_SINGLETON(Filesystem)
 
         public:
-            __qml bool fetchImageDirectory();
+            __exposed bool fetchImageDirectory();
 
             signals:
                 __signal imageCached(const QString& filename);

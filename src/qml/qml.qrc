@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>widgets/DebugConsole.qml</file>
+        <file>layouts/BottomBar.qml</file>
+        <file>tabs/MapTab.qml</file>
+        <file>tabs/FocusTab.qml</file>
+        <file>tabs/map/RulerItem.qml</file>
+        <file>layouts/bottombar/StatusWidget.qml</file>
+        <file>layouts/bottombar/InfoPanel.qml</file>
+        <file>tabs/NetworkTab.qml</file>
+        <file>tabs/map/UAV.qml</file>
+        <file>tabs/map/UAVRoute.qml</file>
+        <file>windows/InfoWindow.qml</file>
+        <file>tabs/network/SocketConsole.qml</file>
+        <file>windows/SettingsWindow.qml</file>
+        <file>tabs/map/MapImage.qml</file>
+        <file>windows/MessageWindow.qml</file>
+        <file>tabs/map/MapImageUI.qml</file>
+    </qresource>
+</RCC>

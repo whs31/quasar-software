@@ -32,6 +32,7 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/network/*
     src/cpp/utils/*
     src/cpp/processing/*
+    libs/ccl/*
 )
 
 set(PROJECT_SOURCES
@@ -48,6 +49,9 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES}
 )
 
+add_library(CCLCore SHARED IMPORTED)
+set_property(TARGET CCLCore PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll.a")
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
@@ -57,6 +61,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
     Definitions
+    CCLCore
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

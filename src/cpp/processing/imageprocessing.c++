@@ -4,6 +4,7 @@
 #include "config/config.h++"
 #include "utils/utils.h++"
 #include "utils/numeric.h++"
+#include <ccl/ccl_core.h>
 
 #include <QtCore/QDebug>
 #include <QtCore/QFile>

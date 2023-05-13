@@ -52,6 +52,8 @@ add_library(CCLCore SHARED IMPORTED)
 if(WIN32)
     set_property(TARGET CCLCore PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll")
     set_property(TARGET CCLCore PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll.a")
+else()
+    set_property(TARGET CCLCore PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.so")
 endif()
 
 target_link_libraries(${PROJECT_NAME}

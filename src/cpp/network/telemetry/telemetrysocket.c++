@@ -1,11 +1,10 @@
 #include "telemetrysocket.h++"
 #include "telemetry.h++"
 #include "telemetrydatagram.h++"
-#include "utils/utils.h++"
-#include "utils/numeric.h++"
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
 #include <QtCore/QDataStream>
+#include <ccl/ccl_core.h>
 
 using namespace Network;
 
@@ -58,14 +57,14 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setVelocityEast(received.velocity_east * 3.6);
     output->setVelocityNorth(received.velocity_north * 3.6);
     output->setVelocityCourse(received.velocity_course * 3.6);
-    output->setPitch(Utilities::Numeric::radiansToDegrees(received.pitch));
-    output->setRoll(Utilities::Numeric::radiansToDegrees(received.roll));
-    output->setYaw(Utilities::Numeric::radiansToDegrees(received.yaw));
-    output->setCourse(Utilities::Numeric::radiansToDegrees(received.course));
+    output->setPitch(ccl::rad2deg(received.pitch));
+    output->setRoll(ccl::rad2deg(received.roll));
+    output->setYaw(ccl::rad2deg(received.yaw));
+    output->setCourse(ccl::rad2deg(received.course));
     output->setTime(received.time);
     output->setSatellites(received.satellites);
 
-    uint16_t crc = CRC_CHECK ? Utilities::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
+    uint16_t crc = CRC_CHECK ? ccl::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
@@ -89,7 +88,7 @@ void TelemetrySocket::requestTelemetry()
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
     TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (uint32_t)(this->frequency() * 1'000), 0 };
-    uint16_t crc = Utilities::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
+    uint16_t crc = ccl::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 
     stream << request;

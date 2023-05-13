@@ -6,6 +6,8 @@ import Route 1.0
 import Theme 1.0
 
 MapPolyline {
+    function clear() { c_Route.clear(); }
+
     layer.enabled: true;
     layer.samples: 16;
 

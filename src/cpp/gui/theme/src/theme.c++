@@ -9,7 +9,6 @@
 #include <QtCore/QJsonObject>
 #include <QtCore/QCoreApplication>
 #include <QtGui/QColor>
-#include <memory>
 
 using namespace GUI;
 

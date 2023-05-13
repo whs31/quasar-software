@@ -2,8 +2,7 @@
 #include "map/imagemodel.h++"
 #include "config/paths.h++"
 #include "config/config.h++"
-#include "utils/utils.h++"
-#include "utils/numeric.h++"
+#include <ccl/ccl_core.h>
 
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
@@ -49,7 +48,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     // проверка контрольной суммы
     char *crc_data = (char *) &image.meta;
-    uint16_t crc16 = Utilities::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
+    uint16_t crc16 = ccl::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
 
     image.valid = crc16 == image.meta.crc16;
     if(not image.valid)
@@ -59,12 +58,12 @@ void ImageProcessing::asyncProcess(const QString& filename)
     // геометрические преобразования
     if(CONFIG(useRadians))
     {
-        image.meta.angle = Utilities::Numeric::radiansToDegrees(image.meta.angle)
+        image.meta.angle = ccl::rad2deg(image.meta.angle)
                            + CONFIG(angleCorrection);
         image.meta.drift_angle = CONFIG(useDriftAngle)
-                                     ? Utilities::Numeric::radiansToDegrees(image.meta.drift_angle)
+                                     ? ccl::rad2deg(image.meta.drift_angle)
                                      : 0;
-        image.meta.div = Utilities::Numeric::radiansToDegrees(image.meta.div);
+        image.meta.div = ccl::rad2deg(image.meta.div);
     }
     else
         image.meta.angle += CONFIG(angleCorrection);
@@ -107,26 +106,26 @@ void ImageProcessing::asyncProcess(const QString& filename)
         const int top[8] = {
             0, (int)((image.meta.ly / 2) - 2
                * image.meta.x0
-               * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                / 2))),
             0, 0,
             (int)image.meta.lx, 0,
             (int)image.meta.lx, (int)((image.meta.ly / 2) -
                                 (2 * image.meta.x0 + image.meta.lx)
-                                * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                                 / 2)))
         };
 
         const int bottom[8] = {
             0, (int)((image.meta.ly / 2) + 2
                * image.meta.x0
-               * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                / 2))),
             0, (int)image.meta.ly,
             (int)image.meta.lx, (int)image.meta.ly,
             (int)image.meta.lx, (int)((image.meta.ly / 2)
                                 + (2 * image.meta.x0 + image.meta.lx)
-                                * tan(Utilities::Numeric::degreesToRadians((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                                 / 2)))
         };
 
@@ -152,7 +151,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     image.opacity = INITIAL_OPACITY;
     image.shown = INITIAL_VISIBILITY;
-    image.mercator_zoom_level = Utilities::Numeric::mercatorZoomLevel(image.meta.latitude, image.meta.dx);
+    image.mercator_zoom_level = ccl::mqi_zoom_level(image.meta.latitude, image.meta.dx);
 
     model()->add(image);
 }

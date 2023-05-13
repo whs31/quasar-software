@@ -19,6 +19,30 @@
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
+    /*! === === === === @todo list === === === ===
+
+        Fix telemetry console (expand 60 px right)
+        Markers
+        Planner points
+        Image dialog window
+        Protractor
+        Follow UAV
+        Scale grid
+        Diagram
+        Dialog confirmation
+        Remember last latitude/longitude
+        Expose Project version to QML
+        Clear cache
+        Form image button
+        Focus window
+        Graphs
+        Network graph
+        Concurrent run
+        Attitude indicator
+
+        === === === === === === === === === === ===
+    */
+
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
     QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());

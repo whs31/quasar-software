@@ -34,7 +34,7 @@ Rectangle {
         anchors.right: parent.right;
 
         RoundButton { id: button_FormImage;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.weight: Font.Bold;
             height: 44;
             radius: 4;

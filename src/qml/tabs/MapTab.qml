@@ -206,28 +206,28 @@ Map { id: c_Map;
             spacing: -5;
 
             CheckBox { id: checkbox_FollowUAV;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 checked: false;
                 text: "Следить за БПЛА";
                 //onCheckedChanged: binding)
             }
 
             CheckBox { id: checkbox_EnableGrid;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 checked: false;
                 text: "Отображать масштабную сетку";
                 //onCheckedChanged:
             }
 
             CheckBox { id: checkbox_ShowCursorCoords;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 checked: true;
                 text: "Отображать координаты курсора";
                 //onCheckedChanged:
             }
 
             CheckBox { id: checkbox_ShowTrack;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 checked: true;
                 text: "Отображать трек полёта";
                 onCheckedChanged: {
@@ -239,7 +239,7 @@ Map { id: c_Map;
             }
 
             CheckBox { id: checkbox_ShowDiagram;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 checked: true;
                 text: "Отображать диаграмму направленности";
                 //onCheckedChanged:
@@ -249,7 +249,7 @@ Map { id: c_Map;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/eraser.png";
                 height: 44;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
                 Material.background: Theme.color("red");
@@ -280,7 +280,7 @@ Map { id: c_Map;
         anchors.margins: 5;
 
         RoundButton { id: button_FetchImages;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             height: 44;
             radius: 4;
             icon.source: "qrc:/icons/toolbar/map/refresh.png";
@@ -294,7 +294,7 @@ Map { id: c_Map;
         }
 
         RoundButton { id: button_ChooseCatalogue;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             height: 44;
             radius: 4;
             icon.source: "qrc:/icons/toolbar/map/folder.png";
@@ -305,7 +305,7 @@ Map { id: c_Map;
         }
 
         RoundButton { id: button_ClearLocalCache;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             height: 44;
             radius: 4;
             icon.source: "qrc:/icons/toolbar/map/trash.png";
@@ -322,7 +322,7 @@ Map { id: c_Map;
         anchors.margins: 5;
 
         ComboBox { id: control_MapMode;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.weight: Font.Bold;
             width: 170;
             currentIndex: 2;

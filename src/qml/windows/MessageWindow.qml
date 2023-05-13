@@ -1,12 +1,11 @@
 import QtQuick 2.15
-import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
 
-Window {
+Pane {
     function open(header, content, icon) {
         title = header;
         contentText.text = content;
@@ -18,23 +17,25 @@ Window {
         else
             iconItem.source = "qrc:/icons/dialog/error.png";
 
-        show();
+        b_Shown = true;
     }
 
-    function close() { hide(); }
+    function close() { b_Shown = false; }
 
-    Material.theme: Material.Dark;
-    Material.accent: Theme.color("color1");
-    Material.primary: Theme.color("accent");
-    Material.foreground: Theme.color("light0");
+    property bool b_Shown: false;
+    property string title;
+    width: b_Shown ? implicitWidth : 0;
+    height: b_Shown ? implicitHeight : 0;
+    visible: height > 0;
+    enabled: visible;
+    Behavior on height { NumberAnimation { duration: 100; easing.type: Easing.InOutQuad; } }
+    Behavior on width { NumberAnimation { duration: 100; easing.type: Easing.InOutQuad; } }
+
+    clip: true;
     Material.background: Theme.color("dark0");
 
-    width: 500;
-    height: 170;
-
-    color: Theme.color("dark0");
-    modality: Qt.ApplicationModal;
-    title: "-";
+    implicitWidth: 500;
+    implicitHeight: 170;
 
     Image { id: iconItem;
         width: 75;
@@ -72,6 +73,6 @@ Window {
         Material.elevation: 30;
         Material.background: Theme.color("dark0");
         text: "Ок";
-        onPressed: close();
+        onPressed: b_Shown = false;
     }
 }

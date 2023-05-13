@@ -29,7 +29,7 @@ Item {
     Text { id: txt_Lat;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "ШИРОТА:";
         width: 75;
@@ -45,7 +45,7 @@ Item {
     Text { id: txt_LatValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: Number(fl_Latitude).toFixed(7) + "° N";
         width: 100;
@@ -68,7 +68,7 @@ Item {
     Text { id: txt_Lon;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "ДОЛГОТА:";
         width: 75;
@@ -84,7 +84,7 @@ Item {
     Text { id: txt_LonValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: Number(fl_Longitude).toFixed(7) + "° E";
         width: 100;
@@ -116,7 +116,7 @@ Item {
     Text { id: txt_Alt;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "ВЫСОТА:";
         width: 140;
@@ -132,7 +132,7 @@ Item {
     Text { id: txt_AltValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 16;
         text: Number(fl_Altitude).toFixed(0) + " м";
         width: 56;
@@ -156,7 +156,7 @@ Item {
     Text { id: txt_Sea;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "НАД УРОВНЕМ МОРЯ:";
         width: 140;
@@ -172,7 +172,7 @@ Item {
     Text { id: txt_SeaValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: Number(fl_SeaAltitude).toFixed(0) + " м";
         width: 56;
@@ -204,7 +204,7 @@ Item {
     Text { id: txt_Speed;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "СКОРОСТЬ:";
         width: 82;
@@ -220,7 +220,7 @@ Item {
     Text { id: txt_SpeedValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 16;
         text: Number(fl_Velocity).toFixed(0) + " км/ч";
         width: 74;
@@ -244,7 +244,7 @@ Item {
     Text { id: txt_Direction;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "АЗИМУТ:";
         width: 82;
@@ -260,7 +260,7 @@ Item {
     Text { id: txt_DirectionValue;
         color: Theme.color("light0");
         font.weight: Font.DemiBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: Number(fl_Direction).toFixed(1) + "°";
         width: 74;
@@ -293,7 +293,7 @@ Item {
         property string s_CurrentColor: i_SatellitesCount < 3 ? "red" : i_SatellitesCount < 6 ? "yellow" : "green";
         color: Theme.color("light0");
         font.weight: Font.Bold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 13;
         text: Theme.colorText(Number(i_SatellitesCount).toFixed(0), s_CurrentColor) + " спутников";
         width: 110;
@@ -319,7 +319,7 @@ Item {
         property string s_CurrentColor: fl_ConnectionDelay < 3 ? "green" : fl_ConnectionDelay < 8 ? "yellow" : "red";
         color: Theme.color("light0");
         font.weight: Font.Bold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 13;
         text: "Задержка " + Theme.colorText( + Number(fl_ConnectionDelay).toFixed(1) + " с", s_CurrentColor);
         width: 110;
@@ -353,7 +353,7 @@ Item {
     Text { id: txt_Disk;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: "ХРАНИЛИЩЕ НА РЛС";
         width: 82;
@@ -382,7 +382,7 @@ Item {
     Text { id: txt_DiskValue;
         color: Theme.color("light0");
         font.weight: Font.ExtraBold;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.pixelSize: 12;
         text: Number(fl_RemoteDiskSpace * 100).toFixed(0) + "%";
         width: 40;

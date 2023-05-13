@@ -30,8 +30,6 @@ ApplicationWindow  { id: window_root;
     color: Theme.color("dark0");
     Component.onCompleted: showMaximized();
 
-    Windows.MessageWindow { id: messagebox; }
-
     FileDialog { id: window_FileDialog;
         property string s_Url: window_FileDialog.fileUrl;
         title: "Выберите каталог с радиолокационными изображениями";
@@ -54,7 +52,7 @@ ApplicationWindow  { id: window_root;
         layer.enabled: true;
 
         property bool b_ConsoleShown: true;
-        property string s_FontMain: font_Main.name;
+        property bool b_AllowImageEdit: false;
         property string mainfont: font_Main.name;
         property string monofont: font_Mono.name;
 
@@ -73,6 +71,11 @@ ApplicationWindow  { id: window_root;
         DropShadow { z: 98; anchors.fill: c_InfoWindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
                      samples: 32; color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown;
                      visible: c_InfoWindow.b_Shown; }
+
+        Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
+        DropShadow { z: 98; anchors.fill: messagebox; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                     samples: 32; color: "#80000000"; source: messagebox; cached: true; enabled: messagebox.b_Shown;
+                     visible: messagebox.b_Shown; }
 
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
 
@@ -93,7 +96,7 @@ ApplicationWindow  { id: window_root;
             spacing: -5;
 
             RoundButton { id: button_Settings;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 height: 40;
                 radius: 4;
                 icon.source: "qrc:/icons/tabs/settings.png";
@@ -109,7 +112,7 @@ ApplicationWindow  { id: window_root;
             }
 
             RoundButton { id: button_About;
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 height: 40;
                 radius: 4;
                 icon.source: "qrc:/icons/tabs/info.png";
@@ -135,19 +138,20 @@ ApplicationWindow  { id: window_root;
 
             TabButton {
                 text: "ИНТЕРАКТИВНАЯ КАРТА";
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 font.weight: Font.Bold;
             }
 
             TabButton {
                 text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 font.weight: Font.Bold;
+                enabled: root.b_AllowImageEdit;
             }
 
             TabButton {
                 text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
-                font.family: root.s_FontMain;
+                font.family: root.mainfont;
                 font.weight: Font.Bold;
             }
         }

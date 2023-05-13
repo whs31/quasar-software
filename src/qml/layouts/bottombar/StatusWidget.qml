@@ -60,7 +60,7 @@ Item {
         Text {
             color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
             font.weight: Font.ExtraBold;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.pixelSize: 15;
             text: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? "ПОДКЛЮЧЕНО К РЛС" : "НЕТ ПОДКЛЮЧЕНИЯ К РЛС";
             width: 230;
@@ -82,7 +82,7 @@ Item {
         Text {
             anchors.centerIn: parent;
             text: "СТАТУС";
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.weight: Font.DemiBold;
             font.pixelSize: 10;
             color: Theme.color("light0");

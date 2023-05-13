@@ -435,7 +435,7 @@ Window {
         RoundButton { id: button_Save;
             width: 200;
             enabled: view.b_GlobalValid;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.weight: Font.Bold;
             height: 44;
             radius: 4;
@@ -450,7 +450,7 @@ Window {
 
         RoundButton { id: button_Cancel;
             width: 200;
-            font.family: root.s_FontMain;
+            font.family: root.mainfont;
             font.weight: Font.Bold;
             height: 44;
             radius: 4;

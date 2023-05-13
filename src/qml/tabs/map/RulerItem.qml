@@ -67,7 +67,7 @@ MapItemView { id: orthodromSegments;
                     id: segmentLengthText;
                     anchors.centerIn: parent;
                     text: segmentLength < 10000 ? Number(segmentLength).toFixed(0) + " м" : Number(segmentLength / 1000).toFixed(1) + " км"
-                    font.family: root.s_FontMain;
+                    font.family: root.mainfont;
                     font.bold: true;
                     color: Theme.color("dark0");
                 }

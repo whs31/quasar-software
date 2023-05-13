@@ -31,7 +31,7 @@ Pane {
 
     Text {
         text: "Версия " + Theme.colorText("10.00beta", Theme.color("yellow"));
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.bold: true;
         font.pixelSize: 22;
         color: Theme.color("yellow");
@@ -81,7 +81,7 @@ Pane {
         anchors.bottom: parent.bottom;
         anchors.horizontalCenter: parent.horizontalCenter;
         width: 200;
-        font.family: root.s_FontMain;
+        font.family: root.mainfont;
         font.weight: Font.Bold;
         height: 44;
         radius: 4;

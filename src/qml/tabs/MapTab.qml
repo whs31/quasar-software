@@ -20,6 +20,12 @@ Map { id: c_Map;
     property bool b_ShowDiagram: true;
     property bool b_ShowCursorCoords: true;
 
+    Component.onDestruction: {
+        Config.storedLatitude = center.latitude;
+        Config.storedLongitude = center.longitude;
+        Config.storedZoomLevel = zoomLevel;
+    }
+
     tilt: 15;
     gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {
@@ -34,8 +40,8 @@ Map { id: c_Map;
     }
 
     activeMapType: c_Map.supportedMapTypes[i_MapMode];
-    center: QtPositioning.coordinate(60, 30);
-    zoomLevel: 5;
+    center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
+    zoomLevel: Config.storedZoomLevel;
     copyrightsVisible: false;
     z: 0;
     Behavior on center { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }

@@ -23,7 +23,7 @@ Pane {
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.margins: 5;
-            width: 670;
+            width: 720;
             height: 450;
         }
 
@@ -32,7 +32,7 @@ Pane {
             anchors.left: panel_TelemetryConsole.right;
             anchors.top: parent.top;
             anchors.margins: 5;
-            width: 370;
+            width: 345;
             height: 450;
         }
 
@@ -41,7 +41,7 @@ Pane {
             anchors.left: panel_ExecdConsole.right;
             anchors.top: parent.top;
             anchors.margins: 5;
-            width: 450;
+            width: 425;
             height: 450;
         }
 

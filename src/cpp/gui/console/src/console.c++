@@ -13,6 +13,9 @@ Console::Console(QObject* parent)
 
 void Console::append(const QString& message)
 {
+    if(QCoreApplication::closingDown())
+        return;
+
     Q_D(Console);
     emit (d->appendSignal(message));
 }

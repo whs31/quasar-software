@@ -37,7 +37,7 @@ void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &m
         break;
     }
 
-    if(start_console)
+    if(start_console and console != nullptr)
     {
         console->append(txt);
         if (not releaseCacheFlag)

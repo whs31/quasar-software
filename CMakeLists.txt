@@ -48,12 +48,12 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES}
 )
 
-add_library(CCLCore SHARED IMPORTED)
+add_library(CCL SHARED IMPORTED)
 if(WIN32)
-    set_property(TARGET CCLCore PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll")
-    set_property(TARGET CCLCore PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll.a")
+    set_property(TARGET CCL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/imp/libccl.dll.a")
+    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.dll")
 else()
-    set_property(TARGET CCLCore PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.so")
+    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.so")
 endif()
 
 target_link_libraries(${PROJECT_NAME}
@@ -65,7 +65,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
     Definitions
-    CCLCore
+    CCL
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

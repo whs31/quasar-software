@@ -30,7 +30,6 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/map/*
     src/cpp/scenegraph/*
     src/cpp/network/*
-    src/cpp/utils/*
     src/cpp/processing/*
     libs/ccl/*
 )
@@ -41,7 +40,7 @@ set(PROJECT_SOURCES
 
     src/qml/qml.qrc
     resources/resources.qrc
-    ${SRCS} resources/appiconwin32.rc
+    ${SRCS} resources/ico.rc
 )
 
 add_executable(${PROJECT_NAME}
@@ -50,7 +49,10 @@ add_executable(${PROJECT_NAME}
 )
 
 add_library(CCLCore SHARED IMPORTED)
-set_property(TARGET CCLCore PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll.a")
+if(WIN32)
+    set_property(TARGET CCLCore PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll")
+    set_property(TARGET CCLCore PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/libcclcore.dll.a")
+endif()
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Core

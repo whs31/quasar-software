@@ -1,9 +1,10 @@
 #pragma once
 
 #include "ccl_global.h"
-#include <QtCore/QString>
 #include <QtCore/QPointF>
-#include <QtPositioning/QGeoCoordinate>
+
+class QString;
+class QGeoCoordinate;
 
 namespace ccl
 {

@@ -56,9 +56,8 @@ Map { id: c_Map;
         }
     }
 
-
     MapTab.UAV { id: c_UAV; }
-    MapTab.UAVRoute { id: c_Route; }
+    MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
 
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
@@ -225,7 +224,12 @@ Map { id: c_Map;
                 font.family: root.s_FontMain;
                 checked: true;
                 text: "Отображать трек полёта";
-                //onCheckedChanged:
+                onCheckedChanged: {
+                    if(checked)
+                        c_Route.opacity = 1;
+                    else
+                        c_Route.opacity = 0;
+                }
             }
 
             CheckBox { id: checkbox_ShowDiagram;
@@ -243,7 +247,7 @@ Map { id: c_Map;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
                 Material.background: Theme.color("red");
-                //onPressed:
+                onPressed: c_Route.clear();
             }
         }
     }

@@ -20,6 +20,12 @@ Map { id: c_Map;
     property bool b_ShowDiagram: true;
     property bool b_ShowCursorCoords: true;
 
+    Component.onDestruction: {
+        Config.storedLatitude = center.latitude;
+        Config.storedLongitude = center.longitude;
+        Config.storedZoomLevel = zoomLevel;
+    }
+
     tilt: 15;
     gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {
@@ -39,12 +45,6 @@ Map { id: c_Map;
     copyrightsVisible: false;
     z: 0;
     Behavior on center { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
-
-    Component.onDestruction: {
-        Config.storedLatitude = center.latitude;
-        Config.storedLongitude = center.longitude;
-        Config.storedZoomLevel = zoomLevel;
-    }
 
     MouseArea { id: c_MapMouseArea;
         hoverEnabled: true;

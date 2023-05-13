@@ -21,7 +21,6 @@ Entry::Entry(QObject *parent)
 {
     /*! === === === === @todo list === === === ===
 
-        Fix telemetry console (expand 60 px right)
         Markers
         Planner points
         Image dialog window
@@ -30,7 +29,6 @@ Entry::Entry(QObject *parent)
         Scale grid
         Diagram
         Dialog confirmation
-        Remember last latitude/longitude
         Expose Project version to QML
         Clear cache
         Form image button

@@ -7,6 +7,8 @@
 StatusIndicator::StatusIndicator(QQuickItem* parent)
     : QQuickPaintedItem(parent)
 {
+    this->setRenderTarget(QQuickPaintedItem::FramebufferObject);
+    this->setPerformanceHint(QQuickPaintedItem::FastFBOResizing, true);
 }
 
 void StatusIndicator::paint(QPainter* painter)

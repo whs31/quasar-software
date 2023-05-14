@@ -15,7 +15,7 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtQml/qqml.h>
-#include <testing/ccl_charts.h>
+#include <ccl/ccl_charts.h>
 
 Entry::Entry(QObject *parent)
     : QObject{parent}
@@ -54,7 +54,6 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
     QML_EXPOSE_INSTANTIABLE(ProgressBar, "Widgets.Status", "ProgressBar");
     QML_EXPOSE_INSTANTIABLE(StatusIndicator, "Widgets.Status", "StatusIndicator");
-
     QML_EXPOSE_INSTANTIABLE(ccl::charts::RealtimeHistogram, "CCL.Charts", "CCLRealtimeHistogram");
 
     connect(OS::Filesystem::get(), &OS::Filesystem::imageCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processImage);

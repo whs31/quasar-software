@@ -29,7 +29,6 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/scenegraph/*
     src/cpp/network/*
     src/cpp/processing/*
-    src/cpp/testing/*
 
     libs/ccl/*
 )

@@ -5,7 +5,6 @@ using namespace ccl;
 RealtimeHistogram::RealtimeHistogram(QQuickItem* parent)
     : QQuickPaintedItem{parent}
 {
-    this->setRenderTarget(QQuickPaintedItem::FramebufferObject);
     this->setPerformanceHint(QQuickPaintedItem::FastFBOResizing, true);
 
 //    connect(this, &RealtimeHistogram::axisColorChanged, this, &RealtimeHistogram::update);

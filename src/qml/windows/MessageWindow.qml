@@ -40,6 +40,7 @@ Pane {
     Image { id: iconItem;
         width: 75;
         height: 75;
+        anchors.verticalCenterOffset: -10;
         anchors.verticalCenter: parent.verticalCenter;
         anchors.left: parent.left;
         anchors.leftMargin: 15;
@@ -52,6 +53,7 @@ Pane {
         anchors.rightMargin: 15;
         anchors.left: iconItem.right;
         anchors.leftMargin: 15;
+        anchors.verticalCenterOffset: -10;
         anchors.verticalCenter: parent.verticalCenter;
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;

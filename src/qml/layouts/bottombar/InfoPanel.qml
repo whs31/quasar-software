@@ -1,8 +1,9 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+
 import Theme 1.0
 import Network 1.0
-import Widgets.Status 1.0
-
 Item {
     property real fl_Latitude: Network.telemetry.latitude;
     property real fl_Longitude: Network.telemetry.longitude;
@@ -367,16 +368,14 @@ Item {
     }
 
     ProgressBar { id: c_DiskProgressBar;
-        width: 107;
+        width: 120;
         height: 10;
         anchors.left: ico_Disk.left;
         anchors.top: ico_Disk.bottom;
         anchors.topMargin: 7;
-        value: fl_RemoteDiskSpace * 100;
-        errorColor: Theme.color("red");
-        warnColor: Theme.color("yellow");
-        successColor: Theme.color("green");
-        backgroundColor: Theme.color("light0");
+        value: fl_RemoteDiskSpace;
+        Material.accent: value < 0.5 ? Theme.color("green") : value < 0.8 ? Theme.color("orange")
+                                                                         : Theme.color("red");
     }
 
     Text { id: txt_DiskValue;

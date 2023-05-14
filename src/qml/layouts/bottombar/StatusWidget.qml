@@ -1,7 +1,6 @@
 import QtQuick 2.15
 
 import Theme 1.0
-import Widgets.Status 1.0
 import Network 1.0
 
 Item {
@@ -25,17 +24,15 @@ Item {
         height: 30;
         radius: 15;
 
-        StatusIndicator { id: c_Indicator;
-            width: 20;
-            height: 20;
+        Rectangle { id: c_Indicator;
+            width: 10;
+            height: 10;
+            radius: 3;
             anchors.left: parent.left;
-            anchors.leftMargin: 5;
+            anchors.leftMargin: 12;
             anchors.verticalCenter: parent.verticalCenter;
-            anchors.verticalCenterOffset: -5;
             state: i_ConnectionStatus;
-            errorColor: Theme.color("red");
-            warnColor: Theme.color("orange");
-            successColor: Theme.color("green");
+            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
 
             SequentialAnimation {
                 NumberAnimation {

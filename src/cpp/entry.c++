@@ -8,8 +8,6 @@
 #include "map/route.h"
 #include "map/clickhandler.h"
 #include "map/imagemodel.h"
-#include "scenegraph/cpu/statusindicator.h"
-#include "scenegraph/cpu/progressbar.h"
 #include "network/network.h"
 
 #include <QtCore/QCoreApplication>
@@ -34,7 +32,6 @@ Entry::Entry(QObject *parent)
         Clear cache
         Form image button
         Focus window
-        Graphs
         Network graph
         Concurrent run
         Attitude indicator
@@ -52,9 +49,6 @@ Entry::Entry(QObject *parent)
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
-    QML_EXPOSE_INSTANTIABLE(ProgressBar, "Widgets.Status", "ProgressBar");
-    QML_EXPOSE_INSTANTIABLE(StatusIndicator, "Widgets.Status", "StatusIndicator");
-    QML_EXPOSE_INSTANTIABLE(ccl::charts::RealtimeHistogram, "CCL.Charts", "CCLRealtimeHistogram");
 
     connect(OS::Filesystem::get(), &OS::Filesystem::imageCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processImage);
 }

@@ -21,6 +21,7 @@ Entry::Entry(QObject *parent)
 {
     /*! === === === === @todo list === === === ===
 
+        Cursor coords
         Markers
         Planner points
         Image dialog window

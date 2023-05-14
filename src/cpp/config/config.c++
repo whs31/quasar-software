@@ -93,3 +93,12 @@ Config::Config::Config(QObject* parent)
 
     this->load();
 }
+
+void Config::Config::setStoredCatalogue(const QString& t)
+{
+    if(t == m_storedCatalogue)
+        return;
+    if(t.startsWith("file:///"))
+        m_storedCatalogue = t.right(t.length() - strlen("file:///"));
+    emit storedCatalogueChanged();
+}

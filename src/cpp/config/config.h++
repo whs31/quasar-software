@@ -38,7 +38,7 @@ namespace Config
         PROPERTY_DEF(double, storedLatitude, setStoredLatitude, m_storedLatitude)
         PROPERTY_DEF(double, storedLongitude, setStoredLongitude, m_storedLongitude)
         PROPERTY_DEF(double, storedZoomLevel, setStoredZoomLevel, m_storedZoomLevel)
-        PROPERTY_DEF(QString, storedCatalogue, setStoredCatalogue, m_storedCatalogue)
+        PROPERTY(QString, storedCatalogue, setStoredCatalogue, m_storedCatalogue)
 
         public:
             virtual ~Config();

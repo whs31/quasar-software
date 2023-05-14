@@ -1,5 +1,5 @@
-#include "route.h++"
-#include "tools/routelogger.h++"
+#include "route.h"
+#include "tools/routelogger.h"
 #include <QtCore/QFile>
 #include <QtPositioning/QGeoCoordinate>
 

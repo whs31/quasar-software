@@ -1,5 +1,5 @@
-#include "theme_p.h++"
-#include "config/paths.h++"
+#include "theme_p.h"
+#include "config/paths.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QStringList>

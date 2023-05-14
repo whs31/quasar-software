@@ -1,5 +1,5 @@
-#include "routelogger.h++"
-#include "config/paths.h++"
+#include "routelogger.h"
+#include "config/paths.h"
 #include <QtCore/QFile>
 #include <QtCore/QDir>
 #include <QtCore/QDebug>

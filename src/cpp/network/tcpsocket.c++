@@ -1,4 +1,4 @@
-#include "tcpsocket.h++"
+#include "tcpsocket.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 #include <QtNetwork/QTcpSocket>

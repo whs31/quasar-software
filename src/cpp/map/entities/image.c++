@@ -1,4 +1,4 @@
-#include "image.h++"
+#include "image.h"
 #include <QtCore/QDebug>
 
 namespace Map {

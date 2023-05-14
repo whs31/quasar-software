@@ -1,6 +1,6 @@
-#include "console_p.h++"
-#include "network/network.h++"
-#include "config/config.h++"
+#include "console_p.h"
+#include "network/network.h"
+#include "config/config.h"
 #include <QtCore/QCoreApplication>
 #include <QtCore/QProcess>
 #include <QtQml/qqml.h>

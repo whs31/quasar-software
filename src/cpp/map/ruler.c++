@@ -1,4 +1,4 @@
-#include "ruler.h++"
+#include "ruler.h"
 #include <QtCore/QDebug>
 #include <ccl/ccl_core.h>
 

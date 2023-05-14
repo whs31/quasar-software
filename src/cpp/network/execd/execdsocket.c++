@@ -1,4 +1,4 @@
-#include "execdsocket.h++"
+#include "execdsocket.h"
 #include <QtCore/QDebug>
 #include <ccl/ccl_core.h>
 

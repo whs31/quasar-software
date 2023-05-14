@@ -1,7 +1,7 @@
-#include "filesystem.h++"
-#include "config/config.h++"
-#include "config/paths.h++"
-#include "processing/imageprocessing.h++"
+#include "filesystem.h"
+#include "config/config.h"
+#include "config/paths.h"
+#include "processing/imageprocessing.h"
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>

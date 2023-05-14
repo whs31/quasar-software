@@ -1,7 +1,7 @@
-#include "imageprocessing.h++"
-#include "map/imagemodel.h++"
-#include "config/paths.h++"
-#include "config/config.h++"
+#include "imageprocessing.h"
+#include "map/imagemodel.h"
+#include "config/paths.h"
+#include "config/config.h"
 #include <ccl/ccl_core.h>
 
 #include <QtCore/QDebug>

@@ -1,4 +1,4 @@
-#include "clickhandler.h++"
+#include "clickhandler.h"
 
 using namespace Map;
 

@@ -1,4 +1,4 @@
-#include "progressbar.h++"
+#include "progressbar.h"
 #include <QtGui/QPainter>
 #include <QtGui/QBrush>
 #include <cmath>

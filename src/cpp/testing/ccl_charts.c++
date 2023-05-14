@@ -3,10 +3,9 @@
 using namespace ccl;
 
 RealtimeHistogram::RealtimeHistogram(QQuickItem* parent)
-    : QQuickPaintedItem{parent}
+    : QQuickItem{parent}
 {
-    this->setPerformanceHint(QQuickPaintedItem::FastFBOResizing, true);
-
+    setFlag(ItemHasContents);
 //    connect(this, &RealtimeHistogram::axisColorChanged, this, &RealtimeHistogram::update);
 //    connect(this, &RealtimeHistogram::axisFontChanged, this, &RealtimeHistogram::update);
 //    connect(this, &RealtimeHistogram::histogramColorChanged, this, &RealtimeHistogram::update);

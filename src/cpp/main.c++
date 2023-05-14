@@ -1,5 +1,5 @@
-#include "entry.h++"
-#include "gui/console/console.h++"
+#include "entry.h"
+#include "gui/console/console.h"
 
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>

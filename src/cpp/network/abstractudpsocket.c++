@@ -1,4 +1,4 @@
-#include "abstractudpsocket.h++"
+#include "abstractudpsocket.h"
 #include <QtCore/QDebug>
 
 using namespace Network;

@@ -21,8 +21,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 )
 
 include_directories(src/cpp libs)
-add_subdirectory(src/cpp/global)
-
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
     src/cpp/filesystem/*
@@ -38,7 +36,7 @@ file(GLOB_RECURSE CPP_SOURCES
 
 set(PROJECT_SOURCES
     src/cpp/main.c++
-    src/cpp/entry.h++    src/cpp/entry.c++
+    src/cpp/entry.h    src/cpp/entry.c++
 
     src/qml/qml.qrc
     resources/resources.qrc
@@ -66,7 +64,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
-    Definitions
     CCL
 )
 

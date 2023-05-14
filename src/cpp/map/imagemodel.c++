@@ -1,4 +1,4 @@
-#include "imagemodel.h++"
+#include "imagemodel.h"
 #include <QtCore/QDebug>
 
 using namespace Map;

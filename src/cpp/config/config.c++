@@ -1,5 +1,5 @@
-#include "config.h++"
-#include "paths.h++"
+#include "config.h"
+#include "paths.h"
 
 #include <QtCore/QSettings>
 #include <QtCore/QDebug>

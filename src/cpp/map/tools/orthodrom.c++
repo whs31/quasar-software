@@ -1,4 +1,4 @@
-#include "orthodrom.h++"
+#include "orthodrom.h"
 #include <QtCore/QDebug>
 
 using namespace Map;

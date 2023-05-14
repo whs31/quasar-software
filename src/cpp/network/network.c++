@@ -1,9 +1,9 @@
-#include "network.h++"
-#include "telemetry/telemetry.h++"
-#include "telemetry/telemetrysocket.h++"
-#include "execd/execdsocket.h++"
-#include "execd/feedbacksocket.h++"
-#include "tcpsocket.h++"
+#include "network.h"
+#include "telemetry/telemetry.h"
+#include "telemetry/telemetrysocket.h"
+#include "execd/execdsocket.h"
+#include "execd/feedbacksocket.h"
+#include "tcpsocket.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 

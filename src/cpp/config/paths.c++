@@ -1,4 +1,4 @@
-#include "paths.h++"
+#include "paths.h"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>

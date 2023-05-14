@@ -1,4 +1,4 @@
-#include "statusindicator.h++"
+#include "statusindicator.h"
 #include <QtGui/QPainter>
 #include <QtGui/QBrush>
 #include <cmath>

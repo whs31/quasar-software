@@ -1,6 +1,6 @@
-#include "telemetrysocket.h++"
-#include "telemetry.h++"
-#include "telemetrydatagram.h++"
+#include "telemetrysocket.h"
+#include "telemetry.h"
+#include "telemetrydatagram.h"
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
 #include <QtCore/QDataStream>

@@ -25,6 +25,7 @@ Pane {
             anchors.margins: 5;
             width: 720;
             height: 450;
+            color: Theme.color("color3");
         }
 
         NetworkTab.SocketConsole { id: panel_ExecdConsole;
@@ -34,6 +35,7 @@ Pane {
             anchors.margins: 5;
             width: 345;
             height: 450;
+            color: Theme.color("accent");
         }
 
         NetworkTab.SocketConsole { id: panel_FeedbackConsole;
@@ -43,6 +45,7 @@ Pane {
             anchors.margins: 5;
             width: 425;
             height: 450;
+            color: Theme.color("yellow");
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;
@@ -52,6 +55,7 @@ Pane {
             anchors.margins: 5;
             width: 380;
             height: 450;
+            color: Theme.color("green");
         }
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
@@ -61,6 +65,7 @@ Pane {
             anchors.margins: 5;
             width: 380;
             height: 450;
+            color: Theme.color("color0");
         }
     }
 

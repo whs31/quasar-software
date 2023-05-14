@@ -5,6 +5,11 @@
 #include <QtGui/QColor>
 #include <QtQuick/QQuickItem>
 #include <QtQuick/QSGSimpleMaterial>
+#include <vector>
+
+using std::vector;
+
+class QTimer;
 
 namespace ccl
 {
@@ -46,15 +51,27 @@ namespace ccl
         class RealtimeHistogram : public QQuickItem
         {
             Q_OBJECT
-            PROPERTY_DEF(float, interval, setInterval, m_interval)
-            PROPERTY_DEF(float, horizontalAxisMaxValue, setHorizontalAxisMaxValue, m_horizontalAxisMaxValue)
-            PROPERTY_DEF(float, verticalAxisMaxValue, setVerticalAxisMaxValue, m_verticalAxisMaxValue)
-            PROPERTY_DEF(QString, histogramColor, setHistogramColor, m_histogramColor)
+            Q_PROPERTY(float interval READ interval WRITE setInterval NOTIFY intervalChanged)
+            Q_PROPERTY(float horizontalAxisMaxValue READ horizontalAxisMaxValue WRITE setHorizontalAxisMaxValue NOTIFY horizontalAxisMaxValueChanged)
+            Q_PROPERTY(float verticalAxisMaxValue READ verticalAxisMaxValue WRITE setVerticalAxisMaxValue NOTIFY verticalAxisMaxValueChanged)
+            Q_PROPERTY(QString histogramColor READ histogramColor WRITE setHistogramColor NOTIFY histogramColorChanged)
 
             public:
                 RealtimeHistogram(QQuickItem* parent = nullptr);
 
                 Q_INVOKABLE void append(float value);
+
+                float interval() const;
+                void setInterval(float);
+
+                float horizontalAxisMaxValue() const;
+                void setHorizontalAxisMaxValue(float);
+
+                float verticalAxisMaxValue() const;
+                void setVerticalAxisMaxValue(float);
+
+                QString histogramColor() const;
+                void setHistogramColor(const QString&);
 
                 signals:
                     void intervalChanged();
@@ -66,10 +83,15 @@ namespace ccl
                 QSGNode* updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*) override;
 
             private:
+                QTimer* timer;
+                vector<float> storage;
+                int storage_size;
+                float stored;
+
                 float m_interval = 1'000; // ms
                 float m_horizontalAxisMaxValue = 30'000; // ms
                 float m_verticalAxisMaxValue = 1'000;
                 QString m_histogramColor = "purple";
         };
     } // namespace charts;
-} // namespace charts;
+} // namespace ccl;

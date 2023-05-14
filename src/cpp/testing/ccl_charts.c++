@@ -1,6 +1,6 @@
 #include "ccl_charts.h"
+#include <QtCore/QTimer>
 #include <QtQuick/QSGGeometryNode>
-#include <vector>
 
 using namespace ccl::charts;
 
@@ -54,20 +54,24 @@ void GLGradientShader::resolveUniforms() {
 
 RealtimeHistogram::RealtimeHistogram(QQuickItem* parent)
     : QQuickItem{parent}
+    , timer(new QTimer(this))
 {
     setFlag(ItemHasContents);
-    //    connect(this, &RealtimeHistogram::axisColorChanged, this, &RealtimeHistogram::update);
-    //    connect(this, &RealtimeHistogram::axisFontChanged, this, &RealtimeHistogram::update);
-    //    connect(this, &RealtimeHistogram::histogramColorChanged, this, &RealtimeHistogram::update);
-    //    connect(this, &RealtimeHistogram::backgroundColorChanged, this, &RealtimeHistogram::update);
-    //    connect(this, &RealtimeHistogram::intervalChanged, this, &RealtimeHistogram::update); // add timer restart
-    //    connect(this, &RealtimeHistogram::horizontalAxisMaxValue, this, &RealtimeHistogram::update);
-    //    connect(this, &RealtimeHistogram::verticalAxisMaxValue, this, &RealtimeHistogram::update);
+    timer->start(interval());
+    connect(timer, &QTimer::timeout, this, [this](){
+        storage_size = interval() * horizontalAxisMaxValue() / 1'000'000;
+        if(storage.size() >= storage_size and storage.size() > 0)
+            storage.erase(storage.begin());
+        storage.push_back(stored);
+        stored = 0;
+        update();
+    });
 }
 
 void RealtimeHistogram::append(float value)
 {
-
+    float f = value > verticalAxisMaxValue() ? verticalAxisMaxValue() : value;
+    stored += f / verticalAxisMaxValue() / 2.5;
 }
 
 QSGNode* RealtimeHistogram::updatePaintNode(QSGNode* old_node, UpdatePaintNodeData* upnd)
@@ -97,17 +101,21 @@ QSGNode* RealtimeHistogram::updatePaintNode(QSGNode* old_node, UpdatePaintNodeDa
         geometry = new QSGGeometry(QSGGeometry::defaultAttributes_TexturedPoint2D(), 0, 0, QSGGeometry::UnsignedIntType);
         node->setGeometry(geometry);
         node->setFlag(QSGNode::OwnsGeometry);
+        geometry->setLineWidth(2);
+        geometry->setDrawingMode(GL_QUADS);
     }
 
     geometry = node->geometry();
-    geometry->setLineWidth(5);
-    geometry->setDrawingMode(GL_QUADS);
 
-    std::vector<VertexT> gl;
-    gl.push_back(VertexT(0, 0, 0, 0));
-    gl.push_back(VertexT(width(), 0, 1, 0));
-    gl.push_back(VertexT(width(), height(), 1, 1));
-    gl.push_back(VertexT(0, height(), 0, 1));
+    vector<VertexT> gl;
+    float spacing = width() / storage_size;
+    float cell_size = spacing / 1.2f;
+    for(size_t i = 0; i < storage.size(); ++i) {
+        gl.push_back(VertexT((float)i * spacing, height() - storage[i] * height(), (float)i / storage_size, 1 - storage[i]));
+        gl.push_back(VertexT((float)i * spacing, height(), (float)i / storage_size, 0));
+        gl.push_back(VertexT((float)i * spacing + cell_size, height(), ((float)i * spacing + cell_size) / width(), 0));
+        gl.push_back(VertexT((float)i * spacing + cell_size, height() - storage[i] * height(), ((float)i * spacing + cell_size) / width(), 1 - storage[i]));
+    }
 
     geometry->allocate(gl.size());
     for(size_t i = 0; i < gl.size(); i++)
@@ -115,4 +123,50 @@ QSGNode* RealtimeHistogram::updatePaintNode(QSGNode* old_node, UpdatePaintNodeDa
 
     node->markDirty(QSGNode::DirtyGeometry);
     return node;
+}
+
+float RealtimeHistogram::interval() const { return m_interval; }
+void RealtimeHistogram::setInterval(float other)
+{
+    if (qFuzzyCompare(m_interval, other))
+        return;
+    m_interval = other;
+    emit intervalChanged();
+
+    timer->start(interval());
+    storage_size = interval() * horizontalAxisMaxValue() / 1'000'000;
+    storage.clear();
+    update();
+}
+
+float RealtimeHistogram::horizontalAxisMaxValue() const{ return m_horizontalAxisMaxValue; }
+void RealtimeHistogram::setHorizontalAxisMaxValue(float other)
+{
+    if (qFuzzyCompare(m_horizontalAxisMaxValue, other))
+        return;
+    m_horizontalAxisMaxValue = other;
+    emit horizontalAxisMaxValueChanged();
+    storage.clear();
+    update();
+}
+
+float RealtimeHistogram::verticalAxisMaxValue() const { return m_verticalAxisMaxValue; }
+void RealtimeHistogram::setVerticalAxisMaxValue(float other)
+{
+    if(qFuzzyCompare(m_verticalAxisMaxValue, other))
+        return;
+    m_verticalAxisMaxValue = other;
+    emit verticalAxisMaxValueChanged();
+    storage.clear();
+    update();
+}
+
+QString RealtimeHistogram::histogramColor() const { return m_histogramColor; }
+void RealtimeHistogram::setHistogramColor(const QString& other)
+{
+    if (m_histogramColor == other)
+        return;
+    m_histogramColor = other;
+    emit histogramColorChanged();
+    update();
 }

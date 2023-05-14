@@ -7,7 +7,6 @@
 ProgressBar::ProgressBar(QQuickItem* parent)
     : QQuickPaintedItem(parent)
 {
-    this->setPerformanceHint(QQuickPaintedItem::FastFBOResizing, true);
 }
 
 void ProgressBar::paint(QPainter* painter)

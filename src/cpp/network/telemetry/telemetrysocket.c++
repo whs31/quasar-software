@@ -76,7 +76,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
                  + QString::number(received.velocity_vertical, 'f', 1) + " " + QString::number(received.pitch, 'f', 2) + " "
                  + QString::number(received.roll, 'f', 2) + " " +  QString::number(received.yaw, 'f', 2) + " "
                  + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " " + QString::number(received.satellites)
-                           + " 0x" + QString::number(received.crc16, 16), sizeof(output));
+                           + " 0x" + QString::number(received.crc16, 16), sizeof(received));
     emit ping();
 }
 

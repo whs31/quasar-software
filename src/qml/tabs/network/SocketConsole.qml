@@ -7,12 +7,13 @@ import CCL.Charts 1.0
 
 Pane {
     property string name: "Socket Console";
+    property alias color: histogram.histogramColor;
 
     function logdata(str, sizeof)
     {
         textarea.append(str);
+        histogram.append(sizeof);
     }
-
 
     Material.elevation: 6;
     Material.background: Theme.color("dark1");
@@ -72,13 +73,21 @@ Pane {
         }
     }
 
-    CCLRealtimeHistogram { id: histogram;
+    Rectangle {
         anchors.top: textareabackground.bottom;
         anchors.topMargin: 6;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
         anchors.bottomMargin: 6;
-        histogramColor: Theme.color("orange");
+        color: Theme.color("dark0");
+
+        CCLRealtimeHistogram { id: histogram;
+            anchors.fill: parent;
+            histogramColor: Theme.color("orange");
+            horizontalAxisMaxValue: 30000;
+            verticalAxisMaxValue: 512;
+            interval: 1000;
+        }
     }
 }

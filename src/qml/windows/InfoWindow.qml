@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import Theme 1.0
+import Config 1.0
 
 Pane {
     property bool b_Shown: false;
@@ -30,7 +31,7 @@ Pane {
     }
 
     Text {
-        text: "Версия " + Theme.colorText("10.00beta", Theme.color("yellow"));
+        text: "Версия " + Theme.colorText(Config.projectVersion(), Theme.color("yellow"));
         font.family: root.mainfont;
         font.bold: true;
         font.pixelSize: 22;

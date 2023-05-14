@@ -77,6 +77,11 @@ void Config::Config::reset()
         ini->setValue(key, defaults.value(key));
 }
 
+QString Config::Config::projectVersion()
+{
+    return PROJECT_VERSION;
+}
+
 void Config::Config::sync()
 {
     ini->sync();

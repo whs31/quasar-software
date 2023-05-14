@@ -48,6 +48,7 @@ namespace Config
             Q_INVOKABLE void load();
             Q_INVOKABLE void revert();
             Q_INVOKABLE void reset();
+            Q_INVOKABLE QString projectVersion();
 
             signals:
                 void remoteIPChanged();

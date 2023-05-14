@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
+import CCL.Charts 1.0
 
 Pane {
     property string name: "Socket Console";
@@ -69,5 +70,15 @@ Pane {
                     text = "";
             }
         }
+    }
+
+    CCLRealtimeHistogram { id: histogram;
+        anchors.top: textareabackground.bottom;
+        anchors.topMargin: 6;
+        anchors.left: parent.left;
+        anchors.right: parent.right;
+        anchors.bottom: parent.bottom;
+        anchors.bottomMargin: 6;
+        histogramColor: Theme.color("orange");
     }
 }

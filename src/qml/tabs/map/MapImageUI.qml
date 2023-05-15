@@ -67,6 +67,354 @@ MapQuickItem {
                         onPressed: deleteImage(index);
                     }
                 }
+
+                Row {
+                    RoundButton { id: button_ShowControls;
+                        icon.source: "qrc:/icons/toolbar/map/expand.png";
+                        font.family: root.mainfont;
+                        text: "Трансформация";
+                        height: 44;
+                        radius: 4;
+                        Material.elevation: 30;
+                        Material.background: Theme.color("dark1");
+                        //onPressed: panel_MetaData.b_shown = !shown;
+                    }
+
+                    RoundButton { id: button_Showmeta;
+                        icon.source: "qrc:/icons/toolbar/map/expand.png";
+                        font.family: root.mainfont;
+                        text: "Метаданные";
+                        height: 44;
+                        radius: 4;
+                        Material.elevation: 30;
+                        Material.background: Theme.color("dark1");
+                        onPressed: layout_Meta.visible = !layout_Meta.visible;
+                    }
+                }
+
+                GridLayout { id: layout_Meta;
+                    columns: 2;
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Имя файла:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: filename;
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Широта:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color1");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(latitude).toFixed(8) + "°";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Долгота:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color1");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(longitude).toFixed(8) + "°";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Шаг по гор. дальности:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(dx).toFixed(1);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Шаг по путевой дальности:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(dy).toFixed(1);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Ближняя граница по гор. дальности:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(x0).toFixed(1);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Смещение кадра по путевой дальности:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(y0).toFixed(1);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Азимут:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("yellow");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(angle).toFixed(1) + "°";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Угол сноса:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("yellow");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(drift_angle).toFixed(1) + "°";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Ширина диаграммы направлености:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("yellow");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(div).toFixed(1) + "°";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Ширина изображения:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(lx).toFixed(1) + " px";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Высота изображения:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(ly).toFixed(1) + " px";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Скорость носителя:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("accent");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(velocity).toFixed(1) + " м/с";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Высота носителя:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("accent");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(altitude).toFixed(1) + " м";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Коэффициент частотной интерполяции:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color3");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(kr).toFixed(1);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Время сдвига:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color3");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(time_shift).toFixed(1)  + " c";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Время синтезирования:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("color3");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(time_duration).toFixed(1)  + " c";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Режим:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: Number(mode);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Контрольная сумма:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("orange");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: "0x" + Number(crc16).toString(16);
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: Theme.color("light0");
+                        font.pixelSize: 12;
+                        text: "Совпадение CRC:";
+                    }
+
+                    Text {
+                        font.family: root.mainfont;
+                        color: valid ? Theme.color("green") : Theme.color("red");
+                        font.pixelSize: 12;
+                        font.bold: true;
+                        Layout.alignment: Qt.AlignRight;
+                        text: valid ? "ДА" : "НЕТ";
+                    }
+                }
             }
         }
 

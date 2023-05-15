@@ -7,7 +7,6 @@
         <file>map/markers/autocapture.png</file>
         <file>map/markers/default.png</file>
         <file>map/markers/flag.png</file>
-        <file>map/markers/image.png</file>
         <file>map/markers/preset.psd</file>
         <file>map/markers/radar.png</file>
         <file>map/items/gpsarrow.png</file>
@@ -34,13 +33,9 @@
         <file>icons/bottombar/satellite.png</file>
         <file>icons/bottombar/sea-level.png</file>
         <file>icons/bottombar/speed.png</file>
-        <file>icons/tabs/earth.png</file>
-        <file>icons/tabs/image.png</file>
         <file>icons/tabs/info.png</file>
-        <file>icons/tabs/plot.png</file>
         <file>icons/tabs/settings.png</file>
         <file>themes/nord.json</file>
-        <file>icons/tabs/plan.png</file>
         <file>icons/toolbar/map/hybrid-active.png</file>
         <file>icons/toolbar/map/hybrid-disabled.png</file>
         <file>icons/toolbar/map/sat-active.png</file>
@@ -63,5 +58,6 @@
         <file>icons/dialog/error.png</file>
         <file>icons/dialog/info.png</file>
         <file>icons/dialog/warning.png</file>
+        <file>map/items/image.png</file>
     </qresource>
 </RCC>

@@ -259,8 +259,7 @@ Map { id: c_Map;
                 Connections {
                     target: dialogwindow;
                     function onClosed(status, uid) {
-                        if(uid === 1 && status === true)
-                        {
+                        if(uid === 1 && status === true) {
                             console.log("[GUI] Track cleared");
                             c_Route.clear();
                         }

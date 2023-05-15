@@ -1,7 +1,8 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
-import QtGraphicalEffects 1.15
 
 import Theme 1.0
 
@@ -15,25 +16,25 @@ MapQuickItem  {
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item {
-        Image { id: image_SARImageIcon;
-            width: 32;
-            height: 32;
-            transformOrigin: Item.Center;
-            smooth: true;
-            source: "qrc:/map/markers/image.png";
-            visible: false;
+        RoundButton { id: button_openImageDialog;
+            icon.source: "qrc:/map/items/image.png";
+            height: 44;
+            width: 44;
+            radius: 15;
+            Material.elevation: 30;
+            Material.background: Theme.color("dark0");
+            icon.color: Theme.color("light1");
         }
 
         Rectangle { id: panel_SARImageTooltip;
-            color: Theme.color("light0");
-            width: (text_ImageIndex.paintedWidth);
+            color: Theme.color("dark0");
+            width: (text_ImageIndex.paintedWidth + 5);
             height: (text_ImageIndex.paintedHeight + 3);
-            anchors.top: image_SARImageIcon.bottom;
-            anchors.topMargin: 5;
-            anchors.horizontalCenter: image_SARImageIcon.horizontalCenter;
+            anchors.top: button_openImageDialog.bottom;
+            anchors.horizontalCenter: button_openImageDialog.horizontalCenter;
             radius: width / 2;
             Text { id: text_ImageIndex;
-                color: Theme.color("dark0");
+                color: Theme.color("light0");
                 enabled: true;
                 anchors.fill: parent;
                 font.pointSize: 8;
@@ -45,16 +46,5 @@ MapQuickItem  {
                 verticalAlignment: Text.AlignVCenter;
             }
         }
-
-        DropShadow {
-            anchors.fill: image_SARImageIcon;
-            horizontalOffset: 5;
-            verticalOffset: 5;
-            radius: 8.0;
-            samples: 16;
-            color: "#000000";
-            source: image_SARImageIcon;
-        }
-
     }
 }

@@ -374,6 +374,7 @@ Item {
         anchors.top: ico_Disk.bottom;
         anchors.topMargin: 7;
         value: fl_RemoteDiskSpace;
+        indeterminate: fl_RemoteDiskSpace === 0;
         Material.accent: value < 0.5 ? Theme.color("green") : value < 0.8 ? Theme.color("orange")
                                                                          : Theme.color("red");
     }

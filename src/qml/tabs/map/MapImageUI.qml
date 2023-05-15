@@ -16,9 +16,8 @@ MapQuickItem {
     property real m_opacity: 0.85;
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
-    sourceItem: Item {
+    sourceItem: Item { z: 60;
         Pane { id: panel_ImageDialog;
-            z: 51;
             anchors.left: button_openImageDialog.right;
             anchors.top: button_openImageDialog.top;
 
@@ -70,9 +69,9 @@ MapQuickItem {
 
                 Row {
                     RoundButton { id: button_ShowControls;
-                        icon.source: "qrc:/icons/toolbar/map/expand.png";
+                        icon.source: "qrc:/icons/toolbar/image/adjust.png";
                         font.family: root.mainfont;
-                        text: "Трансформация";
+                        text: "Параметры";
                         checkable: true;
                         checked: false;
                         height: 35;
@@ -82,7 +81,7 @@ MapQuickItem {
                     }
 
                     RoundButton { id: button_Showmeta;
-                        icon.source: "qrc:/icons/toolbar/map/expand.png";
+                        icon.source: "qrc:/icons/toolbar/image/list.png";
                         font.family: root.mainfont;
                         text: "Метаданные";
                         height: 35;
@@ -96,6 +95,20 @@ MapQuickItem {
 
                 ColumnLayout {
                     visible: button_ShowControls.checked;
+                    spacing: -6;
+
+                    RoundButton { id: button_EditImage;
+                        Layout.fillWidth: true;
+                        Layout.preferredHeight: 35;
+                        icon.source: "qrc:/icons/toolbar/image/edit-image.png";
+                        font.family: root.mainfont;
+                        text: "Редактирование изображения";
+                        height: 35;
+                        radius: 4;
+                        Material.elevation: 30;
+                        Material.background: Theme.color("dark1");
+                        //onPressed:
+                    }
 
                     RowLayout {
                         Layout.fillWidth: true;

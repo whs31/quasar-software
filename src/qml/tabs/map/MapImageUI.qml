@@ -6,7 +6,7 @@ import QtPositioning 5.15
 
 import Theme 1.0
 
-MapQuickItem  {
+MapQuickItem {
     z: 50;
 //    visible: shown;
     anchorPoint.x: 16;
@@ -31,8 +31,21 @@ MapQuickItem  {
             Material.background: Theme.color("dark0");
             Material.elevation: 30;
 
-            implicitWidth: 400;
-            implicitHeight: 500;
+            Column {
+                Rectangle { height: 31; width: 1; color: Theme.color("dark0"); } // weird hack
+                Row {
+                    RoundButton { id: button_HideImage;
+                        icon.source: "qrc:/icons/toolbar/map/hidden.png";
+                        font.family: root.mainfont;
+                        text: shown ? "Скрыть изображение" : "Показать изображение";
+                        height: 44;
+                        radius: 4;
+                        Material.elevation: 30;
+                        Material.background: Theme.color("dark1");
+                        onPressed: shown = !shown;
+                    }
+                }
+            }
         }
 
         RoundButton { id: button_openImageDialog;

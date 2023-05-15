@@ -8,6 +8,7 @@
 #include "map/route.h"
 #include "map/clickhandler.h"
 #include "map/imagemodel.h"
+#include "map/markermodel.h"
 #include "network/network.h"
 
 #include <QtCore/QCoreApplication>
@@ -20,19 +21,15 @@ Entry::Entry(QObject *parent)
 {
     /*! === === === === @todo list === === === ===
 
-        Cursor coords
         Markers
         Planner points
-        Image dialog window
         Protractor
         Follow UAV
         Scale grid
         Diagram
-        Dialog confirmation
         Clear cache
         Form image button
         Focus window
-        Network graph
         Concurrent run
         Attitude indicator
 
@@ -45,6 +42,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
     QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get());
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
+    QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
     QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");

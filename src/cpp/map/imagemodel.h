@@ -4,7 +4,6 @@
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QVector>
 #include <QtPositioning/QGeoCoordinate>
-#include <ccl/ccl_global.h>
 
 #include "entities/image.h"
 

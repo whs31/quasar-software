@@ -106,25 +106,6 @@ Map { id: c_Map;
 
     // ui
 
-    Pane { id: panel_Form;
-        anchors.top: parent.top;
-        anchors.right: parent.right;
-        anchors.margins: 5;
-        opacity: 0.85;
-
-        Column {
-            RoundButton { id: button_FormImage;
-                height: 44;
-                radius: 4;
-                Material.elevation: 30;
-                Material.background: Theme.color("color0");
-                text: "Формирование РЛИ";
-                font.family: root.mainfont;
-                //onPressed:
-            }
-        }
-    }
-
     Pane { id: panel_Tools;
         Material.elevation: 30;
         anchors.top: parent.top;
@@ -144,6 +125,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/ruler.png";
                     Material.elevation: 30;
+                    Material.background: checked ? Theme.color("yellow") : Theme.color("dark1");
                     onCheckedChanged: {
                         if(checked && ClickHandler.state === ClickHandler.Idle)
                             ClickHandler.state = ClickHandler.RulerActive;
@@ -160,6 +142,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/protractor.png";
                     Material.elevation: 30;
+                    Material.background: checked ? Theme.color("accent") : Theme.color("dark1");
                     onCheckedChanged: {
                         if(checked && ClickHandler.state === ClickHandler.Idle)
                             ClickHandler.state = ClickHandler.ProtractorActive;
@@ -176,6 +159,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/gps.png";
                     Material.elevation: 30;
+                    Material.background: Theme.color("dark1");
                     onPressed: c_Map.center = c_UAV.coordinate;
                 }
 
@@ -189,6 +173,7 @@ Map { id: c_Map;
                     width: 44;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/map.png";
+                    Material.background: Theme.color("dark1");
                     Material.elevation: 30;
                     onPressed: self();
                 }
@@ -210,6 +195,7 @@ Map { id: c_Map;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/marker.png";
                 Material.elevation: 30;
+                Material.background: Theme.color("dark1");
                 //onPressed:
             }
 
@@ -218,6 +204,7 @@ Map { id: c_Map;
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/pin.png";
+                Material.background: Theme.color("dark1");
                 Material.elevation: 30;
                 //onPressed:
             }

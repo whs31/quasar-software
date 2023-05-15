@@ -5,6 +5,8 @@
 
 namespace Map
 {
+    class MarkerModel;
+
     class ClickHandler : public QObject
     {
         public: enum MouseState {
@@ -23,6 +25,7 @@ namespace Map
             MouseState state() const; void setState(const MouseState&);
 
             Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
+            Q_INVOKABLE MarkerModel* markerModel();
 
             signals:
                 void stateChanged();
@@ -32,5 +35,6 @@ namespace Map
 
         private:
             MouseState m_state = Idle;
+            MarkerModel* marker_model;
     };
 } // namespace Map;

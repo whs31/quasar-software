@@ -2,7 +2,6 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QVariantList>
-#include <ccl/ccl_global.h>
 
 class QGeoCoordinate;
 

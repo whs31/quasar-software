@@ -375,8 +375,9 @@ Item {
         anchors.topMargin: 7;
         value: fl_RemoteDiskSpace;
         indeterminate: fl_RemoteDiskSpace === 0;
-        Material.accent: value < 0.5 ? Theme.color("green") : value < 0.8 ? Theme.color("orange")
-                                                                         : Theme.color("red");
+        Material.accent: value === 0 ? Theme.color("light0") : value < 0.5 ? Theme.color("green")
+                                                                           : value < 0.8 ? Theme.color("orange")
+                                                                           : Theme.color("red");
     }
 
     Text { id: txt_DiskValue;

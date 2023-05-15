@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtQuick.Layouts 1.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
@@ -31,8 +32,18 @@ MapQuickItem {
             Material.background: Theme.color("dark0");
             Material.elevation: 30;
 
-            Column {
-                Rectangle { height: 31; width: 1; color: Theme.color("dark0"); } // weird hack
+            ColumnLayout {
+                Text {
+                    font.family: root.mainfont;
+                    text: "Изображение №" + Number(index + 1);
+                    color: Theme.color("light1");
+                    height: 31;
+                    font.weight: Font.Bold;
+                    font.pixelSize: 16;
+                    horizontalAlignment: Text.AlignHCenter;
+                    Layout.alignment: Qt.AlignHCenter;
+                }
+
                 Row {
                     RoundButton { id: button_HideImage;
                         icon.source: "qrc:/icons/toolbar/map/hidden.png";
@@ -43,6 +54,17 @@ MapQuickItem {
                         Material.elevation: 30;
                         Material.background: Theme.color("dark1");
                         onPressed: shown = !shown;
+                    }
+
+                    RoundButton { id: button_DeleteImage;
+                        icon.source: "qrc:/icons/toolbar/map/trash.png";
+                        font.family: root.mainfont;
+                        text: "Удалить изображение";
+                        height: 44;
+                        radius: 4;
+                        Material.elevation: 30;
+                        Material.background: Theme.color("red");
+                        onPressed: deleteImage(index);
                     }
                 }
             }

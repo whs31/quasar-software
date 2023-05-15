@@ -78,14 +78,13 @@ Map { id: c_Map;
         Connections { target: ImagesModel; function onAdded() { button_PanLastImage.self(); } }
     }
 
+    function deleteImage(index) { ImagesModel.remove(index); }
     MapItemView {
         model: ImagesModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImageUI { }
     }
-
-    // ui image view
 
     // ui
 

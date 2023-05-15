@@ -13,7 +13,8 @@ namespace Map
             Idle,
             RulerActive,
             ProtractorActive,
-            MarkerActive
+            MarkerActive,
+            PlannerActive
         };
 
         Q_OBJECT

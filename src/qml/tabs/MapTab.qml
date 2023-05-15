@@ -11,6 +11,7 @@ import Filesystem 1.0
 import Config 1.0
 import Images 1.0
 import Network 1.0
+import Markers 1.0
 
 import "map" as MapTab;
 import "../widgets" as Widgets;
@@ -61,7 +62,18 @@ Map { id: c_Map;
                 if(mouse.button === Qt.RightButton)
                     c_RulerModel.resetRoute();
             }
-            else {
+            else if(ClickHandler.state === ClickHandler.MarkerActive)
+            {
+                if(mouse.button === Qt.LeftButton)
+                {
+                    console.error("Not implemented");
+                }
+                if(mouse.button === Qt.RightButton)
+                    ClickHander.state = ClickHandler.Idle;
+            }
+
+            else
+            {
                 if(mouse.button === Qt.RightButton) {
                     let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
                     ClickHandler.copyCoordinatesToClipboard(coord.latitude, coord.longitude);
@@ -196,7 +208,7 @@ Map { id: c_Map;
                 icon.source: "qrc:/icons/toolbar/map/marker.png";
                 Material.elevation: 30;
                 Material.background: Theme.color("dark1");
-                //onPressed:
+                onPressed: ClickHandler.state = ClickHandler.MarkerActive;
             }
 
             RoundButton { id: button_PlannerPoint;
@@ -206,7 +218,7 @@ Map { id: c_Map;
                 icon.source: "qrc:/icons/toolbar/map/pin.png";
                 Material.background: Theme.color("dark1");
                 Material.elevation: 30;
-                //onPressed:
+                onPressed: ClickHandler.state = ClickHandler.PlannerActive;
             }
         }
     }

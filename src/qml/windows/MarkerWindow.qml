@@ -36,7 +36,6 @@ Pane {
     clip: true;
     Material.background: Theme.color("dark0");
 
-
     Column {
         Text {
             font.family: root.mainfont;

@@ -144,7 +144,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/ruler.png";
                     Material.elevation: 30;
-                    Material.background: checked ? Theme.color("yellow") : Theme.color("dark1");
+                    Material.background: checked ? Theme.color("yellow") : Theme.color("dark2");
                     onCheckedChanged: {
                         if(checked && ClickHandler.state === ClickHandler.Idle)
                             ClickHandler.state = ClickHandler.RulerActive;
@@ -161,7 +161,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/protractor.png";
                     Material.elevation: 30;
-                    Material.background: checked ? Theme.color("accent") : Theme.color("dark1");
+                    Material.background: checked ? Theme.color("accent") : Theme.color("dark2");
                     onCheckedChanged: {
                         if(checked && ClickHandler.state === ClickHandler.Idle)
                             ClickHandler.state = ClickHandler.ProtractorActive;
@@ -178,7 +178,7 @@ Map { id: c_Map;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/gps.png";
                     Material.elevation: 30;
-                    Material.background: Theme.color("dark1");
+                    Material.background: Theme.color("dark2");
                     onPressed: c_Map.center = c_UAV.coordinate;
                 }
 
@@ -192,7 +192,7 @@ Map { id: c_Map;
                     width: 44;
                     radius: 4;
                     icon.source: "qrc:/icons/toolbar/map/map.png";
-                    Material.background: Theme.color("dark1");
+                    Material.background: Theme.color("dark2");
                     Material.elevation: 30;
                     onPressed: self();
                 }
@@ -214,7 +214,7 @@ Map { id: c_Map;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/marker.png";
                 Material.elevation: 30;
-                Material.background: Theme.color("dark1");
+                Material.background: Theme.color("dark2");
                 onPressed: ClickHandler.state = ClickHandler.MarkerActive;
             }
 
@@ -223,7 +223,7 @@ Map { id: c_Map;
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/pin.png";
-                Material.background: Theme.color("dark1");
+                Material.background: Theme.color("dark2");
                 Material.elevation: 30;
                 onPressed: ClickHandler.state = ClickHandler.PlannerActive;
             }

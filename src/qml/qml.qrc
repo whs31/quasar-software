@@ -20,5 +20,6 @@
         <file>windows/DialogWindow.qml</file>
         <file>widgets/CoordinateTooltip.qml</file>
         <file>windows/MarkerWindow.qml</file>
+        <file>tabs/map/MapMarker.qml</file>
     </qresource>
 </RCC>

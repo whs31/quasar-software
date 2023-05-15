@@ -12,8 +12,7 @@ MapQuickItem  {
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item {
-        Image {
-            id: imageSource;
+        Image { id: imageSource;
             layer.enabled: true;
             layer.smooth: true;
             layer.samples: 8;

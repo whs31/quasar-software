@@ -69,8 +69,7 @@ Map { id: c_Map;
                     let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
                     markerwindow.open(coord.latitude, coord.longitude);
                 }
-                if(mouse.button === Qt.RightButton)
-                    ClickHander.state = ClickHandler.Idle;
+                ClickHandler.state = ClickHandler.Idle;
             }
 
             else
@@ -103,7 +102,7 @@ Map { id: c_Map;
     MapItemView {
         model: ImagesModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
-        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImage { }
 
         Connections { target: ImagesModel; function onAdded() { button_PanLastImage.self(); } }
@@ -113,8 +112,15 @@ Map { id: c_Map;
     MapItemView {
         model: ImagesModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
-        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 2000; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImageUI { }
+    }
+
+    MapItemView {
+        model: MarkersModel;
+        add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
+        delegate: MapTab.MapMarker { }
     }
 
     // ui

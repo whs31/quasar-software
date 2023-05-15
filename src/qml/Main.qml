@@ -77,6 +77,11 @@ ApplicationWindow  { id: window_root;
                      samples: 32; color: "#80000000"; source: messagebox; cached: true; enabled: messagebox.b_Shown;
                      visible: messagebox.b_Shown; }
 
+        Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
+        DropShadow { z: 98; anchors.fill: dialogwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                     samples: 32; color: "#80000000"; source: dialogwindow; cached: true; enabled: dialogwindow.b_Shown;
+                     visible: dialogwindow.b_Shown; }
+
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
 
         Layouts.BottomBar { id: layout_BottomBar;

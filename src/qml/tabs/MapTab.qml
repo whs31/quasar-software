@@ -253,7 +253,19 @@ Map { id: c_Map;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
                 Material.background: Theme.color("red");
-                onPressed: c_Route.clear();
+                onPressed: {
+                    dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
+                }
+                Connections {
+                    target: dialogwindow;
+                    function onClosed(status, uid) {
+                        if(uid === 1 && status === true)
+                        {
+                            console.log("[GUI] Track cleared");
+                            c_Route.clear();
+                        }
+                    }
+                }
             }
         }
     }

@@ -10,8 +10,10 @@ import ClickHandler 1.0
 import Filesystem 1.0
 import Config 1.0
 import Images 1.0
+import Network 1.0
 
 import "map" as MapTab;
+import "../widgets" as Widgets;
 
 Map { id: c_Map;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
@@ -60,6 +62,14 @@ Map { id: c_Map;
                     c_RulerModel.resetRoute();
             }
         }
+
+        onPositionChanged: {
+            let coord = toCoordinate(Qt.point(mouseX, mouseY))
+            coord_tooltip.latitude = coord.latitude;
+            coord_tooltip.longitude = coord.longitude;
+            coord_tooltip.x = mouseX;
+            coord_tooltip.y = mouseY;
+        }
     }
 
     MapTab.UAV { id: c_UAV; }
@@ -67,6 +77,8 @@ Map { id: c_Map;
 
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
+
+    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; }
 
     // main image view
     MapItemView {
@@ -87,6 +99,25 @@ Map { id: c_Map;
     }
 
     // ui
+
+    Pane { id: panel_Form;
+        anchors.top: parent.top;
+        anchors.right: parent.right;
+        anchors.margins: 5;
+        opacity: 0.85;
+
+        Column {
+            RoundButton { id: button_FormImage;
+                height: 44;
+                radius: 4;
+                Material.elevation: 30;
+                Material.background: Theme.color("color0");
+                text: "Формирование РЛИ";
+                font.family: root.mainfont;
+                //onPressed:
+            }
+        }
+    }
 
     Pane { id: panel_Tools;
         Material.elevation: 30;
@@ -190,7 +221,7 @@ Map { id: c_Map;
     Pane { id: panel_Parameters;
         property bool b_Expanded: false;
 
-        anchors.top: parent.top;
+        anchors.bottom: layout_MapMode.top;
         anchors.right: parent.right;
         anchors.margins: 5;
         opacity: 0.85;
@@ -269,7 +300,7 @@ Map { id: c_Map;
     }
 
     RoundButton { id: button_ExpandParameters;
-        anchors.top: parent.top;
+        anchors.bottom: layout_MapMode.top;
         anchors.right: parent.right;
         anchors.margins: 5;
         checkable: true;

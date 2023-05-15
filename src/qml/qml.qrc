@@ -18,5 +18,6 @@
         <file>windows/MessageWindow.qml</file>
         <file>tabs/map/MapImageUI.qml</file>
         <file>windows/DialogWindow.qml</file>
+        <file>widgets/CoordinateTooltip.qml</file>
     </qresource>
 </RCC>

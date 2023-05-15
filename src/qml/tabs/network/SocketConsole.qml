@@ -11,7 +11,7 @@ Pane {
 
     function logdata(str, sizeof)
     {
-        textarea.append(str);
+        //textarea.append(str);
         histogram.append(sizeof);
     }
 

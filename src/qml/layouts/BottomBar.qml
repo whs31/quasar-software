@@ -33,15 +33,32 @@ Rectangle {
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
 
-        RoundButton { id: button_FormImage;
+        RoundButton { id: button_Settings;
             font.family: root.mainfont;
-            font.weight: Font.Bold;
             height: 44;
             radius: 4;
+            icon.source: "qrc:/icons/tabs/settings.png";
             Material.elevation: 30;
-            Material.background: Theme.color("color0");
-            text: "ФОРМИРОВАНИЕ ИЗОБРАЖЕНИЯ";
-            //onPressed:
+            onPressed: {
+                if(c_SettingsWindow.visible === true)
+                    c_SettingsWindow.hide();
+                else
+                    c_SettingsWindow.show();
+            }
+        }
+
+        RoundButton { id: button_About;
+            font.family: root.mainfont;
+            height: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/tabs/info.png";
+            Material.elevation: 30;
+            onPressed: {
+                if(c_InfoWindow.b_Shown)
+                    c_InfoWindow.b_Shown = false;
+                else
+                    c_InfoWindow.b_Shown = true;
+            }
         }
 
         RoundButton { id: button_ToggleDebug;

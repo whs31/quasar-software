@@ -22,6 +22,8 @@ namespace Map
         public:
             MouseState state() const; void setState(const MouseState&);
 
+            Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
+
             signals:
                 void stateChanged();
 

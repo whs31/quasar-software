@@ -38,9 +38,8 @@ MapQuickItem {
                     font.family: root.mainfont;
                     text: "Изображение №" + Number(index + 1);
                     color: Theme.color("light1");
-                    height: 31;
                     font.weight: Font.Bold;
-                    font.pixelSize: 16;
+                    font.pixelSize: 15;
                     horizontalAlignment: Text.AlignHCenter;
                     Layout.alignment: Qt.AlignHCenter;
                 }
@@ -50,7 +49,7 @@ MapQuickItem {
                         icon.source: "qrc:/icons/toolbar/map/hidden.png";
                         font.family: root.mainfont;
                         text: shown ? "Скрыть изображение" : "Показать изображение";
-                        height: 44;
+                        height: 40;
                         radius: 4;
                         Material.elevation: 30;
                         Material.background: Theme.color("dark1");
@@ -61,7 +60,7 @@ MapQuickItem {
                         icon.source: "qrc:/icons/toolbar/map/trash.png";
                         font.family: root.mainfont;
                         text: "Удалить изображение";
-                        height: 44;
+                        height: 40;
                         radius: 4;
                         Material.elevation: 30;
                         Material.background: Theme.color("red");
@@ -107,6 +106,7 @@ MapQuickItem {
                             font.family: root.mainfont;
                             color: Theme.color("light0");
                             font.pixelSize: 14;
+                            font.weight: Font.DemiBold;
                             text: "Непрозрачность: ";
                             verticalAlignment: Text.AlignVCenter;
                         }

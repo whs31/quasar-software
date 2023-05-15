@@ -61,13 +61,19 @@ Map { id: c_Map;
                 if(mouse.button === Qt.RightButton)
                     c_RulerModel.resetRoute();
             }
+            else {
+                if(mouse.button === Qt.RightButton) {
+                    let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
+                    ClickHandler.copyCoordinatesToClipboard(coord.latitude, coord.longitude);
+                }
+            }
         }
 
         onPositionChanged: {
             let coord = toCoordinate(Qt.point(mouseX, mouseY))
             coord_tooltip.latitude = coord.latitude;
             coord_tooltip.longitude = coord.longitude;
-            coord_tooltip.x = mouseX;
+            coord_tooltip.x = mouseX + 10;
             coord_tooltip.y = mouseY;
         }
     }

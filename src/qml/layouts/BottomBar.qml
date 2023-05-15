@@ -39,6 +39,7 @@ Rectangle {
             radius: 4;
             icon.source: "qrc:/icons/tabs/settings.png";
             Material.elevation: 30;
+            Material.background: Theme.color("dark1");
             onPressed: {
                 if(c_SettingsWindow.visible === true)
                     c_SettingsWindow.hide();
@@ -53,6 +54,7 @@ Rectangle {
             radius: 4;
             icon.source: "qrc:/icons/tabs/info.png";
             Material.elevation: 30;
+            Material.background: Theme.color("dark1");
             onPressed: {
                 if(c_InfoWindow.b_Shown)
                     c_InfoWindow.b_Shown = false;
@@ -66,6 +68,8 @@ Rectangle {
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/bottombar/console.png";
+            Material.elevation: 30;
+            Material.background: Theme.color("dark1");
             onPressed: root.b_ConsoleShown = !root.b_ConsoleShown;
         }
     }

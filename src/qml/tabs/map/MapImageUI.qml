@@ -18,7 +18,8 @@ MapQuickItem {
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item {
         Pane { id: panel_ImageDialog;
-            anchors.left: button_openImageDialog.left;
+            z: 51;
+            anchors.left: button_openImageDialog.right;
             anchors.top: button_openImageDialog.top;
 
             property bool b_Shown: false;
@@ -75,20 +76,50 @@ MapQuickItem {
                         text: "Трансформация";
                         checkable: true;
                         checked: false;
-                        height: 44;
+                        height: 35;
                         radius: 4;
                         Material.elevation: 30;
+                        Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
                     }
 
                     RoundButton { id: button_Showmeta;
                         icon.source: "qrc:/icons/toolbar/map/expand.png";
                         font.family: root.mainfont;
                         text: "Метаданные";
-                        height: 44;
+                        height: 35;
                         radius: 4;
                         checkable: true;
                         checked: false;
                         Material.elevation: 30;
+                        Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
+                    }
+                }
+
+                ColumnLayout {
+                    visible: button_ShowControls.checked;
+
+                    RowLayout {
+                        Layout.fillWidth: true;
+                        Text {
+                            Layout.fillHeight: true;
+                            Layout.fillWidth: true;
+                            Layout.alignment: Qt.AlignVCenter;
+                            font.family: root.mainfont;
+                            color: Theme.color("light0");
+                            font.pixelSize: 14;
+                            text: "Непрозрачность: ";
+                            verticalAlignment: Text.AlignVCenter;
+                        }
+
+                        Slider {
+                            Layout.fillWidth: true;
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignRight;
+                            from: 0;
+                            to: 1;
+                            value: transparency;
+                            onValueChanged: transparency = value;
+                        }
                     }
                 }
 

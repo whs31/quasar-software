@@ -191,3 +191,11 @@ bool ImageProcessing::exists(const QString& name)
     }
     return false;
 }
+
+bool ImageProcessing::busy() const { return m_busy; }
+void ImageProcessing::setBusy(bool other) {
+    if (m_busy == other)
+        return;
+    m_busy = other;
+    emit busyChanged();
+}

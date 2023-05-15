@@ -15,12 +15,13 @@ namespace Map
         };
 
         Q_OBJECT
+        Q_ENUM(MouseState);
+        Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
         DEFINE_AS_SINGLETON(ClickHandler)
 
-        Q_ENUM(MouseState);
-        PROPERTY_DEF(MouseState, state, setState, m_state)
-
         public:
+            MouseState state() const; void setState(const MouseState&);
+
             signals:
                 void stateChanged();
 

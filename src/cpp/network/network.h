@@ -17,11 +17,11 @@ namespace Network
     class Network : public QObject
     {
         Q_OBJECT
+        Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
+        Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
+        Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
+        Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
         DEFINE_AS_SINGLETON(Network);
-        PROPERTY_PTR(Telemetry*, telemetry, setTelemetry, m_telemetry)
-        PROPERTY_PTR(RemoteData*, remoteData, setRemoteData, m_remoteData)
-        PROPERTY(float, networkDelay, setNetworkDelay, m_networkDelay)
-        PROPERTY_DEF(int, connected, setConnected, m_connected)
 
         constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
@@ -41,6 +41,11 @@ namespace Network
 
             Q_INVOKABLE void startTCPSocket(const QString& address);
             Q_INVOKABLE void stopTCPSocket();
+
+            Telemetry* telemetry() const; void setTelemetry(Telemetry*);
+            RemoteData* remoteData() const; void setRemoteData(RemoteData*);
+            float networkDelay() const; void setNetworkDelay(float);
+            int connected() const; void setConnected(int);
 
             signals:
                 void telemetryChanged();

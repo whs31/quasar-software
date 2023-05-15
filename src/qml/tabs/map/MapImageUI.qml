@@ -29,6 +29,7 @@ MapQuickItem  {
             Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
             clip: true;
             Material.background: Theme.color("dark0");
+            Material.elevation: 30;
 
             implicitWidth: 400;
             implicitHeight: 500;
@@ -40,14 +41,14 @@ MapQuickItem  {
             width: 44;
             radius: 15;
             Material.elevation: 30;
-            Material.background: Theme.color("dark0");
+            Material.background: Theme.color("dark1");
             icon.color: Theme.color("light1");
             onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
         }
 
         Rectangle { id: panel_SARImageTooltip;
             visible: !panel_ImageDialog.b_Shown;
-            color: Theme.color("dark0");
+            color: Theme.color("dark1");
             width: (text_ImageIndex.paintedWidth + 5);
             height: (text_ImageIndex.paintedHeight + 3);
             anchors.top: button_openImageDialog.bottom;

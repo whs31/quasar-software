@@ -12,16 +12,18 @@ namespace Processing
     class ImageProcessing : public QObject
     {
         Q_OBJECT
+        Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
         DEFINE_AS_SINGLETON(ImageProcessing)
-
-        PROPERTY_DEF(bool, busy, setBusy, m_busy);
 
         constexpr static float INITIAL_OPACITY = 1;
         constexpr static bool INITIAL_VISIBILITY = true;
 
         public:
             Map::ImageModel* model();
+
             bool exists(const QString& name);
+
+            bool busy() const; void setBusy(bool);
 
             public slots:
                 void processImage(const QString& filename);

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "network/abstractudpsocket.h"
-#include <ccl/ccl_global.h>
 
 class QTimer;
 
@@ -12,7 +11,7 @@ namespace Network
     class TelemetrySocket : public AbstractUDPSocket
     {
         Q_OBJECT
-        PROPERTY_DEF(float, frequency, setFrequency, m_frequency)
+        Q_PROPERTY(float frequency READ frequency WRITE setFrequency NOTIFY frequencyChanged)
 
         constexpr static uint32_t MARKER = 0x55bb55bb;
         constexpr static uint32_t RECV_MARKER_LITTLE = 0xaa55aa55;
@@ -24,6 +23,8 @@ namespace Network
 
             void start(const QString& address);
             void stop();
+
+            float frequency() const; void setFrequency(float);
 
             signals:
                 void frequencyChanged();

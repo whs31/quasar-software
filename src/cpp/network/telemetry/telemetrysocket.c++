@@ -98,3 +98,10 @@ void TelemetrySocket::requestTelemetry()
                         + QString::number(request.port) + " " + QString::number(request.interval_ms)
                         + " 0x" + QString::number(request.crc16, 16), sizeof(request));
 }
+
+float TelemetrySocket::frequency() const { return m_frequency; }
+void TelemetrySocket::setFrequency(float other) {
+    if (qFuzzyCompare(m_frequency, other)) return;
+    m_frequency = other;
+    emit frequencyChanged();
+}

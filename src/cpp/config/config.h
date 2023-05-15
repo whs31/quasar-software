@@ -16,29 +16,29 @@ namespace Config
         Q_OBJECT
         DEFINE_AS_SINGLETON(Config)
 
-        PROPERTY_DEF(QString, remoteIP, setRemoteIP, m_remoteIP)
-        PROPERTY_DEF(QString, localIP, setLocalIP, m_localIP)
-        PROPERTY_DEF(QString, telemetryPort, setTelemetryPort, m_telemetryPort)
-        PROPERTY_DEF(QString, tcpLFSPort, setTcpLFSPort, m_tcpLFSPort)
-        PROPERTY_DEF(QString, udpLFSPort, setUdpLFSPort, m_udpLFSPort)
-        PROPERTY_DEF(QString, execdPort, setExecdPort, m_execdPort)
-        PROPERTY_DEF(QString, feedbackPort, setFeedbackPort, m_feedbackPort)
-        PROPERTY_DEF(float, telemetryFrequency, setTelemetryFrequency, m_telemetryFrequency)
-        PROPERTY_DEF(bool, proxyEnabled, setProxyEnabled, m_proxyEnabled)
+        Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
+        Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
+        Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
+        Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
+        Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
+        Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
+        Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
+        Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
+        Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
 
-        PROPERTY_DEF(bool, antennaAlignment, setAntennaAlignment, m_antennaAlignment)
+        Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
 
-        PROPERTY_DEF(float, angleCorrection, setAngleCorrection, m_angleCorrection)
-        PROPERTY_DEF(bool, useRadians, setUseRadians, m_useRadians)
-        PROPERTY_DEF(bool, useDriftAngle, setUseDriftAngle, m_useDriftAngle)
-        PROPERTY_DEF(float, thetaAzimuthCorrection, setThetaAzimuthCorrection, m_thetaAzimuthCorrection)
-        PROPERTY_DEF(bool, overrideImageHeight, setOverrideImageHeight, m_overrideImageHeight)
-        PROPERTY_DEF(bool, cutImage, setCutImage, m_cutImage)
+        Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
+        Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
+        Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
+        Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
+        Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
+        Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
 
-        PROPERTY_DEF(double, storedLatitude, setStoredLatitude, m_storedLatitude)
-        PROPERTY_DEF(double, storedLongitude, setStoredLongitude, m_storedLongitude)
-        PROPERTY_DEF(double, storedZoomLevel, setStoredZoomLevel, m_storedZoomLevel)
-        PROPERTY(QString, storedCatalogue, setStoredCatalogue, m_storedCatalogue)
+        Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
+        Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
+        Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
+        Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
 
         public:
             virtual ~Config();
@@ -49,6 +49,27 @@ namespace Config
             Q_INVOKABLE void revert();
             Q_INVOKABLE void reset();
             Q_INVOKABLE QString projectVersion();
+
+            QString remoteIP() const; void setRemoteIP(const QString&);
+            QString localIP() const; void setLocalIP(const QString&);
+            QString telemetryPort() const; void setTelemetryPort(const QString&);
+            QString tcpLFSPort() const; void setTcpLFSPort(const QString&);
+            QString udpLFSPort() const; void setUdpLFSPort(const QString&);
+            QString execdPort() const; void setExecdPort(const QString&);
+            QString feedbackPort() const; void setFeedbackPort(const QString&);
+            bool proxyEnabled() const; void setProxyEnabled(bool);
+            bool antennaAlignment() const; void setAntennaAlignment(bool);
+            float angleCorrection() const; void setAngleCorrection(float);
+            bool useRadians() const; void setUseRadians(bool);
+            bool useDriftAngle() const; void setUseDriftAngle(bool);
+            float thetaAzimuthCorrection() const; void setThetaAzimuthCorrection(float);
+            double storedLatitude() const; void setStoredLatitude(double);
+            double storedLongitude() const; void setStoredLongitude(double);
+            double storedZoomLevel() const; void setStoredZoomLevel(double);
+            QString storedCatalogue() const; void setStoredCatalogue(const QString&);
+            float telemetryFrequency() const; void setTelemetryFrequency(float);
+            bool overrideImageHeight() const; void setOverrideImageHeight(bool);
+            bool cutImage() const; void setCutImage(bool);
 
             signals:
                 void remoteIPChanged();

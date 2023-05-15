@@ -7,3 +7,11 @@ ClickHandler::ClickHandler(QObject* parent)
 {
 
 }
+
+Map::ClickHandler::MouseState ClickHandler::state() const { return m_state; }
+void ClickHandler::setState(const MouseState& other) {
+    if (m_state == other)
+        return;
+    m_state = other;
+    emit stateChanged();
+}

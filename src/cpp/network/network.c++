@@ -80,7 +80,24 @@ void Network::stopTCPSocket()
     tcpSocket->stopServer();
 }
 
-void Network::setNetworkDelay(const float& other) {
+Telemetry* Network::telemetry() const { return m_telemetry; }
+void Network::setTelemetry(Telemetry* other) {
+    if (m_telemetry == other)
+        return;
+    m_telemetry = other;
+    emit telemetryChanged();
+}
+
+RemoteData* Network::remoteData() const { return m_remoteData; }
+void Network::setRemoteData(RemoteData* other) {
+    if (m_remoteData == other)
+        return;
+    m_remoteData = other;
+    emit remoteDataChanged();
+}
+
+float Network::networkDelay() const { return m_networkDelay; }
+void Network::setNetworkDelay(float other) {
     if (qFuzzyCompare(m_networkDelay, other)) return;
     m_networkDelay = other;
     emit networkDelayChanged();
@@ -92,4 +109,13 @@ void Network::setNetworkDelay(const float& other) {
     else
         setConnected(2);
 }
+
+int Network::connected() const { return m_connected; }
+void Network::setConnected(int other) {
+    if (m_connected == other) return;
+    m_connected = other;
+    emit connectedChanged();
 }
+
+}
+

@@ -13,8 +13,8 @@ namespace Map
     class Route : public QObject
     {
         Q_OBJECT
-        PROPERTY_DEF(QVariantList, fullRoute, setFullRoute, m_fullRoute)
-        PROPERTY_DEF(QVariantList, recentRoute, setRecentRoute, m_recentRoute)
+        Q_PROPERTY(QVariantList fullRoute READ fullRoute WRITE setFullRoute NOTIFY fullRouteChanged)
+        Q_PROPERTY(QVariantList recentRoute READ recentRoute WRITE setRecentRoute NOTIFY recentRouteChanged)
 
         constexpr static int RECENT_ROUTE_SIZE = 1000;
 
@@ -24,6 +24,9 @@ namespace Map
 
             Q_INVOKABLE void append(const QGeoCoordinate& coord, float speed = -1, int satellites = -1);
             Q_INVOKABLE void clear();
+
+            QVariantList fullRoute() const; void setFullRoute(const QVariantList&);
+            QVariantList recentRoute() const; void setRecentRoute(const QVariantList&);
 
             signals:
                 void fullRouteChanged();

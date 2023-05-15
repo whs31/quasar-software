@@ -46,27 +46,29 @@ Pane {
             horizontalAlignment: Text.AlignHCenter;
         }
 
-        GridLayout {
-            columns: 2;
-
-            Text {
-                text: "Имя маркера:";
-                font.family: root.mainfont;
-                color: Theme.color("light1");
-                font.pixelSize: 14;
-                Layout.alignment: Qt.AlignLeft;
+        ColumnLayout {
+            Row {
                 Layout.fillWidth: true;
-            }
 
-            TextField {
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
-                font.pixelSize: 14;
-                text: s_MarkerName;
-                Layout.alignment: Qt.AlignRight;
-                color: Theme.color("light1");
+                Text {
+                    text: "Имя маркера:     ";
+                    font.family: root.mainfont;
+                    color: Theme.color("light1");
+                    font.pixelSize: 14;
+                    height: input_MarkerName.height;
+                    verticalAlignment: Text.AlignVCenter;
+                }
 
-                onEditingFinished: s_MarkerName = text;
+                TextField { id: input_MarkerName;
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    font.pixelSize: 14;
+                    text: s_MarkerName;
+                    color: Theme.color("light1");
+                    horizontalAlignment: Text.AlignRight;
+
+                    onEditingFinished: s_MarkerName = text;
+                }
             }
         }
 

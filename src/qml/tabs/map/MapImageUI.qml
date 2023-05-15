@@ -73,11 +73,11 @@ MapQuickItem {
                         icon.source: "qrc:/icons/toolbar/map/expand.png";
                         font.family: root.mainfont;
                         text: "Трансформация";
+                        checkable: true;
+                        checked: false;
                         height: 44;
                         radius: 4;
                         Material.elevation: 30;
-                        Material.background: Theme.color("dark1");
-                        //onPressed: panel_MetaData.b_shown = !shown;
                     }
 
                     RoundButton { id: button_Showmeta;
@@ -86,20 +86,23 @@ MapQuickItem {
                         text: "Метаданные";
                         height: 44;
                         radius: 4;
+                        checkable: true;
+                        checked: false;
                         Material.elevation: 30;
-                        Material.background: Theme.color("dark1");
-                        onPressed: layout_Meta.visible = !layout_Meta.visible;
                     }
                 }
 
                 GridLayout { id: layout_Meta;
+                    visible: button_Showmeta.checked;
                     columns: 2;
+                    columnSpacing: -6;
 
                     Text {
                         font.family: root.mainfont;
                         color: Theme.color("light0");
                         font.pixelSize: 12;
                         text: "Имя файла:";
+                        Layout.fillWidth: true;
                     }
 
                     Text {

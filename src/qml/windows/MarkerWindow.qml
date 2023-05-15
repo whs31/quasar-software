@@ -25,7 +25,7 @@ Pane {
     property var coord_MarkerCoords: QtPositioning.coordinate(0, 0);
     property string s_MarkerName: "МАРКЕР №" + MarkersModel.rowCount();
     property string s_MarkerIcon: "qrc:/map/markers/flag.png";
-    property string s_MarkerColor: Theme.color("color2");
+    property string s_MarkerColor: "#B0BEC5";
 
     width: b_Shown ? implicitWidth : 0;
     height: b_Shown ? implicitHeight : 0;
@@ -68,6 +68,117 @@ Pane {
                     horizontalAlignment: Text.AlignRight;
 
                     onEditingFinished: s_MarkerName = text;
+                }
+            }
+
+            Row {
+                Layout.fillWidth: true;
+
+                Text {
+                    text: "Широта:";
+                    font.family: root.mainfont;
+                    color: Theme.color("light1");
+                    font.pixelSize: 14;
+                    height: input_MarkerName.height;
+                    verticalAlignment: Text.AlignVCenter;
+                }
+
+                TextField { id: input_Latitude;
+                    property bool b_Valid: /^[0-9.]*$/.test(text);
+
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    font.pixelSize: 14;
+                    text: Number(coord_MarkerCoords.latitude).toFixed(8);
+                    color: b_Valid ? Theme.color("light1") : Theme.color("red");
+                    horizontalAlignment: Text.AlignRight;
+
+                    onEditingFinished: coord_MarkerCoords.latitude = parseFloat(text);
+                }
+            }
+
+            Row {
+                Layout.fillWidth: true;
+                Text {
+                    text: "Долгота:";
+                    font.family: root.mainfont;
+                    color: Theme.color("light1");
+                    font.pixelSize: 14;
+                    height: input_MarkerName.height;
+                    verticalAlignment: Text.AlignVCenter;
+                }
+
+                TextField { id: input_Longitude;
+                    property bool b_Valid: /^[0-9.]*$/.test(text);
+
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    font.pixelSize: 14;
+                    text: Number(coord_MarkerCoords.longitude).toFixed(8);
+                    color: b_Valid ? Theme.color("light1") : Theme.color("red");
+                    horizontalAlignment: Text.AlignRight;
+
+                    onEditingFinished: coord_MarkerCoords.longitude = parseFloat(text);
+                }
+            }
+
+            Row {
+                Layout.fillWidth: true;
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#F06292";
+                    onPressed: s_MarkerColor = "#F06292";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#FF8A65";
+                    onPressed: s_MarkerColor = "#FF8A65";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#FFF176";
+                    onPressed: s_MarkerColor = "#FFF176";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#81C784";
+                    onPressed: s_MarkerColor = "#81C784";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#80CBC4";
+                    onPressed: s_MarkerColor = "#80CBC4";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#90CAF9";
+                    onPressed: s_MarkerColor = "#90CAF9";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#BCAAA4";
+                    onPressed: s_MarkerColor = "#BCAAA4";
+                }
+
+                RoundButton {
+                    width: 30;
+                    height: 30;
+                    Material.background: "#B0BEC5";
+                    onPressed: s_MarkerColor = "#B0BEC5";
                 }
             }
         }

@@ -31,3 +31,8 @@ MarkerModel* ClickHandler::markerModel()
 {
     return marker_model;
 }
+
+void ClickHandler::addMarker(double latitude, double longitude, const QString& name, const QString& color, const QString& icon)
+{
+    markerModel()->add(Marker(latitude, longitude, name, color, icon));
+}

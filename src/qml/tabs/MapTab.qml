@@ -66,7 +66,8 @@ Map { id: c_Map;
             {
                 if(mouse.button === Qt.LeftButton)
                 {
-                    console.error("Not implemented");
+                    let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
+                    markerwindow.open(coord.latitude, coord.longitude);
                 }
                 if(mouse.button === Qt.RightButton)
                     ClickHander.state = ClickHandler.Idle;

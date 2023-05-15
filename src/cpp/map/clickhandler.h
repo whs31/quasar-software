@@ -27,6 +27,7 @@ namespace Map
 
             Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
             Q_INVOKABLE MarkerModel* markerModel();
+            Q_INVOKABLE void addMarker(double latitude, double longitude, const QString& name, const QString& color, const QString& icon);
 
             signals:
                 void stateChanged();

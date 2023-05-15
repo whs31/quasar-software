@@ -19,5 +19,6 @@
         <file>tabs/map/MapImageUI.qml</file>
         <file>windows/DialogWindow.qml</file>
         <file>widgets/CoordinateTooltip.qml</file>
+        <file>windows/MarkerWindow.qml</file>
     </qresource>
 </RCC>

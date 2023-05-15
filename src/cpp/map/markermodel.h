@@ -19,6 +19,7 @@ namespace Map
                 Index = Qt::UserRole + 1,
                 Latitude,
                 Longitude,
+                MarkerName,
                 MarkerColor,
                 MarkerIcon,
             };

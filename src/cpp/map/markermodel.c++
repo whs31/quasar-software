@@ -14,6 +14,7 @@ QHash<int, QByteArray> MarkerModel::roleNames() const
     roles[Index] = "index";
     roles[Latitude] = "latitude";
     roles[Longitude] = "longitude";
+    roles[MarkerName] = "marker_name";
     roles[MarkerColor] = "marker_color";
     roles[MarkerIcon] = "marker_icon";
     return roles;
@@ -34,6 +35,7 @@ QVariant MarkerModel::data(const QModelIndex& index, int role) const
         case Index: return index.row();
         case Latitude: return QVariant::fromValue(storage[index.row()].latitude);
         case Longitude: return QVariant::fromValue(storage[index.row()].longitude);
+        case MarkerName: return QVariant::fromValue(storage[index.row()].name);
         case MarkerColor: return QVariant::fromValue(storage[index.row()].color);
         case MarkerIcon: return QVariant::fromValue(storage[index.row()].icon);
 
@@ -50,6 +52,7 @@ bool MarkerModel::setData(const QModelIndex& index, const QVariant& value, int r
             case Index: return false;
             case Latitude: storage[index.row()].latitude = value.toDouble(); break;
             case Longitude: storage[index.row()].longitude = value.toDouble(); break;
+            case MarkerName: storage[index.row()].name = value.toString(); break;
             case MarkerColor: storage[index.row()].color = value.toString(); break;
             case MarkerIcon: storage[index.row()].icon = value.toString(); break;
 

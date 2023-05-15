@@ -82,6 +82,11 @@ ApplicationWindow  { id: window_root;
                      samples: 32; color: "#80000000"; source: dialogwindow; cached: true; enabled: dialogwindow.b_Shown;
                      visible: dialogwindow.b_Shown; }
 
+        Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
+        DropShadow { z: 96; anchors.fill: markerwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
+                     samples: 32; color: "#80000000"; source: markerwindow; cached: true; enabled: markerwindow.b_Shown;
+                     visible: markerwindow.b_Shown; }
+
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
 
         Layouts.BottomBar { id: layout_BottomBar;

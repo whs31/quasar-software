@@ -10,7 +10,7 @@ namespace ccl
 {
     //= Networking =
 
-    CCL_CORE_EXPORT uint32_t ipAddressToHex(const QString& ip_address) noexcept;
+    CCL_CORE_EXPORT uint32_t ip_address_to_hex(const QString& ip_address) noexcept;
 
     //= Crypto =
 

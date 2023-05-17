@@ -31,5 +31,27 @@ MapQuickItem  {
             anchors.fill: imageSource;
             source: imageSource;
         }
+
+        Rectangle { id: panel_MarkerTooltip;
+            color: marker_color;
+            width: (text_MarkerName.paintedWidth + 5);
+            height: (text_MarkerName.paintedHeight + 1);
+            anchors.top: imageSource.bottom;
+            anchors.topMargin: 4;
+            anchors.horizontalCenter: imageSource.horizontalCenter;
+            radius: width / 2;
+            Text { id: text_MarkerName;
+                color: "black";
+                enabled: true;
+                anchors.fill: parent;
+                font.pointSize: 8;
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                textFormat: Text.RichText;
+                text: "\u00A0" + marker_name + "\u00A0";
+                horizontalAlignment: Text.AlignHCenter;
+                verticalAlignment: Text.AlignVCenter;
+            }
+        }
     }
 }

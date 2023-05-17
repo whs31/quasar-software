@@ -78,7 +78,10 @@ void TelemetryEmulator::update()
 //    this->setVelocity_vertical(0);
     float velocity_delta = sin(this->pitch() / 180 * M_PI) * VELOCITY_CHANGE_COEFFICIENT;
     velocity_delta = velocity_delta * (1 - velocity_horizontal() / SPEED_UPPER_BOUND);
-    this->setVelocity_horizontal(velocity_horizontal() + velocity_delta);
+    if(velocity_horizontal() > -SPEED_UPPER_BOUND)
+        this->setVelocity_horizontal(velocity_horizontal() + velocity_delta);
+    else
+        this->setVelocity_horizontal(velocity_horizontal() - velocity_delta);
 
     float vertical_velocity_delta = cos(2 * this->pitch() / 180 * M_PI) * VELOCITY_CHANGE_COEFFICIENT / 10;
     if(pitch() > 90 or pitch() < -90)
@@ -86,7 +89,10 @@ void TelemetryEmulator::update()
     vertical_velocity_delta = vertical_velocity_delta * (1 - velocity_vertical() / (SPEED_UPPER_BOUND / 10));
     this->setVelocity_vertical(velocity_vertical() + vertical_velocity_delta);
 
-    this->setAltitude(this->altitude() + velocity_vertical());
+    if(altitude() < 3000 and altitude() > 0)
+        this->setAltitude(this->altitude() + velocity_vertical());
+    else
+        this->setAltitude(this->altitude() - velocity_vertical());
 
     this->setTime(QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss"));
 

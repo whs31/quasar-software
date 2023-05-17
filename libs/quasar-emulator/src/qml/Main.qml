@@ -22,7 +22,7 @@ Window { id: root;
     MouseArea {
         anchors.fill: parent;
         propagateComposedEvents: true;
-        onClicked: lyo_3D.forceActiveFocus();
+        onClicked: lyo_Map.forceActiveFocus();
     }
 
     FontLoader { id: font_Main; source: "qrc:/Overpass.ttf"; }
@@ -32,8 +32,8 @@ Window { id: root;
     property int roll: 0;
     property int yaw: 0;
     function updateAxes() {
-        if(!lyo_3D.focus)
-            lyo_3D.forceActiveFocus();
+        if(!lyo_Map.focus)
+            lyo_Map.forceActiveFocus();
         if(pitch === -1)
             Telemetry.pitch -= 1;
         if(pitch === 1)
@@ -50,19 +50,9 @@ Window { id: root;
 
     Timer { interval: 20; repeat: true; running: true; onTriggered: updateAxes(); }
 
-    Layouts.PlaneView {  id: lyo_3D;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.rightMargin: 500;
-        anchors.top: parent.top;
-        anchors.bottom: parent.bottom;
-    }
 
     Layouts.MapView { id: lyo_Map;
-        anchors.right: parent.right;
-        anchors.left: lyo_3D.right;
-        anchors.top: parent.top;
-        anchors.bottom: parent.bottom;
+        anchors.fill: parent;
         anchors.margins: 30;
     }
 

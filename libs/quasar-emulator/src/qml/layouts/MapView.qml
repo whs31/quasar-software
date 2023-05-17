@@ -23,6 +23,37 @@ Map {
     }
     Behavior on center { CoordinateAnimation { duration: 500; easing.type: Easing.Linear } }
     Behavior on zoomLevel { NumberAnimation { duration: 100 } }
+    focus: true;
+    Keys.onPressed: (event)=> {
+                        if(event.key === Qt.Key_L)
+                            console.log("Debug key pressed");
+                        if (event.key === Qt.Key_D)
+                            root.yaw = 1;
+                        if (event.key === Qt.Key_A)
+                            root.yaw = -1;
+                        if (event.key === Qt.Key_W)
+                            root.pitch = 1;
+                        if (event.key === Qt.Key_S)
+                            root.pitch = -1;
+                        if (event.key === Qt.Key_Q)
+                            root.roll = -1;
+                        if (event.key === Qt.Key_E)
+                            root.roll = 1;
+    }
+    Keys.onReleased: (event)=> {
+                         if (event.key === Qt.Key_D)
+                             root.yaw = 0;
+                         if (event.key === Qt.Key_A)
+                             root.yaw = 0;
+                         if (event.key === Qt.Key_W)
+                             root.pitch = 0;
+                         if (event.key === Qt.Key_S)
+                             root.pitch = 0;
+                         if (event.key === Qt.Key_Q)
+                             root.roll = 0;
+                         if (event.key === Qt.Key_E)
+                             root.roll = 0;
+    }
 
     MapQuickItem {
         anchorPoint.x: 20;

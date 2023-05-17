@@ -7,6 +7,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
+#include <QtCore/QMetaType>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
@@ -20,6 +21,10 @@ ImageProcessing::ImageProcessing(QObject* parent)
     : QObject{parent}
     , m_model(new Map::ImageModel(this))
 {
+    qRegisterMetaType<Map::Image>("Map::Image");
+    qRegisterMetaType<Map::StripImage>("Map::StripImage");
+
+    connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage);
 }
 
 void ImageProcessing::asyncProcess(const QString& filename)
@@ -154,7 +159,8 @@ void ImageProcessing::asyncProcess(const QString& filename)
     image.shown = INITIAL_VISIBILITY;
     image.mercator_zoom_level = ccl::mqi_zoom_level(image.meta.latitude, image.meta.dx);
 
-    model()->add(image);
+    setProcessingImage(false);
+    emit processImageFinished(image);
 }
 
 void ImageProcessing::asyncStripProcess(const QString& filename)
@@ -216,6 +222,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 //                << "ny:" << datagram.format.ny
 //                << "k:" << datagram.format.k;
     }
+    setProcessingStrip(false);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -239,18 +246,31 @@ void ImageProcessing::processImage(const QString& filename)
 {
     qDebug() << "[PROCESSING] Received image to process" << filename;
 
-    this->asyncProcess(filename);
+    QThreadPool pool;
+    pool.setMaxThreadCount(1);
+    QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+        this->asyncProcess(filename);
+    });
 
-    //! @todo busy
+    setProcessingImage(true);
+}
+
+void ImageProcessing::passImage(const Map::Image& image)
+{
+    model()->add(image);
 }
 
 void ImageProcessing::processStripImage(const QString& filename)
 {
     qDebug() << "[PROCESSING] Received binary to process" << filename;
 
-    this->asyncStripProcess(filename);
+    QThreadPool pool;
+    pool.setMaxThreadCount(1);
+    QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+        this->asyncStripProcess(filename);
+    });
 
-    //! @todo busy
+    setProcessingStrip(true);
 }
 
 bool ImageProcessing::exists(const QString& name)
@@ -266,10 +286,18 @@ bool ImageProcessing::exists(const QString& name)
     return false;
 }
 
-bool ImageProcessing::busy() const { return m_busy; }
-void ImageProcessing::setBusy(bool other) {
-    if (m_busy == other)
+bool ImageProcessing::processingImage() const { return m_processingImage; }
+void ImageProcessing::setProcessingImage(bool other) {
+    if (m_processingImage == other)
         return;
-    m_busy = other;
-    emit busyChanged();
+    m_processingImage = other;
+    emit processingImageChanged();
+}
+
+bool ImageProcessing::processingStrip() const { return m_processingStrip; }
+void ImageProcessing::setProcessingStrip(bool other) {
+    if (m_processingStrip == other)
+        return;
+    m_processingStrip = other;
+    emit processingStripChanged();
 }

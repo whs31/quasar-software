@@ -4,6 +4,8 @@
 #include <ccl/ccl_global.h>
 
 namespace Map {
+    class Image;
+    class StripImage;
     class ImageModel;
 }
 
@@ -12,7 +14,8 @@ namespace Processing
     class ImageProcessing : public QObject
     {
         Q_OBJECT
-        Q_PROPERTY(bool busy READ busy WRITE setBusy NOTIFY busyChanged)
+        Q_PROPERTY(bool processingImage READ processingImage WRITE setProcessingImage NOTIFY processingImageChanged)
+        Q_PROPERTY(bool processingStrip READ processingStrip WRITE setProcessingStrip NOTIFY processingStripChanged)
         DEFINE_AS_SINGLETON(ImageProcessing)
 
         constexpr static float INITIAL_OPACITY = 1;
@@ -23,14 +26,19 @@ namespace Processing
 
             bool exists(const QString& name);
 
-            bool busy() const; void setBusy(bool);
+            bool processingImage() const; void setProcessingImage(bool);
+            bool processingStrip() const; void setProcessingStrip(bool);
 
             public slots:
                 void processImage(const QString& filename);
+                void passImage(const Map::Image& image);
                 void processStripImage(const QString& filename);
 
             signals:
-                void busyChanged();
+                void processImageFinished(const Map::Image& image);
+
+                void processingImageChanged();
+                void processingStripChanged();
 
         private:
             explicit ImageProcessing(QObject* parent = nullptr);
@@ -41,6 +49,7 @@ namespace Processing
             QByteArray fileToByteArray(const QString& path);
 
         private:
-            bool m_busy;
+            bool m_processingImage = false;
+            bool m_processingStrip = false;
     };
 } // namespace Processing;

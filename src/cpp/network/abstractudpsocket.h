@@ -22,7 +22,7 @@ namespace Network
             signals:
                 void received(QByteArray data);
                 void socketDisconnected();
-                void socketMetrics(const QString& data, int size_bytes);
+                void socketMetrics(const QString& data, int size_bytes, bool out);
 
         private:
             private slots:

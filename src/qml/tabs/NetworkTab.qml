@@ -71,7 +71,7 @@ Pane {
 
     Connections {
         target: Network;
-        function onTelemetrySocketMetrics(data, size_bytes) { panel_TelemetryConsole.logdata(data, size_bytes); }
-        function onFeedbackSocketMetrics(data, size_bytes) { panel_FeedbackConsole.logdata(data, size_bytes); }
+        function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }
+        function onFeedbackSocketMetrics(data, size_bytes, out) { panel_FeedbackConsole.logdata(data, size_bytes, out); }
     }
 }

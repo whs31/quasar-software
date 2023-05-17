@@ -9,9 +9,9 @@ Pane {
     property string name: "Socket Console";
     property alias color: histogram.histogramColor;
 
-    function logdata(str, sizeof)
+    function logdata(str, sizeof, out)
     {
-        listview.append(str);
+        listview.append(str, sizeof, out);
         histogram.append(sizeof);
     }
 
@@ -52,19 +52,38 @@ Pane {
             anchors.fill: parent;
             anchors.margins: 5;
             clip: true;
-            delegate: Text {
-                text: txt;
-                font.family: root.monofont;
-                color: Theme.color("light0");
-                font.bold: true;
-                font.pixelSize: 12;
-                textFormat: Text.RichText;
+            delegate: Row {
+                spacing: 5;
+                Rectangle {
+                    height: 12;
+                    width: 30;
+                    radius: 6;
+                    color: direction ? Theme.color("accent") : Theme.color("dark3");
+
+                    Text {
+                        font.family: root.monofont;
+                        anchors.centerIn: parent;
+                        color: Theme.color("light0");
+                        font.bold: true;
+                        font.pixelSize: 12;
+                        text: direction ? "OUT" : "IN";
+                    }
+                }
+
+                Text {
+                    text: txt;
+                    font.family: root.monofont;
+                    color: Theme.color("light0");
+                    font.bold: true;
+                    font.pixelSize: 12;
+                    textFormat: Text.RichText;
+                }
             }
 
-            function append(strAdd) {
+            function append(strAdd, size, direction) {
                 if(listmodel.count > 18)
                     listmodel.remove(0, 1);
-                listmodel.append({"txt": strAdd});
+                listmodel.append({"txt": strAdd, "sizeof": size, "direction": direction});
             }
         }
     }

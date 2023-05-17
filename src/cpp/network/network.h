@@ -53,11 +53,11 @@ namespace Network
                 void networkDelayChanged();
                 void connectedChanged();
 
-                void telemetrySocketMetrics(const QString& data, int size_bytes);
-                void execdSocketMetrics(const QString& data, int size_bytes);
-                void feedbackSocketMetrics(const QString& data, int size_bytes);
-                void lfsSocketMetrics(const QString& msg, int size_bytes);
-                void stripSocketMetrics(const QString msg, int size_bytes);
+                void telemetrySocketMetrics(const QString& data, int size_bytes, bool out);
+                void execdSocketMetrics(const QString& data, int size_bytes, bool out);
+                void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);
+                void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
+                void stripSocketMetrics(const QString msg, int size_bytes, bool out);
 
         private:
             explicit Network(QObject* parent = nullptr);

@@ -69,14 +69,14 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
 
-    emit socketMetrics("[ IN  ] 0x" + QString::number(received.marker, 16) + " " + QString::number(received.version) + " "
+    emit socketMetrics("0x" + QString::number(received.marker, 16) + " " + QString::number(received.version) + " "
                  + QString::number(received.latitude, 'f', 7) + " " + QString::number(received.longitude, 'f', 7)  + " "
                  + QString::number(received.altitude, 'f', 2) + " " + QString::number(received.velocity_course, 'f', 1) + " "
                  + QString::number(received.velocity_east, 'f', 1) + " " + QString::number(received.velocity_north, 'f', 1) + " "
                  + QString::number(received.velocity_vertical, 'f', 1) + " " + QString::number(received.pitch, 'f', 2) + " "
                  + QString::number(received.roll, 'f', 2) + " " +  QString::number(received.yaw, 'f', 2) + " "
                  + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " " + QString::number(received.satellites)
-                           + " 0x" + QString::number(received.crc16, 16), sizeof(received));
+                           + " 0x" + QString::number(received.crc16, 16), sizeof(received), false);
     emit ping();
 }
 
@@ -94,9 +94,9 @@ void TelemetrySocket::requestTelemetry()
     stream << request;
 
     this->send(buffer);
-    emit socketMetrics("[ OUT ] 0x" + QString::number(request.marker, 16) + " " + QString::number(request.init_flag) + " "
+    emit socketMetrics("0x" + QString::number(request.marker, 16) + " " + QString::number(request.init_flag) + " "
                         + QString::number(request.port) + " " + QString::number(request.interval_ms)
-                        + " 0x" + QString::number(request.crc16, 16), sizeof(request));
+                        + " 0x" + QString::number(request.crc16, 16), sizeof(request), true);
 }
 
 float TelemetrySocket::frequency() const { return m_frequency; }

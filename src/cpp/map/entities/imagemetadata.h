@@ -62,7 +62,7 @@ namespace Map
         uint16_t type;                          //! @var
     };
 
-    struct StripImageMetadata
+    struct StripFormatMetadata
     {
         float dx;                               //! @var
         float dy;                               //! @var

@@ -3,11 +3,6 @@
 
 namespace Map {
 
-Image::Image()
-{
-
-}
-
 QDebug& operator<< (QDebug& d, Image& image)
 {
     d << "name: " << image.filename

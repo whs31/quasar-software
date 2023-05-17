@@ -27,6 +27,7 @@ namespace Processing
 
             public slots:
                 void processImage(const QString& filename);
+                void processStripImage(const QString& filename);
 
             signals:
                 void busyChanged();
@@ -36,6 +37,7 @@ namespace Processing
             Map::ImageModel* m_model;
 
             void asyncProcess(const QString& filename);
+            void asyncStripProcess(const QString& filename);
             QByteArray fileToByteArray(const QString& path);
 
         private:

@@ -1,8 +1,8 @@
 #include "imageprocessing.h"
 #include "map/imagemodel.h"
+#include "map/entities/stripimage.h"
 #include "config/paths.h"
 #include "config/config.h"
-#include <ccl/ccl_core.h>
 
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
@@ -10,8 +10,9 @@
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
-//#include <QtConcurrent/QtConcurrent>
+#include <QtConcurrent/QtConcurrent>
 #include <cmath>
+#include <ccl/ccl_core.h>
 
 using namespace Processing;
 
@@ -156,6 +157,20 @@ void ImageProcessing::asyncProcess(const QString& filename)
     model()->add(image);
 }
 
+void ImageProcessing::asyncStripProcess(const QString& filename)
+{
+    Map::StripImage image;
+
+    image.filename = filename;
+    image.path.first = Config::Paths::imageCache() + "/lod0/" + filename;
+    QByteArray data = fileToByteArray(image.path.first);
+
+    char* data_ptr = data.data();
+    memcpy(&image.header, data_ptr, sizeof(Map::StripHeaderMetadata));
+    qDebug() << "Image header:" << image.header.marker << image.header.version << image.header.size << image.header.cnt
+             << image.header.id << image.header.type;
+}
+
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
 {
     QFile file(path);
@@ -178,6 +193,15 @@ void ImageProcessing::processImage(const QString& filename)
     qDebug() << "[PROCESSING] Received image to process" << filename;
 
     this->asyncProcess(filename);
+
+    //! @todo busy
+}
+
+void ImageProcessing::processStripImage(const QString& filename)
+{
+    qDebug() << "[PROCESSING] Received binary to process" << filename;
+
+    this->asyncStripProcess(filename);
 
     //! @todo busy
 }

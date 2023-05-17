@@ -40,6 +40,16 @@ namespace Map
         uint16_t crc16 = 0;                     //! @var Контрольная сумма CRC16.
     };
 
+    struct StripHeaderMetadata
+    {
+        uint16_t marker;                        //! @var
+        uint16_t version;                       //! @var
+        uint16_t size;                          //! @var
+        uint16_t cnt;                           //! @var
+        uint16_t id;                            //! @var
+        uint16_t type;                          //! @var
+    } __attribute__((packed));
+
     struct StripNavigationMetadata
     {
         float pitch;                            //! @var
@@ -50,17 +60,7 @@ namespace Map
         float velocity;                         //! @var
         float course;                           //! @var
         float track_ang;                        //! @var
-    };
-
-    struct StripHeaderMetadata
-    {
-        uint16_t marker;                        //! @var
-        uint16_t version;                       //! @var
-        uint16_t size;                          //! @var
-        uint16_t cnt;                           //! @var
-        uint16_t id;                            //! @var
-        uint16_t type;                          //! @var
-    };
+    } __attribute__((packed));
 
     struct StripFormatMetadata
     {
@@ -75,5 +75,5 @@ namespace Map
         uint16_t nx;                            //! @var
         uint16_t ny;                            //! @var
         float k;                                //! @var
-    };
+    } __attribute__((packed));
 } // namespace Map;

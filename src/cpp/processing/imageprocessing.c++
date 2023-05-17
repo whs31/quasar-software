@@ -180,26 +180,26 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             << "Type:" << image.header.type;
 
     qInfo() << "$ Image navigation:"
-             << "Pitch:" << image.nav.pitch
-             << "Roll:" << image.nav.roll
-             << "Elevation:" << image.nav.elevation
-             << "Latitude:" << image.nav.latitude
-             << "Longitude:" << image.nav.longitude
-             << "Velocity:" << image.nav.velocity
-             << "Course:" << image.nav.course
+            << "Pitch:" << image.nav.pitch
+            << "Roll:" << image.nav.roll
+            << "Elevation:" << image.nav.elevation
+            << "Latitude:" << image.nav.latitude
+            << "Longitude:" << image.nav.longitude
+            << "Velocity:" << image.nav.velocity
+            << "Course:" << image.nav.course
             << "TrackAng:" << image.nav.track_ang;
 
     qInfo() << "$ Image format:"
             << "dx:" << image.format.dx
-             << "dy:" << image.format.dy
-             << "Course:" << image.format.course
-             << "Roll:" << image.format.roll
-             << "x0:" << image.format.x0
-             << "WordSize:" << image.format.word_size
-             << "Polarization:" << image.format.polarization
-             << "Y:" << image.format.y
-             << "nx:" << image.format.nx
-             << "ny:" << image.format.ny
+            << "dy:" << image.format.dy
+            << "Course:" << image.format.course
+            << "Roll:" << image.format.roll
+            << "x0:" << image.format.x0
+            << "WordSize:" << image.format.word_size
+            << "Polarization:" << image.format.polarization
+            << "Y:" << image.format.y
+            << "nx:" << image.format.nx
+            << "ny:" << image.format.ny
             << "k:" << image.format.k;
 
     /* EXPECTED (from plot.py)

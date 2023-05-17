@@ -188,6 +188,9 @@ bool ImageProcessing::exists(const QString& name)
     {
         if(image.filename == name)
             return true;
+
+        if(image.filename.chopped(4) == name.chopped(4))
+            return true;
     }
     return false;
 }

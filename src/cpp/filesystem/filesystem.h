@@ -15,9 +15,12 @@ namespace OS
 
             signals:
                 void imageCached(const QString& filename);
+                void binaryCached(const QString& filename);
 
         private:
             Filesystem(QObject* parent = nullptr);
             bool checkOcurrence(QString target_folder, QString filename);
+
+            void fetchBinary();
     };
 } // namespace OS;

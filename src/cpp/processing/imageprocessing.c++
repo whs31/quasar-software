@@ -201,6 +201,34 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
              << "nx:" << qToBigEndian(image.format.nx)
              << "ny:" << qToBigEndian(image.format.ny)
              << "k:" << qToBigEndian(image.format.k);
+
+    /* EXPECTED (from plot.py)
+    {'marker': 57082,
+     'version': 1,
+     'size': 500,
+     'cnt': 0,
+     'id': 85,
+     'type': 1}
+    {'pitch': 0.0,
+     'roll': 0.0,
+     'ele': 158.23333740234375,
+     'lat': 51.50708866649204,
+     'lon': 39.110633833143446,
+     'velocity': 15.699403762817383,
+     'course': 192.38999938964844,
+     'track_ang': 192.38999938964844}
+    {'dx': 1.0,
+     'dy': 1.0,
+     'course': 0.0,
+     'roll': 0.0,
+     'x0': 50.0,
+     'word_size': 1,
+     'polarization': 0,
+     'y': 0,
+     'nx': 500,
+     'ny': 1,
+     'k': 1.897916316986084}
+    */
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

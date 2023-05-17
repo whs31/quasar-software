@@ -76,9 +76,9 @@ while(1):
     nav = pack_nav.to_dict( header_reader.read( pack_nav.size() ) )
     img = pack_img.to_dict( header_reader.read( pack_img.size() ) )
 
-    #print(head)
-    #print(nav)
-    #print(img)
+    print(head)
+    print(nav)
+    print(img)
     
     chunk = ar.read(head["size"])
     if img["word_size"] == 2:

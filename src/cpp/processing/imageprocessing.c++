@@ -172,46 +172,46 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
            sizeof(Map::StripFormatMetadata));
 
     qInfo() << "$ Image header:"
-            << "Marker:" << Qt::hex << qToBigEndian(image.header.marker)
-            << "Version:" << qToBigEndian(image.header.version) << Qt::dec
-            << "Size:" << qToBigEndian(image.header.size)
-            << "Count:" << qToBigEndian(image.header.cnt)
-            << "ID:" << qToBigEndian(image.header.id)
-            << "Type:" << qToBigEndian(image.header.type);
+            << "Marker:" << image.header.marker
+            << "Version:" << image.header.version
+            << "Size:" << image.header.size
+            << "Count:" << image.header.cnt
+            << "ID:" << image.header.id
+            << "Type:" << image.header.type;
 
     qInfo() << "$ Image navigation:"
-             << "Pitch:" << qToBigEndian(image.nav.pitch)
-             << "Roll:" << qToBigEndian(image.nav.roll)
-             << "Elevation:" << qToBigEndian(image.nav.elevation)
-             << "Latitude:" << qToBigEndian(image.nav.latitude)
-             << "Longitude:" << qToBigEndian(image.nav.longitude)
-             << "Velocity:" << qToBigEndian(image.nav.velocity)
-             << "Course:" << qToBigEndian(image.nav.course)
-            << "TrackAng:" << qToBigEndian(image.nav.track_ang);
+             << "Pitch:" << image.nav.pitch
+             << "Roll:" << image.nav.roll
+             << "Elevation:" << image.nav.elevation
+             << "Latitude:" << image.nav.latitude
+             << "Longitude:" << image.nav.longitude
+             << "Velocity:" << image.nav.velocity
+             << "Course:" << image.nav.course
+            << "TrackAng:" << image.nav.track_ang;
 
     qInfo() << "$ Image format:"
-            << "dx:" << qToBigEndian(image.format.dx)
-             << "dy:" << qToBigEndian(image.format.dy)
-             << "Course:" << qToBigEndian(image.format.course)
-             << "Roll:" << qToBigEndian(image.format.roll)
-             << "x0:" << qToBigEndian(image.format.x0)
-             << "WordSize:" << qToBigEndian(image.format.word_size)
-             << "Polarization:" << qToBigEndian(image.format.polarization)
-             << "Y:" << qToBigEndian(image.format.y)
-             << "nx:" << qToBigEndian(image.format.nx)
-             << "ny:" << qToBigEndian(image.format.ny)
-             << "k:" << qToBigEndian(image.format.k);
+            << "dx:" << image.format.dx
+             << "dy:" << image.format.dy
+             << "Course:" << image.format.course
+             << "Roll:" << image.format.roll
+             << "x0:" << image.format.x0
+             << "WordSize:" << image.format.word_size
+             << "Polarization:" << image.format.polarization
+             << "Y:" << image.format.y
+             << "nx:" << image.format.nx
+             << "ny:" << image.format.ny
+            << "k:" << image.format.k;
 
     /* EXPECTED (from plot.py)
-    {'marker': 57082,
-     'version': 1,
-     'size': 500,
-     'cnt': 0,
-     'id': 85,
-     'type': 1}
-    {'pitch': 0.0,
-     'roll': 0.0,
-     'ele': 158.23333740234375,
+    {☑ 'marker': 57082,
+     ☑ 'version': 1,
+     ☑ 'size': 500,
+     ☑ 'cnt': 0,
+     ☑ 'id': 85,
+     ☑ 'type': 1}
+    {☑ 'pitch': 0.0,
+     ☑ 'roll': 0.0,
+     ☑ 'ele': 158.23333740234375,
      'lat': 51.50708866649204,
      'lon': 39.110633833143446,
      'velocity': 15.699403762817383,

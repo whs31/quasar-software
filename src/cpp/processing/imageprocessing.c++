@@ -167,8 +167,40 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     char* data_ptr = data.data();
     memcpy(&image.header, data_ptr, sizeof(Map::StripHeaderMetadata));
-    qDebug() << "Image header:" << image.header.marker << image.header.version << image.header.size << image.header.cnt
-             << image.header.id << image.header.type;
+    memcpy(&image.nav, data_ptr + sizeof(Map::StripHeaderMetadata), sizeof(Map::StripNavigationMetadata));
+    memcpy(&image.format, data_ptr + sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata),
+           sizeof(Map::StripFormatMetadata));
+
+    qInfo() << "$ Image header:"
+            << "Marker:" << Qt::hex << qToBigEndian(image.header.marker)
+            << "Version:" << qToBigEndian(image.header.version) << Qt::dec
+            << "Size:" << qToBigEndian(image.header.size)
+            << "Count:" << qToBigEndian(image.header.cnt)
+            << "ID:" << qToBigEndian(image.header.id)
+            << "Type:" << qToBigEndian(image.header.type);
+
+    qInfo() << "$ Image navigation:"
+             << "Pitch:" << qToBigEndian(image.nav.pitch)
+             << "Roll:" << qToBigEndian(image.nav.roll)
+             << "Elevation:" << qToBigEndian(image.nav.elevation)
+             << "Latitude:" << qToBigEndian(image.nav.latitude)
+             << "Longitude:" << qToBigEndian(image.nav.longitude)
+             << "Velocity:" << qToBigEndian(image.nav.velocity)
+             << "Course:" << qToBigEndian(image.nav.course)
+            << "TrackAng:" << qToBigEndian(image.nav.track_ang);
+
+    qInfo() << "$ Image format:"
+            << "dx:" << qToBigEndian(image.format.dx)
+             << "dy:" << qToBigEndian(image.format.dy)
+             << "Course:" << qToBigEndian(image.format.course)
+             << "Roll:" << qToBigEndian(image.format.roll)
+             << "x0:" << qToBigEndian(image.format.x0)
+             << "WordSize:" << qToBigEndian(image.format.word_size)
+             << "Polarization:" << qToBigEndian(image.format.polarization)
+             << "Y:" << qToBigEndian(image.format.y)
+             << "nx:" << qToBigEndian(image.format.nx)
+             << "ny:" << qToBigEndian(image.format.ny)
+             << "k:" << qToBigEndian(image.format.k);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

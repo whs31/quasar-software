@@ -163,72 +163,59 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     image.filename = filename;
     image.path.first = Config::Paths::imageCache() + "/lod0/" + filename;
+
+    //std::vector<QByteArray> chunks;
     QByteArray data = fileToByteArray(image.path.first);
-
     char* data_ptr = data.data();
-    memcpy(&image.header, data_ptr, sizeof(Map::StripHeaderMetadata));
-    memcpy(&image.nav, data_ptr + sizeof(Map::StripHeaderMetadata), sizeof(Map::StripNavigationMetadata));
-    memcpy(&image.format, data_ptr + sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata),
-           sizeof(Map::StripFormatMetadata));
 
-    qInfo() << "$ Image header:"
-            << "Marker:" << image.header.marker
-            << "Version:" << image.header.version
-            << "Size:" << image.header.size
-            << "Count:" << image.header.cnt
-            << "ID:" << image.header.id
-            << "Type:" << image.header.type;
+    int offset = 0;
+    while(true)
+    {
+        if(offset >= data.size())
+            break;
 
-    qInfo() << "$ Image navigation:"
-            << "Pitch:" << image.nav.pitch
-            << "Roll:" << image.nav.roll
-            << "Elevation:" << image.nav.elevation
-            << "Latitude:" << image.nav.latitude
-            << "Longitude:" << image.nav.longitude
-            << "Velocity:" << image.nav.velocity
-            << "Course:" << image.nav.course
-            << "TrackAng:" << image.nav.track_ang;
+        Map::StripImageDatagram datagram;
+        memcpy(&datagram.header, data_ptr + offset, sizeof(Map::StripHeaderMetadata));
+        memcpy(&datagram.nav, data_ptr + offset + sizeof(Map::StripHeaderMetadata),
+               sizeof(Map::StripNavigationMetadata));
+        memcpy(&datagram.format, data_ptr + offset + sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata),
+               sizeof(Map::StripFormatMetadata));
 
-    qInfo() << "$ Image format:"
-            << "dx:" << image.format.dx
-            << "dy:" << image.format.dy
-            << "Course:" << image.format.course
-            << "Roll:" << image.format.roll
-            << "x0:" << image.format.x0
-            << "WordSize:" << image.format.word_size
-            << "Polarization:" << image.format.polarization
-            << "Y:" << image.format.y
-            << "nx:" << image.format.nx
-            << "ny:" << image.format.ny
-            << "k:" << image.format.k;
+        int chunk_size = datagram.header.size * datagram.format.word_size;
 
-    /* EXPECTED (from plot.py)
-    {☑ 'marker': 57082,
-     ☑ 'version': 1,
-     ☑ 'size': 500,
-     ☑ 'cnt': 0,
-     ☑ 'id': 85,
-     ☑ 'type': 1}
-    {☑ 'pitch': 0.0,
-     ☑ 'roll': 0.0,
-     ☑ 'ele': 158.23333740234375,
-     'lat': 51.50708866649204,
-     'lon': 39.110633833143446,
-     'velocity': 15.699403762817383,
-     'course': 192.38999938964844,
-     'track_ang': 192.38999938964844}
-    {'dx': 1.0,
-     'dy': 1.0,
-     'course': 0.0,
-     'roll': 0.0,
-     'x0': 50.0,
-     'word_size': 1,
-     'polarization': 0,
-     'y': 0,
-     'nx': 500,
-     'ny': 1,
-     'k': 1.897916316986084}
-    */
+        offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
+
+//        qInfo() << "$ Image header:"
+//                << "Marker:" << datagram.header.marker
+//                << "Version:" << datagram.header.version
+//                << "Size:" << datagram.header.size
+//                << "Count:" << datagram.header.cnt
+//                << "ID:" << datagram.header.id
+//                << "Type:" << datagram.header.type;
+
+//        qInfo() << "$ Image navigation:"
+//                << "Pitch:" << datagram.nav.pitch
+//                << "Roll:" << datagram.nav.roll
+//                << "Elevation:" << datagram.nav.elevation
+//                << "Latitude:" << datagram.nav.latitude
+//                << "Longitude:" << datagram.nav.longitude
+//                << "Velocity:" << datagram.nav.velocity
+//                << "Course:" << datagram.nav.course
+//                << "TrackAng:" << datagram.nav.track_ang;
+
+//        qInfo() << "$ Image format:"
+//                << "dx:" << datagram.format.dx
+//                << "dy:" << datagram.format.dy
+//                << "Course:" << datagram.format.course
+//                << "Roll:" << datagram.format.roll
+//                << "x0:" << datagram.format.x0
+//                << "WordSize:" << datagram.format.word_size
+//                << "Polarization:" << datagram.format.polarization
+//                << "Y:" << datagram.format.y
+//                << "nx:" << datagram.format.nx
+//                << "ny:" << datagram.format.ny
+//                << "k:" << datagram.format.k;
+    }
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

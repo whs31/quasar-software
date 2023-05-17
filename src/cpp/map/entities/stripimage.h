@@ -11,13 +11,17 @@ namespace Map
     struct StripImage
     {
         QString filename;
-        StripHeaderMetadata header;
-        StripNavigationMetadata nav;
-        StripFormatMetadata format;
         image_file_t path;
         bool valid = false;
 
         float opacity = 1;
         bool shown = true;
+    };
+
+    struct StripImageDatagram
+    {
+        StripHeaderMetadata header;
+        StripNavigationMetadata nav;
+        StripFormatMetadata format;
     };
 } // namespace Map;

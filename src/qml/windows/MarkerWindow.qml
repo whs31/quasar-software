@@ -36,21 +36,21 @@ Pane {
     clip: true;
     Material.background: Theme.color("dark0");
 
-    Column {
-        Text {
-            font.family: root.mainfont;
-            text: "Добавление маркера";
-            color: Theme.color("light1");
-            font.weight: Font.Bold;
-            font.pixelSize: 15;
-            horizontalAlignment: Text.AlignHCenter;
-        }
-
         ColumnLayout {
-            Row {
-                Layout.fillWidth: true;
+            Text {
+                font.family: root.mainfont;
+                text: "Добавление маркера";
+                color: Theme.color("light1");
+                font.weight: Font.Bold;
+                font.pixelSize: 15;
+                horizontalAlignment: Text.AlignHCenter;
+            }
+
+            GridLayout {
+                columns: 2;
 
                 Text {
+                    Layout.fillWidth: true;
                     text: "Имя маркера:     ";
                     font.family: root.mainfont;
                     color: Theme.color("light1");
@@ -69,12 +69,9 @@ Pane {
 
                     onEditingFinished: s_MarkerName = text;
                 }
-            }
-
-            Row {
-                Layout.fillWidth: true;
 
                 Text {
+                    Layout.fillWidth: true;
                     text: "Широта:";
                     font.family: root.mainfont;
                     color: Theme.color("light1");
@@ -95,11 +92,9 @@ Pane {
 
                     onEditingFinished: coord_MarkerCoords.latitude = parseFloat(text);
                 }
-            }
 
-            Row {
-                Layout.fillWidth: true;
                 Text {
+                    Layout.fillWidth: true;
                     text: "Долгота:";
                     font.family: root.mainfont;
                     color: Theme.color("light1");
@@ -181,32 +176,33 @@ Pane {
                     onPressed: s_MarkerColor = "#B0BEC5";
                 }
             }
-        }
 
-        Row {
-            RoundButton { id: button_OK;
-                width: 100;
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
-                height: 44;
-                radius: 4;
-                Material.elevation: 30;
-                Material.background: Theme.color("dark0");
-                text: "ОК";
-                onPressed: accept();
-            }
+            Row {
+                Layout.alignment: Qt.AlignHCenter;
+                Layout.fillWidth: true;
+                RoundButton { id: button_OK;
+                    width: parent.width / 2;
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    height: 44;
+                    radius: 4;
+                    Material.elevation: 30;
+                    Material.background: Theme.color("dark0");
+                    text: "ОК";
+                    onPressed: accept();
+                }
 
-            RoundButton { id: button_Cancel;
-                width: 100;
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
-                height: 44;
-                radius: 4;
-                Material.elevation: 30;
-                Material.background: Theme.color("dark0");
-                text: "Отмена";
-                onPressed: b_Shown = false;
+                RoundButton { id: button_Cancel;
+                    width: parent.width / 2;
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    height: 44;
+                    radius: 4;
+                    Material.elevation: 30;
+                    Material.background: Theme.color("dark0");
+                    text: "Отмена";
+                    onPressed: b_Shown = false;
+                }
             }
         }
-    }
 }

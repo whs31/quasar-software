@@ -8,14 +8,12 @@ import Theme 1.0
 MapPolyline {
     function clear() { c_Route.clear(); }
 
-    layer.enabled: true;
-    layer.samples: 16;
-
-    property var qgeo_CurrentCoord: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
+    property real fl_CurrentLat: Network.telemetry.latitude;
     property real fl_CurrentSpeed: Network.telemetry.velocityCourse;
-    property int i_CurrentSats: -1;
+    property int i_CurrentSats: Network.telemetry.satellites;
 
-    onQgeo_CurrentCoordChanged: c_Route.append(qgeo_CurrentCoord, fl_CurrentSpeed, i_CurrentSats);
+    onFl_CurrentLatChanged: c_Route.append(QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude),
+                                           fl_CurrentSpeed, i_CurrentSats);
 
     line.width: 5;
     line.color: Theme.color("yellow");

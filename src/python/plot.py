@@ -57,7 +57,7 @@ class ArrayReader():
         self.index += length
         return data
 
-data = np.fromfile('../data.bin', dtype='uint8')
+data = np.fromfile('./data.bin', dtype='uint8')
 
 ar = ArrayReader(data)
 

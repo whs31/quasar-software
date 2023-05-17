@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.15)
 
 project(QuaSAR-Emulator LANGUAGES CXX)
 
-set(QT3DPLUGININSTALLED TRUE)
-
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -19,11 +17,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Location
     Positioning
     QuickControls2
+    3DQuick
 )
-
-if(QT3DPLUGININSTALLED)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Quick3D)
-endif()
 
 include_directories(src/cpp)
 
@@ -46,18 +41,15 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES}
 )
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE Qt${QT_VERSION_MAJOR}::Core
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Network
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
+    Qt${QT_VERSION_MAJOR}::3DQuick
 )
-
-if(QT3DPLUGININSTALLED)
-    target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Quick3D)
-endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
     WIN32_EXECUTABLE TRUE

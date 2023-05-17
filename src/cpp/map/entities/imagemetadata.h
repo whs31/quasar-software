@@ -40,20 +40,40 @@ namespace Map
         uint16_t crc16 = 0;                     //! @var Контрольная сумма CRC16.
     };
 
-    struct StripMetadata
+    struct StripNavigationMetadata
     {
-        uint8_t u8;
-        uint16_t u16;
-        uint32_t u32;
-        uint64_t u64;
-        int8_t i8;
-        int16_t i16;
-        int32_t i32;
-        int64_t i64_1;
-        int64_t i64_2;
-        float flt;
-        double dbl;
-        char string[12];
-        uint64_t array[5];
+        float pitch;                            //! @var
+        float roll;                             //! @var
+        float elevation;                        //! @var
+        double latitude;                        //! @var
+        double longitude;                       //! @var
+        float velocity;                         //! @var
+        float course;                           //! @var
+        float track_ang;                        //! @var
+    };
+
+    struct StripHeaderMetadata
+    {
+        uint16_t marker;                        //! @var
+        uint16_t version;                       //! @var
+        uint16_t size;                          //! @var
+        uint16_t cnt;                           //! @var
+        uint16_t id;                            //! @var
+        uint16_t type;                          //! @var
+    };
+
+    struct StripImageMetadata
+    {
+        float dx;                               //! @var
+        float dy;                               //! @var
+        float course;                           //! @var
+        float roll;                             //! @var
+        float x0;                               //! @var
+        uint8_t word_size;                      //! @var
+        uint8_t polarization;                   //! @var
+        int16_t y;                              //! @var
+        uint16_t nx;                            //! @var
+        uint16_t ny;                            //! @var
+        float k;                                //! @var
     };
 } // namespace Map;

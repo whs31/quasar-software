@@ -11,7 +11,7 @@ Pane {
 
     function logdata(str, sizeof)
     {
-        //textarea.append(str);
+        listview.append(str);
         histogram.append(sizeof);
     }
 
@@ -46,29 +46,25 @@ Pane {
         anchors.bottom: parent.bottom; // temp;
         anchors.bottomMargin: 100;
 
-        TextArea { id: textarea;
+        ListModel { id: listmodel; }
+        ListView { id: listview;
+            model: listmodel;
             anchors.fill: parent;
-            anchors.topMargin: 0;
-            anchors.bottomMargin: 0;
             anchors.margins: 5;
-            placeholderText: "Нет вывода с сокета.";
-            placeholderTextColor: Theme.color("dark3");
-            font.family: root.monofont;
-            color: Theme.color("light0");
-            font.bold: true;
-            font.pixelSize: 12;
-            selectByMouse: true;
-            readOnly: true;
-            selectedTextColor: "#2E3440";
-            selectionColor: "#B48EAD";
-            textFormat: Text.RichText;
-            wrapMode: Text.WordWrap;
-            background: null;
+            clip: true;
+            delegate: Text {
+                text: txt;
+                font.family: root.monofont;
+                color: Theme.color("light0");
+                font.bold: true;
+                font.pixelSize: 12;
+                textFormat: Text.RichText;
+            }
 
             function append(strAdd) {
-                text = strAdd + text;
-                if(lineCount >= 20)
-                    text = "";
+                if(listmodel.count > 18)
+                    listmodel.remove(0, 1);
+                listmodel.append({"txt": strAdd});
             }
         }
     }

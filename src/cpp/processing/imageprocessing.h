@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include <QtCore/QList>
 #include <ccl/ccl_global.h>
 
 namespace Map {
@@ -22,6 +23,11 @@ namespace Processing
         constexpr static bool INITIAL_VISIBILITY = true;
 
         public:
+            enum ImageType {
+                Telescopic,
+                Strip
+            };
+
             Map::ImageModel* model();
 
             bool exists(const QString& name);
@@ -30,6 +36,7 @@ namespace Processing
             bool processingStrip() const; void setProcessingStrip(bool);
 
             public slots:
+                void processList(const QList<QString>& list);
                 void processImage(const QString& filename);
                 void passImage(const Map::Image& image);
                 void processStripImage(const QString& filename);

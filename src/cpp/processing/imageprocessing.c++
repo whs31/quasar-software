@@ -27,6 +27,43 @@ ImageProcessing::ImageProcessing(QObject* parent)
     connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage);
 }
 
+void ImageProcessing::processList(const QList<QString>& list)
+{
+    qDebug() << "[PROCESSING] Received list of" << list.size() << "images and binaries";
+
+    QThreadPool pool;
+    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
+
+    for(const QString& filename : list)
+    {
+        ImageType T = filename.endsWith(".bin") ? Strip : Telescopic;
+        switch (T)
+        {
+            case Telescopic:
+            {
+                QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+                    this->asyncProcess(filename);
+                });
+                break;
+            }
+            case Strip:
+            {
+                QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+                    this->asyncStripProcess(filename);
+                });
+                break;
+            }
+            default:
+            {
+                qCritical() << "?";
+                break;
+            }
+        }
+    }
+
+    setProcessingImage(true);
+}
+
 void ImageProcessing::asyncProcess(const QString& filename)
 {
     Map::Image image;
@@ -190,37 +227,6 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         int chunk_size = datagram.header.size * datagram.format.word_size;
 
         offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
-
-//        qInfo() << "$ Image header:"
-//                << "Marker:" << datagram.header.marker
-//                << "Version:" << datagram.header.version
-//                << "Size:" << datagram.header.size
-//                << "Count:" << datagram.header.cnt
-//                << "ID:" << datagram.header.id
-//                << "Type:" << datagram.header.type;
-
-//        qInfo() << "$ Image navigation:"
-//                << "Pitch:" << datagram.nav.pitch
-//                << "Roll:" << datagram.nav.roll
-//                << "Elevation:" << datagram.nav.elevation
-//                << "Latitude:" << datagram.nav.latitude
-//                << "Longitude:" << datagram.nav.longitude
-//                << "Velocity:" << datagram.nav.velocity
-//                << "Course:" << datagram.nav.course
-//                << "TrackAng:" << datagram.nav.track_ang;
-
-//        qInfo() << "$ Image format:"
-//                << "dx:" << datagram.format.dx
-//                << "dy:" << datagram.format.dy
-//                << "Course:" << datagram.format.course
-//                << "Roll:" << datagram.format.roll
-//                << "x0:" << datagram.format.x0
-//                << "WordSize:" << datagram.format.word_size
-//                << "Polarization:" << datagram.format.polarization
-//                << "Y:" << datagram.format.y
-//                << "nx:" << datagram.format.nx
-//                << "ny:" << datagram.format.ny
-//                << "k:" << datagram.format.k;
     }
     setProcessingStrip(false);
 }
@@ -247,7 +253,7 @@ void ImageProcessing::processImage(const QString& filename)
     qDebug() << "[PROCESSING] Received image to process" << filename;
 
     QThreadPool pool;
-    pool.setMaxThreadCount(1);
+    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
     QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
         this->asyncProcess(filename);
     });
@@ -265,7 +271,7 @@ void ImageProcessing::processStripImage(const QString& filename)
     qDebug() << "[PROCESSING] Received binary to process" << filename;
 
     QThreadPool pool;
-    pool.setMaxThreadCount(1);
+    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
     QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
         this->asyncStripProcess(filename);
     });

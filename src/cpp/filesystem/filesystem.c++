@@ -9,41 +9,41 @@
 
 using namespace OS;
 
+Filesystem::Filesystem(QObject* parent)
+    : QObject{parent} { }
+
 bool Filesystem::fetchImageDirectory()
 {
     qDebug().noquote() << "[FILESYSTEM] Fetching images from" << CONFIG(storedCatalogue);
-    this->fetchBinary();
+    QList<QString> pass = this->fetchBinaryList();
 
-    QStringList initial_file_list;
-    QDir initial_directory(CONFIG(storedCatalogue), {"*.jpg"}, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    QList<QString> path_list;
+    QDir directory(CONFIG(storedCatalogue), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+                   QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
-    for (const QString& str : initial_directory.entryList())
-        initial_file_list.append(CONFIG(storedCatalogue) + "/" + str);
+    for (const QString& filename : directory.entryList())
+        path_list.push_back(CONFIG(storedCatalogue) + "/" + filename);
 
-    if(initial_file_list.empty())
-    {
+    if(path_list.empty()) {
         qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window...";
         return false;
     }
 
-    for(int i = 0; i < initial_directory.entryList().size(); ++i) {
-        if(not Processing::ImageProcessing::get()->exists(initial_directory.entryList().at(i)))
+    for(size_t i = 0; i < directory.entryList().size(); ++i)
+    {
+        if(not Processing::ImageProcessing::get()->exists(directory.entryList().at(i)))
         {
-            qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << initial_directory.entryList().at(i) << " at path " << initial_file_list.at(i).left(15) << "...";
-
-            QFile::copy(initial_file_list.at(i), Config::Paths::imageCache() + "/lod0/" + initial_directory.entryList().at(i));
-            emit imageCached(initial_directory.entryList().at(i));
+            qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
+                                        << " at path " << path_list.at(i).left(15) << "...";
+            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            pass.push_back(directory.entryList().at(i));
         }
         else
             qDebug() << "[FILESYSTEM] Occurence found, skipping...";
     }
+
+    emit imageListCached(pass);
     return true;
-}
-
-Filesystem::Filesystem(QObject* parent)
-    : QObject{parent}
-{
-
 }
 
 bool Filesystem::checkOcurrence(QString target_folder, QString filename)
@@ -56,32 +56,36 @@ bool Filesystem::checkOcurrence(QString target_folder, QString filename)
     return false;
 }
 
-void Filesystem::fetchBinary()
+QList<QString> Filesystem::fetchBinaryList()
 {
+    QList<QString> ret;
     qDebug().noquote() << "[FILESYSTEM] Fetching binaries from" << CONFIG(storedCatalogue);
 
-    QStringList initial_file_list;
-    QDir initial_directory(CONFIG(storedCatalogue), {"*.bin"}, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+    QList<QString> path_list;
+    QDir directory(CONFIG(storedCatalogue), {".bin"}, QDir::Name | QDir::IgnoreCase,
+                   QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
-    for (const QString& str : initial_directory.entryList())
-        initial_file_list.append(CONFIG(storedCatalogue) + "/" + str);
+    for(const QString& filename : directory.entryList())
+        path_list.push_back(CONFIG(storedCatalogue) + "/" + filename);
 
-    if(initial_file_list.empty())
-    {
+    if(path_list.empty()) {
         qDebug() << "[FILESYSTEM] Target catalogue does not contain binaries";
-        return;
+        return ret;
     }
 
-    for(int i = 0; i < initial_directory.entryList().size(); ++i) {
-        if(not Processing::ImageProcessing::get()->exists(initial_directory.entryList().at(i)))
+    for(size_t i = 0; i < directory.entryList().size(); ++i)
+    {
+        if(not Processing::ImageProcessing::get()->exists(directory.entryList().at(i)))
         {
-            qInfo().noquote().nospace() << "[FILESYSTEM] Found binary " << initial_directory.entryList().at(i) << " at path " << initial_file_list.at(i).left(15) << "...";
-
-            QFile::copy(initial_file_list.at(i), Config::Paths::imageCache() + "/lod0/" + initial_directory.entryList().at(i));
-            emit binaryCached(initial_directory.entryList().at(i));
+            qInfo().noquote().nospace() << "[FILESYSTEM] Found binary " << directory.entryList().at(i)
+                                        << " at path " << path_list.at(i).left(15) << "...";
+            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            ret.push_back(directory.entryList().at(i));
         }
         else
             qDebug() << "[FILESYSTEM] Binary occurence found, skipping...";
     }
+
+    return ret;
 }
 

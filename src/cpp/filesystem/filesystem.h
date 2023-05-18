@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include <QtCore/QList>
 #include <ccl/ccl_global.h>
 
 namespace OS
@@ -14,6 +15,7 @@ namespace OS
             Q_INVOKABLE bool fetchImageDirectory();
 
             signals:
+                void imageListCached(const QList<QString>& filenames);
                 void imageCached(const QString& filename);
                 void binaryCached(const QString& filename);
 
@@ -21,6 +23,6 @@ namespace OS
             Filesystem(QObject* parent = nullptr);
             bool checkOcurrence(QString target_folder, QString filename);
 
-            void fetchBinary();
+            QList<QString> fetchBinaryList();
     };
 } // namespace OS;

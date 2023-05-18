@@ -48,6 +48,5 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
 
-    connect(OS::Filesystem::get(), &OS::Filesystem::imageCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processImage);
-    connect(OS::Filesystem::get(), &OS::Filesystem::binaryCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processStripImage);
+    connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList);
 }

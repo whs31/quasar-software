@@ -37,13 +37,10 @@ namespace Processing
 
             public slots:
                 void processList(const QList<QString>& list);
-                void processImage(const QString& filename);
                 void passImage(const Map::Image& image);
-                void processStripImage(const QString& filename);
 
             signals:
                 void processImageFinished(const Map::Image& image);
-
                 void processingImageChanged();
                 void processingStripChanged();
 

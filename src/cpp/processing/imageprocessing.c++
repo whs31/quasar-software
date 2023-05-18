@@ -228,6 +228,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
     }
+    qDebug() << offset;
     setProcessingStrip(false);
 }
 
@@ -248,35 +249,9 @@ Map::ImageModel* ImageProcessing::model()
     return this->m_model;
 }
 
-void ImageProcessing::processImage(const QString& filename)
-{
-    qDebug() << "[PROCESSING] Received image to process" << filename;
-
-    QThreadPool pool;
-    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
-    QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
-        this->asyncProcess(filename);
-    });
-
-    setProcessingImage(true);
-}
-
 void ImageProcessing::passImage(const Map::Image& image)
 {
     model()->add(image);
-}
-
-void ImageProcessing::processStripImage(const QString& filename)
-{
-    qDebug() << "[PROCESSING] Received binary to process" << filename;
-
-    QThreadPool pool;
-    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
-    QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
-        this->asyncStripProcess(filename);
-    });
-
-    setProcessingStrip(true);
 }
 
 bool ImageProcessing::exists(const QString& name)

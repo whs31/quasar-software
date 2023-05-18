@@ -62,7 +62,7 @@ QList<QString> Filesystem::fetchBinaryList()
     qDebug().noquote() << "[FILESYSTEM] Fetching binaries from" << CONFIG(storedCatalogue);
 
     QList<QString> path_list;
-    QDir directory(CONFIG(storedCatalogue), {".bin"}, QDir::Name | QDir::IgnoreCase,
+    QDir directory(CONFIG(storedCatalogue), {"*.bin"}, QDir::Name | QDir::IgnoreCase,
                    QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
     for(const QString& filename : directory.entryList())

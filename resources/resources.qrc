@@ -71,5 +71,31 @@
         <file>icons/google-material/show.png</file>
         <file>icons/google-material/take-photo.png</file>
         <file>icons/google-material/unlink.png</file>
+        <file>icons/google-material/clear.png</file>
+        <file>icons/google-material/delete.png</file>
+        <file>icons/google-material/flag.png</file>
+        <file>icons/google-material/folder.png</file>
+        <file>icons/google-material/gps.png</file>
+        <file>icons/google-material/image-gps.png</file>
+        <file>icons/google-material/marker.png</file>
+        <file>icons/google-material/refresh.png</file>
+        <file>icons/google-material/ruler.png</file>
+        <file>icons/google-material/ruler2.png</file>
+        <file>icons/google-material/expand.png</file>
+        <file>icons/google-material/adjust.png</file>
+        <file>icons/google-material/altitude.png</file>
+        <file>icons/google-material/collapse.png</file>
+        <file>icons/google-material/coordinate.png</file>
+        <file>icons/google-material/earth.png</file>
+        <file>icons/google-material/edit.png</file>
+        <file>icons/google-material/info.png</file>
+        <file>icons/google-material/list.png</file>
+        <file>icons/google-material/satellite.png</file>
+        <file>icons/google-material/settings.png</file>
+        <file>icons/google-material/speed.png</file>
+        <file>icons/google-material/storage.png</file>
+        <file>icons/google-material/terminal.png</file>
+        <file>icons/google-material/timer.png</file>
+        <file>icons/google-material/water.png</file>
     </qresource>
 </RCC>

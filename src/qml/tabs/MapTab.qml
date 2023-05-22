@@ -143,7 +143,8 @@ Map { id: c_Map;
                     height: 44;
                     width: 44;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/ruler.png";
+                    icon.source: "qrc:/icons/google-material/ruler.png";
+                    icon.color: Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: checked ? Theme.color("yellow") : Theme.color("dark2");
                     onCheckedChanged: {
@@ -160,7 +161,8 @@ Map { id: c_Map;
                     height: 44;
                     width: 44;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/protractor.png";
+                    icon.source: "qrc:/icons/google-material/ruler2.png";
+                    icon.color: Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: checked ? Theme.color("accent") : Theme.color("dark2");
                     onCheckedChanged: {
@@ -177,7 +179,8 @@ Map { id: c_Map;
                     height: 44;
                     width: 44;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/gps.png";
+                    icon.source: "qrc:/icons/google-material/gps.png";
+                    icon.color: Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: Theme.color("dark2");
                     onPressed: c_Map.center = c_UAV.coordinate;
@@ -192,7 +195,8 @@ Map { id: c_Map;
                     height: 44;
                     width: 44;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/map.png";
+                    icon.source: "qrc:/icons/google-material/image-gps.png";
+                    icon.color: Theme.color("light0");
                     Material.background: Theme.color("dark2");
                     Material.elevation: 30;
                     onPressed: self();
@@ -213,7 +217,8 @@ Map { id: c_Map;
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/toolbar/map/marker.png";
+                icon.source: "qrc:/icons/google-material/marker.png";
+                icon.color: Theme.color("light0");
                 Material.elevation: 30;
                 Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
                 onPressed: ClickHandler.state = ClickHandler.MarkerActive;
@@ -223,7 +228,8 @@ Map { id: c_Map;
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/toolbar/map/pin.png";
+                icon.source: "qrc:/icons/google-material/flag.png";
+                icon.color: Theme.color("light0");
                 Material.background: ClickHandler.state === ClickHandler.PlannerActive ? Theme.color("accent") : Theme.color("dark2");
                 Material.elevation: 30;
                 onPressed: ClickHandler.state = ClickHandler.PlannerActive;
@@ -294,13 +300,11 @@ Map { id: c_Map;
         anchors.margins: 5;
         opacity: 0.85;
         width: b_Expanded ? implicitWidth : 0;
-        height: b_Expanded ? implicitHeight : 0;
-        visible: height > 0;
-        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; } }
-        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        visible: width > 0;
+        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
         clip: true;
 
-        Column {
+        ColumnLayout {
             spacing: -5;
 
             CheckBox { id: checkbox_FollowUAV;
@@ -342,25 +346,31 @@ Map { id: c_Map;
                 //onCheckedChanged:
             }
 
-            RoundButton { id: button_ClearTrack;
-                radius: 4;
-                icon.source: "qrc:/icons/toolbar/map/eraser.png";
-                height: 44;
-                font.family: root.mainfont;
-                width: checkbox_ShowDiagram.width;
-                text: "Очистить трек полёта";
-                Material.background: Theme.color("red");
-                onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
-                Connections {
-                    target: dialogwindow;
-                    function onClosed(status, uid) {
-                        if(uid === 1 && status === true) {
-                            console.log("[GUI] Track cleared");
-                            c_Route.clear();
+            Column {
+                Layout.fillWidth: true;
+
+                RoundButton { id: button_ClearTrack;
+                    radius: 4;
+                    icon.source: "qrc:/icons/google-material/clear.png";
+                    icon.color: Theme.color("light0");
+                    height: 40;
+                    font.family: root.mainfont;
+                    width: checkbox_ShowDiagram.width;
+                    text: "Очистить трек полёта";
+                    Material.background: Theme.color("red");
+                    onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
+                    Connections {
+                        target: dialogwindow;
+                        function onClosed(status, uid) {
+                            if(uid === 1 && status === true) {
+                                console.log("[GUI] Track cleared");
+                                c_Route.clear();
+                            }
                         }
                     }
                 }
             }
+            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 30; }
         }
     }
 
@@ -370,9 +380,12 @@ Map { id: c_Map;
         anchors.margins: 5;
         checkable: true;
         height: 40;
-        width: 40;
         radius: 4;
-        icon.source: "qrc:/icons/toolbar/map/expand.png";
+        icon.source: panel_Parameters.b_Expanded ? "qrc:/icons/google-material/collapse.png"
+                                                 : "qrc:/icons/google-material/expand.png";
+        icon.color: Theme.color("light0");
+        font.family: root.mainfont;
+        text: panel_Parameters.b_Expanded ? "" : "Параметры карты";
         Material.elevation: 30;
         Material.background: Material.background;
         Material.primary: Material.primary;
@@ -391,8 +404,8 @@ Map { id: c_Map;
         width: b_Expanded ? implicitWidth : 0;
         height: b_Expanded ? implicitHeight : 0;
         visible: height > 0;
-        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; } }
-        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
+        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
         clip: true;
 
         ColumnLayout {
@@ -422,7 +435,8 @@ Map { id: c_Map;
                     font.family: root.mainfont;
                     height: 40;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/refresh.png";
+                    icon.source: "qrc:/icons/google-material/refresh.png";
+                    icon.color: Theme.color("light0");
                     text: "Обновить каталог";
                     Material.elevation: 30;
                     Material.background: Material.background;
@@ -437,7 +451,8 @@ Map { id: c_Map;
                     font.family: root.mainfont;
                     height: 40;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/folder.png";
+                    icon.source: "qrc:/icons/google-material/folder.png";
+                    icon.color: Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: Material.background;
                     text: "Изменить каталог";
@@ -448,7 +463,8 @@ Map { id: c_Map;
                     font.family: root.mainfont;
                     height: 40;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/trash.png";
+                    icon.source: "qrc:/icons/google-material/delete.png";
+                    icon.color: Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: Theme.color("red");
                     text: "Очистить кэш";
@@ -475,7 +491,7 @@ Map { id: c_Map;
         icon.source: panel_ImageTools.b_Expanded ? "qrc:/icons/google-material/expand-less.png"
                                                  : "qrc:/icons/google-material/expand-more.png";
         icon.color: Theme.color("light0");
-        text: "Изображения";
+        text: panel_ImageTools.b_Expanded ? "" : "Работа с изображениями";
         Material.elevation: 30;
         anchors.bottom: parent.bottom;
         anchors.left: parent.left;

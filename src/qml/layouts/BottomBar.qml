@@ -37,7 +37,8 @@ Rectangle {
             font.family: root.mainfont;
             height: 44;
             radius: 4;
-            icon.source: "qrc:/icons/tabs/settings.png";
+            icon.source: "qrc:/icons/google-material/settings.png";
+            icon.color: Theme.color("light0");
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
             onPressed: {
@@ -52,7 +53,8 @@ Rectangle {
             font.family: root.mainfont;
             height: 44;
             radius: 4;
-            icon.source: "qrc:/icons/tabs/info.png";
+            icon.source: "qrc:/icons/google-material/info.png";
+            icon.color: Theme.color("light0");
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
             onPressed: {
@@ -67,7 +69,8 @@ Rectangle {
             height: 44;
             width: 44;
             radius: 4;
-            icon.source: "qrc:/icons/bottombar/console.png";
+            icon.source: "qrc:/icons/google-material/terminal.png";
+            icon.color: Theme.color("light0");
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
             onPressed: root.b_ConsoleShown = !root.b_ConsoleShown;

@@ -45,7 +45,8 @@ MapQuickItem {
 
                 Row {
                     RoundButton { id: button_HideImage;
-                        icon.source: "qrc:/icons/toolbar/map/hidden.png";
+                        icon.source: "qrc:/icons/google-material/hide.png";
+                        icon.color: Theme.color("light0");
                         font.family: root.mainfont;
                         text: shown ? "Скрыть изображение" : "Показать изображение";
                         height: 40;
@@ -56,7 +57,8 @@ MapQuickItem {
                     }
 
                     RoundButton { id: button_DeleteImage;
-                        icon.source: "qrc:/icons/toolbar/map/trash.png";
+                        icon.source: "qrc:/icons/google-material/delete.png";
+                        icon.color: Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Удалить изображение";
                         height: 40;
@@ -69,7 +71,8 @@ MapQuickItem {
 
                 Row {
                     RoundButton { id: button_ShowControls;
-                        icon.source: "qrc:/icons/toolbar/image/adjust.png";
+                        icon.source: "qrc:/icons/google-material/adjust.png";
+                        icon.color: Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Параметры";
                         checkable: true;
@@ -81,7 +84,8 @@ MapQuickItem {
                     }
 
                     RoundButton { id: button_Showmeta;
-                        icon.source: "qrc:/icons/toolbar/image/list.png";
+                        icon.source: "qrc:/icons/google-material/list.png";
+                        icon.color: Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Метаданные";
                         height: 35;
@@ -100,7 +104,8 @@ MapQuickItem {
                     RoundButton { id: button_EditImage;
                         Layout.fillWidth: true;
                         Layout.preferredHeight: 35;
-                        icon.source: "qrc:/icons/toolbar/image/edit-image.png";
+                        icon.source: "qrc:/icons/google-material/edit.png";
+                        icon.color: Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Редактирование изображения";
                         height: 35;

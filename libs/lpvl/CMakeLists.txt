@@ -20,12 +20,14 @@ if(${LPVL_TESTS_ENABLED})
     find_package(GTest)
 endif()
 
-include_directories(src)
+include_directories(src, include)
 
 set (LPVL_CORE
+    src/global/lpvlglobal.h
 )
 
 set (LPVL_CORE_INCLUDE
+    include/LPVL/global
 )
 
 set (SRC

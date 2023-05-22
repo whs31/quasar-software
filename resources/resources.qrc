@@ -64,5 +64,12 @@
         <file>icons/toolbar/image/list.png</file>
         <file>icons/google-material/expand-less.png</file>
         <file>icons/google-material/expand-more.png</file>
+        <file>icons/google-material/hide.png</file>
+        <file>icons/google-material/link.png</file>
+        <file>icons/google-material/remove-image.png</file>
+        <file>icons/google-material/remove-layer.png</file>
+        <file>icons/google-material/show.png</file>
+        <file>icons/google-material/take-photo.png</file>
+        <file>icons/google-material/unlink.png</file>
     </qresource>
 </RCC>

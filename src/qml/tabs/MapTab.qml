@@ -233,7 +233,8 @@ Map { id: c_Map;
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/toolbar/map/eraser.png";
+                icon.source: "qrc:/icons/google-material/remove-layer.png";
+                icon.color: Theme.color("light0");
                 Material.background: Theme.color("dark2");
                 Material.elevation: 30;
                 onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
@@ -247,6 +248,40 @@ Map { id: c_Map;
                         }
                     }
                 }
+            }
+
+            RoundButton { id: button_ClearImages;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/google-material/remove-image.png";
+                icon.color: Theme.color("light0");
+                Material.background: Theme.color("dark2");
+                Material.elevation: 30;
+                onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
+
+                Connections {
+                    target: dialogwindow;
+                    function onClosed(status, uid) {
+                        if(uid === 4 && status === true) {
+                            console.log("[GUI] Images cleared");
+                            ImagesModel.clear();
+                        }
+                    }
+                }
+            }
+
+            RoundButton { id: button_ToggleImages;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/google-material/hide.png";
+                icon.color: Theme.color("light0");
+                Material.background: Theme.color("dark2");
+                Material.elevation: 30;
+//                onPressed: {
+
+//                }
             }
         }
     }
@@ -368,7 +403,8 @@ Map { id: c_Map;
                     height: 40;
                     width: layout_ImageTools.width;
                     radius: 4;
-                    icon.source: "qrc:/icons/toolbar/map/refresh.png";
+                    icon.source: "qrc:/icons/google-material/take-photo.png";
+                    icon.color: Theme.color("light0");
                     text: "Формирование изображения";
                     Material.elevation: 30;
                     Material.background: Theme.color("color0");

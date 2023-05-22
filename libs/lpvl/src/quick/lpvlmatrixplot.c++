@@ -2,6 +2,7 @@
 #include "LPVL/GLGeometry"
 #include "LPVL/Math"
 #include <QtQuick/QSGSimpleMaterial>
+#include <QtQuick/QSGVertexColorMaterial>
 #include <QtQuick/QSGGeometryNode>
 
 namespace LPVL
@@ -79,6 +80,7 @@ namespace LPVL
                 for(size_t j = 0; j < columns; ++j)
                 data[i][j] = array2d[j + columns * i];
         }
+        this->update();
     }
 
     void MatrixPlot::set(const vector<int> array2d, int rows, int columns)
@@ -91,6 +93,7 @@ namespace LPVL
                 for(size_t j = 0; j < columns; ++j)
                 data[i][j] = (float)array2d[j + columns * i];
         }
+        this->update();
     }
 
     void MatrixPlot::set(const vector<uint8_t> array2d, int rows, int columns)
@@ -103,6 +106,7 @@ namespace LPVL
             for(size_t j = 0; j < columns; ++j)
                 data[i][j] = (float)array2d[j + columns * i];
         }
+        this->update();
     }
 
     QSGNode* MatrixPlot::updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*)
@@ -113,35 +117,39 @@ namespace LPVL
         {
             node = new QSGGeometryNode;
 
-            QSGSimpleMaterial<State>* material = GLGradientShader::createMaterial();
-            material->setFlag(QSGMaterial::Blending);
+            /*QSGSimpleMaterial<State>* material = new QSGFlatColorMaterial;*//*GLGradientShader::createMaterial();*/
+            /*material->setFlag(QSGMaterial::Blending);*/
+            QSGVertexColorMaterial* material = new QSGVertexColorMaterial;
 
             node->setMaterial(material);
             node->setFlag(QSGNode::OwnsMaterial);
-            static_cast<QSGSimpleMaterial<State>*>(node->material())->state()->color = QColor("red");
+            /*static_cast<QSGSimpleMaterial<State>*>(node->material())->state()->color = QColor("red");*/
 
-            geometry = new QSGGeometry(QSGGeometry::defaultAttributes_TexturedPoint2D(), 0, 0, QSGGeometry::UnsignedIntType);
+            geometry = new QSGGeometry(QSGGeometry::defaultAttributes_ColoredPoint2D(), 0, 0, QSGGeometry::UnsignedIntType);
             node->setGeometry(geometry);
             node->setFlag(QSGNode::OwnsGeometry);
-            geometry->setLineWidth(2);
+            geometry->setLineWidth(1);
             geometry->setDrawingMode(GL_POINTS);
         }
 
         geometry = node->geometry();
 
-        vector<VertexT> gl;
-    //    float spacing = width() / storage_size;
-    //    float cell_size = spacing / 1.2f;
-    //    for(size_t i = 0; i < storage.size(); ++i) {
-    //            gl.push_back(VertexT((float)i * spacing, height() - storage[i] * height(), (float)i / storage_size, 1 - storage[i]));
-    //            gl.push_back(VertexT((float)i * spacing, height(), (float)i / storage_size, 0));
-    //            gl.push_back(VertexT((float)i * spacing + cell_size, height(), ((float)i * spacing + cell_size) / width(), 0));
-    //            gl.push_back(VertexT((float)i * spacing + cell_size, height() - storage[i] * height(), ((float)i * spacing + cell_size) / width(), 1 - storage[i]));
-    //    }
+        vector<VertexC> gl;
+        float dx = width() / data.front().size();
+        float dy = height() / data.size();
+        for(size_t row = 0; row < data.size(); ++row)
+        {
+            for(size_t column = 0; column < data[row].size(); ++column)
+            {
+                gl.push_back(VertexC(column * dx, row * dy, data[row][column], data[row][column], data[row][column], 1));
+            }
+        }
 
         geometry->allocate(gl.size());
         for(size_t i = 0; i < gl.size(); i++)
-                geometry->vertexDataAsTexturedPoint2D()[i].set(gl.at(i).x, gl.at(i).y, gl.at(i).u, gl.at(i).v);
+            geometry->vertexDataAsColoredPoint2D()[i].set(gl.at(i).x, gl.at(i).y,
+                                                          gl.at(i).r, gl.at(i).g,
+                                                          gl.at(i).b, gl.at(i).a);
 
         node->markDirty(QSGNode::DirtyGeometry);
         return node;

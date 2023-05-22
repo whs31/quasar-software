@@ -30,4 +30,13 @@ namespace LPVL
         VertexT(const Vertex &xy, float u, float v) : x(xy.x), y(xy.y), u(u), v(v) {}
         float x, y, u, v;
     };
+
+    struct LPVL_EXPORT VertexC
+    {
+        VertexC() : x(0), y(0), r(0), g(0), b(0), a(1) {}
+        VertexC(float x, float y, uint8_t r, uint8_t g, uint8_t b, uint8_t a)
+            : x(x), y(y), r(r), g(g), b(b), a(a) {}
+        float x, y;
+        uint8_t r, g, b, a;
+    };
 } // LPVL

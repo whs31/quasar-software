@@ -12,4 +12,15 @@
 
 #pragma once
 
-#include <QtCore/qglobal.h>
+#include <QtCore/QtGlobal>
+
+#if defined LPVL_LIBRARY && !defined LPVL_STATIC
+    #define LPVL_EXPORT Q_DECL_EXPORT
+#elif !defined LPVL_LIBRARY && !defined LPVL_STATIC
+    #define LPVL_EXPORT Q_DECL_IMPORT
+#else
+    #define LPVL_EXPORT
+#endif
+
+#define LPVL_DECLARE_NO_COPY(name) private: name (const name&); name & operator=(const name &);
+#define LPVL_DECLARE_SINGLETON(name) public: static name * get() { static name instance; return &instance; } private: CSS_DECLARE_NO_COPY(name)

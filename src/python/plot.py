@@ -75,10 +75,6 @@ while(1):
     head = pack_head.to_dict( header_reader.read( pack_head.size() ) )
     nav = pack_nav.to_dict( header_reader.read( pack_nav.size() ) )
     img = pack_img.to_dict( header_reader.read( pack_img.size() ) )
-
-    print(head)
-    print(nav)
-    print(img)
     
     chunk = ar.read(head["size"])
     if img["word_size"] == 2:
@@ -91,9 +87,11 @@ while(1):
 
 
 print("word_size:", img["word_size"] )
+print(len(a))
 line_len = int(img["dx"] * img["nx"])
 n_rows = int(len(a) / line_len)
 a = a.reshape((n_rows, line_len))
+print(line_len, n_rows)
 
 plt.matshow(a)
 

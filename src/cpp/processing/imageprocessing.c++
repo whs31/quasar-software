@@ -216,6 +216,9 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     int offset = 0;
     qInfo() << "$ <i>Entered dangerous cycle</i>";
+
+    int rows, columns;
+
     while(true)
     {     
         if(offset >= data.size())
@@ -230,17 +233,23 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         int chunk_size = datagram.header.size * datagram.format.word_size;
         if(not ws)
+        {
             ws = datagram.format.word_size;
+            columns = (int)(datagram.format.dx * datagram.format.nx);
+        }
 
         char chunk[chunk_size];
         memcpy(&chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
                            + sizeof(Map::StripNavigationMetadata)
                            + sizeof(Map::StripFormatMetadata),
                            chunk_size);
+
+        for(size_t i = 0; i < chunk_size; ++i)
+            chunk[i] *= datagram.format.k;
         chunks_unknown_ws.push_back(chunk);
 
         offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
-    }   
+    }
     qInfo() << "$ <i>Cycle finished</i>";
 
     if(ws == 0) {
@@ -256,7 +265,9 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         chunks.resize(vl);
         for (int i = 0; i < vl; i++)
             out >> chunks[i];
+        rows = (int)(chunks.size() / columns);
         qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint8_t)";
+        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
     }
     if(ws == 2)
     {
@@ -265,7 +276,9 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         chunks.resize(vl);
         for (int i = 0; i < vl; i++)
             out >> chunks[i];
+        rows = (int)(chunks.size() / columns);
         qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint16_t)";
+        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
     }
     if(ws == 4)
     {
@@ -274,8 +287,15 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         chunks.resize(vl);
         for (int i = 0; i < vl; i++)
             out >> chunks[i];
+        rows = (int)(chunks.size() / columns);
         qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint32_t)";
+        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
     }
+
+//    line_len = int(img["dx"] * img["nx"])
+//        n_rows = int(len(a) / line_len)
+//        a = a.reshape((n_rows, line_len))
+
 
     setProcessingStrip(false);
 }

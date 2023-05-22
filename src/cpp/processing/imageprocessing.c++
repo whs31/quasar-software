@@ -261,44 +261,40 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     }
 
     QDataStream out(chunks_unknown_ws);
+    QVector<uint8_t> chunks8_t;
+    QVector<uint16_t> chunks16_t;
+    QVector<uint32_t> chunks32_t;
+    int vl = chunks_unknown_ws.length() / ws;
+    int pixel_count;
     if(ws == 1)
     {
-        QVector<uint8_t> chunks;
-        int vl = chunks_unknown_ws.length();
-        chunks.resize(vl);
+        chunks8_t.resize(vl);
         for (int i = 0; i < vl; i++)
-            out >> chunks[i];
-        rows = (int)(chunks.size() / columns);
-        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint8_t)";
-        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
+            out >> chunks8_t[i];
+        rows = (int)(chunks8_t.size() / columns);
+        pixel_count = chunks8_t.size();
     }
     if(ws == 2)
     {
-        QVector<uint16_t> chunks;
-        int vl = chunks_unknown_ws.length() / 2;
-        chunks.resize(vl);
+        chunks16_t.resize(vl);
         for (int i = 0; i < vl; i++)
-            out >> chunks[i];
-        rows = (int)(chunks.size() / columns);
-        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint16_t)";
-        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
+            out >> chunks16_t[i];
+        rows = (int)(chunks16_t.size() / columns);
+        pixel_count = chunks16_t.size();
     }
     if(ws == 4)
     {
-        QVector<uint32_t> chunks;
-        int vl = chunks_unknown_ws.length() / 4;
-        chunks.resize(vl);
+        chunks32_t.resize(vl);
         for (int i = 0; i < vl; i++)
-            out >> chunks[i];
-        rows = (int)(chunks.size() / columns);
-        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint32_t)";
-        qInfo() << "[PROCESSING] Strip [x/y]:" << columns << ":" << rows;
+            out >> chunks32_t[i];
+        rows = (int)(chunks32_t.size() / columns);
+        pixel_count = chunks32_t.size();
     }
 
-//    line_len = int(img["dx"] * img["nx"])
-//        n_rows = int(len(a) / line_len)
-//        a = a.reshape((n_rows, line_len))
-
+    qDebug() << "[PROCESSING] Decoded strip image vector with"
+             << pixel_count
+             << "elements ( sizeof:" << ws << ")";
+    qInfo().nospace() << "$ <b><u>[PROCESSING] Strip [x/y]: " << columns << "x" << rows << "</u></b>";
 
     setProcessingStrip(false);
 }

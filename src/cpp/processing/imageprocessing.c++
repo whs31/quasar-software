@@ -24,6 +24,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
 {
     qRegisterMetaType<Map::Image>("Map::Image");
     qRegisterMetaType<Map::StripImage>("Map::StripImage");
+    qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
     connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage);
 }
@@ -274,16 +275,8 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         rows = (int)(chunks8_t.size() / columns);
         pixel_count = chunks8_t.size();
 
-        strip8_t out;
-        out.resize(rows);
-        for(size_t i = 0; i < rows; ++i)
-        {
-            out[i].resize(columns);
-            for(size_t j = 0; j < columns; ++j)
-                out[i][j] = chunks8_t[j + columns * i];
-        }
-
-        emit stripVector8bit(out);
+        vector<uint8_t> out = vector<uint8_t>(chunks8_t.begin(), chunks8_t.end());
+        emit stripVector8bit(out, rows, columns);
     }
     if(ws == 2)
     {

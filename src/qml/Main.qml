@@ -88,6 +88,7 @@ ApplicationWindow  { id: window_root;
                      visible: markerwindow.b_Shown; }
 
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
+        Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
 
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;

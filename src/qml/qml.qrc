@@ -21,5 +21,6 @@
         <file>widgets/CoordinateTooltip.qml</file>
         <file>windows/MarkerWindow.qml</file>
         <file>tabs/map/MapMarker.qml</file>
+        <file>windows/StripMatrixWindow.qml</file>
     </qresource>
 </RCC>

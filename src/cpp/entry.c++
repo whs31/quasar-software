@@ -15,9 +15,7 @@
 #include <QtCore/QDebug>
 #include <QtQml/qqml.h>
 #include <ccl/ccl_charts.h>
-
-#include <LPVL/Math>
-#include <LPVL/MatrixPlot>
+#include <LPVL/Register>
 
 Entry::Entry(QObject *parent)
     : QObject{parent}
@@ -35,8 +33,7 @@ Entry::Entry(QObject *parent)
 
         === === === === === === === === === === ===
     */
-
-    qDebug() << LPVL::isNaN(0.3);
+    LPVL_REGISTER_ALL;
 
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
@@ -46,6 +43,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
     QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
     QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
+    QML_EXPOSE_INSTANCE(Processing::ImageProcessing, "ImageProcessing", "ImageProcessing", Processing::ImageProcessing::get());
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");

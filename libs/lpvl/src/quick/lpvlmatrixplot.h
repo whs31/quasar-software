@@ -8,16 +8,17 @@ using std::vector;
 
 namespace LPVL
 {
-    class MatrixPlot : public QQuickItem
+    class LPVL_EXPORT MatrixPlot : public QQuickItem
     {
         Q_OBJECT
 
         public:
             MatrixPlot(QQuickItem* parent = nullptr);
+            virtual ~MatrixPlot() = default;
 
-            void set(const vector<vector<float>>& array2d);
-            void set(const vector<vector<int>> array2d);
-            void set(const vector<vector<uint8_t>> array2d);
+            Q_INVOKABLE void set(const vector<float>& array2d, int rows, int columns);
+            Q_INVOKABLE void set(const vector<int> array2d, int rows, int columns);
+            Q_INVOKABLE void set(const vector<uint8_t> array2d, int rows, int columns);
 
             QSGNode* updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*) override;
 

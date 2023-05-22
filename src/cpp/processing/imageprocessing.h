@@ -1,10 +1,10 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <QtCore/QList>
+#include <vector>
 #include <ccl/ccl_global.h>
 
-using strip8_t = QVector<QVector<uint8_t>>;
+using std::vector;
 
 namespace Map {
     class Image;
@@ -43,7 +43,7 @@ namespace Processing
 
             signals:
                 void processImageFinished(const Map::Image& image);
-                void stripVector8bit(strip8_t vec);
+                void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
                 void processingImageChanged();
                 void processingStripChanged();
 

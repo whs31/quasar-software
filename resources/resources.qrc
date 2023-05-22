@@ -25,7 +25,6 @@
         <file>fonts/Overpass.ttf</file>
         <file>icons/bottombar/altitude.png</file>
         <file>icons/bottombar/compass.png</file>
-        <file>icons/bottombar/console.png</file>
         <file>icons/bottombar/disc.png</file>
         <file>icons/bottombar/latitude.png</file>
         <file>icons/bottombar/longitude.png</file>
@@ -33,35 +32,11 @@
         <file>icons/bottombar/satellite.png</file>
         <file>icons/bottombar/sea-level.png</file>
         <file>icons/bottombar/speed.png</file>
-        <file>icons/tabs/info.png</file>
-        <file>icons/tabs/settings.png</file>
         <file>themes/nord.json</file>
-        <file>icons/toolbar/map/hybrid-active.png</file>
-        <file>icons/toolbar/map/hybrid-disabled.png</file>
-        <file>icons/toolbar/map/sat-active.png</file>
-        <file>icons/toolbar/map/sat-disabled.png</file>
-        <file>icons/toolbar/map/schema-active.png</file>
-        <file>icons/toolbar/map/schema-disabled.png</file>
-        <file>icons/toolbar/map/eraser.png</file>
-        <file>icons/toolbar/map/gps.png</file>
-        <file>icons/toolbar/map/hidden.png</file>
-        <file>icons/toolbar/map/map.png</file>
-        <file>icons/toolbar/map/protractor.png</file>
-        <file>icons/toolbar/map/ruler.png</file>
-        <file>icons/toolbar/map/trash.png</file>
-        <file>icons/toolbar/map/folder.png</file>
-        <file>icons/toolbar/map/refresh.png</file>
-        <file>icons/toolbar/map/marker.png</file>
-        <file>icons/toolbar/map/pin.png</file>
-        <file>icons/toolbar/map/right-arrow.png</file>
-        <file>icons/toolbar/map/expand.png</file>
         <file>icons/dialog/error.png</file>
         <file>icons/dialog/info.png</file>
         <file>icons/dialog/warning.png</file>
         <file>map/items/image.png</file>
-        <file>icons/toolbar/image/adjust.png</file>
-        <file>icons/toolbar/image/edit-image.png</file>
-        <file>icons/toolbar/image/list.png</file>
         <file>icons/google-material/expand-less.png</file>
         <file>icons/google-material/expand-more.png</file>
         <file>icons/google-material/hide.png</file>

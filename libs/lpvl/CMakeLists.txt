@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.15)
 
 project(LPVL LANGUAGES CXX)
 
-set(LPVL_COMPILE_TO_STATIC TRUE)
+set(LPVL_COMPILE_TO_STATIC FALSE)
 set(LPVL_TESTS_ENABLED FALSE)
 set(LPVL_REMOVE_QT_RELATED_FUNCTIONS FALSE)
 
@@ -82,6 +82,6 @@ endif()
 target_include_directories(${PROJECT_NAME} PUBLIC include src)
 
 set_target_properties (${PROJECT_NAME} PROPERTIES
-    OUTPUT_NAME "css"
+    OUTPUT_NAME "lpvl"
     PREFIX ""
 )

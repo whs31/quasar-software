@@ -49,14 +49,17 @@ add_executable(${PROJECT_NAME}
 )
 
 add_library(CCL SHARED IMPORTED)
+add_subdirectory(libs/lpvl)
 if(WIN32)
     set_property(TARGET CCL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/imp/libccl.dll.a")
     set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.dll")
-else()
-    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.so")
-endif()
 
-add_subdirectory(libs/lpvl)
+    set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/lpvl/build/liblpvl.dll.a")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/lpvl/build/lpvl.dll")
+else()
+    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/lpvl/build/libccl.so")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/lpvl/build/lpvl.so")
+endif()
 
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Core

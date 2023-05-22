@@ -62,5 +62,7 @@
         <file>icons/toolbar/image/adjust.png</file>
         <file>icons/toolbar/image/edit-image.png</file>
         <file>icons/toolbar/image/list.png</file>
+        <file>icons/google-material/expand-less.png</file>
+        <file>icons/google-material/expand-more.png</file>
     </qresource>
 </RCC>

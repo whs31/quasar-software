@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
+import QtQuick.Layouts 1.15
 
 import Theme 1.0
 import Ruler 1.0
@@ -214,7 +215,7 @@ Map { id: c_Map;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/marker.png";
                 Material.elevation: 30;
-                Material.background: Theme.color("dark2");
+                Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
                 onPressed: ClickHandler.state = ClickHandler.MarkerActive;
             }
 
@@ -223,9 +224,29 @@ Map { id: c_Map;
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/toolbar/map/pin.png";
-                Material.background: Theme.color("dark2");
+                Material.background: ClickHandler.state === ClickHandler.PlannerActive ? Theme.color("accent") : Theme.color("dark2");
                 Material.elevation: 30;
                 onPressed: ClickHandler.state = ClickHandler.PlannerActive;
+            }
+
+            RoundButton { id: button_ClearMarkers;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/toolbar/map/eraser.png";
+                Material.background: Theme.color("dark2");
+                Material.elevation: 30;
+                onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
+
+                Connections {
+                    target: dialogwindow;
+                    function onClosed(status, uid) {
+                        if(uid === 2 && status === true) {
+                            console.log("[GUI] Markers cleared");
+                            MarkersModel.clear();
+                        }
+                    }
+                }
             }
         }
     }
@@ -326,46 +347,98 @@ Map { id: c_Map;
         onCheckedChanged: panel_Parameters.b_Expanded = checked;
     }
 
-    Row { id: layout_ImageTools;
-        anchors.left: parent.left;
+    Pane { id: panel_ImageTools;
+        property bool b_Expanded: false;
+
+        Material.elevation: 30;
         anchors.bottom: parent.bottom;
-        anchors.margins: 5;
+        anchors.left: parent.left;
+        anchors.margins: 0;
+        opacity: 0.85;
+        width: b_Expanded ? implicitWidth : 0;
+        height: b_Expanded ? implicitHeight : 0;
+        visible: height > 0;
+        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; } }
+        clip: true;
 
-        RoundButton { id: button_FetchImages;
-            font.family: root.mainfont;
-            height: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/refresh.png";
-            Material.elevation: 30;
-            Material.background: Material.background;
-            onPressed: {
-                let ret = Filesystem.fetchImageDirectory();
-                if(!ret)
-                    messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
+        ColumnLayout {
+            Column {
+                Layout.fillWidth: true;
+                RoundButton { id: button_FormImage;
+                    font.family: root.mainfont;
+                    height: 40;
+                    width: layout_ImageTools.width;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/refresh.png";
+                    text: "Формирование изображения";
+                    Material.elevation: 30;
+                    Material.background: Theme.color("color0");
+                    //onPressed:
+                }
             }
-        }
 
-        RoundButton { id: button_ChooseCatalogue;
-            font.family: root.mainfont;
-            height: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/folder.png";
-            Material.elevation: 30;
-            Material.background: Material.background;
-            text: "Изменить каталог РЛИ";
-            onPressed: window_FileDialog.open();
-        }
+            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 15; }
 
-        RoundButton { id: button_ClearLocalCache;
-            font.family: root.mainfont;
-            height: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/toolbar/map/trash.png";
-            Material.elevation: 30;
-            Material.background: Material.background;
-            text: "Очистить кэш";
-            //onPressed:
+            Grid { id: layout_ImageTools;
+                columns: 2;
+                Layout.fillWidth: true;
+
+                RoundButton { id: button_FetchImages;
+                    font.family: root.mainfont;
+                    height: 40;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/refresh.png";
+                    text: "Обновить каталог";
+                    Material.elevation: 30;
+                    Material.background: Material.background;
+                    onPressed: {
+                        let ret = Filesystem.fetchImageDirectory();
+                        if(!ret)
+                            messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
+                    }
+                }
+
+                RoundButton { id: button_ChooseCatalogue;
+                    font.family: root.mainfont;
+                    height: 40;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/folder.png";
+                    Material.elevation: 30;
+                    Material.background: Material.background;
+                    text: "Изменить каталог";
+                    onPressed: window_FileDialog.open();
+                }
+
+                RoundButton { id: button_ClearLocalCache;
+                    font.family: root.mainfont;
+                    height: 40;
+                    radius: 4;
+                    icon.source: "qrc:/icons/toolbar/map/trash.png";
+                    Material.elevation: 30;
+                    Material.background: Theme.color("red");
+                    text: "Очистить кэш";
+                    //onPressed:
+                }
+            }
+            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 30; }
         }
+    }
+
+    RoundButton { id: button_ToggleImageTools;
+        font.family: root.mainfont;
+        height: 40;
+        radius: 4;
+        icon.source: panel_ImageTools.b_Expanded ? "qrc:/icons/google-material/expand-less.png"
+                                                 : "qrc:/icons/google-material/expand-more.png";
+        icon.color: Theme.color("light0");
+        text: "Изображения";
+        Material.elevation: 30;
+        anchors.bottom: parent.bottom;
+        anchors.left: parent.left;
+        anchors.margins: 5;
+        Material.background: Material.background;
+        onPressed: panel_ImageTools.b_Expanded = !panel_ImageTools.b_Expanded;
     }
 
     Row { id: layout_MapMode;

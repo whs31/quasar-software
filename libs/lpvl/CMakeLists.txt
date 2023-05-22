@@ -15,24 +15,36 @@ if(NOT ${LPVL_REMOVE_QT_RELATED_FUNCTIONS})
 
 
     find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Positioning)
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+        Core
+        Positioning
+        Quick
+    )
 endif()
 
 if(${LPVL_TESTS_ENABLED})
     find_package(GTest)
 endif()
 
-include_directories(src, include)
+include_directories(src include)
 
-set (LPVL_CORE
+set(LPVL_CORE
     src/global/lpvlglobal.h
+    src/global/lpvlmath.h src/global/lpvlmath.c++
+
+    src/geometry/lpvlglvertex.h
+
+    src/quick/lpvlmatrixplot.h src/quick/lpvlmatrixplot.c++
 )
 
-set (LPVL_CORE_INCLUDE
-    include/LPVL/global
+set(LPVL_CORE_INCLUDE
+    include/LPVL/Global
+    include/LPVL/Math
+    include/LPVL/GLGeometry
+    include/LPVL/MatrixPlot
 )
 
-set (SRC
+set(SRC
     ${LPVL_CORE} ${LPVL_CORE_INCLUDE}
 )
 
@@ -54,6 +66,7 @@ if (NOT ${LPVL_REMOVE_QT_RELATED_FUNCTIONS})
     target_link_libraries(${PROJECT_NAME} PRIVATE
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Positioning
+        Qt${QT_VERSION_MAJOR}::Quick
     )
 endif()
 
@@ -67,6 +80,7 @@ if(${LPVL_TESTS_ENABLED})
     target_link_libraries(test_lpvl
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Positioning
+        Qt${QT_VERSION_MAJOR}::Quick
         GTest::GTest
     )
 endif()

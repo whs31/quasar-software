@@ -16,25 +16,27 @@
 #include <QtQml/qqml.h>
 #include <ccl/ccl_charts.h>
 
+#include <LPVL/Math>
+#include <LPVL/MatrixPlot>
+
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
     /*! === === === === @todo list === === === ===
 
-        Markers
         Planner points
         Protractor
         Follow UAV
         Scale grid
         Diagram
-        Clear cache
         Form image button
         Focus window
-        Concurrent run
         Attitude indicator
 
         === === === === === === === === === === ===
     */
+
+    qDebug() << LPVL::isNaN(0.3);
 
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());

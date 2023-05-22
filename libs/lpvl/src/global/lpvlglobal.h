@@ -24,3 +24,6 @@
 
 #define LPVL_DECLARE_NO_COPY(name) private: name (const name&); name & operator=(const name &);
 #define LPVL_DECLARE_SINGLETON(name) public: static name * get() { static name instance; return &instance; } private: CSS_DECLARE_NO_COPY(name)
+
+#define LPVL_REGISTER_QML(name, module) __attribute__((constructor)) static void register_qml() {qmlRegisterType<MatrixPlot>(module, 1, 0, name); qInfo() << "LPVL: Registered type" << name << "in module" << module; }
+#define LPVL_DESCRIBE_SELF(version) __attribute__((constructor)) static void describe() { qInfo() << "LPVL loaded. Version" << version; }

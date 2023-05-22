@@ -21,7 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 )
 
 include_directories(src/cpp libs)
-add_subdirectory(libs/lpvl)
+
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
     src/cpp/filesystem/*
@@ -56,6 +56,8 @@ else()
     set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.so")
 endif()
 
+add_subdirectory(libs/lpvl)
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
@@ -65,6 +67,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
     CCL
+    LPVL
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

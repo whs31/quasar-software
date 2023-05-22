@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.15)
 
-project(LPVL)
+project(LPVL LANGUAGES CXX)
 
 set(LPVL_COMPILE_TO_STATIC TRUE)
 set(LPVL_TESTS_ENABLED FALSE)
@@ -12,7 +12,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT ${LPVL_REMOVE_QT_RELATED_FUNCTIONS})
     set(CMAKE_AUTOMOC ON)
     set(CMAKE_AUTORCC ON)
-
 
     find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
     find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
@@ -48,19 +47,14 @@ set(SRC
     ${LPVL_CORE} ${LPVL_CORE_INCLUDE}
 )
 
+message("Compiling to static: ${LPVL_COMPILE_TO_STATIC}")
 if(${LPVL_COMPILE_TO_STATIC})
-    add_library(${PROJECT_NAME}
-        ${SRC}
-    )
-
+    add_library(${PROJECT_NAME} ${SRC})
     target_compile_definitions (${PROJECT_NAME} PRIVATE LPVL_LIBRARY LPVL_STATIC)
 else()
-    add_library(${PROJECT_NAME} SHARED
-        ${SRC}
-    )
-
+    add_library(${PROJECT_NAME} SHARED ${SRC} )
     target_compile_definitions (${PROJECT_NAME} PRIVATE LPVL_LIBRARY)
-endif ()
+endif()
 
 if (NOT ${LPVL_REMOVE_QT_RELATED_FUNCTIONS})
     target_link_libraries(${PROJECT_NAME} PRIVATE
@@ -85,7 +79,7 @@ if(${LPVL_TESTS_ENABLED})
     )
 endif()
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC include src)
 
 set_target_properties (${PROJECT_NAME} PROPERTIES
     OUTPUT_NAME "css"

@@ -6,9 +6,7 @@
 namespace LPVL
 {
 
-__attribute__((constructor)) static void register_qml() {
-    qmlRegisterType<MatrixPlot>("LPVL.Charts", 1, 0, "LPVLMatrixPlot");
-}
+LPVL_REGISTER_QML("LPVLMatrixPlot", "LPVL.Charts");
 
 struct State
 {

@@ -76,9 +76,9 @@ namespace LPVL
         data.resize(rows);
         for(size_t i = 0; i < rows; ++i)
         {
-                data[i].resize(columns);
-                for(size_t j = 0; j < columns; ++j)
-                data[i][j] = array2d[j + columns * i];
+            data[i].resize(columns);
+            for(size_t j = 0; j < columns; ++j)
+            data[i][j] = array2d[j + columns * i];
         }
         this->update();
     }
@@ -89,9 +89,9 @@ namespace LPVL
         data.resize(rows);
         for(size_t i = 0; i < rows; ++i)
         {
-                data[i].resize(columns);
-                for(size_t j = 0; j < columns; ++j)
-                data[i][j] = (float)array2d[j + columns * i];
+            data[i].resize(columns);
+            for(size_t j = 0; j < columns; ++j)
+            data[i][j] = (float)array2d[j + columns * i];
         }
         this->update();
     }
@@ -129,7 +129,7 @@ namespace LPVL
             node->setGeometry(geometry);
             node->setFlag(QSGNode::OwnsGeometry);
             geometry->setLineWidth(1);
-            geometry->setDrawingMode(GL_POINTS);
+            geometry->setDrawingMode(GL_QUADS);
         }
 
         geometry = node->geometry();
@@ -142,6 +142,9 @@ namespace LPVL
             for(size_t column = 0; column < data[row].size(); ++column)
             {
                 gl.push_back(VertexC(column * dx, row * dy, data[row][column], data[row][column], data[row][column], 1));
+                gl.push_back(VertexC(column * dx + dx, row * dy, data[row][column], data[row][column], data[row][column], 1));
+                gl.push_back(VertexC(column * dx + dx, row * dy + dy, data[row][column], data[row][column], data[row][column], 1));
+                gl.push_back(VertexC(column * dx, row * dy + dy, data[row][column], data[row][column], data[row][column], 1));
             }
         }
 

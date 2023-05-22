@@ -96,6 +96,7 @@ Pane {
         anchors.bottom: parent.bottom;
         anchors.bottomMargin: 6;
         color: Theme.color("dark0");
+        clip: true;
 
         CCLRealtimeHistogram { id: histogram;
             anchors.fill: parent;

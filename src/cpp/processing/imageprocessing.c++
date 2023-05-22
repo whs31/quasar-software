@@ -239,14 +239,17 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         }
 
         char chunk[chunk_size];
+        float fchunk[chunk_size];
         memcpy(&chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
                            + sizeof(Map::StripNavigationMetadata)
                            + sizeof(Map::StripFormatMetadata),
                            chunk_size);
 
         for(size_t i = 0; i < chunk_size; ++i)
-            chunk[i] *= datagram.format.k;
-        chunks_unknown_ws.push_back(chunk);
+        {
+            fchunk[i] = chunk[i] * datagram.format.k;
+            chunks_unknown_ws.push_back(fchunk[i]);
+        }
 
         offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
     }

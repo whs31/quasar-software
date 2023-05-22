@@ -1,0 +1,3 @@
+[submodule "libs/LVPL"]
+	path = libs/LVPL
+	url = https://github.com/whs31/LVPL

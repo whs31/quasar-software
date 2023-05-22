@@ -2,6 +2,7 @@
 #include "LPVL/GLGeometry"
 #include "LPVL/Math"
 #include <QtQuick/QSGSimpleMaterial>
+#include <QtQuick/QSGGeometryNode>
 
 namespace LPVL
 {
@@ -67,6 +68,64 @@ MatrixPlot::MatrixPlot(QQuickItem* parent)
     : QQuickItem{parent}
 {
     setFlag(ItemHasContents);
+}
+
+void MatrixPlot::set(const QVector<QVector<float> >& array2d)
+{
+
+}
+
+void MatrixPlot::set(const vector<vector<int> > array2d)
+{
+
+}
+
+void MatrixPlot::set(const vector<vector<uint8_t> > array2d)
+{
+
+}
+
+QSGNode* MatrixPlot::updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*)
+{
+    QSGGeometry* geometry = nullptr;
+    QSGGeometryNode* node = static_cast<QSGGeometryNode*>(old_node);
+    if(node == nullptr)
+    {
+        node = new QSGGeometryNode;
+
+        QSGSimpleMaterial<State>* material = GLGradientShader::createMaterial();
+        material->setFlag(QSGMaterial::Blending);
+
+        node->setMaterial(material);
+        node->setFlag(QSGNode::OwnsMaterial);
+        static_cast<QSGSimpleMaterial<State>*>(node->material())->state()->color = QColor("red");
+
+        geometry = new QSGGeometry(QSGGeometry::defaultAttributes_TexturedPoint2D(), 0, 0, QSGGeometry::UnsignedIntType);
+        node->setGeometry(geometry);
+        node->setFlag(QSGNode::OwnsGeometry);
+        geometry->setLineWidth(2);
+        geometry->setDrawingMode(GL_POINTS);
+    }
+
+    geometry = node->geometry();
+
+    vector<VertexT> gl;
+//    float spacing = width() / storage_size;
+//    float cell_size = spacing / 1.2f;
+//    for(size_t i = 0; i < storage.size(); ++i) {
+//            gl.push_back(VertexT((float)i * spacing, height() - storage[i] * height(), (float)i / storage_size, 1 - storage[i]));
+//            gl.push_back(VertexT((float)i * spacing, height(), (float)i / storage_size, 0));
+//            gl.push_back(VertexT((float)i * spacing + cell_size, height(), ((float)i * spacing + cell_size) / width(), 0));
+//            gl.push_back(VertexT((float)i * spacing + cell_size, height() - storage[i] * height(), ((float)i * spacing + cell_size) / width(), 1 - storage[i]));
+//    }
+
+    geometry->allocate(gl.size());
+    for(size_t i = 0; i < gl.size(); i++)
+            geometry->vertexDataAsTexturedPoint2D()[i].set(gl.at(i).x, gl.at(i).y, gl.at(i).u, gl.at(i).v);
+
+    node->markDirty(QSGNode::DirtyGeometry);
+    return node;
+
 }
 
 } // LPVL

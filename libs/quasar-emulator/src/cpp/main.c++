@@ -6,6 +6,8 @@
 #include <QtQml/qqml.h>
 #include <QtQuick/QQuickWindow>
 #include <QQuickStyle>
+#include <QtPositioning/QGeoCoordinate>
+#include <QtMath>
 
 #include "telemetry/telemetryemulator.h++"
 #include "telemetry/telemetrysocketemulator.h++"
@@ -44,6 +46,10 @@ int main(int argc, char* argv[])
         qInstallMessageHandler(0);
         qCritical() << "FATAL QML ERROR: " << component.errorString();
     }
+
+    QGeoCoordinate coord(60, 30);
+    auto coord2 = coord.atDistanceAndAzimuth(1000, 90);
+    qDebug() << coord << coord2;
 
     return app.exec();
 }

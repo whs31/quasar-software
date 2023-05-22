@@ -4,6 +4,8 @@
 #include <QtCore/QList>
 #include <ccl/ccl_global.h>
 
+using strip8_t = QVector<QVector<uint8_t>>;
+
 namespace Map {
     class Image;
     class StripImage;
@@ -41,6 +43,7 @@ namespace Processing
 
             signals:
                 void processImageFinished(const Map::Image& image);
+                void stripVector8bit(strip8_t vec);
                 void processingImageChanged();
                 void processingStripChanged();
 

@@ -273,6 +273,17 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             out >> chunks8_t[i];
         rows = (int)(chunks8_t.size() / columns);
         pixel_count = chunks8_t.size();
+
+        strip8_t out;
+        out.resize(rows);
+        for(size_t i = 0; i < rows; ++i)
+        {
+            out[i].resize(columns);
+            for(size_t j = 0; j < columns; ++j)
+                out[i][j] = chunks8_t[j + columns * i];
+        }
+
+        emit stripVector8bit(out);
     }
     if(ws == 2)
     {
@@ -281,6 +292,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             out >> chunks16_t[i];
         rows = (int)(chunks16_t.size() / columns);
         pixel_count = chunks16_t.size();
+        // unimplemented
     }
     if(ws == 4)
     {
@@ -289,6 +301,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             out >> chunks32_t[i];
         rows = (int)(chunks32_t.size() / columns);
         pixel_count = chunks32_t.size();
+        // unimplemented
     }
 
     qDebug() << "[PROCESSING] Decoded strip image vector with"

@@ -21,6 +21,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 )
 
 include_directories(src/cpp libs)
+add_subdirectory(libs/lpvl)
 file(GLOB_RECURSE CPP_SOURCES
     src/cpp/gui/*
     src/cpp/filesystem/*

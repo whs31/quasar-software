@@ -315,9 +315,7 @@ Map { id: c_Map;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
                 Material.background: Theme.color("red");
-                onPressed: {
-                    dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
-                }
+                onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
                 Connections {
                     target: dialogwindow;
                     function onClosed(status, uid) {
@@ -418,7 +416,16 @@ Map { id: c_Map;
                     Material.elevation: 30;
                     Material.background: Theme.color("red");
                     text: "Очистить кэш";
-                    //onPressed:
+                    onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
+                    Connections {
+                        target: dialogwindow;
+                        function onClosed(status, uid) {
+                            if(uid === 3 && status === true) {
+                                console.log("[GUI] Cache cleared");
+                                Paths.clearImageCache();
+                            }
+                        }
+                    }
                 }
             }
             Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 30; }

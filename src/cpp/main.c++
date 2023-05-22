@@ -25,7 +25,7 @@ void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &m
         break;
     case QtInfoMsg:
         if(msg.startsWith("$"))
-            txt = QString("%1").arg("<font color=\"#B48EAD\">" + msg + "</font>");
+            txt = QString("%1").arg("<font color=\"#B48EAD\">" + msg.right(msg.size() - 2) + "</font>");
         else
             txt = QString("%1").arg("<font color=\"#8FBCBB\">" + msg + "</font>");
         break;

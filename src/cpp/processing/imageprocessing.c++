@@ -8,6 +8,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
 #include <QtCore/QMetaType>
+#include <QtCore/QDataStream>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
@@ -207,13 +208,16 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     image.filename = filename;
     image.path.first = Config::Paths::imageCache() + "/lod0/" + filename;
 
-    //std::vector<QByteArray> chunks;
+    //std::vector<uint16_t> chunks;
+    QByteArray chunks_unknown_ws;
+    int ws = 0;
     QByteArray data = fileToByteArray(image.path.first);
     char* data_ptr = data.data();
 
     int offset = 0;
+    qInfo() << "$ <i>Entered dangerous cycle</i>";
     while(true)
-    {
+    {     
         if(offset >= data.size())
             break;
 
@@ -225,10 +229,54 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
                sizeof(Map::StripFormatMetadata));
 
         int chunk_size = datagram.header.size * datagram.format.word_size;
+        if(not ws)
+            ws = datagram.format.word_size;
+
+        char chunk[chunk_size];
+        memcpy(&chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
+                           + sizeof(Map::StripNavigationMetadata)
+                           + sizeof(Map::StripFormatMetadata),
+                           chunk_size);
+        chunks_unknown_ws.push_back(chunk);
 
         offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
+    }   
+    qInfo() << "$ <i>Cycle finished</i>";
+
+    if(ws == 0) {
+        qCritical() << "[PROCESSING] Failed to decode word size";
+        return;
     }
-    qDebug() << offset;
+
+    QDataStream out(chunks_unknown_ws);
+    if(ws == 1)
+    {
+        QVector<uint8_t> chunks;
+        int vl = chunks_unknown_ws.length();
+        chunks.resize(vl);
+        for (int i = 0; i < vl; i++)
+            out >> chunks[i];
+        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint8_t)";
+    }
+    if(ws == 2)
+    {
+        QVector<uint16_t> chunks;
+        int vl = chunks_unknown_ws.length() / 2;
+        chunks.resize(vl);
+        for (int i = 0; i < vl; i++)
+            out >> chunks[i];
+        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint16_t)";
+    }
+    if(ws == 4)
+    {
+        QVector<uint32_t> chunks;
+        int vl = chunks_unknown_ws.length() / 4;
+        chunks.resize(vl);
+        for (int i = 0; i < vl; i++)
+            out >> chunks[i];
+        qDebug() << "[PROCESSING] Decoded strip image vector with" << chunks.size() << "elements (type: uint32_t)";
+    }
+
     setProcessingStrip(false);
 }
 

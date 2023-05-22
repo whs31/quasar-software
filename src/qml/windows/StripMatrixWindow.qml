@@ -23,6 +23,7 @@ Window {
 
     LPVLMatrixPlot { id: plot;
         anchors.fill: parent;
+        anchors.margins: 50;
     }
 
     Connections {
@@ -31,6 +32,43 @@ Window {
         {
             plot.set(vec, r, c);
             show();
+        }
+    }
+
+    Pane {
+        anchors.left: parent.left;
+        anchors.bottom: parent.bottom;
+        opacity: 0.5;
+
+        Column {
+            Slider {
+                from: 0;
+                to: 1;
+                value: 1;
+                onValueChanged: plot.tintRed = value;
+            }
+
+            Slider {
+                from: 0;
+                to: 1;
+                value: 1;
+                onValueChanged: plot.tintGreen = value;
+            }
+
+            Slider {
+                from: 0;
+                to: 1;
+                value: 1;
+                onValueChanged: plot.tintBlue = value;
+            }
+
+            Slider {
+                from: 0;
+                to: 1;
+                value: 1;
+                onValueChanged: plot.brightness = value;
+            }
+
         }
     }
 }

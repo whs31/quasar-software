@@ -1,3 +1,15 @@
+/* ---------------------------------------------------------------------
+ * LPVL - Linear Algebra, Plotting and Visualisation Library
+ * Copyright (C) 2023 whs31.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero Public License version 3 as
+ * published by the Free Software Foundation.
+ * http://www.gnu.org/licenses.
+ *
+ * github.com/whs31/lpvl
+ * ---------------------------------------------------------------------- */
+
 #include "lpvlmatrixplot.h"
 #include "LPVL/GLGeometry"
 #include "LPVL/Math"
@@ -141,10 +153,22 @@ namespace LPVL
         {
             for(size_t column = 0; column < data[row].size(); ++column)
             {
-                gl.push_back(VertexC(column * dx, row * dy, data[row][column], data[row][column], data[row][column], 1));
-                gl.push_back(VertexC(column * dx + dx, row * dy, data[row][column], data[row][column], data[row][column], 1));
-                gl.push_back(VertexC(column * dx + dx, row * dy + dy, data[row][column], data[row][column], data[row][column], 1));
-                gl.push_back(VertexC(column * dx, row * dy + dy, data[row][column], data[row][column], data[row][column], 1));
+                gl.push_back(VertexC(column * dx, row * dy,
+                                     data[row][column] * brightness() * tintRed(),
+                                     data[row][column] * brightness() * tintGreen(),
+                                     data[row][column] * brightness() * tintBlue(), 1));
+                gl.push_back(VertexC(column * dx + dx, row * dy,
+                                     data[row][column] * brightness() * tintRed(),
+                                     data[row][column] * brightness() * tintGreen(),
+                                     data[row][column] * brightness() * tintBlue(), 1));
+                gl.push_back(VertexC(column * dx + dx, row * dy + dy,
+                                     data[row][column] * brightness() * tintRed(),
+                                     data[row][column] * brightness() * tintGreen(),
+                                     data[row][column] * brightness() * tintBlue(), 1));
+                gl.push_back(VertexC(column * dx, row * dy + dy,
+                                     data[row][column] * brightness() * tintRed(),
+                                     data[row][column] * brightness() * tintGreen(),
+                                     data[row][column] * brightness() * tintBlue(), 1));
             }
         }
 
@@ -158,4 +182,43 @@ namespace LPVL
         return node;
     }
 
+    float MatrixPlot::tintRed() const { return m_tintRed; }
+    void MatrixPlot::setTintRed(float other)
+    {
+        if (qFuzzyCompare(m_tintRed, other))
+            return;
+        m_tintRed = other;
+        emit tintRedChanged();
+        this->update();
+    }
+
+    float MatrixPlot::tintGreen() const { return m_tintGreen; }
+    void MatrixPlot::setTintGreen(float other)
+    {
+        if (qFuzzyCompare(m_tintGreen, other))
+            return;
+        m_tintGreen = other;
+        emit tintGreenChanged();
+        this->update();
+    }
+
+    float MatrixPlot::tintBlue() const { return m_tintBlue; }
+    void MatrixPlot::setTintBlue(float other)
+    {
+        if (qFuzzyCompare(m_tintBlue, other))
+            return;
+        m_tintBlue = other;
+        emit tintBlueChanged();
+        this->update();
+    }
+
+    float MatrixPlot::brightness() const { return m_brightness; }
+    void MatrixPlot::setBrightness(float other)
+    {
+        if (qFuzzyCompare(m_brightness, other))
+            return;
+        m_brightness = other;
+        emit brightnessChanged();
+        this->update();
+    }
 } // LPVL

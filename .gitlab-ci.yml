@@ -10,7 +10,7 @@ alse:
     - mkdir -p deb/DEBIAN
     - GIT_VERSION=$(git describe --tags --always)
     - "echo 'Package: '$CI_PROJECT_TITLE > deb/DEBIAN/control"
-    - "echo 'Version: '$GIT_VERSION >> deb/DEBIAN/control"
+    - "echo 'Version: '1 >> deb/DEBIAN/control"
     - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
     - mkdir -p deb/opt/$CI_PROJECT_TITLE
     - cp QuaSAR deb/opt/$CI_PROJECT_TITLE

@@ -3,7 +3,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QMap>
 #include <QtCore/QVariant>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 #define CONFIG(x) Config::Config::get()->x()
 
@@ -14,7 +14,7 @@ namespace Config
     class Config : public QObject
     {
         Q_OBJECT
-        DEFINE_AS_SINGLETON(Config)
+        LPVL_DECLARE_SINGLETON(Config)
 
         Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
         Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)

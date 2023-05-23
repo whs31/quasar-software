@@ -2,14 +2,14 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QList>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 namespace OS
 {
     class Filesystem : public QObject
     {
         Q_OBJECT
-        DEFINE_AS_SINGLETON(Filesystem)
+        LPVL_DECLARE_SINGLETON(Filesystem)
 
         public:
             Q_INVOKABLE bool fetchImageDirectory();

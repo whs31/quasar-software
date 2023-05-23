@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <ccl/ccl_global.h>
 
 namespace Network
 {

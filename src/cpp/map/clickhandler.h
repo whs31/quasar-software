@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 namespace Map
 {
@@ -20,7 +20,7 @@ namespace Map
         Q_OBJECT
         Q_ENUM(MouseState);
         Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
-        DEFINE_AS_SINGLETON(ClickHandler)
+        LPVL_DECLARE_SINGLETON(ClickHandler)
 
         public:
             MouseState state() const; void setState(const MouseState&);

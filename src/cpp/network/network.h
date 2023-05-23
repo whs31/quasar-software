@@ -3,7 +3,7 @@
 #include "telemetry/telemetry.h"
 #include "execd/remotedata.h"
 #include <QtCore/QObject>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 class QTimer;
 
@@ -21,7 +21,7 @@ namespace Network
         Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
-        DEFINE_AS_SINGLETON(Network);
+        LPVL_DECLARE_SINGLETON(Network);
 
         constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;

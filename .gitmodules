@@ -1,0 +1,3 @@
+[submodule "libs/LVPL"]
+	path = libs/LVPL
+	url = http://uav.radar-mms.com/gitlab/developers/rls/LVPL.git

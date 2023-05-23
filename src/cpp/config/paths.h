@@ -1,14 +1,14 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 namespace Config
 {
     class Paths : public QObject
     {
         Q_OBJECT
-        DEFINE_AS_SINGLETON(Paths)
+        LPVL_DECLARE_SINGLETON(Paths)
 
         public:
             Q_INVOKABLE static QString root();

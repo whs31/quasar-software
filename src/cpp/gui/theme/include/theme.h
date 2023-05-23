@@ -3,7 +3,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QPointF>
 #include <QtCore/QHash>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 #include <vector>
 
 #define THEME GUI::Theme::get()
@@ -14,7 +14,7 @@ namespace GUI
     class Theme : public QObject
     {
         Q_OBJECT
-        DEFINE_AS_SINGLETON(Theme)
+        LPVL_DECLARE_SINGLETON(Theme)
         Q_DECLARE_PRIVATE(Theme)
 
         public:

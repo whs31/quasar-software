@@ -14,7 +14,6 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtQml/qqml.h>
-#include <ccl/ccl_charts.h>
 
 Entry::Entry(QObject *parent)
     : QObject{parent}

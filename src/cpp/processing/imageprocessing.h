@@ -2,7 +2,7 @@
 
 #include <QtCore/QObject>
 #include <vector>
-#include <ccl/ccl_global.h>
+#include <LPVL/Global>
 
 using std::vector;
 
@@ -19,7 +19,7 @@ namespace Processing
         Q_OBJECT
         Q_PROPERTY(bool processingImage READ processingImage WRITE setProcessingImage NOTIFY processingImageChanged)
         Q_PROPERTY(bool processingStrip READ processingStrip WRITE setProcessingStrip NOTIFY processingStripChanged)
-        DEFINE_AS_SINGLETON(ImageProcessing)
+        LPVL_DECLARE_SINGLETON(ImageProcessing)
 
         constexpr static float INITIAL_OPACITY = 1;
         constexpr static bool INITIAL_VISIBILITY = true;

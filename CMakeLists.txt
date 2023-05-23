@@ -46,7 +46,7 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES}
 )
 
-add_subdirectory(libs/LVPL)
+add_subdirectory(libs/LPVL)
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.dll")

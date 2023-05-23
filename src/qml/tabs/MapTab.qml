@@ -31,7 +31,7 @@ Map { id: c_Map;
     }
 
     tilt: 15;
-    gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
+    //gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {
         name: "osm";
 

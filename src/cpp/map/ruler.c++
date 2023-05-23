@@ -1,6 +1,7 @@
 #include "ruler.h"
 #include <QtCore/QDebug>
-#include <ccl/ccl_core.h>
+#include <QtCore/QPointF>
+#include <LPVL/Geomath>
 
 using namespace Map;
 
@@ -224,8 +225,8 @@ QGeoCoordinate Ruler::calculateCenter(quint16 _index)
 qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2)
 {
     qreal result;
-    QPointF coord1 = ccl::geo2webmercator(_coord1);
-    QPointF coord2 = ccl::geo2webmercator(_coord2);
+    QPointF coord1 = LPVL::Private::geo2webmercator(_coord1);
+    QPointF coord2 = LPVL::Private::geo2webmercator(_coord2);
     qreal newLong1 = _coord1.longitude();
     qreal newLong2 = _coord2.longitude();
 
@@ -234,8 +235,8 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord1.longitude() + shift < 0){
             newLong1 = _coord1.longitude() + shift;
             newLong2 = (_coord2.longitude() + shift) - 360;
-            coord1 = ccl::geo2webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
-            coord2 = ccl::geo2webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
+            coord1 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
+            coord2 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
         }
     }
     else if (_coord2.longitude() < 0 && _coord1.longitude() > 0){
@@ -243,8 +244,8 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord2.longitude() + shift < 0){
             newLong1 = (_coord1.longitude() + shift) - 360;
             newLong2 = _coord2.longitude() + shift;
-            coord2 = ccl::geo2webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
-            coord1 = ccl::geo2webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
+            coord2 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
+            coord1 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
         }
     }
     qreal angle = qAtan2(abs(coord1.y() - coord2.y()) , abs(coord1.x() - coord2.x())) * 180 / M_PI;

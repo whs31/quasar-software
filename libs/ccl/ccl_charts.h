@@ -4,7 +4,6 @@
 #include <QtCore/QObject>
 #include <QtGui/QColor>
 #include <QtQuick/QQuickItem>
-#include <QtQuick/QSGSimpleMaterial>
 #include <vector>
 
 using std::vector;
@@ -31,21 +30,6 @@ namespace ccl
         {
             VertexT(float x, float y, float u, float v);
             float x, y, u, v;
-        };
-
-        class CCL_CORE_EXPORT GLGradientShader : public QSGSimpleMaterialShader<State>
-        {
-            QSG_DECLARE_SIMPLE_COMPARABLE_SHADER(GLGradientShader, State)
-
-            public:
-                const char* vertexShader() const override;
-                const char* fragmentShader() const override;
-                QList<QByteArray> attributes() const override;
-                void updateState(const State* state, const State*) override;
-                void resolveUniforms() override;
-
-            private:
-                int id_color;
         };
 
         class CCL_CORE_EXPORT RealtimeHistogram : public QQuickItem

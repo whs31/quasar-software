@@ -3,16 +3,16 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
-import CCL.Charts 1.0
 
 Pane {
     property string name: "Socket Console";
-    property alias color: histogram.histogramColor;
+    property color color: "red";
+    //property alias color: histogram.histogramColor;
 
     function logdata(str, sizeof, out)
     {
         listview.append(str, sizeof, out);
-        histogram.append(sizeof);
+        //histogram.append(sizeof);
     }
 
     Material.elevation: 6;
@@ -98,12 +98,12 @@ Pane {
         color: Theme.color("dark0");
         clip: true;
 
-        CCLRealtimeHistogram { id: histogram;
-            anchors.fill: parent;
-            histogramColor: Theme.color("orange");
-            horizontalAxisMaxValue: 30000;
-            verticalAxisMaxValue: 512;
-            interval: 1000;
-        }
+//        CCLRealtimeHistogram { id: histogram;
+//            anchors.fill: parent;
+//            histogramColor: Theme.color("orange");
+//            horizontalAxisMaxValue: 30000;
+//            verticalAxisMaxValue: 512;
+//            interval: 1000;
+//        }
     }
 }

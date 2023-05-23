@@ -30,8 +30,6 @@ file(GLOB_RECURSE CPP_SOURCES
     src/cpp/scenegraph/*
     src/cpp/network/*
     src/cpp/processing/*
-
-    libs/ccl/*
 )
 
 set(PROJECT_SOURCES
@@ -48,16 +46,11 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES}
 )
 
-add_library(CCL SHARED IMPORTED)
 add_subdirectory(libs/LVPL)
 if(WIN32)
-    set_property(TARGET CCL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/ccl/imp/libccl.dll.a")
-    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/ccl/shared/libccl.dll")
-
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.dll")
 else()
-    set_property(TARGET CCL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.so")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.so")
 endif()
 
@@ -69,7 +62,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
-    CCL
     LPVL
 )
 

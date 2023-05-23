@@ -15,7 +15,6 @@
 #include <QtCore/QDebug>
 #include <QtQml/qqml.h>
 #include <ccl/ccl_charts.h>
-#include <LPVL/Register>
 
 Entry::Entry(QObject *parent)
     : QObject{parent}
@@ -33,7 +32,6 @@ Entry::Entry(QObject *parent)
 
         === === === === === === === === === === ===
     */
-    LPVL_REGISTER_ALL;
 
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());

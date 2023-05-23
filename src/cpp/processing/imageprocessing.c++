@@ -14,7 +14,9 @@
 #include <QtGui/QPainterPath>
 #include <QtConcurrent/QtConcurrent>
 #include <cmath>
-#include <ccl/ccl_core.h>
+#include <LPVL/Math>
+#include <LPVL/Crypto>
+#include <LPVL/Geomath>
 
 using namespace Processing;
 
@@ -93,7 +95,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     // проверка контрольной суммы
     char *crc_data = (char *) &image.meta;
-    uint16_t crc16 = ccl::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
+    uint16_t crc16 = LPVL::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
 
     image.valid = crc16 == image.meta.crc16;
     if(not image.valid)
@@ -103,12 +105,12 @@ void ImageProcessing::asyncProcess(const QString& filename)
     // геометрические преобразования
     if(CONFIG(useRadians))
     {
-        image.meta.angle = ccl::rad2deg(image.meta.angle)
+        image.meta.angle = LPVL::rad2deg(image.meta.angle)
                            + CONFIG(angleCorrection);
         image.meta.drift_angle = CONFIG(useDriftAngle)
-                                     ? ccl::rad2deg(image.meta.drift_angle)
+                                     ? LPVL::rad2deg(image.meta.drift_angle)
                                      : 0;
-        image.meta.div = ccl::rad2deg(image.meta.div);
+        image.meta.div = LPVL::rad2deg(image.meta.div);
     }
     else
         image.meta.angle += CONFIG(angleCorrection);
@@ -151,26 +153,26 @@ void ImageProcessing::asyncProcess(const QString& filename)
         const int top[8] = {
             0, (int)((image.meta.ly / 2) - 2
                * image.meta.x0
-               * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                / 2))),
             0, 0,
             (int)image.meta.lx, 0,
             (int)image.meta.lx, (int)((image.meta.ly / 2) -
                                 (2 * image.meta.x0 + image.meta.lx)
-                                * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                                 / 2)))
         };
 
         const int bottom[8] = {
             0, (int)((image.meta.ly / 2) + 2
                * image.meta.x0
-               * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
+               * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                / 2))),
             0, (int)image.meta.ly,
             (int)image.meta.lx, (int)image.meta.ly,
             (int)image.meta.lx, (int)((image.meta.ly / 2)
                                 + (2 * image.meta.x0 + image.meta.lx)
-                                * tan(ccl::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
+                                * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection))
                                 / 2)))
         };
 
@@ -196,7 +198,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     image.opacity = INITIAL_OPACITY;
     image.shown = INITIAL_VISIBILITY;
-    image.mercator_zoom_level = ccl::mqi_zoom_level(image.meta.latitude, image.meta.dx);
+    image.mercator_zoom_level = LPVL::Private::mqi_zoom_level(image.meta.latitude, image.meta.dx);
 
     setProcessingImage(false);
     emit processImageFinished(image);

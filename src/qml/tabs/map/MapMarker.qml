@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
-import QtGraphicalEffects 1.15
 
 MapQuickItem  {
     anchorPoint.x: imageSource.sourceSize.width / 2;
@@ -21,15 +20,6 @@ MapQuickItem  {
             visible: false;
             sourceSize.width: 40;
             sourceSize.height: 40;
-        }
-
-        ColorOverlay {
-            color: marker_color;
-            layer.enabled: true;
-            layer.smooth: true;
-            layer.samples: 8;
-            anchors.fill: imageSource;
-            source: imageSource;
         }
 
         Rectangle { id: panel_MarkerTooltip;

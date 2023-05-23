@@ -1,10 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.15
 import QtQuick.Controls.Material 2.15
-import QtQuick.Controls.Styles 1.4
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs
 
 import Theme 1.0
 import Config 1.0
@@ -30,14 +28,13 @@ ApplicationWindow  { id: window_root;
     color: Theme.color("dark0");
     Component.onCompleted: showMaximized();
 
-    FileDialog { id: window_FileDialog;
+    FolderDialog { id: window_FileDialog;
         property string s_Url: window_FileDialog.fileUrl;
         title: "Выберите каталог с радиолокационными изображениями";
-        folder: Paths.imageCache();
-        selectFolder: true;
+        currentFolder: Paths.imageCache();
         onAccepted: {
-            console.log("[GUI] Selected folder " + window_FileDialog.fileUrl);
-            Config.storedCatalogue = fileUrl;
+            console.log("[GUI] Selected folder " + window_FileDialog.selectedFolder);
+            Config.storedCatalogue = selectedFolder;
             Filesystem.fetchImageDirectory();
         }
         onRejected: {
@@ -63,30 +60,11 @@ ApplicationWindow  { id: window_root;
             enabled: root.b_ConsoleShown;
             visible: root.b_ConsoleShown;
         }
-        DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown;
-                     visible: root.b_ConsoleShown; }
 
         Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
-        DropShadow { z: 98; anchors.fill: c_InfoWindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown;
-                     visible: c_InfoWindow.b_Shown; }
-
         Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
-        DropShadow { z: 98; anchors.fill: messagebox; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: messagebox; cached: true; enabled: messagebox.b_Shown;
-                     visible: messagebox.b_Shown; }
-
         Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
-        DropShadow { z: 98; anchors.fill: dialogwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: dialogwindow; cached: true; enabled: dialogwindow.b_Shown;
-                     visible: dialogwindow.b_Shown; }
-
         Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
-        DropShadow { z: 96; anchors.fill: markerwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16;
-                     samples: 32; color: "#80000000"; source: markerwindow; cached: true; enabled: markerwindow.b_Shown;
-                     visible: markerwindow.b_Shown; }
-
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
         Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
 
@@ -96,8 +74,6 @@ ApplicationWindow  { id: window_root;
             anchors.right: parent.right;
             anchors.bottom: parent.bottom;
         }
-        DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16;
-                         samples: 32; color: "#80000000"; source: layout_BottomBar; cached: true; }
 
         TabBar { id: control_TabBar;
             anchors.left: parent.left;

@@ -1,6 +1,6 @@
 #include "execdsocket.h"
 #include <QtCore/QDebug>
-#include <ccl/ccl_core.h>
+#include <LPVL/Crypto>
 
 using namespace Network;
 
@@ -49,7 +49,7 @@ QString ExecdSocket::wrap(const QString& string)
     QString command = ":" + QStringLiteral("%1").arg(++message_uid, 4, 10, QLatin1Char('0')) + "|";
     QString hexlen = QString("%1").arg(string.length(), 2, 16, QLatin1Char('0'));
     command.append(hexlen + "|" + string + "|");
-    command.append(QStringLiteral("%1").arg(ccl::crc16(ccl::str_data(command),
+    command.append(QStringLiteral("%1").arg(LPVL::crc16(LPVL::str_data(command),
                                                              command.length()),
                                             4, 16, QLatin1Char('0')));
     return command;
@@ -67,7 +67,7 @@ void ExecdSocket::processResult(QByteArray data)
     check_crc.chop(5);
 
     //crc16
-    uint16_t crc16 = ccl::crc16(ccl::str_data(check_crc), check_crc.length());
+    uint16_t crc16 = LPVL::crc16(LPVL::str_data(check_crc), check_crc.length());
     uint16_t receivedCrc16 = raw.split("|").last().toUInt(nullptr, 16);
 
     if(crc16 == receivedCrc16)

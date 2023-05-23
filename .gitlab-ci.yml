@@ -6,7 +6,7 @@ alse:
   stage: build
   tags: [alse]
   script:
-    - cmake . && make && strip $CI_PROJECT_TITLE
+    - cmake . && make && strip QuaSAR
     - mkdir -p deb/DEBIAN
     - GIT_VERSION=$(git describe --tags --always)
     - "echo 'Package: '$CI_PROJECT_TITLE > deb/DEBIAN/control"

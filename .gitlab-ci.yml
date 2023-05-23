@@ -15,7 +15,7 @@ alse:
     - mkdir -p deb/opt/$CI_PROJECT_TITLE
     - cp QuaSAR deb/opt/$CI_PROJECT_TITLE
     - mkdir -p deb/usr/share/applications
-    - cp QuaSAR.desktop deb/usr/share/applications
+    - cp $CI_PROJECT_TITLE.desktop deb/usr/share/applications
     - dpkg-deb -b deb QuaSAR'_'$GIT_VERSION'_'amd64.deb
   artifacts:
     name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_TIMESTAMP-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA

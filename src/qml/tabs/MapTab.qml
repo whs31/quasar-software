@@ -45,6 +45,7 @@ Map { id: c_Map;
 
     activeMapType: c_Map.supportedMapTypes[i_MapMode];
     center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
+    gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     zoomLevel: Config.storedZoomLevel;
     copyrightsVisible: false;
     z: 0;

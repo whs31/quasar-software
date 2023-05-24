@@ -1,6 +1,7 @@
 #include "route.h"
 #include "tools/routelogger.h"
 #include <QtCore/QFile>
+#include <QtCore/QDebug>
 #include <QtPositioning/QGeoCoordinate>
 
 using namespace Map;
@@ -8,9 +9,7 @@ using namespace Map;
 Route::Route(QObject* parent)
     : QObject{parent}
     , logger(new RouteLogger(this))
-{
-
-}
+{}
 
 Route::~Route()
 {
@@ -42,6 +41,11 @@ void Route::append(const QGeoCoordinate& coord, float speed, int satellites)
 
 void Route::clear()
 {
+    if(fullRoute().empty()) {
+        qWarning() << "[ROUTE] Tried to clear empty track";
+        return;
+    }
+
     setFullRoute(QVariantList());
     setRecentRoute(QVariantList());
     logger->commit();

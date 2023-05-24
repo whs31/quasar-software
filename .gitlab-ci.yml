@@ -24,42 +24,6 @@ alse:
     name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_TIMESTAMP-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA
     paths: [$CI_PROJECT_TITLE, ./*.deb]
 
-ubuntu:
-    stage: build
-    tags: [ubuntu]
-    script:
-        - cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-        - mkdir -p deb/DEBIAN
-        - "echo 'Package: DiagnosticAgent' > deb/DEBIAN/control"
-        - "echo 'Version: '$PKG_VER >> deb/DEBIAN/control"
-        - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
-        #- "echo 'Depends: libqwt-qt5-6_6.1.2-6_amd64.deb' >> deb/DEBIAN/control"
-
-        - "echo '#!/bin/bash' > deb/DEBIAN/postinst"
-        - "echo 'chmod ugo+rw /opt/DiagnosticAgent -R' > deb/DEBIAN/postinst"
-        - chmod +x deb/DEBIAN/postinst
-    artifacts:
-        name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
-        paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
-
-astra1.6:
-    stage: build
-    tags: [astra1.6]
-    script:
-        - cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-        - mkdir -p deb/DEBIAN
-        - "echo 'Package: DiagnosticAgent' > deb/DEBIAN/control"
-        - "echo 'Version: '$PKG_VER >> deb/DEBIAN/control"
-        - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
-        #- "echo 'Depends: libqwt-qt5-6' >> deb/DEBIAN/control"
-
-        - "echo '#!/bin/bash' > deb/DEBIAN/postinst"
-        - "echo 'chmod ugo+rw /opt/DiagnosticAgent -R' > deb/DEBIAN/postinst"
-        - chmod +x deb/DEBIAN/postinst
-    artifacts:
-        name: $CI_PROJECT_TITLE-$CI_JOB_NAME-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHORT_SHA-$CI_COMMIT_TIMESTAMP
-        paths: [$CI_PROJECT_TITLE, DiagnosticAgent_$CI_COMMIT_REF_NAME.deb]
-
 windows:
   stage: build
   tags: [windows]

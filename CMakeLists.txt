@@ -1,10 +1,17 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(QuaSAR LANGUAGES CXX)
+project(QuaSAR LANGUAGES CXX VERSION 1.0.0)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src/cmake)
+include(qtprojectbuild)
+
+project_version_patch_clean()
+
+set(COMPANY "Radar-MMS")
+set(COPYRIGHT "Copyright (c) 2023 ${COMPANY}. All rights reserved.")
+set(IDENTIFIER "${PROJECT_NAME}")
+
+add_project_meta(META_FILES)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -38,12 +45,12 @@ set(PROJECT_SOURCES
 
     src/qml/qml.qrc
     resources/resources.qrc
-    ${SRCS} resources/ico.rc
 )
 
 add_executable(${PROJECT_NAME}
     ${PROJECT_SOURCES}
     ${CPP_SOURCES}
+    ${META_FILES}
 )
 
 add_subdirectory(libs/LPVL)
@@ -65,17 +72,16 @@ target_link_libraries(${PROJECT_NAME}
     LPVL
 )
 
-set_target_properties(${PROJECT_NAME} PROPERTIES
-    WIN32_EXECUTABLE TRUE
-)
-
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 
-message("QuaSAR compiled successfully")
-execute_process(COMMAND git remote update WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
-execute_process(COMMAND git describe --tags --always WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} OUTPUT_VARIABLE GIT_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
-add_definitions(-DPROJECT_NAME="${PROJECT_NAME}" -DPROJECT_VERSION="${GIT_VERSION}")
-string(TIMESTAMP PROJECT_BUILD_DATE "%d.%m.%Y %H:%M:%S" UTC)
+add_definitions(
+    -DPROJECT_NAME="${PROJECT_NAME}"
+    -DPROJECT_VERSION="${PROJECT_VERSION}"
+    -DPROJECT_COMPANY="${COMPANY}"
+)
+
+message("${PROJECT_NAME} version ${PROJECT_VERSION} compiled successfully")
+

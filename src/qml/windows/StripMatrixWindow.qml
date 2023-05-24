@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls.Material 2.15
+import QtQuick.Layouts 1.15
 
 import LPVL.Charts 1.0
 import ImageProcessing 1.0
@@ -32,6 +33,7 @@ Window {
     LPVLMatrixPlot { id: plot;
         anchors.fill: parent;
         anchors.margins: 50;
+        anchors.bottomMargin: 100;
     }
 
     Connections {
@@ -46,37 +48,39 @@ Window {
     Pane {
         anchors.left: parent.left;
         anchors.bottom: parent.bottom;
-        opacity: 0.5;
+        anchors.right: parent.right;
 
-        Column {
-            Slider {
-                from: 0;
-                to: 1;
-                value: 1;
-                onValueChanged: plot.tintRed = value;
+        Row {
+            spacing: 20;
+
+            CheckBox {
+                text: "Оттенки серого";
+                font.family: root.mainfont;
+                font.bold: true;
+                checked: false;
+                onCheckedChanged: plot.grayscale = checked;
             }
 
-            Slider {
-                from: 0;
-                to: 1;
-                value: 1;
-                onValueChanged: plot.tintGreen = value;
-            }
+            RowLayout {
+                Text {
+                    Layout.alignment: Qt.AlignVCenter;
+                    Layout.fillHeight: true;
+                    text: "Контрастность матрицы: ";
+                    font.family: root.mainfont;
+                    verticalAlignment: Text.AlignVCenter;
+                    color: Theme.color("light0");
+                    font.bold: true;
+                }
 
-            Slider {
-                from: 0;
-                to: 1;
-                value: 1;
-                onValueChanged: plot.tintBlue = value;
+                Slider {
+                    Layout.fillWidth: true;
+                    Layout.fillHeight: true;
+                    from: 0;
+                    to: 1;
+                    value: 1;
+                    onValueChanged: plot.brightness = value;
+                }
             }
-
-            Slider {
-                from: 0;
-                to: 1;
-                value: 1;
-                onValueChanged: plot.brightness = value;
-            }
-
         }
     }
 }

@@ -21,6 +21,14 @@ Window {
     modality: Qt.NonModal;
     title: "Матрица полосового изображения";
 
+    onVisibleChanged: {
+        if(!visible)
+        {
+            console.log("[OPENGL] Cleanup of matrix plot.");
+            plot.clean();
+        }
+    }
+
     LPVLMatrixPlot { id: plot;
         anchors.fill: parent;
         anchors.margins: 50;

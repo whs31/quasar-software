@@ -53,7 +53,7 @@ add_executable(${PROJECT_NAME}
     ${META_FILES}
 )
 
-add_subdirectory(libs/LPVL)
+add_subdirectory(libs/LVPL)
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.dll")

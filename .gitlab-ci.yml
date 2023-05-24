@@ -16,7 +16,7 @@ alse:
     - mkdir -p deb/opt/$CI_PROJECT_TITLE
     - cp $CI_PROJECT_TITLE deb/opt/$CI_PROJECT_TITLE
     - mkdir -p deb/lib/x86_64-linux-gnu
-    - cp libs/LPVL/lpvl.so deb/lib/x86_64-linux-gnu
+    - cp libs/LVPL/lpvl.so deb/lib/x86_64-linux-gnu
     - mkdir -p deb/usr/share/applications
     - cp $CI_PROJECT_TITLE.desktop deb/usr/share/applications
     - dpkg-deb -b deb $CI_PROJECT_TITLE'_'$GIT_VERSION'_'amd64.deb
@@ -64,7 +64,7 @@ windows:
   stage: build
   tags: [windows]
   script:
-     - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF -DCMAKE_SHARED_LINKER_FLAGS="-static -static-libgcc" && cmake --build .
+     - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_SHARED_LINKER_FLAGS="-static -static-libgcc" && cmake --build .
     # - mkdir -p $CI_PROJECT_TITLE/geoservices $CI_PROJECT_TITLE/imageformats $CI_PROJECT_TITLE/platforms $CI_PROJECT_TITLE/app-plugins $CI_PROJECT_TITLE/themes
     # - cp QuaSAR.exe $CI_PROJECT_TITLE
     #- cp compiled/win32/terminal.dll $CI_PROJECT_TITLE/app-plugins  #terminal plugin for vt100 support

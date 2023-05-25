@@ -47,11 +47,14 @@ class Deserial():
 
     def size(self):
         return struct.calcsize(self.pack_format)
-            
+
+    def serial(self, fields):
+        return struct.pack(self.pack_format, *fields )
+        
     def to_dict(self, bindata):
         pack_format = self.pack_format
         
-        unpacked=struct.unpack(pack_format, bindata );
+        unpacked=struct.unpack(pack_format, bindata )
         
         
         result = {}

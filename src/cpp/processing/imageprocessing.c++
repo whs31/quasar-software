@@ -218,7 +218,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     char* data_ptr = data.data();
 
     int offset = 0;
-    qInfo() << "$ <i>Entered dangerous cycle</i>";
+    qInfo() << "$ <i>Entered cycle</i>";
 
     int rows, columns;
 
@@ -243,7 +243,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         char chunk[chunk_size];
         float fchunk[chunk_size];
-        memcpy(&chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
+        memcpy(chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
                            + sizeof(Map::StripNavigationMetadata)
                            + sizeof(Map::StripFormatMetadata),
                            chunk_size);

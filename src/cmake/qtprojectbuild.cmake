@@ -10,7 +10,7 @@ endmacro()
 
 macro(add_project_meta FILES_TO_INCLUDE)
 if (NOT RESOURCE_FOLDER)
-    set(RESOURCE_FOLDER resources)
+    set(RESOURCE_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/resources)
 endif()
 
 if (NOT ICON_NAME)

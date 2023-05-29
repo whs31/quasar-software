@@ -127,6 +127,13 @@ Map { id: c_Map;
 
     // ui
 
+    MapTab.AttitudeIndicator { id: attitude;
+        width: 250;
+        height: 200;
+        anchors.horizontalCenter: parent.horizontalCenter;
+        anchors.bottom: parent.bottom;
+    }
+
     Pane { id: panel_Tools;
         Material.elevation: 30;
         anchors.top: parent.top;

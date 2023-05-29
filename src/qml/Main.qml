@@ -50,7 +50,7 @@ ApplicationWindow  { id: window_root;
         layer.samples: 6;
         layer.enabled: true;
 
-        property bool b_ConsoleShown: true;
+        property bool b_ConsoleShown: false;
         property bool b_AllowImageEdit: false;
         property string mainfont: font_Main.name;
         property string monofont: font_Mono.name;

@@ -9,7 +9,7 @@
 #include "map/clickhandler.h"
 #include "map/imagemodel.h"
 #include "map/markermodel.h"
-#include "map/entities/telescopicdiagram.h"
+#include "map/entities/diagram.h"
 #include "network/network.h"
 
 #include <QtCore/QCoreApplication>
@@ -45,7 +45,7 @@ Entry::Entry(QObject *parent)
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
-    QML_EXPOSE_INSTANTIABLE(Map::TelescopicDiagram, "SARDiagrams", "TelescopicDiagram");
+    QML_EXPOSE_INSTANTIABLE(Map::Diagram, "RadarDiagram", "RadarDiagram");
 
     connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList);
 }

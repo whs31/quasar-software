@@ -13,6 +13,7 @@ import Config 1.0
 import Images 1.0
 import Network 1.0
 import Markers 1.0
+import RadarDiagram 1.0
 
 import "map" as MapTab;
 import "../widgets" as Widgets;
@@ -31,7 +32,7 @@ Map { id: c_Map;
     }
 
     tilt: 15;
-    //gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
+    gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {
         name: "osm";
 
@@ -45,7 +46,6 @@ Map { id: c_Map;
 
     activeMapType: c_Map.supportedMapTypes[i_MapMode];
     center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
-    gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     zoomLevel: Config.storedZoomLevel;
     copyrightsVisible: false;
     z: 0;
@@ -94,6 +94,24 @@ Map { id: c_Map;
 
     MapTab.UAV { id: c_UAV; }
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
+    RadarDiagram {  id: c_RadarDiagram;
+        angle: 30 - Config.thetaAzimuthCorrection; // @FIXME
+        uavPosition: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
+        azimuth: Network.telemetry.yaw;
+        range: 3500; // @FIXME
+        direction: Config.antennaAlignment ? 1 : 0;
+        type: RadarDiagram.Telescopic;
+    }
+
+    MapPolygon { id: c_RadarDiagramView;
+        property bool shown: true;
+        path: c_RadarDiagram.polygon;
+        border.width: 3;
+        border.color: Theme.color("yellow");
+        color: Qt.lighter(Theme.color("yellow"), 1.2);
+        opacity: shown ? 0.2 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
 
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
@@ -367,20 +385,14 @@ Map { id: c_Map;
                 font.family: root.mainfont;
                 checked: true;
                 text: "Отображать трек полёта";
-                onCheckedChanged: {
-                    if(checked)
-                        c_Route.opacity = 1;
-                    else
-                        c_Route.opacity = 0;
-                }
+                onCheckedChanged: c_Route.opacity = checked ? 1 : 0;
             }
 
             CheckBox { id: checkbox_ShowDiagram;
-                enabled: false;
                 font.family: root.mainfont;
                 checked: true;
                 text: "Отображать диаграмму направленности";
-                //onCheckedChanged:
+                onCheckedChanged: c_RadarDiagramView.shown = checked;
             }
 
             Column {

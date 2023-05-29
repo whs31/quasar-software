@@ -77,6 +77,8 @@ void Diagram::update()
         QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle)),
         QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle + angle() / 2)),
     };
+
+    setPolygon(res);
 }
 
 double Diagram::azimuth() const { return m_azimuth; }

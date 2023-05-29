@@ -14,7 +14,15 @@ namespace Map
                 Telescopic,
                 Strip
             };
+
+            enum DiagramDirection
+            {
+                Left,
+                Right
+            };
+
             Q_ENUM(DiagramType);
+            Q_ENUM(DiagramDirection);
 
         private:
             Q_OBJECT
@@ -24,6 +32,8 @@ namespace Map
             Q_PROPERTY(float angle READ angle WRITE setAngle NOTIFY angleChanged)
             Q_PROPERTY(DiagramType type READ type WRITE setType NOTIFY typeChanged)
             Q_PROPERTY(QGeoCoordinate uavPosition READ uavPosition WRITE setUavPosition NOTIFY uavPositionChanged)
+            Q_PROPERTY(double azimuth READ azimuth WRITE setAzimuth NOTIFY azimuthChanged)
+            Q_PROPERTY(DiagramDirection direction READ direction WRITE setDirection NOTIFY directionChanged)
 
         public:
             Diagram(QObject* parent = nullptr);
@@ -34,6 +44,8 @@ namespace Map
             float angle() const; void setAngle(float);
             DiagramType type() const; void setType(DiagramType);
             QGeoCoordinate uavPosition() const; void setUavPosition(const QGeoCoordinate&);
+            double azimuth() const; void setAzimuth(double);
+            DiagramDirection direction() const; void setDirection(const DiagramDirection&);
 
             signals:
                 void polygonChanged();
@@ -42,6 +54,11 @@ namespace Map
                 void angleChanged();
                 void typeChanged();
                 void uavPositionChanged();
+                void azimuthChanged();
+                void directionChanged();
+
+        private:
+            void update();
 
         private:
             QVariantList m_polygon;
@@ -50,5 +67,7 @@ namespace Map
             float m_angle;
             DiagramType m_type;
             QGeoCoordinate m_uavPosition;
+            double m_azimuth;
+            DiagramDirection m_direction;
     };
 } // Map

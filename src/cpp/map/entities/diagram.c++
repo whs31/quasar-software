@@ -1,5 +1,4 @@
 #include "diagram.h"
-#include <cmath>
 
 namespace Map
 {
@@ -74,8 +73,10 @@ void Diagram::update()
     QVariantList res = {
         QVariant::fromValue(uavPosition()),
         QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle - angle() / 2)),
+        QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle - angle() / 4)),
         QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle)),
-        QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle + angle() / 2)),
+        QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle + angle() / 4)),
+        QVariant::fromValue(uavPosition().atDistanceAndAzimuth(range(), az_angle + angle() / 2))
     };
 
     setPolygon(res);

@@ -187,6 +187,7 @@ Map { id: c_Map;
                 }
 
                 RoundButton { id: button_Protractor;
+                    enabled: false;
                     checkable: true;
                     checked: ClickHandler.state === ClickHandler.ProtractorActive;
                     height: 44;
@@ -256,6 +257,7 @@ Map { id: c_Map;
             }
 
             RoundButton { id: button_PlannerPoint;
+                enabled: false;
                 height: 44;
                 width: 44;
                 radius: 4;
@@ -309,6 +311,7 @@ Map { id: c_Map;
             }
 
             RoundButton { id: button_ToggleImages;
+                enabled: false;
                 height: 44;
                 width: 44;
                 radius: 4;
@@ -339,6 +342,7 @@ Map { id: c_Map;
             spacing: -5;
 
             CheckBox { id: checkbox_FollowUAV;
+                enabled: false;
                 font.family: root.mainfont;
                 checked: false;
                 text: "Следить за БПЛА";
@@ -346,6 +350,7 @@ Map { id: c_Map;
             }
 
             CheckBox { id: checkbox_EnableGrid;
+                enabled: false;
                 font.family: root.mainfont;
                 checked: false;
                 text: "Отображать масштабную сетку";
@@ -371,6 +376,7 @@ Map { id: c_Map;
             }
 
             CheckBox { id: checkbox_ShowDiagram;
+                enabled: false;
                 font.family: root.mainfont;
                 checked: true;
                 text: "Отображать диаграмму направленности";

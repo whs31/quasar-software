@@ -24,8 +24,8 @@ Rectangle {
             antialiasingMode: SceneEnvironment.SSAA;
         }
 
-        PerspectiveCamera {
-            position: Qt.vector3d(0, 0, 110);
+        OrthographicCamera {
+            position: Qt.vector3d(0, 0, 500);
         }
 
         DirectionalLight  {
@@ -34,6 +34,7 @@ Rectangle {
 
         Model {
             position: Qt.vector3d(0, 0, 0);
+            scale: Qt.vector3d(2.9, 2.9, 2.9);
             source: "#Sphere";
             eulerRotation.x: -pitch;
             eulerRotation.y: yaw;
@@ -41,7 +42,7 @@ Rectangle {
             materials: [
                 DefaultMaterial  {
                     diffuseMap: Texture {
-                        source: "qrc:/textures/attitude.png";
+                        source: "qrc:/textures/attitude-alt.png";
                         scaleU: 1.0;
                         scaleV: 1.0;
                     }

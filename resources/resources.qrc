@@ -73,5 +73,6 @@
         <file>icons/google-material/timer.png</file>
         <file>icons/google-material/water.png</file>
         <file>textures/attitude.png</file>
+        <file>textures/attitude-alt.png</file>
     </qresource>
 </RCC>

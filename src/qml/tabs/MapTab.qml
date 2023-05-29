@@ -129,12 +129,32 @@ Map { id: c_Map;
 
     MapTab.AttitudeIndicator { id: attitude;
         width: 250;
-        height: 200;
+        implicitHeight: 200;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.bottom: parent.bottom;
         pitch: Network.telemetry.pitch;
         roll: Network.telemetry.roll;
         yaw: Network.telemetry.yaw;
+        color: Theme.color("dark1");
+    }
+
+    RoundButton { id: button_HideIndicator;
+        anchors.bottom: attitude.top;
+        anchors.horizontalCenter: attitude.horizontalCenter;
+        anchors.bottomMargin: -7;
+        height: 40;
+        radius: 4;
+        icon.source: attitude.shown ? "qrc:/icons/google-material/collapse.png"
+                                    : "qrc:/icons/google-material/expand.png";
+        icon.color: Theme.color("light0");
+        font.family: root.mainfont;
+        text: attitude.shown ? "" : "Авиагоризонт";
+        Material.background: Material.background;
+        Material.primary: Material.primary;
+        Material.accent: Material.accent;
+        checkable: true;
+        checked: false;
+        onCheckedChanged: attitude.shown = checked;
     }
 
     Pane { id: panel_Tools;

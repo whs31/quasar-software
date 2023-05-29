@@ -82,11 +82,9 @@ ApplicationWindow  { id: window_root;
         DropShadow { z: 96; anchors.fill: markerwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
             color: "#80000000"; source: markerwindow; cached: true; enabled: markerwindow.b_Shown; visible: markerwindow.b_Shown;
         }
-        DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16; samples: 32;
-            color: "#80000000"; source: layout_BottomBar; cached: true;
-        }
-
-
+//        DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16; samples: 32;
+//            color: "#80000000"; source: layout_BottomBar; cached: true;
+//        }
         /* LEGACY */
 
         Layouts.BottomBar { id: layout_BottomBar;

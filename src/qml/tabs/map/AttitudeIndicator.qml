@@ -1,18 +1,27 @@
 import QtQuick 2.15
 import QtQuick3D 1.15
-import Theme 1.0
 
 Rectangle {
-    color: Theme.color("dark1");
+    radius: 10;
+
+    property bool shown: false;
     property real pitch;
     property real roll;
     property real yaw;
 
+    height: shown ? implicitHeight : 0;
+    visible: height > 0;
+    Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
+    clip: true;
+
+    Rectangle { color: parent.color; anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom; height: 10; }
+
     View3D {
         anchors.fill: parent;
+        anchors.topMargin: 5;
         environment: SceneEnvironment {
-            clearColor: Theme.color("dark1");
-            backgroundMode: SceneEnvironment.Color;
+            backgroundMode: SceneEnvironment.Transparent;
+            antialiasingMode: SceneEnvironment.SSAA;
         }
 
         PerspectiveCamera {

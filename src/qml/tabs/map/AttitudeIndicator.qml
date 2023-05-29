@@ -3,10 +3,10 @@ import QtQuick3D 1.15
 import Theme 1.0
 
 Rectangle {
-
     color: Theme.color("dark1");
-    property color topColor: "#ffffff"
-    property color bottomColor: "#ffffff"
+    property real pitch;
+    property real roll;
+    property real yaw;
 
     View3D {
         anchors.fill: parent;
@@ -26,6 +26,9 @@ Rectangle {
         Model {
             position: Qt.vector3d(0, 0, 0);
             source: "#Sphere";
+            eulerRotation.x: -pitch;
+            eulerRotation.y: yaw;
+            eulerRotation.z: roll;
             materials: [
                 DefaultMaterial  {
                     diffuseMap: Texture {

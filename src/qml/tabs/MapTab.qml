@@ -132,6 +132,9 @@ Map { id: c_Map;
         height: 200;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.bottom: parent.bottom;
+        pitch: Network.telemetry.pitch;
+        roll: Network.telemetry.roll;
+        yaw: Network.telemetry.yaw;
     }
 
     Pane { id: panel_Tools;

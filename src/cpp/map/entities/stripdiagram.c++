@@ -1,4 +1,4 @@
-#include "stripdiagram.h++"
+#include "stripdiagram.h"
 
 StripDiagram::StripDiagram()
 {

@@ -1,14 +1,24 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include <QtCore/QVariantList>
 
-class Diagram : public QObject
+namespace Map
 {
-    Q_OBJECT
-public:
-    explicit Diagram(QObject *parent = nullptr);
+    class Diagram : public QObject
+    {
+        Q_OBJECT
+        Q_PROPERTY(QVariantList polygon READ polygon WRITE setPolygon NOTIFY polygonChanged)
 
-signals:
+        public:
+            Diagram(QObject* parent = nullptr);
 
-};
+            QVariantList polygon() const; void setPolygon(const QVariantList&);
 
+            signals:
+                void polygonChanged();
+
+        private:
+            QVariantList m_polygon;
+    };
+} // Map

@@ -32,7 +32,6 @@ set(PROJECT_SOURCES
 
     src/qml/qml.qrc
     resources/resources.qrc
-    #${SRCS} resources/appiconwin32.rc
 )
 
 add_executable(${PROJECT_NAME}

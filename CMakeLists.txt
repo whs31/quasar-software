@@ -25,6 +25,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Positioning
     QuickControls2
     Concurrent
+    Quick3D
 )
 
 include_directories(src/cpp libs)
@@ -54,6 +55,8 @@ add_executable(${PROJECT_NAME}
 )
 
 add_subdirectory(libs/LVPL)
+add_subdirectory(libs/quasar-emulator)
+
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.dll")
@@ -69,6 +72,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
+    Qt${QT_VERSION_MAJOR}::Quick3D
     LPVL
 )
 

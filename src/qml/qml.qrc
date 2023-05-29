@@ -22,5 +22,6 @@
         <file>windows/MarkerWindow.qml</file>
         <file>tabs/map/MapMarker.qml</file>
         <file>windows/StripMatrixWindow.qml</file>
+        <file>tabs/map/AttitudeIndicator.qml</file>
     </qresource>
 </RCC>

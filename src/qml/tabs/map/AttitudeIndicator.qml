@@ -3,10 +3,10 @@ import QtQuick3D 1.15
 import Theme 1.0
 
 Rectangle {
-    property color topColor: Theme.color("color0");
-    property color bottomColor: Theme.color("orange");
 
     color: Theme.color("dark1");
+    property color topColor: "#ffffff"
+    property color bottomColor: "#ffffff"
 
     View3D {
         anchors.fill: parent;
@@ -26,9 +26,13 @@ Rectangle {
         Model {
             position: Qt.vector3d(0, 0, 0);
             source: "#Sphere";
-
-            materials: [ DefaultMaterial {
-                    diffuseColor: topColor;
+            materials: [
+                DefaultMaterial  {
+                    diffuseMap: Texture {
+                        source: "qrc:/textures/attitude.png";
+                        scaleU: 1.0;
+                        scaleV: 1.0;
+                    }
                 }
             ]
         }

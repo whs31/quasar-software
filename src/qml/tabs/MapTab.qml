@@ -569,7 +569,6 @@ Map { id: c_Map;
                     }
                 }
             }
-            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 30; }
         }
     }
 

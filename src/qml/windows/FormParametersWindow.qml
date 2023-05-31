@@ -43,12 +43,11 @@ Window {
             columns: 2;
 
             Text {
-                text: "Режим формирования:";
+                text: "Режим формирования:  ";
                 font.family: root.mainfont;
                 color: Theme.color("light1");
                 font.pixelSize: 14;
                 Layout.alignment: Qt.AlignLeft;
-                Layout.fillWidth: true;
             }
 
             ComboBox {
@@ -64,12 +63,11 @@ Window {
             }
 
             Text {
-                text: "Смещение по времени, с:";
+                text: "Смещение по времени, с: ";
                 font.family: root.mainfont;
                 color: Theme.color("light1");
                 font.pixelSize: 14;
                 Layout.alignment: Qt.AlignLeft;
-                Layout.fillWidth: true;
             }
 
             TextField { id: validator_1;
@@ -86,12 +84,11 @@ Window {
             }
 
             Text {
-                text: "Яркость РЛИ:";
+                text: "Яркость РЛИ:  ";
                 font.family: root.mainfont;
                 color: Theme.color("light1");
                 font.pixelSize: 14;
                 Layout.alignment: Qt.AlignLeft;
-                Layout.fillWidth: true;
             }
 
             TextField { id: validator_2;
@@ -107,30 +104,341 @@ Window {
                 //onEditingFinished:
             }
 
-//                {"timeshift", execdargument_t("-t", execd_float, 1, "Смещение по времени, с")},
-//                {"brightness", execdargument_t("-b", execd_int, 0, "Яркость РЛИ")},
-//                {"sea_level", execdargument_t("--e0", execd_int, 120, "Начальная высота в точке старта")},
-//                {"altitude", execdargument_t("-e", execd_int, )},
-//                {"velocity", execdargument_t("-v", execd_float)},
-//                {"window_function", execdargument_t("-w", execd_string)},
-//                {"interpolation", execdargument_t("-i", execd_int)},
-//                {"synthesis_time", execdargument_t("--Ts", execd_float)},
-//                {"strip_time", execdargument_t("--Tstrip", execd_float)},
-//                {"frequency_interpolation_x", execdargument_t("--kR", execd_int)},
-//                {"frequency_interpolation_y", execdargument_t("--kL", execd_int)},
-//                {"jpeg_quality", execdargument_t("--jq", execd_int)},
+            Text {
+                text: "Начальная высота, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
 
-//                {"dx", execdargument_t("--dx", execd_float)},
-//                {"dy", execdargument_t("--dy", execd_float)},
-//                {"x0", execdargument_t("--x0", execd_int)},
-//                {"y0", execdargument_t("--y0", execd_int)},
-//                {"lx", execdargument_t("--lx", execd_int)},
-//                {"ly", execdargument_t("--ly", execd_int)},
+            TextField { id: validator_3;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "120";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Высота БПЛА, м (ручной режим):  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_4;
+                property bool valid: /^[0-9-]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "-";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Скорость БПЛА, м/с (ручной режим):  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_5;
+                property bool valid: /^[0-9.-]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "-";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Оконная функция:";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            ComboBox {
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                currentIndex: 0;
+                model: [ "Хэмминг", "Блэкман" ];
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+//                onCurrentValueChanged: if(currentValue === "Слева") Config.antennaAlignment = 0;
+            }
+
+            Text {
+                text: "Интерполяция:";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_6;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "0";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Время синтезирования, с:";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_7;
+                property bool valid: /^[0-9.]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "10";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Время полосового синтезирования, с:";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_8;
+                property bool valid: /^[0-9.]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "10";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Интерполяция по гор. дальности:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_9;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "1";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Интерполяция по путевой дальности:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_10;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "1";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Качество изображения:";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            Slider {
+                Layout.fillWidth: true;
+                Layout.fillHeight: true;
+                Layout.alignment: Qt.AlignRight;
+                from: 1;
+                to: 100;
+                value: 95;
+                //onValueChanged: transparency = value;
+            }
+
+            Text {
+                text: "Шаг по дальности, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_11;
+                property bool valid: /^[0-9.]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "1";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Ближняя граница, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_12;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "100";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Смещение кадра, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_13;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "0";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Размер РЛИ по горизонтали, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_14;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "2500";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Размер РЛИ по вертикали, м:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_15;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "800";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
+            Text {
+                text: "Время записи, с:  ";
+                font.family: root.mainfont;
+                color: Theme.color("light1");
+                font.pixelSize: 14;
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            TextField { id: validator_16;
+                property bool valid: /^[0-9]*$/.test(text);
+
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                font.pixelSize: 14;
+                text: "15";
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                color: valid ? Theme.color("light1") : Theme.color("red");
+                //onEditingFinished:
+            }
+
 //                {"remote_directory", execdargument_t("--ip", execd_string)},
 //                {"im", execdargument_t("--im", execd_string)},
 //                {"timeshift2", execdargument_t("--Tshift", execd_float)},
 //                {"remote_address", execdargument_t("--remote", execd_string)},
-//                {"record_duration", execdargument_t("--td", execd_int)},
         }
     }
 

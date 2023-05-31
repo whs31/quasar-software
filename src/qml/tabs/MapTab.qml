@@ -499,6 +499,19 @@ Map { id: c_Map;
                     Material.background: Theme.color("color0");
                     //onPressed:
                 }
+
+                RoundButton { id: button_ImageParams;
+                    font.family: root.mainfont;
+                    height: 40;
+                    width: layout_ImageTools.width;
+                    radius: 4;
+                    icon.source: "qrc:/icons/google-material/adjust.png";
+                    icon.color: Theme.color("light0");
+                    text: "Параметры формирования";
+                    Material.elevation: 30;
+                    Material.background: Material.background;
+                    onPressed: window_FormParameters.show();
+                }
             }
 
             Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 15; }

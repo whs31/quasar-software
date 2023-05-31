@@ -1,7 +1,7 @@
 #include "ruler.h"
 #include <QtCore/QDebug>
 #include <QtCore/QPointF>
-#include <LPVL/Geomath>
+#include <CCL/Geomath>
 
 using namespace Map;
 
@@ -106,21 +106,21 @@ void Ruler::insertPoint(const QGeoCoordinate& _point, quint16 _index)
     }
     else if (_index == m_path.size() - 1){
         beginInsertRows(QModelIndex(),m_segments.size(), m_segments.size());
-        m_orthodrom.setCoord1(m_path.at(pointsCount - 1));  //???
+        m_orthodrom.setCoord1(m_path.at(pointsCount - 1));
         m_orthodrom.setCoord2(_point);
         m_segmentsCenter.insert(m_segments.size(), calculateCenter(m_segments.size()));
         m_segments.insert(m_segments.size(), m_orthodrom.getPoints());
         endInsertRows();
     }
     else {
-        m_orthodrom.setCoord1(m_path.at(_index - 1));  //???
+        m_orthodrom.setCoord1(m_path.at(_index - 1));
         m_orthodrom.setCoord2(m_path.at(_index));
         m_segments[_index - 1] =  m_orthodrom.getPoints();
         m_segmentsCenter[_index - 1] = calculateCenter(_index - 1);
         emit dataChanged(createIndex(_index - 1, 0), createIndex(_index - 1, 0));
 
         beginInsertRows(QModelIndex(), _index, _index);
-        m_orthodrom.setCoord1(m_path.at(_index));  //???
+        m_orthodrom.setCoord1(m_path.at(_index));
         m_orthodrom.setCoord2(m_path.at(_index + 1));
         m_segmentsCenter.insert(_index, calculateCenter(_index));
         m_segments.insert(_index, m_orthodrom.getPoints());
@@ -225,8 +225,8 @@ QGeoCoordinate Ruler::calculateCenter(quint16 _index)
 qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2)
 {
     qreal result;
-    QPointF coord1 = LPVL::Private::geo2webmercator(_coord1);
-    QPointF coord2 = LPVL::Private::geo2webmercator(_coord2);
+    QPointF coord1 = CCL::geo2webmercator(_coord1);
+    QPointF coord2 = CCL::geo2webmercator(_coord2);
     qreal newLong1 = _coord1.longitude();
     qreal newLong2 = _coord2.longitude();
 
@@ -235,8 +235,8 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord1.longitude() + shift < 0){
             newLong1 = _coord1.longitude() + shift;
             newLong2 = (_coord2.longitude() + shift) - 360;
-            coord1 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
-            coord2 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
+            coord1 = CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
+            coord2 = CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
         }
     }
     else if (_coord2.longitude() < 0 && _coord1.longitude() > 0){
@@ -244,8 +244,8 @@ qreal Ruler::calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _
         if (_coord2.longitude() + shift < 0){
             newLong1 = (_coord1.longitude() + shift) - 360;
             newLong2 = _coord2.longitude() + shift;
-            coord2 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
-            coord1 = LPVL::Private::geo2webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
+            coord2 = CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
+            coord1 = CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
         }
     }
     qreal angle = qAtan2(abs(coord1.y() - coord2.y()) , abs(coord1.x() - coord2.x())) * 180 / M_PI;

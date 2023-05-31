@@ -1,3 +1,6 @@
-[submodule "libs/LVPL"]
-	path = libs/LVPL
-	url = ../LVPL
+[submodule "libs/CCL"]
+	path = libs/CCL
+	url = ../../../test/ccl
+[submodule "libs/LPVL"]
+	path = libs/LPVL
+	url = ../../../test/lpvl

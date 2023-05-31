@@ -557,7 +557,8 @@ Map { id: c_Map;
                     Material.elevation: 30;
                     Material.background: Theme.color("red");
                     text: "Очистить кэш";
-                    onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
+                    onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений?
+                                                  Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
                     Connections {
                         target: dialogwindow;
                         function onClosed(status, uid) {

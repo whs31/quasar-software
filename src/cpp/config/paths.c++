@@ -79,6 +79,7 @@ void Paths::createImageCache(void)
     if(not dir.exists())
     {
         dir.mkpath(imageCache());
+        dir.mkpath(imageCache() + "/tcp");
         dir.mkpath(imageCache() + "/lod0");
         dir.mkpath(imageCache() + "/lod1");
     }

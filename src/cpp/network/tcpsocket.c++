@@ -1,6 +1,9 @@
 #include "tcpsocket.h"
+#include "config/paths.h"
+#include "filesystem/filesystem.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
+#include <QtCore/QFile>
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
 
@@ -67,7 +70,6 @@ void TCPSocket::clientConnected()
     splitIndex = 0;
 
     qInfo() << "[TCP] SAR ready to send image";
-
 }
 
 void TCPSocket::serverRead()
@@ -85,8 +87,12 @@ void TCPSocket::clientDisconnected()
 
     if(not filename.contains(".zip"))
     {
-        /// @todo process image here
-        //ImageManager::newImage(CacheManager::getTcpDowloaderCache() + "/" + filename, imageData);
+        QFile file(Config::Paths::imageCache() + "/tcp/" + filename);
+        file.open(QIODevice::WriteOnly);
+        file.write(imageData);
+        file.close();
+
+        OS::Filesystem::get()->fetchTCPCache();
     }
     emit receivingFinished();
 }

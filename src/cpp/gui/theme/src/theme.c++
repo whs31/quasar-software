@@ -66,7 +66,7 @@ void ThemePrivate::applyTheme(QString theme)
             QJsonDocument _doc = QJsonDocument::fromJson(_val.toUtf8());
             QJsonObject _object = _doc.object();
             m_color.clear();
-            for(const QString &key : _object.keys())
+            for(const QString& key : _object.keys())
                 m_color.insert(key, _object.value(key).toString());
 
             qInfo() << "[THEME] Theme set.";

@@ -356,7 +356,38 @@ Map { id: c_Map;
         Material.elevation: 30;
 
         ColumnLayout {
-            spacing: -5;
+            spacing: -4;
+
+            RowLayout {
+                Text {
+                    font.family: root.mainfont;
+                    font.weight: Font.DemiBold;
+                    font.pixelSize: 14;
+                    color: Theme.color("light0");
+                    text: "Режим карты   ";
+                    Layout.alignment: Qt.AlignLeft;
+                }
+
+                ComboBox {
+                    font.family: root.mainfont;
+                    font.weight: Font.Bold;
+                    Layout.alignment: Qt.AlignRight;
+                    Layout.fillWidth: true;
+                    currentIndex: 2;
+                    model: ["Оффлайн-карта", "Схема", "Спутник", "Гибрид"];
+
+                    onCurrentValueChanged: {
+                        if(currentValue === "Оффлайн-карта")
+                            i_MapMode = 0;
+                        if(currentValue === "Схема")
+                            i_MapMode = 5;
+                        if(currentValue === "Спутник")
+                            i_MapMode = 1;
+                        if(currentValue === "Гибрид")
+                            i_MapMode = 4;
+                    }
+                }
+            }
 
             CheckBox { id: checkbox_FollowUAV;
                 enabled: false;
@@ -418,7 +449,6 @@ Map { id: c_Map;
                     }
                 }
             }
-            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 30; }
         }
     }
 
@@ -546,30 +576,5 @@ Map { id: c_Map;
         Material.background: Material.background;
         checkable: true;
         onCheckedChanged: panel_ImageTools.shown = checked;
-    }
-
-    Row { id: layout_MapMode;
-        anchors.top: parent.top;
-        anchors.right: parent.right;
-        anchors.margins: 5;
-
-        ComboBox { id: control_MapMode;
-            font.family: root.mainfont;
-            font.weight: Font.Bold;
-            width: 170;
-            currentIndex: 2;
-            model: ["Оффлайн-карта", "Схема", "Спутник", "Гибрид"];
-
-            onCurrentValueChanged: {
-                if(currentValue === "Оффлайн-карта")
-                    i_MapMode = 0;
-                if(currentValue === "Схема")
-                    i_MapMode = 5;
-                if(currentValue === "Спутник")
-                    i_MapMode = 1;
-                if(currentValue === "Гибрид")
-                    i_MapMode = 4;
-            }
-        }
     }
 }

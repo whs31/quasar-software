@@ -23,5 +23,6 @@
         <file>tabs/map/MapMarker.qml</file>
         <file>windows/StripMatrixWindow.qml</file>
         <file>tabs/map/AttitudeIndicator.qml</file>
+        <file>windows/FormParametersWindow.qml</file>
     </qresource>
 </RCC>

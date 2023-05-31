@@ -114,6 +114,8 @@ void TCPSocket::readFileInfo(QByteArray data)
 
     qDebug().noquote() << "[TCP] LFS filename:" << filename;
     qDebug().noquote() << "[TCP] LFS size:" << QString::number(fileSize) << "kB";
+    emit socketMetrics(filename, filename.size(), false);
+    emit socketMetrics(QString::number(fileSize), 32, false);
 
     data.remove(0, i);
 
@@ -129,5 +131,6 @@ void TCPSocket::readFileBody(QByteArray data)
     if(data.size())
         imageData.append(data);
     this->progress();
+    emit socketMetrics("DATA with size of " + QString::number(data.size()), data.size(), false);
 }
 

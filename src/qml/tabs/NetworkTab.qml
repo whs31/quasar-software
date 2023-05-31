@@ -124,5 +124,6 @@ Pane {
         target: Network;
         function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }
         function onFeedbackSocketMetrics(data, size_bytes, out) { panel_FeedbackConsole.logdata(data, size_bytes, out); }
+        function onLfsSocketMetrics(data, size_bytes, out) { panel_LFSConsole.logdata(data, size_bytes, out); }
     }
 }

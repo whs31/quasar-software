@@ -32,6 +32,7 @@ namespace Network
             signals:
                 void receivingFinished();
                 void progressChanged(float progress);
+                void socketMetrics(const QString& data, int size_bytes, bool out);
 
         private:
             void (TCPSocket::*readFile)(QByteArray data);

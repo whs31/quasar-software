@@ -25,6 +25,7 @@ void Config::Config::save()
     ini->setValue("feedbackPort", feedbackPort());
     ini->setValue("telemetryFrequency", QSTRING_CAST(telemetryFrequency()));
     ini->setValue("proxyEnabled", QSTRING_CAST(proxyEnabled()));
+    ini->setValue("tcpMarker", tcpMarker());
     ini->setValue("storedLatitude", QSTRING_CAST(storedLatitude()));
     ini->setValue("storedLongitude", QSTRING_CAST(storedLongitude()));
     ini->setValue("storedZoomLevel", QSTRING_CAST(storedZoomLevel()));
@@ -51,6 +52,7 @@ void Config::Config::load()
     setFeedbackPort(ini->value("feedbackPort").toString());
     setTelemetryFrequency(ini->value("telemetryFrequency").toFloat());
     setProxyEnabled(ini->value("proxyEnabled").toBool());
+    setTcpMarker(ini->value("tcpMarker").toString());
     setStoredLatitude(ini->value("storedLatitude").toDouble());
     setStoredLongitude(ini->value("storedLongitude").toDouble());
     setStoredZoomLevel(ini->value("storedZoomLevel").toDouble());
@@ -358,6 +360,19 @@ void Config::setTelemetryFrequency(float other)
         return;
     m_telemetryFrequency = other;
     emit telemetryFrequencyChanged();
+}
+
+QString Config::tcpMarker() const
+{
+    return m_tcpMarker;
+}
+
+void Config::setTcpMarker(const QString& other)
+{
+    if (m_tcpMarker == other)
+        return;
+    m_tcpMarker = other;
+    emit tcpMarkerChanged();
 }
 
 }

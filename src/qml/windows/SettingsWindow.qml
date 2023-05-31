@@ -43,7 +43,7 @@ Window {
 
             Pane { id: panel_Network;
                 x: 25;
-                height: 480;
+                height: 540;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -257,6 +257,33 @@ Window {
                         font.family: root.mainfont;
                         font.pixelSize: 14;
                         onCheckedChanged: Config.proxyEnabled = checked;
+                    }
+
+                    Item { Layout.fillHeight: true; Layout.fillWidth: true; }
+
+                    Text {
+                        text: "Маркер TCP-сокета:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    ComboBox { id: control_TCPMarker;
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        width: 250;
+                        currentIndex: Config.tcpMarker === "\n" ? 1 : 0;
+                        model: [ "NULL", "NEWLINE" ];
+                        Layout.alignment: Qt.AlignRight;
+
+                        onCurrentValueChanged: {
+                            if(currentValue === "NULL")
+                                Config.tcpMarker = "\0";
+                            else
+                                Config.tcpMarker = "\n";
+                        }
                     }
                 }
             }

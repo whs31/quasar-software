@@ -1,5 +1,6 @@
 #include "tcpsocket.h"
 #include "config/paths.h"
+#include "config/config.h"
 #include "filesystem/filesystem.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
@@ -21,16 +22,14 @@ TCPSocket::TCPSocket(QObject *parent)
 
 void TCPSocket::startServer(const QString& address)
 {
-    if(not address.contains(":") or address.split(":").size() > 2)
-    {
+    if(not address.contains(":") or address.split(":").size() > 2) {
         qCritical().noquote() << "[TCP] Provided incorrect IP:" << address;
         return;
     }
 
     QString ip = address.split(":").first();
     uint16_t port = address.split(":").last().toUInt();
-    if(not server->listen(QHostAddress(ip), port))
-    {
+    if(not server->listen(QHostAddress(ip), port)) {
         qCritical() << "[TCP] TCP-IP server has failed to start.";
         return;
     }
@@ -57,9 +56,10 @@ void TCPSocket::clientConnected()
 
     socket = server->nextPendingConnection();
     if(not socket) {
-        qCritical() << "[TCP] NextPendingConnection returned nullptr. Aborting connection.";
+        qCritical() << "[TCP] NextPendingConnection returned nullptr. Aborting connection";
         return;
     }
+
     connect(socket, &QTcpSocket::readyRead, this, &TCPSocket::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPSocket::clientDisconnected);
     imageData64.clear();
@@ -106,21 +106,20 @@ void TCPSocket::readFileInfo(QByteArray data)
 {
     readFile = &TCPSocket::readFileBody;
 
-    uint8_t i = data.indexOf('\n') + 1; // maybe + 1;
+    uint8_t i = data.indexOf(CONFIG(tcpMarker).constData()->toLatin1()) + 1; // maybe + 1;
     filename = data.left(i - 1).data();
     memcpy(&fileSize, data.mid(i, sizeof(uint32_t)).data(), sizeof(uint32_t));
 
     i += sizeof(uint32_t);
 
     qDebug().noquote() << "[TCP] LFS filename:" << filename;
-    qDebug().noquote() << "[TCP] LFS size:" << QString::number(fileSize / 1024) << "kB";
+    qDebug().noquote() << "[TCP] LFS size:" << QString::number(fileSize) << "kB";
 
     data.remove(0, i);
 
     timer->stop();
     timer->start();
     (this->*readFile)(data);
-
 }
 
 void TCPSocket::readFileBody(QByteArray data)

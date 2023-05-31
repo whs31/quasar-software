@@ -1,18 +1,20 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtGraphicalEffects 1.15 // LEGACY
 
+import LPVL.Charts 1.0
 import Theme 1.0
 
 Pane {
     property string name: "Socket Console";
     property color color: "red";
-    //property alias color: histogram.histogramColor;
+    property alias color: plot.plottingColor;
 
     function logdata(str, sizeof, out)
     {
         listview.append(str, sizeof, out);
-        //histogram.append(sizeof);
+        plot.append(sizeof);
     }
 
     Material.elevation: 6;
@@ -95,15 +97,26 @@ Pane {
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
         anchors.bottomMargin: 6;
-        color: Theme.color("dark0");
+        radius: 15;
         clip: true;
+        color: Theme.color("dark1");
 
-//        CCLRealtimeHistogram { id: histogram;
-//            anchors.fill: parent;
-//            histogramColor: Theme.color("orange");
-//            horizontalAxisMaxValue: 30000;
-//            verticalAxisMaxValue: 512;
-//            interval: 1000;
-//        }
+        LPVLRealtimeLinePlot { id: plot;
+            anchors.fill: parent;
+            from: 0;
+            to: 255;
+            backgroundColor: Theme.color("dark2");
+            plottingColor: Theme.color("color1");
+            foregroundColor: Theme.color("light0");
+            interval: 1;
+            seconds: 30;
+            drawAxes: false;
+            layer.enabled: true;
+            layer.smooth: true;
+            layer.samples: 8;
+            layer.effect: OpacityMask {
+                maskSource: parent;
+            }
+        }
     }
 }

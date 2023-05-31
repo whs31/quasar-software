@@ -1,8 +1,8 @@
 #pragma once
 
-#include "tools/orthodrom.h"
 #include <QtCore/QObject>
 #include <QtCore/QAbstractListModel>
+#include <CCL/Orthodrom>
 #include <memory>
 
 namespace Map
@@ -50,7 +50,7 @@ namespace Map
             QList<QVariantList> m_segments;
             QList<QGeoCoordinate> m_path;
             QList<QGeoCoordinate> m_segmentsCenter;
-            Orthodrom m_orthodrom;
+            CCL::Orthodrom m_orthodrom;
 
             double m_lastLatitude = 0;
             double m_lastLongitude = 0;

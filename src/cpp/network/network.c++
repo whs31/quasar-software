@@ -39,6 +39,10 @@ Network::Network(QObject* parent)
         float space = free / (float)total;
         remoteData()->setStorageSpace(space);
     });
+
+    QObject::connect(tcpSocket, &TCPSocket::progressChanged, this, [this](float progress){
+        setTcpProgress(progress);
+    });
 }
 
 void Network::startTelemetrySocket(const QString& address, float frequency)
@@ -115,6 +119,15 @@ void Network::setConnected(int other) {
     if (m_connected == other) return;
     m_connected = other;
     emit connectedChanged();
+}
+
+float Network::tcpProgress() const { return m_tcpProgress; }
+void Network::setTcpProgress(float other)
+{
+    if (qFuzzyCompare(m_tcpProgress, other))
+        return;
+    m_tcpProgress = other;
+    emit tcpProgressChanged();
 }
 
 }

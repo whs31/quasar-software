@@ -147,13 +147,12 @@ Map { id: c_Map;
 
     MapTab.AttitudeIndicator { id: attitude;
         width: 250;
-        implicitHeight: 200;
+        implicitHeight: 150;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.bottom: parent.bottom;
         pitch: Network.telemetry.pitch;
         roll: Network.telemetry.roll;
         yaw: Network.telemetry.yaw;
-        color: Theme.color("dark1");
     }
 
     RoundButton { id: button_HideIndicator;
@@ -162,8 +161,8 @@ Map { id: c_Map;
         anchors.bottomMargin: -7;
         height: 40;
         radius: 4;
-        icon.source: attitude.shown ? "qrc:/icons/google-material/collapse.png"
-                                    : "qrc:/icons/google-material/expand.png";
+        icon.source: attitude.shown ? "qrc:/icons/google-material/expand-more.png"
+                                    : "qrc:/icons/google-material/expand-less.png";
         icon.color: Theme.color("light0");
         font.family: root.mainfont;
         text: attitude.shown ? "" : "Авиагоризонт";
@@ -345,16 +344,16 @@ Map { id: c_Map;
     }
 
     Pane { id: panel_Parameters;
-        property bool b_Expanded: false;
+        property bool shown: false;
 
-        anchors.bottom: layout_MapMode.top;
+        anchors.bottom: parent.bottom;
         anchors.right: parent.right;
-        anchors.margins: 5;
         opacity: 0.85;
-        width: b_Expanded ? implicitWidth : 0;
-        visible: width > 0;
-        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
+        height: shown ? implicitHeight : 0;
+        visible: height > 0;
+        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
         clip: true;
+        Material.elevation: 30;
 
         ColumnLayout {
             spacing: -5;
@@ -424,38 +423,36 @@ Map { id: c_Map;
     }
 
     RoundButton { id: button_ExpandParameters;
-        anchors.bottom: layout_MapMode.top;
-        anchors.right: parent.right;
-        anchors.margins: 5;
+        anchors.bottom: panel_Parameters.top;
+        anchors.right: panel_Parameters.right;
+        anchors.rightMargin: -7;
+        anchors.bottomMargin: -7;
         checkable: true;
         height: 40;
         radius: 4;
-        icon.source: panel_Parameters.b_Expanded ? "qrc:/icons/google-material/collapse.png"
+        icon.source: panel_Parameters.shown ? "qrc:/icons/google-material/collapse.png"
                                                  : "qrc:/icons/google-material/expand.png";
         icon.color: Theme.color("light0");
         font.family: root.mainfont;
-        text: panel_Parameters.b_Expanded ? "" : "Параметры карты";
+        text: panel_Parameters.shown ? "" : "Параметры карты";
         Material.elevation: 30;
         Material.background: Material.background;
         Material.primary: Material.primary;
         Material.accent: Material.accent;
-        onCheckedChanged: panel_Parameters.b_Expanded = checked;
+        onCheckedChanged: panel_Parameters.shown = checked;
     }
 
     Pane { id: panel_ImageTools;
-        property bool b_Expanded: false;
+        property bool shown: false;
 
-        Material.elevation: 30;
         anchors.bottom: parent.bottom;
         anchors.left: parent.left;
-        anchors.margins: 0;
         opacity: 0.85;
-        width: b_Expanded ? implicitWidth : 0;
-        height: b_Expanded ? implicitHeight : 0;
+        height: shown ? implicitHeight : 0;
         visible: height > 0;
         Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
-        Behavior on width { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
         clip: true;
+        Material.elevation: 30;
 
         ColumnLayout {
             Column {
@@ -534,24 +531,26 @@ Map { id: c_Map;
     }
 
     RoundButton { id: button_ToggleImageTools;
+        anchors.bottom: panel_ImageTools.top;
+        anchors.left: panel_ImageTools.left;
+        anchors.bottomMargin: -7;
+        anchors.leftMargin: -7;
         font.family: root.mainfont;
         height: 40;
         radius: 4;
-        icon.source: panel_ImageTools.b_Expanded ? "qrc:/icons/google-material/expand-less.png"
-                                                 : "qrc:/icons/google-material/expand-more.png";
+        icon.source: panel_ImageTools.shown ? "qrc:/icons/google-material/expand-more.png"
+                                            : "qrc:/icons/google-material/expand-less.png";
         icon.color: Theme.color("light0");
-        text: panel_ImageTools.b_Expanded ? "" : "Работа с изображениями";
+        text: panel_ImageTools.shown ? "" : "Работа с изображениями";
         Material.elevation: 30;
-        anchors.bottom: parent.bottom;
-        anchors.left: parent.left;
-        anchors.margins: 5;
         Material.background: Material.background;
-        onPressed: panel_ImageTools.b_Expanded = !panel_ImageTools.b_Expanded;
+        checkable: true;
+        onCheckedChanged: panel_ImageTools.shown = checked;
     }
 
     Row { id: layout_MapMode;
+        anchors.top: parent.top;
         anchors.right: parent.right;
-        anchors.bottom: parent.bottom;
         anchors.margins: 5;
 
         ComboBox { id: control_MapMode;

@@ -59,12 +59,15 @@ ApplicationWindow  { id: window_root;
         FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
         Widgets.DebugConsole { id: c_DebugConsole; enabled: root.b_ConsoleShown; visible: root.b_ConsoleShown; }
+        Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
+
         Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
         Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
         Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
         Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
         Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
+        Windows.FormParametersWindow { id: window_FormParameters; visible: false; }
 
         /* LEGACY */
         DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
@@ -82,9 +85,6 @@ ApplicationWindow  { id: window_root;
         DropShadow { z: 96; anchors.fill: markerwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
             color: "#80000000"; source: markerwindow; cached: true; enabled: markerwindow.b_Shown; visible: markerwindow.b_Shown;
         }
-//        DropShadow { z: 99; anchors.fill: layout_BottomBar; horizontalOffset: 1; verticalOffset: -12; radius: 16; samples: 32;
-//            color: "#80000000"; source: layout_BottomBar; cached: true;
-//        }
         /* LEGACY */
 
         Layouts.BottomBar { id: layout_BottomBar;

@@ -46,6 +46,41 @@ bool Filesystem::fetchImageDirectory()
     return true;
 }
 
+void Filesystem::fetchTCPCache()
+{
+    qDebug().noquote() << "[FILESYSTEM] Fetching images from" << Config::Paths::imageCache() + "/tcp";
+
+    QList<QString> pass;
+    QList<QString> path_list;
+
+    QDir directory(Config::Paths::imageCache() + "/tcp", {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+                   QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+
+    for (const QString& filename : directory.entryList())
+        path_list.push_back(Config::Paths::imageCache() + "/tcp/" + filename);
+
+    if(path_list.empty()) {
+        qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window";
+        return;
+    }
+
+    for(size_t i = 0; i < directory.entryList().size(); ++i)
+    {
+        if(not Processing::ImageProcessing::get()->exists(directory.entryList().at(i)))
+        {
+            qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
+                                        << " at path " << path_list.at(i).left(15) << "...";
+            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            QFile::remove(path_list.at(i));
+            pass.push_back(directory.entryList().at(i));
+        }
+        else
+            qDebug() << "[FILESYSTEM] Occurence found, skipping...";
+    }
+
+    emit imageListCached(pass);
+}
+
 bool Filesystem::checkOcurrence(QString target_folder, QString filename)
 {
     QStringList initial_file_list;

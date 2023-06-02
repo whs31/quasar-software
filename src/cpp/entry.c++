@@ -25,7 +25,6 @@ Entry::Entry(QObject *parent)
         Protractor
         Follow UAV
         Scale grid
-        Diagram
         Form image button
         Focus window
         Attitude indicator

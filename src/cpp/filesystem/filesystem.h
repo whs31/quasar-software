@@ -13,6 +13,7 @@ namespace OS
 
         public:
             Q_INVOKABLE bool fetchImageDirectory();
+            Q_INVOKABLE void fetchTCPCache();
 
             signals:
                 void imageListCached(const QList<QString>& filenames);

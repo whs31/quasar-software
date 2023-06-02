@@ -20,6 +20,7 @@ namespace Network
         Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
         Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
+        Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
         LPVL_DECLARE_SINGLETON(Network);
 
@@ -46,6 +47,7 @@ namespace Network
             RemoteData* remoteData() const; void setRemoteData(RemoteData*);
             float networkDelay() const; void setNetworkDelay(float);
             int connected() const; void setConnected(int);
+            float tcpProgress() const; void setTcpProgress(float);
 
             signals:
                 void telemetryChanged();
@@ -58,6 +60,7 @@ namespace Network
                 void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);
                 void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
                 void stripSocketMetrics(const QString msg, int size_bytes, bool out);
+                void tcpProgressChanged();
 
         private:
             explicit Network(QObject* parent = nullptr);
@@ -70,5 +73,6 @@ namespace Network
 
             float m_networkDelay = DISCONNECT_DELAY_THRESHOLD + .1f;
             int m_connected = 0;
+            float m_tcpProgress;
     };
 } // namespace Network;

@@ -25,7 +25,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Positioning
     QuickControls2
     Concurrent
-    Quick3D
 )
 
 include_directories(src/cpp libs)
@@ -54,14 +53,18 @@ add_executable(${PROJECT_NAME}
     ${META_FILES}
 )
 
-add_subdirectory(libs/LVPL)
-add_subdirectory(libs/quasar-emulator)
+add_subdirectory(libs/LPVL)
+add_subdirectory(libs/CCL)
 
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
-    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.dll")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll")
+
+    set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.dll.a")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.dll")
 else()
-    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/lpvl.so")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.so")
+    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.so")
 endif()
 
 target_link_libraries(${PROJECT_NAME}
@@ -72,8 +75,8 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
-    Qt${QT_VERSION_MAJOR}::Quick3D
     LPVL
+    CCL
 )
 
 install(TARGETS ${PROJECT_NAME}

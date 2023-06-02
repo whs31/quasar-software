@@ -16,7 +16,7 @@
 #include <cmath>
 #include <LPVL/Math>
 #include <LPVL/Crypto>
-#include <LPVL/Geomath>
+#include <CCL/Geomath>
 
 using namespace Processing;
 
@@ -198,7 +198,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     image.opacity = INITIAL_OPACITY;
     image.shown = INITIAL_VISIBILITY;
-    image.mercator_zoom_level = LPVL::Private::mqi_zoom_level(image.meta.latitude, image.meta.dx);
+    image.mercator_zoom_level = CCL::mqiZoomLevel(image.meta.latitude, image.meta.dx);
 
     setProcessingImage(false);
     emit processImageFinished(image);

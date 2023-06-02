@@ -25,6 +25,7 @@ namespace Config
         Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
         Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
         Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
+        Q_PROPERTY(QString tcpMarker READ tcpMarker WRITE setTcpMarker NOTIFY tcpMarkerChanged)
 
         Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
 
@@ -70,6 +71,7 @@ namespace Config
             float telemetryFrequency() const; void setTelemetryFrequency(float);
             bool overrideImageHeight() const; void setOverrideImageHeight(bool);
             bool cutImage() const; void setCutImage(bool);
+            QString tcpMarker() const; void setTcpMarker(const QString&);
 
             signals:
                 void remoteIPChanged();
@@ -92,6 +94,7 @@ namespace Config
                 void telemetryFrequencyChanged();
                 void overrideImageHeightChanged();
                 void cutImageChanged();
+                void tcpMarkerChanged();
 
         private:
             explicit Config(QObject* parent = nullptr);
@@ -107,6 +110,7 @@ namespace Config
                 {"feedbackPort", "9846"},
                 {"telemetryFrequency", "0.1"},
                 {"proxyEnabled", "false"},
+                {"tcpMarker", "\0"},
                 {"storedLatitude", "60"},
                 {"storedLongitude", "30"},
                 {"storedZoomLevel", "6"},
@@ -142,5 +146,6 @@ namespace Config
             float m_telemetryFrequency;
             bool m_overrideImageHeight;
             bool m_cutImage;
+            QString m_tcpMarker;
     };
 } // namespace Config;

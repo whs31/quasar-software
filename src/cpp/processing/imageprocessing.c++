@@ -228,11 +228,10 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             break;
 
         Map::StripImageDatagram datagram;
-        memcpy(&datagram.header, data_ptr + offset, sizeof(Map::StripHeaderMetadata));
-        memcpy(&datagram.nav, data_ptr + offset + sizeof(Map::StripHeaderMetadata),
-               sizeof(Map::StripNavigationMetadata));
-        memcpy(&datagram.format, data_ptr + offset + sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata),
-               sizeof(Map::StripFormatMetadata));
+        memcpy(&datagram.header, data_ptr + offset, sizeof(datagram.header));
+        memcpy(&datagram.nav, data_ptr + offset + sizeof(datagram.header), sizeof(datagram.nav));
+        memcpy(&datagram.format, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav),
+               sizeof(datagram.format));
 
         int chunk_size = datagram.header.size * datagram.format.word_size;
         if(not ws)
@@ -243,10 +242,8 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         char chunk[chunk_size];
         float fchunk[chunk_size];
-        memcpy(chunk, data_ptr + offset + sizeof(Map::StripHeaderMetadata)
-                           + sizeof(Map::StripNavigationMetadata)
-                           + sizeof(Map::StripFormatMetadata),
-                           chunk_size);
+        memcpy(chunk, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav)
+                          + sizeof(datagram.format), chunk_size);
 
         for(size_t i = 0; i < chunk_size; ++i)
         {
@@ -254,7 +251,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             chunks_unknown_ws.push_back(fchunk[i]);
         }
 
-        offset += (sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripNavigationMetadata) + sizeof(Map::StripFormatMetadata) + chunk_size); //84 + chunk_size
+        offset += (sizeof(datagram.header) + sizeof(datagram.nav) + sizeof(datagram.format) + chunk_size); //84 + chunk_size
     }
     qInfo() << "$ <i>Cycle finished</i>";
 

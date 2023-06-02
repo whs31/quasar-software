@@ -1,6 +1,6 @@
 [submodule "libs/CCL"]
 	path = libs/CCL
-	url = ../../map/ccl
+	url = ../../map/ccl.git
 [submodule "libs/LPVL"]
 	path = libs/LPVL
-	url = ../../graphics/lpvl
+	url = ../../graphics/lpvl.git

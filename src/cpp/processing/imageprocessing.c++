@@ -275,6 +275,19 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         pixel_count = chunks8_t.size();
 
         vector<uint8_t> out = vector<uint8_t>(chunks8_t.begin(), chunks8_t.end());
+
+        if(DEBUG_SAVE_STRIP_DATA_DESERIALIZED)
+        {
+            QFile file(Config::Paths::lod(0) + "/debug_strip_data.bin");
+            if(file.open(QIODevice::WriteOnly))
+            {
+                file.write(reinterpret_cast<const char*>(out.data()), out.size());
+                file.close();
+            }
+            else
+                qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
+        }
+
         emit stripVector8bit(out, rows, columns);
     }
     if(ws == 2)

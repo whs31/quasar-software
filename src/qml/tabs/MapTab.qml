@@ -192,7 +192,7 @@ Map { id: c_Map;
                     width: 44;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/ruler.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: checked ? Theme.color("yellow") : Theme.color("dark2");
                     onCheckedChanged: {
@@ -211,7 +211,7 @@ Map { id: c_Map;
                     width: 44;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/ruler2.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
                     Material.elevation: 30;
                     Material.background: checked ? Theme.color("accent") : Theme.color("dark2");
                     onCheckedChanged: {
@@ -267,7 +267,7 @@ Map { id: c_Map;
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/marker.png";
-                icon.color: Theme.color("light0");
+                icon.color: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("dark0") : Theme.color("light0");
                 Material.elevation: 30;
                 Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
                 onPressed: ClickHandler.state = ClickHandler.MarkerActive;
@@ -431,11 +431,12 @@ Map { id: c_Map;
                 RoundButton { id: button_ClearTrack;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/clear.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: Theme.color("dark0");
                     height: 40;
                     font.family: root.mainfont;
                     width: checkbox_ShowDiagram.width;
                     text: "Очистить трек полёта";
+                    Material.foreground: Theme.color("dark0");
                     Material.background: Theme.color("red");
                     onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
                     Connections {
@@ -493,9 +494,10 @@ Map { id: c_Map;
                     width: layout_ImageTools.width;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/take-photo.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: Theme.color("dark0");
                     text: "Формирование изображения";
                     Material.elevation: 30;
+                    Material.foreground: Theme.color("dark0");
                     Material.background: Theme.color("color0");
                     //onPressed:
                 }
@@ -553,8 +555,9 @@ Map { id: c_Map;
                     height: 40;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/delete.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: Theme.color("dark0");
                     Material.elevation: 30;
+                    Material.foreground: Theme.color("dark0");
                     Material.background: Theme.color("red");
                     text: "Очистить кэш";
                     onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +

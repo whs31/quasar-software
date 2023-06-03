@@ -58,12 +58,13 @@ MapQuickItem {
 
                     RoundButton { id: button_DeleteImage;
                         icon.source: "qrc:/icons/google-material/delete.png";
-                        icon.color: Theme.color("light0");
+                        icon.color: Theme.color("dark0");
                         font.family: root.mainfont;
                         text: "Удалить изображение";
                         height: 40;
                         radius: 4;
                         Material.elevation: 30;
+                        Material.foreground: Theme.color("dark0");
                         Material.background: Theme.color("red");
                         onPressed: deleteImage(index);
                     }

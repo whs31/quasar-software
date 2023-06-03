@@ -247,7 +247,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         for(size_t i = 0; i < chunk_size; ++i)
         {
-            fchunk[i] = chunk[i] * datagram.format.k;
+            fchunk[i] = chunk[i];
             chunks_unknown_ws.push_back(fchunk[i]);
         }
 

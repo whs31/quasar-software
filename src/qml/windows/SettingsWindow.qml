@@ -452,6 +452,65 @@ Window {
                     }
                 }
             }
+
+            Pane { id: panel_Application;
+                x: 25;
+                height: 80;
+                Material.elevation: 50;
+                width: view.width - 50;
+
+                Rectangle { id: header5;
+                    anchors.top: parent.top;
+                    anchors.left: parent.left;
+                    anchors.right: parent.right;
+                    anchors.margins: -12;
+                    color: Theme.color("dark2");
+                    height: 24;
+
+                    Text {
+                        anchors.fill: parent;
+                        anchors.leftMargin: 3;
+                        text: "ПРИЛОЖЕНИЕ";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.bold: true;
+                        font.pixelSize: 15;
+                    }
+                }
+
+                GridLayout {
+                    columns: 2;
+                    anchors.top: header5.bottom;
+                    anchors.margins: 5;
+                    anchors.left: parent.left;
+                    anchors.right: parent.right;
+
+                    Text {
+                        text: "Тема приложения:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    ComboBox { id: control_Theme;
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        width: 250;
+                        currentIndex: Config.theme === "dark" ? 1 : 0;
+                        model: [ "Контрастная", "Темная" ];
+                        Layout.alignment: Qt.AlignRight;
+
+                        onCurrentValueChanged: {
+                            if(currentValue === "Контрастная")
+                                Config.theme = "contrast";
+                            else
+                                Config.theme = "dark";
+                        }
+                    }
+                }
+            }
         }
     }
 

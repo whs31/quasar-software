@@ -100,6 +100,8 @@ namespace Config
                 void tcpMarkerChanged();
                 void themeChanged();
 
+                void scheduleRestart();
+
         private:
             explicit Config(QObject* parent = nullptr);
 

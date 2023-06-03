@@ -66,8 +66,6 @@ void ThemePrivate::applyTheme(QString theme)
         file.close();
         QJsonDocument doc = QJsonDocument::fromJson(val.toUtf8());
         QJsonObject object = doc.object();
-        qCritical() << object.value("name");
-        qInfo() << name;
 
         if(object.value("name") == theme)
         {

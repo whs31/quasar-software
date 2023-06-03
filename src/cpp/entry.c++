@@ -1,4 +1,10 @@
 #include "entry.h"
+
+#include <QtCore/QCoreApplication>
+#include <QtCore/QDebug>
+#include <QtCore/QProcess>
+#include <QtQml/qqml.h>
+
 #include "gui/theme/include/theme.h"
 #include "config/paths.h"
 #include "config/config.h"
@@ -11,10 +17,6 @@
 #include "map/markermodel.h"
 #include "map/entities/diagram.h"
 #include "network/network.h"
-
-#include <QtCore/QCoreApplication>
-#include <QtCore/QDebug>
-#include <QtQml/qqml.h>
 
 Entry::Entry(QObject *parent)
     : QObject{parent}
@@ -47,4 +49,9 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANTIABLE(Map::Diagram, "RadarDiagram", "RadarDiagram");
 
     connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList);
+    connect(Config::Config::get(), &Config::Config::scheduleRestart, this, [this](){
+        QCoreApplication::instance()->quit();
+        QProcess::startDetached(QCoreApplication::instance()->arguments()[0],
+                                QCoreApplication ::instance()->arguments());
+    });
 }

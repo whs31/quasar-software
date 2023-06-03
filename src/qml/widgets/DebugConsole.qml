@@ -1,15 +1,16 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import ConsoleWidget 1.0
+import Theme 1.0
 
 Rectangle { id: control;
     width: 600;
     height: 400;
     x: 150;
     y: 300; // относительно верхнего левого
-    color: "#232323";
+    color: Theme.color("dark0");
     border.width: 0.5;
-    border.color: "#343434";
+    border.color: Theme.color("dark2");
     z: 100;
     clip: true;
 
@@ -26,7 +27,7 @@ Rectangle { id: control;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.top: parent.top;
-        color: "#343434";
+        color: Theme.color("dark3");
 
         Image { id: title;
             source: "qrc:/icons/console/header.png";
@@ -40,11 +41,11 @@ Rectangle { id: control;
             anchors.rightMargin: 20;
             property point offset: Qt.point(0, 0);
             onPressed: {
-                parent.color = "#444444";
+                parent.color = Theme.color("dark2");
                 offset = Qt.point(mouseX, mouseY);
             }
             onReleased: {
-                parent.color = "#343434";
+                parent.color = Theme.color("dark3");
             }
             onPositionChanged: {
                 if(pressed) {
@@ -60,13 +61,13 @@ Rectangle { id: control;
             anchors.top: parent.top;
             width: 20;
             height: 20;
-            color: "#343434";
+            color: Theme.color("dark3");
 
             MouseArea { // close window mouse area
                 anchors.fill: parent;
                 hoverEnabled: true;
-                onEntered: parent.color = "#563A3D";
-                onExited: parent.color = "#343434";
+                onEntered: parent.color = Theme.color("red");
+                onExited: parent.color = Theme.color("dark3");
                 onClicked: {
                     root.b_ConsoleShown = false;
                 }
@@ -84,18 +85,18 @@ Rectangle { id: control;
         anchors.right: parent.right;
         anchors.top: header.bottom;
         anchors.bottom: inputArea.top;
-        ScrollBar.vertical.policy: ScrollBar.AlwaysOn;
+        anchors.leftMargin: 5;
 
         TextArea { id: textArea;
-            color: "#ECEFF4";
+            color: Theme.color("light0");
             background: Rectangle{
-                color:"#232323";
+                color: Theme.color("dark0");
             }
             text: "[CONSOLE] Beginning logging...";
             selectByMouse: true;
             readOnly: true;
-            selectedTextColor: "#2E3440";
-            selectionColor: "#B48EAD";
+            selectedTextColor: Theme.color("dark0");
+            selectionColor: Theme.color("accent");
             textFormat: Text.RichText;
             font.family: root.monofont;
             font.pixelSize: 13;
@@ -113,19 +114,19 @@ Rectangle { id: control;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
         height: 28;
-        color: "#000000";
+        color: Theme.color("dark1");
         border.width: 0.5;
-        border.color: "#343434";
+        border.color: Theme.color("dark2");
 
         TextInput {
             anchors.fill: parent;
             anchors.leftMargin: 3;
-            color: "#ECEFF4";
+            color: Theme.color("light1");
             text: "";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;
-            selectedTextColor: "#2E3440";
-            selectionColor: "#B48EAD";
+            selectedTextColor: Theme.color("dark0");
+            selectionColor: Theme.color("yellow");
             font.family: root.monofont;
             font.pixelSize: 13;
             onAccepted:
@@ -140,17 +141,17 @@ Rectangle { id: control;
             anchors.bottom: parent.bottom;
             width: 16;
             height: 16;
-            color: "#000000";
+            color: Theme.color("dark1");
 
             MouseArea { // resize window mouse area
                 property point offset: Qt.point(0, 0);
                 anchors.fill: parent;
                 hoverEnabled: true;
                 onPressed: {
-                    parent.color = "#343434";
+                    parent.color = Theme.color("dark2");
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: parent.color = "#000000";
+                onReleased: parent.color = Theme.color("dark1");
                 onPositionChanged: {
                     if(pressed) {
                         let global_pos = mapToItem(control, mouseX, mouseY);

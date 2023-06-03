@@ -39,8 +39,8 @@ Pane {
     clip: true;
     Material.background: Theme.color("dark0");
 
-    implicitWidth: 500;
-    implicitHeight: 170;
+    implicitWidth: 600;
+    implicitHeight: 180;
 
     Image { id: iconItem;
         width: 75;
@@ -66,7 +66,7 @@ Pane {
         color: Theme.color("light1");
         font.bold: true;
         font.pixelSize: 14;
-        wrapMode: Text.WordWrap;
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere;
     }
 
     Row {

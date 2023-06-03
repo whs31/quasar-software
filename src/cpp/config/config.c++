@@ -15,6 +15,7 @@ Config::Config::~Config()
 void Config::Config::save()
 {
     qInfo() << "[CONFIG] Saving settings to file";
+    bool schedule_restart = false;
 
     ini->setValue("remoteIP", remoteIP());
     ini->setValue("localIP", localIP());
@@ -37,7 +38,18 @@ void Config::Config::save()
     ini->setValue("thetaAzimuthCorrection", QSTRING_CAST(thetaAzimuthCorrection()));
     ini->setValue("overrideImageHeight", QSTRING_CAST(overrideImageHeight()));
     ini->setValue("cutImage", QSTRING_CAST(cutImage()));
+
+    if(ini->value("theme").toString() != theme())
+        schedule_restart = true;
+
     ini->setValue("theme", theme());
+
+    if(schedule_restart)
+    {
+        qInfo() << "[CONFIG] Requested restart";
+        ini->sync();
+        emit scheduleRestart();
+    }
 }
 
 void Config::Config::load()
@@ -371,7 +383,7 @@ QString Config::tcpMarker() const
 
 void Config::setTcpMarker(const QString& other)
 {
-    if (m_tcpMarker == other)
+    if(m_tcpMarker == other)
         return;
     m_tcpMarker = other;
     emit tcpMarkerChanged();
@@ -384,7 +396,7 @@ QString Config::theme() const
 
 void Config::setTheme(const QString& other)
 {
-    if (m_theme == other)
+    if(m_theme == other)
         return;
     m_theme = other;
     emit themeChanged();

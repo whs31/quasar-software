@@ -18,22 +18,22 @@ void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &m
 
     switch (type) {
     case QtDebugMsg:
-        txt = QString("%1").arg("<font color=\"#ECEFF4\">" + msg + "</font>");
+        txt = QString("%1").arg("<font color=\"#b8c0e0\">" + msg + "</font>");
         break;
     case QtWarningMsg:
-        txt = QString("%1").arg("<font color=\"#EBCB8B\">" + msg + "</font>");
+        txt = QString("%1").arg("<font color=\"#eed49f\">" + msg + "</font>");
         break;
     case QtInfoMsg:
         if(msg.startsWith("$"))
-            txt = QString("%1").arg("<font color=\"#B48EAD\">" + msg.right(msg.size() - 2) + "</font>");
+            txt = QString("%1").arg("<font color=\"#c6a0f6\">" + msg.right(msg.size() - 2) + "</font>");
         else
-            txt = QString("%1").arg("<font color=\"#8FBCBB\">" + msg + "</font>");
+            txt = QString("%1").arg("<font color=\"#8bd5ca\">" + msg + "</font>");
         break;
     case QtCriticalMsg:
-        txt = QString("%1").arg("<font color=\"#BF616A\">" + msg + "</font>");
+        txt = QString("%1").arg("<font color=\"#ee99a0\">" + msg + "</font>");
         break;
     case QtFatalMsg:
-        txt = QString("%1").arg("<font color=\"#D08770\">" + msg + "</font>");
+        txt = QString("%1").arg("<font color=\"#ee99a0\">" + msg + "</font>");
         break;
     }
 

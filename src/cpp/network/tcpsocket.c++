@@ -87,7 +87,7 @@ void TCPSocket::clientDisconnected()
 
     if(not filename.contains(".zip"))
     {
-        QFile file(Config::Paths::imageCache() + "/tcp/" + filename);
+        QFile file(Config::Paths::tcp() + "/" + filename);
         file.open(QIODevice::WriteOnly);
         file.write(imageData);
         file.close();

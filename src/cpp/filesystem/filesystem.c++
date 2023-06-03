@@ -35,7 +35,7 @@ bool Filesystem::fetchImageDirectory()
         {
             qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
                                         << " at path " << path_list.at(i).left(15) << "...";
-            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            QFile::copy(path_list.at(i), Config::Paths::lod(0) + "/" + directory.entryList().at(i));
             pass.push_back(directory.entryList().at(i));
         }
         else
@@ -53,11 +53,11 @@ void Filesystem::fetchTCPCache()
     QList<QString> pass;
     QList<QString> path_list;
 
-    QDir directory(Config::Paths::imageCache() + "/tcp", {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+    QDir directory(Config::Paths::tcp(), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
                    QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
     for (const QString& filename : directory.entryList())
-        path_list.push_back(Config::Paths::imageCache() + "/tcp/" + filename);
+        path_list.push_back(Config::Paths::tcp() + "/" + filename);
 
     if(path_list.empty()) {
         qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window";
@@ -70,7 +70,7 @@ void Filesystem::fetchTCPCache()
         {
             qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
                                         << " at path " << path_list.at(i).left(15) << "...";
-            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            QFile::copy(path_list.at(i), Config::Paths::lod(0) + "/" + directory.entryList().at(i));
             QFile::remove(path_list.at(i));
             pass.push_back(directory.entryList().at(i));
         }
@@ -114,7 +114,7 @@ QList<QString> Filesystem::fetchBinaryList()
         {
             qInfo().noquote().nospace() << "[FILESYSTEM] Found binary " << directory.entryList().at(i)
                                         << " at path " << path_list.at(i).left(15) << "...";
-            QFile::copy(path_list.at(i), Config::Paths::imageCache() + "/lod0/" + directory.entryList().at(i));
+            QFile::copy(path_list.at(i), Config::Paths::lod(0) + "/" + directory.entryList().at(i));
             ret.push_back(directory.entryList().at(i));
         }
         else

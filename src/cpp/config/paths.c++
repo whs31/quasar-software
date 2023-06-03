@@ -50,6 +50,13 @@ Paths::Paths(QObject *parent) : QObject{parent}
         qInfo() << "[PATH] Created themes folder at" << themes();
     }
 
+    QDir dir5(offlineTiles());
+    if(not dir5.exists())
+    {
+        dir5.mkpath(offlineTiles());
+        qInfo() << "[PATH] Created offline tiles folder at" << offlineTiles();
+    }
+
     QString default_theme_buffer;
     QString contrast_theme_buffer;
 
@@ -77,7 +84,19 @@ Paths::Paths(QObject *parent) : QObject{parent}
 
 QString Paths::root() { return QCoreApplication::applicationDirPath(); }
 QString Paths::imageCache() { return root() + "/cache"; }
+
+QString Paths::lod(int level)
+{
+    if(level > LOD_LEVELS - 1) {
+        qCritical() << "[PATH] Someone asked for non-existent LOD folder";
+        return "Invalid LOD level";
+    }
+    return imageCache() + "/lod" + QString::number(level);
+}
+
+QString Paths::tcp() { return imageCache() + "/tcp"; }
 QString Paths::mapConfig() { return config() + "/map"; }
+QString Paths::offlineTiles() { return root() + "/offline"; }
 QString Paths::plugins() { return root() + "/plugins"; }
 QString Paths::config() { return root() + "/config"; }
 QString Paths::logs() { return root() + "/logs"; }
@@ -89,9 +108,9 @@ void Paths::createImageCache(void)
     if(not dir.exists())
     {
         dir.mkpath(imageCache());
-        dir.mkpath(imageCache() + "/tcp");
-        dir.mkpath(imageCache() + "/lod0");
-        dir.mkpath(imageCache() + "/lod1");
+        dir.mkpath(tcp());
+        for(size_t i = 0; i < LOD_LEVELS; ++i)
+            dir.mkpath(lod(i));
     }
     qInfo() << "[PATH] Created image cache at " << imageCache();
 }
@@ -178,7 +197,7 @@ void Paths::createMapConfigs(void)
     nighttransit.commit();
     _street = "{\r\n    \"UrlTemplate\" : \""
               "file:///" +
-              mapConfig() +
+              offlineTiles() +
               "/%z/%x/%y.png"
               "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
               "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "

@@ -73,7 +73,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
     Map::Image image;
 
     image.filename = filename;
-    image.path.first = Config::Paths::imageCache() + "/lod0/" + filename;
+    image.path.first = Config::Paths::lod(0) + "/" + filename;
     QByteArray data = fileToByteArray(image.path.first);
 
     char* data_ptr = data.data();
@@ -126,7 +126,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
     if(not CONFIG(cutImage))
     {
-        bool ret = image_data.save(Config::Paths::imageCache() + "/lod0/" + target_filename);
+        bool ret = image_data.save(Config::Paths::lod(0) + "/" + target_filename);
         if(ret)
             qInfo() << "[PROCESSING] Image saved successfully without correction";
         else
@@ -186,15 +186,15 @@ void ImageProcessing::asyncProcess(const QString& filename)
         painter.fillPath(path, brush);
         painter.end();
 
-        bool ret = image_data.save(Config::Paths::imageCache() + "/lod0/" + target_filename);
+        bool ret = image_data.save(Config::Paths::lod(0) + "/" + target_filename);
         if(ret)
             qInfo() << "[PROCESSING] Image saved successfully with correction";
         else
             qCritical() << "[PROCESSING] Failed to save image";
     }
 
-    image.path.first = Config::Paths::imageCache() + "/lod0/" + target_filename;
-    QFile::remove(Config::Paths::imageCache() + "/lod0/" + filename);
+    image.path.first = Config::Paths::lod(0) + "/" + target_filename;
+    QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
     image.opacity = INITIAL_OPACITY;
     image.shown = INITIAL_VISIBILITY;
@@ -209,7 +209,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     Map::StripImage image;
 
     image.filename = filename;
-    image.path.first = Config::Paths::imageCache() + "/lod0/" + filename;
+    image.path.first = Config::Paths::lod(0) + "/" + filename;
 
     //std::vector<uint16_t> chunks;
     QByteArray chunks_unknown_ws;

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <QtCore/QPointF>
 #include <QtCore/QHash>
 #include <LPVL/Global>
 #include <vector>
@@ -20,13 +19,7 @@ namespace GUI
         public:
             virtual ~Theme() = default;
 
-            //! @brief Тема по умолчанию, если в конфиге не указано иное.
-            const QString DEFAULT_THEME = "nord.json";
-
-            //! @brief
             Q_INVOKABLE QString color(QString key);
-
-            //! @brief
             Q_INVOKABLE QString colorText(const QString& text, const QString& theme_color_name);
 
             signals:

@@ -37,6 +37,7 @@ void Config::Config::save()
     ini->setValue("thetaAzimuthCorrection", QSTRING_CAST(thetaAzimuthCorrection()));
     ini->setValue("overrideImageHeight", QSTRING_CAST(overrideImageHeight()));
     ini->setValue("cutImage", QSTRING_CAST(cutImage()));
+    ini->setValue("theme", theme());
 }
 
 void Config::Config::load()
@@ -64,6 +65,7 @@ void Config::Config::load()
     setThetaAzimuthCorrection(ini->value("thetaAzimuthCorrection").toFloat());
     setOverrideImageHeight(ini->value("overrideImageHeight").toBool());
     setCutImage(ini->value("cutImage").toBool());
+    setTheme(ini->value("theme").toString());
 }
 
 void Config::Config::revert()
@@ -373,6 +375,19 @@ void Config::setTcpMarker(const QString& other)
         return;
     m_tcpMarker = other;
     emit tcpMarkerChanged();
+}
+
+QString Config::theme() const
+{
+    return m_theme;
+}
+
+void Config::setTheme(const QString& other)
+{
+    if (m_theme == other)
+        return;
+    m_theme = other;
+    emit themeChanged();
 }
 
 }

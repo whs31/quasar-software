@@ -2,20 +2,25 @@
 
 #include "../include/theme.h"
 
+using std::vector;
+
 namespace GUI
 {
-    class ThemePrivate
+    class ThemePrivate : public QObject
     {
+        Q_OBJECT
         Q_DECLARE_PUBLIC(Theme)
 
         public:
             ThemePrivate(Theme* parent);
             virtual ~ThemePrivate() = default;
 
-            void findThemesInFolder();
             void applyTheme(QString theme);
 
-            std::vector<QString> foundThemes;
+            vector<QString> foundThemes;
+
+            public slots:
+                void findThemesInFolder();
 
         private:
             Theme* q_ptr;

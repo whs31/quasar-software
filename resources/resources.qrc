@@ -72,5 +72,6 @@
         <file>icons/google-material/terminal.png</file>
         <file>icons/google-material/timer.png</file>
         <file>icons/google-material/water.png</file>
+        <file>themes/catpuccin.json</file>
     </qresource>
 </RCC>

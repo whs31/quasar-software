@@ -51,6 +51,7 @@ Paths::Paths(QObject *parent) : QObject{parent}
     }
 
     QString default_theme_buffer;
+    QString contrast_theme_buffer;
 
     QFile default_theme_source(":/themes/nord.json");
     default_theme_source.open(QIODevice::ReadOnly);
@@ -62,7 +63,16 @@ Paths::Paths(QObject *parent) : QObject{parent}
     out1 << default_theme_buffer;
     default_theme_destination.commit();
 
-    qInfo() << "[PATH] Default theme placed in folder";
+    QFile contrast_theme_source(":/themes/catpuccin.json");
+    contrast_theme_source.open(QIODevice::ReadOnly);
+    contrast_theme_buffer = contrast_theme_source.readAll();
+    QSaveFile contrast_theme_destination(themes() + "/catpuccin.json");
+    contrast_theme_destination.open(QIODevice::WriteOnly);
+    QTextStream out2(&contrast_theme_destination);
+    out2 << contrast_theme_buffer;
+    contrast_theme_destination.commit();
+
+    qInfo() << "[PATH] Default themes placed in folder";
 }
 
 QString Paths::root() { return QCoreApplication::applicationDirPath(); }

@@ -1,0 +1,18 @@
+{
+    "name": "contrast",
+    "dark0": "#181926",
+    "dark1": "#24273a",
+    "dark2": "#363a4f",
+    "dark3": "#494d64",
+    "light0": "#b8c0e0",
+    "light1": "#cad3f5",
+    "color0": "#8aadf4",
+    "color1": "#7dc4e4",
+    "color2": "#91d7e3",
+    "color3": "#8bd5ca",
+    "accent": "#c6a0f6",
+    "yellow": "#eed49f",
+    "orange": "#f5a97f",
+    "red": "#ee99a0",
+    "green": "#a6da95"
+}

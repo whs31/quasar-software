@@ -41,6 +41,8 @@ namespace Config
         Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
         Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
 
+        Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
+
         public:
             virtual ~Config();
 
@@ -72,6 +74,7 @@ namespace Config
             bool overrideImageHeight() const; void setOverrideImageHeight(bool);
             bool cutImage() const; void setCutImage(bool);
             QString tcpMarker() const; void setTcpMarker(const QString&);
+            QString theme() const; void setTheme(const QString&);
 
             signals:
                 void remoteIPChanged();
@@ -95,6 +98,7 @@ namespace Config
                 void overrideImageHeightChanged();
                 void cutImageChanged();
                 void tcpMarkerChanged();
+                void themeChanged();
 
         private:
             explicit Config(QObject* parent = nullptr);
@@ -121,7 +125,8 @@ namespace Config
                 {"useDriftAngle", "true"},
                 {"thetaAzimuthCorrection", "5"},
                 {"overrideImageHeight", "true"},
-                {"cutImage", "true"}
+                {"cutImage", "true"},
+                {"theme", "contrast"}
             };
 
             QSettings* ini;
@@ -147,5 +152,6 @@ namespace Config
             bool m_overrideImageHeight;
             bool m_cutImage;
             QString m_tcpMarker;
+            QString m_theme;
     };
 } // namespace Config;

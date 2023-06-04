@@ -8,6 +8,7 @@
 #include <QtQml/QQmlContext>
 #include <QtQuick/QQuickWindow>
 #include <QtQuickControls2/QQuickStyle>
+#include <argparse.h>
 
 Console* console = nullptr;
 QList<QString> cachedDebugInfo;
@@ -51,6 +52,12 @@ void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &m
         cachedDebugInfo.append(txt);
 };
 
+static const char *const usages[] = {
+    "basic [options] [[--] args]",
+    "basic [options]",
+    NULL,
+};
+
 int main(int argc, char* argv[])
 {
     QGuiApplication app(argc, argv);
@@ -58,7 +65,20 @@ int main(int argc, char* argv[])
     QCoreApplication::setApplicationVersion(PROJECT_VERSION);
     QCoreApplication::setOrganizationName(PROJECT_COMPANY);
 
-    qInstallMessageHandler(consoleHandler);
+    int no_console = 0;
+    struct argparse_option options[] = {
+        OPT_HELP(),
+        OPT_GROUP("Basic options"),
+        OPT_BOOLEAN(0, "no-log-redirect", &no_console, "disable internal console and log into external terminal", NULL, 0, 0),
+        OPT_END(),
+    };
+    struct argparse argparse;
+    argparse_init(&argparse, options, usages, 0);
+    argparse_describe(&argparse, "\nQuaSAR SAR control software.", "\n(c) 2023 Radar-MMS");
+    argc = argparse_parse(&argparse, argc, (const char**)argv);
+
+    if(not no_console)
+        qInstallMessageHandler(consoleHandler);
     qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));

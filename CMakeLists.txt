@@ -55,6 +55,7 @@ add_executable(${PROJECT_NAME}
 
 add_subdirectory(libs/LPVL)
 add_subdirectory(libs/CCL)
+add_subdirectory(libs/argparse)
 
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
@@ -77,6 +78,7 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Concurrent
     LPVL
     CCL
+    argparse
 )
 
 install(TARGETS ${PROJECT_NAME}

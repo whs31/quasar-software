@@ -1,6 +1,7 @@
 #include "console_p.h"
 #include "network/network.h"
 #include "config/config.h"
+#include "config/paths.h"
 #include <QtCore/QCoreApplication>
 #include <QtCore/QProcess>
 #include <QtQml/qqml.h>
@@ -85,13 +86,11 @@ void ConsolePrivate::tcp_stop()
 void ConsolePrivate::sim()
 {
     #ifdef Q_OS_WIN
-        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator.exe", {});
+        QProcess::startDetached(Config::Paths::root() + "/bin/QuaSAR-Emulator.exe", {});
         qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
-        qDebug().noquote().nospace() << QCoreApplication::applicationDirPath() << "/QuaSAR-Emulator.exe";
+        qDebug().noquote().nospace() << Config::Paths::root() << "/bin/QuaSAR-Emulator.exe";
     #else
-        QProcess::startDetached(QCoreApplication::applicationDirPath() + "/QuaSAR-Emulator", {});
-        qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
-        qDebug().noquote().nospace() << QCoreApplication::applicationDirPath() << "/QuaSAR-Emulator";
+        qWarning() << "[CONSOLE] Your operating system is Linux. Emulator support for Linux was removed in version 2.10.1";
 #endif
 }
 

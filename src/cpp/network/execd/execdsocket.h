@@ -13,7 +13,7 @@ namespace Network
             {
                 FormImage,
                 FocusImage,
-                GetRemoteStorageStatus,
+                RemoteStorageStatus,
                 ClearRemoteStorage,
                 Ping
             };

@@ -30,14 +30,43 @@ void ExecdSocket::executeCommand(const QString& command)
         return;
     }
 
-    QByteArray wrapped = finalize(wrap(command));
-    this->send(wrapped);
-    qDebug().noquote() << "[EXECD] Sended command" << command; // << "as" << wrapped; @no longer needed because of imgui socket console
+    this->send(finalize(wrap(command)));
+    qDebug().noquote() << "[EXECD] Sended string command";
 }
 
 void ExecdSocket::executeCommand(Command command)
 {
+    if(this->state() == QAbstractSocket::UnconnectedState)
+    {
+        qWarning() << "[EXECD] Cannot execute command in unconnected state";
+        return;
+    }
 
+    switch (command)
+    {
+        case FormImage:
+            /// @todo
+
+            break;
+        case FocusImage:
+            /// @todo
+
+            break;
+        case RemoteStorageStatus:
+            this->send(finalize(wrap("$storage_status()")));
+            break;
+        case ClearRemoteStorage:
+            this->send(finalize(wrap("$clear_storage()")));
+            break;
+        case Ping:
+            this->send(finalize(wrap("$ping_de10()")));
+            break;
+        default:
+            qWarning() << "[EXECD] Incorrect command type";
+            return;
+    }
+
+    qDebug().noquote() << "[EXECD] Sended built-in command";
 }
 
 QString ExecdSocket::wrap(const QString& string)

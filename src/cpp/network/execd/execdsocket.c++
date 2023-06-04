@@ -1,11 +1,14 @@
 #include "execdsocket.h"
 #include <QtCore/QDebug>
 #include <LPVL/Crypto>
+#include "execdargumentlist.h"
 
 using namespace Network;
 
 ExecdSocket::ExecdSocket(QObject* parent)
     : AbstractUDPSocket{parent}
+    , args(new ExecdArgumentList(this))
+    , message_uid(0)
 {
     QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult);
 }
@@ -30,8 +33,10 @@ void ExecdSocket::executeCommand(const QString& command)
         return;
     }
 
-    this->send(finalize(wrap(command)));
+    auto com = finalize(wrap(command));
+    this->send(com);
     qDebug().noquote() << "[EXECD] Sended string command";
+    emit socketMetrics(com, com.length(), true);
 }
 
 void ExecdSocket::executeCommand(Command command)
@@ -41,6 +46,8 @@ void ExecdSocket::executeCommand(Command command)
         qWarning() << "[EXECD] Cannot execute command in unconnected state";
         return;
     }
+
+    QByteArray com;
 
     switch (command)
     {
@@ -53,21 +60,26 @@ void ExecdSocket::executeCommand(Command command)
 
             break;
         case RemoteStorageStatus:
-            this->send(finalize(wrap("$storage_status()")));
+            com = finalize(wrap("$storage_status()"));
             break;
         case ClearRemoteStorage:
-            this->send(finalize(wrap("$clear_storage()")));
+            com = finalize(wrap("$clear_storage()"));
             break;
         case Ping:
-            this->send(finalize(wrap("$ping_de10()")));
+            com = finalize(wrap("$ping_de10()"));
             break;
         default:
             qWarning() << "[EXECD] Incorrect command type";
             return;
     }
 
+    this->send(com);
+
     qDebug().noquote() << "[EXECD] Sended built-in command";
+    emit socketMetrics(com, com.length(), true);
 }
+
+ExecdArgumentList* ExecdSocket::list() const noexcept { return args; }
 
 QString ExecdSocket::wrap(const QString& string)
 {

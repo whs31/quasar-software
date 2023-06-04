@@ -2,10 +2,12 @@
 #include "telemetry/telemetry.h"
 #include "telemetry/telemetrysocket.h"
 #include "execd/execdsocket.h"
+#include "execd/execdargumentlist.h"
 #include "execd/feedbacksocket.h"
 #include "tcpsocket.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
+#include <QtCore/QVariant>
 
 namespace Network {
 
@@ -34,6 +36,7 @@ Network::Network(QObject* parent)
     QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
     //! @todo execdsock
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
+    QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
     QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
 
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
@@ -70,9 +73,39 @@ void Network::stopExecdSocket()
     feedbackSocket->stop();
 }
 
-void Network::executeCommand(const QString& command)
+void Network::executeCommand(const NetworkCommand command) noexcept
 {
+    switch (command)
+    {
+        case FormImage: execdSocket->executeCommand(ExecdSocket::FormImage); break;
+        case FocusImage: execdSocket->executeCommand(ExecdSocket::FocusImage); break;
+        case RemoteStorageStatus: execdSocket->executeCommand(ExecdSocket::RemoteStorageStatus); break;
+        case ClearRemoteStorage: execdSocket->executeCommand(ExecdSocket::ClearRemoteStorage); break;
+        case Ping: execdSocket->executeCommand(ExecdSocket::Ping); break;
+        default: qWarning() << "[NETWORK] Invalid command type"; break;
+    }
+}
 
+QString Network::argument(const QString& key, ArgumentCategory category) const noexcept
+{
+    switch (category)
+    {
+        case Form: return execdSocket->list()->argument_list[key].value;
+        case Focus: return execdSocket->list()->focus_argument_list[key].value;
+        case Reform: return execdSocket->list()->reform_argument_list[key].value;
+        default: return "Argument Category Error";
+    }
+}
+
+void Network::setArgument(const QString& key, const QVariant& value, ArgumentCategory category) noexcept
+{
+    switch (category)
+    {
+        case Form: execdSocket->list()->argument_list[key].set(value);
+        case Focus: execdSocket->list()->focus_argument_list[key].set(value);
+        case Reform: execdSocket->list()->reform_argument_list[key].set(value);
+        default: qCritical() << "[NETWORK] Invalid category for argument provided";
+    }
 }
 
 void Network::startTCPSocket(const QString &address)

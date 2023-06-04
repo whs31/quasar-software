@@ -65,7 +65,7 @@ Pane {
                     Text {
                         font.family: root.monofont;
                         anchors.centerIn: parent;
-                        color: Theme.color("light0");
+                        color: direction ? Theme.color("dark0") : Theme.color("light0");
                         font.bold: true;
                         font.pixelSize: 12;
                         text: direction ? "OUT" : "IN";

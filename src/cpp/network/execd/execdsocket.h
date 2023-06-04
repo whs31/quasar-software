@@ -4,6 +4,7 @@
 
 namespace Network
 {
+    class ExecdArgumentList;
     class ExecdSocket : public AbstractUDPSocket
     {
         Q_OBJECT
@@ -24,6 +25,7 @@ namespace Network
             void stop();
             void executeCommand(const QString& command);
             void executeCommand(Command command);
+            ExecdArgumentList* list() const noexcept;
 
             signals:
                 void ping();
@@ -36,6 +38,7 @@ namespace Network
                 void processResult(QByteArray data);
 
         private:
-            uint16_t message_uid = 0;
+            ExecdArgumentList* args;
+            uint16_t message_uid;
     };
 }

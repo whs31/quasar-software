@@ -28,6 +28,25 @@ namespace Network
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
 
         public:
+            enum ArgumentCategory
+            {
+                Form,
+                Focus,
+                Reform
+            };
+
+            enum NetworkCommand
+            {
+                FormImage,
+                FocusImage,
+                RemoteStorageStatus,
+                ClearRemoteStorage,
+                Ping
+            };
+
+            Q_ENUM(ArgumentCategory)
+            Q_ENUM(NetworkCommand)
+
             TelemetrySocket* telemetrySocket;
             ExecdSocket* execdSocket;
             FeedbackSocket* feedbackSocket;
@@ -38,7 +57,9 @@ namespace Network
 
             Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);
             Q_INVOKABLE void stopExecdSocket();
-            Q_INVOKABLE void executeCommand(const QString& command);
+            Q_INVOKABLE void executeCommand(const Network::Network::NetworkCommand command) noexcept;
+            Q_INVOKABLE QString argument(const QString& key, Network::Network::ArgumentCategory category = Form) const noexcept;
+            Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Network::Network::ArgumentCategory category = Form) noexcept;
 
             Q_INVOKABLE void startTCPSocket(const QString& address);
             Q_INVOKABLE void stopTCPSocket();

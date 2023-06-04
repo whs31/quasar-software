@@ -86,9 +86,9 @@ void ConsolePrivate::tcp_stop()
 void ConsolePrivate::sim()
 {
     #ifdef Q_OS_WIN
-        QProcess::startDetached(Config::Paths::root() + "/bin/QuaSAR-Emulator.exe", {});
+        QProcess::startDetached(Config::Paths::root() + "/QuaSAR-Emulator.exe", {});
         qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
-        qDebug().noquote().nospace() << Config::Paths::root() << "/bin/QuaSAR-Emulator.exe";
+        qDebug().noquote().nospace() << Config::Paths::root() << "/QuaSAR-Emulator.exe";
     #else
         qWarning() << "[CONSOLE] Your operating system is Linux. Emulator support for Linux was removed in version 2.10.1";
 #endif

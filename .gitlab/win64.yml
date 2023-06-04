@@ -15,6 +15,10 @@ windows:
      - cpwinlib libGLESv2.dll $CI_PROJECT_TITLE
      - cpwinlib libstdc++-6.dll $CI_PROJECT_TITLE
      - cpwinlib libwinpthread-1.dll $CI_PROJECT_TITLE
+     - cpwinlib libpng16-16.dll $CI_PROJECT_TITLE
+     - cpwinlib libharfbuzz-0.dll $CI_PROJECT_TITLE
+     - cpwinlib iconv.dll $CI_PROJECT_TITLE
+     - cpwinlib zlib1.dll $CI_PROJECT_TITLE
      - cpwinlib Qt5Core.dll $CI_PROJECT_TITLE
      - cpwinlib Qt5Gui.dll $CI_PROJECT_TITLE
      - cpwinlib Qt5Location.dll $CI_PROJECT_TITLE
@@ -49,8 +53,7 @@ windows:
      - cd subprojects/quasar-emulator
      - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
      - cd ../../
-     - mkdir -p $CI_PROJECT_TITLE/bin
-     - cp subprojects/quasar-emulator/QuaSAR-Emulator.exe $CI_PROJECT_TITLE/bin
+     - cp subprojects/quasar-emulator/QuaSAR-Emulator.exe $CI_PROJECT_TITLE
 
   artifacts:
     name: $CI_PROJECT_TITLE-$CI_COMMIT_TAG-$CI_COMMIT_REF_NAME

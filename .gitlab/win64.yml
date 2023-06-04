@@ -18,6 +18,10 @@ windows:
      - cpwinlib libpng16-16.dll $CI_PROJECT_TITLE
      - cpwinlib libharfbuzz-0.dll $CI_PROJECT_TITLE
      - cpwinlib iconv.dll $CI_PROJECT_TITLE
+     - cpwinlib libpcre-1.dll $CI_PROJECT_TITLE
+     - cpwinlib libpcre2-16-0.dll $CI_PROJECT_TITLE
+     - cpwinlib libglib-2.0-0.dll $CI_PROJECT_TITLE
+     - cpwinlib libintl-8.dll $CI_PROJECT_TITLE
      - cpwinlib zlib1.dll $CI_PROJECT_TITLE
      - cpwinlib Qt5Core.dll $CI_PROJECT_TITLE
      - cpwinlib Qt5Gui.dll $CI_PROJECT_TITLE

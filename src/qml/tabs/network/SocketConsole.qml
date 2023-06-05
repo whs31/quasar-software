@@ -104,7 +104,7 @@ Pane {
         LPVLRealtimeLinePlot { id: plot;
             anchors.fill: parent;
             from: 0;
-            to: 255;
+            to: 256;
             backgroundColor: Theme.color("dark2");
             plottingColor: Theme.color("color1");
             foregroundColor: Theme.color("light0");

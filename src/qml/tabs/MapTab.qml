@@ -176,7 +176,7 @@ Map { id: c_Map;
     Pane { id: panel_Tools;
         Material.elevation: 30;
         anchors.top: parent.top;
-        anchors.left: parent.left;
+        anchors.right: parent.right;
         anchors.margins: 5;
         opacity: 0.85;
 
@@ -256,7 +256,7 @@ Map { id: c_Map;
     Pane { id: panel_Entities;
         anchors.top: panel_Tools.bottom;
         anchors.topMargin: 30;
-        anchors.left: parent.left;
+        anchors.right: parent.right;
         anchors.margins: 5;
         opacity: 0.85;
 
@@ -497,25 +497,64 @@ Map { id: c_Map;
                     text: "Формирование изображения";
                     Material.elevation: 30;
                     Material.foreground: Theme.color("dark0");
-                    Material.background: Theme.color("color0");
+                    Material.background: Theme.color("accent");
                     onPressed: Network.executeCommand(Network.FormImage);
                 }
 
                 RoundButton { id: button_ImageParams;
                     font.family: root.mainfont;
-                    height: 40;
+                    checkable: true;
+                    height: 35;
                     width: layout_ImageTools.width;
                     radius: 4;
                     icon.source: "qrc:/icons/google-material/adjust.png";
-                    icon.color: Theme.color("light0");
+                    icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
                     text: "Параметры формирования";
                     Material.elevation: 30;
-                    Material.background: Material.background;
-                    onPressed: window_FormParameters.show();
+                    Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
+                    Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
+                }
+
+                ScrollView {id: layout_Meta;
+                    Layout.fillWidth: true;
+                    visible: button_ImageParams.checked;
+                    implicitHeight: 300;
+                    implicitWidth: parent.width;
+                    clip: true;
+                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn;
+
+                    GridLayout {
+                        columns: 2;
+                        columnSpacing: 6;
+                        rowSpacing: 4;
+
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                        Rectangle { width: 100; height: 100; color: "red"; }
+                    }
                 }
             }
-
-            Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 15; }
 
             Grid { id: layout_ImageTools;
                 columns: 2;

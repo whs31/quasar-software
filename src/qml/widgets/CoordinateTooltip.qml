@@ -7,7 +7,7 @@ Rectangle {
 
     height: 20;
     width: txt.paintedWidth + 10;
-    color: Theme.color("light0");
+    color: Theme.color("dark1");
     radius: 10;
 
     Text { id: txt;
@@ -17,8 +17,9 @@ Rectangle {
         anchors.centerIn: parent;
         font.family: root.mainfont;
         font.weight: Font.DemiBold;
-        color: Theme.color("dark0");
-        text: Number(Math.abs(latitude)).toFixed(7) + "°" + s_LatSuffix +
-              ", " + Number(Math.abs(longitude)).toFixed(7) + "°" + s_LonSuffix;
+        color: Theme.color("light0");
+        textFormat: Text.RichText;
+        text: "Широта: <b>" + Theme.colorText(Number(Math.abs(latitude)).toFixed(7) + "°" + s_LatSuffix, Theme.color("red")) +
+              "</b>, долгота: <b>" + Theme.colorText(Number(Math.abs(longitude)).toFixed(7) + "°" + s_LonSuffix, Theme.color("red"));
     }
 }

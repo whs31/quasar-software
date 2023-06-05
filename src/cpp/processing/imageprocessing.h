@@ -23,7 +23,9 @@ namespace Processing
 
         constexpr static float INITIAL_OPACITY = 1;
         constexpr static bool INITIAL_VISIBILITY = true;
-        constexpr static bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED = true;
+
+        constexpr static bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED = false;
+        constexpr static bool DEBUG_SHOW_STRIP_DATA_MATRIX = false;
 
         public:
             enum ImageType {

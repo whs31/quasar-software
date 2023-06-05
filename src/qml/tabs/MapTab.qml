@@ -87,8 +87,6 @@ Map { id: c_Map;
             let coord = toCoordinate(Qt.point(mouseX, mouseY))
             coord_tooltip.latitude = coord.latitude;
             coord_tooltip.longitude = coord.longitude;
-            coord_tooltip.x = mouseX + 10;
-            coord_tooltip.y = mouseY;
         }
     }
 
@@ -116,7 +114,8 @@ Map { id: c_Map;
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
 
-    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; opacity: 0.85; visible: checkbox_ShowCursorCoords.checked && !c_MapMouseArea.pressed; }
+    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; opacity: 0.85; visible: checkbox_ShowCursorCoords.checked;
+        anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter; anchors.topMargin: 20; }
 
     // main image view
     MapItemView {
@@ -407,7 +406,7 @@ Map { id: c_Map;
 
             CheckBox { id: checkbox_ShowCursorCoords;
                 font.family: root.mainfont;
-                checked: false;
+                checked: true;
                 text: "Отображать координаты курсора";
             }
 

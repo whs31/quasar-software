@@ -288,7 +288,8 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
                 qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
         }
 
-        emit stripVector8bit(out, rows, columns);
+        if(DEBUG_SHOW_STRIP_DATA_MATRIX)
+            emit stripVector8bit(out, rows, columns);
     }
     if(ws == 2)
     {

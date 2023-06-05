@@ -25,5 +25,6 @@
         <file>tabs/map/AttitudeIndicator.qml</file>
         <file>windows/FormParametersWindow.qml</file>
         <file>widgets/TCPPopup.qml</file>
+        <file>tabs/map/ui/PanelTools.qml</file>
     </qresource>
 </RCC>

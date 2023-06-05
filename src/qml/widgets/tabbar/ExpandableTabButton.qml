@@ -24,20 +24,25 @@ TabButton {
         implicitWidth: img.width + (root.spacing + label.contentWidth) * label.visible;
         Image {
             id: img;
-            width: root.icon.width;
-            height: root.icon.height;
+            width: root.icon.width / 1.1;
+            height: root.icon.height / 1.1;
             anchors {
                 left: root.display === TabButton.IconOnly ? undefined : parent.left;
                 verticalCenter: parent.verticalCenter;
                 horizontalCenter: root.display === TabButton.IconOnly ? parent.horizontalCenter : undefined;
             }
             source: root.icon.source;
+            smooth: true;
+            antialiasing: true;
+            asynchronous: true;
 
             ColorOverlay {
                 anchors.fill: parent;
                 source: parent;
                 color: root.icon.color;
                 cached: true;
+                smooth: true;
+                antialiasing: true;
             }
         }
 
@@ -51,7 +56,7 @@ TabButton {
             }
             text: root.text;
             font: root.font;
-            color: root.checked ? root.palette.highlightedText : root.palette.buttonText;
+            color: root.checked ? root.palette.highlightedText : Qt.darker(root.palette.highlightedText, 1.5);
             visible: root.display !== TabButton.IconOnly;
         }
     }
@@ -59,7 +64,8 @@ TabButton {
         anchors.fill: parent;
         color: root.palette.highlight;
         radius: parent.height * 0.5;
-        visible: root.checked;
+        opacity: root.checked ? 1 : 0.1;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 
     Behavior on width {

@@ -90,9 +90,11 @@ ApplicationWindow  { id: window_root;
 
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
-            anchors.bottom: parent.bottom;
+            anchors {
+                left: parent.left;
+                right: parent.right;
+                bottom: parent.bottom;
+            }
         }
 
         NPM.ExpandableTabBar { id: control_TabBar;

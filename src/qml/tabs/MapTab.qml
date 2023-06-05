@@ -139,23 +139,34 @@ Map { id: c_Map;
 
     // ui
 
-    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; opacity: 0.85;
-        anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter; anchors.topMargin: 20; }
+    Widgets.CoordinateTooltip { id: coord_tooltip;
+        anchors {
+            top: parent.top;
+            topMargin: 20;
+            horizontalCenter: parent.horizontalCenter;
+        }
+        z: 60;
+        opacity: 0.85;
+    }
 
     MapTab.AttitudeIndicator { id: attitude;
+        anchors {
+            bottom: parent.bottom;
+            horizontalCenter: parent.horizontalCenter;
+        }
         width: 250;
         implicitHeight: 150;
-        anchors.horizontalCenter: parent.horizontalCenter;
-        anchors.bottom: parent.bottom;
         pitch: Network.telemetry.pitch;
         roll: Network.telemetry.roll;
         yaw: Network.telemetry.yaw;
     }
 
     RoundButton { id: button_HideIndicator;
-        anchors.bottom: attitude.top;
-        anchors.horizontalCenter: attitude.horizontalCenter;
-        anchors.bottomMargin: -7;
+        anchors {
+            bottom: attitude.top;
+            bottomMargin: -7;
+            horizontalCenter: attitude.horizontalCenter;
+        }
         height: 40;
         radius: 4;
         icon.source: attitude.shown ? "qrc:/icons/google-material/expand-more.png"
@@ -172,31 +183,39 @@ Map { id: c_Map;
     }
 
     MapTabUI.PanelTools { id: panel_Tools;
-        anchors.top: parent.top;
-        anchors.right: parent.right;
-        anchors.margins: 5;
+        anchors {
+            top: parent.top;
+            right: parent.right;
+            margins: 5;
+        }
         opacity: 0.85;
     }
 
     MapTabUI.PanelEntities { id: panel_Entities;
-        anchors.top: panel_Tools.bottom;
-        anchors.topMargin: 30;
-        anchors.right: parent.right;
-        anchors.margins: 5;
+        anchors {
+            top: panel_Tools.bottom;
+            topMargin: 30;
+            right: parent.right;
+            margins: 5;
+        }
         opacity: 0.85;
     }
 
     MapTabUI.PanelParameters { id: panel_Parameters;
-        anchors.bottom: parent.bottom;
-        anchors.right: parent.right;
+        anchors {
+            bottom: parent.bottom;
+            right: parent.right;
+        }
         opacity: 0.85;
     }
 
     RoundButton { id: button_ExpandParameters;
-        anchors.bottom: panel_Parameters.top;
-        anchors.right: panel_Parameters.right;
-        anchors.rightMargin: -7;
-        anchors.bottomMargin: -7;
+        anchors {
+            bottom: panel_Parameters.top;
+            bottomMargin: -7;
+            right: panel_Parameters.right;
+            rightMargin: -7;
+        }
         checkable: true;
         height: 40;
         radius: 4;
@@ -213,16 +232,20 @@ Map { id: c_Map;
     }
 
     MapTabUI.PanelImages { id: panel_ImageTools;
-        anchors.bottom: parent.bottom;
-        anchors.left: parent.left;
+        anchors {
+            bottom: parent.bottom;
+            left: parent.left;
+        }
         opacity: 0.85;
     }
 
     RoundButton { id: button_ToggleImageTools;
-        anchors.bottom: panel_ImageTools.top;
-        anchors.left: panel_ImageTools.left;
-        anchors.bottomMargin: -7;
-        anchors.leftMargin: -7;
+        anchors {
+            bottom: panel_ImageTools.top;
+            bottomMargin: -7;
+            left: panel_ImageTools.left;
+            leftMargin: -7;
+        }
         font.family: root.mainfont;
         height: 40;
         radius: 4;

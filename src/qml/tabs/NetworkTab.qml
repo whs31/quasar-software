@@ -20,50 +20,60 @@ Pane {
         contentWidth: 1896;
 
         NetworkTab.SocketConsole { id: panel_TelemetryConsole;
+            anchors {
+                left: parent.left;
+                top: parent.top;
+                margins: 5
+            }
             name: "СОКЕТ ТЕЛЕМЕТРИИ";
-            anchors.left: parent.left;
-            anchors.top: parent.top;
-            anchors.margins: 5;
             width: 720;
             height: 450;
             color: Theme.color("color3");
         }
 
         NetworkTab.SocketConsole { id: panel_ExecdConsole;
+            anchors {
+                left: panel_TelemetryConsole.right;
+                top: parent.top;
+                margins: 5
+            }
             name: "СОКЕТ КОМАНД";
-            anchors.left: panel_TelemetryConsole.right;
-            anchors.top: parent.top;
-            anchors.margins: 5;
             width: 345;
             height: 450;
             color: Theme.color("accent");
         }
 
         NetworkTab.SocketConsole { id: panel_FeedbackConsole;
+            anchors {
+                left: panel_ExecdConsole.right;
+                top: parent.top;
+                margins: 5
+            }
             name: "СОКЕТ ОБРАТНОЙ СВЯЗИ";
-            anchors.left: panel_ExecdConsole.right;
-            anchors.top: parent.top;
-            anchors.margins: 5;
             width: 425;
             height: 450;
             color: Theme.color("yellow");
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;
+            anchors {
+                right: parent.right;
+                top: parent.top;
+                margins: 5
+            }
             name: "СОКЕТ TCP-IP";
-            anchors.right: parent.right;
-            anchors.top: parent.top;
-            anchors.margins: 5;
             width: 380;
             height: 450;
             color: Theme.color("green");
         }
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
+            anchors {
+                left: parent.left;
+                top: panel_TelemetryConsole.bottom;
+                margins: 5
+            }
             name: "СОКЕТ UDP LFS";
-            anchors.left: parent.left;
-            anchors.top: panel_TelemetryConsole.bottom;
-            anchors.margins: 5;
             width: 380;
             height: 450;
             color: Theme.color("color0");
@@ -71,10 +81,12 @@ Pane {
     }
 
     Pane { id: panel_Network;
+        anchors {
+            right: parent.right;
+            bottom: parent.bottom;
+            margins: 5
+        }
         Material.elevation: 30;
-        anchors.bottom: parent.bottom;
-        anchors.right: parent.right;
-        anchors.margins: 5;
         opacity: 0.85;
 
         Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {

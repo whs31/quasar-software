@@ -109,8 +109,8 @@ ApplicationWindow  { id: window_root;
                 icon.source: "qrc:/icons/google-material/earth.png";
                 palette {
                     buttonText: Theme.color("light0");
-                    highlight: Theme.color("green");
-                    highlightedText: Theme.color("dark2");
+                    highlight: Theme.color("dark3");
+                    highlightedText: Theme.color("light0");
                 }
             }
 
@@ -137,10 +137,12 @@ ApplicationWindow  { id: window_root;
         }
 
         SwipeView { id: view_MainView;
-            anchors.top: control_TabBar.bottom;
-            anchors.bottom: layout_BottomBar.top;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
+            anchors {
+                top: control_TabBar.bottom;
+                bottom: layout_BottomBar.top;
+                left: parent.left;
+                right: parent.right;
+            }
             interactive: false;
             currentIndex: control_TabBar.currentIndex;
             contentWidth: view_MainView.width;

@@ -113,6 +113,7 @@ Config::Config::Config(QObject* parent)
         this->reset();
 
     this->load();
+    emit tcpLFSPortChanged();
 }
 
 namespace Config {

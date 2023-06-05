@@ -91,10 +91,10 @@ QString Network::argument(const QString& key, ArgumentCategory category) const n
 {
     switch (category)
     {
-        case Form: return execdSocket->list()->argument_list[key].value;
-        case Focus: return execdSocket->list()->focus_argument_list[key].value;
-        case Reform: return execdSocket->list()->reform_argument_list[key].value;
-        default: return "Argument Category Error";
+        case Form: return execdSocket->list()->argument_list[key].value; break;
+        case Focus: return execdSocket->list()->focus_argument_list[key].value; break;
+        case Reform: return execdSocket->list()->reform_argument_list[key].value; break;
+        default: return "Argument Category Error"; break;
     }
 }
 
@@ -102,10 +102,10 @@ void Network::setArgument(const QString& key, const QVariant& value, ArgumentCat
 {
     switch (category)
     {
-        case Form: execdSocket->list()->argument_list[key].set(value);
-        case Focus: execdSocket->list()->focus_argument_list[key].set(value);
-        case Reform: execdSocket->list()->reform_argument_list[key].set(value);
-        default: qCritical() << "[NETWORK] Invalid category for argument provided";
+        case Form: execdSocket->list()->argument_list[key].set(value); break;
+        case Focus: execdSocket->list()->focus_argument_list[key].set(value); break;
+        case Reform: execdSocket->list()->reform_argument_list[key].set(value); break;
+        default: qCritical() << "[NETWORK] Invalid category for argument provided"; break;
     }
 }
 

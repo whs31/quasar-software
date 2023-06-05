@@ -54,4 +54,13 @@ Entry::Entry(QObject *parent)
         QProcess::startDetached(QCoreApplication::instance()->arguments()[0],
                                 QCoreApplication ::instance()->arguments());
     });
+    connect(Config::Config::get(), &Config::Config::tcpLFSPortChanged, this, [this](){
+        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);
+        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
+        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
+    });
+
+    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);
+    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
+    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
 }

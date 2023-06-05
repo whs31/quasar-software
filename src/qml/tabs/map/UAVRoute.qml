@@ -8,6 +8,15 @@ import Theme 1.0
 MapPolyline {
     function clear() { c_Route.clear(); }
 
+    enum RouteType
+    {
+        Full,
+        Recent
+    }
+
+    property int type: UAVRoute.Recent;
+
+
     property real fl_CurrentLat: Network.telemetry.latitude;
     property real fl_CurrentSpeed: Network.telemetry.velocityCourse;
     property int i_CurrentSats: Network.telemetry.satellites;
@@ -17,7 +26,7 @@ MapPolyline {
 
     line.width: 5;
     line.color: Theme.color("yellow");
-    path: c_Route.fullRoute;
+    path: type === UAVRoute.Full ? c_Route.fullRoute : c_Route.recentRoute;
 
     Route { id: c_Route; }
 }

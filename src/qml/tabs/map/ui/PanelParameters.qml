@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
+import RadarDiagram 1.0
 
 Pane { id: panel_Parameters;
     property bool shown: false;
@@ -71,6 +72,8 @@ Pane { id: panel_Parameters;
             onCheckedChanged: coord_tooltip.visible = checked;
         }
 
+        //Item { Layout.fillHeight: true; Layout.fillWidth: true; height: 15; }
+
         CheckBox { id: checkbox_ShowTrack;
             font.family: root.mainfont;
             checked: true;
@@ -78,11 +81,31 @@ Pane { id: panel_Parameters;
             onCheckedChanged: c_Route.opacity = checked ? 1 : 0;
         }
 
-        CheckBox { id: checkbox_ShowDiagram;
-            font.family: root.mainfont;
-            checked: true;
-            text: "Отображать диаграмму направленности";
-            onCheckedChanged: c_RadarDiagramView.shown = checked;
+        RowLayout {
+            Text {
+                font.family: root.mainfont;
+                font.weight: Font.DemiBold;
+                font.pixelSize: 14;
+                color: Theme.color("light0");
+                text: "Тип трека   ";
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            ComboBox {
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                currentIndex: 1;
+                model: ["Полный", "Частичный"];
+
+                onCurrentValueChanged: {
+                    if(currentValue === "Полный")
+                        routeType = 0;
+                    if(currentValue === "Частичный")
+                        routeType = 1;
+                }
+            }
         }
 
         Column {
@@ -107,6 +130,42 @@ Pane { id: panel_Parameters;
                             c_Route.clear();
                         }
                     }
+                }
+            }
+        }
+
+        Item { Layout.fillHeight: true; Layout.fillWidth: true; height: 15; }
+
+        CheckBox { id: checkbox_ShowDiagram;
+            font.family: root.mainfont;
+            checked: true;
+            text: "Отображать диаграмму направленности";
+            onCheckedChanged: c_RadarDiagramView.shown = checked;
+        }
+
+        RowLayout {
+            Text {
+                font.family: root.mainfont;
+                font.weight: Font.DemiBold;
+                font.pixelSize: 14;
+                color: Theme.color("light0");
+                text: "Тип диаграммы   ";
+                Layout.alignment: Qt.AlignLeft;
+            }
+
+            ComboBox {
+                font.family: root.mainfont;
+                font.weight: Font.Bold;
+                Layout.alignment: Qt.AlignRight;
+                Layout.fillWidth: true;
+                currentIndex: 0;
+                model: ["Телескопическая", "Полосовая"];
+
+                onCurrentValueChanged: {
+                    if(currentValue === "Телескопическая")
+                        c_RadarDiagram.type = RadarDiagram.Telescopic;
+                    if(currentValue === "Полосовая")
+                        c_RadarDiagram.type = RadarDiagram.Strip;
                 }
             }
         }

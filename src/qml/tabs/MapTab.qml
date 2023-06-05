@@ -21,10 +21,7 @@ import "../widgets" as Widgets;
 
 Map { id: c_Map;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
-    property bool b_ShowGrid: false;
-    property bool b_ShowTrack: true;
-    property bool b_ShowDiagram: true;
-    property bool b_ShowCursorCoords: true;
+    property alias routeType: c_Route.type;
 
     Component.onDestruction: {
         Config.storedLatitude = center.latitude;
@@ -115,9 +112,6 @@ Map { id: c_Map;
     RulerModel { id: c_RulerModel; }
     MapTab.RulerItem { id: c_Ruler; fl_LastLatitude: c_RulerModel.lastLatitude; fl_LastLongitude: c_RulerModel.lastLongitude; }
 
-    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; opacity: 0.85;
-        anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter; anchors.topMargin: 20; }
-
     // main image view
     MapItemView {
         model: ImagesModel;
@@ -144,6 +138,9 @@ Map { id: c_Map;
     }
 
     // ui
+
+    Widgets.CoordinateTooltip { id: coord_tooltip; z: 60; opacity: 0.85;
+        anchors.top: parent.top; anchors.horizontalCenter: parent.horizontalCenter; anchors.topMargin: 20; }
 
     MapTab.AttitudeIndicator { id: attitude;
         width: 250;

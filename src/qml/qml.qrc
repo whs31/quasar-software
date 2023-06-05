@@ -26,5 +26,8 @@
         <file>windows/FormParametersWindow.qml</file>
         <file>widgets/TCPPopup.qml</file>
         <file>tabs/map/ui/PanelTools.qml</file>
+        <file>tabs/map/ui/PanelEntities.qml</file>
+        <file>tabs/map/ui/PanelParameters.qml</file>
+        <file>tabs/map/ui/PanelImages.qml</file>
     </qresource>
 </RCC>

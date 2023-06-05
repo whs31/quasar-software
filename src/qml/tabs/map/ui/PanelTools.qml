@@ -9,6 +9,11 @@ import Images 1.0
 Pane {
     Material.elevation: 30;
 
+    function panImage()
+    {
+        button_PanLastImage.self();
+    }
+
     Column {
         spacing: 15;
 

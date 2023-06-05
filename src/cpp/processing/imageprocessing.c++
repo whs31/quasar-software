@@ -288,6 +288,31 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
                 qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
         }
 
+        QImage strip_result(columns, rows, QImage::Format_Grayscale16);
+        vector<vector<float>> data;
+        data.resize(rows);
+        for(size_t i = 0; i < rows; ++i)
+        {
+            data[i].resize(columns);
+            for(size_t j = 0; j < columns; ++j)
+                data[i][j] = out[j + columns * i];
+        }
+        float max = *std::max_element(out.begin(), out.end());
+        for(size_t row = 0; row < data.size(); ++row)
+        {
+            for(size_t column = 0; column < data[row].size(); ++column)
+            {
+                float t = (data[row][column] * 255) / max;
+                uint8_t d[4] = {static_cast<uint8_t>(t), static_cast<uint8_t>(t), static_cast<uint8_t>(t), 255};
+                uint32_t* rs = (uint32_t*)d;
+                strip_result.setPixel(column, row, *rs);
+            }
+        }
+
+        QString result_name = filename.chopped(3) + "png";
+        strip_result.save(Config::Paths::lod(0) + "/" + result_name, "PNG");
+        qInfo() << "$ [PROCESSING] Saved strip image" << (Config::Paths::lod(0) + "/" + result_name);
+
         if(DEBUG_SHOW_STRIP_DATA_MATRIX)
             emit stripVector8bit(out, rows, columns);
     }

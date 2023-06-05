@@ -8,7 +8,6 @@ import Theme 1.0
 
 Pane {
     property string name: "Socket Console";
-    property color color: "red";
     property alias color: plot.plottingColor;
 
     function logdata(str, sizeof, out)
@@ -53,6 +52,7 @@ Pane {
             model: listmodel;
             anchors.fill: parent;
             anchors.margins: 5;
+            interactive: true;
             clip: true;
             delegate: Row {
                 spacing: 5;

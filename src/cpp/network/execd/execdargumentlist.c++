@@ -42,10 +42,18 @@ ExecdArgumentList::ExecdArgumentList(QObject* parent)
 QString ExecdArgumentList::getFormArguments() const noexcept
 {
     QString ret = "(";
+    bool nospace = true;
     for(const auto& key : argument_list.keys())
     {
         if(argument_list.value(key).value != defaults.value(key).value)
-            ret += (key + " " + argument_list.value(key).value);
+        {
+            if(nospace) {
+                ret += (key + " " + argument_list.value(key).value);
+                nospace = false;
+            }
+            else
+                ret += (" " + key + " " + argument_list.value(key).value);
+        }
     }
     ret += ")";
     return ret;
@@ -54,10 +62,18 @@ QString ExecdArgumentList::getFormArguments() const noexcept
 QString ExecdArgumentList::getReformArguments() const noexcept
 {
     QString ret = "(";
+    bool nospace = true;
     for(const auto& key : reform_argument_list.keys())
     {
         if(reform_argument_list.value(key).value != defaults.value(key).value)
-            ret += (key + " " + reform_argument_list.value(key).value);
+        {
+            if(nospace) {
+                ret += (key + " " + reform_argument_list.value(key).value);
+                nospace = false;
+            }
+            else
+                ret += (" " + key + " " + reform_argument_list.value(key).value);
+        }
     }
     ret += ")";
     return ret;
@@ -66,10 +82,18 @@ QString ExecdArgumentList::getReformArguments() const noexcept
 QString ExecdArgumentList::getFocusArguments() const noexcept
 {
     QString ret = "(";
+    bool nospace = true;
     for(const auto& key : focus_argument_list.keys())
     {
         if(focus_argument_list.value(key).value != focus_defaults.value(key).value)
-            ret += (key + " " + focus_argument_list.value(key).value);
+        {
+            if(nospace) {
+                ret += (key + " " + focus_argument_list.value(key).value);
+                nospace = false;
+            }
+            else
+                ret += (" " + key + " " + focus_argument_list.value(key).value);
+        }
     }
     ret += ")";
     return ret;

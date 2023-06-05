@@ -14,6 +14,7 @@ import "widgets" as Widgets
 import "layouts" as Layouts
 import "tabs" as Tabs
 import "windows" as Windows
+import "widgets/tabbar" as NPM
 
 ApplicationWindow  { id: window_root;
     Material.theme: Material.Dark;
@@ -94,31 +95,44 @@ ApplicationWindow  { id: window_root;
             anchors.bottom: parent.bottom;
         }
 
-        TabBar { id: control_TabBar;
-            anchors.left: parent.left;
-            anchors.right: parent.right;
-            anchors.top: parent.top;
+        NPM.ExpandableTabBar { id: control_TabBar;
+            z: 100;
             contentHeight: 25;
-            background: Rectangle { color: Material.background; }
-            z: 50;
-
-            TabButton {
-                text: "ИНТЕРАКТИВНАЯ КАРТА";
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
+            anchors {
+                left: parent.left;
+                right: parent.right;
+                top: parent.top;
             }
 
-            TabButton {
+            NPM.ExpandableTabButton {
+                text: "ИНТЕРАКТИВНАЯ КАРТА";
+                icon.source: "qrc:/icons/google-material/earth.png";
+                palette {
+                    buttonText: Theme.color("light0");
+                    highlight: Theme.color("green");
+                    highlightedText: Theme.color("dark2");
+                }
+            }
+
+            NPM.ExpandableTabButton {
                 text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
+                icon.source: "qrc:/icons/google-material/edit.png";
+                palette {
+                    buttonText: Theme.color("light0");
+                    highlight: Theme.color("yellow");
+                    highlightedText: Theme.color("dark2");
+                }
                 enabled: root.b_AllowImageEdit;
             }
 
-            TabButton {
+            NPM.ExpandableTabButton {
                 text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
+                icon.source: "qrc:/icons/google-material/link.png";
+                palette {
+                    buttonText: Theme.color("light0");
+                    highlight: Theme.color("color3");
+                    highlightedText: Theme.color("dark2");
+                }
             }
         }
 

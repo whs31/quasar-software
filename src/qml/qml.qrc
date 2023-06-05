@@ -29,5 +29,7 @@
         <file>tabs/map/ui/PanelEntities.qml</file>
         <file>tabs/map/ui/PanelParameters.qml</file>
         <file>tabs/map/ui/PanelImages.qml</file>
+        <file>widgets/tabbar/ExpandableTabBar.qml</file>
+        <file>widgets/tabbar/ExpandableTabButton.qml</file>
     </qresource>
 </RCC>

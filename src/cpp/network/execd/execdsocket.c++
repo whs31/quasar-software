@@ -52,12 +52,13 @@ void ExecdSocket::executeCommand(Command command)
     switch (command)
     {
         case FormImage:
-            /// @todo
-
+            com = finalize(wrap("$FORM" + args->getFormArguments()));
             break;
         case FocusImage:
-            /// @todo
-
+            com = finalize(wrap("$FORM" + args->getFocusArguments()));
+            break;
+        case ReformImage:
+            com = finalize(wrap("$FORM" + args->getReformArguments()));
             break;
         case RemoteStorageStatus:
             com = finalize(wrap("$storage_status()"));

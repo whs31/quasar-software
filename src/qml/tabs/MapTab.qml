@@ -499,7 +499,7 @@ Map { id: c_Map;
                     Material.elevation: 30;
                     Material.foreground: Theme.color("dark0");
                     Material.background: Theme.color("color0");
-                    //onPressed:
+                    onPressed: Network.executeCommand(Network.FormImage);
                 }
 
                 RoundButton { id: button_ImageParams;

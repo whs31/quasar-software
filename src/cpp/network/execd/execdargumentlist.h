@@ -77,6 +77,10 @@ namespace Network
         public:
             explicit ExecdArgumentList(QObject* parent = nullptr);
 
+            QString getFormArguments() const noexcept;
+            QString getReformArguments() const noexcept;
+            QString getFocusArguments() const noexcept;
+
             QMap<QString, ExecdArgument> argument_list = defaults;
             QMap<QString, ExecdArgument> reform_argument_list = defaults;
             QMap<QString, ExecdArgument> focus_argument_list = focus_defaults;

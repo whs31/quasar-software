@@ -37,8 +37,42 @@ void ExecdArgument::set(const QVariant& v)
 
 ExecdArgumentList::ExecdArgumentList(QObject* parent)
     : QObject{parent}
-{
+{}
 
+QString ExecdArgumentList::getFormArguments() const noexcept
+{
+    QString ret = "(";
+    for(const auto& key : argument_list.keys())
+    {
+        if(argument_list.value(key).value != defaults.value(key).value)
+            ret += (key + " " + argument_list.value(key).value);
+    }
+    ret += ")";
+    return ret;
+}
+
+QString ExecdArgumentList::getReformArguments() const noexcept
+{
+    QString ret = "(";
+    for(const auto& key : reform_argument_list.keys())
+    {
+        if(reform_argument_list.value(key).value != defaults.value(key).value)
+            ret += (key + " " + reform_argument_list.value(key).value);
+    }
+    ret += ")";
+    return ret;
+}
+
+QString ExecdArgumentList::getFocusArguments() const noexcept
+{
+    QString ret = "(";
+    for(const auto& key : focus_argument_list.keys())
+    {
+        if(focus_argument_list.value(key).value != focus_defaults.value(key).value)
+            ret += (key + " " + focus_argument_list.value(key).value);
+    }
+    ret += ")";
+    return ret;
 }
 
 } // Network

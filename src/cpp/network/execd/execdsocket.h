@@ -14,6 +14,7 @@ namespace Network
             {
                 FormImage,
                 FocusImage,
+                ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
                 Ping

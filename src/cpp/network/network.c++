@@ -79,6 +79,7 @@ void Network::executeCommand(const NetworkCommand command) noexcept
     {
         case FormImage: execdSocket->executeCommand(ExecdSocket::FormImage); break;
         case FocusImage: execdSocket->executeCommand(ExecdSocket::FocusImage); break;
+        case ReformImage: execdSocket->executeCommand(ExecdSocket::ReformImage); break;
         case RemoteStorageStatus: execdSocket->executeCommand(ExecdSocket::RemoteStorageStatus); break;
         case ClearRemoteStorage: execdSocket->executeCommand(ExecdSocket::ClearRemoteStorage); break;
         case Ping: execdSocket->executeCommand(ExecdSocket::Ping); break;

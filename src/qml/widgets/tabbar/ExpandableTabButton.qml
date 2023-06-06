@@ -64,7 +64,7 @@ TabButton {
         anchors.fill: parent;
         color: root.palette.highlight;
         radius: parent.height * 0.5;
-        opacity: root.checked ? 1 : 0.1;
+        opacity: root.checked ? 1 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 

@@ -113,7 +113,7 @@ MapQuickItem {
                         radius: 4;
                         Material.elevation: 30;
                         Material.background: Theme.color("dark1");
-                        //onPressed:
+                        onPressed: console.exception("NOT IMPLEMENTED");
                     }
 
                     RowLayout {

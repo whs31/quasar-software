@@ -31,5 +31,6 @@
         <file>tabs/map/ui/PanelImages.qml</file>
         <file>widgets/tabbar/ExpandableTabBar.qml</file>
         <file>widgets/tabbar/ExpandableTabButton.qml</file>
+        <file>tabs/network/PingConsole.qml</file>
     </qresource>
 </RCC>

@@ -211,7 +211,6 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     image.filename = filename;
     image.path.first = Config::Paths::lod(0) + "/" + filename;
 
-    //std::vector<uint16_t> chunks;
     QByteArray chunks_unknown_ws;
     int ws = 0;
     QByteArray data = fileToByteArray(image.path.first);
@@ -222,7 +221,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     int rows, columns;
 
-    while(true)
+    forever
     {     
         if(offset >= data.size())
             break;
@@ -355,15 +354,8 @@ QByteArray ImageProcessing::fileToByteArray(const QString& path)
     return file.readAll();
 }
 
-Map::ImageModel* ImageProcessing::model()
-{
-    return this->m_model;
-}
-
-void ImageProcessing::passImage(const Map::Image& image)
-{
-    model()->add(image);
-}
+Map::ImageModel* ImageProcessing::model() { return this->m_model; }
+void ImageProcessing::passImage(const Map::Image& image) { model()->add(image); }
 
 bool ImageProcessing::exists(const QString& name)
 {

@@ -69,14 +69,26 @@ Pane {
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
             anchors {
-                left: parent.left;
-                top: panel_TelemetryConsole.bottom;
+                left: parent.left
+                top: panel_TelemetryConsole.bottom
                 margins: 5
             }
             name: "СОКЕТ UDP LFS";
             width: 380;
             height: 450;
             color: Theme.color("color0");
+        }
+
+        NetworkTab.PingConsole { id: panel_pingStatus;
+            anchors {
+                left: panel_StripConsole.right
+                top: panel_TelemetryConsole.bottom
+                margins: 5
+            }
+
+            name: "ДОСТУП К РЛС";
+            width: 300;
+            height: 450;
         }
     }
 
@@ -133,6 +145,7 @@ Pane {
             }
         }
     }
+
 
     Connections {
         target: Network;

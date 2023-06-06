@@ -1,13 +1,15 @@
 #include "network.h"
+#include <QtCore/QDebug>
+#include <QtCore/QTimer>
+#include <QtCore/QVariant>
+#include "config/config.h"
 #include "telemetry/telemetry.h"
 #include "telemetry/telemetrysocket.h"
 #include "execd/execdsocket.h"
 #include "execd/execdargumentlist.h"
 #include "execd/feedbacksocket.h"
 #include "tcpsocket.h"
-#include <QtCore/QDebug>
-#include <QtCore/QTimer>
-#include <QtCore/QVariant>
+#include "ping.h"
 
 namespace Network {
 
@@ -19,10 +21,17 @@ Network::Network(QObject* parent)
     , feedbackSocket(new FeedbackSocket(this))
     , tcpSocket(new TCPSocket(this))
     , m_network_delay_timer(new QTimer(this))
+    , m_networkDelay(DISCONNECT_DELAY_THRESHOLD + .1f)
+    , m_connected(0)
+    , m_de10Status((int)PingStatus::Idle)
+    , m_jetsonStatus((int)PingStatus::Idle)
+    , m_de10ping(new Pinger(this))
+    , m_jetsonping(new Pinger(this))
 {
     telemetrySocket = new TelemetrySocket(this, m_telemetry);
 
     qDebug() << "[NETWORK] Beginning network setup";
+
     m_network_delay_timer->start(100);
     QObject::connect(telemetrySocket, &TelemetrySocket::ping, this, [this](){
         setNetworkDelay(0);
@@ -34,7 +43,6 @@ Network::Network(QObject* parent)
         setNetworkDelay(0);
     });
     QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
-    //! @todo execdsock
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
     QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
@@ -47,6 +55,17 @@ Network::Network(QObject* parent)
     QObject::connect(tcpSocket, &TCPSocket::progressChanged, this, [this](float progress){
         setTcpProgress(progress);
     });
+
+    QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){
+        setDe10Status(result);
+    });
+
+    QObject::connect(m_jetsonping, &Pinger::result, this, [this](int result){
+        setJetsonStatus(result);
+    });
+
+    m_de10ping->start(0, CONFIG(remoteIP));
+    m_jetsonping->start(0, "192.168.1.48");
 }
 
 void Network::startTelemetrySocket(const QString& address, float frequency)
@@ -55,11 +74,7 @@ void Network::startTelemetrySocket(const QString& address, float frequency)
     telemetrySocket->start(address);
 }
 
-void Network::stopTelemetrySocket()
-{
-    telemetrySocket->stop();
-}
-
+void Network::stopTelemetrySocket() { telemetrySocket->stop(); }
 
 void Network::startExecdSocket(const QString& execd_address, const QString& feedback_address)
 {
@@ -157,12 +172,27 @@ void Network::setConnected(int other) {
 }
 
 float Network::tcpProgress() const { return m_tcpProgress; }
-void Network::setTcpProgress(float other)
-{
+void Network::setTcpProgress(float other) {
     if (qFuzzyCompare(m_tcpProgress, other))
         return;
     m_tcpProgress = other;
     emit tcpProgressChanged();
+}
+
+int Network::de10Status() const { return m_de10Status; }
+void Network::setDe10Status(int o) {
+    if (m_de10Status == o)
+        return;
+    m_de10Status = o;
+    emit de10StatusChanged();
+}
+
+int Network::jetsonStatus() const { return m_jetsonStatus; }
+void Network::setJetsonStatus(int o) {
+    if (m_jetsonStatus == o)
+        return;
+    m_jetsonStatus = o;
+    emit jetsonStatusChanged();
 }
 
 }

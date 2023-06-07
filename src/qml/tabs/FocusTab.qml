@@ -133,21 +133,25 @@ Rectangle { id: focustab_root;
         }
     }
 
-    Text { id: filename_label;
-        property string filename_string: "null";
-
+    Pane {
         anchors {
             top: flick.top
             topMargin: 30
             horizontalCenter: flick.horizontalCenter
         }
 
-        text: "Редактирование файла " + "<b>" + filename_string + "</b>";
-        font {
-            family: root.mainfont
-            pixelSize: 15
+        Material.elevation: 100;
+
+        Text { id: filename_label;
+            property string filename_string: "null";
+
+            text: "Редактирование файла " + "<b>" + filename_string + "</b>";
+            font {
+                family: root.mainfont
+                pixelSize: 15
+            }
+            color: Theme.color("light1");
         }
-        color: Theme.color("light1");
     }
 
     Pane { id: panel_Param;
@@ -167,7 +171,6 @@ Rectangle { id: focustab_root;
     }
 }
 /*
-
 
             {"--px", ExecdArgument(-1.0f)},         //! @var Координата по дальности точки для фокусировки
             {"--py", ExecdArgument(-1.0f)},         //! @var Координата по путевой дальности точки для фокусировки.

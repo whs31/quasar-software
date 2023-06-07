@@ -17,11 +17,14 @@ Pane { id: panel_ReformSettings;
         Network.setArgument("-e", input_elevation.text, Network.Focus);
     }
 
+    clip: true;
     width: parent.width;
+    height: parent.height;
     Material.elevation: 30;
 
     ColumnLayout { id: layout_reform;
         width: parent.width;
+        clip: true;
 
         Column {
             Layout.fillWidth: true;
@@ -55,13 +58,12 @@ Pane { id: panel_ReformSettings;
             }
 
             ScrollView { id: scrollview2;
-                Layout.fillWidth: true;
+                Layout.fillHeight: true
+                implicitHeight: panel_ReformSettings.height - 100;
                 clip: true;
-                ScrollBar.vertical.policy: ScrollBar.AlwaysOn;
                 ScrollBar.horizontal.policy: ScrollBar.AlwaysOff;
 
-                GridLayout {
-                    width: scrollview2.width - 30;
+                GridLayout { id: grid_layout1;
                     columns: 2;
                     columnSpacing: 6;
                     rowSpacing: -4;

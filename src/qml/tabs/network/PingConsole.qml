@@ -57,7 +57,7 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: "DE10 Nano: "
+                    text: "Радиолокационный модуль: "
                     color: Theme.color("light1");
                     Layout.fillWidth: true;
                 }
@@ -92,7 +92,7 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: "Jetson: "
+                    text: "Бортовой вычислитель: "
                     color: Theme.color("light1");
                     Layout.fillWidth: true;
                 }
@@ -162,7 +162,7 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: "RESERVED 1 {fix name}: "
+                    text: "Коммутатор антенн: "
                     color: Theme.color("light1");
                     Layout.fillWidth: true;
                 }
@@ -197,7 +197,7 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: "RESERVED 2 {fix name}: "
+                    text: "Коммутатор питания: "
                     color: Theme.color("light1");
                     Layout.fillWidth: true;
                 }

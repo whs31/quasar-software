@@ -87,7 +87,7 @@ Pane { id: networktab_root;
             }
 
             name: "ДОСТУП К РЛС";
-            width: 400;
+            width: 500;
             height: 180;
         }
     }

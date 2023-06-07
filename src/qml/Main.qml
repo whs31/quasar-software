@@ -137,7 +137,7 @@ ApplicationWindow  { id: window_root;
                     highlight: Theme.color("yellow");
                     highlightedText: Theme.color("dark2");
                 }
-                //enabled: c_FocusTab.currentAssignedIndex >= 0;
+                enabled: c_FocusTab.currentAssignedIndex >= 0;
             }
 
             NPM.ExpandableTabButton {

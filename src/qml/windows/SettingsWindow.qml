@@ -75,7 +75,7 @@ Window {
                     anchors.right: parent.right;
 
                     Text {
-                        text: "IP-адрес РЛС:";
+                        text: "IP-адрес РЛМ:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
                         font.pixelSize: 14;
@@ -96,7 +96,7 @@ Window {
                     }
 
                     Text {
-                        text: "IP-адрес Jetson:";
+                        text: "IP-адрес вычислителя:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
                         font.pixelSize: 14;
@@ -138,7 +138,7 @@ Window {
                     }
 
                     Text {
-                        text: "IP-адрес {NAME 1}:";
+                        text: "IP-адрес коммутатора антенн:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
                         font.pixelSize: 14;
@@ -159,7 +159,7 @@ Window {
                     }
 
                     Text {
-                        text: "IP-адрес {NAME 2}:";
+                        text: "IP-адрес коммутатора питания:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
                         font.pixelSize: 14;

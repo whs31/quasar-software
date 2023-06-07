@@ -26,6 +26,6 @@ Rectangle { id: control;
             duration: 500;
         }
         loops: Animation.Infinite;
-        running: true;
+        running: (connected === 2);
     }
 }

@@ -19,6 +19,10 @@ void Config::Config::save()
 
     ini->setValue("remoteIP", remoteIP());
     ini->setValue("localIP", localIP());
+    ini->setValue("jetsonIP", jetsonIP());
+    ini->setValue("navIP", navIP());
+    ini->setValue("utl1IP", utl1IP());
+    ini->setValue("utl2IP", utl2IP());
     ini->setValue("telemetryPort", telemetryPort());
     ini->setValue("lfsPort", tcpLFSPort());
     ini->setValue("stripPort", udpLFSPort());
@@ -58,6 +62,10 @@ void Config::Config::load()
 
     setRemoteIP(ini->value("remoteIP").toString());
     setLocalIP(ini->value("localIP").toString());
+    setJetsonIP(ini->value("jetsonIP").toString());
+    setNavIP(ini->value("navIP").toString());
+    setUtl1IP(ini->value("utl1IP").toString());
+    setUtl2IP(ini->value("utl2IP").toString());
     setTelemetryPort(ini->value("telemetryPort").toString());
     setTcpLFSPort(ini->value("lfsPort").toString());
     setUdpLFSPort(ini->value("stripPort").toString());
@@ -401,6 +409,58 @@ void Config::setTheme(const QString& other)
         return;
     m_theme = other;
     emit themeChanged();
+}
+
+QString Config::jetsonIP() const
+{
+    return m_jetsonIP;
+}
+
+void Config::setJetsonIP(const QString& other)
+{
+    if (m_jetsonIP == other)
+        return;
+    m_jetsonIP = other;
+    emit jetsonIPChanged();
+}
+
+QString Config::navIP() const
+{
+    return m_navIP;
+}
+
+void Config::setNavIP(const QString& other)
+{
+    if (m_navIP == other)
+        return;
+    m_navIP = other;
+    emit navIPChanged();
+}
+
+QString Config::utl1IP() const
+{
+    return m_utl1IP;
+}
+
+void Config::setUtl1IP(const QString& other)
+{
+    if (m_utl1IP == other)
+        return;
+    m_utl1IP = other;
+    emit utl1IPChanged();
+}
+
+QString Config::utl2IP() const
+{
+    return m_utl2IP;
+}
+
+void Config::setUtl2IP(const QString& other)
+{
+    if (m_utl2IP == other)
+        return;
+    m_utl2IP = other;
+    emit utl2IPChanged();
 }
 
 }

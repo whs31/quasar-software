@@ -18,6 +18,10 @@ namespace Config
 
         Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
         Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
+        Q_PROPERTY(QString jetsonIP READ jetsonIP WRITE setJetsonIP NOTIFY jetsonIPChanged)
+        Q_PROPERTY(QString navIP READ navIP WRITE setNavIP NOTIFY navIPChanged)
+        Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
+        Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
         Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
         Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
         Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
@@ -75,6 +79,10 @@ namespace Config
             bool cutImage() const; void setCutImage(bool);
             QString tcpMarker() const; void setTcpMarker(const QString&);
             QString theme() const; void setTheme(const QString&);
+            QString jetsonIP() const; void setJetsonIP(const QString&);
+            QString navIP() const; void setNavIP(const QString&);
+            QString utl1IP() const; void setUtl1IP(const QString&);
+            QString utl2IP() const; void setUtl2IP(const QString&);
 
             signals:
                 void remoteIPChanged();
@@ -99,8 +107,11 @@ namespace Config
                 void cutImageChanged();
                 void tcpMarkerChanged();
                 void themeChanged();
-
                 void scheduleRestart();
+                void jetsonIPChanged();
+                void navIPChanged();
+                void utl1IPChanged();
+                void utl2IPChanged();
 
         private:
             explicit Config(QObject* parent = nullptr);
@@ -108,6 +119,10 @@ namespace Config
         private:
             const QMap<QString, QVariant> defaults = {
                 {"remoteIP", "127.0.0.1"},
+                {"jetsonIP", "192.168.1.48"},
+                {"navIP", "192.168.1.49"},
+                {"utl1IP", "192.168.1.50"},
+                {"utl2IP", "192.168.1.51"},
                 {"localIP", "127.0.0.1"},
                 {"telemetryPort", "9955"},
                 {"lfsPort", "10000"},
@@ -155,5 +170,9 @@ namespace Config
             bool m_cutImage;
             QString m_tcpMarker;
             QString m_theme;
+            QString m_jetsonIP;
+            QString m_navIP;
+            QString m_utl1IP;
+            QString m_utl2IP;
     };
 } // namespace Config;

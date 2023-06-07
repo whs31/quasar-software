@@ -24,8 +24,7 @@ namespace Network
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
         Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
-        Q_PROPERTY(int de10Status READ de10Status WRITE setDe10Status NOTIFY de10StatusChanged)
-        Q_PROPERTY(int jetsonStatus READ jetsonStatus WRITE setJetsonStatus NOTIFY jetsonStatusChanged)
+
         Q_ENUM(PingStatus)
         LPVL_DECLARE_SINGLETON(Network);
 
@@ -76,8 +75,6 @@ namespace Network
             float networkDelay() const; void setNetworkDelay(float);
             int connected() const; void setConnected(int);
             float tcpProgress() const; void setTcpProgress(float);
-            int de10Status() const; void setDe10Status(int);
-            int jetsonStatus() const; void setJetsonStatus(int);
 
             signals:
                 void telemetryChanged();
@@ -91,10 +88,8 @@ namespace Network
                 void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
                 void stripSocketMetrics(const QString msg, int size_bytes, bool out);
                 void tcpProgressChanged();
-                void de10StatusChanged();
-                void jetsonStatusChanged();
 
-            private:
+        private:
             explicit Network(QObject* parent = nullptr);
 
         private:
@@ -105,11 +100,12 @@ namespace Network
 
             Pinger* m_de10ping;
             Pinger* m_jetsonping;
+            Pinger* m_navping;
+            Pinger* m_utl1ping;
+            Pinger* m_utl2ping;
 
             float m_networkDelay;
             int m_connected;
             float m_tcpProgress;
-            int m_de10Status = (int)PingStatus::Idle;
-            int m_jetsonStatus = (int)PingStatus::Idle;
     };
 } // namespace Network;

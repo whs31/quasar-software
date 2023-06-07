@@ -23,10 +23,11 @@ Network::Network(QObject* parent)
     , m_network_delay_timer(new QTimer(this))
     , m_networkDelay(DISCONNECT_DELAY_THRESHOLD + .1f)
     , m_connected(0)
-    , m_de10Status((int)PingStatus::Idle)
-    , m_jetsonStatus((int)PingStatus::Idle)
     , m_de10ping(new Pinger(this))
     , m_jetsonping(new Pinger(this))
+    , m_navping(new Pinger(this))
+    , m_utl1ping(new Pinger(this))
+    , m_utl2ping(new Pinger(this))
 {
     telemetrySocket = new TelemetrySocket(this, m_telemetry);
 
@@ -56,16 +57,22 @@ Network::Network(QObject* parent)
         setTcpProgress(progress);
     });
 
-    QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){
-        setDe10Status(result);
-    });
+    QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){ remoteData()->setDe10ping(result); });
+    QObject::connect(m_jetsonping, &Pinger::result, this, [this](int result){ remoteData()->setJetsonping(result); });
+    QObject::connect(m_navping, &Pinger::result, this, [this](int result){ remoteData()->setNavping(result); });
+    QObject::connect(m_utl1ping, &Pinger::result, this, [this](int result){ remoteData()->setUtl1ping(result); });
+    QObject::connect(m_utl2ping, &Pinger::result, this, [this](int result){ remoteData()->setUtl2ping(result); });
 
-    QObject::connect(m_jetsonping, &Pinger::result, this, [this](int result){
-        setJetsonStatus(result);
-    });
+    vector<QString> ping_args;
+    #ifdef Q_OS_WIN
+    ping_args.push_back(QString("-t"));
+    #endif
 
-    m_de10ping->start(0, CONFIG(remoteIP));
-    m_jetsonping->start(0, "192.168.1.48");
+    m_de10ping->start(0, CONFIG(remoteIP), ping_args);
+    m_jetsonping->start(0, CONFIG(jetsonIP), ping_args);
+    m_navping->start(0, CONFIG(navIP), ping_args);
+    m_utl1ping->start(0, CONFIG(utl1IP), ping_args);
+    m_utl2ping->start(0, CONFIG(utl2IP), ping_args);
 }
 
 void Network::startTelemetrySocket(const QString& address, float frequency)
@@ -177,22 +184,6 @@ void Network::setTcpProgress(float other) {
         return;
     m_tcpProgress = other;
     emit tcpProgressChanged();
-}
-
-int Network::de10Status() const { return m_de10Status; }
-void Network::setDe10Status(int o) {
-    if (m_de10Status == o)
-        return;
-    m_de10Status = o;
-    emit de10StatusChanged();
-}
-
-int Network::jetsonStatus() const { return m_jetsonStatus; }
-void Network::setJetsonStatus(int o) {
-    if (m_jetsonStatus == o)
-        return;
-    m_jetsonStatus = o;
-    emit jetsonStatusChanged();
 }
 
 }

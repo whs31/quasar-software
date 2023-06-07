@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(QuaSAR LANGUAGES CXX VERSION 1.0.0)
+project(QuaSAR LANGUAGES CXX VERSION 2.10.4)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src/cmake)
 include(qtprojectbuild)

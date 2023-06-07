@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <QtCore/QProcess>
 #include <QtCore/QTimer>
+#include <QtCore/QDebug>
 
 namespace Network
 {
@@ -29,13 +30,17 @@ void Pinger::start(uint32_t interval, const QString& address, const vector<QStri
         m_args += QString(arg + " ");
 
     if(interval == 0)
-        ch->start("ping", QStringList() << QString(address) );
+        ping();
     else
         t->start(interval);
 }
 
 void Pinger::stop() noexcept { t->stop(); }
-void Pinger::ping() { ch->start("ping", QStringList() << QString(addr) ); }
+void Pinger::ping()
+{
+    ch->start("ping", m_args << QString(addr) );
+    qDebug().noquote() << "[PING] Starting ping at" << addr;
+}
 
 void Pinger::recv()
 {

@@ -18,6 +18,9 @@ Rectangle { id: focustab_root;
             mapImage.source = "file:///" + ImagesModel.getRole(currentAssignedIndex, "filepath");
             filename_label.filename_string = Theme.colorText(ImagesModel.getRole(currentAssignedIndex, "filename"), Theme.color("yellow"));
 
+            panel_Reform.setVelocityAndElevation(Number(ImagesModel.getRole(currentAssignedIndex, "velocity")).toFixed(1),
+                                                 Number(ImagesModel.getRole(currentAssignedIndex, "elevation")).toFixed(1));
+
             Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Reform);
             Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Focus);
         }
@@ -163,3 +166,13 @@ Rectangle { id: focustab_root;
         }
     }
 }
+/*
+
+
+            {"--px", ExecdArgument(-1.0f)},         //! @var Координата по дальности точки для фокусировки
+            {"--py", ExecdArgument(-1.0f)},         //! @var Координата по путевой дальности точки для фокусировки.
+            {"--ls", ExecdArgument(50.0f)},         //! @var Размер стороны квадрата в м, по которой производится фокусировка
+            {"--vmin", ExecdArgument(-1.0f)},       //! @var Минимальное  значение гипотезы по скорости для фокусировки, км/ч
+            {"--vmax", ExecdArgument(-1.0f)},       //! @var Максимальное значение гипотезы по скорости для фокусировки, км/ч
+            {"--ni", ExecdArgument(10)},            //! @var Количество гипотез по скорости [1 - inf]
+            */

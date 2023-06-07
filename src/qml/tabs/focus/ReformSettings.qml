@@ -7,6 +7,16 @@ import Theme 1.0
 import Network 1.0
 
 Pane { id: panel_ReformSettings;
+    function setVelocityAndElevation(vel, ele)
+    {
+        input_velocity.text = vel;
+        input_elevation.text = ele;
+        Network.setArgument("-v", input_velocity.text, Network.Reform);
+        Network.setArgument("-v", input_velocity.text, Network.Focus);
+        Network.setArgument("-e", input_elevation.text, Network.Reform);
+        Network.setArgument("-e", input_elevation.text, Network.Focus);
+    }
+
     width: parent.width;
     Material.elevation: 30;
 
@@ -15,6 +25,7 @@ Pane { id: panel_ReformSettings;
 
         Column {
             Layout.fillWidth: true;
+
             RoundButton { id: button_FormImage;
                 font.family: root.mainfont;
                 height: 40;
@@ -27,6 +38,20 @@ Pane { id: panel_ReformSettings;
                 Material.foreground: Theme.color("dark0");
                 Material.background: Theme.color("color3");
                 onPressed: Network.executeCommand(Network.ReformImage);
+            }
+
+            RoundButton { id: button_FocusImage;
+                font.family: root.mainfont;
+                height: 40;
+                radius: 4;
+                width: layout_reform.width;
+                icon.source: "qrc:/icons/google-material/take-photo.png";
+                icon.color: Theme.color("dark0");
+                text: "Фокусировка изображения";
+                Material.elevation: 30;
+                Material.foreground: Theme.color("dark0");
+                Material.background: Theme.color("green");
+                onPressed: Network.executeCommand(Network.FocusImage);
             }
 
             ScrollView { id: scrollview2;
@@ -133,7 +158,10 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-b", text, Network.Reform);
+                        onEditingFinished: {
+                            Network.setArgument("-b", text, Network.Reform);
+                            Network.setArgument("-b", text, Network.Focus);
+                        }
                     }
 
                     Text {
@@ -146,7 +174,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignLeft;
                     }
 
-                    TextField {
+                    TextField { id: input_elevation;
                         text: "-1";
                         horizontalAlignment: Text.AlignRight;
                         font {
@@ -165,7 +193,10 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-e", text, Network.Reform);
+                        onEditingFinished: {
+                            Network.setArgument("-e", text, Network.Reform);
+                            Network.setArgument("-e", text, Network.Focus);
+                        }
                     }
 
                     Text {
@@ -178,7 +209,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignLeft;
                     }
 
-                    TextField {
+                    TextField { id: input_velocity;
                         text: "-1";
                         horizontalAlignment: Text.AlignRight;
                         font {
@@ -197,7 +228,10 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-v", text, Network.Reform);
+                        onEditingFinished: {
+                            Network.setArgument("-v", text, Network.Reform);
+                            Network.setArgument("-v", text, Network.Focus);
+                        }
                     }
 
                     Text {
@@ -228,7 +262,10 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Ts", text, Network.Reform);
+                        onEditingFinished: {
+                            Network.setArgument("--Ts", text, Network.Reform);
+                            Network.setArgument("--Ts", text, Network.Focus);
+                        }
                     }
 
                     Text {

@@ -164,6 +164,10 @@ QVariant ImageModel::getRole(int i, const QString& role) const
         return data(index(i), LOD0FilePath);
     if(role == "filename")
         return data(index(i), Filename);
+    if(role == "velocity")
+        return data(index(i), Velocity);
+    if(role == "elevation")
+        return data(index(i), Altitude);
     return "Error parsing";
 }
 

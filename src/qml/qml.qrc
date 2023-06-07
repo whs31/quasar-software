@@ -34,5 +34,6 @@
         <file>tabs/network/PingConsole.qml</file>
         <file>tabs/network/ConnectionIndicator.qml</file>
         <file>tabs/focus/ReformSettings.qml</file>
+        <file>tabs/focus/FocusSettings.qml</file>
     </qresource>
 </RCC>

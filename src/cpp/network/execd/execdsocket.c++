@@ -55,7 +55,7 @@ void ExecdSocket::executeCommand(Command command)
             com = finalize(wrap("$FORM" + args->getFormArguments()));
             break;
         case FocusImage:
-            com = finalize(wrap("$FORM" + args->getFocusArguments()));
+            com = finalize(wrap("$FOCUS" + args->getFocusArguments()));
             break;
         case ReformImage:
             com = finalize(wrap("$FORM" + args->getReformArguments()));

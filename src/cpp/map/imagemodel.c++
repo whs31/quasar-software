@@ -131,6 +131,8 @@ void ImageModel::add(const Image& image)
     endInsertRows();
     emit added();
 
+    setTotalCount(rowCount());
+
     qDebug() << "[IMAGE] Model received new image. Now it contains" << rowCount() << "images";
 }
 
@@ -140,6 +142,8 @@ void ImageModel::remove(int index)
     storage.remove(index);
     endRemoveRows();
 
+    setTotalCount(rowCount());
+
     qDebug() << "[IMAGE] Model lost an image. Now it contains" << rowCount() << "images";
 }
 
@@ -148,6 +152,8 @@ void ImageModel::clear()
     beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
     storage.clear();
     endRemoveRows();
+
+    setTotalCount(rowCount());
 
     qDebug() << "[IMAGE] Model cleared";
 }
@@ -160,5 +166,10 @@ QGeoCoordinate ImageModel::lastImagePosition()
 }
 
 QVector<Image>* ImageModel::direct() { return &storage; }
-
-
+int ImageModel::totalCount() const { return m_totalCount; }
+void ImageModel::setTotalCount(int other) {
+    if (m_totalCount == other)
+        return;
+    m_totalCount = other;
+    emit totalCountChanged();
+}

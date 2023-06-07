@@ -12,6 +12,7 @@ namespace Map
     class ImageModel : public QAbstractListModel
     {
         Q_OBJECT
+        Q_PROPERTY(int totalCount READ totalCount WRITE setTotalCount NOTIFY totalCountChanged)
 
         public:
             enum ModelRoles
@@ -59,14 +60,19 @@ namespace Map
 
             QVector<Image>* direct();
 
+            int totalCount() const;
+            void setTotalCount(int other);
+
             signals:
                 void added();
+                void totalCountChanged();
 
         protected:
             QHash<int, QByteArray> roleNames() const override;
 
         private:
             QVector<Image> storage;
+            int m_totalCount;
     };
 } // namespace Map;
 

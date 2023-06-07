@@ -11,4 +11,11 @@ Rectangle { id: focustab_root;
     color: Theme.color("dark0");
 
     property int currentAssignedIndex: -1;
+    Connections {
+        target: ImagesModel;
+        function onTotalCountChanged()
+        {
+            currentAssignedIndex = -1;
+        }
+    }
 }

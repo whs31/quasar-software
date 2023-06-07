@@ -158,6 +158,13 @@ void ImageModel::clear()
     qDebug() << "[IMAGE] Model cleared";
 }
 
+QVariant ImageModel::getRole(int i, const QString& role) const
+{
+    if(role == "filepath")
+        return data(index(i), LOD0FilePath);
+    return "Error parsing";
+}
+
 QGeoCoordinate ImageModel::lastImagePosition()
 {
     if(storage.empty())

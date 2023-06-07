@@ -113,7 +113,6 @@ ApplicationWindow  { id: window_root;
         NPM.ExpandableTabBar { id: control_TabBar;
             z: 100;
             contentHeight: 25;
-            currentIndex: Tabs.MapTab;
             anchors {
                 left: parent.left;
                 right: parent.right;

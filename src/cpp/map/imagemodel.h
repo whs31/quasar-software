@@ -56,6 +56,8 @@ namespace Map
             Q_INVOKABLE void remove(int index);
             Q_INVOKABLE void clear();
 
+            Q_INVOKABLE QVariant getRole(int index, const QString& role) const;
+
             Q_INVOKABLE QGeoCoordinate lastImagePosition();
 
             QVector<Image>* direct();

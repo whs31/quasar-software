@@ -21,19 +21,6 @@
 Entry::Entry(QObject *parent)
     : QObject{parent}
 {
-    /*! === === === === @todo list === === === ===
-
-        Planner points
-        Protractor
-        Follow UAV
-        Scale grid
-        Form image button
-        Focus window
-        Attitude indicator
-
-        === === === === === === === === === === ===
-    */
-
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
     QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());

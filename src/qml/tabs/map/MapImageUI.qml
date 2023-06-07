@@ -115,7 +115,10 @@ MapQuickItem {
                         radius: 4;
                         Material.elevation: 30;
                         Material.background: Theme.color("dark1");
-                        onPressed: console.exception("NOT IMPLEMENTED");
+                        onPressed: {
+                            c_FocusTab.currentAssignedIndex = index;
+                            root.openTab(1);
+                        }
                     }
 
                     RowLayout {

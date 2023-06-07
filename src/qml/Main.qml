@@ -48,11 +48,24 @@ ApplicationWindow  { id: window_root;
     Item { id: root;
         anchors.fill: parent;
         layer.smooth: true;
-        layer.samples: 6;
+        layer.samples: 8;
         layer.enabled: true;
 
+        enum Tabs
+        {
+            MapView,
+            EditorView,
+            NetworkView
+        }
+
+        readonly property int tab: control_TabBar.currentIndex;
+        function openTab(i)
+        {
+            control_TabBar.currentIndex = i;
+            console.log("[GUI] Opening tab " + (i + 1));
+        }
+
         property bool b_ConsoleShown: false;
-        property bool b_AllowImageEdit: false;
         property string mainfont: font_Main.name;
         property string monofont: font_Mono.name;
 
@@ -100,6 +113,7 @@ ApplicationWindow  { id: window_root;
         NPM.ExpandableTabBar { id: control_TabBar;
             z: 100;
             contentHeight: 25;
+            currentIndex: Tabs.MapTab;
             anchors {
                 left: parent.left;
                 right: parent.right;
@@ -124,7 +138,7 @@ ApplicationWindow  { id: window_root;
                     highlight: Theme.color("yellow");
                     highlightedText: Theme.color("dark2");
                 }
-                enabled: root.b_AllowImageEdit;
+                enabled: c_FocusTab.currentAssignedIndex >= 0;
             }
 
             NPM.ExpandableTabButton {

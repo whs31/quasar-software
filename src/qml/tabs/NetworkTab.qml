@@ -8,7 +8,7 @@ import Config 1.0
 
 import "network" as NetworkTab
 
-Pane {
+Pane { id: networktab_root;
     Material.background: Theme.color("dark0");
 
     Flickable {

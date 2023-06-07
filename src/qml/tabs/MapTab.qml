@@ -19,7 +19,7 @@ import "map" as MapTab;
 import "map/ui" as MapTabUI;
 import "../widgets" as Widgets;
 
-Map { id: c_Map;
+Map { id: maptab_root;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
     property alias routeType: c_Route.type;
 
@@ -42,7 +42,7 @@ Map { id: c_Map;
         Component.onCompleted: console.info("[MAP] Using osmconfig: " + Paths.mapConfig());
     }
 
-    activeMapType: c_Map.supportedMapTypes[i_MapMode];
+    activeMapType: maptab_root.supportedMapTypes[i_MapMode];
     center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
     zoomLevel: Config.storedZoomLevel;
     copyrightsVisible: false;
@@ -58,7 +58,7 @@ Map { id: c_Map;
             if(ClickHandler.state === ClickHandler.RulerActive)
             {
                 if(mouse.button === Qt.LeftButton)
-                    c_RulerModel.insertPoint(c_Map.toCoordinate(Qt.point(mouseX, mouseY)), 0);
+                    c_RulerModel.insertPoint(maptab_root.toCoordinate(Qt.point(mouseX, mouseY)), 0);
                 if(mouse.button === Qt.RightButton)
                     c_RulerModel.resetRoute();
             }
@@ -66,7 +66,7 @@ Map { id: c_Map;
             {
                 if(mouse.button === Qt.LeftButton)
                 {
-                    let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
+                    let coord = maptab_root.toCoordinate(Qt.point(mouseX, mouseY));
                     markerwindow.open(coord.latitude, coord.longitude);
                 }
                 ClickHandler.state = ClickHandler.Idle;
@@ -75,7 +75,7 @@ Map { id: c_Map;
             else
             {
                 if(mouse.button === Qt.RightButton) {
-                    let coord = c_Map.toCoordinate(Qt.point(mouseX, mouseY));
+                    let coord = maptab_root.toCoordinate(Qt.point(mouseX, mouseY));
                     ClickHandler.copyCoordinatesToClipboard(coord.latitude, coord.longitude);
                 }
             }

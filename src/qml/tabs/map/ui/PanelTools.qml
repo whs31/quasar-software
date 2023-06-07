@@ -65,13 +65,13 @@ Pane {
                 icon.color: Theme.color("light0");
                 Material.elevation: 30;
                 Material.background: Theme.color("dark2");
-                onPressed: c_Map.center = c_UAV.coordinate;
+                onPressed: maptab_root.center = c_UAV.coordinate;
             }
 
             RoundButton { id: button_PanLastImage;
                 function self() {
                     console.log("[GUI] Panned at " + ImagesModel.lastImagePosition());
-                    c_Map.center = ImagesModel.lastImagePosition();
+                    maptab_root.center = ImagesModel.lastImagePosition();
                 }
 
                 height: 44;

@@ -27,7 +27,7 @@ void Pinger::start(uint32_t interval, const QString& address, const vector<QStri
     addr = address;
 
     for(const auto& arg : args)
-        m_args += QString(arg + " ");
+        m_args += QString(arg);
 
     if(interval == 0)
         ping();
@@ -38,7 +38,11 @@ void Pinger::start(uint32_t interval, const QString& address, const vector<QStri
 void Pinger::stop() noexcept { t->stop(); }
 void Pinger::ping()
 {
-    ch->start("ping", m_args << QString(addr) );
+    #ifdef Q_OS_WIN
+    ch->start("ping", QStringList("-t") << QString(addr) );
+    #else
+    ch->start("ping", QStringList() << QString(addr) );
+    #endif
     qDebug().noquote() << "[PING] Starting ping at" << addr;
 }
 
@@ -51,6 +55,8 @@ void Pinger::recv()
     #else
     success = data.contains("time=");
     #endif
+
+    qDebug() << data;
 
     emit result(success ? (int)PingStatus::Success : (int)PingStatus::Timeout);
 }

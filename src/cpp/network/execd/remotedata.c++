@@ -1,4 +1,5 @@
 #include "remotedata.h"
+#include <QtCore/QDebug>
 
 using namespace Network;
 
@@ -25,6 +26,7 @@ void RemoteData::setDe10ping(int other) {
         return;
     m_de10ping = other;
     emit de10pingChanged();
+    qDebug() << other;
 }
 
 int RemoteData::jetsonping() const { return m_jetsonping; }
@@ -33,6 +35,7 @@ void RemoteData::setJetsonping(int other) {
         return;
     m_jetsonping = other;
     emit jetsonpingChanged();
+    qDebug() << "JETWSON" << other;
 }
 
 int RemoteData::navping() const { return m_navping; }

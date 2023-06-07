@@ -38,7 +38,7 @@ Pane {
                 margins: 5
             }
             name: "СОКЕТ КОМАНД";
-            width: 345;
+            width: 575;
             height: 450;
             color: Theme.color("accent");
         }
@@ -50,31 +50,31 @@ Pane {
                 margins: 5
             }
             name: "СОКЕТ ОБРАТНОЙ СВЯЗИ";
-            width: 425;
+            width: 575;
             height: 450;
             color: Theme.color("yellow");
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;
             anchors {
-                right: parent.right;
-                top: parent.top;
+                left: parent.left
+                top: panel_TelemetryConsole.bottom
                 margins: 5
             }
             name: "СОКЕТ TCP-IP";
-            width: 380;
+            width: 300;
             height: 450;
             color: Theme.color("green");
         }
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
             anchors {
-                left: parent.left
+                left: panel_LFSConsole.right
                 top: panel_TelemetryConsole.bottom
                 margins: 5
             }
             name: "СОКЕТ UDP LFS";
-            width: 380;
+            width: 300;
             height: 450;
             color: Theme.color("color0");
         }
@@ -87,7 +87,7 @@ Pane {
             }
 
             name: "ДОСТУП К РЛС";
-            width: 300;
+            width: 400;
             height: 450;
         }
     }

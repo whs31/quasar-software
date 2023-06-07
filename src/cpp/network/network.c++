@@ -63,16 +63,11 @@ Network::Network(QObject* parent)
     QObject::connect(m_utl1ping, &Pinger::result, this, [this](int result){ remoteData()->setUtl1ping(result); });
     QObject::connect(m_utl2ping, &Pinger::result, this, [this](int result){ remoteData()->setUtl2ping(result); });
 
-    vector<QString> ping_args;
-    #ifdef Q_OS_WIN
-    ping_args.push_back(QString("-t"));
-    #endif
-
-    m_de10ping->start(0, CONFIG(remoteIP), ping_args);
-    m_jetsonping->start(0, CONFIG(jetsonIP), ping_args);
-    m_navping->start(0, CONFIG(navIP), ping_args);
-    m_utl1ping->start(0, CONFIG(utl1IP), ping_args);
-    m_utl2ping->start(0, CONFIG(utl2IP), ping_args);
+    m_de10ping->start(0, CONFIG(remoteIP));
+    m_jetsonping->start(0, CONFIG(jetsonIP));
+    m_navping->start(0, CONFIG(navIP));
+    m_utl1ping->start(0, CONFIG(utl1IP));
+    m_utl2ping->start(0, CONFIG(utl2IP));
 }
 
 void Network::startTelemetrySocket(const QString& address, float frequency)

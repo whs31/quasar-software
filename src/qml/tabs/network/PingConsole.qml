@@ -51,8 +51,8 @@ Pane {
                         bold: true
                         pixelSize: 15
                     }
-                    text: Network.de10Status === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                   : "НЕТ СОЕДИНЕНИЯ";
+                    text: Network.remoteData.de10ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                            : "НЕТ СОЕДИНЕНИЯ";
                     color: Theme.color("light1");
                 }
             }
@@ -64,8 +64,47 @@ Pane {
                         bold: true
                         pixelSize: 15
                     }
-                    text: Network.jetsonStatus === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    text: Network.remoteData.jetsonping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                              : "НЕТ СОЕДИНЕНИЯ";
+                    color: Theme.color("light1");
+                }
+            }
+
+            Row {
+                Text {
+                    font {
+                        family: root.mainfont
+                        bold: true
+                        pixelSize: 15
+                    }
+                    text: Network.remoteData.navping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                           : "НЕТ СОЕДИНЕНИЯ";
+                    color: Theme.color("light1");
+                }
+            }
+
+            Row {
+                Text {
+                    font {
+                        family: root.mainfont
+                        bold: true
+                        pixelSize: 15
+                    }
+                    text: Network.remoteData.utl1ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                            : "НЕТ СОЕДИНЕНИЯ";
+                    color: Theme.color("light1");
+                }
+            }
+
+            Row {
+                Text {
+                    font {
+                        family: root.mainfont
+                        bold: true
+                        pixelSize: 15
+                    }
+                    text: Network.remoteData.utl2ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                            : "НЕТ СОЕДИНЕНИЯ";
                     color: Theme.color("light1");
                 }
             }

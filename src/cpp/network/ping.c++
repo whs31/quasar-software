@@ -56,8 +56,6 @@ void Pinger::recv()
     success = data.contains("time=");
     #endif
 
-    qDebug() << data;
-
     emit result(success ? (int)PingStatus::Success : (int)PingStatus::Timeout);
 }
 

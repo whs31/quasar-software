@@ -31,7 +31,6 @@ Item {
             anchors.left: parent.left;
             anchors.leftMargin: 12;
             anchors.verticalCenter: parent.verticalCenter;
-            state: i_ConnectionStatus;
             color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
 
             SequentialAnimation {

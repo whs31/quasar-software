@@ -88,7 +88,7 @@ Pane {
 
             name: "ДОСТУП К РЛС";
             width: 400;
-            height: 450;
+            height: 180;
         }
     }
 

@@ -318,11 +318,13 @@ Item {
 
     Text { id: txt_Delay;
         property string s_CurrentColor: fl_ConnectionDelay < 3 ? "green" : fl_ConnectionDelay < 8 ? "yellow" : "red";
+        property string s_CurrentDelay: fl_ConnectionDelay < 0.2 ? "~0 с" : Number(fl_ConnectionDelay).toFixed(1) + " с";
+
         color: Theme.color("light0");
         font.weight: Font.Bold;
         font.family: root.mainfont;
         font.pixelSize: 13;
-        text: "Задержка " + Theme.colorText( + Number(fl_ConnectionDelay).toFixed(1) + " с", s_CurrentColor);
+        text: "Задержка " + Theme.colorText(s_CurrentDelay, s_CurrentColor);
         width: 110;
         height: 12;
         anchors.top: ico_DelayIcon.top;

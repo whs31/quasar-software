@@ -162,6 +162,8 @@ QVariant ImageModel::getRole(int i, const QString& role) const
 {
     if(role == "filepath")
         return data(index(i), LOD0FilePath);
+    if(role == "filename")
+        return data(index(i), Filename);
     return "Error parsing";
 }
 

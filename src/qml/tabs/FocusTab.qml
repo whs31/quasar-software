@@ -14,8 +14,13 @@ Rectangle { id: focustab_root;
 
     property int currentAssignedIndex: -1;
     onCurrentAssignedIndexChanged: {
-        if(currentAssignedIndex >= 0)
+        if(currentAssignedIndex >= 0) {
             mapImage.source = "file:///" + ImagesModel.getRole(currentAssignedIndex, "filepath");
+            filename_label.filename_string = Theme.colorText(ImagesModel.getRole(currentAssignedIndex, "filename"), Theme.color("yellow"));
+
+            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Reform);
+            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Focus);
+        }
     }
 
     Connections {
@@ -123,6 +128,23 @@ Rectangle { id: focustab_root;
                 }
             }
         }
+    }
+
+    Text { id: filename_label;
+        property string filename_string: "null";
+
+        anchors {
+            top: flick.top
+            topMargin: 30
+            horizontalCenter: flick.horizontalCenter
+        }
+
+        text: "Редактирование файла " + "<b>" + filename_string + "</b>";
+        font {
+            family: root.mainfont
+            pixelSize: 15
+        }
+        color: Theme.color("light1");
     }
 
     Pane { id: panel_Param;

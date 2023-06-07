@@ -59,8 +59,8 @@ Pane { id: panel_ReformSettings;
                         }
 
                         currentIndex: 0;
-                        model: [ "М1 телескопический", "М2 телескопический", "М3 телескопический M3", "М4 телескопический",
-                                 "М6 телескопический M6", "М7 телескопический", ];
+                        model: [ "М1 телескопический", "М2 телескопический", "М3 телескопический", "М4 телескопический",
+                                 "М6 телескопический", "М7 телескопический", ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
                         onCurrentValueChanged: {
@@ -69,7 +69,7 @@ Pane { id: panel_ReformSettings;
                                 val = 7;
                             if(val === 5)
                                 val = 6;
-                            Network.setArgument("-m", val, Network.Form);
+                            Network.setArgument("-m", val, Network.Reform);
                         }
                     }
 
@@ -101,7 +101,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-t", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-t", text, Network.Reform);
                     }
 
                     Text {
@@ -133,7 +133,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-b", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-b", text, Network.Reform);
                     }
 
                     Text {
@@ -165,7 +165,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-e", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-e", text, Network.Reform);
                     }
 
                     Text {
@@ -197,7 +197,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-v", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-v", text, Network.Reform);
                     }
 
                     Text {
@@ -228,7 +228,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Ts", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--Ts", text, Network.Reform);
                     }
 
                     Text {
@@ -259,7 +259,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Tstrip", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--Tstrip", text, Network.Reform);
                     }
 
                     Text {
@@ -283,7 +283,7 @@ Pane { id: panel_ReformSettings;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Network.Reform);
                         }
 
                         Text {
@@ -319,7 +319,7 @@ Pane { id: panel_ReformSettings;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Network.Reform);
                         }
 
                         Text {
@@ -355,7 +355,7 @@ Pane { id: panel_ReformSettings;
                             from: 1;
                             to: 100;
                             value: 80;
-                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Network.Reform);
                         }
 
                         Text {
@@ -403,8 +403,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("--dx", text, Network.Form);
-                            Network.setArgument("--dy", text, Network.Form);
+                            Network.setArgument("--dx", text, Network.Reform);
+                            Network.setArgument("--dy", text, Network.Reform);
                         }
                     }
 
@@ -436,7 +436,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--x0", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--x0", text, Network.Reform);
                     }
 
                     Text {
@@ -467,7 +467,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--y0", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--y0", text, Network.Reform);
                     }
 
                     Text {
@@ -498,7 +498,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--lx", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--lx", text, Network.Reform);
                     }
 
                     Text {
@@ -529,7 +529,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ly", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--ly", text, Network.Reform);
                     }
 
                     Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
@@ -556,7 +556,7 @@ Pane { id: panel_ReformSettings;
                         model: [ "DSP_FFTW", "DSP_CUDA" ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
-                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Network.Form);
+                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Network.Reform);
                     }
 
                     Text {
@@ -581,7 +581,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ip", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--ip", text, Network.Reform);
                     }
 
                     Text {
@@ -603,7 +603,7 @@ Pane { id: panel_ReformSettings;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Network.Form);
+                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Network.Reform);
                     }
 
                     Text {
@@ -625,7 +625,7 @@ Pane { id: panel_ReformSettings;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Network.Form);
+                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Network.Reform);
                     }
                 }
             }

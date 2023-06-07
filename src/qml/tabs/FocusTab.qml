@@ -27,12 +27,13 @@ Rectangle { id: focustab_root;
     Flickable { id: flick;
         anchors.fill: parent;
         clip: true;
+        boundsBehavior: Flickable.StopAtBounds;
 
         Rectangle {
             id: rect;
             color: Theme.color("dark0");
-            width: Math.max(mapImage.sourceSize.width, flick.width);
-            height: Math.max(mapImage.sourceSize.height, flick.height);
+            width: Math.max(mapImage.sourceSize.width, focustab_root.width);
+            height: Math.max(mapImage.sourceSize.height, focustab_root.height);
             transform: Scale {
                 id: scaler;
                 origin.x: pinchArea.m_x2;
@@ -54,9 +55,9 @@ Rectangle { id: focustab_root;
                 property real m_y1: 0;
                 property real m_y2: 0;
                 property real m_x2: 0;
-                property real m_zoom1: 0.5;
-                property real m_zoom2: 0.5;
-                property real m_max: 2;
+                property real m_zoom1: 1;
+                property real m_zoom2: 1;
+                property real m_max: 3;
                 property real m_min: 0.5;
 
                 onPinchStarted: {

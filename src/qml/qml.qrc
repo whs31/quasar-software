@@ -33,5 +33,6 @@
         <file>widgets/tabbar/ExpandableTabButton.qml</file>
         <file>tabs/network/PingConsole.qml</file>
         <file>tabs/network/ConnectionIndicator.qml</file>
+        <file>tabs/focus/ReformSettings.qml</file>
     </qresource>
 </RCC>

@@ -7,6 +7,8 @@ import Theme 1.0
 import Images 1.0
 import Network 1.0
 
+import "focus" as FocusTab
+
 Rectangle { id: focustab_root;
     color: Theme.color("dark0");
 
@@ -25,15 +27,21 @@ Rectangle { id: focustab_root;
     }
 
     Flickable { id: flick;
-        anchors.fill: parent;
+        anchors {
+            left: panel_Param.right
+            right: parent.right
+            top: parent.top
+            bottom: parent.bottom
+        }
+
         clip: true;
         boundsBehavior: Flickable.StopAtBounds;
 
         Rectangle {
             id: rect;
             color: Theme.color("dark0");
-            width: Math.max(mapImage.sourceSize.width, focustab_root.width);
-            height: Math.max(mapImage.sourceSize.height, focustab_root.height);
+            width: Math.max(mapImage.sourceSize.width, flick.width);
+            height: Math.max(mapImage.sourceSize.height, flick.height);
             transform: Scale {
                 id: scaler;
                 origin.x: pinchArea.m_x2;
@@ -114,6 +122,22 @@ Rectangle { id: focustab_root;
                     }
                 }
             }
+        }
+    }
+
+    Pane { id: panel_Param;
+        anchors {
+            left: parent.left
+            top: parent.top
+            bottom: parent.bottom
+            margins: 10
+        }
+        width: 500;
+
+        Column {
+            anchors.fill: parent;
+
+            FocusTab.ReformSettings { id: panel_Reform; }
         }
     }
 }

@@ -55,15 +55,16 @@ Pane { id: panel_ImageTools;
                 implicitWidth: parent.width;
                 clip: true;
                 ScrollBar.vertical.policy: ScrollBar.AlwaysOn;
+                ScrollBar.horizontal.policy: ScrollBar.AlwaysOff;
 
                 GridLayout {
-                    width: scrollview2.width - 10;
+                    width: scrollview2.width - 30;
                     columns: 2;
                     columnSpacing: 6;
                     rowSpacing: -4;
 
                     Text {
-                        text: "Режим формирования:";
+                        text: "Режим формирования";
                         font {
                             family: root.mainfont;
                             pixelSize: 14;
@@ -78,13 +79,10 @@ Pane { id: panel_ImageTools;
                             pixelSize: 14;
                             weight: Font.Bold;
                         }
-                        // for some reason it's broken
-//                        currentIndex: (parseInt(Network.argument("-m", Network.Form) - 1)) > 3
-//                                            ? parseInt(Network.argument("-m", Network.Form) - 1)
-//                                            : parseInt(Network.argument("-m", Network.Form) - 2);
+
                         currentIndex: 0;
-                        model: [ "Телескопический М1", "Телескопический M2", "Телескопический M3", "Телескопический M4",
-                                 "Телескопический M6", "Телескопический M7", ];
+                        model: [ "М1 телескопический", "М2 телескопический", "М3 телескопический M3", "М4 телескопический",
+                                 "М6 телескопический M6", "М7 телескопический", ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
                         onCurrentValueChanged: {
@@ -98,7 +96,7 @@ Pane { id: panel_ImageTools;
                     }
 
                     Text {
-                        text: "Смещение по времени:";
+                        text: "Смещение по времени, с";
                         font {
                             family: root.mainfont;
                             pixelSize: 14;
@@ -109,6 +107,38 @@ Pane { id: panel_ImageTools;
 
                     TextField {
                         text: "1.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("-t", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Яркость РЛИ";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "0";
+                        horizontalAlignment: Text.AlignRight;
                         font {
                             family: root.mainfont;
                             pixelSize: 14;
@@ -122,32 +152,505 @@ Pane { id: panel_ImageTools;
                             locale: "en_US";
                         }
 
-                        onEditingFinished: Network.setArgument("-t", text, Network.Form);
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("-b", text, Network.Form);
                     }
 
-                    /*
-                    {"-b", ExecdArgument(0.0f)},            //! @var Яркость РЛИ, 0 - авто [0 - inf]
-                    {"-e", ExecdArgument(-1.0f)},           //! @var Высота БПЛА отн. уровня моря, -1 - авто, м
-                    {"-v", ExecdArgument(-1.0f)},           //! @var Скорость БПЛА, -1 - авто, км/ч
-                    {"-i", ExecdArgument(0)},               //! @var Интерполяция скорости [0, 1] - 0: среднее значение за Ts,
-                                                            //!      1: интерполированное значение для каждого периода за Ts
-                    {"--Ts", ExecdArgument(1.0f)},          //! @var Время синтезирования апертуры антенны [0 - inf]
-                    {"--Tstrip", ExecdArgument(1.0f)},      //! @var Время формирования полосового РЛИ [0 - inf]
-                    {"--kR", ExecdArgument(1)},             //! @var Коэффициент частотной интерполяции по наклонной дальности [1..4]
-                    {"--kL", ExecdArgument(1)},             //! @var Коэффициент частотной интерполяции по путевой дальности [1..4]
-                    {"--jq", ExecdArgument(80)},            //! @var Качество РЛИ после компрессии JPEG [1..100]
+                    Text {
+                        text: "Высота БПЛА, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
 
-                    {"--dx", ExecdArgument(1.0f)},          //! @var Размер элемента разрешения РЛИ по дальности, м [0 - inf]
-                    {"--dy", ExecdArgument(1.0f)},          //! @var Размер элемента разрешения РЛИ по путевой дальности, м [0 - inf]
-                    {"--x0", ExecdArgument(100.0f)},        //! @var Расстояние до ближней границы РЛИ, м [0 - inf]
-                    {"--y0", ExecdArgument(0.0f)},          //! @var Смещение кадра РЛИ по путевой дальности, м [0 - inf]
-                    {"--lx", ExecdArgument(2'000.0f)},      //! @var Протяженность РЛИ по дальности, м [0 - inf]
-                    {"--ly", ExecdArgument(400.0f)},        //! @var Протяженность РЛИ по путевой дальности, м [0 - inf]
-                    {"--ip", ExecdArgument("./img/")},      //! @var Путь для сохранения РЛИ на РЛС
-                    {"--remote", ExecdArgument("None")},    //! @var IP-адрес сервера TCP для передачи РЛИ (e.g. 127.0.0.1:9955)
-                    {"--DSP", ExecdArgument("DSP_FFTW")},   //! @var Тип вычислителя [DSP_FFTW, DSP_CUDA]
-                    {"--mirror", ExecdArgument("False")},   //! @var Вертикальное отзеркаливание РЛИ [True, False]
-                    */
+                    TextField {
+                        text: "-1";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("-e", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Скорость БПЛА, км/ч";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "-1";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("-v", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Время синтезирования, с";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "1.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--Ts", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Время записи полосового РЛИ, с";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "1.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--Tstrip", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "КЧИ по наклонной дальности";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true;
+                        Layout.alignment: Qt.AlignRight;
+
+                        Slider { id: slider1;
+                            Layout.fillWidth: true;
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignLeft;
+                            from: 0;
+                            to: 4;
+                            value: 1;
+                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Network.Form);
+                        }
+
+                        Text {
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignVCenter;
+                            font.family: root.mainfont;
+                            color: Theme.color("light0");
+                            font.pixelSize: 14;
+                            font.weight: Font.DemiBold;
+                            text: Number(slider1.value).toFixed(0);
+                            verticalAlignment: Text.AlignVCenter;
+                        }
+                    }
+
+                    Text {
+                        text: "КЧИ по путевой дальности";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true;
+                        Layout.alignment: Qt.AlignRight;
+
+                        Slider { id: slider2;
+                            Layout.fillWidth: true;
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignLeft;
+                            from: 0;
+                            to: 4;
+                            value: 1;
+                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Network.Form);
+                        }
+
+                        Text {
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignVCenter;
+                            font.family: root.mainfont;
+                            color: Theme.color("light0");
+                            font.pixelSize: 14;
+                            font.weight: Font.DemiBold;
+                            text: Number(slider2.value).toFixed(0);
+                            verticalAlignment: Text.AlignVCenter;
+                        }
+                    }
+
+                    Text {
+                        text: "Качество JPEG";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    RowLayout {
+                        Layout.fillWidth: true;
+                        Layout.alignment: Qt.AlignRight;
+
+                        Slider { id: slider3;
+                            Layout.fillWidth: true;
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignLeft;
+                            from: 1;
+                            to: 100;
+                            value: 80;
+                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Network.Form);
+                        }
+
+                        Text {
+                            Layout.fillHeight: true;
+                            Layout.alignment: Qt.AlignVCenter;
+                            font.family: root.mainfont;
+                            color: Theme.color("light0");
+                            font.pixelSize: 14;
+                            font.weight: Font.DemiBold;
+                            text: Number(slider3.value).toFixed(0);
+                            verticalAlignment: Text.AlignVCenter;
+                        }
+                    }
+
+                    Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
+                    Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
+
+
+                    Text {
+                        text: "Элемент разрешения, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "1.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: {
+                            Network.setArgument("--dx", text, Network.Form);
+                            Network.setArgument("--dy", text, Network.Form);
+                        }
+                    }
+
+                    Text {
+                        text: "Ближняя граница, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "100.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--x0", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Смещение кадра по ПД, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--y0", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Протяженность по дальности, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "2000.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--lx", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Протяженность по ПД, м";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "400.0";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--ly", text, Network.Form);
+                    }
+
+                    Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
+                    Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
+
+                    Text {
+                        text: "Тип вычислителя";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    ComboBox {
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            weight: Font.Bold;
+                        }
+
+                        currentIndex: 0;
+                        model: [ "DSP_FFTW", "DSP_CUDA" ];
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Network.Form);
+                    }
+
+                    Text {
+                        text: "Путь к РЛИ на РЛС";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "./img/";
+                        horizontalAlignment: Text.AlignRight;
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+
+                        onEditingFinished: Network.setArgument("--ip", text, Network.Form);
+                    }
+
+                    Text {
+                        text: "Интерполяция скорости";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    CheckBox {
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            weight: Font.Bold;
+                        }
+
+                        checked: false;
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Network.Form);
+                    }
+
+                    Text {
+                        text: "Отзеркаливание РЛИ";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    CheckBox {
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            weight: Font.Bold;
+                        }
+
+                        checked: false;
+                        Layout.alignment: Qt.AlignRight;
+                        Layout.fillWidth: true;
+                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Network.Form);
+                    }
                 }
             }
         }

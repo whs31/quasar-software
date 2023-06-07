@@ -63,7 +63,7 @@ Pane { id: panel_ImageTools;
                     rowSpacing: -4;
 
                     Text {
-                        text: "Режим формирования:  ";
+                        text: "Режим формирования:";
                         font {
                             family: root.mainfont;
                             pixelSize: 14;
@@ -97,9 +97,35 @@ Pane { id: panel_ImageTools;
                         }
                     }
 
+                    Text {
+                        text: "Смещение по времени:";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                        }
+                        color: Theme.color("light1");
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField {
+                        text: "1.0";
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
+                        }
+
+                        validator: DoubleValidator {
+                            decimals: 1;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+
+                        onEditingFinished: Network.setArgument("-t", text, Network.Form);
+                    }
+
                     /*
-                    {"-f", ExecdArgument("m1")},            //! @var Имя файла радиоголограммы без расширения
-                    {"-t", ExecdArgument(1.0f)},            //! @var Смещение времени начала формирования отн. начала зондирования [0 - inf]
                     {"-b", ExecdArgument(0.0f)},            //! @var Яркость РЛИ, 0 - авто [0 - inf]
                     {"-e", ExecdArgument(-1.0f)},           //! @var Высота БПЛА отн. уровня моря, -1 - авто, м
                     {"-v", ExecdArgument(-1.0f)},           //! @var Скорость БПЛА, -1 - авто, км/ч

@@ -306,34 +306,30 @@ Window {
                     }
 
                     Text {
-                        text: "Частота запроса телеметрии:";
+                        text: "Частота запроса телеметрии, c:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");
                         font.pixelSize: 14;
                         Layout.alignment: Qt.AlignLeft;
                     }
 
-                    SpinBox { id: sb_1;
-                        Layout.alignment: Qt.AlignRight;
-                        font.family: root.mainfont;
-                        font.pixelSize: 14;
-                        font.bold: true;
-                        from: 0;
-                        to: 2 * 1000;
-                        stepSize: 10;
-                        value: 0;
-                        property real fl_ValueReal: value / 1000;
-                        onValueChanged: Config.telemetryFrequency = fl_ValueReal;
-                        validator: DoubleValidator {
-                            bottom: Math.min(sb_1.from, sb_1.to);
-                            top:  Math.max(sb_1.from, sb_1.to);
-                        }
-                        textFromValue: function(value, locale) { return Number(value / 1000).toLocaleString(locale, 'f', 2) + " с"; }
-                        valueFromText: function(text, locale) {
-                            return Number.fromLocaleString(locale, text) * 1000
+                    TextField {
+                        text: Number(Config.telemetryFrequency).toFixed(2);
+                        font {
+                            family: root.mainfont;
+                            pixelSize: 14;
+                            bold: true;
                         }
 
-                        Component.onCompleted: value = Config.telemetryFrequency;
+                        validator: DoubleValidator {
+                            decimals: 2;
+                            bottom: 0;
+                            top: 1000;
+                            locale: "en_US";
+                        }
+                        Layout.alignment: Qt.AlignRight;
+
+                        onEditingFinished: Config.telemetryFrequency = parseFloat(text);
                     }
 
                     CheckBox {

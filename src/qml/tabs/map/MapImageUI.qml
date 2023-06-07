@@ -73,7 +73,7 @@ MapQuickItem {
                 Row {
                     RoundButton { id: button_ShowControls;
                         icon.source: "qrc:/icons/google-material/adjust.png";
-                        icon.color: Theme.color("light0");
+                        icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Параметры";
                         checkable: true;
@@ -81,12 +81,13 @@ MapQuickItem {
                         height: 35;
                         radius: 4;
                         Material.elevation: 30;
+                        Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
                         Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
                     }
 
                     RoundButton { id: button_Showmeta;
                         icon.source: "qrc:/icons/google-material/list.png";
-                        icon.color: Theme.color("light0");
+                        icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
                         font.family: root.mainfont;
                         text: "Метаданные";
                         height: 35;
@@ -94,6 +95,7 @@ MapQuickItem {
                         checkable: true;
                         checked: false;
                         Material.elevation: 30;
+                        Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
                         Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
                     }
                 }

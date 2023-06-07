@@ -23,7 +23,8 @@ Window {
 
     ScrollView { id: view;
         property bool b_GlobalValid: validator_1.b_Valid && validator_2.b_Valid && validator_3.b_Valid && validator_4.b_Valid &&
-                                     validator_5.b_Valid && validator_6.b_Valid && validator_7.b_Valid;
+                                     validator_5.b_Valid && validator_6.b_Valid && validator_7.b_Valid && validator_a1.b_Valid &&
+                                     validator_a2.b_Valid && validator_a3.b_Valid && validator_a4.b_Valid;
 
         width: parent.width;
         height : parent.height;
@@ -43,7 +44,7 @@ Window {
 
             Pane { id: panel_Network;
                 x: 25;
-                height: 540;
+                height: 735;
                 Material.elevation: 50;
                 width: view.width - 50;
 
@@ -92,6 +93,90 @@ Window {
                         color: b_Valid ? Theme.color("light1") : Theme.color("red");
 
                         onEditingFinished: Config.remoteIP = text;
+                    }
+
+                    Text {
+                        text: "IP-адрес Jetson:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_a1;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.jetsonIP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.jetsonIP = text;
+                    }
+
+                    Text {
+                        text: "IP-адрес навигации:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_a2;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.navIP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.navIP = text;
+                    }
+
+                    Text {
+                        text: "IP-адрес {NAME 1}:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_a3;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.utl1IP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.utl1IP = text;
+                    }
+
+                    Text {
+                        text: "IP-адрес {NAME 2}:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_a4;
+                        property bool b_Valid: text.split(".").length === 4 && /^[0-9.]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.utl2IP;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.utl2IP = text;
                     }
 
                     Text {

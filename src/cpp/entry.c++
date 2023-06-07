@@ -50,9 +50,11 @@ Entry::Entry(QObject *parent)
 
     connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList);
     connect(Config::Config::get(), &Config::Config::scheduleRestart, this, [this](){
-        QCoreApplication::instance()->quit();
-        QProcess::startDetached(QCoreApplication::instance()->arguments()[0],
-                                QCoreApplication ::instance()->arguments());
+        qWarning() << "[CORE] Requested restart, but current configuration will fail executing it.";
+        qWarning() << "[CORE] Please, restart manually.";
+//        QCoreApplication::instance()->quit();
+//        QProcess::startDetached(QCoreApplication::instance()->arguments()[0],
+//                                QCoreApplication ::instance()->arguments());
     });
     connect(Config::Config::get(), &Config::Config::tcpLFSPortChanged, this, [this](){
         Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);

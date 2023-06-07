@@ -118,9 +118,10 @@ Pane {
                 radius: 4;
                 icon.source: Network.connected ? "qrc:/icons/google-material/unlink.png"
                                                : "qrc:/icons/google-material/link.png";
-                icon.color: Theme.color("light0");
+                icon.color: Network.connected ? Theme.color("dark0") : Theme.color("light0");
                 text: Network.connected ? "Отключиться от РЛС" : "Подключиться к РЛС";
                 Material.elevation: 30;
+                Material.foreground: Network.connected ? Theme.color("dark0") : Theme.color("light0");
                 Material.background: Network.connected ? Theme.color("red") : Theme.color("dark2");
                 onPressed: {
                     if(Network.connected)

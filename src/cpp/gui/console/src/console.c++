@@ -43,6 +43,20 @@ void ConsolePrivate::sendCommand(QString command)
         qWarning().nospace().noquote() << "[CONSOLE] Unrecognized console command [" << command << "]";
 }
 
+void ConsolePrivate::help()
+{
+    qInfo() << "$ <i><u>QuaSAR CONSOLE v0.9</u></i>";
+    qInfo() << "$ \t <i>quit</i> - exits the application and cleanup used resources";
+    qInfo() << "$ \t <i>telsock_start</i> - starts the telemetry socket at default frequency";
+    qInfo() << "$ \t <i>telsock_stop</i> - stops the telemetry socket";
+    qInfo() << "$ \t <i>execdsock_start</i> - starts the execd socket";
+    qInfo() << "$ \t <i>execdsock_stop</i> - stops the execd socket";
+    qInfo() << "$ \t <i>tcp_start</i> - stops the TCP-IP socket";
+    qInfo() << "$ \t <i>tcp_stop</i> - stops the TCP-IP socket";
+    qInfo() << "$ \t <i>sim</i> - starts external simulator, if located";
+    qInfo() << "$ \t <i>nets</i> - starts all sockets, except UDP-LFS";
+}
+
 void ConsolePrivate::quit()
 {
     qInfo() << "[CONSOLE] Shutting down...";

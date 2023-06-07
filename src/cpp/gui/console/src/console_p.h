@@ -15,6 +15,7 @@ class ConsolePrivate : public QObject
     Q_DECLARE_PUBLIC(Console)
 
     QMap<QString, std::function<void()>> command_list = {
+        { "help", [this](){ help(); } },
         { "quit", [this](){ quit(); } },
         { "telsock_start", [this](){ telsock_start(); } },
         { "telsock_stop", [this](){ telsock_stop(); } },
@@ -36,6 +37,7 @@ class ConsolePrivate : public QObject
             void appendSignal(const QString& text);
 
     private:
+        void help();
         void quit();
         void telsock_start();
         void telsock_stop();

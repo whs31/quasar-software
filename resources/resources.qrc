@@ -13,7 +13,6 @@
         <file>map/patterns/diagonal.png</file>
         <file>icons/console/cross.png</file>
         <file>icons/console/handle.png</file>
-        <file>icons/console/header.png</file>
         <file>fonts/UbuntuMono.ttf</file>
         <file>osmconfigs/cycle</file>
         <file>osmconfigs/hiking</file>
@@ -73,5 +72,6 @@
         <file>icons/google-material/timer.png</file>
         <file>icons/google-material/water.png</file>
         <file>themes/catpuccin.json</file>
+        <file>icons/google-material/remote_monitor.png</file>
     </qresource>
 </RCC>

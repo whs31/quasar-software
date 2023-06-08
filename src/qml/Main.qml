@@ -66,6 +66,7 @@ ApplicationWindow  { id: window_root;
         }
 
         property bool b_ConsoleShown: false;
+        property bool vt100termshown: false;
         property string mainfont: font_Main.name;
         property string monofont: font_Mono.name;
 
@@ -73,6 +74,7 @@ ApplicationWindow  { id: window_root;
         FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
         Widgets.DebugConsole { id: c_DebugConsole; enabled: root.b_ConsoleShown; visible: root.b_ConsoleShown; }
+        Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; visible: root.vt100termshown; }
         Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
 
         Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
@@ -86,6 +88,9 @@ ApplicationWindow  { id: window_root;
         /* LEGACY */
         DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
             color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown; visible: root.b_ConsoleShown;
+        }
+        DropShadow { z: 99; anchors.fill: sarConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
+            color: "#80000000"; source: sarConsole; cached: true; enabled: root.vt100termshown; visible: root.vt100termshown;
         }
         DropShadow { z: 98; anchors.fill: c_InfoWindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
             color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown; visible: c_InfoWindow.b_Shown;

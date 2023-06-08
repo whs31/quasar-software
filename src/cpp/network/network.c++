@@ -10,6 +10,7 @@
 #include "execd/feedbacksocket.h"
 #include "tcpsocket.h"
 #include "ping.h"
+#include "gui/terminal/vt100terminal.h"
 
 namespace Network {
 
@@ -35,11 +36,18 @@ Network::Network(QObject* parent)
 
     m_network_delay_timer->start(100);
     QObject::connect(telemetrySocket, &TelemetrySocket::ping, this, [this](){ setNetworkDelay(0); });
+    QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
     QObject::connect(m_network_delay_timer, &QTimer::timeout, this, [this](){ setNetworkDelay(networkDelay() + 0.1); });
     QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){ setNetworkDelay(0); });
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
-    QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
-    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics); 
+    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
+    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, [this](const QString& data, int, bool){
+        // @FIXME temp solution
+        if(data.contains("[6D") and GUI::VT100Terminal::get()->rowCount() != 0)
+            GUI::VT100Terminal::get()->replaceLast(data);
+        else
+            GUI::VT100Terminal::get()->append(data);
+    });
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;
         remoteData()->setStorageSpace(space);
@@ -102,6 +110,7 @@ void Network::executeCommand(const NetworkCommand command) noexcept
     }
 }
 
+void Network::executeString(const QString &string) noexcept { execdSocket->executeCommand(string); }
 QString Network::argument(const QString& key, ArgumentCategory category) const noexcept
 {
     switch (category)
@@ -124,15 +133,8 @@ void Network::setArgument(const QString& key, const QVariant& value, ArgumentCat
     }
 }
 
-void Network::startTCPSocket(const QString &address)
-{
-    tcpSocket->startServer(address);
-}
-
-void Network::stopTCPSocket()
-{
-    tcpSocket->stopServer();
-}
+void Network::startTCPSocket(const QString &address) { tcpSocket->startServer(address); }
+void Network::stopTCPSocket() { tcpSocket->stopServer(); }
 
 Telemetry* Network::telemetry() const { return m_telemetry; }
 void Network::setTelemetry(Telemetry* other) {

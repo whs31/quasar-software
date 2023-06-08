@@ -6,6 +6,7 @@
 #include <QtQml/qqml.h>
 
 #include "gui/theme/include/theme.h"
+#include "gui/terminal/vt100terminal.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "filesystem/filesystem.h"
@@ -24,6 +25,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
     QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
     QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());
+    QML_EXPOSE_INSTANCE(GUI::VT100Terminal, "Terminals", "VT100Terminal", GUI::VT100Terminal::get());
     QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
     QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get());
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());

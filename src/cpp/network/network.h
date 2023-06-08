@@ -64,6 +64,7 @@ namespace Network
             Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);
             Q_INVOKABLE void stopExecdSocket();
             Q_INVOKABLE void executeCommand(const Network::Network::NetworkCommand command) noexcept;
+            Q_INVOKABLE void executeString(const QString& string) noexcept;
             Q_INVOKABLE QString argument(const QString& key, Network::Network::ArgumentCategory category = Form) const noexcept;
             Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Network::Network::ArgumentCategory category = Form) noexcept;
 

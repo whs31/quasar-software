@@ -3,10 +3,9 @@
 
 using namespace Map;
 
-MarkerModel::MarkerModel(QObject *parent)
+MarkerModel::MarkerModel(QObject* parent)
     : QAbstractListModel(parent)
-{
-}
+{}
 
 QHash<int, QByteArray> MarkerModel::roleNames() const
 {
@@ -20,11 +19,7 @@ QHash<int, QByteArray> MarkerModel::roleNames() const
     return roles;
 }
 
-int MarkerModel::rowCount(const QModelIndex& parent) const
-{
-    return storage.size();
-}
-
+int MarkerModel::rowCount(const QModelIndex& parent) const { return storage.size(); }
 QVariant MarkerModel::data(const QModelIndex& index, int role) const
 {
     if(not index.isValid())

@@ -1,26 +1,21 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import ConsoleWidget 1.0
+import QtQuick.Controls.Material 2.15
+
+import Terminals 1.0
+import Network 1.0
 import Theme 1.0
 
 Rectangle { id: control;
-    width: 600;
-    height: 400;
-    x: 150;
-    y: 300; // относительно верхнего левого
+    width: 400;
+    height: 500;
+    x: root.width / 2;
+    y: 150; // относительно верхнего левого
     color: Theme.color("dark0");
     border.width: 0.5;
     border.color: Theme.color("dark2");
     z: 100;
     clip: true;
-
-    Connections {
-        target: Impl;
-        function onAppendSignal(text)
-        {
-            textArea.append(text);
-        }
-    }
 
     Rectangle { id: header;
         height: 20;
@@ -43,7 +38,7 @@ Rectangle { id: control;
                 bold: true
             }
 
-            text: "КОНСОЛЬ РАЗРАБОТЧИКА";
+            text: "КОНСОЛЬ РЛС";
             color: Theme.color("light0");
             verticalAlignment: Text.AlignVCenter;
         }
@@ -68,57 +63,69 @@ Rectangle { id: control;
             }
         }
 
-        Rectangle { id: closeButton;
-            anchors.right: parent.right;
-            anchors.top: parent.top;
-            width: 20;
-            height: 20;
-            color: Theme.color("dark3");
-
-            MouseArea { // close window mouse area
-                anchors.fill: parent;
-                hoverEnabled: true;
-                onEntered: parent.color = Theme.color("red");
-                onExited: parent.color = Theme.color("dark3");
-                onClicked: {
-                    root.b_ConsoleShown = false;
-                }
+        Row {
+            anchors {
+                right: parent.right
+                top: parent.top
+                bottom: parent.bottom
+                topMargin: -3;
+                bottomMargin: -3;
             }
 
-            Image {
-                source: "qrc:/icons/console/cross.png";
-                anchors.centerIn: parent;
+            RoundButton {
+                width: 26;
+                height: 26;
+                Material.background: Theme.color("orange");
+                onPressed: VT100Terminal.clear();
+            }
+
+            RoundButton {
+                width: 26;
+                height: 26;
+                Material.background: Theme.color("red");
+                onPressed: root.vt100termshown = false;
             }
         }
     }
 
-    ScrollView { id: scrollView;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.top: header.bottom;
-        anchors.bottom: inputArea.top;
-        anchors.leftMargin: 5;
+    ListView { id: scrollView;
+        model: VT100Terminal;
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: header.bottom
+            bottom: inputArea.top
+        }
 
-        TextArea { id: textArea;
-            color: Theme.color("light0");
-            background: Rectangle{
-                color: Theme.color("dark0");
-            }
-            text: "[CONSOLE] Beginning logging...";
-            selectByMouse: true;
-            readOnly: true;
-            selectedTextColor: Theme.color("dark0");
-            selectionColor: Theme.color("accent");
-            textFormat: Text.RichText;
-            font.family: root.monofont;
-            font.pixelSize: 13;
-            wrapMode: Text.WordWrap;
-            function append(strAdd)
-            {
-                textArea.text = textArea.text + strAdd;
-                textArea.cursorPosition = textArea.length - 1;
+        interactive: true;
+        clip: true;
+
+        ScrollBar.vertical: ScrollBar { id: vbar;
+            active: true;
+            policy: ScrollBar.AlwaysOn
+            contentItem: Rectangle {
+                implicitWidth: 6;
+                implicitHeight: 100;
+                radius: width / 2;
+                color: vbar.pressed ? Theme.color("dark3")
+                                    : Theme.color("dark2");
             }
         }
+
+        delegate: Row {
+            spacing: 5;
+
+            Text {
+                text: message;
+                font.family: root.monofont;
+                color: Theme.color("light0");
+                font.bold: true;
+                font.pixelSize: 14;
+                textFormat: Text.RichText;
+            }
+        }
+
+        onCountChanged: scrollView.ScrollBar.vertical.position = 1.0;
     }
 
     Rectangle { id: inputArea;
@@ -130,22 +137,30 @@ Rectangle { id: control;
         border.width: 0.5;
         border.color: Theme.color("dark2");
 
-        TextInput {
+        TextInput { id: input;
             anchors.fill: parent;
             anchors.leftMargin: 3;
-            color: Theme.color("light1");
-            text: "";
+            color: Theme.color("color0");
+            text: "$";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;
             selectedTextColor: Theme.color("dark0");
             selectionColor: Theme.color("yellow");
             font.family: root.monofont;
-            font.pixelSize: 13;
-            onAccepted:
-            {
-                Impl.sendCommand(text);
-                text = "";
+            font.pixelSize: 14;
+            onAccepted: {
+                Network.executeString(text);
+                text = "$";
             }
+        }
+
+        Text {
+            anchors.fill: input;
+            verticalAlignment: Text.AlignVCenter;
+            font.family: root.monofont;
+            font.pixelSize: 14;
+            color: Theme.color("light0");
+            text: input.text.length < 2 ? "  Введите команду для РЛС..." : "";
         }
 
         Rectangle { id: resizeButton;

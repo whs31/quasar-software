@@ -38,21 +38,9 @@ Pane { id: networktab_root;
                 margins: 5
             }
             name: "СОКЕТ КОМАНД";
-            width: 575;
+            width: 1155;
             height: 450;
             color: Theme.color("accent");
-        }
-
-        NetworkTab.SocketConsole { id: panel_FeedbackConsole;
-            anchors {
-                left: panel_ExecdConsole.right;
-                top: parent.top;
-                margins: 5
-            }
-            name: "СОКЕТ ОБРАТНОЙ СВЯЗИ";
-            width: 575;
-            height: 450;
-            color: Theme.color("yellow");
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;

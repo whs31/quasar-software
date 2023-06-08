@@ -21,7 +21,7 @@ namespace Map
                 Longitude,
                 MarkerName,
                 MarkerColor,
-                MarkerIcon,
+                MarkerIcon
             };
 
             explicit MarkerModel(QObject* parent = nullptr);
@@ -30,7 +30,7 @@ namespace Map
             QVariant data(const QModelIndex& index, int role) const override;
             bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-            Q_INVOKABLE void add(const Marker& image);
+            Q_INVOKABLE void add(const Map::Marker& image);
             Q_INVOKABLE void remove(int index);
             Q_INVOKABLE void clear();
 

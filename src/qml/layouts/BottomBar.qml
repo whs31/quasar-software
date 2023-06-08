@@ -90,5 +90,21 @@ Rectangle {
                       background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
                       text: "Консоль разработчика"; }
         }
+
+        RoundButton { id: button_ToggleVT100;
+            height: 44;
+            width: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/google-material/remote_monitor.png";
+            icon.color: Theme.color("light0");
+            Material.elevation: 30;
+            Material.background: Theme.color("dark1");
+            onPressed: root.vt100termshown = !root.vt100termshown;
+
+            ToolTip { id: tt4; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                      contentItem: Text { text: tt4.text; font: tt4.font;  color: Theme.color("dark0"); }
+                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                      text: "Консоль РЛС"; }
+        }
     }
 }

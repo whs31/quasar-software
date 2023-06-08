@@ -142,8 +142,9 @@ Map { id: maptab_root;
     Widgets.CoordinateTooltip { id: coord_tooltip;
         anchors {
             top: parent.top;
-            topMargin: 20;
-            horizontalCenter: parent.horizontalCenter;
+            right: panel_Tools.left;
+            margins: 5
+            rightMargin: 15
         }
         z: 60;
         opacity: 0.85;
@@ -180,6 +181,16 @@ Map { id: maptab_root;
         checkable: true;
         checked: false;
         onCheckedChanged: attitude.shown = checked;
+    }
+
+    MapTabUI.PanelMainToolbar { id: panel_MainToolbar;
+        anchors {
+            top: parent.top
+            left: parent.left
+            margins: 5
+        }
+
+        opacity: 0.85
     }
 
     MapTabUI.PanelTools { id: panel_Tools;

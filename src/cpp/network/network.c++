@@ -34,28 +34,20 @@ Network::Network(QObject* parent)
     qDebug() << "[NETWORK] Beginning network setup";
 
     m_network_delay_timer->start(100);
-    QObject::connect(telemetrySocket, &TelemetrySocket::ping, this, [this](){
-        setNetworkDelay(0);
-    });
-    QObject::connect(m_network_delay_timer, &QTimer::timeout, this, [this](){
-        setNetworkDelay(networkDelay() + 0.1);
-    });
-    QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){
-        setNetworkDelay(0);
-    });
-    QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
-    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
+    QObject::connect(telemetrySocket, &TelemetrySocket::ping, this, [this](){ setNetworkDelay(0); });
+    QObject::connect(m_network_delay_timer, &QTimer::timeout, this, [this](){ setNetworkDelay(networkDelay() + 0.1); });
+    QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){ setNetworkDelay(0); });
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
-    QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
-
+    QObject::connect(telemetrySocket, &TelemetrySocket::socketMetrics, this, &Network::telemetrySocketMetrics);
+    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics); 
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;
         remoteData()->setStorageSpace(space);
     });
 
-    QObject::connect(tcpSocket, &TCPSocket::progressChanged, this, [this](float progress){
-        setTcpProgress(progress);
-    });
+    QObject::connect(tcpSocket, &TCPSocket::progressChanged, this, [this](float progress){ setTcpProgress(progress); });
+    QObject::connect(tcpSocket, &TCPSocket::receivingFinished, this, [this](){ executeCommand(RemoteStorageStatus); });
+    QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
 
     QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){ remoteData()->setDe10ping(result); });
     QObject::connect(m_jetsonping, &Pinger::result, this, [this](int result){ remoteData()->setJetsonping(result); });
@@ -68,6 +60,12 @@ Network::Network(QObject* parent)
     m_navping->start(0, CONFIG(navIP));
     m_utl1ping->start(0, CONFIG(utl1IP));
     m_utl2ping->start(0, CONFIG(utl2IP));
+
+    QObject::connect(telemetry(), &Telemetry::seaLevelChanged, this, [this](){
+        setArgument("--e0", telemetry()->seaLevel(), Form);
+        setArgument("--e0", telemetry()->seaLevel(), Reform);
+        setArgument("--e0", telemetry()->seaLevel(), Focus);
+    });
 }
 
 void Network::startTelemetrySocket(const QString& address, float frequency)

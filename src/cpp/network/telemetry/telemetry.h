@@ -23,7 +23,7 @@ namespace Network
         Q_PROPERTY(double course READ course WRITE setCourse NOTIFY courseChanged)
         Q_PROPERTY(uint64_t time READ time WRITE setTime NOTIFY timeChanged)
         Q_PROPERTY(int satellites READ satellites WRITE setSatellites NOTIFY satellitesChanged)
-
+        Q_PROPERTY(double seaLevel READ seaLevel WRITE setSeaLevel NOTIFY seaLevelChanged)
 
         public:
             explicit Telemetry(QObject* parent = nullptr);
@@ -41,6 +41,7 @@ namespace Network
             double course() const; void setCourse(double);
             uint64_t time() const; void setTime(const uint64_t&);
             int satellites() const; void setSatellites(int);
+            double seaLevel() const; void setSeaLevel(double);
 
             signals:
                 void latitudeChanged();
@@ -56,10 +57,12 @@ namespace Network
                 void courseChanged();
                 void timeChanged();
                 void satellitesChanged();
+                void seaLevelChanged();
 
         private:
             QDateTime m_datetime;
             TelemetryDatagram datagram;
+            double m_seaLevel;
     };
 } // namespace Network
 

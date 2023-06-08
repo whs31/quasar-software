@@ -35,5 +35,7 @@
         <file>tabs/network/ConnectionIndicator.qml</file>
         <file>tabs/focus/ReformSettings.qml</file>
         <file>tabs/focus/FocusSettings.qml</file>
+        <file>tabs/map/ui/PanelMainToolbar.qml</file>
+        <file>widgets/TT.qml</file>
     </qresource>
 </RCC>

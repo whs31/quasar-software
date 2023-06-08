@@ -20,19 +20,6 @@ Pane { id: panel_ImageTools;
     ColumnLayout {
         Column {
             Layout.fillWidth: true;
-            RoundButton { id: button_FormImage;
-                font.family: root.mainfont;
-                height: 40;
-                width: layout_ImageTools.width;
-                radius: 4;
-                icon.source: "qrc:/icons/google-material/take-photo.png";
-                icon.color: Theme.color("dark0");
-                text: "Формирование изображения";
-                Material.elevation: 30;
-                Material.foreground: Theme.color("dark0");
-                Material.background: Theme.color("accent");
-                onPressed: Network.executeCommand(Network.FormImage);
-            }
 
             RoundButton { id: button_ImageParams;
                 font.family: root.mainfont;
@@ -45,7 +32,7 @@ Pane { id: panel_ImageTools;
                 text: "Параметры формирования";
                 Material.elevation: 30;
                 Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
-                Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
+                Material.background: checked ? Theme.color("color0") : Theme.color("dark1");      
             }
 
             ScrollView { id: scrollview2;
@@ -671,6 +658,11 @@ Pane { id: panel_ImageTools;
                     if(!ret)
                         messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
                 }
+
+                ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Добавить на карту изображения из выбранного каталога"; }
             }
 
             RoundButton { id: button_ChooseCatalogue;
@@ -683,6 +675,11 @@ Pane { id: panel_ImageTools;
                 Material.background: Material.background;
                 text: "Изменить каталог";
                 onPressed: window_FileDialog.open();
+
+                ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Выбрать каталог для добавления изображений на карту"; }
             }
 
             RoundButton { id: button_ClearLocalCache;
@@ -697,6 +694,12 @@ Pane { id: panel_ImageTools;
                 text: "Очистить кэш";
                 onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
                                              "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
+
+                ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Очистить локальный кэш программы"; }
+
                 Connections {
                     target: dialogwindow;
                     function onClosed(status, uid) {

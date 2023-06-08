@@ -7,7 +7,7 @@ import Network 1.0
 Item {
     property real fl_Latitude: Network.telemetry.latitude;
     property real fl_Longitude: Network.telemetry.longitude;
-    property real fl_Altitude: Network.telemetry.altitude;
+    property real fl_Altitude: Network.telemetry.altitude - Network.telemetry.seaLevel;
     property real fl_SeaAltitude: Network.telemetry.altitude;
     property real fl_Velocity: Network.telemetry.velocityCourse;
     property real fl_Direction: Network.telemetry.course;

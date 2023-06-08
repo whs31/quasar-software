@@ -20,6 +20,28 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
             onPressed: ClickHandler.state = ClickHandler.MarkerActive;
+
+            ToolTip { id: tt1;
+                visible: parent.hovered;
+                font {
+                    family: root.mainfont
+                    pixelSize: 13
+                }
+
+                contentItem: Text {
+                    text: tt1.text
+                    font: tt1.font
+                    color: Theme.color("dark0");
+                }
+
+                background: Rectangle {
+                    color: Theme.color("light1");
+                    radius: 3;
+                }
+
+                delay: 500;
+                text: "Установка нового маркера карты";
+            }
         }
 
         RoundButton { id: button_PlannerPoint;
@@ -32,6 +54,28 @@ Pane { id: panel_Entities;
             Material.background: ClickHandler.state === ClickHandler.PlannerActive ? Theme.color("accent") : Theme.color("dark2");
             Material.elevation: 30;
             onPressed: ClickHandler.state = ClickHandler.PlannerActive;
+
+            ToolTip { id: tt2;
+                visible: parent.hovered;
+                font {
+                    family: root.mainfont
+                    pixelSize: 13
+                }
+
+                contentItem: Text {
+                    text: tt2.text
+                    font: tt2.font
+                    color: Theme.color("dark0");
+                }
+
+                background: Rectangle {
+                    color: Theme.color("light1");
+                    radius: 3;
+                }
+
+                delay: 500;
+                text: "Установка новой точки планировщика заданий";
+            }
         }
 
         RoundButton { id: button_ClearMarkers;
@@ -43,6 +87,28 @@ Pane { id: panel_Entities;
             Material.background: Theme.color("dark2");
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
+
+            ToolTip { id: tt3;
+                visible: parent.hovered;
+                font {
+                    family: root.mainfont
+                    pixelSize: 13
+                }
+
+                contentItem: Text {
+                    text: tt3.text
+                    font: tt3.font
+                    color: Theme.color("dark0");
+                }
+
+                background: Rectangle {
+                    color: Theme.color("light1");
+                    radius: 3;
+                }
+
+                delay: 500;
+                text: "Очистка карты от маркеров и точек ПЗ";
+            }
 
             Connections {
                 target: dialogwindow;
@@ -65,6 +131,28 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
 
+            ToolTip { id: tt4;
+                visible: parent.hovered;
+                font {
+                    family: root.mainfont
+                    pixelSize: 13
+                }
+
+                contentItem: Text {
+                    text: tt4.text
+                    font: tt4.font
+                    color: Theme.color("dark0");
+                }
+
+                background: Rectangle {
+                    color: Theme.color("light1");
+                    radius: 3;
+                }
+
+                delay: 500;
+                text: "Очистка карты от изображений";
+            }
+
             Connections {
                 target: dialogwindow;
                 function onClosed(status, uid) {
@@ -85,6 +173,12 @@ Pane { id: panel_Entities;
             icon.color: Theme.color("light0");
             Material.background: Theme.color("dark2");
             Material.elevation: 30;
+
+            ToolTip { id: tt5; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                      contentItem: Text { text: tt5.text; font: tt5.font;  color: Theme.color("dark0"); }
+                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                      text: "Переключение видимости изображений"; }
+
 //                onPressed: {
 
 //                }

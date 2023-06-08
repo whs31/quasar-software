@@ -60,7 +60,6 @@ Rectangle { id: focustab_root;
 
             Image { id: mapImage;
                 z: dragArea.z + 1;
-                source: "qrc:/map/patterns/diagonal.png";
                 anchors.centerIn: parent;
                 fillMode: Image.PreserveAspectFit;
             }

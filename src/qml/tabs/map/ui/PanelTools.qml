@@ -34,6 +34,11 @@ Pane {
                     else
                         ClickHandler.state = ClickHandler.Idle;
                 }
+
+                ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Инструмент линейки"; }
             }
 
             RoundButton { id: button_Protractor;
@@ -53,6 +58,11 @@ Pane {
                     else
                         ClickHandler.state = ClickHandler.Idle;
                 }
+
+                ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Инструмент для измерения углов"; }
             }
         }
 
@@ -66,6 +76,11 @@ Pane {
                 Material.elevation: 30;
                 Material.background: Theme.color("dark2");
                 onPressed: maptab_root.center = c_UAV.coordinate;
+
+                ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Центрировать карту на БПЛА"; }
             }
 
             RoundButton { id: button_PanLastImage;
@@ -82,6 +97,11 @@ Pane {
                 Material.background: Theme.color("dark2");
                 Material.elevation: 30;
                 onPressed: self();
+
+                ToolTip { id: tt4; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt4.text; font: tt4.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Центрировать карту на последнем полученном изображении"; }
             }
         }
     }

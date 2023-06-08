@@ -24,7 +24,7 @@ Pane {
     property bool b_Shown: false;
     property var coord_MarkerCoords: QtPositioning.coordinate(0, 0);
     property string s_MarkerName: "МАРКЕР №" + MarkersModel.rowCount();
-    property string s_MarkerIcon: "qrc:/map/markers/flag.png";
+    property string s_MarkerIcon: "qrc:/map/markers/default.png";
     property string s_MarkerColor: "#B0BEC5";
 
     width: b_Shown ? implicitWidth : 0;

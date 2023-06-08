@@ -92,62 +92,6 @@ Pane { id: networktab_root;
         }
     }
 
-    Pane { id: panel_Network;
-        anchors {
-            right: parent.right;
-            bottom: parent.bottom;
-            margins: 5
-        }
-        Material.elevation: 30;
-        opacity: 0.85;
-
-        Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {
-                if(!Network.connected)
-                {
-                    Network.stopExecdSocket();
-                    Network.stopTelemetrySocket();
-                    Network.stopTCPSocket();
-                    Network.networkDelay = 100;
-                }
-            }
-        }
-        Column {
-            RoundButton { id: button_Connect;
-                font.family: root.mainfont;
-                height: 40;
-                radius: 4;
-                icon.source: Network.connected ? "qrc:/icons/google-material/unlink.png"
-                                               : "qrc:/icons/google-material/link.png";
-                icon.color: Network.connected ? Theme.color("dark0") : Theme.color("light0");
-                text: Network.connected ? "Отключиться от РЛС" : "Подключиться к РЛС";
-                Material.elevation: 30;
-                Material.foreground: Network.connected ? Theme.color("dark0") : Theme.color("light0");
-                Material.background: Network.connected ? Theme.color("red") : Theme.color("dark2");
-                onPressed: {
-                    if(Network.connected)
-                    {
-                        Network.stopExecdSocket();
-                        Network.stopTelemetrySocket();
-                        Network.stopTCPSocket();
-                        Network.networkDelay = 100;
-                    }
-                    else
-                    {
-                        Network.startExecdSocket(Config.remoteIP + ":" + Config.execdPort,
-                                                 Config.localIP + ":" + Config.feedbackPort);
-                        Network.startTelemetrySocket(Config.remoteIP + ":" + Config.telemetryPort,
-                                                     Config.telemetryFrequency);
-                        Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
-                        Network.executeCommand(Network.Ping);
-                        Network.executeCommand(Network.RemoteStorageStatus);
-                        disconnect_timer.start();
-                    }
-                }
-            }
-        }
-    }
-
-
     Connections {
         target: Network;
         function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }

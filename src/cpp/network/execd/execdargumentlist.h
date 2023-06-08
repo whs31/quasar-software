@@ -56,6 +56,8 @@ namespace Network
             {"--remote", ExecdArgument("None")},    //! @var IP-адрес сервера TCP для передачи РЛИ (e.g. 127.0.0.1:9955)
             {"--DSP", ExecdArgument("DSP_FFTW")},   //! @var Тип вычислителя [DSP_FFTW, DSP_CUDA]
             {"--mirror", ExecdArgument("False")},   //! @var Вертикальное отзеркаливание РЛИ [True, False]
+
+            {"--e0", ExecdArgument(0.0f)}           //! @var Высота над уровнем моря
         };
 
         QMap<QString, ExecdArgument> focus_defaults = {
@@ -65,6 +67,7 @@ namespace Network
             {"-v", ExecdArgument(-1.0f)},           // <-
             {"--Ts", ExecdArgument(1.0f)},          // <-
             {"--remote", ExecdArgument("None")},    // <-
+            {"--e0", ExecdArgument(0.0f)},          // <-
 
             {"--px", ExecdArgument(-1.0f)},         //! @var Координата по дальности точки для фокусировки
             {"--py", ExecdArgument(-1.0f)},         //! @var Координата по путевой дальности точки для фокусировки.

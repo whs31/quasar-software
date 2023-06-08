@@ -98,3 +98,11 @@ void Telemetry::setSatellites(int other) {
     datagram.satellites = other;
     emit satellitesChanged();
 }
+
+double Telemetry::seaLevel() const { return m_seaLevel; }
+void Telemetry::setSeaLevel(double o) {
+    if (qFuzzyCompare(m_seaLevel, o))
+        return;
+    m_seaLevel = o;
+    emit seaLevelChanged();
+}

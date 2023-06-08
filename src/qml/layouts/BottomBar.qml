@@ -83,7 +83,7 @@ Rectangle {
             icon.color: Theme.color("light0");
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
-            onPressed: root.b_ConsoleShown = !root.b_ConsoleShown;
+            onPressed: root.consoleshown = !root.consoleshown;
 
             ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
                       contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }

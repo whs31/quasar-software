@@ -1,49 +1,29 @@
-#include "console_p.h"
+#include "debugconsole.h"
+#include <QtCore/QDebug>
+#include <QtCore/QCoreApplication>
+#include <QtCore/QProcess>
 #include "network/network.h"
 #include "config/config.h"
 #include "config/paths.h"
-#include <QtCore/QCoreApplication>
-#include <QtCore/QProcess>
-#include <QtQml/qqml.h>
 
-Console::Console(QObject* parent)
-    : QObject{parent}
-    , d_ptr(new ConsolePrivate(this))
+namespace GUI
 {
-}
 
-void Console::append(const QString& message)
+void DebugConsole::execute(const QString& command)
 {
-    if(QCoreApplication::closingDown())
-        return;
-
-    Q_D(Console);
-    emit (d->appendSignal(message));
-}
-
-void Console::sendCommand(const QString& command)
-{
-    Q_D(Console);
-    d->sendCommand(command);
-}
-
-ConsolePrivate::ConsolePrivate(Console* parent)
-    : QObject{parent}
-    , q_ptr(parent)
-{
-    qmlRegisterSingletonInstance("ConsoleWidget", 1, 0, "Impl", this);
-    qInfo() << "$ Console initialized";
-}
-
-void ConsolePrivate::sendCommand(QString command)
-{
-    if(command_list.contains(command))
+    if(command_list.find(command) != command_list.end())
         command_list[command]();
     else
         qWarning().nospace().noquote() << "[CONSOLE] Unrecognized console command [" << command << "]";
 }
 
-void ConsolePrivate::help()
+DebugConsole::DebugConsole(QObject* parent)
+    : TerminalBase(parent)
+{
+    qInfo() << "$ Console initialized";
+}
+
+void DebugConsole::help()
 {
     qInfo() << "$ <i><u>QuaSAR CONSOLE v0.9</u></i>";
     qInfo() << "$ \t <i>quit</i> - exits the application and cleanup used resources";
@@ -54,63 +34,71 @@ void ConsolePrivate::help()
     qInfo() << "$ \t <i>tcp_start</i> - stops the TCP-IP socket";
     qInfo() << "$ \t <i>tcp_stop</i> - stops the TCP-IP socket";
     qInfo() << "$ \t <i>sim</i> - starts external simulator, if located";
-    qInfo() << "$ \t <i>nets</i> - starts all sockets, except UDP-LFS";
+    qInfo() << "$ \t <i>connect</i> - starts all sockets, except UDP-LFS";
+    qInfo() << "$ \t <i>clear</i> - clears console log";
 }
 
-void ConsolePrivate::quit()
+void DebugConsole::quit()
 {
-    qInfo() << "[CONSOLE] Shutting down...";
+    qInfo() << "$ [CONSOLE] Shutting down...";
     QCoreApplication::quit();
 }
 
-void ConsolePrivate::telsock_start()
+void DebugConsole::telsock_start()
 {
-    qDebug() << "[CONSOLE] Forcing start of telemetry socket at default frequency";
+    qInfo() << "$ [CONSOLE] Forcing start of telemetry socket at default frequency";
     Network::Network::get()->startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort),
                                                   CONFIG(telemetryFrequency));
 }
 
-void ConsolePrivate::telsock_stop()
+void DebugConsole::telsock_stop()
 {
-    qWarning() << "[CONSOLE] Forcing stop of telemetry socket";
+    qInfo() << "$ [CONSOLE] Forcing stop of telemetry socket";
     Network::Network::get()->stopTelemetrySocket();
 }
 
-void ConsolePrivate::execdsock_start()
+void DebugConsole::execdsock_start()
 {
+    qInfo() << "$ [CONSOLE] Forcing start of execd + feedback socket at default frequency";
     Network::Network::get()->startExecdSocket(CONFIG(remoteIP) + ":" + CONFIG(execdPort),
                                               CONFIG(localIP) + ":" + CONFIG(feedbackPort));
 }
 
-void ConsolePrivate::execdsock_stop()
+void DebugConsole::execdsock_stop()
 {
+    qInfo() << "$ [CONSOLE] Forcing stop of execd and feedback socket";
     Network::Network::get()->stopExecdSocket();
 }
 
-void ConsolePrivate::tcp_start()
+void DebugConsole::tcp_start()
 {
+    qInfo() << "$ [CONSOLE] Forcing start of tcp-ip socket at default frequency";
     Network::Network::get()->startTCPSocket(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort));
 }
 
-void ConsolePrivate::tcp_stop()
+void DebugConsole::tcp_stop()
 {
+    qInfo() << "$ [CONSOLE] Forcing stop of tcp-ip socket";
     Network::Network::get()->stopTCPSocket();
 }
 
-void ConsolePrivate::sim()
+void DebugConsole::sim()
 {
     #ifdef Q_OS_WIN
         QProcess::startDetached(Config::Paths::root() + "/QuaSAR-Emulator.exe", {});
-        qDebug().noquote().nospace() << "[CONSOLE] Launching simulator from";
-        qDebug().noquote().nospace() << Config::Paths::root() << "/QuaSAR-Emulator.exe";
+        qInfo().noquote().nospace() << "$ [CONSOLE] Launching simulator from";
+        qInfo().noquote().nospace() << "$ " << Config::Paths::root() << "/QuaSAR-Emulator.exe";
     #else
         qWarning() << "[CONSOLE] Your operating system is Linux. Emulator support for Linux was removed in version 2.10.1";
-#endif
+    #endif
 }
 
-void ConsolePrivate::nets()
+void DebugConsole::connect()
 {
+    qInfo() << "$ [CONSOLE] Trying to connect through console...";
     execdsock_start();
     telsock_start();
     tcp_start();
 }
+
+} // GUI

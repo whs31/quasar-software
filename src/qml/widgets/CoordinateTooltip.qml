@@ -1,4 +1,5 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 import Theme 1.0
 
 Rectangle {
@@ -8,7 +9,6 @@ Rectangle {
     height: 20;
     width: txt.paintedWidth + 10;
     color: Theme.color("dark1");
-    radius: 10;
 
     Text { id: txt;
         property string s_LatSuffix: latitude > 0 ? "N" : "S";

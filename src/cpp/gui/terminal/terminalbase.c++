@@ -28,7 +28,7 @@ QVariant TerminalBase::data(const QModelIndex& index, int role) const
     case Index: return index.row();
     case Message: return QVariant::fromValue(storage[index.row()].msg);
     case Module: return QVariant::fromValue(storage[index.row()].mdl);
-    case Type: return QVariant::fromValue(storage[index.row()].type);
+    case Type: return storage[index.row()].type;
 
     default: return "Error reading from model";
     }

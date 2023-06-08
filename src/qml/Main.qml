@@ -3,7 +3,6 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Dialogs 1.3
-import QtGraphicalEffects 1.15
 
 import Theme 1.0
 import Config 1.0
@@ -65,7 +64,7 @@ ApplicationWindow  { id: window_root;
             console.log("[GUI] Opening tab " + (i + 1));
         }
 
-        property bool b_ConsoleShown: false;
+        property bool consoleshown: false;
         property bool vt100termshown: false;
         property string mainfont: font_Main.name;
         property string monofont: font_Mono.name;
@@ -73,8 +72,8 @@ ApplicationWindow  { id: window_root;
         FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
         FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
-        Widgets.DebugConsole { id: c_DebugConsole; enabled: root.b_ConsoleShown; visible: root.b_ConsoleShown; }
-        Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; visible: root.vt100termshown; }
+        Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
+        Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
         Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
 
         Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
@@ -83,28 +82,6 @@ ApplicationWindow  { id: window_root;
         Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
         Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
         Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
-        Windows.FormParametersWindow { id: window_FormParameters; visible: false; }
-
-        /* LEGACY */
-        DropShadow { z: 99; anchors.fill: c_DebugConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: c_DebugConsole; cached: true; enabled: root.b_ConsoleShown; visible: root.b_ConsoleShown;
-        }
-        DropShadow { z: 99; anchors.fill: sarConsole; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: sarConsole; cached: true; enabled: root.vt100termshown; visible: root.vt100termshown;
-        }
-        DropShadow { z: 98; anchors.fill: c_InfoWindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: c_InfoWindow; cached: true; enabled: c_InfoWindow.b_Shown; visible: c_InfoWindow.b_Shown;
-        }
-        DropShadow { z: 98; anchors.fill: messagebox; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: messagebox; cached: true; enabled: messagebox.b_Shown; visible: messagebox.b_Shown;
-        }
-        DropShadow { z: 98; anchors.fill: dialogwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: dialogwindow; cached: true; enabled: dialogwindow.b_Shown; visible: dialogwindow.b_Shown;
-        }
-        DropShadow { z: 96; anchors.fill: markerwindow; horizontalOffset: 1; verticalOffset: 12; radius: 16; samples: 32;
-            color: "#80000000"; source: markerwindow; cached: true; enabled: markerwindow.b_Shown; visible: markerwindow.b_Shown;
-        }
-        /* LEGACY */
 
         Layouts.BottomBar { id: layout_BottomBar;
             height: 46;

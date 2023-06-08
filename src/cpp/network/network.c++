@@ -11,6 +11,7 @@
 #include "tcpsocket.h"
 #include "ping.h"
 #include "gui/terminal/vt100terminal.h"
+#include "utils/vt100parser.h"
 
 namespace Network {
 
@@ -42,11 +43,11 @@ Network::Network(QObject* parent)
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, [this](const QString& data, int, bool){
-        // @FIXME temp solution
-        if(data.contains("[6D") and GUI::VT100Terminal::get()->rowCount() != 0)
-            GUI::VT100Terminal::get()->replaceLast(data);
-        else
-            GUI::VT100Terminal::get()->append(data);
+        auto st = utils::parse_vt100_string(data);
+        //if(st.move_up and st.return_carriage)
+            //GUI::VT100Terminal::get()->replaceLast(st.result);
+        //else
+        GUI::VT100Terminal::get()->append(st.result);
     });
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;

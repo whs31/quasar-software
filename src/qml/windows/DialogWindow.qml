@@ -37,7 +37,9 @@ Pane {
     Behavior on width { NumberAnimation { duration: 100; easing.type: Easing.InOutQuad; } }
 
     clip: true;
+
     Material.background: Theme.color("dark0");
+    Material.elevation: 200;
 
     implicitWidth: 600;
     implicitHeight: 180;

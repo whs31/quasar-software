@@ -1,6 +1,4 @@
 #include "entry.h"
-#include "gui/console/console.h"
-
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>
 #include <QtQml/QQmlEngine>
@@ -9,47 +7,42 @@
 #include <QtQuick/QQuickWindow>
 #include <QtQuickControls2/QQuickStyle>
 #include <argparse.h>
+#include "gui/terminal/debugconsole.h"
 
-Console* console = nullptr;
-QList<QString> cachedDebugInfo;
-bool releaseCacheFlag = false;
-bool start_console = false;
 void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &msg) {
-    QString txt;
+    if(QCoreApplication::closingDown())
+        return;
+
+    GUI::DebugConsole::MessageType t;
+    bool chop = false;
 
     switch (type) {
     case QtDebugMsg:
-        txt = QString("%1").arg("<font color=\"#b8c0e0\">" + msg + "</font>");
-        break;
-    case QtWarningMsg:
-        txt = QString("%1").arg("<font color=\"#eed49f\">" + msg + "</font>");
-        break;
-    case QtInfoMsg:
-        if(msg.startsWith("$"))
-            txt = QString("%1").arg("<font color=\"#c6a0f6\">" + msg.right(msg.size() - 2) + "</font>");
+        if(msg.startsWith("$ ")) {
+            chop = true;
+            t = GUI::TerminalBase::Extra1;
+        }
         else
-            txt = QString("%1").arg("<font color=\"#8bd5ca\">" + msg + "</font>");
+            t = GUI::TerminalBase::Debug;
+        break;
+    case QtWarningMsg: t = GUI::TerminalBase::Warning; break;
+    case QtInfoMsg:
+        if(msg.startsWith("$ ")) {
+            chop = true;
+            t = GUI::TerminalBase::Extra2;
+        }
+        else
+            t = GUI::TerminalBase::Info;
         break;
     case QtCriticalMsg:
-        txt = QString("%1").arg("<font color=\"#ee99a0\">" + msg + "</font>");
-        break;
-    case QtFatalMsg:
-        txt = QString("%1").arg("<font color=\"#ee99a0\">" + msg + "</font>");
-        break;
+    case QtFatalMsg: t = GUI::TerminalBase::Error; break;
     }
 
-    if(start_console and console != nullptr)
-    {
-        console->append(txt);
-        if (not releaseCacheFlag)
-        {
-            releaseCacheFlag = true;
-            for (const auto &message : cachedDebugInfo)
-                console->append(message);
-        }
-    }
-    else
-        cachedDebugInfo.append(txt);
+    QString res = msg;
+    if(chop)
+        res.remove(0, 2);
+
+    GUI::DebugConsole::get()->append(res, "[]", t);
 };
 
 static const char *const usages[] = {
@@ -85,9 +78,6 @@ int main(int argc, char* argv[])
     qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
     QQuickStyle::setStyle("Material");
 
-    Console console_instance;
-    console = &console_instance;
-
     Entry entry;
 
     QQmlEngine engine;
@@ -104,6 +94,5 @@ int main(int argc, char* argv[])
         qCritical() << "FATAL QML ERROR: " << component.errorString();
     }
 
-    start_console = true;
     return app.exec();
 }

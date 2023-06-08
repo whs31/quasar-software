@@ -6,23 +6,30 @@ import Terminals 1.0
 import Network 1.0
 import Theme 1.0
 
-Rectangle { id: control;
+Pane { id: control;
     width: 400;
     height: 500;
     x: root.width / 2;
-    y: 150; // относительно верхнего левого
-    color: Theme.color("dark0");
-    border.width: 0.5;
-    border.color: Theme.color("dark2");
+    y: root.height / 2;
     z: 100;
     clip: true;
+    opacity: root.vt100termshown ? 1 : 0;
 
-    Rectangle { id: header;
-        height: 20;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.top: parent.top;
-        color: Theme.color("dark3");
+    Behavior on opacity { NumberAnimation { duration: 300; } }
+    Material.background: Theme.color("dark0");
+    Material.elevation: 200;
+
+    Pane { id: header;
+        height: 32;
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: parent.top
+            margins: -12
+        }
+
+        Material.background: Theme.color("dark3");
+        Material.elevation: 20;
 
         Text { id: title;
             anchors {
@@ -44,16 +51,14 @@ Rectangle { id: control;
         }
 
         MouseArea { // move window mouse area
-            anchors.fill: parent;
-            anchors.rightMargin: 20;
+            anchors {
+                fill: parent
+                margins: -12
+                rightMargin: 8
+            }
+
             property point offset: Qt.point(0, 0);
-            onPressed: {
-                parent.color = Theme.color("dark2");
-                offset = Qt.point(mouseX, mouseY);
-            }
-            onReleased: {
-                parent.color = Theme.color("dark3");
-            }
+            onPressed: offset = Qt.point(mouseX, mouseY);
             onPositionChanged: {
                 if(pressed) {
                     let global_pos = mapToItem(root, mouseX, mouseY);
@@ -68,7 +73,7 @@ Rectangle { id: control;
                 right: parent.right
                 top: parent.top
                 bottom: parent.bottom
-                topMargin: -3;
+                topMargin: -8;
                 bottomMargin: -3;
             }
 
@@ -76,6 +81,7 @@ Rectangle { id: control;
                 width: 26;
                 height: 26;
                 Material.background: Theme.color("orange");
+                Material.elevation: 100;
                 onPressed: VT100Terminal.clear();
             }
 
@@ -104,7 +110,7 @@ Rectangle { id: control;
             active: true;
             policy: ScrollBar.AlwaysOn
             contentItem: Rectangle {
-                implicitWidth: 6;
+                implicitWidth: 4;
                 implicitHeight: 100;
                 radius: width / 2;
                 color: vbar.pressed ? Theme.color("dark3")
@@ -129,9 +135,13 @@ Rectangle { id: control;
     }
 
     Rectangle { id: inputArea;
-        anchors.left: parent.left;
-        anchors.right: parent.right;
-        anchors.bottom: parent.bottom;
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+            margins: -12
+        }
+
         height: 28;
         color: Theme.color("dark1");
         border.width: 0.5;

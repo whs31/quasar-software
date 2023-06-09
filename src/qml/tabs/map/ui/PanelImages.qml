@@ -51,16 +51,6 @@ Pane { id: panel_ImageTools;
                     rowSpacing: -4;
 
                     Text {
-                        text: "Режим формирования";
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                        }
-                        color: Theme.color("light1");
-                        Layout.alignment: Qt.AlignLeft;
-                    }
-
-                    Text {
                         text: "Смещение по времени, с";
                         font {
                             family: root.mainfont;

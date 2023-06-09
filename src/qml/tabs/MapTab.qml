@@ -48,7 +48,9 @@ Map { id: maptab_root;
     zoomLevel: Config.storedZoomLevel;
     copyrightsVisible: false;
     z: 0;
+
     Behavior on center { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+    Behavior on zoomLevel { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
 
     Connections {
         target: Network.telemetry;
@@ -156,6 +158,19 @@ Map { id: maptab_root;
 
         anchors {
             bottom: button_ExpandParameters.top
+            right: parent.right
+            margins: 5
+        }
+        z: 60;
+        opacity: shown ? 0.85 : 0;
+        Behavior on opacity { NumberAnimation { duration: 500; } }
+    }
+
+    MapTabUI.PanelZoom { id: panel_Zoom;
+        property bool shown: !panel_Parameters.shown;
+
+        anchors {
+            bottom: coord_tooltip.top
             right: parent.right
             margins: 5
         }

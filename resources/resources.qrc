@@ -80,5 +80,7 @@
         <file>icons/google-material/save.png</file>
         <file>icons/google-material/text.png</file>
         <file>icons/google-material/warning.png</file>
+        <file>icons/google-material/zoom-in.png</file>
+        <file>icons/google-material/zoom-out.png</file>
     </qresource>
 </RCC>

@@ -18,6 +18,7 @@ namespace Map
 
         float opacity = 1;
         bool shown = true;
+        bool marked_for_export = false;
         double mercator_zoom_level;
 
         friend QDebug& operator<< (QDebug& d, Map::Image& image);

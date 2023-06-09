@@ -15,6 +15,9 @@ namespace OS
             Q_INVOKABLE bool fetchImageDirectory();
             Q_INVOKABLE void fetchTCPCache();
 
+            public slots:
+                void exportImagesToFolder(const QList<QString>& ls, const QString& folder);
+
             signals:
                 void imageListCached(const QList<QString>& filenames);
                 void imageCached(const QString& filename);

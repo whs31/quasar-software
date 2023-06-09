@@ -9,41 +9,7 @@
 #include <argparse.h>
 #include "gui/terminal/debugconsole.h"
 
-void consoleHandler(QtMsgType type, const QMessageLogContext &, const QString &msg) {
-    if(QCoreApplication::closingDown())
-        return;
-
-    GUI::DebugConsole::MessageType t;
-    bool chop = false;
-
-    switch (type) {
-    case QtDebugMsg:
-        if(msg.startsWith("$ ")) {
-            chop = true;
-            t = GUI::TerminalBase::Extra1;
-        }
-        else
-            t = GUI::TerminalBase::Debug;
-        break;
-    case QtWarningMsg: t = GUI::TerminalBase::Warning; break;
-    case QtInfoMsg:
-        if(msg.startsWith("$ ")) {
-            chop = true;
-            t = GUI::TerminalBase::Extra2;
-        }
-        else
-            t = GUI::TerminalBase::Info;
-        break;
-    case QtCriticalMsg:
-    case QtFatalMsg: t = GUI::TerminalBase::Error; break;
-    }
-
-    QString res = msg;
-    if(chop)
-        res.remove(0, 2);
-
-    GUI::DebugConsole::get()->append(res, "[]", t);
-};
+CONSOLE_INIT_HANDLER
 
 static const char *const usages[] = {
     "basic [options] [[--] args]",
@@ -71,7 +37,7 @@ int main(int argc, char* argv[])
     argc = argparse_parse(&argparse, argc, (const char**)argv);
 
     if(not no_console)
-        qInstallMessageHandler(consoleHandler);
+        qInstallMessageHandler(CONSOLE_HANDLER);
     qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
     const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));

@@ -2,6 +2,7 @@
 #include "config/config.h"
 #include "config/paths.h"
 #include "processing/imageprocessing.h"
+#include "map/imagemodel.h"
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -66,19 +67,41 @@ void Filesystem::fetchTCPCache()
 
     for(size_t i = 0; i < directory.entryList().size(); ++i)
     {
-        if(not Processing::ImageProcessing::get()->exists(directory.entryList().at(i)))
+        qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
+                                    << " at path " << path_list.at(i).left(15) << "...";
+        QFile::copy(path_list.at(i), Config::Paths::lod(0) + "/" + directory.entryList().at(i));
+        QFile::remove(path_list.at(i));
+        pass.push_back(directory.entryList().at(i));
+
+        if(int ndex = Processing::ImageProcessing::get()->indexFrom(directory.entryList().at(i)))
         {
-            qInfo().noquote().nospace() << "[FILESYSTEM] Found image " << directory.entryList().at(i)
-                                        << " at path " << path_list.at(i).left(15) << "...";
-            QFile::copy(path_list.at(i), Config::Paths::lod(0) + "/" + directory.entryList().at(i));
-            QFile::remove(path_list.at(i));
-            pass.push_back(directory.entryList().at(i));
+            qDebug() << "[FILESYSTEM] Occurence found in TCP cache. Replacing...";
+            qDebug() << "$ [PROCESSING] Replacing is not implemented for now.";
+            //Processing::ImageProcessing::get()->model()->remove(ndex);
         }
-        else
-            qDebug() << "[FILESYSTEM] Occurence found, skipping...";
     }
 
     emit imageListCached(pass);
+}
+
+void Filesystem::exportImagesToFolder(const QList<QString>& ls, const QString& folder)
+{
+    auto folder_fixed = folder;
+    if(folder_fixed.startsWith("file:"))
+        #ifdef Q_OS_WIN
+            folder_fixed.remove("file:///");
+        #else
+            folder_fixed.remove("file://");
+        #endif
+
+    int i = 0;
+    for(const auto& img : ls)
+    {
+        i++;
+        QString dest = folder_fixed + "/image-" + QString::number(i) + ".png";
+        QFile::copy(img, dest);
+        qDebug() << "$ [FILESYSTEM] Image" << img << "exported as" << dest;
+    }
 }
 
 bool Filesystem::checkOcurrence(QString target_folder, QString filename)

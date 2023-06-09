@@ -141,10 +141,9 @@ Map { id: maptab_root;
 
     Widgets.CoordinateTooltip { id: coord_tooltip;
         anchors {
-            top: parent.top;
-            right: panel_Tools.left;
+            top: panel_MainToolbar.bottom
+            left: parent.left
             margins: 5
-            rightMargin: 15
         }
         z: 60;
         opacity: 0.85;
@@ -240,6 +239,35 @@ Map { id: maptab_root;
         Material.primary: Material.primary;
         Material.accent: Material.accent;
         onCheckedChanged: panel_Parameters.shown = checked;
+    }
+
+    MapTabUI.PanelExport { id: panel_Export;
+        anchors {
+            top: parent.top
+            right: panel_Tools.left
+            rightMargin: 5
+        }
+    }
+
+    RoundButton { id: button_ExpandExport;
+        anchors {
+            top: panel_Export.bottom;
+            topMargin: -7;
+            horizontalCenter: panel_Export.horizontalCenter;
+        }
+        checkable: true;
+        height: 40;
+        radius: 4;
+        icon.source: panel_Export.shown ? "qrc:/icons/google-material/collapse.png"
+                                            : "qrc:/icons/google-material/export.png";
+        icon.color: Theme.color("light0");
+        font.family: root.mainfont;
+        text: panel_Export.shown ? "" : "Экспорт";
+        Material.elevation: 30;
+        Material.background: Material.background;
+        Material.primary: Material.primary;
+        Material.accent: Material.accent;
+        onCheckedChanged: panel_Export.shown = checked;
     }
 
     MapTabUI.PanelImages { id: panel_ImageTools;

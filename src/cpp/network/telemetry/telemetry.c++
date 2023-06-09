@@ -24,6 +24,8 @@ void Telemetry::setLongitude(double other) {
 
 double Telemetry::altitude() const { return datagram.altitude; }
 void Telemetry::setAltitude(double other) {
+    if(abs(other) > 20'000)
+        return;
     if (qFuzzyCompare(datagram.altitude, other)) return;
     datagram.altitude = other;
     emit altitudeChanged();

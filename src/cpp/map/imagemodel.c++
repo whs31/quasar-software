@@ -37,6 +37,7 @@ QHash<int, QByteArray> ImageModel::roleNames() const
     roles[Transparency] = "transparency";
     roles[Shown] = "shown";
     roles[MercatorZoomLevel] = "mercator_zoom_level";
+    roles[MarkedForExport] = "marked_for_export";
     return roles;
 }
 
@@ -78,6 +79,7 @@ QVariant ImageModel::data(const QModelIndex& index, int role) const
         case Transparency: return QVariant::fromValue(storage[index.row()].opacity);
         case Shown: return QVariant::fromValue(storage[index.row()].shown);
         case MercatorZoomLevel: return QVariant::fromValue(storage[index.row()].mercator_zoom_level);
+        case MarkedForExport: return QVariant::fromValue(storage[index.row()].marked_for_export);
 
         default: return "Error reading from model";
     }
@@ -115,6 +117,7 @@ bool ImageModel::setData(const QModelIndex& index, const QVariant& value, int ro
             case Transparency: storage[index.row()].opacity = value.toFloat(); break;
             case Shown: storage[index.row()].shown = value.toBool(); break;
             case MercatorZoomLevel: storage[index.row()].mercator_zoom_level = value.toDouble(); break;
+            case MarkedForExport: storage[index.row()].marked_for_export = value.toBool(); break;
 
             default: return false;
         }
@@ -176,6 +179,26 @@ QGeoCoordinate ImageModel::lastImagePosition()
     if(storage.empty())
         return {0, 0};
     return {storage.last().meta.latitude, storage.last().meta.longitude};
+}
+
+bool ImageModel::exportSelectedImages(const QString& target) noexcept
+{
+    QList<QString> res;
+    for(const auto& image : qAsConst(storage))
+    {
+        if(image.marked_for_export)
+            res.push_back(image.path.first);
+    }
+
+    if(not res.empty()) {
+        qInfo() << "[IMAGE] Marked" << res.size() << "images for export. Exporting...";
+        emit markedForExport(res, target);
+        return true;
+    }
+    else  {
+        qWarning() << "[IMAGE] No images marked for export";
+        return false;
+    }
 }
 
 QVector<Image>* ImageModel::direct() { return &storage; }

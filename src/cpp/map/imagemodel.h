@@ -43,7 +43,8 @@ namespace Map
                 LOD0FilePath,
                 Transparency,
                 Shown,
-                MercatorZoomLevel
+                MercatorZoomLevel,
+                MarkedForExport
             };
 
             explicit ImageModel(QObject* parent = nullptr);
@@ -59,6 +60,7 @@ namespace Map
             Q_INVOKABLE QVariant getRole(int index, const QString& role) const;
 
             Q_INVOKABLE QGeoCoordinate lastImagePosition();
+            Q_INVOKABLE bool exportSelectedImages(const QString& target) noexcept;
 
             QVector<Image>* direct();
 
@@ -68,6 +70,7 @@ namespace Map
             signals:
                 void added();
                 void totalCountChanged();
+                void markedForExport(const QList<QString>& abs_paths, const QString& folder);
 
         protected:
             QHash<int, QByteArray> roleNames() const override;

@@ -36,5 +36,6 @@
         <file>tabs/focus/FocusSettings.qml</file>
         <file>tabs/map/ui/PanelMainToolbar.qml</file>
         <file>widgets/SARConsole.qml</file>
+        <file>tabs/map/ui/PanelExport.qml</file>
     </qresource>
 </RCC>

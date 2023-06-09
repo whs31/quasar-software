@@ -62,7 +62,7 @@ namespace Network
         private:
             QDateTime m_datetime;
             TelemetryDatagram datagram;
-            double m_seaLevel;
+            double m_seaLevel = 0;
     };
 } // namespace Network
 

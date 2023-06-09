@@ -370,6 +370,19 @@ bool ImageProcessing::exists(const QString& name)
     return false;
 }
 
+int ImageProcessing::indexFrom(const QString& name) noexcept
+{
+    for(size_t i = 0; i < model()->direct()->size(); ++i)
+    {
+        if(model()->direct()->at(i).filename == name)
+            return i;
+        if(model()->direct()->at(i).filename.chopped(4) == name.chopped(4))
+            return i;
+    }
+
+    return -1;
+}
+
 bool ImageProcessing::processingImage() const { return m_processingImage; }
 void ImageProcessing::setProcessingImage(bool other) {
     if (m_processingImage == other)

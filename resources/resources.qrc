@@ -75,5 +75,9 @@
         <file>icons/google-material/remote_monitor.png</file>
         <file>icons/google-material/camera.png</file>
         <file>icons/google-material/videocamera.png</file>
+        <file>icons/google-material/export.png</file>
+        <file>icons/google-material/image.png</file>
+        <file>icons/google-material/save.png</file>
+        <file>icons/google-material/text.png</file>
     </qresource>
 </RCC>

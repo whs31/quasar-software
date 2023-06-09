@@ -145,6 +145,14 @@ MapQuickItem {
                             onValueChanged: transparency = value;
                         }
                     }
+
+                    CheckBox {
+                        checked: marked_for_export;
+                        text: "Пометить для экспорта";
+                        font.family: root.mainfont;
+                        font.pixelSize: 14;
+                        onCheckedChanged: marked_for_export = checked;
+                    }
                 }
 
                 ScrollView {id: layout_Meta;

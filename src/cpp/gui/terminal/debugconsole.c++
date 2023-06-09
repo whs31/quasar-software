@@ -25,7 +25,7 @@ DebugConsole::DebugConsole(QObject* parent)
 
 void DebugConsole::help()
 {
-    qInfo() << "$ <i><u>QuaSAR CONSOLE v0.9</u></i>";
+    qInfo() << "$ <i><u>" << CONSOLE_INTERNAL_PROJECT_STRING << "CONSOLE v0.9</u></i>";
     qInfo() << "$ \t <i>quit</i> - exits the application and cleanup used resources";
     qInfo() << "$ \t <i>telsock_start</i> - starts the telemetry socket at default frequency";
     qInfo() << "$ \t <i>telsock_stop</i> - stops the telemetry socket";

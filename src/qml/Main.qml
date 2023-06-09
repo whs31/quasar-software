@@ -8,6 +8,7 @@ import Theme 1.0
 import Config 1.0
 import Network 1.0
 import Filesystem 1.0
+import Images 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -38,6 +39,22 @@ ApplicationWindow  { id: window_root;
             console.log("[GUI] Selected folder " + window_FileDialog.fileUrl);
             Config.storedCatalogue = fileUrl;
             Filesystem.fetchImageDirectory();
+        }
+        onRejected: {
+            console.log("[GUI] Folder selection cancelled");
+        }
+    }
+
+    FileDialog { id: window_ExportDialog;
+        property string s_Url: window_ExportDialog.fileUrl;
+        title: "Выберите каталог для экспорта";
+        folder: Paths.imageCache();
+        selectFolder: true;
+        onAccepted: {
+            console.log("[GUI] Selected folder " + window_ExportDialog.fileUrl);
+            let b = ImagesModel.exportSelectedImages(fileUrl);
+            if(!b)
+                messagebox.open("Нет экспортируемых РЛИ", "Вы не отметили для экспорта ни одного изображения с карты. Пожалуйста, отметьте изображения для экспорта.", "warn");
         }
         onRejected: {
             console.log("[GUI] Folder selection cancelled");

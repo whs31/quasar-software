@@ -36,6 +36,7 @@ namespace Processing
             Map::ImageModel* model();
 
             bool exists(const QString& name);
+            int indexFrom(const QString& name) noexcept;
 
             bool processingImage() const; void setProcessingImage(bool);
             bool processingStrip() const; void setProcessingStrip(bool);

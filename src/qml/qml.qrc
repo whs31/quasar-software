@@ -37,5 +37,6 @@
         <file>tabs/map/ui/PanelMainToolbar.qml</file>
         <file>widgets/SARConsole.qml</file>
         <file>tabs/map/ui/PanelExport.qml</file>
+        <file>tabs/map/ui/PanelWarnings.qml</file>
     </qresource>
 </RCC>

@@ -49,30 +49,12 @@ Pane { id: panel_Parameters;
             }
         }
 
-        CheckBox { id: checkbox_FollowUAV;
-            enabled: false;
-            font.family: root.mainfont;
-            checked: false;
-            text: "Следить за БПЛА";
-            //onCheckedChanged: binding)
-        }
-
-        CheckBox { id: checkbox_EnableGrid;
-            enabled: false;
-            font.family: root.mainfont;
-            checked: false;
-            text: "Отображать масштабную сетку";
-            //onCheckedChanged:
-        }
-
         CheckBox { id: checkbox_ShowCursorCoords;
             font.family: root.mainfont;
             checked: true;
             text: "Отображать координаты курсора";
             onCheckedChanged: coord_tooltip.visible = checked;
         }
-
-        //Item { Layout.fillHeight: true; Layout.fillWidth: true; height: 15; }
 
         CheckBox { id: checkbox_ShowTrack;
             font.family: root.mainfont;

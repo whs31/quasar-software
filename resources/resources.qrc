@@ -73,5 +73,7 @@
         <file>icons/google-material/water.png</file>
         <file>themes/catpuccin.json</file>
         <file>icons/google-material/remote_monitor.png</file>
+        <file>icons/google-material/camera.png</file>
+        <file>icons/google-material/videocamera.png</file>
     </qresource>
 </RCC>

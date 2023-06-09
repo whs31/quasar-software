@@ -3,6 +3,8 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
+import Network 1.0
+import Config 1.0
 
 import "bottombar" as Bottom
 
@@ -32,6 +34,51 @@ Rectangle {
     Row { id: layout_SharedToolbar;
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
+
+        RoundButton { id: button_Connect;
+            font.family: root.mainfont;
+            height: 40;
+            radius: 4;
+            icon.source: Network.connected ? "qrc:/icons/google-material/unlink.png"
+                                           : "qrc:/icons/google-material/link.png";
+            icon.color: Theme.color("dark0");
+            text: Network.connected ? "Отключиться" : "Подключиться к РЛС";
+            Material.elevation: 30;
+            Material.foreground: Theme.color("dark0");
+            Material.background: Network.connected ? Theme.color("red") : Theme.color("color3");
+            Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
+            onPressed: {
+                if(Network.connected)
+                {
+                    Network.stopExecdSocket();
+                    Network.stopTelemetrySocket();
+                    Network.stopTCPSocket();
+                    Network.networkDelay = 100;
+                }
+                else
+                {
+                    Network.startExecdSocket(Config.remoteIP + ":" + Config.execdPort,
+                                             Config.localIP + ":" + Config.feedbackPort);
+                    Network.startTelemetrySocket(Config.remoteIP + ":" + Config.telemetryPort,
+                                                 Config.telemetryFrequency);
+                    Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
+                    Network.executeCommand(Network.Ping);
+                    Network.executeCommand(Network.RemoteStorageStatus);
+                    disconnect_timer.start();
+                }
+            }
+
+            Timer { id: disconnect_timer; running: false; repeat: false; interval: 10000; onTriggered: {
+                    if(!Network.connected)
+                    {
+                        Network.stopExecdSocket();
+                        Network.stopTelemetrySocket();
+                        Network.stopTCPSocket();
+                        Network.networkDelay = 100;
+                    }
+                }
+            }
+        }
 
         RoundButton { id: button_Settings;
             font.family: root.mainfont;

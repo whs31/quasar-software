@@ -38,5 +38,7 @@
         <file>widgets/SARConsole.qml</file>
         <file>tabs/map/ui/PanelExport.qml</file>
         <file>tabs/map/ui/PanelWarnings.qml</file>
+        <file>tabs/map/ui/PanelZoom.qml</file>
+        <file>tabs/map/ZoomScale.qml</file>
     </qresource>
 </RCC>

@@ -79,5 +79,6 @@
         <file>icons/google-material/image.png</file>
         <file>icons/google-material/save.png</file>
         <file>icons/google-material/text.png</file>
+        <file>icons/google-material/warning.png</file>
     </qresource>
 </RCC>

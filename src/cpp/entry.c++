@@ -8,6 +8,7 @@
 #include "gui/theme/include/theme.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
+#include "gui/warningsmodel.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "filesystem/filesystem.h"
@@ -28,6 +29,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());
     QML_EXPOSE_INSTANCE(GUI::VT100Terminal, "Terminals", "VT100Terminal", GUI::VT100Terminal::get());
     QML_EXPOSE_INSTANCE(GUI::DebugConsole, "Terminals", "DebugConsole", GUI::DebugConsole::get());
+    QML_EXPOSE_INSTANCE(GUI::WarningsModel, "Notifications", "WarningsModel", GUI::WarningsModel::get());
     QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
     QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get());
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
@@ -57,4 +59,12 @@ Entry::Entry(QObject *parent)
     Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);
     Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
     Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
+
+    GUI::WarningsModel::get()->append("Отсутствует соединение с РЛС", false);
+    connect(Network::Network::get(), &Network::Network::connectedChanged, this, [this](){
+        if(Network::Network::get()->connected() != 2)
+            GUI::WarningsModel::get()->append("Отсутствует соединение с РЛС", false);
+        else
+            GUI::WarningsModel::get()->removeAt("Отсутствует соединение с РЛС");
+    });
 }

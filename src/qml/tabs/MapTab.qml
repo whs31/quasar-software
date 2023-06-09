@@ -14,6 +14,7 @@ import Images 1.0
 import Network 1.0
 import Markers 1.0
 import RadarDiagram 1.0
+import Notifications 1.0
 
 import "map" as MapTab;
 import "map/ui" as MapTabUI;
@@ -48,6 +49,17 @@ Map { id: maptab_root;
     copyrightsVisible: false;
     z: 0;
     Behavior on center { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+
+    Connections {
+        target: Network.telemetry;
+        function onSeaLevelChanged() {
+            if(Network.telemetry.seaLevel === 0)
+                WarningsModel.append("Не проведена калибровка высоты!", true);
+            else
+                WarningsModel.removeAt("Не проведена калибровка высоты!");
+        }
+        Component.onCompleted:  WarningsModel.append("Не проведена калибровка высоты!", true);
+    }
 
     MouseArea { id: c_MapMouseArea;
         hoverEnabled: true;
@@ -140,13 +152,16 @@ Map { id: maptab_root;
     // ui
 
     Widgets.CoordinateTooltip { id: coord_tooltip;
+        property bool shown: !panel_Parameters.shown;
+
         anchors {
-            top: panel_MainToolbar.bottom
-            left: parent.left
+            bottom: button_ExpandParameters.top
+            right: parent.right
             margins: 5
         }
         z: 60;
-        opacity: 0.85;
+        opacity: shown ? 0.85 : 0;
+        Behavior on opacity { NumberAnimation { duration: 500; } }
     }
 
     MapTab.AttitudeIndicator { id: attitude;
@@ -189,7 +204,17 @@ Map { id: maptab_root;
             margins: 5
         }
 
-        opacity: 0.85
+        opacity: 0.85;
+    }
+
+    MapTabUI.PanelWarnings { id: panel_Warnings;
+        anchors {
+            top: panel_MainToolbar.bottom
+            left: parent.left
+            margins: 5
+        }
+
+        opacity: 1;
     }
 
     MapTabUI.PanelTools { id: panel_Tools;

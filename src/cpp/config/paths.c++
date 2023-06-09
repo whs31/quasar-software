@@ -57,29 +57,12 @@ Paths::Paths(QObject *parent) : QObject{parent}
         qInfo() << "[PATH] Created offline tiles folder at" << offlineTiles();
     }
 
-    QString default_theme_buffer;
-    QString contrast_theme_buffer;
-
-    QFile default_theme_source(":/themes/nord.json");
-    default_theme_source.open(QIODevice::ReadOnly);
-    default_theme_buffer = default_theme_source.readAll();
-
-    QSaveFile default_theme_destination(themes() + "/nord.json");
-    default_theme_destination.open(QIODevice::WriteOnly);
-    QTextStream out1(&default_theme_destination);
-    out1 << default_theme_buffer;
-    default_theme_destination.commit();
-
-    QFile contrast_theme_source(":/themes/catpuccin.json");
-    contrast_theme_source.open(QIODevice::ReadOnly);
-    contrast_theme_buffer = contrast_theme_source.readAll();
-    QSaveFile contrast_theme_destination(themes() + "/catpuccin.json");
-    contrast_theme_destination.open(QIODevice::WriteOnly);
-    QTextStream out2(&contrast_theme_destination);
-    out2 << contrast_theme_buffer;
-    contrast_theme_destination.commit();
-
-    qInfo() << "[PATH] Default themes placed in folder";
+    if(dir4.isEmpty())
+    {
+        QFile::copy(":/themes/nord.json", themes() + "/nord.json");
+        QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
+        qInfo() << "[PATH] Default themes placed in folder";
+    }
 }
 
 QString Paths::root() { return QCoreApplication::applicationDirPath(); }
@@ -124,78 +107,16 @@ void Paths::clearImageCache(void)
     createImageCache();
 }
 
-//========== private part ==========
-
 void Paths::createMapConfigs(void)
 {
-    QString _satellite;
-    QString _terrain;
-    QString _transit;
-    QString _cycle;
-    QString _hiking;
-    QString _nighttransit;
-    QString _street;
+    QFile::copy(":/osmconfigs/satellite", mapConfig() + "/satellite");
+    QFile::copy(":/osmconfigs/terrain", mapConfig() + "/terrain");
+    QFile::copy(":/osmconfigs/transit", mapConfig() + "/transit");
+    QFile::copy(":/osmconfigs/cycle", mapConfig() + "/cycle");
+    QFile::copy(":/osmconfigs/hiking", mapConfig() + "/hiking");
+    QFile::copy(":/osmconfigs/night-transit", mapConfig() + "/night-transit");
 
-    QFile f_satellite(":/osmconfigs/satellite");
-    f_satellite.open(QIODevice::ReadOnly);
-    _satellite = f_satellite.readAll();
-
-    QFile f_terrain(":/osmconfigs/terrain");
-    f_terrain.open(QIODevice::ReadOnly);
-    _terrain = f_terrain.readAll();
-
-    QFile f_transit(":/osmconfigs/transit");
-    f_transit.open(QIODevice::ReadOnly);
-    _transit = f_transit.readAll();
-
-    QFile f_cycle(":/osmconfigs/cycle");
-    f_cycle.open(QIODevice::ReadOnly);
-    _cycle = f_cycle.readAll();
-
-    QFile f_hiking(":/osmconfigs/hiking");
-    f_hiking.open(QIODevice::ReadOnly);
-    _hiking = f_hiking.readAll();
-
-    QFile f_nighttransit(":/osmconfigs/night-transit");
-    f_nighttransit.open(QIODevice::ReadOnly);
-    _nighttransit = f_nighttransit.readAll();
-
-    QSaveFile satellite(mapConfig() + "/satellite");
-    satellite.open(QIODevice::WriteOnly);
-    QTextStream out1(&satellite);
-    out1 << _satellite;
-    satellite.commit();
-
-    QSaveFile terrain(mapConfig() + "/terrain");
-    terrain.open(QIODevice::WriteOnly);
-    QTextStream out2(&terrain);
-    out2 << _terrain;
-    terrain.commit();
-
-    QSaveFile transit(mapConfig() + "/transit");
-    transit.open(QIODevice::WriteOnly);
-    QTextStream out3(&transit);
-    out3 << _transit;
-    transit.commit();
-
-    QSaveFile cycle(mapConfig() + "/cycle");
-    cycle.open(QIODevice::WriteOnly);
-    QTextStream out4(&cycle);
-    out4 << _cycle;
-    cycle.commit();
-
-    QSaveFile hiking(mapConfig() + "/hiking");
-    hiking.open(QIODevice::WriteOnly);
-    QTextStream out5(&hiking);
-    out5 << _hiking;
-    hiking.commit();
-
-    QSaveFile nighttransit(mapConfig() + "/night-transit");
-    nighttransit.open(QIODevice::WriteOnly);
-    QTextStream out6(&nighttransit);
-    out6 << _nighttransit;
-    nighttransit.commit();
-    _street = "{\r\n    \"UrlTemplate\" : \""
+    QString _street = "{\r\n    \"UrlTemplate\" : \""
               "file:///" +
               offlineTiles() +
               "/%z/%x/%y.png"
@@ -208,6 +129,7 @@ void Paths::createMapConfigs(void)
     QTextStream out7(&street);
     out7 << _street;
     street.commit();
+
     qDebug() << "[PATH] Map configs placed in folder";
 }
 

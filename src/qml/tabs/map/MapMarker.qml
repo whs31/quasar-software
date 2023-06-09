@@ -1,7 +1,12 @@
 import QtQuick 2.15
 import QtLocation 5.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
 import QtPositioning 5.15
 import QtGraphicalEffects 1.15
+import Markers 1.0
+
+import Theme 1.0
 
 MapQuickItem  {
     anchorPoint.x: imageSource.sourceSize.width / 2;
@@ -52,6 +57,33 @@ MapQuickItem  {
                 horizontalAlignment: Text.AlignHCenter;
                 verticalAlignment: Text.AlignVCenter;
             }
+        }
+
+        MouseArea { id: markermousearea;
+            property bool showcontrols: false;
+            anchors.fill: imageSource;
+            anchors.topMargin: -50;
+            hoverEnabled: true;
+            propagateComposedEvents: true;
+            onPressed: showcontrols = !showcontrols;
+        }
+
+        RoundButton {
+            opacity: markermousearea.showcontrols ? 1 : 0;
+            Behavior on opacity { NumberAnimation { duration: 150; } }
+            anchors {
+                bottom: imageSource.top
+                bottomMargin: 5
+                horizontalCenter: imageSource.horizontalCenter
+            }
+
+            height: 36;
+            width: 36;
+
+            icon.source: "qrc:/icons/google-material/clear.png";
+            icon.color: Theme.color("dark0");
+            Material.background: Theme.color("red");
+            onPressed: MarkersModel.remove(index);
         }
     }
 }

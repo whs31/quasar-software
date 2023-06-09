@@ -163,25 +163,5 @@ Pane { id: panel_Entities;
                 }
             }
         }
-
-        RoundButton { id: button_ToggleImages;
-            enabled: false;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/google-material/hide.png";
-            icon.color: Theme.color("light0");
-            Material.background: Theme.color("dark2");
-            Material.elevation: 30;
-
-            ToolTip { id: tt5; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt5.text; font: tt5.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Переключение видимости изображений"; }
-
-//                onPressed: {
-
-//                }
-        }
     }
 }

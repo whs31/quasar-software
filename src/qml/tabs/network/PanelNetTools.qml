@@ -37,8 +37,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("orange");
-            onPressed: {
-            }
+            onPressed: Network.executeCommand(Network.Reboot);
         }
 
         RoundButton { id: button_Shutdown;
@@ -51,8 +50,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("red");
-            onPressed: {
-            }
+            onPressed: Network.executeCommand(Network.Poweroff);
         }
     }
 }

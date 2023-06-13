@@ -17,7 +17,9 @@ namespace Network
                 ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
-                Ping
+                Ping,
+                Reboot,
+                Poweroff
             };
 
             explicit ExecdSocket(QObject* parent = nullptr);

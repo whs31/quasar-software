@@ -1,6 +1,8 @@
 #include "execdsocket.h"
 #include <QtCore/QDebug>
+#include <QtCore/QFile>
 #include <LPVL/Crypto>
+#include "config/paths.h"
 #include "execdargumentlist.h"
 
 using namespace Network;
@@ -69,6 +71,26 @@ void ExecdSocket::executeCommand(Command command)
         case Ping:
             com = finalize(wrap("$ping_de10()"));
             break;
+        case Reboot:
+        {
+            QFile str(Config::Paths::bash() + "/reboot.sh");
+            if(str.open(QFile::ReadOnly))
+            {
+                QString content = str.readAll();
+                com = finalize(wrap(content));
+            }
+            break;
+        }
+        case Poweroff:
+        {
+            QFile str(Config::Paths::bash() + "/poweroff.sh");
+            if(str.open(QFile::ReadOnly))
+            {
+                QString content = str.readAll();
+                com = finalize(wrap(content));
+            }
+            break;
+        }
         default:
             qWarning() << "[EXECD] Incorrect command type";
             return;

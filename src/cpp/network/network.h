@@ -47,7 +47,9 @@ namespace Network
                 ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
-                Ping
+                Ping,
+                Reboot,
+                Poweroff
             };
 
             Q_ENUM(ArgumentCategory)

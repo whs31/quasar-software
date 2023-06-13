@@ -107,6 +107,8 @@ void Network::executeCommand(const NetworkCommand command) noexcept
         case RemoteStorageStatus: execdSocket->executeCommand(ExecdSocket::RemoteStorageStatus); break;
         case ClearRemoteStorage: execdSocket->executeCommand(ExecdSocket::ClearRemoteStorage); break;
         case Ping: execdSocket->executeCommand(ExecdSocket::Ping); break;
+        case Reboot: execdSocket->executeCommand(ExecdSocket::Reboot); break;
+        case Poweroff: execdSocket->executeCommand(ExecdSocket::Poweroff); break;
         default: qWarning() << "[NETWORK] Invalid command type"; break;
     }
 }
@@ -116,9 +118,9 @@ QString Network::argument(const QString& key, ArgumentCategory category) const n
 {
     switch (category)
     {
-        case Form: return execdSocket->list()->argument_list[key].value; break;
-        case Focus: return execdSocket->list()->focus_argument_list[key].value; break;
-        case Reform: return execdSocket->list()->reform_argument_list[key].value; break;
+        case Form: return execdSocket->list()->argument_list[key].value;
+        case Focus: return execdSocket->list()->focus_argument_list[key].value;
+        case Reform: return execdSocket->list()->reform_argument_list[key].value;
         default: return "Argument Category Error"; break;
     }
 }

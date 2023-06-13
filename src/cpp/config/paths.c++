@@ -57,11 +57,25 @@ Paths::Paths(QObject *parent) : QObject{parent}
         qInfo() << "[PATH] Created offline tiles folder at" << offlineTiles();
     }
 
+    QDir dir6(runtimeBash());
+    if(not dir6.exists())
+    {
+        dir6.mkpath(runtimeBash());
+        qInfo() << "[PATH] Created bash and runtime bash folders at" << runtimeBash();
+    }
+
     if(dir4.isEmpty())
     {
         QFile::copy(":/themes/nord.json", themes() + "/nord.json");
         QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
         qInfo() << "[PATH] Default themes placed in folder";
+    }
+
+    QDir dir_bash(bash());
+    if(dir_bash.isEmpty(QDir::Files))
+    {
+        QFile::copy(":/wrapped/poweroff.sh", bash() + "/poweroff.sh");
+        QFile::copy(":/wrapped/reboot.sh", bash() + "/reboot.sh");
     }
 }
 
@@ -84,6 +98,8 @@ QString Paths::plugins() { return root() + "/plugins"; }
 QString Paths::config() { return root() + "/config"; }
 QString Paths::logs() { return root() + "/logs"; }
 QString Paths::themes() { return root() + "/themes"; }
+QString Paths::bash() { return root() + "/bash"; }
+QString Paths::runtimeBash() { return bash() + "/custom"; }
 
 void Paths::createImageCache(void)
 {

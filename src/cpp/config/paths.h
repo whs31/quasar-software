@@ -23,6 +23,8 @@ namespace Config
             Q_INVOKABLE static QString config();
             Q_INVOKABLE static QString logs();
             Q_INVOKABLE static QString themes();
+            Q_INVOKABLE static QString bash();
+            Q_INVOKABLE static QString runtimeBash();
 
             Q_INVOKABLE void createImageCache(void);
             Q_INVOKABLE void clearImageCache(void);

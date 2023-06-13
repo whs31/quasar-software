@@ -10,7 +10,7 @@ import Network 1.0
 Pane {
     property string name: "Ping Console";
 
-    Material.elevation: 6;
+    Material.elevation: 60;
     Material.background: Theme.color("dark1");
 
 

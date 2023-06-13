@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>wrapped/poweroff.sh</file>
+        <file>wrapped/reboot.sh</file>
+    </qresource>
+</RCC>

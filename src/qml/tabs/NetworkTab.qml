@@ -80,6 +80,14 @@ Pane { id: networktab_root;
         }
     }
 
+    NetworkTab.PanelNetTools { id: panel_NetTools;
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            margins: 5
+        }
+    }
+
     Connections {
         target: Network;
         function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }

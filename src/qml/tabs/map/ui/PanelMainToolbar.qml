@@ -94,10 +94,10 @@ Pane {
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/water.png"
-            icon.color: Theme.color("light0");
+            icon.color: Theme.color("dark0");
             Material.elevation: 30;
-            Material.foreground: Theme.color("light0");
-            Material.background: Theme.color("dark2");
+            Material.foreground: Theme.color("dark0");
+            Material.background: Theme.color("color0");
             onPressed: dialogwindow.open("Калибровка высоты", "Выполнить калибровку высоты? Убедитесь, что БПЛА находится на земле.", "info", 17);
 
             Connections {
@@ -114,27 +114,6 @@ Pane {
                       contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
                       background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
                       text: "Выполнить калибровку высоты над уровнем моря"; }
-        }
-
-        RoundButton { id: button_Ping;
-            Layout.preferredHeight: 45;
-            font.family: root.mainfont;
-            height: 40;
-            radius: 4;
-            icon.source: "qrc:/icons/google-material/storage.png"
-            icon.color: Theme.color("light0");
-            Material.elevation: 30;
-            Material.foreground: Theme.color("light0");
-            Material.background: Theme.color("dark2");
-            onPressed: {
-                Network.executeCommand(Network.Ping);
-                Network.executeCommand(Network.RemoteStorageStatus);
-            }
-
-            ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Проверить соединение и состояние хранилища на РЛС"; }
         }
 
         RoundButton { id: button_ClearDisk;

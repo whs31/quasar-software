@@ -40,5 +40,6 @@
         <file>tabs/map/ui/PanelWarnings.qml</file>
         <file>tabs/map/ui/PanelZoom.qml</file>
         <file>tabs/map/ZoomScale.qml</file>
+        <file>tabs/network/PanelNetTools.qml</file>
     </qresource>
 </RCC>

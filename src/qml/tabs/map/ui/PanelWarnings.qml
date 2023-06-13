@@ -7,7 +7,8 @@ import Theme 1.0
 import Notifications 1.0
 
 ListView {
-    add: Transition { NumberAnimation { properties: "x,y"; duration: 1000; } }
+    add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 1000; } }
+    remove: Transition { NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 1000; } }
     model: WarningsModel;
     delegate: RowLayout {
         RoundButton {
@@ -32,7 +33,6 @@ ListView {
                          : Theme.color("orange");
             verticalAlignment: Text.AlignVCenter;
         }
-
     }
 
     height: 300;

@@ -45,6 +45,7 @@ set(PROJECT_SOURCES
 
     src/qml/qml.qrc
     resources/resources.qrc
+    src/bash/bash.qrc
 )
 
 add_executable(${PROJECT_NAME}

@@ -9,6 +9,7 @@ import Config 1.0
 import Network 1.0
 import Filesystem 1.0
 import Images 1.0
+import Offline 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -93,9 +94,18 @@ ApplicationWindow  { id: window_root;
             FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
             FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
+            property real tileloadprogress;
+            Connections {
+                target: TileLoader;
+                function onProgress(a) {
+                    tileloadprogress = a;
+                }
+            }
+
             Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
             Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
             Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
+            Widgets.TilePopup { id: popup_TileLoader; progress: tileloadprogress; anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; z: 100; }
 
             Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }

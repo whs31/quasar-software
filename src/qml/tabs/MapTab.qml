@@ -167,6 +167,7 @@ Map { id: maptab_root;
             tileloaderpolygon.path = [];
             tileloaderui.shown = false;
             dialog_TileDownloader.poly = tileloaderpolygon.path;
+            ClickHandler.state = ClickHandler.Idle;
         }
     }
 

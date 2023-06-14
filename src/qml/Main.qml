@@ -61,110 +61,117 @@ ApplicationWindow  { id: window_root;
         }
     }
 
-    Item { id: root;
+    Loader {
         anchors.fill: parent;
-        layer.smooth: true;
-        layer.samples: 8;
-        layer.enabled: true;
+        active: true;
+        asynchronous: true;
+        onProgressChanged: console.error(progress);
 
-        enum Tabs
-        {
-            MapView,
-            EditorView,
-            NetworkView
-        }
+        sourceComponent: Item { id: root;
+            anchors.fill: parent;
+            layer.smooth: true;
+            layer.samples: 8;
+            layer.enabled: true;
 
-        readonly property int tab: control_TabBar.currentIndex;
-        function openTab(i)
-        {
-            control_TabBar.currentIndex = i;
-            console.log("[GUI] Opening tab " + (i + 1));
-        }
-
-        property bool consoleshown: false;
-        property bool vt100termshown: false;
-        property string mainfont: font_Main.name;
-        property string monofont: font_Mono.name;
-
-        FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
-        FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
-
-        Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
-        Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
-        Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
-
-        Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
-        Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
-        Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
-        Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
-        Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
-        Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
-
-        Layouts.BottomBar { id: layout_BottomBar;
-            height: 46;
-            anchors {
-                left: parent.left;
-                right: parent.right;
-                bottom: parent.bottom;
-            }
-        }
-
-        NPM.ExpandableTabBar { id: control_TabBar;
-            z: 100;
-            contentHeight: 25;
-            anchors {
-                left: parent.left;
-                right: parent.right;
-                top: parent.top;
+            enum Tabs
+            {
+                MapView,
+                EditorView,
+                NetworkView
             }
 
-            NPM.ExpandableTabButton {
-                text: "ИНТЕРАКТИВНАЯ КАРТА";
-                icon.source: "qrc:/icons/google-material/earth.png";
-                palette {
-                    buttonText: Theme.color("light0");
-                    highlight: Theme.color("dark3");
-                    highlightedText: Theme.color("light0");
+            readonly property int tab: control_TabBar.currentIndex;
+            function openTab(i)
+            {
+                control_TabBar.currentIndex = i;
+                console.log("[GUI] Opening tab " + (i + 1));
+            }
+
+            property bool consoleshown: false;
+            property bool vt100termshown: false;
+            property string mainfont: font_Main.name;
+            property string monofont: font_Mono.name;
+
+            FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
+            FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
+
+            Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
+            Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
+            Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
+
+            Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
+            Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
+            Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
+            Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
+            Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
+            Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
+
+            Layouts.BottomBar { id: layout_BottomBar;
+                height: 46;
+                anchors {
+                    left: parent.left;
+                    right: parent.right;
+                    bottom: parent.bottom;
                 }
             }
 
-            NPM.ExpandableTabButton {
-                text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
-                icon.source: "qrc:/icons/google-material/edit.png";
-                palette {
-                    buttonText: Theme.color("light0");
-                    highlight: Theme.color("yellow");
-                    highlightedText: Theme.color("dark2");
+            NPM.ExpandableTabBar { id: control_TabBar;
+                z: 100;
+                contentHeight: 25;
+                anchors {
+                    left: parent.left;
+                    right: parent.right;
+                    top: parent.top;
                 }
-                enabled: c_FocusTab.currentAssignedIndex >= 0;
-            }
 
-            NPM.ExpandableTabButton {
-                text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
-                icon.source: "qrc:/icons/google-material/link.png";
-                palette {
-                    buttonText: Theme.color("light0");
-                    highlight: Theme.color("color3");
-                    highlightedText: Theme.color("dark2");
+                NPM.ExpandableTabButton {
+                    text: "ИНТЕРАКТИВНАЯ КАРТА";
+                    icon.source: "qrc:/icons/google-material/earth.png";
+                    palette {
+                        buttonText: Theme.color("light0");
+                        highlight: Theme.color("dark3");
+                        highlightedText: Theme.color("light0");
+                    }
+                }
+
+                NPM.ExpandableTabButton {
+                    text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
+                    icon.source: "qrc:/icons/google-material/edit.png";
+                    palette {
+                        buttonText: Theme.color("light0");
+                        highlight: Theme.color("yellow");
+                        highlightedText: Theme.color("dark2");
+                    }
+                    enabled: c_FocusTab.currentAssignedIndex >= 0;
+                }
+
+                NPM.ExpandableTabButton {
+                    text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
+                    icon.source: "qrc:/icons/google-material/link.png";
+                    palette {
+                        buttonText: Theme.color("light0");
+                        highlight: Theme.color("color3");
+                        highlightedText: Theme.color("dark2");
+                    }
                 }
             }
-        }
 
-        SwipeView { id: view_MainView;
-            anchors {
-                top: control_TabBar.bottom;
-                bottom: layout_BottomBar.top;
-                left: parent.left;
-                right: parent.right;
+            SwipeView { id: view_MainView;
+                anchors {
+                    top: control_TabBar.bottom;
+                    bottom: layout_BottomBar.top;
+                    left: parent.left;
+                    right: parent.right;
+                }
+                interactive: false;
+                currentIndex: control_TabBar.currentIndex;
+                contentWidth: view_MainView.width;
+                contentHeight: view_MainView.height;
+
+                Tabs.MapTab { id: c_MapTab; }
+                Tabs.FocusTab { id: c_FocusTab; }
+                Tabs.NetworkTab { id: c_NetworkTab; }
             }
-            interactive: false;
-            currentIndex: control_TabBar.currentIndex;
-            contentWidth: view_MainView.width;
-            contentHeight: view_MainView.height;
-
-            Tabs.MapTab { id: c_MapTab; }
-            Tabs.FocusTab { id: c_FocusTab; }
-            Tabs.NetworkTab { id: c_NetworkTab; }
         }
     }
 }

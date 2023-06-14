@@ -84,5 +84,6 @@
         <file>icons/google-material/zoom-out.png</file>
         <file>icons/google-material/reboot.png</file>
         <file>icons/google-material/poweroff.png</file>
+        <file>icons/google-material/close.png</file>
     </qresource>
 </RCC>

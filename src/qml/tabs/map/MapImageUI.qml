@@ -33,14 +33,33 @@ MapQuickItem {
             Material.elevation: 30;
 
             ColumnLayout {
-                Text {
-                    font.family: root.mainfont;
-                    text: "Изображение №" + Number(index + 1);
-                    color: Theme.color("light1");
-                    font.weight: Font.Bold;
-                    font.pixelSize: 15;
-                    horizontalAlignment: Text.AlignHCenter;
-                    Layout.alignment: Qt.AlignHCenter;
+                RowLayout {
+                    Text {
+                        font.family: root.mainfont;
+                        text: "Изображение №" + Number(index + 1);
+                        color: Theme.color("light1");
+                        font.weight: Font.Bold;
+                        font.pixelSize: 16;
+                        horizontalAlignment: Text.AlignHCenter;
+                        Layout.alignment: Qt.AlignHCenter;
+                        Layout.fillWidth: true;
+                        Layout.leftMargin: 36;
+                    }
+
+                    RoundButton { id: button_CloseDialog;
+                        z: 50;
+                        icon.source: "qrc:/icons/google-material/close.png";
+                        icon.color: Theme.color("dark0");
+                        Layout.preferredHeight: 36;
+                        Layout.preferredWidth: 36;
+                        height: 36;
+                        width: 36;
+                        radius: 18;
+                        Material.elevation: 30;
+                        Material.foreground: Theme.color("dark0");
+                        Material.background: Theme.color("red");
+                        onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
+                    }
                 }
 
                 Row {
@@ -493,6 +512,7 @@ MapQuickItem {
         }
 
         RoundButton { id: button_openImageDialog;
+            z: 50;
             icon.source: "qrc:/map/items/image.png";
             height: 44;
             width: 44;

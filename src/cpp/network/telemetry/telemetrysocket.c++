@@ -65,7 +65,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setTime(received.time);
     output->setSatellites(received.satellites);
 
-    uint16_t crc = CRC_CHECK ? LPVL::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
+    uint16_t crc = CRC_CHECK ? LPVL::crc16_alt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
@@ -89,7 +89,7 @@ void TelemetrySocket::requestTelemetry()
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
     TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (uint32_t)(this->frequency() * 1'000), 0 };
-    uint16_t crc = LPVL::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
+    uint16_t crc = LPVL::crc16_alt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 
     stream << request;

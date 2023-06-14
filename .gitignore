@@ -1,6 +1,7 @@
 # VS code and CLion cache
 .vscode*
 .idea*
+.obsidian*
 
 build-*
 build

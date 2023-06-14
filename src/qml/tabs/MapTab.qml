@@ -15,6 +15,7 @@ import Network 1.0
 import Markers 1.0
 import RadarDiagram 1.0
 import Notifications 1.0
+import ImageProcessing 1.0
 
 import "map" as MapTab;
 import "map/ui" as MapTabUI;
@@ -336,5 +337,13 @@ Map { id: maptab_root;
         Material.background: Material.background;
         checkable: true;
         onCheckedChanged: panel_ImageTools.shown = checked;
+    }
+
+    BusyIndicator {
+        width: 150;
+        height: 150;
+        running: ImageProcessing.processingImage || ImageProcessing.processingStrip;
+        anchors.centerIn: parent;
+        Material.accent: Theme.color("light0");
     }
 }

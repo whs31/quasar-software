@@ -168,6 +168,14 @@ Rectangle { id: focustab_root;
             FocusTab.ReformSettings { id: panel_Reform; }
         }
     }
+
+    FocusTab.PanelEditorToolbar { id: panel_EditorToolbar;
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
+            margins: 5
+        }
+    }
 }
 /*
 

@@ -29,34 +29,6 @@ Pane { id: panel_ReformSettings;
         Column {
             Layout.fillWidth: true;
 
-            RoundButton { id: button_FormImage;
-                font.family: root.mainfont;
-                height: 40;
-                radius: 4;
-                width: layout_reform.width;
-                icon.source: "qrc:/icons/google-material/refresh.png";
-                icon.color: Theme.color("dark0");
-                text: "Переформирование изображения";
-                Material.elevation: 30;
-                Material.foreground: Theme.color("dark0");
-                Material.background: Theme.color("color3");
-                onPressed: Network.executeCommand(Network.ReformImage);
-            }
-
-            RoundButton { id: button_FocusImage;
-                font.family: root.mainfont;
-                height: 40;
-                radius: 4;
-                width: layout_reform.width;
-                icon.source: "qrc:/icons/google-material/take-photo.png";
-                icon.color: Theme.color("dark0");
-                text: "Фокусировка изображения";
-                Material.elevation: 30;
-                Material.foreground: Theme.color("dark0");
-                Material.background: Theme.color("green");
-                onPressed: Network.executeCommand(Network.FocusImage);
-            }
-
             ScrollView { id: scrollview2;
                 Layout.fillHeight: true
                 implicitHeight: panel_ReformSettings.height - 100;

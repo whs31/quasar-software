@@ -43,5 +43,6 @@
         <file>tabs/network/PanelNetTools.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>widgets/TilePopup.qml</file>
+        <file>tabs/focus/PanelEditorToolbar.qml</file>
     </qresource>
 </RCC>

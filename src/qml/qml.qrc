@@ -41,5 +41,6 @@
         <file>tabs/map/ui/PanelZoom.qml</file>
         <file>tabs/map/ZoomScale.qml</file>
         <file>tabs/network/PanelNetTools.qml</file>
+        <file>tabs/map/ui/DialogTileLoader.qml</file>
     </qresource>
 </RCC>

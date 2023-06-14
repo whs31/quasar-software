@@ -92,10 +92,18 @@ Map { id: maptab_root;
                 {
                     if(tileloaderpolygon.path.count >= 4)
                         tileloaderpolygon.removeCoordinate(tileloaderpolygon.path[0]);
-                    tileloaderpolygon.addCoordinate(maptab_root.toCoordinate(Qt.point(mouseX, mouseY)));
+                    let c = maptab_root.toCoordinate(Qt.point(mouseX, mouseY));
+                    tileloaderpolygon.addCoordinate(c);
+                    tileloaderlastclicked = c;
+                    dialog_TileDownloader.poly = tileloaderpolygon.path;
+                    tileloaderui.shown = true;
                 }
                 else
+                {
                     tileloaderpolygon.path = [];
+                    dialog_TileDownloader.poly = tileloaderpolygon.path;
+                    tileloaderui.shown = false;
+                }
             }
 
             else
@@ -135,6 +143,7 @@ Map { id: maptab_root;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 
+    property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);
     MapPolygon { id: tileloaderpolygon;
         property bool shown: true;
         border.width: 3;
@@ -142,6 +151,23 @@ Map { id: maptab_root;
         color: Qt.lighter(Theme.color("green"), 1.2);
         opacity: shown ? 0.4 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    MapQuickItem { id: tileloaderui;
+        property bool shown: false;
+        opacity: shown ? 0.75 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+        Behavior on coordinate { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+        coordinate: tileloaderlastclicked;
+        sourceItem: MapTabUI.DialogTileLoader { id: dialog_TileDownloader; }
+    }
+    Connections {
+        target: dialog_TileDownloader;
+        function onClr() {
+            tileloaderpolygon.path = [];
+            tileloaderui.shown = false;
+            dialog_TileDownloader.poly = tileloaderpolygon.path;
+        }
     }
 
     RulerModel { id: c_RulerModel; }

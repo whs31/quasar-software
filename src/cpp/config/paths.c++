@@ -135,7 +135,7 @@ void Paths::createMapConfigs(void)
     QString _street = "{\r\n    \"UrlTemplate\" : \""
               "file:///" +
               offlineTiles() +
-              "/%z/%x/%y.png"
+              "/%z/%x/%y"
               "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
               "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
               "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "

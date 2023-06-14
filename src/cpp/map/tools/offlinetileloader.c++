@@ -133,6 +133,14 @@ void OfflineTileLoader::download(const QGeoPolygon& polygon, int maximum_zoom)
     }
 }
 
+void OfflineTileLoader::download(const QVariantList& list)
+{
+    QGeoPolygon pass;
+    for(const auto& point : list)
+        pass.addCoordinate(point.value<QGeoCoordinate>());
+    this->download(pass);
+}
+
 void OfflineTileLoader::setServerUrl(const QString& url) { m_serverUrl = url; }
 void OfflineTileLoader::setStoragePath(const QString& path) { m_storagePath = path; }
 

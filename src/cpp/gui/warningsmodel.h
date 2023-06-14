@@ -14,11 +14,19 @@ namespace GUI
         LPVL_DECLARE_SINGLETON(WarningsModel)
 
         struct WarningData {
+            int type;
             QString msg;
             bool is_major;
         };
 
         public:
+            enum Notification
+            {
+                NotConnected,
+                Uncalibrated
+            };
+            Q_ENUM(Notification)
+
             enum ModelRoles
             {
                 Index = Qt::UserRole + 1,
@@ -30,8 +38,8 @@ namespace GUI
             QVariant data(const QModelIndex& index, int role) const override;
             bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-            Q_INVOKABLE void append(const QString& message, bool is_major);
-            Q_INVOKABLE void removeAt(const QString& message);
+            Q_INVOKABLE void append(int type, const QString& message, bool is_major);
+            Q_INVOKABLE void remove(int type) noexcept;
             Q_INVOKABLE void clear();
 
         protected:

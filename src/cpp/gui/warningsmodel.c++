@@ -52,22 +52,26 @@ bool WarningsModel::setData(const QModelIndex& index, const QVariant& value, int
     return false;
 }
 
-void WarningsModel::append(const QString& message, bool is_major)
+void WarningsModel::append(int type, const QString& message, bool is_major)
 {
+    for(const auto& notification : storage)
+        if(notification.type == type)
+            return;
+
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    storage.push_back({message, is_major});
+    storage.push_back({type, message, is_major});
     endInsertRows();
 
-    qDebug() << "[NOTIFICATIONS] Warnings: " << storage.size();
+    qDebug() << "[NOTIFICATIONS] Warning added: " << storage.size();
 }
 
-void WarningsModel::removeAt(const QString& message)
+void WarningsModel::remove(int type) noexcept
 {
     int index = -1;
     int i = 0;
     for(const auto& notification : storage)
     {
-        if(notification.msg == message) {
+        if(notification.type == type) {
             index = i;
             break;
         }
@@ -81,7 +85,7 @@ void WarningsModel::removeAt(const QString& message)
     storage.erase(storage.begin() + index);
     endRemoveRows();
 
-    qDebug() << "[NOTIFICATIONS] Warnings: " << storage.size();
+    qDebug() << "[NOTIFICATIONS] Warning removed: " << storage.size();
 }
 
 void WarningsModel::clear()

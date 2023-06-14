@@ -57,11 +57,11 @@ Map { id: maptab_root;
         target: Network.telemetry;
         function onSeaLevelChanged() {
             if(Network.telemetry.seaLevel === 0)
-                WarningsModel.append("Не проведена калибровка высоты!", true);
+                WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
             else
-                WarningsModel.removeAt("Не проведена калибровка высоты!");
+                WarningsModel.remove(WarningsModel.Uncalibrated);
         }
-        Component.onCompleted:  WarningsModel.append("Не проведена калибровка высоты!", true);
+        Component.onCompleted:  WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
     }
 
     MouseArea { id: c_MapMouseArea;
@@ -128,7 +128,7 @@ Map { id: maptab_root;
         angle: 30 - Config.thetaAzimuthCorrection; // @FIXME
         uavPosition: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
         azimuth: Network.telemetry.yaw;
-        range: 3500; // @FIXME
+        range: 3500;
         direction: Config.antennaAlignment ? 1 : 0;
         type: RadarDiagram.Telescopic;
     }

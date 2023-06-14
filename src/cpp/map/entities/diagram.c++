@@ -3,7 +3,8 @@
 namespace Map
 {
 Diagram::Diagram(QObject* parent)
-    : QObject{parent} {}
+    : QObject{parent}
+{}
 
 QVariantList Diagram::polygon() const { return m_polygon; }
 void Diagram::setPolygon(const QVariantList& o) {
@@ -65,6 +66,9 @@ void Diagram::setUavPosition(const QGeoCoordinate& other) {
 
 void Diagram::update()
 {
+    if(not uavPosition().isValid())
+        return;
+
     if(type() != DiagramType::Telescopic)
         return;
 

@@ -62,11 +62,11 @@ Entry::Entry(QObject *parent)
     Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
     Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
 
-    GUI::WarningsModel::get()->append("Отсутствует соединение с РЛС", false);
+    GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
     connect(Network::Network::get(), &Network::Network::connectedChanged, this, [this](){
         if(Network::Network::get()->connected() != 2)
-            GUI::WarningsModel::get()->append("Отсутствует соединение с РЛС", false);
+            GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
         else
-            GUI::WarningsModel::get()->removeAt("Отсутствует соединение с РЛС");
+            GUI::WarningsModel::get()->remove(GUI::WarningsModel::NotConnected);
     });
 }

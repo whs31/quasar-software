@@ -86,6 +86,17 @@ Map { id: maptab_root;
                 }
                 ClickHandler.state = ClickHandler.Idle;
             }
+            else if(ClickHandler.state === ClickHandler.TileLoaderActive)
+            {
+                if(mouse.button === Qt.LeftButton)
+                {
+                    if(tileloaderpolygon.path.count >= 4)
+                        tileloaderpolygon.removeCoordinate(tileloaderpolygon.path[0]);
+                    tileloaderpolygon.addCoordinate(maptab_root.toCoordinate(Qt.point(mouseX, mouseY)));
+                }
+                else
+                    tileloaderpolygon.path = [];
+            }
 
             else
             {
@@ -121,6 +132,15 @@ Map { id: maptab_root;
         border.color: Theme.color("yellow");
         color: Qt.lighter(Theme.color("yellow"), 1.2);
         opacity: shown ? 0.2 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    MapPolygon { id: tileloaderpolygon;
+        property bool shown: true;
+        border.width: 3;
+        border.color: Theme.color("green");
+        color: Qt.lighter(Theme.color("green"), 1.2);
+        opacity: shown ? 0.4 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 

@@ -12,20 +12,25 @@ MapQuickItem  {
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item {
-        Image { id: imageSource;
-            layer.enabled: true;
-            layer.smooth: true;
-            layer.samples: 8;
+        Loader {
+            active: maptab_root.zoomLevel > 15 ||
+                    maptab_root.visibleRegion.contains(QtPositioning.coordinate(latitude, longitude));
             asynchronous: true;
-            transform: Rotation {
-                id: imageRotation;
-                origin.x: -x0;
-                origin.y: ly / 2;
-                angle: model.angle + drift_angle;
+            sourceComponent: Image { id: imageSource;
+                layer.enabled: true;
+                layer.smooth: true;
+                layer.samples: 8;
+                asynchronous: true;
+                transform: Rotation {
+                    id: imageRotation;
+                    origin.x: -x0;
+                    origin.y: ly / 2;
+                    angle: model.angle + drift_angle;
+                }
+                smooth: true;
+                antialiasing: true;
+                source: "file:///" + lod0;
             }
-            smooth: true;
-            antialiasing: true;
-            source: "file:///" + lod0;
         }
     }
 }

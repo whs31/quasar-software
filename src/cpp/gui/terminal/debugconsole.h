@@ -82,4 +82,4 @@ namespace GUI
                                 if(chop)                                                                            \
                                     res.remove(0, 2);                                                               \
                                 GUI::DebugConsole::get()->append(res, "[]", t);                                     \
-                            };                                                                                      \
+                            };

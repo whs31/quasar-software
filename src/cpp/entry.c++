@@ -19,6 +19,7 @@
 #include "map/imagemodel.h"
 #include "map/markermodel.h"
 #include "map/entities/diagram.h"
+#include "map/tools/offlinetileloader.h"
 #include "network/network.h"
 
 Entry::Entry(QObject *parent)
@@ -35,6 +36,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
     QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
     QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
+    QML_EXPOSE_INSTANCE(Map::OfflineTileLoader, "Offline", "TileLoader", Map::OfflineTileLoader::get());
     QML_EXPOSE_INSTANCE(Processing::ImageProcessing, "ImageProcessing", "ImageProcessing", Processing::ImageProcessing::get());
 
     QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");

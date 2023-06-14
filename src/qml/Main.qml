@@ -65,8 +65,6 @@ ApplicationWindow  { id: window_root;
         anchors.fill: parent;
         active: true;
         asynchronous: true;
-        onProgressChanged: console.error(progress);
-
         sourceComponent: Item { id: root;
             anchors.fill: parent;
             layer.smooth: true;
@@ -126,6 +124,10 @@ ApplicationWindow  { id: window_root;
 
                 NPM.ExpandableTabButton {
                     text: "ИНТЕРАКТИВНАЯ КАРТА";
+                    font {
+                        family: root.mainfont
+                    }
+
                     icon.source: "qrc:/icons/google-material/earth.png";
                     palette {
                         buttonText: Theme.color("light0");
@@ -136,6 +138,9 @@ ApplicationWindow  { id: window_root;
 
                 NPM.ExpandableTabButton {
                     text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
+                    font {
+                        family: root.mainfont
+                    }
                     icon.source: "qrc:/icons/google-material/edit.png";
                     palette {
                         buttonText: Theme.color("light0");
@@ -147,6 +152,9 @@ ApplicationWindow  { id: window_root;
 
                 NPM.ExpandableTabButton {
                     text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
+                    font {
+                        family: root.mainfont
+                    }
                     icon.source: "qrc:/icons/google-material/link.png";
                     palette {
                         buttonText: Theme.color("light0");

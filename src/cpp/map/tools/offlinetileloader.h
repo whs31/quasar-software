@@ -18,7 +18,7 @@ namespace Map
             explicit OfflineTileLoader(QObject* parent = nullptr);
 
             void download(uint8_t zoom, uint32_t x, uint32_t y);
-            void download(const QGeoPolygon& polygon, uint8_t maximum_zoom = 18);
+            void download(const QGeoPolygon& polygon, int maximum_zoom = 18);
 
             void setServerUrl(const QString& url);
             void setStoragePath(const QString& path);

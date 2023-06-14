@@ -1,5 +1,6 @@
 #include "offlinetileloader.h"
 #include <cmath>
+#include <stdexcept>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
 //#include <QtCore/QtMath>
@@ -85,8 +86,11 @@ void OfflineTileLoader::download(uint8_t zoom, uint32_t x, uint32_t y)
         this->processDownload();
 }
 
-void OfflineTileLoader::download(const QGeoPolygon& polygon, uint8_t maximum_zoom)
+void OfflineTileLoader::download(const QGeoPolygon& polygon, int maximum_zoom)
 {
+    if(maximum_zoom > 20 or maximum_zoom < 0)
+        throw std::invalid_argument("Maximum zoom must be in range [0 - 20]");
+
     QGeoRectangle rectangle = polygon.boundingGeoRectangle();
     double minLatitude = rectangle.bottomLeft().latitude();
     double maxLatitude = rectangle.topRight().latitude();
@@ -127,7 +131,6 @@ void OfflineTileLoader::download(const QGeoPolygon& polygon, uint8_t maximum_zoo
             }
         }
     }
-
 }
 
 void OfflineTileLoader::setServerUrl(const QString& url) { m_serverUrl = url; }

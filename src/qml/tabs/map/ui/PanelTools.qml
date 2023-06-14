@@ -41,6 +41,29 @@ Pane {
                           text: "Инструмент линейки"; }
             }
 
+            RoundButton { id: button_TileLoader;
+                checkable: true;
+                checked: ClickHandler.state === ClickHandler.TileLoaderActive;
+                height: 44;
+                width: 44;
+                radius: 4;
+                icon.source: "qrc:/icons/google-material/map-offline.png";
+                icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                Material.elevation: 30;
+                Material.background: checked ? Theme.color("green") : Theme.color("dark2");
+                onCheckedChanged: {
+                    if(checked && ClickHandler.state === ClickHandler.Idle)
+                        ClickHandler.state = ClickHandler.TileLoaderActive;
+                    else
+                        ClickHandler.state = ClickHandler.Idle;
+                }
+
+                ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
+                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
+                          text: "Инструмент загрузки оффлайн-карт"; }
+            }
+
             RoundButton { id: button_Protractor;
                 enabled: false;
                 checkable: true;
@@ -59,8 +82,8 @@ Pane {
                         ClickHandler.state = ClickHandler.Idle;
                 }
 
-                ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                          contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
+                ToolTip { id: tt0; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
+                          contentItem: Text { text: tt0.text; font: tt0.font;  color: Theme.color("dark0"); }
                           background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
                           text: "Инструмент для измерения углов"; }
             }

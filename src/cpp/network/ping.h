@@ -18,6 +18,7 @@ namespace Network
 
         public:
             explicit Pinger(QObject* parent = nullptr);
+            ~Pinger();
 
             void start(uint32_t interval, const QString& address, const vector<QString> args = {});
             void stop() noexcept;

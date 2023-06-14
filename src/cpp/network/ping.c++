@@ -19,6 +19,11 @@ Pinger::Pinger(QObject *parent)
     connect(t, &QTimer::timeout, this, &Pinger::ping);
 }
 
+Pinger::~Pinger()
+{
+    ch->terminate();
+}
+
 void Pinger::start(uint32_t interval, const QString& address, const vector<QString> args)
 {
     if(address.split('.').size() != 4)

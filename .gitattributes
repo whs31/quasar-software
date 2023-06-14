@@ -1,4 +1,4 @@
-*.yml linguist-detectable
-*.json linguist-detectable
-*.xml linguist-detectable
-*.sh linguist-detectable
+*.yml linguist-detectable=true
+*.json linguist-detectable=true
+*.xml linguist-detectable=true
+*.sh linguist-detectable=true

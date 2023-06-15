@@ -25,6 +25,8 @@ ApplicationWindow  { id: window_root;
     Material.background: Theme.color("dark1");
 
     title: "СПО РЛС «‎Квазар»";
+    minimumWidth: 1280;
+    minimumHeight: 720;
     width: 1280;
     height: 720;
     visible: true;

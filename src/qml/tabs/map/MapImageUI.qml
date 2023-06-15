@@ -16,7 +16,19 @@ MapQuickItem {
     property real m_opacity: 0.85;
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
-    sourceItem: Item { z: 60;
+    sourceItem: Item { z: 50;
+        RoundButton { id: button_openImageDialog;
+            z: 50;
+            icon.source: "qrc:/map/items/image.png";
+            height: 44;
+            width: 44;
+            radius: 15;
+            Material.elevation: 30;
+            Material.background: Theme.color("dark1");
+            icon.color: Theme.color("light1");
+            onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
+        }
+
         Pane { id: panel_ImageDialog;
             anchors.left: button_openImageDialog.right;
             anchors.top: button_openImageDialog.top;
@@ -31,6 +43,7 @@ MapQuickItem {
             clip: true;
             Material.background: Theme.color("dark0");
             Material.elevation: 30;
+            z: 51;
 
             ColumnLayout {
                 RowLayout {
@@ -509,18 +522,6 @@ MapQuickItem {
                     }
                 }
             }
-        }
-
-        RoundButton { id: button_openImageDialog;
-            z: 50;
-            icon.source: "qrc:/map/items/image.png";
-            height: 44;
-            width: 44;
-            radius: 15;
-            Material.elevation: 30;
-            Material.background: Theme.color("dark1");
-            icon.color: Theme.color("light1");
-            onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
         }
 
         Rectangle { id: panel_SARImageTooltip;

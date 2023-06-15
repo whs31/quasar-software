@@ -9,6 +9,10 @@
 #include <argparse.h>
 #include "gui/terminal/debugconsole.h"
 
+#if defined(Q_OS_WIN)
+#include <windows.h>
+#endif
+
 CONSOLE_INIT_HANDLER
 
 static const char *const usages[] = {
@@ -19,6 +23,10 @@ static const char *const usages[] = {
 
 int main(int argc, char* argv[])
 {
+    #if defined(Q_OS_WIN)
+        FreeConsole();
+    #endif
+
     QGuiApplication app(argc, argv);
     QCoreApplication::setApplicationName(PROJECT_NAME);
     QCoreApplication::setApplicationVersion(PROJECT_VERSION);

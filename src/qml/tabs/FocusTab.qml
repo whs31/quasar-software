@@ -62,6 +62,19 @@ Rectangle { id: focustab_root;
                 z: dragArea.z + 1;
                 anchors.centerIn: parent;
                 fillMode: Image.PreserveAspectFit;
+
+//                MouseArea { id: mouseAreaImage;
+//                    anchors.fill: parent;
+//                    hoverEnabled: true;
+//                }
+
+                Rectangle {
+                    color: "red";
+                    width: 100;
+                    height: 100;
+                    x: dragArea.mouseX - width / 2;
+                    y: dragArea.mouseY - height;
+                }
             }
 
             PinchArea { id: pinchArea;

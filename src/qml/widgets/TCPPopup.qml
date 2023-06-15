@@ -10,6 +10,7 @@ Pane {
 
     opacity: shown ? 0.9 : 0;
     Behavior on opacity { NumberAnimation { duration: 300; } }
+    enabled: shown;
 
     ColumnLayout {
         spacing: 10;

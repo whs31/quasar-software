@@ -42,5 +42,6 @@ namespace Network
             Telemetry* output;
             QString req_addr;
             uint16_t req_port;
+            uint16_t recv_port;
     };
 } // namespace Network

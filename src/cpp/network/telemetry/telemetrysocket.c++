@@ -28,6 +28,7 @@ void TelemetrySocket::start(const QString& address, const QString& recv_address)
 
     req_addr = address.split(":").first();
     req_port = address.split(":").last().toUInt();
+    recv_port = recv_address.split(":").last().toUInt();
 
     this->connect(recv_address);
     this->requestTelemetry();
@@ -97,7 +98,7 @@ void TelemetrySocket::requestTelemetry()
     stream.setByteOrder(QDataStream::BigEndian);
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
-    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(this->port()), (uint32_t)(this->frequency() * 1'000), 0 };
+    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(recv_port), (uint32_t)(this->frequency() * 1'000), 0 };
     uint16_t crc = LPVL::crc16_alt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 

@@ -28,7 +28,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
     qRegisterMetaType<Map::StripImage>("Map::StripImage");
     qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
-    connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage);
+    connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage, Qt::QueuedConnection);
 }
 
 void ImageProcessing::processList(const QList<QString>& list)
@@ -88,13 +88,13 @@ void ImageProcessing::asyncProcess(const QString& filename)
     }
 
     // заполнение структуры метаданными
-    uint16_t *meta_size = reinterpret_cast<uint16_t *>(data_ptr + image.header.JPEG_HEADER_SIZE
-                                                       + sizeof(uint16_t));
+    uint16_t* meta_size = reinterpret_cast<uint16_t*>(data_ptr + image.header.JPEG_HEADER_SIZE
+                                                      + sizeof(uint16_t));
     *meta_size = qToBigEndian(*meta_size) - sizeof(uint16_t);
     memcpy(&image.meta, (data_ptr + image.header.JPEG_HEADER_SIZE + sizeof(uint32_t)), *meta_size);
 
     // проверка контрольной суммы
-    char *crc_data = (char *) &image.meta;
+    char* crc_data = (char*)&image.meta;
     uint16_t crc16 = LPVL::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
 
     image.valid = crc16 == image.meta.crc16;

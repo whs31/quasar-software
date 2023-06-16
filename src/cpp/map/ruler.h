@@ -37,9 +37,9 @@ namespace Map
             Q_INVOKABLE QGeoCoordinate calculateCenter(quint16 _index);
             Q_INVOKABLE qreal calculateAngle(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2);
 
-            double totalLength() const; void setTotalLength(double);
-            double lastLatitude() const; void setLastLatitude(double);
-            double lastLongitude() const; void setLastLongitude(double);
+            [[nodiscard]] double totalLength() const; void setTotalLength(double);
+            [[nodiscard]] double lastLatitude() const; void setLastLatitude(double);
+            [[nodiscard]] double lastLongitude() const; void setLastLongitude(double);
 
             signals:
                 void totalLengthChanged();

@@ -5,8 +5,7 @@ using namespace Map;
 
 ImageModel::ImageModel(QObject *parent)
     : QAbstractListModel(parent)
-{
-}
+{}
 
 QHash<int, QByteArray> ImageModel::roleNames() const
 {
@@ -87,8 +86,8 @@ QVariant ImageModel::data(const QModelIndex& index, int role) const
 
 bool ImageModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
-    if (data(index, role) != value) {
-
+    if (data(index, role) != value)
+    {
         switch (role)
         {
             case Index: return false;

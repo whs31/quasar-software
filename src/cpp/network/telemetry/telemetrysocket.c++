@@ -73,7 +73,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setYaw(LPVL::rad2deg(received.yaw));
     output->setCourse(LPVL::rad2deg(received.course));
     output->setTime(received.time);
-    output->setSatellites(received.satellites);
+    output->setSatellites(received.satellites >> 1);
 
     uint16_t crc = CRC_CHECK ? LPVL::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;

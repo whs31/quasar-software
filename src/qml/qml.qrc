@@ -44,5 +44,6 @@
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>widgets/TilePopup.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>
+        <file>tabs/focus/PanelToolbar.qml</file>
     </qresource>
 </RCC>

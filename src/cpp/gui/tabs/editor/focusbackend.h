@@ -16,8 +16,8 @@ namespace GUI
 
             Q_INVOKABLE void setArguments() noexcept;
 
-            QPointF mouseCoords() const; void setMouseCoords(QPointF);
-            int imageIndex() const; void setImageIndex(int);
+            [[nodiscard]] QPointF mouseCoords() const; void setMouseCoords(QPointF);
+            [[nodiscard]] int imageIndex() const; void setImageIndex(int);
 
             signals:
                 void mouseCoordsChanged();

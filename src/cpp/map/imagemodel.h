@@ -64,8 +64,7 @@ namespace Map
 
             QVector<Image>* direct();
 
-            int totalCount() const;
-            void setTotalCount(int other);
+            [[nodiscard]] int totalCount() const; void setTotalCount(int);
 
             signals:
                 void added();

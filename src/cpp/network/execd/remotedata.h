@@ -20,11 +20,11 @@ namespace Network
 
             float storageSpace() const; void setStorageSpace(float);
 
-            int de10ping() const; void setDe10ping(int);
-            int jetsonping() const; void setJetsonping(int);
-            int navping() const; void setNavping(int);
-            int utl1ping() const; void setUtl1ping(int);
-            int utl2ping() const; void setUtl2ping(int);
+            [[nodiscard]] int de10ping() const; void setDe10ping(int);
+            [[nodiscard]] int jetsonping() const; void setJetsonping(int);
+            [[nodiscard]] int navping() const; void setNavping(int);
+            [[nodiscard]] int utl1ping() const; void setUtl1ping(int);
+            [[nodiscard]] int utl2ping() const; void setUtl2ping(int);
 
             signals:
                 void storageSpaceChanged();

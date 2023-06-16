@@ -73,11 +73,11 @@ namespace Network
             Q_INVOKABLE void startTCPSocket(const QString& address);
             Q_INVOKABLE void stopTCPSocket();
 
-            Telemetry* telemetry() const; void setTelemetry(Telemetry*);
-            RemoteData* remoteData() const; void setRemoteData(RemoteData*);
-            float networkDelay() const; void setNetworkDelay(float);
-            int connected() const; void setConnected(int);
-            float tcpProgress() const; void setTcpProgress(float);
+            [[nodiscard]] Telemetry* telemetry() const; void setTelemetry(Telemetry*);
+            [[nodiscard]] RemoteData* remoteData() const; void setRemoteData(RemoteData*);
+            [[nodiscard]] float networkDelay() const; void setNetworkDelay(float);
+            [[nodiscard]] int connected() const; void setConnected(int);
+            [[nodiscard]] float tcpProgress() const; void setTcpProgress(float);
 
             signals:
                 void telemetryChanged();

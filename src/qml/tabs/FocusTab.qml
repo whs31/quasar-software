@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtGraphicalEffects 1.15
 
 import Theme 1.0
 import Images 1.0
@@ -13,6 +14,8 @@ Rectangle { id: focustab_root;
     color: Theme.color("dark0");
 
     property int currentAssignedIndex: -1;
+    property int currentTool: 0; // 0 - hand, 1 - focus
+
     onCurrentAssignedIndexChanged: {
         if(currentAssignedIndex >= 0) {
             mapImage.source = "file:///" + ImagesModel.getRole(currentAssignedIndex, "filepath");
@@ -63,17 +66,35 @@ Rectangle { id: focustab_root;
                 anchors.centerIn: parent;
                 fillMode: Image.PreserveAspectFit;
 
-//                MouseArea { id: mouseAreaImage;
-//                    anchors.fill: parent;
-//                    hoverEnabled: true;
-//                }
+                MouseArea { id: mouseAreaImage;
+                    enabled: currentTool === 1;
+                    anchors.fill: parent;
+                    propagateComposedEvents: true;
+                }
 
                 Rectangle {
-                    color: "red";
-                    width: 100;
-                    height: 100;
-                    x: dragArea.mouseX - width / 2;
-                    y: dragArea.mouseY - height;
+                    border.color: Theme.color("accent");
+                    border.width: 4;
+                    color: "transparent";
+                    width: 100; // @FIXME
+                    height: 100; // @FIXME
+                    visible: currentTool === 1;
+                    x: mouseAreaImage.mouseX - width / 2;
+                    y: mouseAreaImage.mouseY - height / 2;
+
+                    Image { id: pattern;
+                        source: "qrc:/map/patterns/diagonal.png";
+                        anchors.fill: parent;
+                        visible: false;
+                    }
+
+                    ColorOverlay {
+                        anchors.fill: pattern;
+                        source: pattern;
+                        color: Theme.color("accent");
+                        smooth: true;
+                        antialiasing: true;
+                    }
                 }
             }
 
@@ -96,6 +117,7 @@ Rectangle { id: focustab_root;
                     rect.x = rect.x + (pinchArea.m_x1 - pinchArea.m_x2) * (1 - pinchArea.m_zoom1);
                     rect.y = rect.y + (pinchArea.m_y1 - pinchArea.m_y2) * (1 - pinchArea.m_zoom1);
                 }
+
                 onPinchUpdated: {
                     m_zoom1 = scaler.xScale;
                     var dz = pinch.scale - pinch.previousScale;
@@ -103,6 +125,7 @@ Rectangle { id: focustab_root;
                     if(newZoom <= m_max && newZoom >= m_min)
                         m_zoom2 = newZoom;
                 }
+
                 MouseArea { id: dragArea;
                     hoverEnabled: true;
                     anchors.fill: parent;
@@ -136,9 +159,9 @@ Rectangle { id: focustab_root;
                         rect.x = rect.x + (pinchArea.m_x1 - pinchArea.m_x2) * (1 - pinchArea.m_zoom1);
                         rect.y = rect.y + (pinchArea.m_y1 - pinchArea.m_y2) * (1 - pinchArea.m_zoom1);
                     }
-                    MouseArea {
+
+                    MouseArea { id: testMouseArea;
                         anchors.fill: parent
-                        onClicked: console.log("Click in child")
                     }
                 }
             }
@@ -186,6 +209,15 @@ Rectangle { id: focustab_root;
         anchors {
             right: parent.right
             bottom: parent.bottom
+            margins: 5
+        }
+    }
+
+    FocusTab.PanelToolbar { id: panel_Toolbar;
+        opacity: 0.85;
+        anchors {
+            right: parent.right
+            top: parent.top
             margins: 5
         }
     }

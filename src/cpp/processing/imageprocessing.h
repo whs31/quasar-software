@@ -38,8 +38,8 @@ namespace Processing
             bool exists(const QString& name);
             int indexFrom(const QString& name) noexcept;
 
-            bool processingImage() const; void setProcessingImage(bool);
-            bool processingStrip() const; void setProcessingStrip(bool);
+            [[nodiscard]] bool processingImage() const; void setProcessingImage(bool);
+            [[nodiscard]] bool processingStrip() const; void setProcessingStrip(bool);
 
             public slots:
                 void processList(const QList<QString>& list);

@@ -24,7 +24,7 @@ namespace Map
         LPVL_DECLARE_SINGLETON(ClickHandler)
 
         public:
-            MouseState state() const; void setState(const MouseState&);
+            [[nodiscard]] MouseState state() const; void setState(const MouseState&);
 
             Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
             Q_INVOKABLE MarkerModel* markerModel();

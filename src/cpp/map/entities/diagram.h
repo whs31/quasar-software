@@ -38,14 +38,14 @@ namespace Map
         public:
             Diagram(QObject* parent = nullptr);
 
-            QVariantList polygon() const; void setPolygon(const QVariantList&);
-            float range() const; void setRange(float);
-            float length() const; void setLength(float);
-            float angle() const; void setAngle(float);
-            DiagramType type() const; void setType(DiagramType);
-            QGeoCoordinate uavPosition() const; void setUavPosition(const QGeoCoordinate&);
-            double azimuth() const; void setAzimuth(double);
-            DiagramDirection direction() const; void setDirection(const DiagramDirection&);
+            [[nodiscard]] QVariantList polygon() const; void setPolygon(const QVariantList&);
+            [[nodiscard]] float range() const; void setRange(float);
+            [[nodiscard]] float length() const; void setLength(float);
+            [[nodiscard]] float angle() const; void setAngle(float);
+            [[nodiscard]] DiagramType type() const; void setType(DiagramType);
+            [[nodiscard]] QGeoCoordinate uavPosition() const; void setUavPosition(const QGeoCoordinate&);
+            [[nodiscard]] double azimuth() const; void setAzimuth(double);
+            [[nodiscard]] DiagramDirection direction() const; void setDirection(const DiagramDirection&);
 
             signals:
                 void polygonChanged();

@@ -28,20 +28,20 @@ namespace Network
         public:
             explicit Telemetry(QObject* parent = nullptr);
 
-            double latitude() const; void setLatitude(double);
-            double longitude() const; void setLongitude(double);
-            double altitude() const; void setAltitude(double);
-            double velocityCourse() const; void setVelocityCourse(double);
-            double velocityEast() const; void setVelocityEast(double);
-            double velocityNorth() const; void setVelocityNorth(double);
-            double velocityVertical() const; void setVelocityVertical(double);
-            double pitch() const; void setPitch(double);
-            double roll() const; void setRoll(double);
-            double yaw() const; void setYaw(double);
-            double course() const; void setCourse(double);
-            uint64_t time() const; void setTime(const uint64_t&);
-            int satellites() const; void setSatellites(int);
-            double seaLevel() const; void setSeaLevel(double);
+            [[nodiscard]] double latitude() const; void setLatitude(double);
+            [[nodiscard]] double longitude() const; void setLongitude(double);
+            [[nodiscard]] double altitude() const; void setAltitude(double);
+            [[nodiscard]] double velocityCourse() const; void setVelocityCourse(double);
+            [[nodiscard]] double velocityEast() const; void setVelocityEast(double);
+            [[nodiscard]] double velocityNorth() const; void setVelocityNorth(double);
+            [[nodiscard]] double velocityVertical() const; void setVelocityVertical(double);
+            [[nodiscard]] double pitch() const; void setPitch(double);
+            [[nodiscard]] double roll() const; void setRoll(double);
+            [[nodiscard]] double yaw() const; void setYaw(double);
+            [[nodiscard]] double course() const; void setCourse(double);
+            [[nodiscard]] uint64_t time() const; void setTime(const uint64_t&);
+            [[nodiscard]] int satellites() const; void setSatellites(int);
+            [[nodiscard]] double seaLevel() const; void setSeaLevel(double);
 
             signals:
                 void latitudeChanged();

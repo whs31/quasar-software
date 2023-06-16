@@ -24,8 +24,8 @@ namespace Map
             Q_INVOKABLE void append(const QGeoCoordinate& coord, float speed = -1, int satellites = -1);
             Q_INVOKABLE void clear();
 
-            QVariantList fullRoute() const; void setFullRoute(const QVariantList&);
-            QVariantList recentRoute() const; void setRecentRoute(const QVariantList&);
+            [[nodiscard]] QVariantList fullRoute() const; void setFullRoute(const QVariantList&);
+            [[nodiscard]] QVariantList recentRoute() const; void setRecentRoute(const QVariantList&);
 
             signals:
                 void fullRouteChanged();

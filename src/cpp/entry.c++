@@ -43,7 +43,7 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
     QML_EXPOSE_INSTANTIABLE(Map::Diagram, "RadarDiagram", "RadarDiagram");
 
-    connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList);
+    connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
     connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);
     connect(Config::Config::get(), &Config::Config::scheduleRestart, this, [this](){
         qWarning() << "[CORE] Requested restart, but current configuration will fail executing it.";

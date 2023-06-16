@@ -86,5 +86,7 @@
         <file>icons/google-material/poweroff.png</file>
         <file>icons/google-material/close.png</file>
         <file>icons/google-material/map-offline.png</file>
+        <file>icons/google-material/focus-scope.png</file>
+        <file>icons/google-material/hand.png</file>
     </qresource>
 </RCC>

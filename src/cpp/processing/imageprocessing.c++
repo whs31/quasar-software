@@ -35,8 +35,11 @@ void ImageProcessing::processList(const QList<QString>& list)
 {
     qDebug() << "[PROCESSING] Received list of" << list.size() << "images and binaries";
 
-    QThreadPool pool;
-    pool.setMaxThreadCount(QThread::idealThreadCount() - 1);
+    QThreadPool pool1;
+    pool1.setMaxThreadCount(2);
+
+    QThreadPool pool2;
+    pool2.setMaxThreadCount(4);
 
     for(const QString& filename : list)
     {
@@ -45,14 +48,15 @@ void ImageProcessing::processList(const QList<QString>& list)
         {
             case Telescopic:
             {
-                QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+                QFuture<void> future = QtConcurrent::run(&pool1, [=](){
                     this->asyncProcess(filename);
                 });
+
                 break;
             }
             case Strip:
             {
-                QFuture<void> future = QtConcurrent::run(&pool, [this, filename](){
+                QFuture<void> future = QtConcurrent::run(&pool2, [=](){
                     this->asyncStripProcess(filename);
                 });
                 break;
@@ -242,7 +246,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         char chunk[chunk_size];
         float fchunk[chunk_size];
         memcpy(chunk, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav)
-                          + sizeof(datagram.format), chunk_size);
+                               + sizeof(datagram.format), chunk_size);
 
         for(size_t i = 0; i < chunk_size; ++i)
         {
@@ -264,7 +268,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     QVector<uint16_t> chunks16_t;
     QVector<uint32_t> chunks32_t;
     int vl = chunks_unknown_ws.length() / ws;
-    int pixel_count;
+    int pixel_count = 0;
     if(ws == 1)
     {
         chunks8_t.resize(vl);
@@ -359,7 +363,7 @@ void ImageProcessing::passImage(const Map::Image& image) { model()->add(image); 
 
 bool ImageProcessing::exists(const QString& name)
 {
-    for(Map::Image image : *model()->direct())
+    for(const Map::Image &image : *model()->direct())
     {
         if(image.filename == name)
             return true;

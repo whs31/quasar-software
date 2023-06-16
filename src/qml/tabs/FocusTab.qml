@@ -16,9 +16,18 @@ Rectangle { id: focustab_root;
     property int currentAssignedIndex: -1;
     property int currentTool: 0; // 0 - hand, 1 - focus
 
+    property real currentStep: 0;
+    property real currentLx: 0;
+    property real currentLy: 0;
+    property real currentX0: 0;
+
     onCurrentAssignedIndexChanged: {
         if(currentAssignedIndex >= 0) {
             mapImage.source = "file:///" + ImagesModel.getRole(currentAssignedIndex, "filepath");
+            currentStep = ImagesModel.getRole(currentAssignedIndex, "dx");
+            currentLx = ImagesModel.getRole(currentAssignedIndex, "lx");
+            currentLy = ImagesModel.getRole(currentAssignedIndex, "ly");
+            currentX0 = ImagesModel.getRole(currentAssignedIndex, "x0");
             filename_label.filename_string = Theme.colorText(ImagesModel.getRole(currentAssignedIndex, "filename"), Theme.color("yellow"));
 
             panel_Reform.setVelocityAndElevation(Number(ImagesModel.getRole(currentAssignedIndex, "velocity")).toFixed(1),
@@ -73,14 +82,19 @@ Rectangle { id: focustab_root;
                 }
 
                 Rectangle {
-                    border.color: Theme.color("accent");
-                    border.width: 4;
+                    property bool shown: currentTool === 1;
+                    border.color: Theme.color("orange");
+                    border.width: 2;
                     color: "transparent";
-                    width: 100; // @FIXME
-                    height: 100; // @FIXME
-                    visible: currentTool === 1;
+                    width: panel_FocusSettings.focus_ls * currentStep;
+                    height: width;
+                    opacity: shown ? 0.9 : 0;
+                    Behavior on opacity { NumberAnimation { duration: 300; } }
+                    enabled: shown;
                     x: mouseAreaImage.mouseX - width / 2;
                     y: mouseAreaImage.mouseY - height / 2;
+                    onXChanged: panel_FocusSettings.focus_px = (x / mapImage.width) * currentLx * currentStep + currentX0;
+                    onYChanged: panel_FocusSettings.focus_py = ((y / mapImage.height) - 0.5) * currentLy * currentStep;
 
                     Image { id: pattern;
                         source: "qrc:/map/patterns/diagonal.png";
@@ -91,7 +105,7 @@ Rectangle { id: focustab_root;
                     ColorOverlay {
                         anchors.fill: pattern;
                         source: pattern;
-                        color: Theme.color("accent");
+                        color: Theme.color("orange");
                         smooth: true;
                         antialiasing: true;
                     }
@@ -221,13 +235,17 @@ Rectangle { id: focustab_root;
             margins: 5
         }
     }
-}
-/*
 
-            {"--px", ExecdArgument(-1.0f)},         //! @var Координата по дальности точки для фокусировки
-            {"--py", ExecdArgument(-1.0f)},         //! @var Координата по путевой дальности точки для фокусировки.
-            {"--ls", ExecdArgument(50.0f)},         //! @var Размер стороны квадрата в м, по которой производится фокусировка
-            {"--vmin", ExecdArgument(-1.0f)},       //! @var Минимальное  значение гипотезы по скорости для фокусировки, км/ч
-            {"--vmax", ExecdArgument(-1.0f)},       //! @var Максимальное значение гипотезы по скорости для фокусировки, км/ч
-            {"--ni", ExecdArgument(10)},            //! @var Количество гипотез по скорости [1 - inf]
-            */
+    FocusTab.FocusSettings { id: panel_FocusSettings;
+        property bool shown: currentTool === 1;
+
+        opacity: shown ? 0.9 : 0;
+        Behavior on opacity { NumberAnimation { duration: 300; } }
+        enabled: shown;
+        anchors {
+            horizontalCenter: flick.horizontalCenter
+            bottom: panel_EditorToolbar.top
+            bottomMargin: 15
+        }
+    }
+}

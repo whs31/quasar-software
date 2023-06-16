@@ -170,6 +170,14 @@ QVariant ImageModel::getRole(int i, const QString& role) const
         return data(index(i), Velocity);
     if(role == "elevation")
         return data(index(i), Altitude);
+    if(role == "lx")
+        return data(index(i), LX);
+    if(role == "ly")
+        return data(index(i), LY);
+    if(role == "x0")
+        return data(index(i), X0);
+    if(role == "dx")
+        return data(index(i), DX);
     return "Error parsing";
 }
 

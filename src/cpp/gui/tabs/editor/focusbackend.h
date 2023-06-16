@@ -2,6 +2,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QPointF>
+#include <LPVL/Global>
 
 namespace GUI
 {
@@ -10,6 +11,7 @@ namespace GUI
         Q_OBJECT
         Q_PROPERTY(QPointF mouseCoords READ mouseCoords WRITE setMouseCoords NOTIFY mouseCoordsChanged)
         Q_PROPERTY(int imageIndex READ imageIndex WRITE setImageIndex NOTIFY imageIndexChanged)
+        LPVL_DECLARE_SINGLETON(FocusBackend)
 
         public:
             explicit FocusBackend(QObject *parent = nullptr);

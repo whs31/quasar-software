@@ -31,7 +31,7 @@ Pane { id: panel_EditorTools;
             icon.source: "qrc:/icons/google-material/focus-scope.png";
             icon.color: focustab_root.currentTool === 1 ? Theme.color("dark0") : Theme.color("light0");
             Material.elevation: 30;
-            Material.background: focustab_root.currentTool === 1 ? Theme.color("accent") : Theme.color("dark2");
+            Material.background: focustab_root.currentTool === 1 ? Theme.color("orange") : Theme.color("dark2");
             onPressed: {
                 if(focustab_root.currentTool === 1)
                     focustab_root.currentTool = 0;

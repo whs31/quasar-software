@@ -18,11 +18,12 @@ Pane { id: panel_EditorToolbar;
             text: "Переформирование изображения";
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("orange");
+            Material.background: Theme.color("accent");
             onPressed: Network.executeCommand(Network.ReformImage);
         }
 
         RoundButton { id: button_FocusImage;
+            enabled: focustab_root.currentTool === 1;
             font.family: root.mainfont;
             height: 40;
             radius: 4;
@@ -31,8 +32,10 @@ Pane { id: panel_EditorToolbar;
             text: "Фокусировка изображения";
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("accent");
-            onPressed: Network.executeCommand(Network.FocusImage);
+            Material.background: Theme.color("orange");
+            onPressed: {
+                Network.executeCommand(Network.FocusImage);
+            }
         }
     }
 }

@@ -133,12 +133,63 @@ void OfflineTileLoader::download(const QGeoPolygon& polygon, int maximum_zoom)
     }
 }
 
-void OfflineTileLoader::download(const QVariantList& list)
+void OfflineTileLoader::download(const QVariantList& list, int maximum_zoom)
 {
     QGeoPolygon pass;
     for(const auto& point : list)
         pass.addCoordinate(point.value<QGeoCoordinate>());
-    this->download(pass);
+    this->download(pass, maximum_zoom);
+}
+
+int OfflineTileLoader::estimateTileCount(const QVariantList& list, int maximum_zoom) noexcept
+{
+    QGeoPolygon polygon;
+    for(const auto& point : list)
+        polygon.addCoordinate(point.value<QGeoCoordinate>());
+
+    int ret = 0;
+    QGeoRectangle rectangle = polygon.boundingGeoRectangle();
+    double minLatitude = rectangle.bottomLeft().latitude();
+    double maxLatitude = rectangle.topRight().latitude();
+    double minLongitude = rectangle.bottomLeft().longitude();
+    double maxLongitude = rectangle.topRight().longitude();
+
+    if(minLongitude > maxLongitude)
+    {
+        minLongitude = rectangle.topRight().longitude();
+        maxLongitude = rectangle.bottomLeft().longitude();
+    }
+
+    QPolygonF polygon2;
+    for(size_t index = 0; index < polygon.size(); index++)
+    {
+        QGeoCoordinate point = polygon.coordinateAt(index);
+        polygon2.append(QPointF(point.longitude(), point.latitude()));
+    }
+
+    for(uint8_t zoom = 0; zoom <= maximum_zoom; zoom++)
+    {
+        uint32_t minX = longitudeToTileX(minLongitude, zoom);
+        uint32_t maxX = longitudeToTileX(maxLongitude, zoom);
+        uint32_t minY = latitudeToTileY(maxLatitude, zoom);
+        uint32_t maxY = latitudeToTileY(minLatitude, zoom);
+
+        for(uint32_t x = minX; x <= maxX; x++)
+        {
+            for(uint32_t y = minY; y <= maxY; y++)
+            {
+                double x0 = tileXToLongitude(x, zoom);
+                double y0 = tileYToLatitude(y, zoom);
+                double x1 = tileXToLongitude(x + 1, zoom);
+                double y1 = tileYToLatitude(y + 1, zoom);
+
+                if(polygon2.intersects(QPolygonF(QRectF(QPointF(x0, y0), QPointF(x1, y1)))))
+                    ret++;
+            }
+        }
+    }
+
+    return ret;
 }
 
 void OfflineTileLoader::setServerUrl(const QString& url) { m_serverUrl = url; }

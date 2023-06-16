@@ -113,7 +113,7 @@ Pane {
             ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
                       contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
                       background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Выполнить калибровку высоты над уровнем моря"; }
+                      text: "Выполнить калибровку высоты над рельефом в точке старта"; }
         }
 
         RoundButton { id: button_ClearDisk;

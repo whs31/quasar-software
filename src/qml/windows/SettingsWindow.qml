@@ -222,6 +222,27 @@ Window {
                     }
 
                     Text {
+                        text: "Порт входящей телеметрии:";
+                        font.family: root.mainfont;
+                        color: Theme.color("light1");
+                        font.pixelSize: 14;
+                        Layout.alignment: Qt.AlignLeft;
+                    }
+
+                    TextField { id: validator_x;
+                        property bool b_Valid: /^[0-9]*$/.test(text);
+
+                        font.family: root.mainfont;
+                        font.weight: Font.Bold;
+                        font.pixelSize: 14;
+                        text: Config.telemetryRecvPort;
+                        Layout.alignment: Qt.AlignRight;
+                        color: b_Valid ? Theme.color("light1") : Theme.color("red");
+
+                        onEditingFinished: Config.telemetryRecvPort = text;
+                    }
+
+                    Text {
                         text: "Порт сокета выполнения команд:";
                         font.family: root.mainfont;
                         color: Theme.color("light1");

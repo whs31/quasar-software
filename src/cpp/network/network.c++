@@ -77,10 +77,10 @@ Network::Network(QObject* parent)
     });
 }
 
-void Network::startTelemetrySocket(const QString& address, float frequency)
+void Network::startTelemetrySocket(const QString& address, const QString& recv_address, float frequency)
 {
     telemetrySocket->setFrequency(frequency);
-    telemetrySocket->start(address);
+    telemetrySocket->start(address, recv_address);
 }
 
 void Network::stopTelemetrySocket() { telemetrySocket->stop(); }

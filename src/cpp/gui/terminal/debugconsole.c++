@@ -48,6 +48,7 @@ void DebugConsole::telsock_start()
 {
     qInfo() << "$ [CONSOLE] Forcing start of telemetry socket at default frequency";
     Network::Network::get()->startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort),
+                                                  CONFIG(remoteIP) + ":" + CONFIG(telemetryRecvPort),
                                                   CONFIG(telemetryFrequency));
 }
 

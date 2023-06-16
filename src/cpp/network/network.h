@@ -60,7 +60,7 @@ namespace Network
             FeedbackSocket* feedbackSocket;
             TCPSocket* tcpSocket;
 
-            Q_INVOKABLE void startTelemetrySocket(const QString& address, float frequency);
+            Q_INVOKABLE void startTelemetrySocket(const QString& request_address, const QString& recv_address, float frequency);
             Q_INVOKABLE void stopTelemetrySocket();
 
             Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);

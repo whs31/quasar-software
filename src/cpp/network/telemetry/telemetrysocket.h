@@ -21,10 +21,10 @@ namespace Network
         public:
             TelemetrySocket(QObject* parent = nullptr, Telemetry* output = nullptr);
 
-            void start(const QString& address);
+            void start(const QString& address, const QString& recv_address);
             void stop();
 
-            float frequency() const; void setFrequency(float);
+            [[nodiscard]] float frequency() const; void setFrequency(float);
 
             signals:
                 void frequencyChanged();
@@ -37,7 +37,10 @@ namespace Network
 
         private:
             QTimer* m_updateTimer;
+            QUdpSocket* m_requestsock;
             float m_frequency = 0.2;
             Telemetry* output;
+            QString req_addr;
+            uint16_t req_port;
     };
 } // namespace Network

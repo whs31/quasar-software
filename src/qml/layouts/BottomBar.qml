@@ -60,6 +60,7 @@ Rectangle {
                     Network.startExecdSocket(Config.remoteIP + ":" + Config.execdPort,
                                              Config.localIP + ":" + Config.feedbackPort);
                     Network.startTelemetrySocket(Config.remoteIP + ":" + Config.telemetryPort,
+                                                 Config.remoteIP + ":" + Config.telemetryRecvPort,
                                                  Config.telemetryFrequency);
                     Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
                     Network.executeCommand(Network.Ping);

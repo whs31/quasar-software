@@ -23,6 +23,7 @@ namespace Config
         Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
         Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
         Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
+        Q_PROPERTY(QString telemetryRecvPort READ telemetryRecvPort WRITE setTelemetryRecvPort NOTIFY telemetryRecvPortChanged)
         Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
         Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
         Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
@@ -57,32 +58,33 @@ namespace Config
             Q_INVOKABLE void reset();
             Q_INVOKABLE QString projectVersion();
 
-            QString remoteIP() const; void setRemoteIP(const QString&);
-            QString localIP() const; void setLocalIP(const QString&);
-            QString telemetryPort() const; void setTelemetryPort(const QString&);
-            QString tcpLFSPort() const; void setTcpLFSPort(const QString&);
-            QString udpLFSPort() const; void setUdpLFSPort(const QString&);
-            QString execdPort() const; void setExecdPort(const QString&);
-            QString feedbackPort() const; void setFeedbackPort(const QString&);
-            bool proxyEnabled() const; void setProxyEnabled(bool);
-            bool antennaAlignment() const; void setAntennaAlignment(bool);
-            float angleCorrection() const; void setAngleCorrection(float);
-            bool useRadians() const; void setUseRadians(bool);
-            bool useDriftAngle() const; void setUseDriftAngle(bool);
-            float thetaAzimuthCorrection() const; void setThetaAzimuthCorrection(float);
-            double storedLatitude() const; void setStoredLatitude(double);
-            double storedLongitude() const; void setStoredLongitude(double);
-            double storedZoomLevel() const; void setStoredZoomLevel(double);
-            QString storedCatalogue() const; void setStoredCatalogue(const QString&);
-            float telemetryFrequency() const; void setTelemetryFrequency(float);
-            bool overrideImageHeight() const; void setOverrideImageHeight(bool);
-            bool cutImage() const; void setCutImage(bool);
-            QString tcpMarker() const; void setTcpMarker(const QString&);
-            QString theme() const; void setTheme(const QString&);
-            QString jetsonIP() const; void setJetsonIP(const QString&);
-            QString navIP() const; void setNavIP(const QString&);
-            QString utl1IP() const; void setUtl1IP(const QString&);
-            QString utl2IP() const; void setUtl2IP(const QString&);
+            [[nodiscard]] QString remoteIP() const; void setRemoteIP(const QString&);
+            [[nodiscard]] QString localIP() const; void setLocalIP(const QString&);
+            [[nodiscard]] QString telemetryPort() const; void setTelemetryPort(const QString&);
+            [[nodiscard]] QString tcpLFSPort() const; void setTcpLFSPort(const QString&);
+            [[nodiscard]] QString udpLFSPort() const; void setUdpLFSPort(const QString&);
+            [[nodiscard]] QString execdPort() const; void setExecdPort(const QString&);
+            [[nodiscard]] QString feedbackPort() const; void setFeedbackPort(const QString&);
+            [[nodiscard]] bool proxyEnabled() const; void setProxyEnabled(bool);
+            [[nodiscard]] bool antennaAlignment() const; void setAntennaAlignment(bool);
+            [[nodiscard]] float angleCorrection() const; void setAngleCorrection(float);
+            [[nodiscard]] bool useRadians() const; void setUseRadians(bool);
+            [[nodiscard]] bool useDriftAngle() const; void setUseDriftAngle(bool);
+            [[nodiscard]] float thetaAzimuthCorrection() const; void setThetaAzimuthCorrection(float);
+            [[nodiscard]] double storedLatitude() const; void setStoredLatitude(double);
+            [[nodiscard]] double storedLongitude() const; void setStoredLongitude(double);
+            [[nodiscard]] double storedZoomLevel() const; void setStoredZoomLevel(double);
+            [[nodiscard]] QString storedCatalogue() const; void setStoredCatalogue(const QString&);
+            [[nodiscard]] float telemetryFrequency() const; void setTelemetryFrequency(float);
+            [[nodiscard]] bool overrideImageHeight() const; void setOverrideImageHeight(bool);
+            [[nodiscard]] bool cutImage() const; void setCutImage(bool);
+            [[nodiscard]] QString tcpMarker() const; void setTcpMarker(const QString&);
+            [[nodiscard]] QString theme() const; void setTheme(const QString&);
+            [[nodiscard]] QString jetsonIP() const; void setJetsonIP(const QString&);
+            [[nodiscard]] QString navIP() const; void setNavIP(const QString&);
+            [[nodiscard]] QString utl1IP() const; void setUtl1IP(const QString&);
+            [[nodiscard]] QString utl2IP() const; void setUtl2IP(const QString&);
+            [[nodiscard]] QString telemetryRecvPort() const; void setTelemetryRecvPort(const QString&);
 
             signals:
                 void remoteIPChanged();
@@ -112,6 +114,7 @@ namespace Config
                 void navIPChanged();
                 void utl1IPChanged();
                 void utl2IPChanged();
+                void telemetryRecvPortChanged();
 
         private:
             explicit Config(QObject* parent = nullptr);
@@ -125,6 +128,7 @@ namespace Config
                 {"utl2IP", "192.168.1.51"},
                 {"localIP", "127.0.0.1"},
                 {"telemetryPort", "9955"},
+                {"telemetryRecvPort", 10337},
                 {"lfsPort", "10000"},
                 {"stripPort", "48455"},
                 {"execdPort", "9845"},
@@ -174,5 +178,6 @@ namespace Config
             QString m_navIP;
             QString m_utl1IP;
             QString m_utl2IP;
+            QString m_telemetryRecvPort;
     };
 } // namespace Config;

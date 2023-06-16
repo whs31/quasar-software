@@ -13,14 +13,23 @@ TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
     : AbstractUDPSocket{parent}
     , m_updateTimer(new QTimer(this))
     , output(output)
+    , m_requestsock(new QUdpSocket(this))
 {
     QObject::connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::requestTelemetry);
     QObject::connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);
 }
 
-void TelemetrySocket::start(const QString& address)
+void TelemetrySocket::start(const QString& address, const QString& recv_address)
 {
-    this->connect(address);
+    if(not address.contains(":") or address.split(":").size() != 2) {
+        qCritical() << "[TELEMETRY] Provided incorrect request address";
+        return;
+    }
+
+    req_addr = address.split(":").first();
+    req_port = address.split(":").last().toUInt();
+
+    this->connect(recv_address);
     this->requestTelemetry();
     m_updateTimer->start((int)(30 * 1'000));
     qDebug().noquote() << "[TELEMETRY] Started reading at frequency of" << 1 / frequency() << "Hz";
@@ -94,7 +103,7 @@ void TelemetrySocket::requestTelemetry()
 
     stream << request;
 
-    this->send(buffer);
+    m_requestsock->writeDatagram(buffer, QHostAddress(req_addr), req_port);
     emit socketMetrics("0x" + QString::number(request.marker, 16) + " " + QString::number(request.init_flag) + " "
                         + QString::number(request.port) + " " + QString::number(request.interval_ms)
                         + " 0x" + QString::number(request.crc16, 16), sizeof(request), true);

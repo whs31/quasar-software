@@ -24,6 +24,7 @@ void Config::Config::save()
     ini->setValue("utl1IP", utl1IP());
     ini->setValue("utl2IP", utl2IP());
     ini->setValue("telemetryPort", telemetryPort());
+    ini->setValue("telemetryRecvPort", telemetryRecvPort());
     ini->setValue("lfsPort", tcpLFSPort());
     ini->setValue("stripPort", udpLFSPort());
     ini->setValue("execdPort", execdPort());
@@ -67,6 +68,7 @@ void Config::Config::load()
     setUtl1IP(ini->value("utl1IP").toString());
     setUtl2IP(ini->value("utl2IP").toString());
     setTelemetryPort(ini->value("telemetryPort").toString());
+    setTelemetryRecvPort(ini->value("telemetryRecvPort").toString());
     setTcpLFSPort(ini->value("lfsPort").toString());
     setUdpLFSPort(ini->value("stripPort").toString());
     setExecdPort(ini->value("execdPort").toString());
@@ -461,6 +463,19 @@ void Config::setUtl2IP(const QString& other)
         return;
     m_utl2IP = other;
     emit utl2IPChanged();
+}
+
+QString Config::telemetryRecvPort() const
+{
+    return m_telemetryRecvPort;
+}
+
+void Config::setTelemetryRecvPort(const QString& other)
+{
+    if (m_telemetryRecvPort == other)
+        return;
+    m_telemetryRecvPort = other;
+    emit telemetryRecvPortChanged();
 }
 
 }

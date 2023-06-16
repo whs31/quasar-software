@@ -60,8 +60,8 @@ void TelemetrySocket::processTelemetry(QByteArray data)
         return;
     }
 
-    output->setLatitude(received.latitude);
-    output->setLongitude(received.longitude);
+    output->setLatitude(LPVL::rad2deg(received.latitude));
+    output->setLongitude(LPVL::rad2deg(received.longitude));
     output->setAltitude(received.altitude);
     output->setVelocityCourse(received.velocity_course * 3.6);
     output->setVelocityEast(received.velocity_east * 3.6);

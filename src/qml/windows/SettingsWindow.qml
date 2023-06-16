@@ -44,7 +44,7 @@ Window {
 
             Pane { id: panel_Network;
                 x: 25;
-                height: 735;
+                height: 785;
                 Material.elevation: 50;
                 width: view.width - 50;
 

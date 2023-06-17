@@ -265,8 +265,6 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     QDataStream out(chunks_unknown_ws);
     QVector<uint8_t> chunks8_t;
-    QVector<uint16_t> chunks16_t;
-    QVector<uint32_t> chunks32_t;
     int vl = chunks_unknown_ws.length() / ws;
     int pixel_count = 0;
     if(ws == 1)
@@ -319,29 +317,18 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         if(DEBUG_SHOW_STRIP_DATA_MATRIX)
             emit stripVector8bit(out, rows, columns);
     }
-    if(ws == 2)
-    {
-        chunks16_t.resize(vl);
-        for (int i = 0; i < vl; i++)
-            out >> chunks16_t[i];
-        rows = (int)(chunks16_t.size() / columns);
-        pixel_count = chunks16_t.size();
-        // unimplemented
-    }
-    if(ws == 4)
-    {
-        chunks32_t.resize(vl);
-        for (int i = 0; i < vl; i++)
-            out >> chunks32_t[i];
-        rows = (int)(chunks32_t.size() / columns);
-        pixel_count = chunks32_t.size();
-        // unimplemented
+    else {
+        qCritical() << "[PROCESSING] Word size is not supported (only uint8_t)";
+        return;
     }
 
     qDebug() << "[PROCESSING] Decoded strip image vector with"
              << pixel_count
              << "elements ( sizeof:" << ws << ")";
     qInfo().nospace() << "$ <b><u>[PROCESSING] Strip [x/y]: " << columns << "x" << rows << "</u></b>";
+
+    if(not DEBUG_PRESERVE_BINARY)
+        QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
     setProcessingStrip(false);
 }

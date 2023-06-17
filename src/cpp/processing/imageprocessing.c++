@@ -211,6 +211,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 void ImageProcessing::asyncStripProcess(const QString& filename)
 {
     Map::StripImage image;
+    bool is_compressed = false;
 
     image.filename = filename;
     image.path.first = Config::Paths::lod(0) + "/" + filename;
@@ -219,12 +220,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     int ws = 0;
     QByteArray data = fileToByteArray(image.path.first);
     char* data_ptr = data.data();
-
-    int offset = 0;
-    qInfo() << "$ <i>Entered cycle</i>";
-
     int rows, columns;
 
+    qInfo() << "$ <i>Entered cycle</i>";
+
+    int offset = 0;
     forever
     {     
         if(offset >= data.size())
@@ -236,7 +236,15 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         memcpy(&datagram.format, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav),
                sizeof(datagram.format));
 
+        if(datagram.format.word_size == 0)
+        {
+            is_compressed = true;
+            // for now I will just hardcode it
+            datagram.format.word_size = 1;
+        }
+
         int chunk_size = datagram.header.size * datagram.format.word_size;
+
         if(not ws)
         {
             ws = datagram.format.word_size;
@@ -245,8 +253,18 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
         char chunk[chunk_size];
         float fchunk[chunk_size];
-        memcpy(chunk, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav)
-                               + sizeof(datagram.format), chunk_size);
+
+        if(is_compressed)
+        {
+            QByteArray chunk_compressed;
+            chunk_compressed.resize(datagram.header.size);
+            chunk_compressed.replace(0, datagram.header.size, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav)
+                                                              + sizeof(datagram.format));
+            memcpy(chunk, chunk_compressed.constData(), chunk_size);
+        }
+        else
+            memcpy(chunk, data_ptr + offset + sizeof(datagram.header) + sizeof(datagram.nav)
+                              + sizeof(datagram.format), chunk_size);
 
         for(size_t i = 0; i < chunk_size; ++i)
         {

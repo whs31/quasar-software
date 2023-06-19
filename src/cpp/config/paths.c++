@@ -7,72 +7,35 @@
 #include <QtCore/QSaveFile>
 #include <QtCore/QTextStream>
 
+#define PATH_MKDIR(name) QDir name##Directory(name());                                              \
+                         if(not name##Directory.exists()) {                                         \
+                             name##Directory.mkpath(name());                                        \
+                             qInfo() << "[PATH] Created" << #name << "folder at" << name();         \
+                         }
+
 using namespace Config;
 
 Paths::Paths(QObject *parent) : QObject{parent}
 {
     this->createImageCache();
 
-    QDir dir(mapConfig());
-    if(not dir.exists())
-    {
-        dir.mkpath(mapConfig());
-        qInfo() << "[PATH] Created map config folder at " << mapConfig();
-    }
+    PATH_MKDIR(config)
+    PATH_MKDIR(mapConfig)
+    PATH_MKDIR(themes)
+    PATH_MKDIR(offlineTiles)
+    PATH_MKDIR(logs)
+    PATH_MKDIR(runtimeBash)
 
     this->createMapConfigs();
 
-    QDir dir1(plugins());
-    if(not dir1.exists())
-    {
-        dir1.mkpath(plugins());
-        qInfo() << "[PATH] Created plugins folder at " << plugins();
-    }
-
-    QDir dir2(config());
-    if(not dir2.exists())
-    {
-        dir2.mkpath(config());
-        qInfo() << "[PATH] Created config folder at " << config();
-    }
-
-    QDir dir3(logs());
-    if(not dir3.exists())
-    {
-        dir3.mkpath(logs());
-        qInfo() << "[PATH] Created logs folder at " << logs();
-    }
-
-    QDir dir4(themes());
-    if(not dir4.exists())
-    {
-        dir4.mkpath(themes());
-        qInfo() << "[PATH] Created themes folder at" << themes();
-    }
-
-    QDir dir5(offlineTiles());
-    if(not dir5.exists())
-    {
-        dir5.mkpath(offlineTiles());
-        qInfo() << "[PATH] Created offline tiles folder at" << offlineTiles();
-    }
-
-    QDir dir6(runtimeBash());
-    if(not dir6.exists())
-    {
-        dir6.mkpath(runtimeBash());
-        qInfo() << "[PATH] Created bash and runtime bash folders at" << runtimeBash();
-    }
-
-    if(dir4.isEmpty())
+    if(themesDirectory.isEmpty())
     {
         QFile::copy(":/themes/nord.json", themes() + "/nord.json");
         QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
         qInfo() << "[PATH] Default themes placed in folder";
     }
 
-    QDir dir_bash(bash());
-    if(dir_bash.isEmpty(QDir::Files))
+    if(runtimeBashDirectory.isEmpty(QDir::Files))
     {
         QFile::copy(":/wrapped/poweroff.sh", bash() + "/poweroff.sh");
         QFile::copy(":/wrapped/reboot.sh", bash() + "/reboot.sh");

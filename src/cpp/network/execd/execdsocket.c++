@@ -54,22 +54,19 @@ void ExecdSocket::executeCommand(Command command)
     switch (command)
     {
         case FormImage:
-            com = finalize(wrap("$FORM" + args->getFormArguments()));
+            com = finalize(wrap(COMMAND_TELESCOPIC+ args->getFormArguments()));
             break;
         case FocusImage:
-            com = finalize(wrap("$FOCUS" + args->getFocusArguments()));
+            com = finalize(wrap(COMMAND_FOCUS + args->getFocusArguments()));
             break;
         case ReformImage:
-            com = finalize(wrap("$FORM" + args->getReformArguments()));
+            com = finalize(wrap(COMMAND_TELESCOPIC + args->getReformArguments()));
             break;
         case RemoteStorageStatus:
-            com = finalize(wrap("$storage_status()"));
+            com = finalize(wrap(COMMAND_STORAGE_STATUS));
             break;
         case ClearRemoteStorage:
-            com = finalize(wrap("$clear_storage()"));
-            break;
-        case Ping:
-            com = finalize(wrap("$ping_de10()"));
+            com = finalize(wrap(COMMAND_CLEAR_STORAGE));
             break;
         case Reboot:
         {

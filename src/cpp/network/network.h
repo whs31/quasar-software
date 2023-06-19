@@ -47,7 +47,6 @@ namespace Network
                 ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
-                Ping,
                 Reboot,
                 Poweroff
             };

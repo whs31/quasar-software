@@ -21,10 +21,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("light0");
             Material.background: Theme.color("dark3");
-            onPressed: {
-                Network.executeCommand(Network.Ping);
-                Network.executeCommand(Network.RemoteStorageStatus);
-            }
+            onPressed: Network.executeCommand(Network.RemoteStorageStatus);
         }
 
         RoundButton { id: button_Reboot;

@@ -8,6 +8,11 @@ namespace Network
     class ExecdSocket : public AbstractUDPSocket
     {
         Q_OBJECT
+        constexpr static const char* COMMAND_TELESCOPIC = "$telescopic";
+        constexpr static const char* COMMAND_START_STRIP = "$strip";
+        constexpr static const char* COMMAND_FOCUS = "$focus";
+        constexpr static const char* COMMAND_STORAGE_STATUS = "$storage_status()";
+        constexpr static const char* COMMAND_CLEAR_STORAGE = "$clear_storage()";
 
         public:
             enum Command
@@ -17,7 +22,6 @@ namespace Network
                 ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
-                Ping,
                 Reboot,
                 Poweroff
             };

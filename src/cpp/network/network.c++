@@ -106,7 +106,6 @@ void Network::executeCommand(const NetworkCommand command) noexcept
         case ReformImage: execdSocket->executeCommand(ExecdSocket::ReformImage); break;
         case RemoteStorageStatus: execdSocket->executeCommand(ExecdSocket::RemoteStorageStatus); break;
         case ClearRemoteStorage: execdSocket->executeCommand(ExecdSocket::ClearRemoteStorage); break;
-        case Ping: execdSocket->executeCommand(ExecdSocket::Ping); break;
         case Reboot: execdSocket->executeCommand(ExecdSocket::Reboot); break;
         case Poweroff: execdSocket->executeCommand(ExecdSocket::Poweroff); break;
         default: qWarning() << "[NETWORK] Invalid command type"; break;

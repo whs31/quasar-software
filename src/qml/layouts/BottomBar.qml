@@ -7,6 +7,7 @@ import Network 1.0
 import Config 1.0
 
 import "bottombar" as Bottom
+import "../widgets" as Widgets
 
 Rectangle {
     color: Theme.color("dark1");
@@ -96,10 +97,7 @@ Rectangle {
                     c_SettingsWindow.show();
             }
 
-            ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Настройки программы"; }
+            Widgets.TT { ff: root.mainfont; txt: "Настройки программы"; }
         }
 
         RoundButton { id: button_About;
@@ -117,10 +115,7 @@ Rectangle {
                     c_InfoWindow.b_Shown = true;
             }
 
-            ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "О программе"; }
+            Widgets.TT { ff: root.mainfont; txt: "О программе"; }
         }
 
         RoundButton { id: button_ToggleDebug;
@@ -133,10 +128,7 @@ Rectangle {
             Material.background: Theme.color("dark1");
             onPressed: root.consoleshown = !root.consoleshown;
 
-            ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Консоль разработчика"; }
+            Widgets.TT { ff: root.mainfont; txt: "Консоль разработчика"; }
         }
 
         RoundButton { id: button_ToggleVT100;
@@ -149,10 +141,7 @@ Rectangle {
             Material.background: Theme.color("dark1");
             onPressed: root.vt100termshown = !root.vt100termshown;
 
-            ToolTip { id: tt4; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt4.text; font: tt4.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Консоль РЛС"; }
+            Widgets.TT { ff: root.mainfont; txt: "Консоль РЛС"; }
         }
     }
 }

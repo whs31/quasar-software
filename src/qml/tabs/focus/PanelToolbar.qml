@@ -4,6 +4,8 @@ import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
 
+import "../../widgets" as Widgets
+
 Pane { id: panel_EditorTools;
     Material.elevation: 30;
 
@@ -18,10 +20,7 @@ Pane { id: panel_EditorTools;
             Material.background: focustab_root.currentTool === 0 ? Theme.color("color0") : Theme.color("dark2");
             onPressed: focustab_root.currentTool = 0;
 
-            ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Инструмент перемещения"; }
+            Widgets.TT { ff: root.mainfont; txt: "Инструмент перемещения"; }
         }
 
         RoundButton { id: button_Focus;
@@ -39,10 +38,7 @@ Pane { id: panel_EditorTools;
                     focustab_root.currentTool = 1;
             }
 
-            ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Инструмент фокусировки"; }
+            Widgets.TT { ff: root.mainfont; txt: "Инструмент фокусировки"; }
         }
     }
 }

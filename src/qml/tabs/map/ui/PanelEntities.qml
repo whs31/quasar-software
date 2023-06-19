@@ -7,6 +7,8 @@ import ClickHandler 1.0
 import Images 1.0
 import Markers 1.0
 
+import "../../../widgets" as Widgets
+
 Pane { id: panel_Entities;
     Material.elevation: 30;
 
@@ -21,27 +23,7 @@ Pane { id: panel_Entities;
             Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
             onPressed: ClickHandler.state = ClickHandler.MarkerActive;
 
-            ToolTip { id: tt1;
-                visible: parent.hovered;
-                font {
-                    family: root.mainfont
-                    pixelSize: 13
-                }
-
-                contentItem: Text {
-                    text: tt1.text
-                    font: tt1.font
-                    color: Theme.color("dark0");
-                }
-
-                background: Rectangle {
-                    color: Theme.color("light1");
-                    radius: 3;
-                }
-
-                delay: 500;
-                text: "Установка нового маркера карты";
-            }
+            Widgets.TT { ff: root.mainfont; txt: "Установка нового маркера карты"; }
         }
 
         RoundButton { id: button_PlannerPoint;
@@ -55,27 +37,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: ClickHandler.state = ClickHandler.PlannerActive;
 
-            ToolTip { id: tt2;
-                visible: parent.hovered;
-                font {
-                    family: root.mainfont
-                    pixelSize: 13
-                }
-
-                contentItem: Text {
-                    text: tt2.text
-                    font: tt2.font
-                    color: Theme.color("dark0");
-                }
-
-                background: Rectangle {
-                    color: Theme.color("light1");
-                    radius: 3;
-                }
-
-                delay: 500;
-                text: "Установка новой точки планировщика заданий";
-            }
+            Widgets.TT { ff: root.mainfont; txt: "Установка новой точки полётного задания"; }
         }
 
         RoundButton { id: button_ClearMarkers;
@@ -88,27 +50,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
 
-            ToolTip { id: tt3;
-                visible: parent.hovered;
-                font {
-                    family: root.mainfont
-                    pixelSize: 13
-                }
-
-                contentItem: Text {
-                    text: tt3.text
-                    font: tt3.font
-                    color: Theme.color("dark0");
-                }
-
-                background: Rectangle {
-                    color: Theme.color("light1");
-                    radius: 3;
-                }
-
-                delay: 500;
-                text: "Очистка карты от маркеров и точек ПЗ";
-            }
+            Widgets.TT { ff: root.mainfont; txt: "Очистить карту от маркеров и точек полётного задания"; }
 
             Connections {
                 target: dialogwindow;
@@ -131,27 +73,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
 
-            ToolTip { id: tt4;
-                visible: parent.hovered;
-                font {
-                    family: root.mainfont
-                    pixelSize: 13
-                }
-
-                contentItem: Text {
-                    text: tt4.text
-                    font: tt4.font
-                    color: Theme.color("dark0");
-                }
-
-                background: Rectangle {
-                    color: Theme.color("light1");
-                    radius: 3;
-                }
-
-                delay: 500;
-                text: "Очистка карты от изображений";
-            }
+            Widgets.TT { ff: root.mainfont; txt: "Очистить карту от радиолокационных изображений"; }
 
             Connections {
                 target: dialogwindow;

@@ -7,6 +7,8 @@ import Theme 1.0
 import Network 1.0
 import Config 1.0
 
+import "../../../widgets" as Widgets
+
 Pane {
     property int mode; // 0 = telescopic, 1 = strip
 
@@ -29,10 +31,7 @@ Pane {
                                             : Theme.color("yellow");
             onCheckedChanged: checked ? mode = 1 : mode = 0;
 
-            ToolTip { id: tt0; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt0.text; font: tt0.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Переключение между телескопическим и полосовым режимом"; }
+            Widgets.TT { ff: root.mainfont; txt: "Переключение между телескопическим и полосовым режимом"; }
         }
 
         RoundButton { id: button_FormImage;
@@ -110,10 +109,7 @@ Pane {
                 }
             }
 
-            ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Выполнить калибровку высоты над рельефом в точке старта"; }
+            Widgets.TT { ff: root.mainfont; txt: "Выполнить калибровку высоты над рельефом в точке старта"; }
         }
 
         RoundButton { id: button_ClearDisk;
@@ -138,10 +134,7 @@ Pane {
                 }
             }
 
-            ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                      contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }
-                      background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                      text: "Очистить хранилище на РЛС"; }
+            Widgets.TT { ff: root.mainfont; txt: "Очистить хранилище на РЛС"; }
         }
     }
 }

@@ -8,6 +8,8 @@ import Config 1.0
 import Network 1.0
 import Filesystem 1.0
 
+import "../../../widgets" as Widgets
+
 Pane { id: panel_ImageTools;
     property bool shown: false;
 
@@ -627,10 +629,7 @@ Pane { id: panel_ImageTools;
                         messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
                 }
 
-                ToolTip { id: tt1; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                          contentItem: Text { text: tt1.text; font: tt1.font;  color: Theme.color("dark0"); }
-                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                          text: "Добавить на карту изображения из выбранного каталога"; }
+                Widgets.TT { ff: root.mainfont; text: "Добавить на карту изображения из выбранного каталога"; }
             }
 
             RoundButton { id: button_ChooseCatalogue;
@@ -644,10 +643,7 @@ Pane { id: panel_ImageTools;
                 text: "Изменить каталог";
                 onPressed: window_FileDialog.open();
 
-                ToolTip { id: tt2; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                          contentItem: Text { text: tt2.text; font: tt2.font;  color: Theme.color("dark0"); }
-                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                          text: "Выбрать каталог для добавления изображений на карту"; }
+                Widgets.TT { ff: root.mainfont; text: "Выбрать каталог для добавления изображений на карту"; }
             }
 
             RoundButton { id: button_ClearLocalCache;
@@ -663,10 +659,7 @@ Pane { id: panel_ImageTools;
                 onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
                                              "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
 
-                ToolTip { id: tt3; visible: parent.hovered; font { family: root.mainfont; pixelSize: 13; }
-                          contentItem: Text { text: tt3.text; font: tt3.font;  color: Theme.color("dark0"); }
-                          background: Rectangle { color: Theme.color("light1"); radius: 3; } delay: 500;
-                          text: "Очистить локальный кэш программы"; }
+                Widgets.TT { ff: root.mainfont; text: "Очистить локальный кэш программы"; }
 
                 Connections {
                     target: dialogwindow;

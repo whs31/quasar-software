@@ -29,11 +29,11 @@ void ExecdSocket::stop()
 
 void ExecdSocket::executeCommand(const QString& command)
 {
-    if(this->state() == QAbstractSocket::UnconnectedState)
-    {
-        qWarning() << "[EXECD] Cannot execute command in unconnected state";
-        return;
-    }
+//    if(this->state() == QAbstractSocket::UnconnectedState)
+//    {
+//        qWarning() << "[EXECD] Cannot execute command in unconnected state";
+//        return;
+//    }
 
     auto com = finalize(wrap(command));
     this->send(com);
@@ -43,11 +43,11 @@ void ExecdSocket::executeCommand(const QString& command)
 
 void ExecdSocket::executeCommand(Command command)
 {
-    if(this->state() == QAbstractSocket::UnconnectedState)
-    {
-        qWarning() << "[EXECD] Cannot execute command in unconnected state";
-        return;
-    }
+//    if(this->state() == QAbstractSocket::UnconnectedState)
+//    {
+//        qWarning() << "[EXECD] Cannot execute command in unconnected state";
+//        return;
+//    }
 
     QByteArray com;
 

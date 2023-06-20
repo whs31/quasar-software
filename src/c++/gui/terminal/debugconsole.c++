@@ -32,7 +32,6 @@ void DebugConsole::help()
     qInfo() << "$ \t <i>execdsock_stop</i> - stops the execd socket";
     qInfo() << "$ \t <i>tcp_start</i> - stops the TCP-IP socket";
     qInfo() << "$ \t <i>tcp_stop</i> - stops the TCP-IP socket";
-    qInfo() << "$ \t <i>sim</i> - starts external simulator, if located";
     qInfo() << "$ \t <i>connect</i> - starts all sockets, except UDP-LFS";
     qInfo() << "$ \t <i>clear</i> - clears console log";
 }
@@ -84,13 +83,8 @@ void DebugConsole::tcp_stop()
 
 void DebugConsole::sim()
 {
-    #ifdef Q_OS_WIN
-        QProcess::startDetached(Config::Paths::root() + "/QuaSAR-Emulator.exe", {});
-        qInfo().noquote().nospace() << "$ [CONSOLE] Launching simulator from";
-        qInfo().noquote().nospace() << "$ " << Config::Paths::root() << "/QuaSAR-Emulator.exe";
-    #else
-        qWarning() << "[CONSOLE] Your operating system is Linux. Emulator support for Linux was removed in version 2.10.1";
-    #endif
+    qWarning() << "[CONSOLE] Emulator support was removed in version 2.11.1";
+    qWarning() << "[CONSOLE] Consider using quasar-firmware instance";
 }
 
 void DebugConsole::connect()

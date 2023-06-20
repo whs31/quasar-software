@@ -57,7 +57,6 @@ QString Paths::lod(int level)
 QString Paths::tcp() { return imageCache() + "/tcp"; }
 QString Paths::mapConfig() { return config() + "/map"; }
 QString Paths::offlineTiles() { return root() + "/offline"; }
-QString Paths::plugins() { return root() + "/plugins"; }
 QString Paths::config() { return root() + "/config"; }
 QString Paths::logs() { return root() + "/logs"; }
 QString Paths::themes() { return root() + "/themes"; }

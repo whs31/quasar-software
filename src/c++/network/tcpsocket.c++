@@ -62,7 +62,6 @@ void TCPSocket::clientConnected()
 
     connect(socket, &QTcpSocket::readyRead, this, &TCPSocket::serverRead);
     connect(socket, &QTcpSocket::disconnected, this, &TCPSocket::clientDisconnected);
-    imageData64.clear();
     imageData.clear();
     readFile = &TCPSocket::readFileInfo;
     success = false;

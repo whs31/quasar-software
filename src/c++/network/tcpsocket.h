@@ -6,38 +6,53 @@ class QTcpServer;
 class QTcpSocket;
 class QTimer;
 
+//! @namespace Namespace for network-related classes.
 namespace Networking
 {
+    //! @class TCP-IP LFS data socket.
     class TCPSocket : public QObject
     {
         Q_OBJECT
 
+        //! @var Constant timeout for TCP connection break.
         constexpr static uint32_t TCP_TIMEOUT = 10'000;
 
         public:
+            //! @brief Constructs a new TCPSocket object with
+            //!        given parent.
             explicit TCPSocket(QObject* parent = nullptr);
 
+            //! @brief Starts TCP-IP server at given
+            //!        IPv4 address and port.
             void startServer(const QString& address);
+
+            //! @brief Stops currently working TCP-IP server.
             void stopServer();
 
+            //! @brief Provides loading progress value.
+            //! @details Range - 0 to 100.
             float progress();
-            QByteArray imageData64;
-
-            public slots:
-                void clientConnected(void);
-                void serverRead(void);
-                void clientDisconnected(void);
-                void connectionTimeout(void);
 
             signals:
+                //! @brief Emitted when receiving of data is finished.
                 void receivingFinished();
+
+                //! @brief Emitted on loading progress change.
                 void progressChanged(float progress);
+
+                //! @brief Debug socket metrics.
                 void socketMetrics(const QString& data, int size_bytes, bool out);
 
         private:
             void (TCPSocket::*readFile)(QByteArray data);
             void readFileInfo(QByteArray data);
             void readFileBody(QByteArray data);
+
+            private slots:
+                void clientConnected();
+                void serverRead();
+                void clientDisconnected();
+                void connectionTimeout();
 
         private:
             QTcpServer* server;

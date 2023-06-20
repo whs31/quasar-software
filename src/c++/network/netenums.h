@@ -2,15 +2,17 @@
 
 #include <QtCore/QObject>
 
-//! @namespace Namespace network-related classes.
+//! @namespace Namespace for network-related classes.
 namespace Networking
 {
+    //! @class Provides common network-related enums.
+    //! @details Enums are avialable in QML via meta-object system.
     class Enums : public QObject
     {
         Q_OBJECT
 
         public:
-            //! @enum Enumeration for ping status.
+            //! @enum     Enumeration for ping status.
             //! @memberof Success - ping finished successfully.
             //! @memberof DelayedSuccess - ping finished successfully
             //!           with significant delay.
@@ -24,6 +26,7 @@ namespace Networking
                 Idle
             };
 
+            //! @enum Enumeration for execd argument category.
             enum ArgumentCategory
             {
                 Form,
@@ -31,6 +34,19 @@ namespace Networking
                 Reform
             };
 
+            //! @enum     Enumeration for execd command type.
+            //! @memberof FormImage - asks SAR to form telescopic
+            //!           image with arguments.
+            //! @memberof FocusImage - asks SAR to focus telescopic
+            //!           image at given point and arguments.
+            //! @memberof ReformImage - asks SAR to reform existing
+            //!           hologram with another set of arguments.
+            //! @memberof RemoteStorageStatus - asks SAR about
+            //!           remaining disk space.
+            //! @memberof ClearRemoteStorage - asks SAR to clear
+            //!           disk storage from images and binaries.
+            //! @memberof Reboot - forces SAR to reboot itself.
+            //! @memberof Poweroff - forces SAR to shutdown itself.
             enum NetworkCommand
             {
                 FormImage,

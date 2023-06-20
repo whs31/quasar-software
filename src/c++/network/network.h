@@ -8,7 +8,7 @@
 
 class QTimer;
 
-//! @namespace Namespace network-related classes.
+//! @namespace Namespace for network-related classes.
 namespace Networking
 {
     class TelemetrySocket;

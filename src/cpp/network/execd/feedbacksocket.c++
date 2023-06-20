@@ -5,9 +5,8 @@ using namespace Network;
 FeedbackSocket::FeedbackSocket(QObject* parent)
     : AbstractUDPSocket{parent}
 {
-    QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult);
+    QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult, Qt::QueuedConnection);
 }
-
 
 void FeedbackSocket::start(const QString& address)
 {
@@ -23,7 +22,6 @@ void FeedbackSocket::stop()
 
 void FeedbackSocket::processResult(QByteArray data)
 {
-    QString string = data.data();
     QString dataString = data.data();
     if(dataString.contains(STORAGE_STATUS_MARKER))
     {
@@ -37,5 +35,4 @@ void FeedbackSocket::processResult(QByteArray data)
     }
 
     emit textReceived(data);
-    emit socketMetrics(data, data.size(), false);
 }

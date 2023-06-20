@@ -42,12 +42,8 @@ Network::Network(QObject* parent)
     QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){ setNetworkDelay(0); });
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
-    QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, [this](const QString& data, int, bool){
-        auto st = utils::parse_vt100_string(data);
-        //if(st.move_up and st.return_carriage)
-            //GUI::VT100Terminal::get()->replaceLast(st.result);
-        //else
-        //GUI::VT100Terminal::get()->append(st.result);
+    QObject::connect(feedbackSocket, &FeedbackSocket::textReceived, this, [this](const QString& data){
+        GUI::VT100Terminal::get()->append(data);
     });
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;

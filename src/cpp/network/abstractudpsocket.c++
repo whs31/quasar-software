@@ -5,18 +5,14 @@ using namespace Network;
 
 AbstractUDPSocket::AbstractUDPSocket(QObject* parent)
     : QUdpSocket{parent}
-{
+{}
 
-}
-
-AbstractUDPSocket::~AbstractUDPSocket()
-{
-    this->disconnect();
-}
+AbstractUDPSocket::~AbstractUDPSocket() { this->disconnect(); }
 
 bool Network::AbstractUDPSocket::connect(const QString& address)
 {
-    QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);
+    QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket, Qt::DirectConnection);
+
     if(not address.contains(":")) {
         qCritical() << "[SOCKET] Incorrect host address";
         return false;
@@ -60,10 +56,10 @@ void AbstractUDPSocket::readSocket()
         return;
     }
 
-    QByteArray buffer;
-    buffer.resize(this->pendingDatagramSize());
-    while(this->hasPendingDatagrams())
-        this->readDatagram(buffer.data(), (int64_t)this->pendingDatagramSize(), &m_hostaddress, &m_port);
+    QByteArray buffer(pendingDatagramSize(), 0x0);
+
+    while(hasPendingDatagrams())
+        this->readDatagram(buffer.data(), buffer.size(), &m_hostaddress, &m_port);
 
     emit received(buffer);
 }

@@ -12,7 +12,7 @@ ExecdSocket::ExecdSocket(QObject* parent)
     , args(new ExecdArgumentList(this))
     , message_uid(0)
 {
-    QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult);
+    QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult, Qt::QueuedConnection);
 }
 
 void ExecdSocket::start(const QString& address)
@@ -29,12 +29,6 @@ void ExecdSocket::stop()
 
 void ExecdSocket::executeCommand(const QString& command)
 {
-//    if(this->state() == QAbstractSocket::UnconnectedState)
-//    {
-//        qWarning() << "[EXECD] Cannot execute command in unconnected state";
-//        return;
-//    }
-
     auto com = finalize(wrap(command));
     this->send(com);
     qDebug().noquote() << "[EXECD] Sended string command";
@@ -43,12 +37,6 @@ void ExecdSocket::executeCommand(const QString& command)
 
 void ExecdSocket::executeCommand(Command command)
 {
-//    if(this->state() == QAbstractSocket::UnconnectedState)
-//    {
-//        qWarning() << "[EXECD] Cannot execute command in unconnected state";
-//        return;
-//    }
-
     QByteArray com;
 
     switch (command)

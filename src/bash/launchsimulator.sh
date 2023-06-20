@@ -1,0 +1,2 @@
+#!/bin/bash
+exec /usr/bin/kitty /home/defaultuser0/Documents/GitHub/quasar-firmware/execd/execd  & echo "Execd launched"  & exec /usr/bin/konsole /home/defaultuser0/Documents/GitHub/quasar-firmware/navd/navd2  & echo "Navd launched"

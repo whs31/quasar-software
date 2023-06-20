@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classc__deserial_1_1Deserial" kind="class" language="Python" prot="public">
+    <compoundname>c_deserial::Deserial</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classc__deserial_1_1Deserial_1a1777670e914e5ef30f464c581c41c9dd" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>c_deserial.Deserial::alignment</definition>
+        <argsstring></argsstring>
+        <name>alignment</name>
+        <qualifiedname>c_deserial.Deserial.alignment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="26" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classc__deserial_1_1Deserial_1ab037499c2f9adcdd0f58a12bdf6b7a1d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>c_deserial.Deserial::pack_format</definition>
+        <argsstring></argsstring>
+        <name>pack_format</name>
+        <qualifiedname>c_deserial.Deserial.pack_format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="27" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a77b2f66ae4fc3462b696ccfbb8bad4e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.__init__</definition>
+        <argsstring>(self, c_struct, alignment=&quot;=&quot;)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>c_deserial.Deserial.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>c_struct</type>
+          <defname>c_struct</defname>
+        </param>
+        <param>
+          <type><ref refid="classc__deserial_1_1Deserial_1a1777670e914e5ef30f464c581c41c9dd" kindref="member">alignment</ref></type>
+          <defname>alignment</defname>
+          <defval>&quot;=&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="25" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a6c80eb4c225589764a6e87e81ed7eeba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.structInfo</definition>
+        <argsstring>(self, cStruct)</argsstring>
+        <name>structInfo</name>
+        <qualifiedname>c_deserial.Deserial.structInfo</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>cStruct</type>
+          <defname>cStruct</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="29" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="29" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a25463ec0ef33b52c1f174a288d4d57d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.size</definition>
+        <argsstring>(self)</argsstring>
+        <name>size</name>
+        <qualifiedname>c_deserial.Deserial.size</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="48" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a76af6124dcd391114da8114680bfbf6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.serial</definition>
+        <argsstring>(self, fields)</argsstring>
+        <name>serial</name>
+        <qualifiedname>c_deserial.Deserial.serial</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>fields</type>
+          <defname>fields</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="51" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1aaeb5b707b1b6630e0b5bcf8392005bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.to_dict</definition>
+        <argsstring>(self, bindata)</argsstring>
+        <name>to_dict</name>
+        <qualifiedname>c_deserial.Deserial.to_dict</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>bindata</type>
+          <defname>bindata</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="54" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="54" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a77b2f66ae4fc3462b696ccfbb8bad4e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.__init__</definition>
+        <argsstring>(self, c_struct, alignment=&quot;=&quot;)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>c_deserial.Deserial.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>c_struct</type>
+          <defname>c_struct</defname>
+        </param>
+        <param>
+          <type><ref refid="classc__deserial_1_1Deserial_1a1777670e914e5ef30f464c581c41c9dd" kindref="member">alignment</ref></type>
+          <defname>alignment</defname>
+          <defval>&quot;=&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="25" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a6c80eb4c225589764a6e87e81ed7eeba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.structInfo</definition>
+        <argsstring>(self, cStruct)</argsstring>
+        <name>structInfo</name>
+        <qualifiedname>c_deserial.Deserial.structInfo</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>cStruct</type>
+          <defname>cStruct</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="29" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="29" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a25463ec0ef33b52c1f174a288d4d57d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.size</definition>
+        <argsstring>(self)</argsstring>
+        <name>size</name>
+        <qualifiedname>c_deserial.Deserial.size</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="48" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1a76af6124dcd391114da8114680bfbf6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.serial</definition>
+        <argsstring>(self, fields)</argsstring>
+        <name>serial</name>
+        <qualifiedname>c_deserial.Deserial.serial</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>fields</type>
+          <defname>fields</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="51" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1Deserial_1aaeb5b707b1b6630e0b5bcf8392005bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.Deserial.to_dict</definition>
+        <argsstring>(self, bindata)</argsstring>
+        <name>to_dict</name>
+        <qualifiedname>c_deserial.Deserial.to_dict</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>bindata</type>
+          <defname>bindata</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="54" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="54" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/strip/c_deserial.py" line="23" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="23" bodyend="69"/>
+    <listofallmembers>
+      <member refid="classc__deserial_1_1Deserial_1a77b2f66ae4fc3462b696ccfbb8bad4e7" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>__init__</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a77b2f66ae4fc3462b696ccfbb8bad4e7" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>__init__</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a1777670e914e5ef30f464c581c41c9dd" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>alignment</name></member>
+      <member refid="classc__deserial_1_1Deserial_1ab037499c2f9adcdd0f58a12bdf6b7a1d" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>pack_format</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a76af6124dcd391114da8114680bfbf6f" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>serial</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a76af6124dcd391114da8114680bfbf6f" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>serial</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a25463ec0ef33b52c1f174a288d4d57d0" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>size</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a25463ec0ef33b52c1f174a288d4d57d0" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>size</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a6c80eb4c225589764a6e87e81ed7eeba" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>structInfo</name></member>
+      <member refid="classc__deserial_1_1Deserial_1a6c80eb4c225589764a6e87e81ed7eeba" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>structInfo</name></member>
+      <member refid="classc__deserial_1_1Deserial_1aaeb5b707b1b6630e0b5bcf8392005bc2" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>to_dict</name></member>
+      <member refid="classc__deserial_1_1Deserial_1aaeb5b707b1b6630e0b5bcf8392005bc2" prot="public" virt="non-virtual"><scope>c_deserial::Deserial</scope><name>to_dict</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

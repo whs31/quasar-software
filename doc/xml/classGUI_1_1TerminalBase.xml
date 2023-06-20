@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classGUI_1_1TerminalBase" kind="class" language="C++" prot="public">
+    <compoundname>GUI::TerminalBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <derivedcompoundref refid="classGUI_1_1DebugConsole" prot="public" virt="non-virtual">GUI::DebugConsole</derivedcompoundref>
+    <derivedcompoundref refid="classGUI_1_1VT100Terminal" prot="public" virt="non-virtual">GUI::VT100Terminal</derivedcompoundref>
+    <includes refid="terminalbase_8h" local="no">terminalbase.h</includes>
+    <innerclass refid="structGUI_1_1TerminalBase_1_1BasicMessage" prot="public">GUI::TerminalBase::BasicMessage</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MessageType</name>
+        <qualifiedname>GUI::TerminalBase::MessageType</qualifiedname>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" prot="public">
+          <name>Debug</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a35c707eff952677319b98a78aedd019d" prot="public">
+          <name>Info</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ae276038735074b134c3246f280148424" prot="public">
+          <name>Warning</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad824455b746b105de587cf273df9fafc" prot="public">
+          <name>Error</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a62c93c5420ca3c28c1213e8b63812647" prot="public">
+          <name>Extra1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a928b74ac6de78ad6b6bbdc0611b20f80" prot="public">
+          <name>Extra2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aca53f5c19b48de17fae643651df6fbb0" prot="public">
+          <name>Extra3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ac16e982fc1a91fee4f44f68c4fd51e2b" prot="public">
+          <name>Extra4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a024a288221dda11f89926bda4fd9635c" prot="public">
+          <name>Extra5</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad52928dbd2773fcc3d3ef8848d072f6c" prot="public">
+          <name>Extra6</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a7039047956cea3f4898af73f800287fd" prot="public">
+          <name>Extra7</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a21e008460cd50bb2aafba23033c7255b" prot="public">
+          <name>Extra8</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871af20187c58daf392da0fd00961bf15865" prot="public">
+          <name>Extra9</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="13" column="13" bodyfile="src/c++/gui/terminal/terminalbase.h" bodystart="14" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="enum" id="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7d" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ModelRoles</name>
+        <qualifiedname>GUI::TerminalBase::ModelRoles</qualifiedname>
+        <enumvalue id="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da9084f23a94b25eccde9991c25132f44d" prot="public">
+          <name>Index</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dad9703ff60ecd74cf06a4de47d90b9f00" prot="public">
+          <name>Message</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da2758172e9ea6a0ab2514677c87266356" prot="public">
+          <name>Module</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dae1fb025eb2d07a86c50b6846f11f5919" prot="public">
+          <name>Type</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="42" column="13" bodyfile="src/c++/gui/terminal/terminalbase.h" bodystart="43" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGUI_1_1TerminalBase_1a49cc7bfbcd564dcb077a2d0c6a451cd8" prot="private" static="no" mutable="no">
+        <type>vector&lt; <ref refid="structGUI_1_1TerminalBase_1_1BasicMessage" kindref="compound">BasicMessage</ref> &gt;</type>
+        <definition>vector&lt;BasicMessage&gt; GUI::TerminalBase::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <qualifiedname>GUI::TerminalBase::storage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="64" column="20" bodyfile="src/c++/gui/terminal/terminalbase.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1a07cf12d2eb5950f3d1781f62f7285526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GUI::TerminalBase::TerminalBase</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>TerminalBase</name>
+        <qualifiedname>GUI::TerminalBase::TerminalBase</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="50" column="13" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1ac800f1d14ef32ceb20984d2bc340af09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GUI::TerminalBase::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>GUI::TerminalBase::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="52" column="17" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1aa89aa7a15ce20673d2afc731b523f2f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant GUI::TerminalBase::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>GUI::TerminalBase::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="53" column="22" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="21" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1a90d0777157f47831f375d315852c2d13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GUI::TerminalBase::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>GUI::TerminalBase::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="54" column="18" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="37" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1ad41ccc11b4fff1091c9b92887e57a758" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void GUI::TerminalBase::append</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;module=&quot;&quot;, GUI::TerminalBase::MessageType type=Debug)</argsstring>
+        <name>append</name>
+        <qualifiedname>GUI::TerminalBase::append</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>module</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">GUI::TerminalBase::MessageType</ref></type>
+          <declname>type</declname>
+          <defval><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" kindref="member">Debug</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="56" column="38" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="56" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1a17745bc2ad52522b5ba40f83b554d312" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void GUI::TerminalBase::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GUI::TerminalBase::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="57" column="38" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="63" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1afe14d97ea118c1bb9bdac3d657d022b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void GUI::TerminalBase::replaceLast</definition>
+        <argsstring>(const QString &amp;message, const QString &amp;module=&quot;&quot;, GUI::TerminalBase::MessageType type=Debug)</argsstring>
+        <name>replaceLast</name>
+        <qualifiedname>GUI::TerminalBase::replaceLast</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>module</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <param>
+          <type><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">GUI::TerminalBase::MessageType</ref></type>
+          <declname>type</declname>
+          <defval><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" kindref="member">Debug</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="58" column="38" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="70" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classGUI_1_1TerminalBase_1a80e585ef12dd2cca8e5dee5d7bd04178" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; GUI::TerminalBase::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>GUI::TerminalBase::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/terminal/terminalbase.h" line="61" column="19" bodyfile="src/c++/gui/terminal/terminalbase.c++" bodystart="10" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>GUI::DebugConsole</label>
+        <link refid="classGUI_1_1DebugConsole"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GUI::TerminalBase</label>
+        <link refid="classGUI_1_1TerminalBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>GUI::VT100Terminal</label>
+        <link refid="classGUI_1_1VT100Terminal"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>GUI::TerminalBase</label>
+        <link refid="classGUI_1_1TerminalBase"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/gui/terminal/terminalbase.h" line="10" column="5" bodyfile="src/c++/gui/terminal/terminalbase.h" bodystart="11" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classGUI_1_1TerminalBase_1ad41ccc11b4fff1091c9b92887e57a758" prot="public" virt="virtual"><scope>GUI::TerminalBase</scope><name>append</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a17745bc2ad52522b5ba40f83b554d312" prot="public" virt="virtual"><scope>GUI::TerminalBase</scope><name>clear</name></member>
+      <member refid="classGUI_1_1TerminalBase_1aa89aa7a15ce20673d2afc731b523f2f7" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>data</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Debug</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad824455b746b105de587cf273df9fafc" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Error</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a62c93c5420ca3c28c1213e8b63812647" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra1</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a928b74ac6de78ad6b6bbdc0611b20f80" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra2</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aca53f5c19b48de17fae643651df6fbb0" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra3</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ac16e982fc1a91fee4f44f68c4fd51e2b" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra4</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a024a288221dda11f89926bda4fd9635c" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra5</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad52928dbd2773fcc3d3ef8848d072f6c" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra6</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a7039047956cea3f4898af73f800287fd" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra7</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a21e008460cd50bb2aafba23033c7255b" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra8</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871af20187c58daf392da0fd00961bf15865" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Extra9</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da9084f23a94b25eccde9991c25132f44d" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Index</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a35c707eff952677319b98a78aedd019d" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Info</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dad9703ff60ecd74cf06a4de47d90b9f00" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Message</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>MessageType</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7d" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>ModelRoles</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da2758172e9ea6a0ab2514677c87266356" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Module</name></member>
+      <member refid="classGUI_1_1TerminalBase_1afe14d97ea118c1bb9bdac3d657d022b0" prot="public" virt="virtual"><scope>GUI::TerminalBase</scope><name>replaceLast</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a80e585ef12dd2cca8e5dee5d7bd04178" prot="protected" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>roleNames</name></member>
+      <member refid="classGUI_1_1TerminalBase_1ac800f1d14ef32ceb20984d2bc340af09" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>rowCount</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a90d0777157f47831f375d315852c2d13" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>setData</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a49cc7bfbcd564dcb077a2d0c6a451cd8" prot="private" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>storage</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a07cf12d2eb5950f3d1781f62f7285526" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>TerminalBase</name></member>
+      <member refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dae1fb025eb2d07a86c50b6846f11f5919" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Type</name></member>
+      <member refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ae276038735074b134c3246f280148424" prot="public" virt="non-virtual"><scope>GUI::TerminalBase</scope><name>Warning</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

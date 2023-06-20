@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classClass" kind="class" language="C++" prot="public">
+    <compoundname>Class</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QUdpSocket</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>with local application settings, stored in filesystem.</para>
+<para>to commonly used filesystem paths and resource management.</para>
+<para>to filesystem operations and cache manipulation.</para>
+<para>as base for all UDP sockets. common network operations.</para>
+<para>connection to specified IPv4 address via ICMP. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Class</label>
+        <link refid="classClass"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QUdpSocket</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Class</label>
+        <link refid="classClass"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QUdpSocket</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/config/config.h" line="17" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

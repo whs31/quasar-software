@@ -1,0 +1,918 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classparse__gpx_1_1Gpx" kind="class" language="Python" prot="public">
+    <compoundname>parse_gpx::Gpx</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a25742bae98d8ebd0bfd7c230c631c8d8" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>parse_gpx.Gpx.time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="161" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a67281516be6844ee49b001a8bd9030fa" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>parse_gpx.Gpx.speed</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="162" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a297eb1a611820038859b9717a1b33e96" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::ele</definition>
+        <argsstring></argsstring>
+        <name>ele</name>
+        <qualifiedname>parse_gpx.Gpx.ele</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="163" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1aa7eafb34f2f42c8ad93e5165a7cee6f1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::dir</definition>
+        <argsstring></argsstring>
+        <name>dir</name>
+        <qualifiedname>parse_gpx.Gpx.dir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="164" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a34dff1425d8267ff543923b480500cd0" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::lat1</definition>
+        <argsstring></argsstring>
+        <name>lat1</name>
+        <qualifiedname>parse_gpx.Gpx.lat1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="165" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a7cd9c9dc0c83bd494730c5a7b8f2d923" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::lon1</definition>
+        <argsstring></argsstring>
+        <name>lon1</name>
+        <qualifiedname>parse_gpx.Gpx.lon1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="166" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1ada5f0f0c5360a8c223e2f6e97b5a8bea" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>parse_gpx.Gpx.len</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="190" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1ad0dcce9a294694ebd56659121bc5e224" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>parse_gpx.Gpx.start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="217" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="217" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a2326f474aaa98ddb4eacdf0bf203926c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::time_data</definition>
+        <argsstring></argsstring>
+        <name>time_data</name>
+        <qualifiedname>parse_gpx.Gpx.time_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="288" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a3d9273ff67cb3d91b1f3d5ca74f0180f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::speed_data</definition>
+        <argsstring></argsstring>
+        <name>speed_data</name>
+        <qualifiedname>parse_gpx.Gpx.speed_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="290" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1ae2ac7db4881242f935cbf9a455b0504a" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::ele_data</definition>
+        <argsstring></argsstring>
+        <name>ele_data</name>
+        <qualifiedname>parse_gpx.Gpx.ele_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="293" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a1a1c3d26c98a225fb5faab018c1260e5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::dir_data</definition>
+        <argsstring></argsstring>
+        <name>dir_data</name>
+        <qualifiedname>parse_gpx.Gpx.dir_data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="296" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a70b1d9c2447287028c51288212090ca1" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::lat</definition>
+        <argsstring></argsstring>
+        <name>lat</name>
+        <qualifiedname>parse_gpx.Gpx.lat</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="298" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="298" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classparse__gpx_1_1Gpx_1a4792e468ecb50844c9330ca2b7b4c885" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>parse_gpx.Gpx::lon</definition>
+        <argsstring></argsstring>
+        <name>lon</name>
+        <qualifiedname>parse_gpx.Gpx.lon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="299" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a3b2801fbcb5a2ade2beb4d3bc3b6ee0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.createColormap</definition>
+        <argsstring>(self, x, y, ax=None)</argsstring>
+        <name>createColormap</name>
+        <qualifiedname>parse_gpx.Gpx.createColormap</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref></type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>ax</type>
+          <defname>ax</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="18" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="18" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a1233cd4a003dc3f4a393a106554c37bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.colorPlot</definition>
+        <argsstring>(self, x, y, colormap, ax=None)</argsstring>
+        <name>colorPlot</name>
+        <qualifiedname>parse_gpx.Gpx.colorPlot</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref></type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>colormap</type>
+          <defname>colormap</defname>
+        </param>
+        <param>
+          <type>ax</type>
+          <defname>ax</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="34" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="34" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a14d4e577e94ff5345f0dc83bf39e2ce6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.latlon2dist</definition>
+        <argsstring>(self, lat1, lon1, lat2, lon2)</argsstring>
+        <name>latlon2dist</name>
+        <qualifiedname>parse_gpx.Gpx.latlon2dist</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classparse__gpx_1_1Gpx_1a34dff1425d8267ff543923b480500cd0" kindref="member">lat1</ref></type>
+          <defname>lat1</defname>
+        </param>
+        <param>
+          <type><ref refid="classparse__gpx_1_1Gpx_1a7cd9c9dc0c83bd494730c5a7b8f2d923" kindref="member">lon1</ref></type>
+          <defname>lon1</defname>
+        </param>
+        <param>
+          <type>lat2</type>
+          <defname>lat2</defname>
+        </param>
+        <param>
+          <type>lon2</type>
+          <defname>lon2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="42" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="42" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a13b20fb04fb7c4f8fd6486b546de6e81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.Plot</definition>
+        <argsstring>(self, show=True, image=None, color=False)</argsstring>
+        <name>Plot</name>
+        <qualifiedname>parse_gpx.Gpx.Plot</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>show</type>
+          <defname>show</defname>
+          <defval>True</defval>
+        </param>
+        <param>
+          <type>image</type>
+          <defname>image</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>color</type>
+          <defname>color</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="68" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="68" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a92ca1cbd5102179639142d731db5fab7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.ConvertTime</definition>
+        <argsstring>(self, time_str)</argsstring>
+        <name>ConvertTime</name>
+        <qualifiedname>parse_gpx.Gpx.ConvertTime</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>time_str</type>
+          <defname>time_str</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="141" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="141" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1aba07e0c11053e9ca94b4736073e840f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.SeekOffset</definition>
+        <argsstring>(self, offset)</argsstring>
+        <name>SeekOffset</name>
+        <qualifiedname>parse_gpx.Gpx.SeekOffset</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>offset</type>
+          <defname>offset</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="152" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="152" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a3eedb61281c631f2dcc021897dc29b4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.ParseGpx</definition>
+        <argsstring>(self, file)</argsstring>
+        <name>ParseGpx</name>
+        <qualifiedname>parse_gpx.Gpx.ParseGpx</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="178" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="178" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a0411d98fbd3c8bfcf261a034a7bbbe83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.Interpolate</definition>
+        <argsstring>(self, arr, im_size)</argsstring>
+        <name>Interpolate</name>
+        <qualifiedname>parse_gpx.Gpx.Interpolate</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>arr</type>
+          <defname>arr</defname>
+        </param>
+        <param>
+          <type>im_size</type>
+          <defname>im_size</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="223" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="223" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a6b2647a2e74ffc30aa60915b31ac1d74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.GetSpeedElevation</definition>
+        <argsstring>(self, Tshift, Ts, im_size=0)</argsstring>
+        <name>GetSpeedElevation</name>
+        <qualifiedname>parse_gpx.Gpx.GetSpeedElevation</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Tshift</type>
+          <defname>Tshift</defname>
+        </param>
+        <param>
+          <type>Ts</type>
+          <defname>Ts</defname>
+        </param>
+        <param>
+          <type>im_size</type>
+          <defname>im_size</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="232" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="232" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a991c24d73c9dc02dd66cb469ffb92da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.GetTravelAngle</definition>
+        <argsstring>(self, Tshift, Ts)</argsstring>
+        <name>GetTravelAngle</name>
+        <qualifiedname>parse_gpx.Gpx.GetTravelAngle</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Tshift</type>
+          <defname>Tshift</defname>
+        </param>
+        <param>
+          <type>Ts</type>
+          <defname>Ts</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>stop = self.SeekOffset(Tshift+Ts);
+start = self.SeekOffset(Tshift);
+
+lat = self.lat[start:stop];
+lon = self.lon[start:stop];
+
+#print &quot;Lats:&quot;, lat
+
+ay = lat[1] - lat[0]
+ax = lon[1] - lon[0]
+
+alphav = np.arccos( (ax ) / np.sqrt(ax**2 + ay**2) )
+
+#print ax, ay
+
+#print &quot;Alpha:&quot;, np.rad2deg(alphav)
+
+return alphav + np.pi/2
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="259" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="259" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a2334157256480df9c8d2901556943de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.__init__</definition>
+        <argsstring>(self, file)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>parse_gpx.Gpx.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/parse_gpx.py" line="285" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="285" bodyend="326"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a3b2801fbcb5a2ade2beb4d3bc3b6ee0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.createColormap</definition>
+        <argsstring>(self, x, y, ax=None)</argsstring>
+        <name>createColormap</name>
+        <qualifiedname>parse_gpx.Gpx.createColormap</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref></type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>ax</type>
+          <defname>ax</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="18" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="18" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a1233cd4a003dc3f4a393a106554c37bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.colorPlot</definition>
+        <argsstring>(self, x, y, colormap, ax=None)</argsstring>
+        <name>colorPlot</name>
+        <qualifiedname>parse_gpx.Gpx.colorPlot</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>x</type>
+          <defname>x</defname>
+        </param>
+        <param>
+          <type><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref></type>
+          <defname>y</defname>
+        </param>
+        <param>
+          <type>colormap</type>
+          <defname>colormap</defname>
+        </param>
+        <param>
+          <type>ax</type>
+          <defname>ax</defname>
+          <defval>None</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="34" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="34" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a14d4e577e94ff5345f0dc83bf39e2ce6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.latlon2dist</definition>
+        <argsstring>(self, lat1, lon1, lat2, lon2)</argsstring>
+        <name>latlon2dist</name>
+        <qualifiedname>parse_gpx.Gpx.latlon2dist</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classparse__gpx_1_1Gpx_1a34dff1425d8267ff543923b480500cd0" kindref="member">lat1</ref></type>
+          <defname>lat1</defname>
+        </param>
+        <param>
+          <type><ref refid="classparse__gpx_1_1Gpx_1a7cd9c9dc0c83bd494730c5a7b8f2d923" kindref="member">lon1</ref></type>
+          <defname>lon1</defname>
+        </param>
+        <param>
+          <type>lat2</type>
+          <defname>lat2</defname>
+        </param>
+        <param>
+          <type>lon2</type>
+          <defname>lon2</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="42" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="42" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a13b20fb04fb7c4f8fd6486b546de6e81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.Plot</definition>
+        <argsstring>(self, show=True, image=None, color=False)</argsstring>
+        <name>Plot</name>
+        <qualifiedname>parse_gpx.Gpx.Plot</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>show</type>
+          <defname>show</defname>
+          <defval>True</defval>
+        </param>
+        <param>
+          <type>image</type>
+          <defname>image</defname>
+          <defval>None</defval>
+        </param>
+        <param>
+          <type>color</type>
+          <defname>color</defname>
+          <defval>False</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="68" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="68" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a92ca1cbd5102179639142d731db5fab7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.ConvertTime</definition>
+        <argsstring>(self, time_str)</argsstring>
+        <name>ConvertTime</name>
+        <qualifiedname>parse_gpx.Gpx.ConvertTime</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>time_str</type>
+          <defname>time_str</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="141" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="141" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1aba07e0c11053e9ca94b4736073e840f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.SeekOffset</definition>
+        <argsstring>(self, offset)</argsstring>
+        <name>SeekOffset</name>
+        <qualifiedname>parse_gpx.Gpx.SeekOffset</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>offset</type>
+          <defname>offset</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="152" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="152" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a3eedb61281c631f2dcc021897dc29b4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.ParseGpx</definition>
+        <argsstring>(self, file)</argsstring>
+        <name>ParseGpx</name>
+        <qualifiedname>parse_gpx.Gpx.ParseGpx</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="178" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="178" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a0411d98fbd3c8bfcf261a034a7bbbe83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.Interpolate</definition>
+        <argsstring>(self, arr, im_size)</argsstring>
+        <name>Interpolate</name>
+        <qualifiedname>parse_gpx.Gpx.Interpolate</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>arr</type>
+          <defname>arr</defname>
+        </param>
+        <param>
+          <type>im_size</type>
+          <defname>im_size</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="223" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="223" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a6b2647a2e74ffc30aa60915b31ac1d74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.GetSpeedElevation</definition>
+        <argsstring>(self, Tshift, Ts, im_size=0)</argsstring>
+        <name>GetSpeedElevation</name>
+        <qualifiedname>parse_gpx.Gpx.GetSpeedElevation</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Tshift</type>
+          <defname>Tshift</defname>
+        </param>
+        <param>
+          <type>Ts</type>
+          <defname>Ts</defname>
+        </param>
+        <param>
+          <type>im_size</type>
+          <defname>im_size</defname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="232" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="232" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a991c24d73c9dc02dd66cb469ffb92da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.GetTravelAngle</definition>
+        <argsstring>(self, Tshift, Ts)</argsstring>
+        <name>GetTravelAngle</name>
+        <qualifiedname>parse_gpx.Gpx.GetTravelAngle</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>Tshift</type>
+          <defname>Tshift</defname>
+        </param>
+        <param>
+          <type>Ts</type>
+          <defname>Ts</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>stop = self.SeekOffset(Tshift+Ts);
+start = self.SeekOffset(Tshift);
+
+lat = self.lat[start:stop];
+lon = self.lon[start:stop];
+
+#print &quot;Lats:&quot;, lat
+
+ay = lat[1] - lat[0]
+ax = lon[1] - lon[0]
+
+alphav = np.arccos( (ax ) / np.sqrt(ax**2 + ay**2) )
+
+#print ax, ay
+
+#print &quot;Alpha:&quot;, np.rad2deg(alphav)
+
+return alphav + np.pi/2
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="259" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="259" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classparse__gpx_1_1Gpx_1a2334157256480df9c8d2901556943de7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parse_gpx.Gpx.__init__</definition>
+        <argsstring>(self, file)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>parse_gpx.Gpx.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>file</type>
+          <defname>file</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/parse_gpx.py" line="285" column="1" bodyfile="src/python/strip/parse_gpx.py" bodystart="285" bodyend="326"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>parse_gpx.Gpx</label>
+        <link refid="classparse__gpx_1_1Gpx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>object</label>
+      </node>
+      <node id="1">
+        <label>parse_gpx.Gpx</label>
+        <link refid="classparse__gpx_1_1Gpx"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/python/strip/new/parse_gpx.py" line="16" column="1" bodyfile="src/python/strip/new/parse_gpx.py" bodystart="16" bodyend="326"/>
+    <listofallmembers>
+      <member refid="classparse__gpx_1_1Gpx_1a2334157256480df9c8d2901556943de7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>__init__</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a2334157256480df9c8d2901556943de7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>__init__</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a1233cd4a003dc3f4a393a106554c37bd" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>colorPlot</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a1233cd4a003dc3f4a393a106554c37bd" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>colorPlot</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a92ca1cbd5102179639142d731db5fab7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ConvertTime</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a92ca1cbd5102179639142d731db5fab7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ConvertTime</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a3b2801fbcb5a2ade2beb4d3bc3b6ee0c" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>createColormap</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a3b2801fbcb5a2ade2beb4d3bc3b6ee0c" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>createColormap</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1aa7eafb34f2f42c8ad93e5165a7cee6f1" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>dir</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a1a1c3d26c98a225fb5faab018c1260e5" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>dir_data</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a297eb1a611820038859b9717a1b33e96" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ele</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1ae2ac7db4881242f935cbf9a455b0504a" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ele_data</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a6b2647a2e74ffc30aa60915b31ac1d74" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>GetSpeedElevation</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a6b2647a2e74ffc30aa60915b31ac1d74" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>GetSpeedElevation</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a991c24d73c9dc02dd66cb469ffb92da7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>GetTravelAngle</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a991c24d73c9dc02dd66cb469ffb92da7" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>GetTravelAngle</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a0411d98fbd3c8bfcf261a034a7bbbe83" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>Interpolate</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a0411d98fbd3c8bfcf261a034a7bbbe83" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>Interpolate</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a70b1d9c2447287028c51288212090ca1" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>lat</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a34dff1425d8267ff543923b480500cd0" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>lat1</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a14d4e577e94ff5345f0dc83bf39e2ce6" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>latlon2dist</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a14d4e577e94ff5345f0dc83bf39e2ce6" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>latlon2dist</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1ada5f0f0c5360a8c223e2f6e97b5a8bea" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>len</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a4792e468ecb50844c9330ca2b7b4c885" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>lon</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a7cd9c9dc0c83bd494730c5a7b8f2d923" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>lon1</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a3eedb61281c631f2dcc021897dc29b4f" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ParseGpx</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a3eedb61281c631f2dcc021897dc29b4f" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>ParseGpx</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a13b20fb04fb7c4f8fd6486b546de6e81" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>Plot</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a13b20fb04fb7c4f8fd6486b546de6e81" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>Plot</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1aba07e0c11053e9ca94b4736073e840f4" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>SeekOffset</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1aba07e0c11053e9ca94b4736073e840f4" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>SeekOffset</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a67281516be6844ee49b001a8bd9030fa" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>speed</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a3d9273ff67cb3d91b1f3d5ca74f0180f" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>speed_data</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1ad0dcce9a294694ebd56659121bc5e224" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>start</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a25742bae98d8ebd0bfd7c230c631c8d8" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>time</name></member>
+      <member refid="classparse__gpx_1_1Gpx_1a2326f474aaa98ddb4eacdf0bf203926c" prot="public" virt="non-virtual"><scope>parse_gpx::Gpx</scope><name>time_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

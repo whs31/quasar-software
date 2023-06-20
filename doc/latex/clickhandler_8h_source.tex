@@ -1,0 +1,49 @@
+\hypertarget{clickhandler_8h_source}{}\doxysection{clickhandler.\+h}
+\label{clickhandler_8h_source}\index{src/c++/map/clickhandler.h@{src/c++/map/clickhandler.h}}
+\mbox{\hyperlink{clickhandler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMap}{Map}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMap_1_1MarkerModel}{MarkerModel}};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMap_1_1ClickHandler}{ClickHandler}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00011\ \ \ \ \ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628}{Idle}},}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4}{RulerActive}},}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051}{ProtractorActive}},}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466}{MarkerActive}},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d}{PlannerActive}},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f}{TileLoaderActive}}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_ac6d7bdc3f6e0a56b0dfd77d9b8e91883}{Q\_ENUM}}(\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}{state}}\ READ\ \mbox{\hyperlink{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}{state}}\ WRITE\ \mbox{\hyperlink{classMap_1_1ClickHandler_afb43212a2d495310275b6974c7a4d20f}{setState}}\ NOTIFY\ \mbox{\hyperlink{classMap_1_1ClickHandler_ac11641d1e8d2262a95b1910ff4c26521}{stateChanged}})}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(\mbox{\hyperlink{classMap_1_1ClickHandler}{ClickHandler}})}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}{state}}()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1ClickHandler_afb43212a2d495310275b6974c7a4d20f}{setState}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}}\&);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a84667b266f49df8821d95785497d2f63}{copyCoordinatesToClipboard}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{imagemetadata_8h_a76714bdbc5c536fa77dfb14533ff82a9}{latitude}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{imagemetadata_8h_ac155e35fdeebafc89723a51520fb9fe6}{longitude}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \mbox{\hyperlink{classMap_1_1MarkerModel}{MarkerModel}}*\ \mbox{\hyperlink{classMap_1_1ClickHandler_a50ba58adc984163db6e9ffa0cc248242}{markerModel}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1ClickHandler_a0198779e3c027aff148192d20dd9d4ba}{addMarker}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{imagemetadata_8h_a76714bdbc5c536fa77dfb14533ff82a9}{latitude}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{imagemetadata_8h_ac155e35fdeebafc89723a51520fb9fe6}{longitude}},\ \textcolor{keyword}{const}\ QString\&\ name,\ \textcolor{keyword}{const}\ QString\&\ color,\ \textcolor{keyword}{const}\ QString\&\ icon);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1ClickHandler_ac11641d1e8d2262a95b1910ff4c26521}{stateChanged}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMap_1_1ClickHandler}{ClickHandler}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{MouseState}}\ m\_state\ =\ \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628}{Idle}};}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1MarkerModel}{MarkerModel}}*\ marker\_model;}
+\DoxyCodeLine{00042\ \ \ \ \ \};}
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ Map;}}
+
+\end{DoxyCode}

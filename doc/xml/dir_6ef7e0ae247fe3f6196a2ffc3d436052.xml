@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_6ef7e0ae247fe3f6196a2ffc3d436052" kind="dir">
+    <compoundname>src/c++/network/execd</compoundname>
+    <innerfile refid="execdargumentlist_8c_09_09">execdargumentlist.c++</innerfile>
+    <innerfile refid="execdargumentlist_8h">execdargumentlist.h</innerfile>
+    <innerfile refid="execdsocket_8c_09_09">execdsocket.c++</innerfile>
+    <innerfile refid="execdsocket_8h">execdsocket.h</innerfile>
+    <innerfile refid="feedbacksocket_8c_09_09">feedbacksocket.c++</innerfile>
+    <innerfile refid="feedbacksocket_8h">feedbacksocket.h</innerfile>
+    <innerfile refid="remotedata_8c_09_09">remotedata.c++</innerfile>
+    <innerfile refid="remotedata_8h">remotedata.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/execd/"/>
+  </compounddef>
+</doxygen>

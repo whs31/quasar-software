@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacec__deserial" kind="namespace" language="Python">
+    <compoundname>c_deserial</compoundname>
+    <innerclass refid="classc__deserial_1_1Deserial" prot="public">c_deserial::Deserial</innerclass>
+    <innerclass refid="classc__deserial_1_1TupleReader" prot="public">c_deserial::TupleReader</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacec__deserial_1ae78f60e9a8e0836c6209645a386b89bc" prot="public" static="no" mutable="no">
+        <type>dict</type>
+        <definition>dict c_deserial::TYPES_DICT</definition>
+        <argsstring></argsstring>
+        <name>TYPES_DICT</name>
+        <qualifiedname>c_deserial.TYPES_DICT</qualifiedname>
+        <initializer>= {&quot;uint64_t&quot;:&quot;Q&quot;,&quot;uint32_t&quot;:&quot;I&quot;,&quot;uint16_t&quot;:&quot;H&quot;,&quot;uint8_t&quot;:&quot;B&quot;,
+                 &quot;int64_t&quot;:&quot;q&quot;,&quot;int32_t&quot;:&quot;i&quot;,&quot;int16_t&quot;:&quot;h&quot;,&quot;int8_t&quot;:&quot;b&quot;,
+                 &quot;char&quot;:&quot;c&quot;,&quot;bool&quot;:&quot;?&quot;,&quot;float&quot;:&quot;f&quot;,&quot;double&quot;:&quot;d&quot;,
+                 &quot;long long int&quot;:&quot;q&quot;,&quot;unsigned long long int&quot;:&quot;Q&quot;};</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="4" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacec__deserial_1ab1b7934d7331d289bc2a2b09af3ef38e" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str c_deserial::MY_STRUCT</definition>
+        <argsstring></argsstring>
+        <name>MY_STRUCT</name>
+        <qualifiedname>c_deserial.MY_STRUCT</qualifiedname>
+        <initializer>= &quot;&quot;&quot;typedef struct __attribute__ ((__packed__)){
+    uint8_t u8;
+    uint16_t u16;
+    uint32_t u32;
+    uint64_t u64;
+    int8_t i8;
+    int16_t i16;
+    int32_t i32;
+    int64_t i64;
+    long long int lli;
+    float flt;
+    double dbl;
+    char string[12];
+    uint64_t array[5];
+} debugInfo;&quot;&quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="71" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacec__deserial_1ac535580344707b88dd2c7e49f6833276" prot="public" static="no" mutable="no">
+        <type>b</type>
+        <definition>b c_deserial::PACKED_STRUCT</definition>
+        <argsstring></argsstring>
+        <name>PACKED_STRUCT</name>
+        <qualifiedname>c_deserial.PACKED_STRUCT</qualifiedname>
+        <initializer>= b&apos;\x01\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x01\x00\x00\x00\xff\x00\xff\x00\x00\xff\xff\x00\x00\x00\x00\xff\xff\xff\xff*\x00\x00\x00\x00\x00\x00\x00ff\x06@\x14\xaeG\xe1z\x14\x08@testString\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x00\x00\x00\x03\x00\x00\x00\x00\x00\x00\x00\x04\x00\x00\x00\x00\x00\x00\x00\x05\x00\x00\x00\x00\x00\x00\x00&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="87" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacec__deserial_1a026102bc7d0b04ec5b58b7c380b177ec" prot="public" static="no" mutable="no">
+        <type><ref refid="classc__deserial_1_1Deserial" kindref="compound">Deserial</ref></type>
+        <definition>Deserial c_deserial::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <qualifiedname>c_deserial.d</qualifiedname>
+        <initializer>=  <ref refid="classc__deserial_1_1Deserial" kindref="compound">Deserial</ref>(<ref refid="namespacec__deserial_1ab1b7934d7331d289bc2a2b09af3ef38e" kindref="member">MY_STRUCT</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="90" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/strip/c_deserial.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

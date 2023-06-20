@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classNetworking_1_1AbstractUDPSocket" kind="class" language="C++" prot="public">
+    <compoundname>Networking::AbstractUDPSocket</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QUdpSocket</basecompoundref>
+    <derivedcompoundref refid="classNetworking_1_1ExecdSocket" prot="public" virt="non-virtual">Networking::ExecdSocket</derivedcompoundref>
+    <derivedcompoundref refid="classNetworking_1_1FeedbackSocket" prot="public" virt="non-virtual">Networking::FeedbackSocket</derivedcompoundref>
+    <derivedcompoundref refid="classNetworking_1_1TelemetrySocket" prot="public" virt="non-virtual">Networking::TelemetrySocket</derivedcompoundref>
+    <includes refid="abstractudpsocket_8h" local="no">abstractudpsocket.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNetworking_1_1AbstractUDPSocket_1addd9877f317ab7e2f0317c71254e8c6d" prot="private" static="no" mutable="no">
+        <type>QHostAddress</type>
+        <definition>QHostAddress Networking::AbstractUDPSocket::m_hostaddress</definition>
+        <argsstring></argsstring>
+        <name>m_hostaddress</name>
+        <qualifiedname>Networking::AbstractUDPSocket::m_hostaddress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="55" column="26" bodyfile="src/c++/network/abstractudpsocket.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1AbstractUDPSocket_1ae9b196641340c3f89d38582d9ef6abba" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::AbstractUDPSocket::m_port</definition>
+        <argsstring></argsstring>
+        <name>m_port</name>
+        <qualifiedname>Networking::AbstractUDPSocket::m_port</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="56" column="22" bodyfile="src/c++/network/abstractudpsocket.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1a7e66254d00af9f1d387c3926431d80ed" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AbstractUDPSocket::AbstractUDPSocket</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>AbstractUDPSocket</name>
+        <qualifiedname>Networking::AbstractUDPSocket::AbstractUDPSocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="17" column="22" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1abfc6311e3e8219196febf17eb1f57119" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>AbstractUDPSocket::~AbstractUDPSocket</definition>
+        <argsstring>()</argsstring>
+        <name>~AbstractUDPSocket</name>
+        <qualifiedname>Networking::AbstractUDPSocket::~AbstractUDPSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="18" column="21" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1ab60a7a8b141cbdfa5a49448ef06425e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool AbstractUDPSocket::connect</definition>
+        <argsstring>(const QString &amp;address)</argsstring>
+        <name>connect</name>
+        <qualifiedname>Networking::AbstractUDPSocket::connect</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="24" column="38" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="12" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1ace97f4f1318099d3b0203d7cdaa263cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void AbstractUDPSocket::disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect</name>
+        <qualifiedname>Networking::AbstractUDPSocket::disconnect</qualifiedname>
+        <briefdescription>
+<para>Disconnects from current session. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="28" column="38" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1a7d82f4942500ed94b2e1887561c07b6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool AbstractUDPSocket::send</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>send</name>
+        <qualifiedname>Networking::AbstractUDPSocket::send</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Sends given QByteArray to socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="31" column="26" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1AbstractUDPSocket_1a9b994e146dd120c046d2f9c27e4c227b" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t AbstractUDPSocket::port</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>port</name>
+        <qualifiedname>Networking::AbstractUDPSocket::port</qualifiedname>
+        <briefdescription>
+<para>Returns current socket port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="34" column="30" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="53" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNetworking_1_1AbstractUDPSocket_1ab2de359309489c42d98134e42d48a8df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::AbstractUDPSocket::received</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>received</name>
+        <qualifiedname>Networking::AbstractUDPSocket::received</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Emits when socket receives data from other side. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- received QByteArray. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="39" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNetworking_1_1AbstractUDPSocket_1a037b493b3fe30e2dd84425665c1b46ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::AbstractUDPSocket::socketDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>socketDisconnected</name>
+        <qualifiedname>Networking::AbstractUDPSocket::socketDisconnected</qualifiedname>
+        <briefdescription>
+<para>Emits when socket breaks connection. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="42" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classNetworking_1_1AbstractUDPSocket_1a9a7d3ecfb1cfd71c60c0b7722325fb48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::AbstractUDPSocket::socketMetrics</definition>
+        <argsstring>(const QString &amp;data, int size_bytes, bool out)</argsstring>
+        <name>socketMetrics</name>
+        <qualifiedname>Networking::AbstractUDPSocket::socketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Emits when socket sends or receives data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- stringified data, which passes through socket. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size_bytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- size of data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- flow direction of data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="48" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNetworking_1_1AbstractUDPSocket_1abae42aa3067c0bcba2e380ed166ab27f" prot="private" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void AbstractUDPSocket::readSocket</definition>
+        <argsstring>()</argsstring>
+        <name>readSocket</name>
+        <qualifiedname>Networking::AbstractUDPSocket::readSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/abstractudpsocket.h" line="52" column="30" bodyfile="src/c++/network/abstractudpsocket.c++" bodystart="55" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Networking::AbstractUDPSocket</label>
+        <link refid="classNetworking_1_1AbstractUDPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Networking::ExecdSocket</label>
+        <link refid="classNetworking_1_1ExecdSocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Networking::FeedbackSocket</label>
+        <link refid="classNetworking_1_1FeedbackSocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Networking::TelemetrySocket</label>
+        <link refid="classNetworking_1_1TelemetrySocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QUdpSocket</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Networking::AbstractUDPSocket</label>
+        <link refid="classNetworking_1_1AbstractUDPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QUdpSocket</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/network/abstractudpsocket.h" line="12" column="5" bodyfile="src/c++/network/abstractudpsocket.h" bodystart="13" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a7e66254d00af9f1d387c3926431d80ed" prot="public" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>AbstractUDPSocket</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ab60a7a8b141cbdfa5a49448ef06425e9" prot="public" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>connect</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ace97f4f1318099d3b0203d7cdaa263cb" prot="public" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>disconnect</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1addd9877f317ab7e2f0317c71254e8c6d" prot="private" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>m_hostaddress</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ae9b196641340c3f89d38582d9ef6abba" prot="private" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>m_port</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a9b994e146dd120c046d2f9c27e4c227b" prot="public" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>port</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1abae42aa3067c0bcba2e380ed166ab27f" prot="private" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>readSocket</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ab2de359309489c42d98134e42d48a8df" prot="public" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>received</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a7d82f4942500ed94b2e1887561c07b6b" prot="public" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>send</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a037b493b3fe30e2dd84425665c1b46ab" prot="public" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>socketDisconnected</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a9a7d3ecfb1cfd71c60c0b7722325fb48" prot="public" virt="non-virtual"><scope>Networking::AbstractUDPSocket</scope><name>socketMetrics</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1abfc6311e3e8219196febf17eb1f57119" prot="public" virt="virtual"><scope>Networking::AbstractUDPSocket</scope><name>~AbstractUDPSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

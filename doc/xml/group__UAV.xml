@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__UAV" kind="group">
+    <compoundname>UAV</compoundname>
+    <title>settings</title>
+      <sectiondef kind="">
+      <memberdef kind="property" id="group__UAV_1gad1936d307937b7eae276be76aa1fbd4b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::antennaAlignment</definition>
+        <argsstring></argsstring>
+        <name>antennaAlignment</name>
+        <qualifiedname>Config::Config::antennaAlignment</qualifiedname>
+        <read>antennaAlignment</read>
+        <write>setAntennaAlignment</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1ga8540f130a0f40be354d762617dee0642" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::angleCorrection</definition>
+        <argsstring></argsstring>
+        <name>angleCorrection</name>
+        <qualifiedname>Config::Config::angleCorrection</qualifiedname>
+        <read>angleCorrection</read>
+        <write>setAngleCorrection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gacf2fb5fcae01050db34ca586e8d24dc2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::useRadians</definition>
+        <argsstring></argsstring>
+        <name>useRadians</name>
+        <qualifiedname>Config::Config::useRadians</qualifiedname>
+        <read>useRadians</read>
+        <write>setUseRadians</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1ga14104d9a2e30741a0fadddf69ffc4a8a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::useDriftAngle</definition>
+        <argsstring></argsstring>
+        <name>useDriftAngle</name>
+        <qualifiedname>Config::Config::useDriftAngle</qualifiedname>
+        <read>useDriftAngle</read>
+        <write>setUseDriftAngle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gab158fee869502b2d1dbd139a2dab35d9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::thetaAzimuthCorrection</definition>
+        <argsstring></argsstring>
+        <name>thetaAzimuthCorrection</name>
+        <qualifiedname>Config::Config::thetaAzimuthCorrection</qualifiedname>
+        <read>thetaAzimuthCorrection</read>
+        <write>setThetaAzimuthCorrection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gae4197fa7c71daac4097824ed6ea81f15" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::overrideImageHeight</definition>
+        <argsstring></argsstring>
+        <name>overrideImageHeight</name>
+        <qualifiedname>Config::Config::overrideImageHeight</qualifiedname>
+        <read>overrideImageHeight</read>
+        <write>setOverrideImageHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gaad06ebf71336f48d8ad6671f086b63d4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::cutImage</definition>
+        <argsstring></argsstring>
+        <name>cutImage</name>
+        <qualifiedname>Config::Config::cutImage</qualifiedname>
+        <read>cutImage</read>
+        <write>setCutImage</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

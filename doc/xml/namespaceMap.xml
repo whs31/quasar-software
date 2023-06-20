@@ -1,0 +1,175 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceMap" kind="namespace" language="C++">
+    <compoundname>Map</compoundname>
+    <innerclass refid="classMap_1_1ClickHandler" prot="public">Map::ClickHandler</innerclass>
+    <innerclass refid="classMap_1_1Diagram" prot="public">Map::Diagram</innerclass>
+    <innerclass refid="structMap_1_1Image" prot="public">Map::Image</innerclass>
+    <innerclass refid="structMap_1_1ImageMetadata" prot="public">Map::ImageMetadata</innerclass>
+    <innerclass refid="structMap_1_1ImageMetaHeader" prot="public">Map::ImageMetaHeader</innerclass>
+    <innerclass refid="classMap_1_1ImageModel" prot="public">Map::ImageModel</innerclass>
+    <innerclass refid="structMap_1_1Marker" prot="public">Map::Marker</innerclass>
+    <innerclass refid="classMap_1_1MarkerModel" prot="public">Map::MarkerModel</innerclass>
+    <innerclass refid="classMap_1_1OfflineTileLoader" prot="public">Map::OfflineTileLoader</innerclass>
+    <innerclass refid="structMap_1_1PlannerPoint" prot="public">Map::PlannerPoint</innerclass>
+    <innerclass refid="classMap_1_1Route" prot="public">Map::Route</innerclass>
+    <innerclass refid="classMap_1_1RouteLogger" prot="public">Map::RouteLogger</innerclass>
+    <innerclass refid="classMap_1_1Ruler" prot="public">Map::Ruler</innerclass>
+    <innerclass refid="structMap_1_1StripFormatMetadata" prot="public">Map::StripFormatMetadata</innerclass>
+    <innerclass refid="structMap_1_1StripHeaderMetadata" prot="public">Map::StripHeaderMetadata</innerclass>
+    <innerclass refid="structMap_1_1StripImage" prot="public">Map::StripImage</innerclass>
+    <innerclass refid="structMap_1_1StripImageDatagram" prot="public">Map::StripImageDatagram</innerclass>
+    <innerclass refid="structMap_1_1StripNavigationMetadata" prot="public">Map::StripNavigationMetadata</innerclass>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceMap_1ae71a6177f6e504f9460268d049b324ff" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const uint8_t</type>
+        <definition>constexpr const uint8_t Map::MAX_ALLOWED_PARALLEL</definition>
+        <argsstring></argsstring>
+        <name>MAX_ALLOWED_PARALLEL</name>
+        <qualifiedname>Map::MAX_ALLOWED_PARALLEL</qualifiedname>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.c++" line="17" column="32" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceMap_1a1573de217ebf7d81af81d4c74b8e2052" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDebug &amp;</type>
+        <definition>QDebug &amp; Map::operator&lt;&lt;</definition>
+        <argsstring>(QDebug &amp;d, Image &amp;image)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Map::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDebug &amp;</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="structMap_1_1Image" kindref="compound">Image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/image.c++" line="6" column="1" bodyfile="src/c++/map/entities/image.c++" bodystart="6" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceMap_1af551fc05ca954e5483b136b169b150b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>struct <ref refid="structMap_1_1StripHeaderMetadata" kindref="compound">Map::StripHeaderMetadata</ref></type>
+        <definition>struct Map::StripFormatMetadata Map::__attribute__</definition>
+        <argsstring>((packed))</argsstring>
+        <name>__attribute__</name>
+        <qualifiedname>Map::__attribute__</qualifiedname>
+        <param>
+          <type>(packed)</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="1" column="0" declfile="src/c++/map/entities/imagemetadata.h" declline="1" declcolumn="0"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t Map::longitudeToTileX</definition>
+        <argsstring>(double longitude, uint8_t zoom)</argsstring>
+        <name>longitudeToTileX</name>
+        <qualifiedname>Map::longitudeToTileX</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.c++" line="19" column="10" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="19" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t Map::latitudeToTileY</definition>
+        <argsstring>(double latitude, uint8_t zoom)</argsstring>
+        <name>latitudeToTileY</name>
+        <qualifiedname>Map::latitudeToTileY</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.c++" line="24" column="10" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceMap_1ae1bab87b511aded4b833c6e563479682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Map::tileXToLongitude</definition>
+        <argsstring>(uint32_t x, uint8_t zoom)</argsstring>
+        <name>tileXToLongitude</name>
+        <qualifiedname>Map::tileXToLongitude</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.c++" line="29" column="8" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="29" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Map::tileYToLatitude</definition>
+        <argsstring>(uint32_t y, uint8_t zoom)</argsstring>
+        <name>tileYToLatitude</name>
+        <qualifiedname>Map::tileYToLatitude</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.c++" line="34" column="8" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="34" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/clickhandler.h" line="6" column="1"/>
+  </compounddef>
+</doxygen>

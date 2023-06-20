@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classc__deserial_1_1TupleReader" kind="class" language="Python" prot="public">
+    <compoundname>c_deserial::TupleReader</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classc__deserial_1_1TupleReader_1a978b12e15e122f08ebca361c73faf968" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>c_deserial.TupleReader::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>c_deserial.TupleReader.index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="11" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classc__deserial_1_1TupleReader_1a992e917acca1755125807d3fa5187e1d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>c_deserial.TupleReader::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>c_deserial.TupleReader.data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="12" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classc__deserial_1_1TupleReader_1a86a31b9472f8219152eba461241f59f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.TupleReader.__init__</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>c_deserial.TupleReader.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classc__deserial_1_1TupleReader_1a992e917acca1755125807d3fa5187e1d" kindref="member">data</ref></type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="10" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1TupleReader_1a8908ba970a8d7cd76ae30895c4e849df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.TupleReader.read</definition>
+        <argsstring>(self, length)</argsstring>
+        <name>read</name>
+        <qualifiedname>c_deserial.TupleReader.read</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>length</type>
+          <defname>length</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/c_deserial.py" line="14" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="14" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1TupleReader_1a86a31b9472f8219152eba461241f59f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.TupleReader.__init__</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>c_deserial.TupleReader.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classc__deserial_1_1TupleReader_1a992e917acca1755125807d3fa5187e1d" kindref="member">data</ref></type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="10" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classc__deserial_1_1TupleReader_1a8908ba970a8d7cd76ae30895c4e849df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def c_deserial.TupleReader.read</definition>
+        <argsstring>(self, length)</argsstring>
+        <name>read</name>
+        <qualifiedname>c_deserial.TupleReader.read</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>length</type>
+          <defname>length</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/c_deserial.py" line="14" column="1" bodyfile="src/python/strip/new/c_deserial.py" bodystart="14" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/strip/c_deserial.py" line="9" column="1" bodyfile="src/python/strip/c_deserial.py" bodystart="9" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classc__deserial_1_1TupleReader_1a86a31b9472f8219152eba461241f59f4" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>__init__</name></member>
+      <member refid="classc__deserial_1_1TupleReader_1a86a31b9472f8219152eba461241f59f4" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>__init__</name></member>
+      <member refid="classc__deserial_1_1TupleReader_1a992e917acca1755125807d3fa5187e1d" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>data</name></member>
+      <member refid="classc__deserial_1_1TupleReader_1a978b12e15e122f08ebca361c73faf968" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>index</name></member>
+      <member refid="classc__deserial_1_1TupleReader_1a8908ba970a8d7cd76ae30895c4e849df" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>read</name></member>
+      <member refid="classc__deserial_1_1TupleReader_1a8908ba970a8d7cd76ae30895c4e849df" prot="public" virt="non-virtual"><scope>c_deserial::TupleReader</scope><name>read</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

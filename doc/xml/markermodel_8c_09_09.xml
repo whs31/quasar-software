@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="markermodel_8c_09_09" kind="file" language="C++">
+    <compoundname>markermodel.c++</compoundname>
+    <includes refid="markermodel_8h" local="yes">markermodel.h</includes>
+    <includes local="no">QtCore/QDebug</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>entities/marker.h</label>
+        <link refid="marker_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/c++/map/markermodel.c++</label>
+        <link refid="markermodel_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>markermodel.h</label>
+        <link refid="markermodel_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtCore/QAbstractListModel</label>
+      </node>
+      <node id="9">
+        <label>QtCore/QDebug</label>
+      </node>
+      <node id="3">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="8">
+        <label>QtCore/QString</label>
+      </node>
+      <node id="5">
+        <label>QtCore/QVector</label>
+      </node>
+      <node id="6">
+        <label>QtPositioning/QGeoCoordinate</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="markermodel_8h" kindref="compound">markermodel.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceMap" kindref="compound">Map</ref>;</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><ref refid="classMap_1_1MarkerModel_1a28253c169d7758af220cd860bc4aee22" kindref="member">MarkerModel::MarkerModel</ref>(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QAbstractListModel(parent)</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal">QHash&lt;int,<sp/>QByteArray&gt;<sp/><ref refid="classMap_1_1MarkerModel_1a0d0dfd01d890c2c4c60567fe82f8eaa3" kindref="member">MarkerModel::roleNames</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="11"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roles;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5aa3e707251bf8bd786142220dfbb18197" kindref="member">Index</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;index&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a44797ce3571ca0ea356b26f637965544" kindref="member">Latitude</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;latitude&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a0a382a7d23366872664d84da2beb7d96" kindref="member">Longitude</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;longitude&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a19929c0bd8086da3b2017cfe4c4a1218" kindref="member">MarkerName</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;marker_name&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5afa1cd1bbdb3814431da5e766b9c25926" kindref="member">MarkerColor</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;marker_color&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a826032d32fc3a87b4e782b8ac32c954b" kindref="member">MarkerIcon</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;marker_icon&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>roles;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">MarkerModel::rowCount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>parent)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>storage.size();<sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">QVariant<sp/><ref refid="classMap_1_1MarkerModel_1a1dc158d3a11d47fa0e5a2a2412d6cc8a" kindref="member">MarkerModel::data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="24"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(not<sp/>index.isValid())</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(role)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5aa3e707251bf8bd786142220dfbb18197" kindref="member">Index</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index.row();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a44797ce3571ca0ea356b26f637965544" kindref="member">Latitude</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(storage[index.row()].latitude);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a0a382a7d23366872664d84da2beb7d96" kindref="member">Longitude</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(storage[index.row()].longitude);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a19929c0bd8086da3b2017cfe4c4a1218" kindref="member">MarkerName</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(storage[index.row()].name);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5afa1cd1bbdb3814431da5e766b9c25926" kindref="member">MarkerColor</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(storage[index.row()].color);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a826032d32fc3a87b4e782b8ac32c954b" kindref="member">MarkerIcon</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(storage[index.row()].icon);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Error<sp/>reading<sp/>from<sp/>model&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1a7476b0e74cb76a57960e42545ffbd070" kindref="member">MarkerModel::setData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>index,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant&amp;<sp/>value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classMap_1_1MarkerModel_1a1dc158d3a11d47fa0e5a2a2412d6cc8a" kindref="member">data</ref>(index,<sp/>role)<sp/>!=<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(role)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5aa3e707251bf8bd786142220dfbb18197" kindref="member">Index</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a44797ce3571ca0ea356b26f637965544" kindref="member">Latitude</ref>:<sp/>storage[index.row()].latitude<sp/>=<sp/>value.toDouble();<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a0a382a7d23366872664d84da2beb7d96" kindref="member">Longitude</ref>:<sp/>storage[index.row()].longitude<sp/>=<sp/>value.toDouble();<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a19929c0bd8086da3b2017cfe4c4a1218" kindref="member">MarkerName</ref>:<sp/>storage[index.row()].name<sp/>=<sp/>value.toString();<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5afa1cd1bbdb3814431da5e766b9c25926" kindref="member">MarkerColor</ref>:<sp/>storage[index.row()].color<sp/>=<sp/>value.toString();<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1abf2296ae60e263a6015102a1b4ed9aa5a826032d32fc3a87b4e782b8ac32c954b" kindref="member">MarkerIcon</ref>:<sp/>storage[index.row()].icon<sp/>=<sp/>value.toString();<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(index,<sp/>index,<sp/>{role});</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1a4eede71538cf11bcfb38735eb4e4938d" kindref="member">MarkerModel::add</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structMap_1_1Marker" kindref="compound">Marker</ref>&amp;<sp/>image)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>beginInsertRows(QModelIndex(),<sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">rowCount</ref>(),<sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">rowCount</ref>());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>storage.push_back(image);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>endInsertRows();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classMap_1_1MarkerModel_1a1f2a017b2cd5cc39b88b7492c91c8a9d" kindref="member">added</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[MARKER]<sp/>Model<sp/>received<sp/>new<sp/>marker.<sp/>Now<sp/>it<sp/>contains&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">rowCount</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;markers&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1aa9bef7dc26476ee929b075fb02f97d5d" kindref="member">MarkerModel::remove</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>index)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),<sp/>index,<sp/>index);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>storage.remove(index);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[MARKER]<sp/>Model<sp/>lost<sp/>an<sp/>marker.<sp/>Now<sp/>it<sp/>contains&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">rowCount</ref>()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;markers&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1MarkerModel_1a3f0887d9e0a3415a75d83d7e7645e1cc" kindref="member">MarkerModel::clear</ref>()</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),<sp/>0,<sp/><ref refid="classMap_1_1MarkerModel_1ad6e7ac1ab531d8bbd6d7dcf99fbdcf85" kindref="member">rowCount</ref>()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>storage.clear();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>qDebug()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[MARKER]<sp/>Model<sp/>cleared&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/c++/map/markermodel.c++"/>
+  </compounddef>
+</doxygen>

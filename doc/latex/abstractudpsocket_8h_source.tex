@@ -1,0 +1,45 @@
+\hypertarget{abstractudpsocket_8h_source}{}\doxysection{abstractudpsocket.\+h}
+\label{abstractudpsocket_8h_source}\index{src/c++/network/abstractudpsocket.h@{src/c++/network/abstractudpsocket.h}}
+\mbox{\hyperlink{abstractudpsocket_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QtCore/QByteArray>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtNetwork/QUdpSocket>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceNetworking}{Networking}}}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{AbstractUDPSocket}}\ :\ \textcolor{keyword}{public}\ QUdpSocket}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{AbstractUDPSocket}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_abfc6311e3e8219196febf17eb1f57119}{\string~AbstractUDPSocket}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab60a7a8b141cbdfa5a49448ef06425e9}{connect}}(\textcolor{keyword}{const}\ QString\&\ address);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ace97f4f1318099d3b0203d7cdaa263cb}{disconnect}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a7d82f4942500ed94b2e1887561c07b6b}{send}}(QByteArray\ data);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ uint16\_t\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9b994e146dd120c046d2f9c27e4c227b}{port}}()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab2de359309489c42d98134e42d48a8df}{received}}(QByteArray\ data);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a037b493b3fe30e2dd84425665c1b46ab}{socketDisconnected}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9a7d3ecfb1cfd71c60c0b7722325fb48}{socketMetrics}}(\textcolor{keyword}{const}\ QString\&\ data,\ \textcolor{keywordtype}{int}\ size\_bytes,\ \textcolor{keywordtype}{bool}\ out);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ readSocket();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ QHostAddress\ m\_hostaddress;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ m\_port\ =\ 0;}
+\DoxyCodeLine{00057\ \ \ \ \ \};}
+\DoxyCodeLine{00058\ \}\ \textcolor{comment}{//\ namespace\ Network;}}
+
+\end{DoxyCode}

@@ -1,0 +1,391 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classConfig_1_1Paths" kind="class" language="C++" prot="public">
+    <compoundname>Config::Paths</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="paths_8h" local="no">paths.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classConfig_1_1Paths_1a91c3d017d3182133d94c26ec8e74e2ba" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const int</type>
+        <definition>constexpr const int Config::Paths::LOD_LEVELS</definition>
+        <argsstring></argsstring>
+        <name>LOD_LEVELS</name>
+        <qualifiedname>Config::Paths::LOD_LEVELS</qualifiedname>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="18" column="36" bodyfile="src/c++/config/paths.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classConfig_1_1Paths_1a551ff530336149bb65bed2060bd5862a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classConfig_1_1Paths" kindref="compound">Paths</ref> *</type>
+        <definition>Paths * Paths::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>Config::Paths::get</qualifiedname>
+        <briefdescription>
+<para>Returns singleton instance of class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="22" column="26" bodyfile="src/c++/config/paths.c++" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a213ff2be8af2381d03b6e970bf0572df" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::root</definition>
+        <argsstring>()</argsstring>
+        <name>root</name>
+        <qualifiedname>Config::Paths::root</qualifiedname>
+        <briefdescription>
+<para>Returns application root directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="26" column="41" bodyfile="src/c++/config/paths.c++" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a6885f9601397e78c1fc6c7f15d607911" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::imageCache</definition>
+        <argsstring>()</argsstring>
+        <name>imageCache</name>
+        <qualifiedname>Config::Paths::imageCache</qualifiedname>
+        <briefdescription>
+<para>Returns cache directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="30" column="41" bodyfile="src/c++/config/paths.c++" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a812a16f7eef2d26857f3ecf0fca2eb74" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::lod</definition>
+        <argsstring>(int level)</argsstring>
+        <name>lod</name>
+        <qualifiedname>Config::Paths::lod</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+<para>Returns specified LOD directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>level</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- specified LOD level for directory.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="35" column="41" bodyfile="src/c++/config/paths.c++" bodystart="49" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a0b93f1d7ba62e1aa098e942a76783ea0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::tcp</definition>
+        <argsstring>()</argsstring>
+        <name>tcp</name>
+        <qualifiedname>Config::Paths::tcp</qualifiedname>
+        <briefdescription>
+<para>Returns TCP-IP cache directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="39" column="41" bodyfile="src/c++/config/paths.c++" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a2ce91e4c6c45b6bb4b1cd682c6d4d91d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::mapConfig</definition>
+        <argsstring>()</argsstring>
+        <name>mapConfig</name>
+        <qualifiedname>Config::Paths::mapConfig</qualifiedname>
+        <briefdescription>
+<para>Returns osmconfigs directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="43" column="41" bodyfile="src/c++/config/paths.c++" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a807dbb3cb0e252a50564f35f8e41e287" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::offlineTiles</definition>
+        <argsstring>()</argsstring>
+        <name>offlineTiles</name>
+        <qualifiedname>Config::Paths::offlineTiles</qualifiedname>
+        <briefdescription>
+<para>Returns offline tiles directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="47" column="41" bodyfile="src/c++/config/paths.c++" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1aa26973ef7466e7528613eb235141f757" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::config</definition>
+        <argsstring>()</argsstring>
+        <name>config</name>
+        <qualifiedname>Config::Paths::config</qualifiedname>
+        <briefdescription>
+<para>Returns config directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="51" column="41" bodyfile="src/c++/config/paths.c++" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a61afeca63f1f771b6a3b138f17b15879" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::logs</definition>
+        <argsstring>()</argsstring>
+        <name>logs</name>
+        <qualifiedname>Config::Paths::logs</qualifiedname>
+        <briefdescription>
+<para>Returns logs and route-logs directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="55" column="41" bodyfile="src/c++/config/paths.c++" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a3dbb5470004b6e8a63f4d22f92de32fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::themes</definition>
+        <argsstring>()</argsstring>
+        <name>themes</name>
+        <qualifiedname>Config::Paths::themes</qualifiedname>
+        <briefdescription>
+<para>Returns themes directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="59" column="41" bodyfile="src/c++/config/paths.c++" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a4ca7289391592c5074894ca31ac7a8c6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::bash</definition>
+        <argsstring>()</argsstring>
+        <name>bash</name>
+        <qualifiedname>Config::Paths::bash</qualifiedname>
+        <briefdescription>
+<para>Returns bash-scripts directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="63" column="41" bodyfile="src/c++/config/paths.c++" bodystart="64" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1aa5f860aeac6c236569d94c56eba1077a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Paths::runtimeBash</definition>
+        <argsstring>()</argsstring>
+        <name>runtimeBash</name>
+        <qualifiedname>Config::Paths::runtimeBash</qualifiedname>
+        <briefdescription>
+<para>Returns directory for runtime-evaluated bash scripts. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="67" column="41" bodyfile="src/c++/config/paths.c++" bodystart="65" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classConfig_1_1Paths_1a4f518ac355c16135330d8912070da618" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Paths::createImageCache</definition>
+        <argsstring>(void) noexcept</argsstring>
+        <name>createImageCache</name>
+        <qualifiedname>Config::Paths::createImageCache</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Creates and setups image cache. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="72" column="30" bodyfile="src/c++/config/paths.c++" bodystart="67" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1ae32a45857482b2fc5652a134c22c8789" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Paths::clearImageCache</definition>
+        <argsstring>(void) noexcept</argsstring>
+        <name>clearImageCache</name>
+        <qualifiedname>Config::Paths::clearImageCache</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Erases image and TCP-IP cache from disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="76" column="30" bodyfile="src/c++/config/paths.c++" bodystart="80" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classConfig_1_1Paths_1a7de7a256065c2ed0ec17c05cb9ce8d24" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Paths::Paths</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Paths</name>
+        <qualifiedname>Config::Paths::Paths</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="79" column="22" bodyfile="src/c++/config/paths.c++" bodystart="18" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a05f5545af7c4aa61af1b95bfa78797d0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Config::Paths::Paths</definition>
+        <argsstring>(const Paths &amp;)</argsstring>
+        <name>Paths</name>
+        <qualifiedname>Config::Paths::Paths</qualifiedname>
+        <param>
+          <type>const <ref refid="classConfig_1_1Paths" kindref="compound">Paths</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="80" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1af46960b0c9870ee269ff57afbbd6628b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classConfig_1_1Paths" kindref="compound">Paths</ref> &amp;</type>
+        <definition>Paths &amp; Config::Paths::operator=</definition>
+        <argsstring>(const Paths &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Config::Paths::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classConfig_1_1Paths" kindref="compound">Paths</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="81" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Paths_1a5df995e310f7b916140a576447a1fdb8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Paths::createMapConfigs</definition>
+        <argsstring>(void)</argsstring>
+        <name>createMapConfigs</name>
+        <qualifiedname>Config::Paths::createMapConfigs</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/paths.h" line="83" column="18" bodyfile="src/c++/config/paths.c++" bodystart="89" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Config::Paths</label>
+        <link refid="classConfig_1_1Paths"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Config::Paths</label>
+        <link refid="classConfig_1_1Paths"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/config/paths.h" line="12" column="5" bodyfile="src/c++/config/paths.h" bodystart="13" bodyend="84"/>
+    <listofallmembers>
+      <member refid="classConfig_1_1Paths_1a4ca7289391592c5074894ca31ac7a8c6" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>bash</name></member>
+      <member refid="classConfig_1_1Paths_1ae32a45857482b2fc5652a134c22c8789" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>clearImageCache</name></member>
+      <member refid="classConfig_1_1Paths_1aa26973ef7466e7528613eb235141f757" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>config</name></member>
+      <member refid="classConfig_1_1Paths_1a4f518ac355c16135330d8912070da618" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>createImageCache</name></member>
+      <member refid="classConfig_1_1Paths_1a5df995e310f7b916140a576447a1fdb8" prot="private" virt="non-virtual"><scope>Config::Paths</scope><name>createMapConfigs</name></member>
+      <member refid="classConfig_1_1Paths_1a551ff530336149bb65bed2060bd5862a" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>get</name></member>
+      <member refid="classConfig_1_1Paths_1a6885f9601397e78c1fc6c7f15d607911" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>imageCache</name></member>
+      <member refid="classConfig_1_1Paths_1a812a16f7eef2d26857f3ecf0fca2eb74" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>lod</name></member>
+      <member refid="classConfig_1_1Paths_1a91c3d017d3182133d94c26ec8e74e2ba" prot="private" virt="non-virtual"><scope>Config::Paths</scope><name>LOD_LEVELS</name></member>
+      <member refid="classConfig_1_1Paths_1a61afeca63f1f771b6a3b138f17b15879" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>logs</name></member>
+      <member refid="classConfig_1_1Paths_1a2ce91e4c6c45b6bb4b1cd682c6d4d91d" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>mapConfig</name></member>
+      <member refid="classConfig_1_1Paths_1a807dbb3cb0e252a50564f35f8e41e287" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>offlineTiles</name></member>
+      <member refid="classConfig_1_1Paths_1af46960b0c9870ee269ff57afbbd6628b" prot="private" virt="non-virtual"><scope>Config::Paths</scope><name>operator=</name></member>
+      <member refid="classConfig_1_1Paths_1a7de7a256065c2ed0ec17c05cb9ce8d24" prot="private" virt="non-virtual"><scope>Config::Paths</scope><name>Paths</name></member>
+      <member refid="classConfig_1_1Paths_1a05f5545af7c4aa61af1b95bfa78797d0" prot="private" virt="non-virtual"><scope>Config::Paths</scope><name>Paths</name></member>
+      <member refid="classConfig_1_1Paths_1a213ff2be8af2381d03b6e970bf0572df" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>root</name></member>
+      <member refid="classConfig_1_1Paths_1aa5f860aeac6c236569d94c56eba1077a" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>runtimeBash</name></member>
+      <member refid="classConfig_1_1Paths_1a0b93f1d7ba62e1aa098e942a76783ea0" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>tcp</name></member>
+      <member refid="classConfig_1_1Paths_1a3dbb5470004b6e8a63f4d22f92de32fb" prot="public" virt="non-virtual"><scope>Config::Paths</scope><name>themes</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

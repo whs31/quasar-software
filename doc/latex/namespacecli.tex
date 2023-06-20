@@ -1,0 +1,64 @@
+\hypertarget{namespacecli}{}\doxysection{cli Namespace Reference}
+\label{namespacecli}\index{cli@{cli}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacecli_a381ee1e1f472ba0b13ef24106ac7aebe}{chunk\+\_\+size}} = 1024
+\item 
+str \mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}} = \textquotesingle{}m4-\/13-\/12-\/2022\+\_\+21-\/19-\/14.jpg\textquotesingle{}
+\item 
+socket \mbox{\hyperlink{namespacecli_ac624992e1d1471d4a48c8688cef8579a}{sock}} = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+STREAM)
+\item 
+tuple \mbox{\hyperlink{namespacecli_a29e146d1ba760e6d9a33003a9dbbd852}{server\+\_\+address}} = (\textquotesingle{}127.\+0.\+0.\+1\textquotesingle{}, 10000)
+\item 
+os \mbox{\hyperlink{namespacecli_a527786981c30ed2bc4bac56e1438f2fb}{filesize}} = os.\+path.\+getsize(\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}})
+\item 
+tuple \mbox{\hyperlink{namespacecli_ad6eda0b31c8d3a79d1deb9ba475c68a4}{fileinfo}} = (\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}} + \textquotesingle{}\textbackslash{}0\textquotesingle{}).encode() + filesize.\+to\+\_\+bytes(4, byteorder=\textquotesingle{}little\textquotesingle{})
+\item 
+open \mbox{\hyperlink{namespacecli_a71a50f210e1cf7bf3946bc0c1a234288}{f}} = open(\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}}, \textquotesingle{}rb\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacecli_a381ee1e1f472ba0b13ef24106ac7aebe}\label{namespacecli_a381ee1e1f472ba0b13ef24106ac7aebe}} 
+\index{cli@{cli}!chunk\_size@{chunk\_size}}
+\index{chunk\_size@{chunk\_size}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{chunk\_size}{chunk\_size}}
+{\footnotesize\ttfamily int cli.\+chunk\+\_\+size = 1024}
+
+\mbox{\Hypertarget{namespacecli_a71a50f210e1cf7bf3946bc0c1a234288}\label{namespacecli_a71a50f210e1cf7bf3946bc0c1a234288}} 
+\index{cli@{cli}!f@{f}}
+\index{f@{f}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily open cli.\+f = open(\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}}, \textquotesingle{}rb\textquotesingle{})}
+
+\mbox{\Hypertarget{namespacecli_ad6eda0b31c8d3a79d1deb9ba475c68a4}\label{namespacecli_ad6eda0b31c8d3a79d1deb9ba475c68a4}} 
+\index{cli@{cli}!fileinfo@{fileinfo}}
+\index{fileinfo@{fileinfo}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{fileinfo}{fileinfo}}
+{\footnotesize\ttfamily tuple cli.\+fileinfo = (\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}} + \textquotesingle{}\textbackslash{}0\textquotesingle{}).encode() + filesize.\+to\+\_\+bytes(4, byteorder=\textquotesingle{}little\textquotesingle{})}
+
+\mbox{\Hypertarget{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}\label{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}} 
+\index{cli@{cli}!fileName@{fileName}}
+\index{fileName@{fileName}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{fileName}{fileName}}
+{\footnotesize\ttfamily str cli.\+file\+Name = \textquotesingle{}m4-\/13-\/12-\/2022\+\_\+21-\/19-\/14.jpg\textquotesingle{}}
+
+\mbox{\Hypertarget{namespacecli_a527786981c30ed2bc4bac56e1438f2fb}\label{namespacecli_a527786981c30ed2bc4bac56e1438f2fb}} 
+\index{cli@{cli}!filesize@{filesize}}
+\index{filesize@{filesize}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{filesize}{filesize}}
+{\footnotesize\ttfamily os cli.\+filesize = os.\+path.\+getsize(\mbox{\hyperlink{namespacecli_ab7cd97f75afd3deacdfa9c2fe5ed768f}{file\+Name}})}
+
+\mbox{\Hypertarget{namespacecli_a29e146d1ba760e6d9a33003a9dbbd852}\label{namespacecli_a29e146d1ba760e6d9a33003a9dbbd852}} 
+\index{cli@{cli}!server\_address@{server\_address}}
+\index{server\_address@{server\_address}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{server\_address}{server\_address}}
+{\footnotesize\ttfamily tuple cli.\+server\+\_\+address = (\textquotesingle{}127.\+0.\+0.\+1\textquotesingle{}, 10000)}
+
+\mbox{\Hypertarget{namespacecli_ac624992e1d1471d4a48c8688cef8579a}\label{namespacecli_ac624992e1d1471d4a48c8688cef8579a}} 
+\index{cli@{cli}!sock@{sock}}
+\index{sock@{sock}!cli@{cli}}
+\doxysubsubsection{\texorpdfstring{sock}{sock}}
+{\footnotesize\ttfamily socket cli.\+sock = socket.\+socket(socket.\+AF\+\_\+\+INET, socket.\+SOCK\+\_\+\+STREAM)}
+

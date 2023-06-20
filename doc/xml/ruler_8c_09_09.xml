@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="ruler_8c_09_09" kind="file" language="C++">
+    <compoundname>ruler.c++</compoundname>
+    <includes refid="ruler_8h" local="yes">ruler.h</includes>
+    <includes local="no">QtCore/QPointF</includes>
+    <includes local="no">CCL/Geomath</includes>
+    <includes local="no">cmath</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/c++/map/ruler.c++</label>
+        <link refid="ruler_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ruler.h</label>
+        <link refid="ruler_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>CCL/Geomath</label>
+      </node>
+      <node id="5">
+        <label>CCL/Orthodrom</label>
+      </node>
+      <node id="4">
+        <label>QtCore/QAbstractListModel</label>
+      </node>
+      <node id="3">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="7">
+        <label>QtCore/QPointF</label>
+      </node>
+      <node id="9">
+        <label>cmath</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ruler_8h" kindref="compound">ruler.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QPointF&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;CCL/Geomath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceMap" kindref="compound">Map</ref>;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><ref refid="classMap_1_1Ruler_1af3930dd4c982ac81af69f0e6d4dd48cc" kindref="member">Ruler::Ruler</ref>(QObject<sp/>*parent)</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QAbstractListModel{parent}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><ref refid="classMap_1_1Ruler_1a41ffc2feab89a0afedf3d735ec44fdda" kindref="member">Ruler::~Ruler</ref>()</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>beginResetModel();</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>m_segments.clear();</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/>endResetModel();</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1af17de926ba688b2344b958aa5e6e8357" kindref="member">Ruler::rowCount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex<sp/>&amp;parent)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="21"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_segments.size();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">QVariant<sp/><ref refid="classMap_1_1Ruler_1ac6e55a7fc62bdce2a6c4ea6bfb34800e" kindref="member">Ruler::data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="26"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(not<sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.isValid())</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(role)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">SegmentRoles::index</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.row();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33afed6cbab0769fe08fbbf412c23ee4033" kindref="member">SegmentRoles::segment</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_segments.at(<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.row());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33adfdf11594aa20f2afaaa39515c8cd58b" kindref="member">SegmentRoles::segmentLength</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::round(m_path.at(<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.row()).distanceTo(m_path.at(<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.row()<sp/>+<sp/>1)));</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33ad1b9193dc2dd2be575563dc78f6e0b57" kindref="member">SegmentRoles::segmentCenter</ref>:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant::fromValue(m_segmentsCenter.at(<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">index</ref>.row()));</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QVariant();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal">QHash&lt;int,<sp/>QByteArray&gt;<sp/><ref refid="classMap_1_1Ruler_1a37f507baa567308a1cc1aa2a63818d99" kindref="member">Ruler::roleNames</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="40"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/>roles<sp/>=<sp/>QAbstractListModel::roleNames();</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b" kindref="member">SegmentRoles::index</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;index&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33afed6cbab0769fe08fbbf412c23ee4033" kindref="member">SegmentRoles::segment</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;segment&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33adfdf11594aa20f2afaaa39515c8cd58b" kindref="member">SegmentRoles::segmentLength</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;segmentLength&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>roles[<ref refid="classMap_1_1Ruler_1a029097f05f86d6735d6ef12219d07f33ad1b9193dc2dd2be575563dc78f6e0b57" kindref="member">SegmentRoles::segmentCenter</ref>]<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;segmentCenter&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>roles;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a17b307135a3f82e9d7a12b86bf8d72cd" kindref="member">Ruler::setRoute</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QList&lt;QGeoCoordinate&gt;&amp;<sp/>_path)</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>beginResetModel();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>m_segments.clear();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>m_path<sp/>=<sp/>_path;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>_path.count()<sp/>-<sp/>1;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(_path[i],<sp/>_path[i+1]);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.append(m_orthodrom.get());</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.append(<ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(m_segments.size()<sp/>-<sp/>1));</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>endResetModel();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<sp/>m_path.size();<sp/>++i){</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classMap_1_1Ruler_1ae071dd0bfa5f4d6c5132e60dce23a2dc" kindref="member">updatePoint</ref>(m_path.at(i),<sp/>i);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a1200ddedbb9a5dbcfbe0fe24964b9ab2" kindref="member">Ruler::resetRoute</ref>()</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMap_1_1Ruler_1ac79bf8fffbd7912772e526b846e5cd9f" kindref="member">setLastLatitude</ref>(0);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMap_1_1Ruler_1a0a66fb8328519ac573f4694c565ab867" kindref="member">setLastLongitude</ref>(0);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),<sp/>0<sp/>,<sp/>m_segments.size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>m_segments.clear();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>m_path.clear();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>m_segmentsCenter.clear();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1aa8376673d8723283c6e70495a757a55b" kindref="member">Ruler::insertPoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoCoordinate&amp;<sp/>_point,<sp/>quint16<sp/>_index)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMap_1_1Ruler_1ac79bf8fffbd7912772e526b846e5cd9f" kindref="member">setLastLatitude</ref>(_point.latitude());</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMap_1_1Ruler_1a0a66fb8328519ac573f4694c565ab867" kindref="member">setLastLongitude</ref>(_point.longitude());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>quint16<sp/>pointsCount<sp/>=<sp/>m_segments.size()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>&gt;<sp/>m_path.size()<sp/>||<sp/>_index<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>m_path.insert(_index,<sp/>_point);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_path.size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(m_path.size()<sp/>==<sp/>2)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginInsertRows(QModelIndex(),<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[0],<sp/>m_path[1]);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.insert(0,<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(0));</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.insert(0,<sp/>m_orthodrom.get());</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endInsertRows();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginInsertRows(QModelIndex(),<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(_point,<sp/>m_path[0]);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.insert(0,<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(0));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.insert(0,<sp/>m_orthodrom.get());</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endInsertRows();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>==<sp/>m_path.size()<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginInsertRows(QModelIndex(),m_segments.size(),<sp/>m_segments.size());</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[pointsCount<sp/>-<sp/>1],<sp/>_point);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.insert(m_segments.size(),<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(m_segments.size()));</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.insert(m_segments.size(),<sp/>m_orthodrom.get());</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endInsertRows();</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[_index<sp/>-<sp/>1],<sp/>m_path[_index]);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[_index<sp/>-<sp/>1]<sp/>=<sp/><sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter[_index<sp/>-<sp/>1]<sp/>=<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(_index<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(createIndex(_index<sp/>-<sp/>1,<sp/>0),<sp/>createIndex(_index<sp/>-<sp/>1,<sp/>0));</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginInsertRows(QModelIndex(),<sp/>_index,<sp/>_index);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[_index],<sp/>m_path[_index<sp/>+<sp/>1]);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.insert(_index,<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(_index));</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.insert(_index,<sp/>m_orthodrom.get());</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endInsertRows();</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a3b3f0fefcce8989b8b02a8252ac07c9a" kindref="member">Ruler::removePoint</ref>(quint16<sp/>_index)</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>quint16<sp/>pointsCount<sp/>=<sp/>m_segments.size()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>&gt;<sp/>pointsCount<sp/>-1<sp/>||<sp/>_index<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m_path.size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_path.removeAt(_index);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_index<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),_index,<sp/>_index);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.removeAt(_index);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_path.removeAt(_index);</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(_index<sp/>==<sp/>pointsCount<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),m_segments.size()<sp/>-<sp/>1,<sp/>m_segments.size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.removeAt(m_segments.size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_path.removeAt(_index);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>beginRemoveRows(QModelIndex(),_index,<sp/>_index);</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments.removeAt(_index);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>endRemoveRows();</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[_index<sp/>-<sp/>1],<sp/>m_path[_index<sp/>+<sp/>1]);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[_index<sp/>-<sp/>1]<sp/>=<sp/><sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_path.removeAt(_index);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter.replace(_index<sp/>-<sp/>1,<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(_index<sp/>-<sp/>1));</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(createIndex(_index<sp/>-<sp/>1,<sp/>0),<sp/>createIndex(_index<sp/>-<sp/>1,<sp/>0));</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1ae071dd0bfa5f4d6c5132e60dce23a2dc" kindref="member">Ruler::updatePoint</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoCoordinate<sp/>&amp;_point,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_index)</highlight></codeline>
+<codeline lineno="169"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>quint16<sp/>pointsCount<sp/>=<sp/>m_segments.size()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>&gt;<sp/>pointsCount<sp/>-1<sp/>||<sp/>_index<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>m_path.replace(_index,<sp/>_point);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m_path.size()<sp/>==<sp/>1)</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>==<sp/>0)</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[0],<sp/>m_path[1]);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[0]<sp/>=<sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter[0]<sp/>=<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(0);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(createIndex(0,0),<sp/>createIndex(0,0));</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_index<sp/>==<sp/>pointsCount<sp/>-<sp/>1)</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[pointsCount<sp/>-<sp/>2],<sp/>m_path[pointsCount<sp/>-<sp/>1]);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[m_segments.size()<sp/>-<sp/>1]<sp/>=<sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter[m_segments.size()<sp/>-<sp/>1]<sp/>=<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(m_segments.size()<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(createIndex(m_segments.size()<sp/>-<sp/>1,0),<sp/>createIndex(m_segments.size()<sp/>-<sp/>1,0));</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[_index<sp/>-<sp/>1],<sp/>m_path[_index]);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[_index<sp/>-<sp/>1]<sp/>=<sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter[_index<sp/>-<sp/>1]<sp/>=<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(_index<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_orthodrom.set(m_path[_index],<sp/>m_path[_index<sp/>+<sp/>1]);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segments[_index]<sp/>=<sp/>m_orthodrom.get();</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_segmentsCenter[_index]<sp/>=<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">calculateCenter</ref>(_index);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>dataChanged(createIndex(_index<sp/>-<sp/>1,0),<sp/>createIndex(_index,0));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal">QGeoCoordinate<sp/><ref refid="classMap_1_1Ruler_1ab605ecb05e554bc473760abc1a6ee9d7" kindref="member">Ruler::calculateCenter</ref>(quint16<sp/>_index)</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coord1<sp/>=<sp/>m_path.at(_index);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>coord2<sp/>=<sp/>m_path.at(_index<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/>m_orthodrom.set(coord1,<sp/>coord2);</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>centerLongitude;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>centerLatitude;</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoCoordinate<sp/>centerCoord<sp/>=<sp/>coord1.atDistanceAndAzimuth(<sp/>coord1.distanceTo(coord2)/2,<sp/>coord1.azimuthTo(coord2));</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>centerLongitude<sp/>=<sp/>centerCoord.longitude();</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>centerLatitude<sp/>=<sp/>qIsNaN(m_orthodrom.latitudeAt(centerLongitude))</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>(coord1.latitude()<sp/>+<sp/>coord2.latitude())<sp/>/<sp/>2</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>m_orthodrom.latitudeAt(centerLongitude);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>QGeoCoordinate(centerLatitude,<sp/>centerLongitude);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal">qreal<sp/><ref refid="classMap_1_1Ruler_1a80553e08a5fb2607bc045afadc358e16" kindref="member">Ruler::calculateAngle</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoCoordinate<sp/>_coord1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoCoordinate<sp/>_coord2)</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>result;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointF<sp/>coord1<sp/>=<sp/>CCL::geo2webmercator(_coord1);</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/>QPointF<sp/>coord2<sp/>=<sp/>CCL::geo2webmercator(_coord2);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>newLong1<sp/>=<sp/>_coord1.longitude();</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>newLong2<sp/>=<sp/>_coord2.longitude();</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_coord1.longitude()<sp/>&lt;<sp/>0<sp/>&amp;&amp;<sp/>_coord2.longitude()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>shift<sp/>=<sp/>(<sp/>180<sp/>-<sp/>_coord2.longitude()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_coord1.longitude()<sp/>+<sp/>shift<sp/>&lt;<sp/>0){</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newLong1<sp/>=<sp/>_coord1.longitude()<sp/>+<sp/>shift;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newLong2<sp/>=<sp/>(_coord2.longitude()<sp/>+<sp/>shift)<sp/>-<sp/>360;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coord1<sp/>=<sp/>CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(),<sp/>_coord1.longitude()<sp/>+<sp/>shift));</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coord2<sp/>=<sp/>CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(),<sp/>(_coord2.longitude()<sp/>+<sp/>shift)<sp/>-<sp/>360));</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_coord2.longitude()<sp/>&lt;<sp/>0<sp/>&amp;&amp;<sp/>_coord1.longitude()<sp/>&gt;<sp/>0){</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qreal<sp/>shift<sp/>=<sp/>(180<sp/>-<sp/>_coord1.longitude()<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_coord2.longitude()<sp/>+<sp/>shift<sp/>&lt;<sp/>0){</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newLong1<sp/>=<sp/>(_coord1.longitude()<sp/>+<sp/>shift)<sp/>-<sp/>360;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>newLong2<sp/>=<sp/>_coord2.longitude()<sp/>+<sp/>shift;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coord2<sp/>=<sp/>CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(),<sp/>_coord2.longitude()<sp/>+<sp/>shift));</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>coord1<sp/>=<sp/>CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(),<sp/>(_coord1.longitude()<sp/>+<sp/>shift)<sp/>-<sp/>360));</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/>qreal<sp/>angle<sp/>=<sp/>atan2(abs(coord1.y()<sp/>-<sp/>coord2.y())<sp/>,<sp/>abs(coord1.x()<sp/>-<sp/>coord2.x()))<sp/>*<sp/>180<sp/>/<sp/>M_PI;</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/>result<sp/>=<sp/>((_coord1.latitude()<sp/>&lt;<sp/>_coord2.latitude()<sp/>&amp;&amp;<sp/>newLong1<sp/>&lt;<sp/>newLong2)<sp/>||<sp/>(_coord1.latitude()<sp/>&gt;<sp/>_coord2.latitude()<sp/>&amp;&amp;<sp/>newLong1<sp/>&gt;<sp/>newLong2))<sp/>?<sp/>angle<sp/>-<sp/>90<sp/>:<sp/>90<sp/>-<sp/>angle;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="253"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a61531c8ff7a91a8fe35cee130dfa53e0" kindref="member">Ruler::totalLength</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_totalLength;<sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a340bbb2dd44399e4100f670dc3482a8a" kindref="member">Ruler::setTotalLength</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(m_totalLength,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/>m_totalLength<sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classMap_1_1Ruler_1af874ee5e4407224e0838115e393da83d" kindref="member">totalLengthChanged</ref>();</highlight></codeline>
+<codeline lineno="260"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight></codeline>
+<codeline lineno="262"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1aea5774c7c1ad752f061e9bdcd4a39f87" kindref="member">Ruler::lastLatitude</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_lastLatitude;<sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1ac79bf8fffbd7912772e526b846e5cd9f" kindref="member">Ruler::setLastLatitude</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(m_lastLatitude,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/>m_lastLatitude<sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classMap_1_1Ruler_1a8c7902d1e7666250716516429495de9f" kindref="member">lastLatitudeChanged</ref>();</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1acac1b7aef3bd0a9c4de1c15b6e804cbd" kindref="member">Ruler::lastLongitude</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_lastLongitude;<sp/>}</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMap_1_1Ruler_1a0a66fb8328519ac573f4694c565ab867" kindref="member">Ruler::setLastLongitude</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(m_lastLongitude,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>m_lastLongitude<sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classMap_1_1Ruler_1aaf911e4dda3ab93b7deb9ce567fe807f" kindref="member">lastLongitudeChanged</ref>();</highlight></codeline>
+<codeline lineno="274"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/c++/map/ruler.c++"/>
+  </compounddef>
+</doxygen>

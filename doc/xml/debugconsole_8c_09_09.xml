@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="debugconsole_8c_09_09" kind="file" language="C++">
+    <compoundname>debugconsole.c++</compoundname>
+    <includes refid="debugconsole_8h" local="yes">debugconsole.h</includes>
+    <includes local="no">QtCore/QDebug</includes>
+    <includes local="no">QtCore/QCoreApplication</includes>
+    <includes local="no">QtCore/QProcess</includes>
+    <includes refid="network_8h" local="yes">network/network.h</includes>
+    <includes refid="config_8h" local="yes">config/config.h</includes>
+    <incdepgraph>
+      <node id="22">
+        <label>config/config.h</label>
+        <link refid="config_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/c++/gui/terminal/debugconsole.c++</label>
+        <link refid="debugconsole_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>debugconsole.h</label>
+        <link refid="debugconsole_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>terminalbase.h</label>
+        <link refid="terminalbase_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>execd/remotedata.h</label>
+        <link refid="remotedata_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>netenums.h</label>
+        <link refid="netenums_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>network/network.h</label>
+        <link refid="network_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>telemetry/telemetry.h</label>
+        <link refid="telemetry_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>telemetrydatagram.h</label>
+        <link refid="telemetrydatagram_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>LPVL/Global</label>
+      </node>
+      <node id="5">
+        <label>QtCore/QAbstractListModel</label>
+      </node>
+      <node id="10">
+        <label>QtCore/QCoreApplication</label>
+      </node>
+      <node id="19">
+        <label>QtCore/QDataStream</label>
+      </node>
+      <node id="20">
+        <label>QtCore/QDateTime</label>
+      </node>
+      <node id="9">
+        <label>QtCore/QDebug</label>
+      </node>
+      <node id="23">
+        <label>QtCore/QMap</label>
+      </node>
+      <node id="15">
+        <label>QtCore/QMetaType</label>
+      </node>
+      <node id="13">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="11">
+        <label>QtCore/QProcess</label>
+      </node>
+      <node id="24">
+        <label>QtCore/QVariant</label>
+      </node>
+      <node id="18">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>functional</label>
+      </node>
+      <node id="7">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceGUI">GUI</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="debugconsole_8h" kindref="compound">debugconsole.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QCoreApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QProcess&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="network_8h" kindref="compound">network/network.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="config_8h" kindref="compound">config/config.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8" refid="namespaceGUI" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceGUI" kindref="compound">GUI</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1DebugConsole_1acb708adf3cf4d92c7ba73c0254379958" kindref="member">DebugConsole::execute</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>command)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(command_list.find(command)<sp/>!=<sp/>command_list.end())</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>command_list[command]();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning().nospace().noquote()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[CONSOLE]<sp/>Unrecognized<sp/>console<sp/>command<sp/>[&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>command<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;]&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">DebugConsole::DebugConsole(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classGUI_1_1TerminalBase" kindref="compound">TerminalBase</ref>(parent)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>Console<sp/>initialized&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::help()</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>&lt;i&gt;&lt;u&gt;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="debugconsole_8h_1a9ea7945fc70fa30dab49e3c537dce13e" kindref="member">CONSOLE_INTERNAL_PROJECT_STRING</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;CONSOLE<sp/>v0.9&lt;/u&gt;&lt;/i&gt;&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;quit&lt;/i&gt;<sp/>-<sp/>exits<sp/>the<sp/>application<sp/>and<sp/>cleanup<sp/>used<sp/>resources&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;telsock_start&lt;/i&gt;<sp/>-<sp/>starts<sp/>the<sp/>telemetry<sp/>socket<sp/>at<sp/>default<sp/>frequency&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;telsock_stop&lt;/i&gt;<sp/>-<sp/>stops<sp/>the<sp/>telemetry<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;execdsock_start&lt;/i&gt;<sp/>-<sp/>starts<sp/>the<sp/>execd<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;execdsock_stop&lt;/i&gt;<sp/>-<sp/>stops<sp/>the<sp/>execd<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;tcp_start&lt;/i&gt;<sp/>-<sp/>stops<sp/>the<sp/>TCP-IP<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;tcp_stop&lt;/i&gt;<sp/>-<sp/>stops<sp/>the<sp/>TCP-IP<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;connect&lt;/i&gt;<sp/>-<sp/>starts<sp/>all<sp/>sockets,<sp/>except<sp/>UDP-LFS&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>\t<sp/>&lt;i&gt;clear&lt;/i&gt;<sp/>-<sp/>clears<sp/>console<sp/>log&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::quit()</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Shutting<sp/>down...&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>QCoreApplication::quit();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::telsock_start()</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>start<sp/>of<sp/>telemetry<sp/>socket<sp/>at<sp/>default<sp/>frequency&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1a97757f68554cfd4ccdd19aeec2597174" kindref="member">startTelemetrySocket</ref>(<ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(remoteIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(telemetryPort),</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(remoteIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(telemetryRecvPort),</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(telemetryFrequency));</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::telsock_stop()</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>stop<sp/>of<sp/>telemetry<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1aa59b8f0cac38fbafe81930bfcafe0725" kindref="member">stopTelemetrySocket</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::execdsock_start()</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>start<sp/>of<sp/>execd<sp/>+<sp/>feedback<sp/>socket<sp/>at<sp/>default<sp/>frequency&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1ad535b5d27ee50189d87de7d143a5aba7" kindref="member">startExecdSocket</ref>(<ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(remoteIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(execdPort),</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(feedbackPort));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::execdsock_stop()</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>stop<sp/>of<sp/>execd<sp/>and<sp/>feedback<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1acafdeaf5ca05b5d8bf6dc37aa60abbcc" kindref="member">stopExecdSocket</ref>();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::tcp_start()</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>start<sp/>of<sp/>tcp-ip<sp/>socket<sp/>at<sp/>default<sp/>frequency&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1ac65f02d940076ab9d070bc26da727f95" kindref="member">startTCPSocket</ref>(<ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/><ref refid="config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kindref="member">CONFIG</ref>(tcpLFSPort));</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::tcp_stop()</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Forcing<sp/>stop<sp/>of<sp/>tcp-ip<sp/>socket&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworking_1_1Network_1a81fa07b4a617fa95389a9d9d401eef7e" kindref="member">Networking::Network::get</ref>()-&gt;<ref refid="classNetworking_1_1Network_1ad557fcb1e27d397a13fcc7c66812be1f" kindref="member">stopTCPSocket</ref>();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::sim()</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[CONSOLE]<sp/>Emulator<sp/>support<sp/>was<sp/>removed<sp/>in<sp/>version<sp/>2.11.1&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[CONSOLE]<sp/>Consider<sp/>using<sp/>quasar-firmware<sp/>instance&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugConsole::connect()</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;$<sp/>[CONSOLE]<sp/>Trying<sp/>to<sp/>connect<sp/>through<sp/>console...&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>execdsock_start();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>telsock_start();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>tcp_start();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>GUI</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/c++/gui/terminal/debugconsole.c++"/>
+  </compounddef>
+</doxygen>

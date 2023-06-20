@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__Application" kind="group">
+    <compoundname>Application</compoundname>
+    <title>settings</title>
+      <sectiondef kind="">
+      <memberdef kind="property" id="group__Application_1gad0dc9539aff9c895e938d9af25e29bac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>Current selected Config::Config::theme</definition>
+        <argsstring></argsstring>
+        <name>theme</name>
+        <qualifiedname>Config::Config::theme</qualifiedname>
+        <read>theme</read>
+        <write>setTheme</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

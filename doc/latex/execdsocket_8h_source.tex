@@ -1,0 +1,47 @@
+\hypertarget{execdsocket_8h_source}{}\doxysection{execdsocket.\+h}
+\label{execdsocket_8h_source}\index{src/c++/network/execd/execdsocket.h@{src/c++/network/execd/execdsocket.h}}
+\mbox{\hyperlink{execdsocket_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{abstractudpsocket_8h}{network/abstractudpsocket.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{netenums_8h}{network/netenums.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceNetworking}{Networking}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }ExecdArgumentList;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNetworking_1_1ExecdSocket}{ExecdSocket}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{AbstractUDPSocket}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ COMMAND\_TELESCOPIC\ =\ \textcolor{stringliteral}{"{}\$FORM"{}};}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ COMMAND\_START\_STRIP\ =\ \textcolor{stringliteral}{"{}\$strip"{}};}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ COMMAND\_FOCUS\ =\ \textcolor{stringliteral}{"{}\$focus"{}};}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ COMMAND\_STORAGE\_STATUS\ =\ \textcolor{stringliteral}{"{}\$storage\_status()"{}};}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ COMMAND\_CLEAR\_STORAGE\ =\ \textcolor{stringliteral}{"{}\$clear\_storage()"{}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket}{ExecdSocket}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_abde04a001640377f883c6c612520c399}{start}}(\textcolor{keyword}{const}\ QString\&\ address);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_aca9c9acd6921342e0e59618732ec2f53}{stop}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_a02805ba3e3ea9dbeb1d603b1a80ee497}{executeCommand}}(\textcolor{keyword}{const}\ QString\&\ command);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_a02805ba3e3ea9dbeb1d603b1a80ee497}{executeCommand}}(\mbox{\hyperlink{classNetworking_1_1Enums_aa669864b51106c17a0f11dfc0a5bcab1}{Enums::NetworkCommand}}\ command);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetworking_1_1ExecdArgumentList}{ExecdArgumentList}}*\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_a3cc24281ee16e9ed22c1b3c69f8234bd}{list}}()\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1ExecdSocket_adf887fa86f125272f525892afb5b2336}{ping}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ wrap(\textcolor{keyword}{const}\ QString\&\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ finalize(\textcolor{keyword}{const}\ QString\&\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processResult(QByteArray\ data);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetworking_1_1ExecdArgumentList}{ExecdArgumentList}}*\ args;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ message\_uid;}
+\DoxyCodeLine{00040\ \ \ \ \ \};}
+\DoxyCodeLine{00041\ \}}
+
+\end{DoxyCode}

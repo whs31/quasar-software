@@ -1,0 +1,124 @@
+\hypertarget{classNetworking_1_1TelemetrySocket}{}\doxysection{Networking\+::Telemetry\+Socket Class Reference}
+\label{classNetworking_1_1TelemetrySocket}\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+
+
+{\ttfamily \#include $<$telemetrysocket.\+h$>$}
+
+Inheritance diagram for Networking\+::Telemetry\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classNetworking_1_1TelemetrySocket}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a2486b4ee0bd2b1b1c89ad92d7243e9cc}{frequency\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a4619edf9201c550f007fd5223e5208b7}{ping}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals inherited from \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{Networking\+::\+Abstract\+UDPSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab2de359309489c42d98134e42d48a8df}{received}} (QByte\+Array data)
+\begin{DoxyCompactList}\small\item\em Emits when socket receives data from other side. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a037b493b3fe30e2dd84425665c1b46ab}{socket\+Disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Emits when socket breaks connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9a7d3ecfb1cfd71c60c0b7722325fb48}{socket\+Metrics}} (const QString \&data, int size\+\_\+bytes, bool out)
+\begin{DoxyCompactList}\small\item\em Emits when socket sends or receives data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a581733e6fb8057383aacddee6eadc971}{Telemetry\+Socket}} (QObject $\ast$parent=nullptr, \mbox{\hyperlink{classNetworking_1_1Telemetry}{Telemetry}} $\ast$output=nullptr)
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a81cb00d7ca46bc824e0c855f08c32e96}{start}} (const QString \&address, const QString \&recv\+\_\+address)
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a3040f903eacc780d33e211fe0123d3b7}{stop}} ()
+\item 
+float \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a93f0760892cdcf304038675d3298c98d}{frequency}} () const
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a3fa9938595b1d4ab038db92ed71b7c7d}{set\+Frequency}} (float)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{Networking\+::\+Abstract\+UDPSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a7e66254d00af9f1d387c3926431d80ed}{Abstract\+UDPSocket}} (QObject $\ast$parent=nullptr)
+\item 
+virtual \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_abfc6311e3e8219196febf17eb1f57119}{$\sim$\+Abstract\+UDPSocket}} ()
+\item 
+virtual Q\+\_\+\+INVOKABLE bool \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab60a7a8b141cbdfa5a49448ef06425e9}{connect}} (const QString \&address)
+\item 
+virtual Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ace97f4f1318099d3b0203d7cdaa263cb}{disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnects from current session. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a7d82f4942500ed94b2e1887561c07b6b}{send}} (QByte\+Array data)
+\begin{DoxyCompactList}\small\item\em Sends given QByte\+Array to socket. \end{DoxyCompactList}\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9b994e146dd120c046d2f9c27e4c227b}{port}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns current socket port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classNetworking_1_1TelemetrySocket_a9ff26fc07e1493f2f23963d171a52235}{frequency}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a581733e6fb8057383aacddee6eadc971}\label{classNetworking_1_1TelemetrySocket_a581733e6fb8057383aacddee6eadc971}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!TelemetrySocket@{TelemetrySocket}}
+\index{TelemetrySocket@{TelemetrySocket}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{TelemetrySocket()}{TelemetrySocket()}}
+{\footnotesize\ttfamily Telemetry\+Socket\+::\+Telemetry\+Socket (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr},  }\item[{\mbox{\hyperlink{classNetworking_1_1Telemetry}{Telemetry}} $\ast$}]{output = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a93f0760892cdcf304038675d3298c98d}\label{classNetworking_1_1TelemetrySocket_a93f0760892cdcf304038675d3298c98d}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!frequency@{frequency}}
+\index{frequency@{frequency}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{frequency()}{frequency()}}
+{\footnotesize\ttfamily float Telemetry\+Socket\+::frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a2486b4ee0bd2b1b1c89ad92d7243e9cc}\label{classNetworking_1_1TelemetrySocket_a2486b4ee0bd2b1b1c89ad92d7243e9cc}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!frequencyChanged@{frequencyChanged}}
+\index{frequencyChanged@{frequencyChanged}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{frequencyChanged}{frequencyChanged}}
+{\footnotesize\ttfamily void Networking\+::\+Telemetry\+Socket\+::frequency\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a4619edf9201c550f007fd5223e5208b7}\label{classNetworking_1_1TelemetrySocket_a4619edf9201c550f007fd5223e5208b7}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!ping@{ping}}
+\index{ping@{ping}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{ping}{ping}}
+{\footnotesize\ttfamily void Networking\+::\+Telemetry\+Socket\+::ping (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a3fa9938595b1d4ab038db92ed71b7c7d}\label{classNetworking_1_1TelemetrySocket_a3fa9938595b1d4ab038db92ed71b7c7d}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!setFrequency@{setFrequency}}
+\index{setFrequency@{setFrequency}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{setFrequency()}{setFrequency()}}
+{\footnotesize\ttfamily void Telemetry\+Socket\+::set\+Frequency (\begin{DoxyParamCaption}\item[{float}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a81cb00d7ca46bc824e0c855f08c32e96}\label{classNetworking_1_1TelemetrySocket_a81cb00d7ca46bc824e0c855f08c32e96}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!start@{start}}
+\index{start@{start}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Telemetry\+Socket\+::start (\begin{DoxyParamCaption}\item[{const QString \&}]{address,  }\item[{const QString \&}]{recv\+\_\+address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a3040f903eacc780d33e211fe0123d3b7}\label{classNetworking_1_1TelemetrySocket_a3040f903eacc780d33e211fe0123d3b7}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!stop@{stop}}
+\index{stop@{stop}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Telemetry\+Socket\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classNetworking_1_1TelemetrySocket_a9ff26fc07e1493f2f23963d171a52235}\label{classNetworking_1_1TelemetrySocket_a9ff26fc07e1493f2f23963d171a52235}} 
+\index{Networking::TelemetrySocket@{Networking::TelemetrySocket}!frequency@{frequency}}
+\index{frequency@{frequency}!Networking::TelemetrySocket@{Networking::TelemetrySocket}}
+\doxysubsubsection{\texorpdfstring{frequency}{frequency}}
+{\footnotesize\ttfamily float Networking\+::\+Telemetry\+Socket\+::frequency\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/telemetry/\mbox{\hyperlink{telemetrysocket_8h}{telemetrysocket.\+h}}\item 
+src/c++/network/telemetry/\mbox{\hyperlink{telemetrysocket_8c_09_09}{telemetrysocket.\+c++}}\end{DoxyCompactItemize}

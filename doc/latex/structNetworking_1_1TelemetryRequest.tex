@@ -1,0 +1,99 @@
+\hypertarget{structNetworking_1_1TelemetryRequest}{}\doxysection{Networking\+::Telemetry\+Request Struct Reference}
+\label{structNetworking_1_1TelemetryRequest}\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+
+
+{\ttfamily \#include $<$telemetrydatagram.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_aec2b71e812e781d999b5973076d89ca1}{marker}} = 0x55bb55bb
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_ad7b03ba6a322db70d7ea22a32ba73e1e}{init\+\_\+flag}} = 0x00
+\begin{DoxyCompactList}\small\item\em @variable Маркер сообщения. Равен 0x55\+BB55\+BB. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_a4680136de2b4952349d816c925b8fc18}{port}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Тип команды. 0x00 завершает передачу, 0х01 -\/ начинает. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_a055f9f2a1f3b3a4d0ff121a4c98ae5b2}{interval\+\_\+ms}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Порт для обратной связи. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_a0a09a21a6a8787474179eba88a0428d6}{crc16}} = 0x0
+\begin{DoxyCompactList}\small\item\em @variable Интервал передачи телеметрии в мс. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+QData\+Stream \& \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_ac69478bea23f6c57b2d6be7048ce4070}{operator$<$$<$}} (QData\+Stream \&data\+Stream, const \mbox{\hyperlink{structNetworking_1_1TelemetryRequest}{Telemetry\+Request}} \&data)
+\begin{DoxyCompactList}\small\item\em @variable Контрольная сумма датаграмы (CRC16\+\_\+\+CCIT). \end{DoxyCompactList}\item 
+QData\+Stream \& \mbox{\hyperlink{structNetworking_1_1TelemetryRequest_a257b8f840bc19ee0d415ccdd702a66f0}{operator$>$$>$}} (QData\+Stream \&data\+Stream, \mbox{\hyperlink{structNetworking_1_1TelemetryRequest}{Telemetry\+Request}} \&data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_ac69478bea23f6c57b2d6be7048ce4070}\label{structNetworking_1_1TelemetryRequest_ac69478bea23f6c57b2d6be7048ce4070}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily QData\+Stream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{QData\+Stream \&}]{data\+Stream,  }\item[{const \mbox{\hyperlink{structNetworking_1_1TelemetryRequest}{Telemetry\+Request}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+@variable Контрольная сумма датаграмы (CRC16\+\_\+\+CCIT). 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_a257b8f840bc19ee0d415ccdd702a66f0}\label{structNetworking_1_1TelemetryRequest_a257b8f840bc19ee0d415ccdd702a66f0}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily QData\+Stream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{QData\+Stream \&}]{data\+Stream,  }\item[{\mbox{\hyperlink{structNetworking_1_1TelemetryRequest}{Telemetry\+Request}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_a0a09a21a6a8787474179eba88a0428d6}\label{structNetworking_1_1TelemetryRequest_a0a09a21a6a8787474179eba88a0428d6}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!crc16@{crc16}}
+\index{crc16@{crc16}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{crc16}{crc16}}
+{\footnotesize\ttfamily uint16\+\_\+t Networking\+::\+Telemetry\+Request\+::crc16 = 0x0}
+
+
+
+@variable Интервал передачи телеметрии в мс. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_ad7b03ba6a322db70d7ea22a32ba73e1e}\label{structNetworking_1_1TelemetryRequest_ad7b03ba6a322db70d7ea22a32ba73e1e}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!init\_flag@{init\_flag}}
+\index{init\_flag@{init\_flag}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{init\_flag}{init\_flag}}
+{\footnotesize\ttfamily uint8\+\_\+t Networking\+::\+Telemetry\+Request\+::init\+\_\+flag = 0x00}
+
+
+
+@variable Маркер сообщения. Равен 0x55\+BB55\+BB. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_a055f9f2a1f3b3a4d0ff121a4c98ae5b2}\label{structNetworking_1_1TelemetryRequest_a055f9f2a1f3b3a4d0ff121a4c98ae5b2}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!interval\_ms@{interval\_ms}}
+\index{interval\_ms@{interval\_ms}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{interval\_ms}{interval\_ms}}
+{\footnotesize\ttfamily uint32\+\_\+t Networking\+::\+Telemetry\+Request\+::interval\+\_\+ms = 0}
+
+
+
+@variable Порт для обратной связи. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_aec2b71e812e781d999b5973076d89ca1}\label{structNetworking_1_1TelemetryRequest_aec2b71e812e781d999b5973076d89ca1}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!marker@{marker}}
+\index{marker@{marker}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{marker}{marker}}
+{\footnotesize\ttfamily uint32\+\_\+t Networking\+::\+Telemetry\+Request\+::marker = 0x55bb55bb}
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryRequest_a4680136de2b4952349d816c925b8fc18}\label{structNetworking_1_1TelemetryRequest_a4680136de2b4952349d816c925b8fc18}} 
+\index{Networking::TelemetryRequest@{Networking::TelemetryRequest}!port@{port}}
+\index{port@{port}!Networking::TelemetryRequest@{Networking::TelemetryRequest}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily uint16\+\_\+t Networking\+::\+Telemetry\+Request\+::port = 0}
+
+
+
+@variable Тип команды. 0x00 завершает передачу, 0х01 -\/ начинает. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/telemetry/\mbox{\hyperlink{telemetrydatagram_8h}{telemetrydatagram.\+h}}\end{DoxyCompactItemize}

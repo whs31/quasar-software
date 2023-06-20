@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespaceNamespace" kind="namespace" language="C++">
+    <compoundname>Namespace</compoundname>
+    <briefdescription>
+<para>network-related classes. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>for network-related classes.</para>
+<para>for working with data, which is shared between sessions.</para>
+<para>for working with OS-specific data and filesystems. </para>
+    </detaileddescription>
+    <location file="src/c++/config/config.h" line="13" column="1"/>
+  </compounddef>
+</doxygen>

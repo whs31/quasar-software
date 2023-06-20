@@ -1,0 +1,114 @@
+\hypertarget{classNetworking_1_1TCPSocket}{}\doxysection{Networking\+::TCPSocket Class Reference}
+\label{classNetworking_1_1TCPSocket}\index{Networking::TCPSocket@{Networking::TCPSocket}}
+
+
+{\ttfamily \#include $<$tcpsocket.\+h$>$}
+
+Inheritance diagram for Networking\+::TCPSocket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNetworking_1_1TCPSocket}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1TCPSocket_a06ad5f639fa4dfc8ddc9e1a16abbd1f2}{receiving\+Finished}} ()
+\begin{DoxyCompactList}\small\item\em Emitted when receiving of data is finished. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1TCPSocket_a33dd9be3cf7a545e4f4b1b44258c1598}{progress\+Changed}} (float \mbox{\hyperlink{classNetworking_1_1TCPSocket_ac10a14c8e01345dc0353bb876a0b4bdc}{progress}})
+\begin{DoxyCompactList}\small\item\em Emitted on loading progress change. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1TCPSocket_a4c1cec3ce1ed5e0ce34e906ec890b98f}{socket\+Metrics}} (const QString \&data, int size\+\_\+bytes, bool out)
+\begin{DoxyCompactList}\small\item\em Debug socket metrics. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1TCPSocket_ab7dc7b30a208925c785dae14155fb04a}{TCPSocket}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classNetworking_1_1TCPSocket}{TCPSocket}} object with given parent. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1TCPSocket_adfb78fc64fb1d4f72cd62197fe14b79f}{start\+Server}} (const QString \&address)
+\begin{DoxyCompactList}\small\item\em Starts TCP-\/\+IP server at given IPv4 address and port. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1TCPSocket_afee3b96ac0244bf93c7cca2bd4ffe2d9}{stop\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Stops currently working TCP-\/\+IP server. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classNetworking_1_1TCPSocket_ac10a14c8e01345dc0353bb876a0b4bdc}{progress}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classProvides}{Provides}} loading progress value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_ab7dc7b30a208925c785dae14155fb04a}\label{classNetworking_1_1TCPSocket_ab7dc7b30a208925c785dae14155fb04a}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!TCPSocket@{TCPSocket}}
+\index{TCPSocket@{TCPSocket}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{TCPSocket()}{TCPSocket()}}
+{\footnotesize\ttfamily TCPSocket\+::\+TCPSocket (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs a new \mbox{\hyperlink{classNetworking_1_1TCPSocket}{TCPSocket}} object with given parent. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_ac10a14c8e01345dc0353bb876a0b4bdc}\label{classNetworking_1_1TCPSocket_ac10a14c8e01345dc0353bb876a0b4bdc}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!progress@{progress}}
+\index{progress@{progress}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{progress()}{progress()}}
+{\footnotesize\ttfamily float TCPSocket\+::progress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classProvides}{Provides}} loading progress value. 
+
+Range -\/ 0 to 100. \mbox{\Hypertarget{classNetworking_1_1TCPSocket_a33dd9be3cf7a545e4f4b1b44258c1598}\label{classNetworking_1_1TCPSocket_a33dd9be3cf7a545e4f4b1b44258c1598}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!progressChanged@{progressChanged}}
+\index{progressChanged@{progressChanged}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{progressChanged}{progressChanged}}
+{\footnotesize\ttfamily void Networking\+::\+TCPSocket\+::progress\+Changed (\begin{DoxyParamCaption}\item[{float}]{progress }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted on loading progress change. 
+
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_a06ad5f639fa4dfc8ddc9e1a16abbd1f2}\label{classNetworking_1_1TCPSocket_a06ad5f639fa4dfc8ddc9e1a16abbd1f2}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!receivingFinished@{receivingFinished}}
+\index{receivingFinished@{receivingFinished}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{receivingFinished}{receivingFinished}}
+{\footnotesize\ttfamily void Networking\+::\+TCPSocket\+::receiving\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted when receiving of data is finished. 
+
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_a4c1cec3ce1ed5e0ce34e906ec890b98f}\label{classNetworking_1_1TCPSocket_a4c1cec3ce1ed5e0ce34e906ec890b98f}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!socketMetrics@{socketMetrics}}
+\index{socketMetrics@{socketMetrics}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{socketMetrics}{socketMetrics}}
+{\footnotesize\ttfamily void Networking\+::\+TCPSocket\+::socket\+Metrics (\begin{DoxyParamCaption}\item[{const QString \&}]{data,  }\item[{int}]{size\+\_\+bytes,  }\item[{bool}]{out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Debug socket metrics. 
+
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_adfb78fc64fb1d4f72cd62197fe14b79f}\label{classNetworking_1_1TCPSocket_adfb78fc64fb1d4f72cd62197fe14b79f}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!startServer@{startServer}}
+\index{startServer@{startServer}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{startServer()}{startServer()}}
+{\footnotesize\ttfamily void TCPSocket\+::start\+Server (\begin{DoxyParamCaption}\item[{const QString \&}]{address }\end{DoxyParamCaption})}
+
+
+
+Starts TCP-\/\+IP server at given IPv4 address and port. 
+
+\mbox{\Hypertarget{classNetworking_1_1TCPSocket_afee3b96ac0244bf93c7cca2bd4ffe2d9}\label{classNetworking_1_1TCPSocket_afee3b96ac0244bf93c7cca2bd4ffe2d9}} 
+\index{Networking::TCPSocket@{Networking::TCPSocket}!stopServer@{stopServer}}
+\index{stopServer@{stopServer}!Networking::TCPSocket@{Networking::TCPSocket}}
+\doxysubsubsection{\texorpdfstring{stopServer()}{stopServer()}}
+{\footnotesize\ttfamily void TCPSocket\+::stop\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops currently working TCP-\/\+IP server. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/\mbox{\hyperlink{tcpsocket_8h}{tcpsocket.\+h}}\item 
+src/c++/network/\mbox{\hyperlink{tcpsocket_8c_09_09}{tcpsocket.\+c++}}\end{DoxyCompactItemize}

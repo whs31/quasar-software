@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="feedbacksocket_8c_09_09" kind="file" language="C++">
+    <compoundname>feedbacksocket.c++</compoundname>
+    <includes refid="feedbacksocket_8h" local="yes">feedbacksocket.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>../abstractudpsocket.h</label>
+        <link refid="abstractudpsocket_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/c++/network/execd/feedbacksocket.c++</label>
+        <link refid="feedbacksocket_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>feedbacksocket.h</label>
+        <link refid="feedbacksocket_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>QtCore/QByteArray</label>
+      </node>
+      <node id="5">
+        <label>QtNetwork/QUdpSocket</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="feedbacksocket_8h" kindref="compound">feedbacksocket.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetworking" kindref="compound">Networking</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classNetworking_1_1FeedbackSocket_1a01f8ebac655964fc549de0dbbf6d26c8" kindref="member">FeedbackSocket::FeedbackSocket</ref>(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classNetworking_1_1AbstractUDPSocket" kindref="compound">AbstractUDPSocket</ref>{parent}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"><sp/><sp/><sp/><sp/>QObject::connect(</highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;FeedbackSocket::received,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>&amp;FeedbackSocket::processResult,<sp/>Qt::DirectConnection);</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1FeedbackSocket_1a832076e093faa9849eaf281f2f9a1c07" kindref="member">FeedbackSocket::start</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>address)</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classNetworking_1_1AbstractUDPSocket_1ab60a7a8b141cbdfa5a49448ef06425e9" kindref="member">connect</ref>(address);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo().noquote()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[FEEDBACK]<sp/>Started<sp/>listening<sp/>to<sp/>SAR<sp/>on&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>address;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1FeedbackSocket_1a0b914fd9a70cef96f8139823a3951943" kindref="member">FeedbackSocket::stop</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="classNetworking_1_1AbstractUDPSocket_1ace97f4f1318099d3b0203d7cdaa263cb" kindref="member">disconnect</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>qInfo()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[FEEDBACK]<sp/>Socket<sp/>disconnected&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FeedbackSocket::processResult(QByteArray<sp/>data)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>QString<sp/>dataString<sp/>=<sp/>data.data();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(dataString.contains(STORAGE_STATUS_MARKER))</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataString.remove(STORAGE_STATUS_MARKER);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataString.remove(0,<sp/>1);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qDebug().noquote()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[SAR]<sp/>Received<sp/>storage<sp/>status:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>dataString;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1FeedbackSocket_1a722f96da1800fecc9d8756a6292c4d57" kindref="member">diskSpaceReceived</ref>(dataString.split(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">,<sp/>Qt::SkipEmptyParts).first().toLong(),</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataString.split(</highlight><highlight class="charliteral">&apos;<sp/>&apos;</highlight><highlight class="normal">,<sp/>Qt::SkipEmptyParts).last().toLong());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1FeedbackSocket_1a067dad9137b11c7fc4f6b1a6a6b1d501" kindref="member">textReceived</ref>(data);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/c++/network/execd/feedbacksocket.c++"/>
+  </compounddef>
+</doxygen>

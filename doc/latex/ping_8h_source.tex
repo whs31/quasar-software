@@ -1,0 +1,46 @@
+\hypertarget{ping_8h_source}{}\doxysection{ping.\+h}
+\label{ping_8h_source}\index{src/c++/network/ping.h@{src/c++/network/ping.h}}
+\mbox{\hyperlink{ping_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QtCore/QStringList>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }QTimer;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }QProcess;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceNetworking}{Networking}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classNetworking_1_1Pinger_ad50db6efb1dead10624227622ab23ce7}{\string~Pinger}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1Pinger_a0440b26f90fcf3904d2ac8c2a8653fe8}{start}}(uint32\_t\ interval,\ \textcolor{keyword}{const}\ QString\&\ address,\ \textcolor{keyword}{const}\ vector<QString>\ args\ =\ \{\});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1Pinger_a243166a08db94fd1bd04ace0ca0572c1}{stop}}()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1Pinger_a2b0d95470bc81385d7f24352945c50fa}{result}}(\textcolor{keywordtype}{int}\ status);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ping();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ recv();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ QProcess*\ ch;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ QTimer*\ t;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ addr;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ QStringList\ m\_args;}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ \}\ \textcolor{comment}{//\ Network}}
+
+\end{DoxyCode}

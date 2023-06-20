@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="setArgument-example" kind="example">
+    <compoundname>setArgument</compoundname>
+    <briefdescription>
+<para>Sets argument in ArgumentList instance. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Sets argument in ArgumentList instance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- argument key (e.g. &quot;--x0&quot;. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- QVariant-value. Will be automatically casted to QString internally. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- category of argument, same as argument(...) function.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Can be invoked from QML. (&quot;-v&quot;, QVariant::fromValue(159.0f), <ref refid="classNetworking_1_1Enums_1ad5aada946b73c24be636cea5a1679caaab03f33bbdb98c2fb5b73db6ee6a31e2f" kindref="member">Networking::Enums::Focus</ref>); <programlisting filename="setArgument"></programlisting> </para>
+    </detaileddescription>
+    <location file="src/c++/network/network.h"/>
+  </compounddef>
+</doxygen>

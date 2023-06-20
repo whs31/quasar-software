@@ -1,0 +1,51 @@
+\hypertarget{new_2plot_8py}{}\doxysection{src/python/strip/new/plot.py File Reference}
+\label{new_2plot_8py}\index{src/python/strip/new/plot.py@{src/python/strip/new/plot.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classplot_1_1ArrayReader}{plot.\+Array\+Reader}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceplot}{plot}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceplot_a0f6ec66ca922aa2203604a972f31e592}{plot.\+nav\+\_\+struct}}
+\item 
+str \mbox{\hyperlink{namespaceplot_a657eb64d96860653922e001d3ea878f3}{plot.\+head\+\_\+struct}}
+\item 
+str \mbox{\hyperlink{namespaceplot_ac1f39dfd8f7236d200d560fb821be18f}{plot.\+img\+\_\+struct}}
+\item 
+np \mbox{\hyperlink{namespaceplot_ade2344062afa7c498133c397e3fe68cd}{plot.\+data}} = np.\+fromfile(\textquotesingle{}./data.\+bin\textquotesingle{}, dtype=\textquotesingle{}uint8\textquotesingle{})
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot_a79e5be6ede9dbf9b97a9de4ebf4703d7}{plot.\+ar}} = Array\+Reader(data)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_afb64df72f75aa71e06b2b1690c2d2bb9}{plot.\+pack\+\_\+head}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(head\+\_\+struct)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_a803be6ba2addd8a2bdba78503a58f6ae}{plot.\+pack\+\_\+nav}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(nav\+\_\+struct)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_a8c204a61384d6fc62c43a92d6d5b5cc8}{plot.\+pack\+\_\+img}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(img\+\_\+struct)
+\item 
+np \mbox{\hyperlink{namespaceplot_a99c7feae809b58ecfe25f7b11465c6a0}{plot.\+a}} = np.\+array(\mbox{[}$\,$\mbox{]})
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot_a847e10fa79467aebfb53847631a03cbc}{plot.\+header}} = ar.\+read(84)
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot_a03b8e90a5096282d45bfe1585335f06b}{plot.\+header\+\_\+reader}} = Array\+Reader(header)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_ae098e4a1f4ff74d9914f75bf12ed5270}{plot.\+head}} = pack\+\_\+head.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+head.\+size}}() ) )
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_a1f587176f9ce1e124ba113e173ac66dc}{plot.\+nav}} = pack\+\_\+nav.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+nav.\+size}}() ) )
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot_a79fe232bc686f7a177eb89f9ef5160eb}{plot.\+img}} = pack\+\_\+img.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+img.\+size}}() ) )
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot_a68a8a5df4f8d784059145f81ae5a309c}{plot.\+chunk}} = ar.\+read(head\mbox{[}\char`\"{}size\char`\"{}\mbox{]})
+\item 
+int \mbox{\hyperlink{namespaceplot_ae8ffe488e982bcc8f2c90fdbee11d7fd}{plot.\+line\+\_\+len}} = int(img\mbox{[}\char`\"{}dx\char`\"{}\mbox{]} $\ast$ img\mbox{[}\char`\"{}nx\char`\"{}\mbox{]})
+\item 
+int \mbox{\hyperlink{namespaceplot_a77460fe5c2978855f09e5a61c3b045fd}{plot.\+n\+\_\+rows}} = int(len(a) / line\+\_\+len)
+\item 
+\mbox{\hyperlink{namespaceplot_a38f1a27cfb2b19837ed19adcc7e87a2c}{plot.\+cmap}}
+\end{DoxyCompactItemize}

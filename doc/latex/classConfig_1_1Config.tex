@@ -1,0 +1,841 @@
+\hypertarget{classConfig_1_1Config}{}\doxysection{Config\+::Config Class Reference}
+\label{classConfig_1_1Config}\index{Config::Config@{Config::Config}}
+
+
+{\ttfamily \#include $<$config.\+h$>$}
+
+Inheritance diagram for Config\+::Config\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classConfig_1_1Config}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a2068804995cd0f45d0b0006649f960f5}{remote\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a2935d764b617a10ffe9eeaf2436e80fb}{local\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ae2b55166d3cac231ba591b8b3b85d77c}{telemetry\+Port\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aea8e12ec5e195be98e1cd0b22847596d}{tcp\+LFSPort\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aa889be10e3472e65285a8dfa28c2a7e1}{udp\+LFSPort\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a227e43f45909acc6f90462675c54cc6f}{execd\+Port\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ad7e6fe2f87fa59743fab997b60e51729}{feedback\+Port\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a7b53b2ecc615df31c5fd4f93a364e696}{proxy\+Enabled\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a6da21194e94a0c33fc28f13da71fe532}{antenna\+Alignment\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ad3e9caf4d8f42dfec6128d23c9e41eff}{angle\+Correction\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a8648ad901bf79edaba74aa9c0b49abc2}{use\+Radians\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aebf15f04cb6af7244178894932e1a3d7}{use\+Drift\+Angle\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a3a451e65de8487b56cdfd12dd14a5e14}{theta\+Azimuth\+Correction\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_adc2150eef6289689c788e132ccb8ada6}{stored\+Latitude\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a20532a070ac90a0982b81ab5d33600e4}{stored\+Longitude\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a5815c0321838033633c03baa4773ceb6}{stored\+Zoom\+Level\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_acba44e8575b06c9ac4f90ee08341f60b}{stored\+Catalogue\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a7d855fef6853d3f03c931009d1dd1afb}{telemetry\+Frequency\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a5625e3735b3158a4575e987d745e21cd}{override\+Image\+Height\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a9f7670eb9f00dcfd849d55e8e1bbbd4a}{cut\+Image\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aa6c36dc644cd8e73ae3f1827c9ce7380}{tcp\+Marker\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a3a4f2f708064df7777ac6be3ac3e1738}{theme\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a0eba2d9411e7c320ad7e3ee684c77e3b}{schedule\+Restart}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a7224fd4b3dc1199999e75af16c2f27a8}{jetson\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a805179f6e0ebd0eda3b7410e34e12526}{nav\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a6069b4833062c2d92b83a0cb404c3441}{utl1\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a15062d346a78b9c5d86d80caa9e34b63}{utl2\+IPChanged}} ()
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a35be41b318469d8e0286f1e9064ee4b6}{telemetry\+Recv\+Port\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classConfig_1_1Config_a4b47bb30ac45bd50b53052bd60936646}{$\sim$\+Config}} ()
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_a6d244127554718f36c3baea1f065ff1b}{sync}} ()
+\begin{DoxyCompactList}\small\item\em Syncs settings from RAM to .ini file on disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_a48b678a91d7c4c9920156db6d1464ac2}{save}} ()
+\begin{DoxyCompactList}\small\item\em Saves settings from RAM to .ini file on disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_aaeb0911a5ee41d13c9515ab2cda4768b}{load}} ()
+\begin{DoxyCompactList}\small\item\em Discards all current settings and loads stored settings from .ini file on disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_a712b7bcc3dc8e59e2a4c763fe2cfc106}{revert}} ()
+\begin{DoxyCompactList}\small\item\em Alias for \mbox{\hyperlink{classConfig_1_1Config_aaeb0911a5ee41d13c9515ab2cda4768b}{load()}}. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_ac77d2e38c19082bd11301bccf7adce32}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Discards current settings, .ini file and loads default settings. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE QString \mbox{\hyperlink{classConfig_1_1Config_a31bd571019df692076413307b5fd7a45}{project\+Version}} ()
+\begin{DoxyCompactList}\small\item\em Returns application version. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a076a84316bce0e2417c2ef11b8baca41}{remote\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a698594cf3acbff9b6247f44dda516568}{set\+Remote\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a99cf62a8e724daa899f09c6f5b1f8fcf}{local\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_afd074ae610617480480c74128f9d7570}{set\+Local\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a1ea61dab4477f0de442500e93148d2ad}{telemetry\+Port}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a5175f115312e3de9cc3a81eea61d4ef5}{set\+Telemetry\+Port}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a0a929f2b9ed21e3aab5aca31bcd6235b}{tcp\+LFSPort}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ab0e6e35f35aab4dc444ffa36e05cdc8e}{set\+Tcp\+LFSPort}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a1615b85c981f86e424bec6b68e78e5aa}{udp\+LFSPort}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a7db4289e2da2c1e46e216f98e84d868c}{set\+Udp\+LFSPort}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a74978c4fb8a44c5270e36b4668241a74}{execd\+Port}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ac8bb64f042792344522d8571243ffa4f}{set\+Execd\+Port}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_aa2e3ac63535a055ef8b961189aac40b5}{feedback\+Port}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a518c55ed9035bff092fa951c06e65a5c}{set\+Feedback\+Port}} (const QString \&)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_aa599fe2643683936219ae8d27bb98bcd}{proxy\+Enabled}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ab6bec869f854eb68275389d177a82eec}{set\+Proxy\+Enabled}} (bool)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_aaae9f0f8a36c4d70e9c2f84438c11313}{antenna\+Alignment}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aa88362bf58a7e52469fd4fe43dddb1cf}{set\+Antenna\+Alignment}} (bool)
+\item 
+float \mbox{\hyperlink{classConfig_1_1Config_a5d3e69e0ccbccd06940ec1be0dbba3cc}{angle\+Correction}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a1fecb84f707c2f87033baaf5a1d23c44}{set\+Angle\+Correction}} (float)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a109cc51e51c4044082c920ea8d21ebc1}{use\+Radians}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aa7ac15f6113b653c7f8f65b209c166ff}{set\+Use\+Radians}} (bool)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a97af91461eee37bbafd9d68d23f3ac91}{use\+Drift\+Angle}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_adb79448101b031b48155a1ad7678d9f0}{set\+Use\+Drift\+Angle}} (bool)
+\item 
+float \mbox{\hyperlink{classConfig_1_1Config_aaccb92ad86b4bc9dfc213a519132b722}{theta\+Azimuth\+Correction}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a663a09a2080d72c8d26248ea2ae45304}{set\+Theta\+Azimuth\+Correction}} (float)
+\item 
+double \mbox{\hyperlink{classConfig_1_1Config_a7f6a3f4feb576a312e2e55d3b1a17649}{stored\+Latitude}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ab7cdad36522a4e565532743edc7babc1}{set\+Stored\+Latitude}} (double)
+\item 
+double \mbox{\hyperlink{classConfig_1_1Config_abf058f0306748b40491f8a4d651b7580}{stored\+Longitude}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a314f7f4456e8c62b53bad0f9e1f3b4c0}{set\+Stored\+Longitude}} (double)
+\item 
+double \mbox{\hyperlink{classConfig_1_1Config_af342de4a93558acda737d085508ad30a}{stored\+Zoom\+Level}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_afa887b2ca066f6aba1fd474ef55f71d7}{set\+Stored\+Zoom\+Level}} (double)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a4b14cf293199ce9968faeb00e5b7d7a5}{stored\+Catalogue}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a8f69f055ddd3b13f0cbef5f60f289b2b}{set\+Stored\+Catalogue}} (const QString \&)
+\item 
+float \mbox{\hyperlink{classConfig_1_1Config_abe61de5ac139a8178f7ae070cdf50ccd}{telemetry\+Frequency}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a1ab73713399efd6d52fdc77f77195231}{set\+Telemetry\+Frequency}} (float)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a6cab6f283718c7f78cb8a77fa2e00798}{override\+Image\+Height}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a00ae0c3c17993e3423a72028ac5b282e}{set\+Override\+Image\+Height}} (bool)
+\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a9cd9200532f17d524fc83aec0b0be74a}{cut\+Image}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_ac454396489d90b6d9d8cb6b85a26728f}{set\+Cut\+Image}} (bool)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_af278acd63cced1519f44146022a5c632}{tcp\+Marker}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_aa19db9fbf34aaab1e301e5bbc4a1d8a1}{set\+Tcp\+Marker}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a022f36ce6ae973b6ce726779dc033b52}{theme}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a8c0701d2c7f9641ae98de3cdfe94beb1}{set\+Theme}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a90f1ec9c4838c8282a070b8081a47b8b}{jetson\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a2ea222ce77facc9ac6841c83a120ad25}{set\+Jetson\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a83e51ae6328c96939e341b6c2ae513f8}{nav\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a0e40935e22bf86f461ca38e70bd7526a}{set\+Nav\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_adc889db35ec4104e7a75a0823fad9a1a}{utl1\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a6ff1381d1e2e0c077d87886676a53f4f}{set\+Utl1\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a466a4a4ca79a1815b42add3f0a86dd43}{utl2\+IP}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a6c9cc88c2b48e404c1658f59fdd9bf52}{set\+Utl2\+IP}} (const QString \&)
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a1e589d0c3908fe993d87d10dc7e85fc9}{telemetry\+Recv\+Port}} () const
+\item 
+void \mbox{\hyperlink{classConfig_1_1Config_a3e5508a69c2c19b4b6e4df5a826ac129}{set\+Telemetry\+Recv\+Port}} (const QString \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classConfig_1_1Config}{Config}} $\ast$ \mbox{\hyperlink{classConfig_1_1Config_a61abfe1382539456cec494f84cf56a3f}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns singleton instance of class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{group__Network_ga53201871167f59da4a0b030ac2236a52}{remote\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga83efa1375676af7c7314839ecebf4ce4}{local\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga6f34f4f3353513441a0e80e33d36b04e}{jetson\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga228e49715386ed0ca156b7a707cd6a4e}{nav\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_gac4250a3eec1e11ee5292c4b2a480b6ca}{utl1\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_gab4fe48535d01d430c293ed52be0a7b36}{utl2\+IP}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga7e75cbb4bb5965edbf4533766168f321}{telemetry\+Port}}
+\item 
+QString \mbox{\hyperlink{group__Network_gae7e6a0575c98833a88a4ce8bc84a2bbe}{telemetry\+Recv\+Port}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga4eb8c190ac01fcb1f06e6068ddcce6c4}{tcp\+LFSPort}}
+\item 
+QString \mbox{\hyperlink{group__Network_gade2456d8323aa0592d3b1ffe7f9a52dc}{udp\+LFSPort}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga6c4c7a55e3d6a1628b4c9e1e81ba6157}{execd\+Port}}
+\item 
+QString \mbox{\hyperlink{group__Network_gab6de29fbc42a71a257bd4d6dbf6f32d1}{feedback\+Port}}
+\item 
+float \mbox{\hyperlink{group__Network_ga1b0a28c06f494980a5e5a1cb27e13807}{telemetry\+Frequency}}
+\item 
+bool \mbox{\hyperlink{group__Network_gaed89795250742d1bd14642678b944bf9}{proxy\+Enabled}}
+\item 
+QString \mbox{\hyperlink{group__Network_ga4d636297c5b2507d500ac977aeae24ab}{tcp\+Marker}}
+\item 
+bool \mbox{\hyperlink{group__UAV_gad1936d307937b7eae276be76aa1fbd4b}{antenna\+Alignment}}
+\item 
+float \mbox{\hyperlink{group__UAV_ga8540f130a0f40be354d762617dee0642}{angle\+Correction}}
+\item 
+bool \mbox{\hyperlink{group__UAV_gacf2fb5fcae01050db34ca586e8d24dc2}{use\+Radians}}
+\item 
+bool \mbox{\hyperlink{group__UAV_ga14104d9a2e30741a0fadddf69ffc4a8a}{use\+Drift\+Angle}}
+\item 
+float \mbox{\hyperlink{group__UAV_gab158fee869502b2d1dbd139a2dab35d9}{theta\+Azimuth\+Correction}}
+\item 
+bool \mbox{\hyperlink{group__UAV_gae4197fa7c71daac4097824ed6ea81f15}{override\+Image\+Height}}
+\item 
+bool \mbox{\hyperlink{group__UAV_gaad06ebf71336f48d8ad6671f086b63d4}{cut\+Image}}
+\item 
+double \mbox{\hyperlink{group__Previous_ga53610034d9c0b8e4b72957f7f6038aea}{stored\+Latitude}}
+\item 
+double \mbox{\hyperlink{group__Previous_ga9bb09093e547fb3ee7ba9867e7ceb3cf}{stored\+Longitude}}
+\item 
+double \mbox{\hyperlink{group__Previous_gabdd3742c56733450a271bdfd11164b06}{stored\+Zoom\+Level}}
+\item 
+QString \mbox{\hyperlink{group__Previous_gab754ac42251e5d19242369484c52976a}{stored\+Catalogue}}
+\item 
+QString \mbox{\hyperlink{group__Application_gad0dc9539aff9c895e938d9af25e29bac}{theme}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classConfig_1_1Config_a4b47bb30ac45bd50b53052bd60936646}\label{classConfig_1_1Config_a4b47bb30ac45bd50b53052bd60936646}} 
+\index{Config::Config@{Config::Config}!````~Config@{$\sim$Config}}
+\index{````~Config@{$\sim$Config}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{$\sim$Config()}{~Config()}}
+{\footnotesize\ttfamily Config\+::\+Config\+::$\sim$\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConfig_1_1Config_a5d3e69e0ccbccd06940ec1be0dbba3cc}\label{classConfig_1_1Config_a5d3e69e0ccbccd06940ec1be0dbba3cc}} 
+\index{Config::Config@{Config::Config}!angleCorrection@{angleCorrection}}
+\index{angleCorrection@{angleCorrection}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{angleCorrection()}{angleCorrection()}}
+{\footnotesize\ttfamily float Config\+::\+Config\+::angle\+Correction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ad3e9caf4d8f42dfec6128d23c9e41eff}\label{classConfig_1_1Config_ad3e9caf4d8f42dfec6128d23c9e41eff}} 
+\index{Config::Config@{Config::Config}!angleCorrectionChanged@{angleCorrectionChanged}}
+\index{angleCorrectionChanged@{angleCorrectionChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{angleCorrectionChanged}{angleCorrectionChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::angle\+Correction\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aaae9f0f8a36c4d70e9c2f84438c11313}\label{classConfig_1_1Config_aaae9f0f8a36c4d70e9c2f84438c11313}} 
+\index{Config::Config@{Config::Config}!antennaAlignment@{antennaAlignment}}
+\index{antennaAlignment@{antennaAlignment}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{antennaAlignment()}{antennaAlignment()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::antenna\+Alignment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6da21194e94a0c33fc28f13da71fe532}\label{classConfig_1_1Config_a6da21194e94a0c33fc28f13da71fe532}} 
+\index{Config::Config@{Config::Config}!antennaAlignmentChanged@{antennaAlignmentChanged}}
+\index{antennaAlignmentChanged@{antennaAlignmentChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{antennaAlignmentChanged}{antennaAlignmentChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::antenna\+Alignment\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a9cd9200532f17d524fc83aec0b0be74a}\label{classConfig_1_1Config_a9cd9200532f17d524fc83aec0b0be74a}} 
+\index{Config::Config@{Config::Config}!cutImage@{cutImage}}
+\index{cutImage@{cutImage}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{cutImage()}{cutImage()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::cut\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a9f7670eb9f00dcfd849d55e8e1bbbd4a}\label{classConfig_1_1Config_a9f7670eb9f00dcfd849d55e8e1bbbd4a}} 
+\index{Config::Config@{Config::Config}!cutImageChanged@{cutImageChanged}}
+\index{cutImageChanged@{cutImageChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{cutImageChanged}{cutImageChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::cut\+Image\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a74978c4fb8a44c5270e36b4668241a74}\label{classConfig_1_1Config_a74978c4fb8a44c5270e36b4668241a74}} 
+\index{Config::Config@{Config::Config}!execdPort@{execdPort}}
+\index{execdPort@{execdPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{execdPort()}{execdPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::execd\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a227e43f45909acc6f90462675c54cc6f}\label{classConfig_1_1Config_a227e43f45909acc6f90462675c54cc6f}} 
+\index{Config::Config@{Config::Config}!execdPortChanged@{execdPortChanged}}
+\index{execdPortChanged@{execdPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{execdPortChanged}{execdPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::execd\+Port\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa2e3ac63535a055ef8b961189aac40b5}\label{classConfig_1_1Config_aa2e3ac63535a055ef8b961189aac40b5}} 
+\index{Config::Config@{Config::Config}!feedbackPort@{feedbackPort}}
+\index{feedbackPort@{feedbackPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{feedbackPort()}{feedbackPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::feedback\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ad7e6fe2f87fa59743fab997b60e51729}\label{classConfig_1_1Config_ad7e6fe2f87fa59743fab997b60e51729}} 
+\index{Config::Config@{Config::Config}!feedbackPortChanged@{feedbackPortChanged}}
+\index{feedbackPortChanged@{feedbackPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{feedbackPortChanged}{feedbackPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::feedback\+Port\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a61abfe1382539456cec494f84cf56a3f}\label{classConfig_1_1Config_a61abfe1382539456cec494f84cf56a3f}} 
+\index{Config::Config@{Config::Config}!get@{get}}
+\index{get@{get}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classConfig_1_1Config}{Config\+::\+Config}} $\ast$ Config\+::\+Config\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns singleton instance of class. 
+
+\mbox{\Hypertarget{classConfig_1_1Config_a90f1ec9c4838c8282a070b8081a47b8b}\label{classConfig_1_1Config_a90f1ec9c4838c8282a070b8081a47b8b}} 
+\index{Config::Config@{Config::Config}!jetsonIP@{jetsonIP}}
+\index{jetsonIP@{jetsonIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{jetsonIP()}{jetsonIP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::jetson\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a7224fd4b3dc1199999e75af16c2f27a8}\label{classConfig_1_1Config_a7224fd4b3dc1199999e75af16c2f27a8}} 
+\index{Config::Config@{Config::Config}!jetsonIPChanged@{jetsonIPChanged}}
+\index{jetsonIPChanged@{jetsonIPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{jetsonIPChanged}{jetsonIPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::jetson\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aaeb0911a5ee41d13c9515ab2cda4768b}\label{classConfig_1_1Config_aaeb0911a5ee41d13c9515ab2cda4768b}} 
+\index{Config::Config@{Config::Config}!load@{load}}
+\index{load@{load}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Discards all current settings and loads stored settings from .ini file on disk. 
+
+Can be invoked from QML. \mbox{\Hypertarget{classConfig_1_1Config_a99cf62a8e724daa899f09c6f5b1f8fcf}\label{classConfig_1_1Config_a99cf62a8e724daa899f09c6f5b1f8fcf}} 
+\index{Config::Config@{Config::Config}!localIP@{localIP}}
+\index{localIP@{localIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{localIP()}{localIP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::local\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a2935d764b617a10ffe9eeaf2436e80fb}\label{classConfig_1_1Config_a2935d764b617a10ffe9eeaf2436e80fb}} 
+\index{Config::Config@{Config::Config}!localIPChanged@{localIPChanged}}
+\index{localIPChanged@{localIPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{localIPChanged}{localIPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::local\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a83e51ae6328c96939e341b6c2ae513f8}\label{classConfig_1_1Config_a83e51ae6328c96939e341b6c2ae513f8}} 
+\index{Config::Config@{Config::Config}!navIP@{navIP}}
+\index{navIP@{navIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{navIP()}{navIP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::nav\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a805179f6e0ebd0eda3b7410e34e12526}\label{classConfig_1_1Config_a805179f6e0ebd0eda3b7410e34e12526}} 
+\index{Config::Config@{Config::Config}!navIPChanged@{navIPChanged}}
+\index{navIPChanged@{navIPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{navIPChanged}{navIPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::nav\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6cab6f283718c7f78cb8a77fa2e00798}\label{classConfig_1_1Config_a6cab6f283718c7f78cb8a77fa2e00798}} 
+\index{Config::Config@{Config::Config}!overrideImageHeight@{overrideImageHeight}}
+\index{overrideImageHeight@{overrideImageHeight}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{overrideImageHeight()}{overrideImageHeight()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::override\+Image\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a5625e3735b3158a4575e987d745e21cd}\label{classConfig_1_1Config_a5625e3735b3158a4575e987d745e21cd}} 
+\index{Config::Config@{Config::Config}!overrideImageHeightChanged@{overrideImageHeightChanged}}
+\index{overrideImageHeightChanged@{overrideImageHeightChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{overrideImageHeightChanged}{overrideImageHeightChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::override\+Image\+Height\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a31bd571019df692076413307b5fd7a45}\label{classConfig_1_1Config_a31bd571019df692076413307b5fd7a45}} 
+\index{Config::Config@{Config::Config}!projectVersion@{projectVersion}}
+\index{projectVersion@{projectVersion}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{projectVersion()}{projectVersion()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::project\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns application version. 
+
+Can be invoked from QML. \mbox{\Hypertarget{classConfig_1_1Config_aa599fe2643683936219ae8d27bb98bcd}\label{classConfig_1_1Config_aa599fe2643683936219ae8d27bb98bcd}} 
+\index{Config::Config@{Config::Config}!proxyEnabled@{proxyEnabled}}
+\index{proxyEnabled@{proxyEnabled}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{proxyEnabled()}{proxyEnabled()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::proxy\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a7b53b2ecc615df31c5fd4f93a364e696}\label{classConfig_1_1Config_a7b53b2ecc615df31c5fd4f93a364e696}} 
+\index{Config::Config@{Config::Config}!proxyEnabledChanged@{proxyEnabledChanged}}
+\index{proxyEnabledChanged@{proxyEnabledChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{proxyEnabledChanged}{proxyEnabledChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::proxy\+Enabled\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a076a84316bce0e2417c2ef11b8baca41}\label{classConfig_1_1Config_a076a84316bce0e2417c2ef11b8baca41}} 
+\index{Config::Config@{Config::Config}!remoteIP@{remoteIP}}
+\index{remoteIP@{remoteIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{remoteIP()}{remoteIP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::remote\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a2068804995cd0f45d0b0006649f960f5}\label{classConfig_1_1Config_a2068804995cd0f45d0b0006649f960f5}} 
+\index{Config::Config@{Config::Config}!remoteIPChanged@{remoteIPChanged}}
+\index{remoteIPChanged@{remoteIPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{remoteIPChanged}{remoteIPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::remote\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ac77d2e38c19082bd11301bccf7adce32}\label{classConfig_1_1Config_ac77d2e38c19082bd11301bccf7adce32}} 
+\index{Config::Config@{Config::Config}!reset@{reset}}
+\index{reset@{reset}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Discards current settings, .ini file and loads default settings. 
+
+Can be invoked from QML. \mbox{\Hypertarget{classConfig_1_1Config_a712b7bcc3dc8e59e2a4c763fe2cfc106}\label{classConfig_1_1Config_a712b7bcc3dc8e59e2a4c763fe2cfc106}} 
+\index{Config::Config@{Config::Config}!revert@{revert}}
+\index{revert@{revert}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{revert()}{revert()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::revert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Alias for \mbox{\hyperlink{classConfig_1_1Config_aaeb0911a5ee41d13c9515ab2cda4768b}{load()}}. 
+
+Can be invoked from QML. \mbox{\Hypertarget{classConfig_1_1Config_a48b678a91d7c4c9920156db6d1464ac2}\label{classConfig_1_1Config_a48b678a91d7c4c9920156db6d1464ac2}} 
+\index{Config::Config@{Config::Config}!save@{save}}
+\index{save@{save}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saves settings from RAM to .ini file on disk. 
+
+Can be invoked from QML. \mbox{\Hypertarget{classConfig_1_1Config_a0eba2d9411e7c320ad7e3ee684c77e3b}\label{classConfig_1_1Config_a0eba2d9411e7c320ad7e3ee684c77e3b}} 
+\index{Config::Config@{Config::Config}!scheduleRestart@{scheduleRestart}}
+\index{scheduleRestart@{scheduleRestart}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{scheduleRestart}{scheduleRestart}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::schedule\+Restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1fecb84f707c2f87033baaf5a1d23c44}\label{classConfig_1_1Config_a1fecb84f707c2f87033baaf5a1d23c44}} 
+\index{Config::Config@{Config::Config}!setAngleCorrection@{setAngleCorrection}}
+\index{setAngleCorrection@{setAngleCorrection}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setAngleCorrection()}{setAngleCorrection()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Angle\+Correction (\begin{DoxyParamCaption}\item[{float}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa88362bf58a7e52469fd4fe43dddb1cf}\label{classConfig_1_1Config_aa88362bf58a7e52469fd4fe43dddb1cf}} 
+\index{Config::Config@{Config::Config}!setAntennaAlignment@{setAntennaAlignment}}
+\index{setAntennaAlignment@{setAntennaAlignment}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setAntennaAlignment()}{setAntennaAlignment()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Antenna\+Alignment (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ac454396489d90b6d9d8cb6b85a26728f}\label{classConfig_1_1Config_ac454396489d90b6d9d8cb6b85a26728f}} 
+\index{Config::Config@{Config::Config}!setCutImage@{setCutImage}}
+\index{setCutImage@{setCutImage}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setCutImage()}{setCutImage()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Cut\+Image (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ac8bb64f042792344522d8571243ffa4f}\label{classConfig_1_1Config_ac8bb64f042792344522d8571243ffa4f}} 
+\index{Config::Config@{Config::Config}!setExecdPort@{setExecdPort}}
+\index{setExecdPort@{setExecdPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setExecdPort()}{setExecdPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Execd\+Port (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a518c55ed9035bff092fa951c06e65a5c}\label{classConfig_1_1Config_a518c55ed9035bff092fa951c06e65a5c}} 
+\index{Config::Config@{Config::Config}!setFeedbackPort@{setFeedbackPort}}
+\index{setFeedbackPort@{setFeedbackPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setFeedbackPort()}{setFeedbackPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Feedback\+Port (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a2ea222ce77facc9ac6841c83a120ad25}\label{classConfig_1_1Config_a2ea222ce77facc9ac6841c83a120ad25}} 
+\index{Config::Config@{Config::Config}!setJetsonIP@{setJetsonIP}}
+\index{setJetsonIP@{setJetsonIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setJetsonIP()}{setJetsonIP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Jetson\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_afd074ae610617480480c74128f9d7570}\label{classConfig_1_1Config_afd074ae610617480480c74128f9d7570}} 
+\index{Config::Config@{Config::Config}!setLocalIP@{setLocalIP}}
+\index{setLocalIP@{setLocalIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setLocalIP()}{setLocalIP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Local\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a0e40935e22bf86f461ca38e70bd7526a}\label{classConfig_1_1Config_a0e40935e22bf86f461ca38e70bd7526a}} 
+\index{Config::Config@{Config::Config}!setNavIP@{setNavIP}}
+\index{setNavIP@{setNavIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setNavIP()}{setNavIP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Nav\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a00ae0c3c17993e3423a72028ac5b282e}\label{classConfig_1_1Config_a00ae0c3c17993e3423a72028ac5b282e}} 
+\index{Config::Config@{Config::Config}!setOverrideImageHeight@{setOverrideImageHeight}}
+\index{setOverrideImageHeight@{setOverrideImageHeight}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setOverrideImageHeight()}{setOverrideImageHeight()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Override\+Image\+Height (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ab6bec869f854eb68275389d177a82eec}\label{classConfig_1_1Config_ab6bec869f854eb68275389d177a82eec}} 
+\index{Config::Config@{Config::Config}!setProxyEnabled@{setProxyEnabled}}
+\index{setProxyEnabled@{setProxyEnabled}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setProxyEnabled()}{setProxyEnabled()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Proxy\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a698594cf3acbff9b6247f44dda516568}\label{classConfig_1_1Config_a698594cf3acbff9b6247f44dda516568}} 
+\index{Config::Config@{Config::Config}!setRemoteIP@{setRemoteIP}}
+\index{setRemoteIP@{setRemoteIP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setRemoteIP()}{setRemoteIP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Remote\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a8f69f055ddd3b13f0cbef5f60f289b2b}\label{classConfig_1_1Config_a8f69f055ddd3b13f0cbef5f60f289b2b}} 
+\index{Config::Config@{Config::Config}!setStoredCatalogue@{setStoredCatalogue}}
+\index{setStoredCatalogue@{setStoredCatalogue}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setStoredCatalogue()}{setStoredCatalogue()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Stored\+Catalogue (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ab7cdad36522a4e565532743edc7babc1}\label{classConfig_1_1Config_ab7cdad36522a4e565532743edc7babc1}} 
+\index{Config::Config@{Config::Config}!setStoredLatitude@{setStoredLatitude}}
+\index{setStoredLatitude@{setStoredLatitude}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setStoredLatitude()}{setStoredLatitude()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Stored\+Latitude (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a314f7f4456e8c62b53bad0f9e1f3b4c0}\label{classConfig_1_1Config_a314f7f4456e8c62b53bad0f9e1f3b4c0}} 
+\index{Config::Config@{Config::Config}!setStoredLongitude@{setStoredLongitude}}
+\index{setStoredLongitude@{setStoredLongitude}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setStoredLongitude()}{setStoredLongitude()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Stored\+Longitude (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_afa887b2ca066f6aba1fd474ef55f71d7}\label{classConfig_1_1Config_afa887b2ca066f6aba1fd474ef55f71d7}} 
+\index{Config::Config@{Config::Config}!setStoredZoomLevel@{setStoredZoomLevel}}
+\index{setStoredZoomLevel@{setStoredZoomLevel}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setStoredZoomLevel()}{setStoredZoomLevel()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Stored\+Zoom\+Level (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ab0e6e35f35aab4dc444ffa36e05cdc8e}\label{classConfig_1_1Config_ab0e6e35f35aab4dc444ffa36e05cdc8e}} 
+\index{Config::Config@{Config::Config}!setTcpLFSPort@{setTcpLFSPort}}
+\index{setTcpLFSPort@{setTcpLFSPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTcpLFSPort()}{setTcpLFSPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Tcp\+LFSPort (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa19db9fbf34aaab1e301e5bbc4a1d8a1}\label{classConfig_1_1Config_aa19db9fbf34aaab1e301e5bbc4a1d8a1}} 
+\index{Config::Config@{Config::Config}!setTcpMarker@{setTcpMarker}}
+\index{setTcpMarker@{setTcpMarker}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTcpMarker()}{setTcpMarker()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Tcp\+Marker (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1ab73713399efd6d52fdc77f77195231}\label{classConfig_1_1Config_a1ab73713399efd6d52fdc77f77195231}} 
+\index{Config::Config@{Config::Config}!setTelemetryFrequency@{setTelemetryFrequency}}
+\index{setTelemetryFrequency@{setTelemetryFrequency}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTelemetryFrequency()}{setTelemetryFrequency()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Telemetry\+Frequency (\begin{DoxyParamCaption}\item[{float}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a5175f115312e3de9cc3a81eea61d4ef5}\label{classConfig_1_1Config_a5175f115312e3de9cc3a81eea61d4ef5}} 
+\index{Config::Config@{Config::Config}!setTelemetryPort@{setTelemetryPort}}
+\index{setTelemetryPort@{setTelemetryPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTelemetryPort()}{setTelemetryPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Telemetry\+Port (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a3e5508a69c2c19b4b6e4df5a826ac129}\label{classConfig_1_1Config_a3e5508a69c2c19b4b6e4df5a826ac129}} 
+\index{Config::Config@{Config::Config}!setTelemetryRecvPort@{setTelemetryRecvPort}}
+\index{setTelemetryRecvPort@{setTelemetryRecvPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTelemetryRecvPort()}{setTelemetryRecvPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Telemetry\+Recv\+Port (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a8c0701d2c7f9641ae98de3cdfe94beb1}\label{classConfig_1_1Config_a8c0701d2c7f9641ae98de3cdfe94beb1}} 
+\index{Config::Config@{Config::Config}!setTheme@{setTheme}}
+\index{setTheme@{setTheme}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setTheme()}{setTheme()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Theme (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a663a09a2080d72c8d26248ea2ae45304}\label{classConfig_1_1Config_a663a09a2080d72c8d26248ea2ae45304}} 
+\index{Config::Config@{Config::Config}!setThetaAzimuthCorrection@{setThetaAzimuthCorrection}}
+\index{setThetaAzimuthCorrection@{setThetaAzimuthCorrection}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setThetaAzimuthCorrection()}{setThetaAzimuthCorrection()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Theta\+Azimuth\+Correction (\begin{DoxyParamCaption}\item[{float}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a7db4289e2da2c1e46e216f98e84d868c}\label{classConfig_1_1Config_a7db4289e2da2c1e46e216f98e84d868c}} 
+\index{Config::Config@{Config::Config}!setUdpLFSPort@{setUdpLFSPort}}
+\index{setUdpLFSPort@{setUdpLFSPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setUdpLFSPort()}{setUdpLFSPort()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Udp\+LFSPort (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_adb79448101b031b48155a1ad7678d9f0}\label{classConfig_1_1Config_adb79448101b031b48155a1ad7678d9f0}} 
+\index{Config::Config@{Config::Config}!setUseDriftAngle@{setUseDriftAngle}}
+\index{setUseDriftAngle@{setUseDriftAngle}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setUseDriftAngle()}{setUseDriftAngle()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Use\+Drift\+Angle (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa7ac15f6113b653c7f8f65b209c166ff}\label{classConfig_1_1Config_aa7ac15f6113b653c7f8f65b209c166ff}} 
+\index{Config::Config@{Config::Config}!setUseRadians@{setUseRadians}}
+\index{setUseRadians@{setUseRadians}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setUseRadians()}{setUseRadians()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Use\+Radians (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6ff1381d1e2e0c077d87886676a53f4f}\label{classConfig_1_1Config_a6ff1381d1e2e0c077d87886676a53f4f}} 
+\index{Config::Config@{Config::Config}!setUtl1IP@{setUtl1IP}}
+\index{setUtl1IP@{setUtl1IP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setUtl1IP()}{setUtl1IP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Utl1\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6c9cc88c2b48e404c1658f59fdd9bf52}\label{classConfig_1_1Config_a6c9cc88c2b48e404c1658f59fdd9bf52}} 
+\index{Config::Config@{Config::Config}!setUtl2IP@{setUtl2IP}}
+\index{setUtl2IP@{setUtl2IP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{setUtl2IP()}{setUtl2IP()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::set\+Utl2\+IP (\begin{DoxyParamCaption}\item[{const QString \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a4b14cf293199ce9968faeb00e5b7d7a5}\label{classConfig_1_1Config_a4b14cf293199ce9968faeb00e5b7d7a5}} 
+\index{Config::Config@{Config::Config}!storedCatalogue@{storedCatalogue}}
+\index{storedCatalogue@{storedCatalogue}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedCatalogue()}{storedCatalogue()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::stored\+Catalogue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_acba44e8575b06c9ac4f90ee08341f60b}\label{classConfig_1_1Config_acba44e8575b06c9ac4f90ee08341f60b}} 
+\index{Config::Config@{Config::Config}!storedCatalogueChanged@{storedCatalogueChanged}}
+\index{storedCatalogueChanged@{storedCatalogueChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedCatalogueChanged}{storedCatalogueChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::stored\+Catalogue\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a7f6a3f4feb576a312e2e55d3b1a17649}\label{classConfig_1_1Config_a7f6a3f4feb576a312e2e55d3b1a17649}} 
+\index{Config::Config@{Config::Config}!storedLatitude@{storedLatitude}}
+\index{storedLatitude@{storedLatitude}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedLatitude()}{storedLatitude()}}
+{\footnotesize\ttfamily double Config\+::\+Config\+::stored\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_adc2150eef6289689c788e132ccb8ada6}\label{classConfig_1_1Config_adc2150eef6289689c788e132ccb8ada6}} 
+\index{Config::Config@{Config::Config}!storedLatitudeChanged@{storedLatitudeChanged}}
+\index{storedLatitudeChanged@{storedLatitudeChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedLatitudeChanged}{storedLatitudeChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::stored\+Latitude\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_abf058f0306748b40491f8a4d651b7580}\label{classConfig_1_1Config_abf058f0306748b40491f8a4d651b7580}} 
+\index{Config::Config@{Config::Config}!storedLongitude@{storedLongitude}}
+\index{storedLongitude@{storedLongitude}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedLongitude()}{storedLongitude()}}
+{\footnotesize\ttfamily double Config\+::\+Config\+::stored\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a20532a070ac90a0982b81ab5d33600e4}\label{classConfig_1_1Config_a20532a070ac90a0982b81ab5d33600e4}} 
+\index{Config::Config@{Config::Config}!storedLongitudeChanged@{storedLongitudeChanged}}
+\index{storedLongitudeChanged@{storedLongitudeChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedLongitudeChanged}{storedLongitudeChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::stored\+Longitude\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_af342de4a93558acda737d085508ad30a}\label{classConfig_1_1Config_af342de4a93558acda737d085508ad30a}} 
+\index{Config::Config@{Config::Config}!storedZoomLevel@{storedZoomLevel}}
+\index{storedZoomLevel@{storedZoomLevel}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedZoomLevel()}{storedZoomLevel()}}
+{\footnotesize\ttfamily double Config\+::\+Config\+::stored\+Zoom\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a5815c0321838033633c03baa4773ceb6}\label{classConfig_1_1Config_a5815c0321838033633c03baa4773ceb6}} 
+\index{Config::Config@{Config::Config}!storedZoomLevelChanged@{storedZoomLevelChanged}}
+\index{storedZoomLevelChanged@{storedZoomLevelChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{storedZoomLevelChanged}{storedZoomLevelChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::stored\+Zoom\+Level\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6d244127554718f36c3baea1f065ff1b}\label{classConfig_1_1Config_a6d244127554718f36c3baea1f065ff1b}} 
+\index{Config::Config@{Config::Config}!sync@{sync}}
+\index{sync@{sync}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{sync()}{sync()}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Syncs settings from RAM to .ini file on disk. 
+
+Can be invoked from QML. \begin{DoxySeeAlso}{See also}
+Internal function. Do not call if you are not exactly knowing what you want to achieve. 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classConfig_1_1Config_a0a929f2b9ed21e3aab5aca31bcd6235b}\label{classConfig_1_1Config_a0a929f2b9ed21e3aab5aca31bcd6235b}} 
+\index{Config::Config@{Config::Config}!tcpLFSPort@{tcpLFSPort}}
+\index{tcpLFSPort@{tcpLFSPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{tcpLFSPort()}{tcpLFSPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::tcp\+LFSPort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aea8e12ec5e195be98e1cd0b22847596d}\label{classConfig_1_1Config_aea8e12ec5e195be98e1cd0b22847596d}} 
+\index{Config::Config@{Config::Config}!tcpLFSPortChanged@{tcpLFSPortChanged}}
+\index{tcpLFSPortChanged@{tcpLFSPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{tcpLFSPortChanged}{tcpLFSPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::tcp\+LFSPort\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_af278acd63cced1519f44146022a5c632}\label{classConfig_1_1Config_af278acd63cced1519f44146022a5c632}} 
+\index{Config::Config@{Config::Config}!tcpMarker@{tcpMarker}}
+\index{tcpMarker@{tcpMarker}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{tcpMarker()}{tcpMarker()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::tcp\+Marker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa6c36dc644cd8e73ae3f1827c9ce7380}\label{classConfig_1_1Config_aa6c36dc644cd8e73ae3f1827c9ce7380}} 
+\index{Config::Config@{Config::Config}!tcpMarkerChanged@{tcpMarkerChanged}}
+\index{tcpMarkerChanged@{tcpMarkerChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{tcpMarkerChanged}{tcpMarkerChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::tcp\+Marker\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_abe61de5ac139a8178f7ae070cdf50ccd}\label{classConfig_1_1Config_abe61de5ac139a8178f7ae070cdf50ccd}} 
+\index{Config::Config@{Config::Config}!telemetryFrequency@{telemetryFrequency}}
+\index{telemetryFrequency@{telemetryFrequency}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryFrequency()}{telemetryFrequency()}}
+{\footnotesize\ttfamily float Config\+::\+Config\+::telemetry\+Frequency (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a7d855fef6853d3f03c931009d1dd1afb}\label{classConfig_1_1Config_a7d855fef6853d3f03c931009d1dd1afb}} 
+\index{Config::Config@{Config::Config}!telemetryFrequencyChanged@{telemetryFrequencyChanged}}
+\index{telemetryFrequencyChanged@{telemetryFrequencyChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryFrequencyChanged}{telemetryFrequencyChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::telemetry\+Frequency\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1ea61dab4477f0de442500e93148d2ad}\label{classConfig_1_1Config_a1ea61dab4477f0de442500e93148d2ad}} 
+\index{Config::Config@{Config::Config}!telemetryPort@{telemetryPort}}
+\index{telemetryPort@{telemetryPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryPort()}{telemetryPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::telemetry\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_ae2b55166d3cac231ba591b8b3b85d77c}\label{classConfig_1_1Config_ae2b55166d3cac231ba591b8b3b85d77c}} 
+\index{Config::Config@{Config::Config}!telemetryPortChanged@{telemetryPortChanged}}
+\index{telemetryPortChanged@{telemetryPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryPortChanged}{telemetryPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::telemetry\+Port\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1e589d0c3908fe993d87d10dc7e85fc9}\label{classConfig_1_1Config_a1e589d0c3908fe993d87d10dc7e85fc9}} 
+\index{Config::Config@{Config::Config}!telemetryRecvPort@{telemetryRecvPort}}
+\index{telemetryRecvPort@{telemetryRecvPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryRecvPort()}{telemetryRecvPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::telemetry\+Recv\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a35be41b318469d8e0286f1e9064ee4b6}\label{classConfig_1_1Config_a35be41b318469d8e0286f1e9064ee4b6}} 
+\index{Config::Config@{Config::Config}!telemetryRecvPortChanged@{telemetryRecvPortChanged}}
+\index{telemetryRecvPortChanged@{telemetryRecvPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{telemetryRecvPortChanged}{telemetryRecvPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::telemetry\+Recv\+Port\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a022f36ce6ae973b6ce726779dc033b52}\label{classConfig_1_1Config_a022f36ce6ae973b6ce726779dc033b52}} 
+\index{Config::Config@{Config::Config}!theme@{theme}}
+\index{theme@{theme}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{theme()}{theme()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::theme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a3a4f2f708064df7777ac6be3ac3e1738}\label{classConfig_1_1Config_a3a4f2f708064df7777ac6be3ac3e1738}} 
+\index{Config::Config@{Config::Config}!themeChanged@{themeChanged}}
+\index{themeChanged@{themeChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{themeChanged}{themeChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::theme\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aaccb92ad86b4bc9dfc213a519132b722}\label{classConfig_1_1Config_aaccb92ad86b4bc9dfc213a519132b722}} 
+\index{Config::Config@{Config::Config}!thetaAzimuthCorrection@{thetaAzimuthCorrection}}
+\index{thetaAzimuthCorrection@{thetaAzimuthCorrection}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{thetaAzimuthCorrection()}{thetaAzimuthCorrection()}}
+{\footnotesize\ttfamily float Config\+::\+Config\+::theta\+Azimuth\+Correction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a3a451e65de8487b56cdfd12dd14a5e14}\label{classConfig_1_1Config_a3a451e65de8487b56cdfd12dd14a5e14}} 
+\index{Config::Config@{Config::Config}!thetaAzimuthCorrectionChanged@{thetaAzimuthCorrectionChanged}}
+\index{thetaAzimuthCorrectionChanged@{thetaAzimuthCorrectionChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{thetaAzimuthCorrectionChanged}{thetaAzimuthCorrectionChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::theta\+Azimuth\+Correction\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1615b85c981f86e424bec6b68e78e5aa}\label{classConfig_1_1Config_a1615b85c981f86e424bec6b68e78e5aa}} 
+\index{Config::Config@{Config::Config}!udpLFSPort@{udpLFSPort}}
+\index{udpLFSPort@{udpLFSPort}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{udpLFSPort()}{udpLFSPort()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::udp\+LFSPort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa889be10e3472e65285a8dfa28c2a7e1}\label{classConfig_1_1Config_aa889be10e3472e65285a8dfa28c2a7e1}} 
+\index{Config::Config@{Config::Config}!udpLFSPortChanged@{udpLFSPortChanged}}
+\index{udpLFSPortChanged@{udpLFSPortChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{udpLFSPortChanged}{udpLFSPortChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::udp\+LFSPort\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a97af91461eee37bbafd9d68d23f3ac91}\label{classConfig_1_1Config_a97af91461eee37bbafd9d68d23f3ac91}} 
+\index{Config::Config@{Config::Config}!useDriftAngle@{useDriftAngle}}
+\index{useDriftAngle@{useDriftAngle}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{useDriftAngle()}{useDriftAngle()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::use\+Drift\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_aebf15f04cb6af7244178894932e1a3d7}\label{classConfig_1_1Config_aebf15f04cb6af7244178894932e1a3d7}} 
+\index{Config::Config@{Config::Config}!useDriftAngleChanged@{useDriftAngleChanged}}
+\index{useDriftAngleChanged@{useDriftAngleChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{useDriftAngleChanged}{useDriftAngleChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::use\+Drift\+Angle\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a109cc51e51c4044082c920ea8d21ebc1}\label{classConfig_1_1Config_a109cc51e51c4044082c920ea8d21ebc1}} 
+\index{Config::Config@{Config::Config}!useRadians@{useRadians}}
+\index{useRadians@{useRadians}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{useRadians()}{useRadians()}}
+{\footnotesize\ttfamily bool Config\+::\+Config\+::use\+Radians (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a8648ad901bf79edaba74aa9c0b49abc2}\label{classConfig_1_1Config_a8648ad901bf79edaba74aa9c0b49abc2}} 
+\index{Config::Config@{Config::Config}!useRadiansChanged@{useRadiansChanged}}
+\index{useRadiansChanged@{useRadiansChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{useRadiansChanged}{useRadiansChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::use\+Radians\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_adc889db35ec4104e7a75a0823fad9a1a}\label{classConfig_1_1Config_adc889db35ec4104e7a75a0823fad9a1a}} 
+\index{Config::Config@{Config::Config}!utl1IP@{utl1IP}}
+\index{utl1IP@{utl1IP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{utl1IP()}{utl1IP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::utl1\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6069b4833062c2d92b83a0cb404c3441}\label{classConfig_1_1Config_a6069b4833062c2d92b83a0cb404c3441}} 
+\index{Config::Config@{Config::Config}!utl1IPChanged@{utl1IPChanged}}
+\index{utl1IPChanged@{utl1IPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{utl1IPChanged}{utl1IPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::utl1\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a466a4a4ca79a1815b42add3f0a86dd43}\label{classConfig_1_1Config_a466a4a4ca79a1815b42add3f0a86dd43}} 
+\index{Config::Config@{Config::Config}!utl2IP@{utl2IP}}
+\index{utl2IP@{utl2IP}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{utl2IP()}{utl2IP()}}
+{\footnotesize\ttfamily QString Config\+::\+Config\+::utl2\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classConfig_1_1Config_a15062d346a78b9c5d86d80caa9e34b63}\label{classConfig_1_1Config_a15062d346a78b9c5d86d80caa9e34b63}} 
+\index{Config::Config@{Config::Config}!utl2IPChanged@{utl2IPChanged}}
+\index{utl2IPChanged@{utl2IPChanged}!Config::Config@{Config::Config}}
+\doxysubsubsection{\texorpdfstring{utl2IPChanged}{utl2IPChanged}}
+{\footnotesize\ttfamily void Config\+::\+Config\+::utl2\+IPChanged (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/config/\mbox{\hyperlink{config_8h}{config.\+h}}\item 
+src/c++/config/\mbox{\hyperlink{config_8c_09_09}{config.\+c++}}\end{DoxyCompactItemize}

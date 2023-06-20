@@ -1,0 +1,29 @@
+\hypertarget{offlinetileloader_8c_09_09}{}\doxysection{src/c++/map/tools/offlinetileloader.c++ File Reference}
+\label{offlinetileloader_8c_09_09}\index{src/c++/map/tools/offlinetileloader.c++@{src/c++/map/tools/offlinetileloader.c++}}
+{\ttfamily \#include \char`\"{}offlinetileloader.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$Qt\+Core/\+QCore\+Application$>$}\newline
+{\ttfamily \#include $<$Qt\+Core/\+QDir$>$}\newline
+{\ttfamily \#include $<$Qt\+Core/\+QDebug$>$}\newline
+{\ttfamily \#include $<$Qt\+Gui/\+QPolygonF$>$}\newline
+{\ttfamily \#include $<$Qt\+Network/\+QNetwork\+Reply$>$}\newline
+{\ttfamily \#include $<$Qt\+Positioning/\+QGeo\+Polygon$>$}\newline
+{\ttfamily \#include $<$Qt\+Positioning/\+QGeo\+Rectangle$>$}\newline
+{\ttfamily \#include \char`\"{}config/paths.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceMap}{Map}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceMap_a2731b997b5b5e3f9bcd5cca3f34dcb43}{Map\+::longitude\+To\+TileX}} (double \mbox{\hyperlink{imagemetadata_8h_ac155e35fdeebafc89723a51520fb9fe6}{longitude}}, uint8\+\_\+t zoom)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{namespaceMap_ab27f51ec2273655ae6cdfa17deacc671}{Map\+::latitude\+To\+TileY}} (double \mbox{\hyperlink{imagemetadata_8h_a76714bdbc5c536fa77dfb14533ff82a9}{latitude}}, uint8\+\_\+t zoom)
+\item 
+double \mbox{\hyperlink{namespaceMap_ae1bab87b511aded4b833c6e563479682}{Map\+::tile\+XTo\+Longitude}} (uint32\+\_\+t x, uint8\+\_\+t zoom)
+\item 
+double \mbox{\hyperlink{namespaceMap_abd6685d7d633c7673afa4a38c0ae2737}{Map\+::tile\+YTo\+Latitude}} (uint32\+\_\+t \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}}, uint8\+\_\+t zoom)
+\end{DoxyCompactItemize}

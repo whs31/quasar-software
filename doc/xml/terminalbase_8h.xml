@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="terminalbase_8h" kind="file" language="C++">
+    <compoundname>terminalbase.h</compoundname>
+    <includes local="no">vector</includes>
+    <includes local="no">QtCore/QAbstractListModel</includes>
+    <includedby refid="debugconsole_8h" local="yes">src/c++/gui/terminal/debugconsole.h</includedby>
+    <includedby refid="terminalbase_8c_09_09" local="yes">src/c++/gui/terminal/terminalbase.c++</includedby>
+    <includedby refid="vt100terminal_8h" local="yes">src/c++/gui/terminal/vt100terminal.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/c++/gui/terminal/terminalbase.h</label>
+        <link refid="terminalbase_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QtCore/QAbstractListModel</label>
+      </node>
+      <node id="2">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>src/c++/entry.c++</label>
+        <link refid="entry_8c_09_09"/>
+      </node>
+      <node id="4">
+        <label>src/c++/gui/terminal/debugconsole.c++</label>
+        <link refid="debugconsole_8c_09_09"/>
+      </node>
+      <node id="2">
+        <label>src/c++/gui/terminal/debugconsole.h</label>
+        <link refid="debugconsole_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>src/c++/gui/terminal/terminalbase.c++</label>
+        <link refid="terminalbase_8c_09_09"/>
+      </node>
+      <node id="1">
+        <label>src/c++/gui/terminal/terminalbase.h</label>
+        <link refid="terminalbase_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/c++/gui/terminal/vt100terminal.c++</label>
+        <link refid="vt100terminal_8c_09_09"/>
+      </node>
+      <node id="7">
+        <label>src/c++/gui/terminal/vt100terminal.h</label>
+        <link refid="vt100terminal_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>src/c++/main.c++</label>
+        <link refid="main_8c_09_09"/>
+      </node>
+      <node id="9">
+        <label>src/c++/network/network.c++</label>
+        <link refid="network_8c_09_09"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classGUI_1_1TerminalBase" prot="public">GUI::TerminalBase</innerclass>
+    <innerclass refid="structGUI_1_1TerminalBase_1_1BasicMessage" prot="public">GUI::TerminalBase::BasicMessage</innerclass>
+    <innernamespace refid="namespaceGUI">GUI</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QAbstractListModel&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">std::vector;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceGUI" kindref="compound">GUI</ref></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="10" refid="classGUI_1_1TerminalBase" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGUI_1_1TerminalBase" kindref="compound">TerminalBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>QAbstractListModel</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">MessageType</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="15" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" kindref="member">Debug</ref>,</highlight></codeline>
+<codeline lineno="16" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a35c707eff952677319b98a78aedd019d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a35c707eff952677319b98a78aedd019d" kindref="member">Info</ref>,</highlight></codeline>
+<codeline lineno="17" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ae276038735074b134c3246f280148424" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ae276038735074b134c3246f280148424" kindref="member">Warning</ref>,</highlight></codeline>
+<codeline lineno="18" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad824455b746b105de587cf273df9fafc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad824455b746b105de587cf273df9fafc" kindref="member">Error</ref>,</highlight></codeline>
+<codeline lineno="19" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a62c93c5420ca3c28c1213e8b63812647" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a62c93c5420ca3c28c1213e8b63812647" kindref="member">Extra1</ref>,</highlight></codeline>
+<codeline lineno="20" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a928b74ac6de78ad6b6bbdc0611b20f80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a928b74ac6de78ad6b6bbdc0611b20f80" kindref="member">Extra2</ref>,</highlight></codeline>
+<codeline lineno="21" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aca53f5c19b48de17fae643651df6fbb0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aca53f5c19b48de17fae643651df6fbb0" kindref="member">Extra3</ref>,</highlight></codeline>
+<codeline lineno="22" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ac16e982fc1a91fee4f44f68c4fd51e2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ac16e982fc1a91fee4f44f68c4fd51e2b" kindref="member">Extra4</ref>,</highlight></codeline>
+<codeline lineno="23" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a024a288221dda11f89926bda4fd9635c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a024a288221dda11f89926bda4fd9635c" kindref="member">Extra5</ref>,</highlight></codeline>
+<codeline lineno="24" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad52928dbd2773fcc3d3ef8848d072f6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871ad52928dbd2773fcc3d3ef8848d072f6c" kindref="member">Extra6</ref>,</highlight></codeline>
+<codeline lineno="25" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a7039047956cea3f4898af73f800287fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a7039047956cea3f4898af73f800287fd" kindref="member">Extra7</ref>,</highlight></codeline>
+<codeline lineno="26" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a21e008460cd50bb2aafba23033c7255b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871a21e008460cd50bb2aafba23033c7255b" kindref="member">Extra8</ref>,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871af20187c58daf392da0fd00961bf15865" kindref="member">Extra9</ref></highlight></codeline>
+<codeline lineno="28" refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871af20187c58daf392da0fd00961bf15865" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="structGUI_1_1TerminalBase_1_1BasicMessage" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGUI_1_1TerminalBase_1_1BasicMessage" kindref="compound">BasicMessage</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="32" refid="structGUI_1_1TerminalBase_1_1BasicMessage_1aab414893d2b8b093871b723a5bdd3778" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/><ref refid="structGUI_1_1TerminalBase_1_1BasicMessage_1aab414893d2b8b093871b723a5bdd3778" kindref="member">msg</ref>;</highlight></codeline>
+<codeline lineno="33" refid="structGUI_1_1TerminalBase_1_1BasicMessage_1a453bd8991493916f26d8e53349410e1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QString<sp/><ref refid="structGUI_1_1TerminalBase_1_1BasicMessage_1a453bd8991493916f26d8e53349410e1f" kindref="member">mdl</ref>;</highlight></codeline>
+<codeline lineno="34" refid="structGUI_1_1TerminalBase_1_1BasicMessage_1a37efc0562d92f464ca1fad49b97239d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">MessageType</ref><sp/><ref refid="structGUI_1_1TerminalBase_1_1BasicMessage_1a37efc0562d92f464ca1fad49b97239d7" kindref="member">type</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q_OBJECT</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q_ENUM(<ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">MessageType</ref>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42" refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7d" kindref="member">ModelRoles</ref></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="44" refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da9084f23a94b25eccde9991c25132f44d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da9084f23a94b25eccde9991c25132f44d" kindref="member">Index</ref><sp/>=<sp/>Qt::UserRole<sp/>+<sp/>1,</highlight></codeline>
+<codeline lineno="45" refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dad9703ff60ecd74cf06a4de47d90b9f00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dad9703ff60ecd74cf06a4de47d90b9f00" kindref="member">Message</ref>,</highlight></codeline>
+<codeline lineno="46" refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da2758172e9ea6a0ab2514677c87266356" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7da2758172e9ea6a0ab2514677c87266356" kindref="member">Module</ref>,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dae1fb025eb2d07a86c50b6846f11f5919" kindref="member">Type</ref></highlight></codeline>
+<codeline lineno="48" refid="classGUI_1_1TerminalBase_1a2ac722e88219ac19659a4568c0624f7dae1fb025eb2d07a86c50b6846f11f5919" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGUI_1_1TerminalBase" kindref="compound">TerminalBase</ref>(QObject*<sp/>parent<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1ac800f1d14ef32ceb20984d2bc340af09" kindref="member">rowCount</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>parent<sp/>=<sp/>QModelIndex())<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QVariant<sp/><ref refid="classGUI_1_1TerminalBase_1aa89aa7a15ce20673d2afc731b523f2f7" kindref="member">data</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>index,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1a90d0777157f47831f375d315852c2d13" kindref="member">setData</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QModelIndex&amp;<sp/>index,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariant&amp;<sp/>value,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>role)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1ad41ccc11b4fff1091c9b92887e57a758" kindref="member">append</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>message,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>module<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">GUI::TerminalBase::MessageType</ref><sp/><ref refid="imagemetadata_8h_1acb5cfd209ba75c853d03f701e7f91679" kindref="member">type</ref><sp/>=<sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" kindref="member">Debug</ref>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1a17745bc2ad52522b5ba40f83b554d312" kindref="member">clear</ref>();</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Q_INVOKABLE<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGUI_1_1TerminalBase_1afe14d97ea118c1bb9bdac3d657d022b0" kindref="member">replaceLast</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>message,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>module<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">,<sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871" kindref="member">GUI::TerminalBase::MessageType</ref><sp/><ref refid="imagemetadata_8h_1acb5cfd209ba75c853d03f701e7f91679" kindref="member">type</ref><sp/>=<sp/><ref refid="classGUI_1_1TerminalBase_1abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f" kindref="member">Debug</ref>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QHash&lt;int,<sp/>QByteArray&gt;<sp/><ref refid="classGUI_1_1TerminalBase_1a80e585ef12dd2cca8e5dee5d7bd04178" kindref="member">roleNames</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;BasicMessage&gt;<sp/>storage;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>GUI</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/c++/gui/terminal/terminalbase.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structMap_1_1StripImageDatagram" kind="struct" language="C++" prot="public">
+    <compoundname>Map::StripImageDatagram</compoundname>
+    <includes refid="stripimage_8h" local="no">stripimage.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMap_1_1StripImageDatagram_1a6768df34549cd809f14fd43833cf28f9" prot="public" static="no" mutable="no">
+        <type><ref refid="structMap_1_1StripHeaderMetadata" kindref="compound">StripHeaderMetadata</ref></type>
+        <definition>StripHeaderMetadata Map::StripImageDatagram::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>Map::StripImageDatagram::header</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="23" column="29" bodyfile="src/c++/map/entities/stripimage.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1StripImageDatagram_1a1a85adad2edc7897889733f32d8c7fb1" prot="public" static="no" mutable="no">
+        <type><ref refid="structMap_1_1StripNavigationMetadata" kindref="compound">StripNavigationMetadata</ref></type>
+        <definition>StripNavigationMetadata Map::StripImageDatagram::nav</definition>
+        <argsstring></argsstring>
+        <name>nav</name>
+        <qualifiedname>Map::StripImageDatagram::nav</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="24" column="33" bodyfile="src/c++/map/entities/stripimage.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1StripImageDatagram_1a9ff7345a7488d0c8ee2889ddcb03315b" prot="public" static="no" mutable="no">
+        <type><ref refid="structMap_1_1StripFormatMetadata" kindref="compound">StripFormatMetadata</ref></type>
+        <definition>StripFormatMetadata Map::StripImageDatagram::format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <qualifiedname>Map::StripImageDatagram::format</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="25" column="29" bodyfile="src/c++/map/entities/stripimage.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>Map::StripFormatMetadata</label>
+        <link refid="structMap_1_1StripFormatMetadata"/>
+      </node>
+      <node id="2">
+        <label>Map::StripHeaderMetadata</label>
+        <link refid="structMap_1_1StripHeaderMetadata"/>
+      </node>
+      <node id="1">
+        <label>Map::StripImageDatagram</label>
+        <link refid="structMap_1_1StripImageDatagram"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>header</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>nav</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>format</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Map::StripNavigationMetadata</label>
+        <link refid="structMap_1_1StripNavigationMetadata"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/map/entities/stripimage.h" line="21" column="5" bodyfile="src/c++/map/entities/stripimage.h" bodystart="22" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structMap_1_1StripImageDatagram_1a9ff7345a7488d0c8ee2889ddcb03315b" prot="public" virt="non-virtual"><scope>Map::StripImageDatagram</scope><name>format</name></member>
+      <member refid="structMap_1_1StripImageDatagram_1a6768df34549cd809f14fd43833cf28f9" prot="public" virt="non-virtual"><scope>Map::StripImageDatagram</scope><name>header</name></member>
+      <member refid="structMap_1_1StripImageDatagram_1a1a85adad2edc7897889733f32d8c7fb1" prot="public" virt="non-virtual"><scope>Map::StripImageDatagram</scope><name>nav</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

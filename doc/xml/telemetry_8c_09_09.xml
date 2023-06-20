@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="telemetry_8c_09_09" kind="file" language="C++">
+    <compoundname>telemetry.c++</compoundname>
+    <includes refid="telemetry_8h" local="yes">telemetry.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>src/c++/network/telemetry/telemetry.c++</label>
+        <link refid="telemetry_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>telemetry.h</label>
+        <link refid="telemetry_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>telemetrydatagram.h</label>
+        <link refid="telemetrydatagram_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>QtCore/QDataStream</label>
+      </node>
+      <node id="8">
+        <label>QtCore/QDateTime</label>
+      </node>
+      <node id="7">
+        <label>QtCore/QMetaType</label>
+      </node>
+      <node id="6">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="telemetry_8h" kindref="compound">telemetry.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetworking" kindref="compound">Networking</ref>;</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><ref refid="classNetworking_1_1Telemetry_1a521b1fa4c36547d90f69846e65ae7ed5" kindref="member">Telemetry::Telemetry</ref>(QObject<sp/>*parent)</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject{parent}</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{<sp/>}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a0ff261883ed75d6adedba4c3bc880993" kindref="member">Telemetry::latitude</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ad539628eebe9941e56fa37364a70bca0" kindref="member">latitude</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1af7866d05c4feb9749c48638f06e92df6" kindref="member">Telemetry::setLatitude</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ad539628eebe9941e56fa37364a70bca0" kindref="member">latitude</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(other,<sp/>0))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ad539628eebe9941e56fa37364a70bca0" kindref="member">latitude</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a8f712e451432ca920348781a197cec28" kindref="member">latitudeChanged</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a35b8cf94f4f2dbba629edcca354cc552" kindref="member">Telemetry::longitude</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a49efe4b7d96c5e7951d932dc5466b9f4" kindref="member">longitude</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a8ec620f687db888baac712d5ddd82354" kindref="member">Telemetry::setLongitude</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a49efe4b7d96c5e7951d932dc5466b9f4" kindref="member">longitude</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(other,<sp/>0))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a49efe4b7d96c5e7951d932dc5466b9f4" kindref="member">longitude</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a23e5dd54f73936c3e1a1a479b06d21f9" kindref="member">longitudeChanged</ref>();</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1aecae2a24dec3b63d939a542dea6412a1" kindref="member">Telemetry::altitude</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1aa7d7daa9f7bb07005561056887d46e20" kindref="member">altitude</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1aa45d462e6ed7c42bd68df54cb64e1388" kindref="member">Telemetry::setAltitude</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(abs(other)<sp/>&gt;<sp/>20&apos;000)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1aa7d7daa9f7bb07005561056887d46e20" kindref="member">altitude</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1aa7d7daa9f7bb07005561056887d46e20" kindref="member">altitude</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a8f8cdeae8fbb9436b74ee20f53409314" kindref="member">altitudeChanged</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ae43928bd31e6eb3c105e78e0535f07b3" kindref="member">Telemetry::velocityCourse</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a71d938d3a50cab93d6eeb78ef5e47bf0" kindref="member">velocity_course</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a2e2d142c8226574174f4088fec6b507f" kindref="member">Telemetry::setVelocityCourse</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a71d938d3a50cab93d6eeb78ef5e47bf0" kindref="member">velocity_course</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a71d938d3a50cab93d6eeb78ef5e47bf0" kindref="member">velocity_course</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a88104ed8c54297e41c8a55af45a737d5" kindref="member">velocityCourseChanged</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a20721f52a9e741c69f4bc8508c1d130d" kindref="member">Telemetry::velocityEast</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1af150424204438c491d94aea61ebd0d3c" kindref="member">velocity_east</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ac07ac2fc21d3b0295e7a5a86c0b37510" kindref="member">Telemetry::setVelocityEast</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1af150424204438c491d94aea61ebd0d3c" kindref="member">velocity_east</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1af150424204438c491d94aea61ebd0d3c" kindref="member">velocity_east</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a5d92c1d0f09da352039d1bf0348014df" kindref="member">velocityEastChanged</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a5e924120b7b030fa156560c6da4ad600" kindref="member">Telemetry::velocityNorth</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac3998f35fcf67f0e93566bfcb85cca8e" kindref="member">velocity_north</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1af32eb260db79e653e31949ad360a31e5" kindref="member">Telemetry::setVelocityNorth</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac3998f35fcf67f0e93566bfcb85cca8e" kindref="member">velocity_north</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac3998f35fcf67f0e93566bfcb85cca8e" kindref="member">velocity_north</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1ae18bd3b302cbf7ed0c2ae903fbfc67bb" kindref="member">velocityNorthChanged</ref>();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ab3b02a4a46f2aa989e89590afabe2747" kindref="member">Telemetry::velocityVertical</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1afd84b7ae9de95b2d6e80c8463ff1bbab" kindref="member">velocity_vertical</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1aa699d6a772a9cc7e024768253b9b8d38" kindref="member">Telemetry::setVelocityVertical</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1afd84b7ae9de95b2d6e80c8463ff1bbab" kindref="member">velocity_vertical</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1afd84b7ae9de95b2d6e80c8463ff1bbab" kindref="member">velocity_vertical</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1aeafd4aecc0d413f9b45b8fe5673bb756" kindref="member">velocityVerticalChanged</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a7c8c130ce73576e9a331df7c2db5d56d" kindref="member">Telemetry::pitch</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a2052afd913df45667a53fed675fa1311" kindref="member">pitch</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a4860045d9227b227fc40004b3d70da93" kindref="member">Telemetry::setPitch</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a2052afd913df45667a53fed675fa1311" kindref="member">pitch</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a2052afd913df45667a53fed675fa1311" kindref="member">pitch</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1abb7687ecc94299df16ba6f16c80e4535" kindref="member">pitchChanged</ref>();</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a5f522ba2a1e1275e4649b074bb1b95a0" kindref="member">Telemetry::roll</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a10f21b47bed7ae53921cac04649a7d1d" kindref="member">roll</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ac7a01573c35e8f1e6012033e64958706" kindref="member">Telemetry::setRoll</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a10f21b47bed7ae53921cac04649a7d1d" kindref="member">roll</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a10f21b47bed7ae53921cac04649a7d1d" kindref="member">roll</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1ad85bfd71ab1f07801a871989ff9e95e8" kindref="member">rollChanged</ref>();</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a8234a1aa99742a7ccc457c3966a576dc" kindref="member">Telemetry::yaw</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac302f20ce67afecf50dea2b913294b70" kindref="member">yaw</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a6ebc75806e5187c7361454d4c8cbd113" kindref="member">Telemetry::setYaw</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac302f20ce67afecf50dea2b913294b70" kindref="member">yaw</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ac302f20ce67afecf50dea2b913294b70" kindref="member">yaw</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a6b7f48fa61e4ae1965fd3a3c3f28fc41" kindref="member">yawChanged</ref>();</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a0308809fdedf4128033ca0112e9a118e" kindref="member">Telemetry::course</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a4abde7765315f300eca38650274f9f79" kindref="member">course</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ae771d155235977d40aec80e3d19d4553" kindref="member">Telemetry::setCourse</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a4abde7765315f300eca38650274f9f79" kindref="member">course</ref>,<sp/>other))<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a4abde7765315f300eca38650274f9f79" kindref="member">course</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1ae3217a55be9ac39efad57f0655d57a9c" kindref="member">courseChanged</ref>();</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">uint64_t<sp/><ref refid="classNetworking_1_1Telemetry_1aa9eb08284d56832c407e23e76d6c611e" kindref="member">Telemetry::time</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a96c509bc3f70e215fe04ec020c596aea" kindref="member">time</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1ae10a03808d0acedb3c6b825d9d3e208a" kindref="member">Telemetry::setTime</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint64_t&amp;<sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a96c509bc3f70e215fe04ec020c596aea" kindref="member">time</ref><sp/>==<sp/>other)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1a96c509bc3f70e215fe04ec020c596aea" kindref="member">time</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a4071176d25c1df0c20a44afe348fbca2" kindref="member">timeChanged</ref>();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a1ea75d5d4218d65d209a534ed712e309" kindref="member">Telemetry::satellites</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ae2530c90185df9623b5b5ad80bd0cdc4" kindref="member">satellites</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a642f75ac4a1bae2e536b0d32763f578a" kindref="member">Telemetry::setSatellites</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ae2530c90185df9623b5b5ad80bd0cdc4" kindref="member">satellites</ref><sp/>==<sp/>other)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>datagram.<ref refid="structNetworking_1_1TelemetryDatagram_1ae2530c90185df9623b5b5ad80bd0cdc4" kindref="member">satellites</ref><sp/>=<sp/>other;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1aed6ef1d825e91d700de627886612ab0c" kindref="member">satellitesChanged</ref>();</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a09791576323f2d24a15ad2a4bf257565" kindref="member">Telemetry::seaLevel</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_seaLevel;<sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworking_1_1Telemetry_1a17a97240bd12583da10f98a4ebffaf5c" kindref="member">Telemetry::setSeaLevel</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>o)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(qFuzzyCompare(m_seaLevel,<sp/>o))</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>m_seaLevel<sp/>=<sp/>o;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>emit<sp/><ref refid="classNetworking_1_1Telemetry_1a08f957b618008051ed63d375cd416dd7" kindref="member">seaLevelChanged</ref>();</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/c++/network/telemetry/telemetry.c++"/>
+  </compounddef>
+</doxygen>

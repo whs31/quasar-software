@@ -1,0 +1,145 @@
+\hypertarget{classMap_1_1ClickHandler}{}\doxysection{Map\+::Click\+Handler Class Reference}
+\label{classMap_1_1ClickHandler}\index{Map::ClickHandler@{Map::ClickHandler}}
+
+
+{\ttfamily \#include $<$clickhandler.\+h$>$}
+
+Inheritance diagram for Map\+::Click\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMap_1_1ClickHandler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} \{ \newline
+\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628}{Idle}}
+, \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4}{Ruler\+Active}}
+, \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051}{Protractor\+Active}}
+, \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466}{Marker\+Active}}
+, \newline
+\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d}{Planner\+Active}}
+, \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f}{Tile\+Loader\+Active}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMap_1_1ClickHandler_ac11641d1e8d2262a95b1910ff4c26521}{state\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_1_1ClickHandler_ac6d7bdc3f6e0a56b0dfd77d9b8e91883}{Q\+\_\+\+ENUM}} (\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}})
+\item 
+\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} \mbox{\hyperlink{classMap_1_1ClickHandler_a7f271aa37e419cc408eeb69f4c666d75}{state}} () const
+\item 
+void \mbox{\hyperlink{classMap_1_1ClickHandler_afb43212a2d495310275b6974c7a4d20f}{set\+State}} (const \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} \&)
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1ClickHandler_a84667b266f49df8821d95785497d2f63}{copy\+Coordinates\+To\+Clipboard}} (double \mbox{\hyperlink{imagemetadata_8h_a76714bdbc5c536fa77dfb14533ff82a9}{latitude}}, double \mbox{\hyperlink{imagemetadata_8h_ac155e35fdeebafc89723a51520fb9fe6}{longitude}})
+\item 
+Q\+\_\+\+INVOKABLE \mbox{\hyperlink{classMap_1_1MarkerModel}{Marker\+Model}} $\ast$ \mbox{\hyperlink{classMap_1_1ClickHandler_a50ba58adc984163db6e9ffa0cc248242}{marker\+Model}} ()
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1ClickHandler_a0198779e3c027aff148192d20dd9d4ba}{add\+Marker}} (double \mbox{\hyperlink{imagemetadata_8h_a76714bdbc5c536fa77dfb14533ff82a9}{latitude}}, double \mbox{\hyperlink{imagemetadata_8h_ac155e35fdeebafc89723a51520fb9fe6}{longitude}}, const QString \&name, const QString \&color, const QString \&icon)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} \mbox{\hyperlink{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}{state}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!MouseState@{MouseState}}
+\index{MouseState@{MouseState}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{MouseState}{MouseState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Map\+::\+Click\+Handler\+::\+Mouse\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Idle@{Idle}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!Idle@{Idle}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628}} 
+Idle&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RulerActive@{RulerActive}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!RulerActive@{RulerActive}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4}} 
+Ruler\+Active&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ProtractorActive@{ProtractorActive}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!ProtractorActive@{ProtractorActive}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051}} 
+Protractor\+Active&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MarkerActive@{MarkerActive}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!MarkerActive@{MarkerActive}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466}} 
+Marker\+Active&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PlannerActive@{PlannerActive}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!PlannerActive@{PlannerActive}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d}} 
+Planner\+Active&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TileLoaderActive@{TileLoaderActive}!Map::ClickHandler@{Map::ClickHandler}}\index{Map::ClickHandler@{Map::ClickHandler}!TileLoaderActive@{TileLoaderActive}}}\mbox{\Hypertarget{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f}\label{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f}} 
+Tile\+Loader\+Active&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a0198779e3c027aff148192d20dd9d4ba}\label{classMap_1_1ClickHandler_a0198779e3c027aff148192d20dd9d4ba}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!addMarker@{addMarker}}
+\index{addMarker@{addMarker}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{addMarker()}{addMarker()}}
+{\footnotesize\ttfamily void Click\+Handler\+::add\+Marker (\begin{DoxyParamCaption}\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{const QString \&}]{name,  }\item[{const QString \&}]{color,  }\item[{const QString \&}]{icon }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a84667b266f49df8821d95785497d2f63}\label{classMap_1_1ClickHandler_a84667b266f49df8821d95785497d2f63}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!copyCoordinatesToClipboard@{copyCoordinatesToClipboard}}
+\index{copyCoordinatesToClipboard@{copyCoordinatesToClipboard}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{copyCoordinatesToClipboard()}{copyCoordinatesToClipboard()}}
+{\footnotesize\ttfamily void Click\+Handler\+::copy\+Coordinates\+To\+Clipboard (\begin{DoxyParamCaption}\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a50ba58adc984163db6e9ffa0cc248242}\label{classMap_1_1ClickHandler_a50ba58adc984163db6e9ffa0cc248242}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!markerModel@{markerModel}}
+\index{markerModel@{markerModel}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{markerModel()}{markerModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap_1_1MarkerModel}{Marker\+Model}} $\ast$ Click\+Handler\+::marker\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_ac6d7bdc3f6e0a56b0dfd77d9b8e91883}\label{classMap_1_1ClickHandler_ac6d7bdc3f6e0a56b0dfd77d9b8e91883}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!Q\_ENUM@{Q\_ENUM}}
+\index{Q\_ENUM@{Q\_ENUM}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{Q\_ENUM()}{Q\_ENUM()}}
+{\footnotesize\ttfamily Map\+::\+Click\+Handler\+::\+Q\+\_\+\+ENUM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_afb43212a2d495310275b6974c7a4d20f}\label{classMap_1_1ClickHandler_afb43212a2d495310275b6974c7a4d20f}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!setState@{setState}}
+\index{setState@{setState}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Click\+Handler\+::set\+State (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} \&}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a7f271aa37e419cc408eeb69f4c666d75}\label{classMap_1_1ClickHandler_a7f271aa37e419cc408eeb69f4c666d75}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!state@{state}}
+\index{state@{state}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Map\+::\+Click\+Handler\+::\+Mouse\+State}} Click\+Handler\+::state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMap_1_1ClickHandler_ac11641d1e8d2262a95b1910ff4c26521}\label{classMap_1_1ClickHandler_ac11641d1e8d2262a95b1910ff4c26521}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!stateChanged@{stateChanged}}
+\index{stateChanged@{stateChanged}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{stateChanged}{stateChanged}}
+{\footnotesize\ttfamily void Map\+::\+Click\+Handler\+::state\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}\label{classMap_1_1ClickHandler_a6f7a7ae3be1bb9d2b66e0baa0a7e540f}} 
+\index{Map::ClickHandler@{Map::ClickHandler}!state@{state}}
+\index{state@{state}!Map::ClickHandler@{Map::ClickHandler}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap_1_1ClickHandler_a550a76eb94363f76475c7f2934274057}{Mouse\+State}} Map\+::\+Click\+Handler\+::state\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/map/\mbox{\hyperlink{clickhandler_8h}{clickhandler.\+h}}\item 
+src/c++/map/\mbox{\hyperlink{clickhandler_8c_09_09}{clickhandler.\+c++}}\end{DoxyCompactItemize}

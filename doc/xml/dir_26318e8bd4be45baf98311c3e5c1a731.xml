@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_26318e8bd4be45baf98311c3e5c1a731" kind="dir">
+    <compoundname>src/c++/gui</compoundname>
+    <innerdir refid="dir_10768d6f609ecfc3f66ae09e455d5fe5">src/c++/gui/terminal</innerdir>
+    <innerdir refid="dir_d3531d735886cb25a1a9099ca3b863a1">src/c++/gui/theme</innerdir>
+    <innerfile refid="warningsmodel_8c_09_09">warningsmodel.c++</innerfile>
+    <innerfile refid="warningsmodel_8h">warningsmodel.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/gui/"/>
+  </compounddef>
+</doxygen>

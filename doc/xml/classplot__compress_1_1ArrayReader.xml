@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classplot__compress_1_1ArrayReader" kind="class" language="Python" prot="public">
+    <compoundname>plot_compress::ArrayReader</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classplot__compress_1_1ArrayReader_1a0a5b9cd60899459816808ebd3953e2bc" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>plot_compress.ArrayReader::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>plot_compress.ArrayReader.index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot_compress.py" line="47" column="1" bodyfile="src/python/strip/new/plot_compress.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classplot__compress_1_1ArrayReader_1aa8811f68f08b1e93dcd120eeeef33509" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>plot_compress.ArrayReader::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>plot_compress.ArrayReader.data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot_compress.py" line="48" column="1" bodyfile="src/python/strip/new/plot_compress.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classplot__compress_1_1ArrayReader_1ae58876947e2b6fc7f35eb346d9f82a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot_compress.ArrayReader.__init__</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>plot_compress.ArrayReader.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classplot__compress_1_1ArrayReader_1aa8811f68f08b1e93dcd120eeeef33509" kindref="member">data</ref></type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot_compress.py" line="46" column="1" bodyfile="src/python/strip/new/plot_compress.py" bodystart="46" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classplot__compress_1_1ArrayReader_1a5a8b125a76da01899e2dbbc121f0c95d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot_compress.ArrayReader.read</definition>
+        <argsstring>(self, length)</argsstring>
+        <name>read</name>
+        <qualifiedname>plot_compress.ArrayReader.read</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>length</type>
+          <defname>length</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot_compress.py" line="50" column="1" bodyfile="src/python/strip/new/plot_compress.py" bodystart="50" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/strip/new/plot_compress.py" line="45" column="1" bodyfile="src/python/strip/new/plot_compress.py" bodystart="45" bodyend="61"/>
+    <listofallmembers>
+      <member refid="classplot__compress_1_1ArrayReader_1ae58876947e2b6fc7f35eb346d9f82a43" prot="public" virt="non-virtual"><scope>plot_compress::ArrayReader</scope><name>__init__</name></member>
+      <member refid="classplot__compress_1_1ArrayReader_1aa8811f68f08b1e93dcd120eeeef33509" prot="public" virt="non-virtual"><scope>plot_compress::ArrayReader</scope><name>data</name></member>
+      <member refid="classplot__compress_1_1ArrayReader_1a0a5b9cd60899459816808ebd3953e2bc" prot="public" virt="non-virtual"><scope>plot_compress::ArrayReader</scope><name>index</name></member>
+      <member refid="classplot__compress_1_1ArrayReader_1a5a8b125a76da01899e2dbbc121f0c95d" prot="public" virt="non-virtual"><scope>plot_compress::ArrayReader</scope><name>read</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,359 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classNetworking_1_1ExecdSocket" kind="class" language="C++" prot="public">
+    <compoundname>Networking::ExecdSocket</compoundname>
+    <basecompoundref refid="classNetworking_1_1AbstractUDPSocket" prot="public" virt="non-virtual">Networking::AbstractUDPSocket</basecompoundref>
+    <includes refid="execdsocket_8h" local="no">execdsocket.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1aa55318294a0dd13a105adff8a092f134" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Networking::ExecdSocket::COMMAND_TELESCOPIC</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_TELESCOPIC</name>
+        <qualifiedname>Networking::ExecdSocket::COMMAND_TELESCOPIC</qualifiedname>
+        <initializer>= &quot;$FORM&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="12" column="37" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1ab88f995264b80f2e43f4a68e41334400" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Networking::ExecdSocket::COMMAND_START_STRIP</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_START_STRIP</name>
+        <qualifiedname>Networking::ExecdSocket::COMMAND_START_STRIP</qualifiedname>
+        <initializer>= &quot;$strip&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="13" column="37" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1a3bb2ca171a25e62e89ed3d6995f6915a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Networking::ExecdSocket::COMMAND_FOCUS</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_FOCUS</name>
+        <qualifiedname>Networking::ExecdSocket::COMMAND_FOCUS</qualifiedname>
+        <initializer>= &quot;$focus&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="14" column="37" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1a876b5767c26f1255336a449576063fa2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Networking::ExecdSocket::COMMAND_STORAGE_STATUS</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_STORAGE_STATUS</name>
+        <qualifiedname>Networking::ExecdSocket::COMMAND_STORAGE_STATUS</qualifiedname>
+        <initializer>= &quot;$storage_status()&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="15" column="37" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1aac621a6ed233d8770f9604e718b07760" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* Networking::ExecdSocket::COMMAND_CLEAR_STORAGE</definition>
+        <argsstring></argsstring>
+        <name>COMMAND_CLEAR_STORAGE</name>
+        <qualifiedname>Networking::ExecdSocket::COMMAND_CLEAR_STORAGE</qualifiedname>
+        <initializer>= &quot;$clear_storage()&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="16" column="37" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1a98d3b79c2f2cdd718445a2a9cd7407b1" prot="private" static="no" mutable="no">
+        <type><ref refid="classNetworking_1_1ExecdArgumentList" kindref="compound">ExecdArgumentList</ref> *</type>
+        <definition>ExecdArgumentList* Networking::ExecdSocket::args</definition>
+        <argsstring></argsstring>
+        <name>args</name>
+        <qualifiedname>Networking::ExecdSocket::args</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="38" column="31" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1ExecdSocket_1a3b42de2284c5d064b6d7641cffa69cc9" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::ExecdSocket::message_uid</definition>
+        <argsstring></argsstring>
+        <name>message_uid</name>
+        <qualifiedname>Networking::ExecdSocket::message_uid</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="39" column="22" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1abef15f102d54437850bd7ad9126cecd1" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdSocket::ExecdSocket</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ExecdSocket</name>
+        <qualifiedname>Networking::ExecdSocket::ExecdSocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="19" column="22" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="10" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1abde04a001640377f883c6c612520c399" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExecdSocket::start</definition>
+        <argsstring>(const QString &amp;address)</argsstring>
+        <name>start</name>
+        <qualifiedname>Networking::ExecdSocket::start</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="21" column="18" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1aca9c9acd6921342e0e59618732ec2f53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExecdSocket::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>Networking::ExecdSocket::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="22" column="18" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1a02805ba3e3ea9dbeb1d603b1a80ee497" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExecdSocket::executeCommand</definition>
+        <argsstring>(const QString &amp;command)</argsstring>
+        <name>executeCommand</name>
+        <qualifiedname>Networking::ExecdSocket::executeCommand</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="23" column="18" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="30" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1a358b8b37edf8b8ad33e31e0a3478d38b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExecdSocket::executeCommand</definition>
+        <argsstring>(Enums::NetworkCommand command)</argsstring>
+        <name>executeCommand</name>
+        <qualifiedname>Networking::ExecdSocket::executeCommand</qualifiedname>
+        <param>
+          <type><ref refid="classNetworking_1_1Enums_1aa669864b51106c17a0f11dfc0a5bcab1" kindref="member">Enums::NetworkCommand</ref></type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="24" column="18" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="38" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1a3cc24281ee16e9ed22c1b3c69f8234bd" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type><ref refid="classNetworking_1_1ExecdArgumentList" kindref="compound">ExecdArgumentList</ref> *</type>
+        <definition>ExecdArgumentList * ExecdSocket::list</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>list</name>
+        <qualifiedname>Networking::ExecdSocket::list</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="25" column="31" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="90" bodyend="90"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNetworking_1_1ExecdSocket_1adf887fa86f125272f525892afb5b2336" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::ExecdSocket::ping</definition>
+        <argsstring>()</argsstring>
+        <name>ping</name>
+        <qualifiedname>Networking::ExecdSocket::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="28" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1a92c51ec90c8800e23bc0459a6c375fa0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString ExecdSocket::wrap</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>wrap</name>
+        <qualifiedname>Networking::ExecdSocket::wrap</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="31" column="21" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="92" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1ExecdSocket_1a3d60a51346f920080146d909619f853e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray ExecdSocket::finalize</definition>
+        <argsstring>(const QString &amp;string)</argsstring>
+        <name>finalize</name>
+        <qualifiedname>Networking::ExecdSocket::finalize</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="32" column="24" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="107" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNetworking_1_1ExecdSocket_1a7556fa1196a778f712cced13505e6f49" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExecdSocket::processResult</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>processResult</name>
+        <qualifiedname>Networking::ExecdSocket::processResult</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdsocket.h" line="35" column="22" bodyfile="src/c++/network/execd/execdsocket.c++" bodystart="112" bodyend="129"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Networking::AbstractUDPSocket</label>
+        <link refid="classNetworking_1_1AbstractUDPSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Networking::ExecdSocket</label>
+        <link refid="classNetworking_1_1ExecdSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QUdpSocket</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Networking::AbstractUDPSocket</label>
+        <link refid="classNetworking_1_1AbstractUDPSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Networking::ExecdSocket</label>
+        <link refid="classNetworking_1_1ExecdSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>QUdpSocket</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/network/execd/execdsocket.h" line="9" column="5" bodyfile="src/c++/network/execd/execdsocket.h" bodystart="10" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a7e66254d00af9f1d387c3926431d80ed" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>AbstractUDPSocket</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a98d3b79c2f2cdd718445a2a9cd7407b1" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>args</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1aac621a6ed233d8770f9604e718b07760" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>COMMAND_CLEAR_STORAGE</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a3bb2ca171a25e62e89ed3d6995f6915a" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>COMMAND_FOCUS</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1ab88f995264b80f2e43f4a68e41334400" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>COMMAND_START_STRIP</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a876b5767c26f1255336a449576063fa2" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>COMMAND_STORAGE_STATUS</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1aa55318294a0dd13a105adff8a092f134" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>COMMAND_TELESCOPIC</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ab60a7a8b141cbdfa5a49448ef06425e9" prot="public" virt="virtual"><scope>Networking::ExecdSocket</scope><name>connect</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ace97f4f1318099d3b0203d7cdaa263cb" prot="public" virt="virtual"><scope>Networking::ExecdSocket</scope><name>disconnect</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1abef15f102d54437850bd7ad9126cecd1" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>ExecdSocket</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a02805ba3e3ea9dbeb1d603b1a80ee497" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>executeCommand</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a358b8b37edf8b8ad33e31e0a3478d38b" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>executeCommand</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a3d60a51346f920080146d909619f853e" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>finalize</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a3cc24281ee16e9ed22c1b3c69f8234bd" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>list</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a3b42de2284c5d064b6d7641cffa69cc9" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>message_uid</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1adf887fa86f125272f525892afb5b2336" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>ping</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a9b994e146dd120c046d2f9c27e4c227b" prot="public" virt="virtual"><scope>Networking::ExecdSocket</scope><name>port</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a7556fa1196a778f712cced13505e6f49" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>processResult</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1ab2de359309489c42d98134e42d48a8df" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>received</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a7d82f4942500ed94b2e1887561c07b6b" prot="public" virt="virtual"><scope>Networking::ExecdSocket</scope><name>send</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a037b493b3fe30e2dd84425665c1b46ab" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>socketDisconnected</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1a9a7d3ecfb1cfd71c60c0b7722325fb48" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>socketMetrics</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1abde04a001640377f883c6c612520c399" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>start</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1aca9c9acd6921342e0e59618732ec2f53" prot="public" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>stop</name></member>
+      <member refid="classNetworking_1_1ExecdSocket_1a92c51ec90c8800e23bc0459a6c375fa0" prot="private" virt="non-virtual"><scope>Networking::ExecdSocket</scope><name>wrap</name></member>
+      <member refid="classNetworking_1_1AbstractUDPSocket_1abfc6311e3e8219196febf17eb1f57119" prot="public" virt="virtual"><scope>Networking::ExecdSocket</scope><name>~AbstractUDPSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

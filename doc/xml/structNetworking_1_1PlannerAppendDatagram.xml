@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structNetworking_1_1PlannerAppendDatagram" kind="struct" language="C++" prot="public">
+    <compoundname>Networking::PlannerAppendDatagram</compoundname>
+    <includes refid="plannerdatagram_8h" local="no">plannerdatagram.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a2567ebbf0d75a831f51553d2ce8b4513" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Networking::PlannerAppendDatagram::marker</definition>
+        <argsstring></argsstring>
+        <name>marker</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::marker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="24" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a52893b98f3f04724bb1ebb33a02fc73e" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::PlannerAppendDatagram::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::id</qualifiedname>
+        <briefdescription>
+<para>@variable Маркер датаграмы. Всегда равен 0x55DD55DD. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="25" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a098af798aa608356c64904e6c737032b" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::PlannerAppendDatagram::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::r</qualifiedname>
+        <briefdescription>
+<para>@variable Номер точки для планировщика от 0 до UINT16_MAX. Точка будет перезаписана, если номер не уникален. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="26" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a6cabf24aa28166195100045c2caee160" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Networking::PlannerAppendDatagram::ip</definition>
+        <argsstring></argsstring>
+        <name>ip</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::ip</qualifiedname>
+        <briefdescription>
+<para>@variable Радиус зоны, в которой будет срабатывать задание планировщика (в м). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="27" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a1be995949e36d850b295a1b1f5b32229" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::PlannerAppendDatagram::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::port</qualifiedname>
+        <briefdescription>
+<para>@variable IP-адрес для обратной связи в hex-виде (см. utils/netutils.h++). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="28" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a5ee8ae0a4ab20b1946e535a979afaeb8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Networking::PlannerAppendDatagram::lat</definition>
+        <argsstring></argsstring>
+        <name>lat</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::lat</qualifiedname>
+        <briefdescription>
+<para>@variable Порт для обратной связи. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="29" column="16" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a1653835b3bef6296ccefb73800613293" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Networking::PlannerAppendDatagram::lon</definition>
+        <argsstring></argsstring>
+        <name>lon</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::lon</qualifiedname>
+        <briefdescription>
+<para>@variable Широта точки в WGS-84 (в градусах). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="30" column="16" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a99a583578b286f864048c3befcfde960" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::PlannerAppendDatagram::cnt</definition>
+        <argsstring></argsstring>
+        <name>cnt</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::cnt</qualifiedname>
+        <briefdescription>
+<para>@variable Долгота точки в WGS-84 (в градусах). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="31" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1af22553018edca67bf9001dcefc4643d5" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::PlannerAppendDatagram::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::len</qualifiedname>
+        <briefdescription>
+<para>@variable Количество срабатывания события в точке перед ее удалением от 0 до UINT16_MAX. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="32" column="18" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1PlannerAppendDatagram_1a1c5792d12e12ecad9a55ebce8f2a8c64" prot="public" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray Networking::PlannerAppendDatagram::command</definition>
+        <argsstring></argsstring>
+        <name>command</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::command</qualifiedname>
+        <briefdescription>
+<para>@variable Количество байт в command. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="33" column="20" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structNetworking_1_1PlannerAppendDatagram_1a667da8c0fec261cd7fc83ee7976f51dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const PlannerAppendDatagram &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structNetworking_1_1PlannerAppendDatagram" kindref="compound">PlannerAppendDatagram</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="36" column="16" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="66" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="friend" id="structNetworking_1_1PlannerAppendDatagram_1ad24229e650467998c85c0047a2970270" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, PlannerAppendDatagram &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::PlannerAppendDatagram::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type><ref refid="structNetworking_1_1PlannerAppendDatagram" kindref="compound">PlannerAppendDatagram</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="37" column="28" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="82" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/planner/plannerdatagram.h" line="22" column="5" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="23" bodyend="38"/>
+    <listofallmembers>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a99a583578b286f864048c3befcfde960" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>cnt</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a1c5792d12e12ecad9a55ebce8f2a8c64" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>command</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a52893b98f3f04724bb1ebb33a02fc73e" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>id</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a6cabf24aa28166195100045c2caee160" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>ip</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a5ee8ae0a4ab20b1946e535a979afaeb8" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>lat</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1af22553018edca67bf9001dcefc4643d5" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>len</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a1653835b3bef6296ccefb73800613293" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>lon</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a2567ebbf0d75a831f51553d2ce8b4513" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>marker</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a667da8c0fec261cd7fc83ee7976f51dd" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1ad24229e650467998c85c0047a2970270" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>operator&gt;&gt;</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a1be995949e36d850b295a1b1f5b32229" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>port</name></member>
+      <member refid="structNetworking_1_1PlannerAppendDatagram_1a098af798aa608356c64904e6c737032b" prot="public" virt="non-virtual"><scope>Networking::PlannerAppendDatagram</scope><name>r</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

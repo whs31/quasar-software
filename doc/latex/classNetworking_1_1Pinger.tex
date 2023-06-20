@@ -1,0 +1,100 @@
+\hypertarget{classNetworking_1_1Pinger}{}\doxysection{Networking\+::Pinger Class Reference}
+\label{classNetworking_1_1Pinger}\index{Networking::Pinger@{Networking::Pinger}}
+
+
+{\ttfamily \#include $<$ping.\+h$>$}
+
+Inheritance diagram for Networking\+::Pinger\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNetworking_1_1Pinger}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1Pinger_a2b0d95470bc81385d7f24352945c50fa}{result}} (int status)
+\begin{DoxyCompactList}\small\item\em Emitted when ping is finished. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1Pinger_a841b3f735581abc856e3a8f1e9cf25d2}{Pinger}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructs new \mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}} object with given parent. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetworking_1_1Pinger_ad50db6efb1dead10624227622ab23ce7}{$\sim$\+Pinger}} ()
+\item 
+void \mbox{\hyperlink{classNetworking_1_1Pinger_a0440b26f90fcf3904d2ac8c2a8653fe8}{start}} (uint32\+\_\+t interval, const QString \&address, const vector$<$ QString $>$ args=\{\})
+\begin{DoxyCompactList}\small\item\em Starts pinging given address, until \mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}} is not destroyed or stopped. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1Pinger_a243166a08db94fd1bd04ace0ca0572c1}{stop}} () noexcept
+\begin{DoxyCompactList}\small\item\em Stops pinging address. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNetworking_1_1Pinger_a841b3f735581abc856e3a8f1e9cf25d2}\label{classNetworking_1_1Pinger_a841b3f735581abc856e3a8f1e9cf25d2}} 
+\index{Networking::Pinger@{Networking::Pinger}!Pinger@{Pinger}}
+\index{Pinger@{Pinger}!Networking::Pinger@{Networking::Pinger}}
+\doxysubsubsection{\texorpdfstring{Pinger()}{Pinger()}}
+{\footnotesize\ttfamily Networking\+::\+Pinger\+::\+Pinger (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Constructs new \mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}} object with given parent. 
+
+\mbox{\Hypertarget{classNetworking_1_1Pinger_ad50db6efb1dead10624227622ab23ce7}\label{classNetworking_1_1Pinger_ad50db6efb1dead10624227622ab23ce7}} 
+\index{Networking::Pinger@{Networking::Pinger}!````~Pinger@{$\sim$Pinger}}
+\index{````~Pinger@{$\sim$Pinger}!Networking::Pinger@{Networking::Pinger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Pinger()}{~Pinger()}}
+{\footnotesize\ttfamily Networking\+::\+Pinger\+::$\sim$\+Pinger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworking_1_1Pinger_a2b0d95470bc81385d7f24352945c50fa}\label{classNetworking_1_1Pinger_a2b0d95470bc81385d7f24352945c50fa}} 
+\index{Networking::Pinger@{Networking::Pinger}!result@{result}}
+\index{result@{result}!Networking::Pinger@{Networking::Pinger}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily void Networking\+::\+Pinger\+::result (\begin{DoxyParamCaption}\item[{int}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Emitted when ping is finished. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & -\/ Network\+::\+Ping\+Status result code. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworking_1_1Pinger_a0440b26f90fcf3904d2ac8c2a8653fe8}\label{classNetworking_1_1Pinger_a0440b26f90fcf3904d2ac8c2a8653fe8}} 
+\index{Networking::Pinger@{Networking::Pinger}!start@{start}}
+\index{start@{start}!Networking::Pinger@{Networking::Pinger}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Networking\+::\+Pinger\+::start (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{interval,  }\item[{const QString \&}]{address,  }\item[{const vector$<$ QString $>$}]{args = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Starts pinging given address, until \mbox{\hyperlink{classNetworking_1_1Pinger}{Pinger}} is not destroyed or stopped. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & -\/ ms interval between pings. 0 means auto. \\
+\hline
+{\em address} & -\/ IPv4 address to ping. \\
+\hline
+{\em args} & -\/ ping command line arguments. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNetworking_1_1Pinger_a243166a08db94fd1bd04ace0ca0572c1}\label{classNetworking_1_1Pinger_a243166a08db94fd1bd04ace0ca0572c1}} 
+\index{Networking::Pinger@{Networking::Pinger}!stop@{stop}}
+\index{stop@{stop}!Networking::Pinger@{Networking::Pinger}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Networking\+::\+Pinger\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Stops pinging address. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/\mbox{\hyperlink{ping_8h}{ping.\+h}}\item 
+src/c++/network/\mbox{\hyperlink{ping_8c_09_09}{ping.\+c++}}\end{DoxyCompactItemize}

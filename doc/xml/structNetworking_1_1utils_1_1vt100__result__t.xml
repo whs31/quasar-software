@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structNetworking_1_1utils_1_1vt100__result__t" kind="struct" language="C++" prot="public">
+    <compoundname>Networking::utils::vt100_result_t</compoundname>
+    <includes refid="vt100parser_8h" local="no">vt100parser.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structNetworking_1_1utils_1_1vt100__result__t_1a8e79a562892854e4357e1268d7ea5e72" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Networking::utils::vt100_result_t::result</definition>
+        <argsstring></argsstring>
+        <name>result</name>
+        <qualifiedname>Networking::utils::vt100_result_t::result</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/utils/vt100parser.h" line="11" column="21" bodyfile="src/c++/network/utils/vt100parser.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1utils_1_1vt100__result__t_1a46c1839e6cb353022491c6a286bcfe8a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Networking::utils::vt100_result_t::return_carriage</definition>
+        <argsstring></argsstring>
+        <name>return_carriage</name>
+        <qualifiedname>Networking::utils::vt100_result_t::return_carriage</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/utils/vt100parser.h" line="12" column="18" bodyfile="src/c++/network/utils/vt100parser.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1utils_1_1vt100__result__t_1af9432f6383e779c665acfce72291d6e3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Networking::utils::vt100_result_t::move_up</definition>
+        <argsstring></argsstring>
+        <name>move_up</name>
+        <qualifiedname>Networking::utils::vt100_result_t::move_up</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/utils/vt100parser.h" line="13" column="18" bodyfile="src/c++/network/utils/vt100parser.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/utils/vt100parser.h" line="9" column="9" bodyfile="src/c++/network/utils/vt100parser.h" bodystart="10" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structNetworking_1_1utils_1_1vt100__result__t_1af9432f6383e779c665acfce72291d6e3" prot="public" virt="non-virtual"><scope>Networking::utils::vt100_result_t</scope><name>move_up</name></member>
+      <member refid="structNetworking_1_1utils_1_1vt100__result__t_1a8e79a562892854e4357e1268d7ea5e72" prot="public" virt="non-virtual"><scope>Networking::utils::vt100_result_t</scope><name>result</name></member>
+      <member refid="structNetworking_1_1utils_1_1vt100__result__t_1a46c1839e6cb353022491c6a286bcfe8a" prot="public" virt="non-virtual"><scope>Networking::utils::vt100_result_t</scope><name>return_carriage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

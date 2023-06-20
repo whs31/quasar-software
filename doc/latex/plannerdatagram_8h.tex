@@ -1,0 +1,33 @@
+\hypertarget{plannerdatagram_8h}{}\doxysection{src/c++/network/planner/plannerdatagram.h File Reference}
+\label{plannerdatagram_8h}\index{src/c++/network/planner/plannerdatagram.h@{src/c++/network/planner/plannerdatagram.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$Qt\+Core/\+QData\+Stream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{Networking\+::\+Planner\+Append\+Datagram}}
+\item 
+struct \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{Networking\+::\+Planner\+Remove\+Datagram}}
+\item 
+struct \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{Networking\+::\+Planner\+Response\+Datagram}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceNetworking}{Networking}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_a24c2907021b2e1dc921073325c00aa9c}{Networking\+::operator$<$$<$}} (QData\+Stream \&data\+Stream, const Planner\+Append\+Datagram \&data)
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_a08d1bb385a1ab074668245edf56871e1}{Networking\+::operator$>$$>$}} (QData\+Stream \&data\+Stream, Planner\+Append\+Datagram \&data)
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_afb998634c42e3168158c52a1942f94ea}{Networking\+::operator$<$$<$}} (QData\+Stream \&data\+Stream, const Planner\+Remove\+Datagram \&data)
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_a56e9b95b6095b5ea3761958f15f0cf3c}{Networking\+::operator$>$$>$}} (QData\+Stream \&data\+Stream, Planner\+Remove\+Datagram \&data)
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_a41788a4a15e8dcfbc37c30926065446d}{Networking\+::operator$<$$<$}} (QData\+Stream \&data\+Stream, const Planner\+Response\+Datagram \&data)
+\item 
+QData\+Stream \& \mbox{\hyperlink{namespaceNetworking_a12173eb87c4220cc5a28ccc128ea3b00}{Networking\+::operator$>$$>$}} (QData\+Stream \&data\+Stream, Planner\+Response\+Datagram \&data)
+\end{DoxyCompactItemize}

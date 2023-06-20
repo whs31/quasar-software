@@ -1,0 +1,264 @@
+\hypertarget{classMap_1_1Ruler}{}\doxysection{Map\+::Ruler Class Reference}
+\label{classMap_1_1Ruler}\index{Map::Ruler@{Map::Ruler}}
+
+
+{\ttfamily \#include $<$ruler.\+h$>$}
+
+Inheritance diagram for Map\+::Ruler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMap_1_1Ruler}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33}{Segment\+Roles}} \{ \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b}{index}} = Qt\+::User\+Role + 1
+, \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33afed6cbab0769fe08fbbf412c23ee4033}{segment}}
+, \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33adfdf11594aa20f2afaaa39515c8cd58b}{segment\+Length}}
+, \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33ad1b9193dc2dd2be575563dc78f6e0b57}{segment\+Center}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_af874ee5e4407224e0838115e393da83d}{total\+Length\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_a8c7902d1e7666250716516429495de9f}{last\+Latitude\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_aaf911e4dda3ab93b7deb9ce567fe807f}{last\+Longitude\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_1_1Ruler_af3930dd4c982ac81af69f0e6d4dd48cc}{Ruler}} (QObject $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{classMap_1_1Ruler_a41ffc2feab89a0afedf3d735ec44fdda}{$\sim$\+Ruler}} () override
+\item 
+QVariant \mbox{\hyperlink{classMap_1_1Ruler_ac6e55a7fc62bdce2a6c4ea6bfb34800e}{data}} (const QModel\+Index \&\mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b}{index}}, int role) const override
+\item 
+QHash$<$ int, QByte\+Array $>$ \mbox{\hyperlink{classMap_1_1Ruler_a37f507baa567308a1cc1aa2a63818d99}{role\+Names}} () const override
+\item 
+int \mbox{\hyperlink{classMap_1_1Ruler_af17de926ba688b2344b958aa5e6e8357}{row\+Count}} (const QModel\+Index \&parent=QModel\+Index()) const override
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1Ruler_a17b307135a3f82e9d7a12b86bf8d72cd}{set\+Route}} (const QList$<$ QGeo\+Coordinate $>$ \&\+\_\+path)
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1Ruler_a1200ddedbb9a5dbcfbe0fe24964b9ab2}{reset\+Route}} ()
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1Ruler_aa8376673d8723283c6e70495a757a55b}{insert\+Point}} (const QGeo\+Coordinate \&\+\_\+point, quint16 \+\_\+index)
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1Ruler_a3b3f0fefcce8989b8b02a8252ac07c9a}{remove\+Point}} (quint16 \+\_\+index)
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1Ruler_ae071dd0bfa5f4d6c5132e60dce23a2dc}{update\+Point}} (const QGeo\+Coordinate \&\+\_\+point, int \+\_\+index)
+\item 
+Q\+\_\+\+INVOKABLE QGeo\+Coordinate \mbox{\hyperlink{classMap_1_1Ruler_ab605ecb05e554bc473760abc1a6ee9d7}{calculate\+Center}} (quint16 \+\_\+index)
+\item 
+Q\+\_\+\+INVOKABLE qreal \mbox{\hyperlink{classMap_1_1Ruler_a80553e08a5fb2607bc045afadc358e16}{calculate\+Angle}} (const QGeo\+Coordinate \+\_\+coord1, const QGeo\+Coordinate \+\_\+coord2)
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_ac03b017bea69f80b3f630b27c35acd0d}{total\+Length}} () const
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_a340bbb2dd44399e4100f670dc3482a8a}{set\+Total\+Length}} (double)
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_ab24f3630a89630d8fe63f148601b77b6}{last\+Latitude}} () const
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_ac79bf8fffbd7912772e526b846e5cd9f}{set\+Last\+Latitude}} (double)
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_afc291ba759f21de3b3289727b063a839}{last\+Longitude}} () const
+\item 
+void \mbox{\hyperlink{classMap_1_1Ruler_a0a66fb8328519ac573f4694c565ab867}{set\+Last\+Longitude}} (double)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_aea5774c7c1ad752f061e9bdcd4a39f87}{last\+Latitude}}
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_acac1b7aef3bd0a9c4de1c15b6e804cbd}{last\+Longitude}}
+\item 
+double \mbox{\hyperlink{classMap_1_1Ruler_a61531c8ff7a91a8fe35cee130dfa53e0}{total\+Length}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33}\label{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33}} 
+\index{Map::Ruler@{Map::Ruler}!SegmentRoles@{SegmentRoles}}
+\index{SegmentRoles@{SegmentRoles}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{SegmentRoles}{SegmentRoles}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33}{Map\+::\+Ruler\+::\+Segment\+Roles}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{index@{index}!Map::Ruler@{Map::Ruler}}\index{Map::Ruler@{Map::Ruler}!index@{index}}}\mbox{\Hypertarget{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b}\label{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33aee03d488613b06856ee9bd00c29c669b}} 
+index&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{segment@{segment}!Map::Ruler@{Map::Ruler}}\index{Map::Ruler@{Map::Ruler}!segment@{segment}}}\mbox{\Hypertarget{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33afed6cbab0769fe08fbbf412c23ee4033}\label{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33afed6cbab0769fe08fbbf412c23ee4033}} 
+segment&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{segmentLength@{segmentLength}!Map::Ruler@{Map::Ruler}}\index{Map::Ruler@{Map::Ruler}!segmentLength@{segmentLength}}}\mbox{\Hypertarget{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33adfdf11594aa20f2afaaa39515c8cd58b}\label{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33adfdf11594aa20f2afaaa39515c8cd58b}} 
+segment\+Length&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{segmentCenter@{segmentCenter}!Map::Ruler@{Map::Ruler}}\index{Map::Ruler@{Map::Ruler}!segmentCenter@{segmentCenter}}}\mbox{\Hypertarget{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33ad1b9193dc2dd2be575563dc78f6e0b57}\label{classMap_1_1Ruler_a029097f05f86d6735d6ef12219d07f33ad1b9193dc2dd2be575563dc78f6e0b57}} 
+segment\+Center&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMap_1_1Ruler_af3930dd4c982ac81af69f0e6d4dd48cc}\label{classMap_1_1Ruler_af3930dd4c982ac81af69f0e6d4dd48cc}} 
+\index{Map::Ruler@{Map::Ruler}!Ruler@{Ruler}}
+\index{Ruler@{Ruler}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{Ruler()}{Ruler()}}
+{\footnotesize\ttfamily Ruler\+::\+Ruler (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a41ffc2feab89a0afedf3d735ec44fdda}\label{classMap_1_1Ruler_a41ffc2feab89a0afedf3d735ec44fdda}} 
+\index{Map::Ruler@{Map::Ruler}!````~Ruler@{$\sim$Ruler}}
+\index{````~Ruler@{$\sim$Ruler}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ruler()}{~Ruler()}}
+{\footnotesize\ttfamily Ruler\+::$\sim$\+Ruler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_1_1Ruler_a80553e08a5fb2607bc045afadc358e16}\label{classMap_1_1Ruler_a80553e08a5fb2607bc045afadc358e16}} 
+\index{Map::Ruler@{Map::Ruler}!calculateAngle@{calculateAngle}}
+\index{calculateAngle@{calculateAngle}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{calculateAngle()}{calculateAngle()}}
+{\footnotesize\ttfamily qreal Ruler\+::calculate\+Angle (\begin{DoxyParamCaption}\item[{const QGeo\+Coordinate}]{\+\_\+coord1,  }\item[{const QGeo\+Coordinate}]{\+\_\+coord2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ab605ecb05e554bc473760abc1a6ee9d7}\label{classMap_1_1Ruler_ab605ecb05e554bc473760abc1a6ee9d7}} 
+\index{Map::Ruler@{Map::Ruler}!calculateCenter@{calculateCenter}}
+\index{calculateCenter@{calculateCenter}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{calculateCenter()}{calculateCenter()}}
+{\footnotesize\ttfamily QGeo\+Coordinate Ruler\+::calculate\+Center (\begin{DoxyParamCaption}\item[{quint16}]{\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ac6e55a7fc62bdce2a6c4ea6bfb34800e}\label{classMap_1_1Ruler_ac6e55a7fc62bdce2a6c4ea6bfb34800e}} 
+\index{Map::Ruler@{Map::Ruler}!data@{data}}
+\index{data@{data}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily QVariant Ruler\+::data (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{index,  }\item[{int}]{role }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_aa8376673d8723283c6e70495a757a55b}\label{classMap_1_1Ruler_aa8376673d8723283c6e70495a757a55b}} 
+\index{Map::Ruler@{Map::Ruler}!insertPoint@{insertPoint}}
+\index{insertPoint@{insertPoint}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{insertPoint()}{insertPoint()}}
+{\footnotesize\ttfamily void Ruler\+::insert\+Point (\begin{DoxyParamCaption}\item[{const QGeo\+Coordinate \&}]{\+\_\+point,  }\item[{quint16}]{\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ab24f3630a89630d8fe63f148601b77b6}\label{classMap_1_1Ruler_ab24f3630a89630d8fe63f148601b77b6}} 
+\index{Map::Ruler@{Map::Ruler}!lastLatitude@{lastLatitude}}
+\index{lastLatitude@{lastLatitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLatitude()}{lastLatitude()}}
+{\footnotesize\ttfamily double Ruler\+::last\+Latitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a8c7902d1e7666250716516429495de9f}\label{classMap_1_1Ruler_a8c7902d1e7666250716516429495de9f}} 
+\index{Map::Ruler@{Map::Ruler}!lastLatitudeChanged@{lastLatitudeChanged}}
+\index{lastLatitudeChanged@{lastLatitudeChanged}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLatitudeChanged}{lastLatitudeChanged}}
+{\footnotesize\ttfamily void Map\+::\+Ruler\+::last\+Latitude\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_afc291ba759f21de3b3289727b063a839}\label{classMap_1_1Ruler_afc291ba759f21de3b3289727b063a839}} 
+\index{Map::Ruler@{Map::Ruler}!lastLongitude@{lastLongitude}}
+\index{lastLongitude@{lastLongitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLongitude()}{lastLongitude()}}
+{\footnotesize\ttfamily double Ruler\+::last\+Longitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_aaf911e4dda3ab93b7deb9ce567fe807f}\label{classMap_1_1Ruler_aaf911e4dda3ab93b7deb9ce567fe807f}} 
+\index{Map::Ruler@{Map::Ruler}!lastLongitudeChanged@{lastLongitudeChanged}}
+\index{lastLongitudeChanged@{lastLongitudeChanged}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLongitudeChanged}{lastLongitudeChanged}}
+{\footnotesize\ttfamily void Map\+::\+Ruler\+::last\+Longitude\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a3b3f0fefcce8989b8b02a8252ac07c9a}\label{classMap_1_1Ruler_a3b3f0fefcce8989b8b02a8252ac07c9a}} 
+\index{Map::Ruler@{Map::Ruler}!removePoint@{removePoint}}
+\index{removePoint@{removePoint}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{removePoint()}{removePoint()}}
+{\footnotesize\ttfamily void Ruler\+::remove\+Point (\begin{DoxyParamCaption}\item[{quint16}]{\+\_\+index }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a1200ddedbb9a5dbcfbe0fe24964b9ab2}\label{classMap_1_1Ruler_a1200ddedbb9a5dbcfbe0fe24964b9ab2}} 
+\index{Map::Ruler@{Map::Ruler}!resetRoute@{resetRoute}}
+\index{resetRoute@{resetRoute}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{resetRoute()}{resetRoute()}}
+{\footnotesize\ttfamily void Ruler\+::reset\+Route (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a37f507baa567308a1cc1aa2a63818d99}\label{classMap_1_1Ruler_a37f507baa567308a1cc1aa2a63818d99}} 
+\index{Map::Ruler@{Map::Ruler}!roleNames@{roleNames}}
+\index{roleNames@{roleNames}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{roleNames()}{roleNames()}}
+{\footnotesize\ttfamily QHash$<$ int, QByte\+Array $>$ Ruler\+::role\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_af17de926ba688b2344b958aa5e6e8357}\label{classMap_1_1Ruler_af17de926ba688b2344b958aa5e6e8357}} 
+\index{Map::Ruler@{Map::Ruler}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}}
+{\footnotesize\ttfamily int Ruler\+::row\+Count (\begin{DoxyParamCaption}\item[{const QModel\+Index \&}]{parent = {\ttfamily QModelIndex()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ac79bf8fffbd7912772e526b846e5cd9f}\label{classMap_1_1Ruler_ac79bf8fffbd7912772e526b846e5cd9f}} 
+\index{Map::Ruler@{Map::Ruler}!setLastLatitude@{setLastLatitude}}
+\index{setLastLatitude@{setLastLatitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{setLastLatitude()}{setLastLatitude()}}
+{\footnotesize\ttfamily void Ruler\+::set\+Last\+Latitude (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a0a66fb8328519ac573f4694c565ab867}\label{classMap_1_1Ruler_a0a66fb8328519ac573f4694c565ab867}} 
+\index{Map::Ruler@{Map::Ruler}!setLastLongitude@{setLastLongitude}}
+\index{setLastLongitude@{setLastLongitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{setLastLongitude()}{setLastLongitude()}}
+{\footnotesize\ttfamily void Ruler\+::set\+Last\+Longitude (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a17b307135a3f82e9d7a12b86bf8d72cd}\label{classMap_1_1Ruler_a17b307135a3f82e9d7a12b86bf8d72cd}} 
+\index{Map::Ruler@{Map::Ruler}!setRoute@{setRoute}}
+\index{setRoute@{setRoute}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{setRoute()}{setRoute()}}
+{\footnotesize\ttfamily void Ruler\+::set\+Route (\begin{DoxyParamCaption}\item[{const QList$<$ QGeo\+Coordinate $>$ \&}]{\+\_\+path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a340bbb2dd44399e4100f670dc3482a8a}\label{classMap_1_1Ruler_a340bbb2dd44399e4100f670dc3482a8a}} 
+\index{Map::Ruler@{Map::Ruler}!setTotalLength@{setTotalLength}}
+\index{setTotalLength@{setTotalLength}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{setTotalLength()}{setTotalLength()}}
+{\footnotesize\ttfamily void Ruler\+::set\+Total\+Length (\begin{DoxyParamCaption}\item[{double}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ac03b017bea69f80b3f630b27c35acd0d}\label{classMap_1_1Ruler_ac03b017bea69f80b3f630b27c35acd0d}} 
+\index{Map::Ruler@{Map::Ruler}!totalLength@{totalLength}}
+\index{totalLength@{totalLength}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{totalLength()}{totalLength()}}
+{\footnotesize\ttfamily double Ruler\+::total\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_af874ee5e4407224e0838115e393da83d}\label{classMap_1_1Ruler_af874ee5e4407224e0838115e393da83d}} 
+\index{Map::Ruler@{Map::Ruler}!totalLengthChanged@{totalLengthChanged}}
+\index{totalLengthChanged@{totalLengthChanged}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{totalLengthChanged}{totalLengthChanged}}
+{\footnotesize\ttfamily void Map\+::\+Ruler\+::total\+Length\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_ae071dd0bfa5f4d6c5132e60dce23a2dc}\label{classMap_1_1Ruler_ae071dd0bfa5f4d6c5132e60dce23a2dc}} 
+\index{Map::Ruler@{Map::Ruler}!updatePoint@{updatePoint}}
+\index{updatePoint@{updatePoint}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{updatePoint()}{updatePoint()}}
+{\footnotesize\ttfamily void Ruler\+::update\+Point (\begin{DoxyParamCaption}\item[{const QGeo\+Coordinate \&}]{\+\_\+point,  }\item[{int}]{\+\_\+index }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classMap_1_1Ruler_aea5774c7c1ad752f061e9bdcd4a39f87}\label{classMap_1_1Ruler_aea5774c7c1ad752f061e9bdcd4a39f87}} 
+\index{Map::Ruler@{Map::Ruler}!lastLatitude@{lastLatitude}}
+\index{lastLatitude@{lastLatitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLatitude}{lastLatitude}}
+{\footnotesize\ttfamily double Map\+::\+Ruler\+::last\+Latitude\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_acac1b7aef3bd0a9c4de1c15b6e804cbd}\label{classMap_1_1Ruler_acac1b7aef3bd0a9c4de1c15b6e804cbd}} 
+\index{Map::Ruler@{Map::Ruler}!lastLongitude@{lastLongitude}}
+\index{lastLongitude@{lastLongitude}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{lastLongitude}{lastLongitude}}
+{\footnotesize\ttfamily double Map\+::\+Ruler\+::last\+Longitude\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\Hypertarget{classMap_1_1Ruler_a61531c8ff7a91a8fe35cee130dfa53e0}\label{classMap_1_1Ruler_a61531c8ff7a91a8fe35cee130dfa53e0}} 
+\index{Map::Ruler@{Map::Ruler}!totalLength@{totalLength}}
+\index{totalLength@{totalLength}!Map::Ruler@{Map::Ruler}}
+\doxysubsubsection{\texorpdfstring{totalLength}{totalLength}}
+{\footnotesize\ttfamily double Map\+::\+Ruler\+::total\+Length\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/map/\mbox{\hyperlink{ruler_8h}{ruler.\+h}}\item 
+src/c++/map/\mbox{\hyperlink{ruler_8c_09_09}{ruler.\+c++}}\end{DoxyCompactItemize}

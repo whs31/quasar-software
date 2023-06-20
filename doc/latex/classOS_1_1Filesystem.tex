@@ -1,0 +1,113 @@
+\hypertarget{classOS_1_1Filesystem}{}\doxysection{OS\+::Filesystem Class Reference}
+\label{classOS_1_1Filesystem}\index{OS::Filesystem@{OS::Filesystem}}
+
+
+{\ttfamily \#include $<$filesystem.\+h$>$}
+
+Inheritance diagram for OS\+::Filesystem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classOS_1_1Filesystem}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classOS_1_1Filesystem_a4f328a31b08d4408810bdeaf8dbfa462}{export\+Images\+To\+Folder}} (const QList$<$ QString $>$ \&ls, const QString \&folder)
+\begin{DoxyCompactList}\small\item\em Exports given list of filenames in LOD0 cache to specified folder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}{image\+List\+Cached}} (const QList$<$ QString $>$ \&filenames)
+\item 
+void \mbox{\hyperlink{classOS_1_1Filesystem_a0cd165e54a247c8fdb1eec59ceae6b02}{binary\+Cached}} (const QString \&filename)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+\_\+\+INVOKABLE bool \mbox{\hyperlink{classOS_1_1Filesystem_a889b2efb50aadd1c839387af9d144286}{fetch\+Image\+Directory}} ()
+\begin{DoxyCompactList}\small\item\em Searches for image files in application cache directory. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classOS_1_1Filesystem_adc982673f354d07bd090001db0366f1c}{fetch\+TCPCache}} ()
+\begin{DoxyCompactList}\small\item\em Searches for image files in application TCP-\/\+IO cache directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}} $\ast$ \mbox{\hyperlink{classOS_1_1Filesystem_a06da0b49aace850fe0ad5568b4ebcf5d}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns singleton instance of class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classOS_1_1Filesystem_a0cd165e54a247c8fdb1eec59ceae6b02}\label{classOS_1_1Filesystem_a0cd165e54a247c8fdb1eec59ceae6b02}} 
+\index{OS::Filesystem@{OS::Filesystem}!binaryCached@{binaryCached}}
+\index{binaryCached@{binaryCached}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{binaryCached}{binaryCached}}
+{\footnotesize\ttfamily void OS\+::\+Filesystem\+::binary\+Cached (\begin{DoxyParamCaption}\item[{const QString \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classOS_1_1Filesystem_a4f328a31b08d4408810bdeaf8dbfa462}\label{classOS_1_1Filesystem_a4f328a31b08d4408810bdeaf8dbfa462}} 
+\index{OS::Filesystem@{OS::Filesystem}!exportImagesToFolder@{exportImagesToFolder}}
+\index{exportImagesToFolder@{exportImagesToFolder}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{exportImagesToFolder}{exportImagesToFolder}}
+{\footnotesize\ttfamily void Filesystem\+::export\+Images\+To\+Folder (\begin{DoxyParamCaption}\item[{const QList$<$ QString $>$ \&}]{ls,  }\item[{const QString \&}]{folder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Exports given list of filenames in LOD0 cache to specified folder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ls} & -\/ list of filenames to export. \\
+\hline
+{\em folder} & -\/ destination folder. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classOS_1_1Filesystem_a889b2efb50aadd1c839387af9d144286}\label{classOS_1_1Filesystem_a889b2efb50aadd1c839387af9d144286}} 
+\index{OS::Filesystem@{OS::Filesystem}!fetchImageDirectory@{fetchImageDirectory}}
+\index{fetchImageDirectory@{fetchImageDirectory}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{fetchImageDirectory()}{fetchImageDirectory()}}
+{\footnotesize\ttfamily bool Filesystem\+::fetch\+Image\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Searches for image files in application cache directory. 
+
+Ignores occurences, already present in model. Can be invoked from QML. \begin{DoxySeeAlso}{See also}
+Emits \mbox{\hyperlink{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}{image\+List\+Cached()}} -\/ signal, which holds list of filenames, marked for processing. 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classOS_1_1Filesystem_adc982673f354d07bd090001db0366f1c}\label{classOS_1_1Filesystem_adc982673f354d07bd090001db0366f1c}} 
+\index{OS::Filesystem@{OS::Filesystem}!fetchTCPCache@{fetchTCPCache}}
+\index{fetchTCPCache@{fetchTCPCache}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{fetchTCPCache()}{fetchTCPCache()}}
+{\footnotesize\ttfamily void Filesystem\+::fetch\+TCPCache (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Searches for image files in application TCP-\/\+IO cache directory. 
+
+Ignores occurences, already present in model. Can be invoked from QML. \begin{DoxySeeAlso}{See also}
+Emits \mbox{\hyperlink{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}{image\+List\+Cached()}} -\/ signal, which holds list of filenames, marked for processing. 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+(WIP) Replaces occurence, found in model. 
+\end{DoxyNote}
+\mbox{\Hypertarget{classOS_1_1Filesystem_a06da0b49aace850fe0ad5568b4ebcf5d}\label{classOS_1_1Filesystem_a06da0b49aace850fe0ad5568b4ebcf5d}} 
+\index{OS::Filesystem@{OS::Filesystem}!get@{get}}
+\index{get@{get}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}} $\ast$ Filesystem\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns singleton instance of class. 
+
+\mbox{\Hypertarget{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}\label{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}} 
+\index{OS::Filesystem@{OS::Filesystem}!imageListCached@{imageListCached}}
+\index{imageListCached@{imageListCached}!OS::Filesystem@{OS::Filesystem}}
+\doxysubsubsection{\texorpdfstring{imageListCached}{imageListCached}}
+{\footnotesize\ttfamily void OS\+::\+Filesystem\+::image\+List\+Cached (\begin{DoxyParamCaption}\item[{const QList$<$ QString $>$ \&}]{filenames }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/filesystem/\mbox{\hyperlink{filesystem_8h}{filesystem.\+h}}\item 
+src/c++/filesystem/\mbox{\hyperlink{filesystem_8c_09_09}{filesystem.\+c++}}\end{DoxyCompactItemize}

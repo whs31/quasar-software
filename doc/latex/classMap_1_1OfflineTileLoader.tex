@@ -1,0 +1,102 @@
+\hypertarget{classMap_1_1OfflineTileLoader}{}\doxysection{Map\+::Offline\+Tile\+Loader Class Reference}
+\label{classMap_1_1OfflineTileLoader}\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+
+
+{\ttfamily \#include $<$offlinetileloader.\+h$>$}
+
+Inheritance diagram for Map\+::Offline\+Tile\+Loader\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMap_1_1OfflineTileLoader}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a8762d28eed9cdb0ed1e96fbc1d6bc49c}{progress}} (int percent)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_1_1OfflineTileLoader_accd310548a78b2ef62d37b748fdaf269}{Offline\+Tile\+Loader}} (QObject $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}{download}} (uint8\+\_\+t zoom, uint32\+\_\+t x, uint32\+\_\+t \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}})
+\item 
+void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a46027e4dcd1c655447bfd5225c581cfa}{download}} (const QGeo\+Polygon \&polygon, int maximum\+\_\+zoom=18)
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_aad5262c36d6a89cc3a9ed9410f89c7e8}{download}} (const QVariant\+List \&list, int maximum\+\_\+zoom=18)
+\item 
+Q\+\_\+\+INVOKABLE int \mbox{\hyperlink{classMap_1_1OfflineTileLoader_afe8c71b163bbb9aca4847923b99d6d3c}{estimate\+Tile\+Count}} (const QVariant\+List \&list, int maximum\+\_\+zoom=18) noexcept
+\item 
+void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a295b1cd418ba5fbd65e8731f117e0dc6}{set\+Server\+Url}} (const QString \&url)
+\item 
+void \mbox{\hyperlink{classMap_1_1OfflineTileLoader_aeff32cae08de5845f8dde56014757495}{set\+Storage\+Path}} (const QString \&path)
+\item 
+QByte\+Array \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a1cf83a049e6536615ad508cbc0245f0e}{tile}} (uint8\+\_\+t zoom, uint32\+\_\+t x, uint32\+\_\+t \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_accd310548a78b2ef62d37b748fdaf269}\label{classMap_1_1OfflineTileLoader_accd310548a78b2ef62d37b748fdaf269}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!OfflineTileLoader@{OfflineTileLoader}}
+\index{OfflineTileLoader@{OfflineTileLoader}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{OfflineTileLoader()}{OfflineTileLoader()}}
+{\footnotesize\ttfamily Map\+::\+Offline\+Tile\+Loader\+::\+Offline\+Tile\+Loader (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_a46027e4dcd1c655447bfd5225c581cfa}\label{classMap_1_1OfflineTileLoader_a46027e4dcd1c655447bfd5225c581cfa}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!download@{download}}
+\index{download@{download}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{download()}{download()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::download (\begin{DoxyParamCaption}\item[{const QGeo\+Polygon \&}]{polygon,  }\item[{int}]{maximum\+\_\+zoom = {\ttfamily 18} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_aad5262c36d6a89cc3a9ed9410f89c7e8}\label{classMap_1_1OfflineTileLoader_aad5262c36d6a89cc3a9ed9410f89c7e8}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!download@{download}}
+\index{download@{download}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{download()}{download()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::download (\begin{DoxyParamCaption}\item[{const QVariant\+List \&}]{list,  }\item[{int}]{maximum\+\_\+zoom = {\ttfamily 18} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}\label{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!download@{download}}
+\index{download@{download}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{download()}{download()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::download (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{zoom,  }\item[{uint32\+\_\+t}]{x,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_afe8c71b163bbb9aca4847923b99d6d3c}\label{classMap_1_1OfflineTileLoader_afe8c71b163bbb9aca4847923b99d6d3c}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!estimateTileCount@{estimateTileCount}}
+\index{estimateTileCount@{estimateTileCount}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{estimateTileCount()}{estimateTileCount()}}
+{\footnotesize\ttfamily int Map\+::\+Offline\+Tile\+Loader\+::estimate\+Tile\+Count (\begin{DoxyParamCaption}\item[{const QVariant\+List \&}]{list,  }\item[{int}]{maximum\+\_\+zoom = {\ttfamily 18} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_a8762d28eed9cdb0ed1e96fbc1d6bc49c}\label{classMap_1_1OfflineTileLoader_a8762d28eed9cdb0ed1e96fbc1d6bc49c}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!progress@{progress}}
+\index{progress@{progress}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::progress (\begin{DoxyParamCaption}\item[{int}]{percent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_a295b1cd418ba5fbd65e8731f117e0dc6}\label{classMap_1_1OfflineTileLoader_a295b1cd418ba5fbd65e8731f117e0dc6}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!setServerUrl@{setServerUrl}}
+\index{setServerUrl@{setServerUrl}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{setServerUrl()}{setServerUrl()}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::set\+Server\+Url (\begin{DoxyParamCaption}\item[{const QString \&}]{url }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_aeff32cae08de5845f8dde56014757495}\label{classMap_1_1OfflineTileLoader_aeff32cae08de5845f8dde56014757495}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!setStoragePath@{setStoragePath}}
+\index{setStoragePath@{setStoragePath}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{setStoragePath()}{setStoragePath()}}
+{\footnotesize\ttfamily void Map\+::\+Offline\+Tile\+Loader\+::set\+Storage\+Path (\begin{DoxyParamCaption}\item[{const QString \&}]{path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMap_1_1OfflineTileLoader_a1cf83a049e6536615ad508cbc0245f0e}\label{classMap_1_1OfflineTileLoader_a1cf83a049e6536615ad508cbc0245f0e}} 
+\index{Map::OfflineTileLoader@{Map::OfflineTileLoader}!tile@{tile}}
+\index{tile@{tile}!Map::OfflineTileLoader@{Map::OfflineTileLoader}}
+\doxysubsubsection{\texorpdfstring{tile()}{tile()}}
+{\footnotesize\ttfamily QByte\+Array Map\+::\+Offline\+Tile\+Loader\+::tile (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{zoom,  }\item[{uint32\+\_\+t}]{x,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/map/tools/\mbox{\hyperlink{offlinetileloader_8h}{offlinetileloader.\+h}}\item 
+src/c++/map/tools/\mbox{\hyperlink{offlinetileloader_8c_09_09}{offlinetileloader.\+c++}}\end{DoxyCompactItemize}

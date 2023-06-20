@@ -1,0 +1,94 @@
+\hypertarget{classNetworking_1_1FeedbackSocket}{}\doxysection{Networking\+::Feedback\+Socket Class Reference}
+\label{classNetworking_1_1FeedbackSocket}\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+
+
+{\ttfamily \#include $<$feedbacksocket.\+h$>$}
+
+Inheritance diagram for Networking\+::Feedback\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classNetworking_1_1FeedbackSocket}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a067dad9137b11c7fc4f6b1a6a6b1d501}{text\+Received}} (QByte\+Array text)
+\item 
+void \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a722f96da1800fecc9d8756a6292c4d57}{disk\+Space\+Received}} (long free, long total)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals inherited from \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{Networking\+::\+Abstract\+UDPSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab2de359309489c42d98134e42d48a8df}{received}} (QByte\+Array data)
+\begin{DoxyCompactList}\small\item\em Emits when socket receives data from other side. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a037b493b3fe30e2dd84425665c1b46ab}{socket\+Disconnected}} ()
+\begin{DoxyCompactList}\small\item\em Emits when socket breaks connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9a7d3ecfb1cfd71c60c0b7722325fb48}{socket\+Metrics}} (const QString \&data, int size\+\_\+bytes, bool out)
+\begin{DoxyCompactList}\small\item\em Emits when socket sends or receives data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a01f8ebac655964fc549de0dbbf6d26c8}{Feedback\+Socket}} (QObject $\ast$parent=nullptr)
+\item 
+void \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a832076e093faa9849eaf281f2f9a1c07}{start}} (const QString \&address)
+\item 
+void \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a0b914fd9a70cef96f8139823a3951943}{stop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{Networking\+::\+Abstract\+UDPSocket}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a7e66254d00af9f1d387c3926431d80ed}{Abstract\+UDPSocket}} (QObject $\ast$parent=nullptr)
+\item 
+virtual \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_abfc6311e3e8219196febf17eb1f57119}{$\sim$\+Abstract\+UDPSocket}} ()
+\item 
+virtual Q\+\_\+\+INVOKABLE bool \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ab60a7a8b141cbdfa5a49448ef06425e9}{connect}} (const QString \&address)
+\item 
+virtual Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_ace97f4f1318099d3b0203d7cdaa263cb}{disconnect}} ()
+\begin{DoxyCompactList}\small\item\em Disconnects from current session. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a7d82f4942500ed94b2e1887561c07b6b}{send}} (QByte\+Array data)
+\begin{DoxyCompactList}\small\item\em Sends given QByte\+Array to socket. \end{DoxyCompactList}\item 
+virtual uint16\+\_\+t \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket_a9b994e146dd120c046d2f9c27e4c227b}{port}} () const noexcept
+\begin{DoxyCompactList}\small\item\em Returns current socket port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNetworking_1_1FeedbackSocket_a01f8ebac655964fc549de0dbbf6d26c8}\label{classNetworking_1_1FeedbackSocket_a01f8ebac655964fc549de0dbbf6d26c8}} 
+\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}!FeedbackSocket@{FeedbackSocket}}
+\index{FeedbackSocket@{FeedbackSocket}!Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+\doxysubsubsection{\texorpdfstring{FeedbackSocket()}{FeedbackSocket()}}
+{\footnotesize\ttfamily Feedback\+Socket\+::\+Feedback\+Socket (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNetworking_1_1FeedbackSocket_a722f96da1800fecc9d8756a6292c4d57}\label{classNetworking_1_1FeedbackSocket_a722f96da1800fecc9d8756a6292c4d57}} 
+\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}!diskSpaceReceived@{diskSpaceReceived}}
+\index{diskSpaceReceived@{diskSpaceReceived}!Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+\doxysubsubsection{\texorpdfstring{diskSpaceReceived}{diskSpaceReceived}}
+{\footnotesize\ttfamily void Networking\+::\+Feedback\+Socket\+::disk\+Space\+Received (\begin{DoxyParamCaption}\item[{long}]{free,  }\item[{long}]{total }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classNetworking_1_1FeedbackSocket_a832076e093faa9849eaf281f2f9a1c07}\label{classNetworking_1_1FeedbackSocket_a832076e093faa9849eaf281f2f9a1c07}} 
+\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}!start@{start}}
+\index{start@{start}!Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void Feedback\+Socket\+::start (\begin{DoxyParamCaption}\item[{const QString \&}]{address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classNetworking_1_1FeedbackSocket_a0b914fd9a70cef96f8139823a3951943}\label{classNetworking_1_1FeedbackSocket_a0b914fd9a70cef96f8139823a3951943}} 
+\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}!stop@{stop}}
+\index{stop@{stop}!Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Feedback\+Socket\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classNetworking_1_1FeedbackSocket_a067dad9137b11c7fc4f6b1a6a6b1d501}\label{classNetworking_1_1FeedbackSocket_a067dad9137b11c7fc4f6b1a6a6b1d501}} 
+\index{Networking::FeedbackSocket@{Networking::FeedbackSocket}!textReceived@{textReceived}}
+\index{textReceived@{textReceived}!Networking::FeedbackSocket@{Networking::FeedbackSocket}}
+\doxysubsubsection{\texorpdfstring{textReceived}{textReceived}}
+{\footnotesize\ttfamily void Networking\+::\+Feedback\+Socket\+::text\+Received (\begin{DoxyParamCaption}\item[{QByte\+Array}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/execd/\mbox{\hyperlink{feedbacksocket_8h}{feedbacksocket.\+h}}\item 
+src/c++/network/execd/\mbox{\hyperlink{feedbacksocket_8c_09_09}{feedbacksocket.\+c++}}\end{DoxyCompactItemize}

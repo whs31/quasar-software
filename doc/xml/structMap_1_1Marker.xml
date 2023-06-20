@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structMap_1_1Marker" kind="struct" language="C++" prot="public">
+    <compoundname>Map::Marker</compoundname>
+    <derivedcompoundref refid="structMap_1_1PlannerPoint" prot="public" virt="non-virtual">Map::PlannerPoint</derivedcompoundref>
+    <includes refid="marker_8h" local="no">marker.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMap_1_1Marker_1ae57db9312b6ef377541fd756f674b176" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Map::Marker::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>Map::Marker::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="12" column="16" bodyfile="src/c++/map/entities/marker.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1Marker_1ad99ebe442fc5e6b6201a868d7d312a2d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Map::Marker::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>Map::Marker::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="13" column="16" bodyfile="src/c++/map/entities/marker.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1Marker_1ad67b76f629cdbccc3561e9788d381264" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Map::Marker::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>Map::Marker::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="14" column="17" bodyfile="src/c++/map/entities/marker.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1Marker_1a490e1753364fb084123df8020a50fc9f" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Map::Marker::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>Map::Marker::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="15" column="17" bodyfile="src/c++/map/entities/marker.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1Marker_1aee65850320b423b218532ba14e2fde2f" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Map::Marker::icon</definition>
+        <argsstring></argsstring>
+        <name>icon</name>
+        <qualifiedname>Map::Marker::icon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="16" column="17" bodyfile="src/c++/map/entities/marker.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structMap_1_1Marker_1aab0a1d930f423e90459e7316957d1931" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::Marker::Marker</definition>
+        <argsstring>(double latitude, double longitude, QString name, QString color=&quot;white&quot;, QString icon=&quot;qrc:/map/markers/default.png&quot;)</argsstring>
+        <name>Marker</name>
+        <qualifiedname>Map::Marker::Marker</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>color</declname>
+          <defval>&quot;white&quot;</defval>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>icon</declname>
+          <defval>&quot;qrc:/map/markers/default.png&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="9" column="9" bodyfile="src/c++/map/entities/marker.c++" bodystart="3" bodyend="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Map::Marker</label>
+        <link refid="structMap_1_1Marker"/>
+      </node>
+      <node id="2">
+        <label>Map::PlannerPoint</label>
+        <link refid="structMap_1_1PlannerPoint"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/c++/map/entities/marker.h" line="7" column="5" bodyfile="src/c++/map/entities/marker.h" bodystart="8" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structMap_1_1Marker_1a490e1753364fb084123df8020a50fc9f" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>color</name></member>
+      <member refid="structMap_1_1Marker_1aee65850320b423b218532ba14e2fde2f" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>icon</name></member>
+      <member refid="structMap_1_1Marker_1ae57db9312b6ef377541fd756f674b176" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>latitude</name></member>
+      <member refid="structMap_1_1Marker_1ad99ebe442fc5e6b6201a868d7d312a2d" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>longitude</name></member>
+      <member refid="structMap_1_1Marker_1aab0a1d930f423e90459e7316957d1931" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>Marker</name></member>
+      <member refid="structMap_1_1Marker_1ad67b76f629cdbccc3561e9788d381264" prot="public" virt="non-virtual"><scope>Map::Marker</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

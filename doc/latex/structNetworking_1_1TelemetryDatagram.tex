@@ -1,0 +1,231 @@
+\hypertarget{structNetworking_1_1TelemetryDatagram}{}\doxysection{Networking\+::Telemetry\+Datagram Struct Reference}
+\label{structNetworking_1_1TelemetryDatagram}\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+
+
+{\ttfamily \#include $<$telemetrydatagram.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ac1e87a7e05e867b5d8af3aef362f28f0}{marker}} = 0x0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a8ff47b956e9e4d9a88c1d0ecb1799cb4}{version}} = 0x0
+\begin{DoxyCompactList}\small\item\em @variable Маркер сообщения. Равен 0x55\+AA55\+AA. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ad539628eebe9941e56fa37364a70bca0}{latitude}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Версия протокола. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a49efe4b7d96c5e7951d932dc5466b9f4}{longitude}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Широта в градусах. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_aa7d7daa9f7bb07005561056887d46e20}{altitude}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Долгота в градусах. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a71d938d3a50cab93d6eeb78ef5e47bf0}{velocity\+\_\+course}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Высота в метрах. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_af150424204438c491d94aea61ebd0d3c}{velocity\+\_\+east}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Путевая скорость в м/с. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ac3998f35fcf67f0e93566bfcb85cca8e}{velocity\+\_\+north}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Скорость на восток в м/с. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_afd84b7ae9de95b2d6e80c8463ff1bbab}{velocity\+\_\+vertical}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Скорость на север в м/с. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a2052afd913df45667a53fed675fa1311}{pitch}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Вертикальная скорость в м/с. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a10f21b47bed7ae53921cac04649a7d1d}{roll}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Тангаж БПЛА в радианах. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ac302f20ce67afecf50dea2b913294b70}{yaw}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Крен БПЛА в радианах. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a4abde7765315f300eca38650274f9f79}{course}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Рыскание БПЛА в радианах. \end{DoxyCompactList}\item 
+quint64 \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a96c509bc3f70e215fe04ec020c596aea}{time}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Курс (азимут) БПЛА в радианах. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ae2530c90185df9623b5b5ad80bd0cdc4}{satellites}} = 0
+\begin{DoxyCompactList}\small\item\em @variable Unix-\/time на борту. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_ade53d8bf80c7c6cbadbfe4db52e5739e}{crc16}} = 0x0
+\begin{DoxyCompactList}\small\item\em @variable Текущее количество спутников навигации. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+QData\+Stream \& \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_af1b1c5fe6cadd39db7277bfb71438ecc}{operator$<$$<$}} (QData\+Stream \&data\+Stream, const \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram}{Telemetry\+Datagram}} \&data)
+\begin{DoxyCompactList}\small\item\em @variable Контрольная сумма датаграмы (CRC16\+\_\+\+CCIT). \end{DoxyCompactList}\item 
+QData\+Stream \& \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram_a938d6f128a41c8f63c84a34136307c88}{operator$>$$>$}} (QData\+Stream \&data\+Stream, \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram}{Telemetry\+Datagram}} \&data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_af1b1c5fe6cadd39db7277bfb71438ecc}\label{structNetworking_1_1TelemetryDatagram_af1b1c5fe6cadd39db7277bfb71438ecc}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily QData\+Stream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{QData\+Stream \&}]{data\+Stream,  }\item[{const \mbox{\hyperlink{structNetworking_1_1TelemetryDatagram}{Telemetry\+Datagram}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+@variable Контрольная сумма датаграмы (CRC16\+\_\+\+CCIT). 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a938d6f128a41c8f63c84a34136307c88}\label{structNetworking_1_1TelemetryDatagram_a938d6f128a41c8f63c84a34136307c88}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily QData\+Stream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{QData\+Stream \&}]{data\+Stream,  }\item[{\mbox{\hyperlink{structNetworking_1_1TelemetryDatagram}{Telemetry\+Datagram}} \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_aa7d7daa9f7bb07005561056887d46e20}\label{structNetworking_1_1TelemetryDatagram_aa7d7daa9f7bb07005561056887d46e20}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!altitude@{altitude}}
+\index{altitude@{altitude}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{altitude}{altitude}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::altitude = 0}
+
+
+
+@variable Долгота в градусах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a4abde7765315f300eca38650274f9f79}\label{structNetworking_1_1TelemetryDatagram_a4abde7765315f300eca38650274f9f79}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!course@{course}}
+\index{course@{course}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{course}{course}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::course = 0}
+
+
+
+@variable Рыскание БПЛА в радианах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ade53d8bf80c7c6cbadbfe4db52e5739e}\label{structNetworking_1_1TelemetryDatagram_ade53d8bf80c7c6cbadbfe4db52e5739e}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!crc16@{crc16}}
+\index{crc16@{crc16}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{crc16}{crc16}}
+{\footnotesize\ttfamily uint16\+\_\+t Networking\+::\+Telemetry\+Datagram\+::crc16 = 0x0}
+
+
+
+@variable Текущее количество спутников навигации. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ad539628eebe9941e56fa37364a70bca0}\label{structNetworking_1_1TelemetryDatagram_ad539628eebe9941e56fa37364a70bca0}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!latitude@{latitude}}
+\index{latitude@{latitude}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{latitude}{latitude}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::latitude = 0}
+
+
+
+@variable Версия протокола. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a49efe4b7d96c5e7951d932dc5466b9f4}\label{structNetworking_1_1TelemetryDatagram_a49efe4b7d96c5e7951d932dc5466b9f4}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!longitude@{longitude}}
+\index{longitude@{longitude}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{longitude}{longitude}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::longitude = 0}
+
+
+
+@variable Широта в градусах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ac1e87a7e05e867b5d8af3aef362f28f0}\label{structNetworking_1_1TelemetryDatagram_ac1e87a7e05e867b5d8af3aef362f28f0}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!marker@{marker}}
+\index{marker@{marker}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{marker}{marker}}
+{\footnotesize\ttfamily uint32\+\_\+t Networking\+::\+Telemetry\+Datagram\+::marker = 0x0}
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a2052afd913df45667a53fed675fa1311}\label{structNetworking_1_1TelemetryDatagram_a2052afd913df45667a53fed675fa1311}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!pitch@{pitch}}
+\index{pitch@{pitch}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{pitch}{pitch}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::pitch = 0}
+
+
+
+@variable Вертикальная скорость в м/с. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a10f21b47bed7ae53921cac04649a7d1d}\label{structNetworking_1_1TelemetryDatagram_a10f21b47bed7ae53921cac04649a7d1d}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!roll@{roll}}
+\index{roll@{roll}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{roll}{roll}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::roll = 0}
+
+
+
+@variable Тангаж БПЛА в радианах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ae2530c90185df9623b5b5ad80bd0cdc4}\label{structNetworking_1_1TelemetryDatagram_ae2530c90185df9623b5b5ad80bd0cdc4}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!satellites@{satellites}}
+\index{satellites@{satellites}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{satellites}{satellites}}
+{\footnotesize\ttfamily uint8\+\_\+t Networking\+::\+Telemetry\+Datagram\+::satellites = 0}
+
+
+
+@variable Unix-\/time на борту. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a96c509bc3f70e215fe04ec020c596aea}\label{structNetworking_1_1TelemetryDatagram_a96c509bc3f70e215fe04ec020c596aea}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!time@{time}}
+\index{time@{time}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily quint64 Networking\+::\+Telemetry\+Datagram\+::time = 0}
+
+
+
+@variable Курс (азимут) БПЛА в радианах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a71d938d3a50cab93d6eeb78ef5e47bf0}\label{structNetworking_1_1TelemetryDatagram_a71d938d3a50cab93d6eeb78ef5e47bf0}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!velocity\_course@{velocity\_course}}
+\index{velocity\_course@{velocity\_course}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{velocity\_course}{velocity\_course}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::velocity\+\_\+course = 0}
+
+
+
+@variable Высота в метрах. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_af150424204438c491d94aea61ebd0d3c}\label{structNetworking_1_1TelemetryDatagram_af150424204438c491d94aea61ebd0d3c}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!velocity\_east@{velocity\_east}}
+\index{velocity\_east@{velocity\_east}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{velocity\_east}{velocity\_east}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::velocity\+\_\+east = 0}
+
+
+
+@variable Путевая скорость в м/с. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ac3998f35fcf67f0e93566bfcb85cca8e}\label{structNetworking_1_1TelemetryDatagram_ac3998f35fcf67f0e93566bfcb85cca8e}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!velocity\_north@{velocity\_north}}
+\index{velocity\_north@{velocity\_north}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{velocity\_north}{velocity\_north}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::velocity\+\_\+north = 0}
+
+
+
+@variable Скорость на восток в м/с. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_afd84b7ae9de95b2d6e80c8463ff1bbab}\label{structNetworking_1_1TelemetryDatagram_afd84b7ae9de95b2d6e80c8463ff1bbab}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!velocity\_vertical@{velocity\_vertical}}
+\index{velocity\_vertical@{velocity\_vertical}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{velocity\_vertical}{velocity\_vertical}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::velocity\+\_\+vertical = 0}
+
+
+
+@variable Скорость на север в м/с. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_a8ff47b956e9e4d9a88c1d0ecb1799cb4}\label{structNetworking_1_1TelemetryDatagram_a8ff47b956e9e4d9a88c1d0ecb1799cb4}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!version@{version}}
+\index{version@{version}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily uint8\+\_\+t Networking\+::\+Telemetry\+Datagram\+::version = 0x0}
+
+
+
+@variable Маркер сообщения. Равен 0x55\+AA55\+AA. 
+
+\mbox{\Hypertarget{structNetworking_1_1TelemetryDatagram_ac302f20ce67afecf50dea2b913294b70}\label{structNetworking_1_1TelemetryDatagram_ac302f20ce67afecf50dea2b913294b70}} 
+\index{Networking::TelemetryDatagram@{Networking::TelemetryDatagram}!yaw@{yaw}}
+\index{yaw@{yaw}!Networking::TelemetryDatagram@{Networking::TelemetryDatagram}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily double Networking\+::\+Telemetry\+Datagram\+::yaw = 0}
+
+
+
+@variable Крен БПЛА в радианах. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/network/telemetry/\mbox{\hyperlink{telemetrydatagram_8h}{telemetrydatagram.\+h}}\end{DoxyCompactItemize}

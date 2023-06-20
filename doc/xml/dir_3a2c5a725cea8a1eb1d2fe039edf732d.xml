@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_3a2c5a725cea8a1eb1d2fe039edf732d" kind="dir">
+    <compoundname>src/python/tcp</compoundname>
+    <innerfile refid="cli_8py">cli.py</innerfile>
+    <innerfile refid="srv_8py">srv.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/tcp/"/>
+  </compounddef>
+</doxygen>

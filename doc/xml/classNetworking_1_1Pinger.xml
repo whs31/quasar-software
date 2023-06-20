@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classNetworking_1_1Pinger" kind="class" language="C++" prot="public">
+    <compoundname>Networking::Pinger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="ping_8h" local="no">ping.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNetworking_1_1Pinger_1aa9d8f2cc7ac37ac3fe0c6ab9adb08484" prot="private" static="no" mutable="no">
+        <type>QProcess *</type>
+        <definition>QProcess* Networking::Pinger::ch</definition>
+        <argsstring></argsstring>
+        <name>ch</name>
+        <qualifiedname>Networking::Pinger::ch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="48" column="22" bodyfile="src/c++/network/ping.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1Pinger_1adb99dbe97325e0472bc1aef6fcc2e2b6" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* Networking::Pinger::t</definition>
+        <argsstring></argsstring>
+        <name>t</name>
+        <qualifiedname>Networking::Pinger::t</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="49" column="20" bodyfile="src/c++/network/ping.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1Pinger_1a7dcf0c5d1c0818b4e5a2fd4f483081bf" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Networking::Pinger::addr</definition>
+        <argsstring></argsstring>
+        <name>addr</name>
+        <qualifiedname>Networking::Pinger::addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="50" column="21" bodyfile="src/c++/network/ping.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworking_1_1Pinger_1a232ae8bd2ae667c58a8662f5ec88ffba" prot="private" static="no" mutable="no">
+        <type>QStringList</type>
+        <definition>QStringList Networking::Pinger::m_args</definition>
+        <argsstring></argsstring>
+        <name>m_args</name>
+        <qualifiedname>Networking::Pinger::m_args</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="51" column="25" bodyfile="src/c++/network/ping.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetworking_1_1Pinger_1a841b3f735581abc856e3a8f1e9cf25d2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Networking::Pinger::Pinger</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Pinger</name>
+        <qualifiedname>Networking::Pinger::Pinger</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructs new <ref refid="classNetworking_1_1Pinger" kindref="compound">Pinger</ref> object with given parent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="24" column="22" bodyfile="src/c++/network/ping.c++" bodystart="11" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1Pinger_1ad50db6efb1dead10624227622ab23ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Networking::Pinger::~Pinger</definition>
+        <argsstring>()</argsstring>
+        <name>~Pinger</name>
+        <qualifiedname>Networking::Pinger::~Pinger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="25" column="13" bodyfile="src/c++/network/ping.c++" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1Pinger_1a0440b26f90fcf3904d2ac8c2a8653fe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::Pinger::start</definition>
+        <argsstring>(uint32_t interval, const QString &amp;address, const vector&lt; QString &gt; args={})</argsstring>
+        <name>start</name>
+        <qualifiedname>Networking::Pinger::start</qualifiedname>
+        <param>
+          <type>uint32_t</type>
+          <declname>interval</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const vector&lt; QString &gt;</type>
+          <declname>args</declname>
+          <defval>{}</defval>
+        </param>
+        <briefdescription>
+<para>Starts pinging given address, until <ref refid="classNetworking_1_1Pinger" kindref="compound">Pinger</ref> is not destroyed or stopped. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>interval</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- ms interval between pings. 0 means auto. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- IPv4 address to ping. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- ping command line arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="32" column="18" bodyfile="src/c++/network/ping.c++" bodystart="25" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetworking_1_1Pinger_1a243166a08db94fd1bd04ace0ca0572c1" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::Pinger::stop</definition>
+        <argsstring>() noexcept</argsstring>
+        <name>stop</name>
+        <qualifiedname>Networking::Pinger::stop</qualifiedname>
+        <briefdescription>
+<para>Stops pinging address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="35" column="18" bodyfile="src/c++/network/ping.c++" bodystart="41" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classNetworking_1_1Pinger_1a2b0d95470bc81385d7f24352945c50fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::Pinger::result</definition>
+        <argsstring>(int status)</argsstring>
+        <name>result</name>
+        <qualifiedname>Networking::Pinger::result</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+<para>Emitted when ping is finished. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>status</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- Network::PingStatus result code. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="40" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="classNetworking_1_1Pinger_1a02dcf16f69b36caa3b1091913ae4cbb8" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::Pinger::ping</definition>
+        <argsstring>()</argsstring>
+        <name>ping</name>
+        <qualifiedname>Networking::Pinger::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="44" column="22" bodyfile="src/c++/network/ping.c++" bodystart="42" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="slot" id="classNetworking_1_1Pinger_1a5c63f58af772e395c922552872154132" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Networking::Pinger::recv</definition>
+        <argsstring>()</argsstring>
+        <name>recv</name>
+        <qualifiedname>Networking::Pinger::recv</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/ping.h" line="45" column="22" bodyfile="src/c++/network/ping.c++" bodystart="52" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Networking::Pinger</label>
+        <link refid="classNetworking_1_1Pinger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Networking::Pinger</label>
+        <link refid="classNetworking_1_1Pinger"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/network/ping.h" line="17" column="5" bodyfile="src/c++/network/ping.h" bodystart="18" bodyend="52"/>
+    <listofallmembers>
+      <member refid="classNetworking_1_1Pinger_1a7dcf0c5d1c0818b4e5a2fd4f483081bf" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>addr</name></member>
+      <member refid="classNetworking_1_1Pinger_1aa9d8f2cc7ac37ac3fe0c6ab9adb08484" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>ch</name></member>
+      <member refid="classNetworking_1_1Pinger_1a232ae8bd2ae667c58a8662f5ec88ffba" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>m_args</name></member>
+      <member refid="classNetworking_1_1Pinger_1a02dcf16f69b36caa3b1091913ae4cbb8" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>ping</name></member>
+      <member refid="classNetworking_1_1Pinger_1a841b3f735581abc856e3a8f1e9cf25d2" prot="public" virt="non-virtual"><scope>Networking::Pinger</scope><name>Pinger</name></member>
+      <member refid="classNetworking_1_1Pinger_1a5c63f58af772e395c922552872154132" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>recv</name></member>
+      <member refid="classNetworking_1_1Pinger_1a2b0d95470bc81385d7f24352945c50fa" prot="public" virt="non-virtual"><scope>Networking::Pinger</scope><name>result</name></member>
+      <member refid="classNetworking_1_1Pinger_1a0440b26f90fcf3904d2ac8c2a8653fe8" prot="public" virt="non-virtual"><scope>Networking::Pinger</scope><name>start</name></member>
+      <member refid="classNetworking_1_1Pinger_1a243166a08db94fd1bd04ace0ca0572c1" prot="public" virt="non-virtual"><scope>Networking::Pinger</scope><name>stop</name></member>
+      <member refid="classNetworking_1_1Pinger_1adb99dbe97325e0472bc1aef6fcc2e2b6" prot="private" virt="non-virtual"><scope>Networking::Pinger</scope><name>t</name></member>
+      <member refid="classNetworking_1_1Pinger_1ad50db6efb1dead10624227622ab23ce7" prot="public" virt="non-virtual"><scope>Networking::Pinger</scope><name>~Pinger</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

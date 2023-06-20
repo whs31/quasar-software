@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="startTelemetrySocket-example" kind="example">
+    <compoundname>startTelemetrySocket</compoundname>
+    <briefdescription>
+<para>Starts telemetry socket with given parameters. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Starts telemetry socket with given parameters <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>request_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- IPv4 address and port for requests. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>recv_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- IPv4 address and port for receiving telemetry. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frequency</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- interval between incoming packages in seconds.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Can be invoked from QML. (&quot;192.168.1.47:9955&quot;, &quot;192.168.1.10:10337&quot;, 0.1); <programlisting filename="startTelemetrySocket"></programlisting> </para>
+    </detaileddescription>
+    <location file="src/c++/network/network.h"/>
+  </compounddef>
+</doxygen>

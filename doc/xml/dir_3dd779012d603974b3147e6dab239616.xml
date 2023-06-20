@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_3dd779012d603974b3147e6dab239616" kind="dir">
+    <compoundname>src/c++/network/telemetry</compoundname>
+    <innerfile refid="telemetry_8c_09_09">telemetry.c++</innerfile>
+    <innerfile refid="telemetry_8h">telemetry.h</innerfile>
+    <innerfile refid="telemetrydatagram_8h">telemetrydatagram.h</innerfile>
+    <innerfile refid="telemetrysocket_8c_09_09">telemetrysocket.c++</innerfile>
+    <innerfile refid="telemetrysocket_8h">telemetrysocket.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/telemetry/"/>
+  </compounddef>
+</doxygen>

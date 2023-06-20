@@ -1,0 +1,33 @@
+\hypertarget{feedbacksocket_8h_source}{}\doxysection{feedbacksocket.\+h}
+\label{feedbacksocket_8h_source}\index{src/c++/network/execd/feedbacksocket.h@{src/c++/network/execd/feedbacksocket.h}}
+\mbox{\hyperlink{feedbacksocket_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}../abstractudpsocket.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceNetworking}{Networking}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classNetworking_1_1FeedbackSocket}{FeedbackSocket}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classNetworking_1_1AbstractUDPSocket}{AbstractUDPSocket}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ STORAGE\_STATUS\_MARKER\ =\ \textcolor{stringliteral}{"{}*FREE\_DISK\_SPACE*"{}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classNetworking_1_1FeedbackSocket}{FeedbackSocket}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a832076e093faa9849eaf281f2f9a1c07}{start}}(\textcolor{keyword}{const}\ QString\&\ address);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a0b914fd9a70cef96f8139823a3951943}{stop}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a067dad9137b11c7fc4f6b1a6a6b1d501}{textReceived}}(QByteArray\ text);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classNetworking_1_1FeedbackSocket_a722f96da1800fecc9d8756a6292c4d57}{diskSpaceReceived}}(\textcolor{keywordtype}{long}\ free,\ \textcolor{keywordtype}{long}\ total);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processResult(QByteArray\ data);}
+\DoxyCodeLine{00026\ \ \ \ \ \};}
+\DoxyCodeLine{00027\ \}\ \textcolor{comment}{//\ namespace\ Network;}}
+
+\end{DoxyCode}

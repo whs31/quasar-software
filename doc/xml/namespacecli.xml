@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacecli" kind="namespace" language="Python">
+    <compoundname>cli</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacecli_1a381ee1e1f472ba0b13ef24106ac7aebe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int cli.chunk_size</definition>
+        <argsstring></argsstring>
+        <name>chunk_size</name>
+        <qualifiedname>cli.chunk_size</qualifiedname>
+        <initializer>=  1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="8" column="1" bodyfile="src/python/tcp/cli.py" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1ab7cd97f75afd3deacdfa9c2fe5ed768f" prot="public" static="no" mutable="no">
+        <type>str</type>
+        <definition>str cli.fileName</definition>
+        <argsstring></argsstring>
+        <name>fileName</name>
+        <qualifiedname>cli.fileName</qualifiedname>
+        <initializer>=  &apos;m4-13-12-2022_21-19-14.jpg&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="9" column="1" bodyfile="src/python/tcp/cli.py" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1ac624992e1d1471d4a48c8688cef8579a" prot="public" static="no" mutable="no">
+        <type>socket</type>
+        <definition>socket cli.sock</definition>
+        <argsstring></argsstring>
+        <name>sock</name>
+        <qualifiedname>cli.sock</qualifiedname>
+        <initializer>=  socket.socket(socket.AF_INET, socket.SOCK_STREAM)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="10" column="1" bodyfile="src/python/tcp/cli.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1a29e146d1ba760e6d9a33003a9dbbd852" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple cli.server_address</definition>
+        <argsstring></argsstring>
+        <name>server_address</name>
+        <qualifiedname>cli.server_address</qualifiedname>
+        <initializer>=  (&apos;127.0.0.1&apos;, 10000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="11" column="1" bodyfile="src/python/tcp/cli.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1a527786981c30ed2bc4bac56e1438f2fb" prot="public" static="no" mutable="no">
+        <type>os</type>
+        <definition>os cli.filesize</definition>
+        <argsstring></argsstring>
+        <name>filesize</name>
+        <qualifiedname>cli.filesize</qualifiedname>
+        <initializer>=  os.path.getsize(<ref refid="namespacecli_1ab7cd97f75afd3deacdfa9c2fe5ed768f" kindref="member">fileName</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="15" column="1" bodyfile="src/python/tcp/cli.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1ad6eda0b31c8d3a79d1deb9ba475c68a4" prot="public" static="no" mutable="no">
+        <type>tuple</type>
+        <definition>tuple cli.fileinfo</definition>
+        <argsstring></argsstring>
+        <name>fileinfo</name>
+        <qualifiedname>cli.fileinfo</qualifiedname>
+        <initializer>=  (<ref refid="namespacecli_1ab7cd97f75afd3deacdfa9c2fe5ed768f" kindref="member">fileName</ref> + &apos;\0&apos;).encode() + filesize.to_bytes(4, byteorder=&apos;little&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="18" column="1" bodyfile="src/python/tcp/cli.py" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacecli_1a71a50f210e1cf7bf3946bc0c1a234288" prot="public" static="no" mutable="no">
+        <type>open</type>
+        <definition>open cli.f</definition>
+        <argsstring></argsstring>
+        <name>f</name>
+        <qualifiedname>cli.f</qualifiedname>
+        <initializer>=  open(<ref refid="namespacecli_1ab7cd97f75afd3deacdfa9c2fe5ed768f" kindref="member">fileName</ref>, &apos;rb&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/tcp/cli.py" line="24" column="1" bodyfile="src/python/tcp/cli.py" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/tcp/cli.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

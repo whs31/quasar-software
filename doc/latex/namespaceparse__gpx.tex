@@ -1,0 +1,241 @@
+\hypertarget{namespaceparse__gpx}{}\doxysection{parse\+\_\+gpx Namespace Reference}
+\label{namespaceparse__gpx}\index{parse\_gpx@{parse\_gpx}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}{crc16\+\_\+ccitt}} (data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}{nav\+\_\+struct}}
+\item 
+list \mbox{\hyperlink{namespaceparse__gpx_ae4c7172aeb5baf5d604920400a5b5cfd}{CRC16\+TABLE}}
+\item 
+sys \mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{fn}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_a66937bce827c9c46b7843c7bfeb5a714}{gpx}} = \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}}(\mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{fn}})
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}{nav}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(\mbox{\hyperlink{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}{nav\+\_\+struct}}, \textquotesingle{}$>$\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}{time}} = 1684670380000
+\item 
+sys \mbox{\hyperlink{namespaceparse__gpx_a9b407f304c807260378696904762113a}{out\+\_\+fn}} = \mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{fn}}\mbox{[}\+:-\/3\mbox{]} + \textquotesingle{}\mbox{\hyperlink{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}{nav}}\textquotesingle{}
+\item 
+open \mbox{\hyperlink{namespaceparse__gpx_ab94b622cd8431ba4a251a4ae2efae829}{f}} = open(\mbox{\hyperlink{namespaceparse__gpx_a9b407f304c807260378696904762113a}{out\+\_\+fn}}, \textquotesingle{}wb\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}{marker}} = 0x55\+AA55\+AA
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}{version}} = 0x02
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}{lat}} = gpx.\+lat\mbox{[}i\mbox{]}
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}{lon}} = gpx.\+lon\mbox{[}i\mbox{]}
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}{ele}} = gpx.\+ele\+\_\+data\mbox{[}i\mbox{]}
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}{spd}} = gpx.\+speed\+\_\+data\mbox{[}i\mbox{]} / 3.\+6
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}{ve}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}{vn}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}{vv}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}{p}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}{r}} = 0
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}{yaw}} = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}
+\item 
+\mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} \mbox{\hyperlink{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}{course}} = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}{valid}} = 1
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}{pack}} = nav.\+serial(( \mbox{\hyperlink{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}{marker}}, \mbox{\hyperlink{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}{version}}, \mbox{\hyperlink{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}{lat}}, \mbox{\hyperlink{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}{lon}}, \mbox{\hyperlink{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}{ele}}, \mbox{\hyperlink{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}{spd}}, \mbox{\hyperlink{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}{ve}}, \mbox{\hyperlink{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}{vn}}, \mbox{\hyperlink{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}{vv}}, \mbox{\hyperlink{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}{p}}, \mbox{\hyperlink{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}{r}}, \mbox{\hyperlink{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}{yaw}}, \mbox{\hyperlink{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}{course}}, \mbox{\hyperlink{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}{time}}, \mbox{\hyperlink{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}{valid}}))
+\item 
+def \mbox{\hyperlink{namespaceparse__gpx_a30b599412587d3c57de5a4f59af59b12}{crc}} = \mbox{\hyperlink{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}{crc16\+\_\+ccitt}}(\mbox{\hyperlink{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}{pack}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}\label{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}} 
+\index{parse\_gpx@{parse\_gpx}!crc16\_ccitt@{crc16\_ccitt}}
+\index{crc16\_ccitt@{crc16\_ccitt}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{crc16\_ccitt()}{crc16\_ccitt()}}
+{\footnotesize\ttfamily def parse\+\_\+gpx.\+crc16\+\_\+ccitt (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}\label{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}} 
+\index{parse\_gpx@{parse\_gpx}!course@{course}}
+\index{course@{course}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{course}{course}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+course = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a30b599412587d3c57de5a4f59af59b12}\label{namespaceparse__gpx_a30b599412587d3c57de5a4f59af59b12}} 
+\index{parse\_gpx@{parse\_gpx}!crc@{crc}}
+\index{crc@{crc}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{crc}{crc}}
+{\footnotesize\ttfamily def parse\+\_\+gpx.\+crc = \mbox{\hyperlink{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}{crc16\+\_\+ccitt}}(\mbox{\hyperlink{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}{pack}})}
+
+\mbox{\Hypertarget{namespaceparse__gpx_ae4c7172aeb5baf5d604920400a5b5cfd}\label{namespaceparse__gpx_ae4c7172aeb5baf5d604920400a5b5cfd}} 
+\index{parse\_gpx@{parse\_gpx}!CRC16TABLE@{CRC16TABLE}}
+\index{CRC16TABLE@{CRC16TABLE}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{CRC16TABLE}{CRC16TABLE}}
+{\footnotesize\ttfamily list parse\+\_\+gpx.\+CRC16\+TABLE}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}\label{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}} 
+\index{parse\_gpx@{parse\_gpx}!ele@{ele}}
+\index{ele@{ele}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{ele}{ele}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+ele = gpx.\+ele\+\_\+data\mbox{[}i\mbox{]}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_ab94b622cd8431ba4a251a4ae2efae829}\label{namespaceparse__gpx_ab94b622cd8431ba4a251a4ae2efae829}} 
+\index{parse\_gpx@{parse\_gpx}!f@{f}}
+\index{f@{f}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily open parse\+\_\+gpx.\+f = open(\mbox{\hyperlink{namespaceparse__gpx_a9b407f304c807260378696904762113a}{out\+\_\+fn}}, \textquotesingle{}wb\textquotesingle{})}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}\label{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}} 
+\index{parse\_gpx@{parse\_gpx}!fn@{fn}}
+\index{fn@{fn}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{fn}{fn}}
+{\footnotesize\ttfamily sys parse\+\_\+gpx.\+fn = sys.\+argv\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a66937bce827c9c46b7843c7bfeb5a714}\label{namespaceparse__gpx_a66937bce827c9c46b7843c7bfeb5a714}} 
+\index{parse\_gpx@{parse\_gpx}!gpx@{gpx}}
+\index{gpx@{gpx}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{gpx}{gpx}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+gpx = \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}}(\mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{fn}})}
+
+\mbox{\Hypertarget{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}\label{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}} 
+\index{parse\_gpx@{parse\_gpx}!lat@{lat}}
+\index{lat@{lat}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{lat}{lat}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+lat = gpx.\+lat\mbox{[}i\mbox{]}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}\label{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}} 
+\index{parse\_gpx@{parse\_gpx}!lon@{lon}}
+\index{lon@{lon}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{lon}{lon}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+lon = gpx.\+lon\mbox{[}i\mbox{]}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}\label{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}} 
+\index{parse\_gpx@{parse\_gpx}!marker@{marker}}
+\index{marker@{marker}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{marker}{marker}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+marker = 0x55\+AA55\+AA}
+
+\mbox{\Hypertarget{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}\label{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}} 
+\index{parse\_gpx@{parse\_gpx}!nav@{nav}}
+\index{nav@{nav}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{nav}{nav}}
+{\footnotesize\ttfamily c\+\_\+deserial parse\+\_\+gpx.\+nav = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(\mbox{\hyperlink{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}{nav\+\_\+struct}}, \textquotesingle{}$>$\textquotesingle{})}
+
+\mbox{\Hypertarget{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}\label{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}} 
+\index{parse\_gpx@{parse\_gpx}!nav\_struct@{nav\_struct}}
+\index{nav\_struct@{nav\_struct}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{nav\_struct}{nav\_struct}}
+{\footnotesize\ttfamily str parse\+\_\+gpx.\+nav\+\_\+struct}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ \textcolor{stringliteral}{"{}"{}"{}struct\ nav\_pack\_t\{}}
+\DoxyCodeLine{00002\ \textcolor{stringliteral}{\ \ \ \ uint32\_t\ \_marker;}}
+\DoxyCodeLine{00003\ \textcolor{stringliteral}{\ \ \ \ uint8\_t\ version;}}
+\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ \ \ \ double\ \_lat;}}
+\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ \ \ \ double\ \_lon;}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ double\ \_ele;}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ double\ \_velocity\_course;}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ double\ velocity\_east;}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ double\ velocity\_north;}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ double\ velocity\_vertical;}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{\ \ \ \ double\ pitch;}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ double\ roll;}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ double\ yaw;}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ double\ \_course;}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ uint64\_t\ \_time;}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ uint8\_t\ valid;}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\}nav\_info;}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{"{}"{}"{}}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceparse__gpx_a9b407f304c807260378696904762113a}\label{namespaceparse__gpx_a9b407f304c807260378696904762113a}} 
+\index{parse\_gpx@{parse\_gpx}!out\_fn@{out\_fn}}
+\index{out\_fn@{out\_fn}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{out\_fn}{out\_fn}}
+{\footnotesize\ttfamily sys parse\+\_\+gpx.\+out\+\_\+fn = \mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{fn}}\mbox{[}\+:-\/3\mbox{]} + \textquotesingle{}\mbox{\hyperlink{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}{nav}}\textquotesingle{}}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}\label{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}} 
+\index{parse\_gpx@{parse\_gpx}!p@{p}}
+\index{p@{p}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+p = 0}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}\label{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}} 
+\index{parse\_gpx@{parse\_gpx}!pack@{pack}}
+\index{pack@{pack}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{pack}{pack}}
+{\footnotesize\ttfamily c\+\_\+deserial parse\+\_\+gpx.\+pack = nav.\+serial(( \mbox{\hyperlink{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}{marker}}, \mbox{\hyperlink{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}{version}}, \mbox{\hyperlink{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}{lat}}, \mbox{\hyperlink{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}{lon}}, \mbox{\hyperlink{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}{ele}}, \mbox{\hyperlink{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}{spd}}, \mbox{\hyperlink{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}{ve}}, \mbox{\hyperlink{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}{vn}}, \mbox{\hyperlink{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}{vv}}, \mbox{\hyperlink{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}{p}}, \mbox{\hyperlink{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}{r}}, \mbox{\hyperlink{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}{yaw}}, \mbox{\hyperlink{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}{course}}, \mbox{\hyperlink{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}{time}}, \mbox{\hyperlink{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}{valid}}))}
+
+\mbox{\Hypertarget{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}\label{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}} 
+\index{parse\_gpx@{parse\_gpx}!r@{r}}
+\index{r@{r}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+r = 0}
+
+\mbox{\Hypertarget{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}\label{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}} 
+\index{parse\_gpx@{parse\_gpx}!spd@{spd}}
+\index{spd@{spd}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{spd}{spd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+spd = gpx.\+speed\+\_\+data\mbox{[}i\mbox{]} / 3.\+6}
+
+\mbox{\Hypertarget{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}\label{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}} 
+\index{parse\_gpx@{parse\_gpx}!time@{time}}
+\index{time@{time}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+time = 1684670380000}
+
+\mbox{\Hypertarget{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}\label{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}} 
+\index{parse\_gpx@{parse\_gpx}!valid@{valid}}
+\index{valid@{valid}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{valid}{valid}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+valid = 1}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}\label{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}} 
+\index{parse\_gpx@{parse\_gpx}!ve@{ve}}
+\index{ve@{ve}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{ve}{ve}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+ve = 0}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}\label{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}} 
+\index{parse\_gpx@{parse\_gpx}!version@{version}}
+\index{version@{version}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{version}{version}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+version = 0x02}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}\label{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}} 
+\index{parse\_gpx@{parse\_gpx}!vn@{vn}}
+\index{vn@{vn}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{vn}{vn}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+vn = 0}
+
+\mbox{\Hypertarget{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}\label{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}} 
+\index{parse\_gpx@{parse\_gpx}!vv@{vv}}
+\index{vv@{vv}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{vv}{vv}}
+{\footnotesize\ttfamily int parse\+\_\+gpx.\+vv = 0}
+
+\mbox{\Hypertarget{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}\label{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}} 
+\index{parse\_gpx@{parse\_gpx}!yaw@{yaw}}
+\index{yaw@{yaw}!parse\_gpx@{parse\_gpx}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classparse__gpx_1_1Gpx}{Gpx}} parse\+\_\+gpx.\+yaw = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}}
+

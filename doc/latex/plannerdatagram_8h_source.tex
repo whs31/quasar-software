@@ -1,0 +1,143 @@
+\hypertarget{plannerdatagram_8h_source}{}\doxysection{plannerdatagram.\+h}
+\label{plannerdatagram_8h_source}\index{src/c++/network/planner/plannerdatagram.h@{src/c++/network/planner/plannerdatagram.h}}
+\mbox{\hyperlink{plannerdatagram_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtCore/QDataStream>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{/*\ \ Создание\ полетного\ задания.\ Cм.\ PlannerAppendDatagram.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ Для\ создания\ полетного\ задания\ необходимо\ передать\ сервису\ сообщение,\ которое\ состоит\ из\ заголовка\ и\ данных.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ Данные\ должны\ располагаться\ сразу\ же\ после\ заголовка.\ Данные\ должны\ быть\ представлены\ в\ виде\ строки\ в\ формате\ execd}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ Удаление\ точки.\ См.\ PlannerRemoveDatagram.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ Точки\ удаляются\ автоматически\ при\ достижении\ cnt\ =\ 0;}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ При\ очередном\ достижении\ зоны\ события\ счетчик\ cnt\ декрементируется.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ Для\ ручного\ удаления\ точки\ необходимо\ передать\ PlannerRemoveDatagram.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ Обратная\ связь.\ См.\ PlannerResponseDatagram.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ При\ достижении\ зоны\ события\ сервис\ отправляет\ сообщение\ по\ адресу,\ указанному\ при\ добавлении\ точки.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceNetworking}{Networking}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{PlannerAppendDatagram}}}
+\DoxyCodeLine{00023\ \ \ \ \ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a2567ebbf0d75a831f51553d2ce8b4513}{marker}};\ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a52893b98f3f04724bb1ebb33a02fc73e}{id}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a098af798aa608356c64904e6c737032b}{r}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a6cabf24aa28166195100045c2caee160}{ip}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1be995949e36d850b295a1b1f5b32229}{port}};\ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a5ee8ae0a4ab20b1946e535a979afaeb8}{lat}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1653835b3bef6296ccefb73800613293}{lon}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a99a583578b286f864048c3befcfde960}{cnt}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_af22553018edca67bf9001dcefc4643d5}{len}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ QByteArray\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1c5792d12e12ecad9a55ebce8f2a8c64}{command}};\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a667da8c0fec261cd7fc83ee7976f51dd}{operator\ <<\ }}(QDataStream\&\ dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{PlannerAppendDatagram}}\&\ data);}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_ad24229e650467998c85c0047a2970270}{operator\ >>\ }}(QDataStream\&\ dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{PlannerAppendDatagram}}\&\ data);}
+\DoxyCodeLine{00038\ \ \ \ \ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{PlannerRemoveDatagram}}}
+\DoxyCodeLine{00042\ \ \ \ \ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac3001cb50732545c42627e102485326d}{marker}};\ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac94327bf505e4d0b8eefda865f4d40fd}{id}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a3604bc1d38cde5f9e7e7531a07afb62a}{r}}\ =\ 0;\ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_afb0c5395a9505dd6411857d02cc3712d}{lat}}\ =\ 0;\ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a2a9d7da8df410e1c93ef5ff24299d8ba}{lon}}\ =\ 0;\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_aaaa8a925af6abc5e3e8fdf3aec2d6e68}{cnt}}\ =\ 0;\ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a33c6c86f30eae54c7b55f4b6b999dc4e}{len}}\ =\ 0;\ \ \ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a109d968b5269f4699117f067bda65529}{operator\ <<\ }}(QDataStream\&\ dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{PlannerRemoveDatagram}}\&\ data);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a8cd5cbe90b83fca85b31a4230d77c20a}{operator\ >>\ }}(QDataStream\&\ dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{PlannerRemoveDatagram}}\&\ data);}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{PlannerResponseDatagram}}}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_a4bc46a4ccb78e95be856503b9803424f}{marker}};\ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_af5eb590284e5d2aeb3d1ebe22438f00b}{id}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_aa86f8f57f552a117d6dd564463c1d4a8}{cnt}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_ad8e8bf46284941b161387369faf8e633}{operator\ <<\ }}(QDataStream\&\ dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{PlannerResponseDatagram}}\&\ data);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ QDataStream\&\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_a10fb184281eeaeaa9948edb825e4f3e0}{operator\ >>\ }}(QDataStream\&\ dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{PlannerResponseDatagram}}\&\ data);}
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a24c2907021b2e1dc921073325c00aa9c}{operator\ <<\ }}(QDataStream\ \&dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{PlannerAppendDatagram}}\ \&data)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a2567ebbf0d75a831f51553d2ce8b4513}{marker}};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a52893b98f3f04724bb1ebb33a02fc73e}{id}};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a098af798aa608356c64904e6c737032b}{r}};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a6cabf24aa28166195100045c2caee160}{ip}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1be995949e36d850b295a1b1f5b32229}{port}};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a5ee8ae0a4ab20b1946e535a979afaeb8}{lat}};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1653835b3bef6296ccefb73800613293}{lon}};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a99a583578b286f864048c3befcfde960}{cnt}};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_af22553018edca67bf9001dcefc4643d5}{len}};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1c5792d12e12ecad9a55ebce8f2a8c64}{command}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a08d1bb385a1ab074668245edf56871e1}{operator\ >>\ }}(QDataStream\ \&dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram}{PlannerAppendDatagram}}\ \&data)}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a2567ebbf0d75a831f51553d2ce8b4513}{marker}};}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a52893b98f3f04724bb1ebb33a02fc73e}{id}};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a098af798aa608356c64904e6c737032b}{r}};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a6cabf24aa28166195100045c2caee160}{ip}};}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1be995949e36d850b295a1b1f5b32229}{port}};}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a5ee8ae0a4ab20b1946e535a979afaeb8}{lat}};}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1653835b3bef6296ccefb73800613293}{lon}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a99a583578b286f864048c3befcfde960}{cnt}};}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_af22553018edca67bf9001dcefc4643d5}{len}};}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerAppendDatagram_a1c5792d12e12ecad9a55ebce8f2a8c64}{command}};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00096\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a24c2907021b2e1dc921073325c00aa9c}{operator\ <<}}(QDataStream\ \&dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{PlannerRemoveDatagram}}\ \&data)}
+\DoxyCodeLine{00099\ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac3001cb50732545c42627e102485326d}{marker}};}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac94327bf505e4d0b8eefda865f4d40fd}{id}};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a3604bc1d38cde5f9e7e7531a07afb62a}{r}};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_afb0c5395a9505dd6411857d02cc3712d}{lat}};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a2a9d7da8df410e1c93ef5ff24299d8ba}{lon}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_aaaa8a925af6abc5e3e8fdf3aec2d6e68}{cnt}};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a33c6c86f30eae54c7b55f4b6b999dc4e}{len}};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a08d1bb385a1ab074668245edf56871e1}{operator\ >>}}(QDataStream\ \&dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram}{PlannerRemoveDatagram}}\ \&data)}
+\DoxyCodeLine{00112\ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac3001cb50732545c42627e102485326d}{marker}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_ac94327bf505e4d0b8eefda865f4d40fd}{id}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a3604bc1d38cde5f9e7e7531a07afb62a}{r}};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_afb0c5395a9505dd6411857d02cc3712d}{lat}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a2a9d7da8df410e1c93ef5ff24299d8ba}{lon}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_aaaa8a925af6abc5e3e8fdf3aec2d6e68}{cnt}};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerRemoveDatagram_a33c6c86f30eae54c7b55f4b6b999dc4e}{len}};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a24c2907021b2e1dc921073325c00aa9c}{operator\ <<}}(QDataStream\ \&dataStream,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{PlannerResponseDatagram}}\ \&data)}
+\DoxyCodeLine{00125\ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_a4bc46a4ccb78e95be856503b9803424f}{marker}};}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_af5eb590284e5d2aeb3d1ebe22438f00b}{id}};}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ dataStream\ <<\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_aa86f8f57f552a117d6dd564463c1d4a8}{cnt}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{inline}\ QDataStream\ \&\mbox{\hyperlink{namespaceNetworking_a08d1bb385a1ab074668245edf56871e1}{operator\ >>}}(QDataStream\ \&dataStream,\ \mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram}{PlannerResponseDatagram}}\ \&data)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_a4bc46a4ccb78e95be856503b9803424f}{marker}};}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_af5eb590284e5d2aeb3d1ebe22438f00b}{id}};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ dataStream\ >>\ data.\mbox{\hyperlink{structNetworking_1_1PlannerResponseDatagram_aa86f8f57f552a117d6dd564463c1d4a8}{cnt}};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dataStream;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ \}\ \textcolor{comment}{//\ namespace\ Network;}}
+
+\end{DoxyCode}

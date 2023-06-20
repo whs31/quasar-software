@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="namespacevisualize__strip__data" kind="namespace" language="Python">
+    <compoundname>visualize_strip_data</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespacevisualize__strip__data_1ae2fce4481ab7d9d568e45cc8b57bdd7b" prot="public" static="no" mutable="no">
+        <type>np</type>
+        <definition>np visualize_strip_data::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>visualize_strip_data.data</qualifiedname>
+        <initializer>=  np.fromfile(&apos;./debug_strip_data.bin&apos;, dtype=&apos;uint8&apos;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/visualize_strip_data.py" line="4" column="1" bodyfile="src/python/visualize_strip_data.py" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacevisualize__strip__data_1a3247bac20f0e0a7c412904b26d295c44" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int visualize_strip_data.line_len</definition>
+        <argsstring></argsstring>
+        <name>line_len</name>
+        <qualifiedname>visualize_strip_data.line_len</qualifiedname>
+        <initializer>=  int(2000)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/visualize_strip_data.py" line="6" column="1" bodyfile="src/python/visualize_strip_data.py" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacevisualize__strip__data_1adf0760e640a3c77b7a9b98d5320355df" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int visualize_strip_data.n_rows</definition>
+        <argsstring></argsstring>
+        <name>n_rows</name>
+        <qualifiedname>visualize_strip_data.n_rows</qualifiedname>
+        <initializer>=  int(474)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/visualize_strip_data.py" line="7" column="1" bodyfile="src/python/visualize_strip_data.py" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespacevisualize__strip__data_1a18ec6d86c9165bce3ebb8ced3c7bacfe" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>visualize_strip_data.cmap</definition>
+        <argsstring></argsstring>
+        <name>cmap</name>
+        <qualifiedname>visualize_strip_data.cmap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/visualize_strip_data.py" line="10" column="1" bodyfile="src/python/visualize_strip_data.py" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/visualize_strip_data.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+\hypertarget{new_2parse__gpx_8py}{}\doxysection{src/python/strip/new/parse\+\_\+gpx.py File Reference}
+\label{new_2parse__gpx_8py}\index{src/python/strip/new/parse\_gpx.py@{src/python/strip/new/parse\_gpx.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classparse__gpx_1_1Gpx}{parse\+\_\+gpx.\+Gpx}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceparse__gpx}{parse\+\_\+gpx}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceparse__gpx_ab8872f278c498661ebc997fb99b72638}{parse\+\_\+gpx.\+crc16\+\_\+ccitt}} (data)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceparse__gpx_afa0c42948e7924d15bbaa5266f330a12}{parse\+\_\+gpx.\+nav\+\_\+struct}}
+\item 
+list \mbox{\hyperlink{namespaceparse__gpx_ae4c7172aeb5baf5d604920400a5b5cfd}{parse\+\_\+gpx.\+CRC16\+TABLE}}
+\item 
+sys \mbox{\hyperlink{namespaceparse__gpx_a0e4e2ea1a4d36b017036b48df4e93499}{parse\+\_\+gpx.\+fn}} = sys.\+argv\mbox{[}1\mbox{]}
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_a66937bce827c9c46b7843c7bfeb5a714}{parse\+\_\+gpx.\+gpx}} = Gpx(fn)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceparse__gpx_acfd585f5c94598bd00d33a171ab9edbf}{parse\+\_\+gpx.\+nav}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(nav\+\_\+struct, \textquotesingle{}$>$\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_aee6839fceddd29142a028ebba4a9265a}{parse\+\_\+gpx.\+time}} = 1684670380000
+\item 
+sys \mbox{\hyperlink{namespaceparse__gpx_a9b407f304c807260378696904762113a}{parse\+\_\+gpx.\+out\+\_\+fn}} = fn\mbox{[}\+:-\/3\mbox{]} + \textquotesingle{}nav\textquotesingle{}
+\item 
+open \mbox{\hyperlink{namespaceparse__gpx_ab94b622cd8431ba4a251a4ae2efae829}{parse\+\_\+gpx.\+f}} = open(out\+\_\+fn, \textquotesingle{}wb\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a58339504224f1217be3f5123948dc5d8}{parse\+\_\+gpx.\+marker}} = 0x55\+AA55\+AA
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a42c7c5aa999f29dd954e80fa7bb00970}{parse\+\_\+gpx.\+version}} = 0x02
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_ac99eff36dc20c3b52ff95edc174a48b8}{parse\+\_\+gpx.\+lat}} = gpx.\+lat\mbox{[}i\mbox{]}
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_a342520b2c1a35c2fd969d0ea5729c80d}{parse\+\_\+gpx.\+lon}} = gpx.\+lon\mbox{[}i\mbox{]}
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_a90734c4f7b8a59eeb7a18c1914dcfec1}{parse\+\_\+gpx.\+ele}} = gpx.\+ele\+\_\+data\mbox{[}i\mbox{]}
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_acef510877136dd6b301fa81227c06791}{parse\+\_\+gpx.\+spd}} = gpx.\+speed\+\_\+data\mbox{[}i\mbox{]} / 3.\+6
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a0b38722d4436abf3c796e2c76ad6aede}{parse\+\_\+gpx.\+ve}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a8b4b10fa4312af4bc357df1c9f45e7b4}{parse\+\_\+gpx.\+vn}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_adc90b8385800e73d8852222c9a315151}{parse\+\_\+gpx.\+vv}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_a6057ebd05e811e6be5471f29abf98ced}{parse\+\_\+gpx.\+p}} = 0
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_aaa4988075f6781b0eca832e2c79a65f7}{parse\+\_\+gpx.\+r}} = 0
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_a78a8caa46e6af9e1df16590b42587ed8}{parse\+\_\+gpx.\+yaw}} = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}
+\item 
+Gpx \mbox{\hyperlink{namespaceparse__gpx_ad458f65f06cde18882413f936a27720b}{parse\+\_\+gpx.\+course}} = gpx.\+dir\+\_\+data\mbox{[}i\mbox{]}
+\item 
+int \mbox{\hyperlink{namespaceparse__gpx_ac77764b3f0e84017aa879bea82896416}{parse\+\_\+gpx.\+valid}} = 1
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceparse__gpx_a1b99bcf19022cbc832217947028ef75e}{parse\+\_\+gpx.\+pack}} = nav.\+serial(( \mbox{\hyperlink{imagemetadata_8h_a51bdee9eea878b90b917afc0f8c99435}{marker}}, \mbox{\hyperlink{imagemetadata_8h_ab6d7b6f8c2ceaba7acda80aaf05f4899}{version}}, lat, lon, ele, spd, ve, vn, vv, p, r, yaw, \mbox{\hyperlink{imagemetadata_8h_ac6894c88aabf335922736a63b2b87b97}{course}}, time, valid))
+\item 
+def \mbox{\hyperlink{namespaceparse__gpx_a30b599412587d3c57de5a4f59af59b12}{parse\+\_\+gpx.\+crc}} = crc16\+\_\+ccitt(pack)
+\end{DoxyCompactItemize}

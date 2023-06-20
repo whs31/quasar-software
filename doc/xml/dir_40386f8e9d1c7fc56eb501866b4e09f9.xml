@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_40386f8e9d1c7fc56eb501866b4e09f9" kind="dir">
+    <compoundname>src/c++/map/entities</compoundname>
+    <innerfile refid="diagram_8c_09_09">diagram.c++</innerfile>
+    <innerfile refid="diagram_8h">diagram.h</innerfile>
+    <innerfile refid="image_8c_09_09">image.c++</innerfile>
+    <innerfile refid="image_8h">image.h</innerfile>
+    <innerfile refid="imagemetadata_8h">imagemetadata.h</innerfile>
+    <innerfile refid="marker_8c_09_09">marker.c++</innerfile>
+    <innerfile refid="marker_8h">marker.h</innerfile>
+    <innerfile refid="stripimage_8c_09_09">stripimage.c++</innerfile>
+    <innerfile refid="stripimage_8h">stripimage.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/"/>
+  </compounddef>
+</doxygen>

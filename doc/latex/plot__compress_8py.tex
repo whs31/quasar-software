@@ -1,0 +1,55 @@
+\hypertarget{plot__compress_8py}{}\doxysection{src/python/strip/new/plot\+\_\+compress.py File Reference}
+\label{plot__compress_8py}\index{src/python/strip/new/plot\_compress.py@{src/python/strip/new/plot\_compress.py}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classplot__compress_1_1ArrayReader}{plot\+\_\+compress.\+Array\+Reader}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceplot__compress}{plot\+\_\+compress}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+str \mbox{\hyperlink{namespaceplot__compress_a10350a510cd2ed027e8f32e1354a675d}{plot\+\_\+compress.\+nav\+\_\+struct}}
+\item 
+str \mbox{\hyperlink{namespaceplot__compress_a83e5355182a9b17c5a605bfaa1ae12fe}{plot\+\_\+compress.\+head\+\_\+struct}}
+\item 
+str \mbox{\hyperlink{namespaceplot__compress_abfc14d89e5599ca25b193a4aca842838}{plot\+\_\+compress.\+img\+\_\+struct}}
+\item 
+np \mbox{\hyperlink{namespaceplot__compress_a8ffed498395adeee8d69aeec518916cb}{plot\+\_\+compress.\+data}} = np.\+fromfile(\textquotesingle{}./data\+\_\+compress.\+bin\textquotesingle{}, dtype=\textquotesingle{}uint8\textquotesingle{})
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot__compress_a320e0552b1a4749a18bad38ed4c0fedc}{plot\+\_\+compress.\+ar}} = Array\+Reader(data)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_a6faa7ec22a2acdab20b8548e325ba883}{plot\+\_\+compress.\+pack\+\_\+head}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(head\+\_\+struct)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_a3a12834d9fa71cf2c5bc5b4c8d6c0e77}{plot\+\_\+compress.\+pack\+\_\+nav}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(nav\+\_\+struct)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_a297e1f789dff4c8b828fcf06e91ed9fe}{plot\+\_\+compress.\+pack\+\_\+img}} = \mbox{\hyperlink{classc__deserial_1_1Deserial}{c\+\_\+deserial.\+Deserial}}(img\+\_\+struct)
+\item 
+np \mbox{\hyperlink{namespaceplot__compress_a5bb1ba4fcd9d6454a277ec64718b1239}{plot\+\_\+compress.\+a}} = np.\+array(\mbox{[}$\,$\mbox{]})
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot__compress_a9fe0d202a660c83dc50a497927451f24}{plot\+\_\+compress.\+header}} = ar.\+read(84)
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot__compress_a84d77df5afb6f406f7fd2316f10f20fd}{plot\+\_\+compress.\+header\+\_\+reader}} = Array\+Reader(header)
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_afb3e2fbf55563ced99d411e8ee872aa5}{plot\+\_\+compress.\+head}} = pack\+\_\+head.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+head.\+size}}() ) )
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_a423da6e63691bdeb7cfb964860a9d154}{plot\+\_\+compress.\+nav}} = pack\+\_\+nav.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+nav.\+size}}() ) )
+\item 
+c\+\_\+deserial \mbox{\hyperlink{namespaceplot__compress_a5d6bdec4598a27402f591ad46b948f22}{plot\+\_\+compress.\+img}} = pack\+\_\+img.\+to\+\_\+dict( header\+\_\+reader.\+read( \mbox{\hyperlink{imagemetadata_8h_aaba88b24a21a6c70c895c0d55f4a69a0}{pack\+\_\+img.\+size}}() ) )
+\item 
+Array\+Reader \mbox{\hyperlink{namespaceplot__compress_ae7dcf2a36ff1c4e83219b9c05c6f2a61}{plot\+\_\+compress.\+chunk\+\_\+compressed}} = ar.\+read(head\mbox{[}\char`\"{}size\char`\"{}\mbox{]})
+\item 
+io \mbox{\hyperlink{namespaceplot__compress_ab7c88c54fbd8b3551eab766bd39125e6}{plot\+\_\+compress.\+iobuf}} = io.\+Bytes\+IO(chunk\+\_\+compressed)
+\item 
+imageio \mbox{\hyperlink{namespaceplot__compress_a0185bb53b5932e48d0a55866a5591754}{plot\+\_\+compress.\+chunk}} = imageio.\+imread(iobuf)
+\item 
+int \mbox{\hyperlink{namespaceplot__compress_ace1aaab82d122ca41843d58b7d34ddcd}{plot\+\_\+compress.\+line\+\_\+len}} = int(img\mbox{[}\char`\"{}dx\char`\"{}\mbox{]} $\ast$ img\mbox{[}\char`\"{}nx\char`\"{}\mbox{]})
+\item 
+int \mbox{\hyperlink{namespaceplot__compress_ad1d1363f51897b9898776caad4ea7f78}{plot\+\_\+compress.\+n\+\_\+rows}} = int(len(a) / line\+\_\+len)
+\item 
+\mbox{\hyperlink{namespaceplot__compress_a6723fbb3929fb46b79f730f6ac32e466}{plot\+\_\+compress.\+cmap}}
+\end{DoxyCompactItemize}

@@ -1,0 +1,2501 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classConfig_1_1Config" kind="class" language="C++" prot="public">
+    <compoundname>Config::Config</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="config_8h" local="no">config.h</includes>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="group__Network_1ga53201871167f59da4a0b030ac2236a52" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::remoteIP</definition>
+        <argsstring></argsstring>
+        <name>remoteIP</name>
+        <qualifiedname>Config::Config::remoteIP</qualifiedname>
+        <read>remoteIP</read>
+        <write>setRemoteIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga83efa1375676af7c7314839ecebf4ce4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::localIP</definition>
+        <argsstring></argsstring>
+        <name>localIP</name>
+        <qualifiedname>Config::Config::localIP</qualifiedname>
+        <read>localIP</read>
+        <write>setLocalIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga6f34f4f3353513441a0e80e33d36b04e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::jetsonIP</definition>
+        <argsstring></argsstring>
+        <name>jetsonIP</name>
+        <qualifiedname>Config::Config::jetsonIP</qualifiedname>
+        <read>jetsonIP</read>
+        <write>setJetsonIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga228e49715386ed0ca156b7a707cd6a4e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::navIP</definition>
+        <argsstring></argsstring>
+        <name>navIP</name>
+        <qualifiedname>Config::Config::navIP</qualifiedname>
+        <read>navIP</read>
+        <write>setNavIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gac4250a3eec1e11ee5292c4b2a480b6ca" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::utl1IP</definition>
+        <argsstring></argsstring>
+        <name>utl1IP</name>
+        <qualifiedname>Config::Config::utl1IP</qualifiedname>
+        <read>utl1IP</read>
+        <write>setUtl1IP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gab4fe48535d01d430c293ed52be0a7b36" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::utl2IP</definition>
+        <argsstring></argsstring>
+        <name>utl2IP</name>
+        <qualifiedname>Config::Config::utl2IP</qualifiedname>
+        <read>utl2IP</read>
+        <write>setUtl2IP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga7e75cbb4bb5965edbf4533766168f321" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryPort</definition>
+        <argsstring></argsstring>
+        <name>telemetryPort</name>
+        <qualifiedname>Config::Config::telemetryPort</qualifiedname>
+        <read>telemetryPort</read>
+        <write>setTelemetryPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gae7e6a0575c98833a88a4ce8bc84a2bbe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryRecvPort</definition>
+        <argsstring></argsstring>
+        <name>telemetryRecvPort</name>
+        <qualifiedname>Config::Config::telemetryRecvPort</qualifiedname>
+        <read>telemetryRecvPort</read>
+        <write>setTelemetryRecvPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga4eb8c190ac01fcb1f06e6068ddcce6c4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>tcpLFSPort</name>
+        <qualifiedname>Config::Config::tcpLFSPort</qualifiedname>
+        <read>tcpLFSPort</read>
+        <write>setTcpLFSPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gade2456d8323aa0592d3b1ffe7f9a52dc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::udpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>udpLFSPort</name>
+        <qualifiedname>Config::Config::udpLFSPort</qualifiedname>
+        <read>udpLFSPort</read>
+        <write>setUdpLFSPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga6c4c7a55e3d6a1628b4c9e1e81ba6157" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::execdPort</definition>
+        <argsstring></argsstring>
+        <name>execdPort</name>
+        <qualifiedname>Config::Config::execdPort</qualifiedname>
+        <read>execdPort</read>
+        <write>setExecdPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gab6de29fbc42a71a257bd4d6dbf6f32d1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::feedbackPort</definition>
+        <argsstring></argsstring>
+        <name>feedbackPort</name>
+        <qualifiedname>Config::Config::feedbackPort</qualifiedname>
+        <read>feedbackPort</read>
+        <write>setFeedbackPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga1b0a28c06f494980a5e5a1cb27e13807" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::telemetryFrequency</definition>
+        <argsstring></argsstring>
+        <name>telemetryFrequency</name>
+        <qualifiedname>Config::Config::telemetryFrequency</qualifiedname>
+        <read>telemetryFrequency</read>
+        <write>setTelemetryFrequency</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gaed89795250742d1bd14642678b944bf9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::proxyEnabled</definition>
+        <argsstring></argsstring>
+        <name>proxyEnabled</name>
+        <qualifiedname>Config::Config::proxyEnabled</qualifiedname>
+        <read>proxyEnabled</read>
+        <write>setProxyEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga4d636297c5b2507d500ac977aeae24ab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpMarker</definition>
+        <argsstring></argsstring>
+        <name>tcpMarker</name>
+        <qualifiedname>Config::Config::tcpMarker</qualifiedname>
+        <read>tcpMarker</read>
+        <write>setTcpMarker</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gad1936d307937b7eae276be76aa1fbd4b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::antennaAlignment</definition>
+        <argsstring></argsstring>
+        <name>antennaAlignment</name>
+        <qualifiedname>Config::Config::antennaAlignment</qualifiedname>
+        <read>antennaAlignment</read>
+        <write>setAntennaAlignment</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1ga8540f130a0f40be354d762617dee0642" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::angleCorrection</definition>
+        <argsstring></argsstring>
+        <name>angleCorrection</name>
+        <qualifiedname>Config::Config::angleCorrection</qualifiedname>
+        <read>angleCorrection</read>
+        <write>setAngleCorrection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gacf2fb5fcae01050db34ca586e8d24dc2" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::useRadians</definition>
+        <argsstring></argsstring>
+        <name>useRadians</name>
+        <qualifiedname>Config::Config::useRadians</qualifiedname>
+        <read>useRadians</read>
+        <write>setUseRadians</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1ga14104d9a2e30741a0fadddf69ffc4a8a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::useDriftAngle</definition>
+        <argsstring></argsstring>
+        <name>useDriftAngle</name>
+        <qualifiedname>Config::Config::useDriftAngle</qualifiedname>
+        <read>useDriftAngle</read>
+        <write>setUseDriftAngle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gab158fee869502b2d1dbd139a2dab35d9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::thetaAzimuthCorrection</definition>
+        <argsstring></argsstring>
+        <name>thetaAzimuthCorrection</name>
+        <qualifiedname>Config::Config::thetaAzimuthCorrection</qualifiedname>
+        <read>thetaAzimuthCorrection</read>
+        <write>setThetaAzimuthCorrection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gae4197fa7c71daac4097824ed6ea81f15" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::overrideImageHeight</definition>
+        <argsstring></argsstring>
+        <name>overrideImageHeight</name>
+        <qualifiedname>Config::Config::overrideImageHeight</qualifiedname>
+        <read>overrideImageHeight</read>
+        <write>setOverrideImageHeight</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__UAV_1gaad06ebf71336f48d8ad6671f086b63d4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::cutImage</definition>
+        <argsstring></argsstring>
+        <name>cutImage</name>
+        <qualifiedname>Config::Config::cutImage</qualifiedname>
+        <read>cutImage</read>
+        <write>setCutImage</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Previous_1ga53610034d9c0b8e4b72957f7f6038aea" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Config::Config::storedLatitude</definition>
+        <argsstring></argsstring>
+        <name>storedLatitude</name>
+        <qualifiedname>Config::Config::storedLatitude</qualifiedname>
+        <read>storedLatitude</read>
+        <write>setStoredLatitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Previous_1ga9bb09093e547fb3ee7ba9867e7ceb3cf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Config::Config::storedLongitude</definition>
+        <argsstring></argsstring>
+        <name>storedLongitude</name>
+        <qualifiedname>Config::Config::storedLongitude</qualifiedname>
+        <read>storedLongitude</read>
+        <write>setStoredLongitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Previous_1gabdd3742c56733450a271bdfd11164b06" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Config::Config::storedZoomLevel</definition>
+        <argsstring></argsstring>
+        <name>storedZoomLevel</name>
+        <qualifiedname>Config::Config::storedZoomLevel</qualifiedname>
+        <read>storedZoomLevel</read>
+        <write>setStoredZoomLevel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Previous_1gab754ac42251e5d19242369484c52976a" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::storedCatalogue</definition>
+        <argsstring></argsstring>
+        <name>storedCatalogue</name>
+        <qualifiedname>Config::Config::storedCatalogue</qualifiedname>
+        <read>storedCatalogue</read>
+        <write>setStoredCatalogue</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Application_1gad0dc9539aff9c895e938d9af25e29bac" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>Current selected Config::Config::theme</definition>
+        <argsstring></argsstring>
+        <name>theme</name>
+        <qualifiedname>Config::Config::theme</qualifiedname>
+        <read>theme</read>
+        <write>setTheme</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classConfig_1_1Config_1a5e63c3e3e4c9535affb85bc6aff1f1fe" prot="private" static="no" mutable="no">
+        <type>const QMap&lt; QString, QVariant &gt;</type>
+        <definition>const QMap&lt;QString, QVariant&gt; Config::Config::defaults</definition>
+        <argsstring></argsstring>
+        <name>defaults</name>
+        <qualifiedname>Config::Config::defaults</qualifiedname>
+        <initializer>= {
+                {&quot;remoteIP&quot;, &quot;127.0.0.1&quot;},
+                {&quot;jetsonIP&quot;, &quot;192.168.1.48&quot;},
+                {&quot;navIP&quot;, &quot;192.168.1.49&quot;},
+                {&quot;utl1IP&quot;, &quot;192.168.1.50&quot;},
+                {&quot;utl2IP&quot;, &quot;192.168.1.51&quot;},
+                {&quot;localIP&quot;, &quot;127.0.0.1&quot;},
+                {&quot;telemetryPort&quot;, &quot;9955&quot;},
+                {&quot;telemetryRecvPort&quot;, &quot;10337&quot;},
+                {&quot;lfsPort&quot;, &quot;10000&quot;},
+                {&quot;stripPort&quot;, &quot;48455&quot;},
+                {&quot;execdPort&quot;, &quot;9845&quot;},
+                {&quot;feedbackPort&quot;, &quot;9846&quot;},
+                {&quot;telemetryFrequency&quot;, &quot;0.1&quot;},
+                {&quot;proxyEnabled&quot;, &quot;false&quot;},
+                {&quot;tcpMarker&quot;, &quot;\0&quot;},
+                {&quot;storedLatitude&quot;, &quot;60&quot;},
+                {&quot;storedLongitude&quot;, &quot;30&quot;},
+                {&quot;storedZoomLevel&quot;, &quot;6&quot;},
+                {&quot;storedCatalogue&quot;, &quot;C:/&quot;},
+                {&quot;antennaAlignment&quot;, &quot;false&quot;},
+                {&quot;angleCorrection&quot;, &quot;0&quot;},
+                {&quot;useRadians&quot;, &quot;true&quot;},
+                {&quot;useDriftAngle&quot;, &quot;true&quot;},
+                {&quot;thetaAzimuthCorrection&quot;, &quot;5&quot;},
+                {&quot;overrideImageHeight&quot;, &quot;true&quot;},
+                {&quot;cutImage&quot;, &quot;true&quot;},
+                {&quot;theme&quot;, &quot;contrast&quot;}
+            }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="191" column="24" bodyfile="src/c++/config/config.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a269f97b5c632f7ac50db060187cf11d4" prot="private" static="no" mutable="no">
+        <type>QSettings *</type>
+        <definition>QSettings* Config::Config::ini</definition>
+        <argsstring></argsstring>
+        <name>ini</name>
+        <qualifiedname>Config::Config::ini</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="221" column="23" bodyfile="src/c++/config/config.h" bodystart="221" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a272923f795188d3885e10394fdb39819" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_remoteIP</definition>
+        <argsstring></argsstring>
+        <name>m_remoteIP</name>
+        <qualifiedname>Config::Config::m_remoteIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="223" column="21" bodyfile="src/c++/config/config.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a643f0ecb48d71d460ab8c24f9f332700" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_localIP</definition>
+        <argsstring></argsstring>
+        <name>m_localIP</name>
+        <qualifiedname>Config::Config::m_localIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="224" column="21" bodyfile="src/c++/config/config.h" bodystart="224" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a80ef474fab4445f6dbdaf99964320c48" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_telemetryPort</definition>
+        <argsstring></argsstring>
+        <name>m_telemetryPort</name>
+        <qualifiedname>Config::Config::m_telemetryPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="225" column="21" bodyfile="src/c++/config/config.h" bodystart="225" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a8c7feab3741c22e2daf44294004510f6" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_tcpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>m_tcpLFSPort</name>
+        <qualifiedname>Config::Config::m_tcpLFSPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="226" column="21" bodyfile="src/c++/config/config.h" bodystart="226" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a8ac47012f374bc951daa24f7c3407ce3" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_udpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>m_udpLFSPort</name>
+        <qualifiedname>Config::Config::m_udpLFSPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="227" column="21" bodyfile="src/c++/config/config.h" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1aec76b245cd02bc1275e7bc3b43f1c6b0" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_execdPort</definition>
+        <argsstring></argsstring>
+        <name>m_execdPort</name>
+        <qualifiedname>Config::Config::m_execdPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="228" column="21" bodyfile="src/c++/config/config.h" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1ae5e4df039c9571d52f46fb48f75ce9f3" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_feedbackPort</definition>
+        <argsstring></argsstring>
+        <name>m_feedbackPort</name>
+        <qualifiedname>Config::Config::m_feedbackPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="229" column="21" bodyfile="src/c++/config/config.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a8098580d98f3ea94fca623ec2de0fdc6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_proxyEnabled</definition>
+        <argsstring></argsstring>
+        <name>m_proxyEnabled</name>
+        <qualifiedname>Config::Config::m_proxyEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="230" column="18" bodyfile="src/c++/config/config.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1ad57b2d484418640f50edbe50894ac8a9" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_antennaAlignment</definition>
+        <argsstring></argsstring>
+        <name>m_antennaAlignment</name>
+        <qualifiedname>Config::Config::m_antennaAlignment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="231" column="18" bodyfile="src/c++/config/config.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a203740c89bffff0d3c179d34662cef30" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Config::Config::m_angleCorrection</definition>
+        <argsstring></argsstring>
+        <name>m_angleCorrection</name>
+        <qualifiedname>Config::Config::m_angleCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="232" column="19" bodyfile="src/c++/config/config.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1af40c5ae826efff19da68800bab2e7cda" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_useRadians</definition>
+        <argsstring></argsstring>
+        <name>m_useRadians</name>
+        <qualifiedname>Config::Config::m_useRadians</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="233" column="18" bodyfile="src/c++/config/config.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a12b42b56e4bda39b94126d3d226925db" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_useDriftAngle</definition>
+        <argsstring></argsstring>
+        <name>m_useDriftAngle</name>
+        <qualifiedname>Config::Config::m_useDriftAngle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="234" column="18" bodyfile="src/c++/config/config.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a21cfb1251b2f112fc5d41156c460fc50" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Config::Config::m_thetaAzimuthCorrection</definition>
+        <argsstring></argsstring>
+        <name>m_thetaAzimuthCorrection</name>
+        <qualifiedname>Config::Config::m_thetaAzimuthCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="235" column="19" bodyfile="src/c++/config/config.h" bodystart="235" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a913c8744d8b39dcccfdee10462f7a7d8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Config::Config::m_storedLatitude</definition>
+        <argsstring></argsstring>
+        <name>m_storedLatitude</name>
+        <qualifiedname>Config::Config::m_storedLatitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="236" column="20" bodyfile="src/c++/config/config.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a296e6c1ff76aa297e5e45f092ca45dcd" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Config::Config::m_storedLongitude</definition>
+        <argsstring></argsstring>
+        <name>m_storedLongitude</name>
+        <qualifiedname>Config::Config::m_storedLongitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="237" column="20" bodyfile="src/c++/config/config.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1ae4045176354ee8cd4dea62f553dd5a31" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Config::Config::m_storedZoomLevel</definition>
+        <argsstring></argsstring>
+        <name>m_storedZoomLevel</name>
+        <qualifiedname>Config::Config::m_storedZoomLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="238" column="20" bodyfile="src/c++/config/config.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a736a5adb223b4bd49985945d04cdb32d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_storedCatalogue</definition>
+        <argsstring></argsstring>
+        <name>m_storedCatalogue</name>
+        <qualifiedname>Config::Config::m_storedCatalogue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="239" column="21" bodyfile="src/c++/config/config.h" bodystart="239" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1aad2507c89efdd8edc9b0d55d4067e67b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Config::Config::m_telemetryFrequency</definition>
+        <argsstring></argsstring>
+        <name>m_telemetryFrequency</name>
+        <qualifiedname>Config::Config::m_telemetryFrequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="240" column="19" bodyfile="src/c++/config/config.h" bodystart="240" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a3d03cf6ff3c6ed0536be1e40ed986110" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_overrideImageHeight</definition>
+        <argsstring></argsstring>
+        <name>m_overrideImageHeight</name>
+        <qualifiedname>Config::Config::m_overrideImageHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="241" column="18" bodyfile="src/c++/config/config.h" bodystart="241" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a6d10e35ce6eaa6a6b63b85705513f40d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::m_cutImage</definition>
+        <argsstring></argsstring>
+        <name>m_cutImage</name>
+        <qualifiedname>Config::Config::m_cutImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="242" column="18" bodyfile="src/c++/config/config.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1afa0e534d7468afdde0cb1e1de83b431d" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_tcpMarker</definition>
+        <argsstring></argsstring>
+        <name>m_tcpMarker</name>
+        <qualifiedname>Config::Config::m_tcpMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="243" column="21" bodyfile="src/c++/config/config.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1ace48b0cb751c14cee866dd223ae11b58" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_theme</definition>
+        <argsstring></argsstring>
+        <name>m_theme</name>
+        <qualifiedname>Config::Config::m_theme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="244" column="21" bodyfile="src/c++/config/config.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a42356ed8fcf20e8967054788298c6dad" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_jetsonIP</definition>
+        <argsstring></argsstring>
+        <name>m_jetsonIP</name>
+        <qualifiedname>Config::Config::m_jetsonIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="245" column="21" bodyfile="src/c++/config/config.h" bodystart="245" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1ae81f2c3045aca84639311c025b58a36b" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_navIP</definition>
+        <argsstring></argsstring>
+        <name>m_navIP</name>
+        <qualifiedname>Config::Config::m_navIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="246" column="21" bodyfile="src/c++/config/config.h" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a872d36bb611a9c9247ec8831282b9580" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_utl1IP</definition>
+        <argsstring></argsstring>
+        <name>m_utl1IP</name>
+        <qualifiedname>Config::Config::m_utl1IP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="247" column="21" bodyfile="src/c++/config/config.h" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1abc46e6ce3f4985b5e876ea6d3b497765" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_utl2IP</definition>
+        <argsstring></argsstring>
+        <name>m_utl2IP</name>
+        <qualifiedname>Config::Config::m_utl2IP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="248" column="21" bodyfile="src/c++/config/config.h" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classConfig_1_1Config_1a696758a34f1aed2cf1b15d440aa54fec" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::m_telemetryRecvPort</definition>
+        <argsstring></argsstring>
+        <name>m_telemetryRecvPort</name>
+        <qualifiedname>Config::Config::m_telemetryRecvPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="249" column="21" bodyfile="src/c++/config/config.h" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classConfig_1_1Config_1a61abfe1382539456cec494f84cf56a3f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classConfig_1_1Config" kindref="compound">Config</ref> *</type>
+        <definition>Config::Config * Config::Config::get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>Config::Config::get</qualifiedname>
+        <briefdescription>
+<para>Returns singleton instance of class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="96" column="27" bodyfile="src/c++/config/config.c++" bodystart="9" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classConfig_1_1Config_1a4b47bb30ac45bd50b53052bd60936646" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Config::Config::~Config</definition>
+        <argsstring>()</argsstring>
+        <name>~Config</name>
+        <qualifiedname>Config::Config::~Config</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="97" column="21" bodyfile="src/c++/config/config.c++" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a6d244127554718f36c3baea1f065ff1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Config::Config::sync</definition>
+        <argsstring>()</argsstring>
+        <name>sync</name>
+        <qualifiedname>Config::Config::sync</qualifiedname>
+        <briefdescription>
+<para>Syncs settings from RAM to .ini file on disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. <simplesect kind="see"><para>Internal function. Do not call if you are not exactly knowing what you want to achieve. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="103" column="30" bodyfile="src/c++/config/config.c++" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a48b678a91d7c4c9920156db6d1464ac2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Config::Config::save</definition>
+        <argsstring>()</argsstring>
+        <name>save</name>
+        <qualifiedname>Config::Config::save</qualifiedname>
+        <briefdescription>
+<para>Saves settings from RAM to .ini file on disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="107" column="30" bodyfile="src/c++/config/config.c++" bodystart="17" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aaeb0911a5ee41d13c9515ab2cda4768b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Config::Config::load</definition>
+        <argsstring>()</argsstring>
+        <name>load</name>
+        <qualifiedname>Config::Config::load</qualifiedname>
+        <briefdescription>
+<para>Discards all current settings and loads stored settings from .ini file on disk. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="112" column="30" bodyfile="src/c++/config/config.c++" bodystart="62" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a712b7bcc3dc8e59e2a4c763fe2cfc106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Config::Config::revert</definition>
+        <argsstring>()</argsstring>
+        <name>revert</name>
+        <qualifiedname>Config::Config::revert</qualifiedname>
+        <briefdescription>
+<para>Alias for <ref refid="classConfig_1_1Config_1aaeb0911a5ee41d13c9515ab2cda4768b" kindref="member">load()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="116" column="30" bodyfile="src/c++/config/config.c++" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ac77d2e38c19082bd11301bccf7adce32" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void Config::Config::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <qualifiedname>Config::Config::reset</qualifiedname>
+        <briefdescription>
+<para>Discards current settings, .ini file and loads default settings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="120" column="30" bodyfile="src/c++/config/config.c++" bodystart="97" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a31bd571019df692076413307b5fd7a45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString Config::Config::projectVersion</definition>
+        <argsstring>()</argsstring>
+        <name>projectVersion</name>
+        <qualifiedname>Config::Config::projectVersion</qualifiedname>
+        <briefdescription>
+<para>Returns application version. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="124" column="33" bodyfile="src/c++/config/config.c++" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a076a84316bce0e2417c2ef11b8baca41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::remoteIP</definition>
+        <argsstring>() const</argsstring>
+        <name>remoteIP</name>
+        <qualifiedname>Config::Config::remoteIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="126" column="22" bodyfile="src/c++/config/config.c++" bodystart="140" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a698594cf3acbff9b6247f44dda516568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setRemoteIP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setRemoteIP</name>
+        <qualifiedname>Config::Config::setRemoteIP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="126" column="42" bodyfile="src/c++/config/config.c++" bodystart="141" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a99cf62a8e724daa899f09c6f5b1f8fcf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::localIP</definition>
+        <argsstring>() const</argsstring>
+        <name>localIP</name>
+        <qualifiedname>Config::Config::localIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="127" column="22" bodyfile="src/c++/config/config.c++" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1afd074ae610617480480c74128f9d7570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setLocalIP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setLocalIP</name>
+        <qualifiedname>Config::Config::setLocalIP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="127" column="41" bodyfile="src/c++/config/config.c++" bodystart="149" bodyend="154"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a1ea61dab4477f0de442500e93148d2ad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryPort</definition>
+        <argsstring>() const</argsstring>
+        <name>telemetryPort</name>
+        <qualifiedname>Config::Config::telemetryPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="128" column="22" bodyfile="src/c++/config/config.c++" bodystart="156" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a5175f115312e3de9cc3a81eea61d4ef5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTelemetryPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setTelemetryPort</name>
+        <qualifiedname>Config::Config::setTelemetryPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="128" column="47" bodyfile="src/c++/config/config.c++" bodystart="157" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a0a929f2b9ed21e3aab5aca31bcd6235b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpLFSPort</definition>
+        <argsstring>() const</argsstring>
+        <name>tcpLFSPort</name>
+        <qualifiedname>Config::Config::tcpLFSPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="129" column="22" bodyfile="src/c++/config/config.c++" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ab0e6e35f35aab4dc444ffa36e05cdc8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTcpLFSPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setTcpLFSPort</name>
+        <qualifiedname>Config::Config::setTcpLFSPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="129" column="44" bodyfile="src/c++/config/config.c++" bodystart="165" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a1615b85c981f86e424bec6b68e78e5aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::udpLFSPort</definition>
+        <argsstring>() const</argsstring>
+        <name>udpLFSPort</name>
+        <qualifiedname>Config::Config::udpLFSPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="130" column="22" bodyfile="src/c++/config/config.c++" bodystart="172" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a7db4289e2da2c1e46e216f98e84d868c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setUdpLFSPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setUdpLFSPort</name>
+        <qualifiedname>Config::Config::setUdpLFSPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="130" column="44" bodyfile="src/c++/config/config.c++" bodystart="173" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a74978c4fb8a44c5270e36b4668241a74" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::execdPort</definition>
+        <argsstring>() const</argsstring>
+        <name>execdPort</name>
+        <qualifiedname>Config::Config::execdPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="131" column="22" bodyfile="src/c++/config/config.c++" bodystart="180" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ac8bb64f042792344522d8571243ffa4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setExecdPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setExecdPort</name>
+        <qualifiedname>Config::Config::setExecdPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="131" column="43" bodyfile="src/c++/config/config.c++" bodystart="181" bodyend="186"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aa2e3ac63535a055ef8b961189aac40b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::feedbackPort</definition>
+        <argsstring>() const</argsstring>
+        <name>feedbackPort</name>
+        <qualifiedname>Config::Config::feedbackPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="132" column="22" bodyfile="src/c++/config/config.c++" bodystart="188" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a518c55ed9035bff092fa951c06e65a5c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setFeedbackPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setFeedbackPort</name>
+        <qualifiedname>Config::Config::setFeedbackPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="132" column="46" bodyfile="src/c++/config/config.c++" bodystart="189" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aa599fe2643683936219ae8d27bb98bcd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::proxyEnabled</definition>
+        <argsstring>() const</argsstring>
+        <name>proxyEnabled</name>
+        <qualifiedname>Config::Config::proxyEnabled</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="133" column="19" bodyfile="src/c++/config/config.c++" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ab6bec869f854eb68275389d177a82eec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setProxyEnabled</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setProxyEnabled</name>
+        <qualifiedname>Config::Config::setProxyEnabled</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="133" column="43" bodyfile="src/c++/config/config.c++" bodystart="197" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aaae9f0f8a36c4d70e9c2f84438c11313" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::antennaAlignment</definition>
+        <argsstring>() const</argsstring>
+        <name>antennaAlignment</name>
+        <qualifiedname>Config::Config::antennaAlignment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="134" column="19" bodyfile="src/c++/config/config.c++" bodystart="204" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aa88362bf58a7e52469fd4fe43dddb1cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setAntennaAlignment</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setAntennaAlignment</name>
+        <qualifiedname>Config::Config::setAntennaAlignment</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="134" column="47" bodyfile="src/c++/config/config.c++" bodystart="205" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a5d3e69e0ccbccd06940ec1be0dbba3cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Config::Config::angleCorrection</definition>
+        <argsstring>() const</argsstring>
+        <name>angleCorrection</name>
+        <qualifiedname>Config::Config::angleCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="135" column="20" bodyfile="src/c++/config/config.c++" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a1fecb84f707c2f87033baaf5a1d23c44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setAngleCorrection</definition>
+        <argsstring>(float)</argsstring>
+        <name>setAngleCorrection</name>
+        <qualifiedname>Config::Config::setAngleCorrection</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="135" column="47" bodyfile="src/c++/config/config.c++" bodystart="213" bodyend="218"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a109cc51e51c4044082c920ea8d21ebc1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::useRadians</definition>
+        <argsstring>() const</argsstring>
+        <name>useRadians</name>
+        <qualifiedname>Config::Config::useRadians</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="136" column="19" bodyfile="src/c++/config/config.c++" bodystart="220" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aa7ac15f6113b653c7f8f65b209c166ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setUseRadians</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setUseRadians</name>
+        <qualifiedname>Config::Config::setUseRadians</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="136" column="41" bodyfile="src/c++/config/config.c++" bodystart="221" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a97af91461eee37bbafd9d68d23f3ac91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::useDriftAngle</definition>
+        <argsstring>() const</argsstring>
+        <name>useDriftAngle</name>
+        <qualifiedname>Config::Config::useDriftAngle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="137" column="19" bodyfile="src/c++/config/config.c++" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1adb79448101b031b48155a1ad7678d9f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setUseDriftAngle</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setUseDriftAngle</name>
+        <qualifiedname>Config::Config::setUseDriftAngle</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="137" column="44" bodyfile="src/c++/config/config.c++" bodystart="229" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aaccb92ad86b4bc9dfc213a519132b722" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Config::Config::thetaAzimuthCorrection</definition>
+        <argsstring>() const</argsstring>
+        <name>thetaAzimuthCorrection</name>
+        <qualifiedname>Config::Config::thetaAzimuthCorrection</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="138" column="20" bodyfile="src/c++/config/config.c++" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a663a09a2080d72c8d26248ea2ae45304" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setThetaAzimuthCorrection</definition>
+        <argsstring>(float)</argsstring>
+        <name>setThetaAzimuthCorrection</name>
+        <qualifiedname>Config::Config::setThetaAzimuthCorrection</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="138" column="54" bodyfile="src/c++/config/config.c++" bodystart="237" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a7f6a3f4feb576a312e2e55d3b1a17649" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Config::Config::storedLatitude</definition>
+        <argsstring>() const</argsstring>
+        <name>storedLatitude</name>
+        <qualifiedname>Config::Config::storedLatitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="139" column="21" bodyfile="src/c++/config/config.c++" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ab7cdad36522a4e565532743edc7babc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setStoredLatitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setStoredLatitude</name>
+        <qualifiedname>Config::Config::setStoredLatitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="139" column="47" bodyfile="src/c++/config/config.c++" bodystart="245" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1abf058f0306748b40491f8a4d651b7580" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Config::Config::storedLongitude</definition>
+        <argsstring>() const</argsstring>
+        <name>storedLongitude</name>
+        <qualifiedname>Config::Config::storedLongitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="140" column="21" bodyfile="src/c++/config/config.c++" bodystart="252" bodyend="252"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a314f7f4456e8c62b53bad0f9e1f3b4c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setStoredLongitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setStoredLongitude</name>
+        <qualifiedname>Config::Config::setStoredLongitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="140" column="48" bodyfile="src/c++/config/config.c++" bodystart="253" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1af342de4a93558acda737d085508ad30a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Config::Config::storedZoomLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>storedZoomLevel</name>
+        <qualifiedname>Config::Config::storedZoomLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="141" column="21" bodyfile="src/c++/config/config.c++" bodystart="260" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1afa887b2ca066f6aba1fd474ef55f71d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setStoredZoomLevel</definition>
+        <argsstring>(double)</argsstring>
+        <name>setStoredZoomLevel</name>
+        <qualifiedname>Config::Config::setStoredZoomLevel</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="141" column="48" bodyfile="src/c++/config/config.c++" bodystart="261" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a4b14cf293199ce9968faeb00e5b7d7a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::storedCatalogue</definition>
+        <argsstring>() const</argsstring>
+        <name>storedCatalogue</name>
+        <qualifiedname>Config::Config::storedCatalogue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="142" column="22" bodyfile="src/c++/config/config.c++" bodystart="268" bodyend="268"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a8f69f055ddd3b13f0cbef5f60f289b2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setStoredCatalogue</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setStoredCatalogue</name>
+        <qualifiedname>Config::Config::setStoredCatalogue</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="142" column="49" bodyfile="src/c++/config/config.c++" bodystart="269" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1abe61de5ac139a8178f7ae070cdf50ccd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Config::Config::telemetryFrequency</definition>
+        <argsstring>() const</argsstring>
+        <name>telemetryFrequency</name>
+        <qualifiedname>Config::Config::telemetryFrequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="143" column="20" bodyfile="src/c++/config/config.c++" bodystart="284" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a1ab73713399efd6d52fdc77f77195231" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTelemetryFrequency</definition>
+        <argsstring>(float)</argsstring>
+        <name>setTelemetryFrequency</name>
+        <qualifiedname>Config::Config::setTelemetryFrequency</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="143" column="50" bodyfile="src/c++/config/config.c++" bodystart="285" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a6cab6f283718c7f78cb8a77fa2e00798" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::overrideImageHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>overrideImageHeight</name>
+        <qualifiedname>Config::Config::overrideImageHeight</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="144" column="19" bodyfile="src/c++/config/config.c++" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a00ae0c3c17993e3423a72028ac5b282e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setOverrideImageHeight</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setOverrideImageHeight</name>
+        <qualifiedname>Config::Config::setOverrideImageHeight</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="144" column="50" bodyfile="src/c++/config/config.c++" bodystart="123" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a9cd9200532f17d524fc83aec0b0be74a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Config::Config::cutImage</definition>
+        <argsstring>() const</argsstring>
+        <name>cutImage</name>
+        <qualifiedname>Config::Config::cutImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="145" column="19" bodyfile="src/c++/config/config.c++" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ac454396489d90b6d9d8cb6b85a26728f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setCutImage</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setCutImage</name>
+        <qualifiedname>Config::Config::setCutImage</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="145" column="39" bodyfile="src/c++/config/config.c++" bodystart="132" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1af278acd63cced1519f44146022a5c632" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpMarker</definition>
+        <argsstring>() const</argsstring>
+        <name>tcpMarker</name>
+        <qualifiedname>Config::Config::tcpMarker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="146" column="22" bodyfile="src/c++/config/config.c++" bodystart="292" bodyend="292"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1aa19db9fbf34aaab1e301e5bbc4a1d8a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTcpMarker</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setTcpMarker</name>
+        <qualifiedname>Config::Config::setTcpMarker</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="146" column="43" bodyfile="src/c++/config/config.c++" bodystart="293" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a022f36ce6ae973b6ce726779dc033b52" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::theme</definition>
+        <argsstring>() const</argsstring>
+        <name>theme</name>
+        <qualifiedname>Config::Config::theme</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="147" column="22" bodyfile="src/c++/config/config.c++" bodystart="300" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a8c0701d2c7f9641ae98de3cdfe94beb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTheme</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setTheme</name>
+        <qualifiedname>Config::Config::setTheme</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="147" column="39" bodyfile="src/c++/config/config.c++" bodystart="301" bodyend="306"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a90f1ec9c4838c8282a070b8081a47b8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::jetsonIP</definition>
+        <argsstring>() const</argsstring>
+        <name>jetsonIP</name>
+        <qualifiedname>Config::Config::jetsonIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="148" column="22" bodyfile="src/c++/config/config.c++" bodystart="308" bodyend="308"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a2ea222ce77facc9ac6841c83a120ad25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setJetsonIP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setJetsonIP</name>
+        <qualifiedname>Config::Config::setJetsonIP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="148" column="42" bodyfile="src/c++/config/config.c++" bodystart="309" bodyend="314"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a83e51ae6328c96939e341b6c2ae513f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::navIP</definition>
+        <argsstring>() const</argsstring>
+        <name>navIP</name>
+        <qualifiedname>Config::Config::navIP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="149" column="22" bodyfile="src/c++/config/config.c++" bodystart="316" bodyend="316"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a0e40935e22bf86f461ca38e70bd7526a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setNavIP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setNavIP</name>
+        <qualifiedname>Config::Config::setNavIP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="149" column="39" bodyfile="src/c++/config/config.c++" bodystart="317" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1adc889db35ec4104e7a75a0823fad9a1a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::utl1IP</definition>
+        <argsstring>() const</argsstring>
+        <name>utl1IP</name>
+        <qualifiedname>Config::Config::utl1IP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="150" column="22" bodyfile="src/c++/config/config.c++" bodystart="324" bodyend="324"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a6ff1381d1e2e0c077d87886676a53f4f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setUtl1IP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setUtl1IP</name>
+        <qualifiedname>Config::Config::setUtl1IP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="150" column="40" bodyfile="src/c++/config/config.c++" bodystart="325" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a466a4a4ca79a1815b42add3f0a86dd43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::utl2IP</definition>
+        <argsstring>() const</argsstring>
+        <name>utl2IP</name>
+        <qualifiedname>Config::Config::utl2IP</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="151" column="22" bodyfile="src/c++/config/config.c++" bodystart="332" bodyend="332"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a6c9cc88c2b48e404c1658f59fdd9bf52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setUtl2IP</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setUtl2IP</name>
+        <qualifiedname>Config::Config::setUtl2IP</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="151" column="40" bodyfile="src/c++/config/config.c++" bodystart="333" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a1e589d0c3908fe993d87d10dc7e85fc9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryRecvPort</definition>
+        <argsstring>() const</argsstring>
+        <name>telemetryRecvPort</name>
+        <qualifiedname>Config::Config::telemetryRecvPort</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="152" column="22" bodyfile="src/c++/config/config.c++" bodystart="340" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a3e5508a69c2c19b4b6e4df5a826ac129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::setTelemetryRecvPort</definition>
+        <argsstring>(const QString &amp;)</argsstring>
+        <name>setTelemetryRecvPort</name>
+        <qualifiedname>Config::Config::setTelemetryRecvPort</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="152" column="51" bodyfile="src/c++/config/config.c++" bodystart="341" bodyend="346"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classConfig_1_1Config_1a2068804995cd0f45d0b0006649f960f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::remoteIPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>remoteIPChanged</name>
+        <qualifiedname>Config::Config::remoteIPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="155" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a2935d764b617a10ffe9eeaf2436e80fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::localIPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>localIPChanged</name>
+        <qualifiedname>Config::Config::localIPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="156" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1ae2b55166d3cac231ba591b8b3b85d77c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::telemetryPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>telemetryPortChanged</name>
+        <qualifiedname>Config::Config::telemetryPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="157" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1aea8e12ec5e195be98e1cd0b22847596d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::tcpLFSPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>tcpLFSPortChanged</name>
+        <qualifiedname>Config::Config::tcpLFSPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="158" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1aa889be10e3472e65285a8dfa28c2a7e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::udpLFSPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>udpLFSPortChanged</name>
+        <qualifiedname>Config::Config::udpLFSPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="159" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a227e43f45909acc6f90462675c54cc6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::execdPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>execdPortChanged</name>
+        <qualifiedname>Config::Config::execdPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="160" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1ad7e6fe2f87fa59743fab997b60e51729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::feedbackPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>feedbackPortChanged</name>
+        <qualifiedname>Config::Config::feedbackPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="161" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a7b53b2ecc615df31c5fd4f93a364e696" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::proxyEnabledChanged</definition>
+        <argsstring>()</argsstring>
+        <name>proxyEnabledChanged</name>
+        <qualifiedname>Config::Config::proxyEnabledChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="162" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a6da21194e94a0c33fc28f13da71fe532" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::antennaAlignmentChanged</definition>
+        <argsstring>()</argsstring>
+        <name>antennaAlignmentChanged</name>
+        <qualifiedname>Config::Config::antennaAlignmentChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="163" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1ad3e9caf4d8f42dfec6128d23c9e41eff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::angleCorrectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>angleCorrectionChanged</name>
+        <qualifiedname>Config::Config::angleCorrectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="164" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a8648ad901bf79edaba74aa9c0b49abc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::useRadiansChanged</definition>
+        <argsstring>()</argsstring>
+        <name>useRadiansChanged</name>
+        <qualifiedname>Config::Config::useRadiansChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="165" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1aebf15f04cb6af7244178894932e1a3d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::useDriftAngleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>useDriftAngleChanged</name>
+        <qualifiedname>Config::Config::useDriftAngleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="166" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a3a451e65de8487b56cdfd12dd14a5e14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::thetaAzimuthCorrectionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>thetaAzimuthCorrectionChanged</name>
+        <qualifiedname>Config::Config::thetaAzimuthCorrectionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="167" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1adc2150eef6289689c788e132ccb8ada6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::storedLatitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storedLatitudeChanged</name>
+        <qualifiedname>Config::Config::storedLatitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="168" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a20532a070ac90a0982b81ab5d33600e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::storedLongitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storedLongitudeChanged</name>
+        <qualifiedname>Config::Config::storedLongitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="169" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a5815c0321838033633c03baa4773ceb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::storedZoomLevelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storedZoomLevelChanged</name>
+        <qualifiedname>Config::Config::storedZoomLevelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="170" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1acba44e8575b06c9ac4f90ee08341f60b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::storedCatalogueChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storedCatalogueChanged</name>
+        <qualifiedname>Config::Config::storedCatalogueChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="171" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a7d855fef6853d3f03c931009d1dd1afb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::telemetryFrequencyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>telemetryFrequencyChanged</name>
+        <qualifiedname>Config::Config::telemetryFrequencyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="172" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a5625e3735b3158a4575e987d745e21cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::overrideImageHeightChanged</definition>
+        <argsstring>()</argsstring>
+        <name>overrideImageHeightChanged</name>
+        <qualifiedname>Config::Config::overrideImageHeightChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="173" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a9f7670eb9f00dcfd849d55e8e1bbbd4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::cutImageChanged</definition>
+        <argsstring>()</argsstring>
+        <name>cutImageChanged</name>
+        <qualifiedname>Config::Config::cutImageChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="174" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1aa6c36dc644cd8e73ae3f1827c9ce7380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::tcpMarkerChanged</definition>
+        <argsstring>()</argsstring>
+        <name>tcpMarkerChanged</name>
+        <qualifiedname>Config::Config::tcpMarkerChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="175" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a3a4f2f708064df7777ac6be3ac3e1738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::themeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>themeChanged</name>
+        <qualifiedname>Config::Config::themeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="176" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a0eba2d9411e7c320ad7e3ee684c77e3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::scheduleRestart</definition>
+        <argsstring>()</argsstring>
+        <name>scheduleRestart</name>
+        <qualifiedname>Config::Config::scheduleRestart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="177" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a7224fd4b3dc1199999e75af16c2f27a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::jetsonIPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>jetsonIPChanged</name>
+        <qualifiedname>Config::Config::jetsonIPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="178" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a805179f6e0ebd0eda3b7410e34e12526" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::navIPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>navIPChanged</name>
+        <qualifiedname>Config::Config::navIPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="179" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a6069b4833062c2d92b83a0cb404c3441" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::utl1IPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>utl1IPChanged</name>
+        <qualifiedname>Config::Config::utl1IPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="180" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a15062d346a78b9c5d86d80caa9e34b63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::utl2IPChanged</definition>
+        <argsstring>()</argsstring>
+        <name>utl2IPChanged</name>
+        <qualifiedname>Config::Config::utl2IPChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="181" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classConfig_1_1Config_1a35be41b318469d8e0286f1e9064ee4b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Config::Config::telemetryRecvPortChanged</definition>
+        <argsstring>()</argsstring>
+        <name>telemetryRecvPortChanged</name>
+        <qualifiedname>Config::Config::telemetryRecvPortChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="182" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classConfig_1_1Config_1af83b9a2d0f23b36888d2291bc32e1ae3" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Config::Config::Config</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Config</name>
+        <qualifiedname>Config::Config::Config</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="185" column="22" bodyfile="src/c++/config/config.c++" bodystart="108" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1a050f9d0e58024d2ed0145fc1e90a9abf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Config::Config::Config</definition>
+        <argsstring>(const Config &amp;)</argsstring>
+        <name>Config</name>
+        <qualifiedname>Config::Config::Config</qualifiedname>
+        <param>
+          <type>const <ref refid="classConfig_1_1Config" kindref="compound">Config</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="186" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classConfig_1_1Config_1ac1cb099bbb1586b12249cb5a954180e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classConfig_1_1Config" kindref="compound">Config</ref> &amp;</type>
+        <definition>Config &amp; Config::Config::operator=</definition>
+        <argsstring>(const Config &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Config::Config::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classConfig_1_1Config" kindref="compound">Config</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="187" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Config::Config</label>
+        <link refid="classConfig_1_1Config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Config::Config</label>
+        <link refid="classConfig_1_1Config"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/config/config.h" line="19" column="5" bodyfile="src/c++/config/config.h" bodystart="20" bodyend="250"/>
+    <listofallmembers>
+      <member refid="group__UAV_1ga8540f130a0f40be354d762617dee0642" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>angleCorrection</name></member>
+      <member refid="classConfig_1_1Config_1a5d3e69e0ccbccd06940ec1be0dbba3cc" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>angleCorrection</name></member>
+      <member refid="classConfig_1_1Config_1ad3e9caf4d8f42dfec6128d23c9e41eff" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>angleCorrectionChanged</name></member>
+      <member refid="group__UAV_1gad1936d307937b7eae276be76aa1fbd4b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>antennaAlignment</name></member>
+      <member refid="classConfig_1_1Config_1aaae9f0f8a36c4d70e9c2f84438c11313" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>antennaAlignment</name></member>
+      <member refid="classConfig_1_1Config_1a6da21194e94a0c33fc28f13da71fe532" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>antennaAlignmentChanged</name></member>
+      <member refid="classConfig_1_1Config_1af83b9a2d0f23b36888d2291bc32e1ae3" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>Config</name></member>
+      <member refid="classConfig_1_1Config_1a050f9d0e58024d2ed0145fc1e90a9abf" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>Config</name></member>
+      <member refid="group__UAV_1gaad06ebf71336f48d8ad6671f086b63d4" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>cutImage</name></member>
+      <member refid="classConfig_1_1Config_1a9cd9200532f17d524fc83aec0b0be74a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>cutImage</name></member>
+      <member refid="classConfig_1_1Config_1a9f7670eb9f00dcfd849d55e8e1bbbd4a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>cutImageChanged</name></member>
+      <member refid="classConfig_1_1Config_1a5e63c3e3e4c9535affb85bc6aff1f1fe" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>defaults</name></member>
+      <member refid="group__Network_1ga6c4c7a55e3d6a1628b4c9e1e81ba6157" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>execdPort</name></member>
+      <member refid="classConfig_1_1Config_1a74978c4fb8a44c5270e36b4668241a74" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>execdPort</name></member>
+      <member refid="classConfig_1_1Config_1a227e43f45909acc6f90462675c54cc6f" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>execdPortChanged</name></member>
+      <member refid="group__Network_1gab6de29fbc42a71a257bd4d6dbf6f32d1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>feedbackPort</name></member>
+      <member refid="classConfig_1_1Config_1aa2e3ac63535a055ef8b961189aac40b5" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>feedbackPort</name></member>
+      <member refid="classConfig_1_1Config_1ad7e6fe2f87fa59743fab997b60e51729" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>feedbackPortChanged</name></member>
+      <member refid="classConfig_1_1Config_1a61abfe1382539456cec494f84cf56a3f" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>get</name></member>
+      <member refid="classConfig_1_1Config_1a269f97b5c632f7ac50db060187cf11d4" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>ini</name></member>
+      <member refid="group__Network_1ga6f34f4f3353513441a0e80e33d36b04e" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>jetsonIP</name></member>
+      <member refid="classConfig_1_1Config_1a90f1ec9c4838c8282a070b8081a47b8b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>jetsonIP</name></member>
+      <member refid="classConfig_1_1Config_1a7224fd4b3dc1199999e75af16c2f27a8" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>jetsonIPChanged</name></member>
+      <member refid="classConfig_1_1Config_1aaeb0911a5ee41d13c9515ab2cda4768b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>load</name></member>
+      <member refid="group__Network_1ga83efa1375676af7c7314839ecebf4ce4" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>localIP</name></member>
+      <member refid="classConfig_1_1Config_1a99cf62a8e724daa899f09c6f5b1f8fcf" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>localIP</name></member>
+      <member refid="classConfig_1_1Config_1a2935d764b617a10ffe9eeaf2436e80fb" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>localIPChanged</name></member>
+      <member refid="classConfig_1_1Config_1a203740c89bffff0d3c179d34662cef30" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_angleCorrection</name></member>
+      <member refid="classConfig_1_1Config_1ad57b2d484418640f50edbe50894ac8a9" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_antennaAlignment</name></member>
+      <member refid="classConfig_1_1Config_1a6d10e35ce6eaa6a6b63b85705513f40d" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_cutImage</name></member>
+      <member refid="classConfig_1_1Config_1aec76b245cd02bc1275e7bc3b43f1c6b0" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_execdPort</name></member>
+      <member refid="classConfig_1_1Config_1ae5e4df039c9571d52f46fb48f75ce9f3" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_feedbackPort</name></member>
+      <member refid="classConfig_1_1Config_1a42356ed8fcf20e8967054788298c6dad" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_jetsonIP</name></member>
+      <member refid="classConfig_1_1Config_1a643f0ecb48d71d460ab8c24f9f332700" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_localIP</name></member>
+      <member refid="classConfig_1_1Config_1ae81f2c3045aca84639311c025b58a36b" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_navIP</name></member>
+      <member refid="classConfig_1_1Config_1a3d03cf6ff3c6ed0536be1e40ed986110" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_overrideImageHeight</name></member>
+      <member refid="classConfig_1_1Config_1a8098580d98f3ea94fca623ec2de0fdc6" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_proxyEnabled</name></member>
+      <member refid="classConfig_1_1Config_1a272923f795188d3885e10394fdb39819" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_remoteIP</name></member>
+      <member refid="classConfig_1_1Config_1a736a5adb223b4bd49985945d04cdb32d" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_storedCatalogue</name></member>
+      <member refid="classConfig_1_1Config_1a913c8744d8b39dcccfdee10462f7a7d8" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_storedLatitude</name></member>
+      <member refid="classConfig_1_1Config_1a296e6c1ff76aa297e5e45f092ca45dcd" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_storedLongitude</name></member>
+      <member refid="classConfig_1_1Config_1ae4045176354ee8cd4dea62f553dd5a31" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_storedZoomLevel</name></member>
+      <member refid="classConfig_1_1Config_1a8c7feab3741c22e2daf44294004510f6" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_tcpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1afa0e534d7468afdde0cb1e1de83b431d" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_tcpMarker</name></member>
+      <member refid="classConfig_1_1Config_1aad2507c89efdd8edc9b0d55d4067e67b" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_telemetryFrequency</name></member>
+      <member refid="classConfig_1_1Config_1a80ef474fab4445f6dbdaf99964320c48" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_telemetryPort</name></member>
+      <member refid="classConfig_1_1Config_1a696758a34f1aed2cf1b15d440aa54fec" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_telemetryRecvPort</name></member>
+      <member refid="classConfig_1_1Config_1ace48b0cb751c14cee866dd223ae11b58" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_theme</name></member>
+      <member refid="classConfig_1_1Config_1a21cfb1251b2f112fc5d41156c460fc50" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_thetaAzimuthCorrection</name></member>
+      <member refid="classConfig_1_1Config_1a8ac47012f374bc951daa24f7c3407ce3" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_udpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1a12b42b56e4bda39b94126d3d226925db" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_useDriftAngle</name></member>
+      <member refid="classConfig_1_1Config_1af40c5ae826efff19da68800bab2e7cda" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_useRadians</name></member>
+      <member refid="classConfig_1_1Config_1a872d36bb611a9c9247ec8831282b9580" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_utl1IP</name></member>
+      <member refid="classConfig_1_1Config_1abc46e6ce3f4985b5e876ea6d3b497765" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>m_utl2IP</name></member>
+      <member refid="group__Network_1ga228e49715386ed0ca156b7a707cd6a4e" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>navIP</name></member>
+      <member refid="classConfig_1_1Config_1a83e51ae6328c96939e341b6c2ae513f8" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>navIP</name></member>
+      <member refid="classConfig_1_1Config_1a805179f6e0ebd0eda3b7410e34e12526" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>navIPChanged</name></member>
+      <member refid="classConfig_1_1Config_1ac1cb099bbb1586b12249cb5a954180e5" prot="private" virt="non-virtual"><scope>Config::Config</scope><name>operator=</name></member>
+      <member refid="group__UAV_1gae4197fa7c71daac4097824ed6ea81f15" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>overrideImageHeight</name></member>
+      <member refid="classConfig_1_1Config_1a6cab6f283718c7f78cb8a77fa2e00798" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>overrideImageHeight</name></member>
+      <member refid="classConfig_1_1Config_1a5625e3735b3158a4575e987d745e21cd" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>overrideImageHeightChanged</name></member>
+      <member refid="classConfig_1_1Config_1a31bd571019df692076413307b5fd7a45" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>projectVersion</name></member>
+      <member refid="group__Network_1gaed89795250742d1bd14642678b944bf9" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>proxyEnabled</name></member>
+      <member refid="classConfig_1_1Config_1aa599fe2643683936219ae8d27bb98bcd" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>proxyEnabled</name></member>
+      <member refid="classConfig_1_1Config_1a7b53b2ecc615df31c5fd4f93a364e696" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>proxyEnabledChanged</name></member>
+      <member refid="group__Network_1ga53201871167f59da4a0b030ac2236a52" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>remoteIP</name></member>
+      <member refid="classConfig_1_1Config_1a076a84316bce0e2417c2ef11b8baca41" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>remoteIP</name></member>
+      <member refid="classConfig_1_1Config_1a2068804995cd0f45d0b0006649f960f5" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>remoteIPChanged</name></member>
+      <member refid="classConfig_1_1Config_1ac77d2e38c19082bd11301bccf7adce32" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>reset</name></member>
+      <member refid="classConfig_1_1Config_1a712b7bcc3dc8e59e2a4c763fe2cfc106" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>revert</name></member>
+      <member refid="classConfig_1_1Config_1a48b678a91d7c4c9920156db6d1464ac2" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>save</name></member>
+      <member refid="classConfig_1_1Config_1a0eba2d9411e7c320ad7e3ee684c77e3b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>scheduleRestart</name></member>
+      <member refid="classConfig_1_1Config_1a1fecb84f707c2f87033baaf5a1d23c44" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setAngleCorrection</name></member>
+      <member refid="classConfig_1_1Config_1aa88362bf58a7e52469fd4fe43dddb1cf" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setAntennaAlignment</name></member>
+      <member refid="classConfig_1_1Config_1ac454396489d90b6d9d8cb6b85a26728f" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setCutImage</name></member>
+      <member refid="classConfig_1_1Config_1ac8bb64f042792344522d8571243ffa4f" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setExecdPort</name></member>
+      <member refid="classConfig_1_1Config_1a518c55ed9035bff092fa951c06e65a5c" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setFeedbackPort</name></member>
+      <member refid="classConfig_1_1Config_1a2ea222ce77facc9ac6841c83a120ad25" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setJetsonIP</name></member>
+      <member refid="classConfig_1_1Config_1afd074ae610617480480c74128f9d7570" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setLocalIP</name></member>
+      <member refid="classConfig_1_1Config_1a0e40935e22bf86f461ca38e70bd7526a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setNavIP</name></member>
+      <member refid="classConfig_1_1Config_1a00ae0c3c17993e3423a72028ac5b282e" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setOverrideImageHeight</name></member>
+      <member refid="classConfig_1_1Config_1ab6bec869f854eb68275389d177a82eec" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setProxyEnabled</name></member>
+      <member refid="classConfig_1_1Config_1a698594cf3acbff9b6247f44dda516568" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setRemoteIP</name></member>
+      <member refid="classConfig_1_1Config_1a8f69f055ddd3b13f0cbef5f60f289b2b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setStoredCatalogue</name></member>
+      <member refid="classConfig_1_1Config_1ab7cdad36522a4e565532743edc7babc1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setStoredLatitude</name></member>
+      <member refid="classConfig_1_1Config_1a314f7f4456e8c62b53bad0f9e1f3b4c0" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setStoredLongitude</name></member>
+      <member refid="classConfig_1_1Config_1afa887b2ca066f6aba1fd474ef55f71d7" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setStoredZoomLevel</name></member>
+      <member refid="classConfig_1_1Config_1ab0e6e35f35aab4dc444ffa36e05cdc8e" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTcpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1aa19db9fbf34aaab1e301e5bbc4a1d8a1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTcpMarker</name></member>
+      <member refid="classConfig_1_1Config_1a1ab73713399efd6d52fdc77f77195231" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTelemetryFrequency</name></member>
+      <member refid="classConfig_1_1Config_1a5175f115312e3de9cc3a81eea61d4ef5" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTelemetryPort</name></member>
+      <member refid="classConfig_1_1Config_1a3e5508a69c2c19b4b6e4df5a826ac129" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTelemetryRecvPort</name></member>
+      <member refid="classConfig_1_1Config_1a8c0701d2c7f9641ae98de3cdfe94beb1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setTheme</name></member>
+      <member refid="classConfig_1_1Config_1a663a09a2080d72c8d26248ea2ae45304" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setThetaAzimuthCorrection</name></member>
+      <member refid="classConfig_1_1Config_1a7db4289e2da2c1e46e216f98e84d868c" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setUdpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1adb79448101b031b48155a1ad7678d9f0" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setUseDriftAngle</name></member>
+      <member refid="classConfig_1_1Config_1aa7ac15f6113b653c7f8f65b209c166ff" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setUseRadians</name></member>
+      <member refid="classConfig_1_1Config_1a6ff1381d1e2e0c077d87886676a53f4f" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setUtl1IP</name></member>
+      <member refid="classConfig_1_1Config_1a6c9cc88c2b48e404c1658f59fdd9bf52" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>setUtl2IP</name></member>
+      <member refid="group__Previous_1gab754ac42251e5d19242369484c52976a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedCatalogue</name></member>
+      <member refid="classConfig_1_1Config_1a4b14cf293199ce9968faeb00e5b7d7a5" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedCatalogue</name></member>
+      <member refid="classConfig_1_1Config_1acba44e8575b06c9ac4f90ee08341f60b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedCatalogueChanged</name></member>
+      <member refid="group__Previous_1ga53610034d9c0b8e4b72957f7f6038aea" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLatitude</name></member>
+      <member refid="classConfig_1_1Config_1a7f6a3f4feb576a312e2e55d3b1a17649" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLatitude</name></member>
+      <member refid="classConfig_1_1Config_1adc2150eef6289689c788e132ccb8ada6" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLatitudeChanged</name></member>
+      <member refid="group__Previous_1ga9bb09093e547fb3ee7ba9867e7ceb3cf" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLongitude</name></member>
+      <member refid="classConfig_1_1Config_1abf058f0306748b40491f8a4d651b7580" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLongitude</name></member>
+      <member refid="classConfig_1_1Config_1a20532a070ac90a0982b81ab5d33600e4" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedLongitudeChanged</name></member>
+      <member refid="group__Previous_1gabdd3742c56733450a271bdfd11164b06" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedZoomLevel</name></member>
+      <member refid="classConfig_1_1Config_1af342de4a93558acda737d085508ad30a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedZoomLevel</name></member>
+      <member refid="classConfig_1_1Config_1a5815c0321838033633c03baa4773ceb6" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>storedZoomLevelChanged</name></member>
+      <member refid="classConfig_1_1Config_1a6d244127554718f36c3baea1f065ff1b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>sync</name></member>
+      <member refid="group__Network_1ga4eb8c190ac01fcb1f06e6068ddcce6c4" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1a0a929f2b9ed21e3aab5aca31bcd6235b" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1aea8e12ec5e195be98e1cd0b22847596d" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpLFSPortChanged</name></member>
+      <member refid="group__Network_1ga4d636297c5b2507d500ac977aeae24ab" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpMarker</name></member>
+      <member refid="classConfig_1_1Config_1af278acd63cced1519f44146022a5c632" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpMarker</name></member>
+      <member refid="classConfig_1_1Config_1aa6c36dc644cd8e73ae3f1827c9ce7380" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>tcpMarkerChanged</name></member>
+      <member refid="group__Network_1ga1b0a28c06f494980a5e5a1cb27e13807" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryFrequency</name></member>
+      <member refid="classConfig_1_1Config_1abe61de5ac139a8178f7ae070cdf50ccd" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryFrequency</name></member>
+      <member refid="classConfig_1_1Config_1a7d855fef6853d3f03c931009d1dd1afb" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryFrequencyChanged</name></member>
+      <member refid="group__Network_1ga7e75cbb4bb5965edbf4533766168f321" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryPort</name></member>
+      <member refid="classConfig_1_1Config_1a1ea61dab4477f0de442500e93148d2ad" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryPort</name></member>
+      <member refid="classConfig_1_1Config_1ae2b55166d3cac231ba591b8b3b85d77c" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryPortChanged</name></member>
+      <member refid="group__Network_1gae7e6a0575c98833a88a4ce8bc84a2bbe" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryRecvPort</name></member>
+      <member refid="classConfig_1_1Config_1a1e589d0c3908fe993d87d10dc7e85fc9" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryRecvPort</name></member>
+      <member refid="classConfig_1_1Config_1a35be41b318469d8e0286f1e9064ee4b6" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>telemetryRecvPortChanged</name></member>
+      <member refid="group__Application_1gad0dc9539aff9c895e938d9af25e29bac" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>theme</name></member>
+      <member refid="classConfig_1_1Config_1a022f36ce6ae973b6ce726779dc033b52" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>theme</name></member>
+      <member refid="classConfig_1_1Config_1a3a4f2f708064df7777ac6be3ac3e1738" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>themeChanged</name></member>
+      <member refid="group__UAV_1gab158fee869502b2d1dbd139a2dab35d9" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>thetaAzimuthCorrection</name></member>
+      <member refid="classConfig_1_1Config_1aaccb92ad86b4bc9dfc213a519132b722" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>thetaAzimuthCorrection</name></member>
+      <member refid="classConfig_1_1Config_1a3a451e65de8487b56cdfd12dd14a5e14" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>thetaAzimuthCorrectionChanged</name></member>
+      <member refid="group__Network_1gade2456d8323aa0592d3b1ffe7f9a52dc" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>udpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1a1615b85c981f86e424bec6b68e78e5aa" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>udpLFSPort</name></member>
+      <member refid="classConfig_1_1Config_1aa889be10e3472e65285a8dfa28c2a7e1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>udpLFSPortChanged</name></member>
+      <member refid="group__UAV_1ga14104d9a2e30741a0fadddf69ffc4a8a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useDriftAngle</name></member>
+      <member refid="classConfig_1_1Config_1a97af91461eee37bbafd9d68d23f3ac91" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useDriftAngle</name></member>
+      <member refid="classConfig_1_1Config_1aebf15f04cb6af7244178894932e1a3d7" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useDriftAngleChanged</name></member>
+      <member refid="group__UAV_1gacf2fb5fcae01050db34ca586e8d24dc2" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useRadians</name></member>
+      <member refid="classConfig_1_1Config_1a109cc51e51c4044082c920ea8d21ebc1" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useRadians</name></member>
+      <member refid="classConfig_1_1Config_1a8648ad901bf79edaba74aa9c0b49abc2" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>useRadiansChanged</name></member>
+      <member refid="group__Network_1gac4250a3eec1e11ee5292c4b2a480b6ca" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl1IP</name></member>
+      <member refid="classConfig_1_1Config_1adc889db35ec4104e7a75a0823fad9a1a" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl1IP</name></member>
+      <member refid="classConfig_1_1Config_1a6069b4833062c2d92b83a0cb404c3441" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl1IPChanged</name></member>
+      <member refid="group__Network_1gab4fe48535d01d430c293ed52be0a7b36" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl2IP</name></member>
+      <member refid="classConfig_1_1Config_1a466a4a4ca79a1815b42add3f0a86dd43" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl2IP</name></member>
+      <member refid="classConfig_1_1Config_1a15062d346a78b9c5d86d80caa9e34b63" prot="public" virt="non-virtual"><scope>Config::Config</scope><name>utl2IPChanged</name></member>
+      <member refid="classConfig_1_1Config_1a4b47bb30ac45bd50b53052bd60936646" prot="public" virt="virtual"><scope>Config::Config</scope><name>~Config</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

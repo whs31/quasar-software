@@ -1,0 +1,327 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="offlinetileloader_8c_09_09" kind="file" language="C++">
+    <compoundname>offlinetileloader.c++</compoundname>
+    <includes refid="offlinetileloader_8h" local="yes">offlinetileloader.h</includes>
+    <includes local="no">cmath</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">QtCore/QCoreApplication</includes>
+    <includes local="no">QtCore/QDir</includes>
+    <includes local="no">QtCore/QDebug</includes>
+    <includes local="no">QtGui/QPolygonF</includes>
+    <includes local="no">QtNetwork/QNetworkReply</includes>
+    <includes local="no">QtPositioning/QGeoPolygon</includes>
+    <includes local="no">QtPositioning/QGeoRectangle</includes>
+    <includes refid="paths_8h" local="yes">config/paths.h</includes>
+    <incdepgraph>
+      <node id="15">
+        <label>config/paths.h</label>
+        <link refid="paths_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/c++/map/tools/offlinetileloader.c++</label>
+        <link refid="offlinetileloader_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>offlinetileloader.h</label>
+        <link refid="offlinetileloader_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>LPVL/Global</label>
+      </node>
+      <node id="8">
+        <label>QtCore/QCoreApplication</label>
+      </node>
+      <node id="10">
+        <label>QtCore/QDebug</label>
+      </node>
+      <node id="9">
+        <label>QtCore/QDir</label>
+      </node>
+      <node id="3">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="4">
+        <label>QtCore/QQueue</label>
+      </node>
+      <node id="11">
+        <label>QtGui/QPolygonF</label>
+      </node>
+      <node id="12">
+        <label>QtNetwork/QNetworkReply</label>
+      </node>
+      <node id="13">
+        <label>QtPositioning/QGeoPolygon</label>
+      </node>
+      <node id="14">
+        <label>QtPositioning/QGeoRectangle</label>
+      </node>
+      <node id="6">
+        <label>cmath</label>
+      </node>
+      <node id="7">
+        <label>stdexcept</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceMap">Map</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;<ref refid="offlinetileloader_8h" kindref="compound">offlinetileloader.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QCoreApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QDir&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&lt;QtCore/QtMath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtGui/QPolygonF&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtNetwork/QNetworkReply&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtPositioning/QGeoPolygon&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtPositioning/QGeoRectangle&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="paths_8h" kindref="compound">config/paths.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceMap" kindref="compound">Map</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>MAX_ALLOWED_PARALLEL<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">uint32_t<sp/><ref refid="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" kindref="member">longitudeToTileX</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="imagemetadata_8h_1ac155e35fdeebafc89723a51520fb9fe6" kindref="member">longitude</ref>,<sp/>uint8_t<sp/>zoom)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(<ref refid="imagemetadata_8h_1ac155e35fdeebafc89723a51520fb9fe6" kindref="member">longitude</ref><sp/>+<sp/>180.0)<sp/>/<sp/>360.0<sp/>*<sp/>(1<sp/>&lt;&lt;<sp/>zoom);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">uint32_t<sp/><ref refid="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" kindref="member">latitudeToTileY</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="imagemetadata_8h_1a76714bdbc5c536fa77dfb14533ff82a9" kindref="member">latitude</ref>,<sp/>uint8_t<sp/>zoom)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(1.0<sp/>-<sp/>asinh(tan(<ref refid="imagemetadata_8h_1a76714bdbc5c536fa77dfb14533ff82a9" kindref="member">latitude</ref><sp/>*<sp/>M_PI<sp/>/<sp/>180.0))<sp/>/<sp/>M_PI)<sp/>/<sp/>2.0<sp/>*<sp/>(1<sp/>&lt;&lt;<sp/>zoom);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceMap_1ae1bab87b511aded4b833c6e563479682" kindref="member">tileXToLongitude</ref>(uint32_t<sp/>x,<sp/>uint8_t<sp/>zoom)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>x<sp/>/<sp/>qreal(1<sp/>&lt;&lt;<sp/>zoom)<sp/>*<sp/>360.0<sp/>-<sp/>180;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" kindref="member">tileYToLatitude</ref>(uint32_t<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>,<sp/>uint8_t<sp/>zoom)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>M_PI<sp/>*(1<sp/>-<sp/>2.0<sp/>*<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>/<sp/>double(1<sp/>&lt;&lt;<sp/>zoom));</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>180.0<sp/>/<sp/>M_PI<sp/>*<sp/>atan(0.5<sp/>*<sp/>(exp(n)<sp/>-<sp/>exp(-n)));</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><ref refid="classMap_1_1OfflineTileLoader_1accd310548a78b2ef62d37b748fdaf269" kindref="member">OfflineTileLoader::OfflineTileLoader</ref>(QObject*<sp/>parent)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject{parent}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_netaccs(new<sp/>QNetworkAccessManager(this))</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_totalTiles(0)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_loadedTiles(0)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_parallelLoadedCount(0)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_serverUrl(</highlight><highlight class="stringliteral">&quot;https://mt.google.com/vt/lyrs=y&amp;hl=ru&amp;z=%1&amp;x=%2&amp;y=%3&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_storagePath(<ref refid="namespaceConfig" kindref="compound">Config</ref>::Paths::offlineTiles())</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(m_netaccs,<sp/>&amp;QNetworkAccessManager::finished,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](QNetworkReply*<sp/>reply)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(reply-&gt;error()<sp/>==<sp/>QNetworkReply::NoError)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QDir<sp/>tilePath(m_storagePath<sp/>+<sp/>reply-&gt;property(</highlight><highlight class="stringliteral">&quot;filePath&quot;</highlight><highlight class="normal">).toString());</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(not<sp/>tilePath.exists())</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tilePath.mkpath(</highlight><highlight class="stringliteral">&quot;.&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QFile<sp/>tileFile(tilePath.filePath(reply-&gt;property(</highlight><highlight class="stringliteral">&quot;fileName&quot;</highlight><highlight class="normal">).toString()));</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tileFile.open(QIODevice::WriteOnly);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tileFile.write(reply-&gt;readAll());</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tileFile.close();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>reply-&gt;deleteLater();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_parallelLoadedCount--;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_loadedTiles++;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>emit<sp/>progress(m_loadedTiles<sp/>*<sp/>100<sp/>/<sp/>m_totalTiles);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m_tilesQueue.size())</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;processDownload();</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m_totalTiles<sp/>==<sp/>m_loadedTiles)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_totalTiles<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>m_loadedTiles<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::download(uint8_t<sp/>zoom,<sp/>uint32_t<sp/>x,<sp/>uint32_t<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>m_tilesQueue.enqueue(TileItem(zoom,<sp/>x,<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>));</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>m_totalTiles++;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(m_parallelLoadedCount<sp/>&lt;<sp/>MAX_ALLOWED_PARALLEL)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;processDownload();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::download(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QGeoPolygon&amp;<sp/>polygon,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maximum_zoom)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(maximum_zoom<sp/>&gt;<sp/>20<sp/>or<sp/>maximum_zoom<sp/>&lt;<sp/>0)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>std::invalid_argument(</highlight><highlight class="stringliteral">&quot;Maximum<sp/>zoom<sp/>must<sp/>be<sp/>in<sp/>range<sp/>[0<sp/>-<sp/>20]&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoRectangle<sp/>rectangle<sp/>=<sp/>polygon.boundingGeoRectangle();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minLatitude<sp/>=<sp/>rectangle.bottomLeft().latitude();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxLatitude<sp/>=<sp/>rectangle.topRight().latitude();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minLongitude<sp/>=<sp/>rectangle.bottomLeft().longitude();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxLongitude<sp/>=<sp/>rectangle.topRight().longitude();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(minLongitude<sp/>&gt;<sp/>maxLongitude)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minLongitude<sp/>=<sp/>rectangle.topRight().longitude();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxLongitude<sp/>=<sp/>rectangle.bottomLeft().longitude();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>QPolygonF<sp/>polygon2;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0;<sp/>index<sp/>&lt;<sp/>polygon.size();<sp/>index++)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QGeoCoordinate<sp/>point<sp/>=<sp/>polygon.coordinateAt(index);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>polygon2.append(QPointF(point.longitude(),<sp/>point.latitude()));</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint8_t<sp/>zoom<sp/>=<sp/>0;<sp/>zoom<sp/>&lt;=<sp/>maximum_zoom;<sp/>zoom++)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>minX<sp/>=<sp/><ref refid="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" kindref="member">longitudeToTileX</ref>(minLongitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>maxX<sp/>=<sp/><ref refid="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" kindref="member">longitudeToTileX</ref>(maxLongitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>minY<sp/>=<sp/><ref refid="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" kindref="member">latitudeToTileY</ref>(maxLatitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>maxY<sp/>=<sp/><ref refid="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" kindref="member">latitudeToTileY</ref>(minLatitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint32_t<sp/>x<sp/>=<sp/>minX;<sp/>x<sp/>&lt;=<sp/>maxX;<sp/>x++)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint32_t<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>=<sp/>minY;<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>&lt;=<sp/>maxY;<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>++)</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="imagemetadata_8h_1a3c9556645d92e863376a4063a3ad7001" kindref="member">x0</ref><sp/>=<sp/><ref refid="namespaceMap_1ae1bab87b511aded4b833c6e563479682" kindref="member">tileXToLongitude</ref>(x,<sp/>zoom);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/><ref refid="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" kindref="member">tileYToLatitude</ref>(<ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>,<sp/>zoom);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x1<sp/>=<sp/><ref refid="namespaceMap_1ae1bab87b511aded4b833c6e563479682" kindref="member">tileXToLongitude</ref>(x<sp/>+<sp/>1,<sp/>zoom);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1<sp/>=<sp/><ref refid="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" kindref="member">tileYToLatitude</ref>(<ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>+<sp/>1,<sp/>zoom);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(polygon2.intersects(QPolygonF(QRectF(QPointF(<ref refid="imagemetadata_8h_1a3c9556645d92e863376a4063a3ad7001" kindref="member">x0</ref>,<sp/>y0),<sp/>QPointF(x1,<sp/>y1)))))</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;download(zoom,<sp/>x,<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::download(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantList&amp;<sp/>list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maximum_zoom)</highlight></codeline>
+<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoPolygon<sp/>pass;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/>list)</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pass.addCoordinate(point.value&lt;QGeoCoordinate&gt;());</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;download(pass,<sp/>maximum_zoom);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>OfflineTileLoader::estimateTileCount(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QVariantList&amp;<sp/>list,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maximum_zoom)<sp/></highlight><highlight class="keyword">noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoPolygon<sp/>polygon;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/>list)</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>polygon.addCoordinate(point.value&lt;QGeoCoordinate&gt;());</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>QGeoRectangle<sp/>rectangle<sp/>=<sp/>polygon.boundingGeoRectangle();</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minLatitude<sp/>=<sp/>rectangle.bottomLeft().latitude();</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxLatitude<sp/>=<sp/>rectangle.topRight().latitude();</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minLongitude<sp/>=<sp/>rectangle.bottomLeft().longitude();</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxLongitude<sp/>=<sp/>rectangle.topRight().longitude();</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(minLongitude<sp/>&gt;<sp/>maxLongitude)</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minLongitude<sp/>=<sp/>rectangle.topRight().longitude();</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxLongitude<sp/>=<sp/>rectangle.bottomLeft().longitude();</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>QPolygonF<sp/>polygon2;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index<sp/>=<sp/>0;<sp/>index<sp/>&lt;<sp/>polygon.size();<sp/>index++)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>QGeoCoordinate<sp/>point<sp/>=<sp/>polygon.coordinateAt(index);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>polygon2.append(QPointF(point.longitude(),<sp/>point.latitude()));</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint8_t<sp/>zoom<sp/>=<sp/>0;<sp/>zoom<sp/>&lt;=<sp/>maximum_zoom;<sp/>zoom++)</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>minX<sp/>=<sp/><ref refid="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" kindref="member">longitudeToTileX</ref>(minLongitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>maxX<sp/>=<sp/><ref refid="namespaceMap_1a2731b997b5b5e3f9bcd5cca3f34dcb43" kindref="member">longitudeToTileX</ref>(maxLongitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>minY<sp/>=<sp/><ref refid="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" kindref="member">latitudeToTileY</ref>(maxLatitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>maxY<sp/>=<sp/><ref refid="namespaceMap_1ab27f51ec2273655ae6cdfa17deacc671" kindref="member">latitudeToTileY</ref>(minLatitude,<sp/>zoom);</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint32_t<sp/>x<sp/>=<sp/>minX;<sp/>x<sp/>&lt;=<sp/>maxX;<sp/>x++)</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(uint32_t<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>=<sp/>minY;<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>&lt;=<sp/>maxY;<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>++)</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="imagemetadata_8h_1a3c9556645d92e863376a4063a3ad7001" kindref="member">x0</ref><sp/>=<sp/><ref refid="namespaceMap_1ae1bab87b511aded4b833c6e563479682" kindref="member">tileXToLongitude</ref>(x,<sp/>zoom);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/><ref refid="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" kindref="member">tileYToLatitude</ref>(<ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>,<sp/>zoom);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x1<sp/>=<sp/><ref refid="namespaceMap_1ae1bab87b511aded4b833c6e563479682" kindref="member">tileXToLongitude</ref>(x<sp/>+<sp/>1,<sp/>zoom);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1<sp/>=<sp/><ref refid="namespaceMap_1abd6685d7d633c7673afa4a38c0ae2737" kindref="member">tileYToLatitude</ref>(<ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref><sp/>+<sp/>1,<sp/>zoom);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(polygon2.intersects(QPolygonF(QRectF(QPointF(<ref refid="imagemetadata_8h_1a3c9556645d92e863376a4063a3ad7001" kindref="member">x0</ref>,<sp/>y0),<sp/>QPointF(x1,<sp/>y1)))))</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret++;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::setServerUrl(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>url)<sp/>{<sp/>m_serverUrl<sp/>=<sp/>url;<sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::setStoragePath(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>QString&amp;<sp/>path)<sp/>{<sp/>m_storagePath<sp/>=<sp/>path;<sp/>}</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal">QByteArray<sp/>OfflineTileLoader::tile(uint8_t<sp/>zoom,<sp/>uint32_t<sp/>x,<sp/>uint32_t<sp/><ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/>QByteArray<sp/>ret;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>QFile<sp/>tileFile(m_storagePath<sp/>+<sp/>QString(</highlight><highlight class="stringliteral">&quot;/%1/%2/%3&quot;</highlight><highlight class="normal">).arg(zoom).arg(x).arg(<ref refid="imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kindref="member">y</ref>));</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(tileFile.exists())</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tileFile.open(QIODevice::ReadOnly);</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret<sp/>=<sp/>tileFile.readAll();</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tileFile.close();</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OfflineTileLoader::processDownload()</highlight></codeline>
+<codeline lineno="213"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/>TileItem<sp/>tileItem<sp/>=<sp/>m_tilesQueue.dequeue();</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>QNetworkReply*<sp/>reply<sp/>=<sp/>m_netaccs-&gt;get(QNetworkRequest(m_serverUrl.arg(tileItem.zoom).arg(tileItem.x).arg(tileItem.y)));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/>reply-&gt;setProperty(</highlight><highlight class="stringliteral">&quot;filePath&quot;</highlight><highlight class="normal">,<sp/>QString(</highlight><highlight class="stringliteral">&quot;/%1/%2&quot;</highlight><highlight class="normal">).arg(tileItem.zoom).arg(tileItem.x));</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/>reply-&gt;setProperty(</highlight><highlight class="stringliteral">&quot;fileName&quot;</highlight><highlight class="normal">,<sp/>QString(</highlight><highlight class="stringliteral">&quot;%1&quot;</highlight><highlight class="normal">).arg(tileItem.y));</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>m_parallelLoadedCount++;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>Map</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/c++/map/tools/offlinetileloader.c++"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structNetworking_1_1TelemetryRequest" kind="struct" language="C++" prot="public">
+    <compoundname>Networking::TelemetryRequest</compoundname>
+    <includes refid="telemetrydatagram_8h" local="no">telemetrydatagram.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structNetworking_1_1TelemetryRequest_1aec2b71e812e781d999b5973076d89ca1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Networking::TelemetryRequest::marker</definition>
+        <argsstring></argsstring>
+        <name>marker</name>
+        <qualifiedname>Networking::TelemetryRequest::marker</qualifiedname>
+        <initializer>= 0x55bb55bb</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="61" column="18" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1TelemetryRequest_1ad7b03ba6a322db70d7ea22a32ba73e1e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Networking::TelemetryRequest::init_flag</definition>
+        <argsstring></argsstring>
+        <name>init_flag</name>
+        <qualifiedname>Networking::TelemetryRequest::init_flag</qualifiedname>
+        <initializer>= 0x00</initializer>
+        <briefdescription>
+<para>@variable Маркер сообщения. Равен 0x55BB55BB. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="62" column="17" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1TelemetryRequest_1a4680136de2b4952349d816c925b8fc18" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::TelemetryRequest::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <qualifiedname>Networking::TelemetryRequest::port</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>@variable Тип команды. 0x00 завершает передачу, 0х01 - начинает. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="63" column="18" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1TelemetryRequest_1a055f9f2a1f3b3a4d0ff121a4c98ae5b2" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Networking::TelemetryRequest::interval_ms</definition>
+        <argsstring></argsstring>
+        <name>interval_ms</name>
+        <qualifiedname>Networking::TelemetryRequest::interval_ms</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>@variable Порт для обратной связи. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="64" column="18" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structNetworking_1_1TelemetryRequest_1a0a09a21a6a8787474179eba88a0428d6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Networking::TelemetryRequest::crc16</definition>
+        <argsstring></argsstring>
+        <name>crc16</name>
+        <qualifiedname>Networking::TelemetryRequest::crc16</qualifiedname>
+        <initializer>= 0x0</initializer>
+        <briefdescription>
+<para>@variable Интервал передачи телеметрии в мс. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="65" column="18" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structNetworking_1_1TelemetryRequest_1ac69478bea23f6c57b2d6be7048ce4070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const TelemetryRequest &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::TelemetryRequest::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structNetworking_1_1TelemetryRequest" kindref="compound">TelemetryRequest</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>@variable Контрольная сумма датаграмы (CRC16_CCIT). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="67" column="16" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="115" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="friend" id="structNetworking_1_1TelemetryRequest_1a257b8f840bc19ee0d415ccdd702a66f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, TelemetryRequest &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::TelemetryRequest::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type><ref refid="structNetworking_1_1TelemetryRequest" kindref="compound">TelemetryRequest</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="68" column="28" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="126" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/telemetry/telemetrydatagram.h" line="59" column="5" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="60" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structNetworking_1_1TelemetryRequest_1a0a09a21a6a8787474179eba88a0428d6" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>crc16</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1ad7b03ba6a322db70d7ea22a32ba73e1e" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>init_flag</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1a055f9f2a1f3b3a4d0ff121a4c98ae5b2" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>interval_ms</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1aec2b71e812e781d999b5973076d89ca1" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>marker</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1ac69478bea23f6c57b2d6be7048ce4070" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1a257b8f840bc19ee0d415ccdd702a66f0" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>operator&gt;&gt;</name></member>
+      <member refid="structNetworking_1_1TelemetryRequest_1a4680136de2b4952349d816c925b8fc18" prot="public" virt="non-virtual"><scope>Networking::TelemetryRequest</scope><name>port</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

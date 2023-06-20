@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="argument-example" kind="example">
+    <compoundname>argument</compoundname>
+    <briefdescription>
+<para>Returns argument from ArgumentList instance. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Returns argument from ArgumentList instance. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- argument key (e.g. &quot;--x0&quot;). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>category</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- category of argument (Form, Focus, Reform). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>QString argument.</para>
+</simplesect>
+Can be invoked from QML. (&quot;--e0&quot;, <ref refid="classNetworking_1_1Enums_1ad5aada946b73c24be636cea5a1679caaa51567507f5ec32df4442c5183493cb4c" kindref="member">Networking::Enums::Form</ref>); <programlisting filename="argument"></programlisting> </para>
+    </detaileddescription>
+    <location file="src/c++/network/network.h"/>
+  </compounddef>
+</doxygen>

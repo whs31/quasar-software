@@ -1,0 +1,182 @@
+\hypertarget{classProcessing_1_1ImageProcessing}{}\doxysection{Processing\+::Image\+Processing Class Reference}
+\label{classProcessing_1_1ImageProcessing}\index{Processing::ImageProcessing@{Processing::ImageProcessing}}
+
+
+{\ttfamily \#include $<$imageprocessing.\+h$>$}
+
+Inheritance diagram for Processing\+::Image\+Processing\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classProcessing_1_1ImageProcessing}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9}{Image\+Type}} \{ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9ad0ee4e87867adf446292923db04237f6}{Telescopic}}
+, \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9a1f3a126ef435362ff65c9ba28e861cf2}{Strip}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a24d48c69a72ada4ee3e25988a5ed0862}{process\+List}} (const QList$<$ QString $>$ \&list)
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a9502e60c340934b13e8c418bff7e96ed}{pass\+Image}} (const \mbox{\hyperlink{structMap_1_1Image}{Map\+::\+Image}} \&image)
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ad6ea30b5bc3a8edfb86a8c0b79b983fa}{process\+Image\+Finished}} (const \mbox{\hyperlink{structMap_1_1Image}{Map\+::\+Image}} \&image)
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a670615ff281c73f9801944affaa545e1}{strip\+Vector8bit}} (vector$<$ uint8\+\_\+t $>$ vec, int rows, int columns)
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac369e5c995c829f60c9b6faaef8ff7f1}{processing\+Image\+Changed}} ()
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ae32b3c0084fa82b8a14353e117e23488}{processing\+Strip\+Changed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMap_1_1ImageModel}{Map\+::\+Image\+Model}} $\ast$ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a0d8f5b4d4682bd56b49313d2abf927e1}{model}} ()
+\item 
+bool \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a6bd7eed16aff9ce291ad3d41fb48c1}{exists}} (const QString \&name)
+\item 
+int \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a454b28380fd22d1439dea25b64b2c364}{index\+From}} (const QString \&name) noexcept
+\item 
+bool \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a83738b1e4b35fad3b9d0708ace4e6234}{processing\+Image}} () const
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4bb6326cb3b6fab5124daed04cd7e383}{set\+Processing\+Image}} (bool)
+\item 
+bool \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a57514ddfada1d0ede9efa8d11f7b7cdf}{processing\+Strip}} () const
+\item 
+void \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac293f0f4b9e36730dcb121c3308bffcc}{set\+Processing\+Strip}} (bool)
+\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}{processing\+Image}}
+\item 
+bool \mbox{\hyperlink{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}{processing\+Strip}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9}\label{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!ImageType@{ImageType}}
+\index{ImageType@{ImageType}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{ImageType}{ImageType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9}{Processing\+::\+Image\+Processing\+::\+Image\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Telescopic@{Telescopic}!Processing::ImageProcessing@{Processing::ImageProcessing}}\index{Processing::ImageProcessing@{Processing::ImageProcessing}!Telescopic@{Telescopic}}}\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9ad0ee4e87867adf446292923db04237f6}\label{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9ad0ee4e87867adf446292923db04237f6}} 
+Telescopic&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Strip@{Strip}!Processing::ImageProcessing@{Processing::ImageProcessing}}\index{Processing::ImageProcessing@{Processing::ImageProcessing}!Strip@{Strip}}}\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9a1f3a126ef435362ff65c9ba28e861cf2}\label{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9a1f3a126ef435362ff65c9ba28e861cf2}} 
+Strip&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a4a6bd7eed16aff9ce291ad3d41fb48c1}\label{classProcessing_1_1ImageProcessing_a4a6bd7eed16aff9ce291ad3d41fb48c1}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!exists@{exists}}
+\index{exists@{exists}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool Image\+Processing\+::exists (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a454b28380fd22d1439dea25b64b2c364}\label{classProcessing_1_1ImageProcessing_a454b28380fd22d1439dea25b64b2c364}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!indexFrom@{indexFrom}}
+\index{indexFrom@{indexFrom}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{indexFrom()}{indexFrom()}}
+{\footnotesize\ttfamily int Image\+Processing\+::index\+From (\begin{DoxyParamCaption}\item[{const QString \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a0d8f5b4d4682bd56b49313d2abf927e1}\label{classProcessing_1_1ImageProcessing_a0d8f5b4d4682bd56b49313d2abf927e1}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!model@{model}}
+\index{model@{model}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{model()}{model()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMap_1_1ImageModel}{Map\+::\+Image\+Model}} $\ast$ Image\+Processing\+::model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a9502e60c340934b13e8c418bff7e96ed}\label{classProcessing_1_1ImageProcessing_a9502e60c340934b13e8c418bff7e96ed}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!passImage@{passImage}}
+\index{passImage@{passImage}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{passImage}{passImage}}
+{\footnotesize\ttfamily void Image\+Processing\+::pass\+Image (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structMap_1_1Image}{Map\+::\+Image}} \&}]{image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_ad6ea30b5bc3a8edfb86a8c0b79b983fa}\label{classProcessing_1_1ImageProcessing_ad6ea30b5bc3a8edfb86a8c0b79b983fa}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processImageFinished@{processImageFinished}}
+\index{processImageFinished@{processImageFinished}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processImageFinished}{processImageFinished}}
+{\footnotesize\ttfamily void Processing\+::\+Image\+Processing\+::process\+Image\+Finished (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structMap_1_1Image}{Map\+::\+Image}} \&}]{image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a83738b1e4b35fad3b9d0708ace4e6234}\label{classProcessing_1_1ImageProcessing_a83738b1e4b35fad3b9d0708ace4e6234}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingImage@{processingImage}}
+\index{processingImage@{processingImage}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingImage()}{processingImage()}}
+{\footnotesize\ttfamily bool Image\+Processing\+::processing\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_ac369e5c995c829f60c9b6faaef8ff7f1}\label{classProcessing_1_1ImageProcessing_ac369e5c995c829f60c9b6faaef8ff7f1}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingImageChanged@{processingImageChanged}}
+\index{processingImageChanged@{processingImageChanged}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingImageChanged}{processingImageChanged}}
+{\footnotesize\ttfamily void Processing\+::\+Image\+Processing\+::processing\+Image\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a57514ddfada1d0ede9efa8d11f7b7cdf}\label{classProcessing_1_1ImageProcessing_a57514ddfada1d0ede9efa8d11f7b7cdf}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingStrip@{processingStrip}}
+\index{processingStrip@{processingStrip}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingStrip()}{processingStrip()}}
+{\footnotesize\ttfamily bool Image\+Processing\+::processing\+Strip (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_ae32b3c0084fa82b8a14353e117e23488}\label{classProcessing_1_1ImageProcessing_ae32b3c0084fa82b8a14353e117e23488}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingStripChanged@{processingStripChanged}}
+\index{processingStripChanged@{processingStripChanged}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingStripChanged}{processingStripChanged}}
+{\footnotesize\ttfamily void Processing\+::\+Image\+Processing\+::processing\+Strip\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a24d48c69a72ada4ee3e25988a5ed0862}\label{classProcessing_1_1ImageProcessing_a24d48c69a72ada4ee3e25988a5ed0862}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processList@{processList}}
+\index{processList@{processList}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processList}{processList}}
+{\footnotesize\ttfamily void Image\+Processing\+::process\+List (\begin{DoxyParamCaption}\item[{const QList$<$ QString $>$ \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a4bb6326cb3b6fab5124daed04cd7e383}\label{classProcessing_1_1ImageProcessing_a4bb6326cb3b6fab5124daed04cd7e383}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!setProcessingImage@{setProcessingImage}}
+\index{setProcessingImage@{setProcessingImage}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{setProcessingImage()}{setProcessingImage()}}
+{\footnotesize\ttfamily void Image\+Processing\+::set\+Processing\+Image (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_ac293f0f4b9e36730dcb121c3308bffcc}\label{classProcessing_1_1ImageProcessing_ac293f0f4b9e36730dcb121c3308bffcc}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!setProcessingStrip@{setProcessingStrip}}
+\index{setProcessingStrip@{setProcessingStrip}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{setProcessingStrip()}{setProcessingStrip()}}
+{\footnotesize\ttfamily void Image\+Processing\+::set\+Processing\+Strip (\begin{DoxyParamCaption}\item[{bool}]{other }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a670615ff281c73f9801944affaa545e1}\label{classProcessing_1_1ImageProcessing_a670615ff281c73f9801944affaa545e1}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!stripVector8bit@{stripVector8bit}}
+\index{stripVector8bit@{stripVector8bit}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{stripVector8bit}{stripVector8bit}}
+{\footnotesize\ttfamily void Processing\+::\+Image\+Processing\+::strip\+Vector8bit (\begin{DoxyParamCaption}\item[{vector$<$ uint8\+\_\+t $>$}]{vec,  }\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}\label{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingImage@{processingImage}}
+\index{processingImage@{processingImage}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingImage}{processingImage}}
+{\footnotesize\ttfamily bool Processing\+::\+Image\+Processing\+::processing\+Image\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\Hypertarget{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}\label{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}} 
+\index{Processing::ImageProcessing@{Processing::ImageProcessing}!processingStrip@{processingStrip}}
+\index{processingStrip@{processingStrip}!Processing::ImageProcessing@{Processing::ImageProcessing}}
+\doxysubsubsection{\texorpdfstring{processingStrip}{processingStrip}}
+{\footnotesize\ttfamily bool Processing\+::\+Image\+Processing\+::processing\+Strip\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/processing/\mbox{\hyperlink{imageprocessing_8h}{imageprocessing.\+h}}\item 
+src/c++/processing/\mbox{\hyperlink{imageprocessing_8c_09_09}{imageprocessing.\+c++}}\end{DoxyCompactItemize}

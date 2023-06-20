@@ -1,0 +1,63 @@
+\hypertarget{offlinetileloader_8h_source}{}\doxysection{offlinetileloader.\+h}
+\label{offlinetileloader_8h_source}\index{src/c++/map/tools/offlinetileloader.h@{src/c++/map/tools/offlinetileloader.h}}
+\mbox{\hyperlink{offlinetileloader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtCore/QQueue>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }QGeoPolygon;}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }QNetworkAccessManager;}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMap}{Map}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMap_1_1OfflineTileLoader}{OfflineTileLoader}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(\mbox{\hyperlink{classMap_1_1OfflineTileLoader}{OfflineTileLoader}})}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader}{OfflineTileLoader}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}{download}}(uint8\_t\ zoom,\ uint32\_t\ x,\ uint32\_t\ \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}{download}}(\textcolor{keyword}{const}\ QGeoPolygon\&\ polygon,\ \textcolor{keywordtype}{int}\ maximum\_zoom\ =\ 18);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a6e5d86e93c3f6716e638dd9e704d6aee}{download}}(\textcolor{keyword}{const}\ QVariantList\&\ list,\ \textcolor{keywordtype}{int}\ maximum\_zoom\ =\ 18);}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_afe8c71b163bbb9aca4847923b99d6d3c}{estimateTileCount}}(\textcolor{keyword}{const}\ QVariantList\&\ list,\ \textcolor{keywordtype}{int}\ maximum\_zoom\ =\ 18)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a295b1cd418ba5fbd65e8731f117e0dc6}{setServerUrl}}(\textcolor{keyword}{const}\ QString\&\ url);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_aeff32cae08de5845f8dde56014757495}{setStoragePath}}(\textcolor{keyword}{const}\ QString\&\ path);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a1cf83a049e6536615ad508cbc0245f0e}{tile}}(uint8\_t\ zoom,\ uint32\_t\ x,\ uint32\_t\ \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMap_1_1OfflineTileLoader_a8762d28eed9cdb0ed1e96fbc1d6bc49c}{progress}}(\textcolor{keywordtype}{int}\ percent);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }TileItem}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ TileItem(uint8\_t\ zoom,\ uint32\_t\ x,\ uint32\_t\ y)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ zoom(zoom)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ x(x)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ,\ \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}}(\mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}})}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ zoom;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ x;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{imagemetadata_8h_af77b1a54442f2443cf64a4766f916bcd}{y}};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ QNetworkAccessManager*\ m\_netaccs;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ m\_totalTiles;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ uint64\_t\ m\_loadedTiles;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ QQueue<TileItem>\ m\_tilesQueue;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ m\_parallelLoadedCount;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ m\_serverUrl;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ m\_storagePath;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processDownload();}
+\DoxyCodeLine{00056\ \ \ \ \ \};}
+\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ Map5}}
+
+\end{DoxyCode}

@@ -1,0 +1,73 @@
+\hypertarget{imageprocessing_8h_source}{}\doxysection{imageprocessing.\+h}
+\label{imageprocessing_8h_source}\index{src/c++/processing/imageprocessing.h@{src/c++/processing/imageprocessing.h}}
+\mbox{\hyperlink{imageprocessing_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceMap}{Map}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }Image;}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }StripImage;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }ImageModel;}
+\DoxyCodeLine{00013\ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceProcessing}{Processing}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classProcessing_1_1ImageProcessing}{ImageProcessing}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00018\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}{processingImage}}\ READ\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}{processingImage}}\ WRITE\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4bb6326cb3b6fab5124daed04cd7e383}{setProcessingImage}}\ NOTIFY\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac369e5c995c829f60c9b6faaef8ff7f1}{processingImageChanged}})}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}{processingStrip}}\ READ\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}{processingStrip}}\ WRITE\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac293f0f4b9e36730dcb121c3308bffcc}{setProcessingStrip}}\ NOTIFY\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ae32b3c0084fa82b8a14353e117e23488}{processingStripChanged}})}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(\mbox{\hyperlink{classProcessing_1_1ImageProcessing}{ImageProcessing}})}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ INITIAL\_OPACITY\ =\ 1;}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ INITIAL\_VISIBILITY\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ DEBUG\_SAVE\_STRIP\_DATA\_DESERIALIZED\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ DEBUG\_SHOW\_STRIP\_DATA\_MATRIX\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ DEBUG\_PRESERVE\_BINARY\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9}{ImageType}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9ad0ee4e87867adf446292923db04237f6}{Telescopic}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a32f03f5c4203f5fc9d22b723c358a5e9a1f3a126ef435362ff65c9ba28e861cf2}{Strip}}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ImageModel}{Map::ImageModel}}*\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a0d8f5b4d4682bd56b49313d2abf927e1}{model}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a6bd7eed16aff9ce291ad3d41fb48c1}{exists}}(\textcolor{keyword}{const}\ QString\&\ name);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a454b28380fd22d1439dea25b64b2c364}{indexFrom}}(\textcolor{keyword}{const}\ QString\&\ name)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4a67937b9376dffc7ef16bcecada0267}{processingImage}}()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a4bb6326cb3b6fab5124daed04cd7e383}{setProcessingImage}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_aca75a309403f242bf8eff0fdad591adf}{processingStrip}}()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac293f0f4b9e36730dcb121c3308bffcc}{setProcessingStrip}}(\textcolor{keywordtype}{bool});}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a24d48c69a72ada4ee3e25988a5ed0862}{processList}}(\textcolor{keyword}{const}\ QList<QString>\&\ list);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a9502e60c340934b13e8c418bff7e96ed}{passImage}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMap_1_1Image}{Map::Image}}\&\ image);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ad6ea30b5bc3a8edfb86a8c0b79b983fa}{processImageFinished}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structMap_1_1Image}{Map::Image}}\&\ image);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_a670615ff281c73f9801944affaa545e1}{stripVector8bit}}(vector<uint8\_t>\ vec,\ \textcolor{keywordtype}{int}\ rows,\ \textcolor{keywordtype}{int}\ columns);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ac369e5c995c829f60c9b6faaef8ff7f1}{processingImageChanged}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing_ae32b3c0084fa82b8a14353e117e23488}{processingStripChanged}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classProcessing_1_1ImageProcessing}{ImageProcessing}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classMap_1_1ImageModel}{Map::ImageModel}}*\ m\_model;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ asyncProcess(\textcolor{keyword}{const}\ QString\&\ filename);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ asyncStripProcess(\textcolor{keyword}{const}\ QString\&\ filename);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ QByteArray\ fileToByteArray(\textcolor{keyword}{const}\ QString\&\ path);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_processingImage\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_processingStrip\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ \}\ \textcolor{comment}{//\ namespace\ Processing;}}
+
+\end{DoxyCode}

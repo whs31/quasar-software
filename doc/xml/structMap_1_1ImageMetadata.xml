@@ -1,0 +1,384 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="structMap_1_1ImageMetadata" kind="struct" language="C++" prot="public">
+    <compoundname>Map::ImageMetadata</compoundname>
+    <includes refid="imagemetadata_8h" local="no">imagemetadata.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a516bbde1926bd5028f4320598c4c1813" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Map::ImageMetadata::latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>Map::ImageMetadata::latitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="18" column="16" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1aa3de7394fc56217c89e27de3bc4085c8" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Map::ImageMetadata::longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>Map::ImageMetadata::longitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="19" column="16" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a331bf0fca7f4cc855d6bc02b12d8194a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::dx</definition>
+        <argsstring></argsstring>
+        <name>dx</name>
+        <qualifiedname>Map::ImageMetadata::dx</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="20" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a591fd739f970d97097c63a18c58f42fd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::dy</definition>
+        <argsstring></argsstring>
+        <name>dy</name>
+        <qualifiedname>Map::ImageMetadata::dy</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="21" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1ac8b4b1196c13f50ba2a8679a2477bfaa" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::x0</definition>
+        <argsstring></argsstring>
+        <name>x0</name>
+        <qualifiedname>Map::ImageMetadata::x0</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="22" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1abdc2581336e161dfc085157713c8c908" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::y0</definition>
+        <argsstring></argsstring>
+        <name>y0</name>
+        <qualifiedname>Map::ImageMetadata::y0</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="23" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a2652674294dda62ddd7712855aacfd5b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>Map::ImageMetadata::angle</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="24" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a10b3d39359121dedc879283b905f1c61" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::drift_angle</definition>
+        <argsstring></argsstring>
+        <name>drift_angle</name>
+        <qualifiedname>Map::ImageMetadata::drift_angle</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="25" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1ab970bbc38a77ce14a7110a0c792d614d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::lx</definition>
+        <argsstring></argsstring>
+        <name>lx</name>
+        <qualifiedname>Map::ImageMetadata::lx</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="26" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a6ae55377f443842b0549fc4b840803cf" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::ly</definition>
+        <argsstring></argsstring>
+        <name>ly</name>
+        <qualifiedname>Map::ImageMetadata::ly</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="27" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a899295d6f391efbb11345041c44573c9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::div</definition>
+        <argsstring></argsstring>
+        <name>div</name>
+        <qualifiedname>Map::ImageMetadata::div</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="28" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a4fb14652f05eda1b6c08a8a91a922f64" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::velocity</definition>
+        <argsstring></argsstring>
+        <name>velocity</name>
+        <qualifiedname>Map::ImageMetadata::velocity</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="29" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a5716f0cc886135f15bdf7cad18f4a658" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::altitude</definition>
+        <argsstring></argsstring>
+        <name>altitude</name>
+        <qualifiedname>Map::ImageMetadata::altitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="30" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a2ebe2e09c2709db9946e0c9f5d1141be" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::kr</definition>
+        <argsstring></argsstring>
+        <name>kr</name>
+        <qualifiedname>Map::ImageMetadata::kr</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="31" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a26d4aa8017aa9dc36eff05e3b8f1b5bf" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::time_shift</definition>
+        <argsstring></argsstring>
+        <name>time_shift</name>
+        <qualifiedname>Map::ImageMetadata::time_shift</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="32" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a4ddcef6ebb67f8590e1c90c4e9dd53bc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::time_duration</definition>
+        <argsstring></argsstring>
+        <name>time_duration</name>
+        <qualifiedname>Map::ImageMetadata::time_duration</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="33" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1ab013a5f4d8e634bd9feb069349b59347" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::reserved_1</definition>
+        <argsstring></argsstring>
+        <name>reserved_1</name>
+        <qualifiedname>Map::ImageMetadata::reserved_1</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="34" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1af114ee25f73b06464610bf425298ad97" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::ImageMetadata::reserved_2</definition>
+        <argsstring></argsstring>
+        <name>reserved_2</name>
+        <qualifiedname>Map::ImageMetadata::reserved_2</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="35" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a0fa894c1078c33378c3b814562bf6ef6" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Map::ImageMetadata::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <qualifiedname>Map::ImageMetadata::mode</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="36" column="17" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a7cde1ae6f837bf2f60a189f068727fd7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Map::ImageMetadata::image_type</definition>
+        <argsstring></argsstring>
+        <name>image_type</name>
+        <qualifiedname>Map::ImageMetadata::image_type</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="37" column="17" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a6997351b040b58f030a59215aa14bf22" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Map::ImageMetadata::reserved_3</definition>
+        <argsstring></argsstring>
+        <name>reserved_3</name>
+        <qualifiedname>Map::ImageMetadata::reserved_3</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="38" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1a1c07f83952c437f47f9d48c1507e3fa4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t Map::ImageMetadata::reserved_4</definition>
+        <argsstring></argsstring>
+        <name>reserved_4</name>
+        <qualifiedname>Map::ImageMetadata::reserved_4</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="39" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMap_1_1ImageMetadata_1af0308f9a20c019c7193a32c297979ffe" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Map::ImageMetadata::crc16</definition>
+        <argsstring></argsstring>
+        <name>crc16</name>
+        <qualifiedname>Map::ImageMetadata::crc16</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="40" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/imagemetadata.h" line="16" column="5" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="17" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structMap_1_1ImageMetadata_1a5716f0cc886135f15bdf7cad18f4a658" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>altitude</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a2652674294dda62ddd7712855aacfd5b" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>angle</name></member>
+      <member refid="structMap_1_1ImageMetadata_1af0308f9a20c019c7193a32c297979ffe" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>crc16</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a899295d6f391efbb11345041c44573c9" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>div</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a10b3d39359121dedc879283b905f1c61" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>drift_angle</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a331bf0fca7f4cc855d6bc02b12d8194a" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>dx</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a591fd739f970d97097c63a18c58f42fd" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>dy</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a7cde1ae6f837bf2f60a189f068727fd7" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>image_type</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a2ebe2e09c2709db9946e0c9f5d1141be" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>kr</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a516bbde1926bd5028f4320598c4c1813" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>latitude</name></member>
+      <member refid="structMap_1_1ImageMetadata_1aa3de7394fc56217c89e27de3bc4085c8" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>longitude</name></member>
+      <member refid="structMap_1_1ImageMetadata_1ab970bbc38a77ce14a7110a0c792d614d" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>lx</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a6ae55377f443842b0549fc4b840803cf" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>ly</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a0fa894c1078c33378c3b814562bf6ef6" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>mode</name></member>
+      <member refid="structMap_1_1ImageMetadata_1ab013a5f4d8e634bd9feb069349b59347" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>reserved_1</name></member>
+      <member refid="structMap_1_1ImageMetadata_1af114ee25f73b06464610bf425298ad97" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>reserved_2</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a6997351b040b58f030a59215aa14bf22" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>reserved_3</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a1c07f83952c437f47f9d48c1507e3fa4" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>reserved_4</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a4ddcef6ebb67f8590e1c90c4e9dd53bc" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>time_duration</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a26d4aa8017aa9dc36eff05e3b8f1b5bf" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>time_shift</name></member>
+      <member refid="structMap_1_1ImageMetadata_1a4fb14652f05eda1b6c08a8a91a922f64" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>velocity</name></member>
+      <member refid="structMap_1_1ImageMetadata_1ac8b4b1196c13f50ba2a8679a2477bfaa" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>x0</name></member>
+      <member refid="structMap_1_1ImageMetadata_1abdc2581336e161dfc085157713c8c908" prot="public" virt="non-virtual"><scope>Map::ImageMetadata</scope><name>y0</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

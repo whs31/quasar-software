@@ -1,0 +1,651 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classMap_1_1ImageModel" kind="class" language="C++" prot="public">
+    <compoundname>Map::ImageModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <includes refid="imagemodel_8h" local="no">imagemodel.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ModelRoles</name>
+        <qualifiedname>Map::ImageModel::ModelRoles</qualifiedname>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af788944d68550bc7e0ebbbd304778195" prot="public">
+          <name>Index</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a8c2557ee17aef167d502f34327c7a184" prot="public">
+          <name>Filename</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a4befd6190c3eaa7abaed7ff566c77ab3" prot="public">
+          <name>Latitude</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8affe5cb2b2e8f87426b6d4b4952181f28" prot="public">
+          <name>Longitude</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a3b525eb0a25304a8e1a180846b912591" prot="public">
+          <name>DX</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af365b888dd57ae9289e55ee6042b6b28" prot="public">
+          <name>DY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a5b41e6758fcf9b001ed28fd1ea653db4" prot="public">
+          <name>X0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a4c74cdd0d5345d0e48cbeaa6d017c3b9" prot="public">
+          <name>Y0</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a09ff65944187d6f0ba64e6cd1ead092e" prot="public">
+          <name>Angle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a3273393bcde0ba179c79e5492ae35722" prot="public">
+          <name>DriftAngle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a9a753cb4c84af132943cbac52fae3fb5" prot="public">
+          <name>LX</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a0832d3004d8a1c70703a89ef602d0d4f" prot="public">
+          <name>LY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8acd943e2f6bdcdbbc2b3d700fdac5fb86" prot="public">
+          <name>Div</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a8b419fa0aa45ac8c2bbcbad4170b08a4" prot="public">
+          <name>Velocity</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8afbac7791f19e2c9de05b449f3635aef8" prot="public">
+          <name>Altitude</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a6c0015c1b07dbaa154115697b46ec4ff" prot="public">
+          <name>KR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af96b858a92015caf6b7360357978032f" prot="public">
+          <name>TimeShift</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ab3b40825d49e424b71ff5ec249d2f9e8" prot="public">
+          <name>TimeDuration</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a69d39edc94070979778217af8f10df61" prot="public">
+          <name>Mode</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ac89e2cb33b6e4458a5518b26aaeb6c01" prot="public">
+          <name>ImageType</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ad2f2582092c19211783258cd2f4b96dc" prot="public">
+          <name>Crc16</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a33de7da3c1cc392b470eda80467a5110" prot="public">
+          <name>Valid</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a863fa3bda0f5a8e8266dc1d49c1bff23" prot="public">
+          <name>LOD1FilePath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a7181789001373291a7c49e50385124db" prot="public">
+          <name>LOD0FilePath</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a92be9af620dee40fcb3a88a5495ac91c" prot="public">
+          <name>Transparency</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a037a3d6a103e40de57665cd0ceaab83a" prot="public">
+          <name>Shown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a1084b2eb9bc2e7a09335e59161d99507" prot="public">
+          <name>MercatorZoomLevel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a2c09ee794f28f4359586c0bbde66a871" prot="public">
+          <name>MarkedForExport</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="18" column="13" bodyfile="src/c++/map/imagemodel.h" bodystart="19" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classMap_1_1ImageModel_1a3afac11d239bdc7af523a5826a3a2477" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int Map::ImageModel::totalCount</definition>
+        <argsstring></argsstring>
+        <name>totalCount</name>
+        <qualifiedname>Map::ImageModel::totalCount</qualifiedname>
+        <read>totalCount</read>
+        <write>setTotalCount</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="1" column="0" bodyfile="src/c++/map/imagemodel.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMap_1_1ImageModel_1addaf52d625ad1ca524a613768852779d" prot="private" static="no" mutable="no">
+        <type>QVector&lt; <ref refid="structMap_1_1Image" kindref="compound">Image</ref> &gt;</type>
+        <definition>QVector&lt;Image&gt; Map::ImageModel::storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <qualifiedname>Map::ImageModel::storage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="78" column="21" bodyfile="src/c++/map/imagemodel.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1ImageModel_1af6cdddeb7ae78e16ebfa41a44aa2cbb3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Map::ImageModel::m_totalCount</definition>
+        <argsstring></argsstring>
+        <name>m_totalCount</name>
+        <qualifiedname>Map::ImageModel::m_totalCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="79" column="17" bodyfile="src/c++/map/imagemodel.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMap_1_1ImageModel_1aeefc6d53f9657cf4e24a0086c1478799" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImageModel::ImageModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ImageModel</name>
+        <qualifiedname>Map::ImageModel::ImageModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="50" column="22" bodyfile="src/c++/map/imagemodel.c++" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a0a0d02abd9754fb93bdd0124101e31da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ImageModel::rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>Map::ImageModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="52" column="17" bodyfile="src/c++/map/imagemodel.c++" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1ac3db6c4c3387def23ed94a9b5559c65c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant ImageModel::data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>Map::ImageModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="53" column="22" bodyfile="src/c++/map/imagemodel.c++" bodystart="48" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a70db4199051142ef4e0a11cd1bf91081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool ImageModel::setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>Map::ImageModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="54" column="18" bodyfile="src/c++/map/imagemodel.c++" bodystart="87" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1aebb5141e6e5e4bc2fbf733443ea0afa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ImageModel::add</definition>
+        <argsstring>(const Image &amp;image)</argsstring>
+        <name>add</name>
+        <qualifiedname>Map::ImageModel::add</qualifiedname>
+        <param>
+          <type>const <ref refid="structMap_1_1Image" kindref="compound">Image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="56" column="30" bodyfile="src/c++/map/imagemodel.c++" bodystart="129" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a82def9bf8ed5b44c3638cc552b8775d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ImageModel::remove</definition>
+        <argsstring>(int index)</argsstring>
+        <name>remove</name>
+        <qualifiedname>Map::ImageModel::remove</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="57" column="30" bodyfile="src/c++/map/imagemodel.c++" bodystart="141" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1af987e92b9bccbbfdef7a7070020159ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ImageModel::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Map::ImageModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="58" column="30" bodyfile="src/c++/map/imagemodel.c++" bodystart="152" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1ada410f1c77e10349e01af59b0b6e26a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QVariant</type>
+        <definition>QVariant ImageModel::getRole</definition>
+        <argsstring>(int index, const QString &amp;role) const</argsstring>
+        <name>getRole</name>
+        <qualifiedname>Map::ImageModel::getRole</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="60" column="34" bodyfile="src/c++/map/imagemodel.c++" bodystart="163" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1abc2fecf243a70d0be1a9d4353400bfa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QGeoCoordinate</type>
+        <definition>QGeoCoordinate ImageModel::lastImagePosition</definition>
+        <argsstring>()</argsstring>
+        <name>lastImagePosition</name>
+        <qualifiedname>Map::ImageModel::lastImagePosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="62" column="40" bodyfile="src/c++/map/imagemodel.c++" bodystart="184" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a2c46b6eed34f9804f5dda63672de98b5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool ImageModel::exportSelectedImages</definition>
+        <argsstring>(const QString &amp;target) noexcept</argsstring>
+        <name>exportSelectedImages</name>
+        <qualifiedname>Map::ImageModel::exportSelectedImages</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>target</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="63" column="30" bodyfile="src/c++/map/imagemodel.c++" bodystart="191" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a35876939366a47e3375d1e843af63454" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QVector&lt; <ref refid="structMap_1_1Image" kindref="compound">Image</ref> &gt; *</type>
+        <definition>QVector&lt; Image &gt; * ImageModel::direct</definition>
+        <argsstring>()</argsstring>
+        <name>direct</name>
+        <qualifiedname>Map::ImageModel::direct</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="65" column="21" bodyfile="src/c++/map/imagemodel.c++" bodystart="211" bodyend="211"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a13358420e64dfe204ada07144b9470c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int ImageModel::totalCount</definition>
+        <argsstring>() const</argsstring>
+        <name>totalCount</name>
+        <qualifiedname>Map::ImageModel::totalCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="67" column="18" bodyfile="src/c++/map/imagemodel.c++" bodystart="212" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a6ccb0c662becc82c27309370d7c41248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ImageModel::setTotalCount</definition>
+        <argsstring>(int)</argsstring>
+        <name>setTotalCount</name>
+        <qualifiedname>Map::ImageModel::setTotalCount</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="67" column="40" bodyfile="src/c++/map/imagemodel.c++" bodystart="213" bodyend="218"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMap_1_1ImageModel_1afc84f2193954f74a1eb22259a36fbbfc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::ImageModel::added</definition>
+        <argsstring>()</argsstring>
+        <name>added</name>
+        <qualifiedname>Map::ImageModel::added</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="70" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1ImageModel_1a1eb2260e60bd6a8448b417dd99c62030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::ImageModel::totalCountChanged</definition>
+        <argsstring>()</argsstring>
+        <name>totalCountChanged</name>
+        <qualifiedname>Map::ImageModel::totalCountChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="71" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1ImageModel_1aafe134aa18e1f4f3d760e244e7eed82d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::ImageModel::markedForExport</definition>
+        <argsstring>(const QList&lt; QString &gt; &amp;abs_paths, const QString &amp;folder)</argsstring>
+        <name>markedForExport</name>
+        <qualifiedname>Map::ImageModel::markedForExport</qualifiedname>
+        <param>
+          <type>const QList&lt; QString &gt; &amp;</type>
+          <declname>abs_paths</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="72" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classMap_1_1ImageModel_1a377aebd1a382d645f244636ba35c09de" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; ImageModel::roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>Map::ImageModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/imagemodel.h" line="75" column="19" bodyfile="src/c++/map/imagemodel.c++" bodystart="10" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Map::ImageModel</label>
+        <link refid="classMap_1_1ImageModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Map::ImageModel</label>
+        <link refid="classMap_1_1ImageModel"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QAbstractListModel</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/map/imagemodel.h" line="12" column="5" bodyfile="src/c++/map/imagemodel.h" bodystart="13" bodyend="80"/>
+    <listofallmembers>
+      <member refid="classMap_1_1ImageModel_1aebb5141e6e5e4bc2fbf733443ea0afa7" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>add</name></member>
+      <member refid="classMap_1_1ImageModel_1afc84f2193954f74a1eb22259a36fbbfc" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>added</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8afbac7791f19e2c9de05b449f3635aef8" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Altitude</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a09ff65944187d6f0ba64e6cd1ead092e" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Angle</name></member>
+      <member refid="classMap_1_1ImageModel_1af987e92b9bccbbfdef7a7070020159ce" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>clear</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ad2f2582092c19211783258cd2f4b96dc" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Crc16</name></member>
+      <member refid="classMap_1_1ImageModel_1ac3db6c4c3387def23ed94a9b5559c65c" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>data</name></member>
+      <member refid="classMap_1_1ImageModel_1a35876939366a47e3375d1e843af63454" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>direct</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8acd943e2f6bdcdbbc2b3d700fdac5fb86" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Div</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a3273393bcde0ba179c79e5492ae35722" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>DriftAngle</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a3b525eb0a25304a8e1a180846b912591" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>DX</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af365b888dd57ae9289e55ee6042b6b28" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>DY</name></member>
+      <member refid="classMap_1_1ImageModel_1a2c46b6eed34f9804f5dda63672de98b5" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>exportSelectedImages</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a8c2557ee17aef167d502f34327c7a184" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Filename</name></member>
+      <member refid="classMap_1_1ImageModel_1ada410f1c77e10349e01af59b0b6e26a0" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>getRole</name></member>
+      <member refid="classMap_1_1ImageModel_1aeefc6d53f9657cf4e24a0086c1478799" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>ImageModel</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ac89e2cb33b6e4458a5518b26aaeb6c01" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>ImageType</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af788944d68550bc7e0ebbbd304778195" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Index</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a6c0015c1b07dbaa154115697b46ec4ff" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>KR</name></member>
+      <member refid="classMap_1_1ImageModel_1abc2fecf243a70d0be1a9d4353400bfa8" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>lastImagePosition</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a4befd6190c3eaa7abaed7ff566c77ab3" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Latitude</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a7181789001373291a7c49e50385124db" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>LOD0FilePath</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a863fa3bda0f5a8e8266dc1d49c1bff23" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>LOD1FilePath</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8affe5cb2b2e8f87426b6d4b4952181f28" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Longitude</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a9a753cb4c84af132943cbac52fae3fb5" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>LX</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a0832d3004d8a1c70703a89ef602d0d4f" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>LY</name></member>
+      <member refid="classMap_1_1ImageModel_1af6cdddeb7ae78e16ebfa41a44aa2cbb3" prot="private" virt="non-virtual"><scope>Map::ImageModel</scope><name>m_totalCount</name></member>
+      <member refid="classMap_1_1ImageModel_1aafe134aa18e1f4f3d760e244e7eed82d" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>markedForExport</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a2c09ee794f28f4359586c0bbde66a871" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>MarkedForExport</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a1084b2eb9bc2e7a09335e59161d99507" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>MercatorZoomLevel</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a69d39edc94070979778217af8f10df61" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Mode</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>ModelRoles</name></member>
+      <member refid="classMap_1_1ImageModel_1a82def9bf8ed5b44c3638cc552b8775d0" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>remove</name></member>
+      <member refid="classMap_1_1ImageModel_1a377aebd1a382d645f244636ba35c09de" prot="protected" virt="non-virtual"><scope>Map::ImageModel</scope><name>roleNames</name></member>
+      <member refid="classMap_1_1ImageModel_1a0a0d02abd9754fb93bdd0124101e31da" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>rowCount</name></member>
+      <member refid="classMap_1_1ImageModel_1a70db4199051142ef4e0a11cd1bf91081" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>setData</name></member>
+      <member refid="classMap_1_1ImageModel_1a6ccb0c662becc82c27309370d7c41248" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>setTotalCount</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a037a3d6a103e40de57665cd0ceaab83a" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Shown</name></member>
+      <member refid="classMap_1_1ImageModel_1addaf52d625ad1ca524a613768852779d" prot="private" virt="non-virtual"><scope>Map::ImageModel</scope><name>storage</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8ab3b40825d49e424b71ff5ec249d2f9e8" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>TimeDuration</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8af96b858a92015caf6b7360357978032f" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>TimeShift</name></member>
+      <member refid="classMap_1_1ImageModel_1a3afac11d239bdc7af523a5826a3a2477" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>totalCount</name></member>
+      <member refid="classMap_1_1ImageModel_1a13358420e64dfe204ada07144b9470c2" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>totalCount</name></member>
+      <member refid="classMap_1_1ImageModel_1a1eb2260e60bd6a8448b417dd99c62030" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>totalCountChanged</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a92be9af620dee40fcb3a88a5495ac91c" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Transparency</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a33de7da3c1cc392b470eda80467a5110" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Valid</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a8b419fa0aa45ac8c2bbcbad4170b08a4" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Velocity</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a5b41e6758fcf9b001ed28fd1ea653db4" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>X0</name></member>
+      <member refid="classMap_1_1ImageModel_1a8a969379ac959d3a424fcfb8a60bdad8a4c74cdd0d5345d0e48cbeaa6d017c3b9" prot="public" virt="non-virtual"><scope>Map::ImageModel</scope><name>Y0</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

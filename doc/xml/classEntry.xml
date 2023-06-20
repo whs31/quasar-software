@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classEntry" kind="class" language="C++" prot="public">
+    <compoundname>Entry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="entry_8h" local="no">entry.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classEntry_1a7e15c9b51f6598d25a076c5cdf3b00da" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Entry::Entry</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>Entry::Entry</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/entry.h" line="10" column="18" bodyfile="src/c++/entry.c++" bodystart="25" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Entry</label>
+        <link refid="classEntry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Entry</label>
+        <link refid="classEntry"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/entry.h" line="5" column="1" bodyfile="src/c++/entry.h" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="classEntry_1a7e15c9b51f6598d25a076c5cdf3b00da" prot="public" virt="non-virtual"><scope>Entry</scope><name>Entry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

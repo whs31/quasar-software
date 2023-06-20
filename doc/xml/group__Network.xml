@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="group__Network" kind="group">
+    <compoundname>Network</compoundname>
+    <title>settings</title>
+      <sectiondef kind="">
+      <memberdef kind="property" id="group__Network_1ga53201871167f59da4a0b030ac2236a52" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::remoteIP</definition>
+        <argsstring></argsstring>
+        <name>remoteIP</name>
+        <qualifiedname>Config::Config::remoteIP</qualifiedname>
+        <read>remoteIP</read>
+        <write>setRemoteIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga83efa1375676af7c7314839ecebf4ce4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::localIP</definition>
+        <argsstring></argsstring>
+        <name>localIP</name>
+        <qualifiedname>Config::Config::localIP</qualifiedname>
+        <read>localIP</read>
+        <write>setLocalIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga6f34f4f3353513441a0e80e33d36b04e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::jetsonIP</definition>
+        <argsstring></argsstring>
+        <name>jetsonIP</name>
+        <qualifiedname>Config::Config::jetsonIP</qualifiedname>
+        <read>jetsonIP</read>
+        <write>setJetsonIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga228e49715386ed0ca156b7a707cd6a4e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::navIP</definition>
+        <argsstring></argsstring>
+        <name>navIP</name>
+        <qualifiedname>Config::Config::navIP</qualifiedname>
+        <read>navIP</read>
+        <write>setNavIP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gac4250a3eec1e11ee5292c4b2a480b6ca" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::utl1IP</definition>
+        <argsstring></argsstring>
+        <name>utl1IP</name>
+        <qualifiedname>Config::Config::utl1IP</qualifiedname>
+        <read>utl1IP</read>
+        <write>setUtl1IP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gab4fe48535d01d430c293ed52be0a7b36" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::utl2IP</definition>
+        <argsstring></argsstring>
+        <name>utl2IP</name>
+        <qualifiedname>Config::Config::utl2IP</qualifiedname>
+        <read>utl2IP</read>
+        <write>setUtl2IP</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga7e75cbb4bb5965edbf4533766168f321" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryPort</definition>
+        <argsstring></argsstring>
+        <name>telemetryPort</name>
+        <qualifiedname>Config::Config::telemetryPort</qualifiedname>
+        <read>telemetryPort</read>
+        <write>setTelemetryPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gae7e6a0575c98833a88a4ce8bc84a2bbe" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::telemetryRecvPort</definition>
+        <argsstring></argsstring>
+        <name>telemetryRecvPort</name>
+        <qualifiedname>Config::Config::telemetryRecvPort</qualifiedname>
+        <read>telemetryRecvPort</read>
+        <write>setTelemetryRecvPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga4eb8c190ac01fcb1f06e6068ddcce6c4" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>tcpLFSPort</name>
+        <qualifiedname>Config::Config::tcpLFSPort</qualifiedname>
+        <read>tcpLFSPort</read>
+        <write>setTcpLFSPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gade2456d8323aa0592d3b1ffe7f9a52dc" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::udpLFSPort</definition>
+        <argsstring></argsstring>
+        <name>udpLFSPort</name>
+        <qualifiedname>Config::Config::udpLFSPort</qualifiedname>
+        <read>udpLFSPort</read>
+        <write>setUdpLFSPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga6c4c7a55e3d6a1628b4c9e1e81ba6157" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::execdPort</definition>
+        <argsstring></argsstring>
+        <name>execdPort</name>
+        <qualifiedname>Config::Config::execdPort</qualifiedname>
+        <read>execdPort</read>
+        <write>setExecdPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gab6de29fbc42a71a257bd4d6dbf6f32d1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::feedbackPort</definition>
+        <argsstring></argsstring>
+        <name>feedbackPort</name>
+        <qualifiedname>Config::Config::feedbackPort</qualifiedname>
+        <read>feedbackPort</read>
+        <write>setFeedbackPort</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga1b0a28c06f494980a5e5a1cb27e13807" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Config::Config::telemetryFrequency</definition>
+        <argsstring></argsstring>
+        <name>telemetryFrequency</name>
+        <qualifiedname>Config::Config::telemetryFrequency</qualifiedname>
+        <read>telemetryFrequency</read>
+        <write>setTelemetryFrequency</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1gaed89795250742d1bd14642678b944bf9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool Config::Config::proxyEnabled</definition>
+        <argsstring></argsstring>
+        <name>proxyEnabled</name>
+        <qualifiedname>Config::Config::proxyEnabled</qualifiedname>
+        <read>proxyEnabled</read>
+        <write>setProxyEnabled</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="group__Network_1ga4d636297c5b2507d500ac977aeae24ab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QString</type>
+        <definition>QString Config::Config::tcpMarker</definition>
+        <argsstring></argsstring>
+        <name>tcpMarker</name>
+        <qualifiedname>Config::Config::tcpMarker</qualifiedname>
+        <read>tcpMarker</read>
+        <write>setTcpMarker</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/config/config.h" line="1" column="0" bodyfile="src/c++/config/config.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

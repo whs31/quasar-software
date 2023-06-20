@@ -1,0 +1,41 @@
+\hypertarget{filesystem_8h_source}{}\doxysection{filesystem.\+h}
+\label{filesystem_8h_source}\index{src/c++/filesystem/filesystem.h@{src/c++/filesystem/filesystem.h}}
+\mbox{\hyperlink{filesystem_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtCore/QList>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceOS}{OS}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}*\ \mbox{\hyperlink{classOS_1_1Filesystem_a06da0b49aace850fe0ad5568b4ebcf5d}{get}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classOS_1_1Filesystem_a889b2efb50aadd1c839387af9d144286}{fetchImageDirectory}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOS_1_1Filesystem_adc982673f354d07bd090001db0366f1c}{fetchTCPCache}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOS_1_1Filesystem_a4f328a31b08d4408810bdeaf8dbfa462}{exportImagesToFolder}}(\textcolor{keyword}{const}\ QList<QString>\&\ ls,\ \textcolor{keyword}{const}\ QString\&\ folder);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOS_1_1Filesystem_af0e7b7cd3843d9fb51d2104313acab7d}{imageListCached}}(\textcolor{keyword}{const}\ QList<QString>\&\ filenames);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classOS_1_1Filesystem_a0cd165e54a247c8fdb1eec59ceae6b02}{binaryCached}}(\textcolor{keyword}{const}\ QString\&\ filename);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}\ \&);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classOS_1_1Filesystem}{Filesystem}}\ \&);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ checkOcurrence(QString\ target\_folder,\ QString\ filename);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ QList<QString>\ fetchBinaryList();}
+\DoxyCodeLine{00056\ \ \ \ \ \};}
+\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ namespace\ OS;}}
+
+\end{DoxyCode}

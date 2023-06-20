@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classplot_1_1ArrayReader" kind="class" language="Python" prot="public">
+    <compoundname>plot::ArrayReader</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classplot_1_1ArrayReader_1a6fbf53fb4909d0bbc1f7adebbcbcb21f" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>plot.ArrayReader::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <qualifiedname>plot.ArrayReader.index</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot.py" line="45" column="1" bodyfile="src/python/strip/new/plot.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classplot_1_1ArrayReader_1adffa4609a6b79561c07c9ab066166784" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>plot.ArrayReader::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>plot.ArrayReader.data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot.py" line="46" column="1" bodyfile="src/python/strip/new/plot.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classplot_1_1ArrayReader_1a4c7ea7761189c2c09784914c3b65e458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot.ArrayReader.__init__</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>plot.ArrayReader.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classplot_1_1ArrayReader_1adffa4609a6b79561c07c9ab066166784" kindref="member">data</ref></type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot.py" line="44" column="1" bodyfile="src/python/strip/new/plot.py" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classplot_1_1ArrayReader_1a3531ae3d017c0ea3e216e8b5498f7ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot.ArrayReader.read</definition>
+        <argsstring>(self, length)</argsstring>
+        <name>read</name>
+        <qualifiedname>plot.ArrayReader.read</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>length</type>
+          <defname>length</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/new/plot.py" line="48" column="1" bodyfile="src/python/strip/new/plot.py" bodystart="48" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classplot_1_1ArrayReader_1a4c7ea7761189c2c09784914c3b65e458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot.ArrayReader.__init__</definition>
+        <argsstring>(self, data)</argsstring>
+        <name>__init__</name>
+        <qualifiedname>plot.ArrayReader.__init__</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type><ref refid="classplot_1_1ArrayReader_1adffa4609a6b79561c07c9ab066166784" kindref="member">data</ref></type>
+          <defname>data</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/plot.py" line="44" column="1" bodyfile="src/python/strip/plot.py" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classplot_1_1ArrayReader_1a3531ae3d017c0ea3e216e8b5498f7ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def plot.ArrayReader.read</definition>
+        <argsstring>(self, length)</argsstring>
+        <name>read</name>
+        <qualifiedname>plot.ArrayReader.read</qualifiedname>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>length</type>
+          <defname>length</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/python/strip/plot.py" line="48" column="1" bodyfile="src/python/strip/plot.py" bodystart="48" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/python/strip/new/plot.py" line="43" column="1" bodyfile="src/python/strip/new/plot.py" bodystart="43" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classplot_1_1ArrayReader_1a4c7ea7761189c2c09784914c3b65e458" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>__init__</name></member>
+      <member refid="classplot_1_1ArrayReader_1a4c7ea7761189c2c09784914c3b65e458" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>__init__</name></member>
+      <member refid="classplot_1_1ArrayReader_1adffa4609a6b79561c07c9ab066166784" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>data</name></member>
+      <member refid="classplot_1_1ArrayReader_1a6fbf53fb4909d0bbc1f7adebbcbcb21f" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>index</name></member>
+      <member refid="classplot_1_1ArrayReader_1a3531ae3d017c0ea3e216e8b5498f7ddf" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>read</name></member>
+      <member refid="classplot_1_1ArrayReader_1a3531ae3d017c0ea3e216e8b5498f7ddf" prot="public" virt="non-virtual"><scope>plot::ArrayReader</scope><name>read</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

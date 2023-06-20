@@ -1,0 +1,61 @@
+\hypertarget{warningsmodel_8h_source}{}\doxysection{warningsmodel.\+h}
+\label{warningsmodel_8h_source}\index{src/c++/gui/warningsmodel.h@{src/c++/gui/warningsmodel.h}}
+\mbox{\hyperlink{warningsmodel_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QtCore/QAbstractListModel>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceGUI}{GUI}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGUI_1_1WarningsModel}{WarningsModel}}\ :\ \textcolor{keyword}{public}\ QAbstractListModel}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(\mbox{\hyperlink{classGUI_1_1WarningsModel}{WarningsModel}})}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }WarningData\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{imagemetadata_8h_acb5cfd209ba75c853d03f701e7f91679}{type}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ msg;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_major;}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a4806965a1900cb821eb2e91d3f8c3989}{Notification}}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel_a4806965a1900cb821eb2e91d3f8c3989a90b3da19109c86f634a97ea73331b89f}{NotConnected}},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel_a4806965a1900cb821eb2e91d3f8c3989a6d51beaef180d210df93f39617bd7ef7}{Uncalibrated}}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_ENUM(\mbox{\hyperlink{classGUI_1_1WarningsModel_a4806965a1900cb821eb2e91d3f8c3989}{Notification}})}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ enum\ \mbox{\hyperlink{classGUI_1_1WarningsModel_aee9ad93e8497fffe81e41cf5dabe64b2}{ModelRoles}}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel_aee9ad93e8497fffe81e41cf5dabe64b2a9acc33ceba21cb59b91f86d996503cf3}{Index}}\ =\ Qt::UserRole\ +\ 1,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel_aee9ad93e8497fffe81e41cf5dabe64b2ab3f3e80be292fb6d607545f8f03e5fda}{Message}},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel_aee9ad93e8497fffe81e41cf5dabe64b2a3117cb7e32489e71449447560c66dfac}{Major}}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a50082849abb2c8fee9e18051a22e0462}{rowCount}}(\textcolor{keyword}{const}\ QModelIndex\&\ parent\ =\ QModelIndex())\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ QVariant\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a99c58112acf24ddbeb87d459db9ae09d}{data}}(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a91267e0899a42d96c5271343cdd2d56a}{setData}}(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keyword}{const}\ QVariant\&\ value,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_ad0638743f58473eb682da61409adef29}{append}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{imagemetadata_8h_acb5cfd209ba75c853d03f701e7f91679}{type}},\ \textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keywordtype}{bool}\ is\_major);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a40ce5e9726618cb37062b715d83a5c48}{remove}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{imagemetadata_8h_acb5cfd209ba75c853d03f701e7f91679}{type}})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGUI_1_1WarningsModel_a0997cadc28e9654ea0b1e499afa533a0}{clear}}();}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ QHash<int,\ QByteArray>\ \mbox{\hyperlink{classGUI_1_1WarningsModel_acd74757489ef48b2cc27fe3fbe5d0211}{roleNames}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGUI_1_1WarningsModel}{WarningsModel}}(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ vector<WarningData>\ storage;}
+\DoxyCodeLine{00053\ \};}
+\DoxyCodeLine{00054\ \}\ \textcolor{comment}{//\ GUI}}
+\DoxyCodeLine{00055\ }
+
+\end{DoxyCode}

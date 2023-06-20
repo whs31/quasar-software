@@ -1,0 +1,826 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classMap_1_1Diagram" kind="class" language="C++" prot="public">
+    <compoundname>Map::Diagram</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="diagram_8h" local="no">diagram.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DiagramType</name>
+        <qualifiedname>Map::Diagram::DiagramType</qualifiedname>
+        <enumvalue id="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476ca455cf88b2a529478b63b99328ac8fa48" prot="public">
+          <name>Telescopic</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476ca5ab922ec745d9301a3b1b2446444cb0d" prot="public">
+          <name>Strip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="12" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="enum" id="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" prot="public" static="no" strong="no">
+        <type></type>
+        <name>DiagramDirection</name>
+        <qualifiedname>Map::Diagram::DiagramDirection</qualifiedname>
+        <enumvalue id="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52a1b228398afb66e2d71df2b786349a6b7" prot="public">
+          <name>Left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52a6515da2650c500c38aa72d9fd40bcc88" prot="public">
+          <name>Right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="18" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="19" bodyend="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classMap_1_1Diagram_1a8b0818d6d696def78733b0221cdb061d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Map::Diagram::polygon</definition>
+        <argsstring></argsstring>
+        <name>polygon</name>
+        <qualifiedname>Map::Diagram::polygon</qualifiedname>
+        <read>polygon</read>
+        <write>setPolygon</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1a814ef09e8f2f16ab5416b8f5f1d4dd57" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::range</definition>
+        <argsstring></argsstring>
+        <name>range</name>
+        <qualifiedname>Map::Diagram::range</qualifiedname>
+        <read>range</read>
+        <write>setRange</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1ae6918e11ac08caa9058819d63188b59c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <qualifiedname>Map::Diagram::length</qualifiedname>
+        <read>length</read>
+        <write>setLength</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1a35ce53e8aaddff8de97de8e8a85c80ce" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <qualifiedname>Map::Diagram::angle</qualifiedname>
+        <read>angle</read>
+        <write>setAngle</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1acdf350f3a60fd326e758715f12357869" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" kindref="member">DiagramType</ref></type>
+        <definition>DiagramType Map::Diagram::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Map::Diagram::type</qualifiedname>
+        <read>type</read>
+        <write>setType</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1a92b278984fdf1672b7350d7ea2e881e8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QGeoCoordinate</type>
+        <definition>QGeoCoordinate Map::Diagram::uavPosition</definition>
+        <argsstring></argsstring>
+        <name>uavPosition</name>
+        <qualifiedname>Map::Diagram::uavPosition</qualifiedname>
+        <read>uavPosition</read>
+        <write>setUavPosition</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1a88847c1632ad7ebaccd97f0d154819b7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double Map::Diagram::azimuth</definition>
+        <argsstring></argsstring>
+        <name>azimuth</name>
+        <qualifiedname>Map::Diagram::azimuth</qualifiedname>
+        <read>azimuth</read>
+        <write>setAzimuth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="classMap_1_1Diagram_1a89b83b26e0b698e4cbc633e6912b9ff9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" kindref="member">DiagramDirection</ref></type>
+        <definition>DiagramDirection Map::Diagram::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>Map::Diagram::direction</qualifiedname>
+        <read>direction</read>
+        <write>setDirection</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13" bodyfile="src/c++/map/entities/diagram.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMap_1_1Diagram_1a938362a23e59537217933a2068f0d773" prot="private" static="no" mutable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList Map::Diagram::m_polygon</definition>
+        <argsstring></argsstring>
+        <name>m_polygon</name>
+        <qualifiedname>Map::Diagram::m_polygon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="64" column="26" bodyfile="src/c++/map/entities/diagram.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1a4715802032197e29ecd75004ef4f73db" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::m_range</definition>
+        <argsstring></argsstring>
+        <name>m_range</name>
+        <qualifiedname>Map::Diagram::m_range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="65" column="19" bodyfile="src/c++/map/entities/diagram.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1a2b384e17f881c2b0bfdda1a8926b5223" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::m_length</definition>
+        <argsstring></argsstring>
+        <name>m_length</name>
+        <qualifiedname>Map::Diagram::m_length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="66" column="19" bodyfile="src/c++/map/entities/diagram.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1ab5a16209f2d42f581818b6c72ed92e01" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Map::Diagram::m_angle</definition>
+        <argsstring></argsstring>
+        <name>m_angle</name>
+        <qualifiedname>Map::Diagram::m_angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="67" column="19" bodyfile="src/c++/map/entities/diagram.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1a5fc96aabacd377649f255a66f38d8b4c" prot="private" static="no" mutable="no">
+        <type><ref refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" kindref="member">DiagramType</ref></type>
+        <definition>DiagramType Map::Diagram::m_type</definition>
+        <argsstring></argsstring>
+        <name>m_type</name>
+        <qualifiedname>Map::Diagram::m_type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="68" column="25" bodyfile="src/c++/map/entities/diagram.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1aa19d9c552b331047be81f578c73002ee" prot="private" static="no" mutable="no">
+        <type>QGeoCoordinate</type>
+        <definition>QGeoCoordinate Map::Diagram::m_uavPosition</definition>
+        <argsstring></argsstring>
+        <name>m_uavPosition</name>
+        <qualifiedname>Map::Diagram::m_uavPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="69" column="28" bodyfile="src/c++/map/entities/diagram.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1adb9d5bfe9cb0af03bc36f25756035f2c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double Map::Diagram::m_azimuth</definition>
+        <argsstring></argsstring>
+        <name>m_azimuth</name>
+        <qualifiedname>Map::Diagram::m_azimuth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="70" column="20" bodyfile="src/c++/map/entities/diagram.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1Diagram_1a603c23e87a6b0676d845537db2ef4b90" prot="private" static="no" mutable="no">
+        <type><ref refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" kindref="member">DiagramDirection</ref></type>
+        <definition>DiagramDirection Map::Diagram::m_direction</definition>
+        <argsstring></argsstring>
+        <name>m_direction</name>
+        <qualifiedname>Map::Diagram::m_direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="71" column="30" bodyfile="src/c++/map/entities/diagram.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMap_1_1Diagram_1aae69a06533593442ecbae86635e7cf91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::Diagram::Q_ENUM</definition>
+        <argsstring>(DiagramType)</argsstring>
+        <name>Q_ENUM</name>
+        <qualifiedname>Map::Diagram::Q_ENUM</qualifiedname>
+        <param>
+          <type><ref refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" kindref="member">DiagramType</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="24" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a102d543567d9d1b667377c4b4bacde19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::Diagram::Q_ENUM</definition>
+        <argsstring>(DiagramDirection)</argsstring>
+        <name>Q_ENUM</name>
+        <qualifiedname>Map::Diagram::Q_ENUM</qualifiedname>
+        <param>
+          <type><ref refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" kindref="member">DiagramDirection</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="25" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a168a523b2230cc2f32b31b2ca5d600d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::Diagram::Diagram</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Diagram</name>
+        <qualifiedname>Map::Diagram::Diagram</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="39" column="13" bodyfile="src/c++/map/entities/diagram.c++" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a942042b0b8c6c511cb755ebc7eeb8dd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantList</type>
+        <definition>QVariantList Map::Diagram::polygon</definition>
+        <argsstring>() const</argsstring>
+        <name>polygon</name>
+        <qualifiedname>Map::Diagram::polygon</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="41" column="27" bodyfile="src/c++/map/entities/diagram.c++" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a909e10909c29beac87f2e8836918cedd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setPolygon</definition>
+        <argsstring>(const QVariantList &amp;)</argsstring>
+        <name>setPolygon</name>
+        <qualifiedname>Map::Diagram::setPolygon</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <defname>o</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="41" column="46" bodyfile="src/c++/map/entities/diagram.c++" bodystart="10" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1af64baa2e2b138395b2794ce652d990bb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Map::Diagram::range</definition>
+        <argsstring>() const</argsstring>
+        <name>range</name>
+        <qualifiedname>Map::Diagram::range</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="42" column="20" bodyfile="src/c++/map/entities/diagram.c++" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a911d6094ed3f2431774771b93ab588a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setRange</definition>
+        <argsstring>(float)</argsstring>
+        <name>setRange</name>
+        <qualifiedname>Map::Diagram::setRange</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="42" column="37" bodyfile="src/c++/map/entities/diagram.c++" bodystart="20" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a2872e0d7614a69b4d37fd0aa9dcc2304" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Map::Diagram::length</definition>
+        <argsstring>() const</argsstring>
+        <name>length</name>
+        <qualifiedname>Map::Diagram::length</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="43" column="20" bodyfile="src/c++/map/entities/diagram.c++" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1ad669447e3816fe423d11c80fecfc09a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setLength</definition>
+        <argsstring>(float)</argsstring>
+        <name>setLength</name>
+        <qualifiedname>Map::Diagram::setLength</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="43" column="38" bodyfile="src/c++/map/entities/diagram.c++" bodystart="28" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a4c4729913192b69c7a4ce9b293ecaadd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Map::Diagram::angle</definition>
+        <argsstring>() const</argsstring>
+        <name>angle</name>
+        <qualifiedname>Map::Diagram::angle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="44" column="20" bodyfile="src/c++/map/entities/diagram.c++" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1ad84c8e7ef6482b8f90bf1380bedd94f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setAngle</definition>
+        <argsstring>(float)</argsstring>
+        <name>setAngle</name>
+        <qualifiedname>Map::Diagram::setAngle</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="44" column="37" bodyfile="src/c++/map/entities/diagram.c++" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1aee76a0cf1f7c4a52411d17b0049be22b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" kindref="member">DiagramType</ref></type>
+        <definition>Diagram::DiagramType Map::Diagram::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <qualifiedname>Map::Diagram::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="45" column="26" bodyfile="src/c++/map/entities/diagram.c++" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a6ca22a0c071f5b16367690732117efe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setType</definition>
+        <argsstring>(DiagramType)</argsstring>
+        <name>setType</name>
+        <qualifiedname>Map::Diagram::setType</qualifiedname>
+        <param>
+          <type><ref refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" kindref="member">DiagramType</ref></type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="45" column="42" bodyfile="src/c++/map/entities/diagram.c++" bodystart="48" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a63c55aa8fdb8a68dcd474ba7304b4363" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QGeoCoordinate</type>
+        <definition>QGeoCoordinate Map::Diagram::uavPosition</definition>
+        <argsstring>() const</argsstring>
+        <name>uavPosition</name>
+        <qualifiedname>Map::Diagram::uavPosition</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="46" column="29" bodyfile="src/c++/map/entities/diagram.c++" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a99f7b69085b28a3d5eb1d65d19c639a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setUavPosition</definition>
+        <argsstring>(const QGeoCoordinate &amp;)</argsstring>
+        <name>setUavPosition</name>
+        <qualifiedname>Map::Diagram::setUavPosition</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="46" column="52" bodyfile="src/c++/map/entities/diagram.c++" bodystart="58" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1ab94130258343f1ebd06a35cc9af6c84f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double Map::Diagram::azimuth</definition>
+        <argsstring>() const</argsstring>
+        <name>azimuth</name>
+        <qualifiedname>Map::Diagram::azimuth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="47" column="21" bodyfile="src/c++/map/entities/diagram.c++" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a93093df7b8c1b7f9e17e37ad72a14d4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setAzimuth</definition>
+        <argsstring>(double)</argsstring>
+        <name>setAzimuth</name>
+        <qualifiedname>Map::Diagram::setAzimuth</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="47" column="40" bodyfile="src/c++/map/entities/diagram.c++" bodystart="90" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1aa087c8d464ee8ee02cd8edae16f1cae8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" kindref="member">DiagramDirection</ref></type>
+        <definition>Diagram::DiagramDirection Map::Diagram::direction</definition>
+        <argsstring>() const</argsstring>
+        <name>direction</name>
+        <qualifiedname>Map::Diagram::direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="48" column="31" bodyfile="src/c++/map/entities/diagram.c++" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1Diagram_1a6fb51377e9531c92f9d918b6ae00140c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::setDirection</definition>
+        <argsstring>(const DiagramDirection &amp;)</argsstring>
+        <name>setDirection</name>
+        <qualifiedname>Map::Diagram::setDirection</qualifiedname>
+        <param>
+          <type>const <ref refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" kindref="member">DiagramDirection</ref> &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="48" column="52" bodyfile="src/c++/map/entities/diagram.c++" bodystart="100" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a0c66e2f18a31c48ef6ffab1f152e67cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::polygonChanged</definition>
+        <argsstring>()</argsstring>
+        <name>polygonChanged</name>
+        <qualifiedname>Map::Diagram::polygonChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="51" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1ae876d077e76ee7c0022d656796f0b5e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::rangeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rangeChanged</name>
+        <qualifiedname>Map::Diagram::rangeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="52" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a5f6b0728e34ab06ca538d30e66ea6e3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::lengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lengthChanged</name>
+        <qualifiedname>Map::Diagram::lengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="53" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a32c9828305285d23420ab8dbeaf42db4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::angleChanged</definition>
+        <argsstring>()</argsstring>
+        <name>angleChanged</name>
+        <qualifiedname>Map::Diagram::angleChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="54" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1ae80896e12f1bbf13b66208a1a2c07041" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::typeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>typeChanged</name>
+        <qualifiedname>Map::Diagram::typeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="55" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a28c9e5564ff8401baf8f0bbeba218754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::uavPositionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>uavPositionChanged</name>
+        <qualifiedname>Map::Diagram::uavPositionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="56" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a3bce951c66ce43237733573653fd9210" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::azimuthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>azimuthChanged</name>
+        <qualifiedname>Map::Diagram::azimuthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="57" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="classMap_1_1Diagram_1a24a27c670ad59a3745a1eb6e719f2d30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::directionChanged</definition>
+        <argsstring>()</argsstring>
+        <name>directionChanged</name>
+        <qualifiedname>Map::Diagram::directionChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="58" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classMap_1_1Diagram_1afa4f6b524ea67c2b2084f86fe03c42ed" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::Diagram::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <qualifiedname>Map::Diagram::update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/diagram.h" line="61" column="18" bodyfile="src/c++/map/entities/diagram.c++" bodystart="67" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Map::Diagram</label>
+        <link refid="classMap_1_1Diagram"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Map::Diagram</label>
+        <link refid="classMap_1_1Diagram"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/map/entities/diagram.h" line="9" column="5" bodyfile="src/c++/map/entities/diagram.h" bodystart="10" bodyend="72"/>
+    <listofallmembers>
+      <member refid="classMap_1_1Diagram_1a35ce53e8aaddff8de97de8e8a85c80ce" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>angle</name></member>
+      <member refid="classMap_1_1Diagram_1a4c4729913192b69c7a4ce9b293ecaadd" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>angle</name></member>
+      <member refid="classMap_1_1Diagram_1a32c9828305285d23420ab8dbeaf42db4" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>angleChanged</name></member>
+      <member refid="classMap_1_1Diagram_1a88847c1632ad7ebaccd97f0d154819b7" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>azimuth</name></member>
+      <member refid="classMap_1_1Diagram_1ab94130258343f1ebd06a35cc9af6c84f" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>azimuth</name></member>
+      <member refid="classMap_1_1Diagram_1a3bce951c66ce43237733573653fd9210" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>azimuthChanged</name></member>
+      <member refid="classMap_1_1Diagram_1a168a523b2230cc2f32b31b2ca5d600d3" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Diagram</name></member>
+      <member refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>DiagramDirection</name></member>
+      <member refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476c" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>DiagramType</name></member>
+      <member refid="classMap_1_1Diagram_1a89b83b26e0b698e4cbc633e6912b9ff9" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>direction</name></member>
+      <member refid="classMap_1_1Diagram_1aa087c8d464ee8ee02cd8edae16f1cae8" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>direction</name></member>
+      <member refid="classMap_1_1Diagram_1a24a27c670ad59a3745a1eb6e719f2d30" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>directionChanged</name></member>
+      <member refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52a1b228398afb66e2d71df2b786349a6b7" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Left</name></member>
+      <member refid="classMap_1_1Diagram_1ae6918e11ac08caa9058819d63188b59c" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>length</name></member>
+      <member refid="classMap_1_1Diagram_1a2872e0d7614a69b4d37fd0aa9dcc2304" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>length</name></member>
+      <member refid="classMap_1_1Diagram_1a5f6b0728e34ab06ca538d30e66ea6e3e" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>lengthChanged</name></member>
+      <member refid="classMap_1_1Diagram_1ab5a16209f2d42f581818b6c72ed92e01" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_angle</name></member>
+      <member refid="classMap_1_1Diagram_1adb9d5bfe9cb0af03bc36f25756035f2c" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_azimuth</name></member>
+      <member refid="classMap_1_1Diagram_1a603c23e87a6b0676d845537db2ef4b90" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_direction</name></member>
+      <member refid="classMap_1_1Diagram_1a2b384e17f881c2b0bfdda1a8926b5223" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_length</name></member>
+      <member refid="classMap_1_1Diagram_1a938362a23e59537217933a2068f0d773" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_polygon</name></member>
+      <member refid="classMap_1_1Diagram_1a4715802032197e29ecd75004ef4f73db" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_range</name></member>
+      <member refid="classMap_1_1Diagram_1a5fc96aabacd377649f255a66f38d8b4c" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_type</name></member>
+      <member refid="classMap_1_1Diagram_1aa19d9c552b331047be81f578c73002ee" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>m_uavPosition</name></member>
+      <member refid="classMap_1_1Diagram_1a8b0818d6d696def78733b0221cdb061d" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>polygon</name></member>
+      <member refid="classMap_1_1Diagram_1a942042b0b8c6c511cb755ebc7eeb8dd4" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>polygon</name></member>
+      <member refid="classMap_1_1Diagram_1a0c66e2f18a31c48ef6ffab1f152e67cc" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>polygonChanged</name></member>
+      <member refid="classMap_1_1Diagram_1aae69a06533593442ecbae86635e7cf91" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Q_ENUM</name></member>
+      <member refid="classMap_1_1Diagram_1a102d543567d9d1b667377c4b4bacde19" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Q_ENUM</name></member>
+      <member refid="classMap_1_1Diagram_1a814ef09e8f2f16ab5416b8f5f1d4dd57" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>range</name></member>
+      <member refid="classMap_1_1Diagram_1af64baa2e2b138395b2794ce652d990bb" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>range</name></member>
+      <member refid="classMap_1_1Diagram_1ae876d077e76ee7c0022d656796f0b5e9" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>rangeChanged</name></member>
+      <member refid="classMap_1_1Diagram_1a3caa90bed3e47426fd16dc6c9be49d52a6515da2650c500c38aa72d9fd40bcc88" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Right</name></member>
+      <member refid="classMap_1_1Diagram_1ad84c8e7ef6482b8f90bf1380bedd94f4" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setAngle</name></member>
+      <member refid="classMap_1_1Diagram_1a93093df7b8c1b7f9e17e37ad72a14d4c" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setAzimuth</name></member>
+      <member refid="classMap_1_1Diagram_1a6fb51377e9531c92f9d918b6ae00140c" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setDirection</name></member>
+      <member refid="classMap_1_1Diagram_1ad669447e3816fe423d11c80fecfc09a6" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setLength</name></member>
+      <member refid="classMap_1_1Diagram_1a909e10909c29beac87f2e8836918cedd" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setPolygon</name></member>
+      <member refid="classMap_1_1Diagram_1a911d6094ed3f2431774771b93ab588a9" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setRange</name></member>
+      <member refid="classMap_1_1Diagram_1a6ca22a0c071f5b16367690732117efe3" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setType</name></member>
+      <member refid="classMap_1_1Diagram_1a99f7b69085b28a3d5eb1d65d19c639a3" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>setUavPosition</name></member>
+      <member refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476ca5ab922ec745d9301a3b1b2446444cb0d" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Strip</name></member>
+      <member refid="classMap_1_1Diagram_1ab8d7b32393df8a5277d8c2ec94b5476ca455cf88b2a529478b63b99328ac8fa48" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>Telescopic</name></member>
+      <member refid="classMap_1_1Diagram_1acdf350f3a60fd326e758715f12357869" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>type</name></member>
+      <member refid="classMap_1_1Diagram_1aee76a0cf1f7c4a52411d17b0049be22b" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>type</name></member>
+      <member refid="classMap_1_1Diagram_1ae80896e12f1bbf13b66208a1a2c07041" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>typeChanged</name></member>
+      <member refid="classMap_1_1Diagram_1a92b278984fdf1672b7350d7ea2e881e8" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>uavPosition</name></member>
+      <member refid="classMap_1_1Diagram_1a63c55aa8fdb8a68dcd474ba7304b4363" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>uavPosition</name></member>
+      <member refid="classMap_1_1Diagram_1a28c9e5564ff8401baf8f0bbeba218754" prot="public" virt="non-virtual"><scope>Map::Diagram</scope><name>uavPositionChanged</name></member>
+      <member refid="classMap_1_1Diagram_1afa4f6b524ea67c2b2084f86fe03c42ed" prot="private" virt="non-virtual"><scope>Map::Diagram</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

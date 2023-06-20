@@ -1,0 +1,83 @@
+\hypertarget{classGUI_1_1DebugConsole}{}\doxysection{GUI\+::Debug\+Console Class Reference}
+\label{classGUI_1_1DebugConsole}\index{GUI::DebugConsole@{GUI::DebugConsole}}
+
+
+{\ttfamily \#include $<$debugconsole.\+h$>$}
+
+Inheritance diagram for GUI\+::Debug\+Console\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classGUI_1_1DebugConsole}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classGUI_1_1DebugConsole_acb708adf3cf4d92c7ba73c0254379958}{execute}} (const QString \&command)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classGUI_1_1TerminalBase}{GUI\+::\+Terminal\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGUI_1_1TerminalBase_a07cf12d2eb5950f3d1781f62f7285526}{Terminal\+Base}} (QObject $\ast$parent=nullptr)
+\item 
+int \mbox{\hyperlink{classGUI_1_1TerminalBase_ac800f1d14ef32ceb20984d2bc340af09}{row\+Count}} (const QModel\+Index \&parent=QModel\+Index()) const override
+\item 
+QVariant \mbox{\hyperlink{classGUI_1_1TerminalBase_aa89aa7a15ce20673d2afc731b523f2f7}{data}} (const QModel\+Index \&index, int role) const override
+\item 
+bool \mbox{\hyperlink{classGUI_1_1TerminalBase_a90d0777157f47831f375d315852c2d13}{set\+Data}} (const QModel\+Index \&index, const QVariant \&value, int role) override
+\item 
+virtual Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classGUI_1_1TerminalBase_ad41ccc11b4fff1091c9b92887e57a758}{append}} (const QString \&message, const QString \&module=\char`\"{}\char`\"{}, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871}{GUI\+::\+Terminal\+Base\+::\+Message\+Type}} \mbox{\hyperlink{imagemetadata_8h_acb5cfd209ba75c853d03f701e7f91679}{type}}=\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f}{Debug}})
+\item 
+virtual Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classGUI_1_1TerminalBase_a17745bc2ad52522b5ba40f83b554d312}{clear}} ()
+\item 
+virtual Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classGUI_1_1TerminalBase_afe14d97ea118c1bb9bdac3d657d022b0}{replace\+Last}} (const QString \&message, const QString \&module=\char`\"{}\char`\"{}, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871}{GUI\+::\+Terminal\+Base\+::\+Message\+Type}} \mbox{\hyperlink{imagemetadata_8h_acb5cfd209ba75c853d03f701e7f91679}{type}}=\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f}{Debug}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{classGUI_1_1TerminalBase}{GUI\+::\+Terminal\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871}{Message\+Type}} \{ \newline
+\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871aaf06e61d46f204d68207f41b7f1a166f}{Debug}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a35c707eff952677319b98a78aedd019d}{Info}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871ae276038735074b134c3246f280148424}{Warning}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871ad824455b746b105de587cf273df9fafc}{Error}}
+, \newline
+\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a62c93c5420ca3c28c1213e8b63812647}{Extra1}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a928b74ac6de78ad6b6bbdc0611b20f80}{Extra2}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871aca53f5c19b48de17fae643651df6fbb0}{Extra3}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871ac16e982fc1a91fee4f44f68c4fd51e2b}{Extra4}}
+, \newline
+\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a024a288221dda11f89926bda4fd9635c}{Extra5}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871ad52928dbd2773fcc3d3ef8848d072f6c}{Extra6}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a7039047956cea3f4898af73f800287fd}{Extra7}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871a21e008460cd50bb2aafba23033c7255b}{Extra8}}
+, \newline
+\mbox{\hyperlink{classGUI_1_1TerminalBase_abb4c269b4bb343ab443c2f2fe42fa871af20187c58daf392da0fd00961bf15865}{Extra9}}
+ \}
+\item 
+enum \mbox{\hyperlink{classGUI_1_1TerminalBase_a2ac722e88219ac19659a4568c0624f7d}{Model\+Roles}} \{ \mbox{\hyperlink{classGUI_1_1TerminalBase_a2ac722e88219ac19659a4568c0624f7da9084f23a94b25eccde9991c25132f44d}{Index}} = Qt\+::User\+Role + 1
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_a2ac722e88219ac19659a4568c0624f7dad9703ff60ecd74cf06a4de47d90b9f00}{Message}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_a2ac722e88219ac19659a4568c0624f7da2758172e9ea6a0ab2514677c87266356}{Module}}
+, \mbox{\hyperlink{classGUI_1_1TerminalBase_a2ac722e88219ac19659a4568c0624f7dae1fb025eb2d07a86c50b6846f11f5919}{Type}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classGUI_1_1TerminalBase}{GUI\+::\+Terminal\+Base}}}
+\begin{DoxyCompactItemize}
+\item 
+QHash$<$ int, QByte\+Array $>$ \mbox{\hyperlink{classGUI_1_1TerminalBase_a80e585ef12dd2cca8e5dee5d7bd04178}{role\+Names}} () const override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGUI_1_1DebugConsole_acb708adf3cf4d92c7ba73c0254379958}\label{classGUI_1_1DebugConsole_acb708adf3cf4d92c7ba73c0254379958}} 
+\index{GUI::DebugConsole@{GUI::DebugConsole}!execute@{execute}}
+\index{execute@{execute}!GUI::DebugConsole@{GUI::DebugConsole}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily void GUI\+::\+Debug\+Console\+::execute (\begin{DoxyParamCaption}\item[{const QString \&}]{command }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/c++/gui/terminal/\mbox{\hyperlink{debugconsole_8h}{debugconsole.\+h}}\item 
+src/c++/gui/terminal/\mbox{\hyperlink{debugconsole_8c_09_09}{debugconsole.\+c++}}\end{DoxyCompactItemize}

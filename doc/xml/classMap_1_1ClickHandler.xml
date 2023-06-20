@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="classMap_1_1ClickHandler" kind="class" language="C++" prot="public">
+    <compoundname>Map::ClickHandler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <includes refid="clickhandler_8h" local="no">clickhandler.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MouseState</name>
+        <qualifiedname>Map::ClickHandler::MouseState</qualifiedname>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628" prot="public">
+          <name>Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4" prot="public">
+          <name>RulerActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051" prot="public">
+          <name>ProtractorActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466" prot="public">
+          <name>MarkerActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d" prot="public">
+          <name>PlannerActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f" prot="public">
+          <name>TileLoaderActive</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="12" column="17" bodyfile="src/c++/map/clickhandler.h" bodystart="12" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="classMap_1_1ClickHandler_1a6f7a7ae3be1bb9d2b66e0baa0a7e540f" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type><ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" kindref="member">MouseState</ref></type>
+        <definition>MouseState Map::ClickHandler::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <qualifiedname>Map::ClickHandler::state</qualifiedname>
+        <read>state</read>
+        <write>setState</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="22" column="9" bodyfile="src/c++/map/clickhandler.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMap_1_1ClickHandler_1a63b7c2d55130880646df1774ba8b8d78" prot="private" static="no" mutable="no">
+        <type><ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" kindref="member">MouseState</ref></type>
+        <definition>MouseState Map::ClickHandler::m_state</definition>
+        <argsstring></argsstring>
+        <name>m_state</name>
+        <qualifiedname>Map::ClickHandler::m_state</qualifiedname>
+        <initializer>= <ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628" kindref="member">Idle</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="40" column="24" bodyfile="src/c++/map/clickhandler.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classMap_1_1ClickHandler_1a66750652f873605abb03ca8481a08c8f" prot="private" static="no" mutable="no">
+        <type><ref refid="classMap_1_1MarkerModel" kindref="compound">MarkerModel</ref> *</type>
+        <definition>MarkerModel* Map::ClickHandler::marker_model</definition>
+        <argsstring></argsstring>
+        <name>marker_model</name>
+        <qualifiedname>Map::ClickHandler::marker_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="41" column="25" bodyfile="src/c++/map/clickhandler.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1ac6d7bdc3f6e0a56b0dfd77d9b8e91883" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Map::ClickHandler::Q_ENUM</definition>
+        <argsstring>(MouseState)</argsstring>
+        <name>Q_ENUM</name>
+        <qualifiedname>Map::ClickHandler::Q_ENUM</qualifiedname>
+        <param>
+          <type><ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" kindref="member">MouseState</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1a7f271aa37e419cc408eeb69f4c666d75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" kindref="member">MouseState</ref></type>
+        <definition>Map::ClickHandler::MouseState ClickHandler::state</definition>
+        <argsstring>() const</argsstring>
+        <name>state</name>
+        <qualifiedname>Map::ClickHandler::state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="27" column="25" bodyfile="src/c++/map/clickhandler.c++" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1afb43212a2d495310275b6974c7a4d20f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ClickHandler::setState</definition>
+        <argsstring>(const MouseState &amp;)</argsstring>
+        <name>setState</name>
+        <qualifiedname>Map::ClickHandler::setState</qualifiedname>
+        <param>
+          <type>const <ref refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" kindref="member">MouseState</ref> &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="27" column="42" bodyfile="src/c++/map/clickhandler.c++" bodystart="17" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1a84667b266f49df8821d95785497d2f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ClickHandler::copyCoordinatesToClipboard</definition>
+        <argsstring>(double latitude, double longitude)</argsstring>
+        <name>copyCoordinatesToClipboard</name>
+        <qualifiedname>Map::ClickHandler::copyCoordinatesToClipboard</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="29" column="30" bodyfile="src/c++/map/clickhandler.c++" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1a50ba58adc984163db6e9ffa0cc248242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE <ref refid="classMap_1_1MarkerModel" kindref="compound">MarkerModel</ref> *</type>
+        <definition>MarkerModel * ClickHandler::markerModel</definition>
+        <argsstring>()</argsstring>
+        <name>markerModel</name>
+        <qualifiedname>Map::ClickHandler::markerModel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="30" column="37" bodyfile="src/c++/map/clickhandler.c++" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1a0198779e3c027aff148192d20dd9d4ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void ClickHandler::addMarker</definition>
+        <argsstring>(double latitude, double longitude, const QString &amp;name, const QString &amp;color, const QString &amp;icon)</argsstring>
+        <name>addMarker</name>
+        <qualifiedname>Map::ClickHandler::addMarker</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>latitude</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>longitude</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>color</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>icon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="31" column="30" bodyfile="src/c++/map/clickhandler.c++" bodystart="35" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="classMap_1_1ClickHandler_1ac11641d1e8d2262a95b1910ff4c26521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Map::ClickHandler::stateChanged</definition>
+        <argsstring>()</argsstring>
+        <name>stateChanged</name>
+        <qualifiedname>Map::ClickHandler::stateChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="34" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classMap_1_1ClickHandler_1a258b074857cb435a468548da708f733d" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ClickHandler::ClickHandler</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ClickHandler</name>
+        <qualifiedname>Map::ClickHandler::ClickHandler</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/clickhandler.h" line="37" column="22" bodyfile="src/c++/map/clickhandler.c++" bodystart="9" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Map::ClickHandler</label>
+        <link refid="classMap_1_1ClickHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Map::ClickHandler</label>
+        <link refid="classMap_1_1ClickHandler"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>QObject</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/c++/map/clickhandler.h" line="10" column="5" bodyfile="src/c++/map/clickhandler.h" bodystart="11" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classMap_1_1ClickHandler_1a0198779e3c027aff148192d20dd9d4ba" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>addMarker</name></member>
+      <member refid="classMap_1_1ClickHandler_1a258b074857cb435a468548da708f733d" prot="private" virt="non-virtual"><scope>Map::ClickHandler</scope><name>ClickHandler</name></member>
+      <member refid="classMap_1_1ClickHandler_1a84667b266f49df8821d95785497d2f63" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>copyCoordinatesToClipboard</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057aeb3b250caea5dfe23205cc0e200a1628" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>Idle</name></member>
+      <member refid="classMap_1_1ClickHandler_1a63b7c2d55130880646df1774ba8b8d78" prot="private" virt="non-virtual"><scope>Map::ClickHandler</scope><name>m_state</name></member>
+      <member refid="classMap_1_1ClickHandler_1a66750652f873605abb03ca8481a08c8f" prot="private" virt="non-virtual"><scope>Map::ClickHandler</scope><name>marker_model</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a8ab099f7da299cb882f41420e836c466" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>MarkerActive</name></member>
+      <member refid="classMap_1_1ClickHandler_1a50ba58adc984163db6e9ffa0cc248242" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>markerModel</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>MouseState</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057ae1279bf38f30a4eba1a8e1c66279041d" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>PlannerActive</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a1b28498ff7050c8abff0b886ae26c051" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>ProtractorActive</name></member>
+      <member refid="classMap_1_1ClickHandler_1ac6d7bdc3f6e0a56b0dfd77d9b8e91883" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>Q_ENUM</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a627c571b91c57445189c88383de5f1c4" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>RulerActive</name></member>
+      <member refid="classMap_1_1ClickHandler_1afb43212a2d495310275b6974c7a4d20f" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>setState</name></member>
+      <member refid="classMap_1_1ClickHandler_1a6f7a7ae3be1bb9d2b66e0baa0a7e540f" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>state</name></member>
+      <member refid="classMap_1_1ClickHandler_1a7f271aa37e419cc408eeb69f4c666d75" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>state</name></member>
+      <member refid="classMap_1_1ClickHandler_1ac11641d1e8d2262a95b1910ff4c26521" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>stateChanged</name></member>
+      <member refid="classMap_1_1ClickHandler_1a550a76eb94363f76475c7f2934274057a970af88690f11967139101f074f95a1f" prot="public" virt="non-virtual"><scope>Map::ClickHandler</scope><name>TileLoaderActive</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

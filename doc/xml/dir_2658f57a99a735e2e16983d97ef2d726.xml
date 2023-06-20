@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_2658f57a99a735e2e16983d97ef2d726" kind="dir">
+    <compoundname>src/c++/network</compoundname>
+    <innerdir refid="dir_6ef7e0ae247fe3f6196a2ffc3d436052">src/c++/network/execd</innerdir>
+    <innerdir refid="dir_0e280728765a2a78de09bbe8971db092">src/c++/network/planner</innerdir>
+    <innerdir refid="dir_3dd779012d603974b3147e6dab239616">src/c++/network/telemetry</innerdir>
+    <innerdir refid="dir_60755ab0f925e32d4971f456ca5fc601">src/c++/network/utils</innerdir>
+    <innerfile refid="abstractudpsocket_8c_09_09">abstractudpsocket.c++</innerfile>
+    <innerfile refid="abstractudpsocket_8h">abstractudpsocket.h</innerfile>
+    <innerfile refid="netenums_8h">netenums.h</innerfile>
+    <innerfile refid="network_8c_09_09">network.c++</innerfile>
+    <innerfile refid="network_8h">network.h</innerfile>
+    <innerfile refid="ping_8c_09_09">ping.c++</innerfile>
+    <innerfile refid="ping_8h">ping.h</innerfile>
+    <innerfile refid="tcpsocket_8c_09_09">tcpsocket.c++</innerfile>
+    <innerfile refid="tcpsocket_8h">tcpsocket.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/"/>
+  </compounddef>
+</doxygen>

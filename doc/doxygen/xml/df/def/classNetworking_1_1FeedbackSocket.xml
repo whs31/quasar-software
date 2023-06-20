@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="df/def/classNetworking_1_1FeedbackSocket" kind="class" language="C++" prot="public">
+    <compoundname>Networking::FeedbackSocket</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AbstractUDPSocket</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="df/def/classNetworking_1_1FeedbackSocket_1aa07f298d20ee01355202b4e5a15b7fb7" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const char *</type>
+        <definition>constexpr const char* STORAGE_STATUS_MARKER</definition>
+        <argsstring></argsstring>
+        <name>STORAGE_STATUS_MARKER</name>
+        <qualifiedname>Networking::FeedbackSocket::STORAGE_STATUS_MARKER</qualifiedname>
+        <initializer>= &quot;*FREE_DISK_SPACE*&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="11" column="37" bodyfile="src/c++/network/execd/feedbacksocket.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/def/classNetworking_1_1FeedbackSocket_1aab5c038baa1b44dcc1a4acf4e6b0b4b2" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FeedbackSocket</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>FeedbackSocket</name>
+        <qualifiedname>Networking::FeedbackSocket::FeedbackSocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="14" column="22" bodyfile="src/c++/network/execd/feedbacksocket.c++" bodystart="5" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="df/def/classNetworking_1_1FeedbackSocket_1a958f448ca262fd5e96958cbfeec13676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void start</definition>
+        <argsstring>(const QString &amp;address)</argsstring>
+        <name>start</name>
+        <qualifiedname>Networking::FeedbackSocket::start</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="16" column="18" bodyfile="src/c++/network/execd/feedbacksocket.c++" bodystart="11" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="df/def/classNetworking_1_1FeedbackSocket_1a8c528baf37154d347366083f0f816846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>Networking::FeedbackSocket::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="17" column="18" bodyfile="src/c++/network/execd/feedbacksocket.c++" bodystart="17" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="df/def/classNetworking_1_1FeedbackSocket_1a37c1fb9b5186582b3c01135c1b28f8c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void textReceived</definition>
+        <argsstring>(QByteArray text)</argsstring>
+        <name>textReceived</name>
+        <qualifiedname>Networking::FeedbackSocket::textReceived</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="20" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="df/def/classNetworking_1_1FeedbackSocket_1ae7259e99451bbab025d71c8683d73676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void diskSpaceReceived</definition>
+        <argsstring>(long free, long total)</argsstring>
+        <name>diskSpaceReceived</name>
+        <qualifiedname>Networking::FeedbackSocket::diskSpaceReceived</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>free</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>total</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="21" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="df/def/classNetworking_1_1FeedbackSocket_1aa2fe74f3ed644ff0bd1c886e9bece04b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processResult</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>processResult</name>
+        <qualifiedname>Networking::FeedbackSocket::processResult</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/feedbacksocket.h" line="25" column="22" bodyfile="src/c++/network/execd/feedbacksocket.c++" bodystart="23" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/execd/feedbacksocket.h" line="7" column="5" bodyfile="src/c++/network/execd/feedbacksocket.h" bodystart="8" bodyend="26"/>
+    <listofallmembers>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a32422a487d1c53b078747f40bb7f3ce6" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>AbstractUDPSocket</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a01948d8cb99ea51677e34382c9e2c8aa" prot="public" virt="virtual"><scope>Networking::FeedbackSocket</scope><name>connect</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a960705de531a20389fb29928d43258c3" prot="public" virt="virtual"><scope>Networking::FeedbackSocket</scope><name>disconnect</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1ae7259e99451bbab025d71c8683d73676" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>diskSpaceReceived</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1aab5c038baa1b44dcc1a4acf4e6b0b4b2" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>FeedbackSocket</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a6aac8bbc4a1ac6c37d4c9f0564256fbd" prot="public" virt="virtual"><scope>Networking::FeedbackSocket</scope><name>port</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1aa2fe74f3ed644ff0bd1c886e9bece04b" prot="private" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>processResult</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a3eb63c5af67a44fb60ba731d3da7a56d" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>received</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1ad1239ca09fddf150d1584cdf26baf7f3" prot="public" virt="virtual"><scope>Networking::FeedbackSocket</scope><name>send</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a270b32a7b4f3d08e655807d4101acbd7" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>socketDisconnected</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>socketMetrics</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1a958f448ca262fd5e96958cbfeec13676" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>start</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1a8c528baf37154d347366083f0f816846" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>stop</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1aa07f298d20ee01355202b4e5a15b7fb7" prot="private" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>STORAGE_STATUS_MARKER</name></member>
+      <member refid="df/def/classNetworking_1_1FeedbackSocket_1a37c1fb9b5186582b3c01135c1b28f8c0" prot="public" virt="non-virtual"><scope>Networking::FeedbackSocket</scope><name>textReceived</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a77ae26aeec30cf7f4c50d2c1a03bdb4b" prot="public" virt="virtual"><scope>Networking::FeedbackSocket</scope><name>~AbstractUDPSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

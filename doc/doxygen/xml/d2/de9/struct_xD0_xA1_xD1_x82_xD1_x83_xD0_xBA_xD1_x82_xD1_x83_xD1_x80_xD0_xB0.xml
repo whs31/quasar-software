@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d2/de9/struct_xD0_xA1_xD1_x82_xD1_x83_xD0_xBA_xD1_x82_xD1_x83_xD1_x80_xD0_xB0" kind="struct" language="C++" prot="public">
+    <compoundname>Стуктура</compoundname>
+    <briefdescription>
+<para>РЛИ. Сериализована в Big endian. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>прохождение БПЛА через точку из полётного задания. Сериализована в Big Endian.</para>
+<para>из полётного задания. Сериализована в Big Endian.</para>
+<para>в полётное задание. Сериализована в Big Endian.</para>
+<para>. Сериализована в Little endian. </para>
+    </detaileddescription>
+    <location file="src/c++/map/entities/imagemetadata.h" line="7" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

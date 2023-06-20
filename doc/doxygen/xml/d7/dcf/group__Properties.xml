@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d7/dcf/group__Properties" kind="group">
+    <compoundname>Properties</compoundname>
+    <title>Properties</title>
+      <sectiondef kind="">
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga5c3324cb211ef10bcf9727270a396459" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Telemetry *</type>
+        <definition>Telemetry* telemetry</definition>
+        <argsstring></argsstring>
+        <name>telemetry</name>
+        <qualifiedname>Networking::Network::telemetry</qualifiedname>
+        <read>telemetry</read>
+        <write>setTelemetry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1gad897b2edb6cf9e8363925e6d2cc0a587" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>RemoteData *</type>
+        <definition>RemoteData* remoteData</definition>
+        <argsstring></argsstring>
+        <name>remoteData</name>
+        <qualifiedname>Networking::Network::remoteData</qualifiedname>
+        <read>remoteData</read>
+        <write>setRemoteData</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1gaa62ae767793c978210a16d5c8d9eb427" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float networkDelay</definition>
+        <argsstring></argsstring>
+        <name>networkDelay</name>
+        <qualifiedname>Networking::Network::networkDelay</qualifiedname>
+        <read>networkDelay</read>
+        <write>setNetworkDelay</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga0b5560998ba764dc735edb92271c04a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float tcpProgress</definition>
+        <argsstring></argsstring>
+        <name>tcpProgress</name>
+        <qualifiedname>Networking::Network::tcpProgress</qualifiedname>
+        <read>tcpProgress</read>
+        <write>setTcpProgress</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga9709aefe4930807392898aecb0cb8a79" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <qualifiedname>Networking::Network::connected</qualifiedname>
+        <read>connected</read>
+        <write>setConnected</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

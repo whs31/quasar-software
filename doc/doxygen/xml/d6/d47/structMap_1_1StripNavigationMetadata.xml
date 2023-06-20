@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d6/d47/structMap_1_1StripNavigationMetadata" kind="struct" language="C++" prot="public">
+    <compoundname>Map::StripNavigationMetadata</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1a282e7d4378d4a18a805b8980295ac86c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>Map::StripNavigationMetadata::pitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="55" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1a26fd84d522945b6038221d9e38c7cc39" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <qualifiedname>Map::StripNavigationMetadata::roll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="56" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1a1c921d7f2f6a29b15d709c49d2df1797" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float elevation</definition>
+        <argsstring></argsstring>
+        <name>elevation</name>
+        <qualifiedname>Map::StripNavigationMetadata::elevation</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="57" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1a76714bdbc5c536fa77dfb14533ff82a9" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>Map::StripNavigationMetadata::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="58" column="16" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1ac155e35fdeebafc89723a51520fb9fe6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>Map::StripNavigationMetadata::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="59" column="16" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1ac46e821ae08930cc9e257642e34275a3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float velocity</definition>
+        <argsstring></argsstring>
+        <name>velocity</name>
+        <qualifiedname>Map::StripNavigationMetadata::velocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="60" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1ac6894c88aabf335922736a63b2b87b97" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float course</definition>
+        <argsstring></argsstring>
+        <name>course</name>
+        <qualifiedname>Map::StripNavigationMetadata::course</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="61" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d47/structMap_1_1StripNavigationMetadata_1a1f721d77724f0712d13dbb6719895531" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float track_ang</definition>
+        <argsstring></argsstring>
+        <name>track_ang</name>
+        <qualifiedname>Map::StripNavigationMetadata::track_ang</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="62" column="15" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/imagemetadata.h" line="53" column="5" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="54" bodyend="63"/>
+    <listofallmembers>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac6894c88aabf335922736a63b2b87b97" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>course</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a1c921d7f2f6a29b15d709c49d2df1797" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>elevation</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a76714bdbc5c536fa77dfb14533ff82a9" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>latitude</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac155e35fdeebafc89723a51520fb9fe6" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>longitude</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a282e7d4378d4a18a805b8980295ac86c" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>pitch</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a26fd84d522945b6038221d9e38c7cc39" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>roll</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a1f721d77724f0712d13dbb6719895531" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>track_ang</name></member>
+      <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac46e821ae08930cc9e257642e34275a3" prot="public" virt="non-virtual"><scope>Map::StripNavigationMetadata</scope><name>velocity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

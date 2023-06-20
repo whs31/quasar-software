@@ -1,0 +1,416 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d8/d6e/classNetworking_1_1TCPSocket" kind="class" language="C++" prot="public">
+    <compoundname>Networking::TCPSocket</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a201f51317c2f59cf7cb3d60e52382690" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t TCP_TIMEOUT</definition>
+        <argsstring></argsstring>
+        <name>TCP_TIMEOUT</name>
+        <qualifiedname>Networking::TCPSocket::TCP_TIMEOUT</qualifiedname>
+        <initializer>= 10&apos;000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="18" column="35" bodyfile="src/c++/network/tcpsocket.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1ab6b01cd6ef981331a675874b45bf6911" prot="private" static="no" mutable="no">
+        <type>void(TCPSocket::*</type>
+        <definition>void(TCPSocket::* readFile) (QByteArray data)</definition>
+        <argsstring>)(QByteArray data)</argsstring>
+        <name>readFile</name>
+        <qualifiedname>Networking::TCPSocket::readFile</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="47" column="13" bodyfile="src/c++/network/tcpsocket.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1ac9bf98314de179fa3424221599846d37" prot="private" static="no" mutable="no">
+        <type>QTcpServer *</type>
+        <definition>QTcpServer* server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <qualifiedname>Networking::TCPSocket::server</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="58" column="24" bodyfile="src/c++/network/tcpsocket.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a0558920c8ed7149d80c3051117c2d60f" prot="private" static="no" mutable="no">
+        <type>QTcpSocket *</type>
+        <definition>QTcpSocket* socket</definition>
+        <argsstring></argsstring>
+        <name>socket</name>
+        <qualifiedname>Networking::TCPSocket::socket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="59" column="24" bodyfile="src/c++/network/tcpsocket.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1ae0f3267ca73ca79b3a97682c8e0e7d2c" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <qualifiedname>Networking::TCPSocket::timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="60" column="20" bodyfile="src/c++/network/tcpsocket.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a4ce2214ca936398a46f7306e5c610f11" prot="private" static="no" mutable="no">
+        <type>QByteArray</type>
+        <definition>QByteArray imageData</definition>
+        <argsstring></argsstring>
+        <name>imageData</name>
+        <qualifiedname>Networking::TCPSocket::imageData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="61" column="24" bodyfile="src/c++/network/tcpsocket.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a7960f9c558f9ee2c3d4a8fdea096fb56" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool success</definition>
+        <argsstring></argsstring>
+        <name>success</name>
+        <qualifiedname>Networking::TCPSocket::success</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="63" column="18" bodyfile="src/c++/network/tcpsocket.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a394f53a161794bcef23e0e6438896113" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t splitIndex</definition>
+        <argsstring></argsstring>
+        <name>splitIndex</name>
+        <qualifiedname>Networking::TCPSocket::splitIndex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="64" column="21" bodyfile="src/c++/network/tcpsocket.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1a48f46ad02b77a00b795d15626ba1d42e" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t fileSize</definition>
+        <argsstring></argsstring>
+        <name>fileSize</name>
+        <qualifiedname>Networking::TCPSocket::fileSize</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="65" column="22" bodyfile="src/c++/network/tcpsocket.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6e/classNetworking_1_1TCPSocket_1aac274af37f5fbaaa2c47d19145cfd856" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <qualifiedname>Networking::TCPSocket::filename</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="66" column="21" bodyfile="src/c++/network/tcpsocket.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1a3617f52d9bcbc6bdd7aa3a47c2ab4c7c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TCPSocket</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>TCPSocket</name>
+        <qualifiedname>Networking::TCPSocket::TCPSocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+<para>Constructs a new TCPSocket object with given parent. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="23" column="22" bodyfile="src/c++/network/tcpsocket.c++" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1abd4f5313475f5675af97fd717fafbbc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startServer</definition>
+        <argsstring>(const QString &amp;address)</argsstring>
+        <name>startServer</name>
+        <qualifiedname>Networking::TCPSocket::startServer</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Starts TCP-IP server at given IPv4 address and port. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="27" column="18" bodyfile="src/c++/network/tcpsocket.c++" bodystart="23" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1ac1e551c19cd6ce8d7da8b13d1f290863" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void stopServer</definition>
+        <argsstring>()</argsstring>
+        <name>stopServer</name>
+        <qualifiedname>Networking::TCPSocket::stopServer</qualifiedname>
+        <briefdescription>
+<para>Stops currently working TCP-IP server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="30" column="18" bodyfile="src/c++/network/tcpsocket.c++" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1a4f0aa3afbd6ac7dd9cb856b55e889141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float progress</definition>
+        <argsstring>()</argsstring>
+        <name>progress</name>
+        <qualifiedname>Networking::TCPSocket::progress</qualifiedname>
+        <briefdescription>
+<para><ref refid="d3/d16/classProvides" kindref="compound">Provides</ref> loading progress value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Range - 0 to 100. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="34" column="19" bodyfile="src/c++/network/tcpsocket.c++" bodystart="46" bodyend="51"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="d8/d6e/classNetworking_1_1TCPSocket_1a009d42df202b2b5f7001ae737d92efd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void receivingFinished</definition>
+        <argsstring>()</argsstring>
+        <name>receivingFinished</name>
+        <qualifiedname>Networking::TCPSocket::receivingFinished</qualifiedname>
+        <briefdescription>
+<para>Emitted when receiving of data is finished. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="38" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d6e/classNetworking_1_1TCPSocket_1a4b33200464fba1e0b425162610ce251e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void progressChanged</definition>
+        <argsstring>(float progress)</argsstring>
+        <name>progressChanged</name>
+        <qualifiedname>Networking::TCPSocket::progressChanged</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>progress</declname>
+        </param>
+        <briefdescription>
+<para>Emitted on loading progress change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="41" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d6e/classNetworking_1_1TCPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void socketMetrics</definition>
+        <argsstring>(const QString &amp;data, int size_bytes, bool out)</argsstring>
+        <name>socketMetrics</name>
+        <qualifiedname>Networking::TCPSocket::socketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Debug socket metrics. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="44" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1a0f3fef331e9a832c0ae7209d9a039efe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readFileInfo</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>readFileInfo</name>
+        <qualifiedname>Networking::TCPSocket::readFileInfo</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="48" column="18" bodyfile="src/c++/network/tcpsocket.c++" bodystart="104" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6e/classNetworking_1_1TCPSocket_1a44e62f4e2299c98f72757323c3c7f92a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void readFileBody</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>readFileBody</name>
+        <qualifiedname>Networking::TCPSocket::readFileBody</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="49" column="18" bodyfile="src/c++/network/tcpsocket.c++" bodystart="126" bodyend="134"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="d8/d6e/classNetworking_1_1TCPSocket_1a4a4eeaa4f12b6ba913f859fdd5584380" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clientConnected</definition>
+        <argsstring>()</argsstring>
+        <name>clientConnected</name>
+        <qualifiedname>Networking::TCPSocket::clientConnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="52" column="22" bodyfile="src/c++/network/tcpsocket.c++" bodystart="53" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="slot" id="d8/d6e/classNetworking_1_1TCPSocket_1a23e7de45af6a2773386435bfe58f4316" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void serverRead</definition>
+        <argsstring>()</argsstring>
+        <name>serverRead</name>
+        <qualifiedname>Networking::TCPSocket::serverRead</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="53" column="22" bodyfile="src/c++/network/tcpsocket.c++" bodystart="74" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="slot" id="d8/d6e/classNetworking_1_1TCPSocket_1a7070d5277d80b41a0a052cbd79669b1c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clientDisconnected</definition>
+        <argsstring>()</argsstring>
+        <name>clientDisconnected</name>
+        <qualifiedname>Networking::TCPSocket::clientDisconnected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="54" column="22" bodyfile="src/c++/network/tcpsocket.c++" bodystart="79" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="slot" id="d8/d6e/classNetworking_1_1TCPSocket_1a9d6c6bb6fc8580e4f703e362b0342f82" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void connectionTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>connectionTimeout</name>
+        <qualifiedname>Networking::TCPSocket::connectionTimeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/tcpsocket.h" line="55" column="22" bodyfile="src/c++/network/tcpsocket.c++" bodystart="99" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/tcpsocket.h" line="13" column="5" bodyfile="src/c++/network/tcpsocket.h" bodystart="14" bodyend="67"/>
+    <listofallmembers>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4a4eeaa4f12b6ba913f859fdd5584380" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>clientConnected</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a7070d5277d80b41a0a052cbd79669b1c" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>clientDisconnected</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a9d6c6bb6fc8580e4f703e362b0342f82" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>connectionTimeout</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1aac274af37f5fbaaa2c47d19145cfd856" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>filename</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a48f46ad02b77a00b795d15626ba1d42e" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>fileSize</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4ce2214ca936398a46f7306e5c610f11" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>imageData</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4f0aa3afbd6ac7dd9cb856b55e889141" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>progress</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4b33200464fba1e0b425162610ce251e" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>progressChanged</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ab6b01cd6ef981331a675874b45bf6911" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>readFile</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a44e62f4e2299c98f72757323c3c7f92a" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>readFileBody</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a0f3fef331e9a832c0ae7209d9a039efe" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>readFileInfo</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a009d42df202b2b5f7001ae737d92efd6" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>receivingFinished</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ac9bf98314de179fa3424221599846d37" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>server</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a23e7de45af6a2773386435bfe58f4316" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>serverRead</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a0558920c8ed7149d80c3051117c2d60f" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>socket</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>socketMetrics</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a394f53a161794bcef23e0e6438896113" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>splitIndex</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1abd4f5313475f5675af97fd717fafbbc1" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>startServer</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ac1e551c19cd6ce8d7da8b13d1f290863" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>stopServer</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a7960f9c558f9ee2c3d4a8fdea096fb56" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>success</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a201f51317c2f59cf7cb3d60e52382690" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>TCP_TIMEOUT</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a3617f52d9bcbc6bdd7aa3a47c2ab4c7c" prot="public" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>TCPSocket</name></member>
+      <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ae0f3267ca73ca79b3a97682c8e0e7d2c" prot="private" virt="non-virtual"><scope>Networking::TCPSocket</scope><name>timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

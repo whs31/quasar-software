@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d8/d9a/classMap_1_1Route" kind="class" language="C++" prot="public">
+    <compoundname>Map::Route</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d8/d9a/classMap_1_1Route_1ae0c638fc1b84216006b3ae29ced0de41" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList fullRoute</definition>
+        <argsstring></argsstring>
+        <name>fullRoute</name>
+        <qualifiedname>Map::Route::fullRoute</qualifiedname>
+        <read>fullRoute</read>
+        <write>setFullRoute</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="1" column="0" bodyfile="src/c++/map/route.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d9a/classMap_1_1Route_1ab0c637baae864ec7e81d4d50f57e9377" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList recentRoute</definition>
+        <argsstring></argsstring>
+        <name>recentRoute</name>
+        <qualifiedname>Map::Route::recentRoute</qualifiedname>
+        <read>recentRoute</read>
+        <write>setRecentRoute</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="1" column="0" bodyfile="src/c++/map/route.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d8/d9a/classMap_1_1Route_1aa64c1ad1a87039f401d83a308ac8a99e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr int</type>
+        <definition>constexpr int RECENT_ROUTE_SIZE</definition>
+        <argsstring></argsstring>
+        <name>RECENT_ROUTE_SIZE</name>
+        <qualifiedname>Map::Route::RECENT_ROUTE_SIZE</qualifiedname>
+        <initializer>= 1000</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="18" column="30" bodyfile="src/c++/map/route.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d9a/classMap_1_1Route_1ae1ac2e86c8dadc7c51df07be796ebb7a" prot="private" static="no" mutable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList m_fullRoute</definition>
+        <argsstring></argsstring>
+        <name>m_fullRoute</name>
+        <qualifiedname>Map::Route::m_fullRoute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="35" column="26" bodyfile="src/c++/map/route.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d9a/classMap_1_1Route_1af9bdc6e8e00baf045ba6eb3e37102dfa" prot="private" static="no" mutable="no">
+        <type>QVariantList</type>
+        <definition>QVariantList m_recentRoute</definition>
+        <argsstring></argsstring>
+        <name>m_recentRoute</name>
+        <qualifiedname>Map::Route::m_recentRoute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="36" column="26" bodyfile="src/c++/map/route.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d9a/classMap_1_1Route_1aedc243a82f72d905ff214ce378ae81fb" prot="private" static="no" mutable="no">
+        <type>RouteLogger *</type>
+        <definition>RouteLogger* logger</definition>
+        <argsstring></argsstring>
+        <name>logger</name>
+        <qualifiedname>Map::Route::logger</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="38" column="25" bodyfile="src/c++/map/route.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1abf8f0335ce7019e4bcda70b40e81e913" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Route</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Route</name>
+        <qualifiedname>Map::Route::Route</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="21" column="22" bodyfile="src/c++/map/route.c++" bodystart="9" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1ab935fd8c8d5276b18bc5f0747b5442ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>~Route</definition>
+        <argsstring>()</argsstring>
+        <name>~Route</name>
+        <qualifiedname>Map::Route::~Route</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="22" column="21" bodyfile="src/c++/map/route.c++" bodystart="14" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1ab9cec07369c778d881c23357cd391024" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void append</definition>
+        <argsstring>(const QGeoCoordinate &amp;coord, float speed=-1, int satellites=-1)</argsstring>
+        <name>append</name>
+        <qualifiedname>Map::Route::append</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>coord</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+          <defval>-1</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>satellites</declname>
+          <defval>-1</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="24" column="30" bodyfile="src/c++/map/route.c++" bodystart="19" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>Map::Route::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="25" column="30" bodyfile="src/c++/map/route.c++" bodystart="42" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1a810eef70b5fd29d4b815c3eb48a05a67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantList</type>
+        <definition>QVariantList fullRoute</definition>
+        <argsstring>() const</argsstring>
+        <name>fullRoute</name>
+        <qualifiedname>Map::Route::fullRoute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="27" column="27" bodyfile="src/c++/map/route.c++" bodystart="54" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1a1dd34209c3489fbc7e006a576b3183a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFullRoute</definition>
+        <argsstring>(const QVariantList &amp;)</argsstring>
+        <name>setFullRoute</name>
+        <qualifiedname>Map::Route::setFullRoute</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="27" column="48" bodyfile="src/c++/map/route.c++" bodystart="55" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1a9c13bcb36f4b12c07a52b56eca671428" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariantList</type>
+        <definition>QVariantList recentRoute</definition>
+        <argsstring>() const</argsstring>
+        <name>recentRoute</name>
+        <qualifiedname>Map::Route::recentRoute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="28" column="27" bodyfile="src/c++/map/route.c++" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d9a/classMap_1_1Route_1a5dff03ade4beb1f704cf107726122476" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRecentRoute</definition>
+        <argsstring>(const QVariantList &amp;)</argsstring>
+        <name>setRecentRoute</name>
+        <qualifiedname>Map::Route::setRecentRoute</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="28" column="50" bodyfile="src/c++/map/route.c++" bodystart="64" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="d8/d9a/classMap_1_1Route_1a6369df2a4711871118b3dddc03e1cc5a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void fullRouteChanged</definition>
+        <argsstring>()</argsstring>
+        <name>fullRouteChanged</name>
+        <qualifiedname>Map::Route::fullRouteChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="31" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d9a/classMap_1_1Route_1abf54adecb898b3189ac550d6d2a4f064" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void recentRouteChanged</definition>
+        <argsstring>()</argsstring>
+        <name>recentRouteChanged</name>
+        <qualifiedname>Map::Route::recentRouteChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/route.h" line="32" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/route.h" line="12" column="5" bodyfile="src/c++/map/route.h" bodystart="13" bodyend="39"/>
+    <listofallmembers>
+      <member refid="d8/d9a/classMap_1_1Route_1ab9cec07369c778d881c23357cd391024" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>append</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>clear</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1ae0c638fc1b84216006b3ae29ced0de41" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>fullRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1a810eef70b5fd29d4b815c3eb48a05a67" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>fullRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1a6369df2a4711871118b3dddc03e1cc5a" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>fullRouteChanged</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1aedc243a82f72d905ff214ce378ae81fb" prot="private" virt="non-virtual"><scope>Map::Route</scope><name>logger</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1ae1ac2e86c8dadc7c51df07be796ebb7a" prot="private" virt="non-virtual"><scope>Map::Route</scope><name>m_fullRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1af9bdc6e8e00baf045ba6eb3e37102dfa" prot="private" virt="non-virtual"><scope>Map::Route</scope><name>m_recentRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1aa64c1ad1a87039f401d83a308ac8a99e" prot="private" virt="non-virtual"><scope>Map::Route</scope><name>RECENT_ROUTE_SIZE</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1ab0c637baae864ec7e81d4d50f57e9377" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>recentRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1a9c13bcb36f4b12c07a52b56eca671428" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>recentRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1abf54adecb898b3189ac550d6d2a4f064" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>recentRouteChanged</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1abf8f0335ce7019e4bcda70b40e81e913" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>Route</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1a1dd34209c3489fbc7e006a576b3183a6" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>setFullRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1a5dff03ade4beb1f704cf107726122476" prot="public" virt="non-virtual"><scope>Map::Route</scope><name>setRecentRoute</name></member>
+      <member refid="d8/d9a/classMap_1_1Route_1ab935fd8c8d5276b18bc5f0747b5442ea" prot="public" virt="virtual"><scope>Map::Route</scope><name>~Route</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

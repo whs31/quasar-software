@@ -6,9 +6,5 @@
 
 ![Debian](https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white)![Manjaro](https://img.shields.io/badge/Manjaro-35BF5C?style=for-the-badge&logo=Manjaro&logoColor=white)![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) ![](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
-<a href="https://github.com/whs31/quasar-software">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=whs31&repo=quasar-software" />
-</a>
-
 ### Документация к проекту: [Github Pages](https://whs31.github.io/index.html)
 

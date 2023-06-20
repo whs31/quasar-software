@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="df/d40/classEntry" kind="class" language="C++" prot="public">
+    <compoundname>Entry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d40/classEntry_1a53129baa7cef7a0a4501018ba5ec07bd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Entry</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Entry</name>
+        <qualifiedname>Entry::Entry</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/entry.h" line="10" column="18" bodyfile="src/c++/entry.c++" bodystart="25" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/entry.h" line="5" column="1" bodyfile="src/c++/entry.h" bodystart="6" bodyend="11"/>
+    <listofallmembers>
+      <member refid="df/d40/classEntry_1a53129baa7cef7a0a4501018ba5ec07bd" prot="public" virt="non-virtual"><scope>Entry</scope><name>Entry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

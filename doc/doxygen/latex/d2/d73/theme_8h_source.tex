@@ -1,0 +1,40 @@
+\hypertarget{theme_8h_source}{}\doxysection{theme.\+h}
+\label{theme_8h_source}\index{src/c++/gui/theme/include/theme.h@{src/c++/gui/theme/include/theme.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QHash>}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00008}00008\ \textcolor{preprocessor}{\#define\ THEME\ GUI::Theme::get()}}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00010}00010\ \textcolor{keyword}{namespace\ }GUI}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{class\ }ThemePrivate;}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{class\ }Theme\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(Theme)}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ Q\_DECLARE\_PRIVATE(Theme)}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Theme()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ QString\ color(QString\ key);}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ QString\ colorText(\textcolor{keyword}{const}\ QString\&\ text,\ \textcolor{keyword}{const}\ QString\&\ theme\_color\_name);}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ colorsChanged();}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ ThemePrivate*\ \textcolor{keyword}{const}\ d\_ptr;}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Theme(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00033}00033\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{theme_8h_source_l00034}00034\ \}\ \textcolor{comment}{//\ namespace\ GUI;}}
+
+\end{DoxyCode}

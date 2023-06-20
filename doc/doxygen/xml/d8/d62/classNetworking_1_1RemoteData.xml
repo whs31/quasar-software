@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d8/d62/classNetworking_1_1RemoteData" kind="class" language="C++" prot="public">
+    <compoundname>Networking::RemoteData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1a49e2a8f80f7c33ebc5a1d7a7fb8b8bf0" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float storageSpace</definition>
+        <argsstring></argsstring>
+        <name>storageSpace</name>
+        <qualifiedname>Networking::RemoteData::storageSpace</qualifiedname>
+        <read>storageSpace</read>
+        <write>setStorageSpace</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1a59dd7fd046e1d147dcf9c0705f14e621" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int de10ping</definition>
+        <argsstring></argsstring>
+        <name>de10ping</name>
+        <qualifiedname>Networking::RemoteData::de10ping</qualifiedname>
+        <read>de10ping</read>
+        <write>setDe10ping</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1a1c275a6b06838caea6122394c0767c8d" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int jetsonping</definition>
+        <argsstring></argsstring>
+        <name>jetsonping</name>
+        <qualifiedname>Networking::RemoteData::jetsonping</qualifiedname>
+        <read>jetsonping</read>
+        <write>setJetsonping</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1ab39ac4e3d485863ef6c202ad051c0c9e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int navping</definition>
+        <argsstring></argsstring>
+        <name>navping</name>
+        <qualifiedname>Networking::RemoteData::navping</qualifiedname>
+        <read>navping</read>
+        <write>setNavping</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1a5b6183207eb6ae612e3d99cc244d5792" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int utl1ping</definition>
+        <argsstring></argsstring>
+        <name>utl1ping</name>
+        <qualifiedname>Networking::RemoteData::utl1ping</qualifiedname>
+        <read>utl1ping</read>
+        <write>setUtl1ping</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d8/d62/classNetworking_1_1RemoteData_1abf82218f7aefb658f2b12da5fba445ab" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int utl2ping</definition>
+        <argsstring></argsstring>
+        <name>utl2ping</name>
+        <qualifiedname>Networking::RemoteData::utl2ping</qualifiedname>
+        <read>utl2ping</read>
+        <write>setUtl2ping</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="1" column="0" bodyfile="src/c++/network/execd/remotedata.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1aa716ff94b1a3216251bce6c7d8c1f307" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float m_storageSpace</definition>
+        <argsstring></argsstring>
+        <name>m_storageSpace</name>
+        <qualifiedname>Networking::RemoteData::m_storageSpace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="38" column="19" bodyfile="src/c++/network/execd/remotedata.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1ab81d36ca594f418896772a4d49957674" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_de10ping</definition>
+        <argsstring></argsstring>
+        <name>m_de10ping</name>
+        <qualifiedname>Networking::RemoteData::m_de10ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="39" column="17" bodyfile="src/c++/network/execd/remotedata.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1a66c4541b04e404f89b59c8910f0364e2" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_jetsonping</definition>
+        <argsstring></argsstring>
+        <name>m_jetsonping</name>
+        <qualifiedname>Networking::RemoteData::m_jetsonping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="40" column="17" bodyfile="src/c++/network/execd/remotedata.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1a486ae96bbe1d9e6c1df650650efa0308" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_navping</definition>
+        <argsstring></argsstring>
+        <name>m_navping</name>
+        <qualifiedname>Networking::RemoteData::m_navping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="41" column="17" bodyfile="src/c++/network/execd/remotedata.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1a1cd0c21228d32969f9d0ad305bf4126e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_utl1ping</definition>
+        <argsstring></argsstring>
+        <name>m_utl1ping</name>
+        <qualifiedname>Networking::RemoteData::m_utl1ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="42" column="17" bodyfile="src/c++/network/execd/remotedata.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d62/classNetworking_1_1RemoteData_1aa62d1487b8e154a0a3d899f87b9a0afb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_utl2ping</definition>
+        <argsstring></argsstring>
+        <name>m_utl2ping</name>
+        <qualifiedname>Networking::RemoteData::m_utl2ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="43" column="17" bodyfile="src/c++/network/execd/remotedata.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1aaa72d856aabec940cd92b5a4a4c96c37" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RemoteData</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>RemoteData</name>
+        <qualifiedname>Networking::RemoteData::RemoteData</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="19" column="22" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="4" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a854df8761ba784703b8543ee0e9b2d78" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float storageSpace</definition>
+        <argsstring>() const</argsstring>
+        <name>storageSpace</name>
+        <qualifiedname>Networking::RemoteData::storageSpace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="21" column="19" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1af736779d8389eef5f855ca65034a957c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStorageSpace</definition>
+        <argsstring>(float)</argsstring>
+        <name>setStorageSpace</name>
+        <qualifiedname>Networking::RemoteData::setStorageSpace</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="21" column="43" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="15" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1ac64c29714a66620dee48a459f118c68c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int de10ping</definition>
+        <argsstring>() const</argsstring>
+        <name>de10ping</name>
+        <qualifiedname>Networking::RemoteData::de10ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="23" column="18" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a329b0cfe2f9b149003fdd14e3b770d41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setDe10ping</definition>
+        <argsstring>(int)</argsstring>
+        <name>setDe10ping</name>
+        <qualifiedname>Networking::RemoteData::setDe10ping</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="23" column="38" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="22" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a14a079675a4087dfda9102f6b83554b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int jetsonping</definition>
+        <argsstring>() const</argsstring>
+        <name>jetsonping</name>
+        <qualifiedname>Networking::RemoteData::jetsonping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="24" column="18" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a412d41f9aaedd42b9c396347f40db97f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setJetsonping</definition>
+        <argsstring>(int)</argsstring>
+        <name>setJetsonping</name>
+        <qualifiedname>Networking::RemoteData::setJetsonping</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="24" column="40" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1aa0b2fe459570db1d4c6356a5f31aad67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int navping</definition>
+        <argsstring>() const</argsstring>
+        <name>navping</name>
+        <qualifiedname>Networking::RemoteData::navping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="25" column="18" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a4a79cb1891ba5f44433c852e94a0a9c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setNavping</definition>
+        <argsstring>(int)</argsstring>
+        <name>setNavping</name>
+        <qualifiedname>Networking::RemoteData::setNavping</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="25" column="37" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="38" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1acb72cb3af1eb72eb4fee825410409243" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int utl1ping</definition>
+        <argsstring>() const</argsstring>
+        <name>utl1ping</name>
+        <qualifiedname>Networking::RemoteData::utl1ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="26" column="18" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a226b87411c691617314a20f62b1f8b58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUtl1ping</definition>
+        <argsstring>(int)</argsstring>
+        <name>setUtl1ping</name>
+        <qualifiedname>Networking::RemoteData::setUtl1ping</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="26" column="38" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="46" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1a3ac5a076d66ade7eb3d26807fb06df76" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int utl2ping</definition>
+        <argsstring>() const</argsstring>
+        <name>utl2ping</name>
+        <qualifiedname>Networking::RemoteData::utl2ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="27" column="18" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d62/classNetworking_1_1RemoteData_1ad50504aad5c584f0a31183e083eb6e50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setUtl2ping</definition>
+        <argsstring>(int)</argsstring>
+        <name>setUtl2ping</name>
+        <qualifiedname>Networking::RemoteData::setUtl2ping</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="27" column="38" bodyfile="src/c++/network/execd/remotedata.c++" bodystart="54" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1a5faa336516f22efe1185a1568dd87a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void storageSpaceChanged</definition>
+        <argsstring>()</argsstring>
+        <name>storageSpaceChanged</name>
+        <qualifiedname>Networking::RemoteData::storageSpaceChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="30" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1ac02a60b04cd7eb8dd63027e220a2ad17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void de10pingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>de10pingChanged</name>
+        <qualifiedname>Networking::RemoteData::de10pingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="31" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1a135d8589f4c561d2104fd35a4decb588" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void jetsonpingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>jetsonpingChanged</name>
+        <qualifiedname>Networking::RemoteData::jetsonpingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="32" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1a163dfa547ce1d0b17d8a11aed2bc2b27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void navpingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>navpingChanged</name>
+        <qualifiedname>Networking::RemoteData::navpingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="33" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1a9e74f724cf98b30013ca7476804b66b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void utl1pingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>utl1pingChanged</name>
+        <qualifiedname>Networking::RemoteData::utl1pingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="34" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d8/d62/classNetworking_1_1RemoteData_1a2c7e79eb7989b93eb13b825a5c3177c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void utl2pingChanged</definition>
+        <argsstring>()</argsstring>
+        <name>utl2pingChanged</name>
+        <qualifiedname>Networking::RemoteData::utl2pingChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/remotedata.h" line="35" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/execd/remotedata.h" line="8" column="5" bodyfile="src/c++/network/execd/remotedata.h" bodystart="9" bodyend="44"/>
+    <listofallmembers>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a59dd7fd046e1d147dcf9c0705f14e621" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>de10ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1ac64c29714a66620dee48a459f118c68c" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>de10ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1ac02a60b04cd7eb8dd63027e220a2ad17" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>de10pingChanged</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a1c275a6b06838caea6122394c0767c8d" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>jetsonping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a14a079675a4087dfda9102f6b83554b5" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>jetsonping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a135d8589f4c561d2104fd35a4decb588" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>jetsonpingChanged</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1ab81d36ca594f418896772a4d49957674" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_de10ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a66c4541b04e404f89b59c8910f0364e2" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_jetsonping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a486ae96bbe1d9e6c1df650650efa0308" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_navping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1aa716ff94b1a3216251bce6c7d8c1f307" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_storageSpace</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a1cd0c21228d32969f9d0ad305bf4126e" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_utl1ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1aa62d1487b8e154a0a3d899f87b9a0afb" prot="private" virt="non-virtual"><scope>Networking::RemoteData</scope><name>m_utl2ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1ab39ac4e3d485863ef6c202ad051c0c9e" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>navping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1aa0b2fe459570db1d4c6356a5f31aad67" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>navping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a163dfa547ce1d0b17d8a11aed2bc2b27" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>navpingChanged</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1aaa72d856aabec940cd92b5a4a4c96c37" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>RemoteData</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a329b0cfe2f9b149003fdd14e3b770d41" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setDe10ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a412d41f9aaedd42b9c396347f40db97f" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setJetsonping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a4a79cb1891ba5f44433c852e94a0a9c4" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setNavping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1af736779d8389eef5f855ca65034a957c" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setStorageSpace</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a226b87411c691617314a20f62b1f8b58" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setUtl1ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1ad50504aad5c584f0a31183e083eb6e50" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>setUtl2ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a49e2a8f80f7c33ebc5a1d7a7fb8b8bf0" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>storageSpace</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a854df8761ba784703b8543ee0e9b2d78" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>storageSpace</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a5faa336516f22efe1185a1568dd87a9b" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>storageSpaceChanged</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a5b6183207eb6ae612e3d99cc244d5792" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl1ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1acb72cb3af1eb72eb4fee825410409243" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl1ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a9e74f724cf98b30013ca7476804b66b4" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl1pingChanged</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1abf82218f7aefb658f2b12da5fba445ab" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl2ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a3ac5a076d66ade7eb3d26807fb06df76" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl2ping</name></member>
+      <member refid="d8/d62/classNetworking_1_1RemoteData_1a2c7e79eb7989b93eb13b825a5c3177c5" prot="public" virt="non-virtual"><scope>Networking::RemoteData</scope><name>utl2pingChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

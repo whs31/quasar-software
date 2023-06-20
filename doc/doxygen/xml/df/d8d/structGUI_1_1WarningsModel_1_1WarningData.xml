@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="df/d8d/structGUI_1_1WarningsModel_1_1WarningData" kind="struct" language="C++" prot="private">
+    <compoundname>GUI::WarningsModel::WarningData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1ac765329451135abec74c45e1897abf26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>GUI::WarningsModel::WarningData::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="17" column="17" bodyfile="src/c++/gui/warningsmodel.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a7eaf039e27259097d5cf0d8b07ab1d96" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <qualifiedname>GUI::WarningsModel::WarningData::msg</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="18" column="21" bodyfile="src/c++/gui/warningsmodel.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a3ba48eaccf8247ca8d2b932263af2d2e" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool is_major</definition>
+        <argsstring></argsstring>
+        <name>is_major</name>
+        <qualifiedname>GUI::WarningsModel::WarningData::is_major</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="19" column="18" bodyfile="src/c++/gui/warningsmodel.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/gui/warningsmodel.h" line="16" column="9" bodyfile="src/c++/gui/warningsmodel.h" bodystart="16" bodyend="20"/>
+    <listofallmembers>
+      <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a3ba48eaccf8247ca8d2b932263af2d2e" prot="public" virt="non-virtual"><scope>GUI::WarningsModel::WarningData</scope><name>is_major</name></member>
+      <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a7eaf039e27259097d5cf0d8b07ab1d96" prot="public" virt="non-virtual"><scope>GUI::WarningsModel::WarningData</scope><name>msg</name></member>
+      <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1ac765329451135abec74c45e1897abf26" prot="public" virt="non-virtual"><scope>GUI::WarningsModel::WarningData</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

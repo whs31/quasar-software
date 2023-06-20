@@ -1,0 +1,75 @@
+\hypertarget{telemetry_8h_source}{}\doxysection{telemetry.\+h}
+\label{telemetry_8h_source}\index{src/c++/network/telemetry/telemetry.h@{src/c++/network/telemetry/telemetry.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}telemetrydatagram.h"{}}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtCore/QMetaType>}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QtCore/QDateTime>}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }Networking}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{class\ }Telemetry\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ latitude\ READ\ latitude\ WRITE\ setLatitude\ NOTIFY\ latitudeChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ longitude\ READ\ longitude\ WRITE\ setLongitude\ NOTIFY\ longitudeChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ altitude\ READ\ altitude\ WRITE\ setAltitude\ NOTIFY\ altitudeChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ velocityCourse\ READ\ velocityCourse\ WRITE\ setVelocityCourse\ NOTIFY\ velocityCourseChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ velocityEast\ READ\ velocityEast\ WRITE\ setVelocityEast\ NOTIFY\ velocityEastChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ velocityNorth\ READ\ velocityNorth\ WRITE\ setVelocityNorth\ NOTIFY\ velocityNorthChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ velocityVertical\ READ\ velocityVertical\ WRITE\ setVelocityVertical\ NOTIFY\ velocityVerticalChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ pitch\ READ\ pitch\ WRITE\ setPitch\ NOTIFY\ pitchChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ roll\ READ\ roll\ WRITE\ setRoll\ NOTIFY\ rollChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ yaw\ READ\ yaw\ WRITE\ setYaw\ NOTIFY\ yawChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ course\ READ\ course\ WRITE\ setCourse\ NOTIFY\ courseChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ Q\_PROPERTY(uint64\_t\ time\ READ\ time\ WRITE\ setTime\ NOTIFY\ timeChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{int}\ satellites\ READ\ satellites\ WRITE\ setSatellites\ NOTIFY\ satellitesChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ seaLevel\ READ\ seaLevel\ WRITE\ setSeaLevel\ NOTIFY\ seaLevelChanged)}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Telemetry(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ latitude()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setLatitude(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ longitude()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setLongitude(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ altitude()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setAltitude(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ velocityCourse()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setVelocityCourse(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ velocityEast()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setVelocityEast(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ velocityNorth()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setVelocityNorth(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ velocityVertical()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setVelocityVertical(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ pitch()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setPitch(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ roll()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setRoll(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ yaw()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setYaw(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ course()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setCourse(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ uint64\_t\ time()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setTime(\textcolor{keyword}{const}\ uint64\_t\&);}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{int}\ satellites()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setSatellites(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ seaLevel()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setSeaLevel(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ latitudeChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ longitudeChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ altitudeChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ velocityCourseChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ velocityEastChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ velocityNorthChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ velocityVerticalChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ pitchChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ rollChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ yawChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ courseChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ timeChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ satellitesChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ seaLevelChanged();}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ QDateTime\ m\_datetime;}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ TelemetryDatagram\ datagram;}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_seaLevel\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00066}00066\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00067}00067\ \}\ \textcolor{comment}{//\ namespace\ Networking}}
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{telemetry_8h_source_l00069}00069\ Q\_DECLARE\_METATYPE(Networking::Telemetry*)}
+
+\end{DoxyCode}

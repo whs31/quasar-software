@@ -1,0 +1,67 @@
+\hypertarget{ruler_8h_source}{}\doxysection{ruler.\+h}
+\label{ruler_8h_source}\index{src/c++/map/ruler.h@{src/c++/map/ruler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QAbstractListModel>}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <CCL/Orthodrom>}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }Map}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{class\ }Ruler\ :\ \textcolor{keyword}{public}\ QAbstractListModel}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ lastLatitude\ READ\ lastLatitude\ WRITE\ setLastLatitude\ NOTIFY\ lastLatitudeChanged)}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ lastLongitude\ READ\ lastLongitude\ WRITE\ setLastLongitude\ NOTIFY\ lastLongitudeChanged)}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ Q\_PROPERTY(\textcolor{keywordtype}{double}\ totalLength\ READ\ totalLength\ WRITE\ setTotalLength\ NOTIFY\ totalLengthChanged)}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Ruler(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \string~Ruler()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ SegmentRoles\ \{}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ Qt::UserRole\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ segment,}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ segmentLength,}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ segmentCenter}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ QVariant\ data(\textcolor{keyword}{const}\ QModelIndex\ \&index,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ QHash<int,\ QByteArray>\ roleNames()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rowCount(\textcolor{keyword}{const}\ QModelIndex\ \&parent\ =\ QModelIndex())\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ setRoute(\textcolor{keyword}{const}\ QList<QGeoCoordinate>\ \&\_path);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ resetRoute();}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ insertPoint(\textcolor{keyword}{const}\ QGeoCoordinate\ \&\ \_point,\ quint16\ \_index);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ removePoint(quint16\ \_index);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ updatePoint(\textcolor{keyword}{const}\ QGeoCoordinate\ \&\ \_point,\ \textcolor{keywordtype}{int}\ \_index);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ QGeoCoordinate\ calculateCenter(quint16\ \_index);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ qreal\ calculateAngle(\textcolor{keyword}{const}\ QGeoCoordinate\ \_coord1,\ \textcolor{keyword}{const}\ QGeoCoordinate\ \_coord2);}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ totalLength()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setTotalLength(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ lastLatitude()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setLastLatitude(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ \textcolor{keywordtype}{double}\ lastLongitude()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setLastLongitude(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ totalLengthChanged();}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ lastLatitudeChanged();}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ lastLongitudeChanged();}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ QList<QVariantList>\ m\_segments;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ QList<QGeoCoordinate>\ m\_path;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ QList<QGeoCoordinate>\ m\_segmentsCenter;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ CCL::Orthodrom\ m\_orthodrom;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_lastLatitude\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_lastLongitude\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\_totalLength\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00058}00058\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00059}00059\ \}\ \textcolor{comment}{//\ namespace\ Map;}}
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{ruler_8h_source_l00061}00061\ Q\_DECLARE\_METATYPE(Map::Ruler*)}
+
+\end{DoxyCode}

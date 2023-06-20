@@ -1,0 +1,76 @@
+\hypertarget{entry_8c_09_09_source}{}\doxysection{entry.\+c++}
+\label{entry_8c_09_09_source}\index{src/c++/entry.c++@{src/c++/entry.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}entry.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QCoreApplication>}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtCore/QProcess>}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QtQml/qqml.h>}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}gui/theme/include/theme.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}gui/terminal/vt100terminal.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}gui/terminal/debugconsole.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}gui/warningsmodel.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}config/paths.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}config/config.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}filesystem/filesystem.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}processing/imageprocessing.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}map/ruler.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}map/route.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}map/clickhandler.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}map/imagemodel.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}map/markermodel.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}map/entities/diagram.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}map/tools/offlinetileloader.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}network/network.h"{}}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00025}00025\ Entry::Entry(QObject\ *parent)}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00026}00026\ \ \ \ \ :\ QObject\{parent\}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00028}00028\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Config::Paths,\ \textcolor{stringliteral}{"{}Config"{}},\ \textcolor{stringliteral}{"{}Paths"{}},\ Config::Paths::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00029}00029\ \ \ \ \ QML\_EXPOSE\_INSTANCE(\mbox{\hyperlink{classConfig_1_1Config}{Config::Config}},\ \textcolor{stringliteral}{"{}Config"{}},\ \textcolor{stringliteral}{"{}Config"{}},\ \mbox{\hyperlink{classConfig_1_1Config_aab4f0df3041b8a7fb08052df350ebcbd}{Config::Config::get}}());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00030}00030\ \ \ \ \ QML\_EXPOSE\_INSTANCE(GUI::Theme,\ \textcolor{stringliteral}{"{}Theme"{}},\ \textcolor{stringliteral}{"{}Theme"{}},\ GUI::Theme::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00031}00031\ \ \ \ \ QML\_EXPOSE\_INSTANCE(GUI::VT100Terminal,\ \textcolor{stringliteral}{"{}Terminals"{}},\ \textcolor{stringliteral}{"{}VT100Terminal"{}},\ GUI::VT100Terminal::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00032}00032\ \ \ \ \ QML\_EXPOSE\_INSTANCE(GUI::DebugConsole,\ \textcolor{stringliteral}{"{}Terminals"{}},\ \textcolor{stringliteral}{"{}DebugConsole"{}},\ GUI::DebugConsole::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00033}00033\ \ \ \ \ QML\_EXPOSE\_INSTANCE(GUI::WarningsModel,\ \textcolor{stringliteral}{"{}Notifications"{}},\ \textcolor{stringliteral}{"{}WarningsModel"{}},\ GUI::WarningsModel::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00034}00034\ \ \ \ \ QML\_EXPOSE\_INSTANCE(OS::Filesystem,\ \textcolor{stringliteral}{"{}Filesystem"{}},\ \textcolor{stringliteral}{"{}Filesystem"{}},\ OS::Filesystem::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00035}00035\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Networking::Network,\ \textcolor{stringliteral}{"{}Network"{}},\ \textcolor{stringliteral}{"{}Network"{}},\ Networking::Network::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00036}00036\ \ \ \ \ qmlRegisterUncreatableType<Networking::Enums>(\textcolor{stringliteral}{"{}Network"{}},\ 1,\ 0,\ \textcolor{stringliteral}{"{}Net"{}},\ \textcolor{stringliteral}{"{}Enumeration"{}});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00037}00037\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Map::ImageModel,\ \textcolor{stringliteral}{"{}Images"{}},\ \textcolor{stringliteral}{"{}ImagesModel"{}},\ Processing::ImageProcessing::get()-\/>model());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00038}00038\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Map::MarkerModel,\ \textcolor{stringliteral}{"{}Markers"{}},\ \textcolor{stringliteral}{"{}MarkersModel"{}},\ Map::ClickHandler::get()-\/>markerModel());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00039}00039\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Map::ClickHandler,\ \textcolor{stringliteral}{"{}ClickHandler"{}},\ \textcolor{stringliteral}{"{}ClickHandler"{}},\ Map::ClickHandler::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00040}00040\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Map::OfflineTileLoader,\ \textcolor{stringliteral}{"{}Offline"{}},\ \textcolor{stringliteral}{"{}TileLoader"{}},\ Map::OfflineTileLoader::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00041}00041\ \ \ \ \ QML\_EXPOSE\_INSTANCE(Processing::ImageProcessing,\ \textcolor{stringliteral}{"{}ImageProcessing"{}},\ \textcolor{stringliteral}{"{}ImageProcessing"{}},\ Processing::ImageProcessing::get());}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00043}00043\ \ \ \ \ QML\_EXPOSE\_INSTANTIABLE(Map::Ruler,\ \textcolor{stringliteral}{"{}Ruler"{}},\ \textcolor{stringliteral}{"{}RulerModel"{}});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00044}00044\ \ \ \ \ QML\_EXPOSE\_INSTANTIABLE(Map::Route,\ \textcolor{stringliteral}{"{}Route"{}},\ \textcolor{stringliteral}{"{}Route"{}});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00045}00045\ \ \ \ \ QML\_EXPOSE\_INSTANTIABLE(Map::Diagram,\ \textcolor{stringliteral}{"{}RadarDiagram"{}},\ \textcolor{stringliteral}{"{}RadarDiagram"{}});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00047}00047\ \ \ \ \ connect(OS::Filesystem::get(),\ \&OS::Filesystem::imageListCached,\ Processing::ImageProcessing::get(),\ \&Processing::ImageProcessing::processList,\ Qt::QueuedConnection);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00048}00048\ \ \ \ \ connect(Processing::ImageProcessing::get()-\/>model(),\ \&Map::ImageModel::markedForExport,\ OS::Filesystem::get(),\ \&OS::Filesystem::exportImagesToFolder);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00049}00049\ \ \ \ \ connect(\mbox{\hyperlink{classConfig_1_1Config_aab4f0df3041b8a7fb08052df350ebcbd}{Config::Config::get}}(),\ \&Config::Config::scheduleRestart,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\{}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00050}00050\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[CORE]\ Requested\ restart,\ but\ current\ configuration\ will\ fail\ executing\ it."{}};}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00051}00051\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[CORE]\ Please,\ restart\ manually."{}};}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00052}00052\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00053}00053\ \ \ \ \ connect(\mbox{\hyperlink{classConfig_1_1Config_aab4f0df3041b8a7fb08052df350ebcbd}{Config::Config::get}}(),\ \&Config::Config::tcpLFSPortChanged,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\{}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00054}00054\ \ \ \ \ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Form);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00055}00055\ \ \ \ \ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Focus);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00056}00056\ \ \ \ \ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Reform);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00057}00057\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00059}00059\ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Form);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00060}00060\ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Focus);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00061}00061\ \ \ \ \ Networking::Network::get()-\/>setArgument(\textcolor{stringliteral}{"{}-\/-\/remote"{}},\ QString(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort)),\ Networking::Enums::ArgumentCategory::Reform);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00063}00063\ \ \ \ \ GUI::WarningsModel::get()-\/>append(GUI::WarningsModel::NotConnected,\ \textcolor{stringliteral}{"{}Отсутствует\ соединение\ с\ РЛС"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00064}00064\ \ \ \ \ connect(Networking::Network::get(),\ \&Networking::Network::connectedChanged,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\{}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(Networking::Network::get()-\/>connected()\ !=\ 2)}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ GUI::WarningsModel::get()-\/>append(GUI::WarningsModel::NotConnected,\ \textcolor{stringliteral}{"{}Отсутствует\ соединение\ с\ РЛС"{}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ GUI::WarningsModel::get()-\/>remove(GUI::WarningsModel::NotConnected);}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00069}00069\ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{entry_8c_09_09_source_l00070}00070\ \}}
+
+\end{DoxyCode}

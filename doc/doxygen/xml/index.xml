@@ -1,0 +1,1284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.6" xml:lang="en-US">
+  <compound refid="d8/db3/struct_xD0_x94_xD0_xB0_xD1_x82_xD0_xB0_xD0_xB3_xD1_x80_xD0_xB0_xD0_xBC_xD0_xB0" kind="struct"><name>Датаграма</name>
+  </compound>
+  <compound refid="d2/de9/struct_xD0_xA1_xD1_x82_xD1_x83_xD0_xBA_xD1_x82_xD1_x83_xD1_x80_xD0_xB0" kind="struct"><name>Стуктура</name>
+  </compound>
+  <compound refid="db/db6/classNetworking_1_1AbstractUDPSocket" kind="class"><name>Networking::AbstractUDPSocket</name>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a2ec494a022b88296266ffc916742fe5a" kind="variable"><name>m_hostaddress</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1acd2fd7bb7ab933130e879aab7e803a3f" kind="variable"><name>m_port</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a32422a487d1c53b078747f40bb7f3ce6" kind="function"><name>AbstractUDPSocket</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a77ae26aeec30cf7f4c50d2c1a03bdb4b" kind="function"><name>~AbstractUDPSocket</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a01948d8cb99ea51677e34382c9e2c8aa" kind="function"><name>connect</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a960705de531a20389fb29928d43258c3" kind="function"><name>disconnect</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1ad1239ca09fddf150d1584cdf26baf7f3" kind="function"><name>send</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a6aac8bbc4a1ac6c37d4c9f0564256fbd" kind="function"><name>port</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a3eb63c5af67a44fb60ba731d3da7a56d" kind="signal"><name>received</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a270b32a7b4f3d08e655807d4101acbd7" kind="signal"><name>socketDisconnected</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" kind="signal"><name>socketMetrics</name></member>
+    <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1af32fe761ac8a7f8f1e25d6b97c3c1dda" kind="slot"><name>readSocket</name></member>
+  </compound>
+  <compound refid="dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage" kind="struct"><name>GUI::TerminalBase::BasicMessage</name>
+    <member refid="dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage_1a7eaf039e27259097d5cf0d8b07ab1d96" kind="variable"><name>msg</name></member>
+    <member refid="dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage_1aee88c14d132ac5d994f5fb9384f96483" kind="variable"><name>mdl</name></member>
+    <member refid="dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage_1a8a2053c7fb1adf60da2f26c06059539e" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="db/d96/classClass" kind="class"><name>Class</name>
+  </compound>
+  <compound refid="d6/d20/classMap_1_1ClickHandler" kind="class"><name>Map::ClickHandler</name>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8c" kind="enum"><name>MouseState</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8cad3fa9ae9431d6cb1772f9d9df48cab19" kind="enumvalue"><name>Idle</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8ca1195886d3d88f4324befb591157cd191" kind="enumvalue"><name>RulerActive</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8cae2ad07ae4d6b18b5fd1ec2545ecb5283" kind="enumvalue"><name>ProtractorActive</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8ca749aad5951998d088d5699e1aa053030" kind="enumvalue"><name>MarkerActive</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8caa0cf1b36a652375b1a88fc96eb2c6237" kind="enumvalue"><name>PlannerActive</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a3fe1dc281e20599dff9635c050a28b8caa2bed876a65195d9c723a28e37e53cbe" kind="enumvalue"><name>TileLoaderActive</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a48aff7352371ecf548d71fc9819cf313" kind="property"><name>state</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1aa5025f78efc7238f7b89e0be91e08cd9" kind="variable"><name>m_state</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a27d84d496fe9a488bc485f8f4bdddd91" kind="variable"><name>marker_model</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1ab1e972d0af50e21a2cf1a7d753f0ea18" kind="function"><name>Q_ENUM</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a286619d890bb03864c56df12d535c166" kind="function"><name>state</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1abe7dd114f0b499c963ef2fec97b7d46f" kind="function"><name>setState</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1aff9a5d9f49ce30866cb5089dcf6a0e4d" kind="function"><name>copyCoordinatesToClipboard</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1ac353827d299d380f720f5ca946715a72" kind="function"><name>markerModel</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1ad942f668b0c729fc0b1d6e60d1d1a22f" kind="function"><name>addMarker</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a4cc5a5ac4a55eb40a2b75b679df7ec49" kind="signal"><name>stateChanged</name></member>
+    <member refid="d6/d20/classMap_1_1ClickHandler_1a9e4a90525fe86f93a3efbed83d20f441" kind="function"><name>ClickHandler</name></member>
+  </compound>
+  <compound refid="d5/dfa/classConfig_1_1Config" kind="class"><name>Config::Config</name>
+    <member refid="d5/dfa/classConfig_1_1Config_1a29ca03d2272c4051d7c324cd6bac3b0b" kind="property"><name>remoteIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1abb00f8fd5508af1ffc1b56f474a7ba22" kind="property"><name>localIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a75af3a7370fd6e32995373d2dbbf1f81" kind="property"><name>jetsonIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa9f58cbedfcdde939083775c3a77ef6e" kind="property"><name>navIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a8af317d04dbe29e8f495cd928c0f30cb" kind="property"><name>utl1IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afdd91838bc17767a1510db9d4e569aaa" kind="property"><name>utl2IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9400347615d36fd3eed76e4f027433df" kind="property"><name>telemetryPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afa3175de72b10c5da5e4664f75936346" kind="property"><name>telemetryRecvPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9a898d90c155973baa06c11e8ef95813" kind="property"><name>tcpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a0eddf3d43e33470977841fae03717c29" kind="property"><name>udpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa7c77c61e23cb38fce8948fff5baa648" kind="property"><name>execdPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1c046609722570c50455a36d69d0a037" kind="property"><name>feedbackPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a752dbeb4be188be8d6e370263c380827" kind="property"><name>telemetryFrequency</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae862ff88f11a3a2ef7eee0c21957dcb7" kind="property"><name>proxyEnabled</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a259e4f044a571c4bc7b34a23f39492be" kind="property"><name>tcpMarker</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a66213c53fe947a7a4757bcc2b7d7fbb3" kind="property"><name>antennaAlignment</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1acc7856ea0497ce886547bd19075f4bcb" kind="property"><name>angleCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1af6dc8053f62613e2dd7a79d2172c658d" kind="property"><name>useRadians</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afcbc3ba0faa77bf6b0a9b01f878181e6" kind="property"><name>useDriftAngle</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afd2df17ea5b9473da8b4d307395c5085" kind="property"><name>thetaAzimuthCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aced4a69727f347e1e1a73bfdd8761143" kind="property"><name>overrideImageHeight</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a6e81ba455ac73046cba68a75c0d34991" kind="property"><name>cutImage</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1abdcb3cc37ddbefe06ad99b3daa720afc" kind="property"><name>storedLatitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a5b2d3b040ee55818de48aed7ffc5806f" kind="property"><name>storedLongitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a6241b7c15dc9a3b9b8e412a80e00cc9d" kind="property"><name>storedZoomLevel</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a153feb691de604b107e5765377364a9d" kind="property"><name>storedCatalogue</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a53d9759116527e34443d82453b97f415" kind="property"><name>theme</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1f21304a4fb42aa8f75c4cda8baae927" kind="variable"><name>defaults</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa7a88065e9906a5cff3d96bc5589926f" kind="variable"><name>ini</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a35da2221f38356d6935ed0e828193563" kind="variable"><name>m_remoteIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a5a8545cf20da6df2161415c51f1fb263" kind="variable"><name>m_localIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aaba58491356b67a7f4978c520597ae8e" kind="variable"><name>m_telemetryPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1adae4ce8bffb2ffb57149502ac7877a27" kind="variable"><name>m_tcpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a4e33a7775319fa0a18951de0d5d763e7" kind="variable"><name>m_udpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ac00e147584d1743f22a8ce8583db13df" kind="variable"><name>m_execdPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a3702ce6abe3ce8c0c9e11197f7ba88ca" kind="variable"><name>m_feedbackPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a60a63e17ba464c67415f9b876024873f" kind="variable"><name>m_proxyEnabled</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae2bd498ee4336cc609f274023a18efbf" kind="variable"><name>m_antennaAlignment</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a70c2897d7c577a0376058197133b39f6" kind="variable"><name>m_angleCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a5be0a78bc8c57d8a08c28f78b1f9912a" kind="variable"><name>m_useRadians</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ab71589c86bb7e405cd5171b02fd05d1e" kind="variable"><name>m_useDriftAngle</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ac6cfd84703041f82d3cc11c50b2711f2" kind="variable"><name>m_thetaAzimuthCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a7343978ed744ff2b88ef8147794a698c" kind="variable"><name>m_storedLatitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1dfe0d5c552bd47c7ae9c7b3090355bb" kind="variable"><name>m_storedLongitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a3ad043a8f4c3b636f36247493921004e" kind="variable"><name>m_storedZoomLevel</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a4b5d38f1b1fa87203eb3d99edf298d19" kind="variable"><name>m_storedCatalogue</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a6606cd09929cc3fe3a5988dca1f0fda4" kind="variable"><name>m_telemetryFrequency</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a79b0cba3b8c95dca4e1599bfe8c94285" kind="variable"><name>m_overrideImageHeight</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1af0073054fd795c08d04a5a722b0ae9cb" kind="variable"><name>m_cutImage</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aefd20cef6df977525291fdc6f47dcf06" kind="variable"><name>m_tcpMarker</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ad462440cf5cf6175f75f88fdba1e8d40" kind="variable"><name>m_theme</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a7329491ba57e6086c73dc0ec071f621f" kind="variable"><name>m_jetsonIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1acb0fa1b1ab99a3c9d6039c1356e0c63a" kind="variable"><name>m_navIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a41752563437f898a2f533ec664df6e2d" kind="variable"><name>m_utl1IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a662768a69024cfd2710824568026a4c2" kind="variable"><name>m_utl2IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a93de0d19afea63d4c66b804ad50ab31b" kind="variable"><name>m_telemetryRecvPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aab4f0df3041b8a7fb08052df350ebcbd" kind="function"><name>get</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a54dfba499c9d9e1003d4c9bcbe6ad1c5" kind="function"><name>~Config</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ad55f80ed3cd8b6c4f247763b747016af" kind="function"><name>sync</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aae2c382151ef7c9aa913361172b30db6" kind="function"><name>save</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a78f61ac2dd03bcba8e09ca20cd7d68e3" kind="function"><name>load</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9cf620340e16aa417bb112e0294038df" kind="function"><name>revert</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ad20897c5c8bd47f5d4005989bead0e55" kind="function"><name>reset</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a0664ef97a51606760964d90526e64ab2" kind="function"><name>projectVersion</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1adc6bb48dc9f34f40692826ac7af1986d" kind="function"><name>remoteIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ac7bdaf2ef611e2214ac2784045b3b04d" kind="function"><name>setRemoteIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afca91e94a6703172928101818276d5f9" kind="function"><name>localIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a8ae0e2ab305e2fc61942da3dafe5dd50" kind="function"><name>setLocalIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a2959aca31c58b6ebf75f18305e62c35a" kind="function"><name>telemetryPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1adb3b488161b51b25d0975af0f34a4c62" kind="function"><name>setTelemetryPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1af73470dfd217833036c89733192a0d67" kind="function"><name>tcpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a4f3cfcede68e1ea0a7d7a506d70c6eef" kind="function"><name>setTcpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1af9d52712d1bf0d8262f5307dff02fc96" kind="function"><name>udpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afd6f47ab44c07ca2395eccb9824f0273" kind="function"><name>setUdpLFSPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ab7fdfc8d3e7156ceb009b99099f6e5e9" kind="function"><name>execdPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a2bcf83212a042a376aa2f2e30bb2a57d" kind="function"><name>setExecdPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a510779484a374e779a622f8079fd79ec" kind="function"><name>feedbackPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1810d50a9b4f876b5200d0963fdf3e73" kind="function"><name>setFeedbackPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a2daed5b217babaee456e45e66b9089f3" kind="function"><name>proxyEnabled</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1acf4e9f4fd7dacb53c29ff2b09b207745" kind="function"><name>setProxyEnabled</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a53eda8647fd26c9c39447d19d76755dc" kind="function"><name>antennaAlignment</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aaf608b43530d951f30c9d3ee8f820cc1" kind="function"><name>setAntennaAlignment</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a3770bffc0e5fc384edd2d8c81e6ff5c0" kind="function"><name>angleCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a29460c2dad6447229f3d0c7b39172d61" kind="function"><name>setAngleCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a623188d87f6c7831e430d301e50c07eb" kind="function"><name>useRadians</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a32bc590c3015ddf737ee782f2332d029" kind="function"><name>setUseRadians</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a16bd48c77efc1c3ec31440d0cdb20b03" kind="function"><name>useDriftAngle</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a6a7947447256f45a7c9b90916e885e78" kind="function"><name>setUseDriftAngle</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ab3c04c8f681b09df7ab2e5382ffef9ae" kind="function"><name>thetaAzimuthCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a683b36bdb99aec032ad1dbf15d1ed0cd" kind="function"><name>setThetaAzimuthCorrection</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a605d0bc57ffb8de0723f4924e69ee2c7" kind="function"><name>storedLatitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a807c4b40f8f25bbf23fc4470a28ecaa9" kind="function"><name>setStoredLatitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9def0f7bff96d471705eb6c03d0207e8" kind="function"><name>storedLongitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a21e8877a88685d726156aa50c0a0abe8" kind="function"><name>setStoredLongitude</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a3ad273d5ce777accc26e3e95181b7a6f" kind="function"><name>storedZoomLevel</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1934d2d72b8a2f9ae53031476d66d477" kind="function"><name>setStoredZoomLevel</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1912a3760f0ca70c26d935316ac417d7" kind="function"><name>storedCatalogue</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a1abdb0971aa6bf922280d8f1ed133a96" kind="function"><name>setStoredCatalogue</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a04d2ac585a2fa48079a21815a3f1f793" kind="function"><name>telemetryFrequency</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a7b8a857c2a5a3ac797c90fd9b3f28ba1" kind="function"><name>setTelemetryFrequency</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aace9598fbc8ec995ea3bea9c1d329d28" kind="function"><name>overrideImageHeight</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ac9dfc8db2b691daa6b3e6f563617f3f3" kind="function"><name>setOverrideImageHeight</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ac343c55a02feef88899c8b386cb8f8c7" kind="function"><name>cutImage</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a27af868f3dd4065b17ef966fd60d8237" kind="function"><name>setCutImage</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae559ffddf0855f9cf300e6adff72cd9e" kind="function"><name>tcpMarker</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aeadaffdd2e4cab1041c6f7da38d5b6dd" kind="function"><name>setTcpMarker</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a30dc7e081b20a834b4f37c507812705c" kind="function"><name>theme</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a71f42a77763bd4442357a28487e0bc74" kind="function"><name>setTheme</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a0b0231a8241c4ebdfc65017c15ff6da6" kind="function"><name>jetsonIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a7ff15f4347b932c4f6800fc3789abbf8" kind="function"><name>setJetsonIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ad517bd8b95c9352533b446f35581a35e" kind="function"><name>navIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a87c9af56ec07aea350fdd3a8a925f2e2" kind="function"><name>setNavIP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1adb6519c188f3dd424b48f2c9a0020b82" kind="function"><name>utl1IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a091c9f38e1854563429488cbef6684fe" kind="function"><name>setUtl1IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa2b0a2b79fbaea5c78e4c15e8adab9b6" kind="function"><name>utl2IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ad2e09e44d50aef9e883815ffa28c6b25" kind="function"><name>setUtl2IP</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a5db7151d5882739841cfa0fa45535e1c" kind="function"><name>telemetryRecvPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a903e68e7d352d60741ccab4be893f8d5" kind="function"><name>setTelemetryRecvPort</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1abfd0a384bb6d6d2106eccdea957b6616" kind="signal"><name>remoteIPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a328d395d17d69010a0c9ae0a8dd9b67d" kind="signal"><name>localIPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae3bd8b0448632a0a40f9ad21bd3297ab" kind="signal"><name>telemetryPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a542ae5b92c0097c5fa223f45228004af" kind="signal"><name>tcpLFSPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a4a61381e24998af7980732c6a4b6edb4" kind="signal"><name>udpLFSPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afba61b29cbed67967aa51656b2ad102f" kind="signal"><name>execdPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9b7753a9155e35590940ca1c63663b57" kind="signal"><name>feedbackPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a09abe047bc72a0f25a475c0dcb316086" kind="signal"><name>proxyEnabledChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa997a7d53e78c0866630d563d9997c7e" kind="signal"><name>antennaAlignmentChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1af9ef299e7c0ff21d18982fc3103dd90a" kind="signal"><name>angleCorrectionChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a09e3d7f0270d9eb289c30a35259a588a" kind="signal"><name>useRadiansChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a2a44c9982d29533bae4f783c822698b3" kind="signal"><name>useDriftAngleChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a81490f64ec5e84ee32a9ffeb569d1d72" kind="signal"><name>thetaAzimuthCorrectionChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a500f45f47933aab9f405f96abf01c0a6" kind="signal"><name>storedLatitudeChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a683ec2fa776336b1222573b5303c5c25" kind="signal"><name>storedLongitudeChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1afc07a39e75028101c157d042b59d26a1" kind="signal"><name>storedZoomLevelChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a83595cdc21222ce8aeb7c602de502a46" kind="signal"><name>storedCatalogueChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aea92fb82fd8093337f89cb345892666b" kind="signal"><name>telemetryFrequencyChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae14b7f16e039c4fc2c116ee9e8f2759a" kind="signal"><name>overrideImageHeightChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aa03f9e95ff4ce3109328862017c794af" kind="signal"><name>cutImageChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a4dd6dc048053f32556394949b9c70aee" kind="signal"><name>tcpMarkerChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae7ca87e8fae7b8edfda275909e41535e" kind="signal"><name>themeChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a9dd5f47b10def4fb9cba6ce4cbd87bec" kind="signal"><name>scheduleRestart</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ab026888c070c26cd179cbeb2165b8907" kind="signal"><name>jetsonIPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a73accd9785a92cb32766dc9b557b6162" kind="signal"><name>navIPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1aae25a38ec6027b2285c5de7106b77216" kind="signal"><name>utl1IPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a3e125692a5a2774f3db86493f409a508" kind="signal"><name>utl2IPChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1ae9bf9870cb65fe0387a40c1058d875af" kind="signal"><name>telemetryRecvPortChanged</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a8cde98916f7affcc244bf98bc0e5cfeb" kind="function"><name>Config</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a45643e601ff02f996c774f7aca43ef3c" kind="function"><name>Config</name></member>
+    <member refid="d5/dfa/classConfig_1_1Config_1a053ed24cbeea4464aa42d3560f79c118" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="d3/d6a/classGUI_1_1DebugConsole" kind="class"><name>GUI::DebugConsole</name>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a838dd91854e72ed10d8ba56d4171cfc8" kind="variable"><name>command_list</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1ab16a86096f855e2841022c2ba40c5cdf" kind="function"><name>execute</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1ad385004e4e7b1a4fa47a86172ab9c4a6" kind="function"><name>DebugConsole</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a97ee70a8770dc30d06c744b24eb2fcfc" kind="function"><name>help</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a2463a3acef2df4c951ce942a3229e44e" kind="function"><name>quit</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1ad08c3653e6859f728ffea66c3d781f80" kind="function"><name>telsock_start</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a31bd710cdb3194dd30da5cd2dc4aeca6" kind="function"><name>telsock_stop</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a935a9234ec4da5167b48efe28df25a73" kind="function"><name>execdsock_start</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1afbdcf9f23fd9ff5f1d0af1bf396247ee" kind="function"><name>execdsock_stop</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1acd0739c8f624df5ae2616aead803b518" kind="function"><name>tcp_start</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a70bef4913e7ff0e2b3d4986bad9a5c4d" kind="function"><name>tcp_stop</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a51e16810b13904a999e65dca7e7c37d7" kind="function"><name>sim</name></member>
+    <member refid="d3/d6a/classGUI_1_1DebugConsole_1a1396bf9b5defe9fa844a63b5cd40ac0e" kind="function"><name>connect</name></member>
+  </compound>
+  <compound refid="d6/db2/classMap_1_1Diagram" kind="class"><name>Map::Diagram</name>
+    <member refid="d6/db2/classMap_1_1Diagram_1a6364abb7d84ea20e88f2c212b6ab73ca" kind="enum"><name>DiagramType</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a6364abb7d84ea20e88f2c212b6ab73caa9f1f85ba332e06415eb8fcb9707b10cc" kind="enumvalue"><name>Telescopic</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a6364abb7d84ea20e88f2c212b6ab73caad859b7c26116bfcabea6b4d2a01bc236" kind="enumvalue"><name>Strip</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a075bdef7aaac3ea7310f0bc3009cfc24" kind="enum"><name>DiagramDirection</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a075bdef7aaac3ea7310f0bc3009cfc24a9d4d8b0b72fc2659da772d761a3c5ecb" kind="enumvalue"><name>Left</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a075bdef7aaac3ea7310f0bc3009cfc24ad48f7af8c070184f3774c8e85854eb66" kind="enumvalue"><name>Right</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a45531f7bd16b58f03c468b8706f13b3d" kind="property"><name>polygon</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a3930d1e8af0848833f4de0e0e9517dca" kind="property"><name>range</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a6150639f5295064e97e299a9206d16b1" kind="property"><name>length</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1ab8ef1bf8a70cc07c6d55823c390a7e76" kind="property"><name>angle</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a4f974bbcfae706c1829a2416f6476e64" kind="property"><name>type</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a2a82b5ba85e345acfd4435a49c3d726f" kind="property"><name>uavPosition</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a5f8e6898e525f8171ad0331ecbf45b00" kind="property"><name>azimuth</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a41e4b8a439abadf5e6ff4e0e026e13fe" kind="property"><name>direction</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1af7fafb4e67d19a12f0cf4854859b997f" kind="variable"><name>m_polygon</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1ae28033b58e2e5228b617dd0bc9b9d6c7" kind="variable"><name>m_range</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1adebe452096c990e82e27f6467e41036f" kind="variable"><name>m_length</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a0827ad8c4e21778067f79ed9840eab6e" kind="variable"><name>m_angle</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1af8f987a11b445fb71bd0fac7472ba9cd" kind="variable"><name>m_type</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a2d62d985b0f748563f0299833f334fc9" kind="variable"><name>m_uavPosition</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a75a3a50dc6a4787b741e218349caf7ad" kind="variable"><name>m_azimuth</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a1e618a0d4ebc5cdcdb755eb6ec367527" kind="variable"><name>m_direction</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a5256e8a375382e00e6305c7b094c4e8f" kind="function"><name>Q_ENUM</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a2a58eedca0bb9aa6851ef5e46a479429" kind="function"><name>Q_ENUM</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a14ed2d4949370024b539a95cf6b01689" kind="function"><name>Diagram</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a289f4620ad3ffa8edfdf7c2738c6c0ce" kind="function"><name>polygon</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1ab7e74d460fb26bec780bdc3e684cfae4" kind="function"><name>setPolygon</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a1aca89b64f348b78ca146fa0cf34f97a" kind="function"><name>range</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a77c756c6d0cf2b53fd3bc66597b54853" kind="function"><name>setRange</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a75cc30ec124919b956140f357e4da8f9" kind="function"><name>length</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a71cbc24b3496417c5a325efcd1cd82f7" kind="function"><name>setLength</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a739f3a0c10da00d091b3ef7152c83e95" kind="function"><name>angle</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a75b3f55e3140f912064d181772bcb3dd" kind="function"><name>setAngle</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1aa310d468e942c1ad334f7ea97bacf067" kind="function"><name>type</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a4fc180363e76db48f4e5f38f87bd6d3b" kind="function"><name>setType</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1af37fe44b3cf23412a53b3a1c0155c661" kind="function"><name>uavPosition</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a49ab726adababa8581fc2c1640df8325" kind="function"><name>setUavPosition</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a693147e17db078cac11dd288e731d350" kind="function"><name>azimuth</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a5089dbe3feb0e48b28aac6f913256a30" kind="function"><name>setAzimuth</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a1d7e34f519d31a7da598cb3556b883eb" kind="function"><name>direction</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a5869442196a5d52f8ad6fbbadda7dd4c" kind="function"><name>setDirection</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a16017b581ec142582d8f6e870be23190" kind="signal"><name>polygonChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a5718b5ac814bf1778a5e63986b5fdb0c" kind="signal"><name>rangeChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a79c4616fe4fb17926193e96243495afc" kind="signal"><name>lengthChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a887e1502a9b05cf9ded321262a33dc47" kind="signal"><name>angleChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1aebbaa1291e3bfd6a169d37565c8c7399" kind="signal"><name>typeChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a0ab2edb5f518264239f5b46d02bd3b3e" kind="signal"><name>uavPositionChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1ab5c299588b738dc78f88ee8b23f6506d" kind="signal"><name>azimuthChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1a65ae1254162e9ae1117552051c086020" kind="signal"><name>directionChanged</name></member>
+    <member refid="d6/db2/classMap_1_1Diagram_1ac5c54df7ed3b930268c8d7752c101725" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="df/d40/classEntry" kind="class"><name>Entry</name>
+    <member refid="df/d40/classEntry_1a53129baa7cef7a0a4501018ba5ec07bd" kind="function"><name>Entry</name></member>
+  </compound>
+  <compound refid="db/d64/classNetworking_1_1Enums" kind="class"><name>Networking::Enums</name>
+    <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469" kind="enum"><name>PingStatus</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c" kind="enumvalue"><name>Success</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a2c7a898b13c2c0e0cf81a4dad1ad112b" kind="enumvalue"><name>DelayedSuccess</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a98cb58869380e6582c793dcd0e86598c" kind="enumvalue"><name>Timeout</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469ad3fa9ae9431d6cb1772f9d9df48cab19" kind="enumvalue"><name>Idle</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09" kind="enum"><name>ArgumentCategory</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09afdd6bb1a793bfa4502ad03cee614638f" kind="enumvalue"><name>Form</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09ace9aabd8e13c884472588325a665e44e" kind="enumvalue"><name>Focus</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09aa8d76445d1381f9e8af31e5f225dbfe6" kind="enumvalue"><name>Reform</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486e" kind="enum"><name>NetworkCommand</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea4712813eafc5945074b22fe2e4655434" kind="enumvalue"><name>FormImage</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea29db7d56a39efc080425bc86be966a1f" kind="enumvalue"><name>FocusImage</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eae63d5e0d6f7ad5820b84c5db3d34ee08" kind="enumvalue"><name>ReformImage</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eab852b7dd27a86b98629f1502e1392386" kind="enumvalue"><name>RemoteStorageStatus</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea2bcce22d62ab5e5ce2590c13529b7e64" kind="enumvalue"><name>ClearRemoteStorage</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7" kind="enumvalue"><name>Reboot</name></member>
+    <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea5fbdc735bed4e23b9d19caeacffa73c6" kind="enumvalue"><name>Poweroff</name></member>
+  </compound>
+  <compound refid="dd/d83/structNetworking_1_1ExecdArgument" kind="struct"><name>Networking::ExecdArgument</name>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5" kind="enum"><name>ArgumentType</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ad67b0ee7230dcecb610254e4e5e589cd" kind="enumvalue"><name>Float</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5a1e2f89e867cd91c3de2ea9fbd2ef96a3" kind="enumvalue"><name>Integer</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ade17ec82ff106e0c2b4417f5ca231eae" kind="enumvalue"><name>String</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a0ce34266d9f2cd3afca36ac08587c945" kind="variable"><name>FLOATING_POINT_PRECISION</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a0c0d1b18d3033cb858562e5e8636c18f" kind="variable"><name>value</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1ab47e2ea14e436a96c033b7cb01d825a4" kind="variable"><name>type</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1ac4b6acf611caeda82cabffa2c4fa3262" kind="function"><name>ExecdArgument</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a07326e2c81da9de7b0844cabaca94150" kind="function"><name>ExecdArgument</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a796e03a55b20feca95798810188b64aa" kind="function"><name>ExecdArgument</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a60514ba9570e608dfbc302e125aad34e" kind="function"><name>ExecdArgument</name></member>
+    <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a31d6169bed77d2623b89a30a5931e24d" kind="function"><name>set</name></member>
+  </compound>
+  <compound refid="d2/d08/classNetworking_1_1ExecdArgumentList" kind="class"><name>Networking::ExecdArgumentList</name>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1ac99a24b573f07ab3a24e7e644453f3e2" kind="variable"><name>defaults</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a91efacb394ec81844ceca98fb30220c2" kind="variable"><name>focus_defaults</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a2407873c0bcb27639ae2496c360dda93" kind="variable"><name>argument_list</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a19b6d5dfbd653b1c016059e727139a3e" kind="variable"><name>reform_argument_list</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a001ba3c908f034c311bfb072d592173a" kind="variable"><name>focus_argument_list</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a0ff072a16b432ca2c3fca3a18bab05b6" kind="function"><name>ExecdArgumentList</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1aef662bcdf98102a3b70f00aa1fb80922" kind="function"><name>getFormArguments</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1aadba8c6a2c4c94f621db548b539cc18f" kind="function"><name>getReformArguments</name></member>
+    <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a78fe1baa942e1f462b98f844883ee06b" kind="function"><name>getFocusArguments</name></member>
+  </compound>
+  <compound refid="d9/d86/classNetworking_1_1ExecdSocket" kind="class"><name>Networking::ExecdSocket</name>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1ab2892ab666521f081c6e8d42b848668a" kind="variable"><name>COMMAND_TELESCOPIC</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a77c6800ace7745a4ccb7b8adf987d58b" kind="variable"><name>COMMAND_START_STRIP</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a2711f13a34039ac9dd90abf959bfa591" kind="variable"><name>COMMAND_FOCUS</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a261c572b595ca5197b863ec9b15d995a" kind="variable"><name>COMMAND_STORAGE_STATUS</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a5c2ed7ac780ba490e4ec2c66c4b0807f" kind="variable"><name>COMMAND_CLEAR_STORAGE</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1aa941cfe08d962ed4ba572288f39d3eb1" kind="variable"><name>args</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1ac6e1dc1f36c097bb2adc0d314d69abff" kind="variable"><name>message_uid</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1aa88751a63390d47bdbd43c98c9dcf181" kind="function"><name>ExecdSocket</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a958f448ca262fd5e96958cbfeec13676" kind="function"><name>start</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a8c528baf37154d347366083f0f816846" kind="function"><name>stop</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1aca9a6b4dd04cee4d035855754cdfc8ee" kind="function"><name>executeCommand</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a17d8eb18cc25d019db6e8a621ee5dc4b" kind="function"><name>executeCommand</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1aa567678ed14b3936f7e0d0e2457bc546" kind="function"><name>list</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1ad8136df344f340b0653c27e3317c08f5" kind="signal"><name>ping</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1ad8aadd331579c49a2766349a4d13608b" kind="function"><name>wrap</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1a85a938b856b57ac4308c7f9af2f30de3" kind="function"><name>finalize</name></member>
+    <member refid="d9/d86/classNetworking_1_1ExecdSocket_1aa2fe74f3ed644ff0bd1c886e9bece04b" kind="slot"><name>processResult</name></member>
+  </compound>
+  <compound refid="df/def/classNetworking_1_1FeedbackSocket" kind="class"><name>Networking::FeedbackSocket</name>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1aa07f298d20ee01355202b4e5a15b7fb7" kind="variable"><name>STORAGE_STATUS_MARKER</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1aab5c038baa1b44dcc1a4acf4e6b0b4b2" kind="function"><name>FeedbackSocket</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1a958f448ca262fd5e96958cbfeec13676" kind="function"><name>start</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1a8c528baf37154d347366083f0f816846" kind="function"><name>stop</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1a37c1fb9b5186582b3c01135c1b28f8c0" kind="signal"><name>textReceived</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1ae7259e99451bbab025d71c8683d73676" kind="signal"><name>diskSpaceReceived</name></member>
+    <member refid="df/def/classNetworking_1_1FeedbackSocket_1aa2fe74f3ed644ff0bd1c886e9bece04b" kind="slot"><name>processResult</name></member>
+  </compound>
+  <compound refid="de/d69/classOS_1_1Filesystem" kind="class"><name>OS::Filesystem</name>
+    <member refid="de/d69/classOS_1_1Filesystem_1a5e84ed65192a6a85aca09d8b0e8a0684" kind="function"><name>get</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1a5d4d76eadea546e4017593a46362f383" kind="function"><name>fetchImageDirectory</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1aa5a5adb0e730b9b703d52015ee744bca" kind="function"><name>fetchTCPCache</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1a53e577925b27924ac14315a47bf819e2" kind="slot"><name>exportImagesToFolder</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1acf20251bcc5f823e14b0183d255ac5d8" kind="signal"><name>imageListCached</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1a4067ba95b19c1f0f0db1688732436ba0" kind="signal"><name>binaryCached</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1aa5f976de4a4e0fa24895325600826547" kind="function"><name>Filesystem</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1a0fc9b6fb3ea8fa6e1492078e13d5792b" kind="function"><name>Filesystem</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1ac487a3d1432bd72a8a63de2129839d8d" kind="function"><name>operator=</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1acd856b2e2940fd7dc0f25b993fb73706" kind="function"><name>checkOcurrence</name></member>
+    <member refid="de/d69/classOS_1_1Filesystem_1a43851aec2ef3dfcc32fcfd8cf003e0cc" kind="function"><name>fetchBinaryList</name></member>
+  </compound>
+  <compound refid="d4/da1/structMap_1_1Image" kind="struct"><name>Map::Image</name>
+    <member refid="d4/da1/structMap_1_1Image_1aac274af37f5fbaaa2c47d19145cfd856" kind="variable"><name>filename</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1af0f200aed3434898720bc82a04899cc6" kind="variable"><name>header</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a795f77504007a7501273c793d8aaf2bf" kind="variable"><name>meta</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a21f6223bafe02b5aefb14dad40053aff" kind="variable"><name>path</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a28e3c179a86f337095088b3ca02a2b2a" kind="variable"><name>valid</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a6f4dca6b48529c4d3dade0e8d46f4e43" kind="variable"><name>opacity</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a7ae0e8d0bb6c47a49569f47fd21f62d5" kind="variable"><name>shown</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1af48aaa4f437d6261895186bc53e475ad" kind="variable"><name>marked_for_export</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1a12dc3ecf726bb2a0eb716f58371da64a" kind="variable"><name>mercator_zoom_level</name></member>
+    <member refid="d4/da1/structMap_1_1Image_1ae2a8ac4b2d7688d469e8144007449fe4" kind="friend"><name>operator&lt;&lt;</name></member>
+  </compound>
+  <compound refid="d6/d19/structMap_1_1ImageMetadata" kind="struct"><name>Map::ImageMetadata</name>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a76714bdbc5c536fa77dfb14533ff82a9" kind="variable"><name>latitude</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1ac155e35fdeebafc89723a51520fb9fe6" kind="variable"><name>longitude</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a9eae6c1f38db98ab568f3ed3771a969d" kind="variable"><name>dx</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a8f461b6142ce8725218813abb23b06a3" kind="variable"><name>dy</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a3c9556645d92e863376a4063a3ad7001" kind="variable"><name>x0</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1adf19b8ba42d497d3093c3a51b1a32cca" kind="variable"><name>y0</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1ab8ef1bf8a70cc07c6d55823c390a7e76" kind="variable"><name>angle</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1ab7a39bf91ada4d262ab661e533d05d13" kind="variable"><name>drift_angle</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1afb7c4aa8c0b809f0f76628dbb5b6d62b" kind="variable"><name>lx</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1aaf431a94974e843174300e4c0fa47fbd" kind="variable"><name>ly</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1af5070800ff7c2c630ebbf27bc2a99b49" kind="variable"><name>div</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1ac46e821ae08930cc9e257642e34275a3" kind="variable"><name>velocity</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a0e13a4b4ae0cefdac2a413284239caa6" kind="variable"><name>altitude</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a969c435ef4ca6cab2727eac4b439680d" kind="variable"><name>kr</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1aa7259eb42e936d73efb4c5b67d6f81b8" kind="variable"><name>time_shift</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a720521ce5fb5d649ab31a92d2cfe7ae2" kind="variable"><name>time_duration</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1acc7aaef71dceccbb72e185405cf5a88e" kind="variable"><name>reserved_1</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1abc8e5842a5c8f75c0660de3973c95d41" kind="variable"><name>reserved_2</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a37e90f5e3bd99fac2021fb3a326607d4" kind="variable"><name>mode</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a288f27498ba3215d3ef6de973806695e" kind="variable"><name>image_type</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1af8407645db2d0329264f3c6d0cbd6dd1" kind="variable"><name>reserved_3</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1aaf2eb7a7615ec891d7e5a9d49d433f37" kind="variable"><name>reserved_4</name></member>
+    <member refid="d6/d19/structMap_1_1ImageMetadata_1a4438e0df9f58b1861feb3fc659f52534" kind="variable"><name>crc16</name></member>
+  </compound>
+  <compound refid="d0/df3/structMap_1_1ImageMetaHeader" kind="struct"><name>Map::ImageMetaHeader</name>
+    <member refid="d0/df3/structMap_1_1ImageMetaHeader_1a9b773bb2583171e07274d1ea066c09c8" kind="variable"><name>JPEG_HEADER_SIZE</name></member>
+    <member refid="d0/df3/structMap_1_1ImageMetaHeader_1a1ef68cababe80d680337efbc77524812" kind="variable"><name>meta_marker</name></member>
+    <member refid="d0/df3/structMap_1_1ImageMetaHeader_1afc253a7e3aa01efe133353d8c6034f4b" kind="variable"><name>meta_size</name></member>
+  </compound>
+  <compound refid="d4/dfc/classMap_1_1ImageModel" kind="class"><name>Map::ImageModel</name>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55" kind="enum"><name>ModelRoles</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" kind="enumvalue"><name>Index</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a6af851b83afe101ca715cce70d12ac37" kind="enumvalue"><name>Filename</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a097b5f1486e03692ce68c540c48102ce" kind="enumvalue"><name>Latitude</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a65e52b3d8a1c6d8a77b30a6407980944" kind="enumvalue"><name>Longitude</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a22dc95a35fbd833d9908928812979156" kind="enumvalue"><name>DX</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a30c86ef47c165c0160c70203db9b97e9" kind="enumvalue"><name>DY</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a8f02ace6850b3ca4d508001628323a29" kind="enumvalue"><name>X0</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a0088197a07fdc8ce5e8999442e44a7bf" kind="enumvalue"><name>Y0</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a501a99846e15f9e28e3150f19a8a85fa" kind="enumvalue"><name>Angle</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a76b53fbf69567f66771ad12c9e747c15" kind="enumvalue"><name>DriftAngle</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55aae0124ebb2f73d32a74b6957cea36e30" kind="enumvalue"><name>LX</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a691fefc4cf5c5f95d418ddd9b478b689" kind="enumvalue"><name>LY</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ae6fac012a9b23f2f87d8094e349e4418" kind="enumvalue"><name>Div</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55aca4476f26fd46fdc8542e859fb735bb2" kind="enumvalue"><name>Velocity</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a1d88bc9a9948fa60a172a034f470fbd2" kind="enumvalue"><name>Altitude</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55adbfa5cb38f74251cf16228b75a7208eb" kind="enumvalue"><name>KR</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a660d79d55e8f63a5514f0db8c57f68b1" kind="enumvalue"><name>TimeShift</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a2e990c5b3571e9ab534d10e9e06bfe1f" kind="enumvalue"><name>TimeDuration</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ab6acfa69de7f7722ba20012d28bb5c64" kind="enumvalue"><name>Mode</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ab7cf7bb9c1d4202202a6af23d08bc7b4" kind="enumvalue"><name>ImageType</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a579db7768451c170382cb9654a748f1c" kind="enumvalue"><name>Crc16</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ac9ceaeea41ae06d1a39c3322c762ec71" kind="enumvalue"><name>Valid</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55afc50621b7c5bef4dc3af447e15e6476c" kind="enumvalue"><name>LOD1FilePath</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ad848c4ae3b68e870bc3b446589809a44" kind="enumvalue"><name>LOD0FilePath</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a4d3623de7231bbc1228aea6534503279" kind="enumvalue"><name>Transparency</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55ab07289fc0b4c83736081105f20e62f16" kind="enumvalue"><name>Shown</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55a03dd65223606be512fe72a74bd31dc5a" kind="enumvalue"><name>MercatorZoomLevel</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a7d83e4f1efd20b7c111a343f7a125a55acaa635028335abf669d78b2f795150b4" kind="enumvalue"><name>MarkedForExport</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a9713981274e016a8f959218bf6190b58" kind="property"><name>totalCount</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1ab8d6b33c3e48f3efc6bc548f71a72548" kind="variable"><name>storage</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a20191c1a18cd253a395d3d3bdbdc4443" kind="variable"><name>m_totalCount</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1af7d8ed0df9b3183b2218e20f46817e44" kind="function"><name>ImageModel</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a51dd94ef911c8f4c6495093a1561b45a" kind="function"><name>rowCount</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1ae93b915598cdbe5ae59dddf41d917a53" kind="function"><name>data</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a893d1b7c0d8fc61472f7dcd4d3efa055" kind="function"><name>setData</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a0960433e49f8c8e778bc4c79878e0474" kind="function"><name>add</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a2ad1aa316f278b2e9fa8121504749652" kind="function"><name>remove</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1ac8bb3912a3ce86b15842e79d0b421204" kind="function"><name>clear</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1ac7d1b42c6d236cfa226ea5d811b2f4f7" kind="function"><name>getRole</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a433df4f33fd1cf2e2c7572563308e54c" kind="function"><name>lastImagePosition</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a5dc064b7d50f6ca659902961db3dfc29" kind="function"><name>exportSelectedImages</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a0df7dbc4f882cecd68a33602811ac10e" kind="function"><name>direct</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a179fffa8b5f8e8e13f868505fcca5823" kind="function"><name>totalCount</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a0514310c8bc03f1f62ec3639aa212f36" kind="function"><name>setTotalCount</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a790eaff5cc9d99d0be72a94d22c3533f" kind="signal"><name>added</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1add3ce11a8c5ef25b0a51ca91a7e12462" kind="signal"><name>totalCountChanged</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1af001de85dac4adc818b08cdc4c0ee325" kind="signal"><name>markedForExport</name></member>
+    <member refid="d4/dfc/classMap_1_1ImageModel_1a0ec0e31df18472075967b0410ee4b3be" kind="function"><name>roleNames</name></member>
+  </compound>
+  <compound refid="d4/db0/classProcessing_1_1ImageProcessing" kind="class"><name>Processing::ImageProcessing</name>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0" kind="enum"><name>ImageType</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0a9f1f85ba332e06415eb8fcb9707b10cc" kind="enumvalue"><name>Telescopic</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0ad859b7c26116bfcabea6b4d2a01bc236" kind="enumvalue"><name>Strip</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a980ba0d182d83608b86c8dbfd76e98d1" kind="property"><name>processingImage</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a329116d5aaa99131a10fc97617d51ea9" kind="property"><name>processingStrip</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a935e7e3b5064d22804862d6eeb05e767" kind="variable"><name>INITIAL_OPACITY</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a98c3520ca63cf194c95acb45eb87f8ea" kind="variable"><name>INITIAL_VISIBILITY</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af73aeacf7c581a5eb5b5cf104fafcd7e" kind="variable"><name>DEBUG_SAVE_STRIP_DATA_DESERIALIZED</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a018b2218802481470904afd816b8c14b" kind="variable"><name>DEBUG_SHOW_STRIP_DATA_MATRIX</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a977353be8173673a8e688b2ff781c355" kind="variable"><name>DEBUG_PRESERVE_BINARY</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a115f38bee181e867b022971ef9e3f2cf" kind="variable"><name>m_model</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a1f926261238d790675113bb9cc91eff6" kind="variable"><name>m_processingImage</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af8258c0c9057153556e7fce3d72d1e8a" kind="variable"><name>m_processingStrip</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af9c82b51168b8881fe9ef9aa8fec3a9b" kind="function"><name>model</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a72b3fc0aea207021d75c6a0103f191f6" kind="function"><name>exists</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1abaac175570c5cc67dc11308fbf5d7621" kind="function"><name>indexFrom</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a0881e92213af1984d788566056450c95" kind="function"><name>processingImage</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a0e7de0de2c4dde8872531aefb8e20faa" kind="function"><name>setProcessingImage</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1add9e875f2c3c97524fba34928fdf854b" kind="function"><name>processingStrip</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a8af605766140cc11567e123489b69d23" kind="function"><name>setProcessingStrip</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a37eabc64bf37789ca9a7c041bfe19b40" kind="slot"><name>processList</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3717b6fda559acd512a6a0d19ae62f71" kind="slot"><name>passImage</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a6cec84550eedb9df543e7d4636f829ce" kind="signal"><name>processImageFinished</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a179b6942ae3a34304d18dec28d212af3" kind="signal"><name>stripVector8bit</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1aa776a51d3f9547d8536f3ac5ebaa4dc6" kind="signal"><name>processingImageChanged</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1acd360cd0daa5fe620937893b9d3bc465" kind="signal"><name>processingStripChanged</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a802b7e5bf8557bc1591dd70d2c6e55f6" kind="function"><name>ImageProcessing</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1acab65bd759062bbde8e7a155e7cfc2df" kind="function"><name>asyncProcess</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a38d80311c583d23bbc06bd0cc489404f" kind="function"><name>asyncStripProcess</name></member>
+    <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a73fee56559fd355e8f22cd7d47b5257e" kind="function"><name>fileToByteArray</name></member>
+  </compound>
+  <compound refid="d6/d7c/structMap_1_1Marker" kind="struct"><name>Map::Marker</name>
+    <member refid="d6/d7c/structMap_1_1Marker_1a76714bdbc5c536fa77dfb14533ff82a9" kind="variable"><name>latitude</name></member>
+    <member refid="d6/d7c/structMap_1_1Marker_1ac155e35fdeebafc89723a51520fb9fe6" kind="variable"><name>longitude</name></member>
+    <member refid="d6/d7c/structMap_1_1Marker_1abc29e461e01cc0c712944f8f47f91331" kind="variable"><name>name</name></member>
+    <member refid="d6/d7c/structMap_1_1Marker_1a54c5bda1909b6f48d9ae297507ce3b85" kind="variable"><name>color</name></member>
+    <member refid="d6/d7c/structMap_1_1Marker_1aaefd3f4e955f8d35e8b62947f58b2e81" kind="variable"><name>icon</name></member>
+    <member refid="d6/d7c/structMap_1_1Marker_1ab4d14a08db7ff35c5b312c82810d511e" kind="function"><name>Marker</name></member>
+  </compound>
+  <compound refid="d3/d51/classMap_1_1MarkerModel" kind="class"><name>Map::MarkerModel</name>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55" kind="enum"><name>ModelRoles</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" kind="enumvalue"><name>Index</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55a097b5f1486e03692ce68c540c48102ce" kind="enumvalue"><name>Latitude</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55a65e52b3d8a1c6d8a77b30a6407980944" kind="enumvalue"><name>Longitude</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55a01a4b049383154e9e6b2de0deb24cc4d" kind="enumvalue"><name>MarkerName</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55af0cb9dd2552f66887192ee1ee0de384e" kind="enumvalue"><name>MarkerColor</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a7d83e4f1efd20b7c111a343f7a125a55a8311cdecca075cb8b0ac2e3c04242282" kind="enumvalue"><name>MarkerIcon</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a42a0de7db59b7a07ba17dcb735537473" kind="variable"><name>storage</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a9c6685a2ab6c21a5af7c727c4fd325fa" kind="function"><name>MarkerModel</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a51dd94ef911c8f4c6495093a1561b45a" kind="function"><name>rowCount</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1ae93b915598cdbe5ae59dddf41d917a53" kind="function"><name>data</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a893d1b7c0d8fc61472f7dcd4d3efa055" kind="function"><name>setData</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a975167ca92c1b0c3a708b345d1796492" kind="function"><name>add</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a2ad1aa316f278b2e9fa8121504749652" kind="function"><name>remove</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1ac8bb3912a3ce86b15842e79d0b421204" kind="function"><name>clear</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a790eaff5cc9d99d0be72a94d22c3533f" kind="signal"><name>added</name></member>
+    <member refid="d3/d51/classMap_1_1MarkerModel_1a0ec0e31df18472075967b0410ee4b3be" kind="function"><name>roleNames</name></member>
+  </compound>
+  <compound refid="de/df8/classNetworking_1_1Network" kind="class"><name>Networking::Network</name>
+    <member refid="d7/dcf/group__Properties_1ga5c3324cb211ef10bcf9727270a396459" kind="property"><name>telemetry</name></member>
+    <member refid="d7/dcf/group__Properties_1gad897b2edb6cf9e8363925e6d2cc0a587" kind="property"><name>remoteData</name></member>
+    <member refid="d7/dcf/group__Properties_1gaa62ae767793c978210a16d5c8d9eb427" kind="property"><name>networkDelay</name></member>
+    <member refid="d7/dcf/group__Properties_1ga0b5560998ba764dc735edb92271c04a8" kind="property"><name>tcpProgress</name></member>
+    <member refid="d7/dcf/group__Properties_1ga9709aefe4930807392898aecb0cb8a79" kind="property"><name>connected</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a7c770404591227aa4358de408d9dacb6" kind="variable"><name>DISCONNECT_DELAY_THRESHOLD</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ab292ae912d709977abc15b39fd6bb83c" kind="variable"><name>SEMICONNECT_DELAY_THRESHOLD</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1af221c7d4574fd7143da99a371596ba1c" kind="variable"><name>PING_INTERVAL</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a36725a20adc2566be1e4384c6bcaf697" kind="variable"><name>telemetrySocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a8c85ae3d115e40f62c4eb23af9f5c768" kind="variable"><name>execdSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ad927e18ce2220f666989021d6ea80dd9" kind="variable"><name>feedbackSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a266668c89035af8614ce74e924bb0804" kind="variable"><name>tcpSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1af700b33a365f5e795d2819ba49309e08" kind="variable"><name>m_network_delay_timer</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a631937bf410cf31207a98c3940999959" kind="variable"><name>m_telemetry</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1abf6399b6244dc446e3acfb15fcc39659" kind="variable"><name>m_remoteData</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1af8b8132b7fd492faf38cf8b0f376f881" kind="variable"><name>m_de10ping</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1af9d034d952bc533d0ff8696b8de2c9a0" kind="variable"><name>m_jetsonping</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ac2b843693f558b2cd4b5546066a4a380" kind="variable"><name>m_navping</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ad6f9c72c1c7c89d92ca78e0fa9626872" kind="variable"><name>m_utl1ping</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a7aa7c6b37190d03eff49e6d3def4b4dd" kind="variable"><name>m_utl2ping</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ad80cfe012cb5c842a9c6c99c782b4e7f" kind="variable"><name>m_networkDelay</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a7f584a9889133cbb34b61a5c8a0708cf" kind="variable"><name>m_connected</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a140fe3aa5e68f25b0ca33d556b560192" kind="variable"><name>m_tcpProgress</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a4375ce843b59746a5d8b99050c076f30" kind="function"><name>get</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1abfdd473206a4330e935839d9d54d8110" kind="function"><name>startTelemetrySocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1abfb4943845190af905406c346f620e39" kind="function"><name>stopTelemetrySocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a76a0b63b6f84c4b073a274f5fc2576ea" kind="function"><name>startExecdSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a99525a5bbb8d8a1ea17f2fb2c125a465" kind="function"><name>stopExecdSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1abb9a1172e35eb1d8e61e25b0dcd5765a" kind="function"><name>executeCommand</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a725d496b394638566a72ae8284739cd5" kind="function"><name>executeString</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a0a2a2a80222d19f8d0dd722265840d94" kind="function"><name>argument</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a31a22d1b57bfbbe705b2d07622956884" kind="function"><name>setArgument</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a83418d4b55aaeb0db99633905f46dce8" kind="function"><name>startTCPSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a345361fcf67e2fc761099213dcab80b3" kind="function"><name>stopTCPSocket</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ac6ce464ee16dd13ef252c7ed754ba9a2" kind="function"><name>telemetry</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1affd8dbb3174e7e2d1701bfe9ad1c048a" kind="function"><name>setTelemetry</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a9d88acdb4301f8f4a06aaa4a646c24f2" kind="function"><name>remoteData</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a1432b3a422f70eaf1b0f532141e449d7" kind="function"><name>setRemoteData</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ae71b89de668470df02e8a541bdd32ad5" kind="function"><name>networkDelay</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ac3db62e17773eab70880645b766004d0" kind="function"><name>setNetworkDelay</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a0a58ccf8071f24609c44225b0cf1aed8" kind="function"><name>connected</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a1c536b13a9211b18b0e63f4a1a4085d8" kind="function"><name>setConnected</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a7fc583bd7b551fc76f7b2c42c9835a33" kind="function"><name>tcpProgress</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a7f6ea6943301ac07a2b052d518356027" kind="function"><name>setTcpProgress</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ab85cd090ef589eb9e1ca27d28e6cfaa8" kind="signal"><name>telemetryChanged</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ada349bbe903e926c4ae7f3175db3ee52" kind="signal"><name>remoteDataChanged</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a128a688dc588bac19801640f0a28f827" kind="signal"><name>networkDelayChanged</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a5b6aa4f5f9c6f38ea29be4bb2c313521" kind="signal"><name>connectedChanged</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a906439a635f0c59c8b2e45a7b07edd8a" kind="signal"><name>tcpProgressChanged</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a494c9269792068b8e0ecff130f346a8e" kind="signal"><name>telemetrySocketMetrics</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a8c7be2f1298e09c11e7629889a53d722" kind="signal"><name>execdSocketMetrics</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a541f0f13ac9611f77c38df89c3ce4977" kind="signal"><name>feedbackSocketMetrics</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ae1c378bc3ccf4c8b1619d3f5406a484e" kind="signal"><name>lfsSocketMetrics</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1ad049bcdb3f89d7dcaf4d7839c14a9ade" kind="signal"><name>stripSocketMetrics</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a837d351e50ac69aecaa4bc46dcdd9fbb" kind="function"><name>Network</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1a6443420097525e1f3680022ef5efa57d" kind="function"><name>Network</name></member>
+    <member refid="de/df8/classNetworking_1_1Network_1afa7ac45715771aeb0c914a3565a53984" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="d6/dce/classMap_1_1OfflineTileLoader" kind="class"><name>Map::OfflineTileLoader</name>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a5d237b772cffb4fba31e17cf260627ea" kind="variable"><name>m_netaccs</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a9d94cfa6094bd8f6d6c0898c78326903" kind="variable"><name>m_totalTiles</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1af4a1b80027768c1ebda8550efb02b9d5" kind="variable"><name>m_loadedTiles</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a49b5ee20581912877b02ca21c0c353e9" kind="variable"><name>m_tilesQueue</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a948616424c1258a713f5e025545ce7be" kind="variable"><name>m_parallelLoadedCount</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1aaa247f7db35b5d0d972d2e5bfacf11ef" kind="variable"><name>m_serverUrl</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a01b18547adedb0258e24977712ee287e" kind="variable"><name>m_storagePath</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a8ab39b4d356e559b277dd2a0e3860b63" kind="function"><name>OfflineTileLoader</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1ad02d348c6d5b7090ae3955e6420d19bd" kind="function"><name>download</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a764d260475f41a7c61c47875dc5a3d7f" kind="function"><name>download</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a530731c9e29b813127008192f4e24424" kind="function"><name>download</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a94ccf2689da51c52d2d49ca5c918aa2e" kind="function"><name>estimateTileCount</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1af850933e8c541d17c73ac2aa588d6ea2" kind="function"><name>setServerUrl</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a83893cba564418b02ad19adabeb3dec0" kind="function"><name>setStoragePath</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1ac805f77076b1639c38a1c9a4b867037d" kind="function"><name>tile</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a00ea94a78df6cc042ca5611ca1110eb2" kind="signal"><name>progress</name></member>
+    <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a08a9916d5f1ceca25bd11997574b1746" kind="function"><name>processDownload</name></member>
+  </compound>
+  <compound refid="d1/d42/classConfig_1_1Paths" kind="class"><name>Config::Paths</name>
+    <member refid="d1/d42/classConfig_1_1Paths_1a32a7212c4514bb70fd6a9ddd7bcfc517" kind="variable"><name>LOD_LEVELS</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ac99cfb381fa19967d6461e584f25d027" kind="function"><name>get</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ae7dd14725f2a5c12505996dc310610c1" kind="function"><name>root</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a91948fb992ef0c3c951e0708346d1c85" kind="function"><name>imageCache</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ac4c96993778b59c29057bef3144fb4d0" kind="function"><name>lod</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a7560631e1c9c5f4f885c206a7dc3342c" kind="function"><name>tcp</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a6b7ef6fd7aab00bbfb99d54ea405be33" kind="function"><name>mapConfig</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1aeb71dff80168706e9055b55e1c7ee2b4" kind="function"><name>offlineTiles</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a8c771e9a4eb6555d1dc3e348244e2596" kind="function"><name>config</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a6c0adb24682142f6e37996b57e6e6c93" kind="function"><name>logs</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1addc33e2f765b93f743cb8eaae7089ebb" kind="function"><name>themes</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ad12648a539fe227e3a96aadb632b0e4c" kind="function"><name>bash</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a9e7be36d4b0d334d82cb56be49a4f3cd" kind="function"><name>runtimeBash</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ac4ba0309ec01a00b9b5d8e8530d19969" kind="function"><name>createImageCache</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a24fbd0c2fa835544a50805c75ef1050b" kind="function"><name>clearImageCache</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ac8868adcad6442b57bd8b532872369dd" kind="function"><name>Paths</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a54eb83dc60e72d93c7bdd683459abfe7" kind="function"><name>Paths</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1ab4c0e04135f1d7b6c6c8172eeac69a1f" kind="function"><name>operator=</name></member>
+    <member refid="d1/d42/classConfig_1_1Paths_1a449e9f9958b7c47555fc233fbf12537d" kind="function"><name>createMapConfigs</name></member>
+  </compound>
+  <compound refid="dd/d83/classNetworking_1_1Pinger" kind="class"><name>Networking::Pinger</name>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a93e4e7b70f594530362de458c932dd55" kind="variable"><name>ch</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1acdffd5b2ef6f777703b3052075ada838" kind="variable"><name>t</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a7f6b11997ac2241d634a410c22c7bd95" kind="variable"><name>addr</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1ac875ccd0df644ce3952de7d220873174" kind="variable"><name>m_args</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a26212be9cfb26a7569a0834dbd5123d5" kind="function"><name>Pinger</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a3827957aab79fd84ac5ab69e0171a8ad" kind="function"><name>~Pinger</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a56578afa8732577b57258898ddc7de58" kind="function"><name>start</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1aba28ee97ffe6d508e26f534ec7e62f8f" kind="function"><name>stop</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1aec41dea9a34ffd7275acc4b59ba16c1c" kind="signal"><name>result</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1ad8136df344f340b0653c27e3317c08f5" kind="slot"><name>ping</name></member>
+    <member refid="dd/d83/classNetworking_1_1Pinger_1a7ceb5c997a1763b8e1cee1edebcaf4b6" kind="slot"><name>recv</name></member>
+  </compound>
+  <compound refid="d7/d85/structNetworking_1_1PlannerAppendDatagram" kind="struct"><name>Networking::PlannerAppendDatagram</name>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a0ea604dd26c415c8f380323b91bdba56" kind="variable"><name>marker</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a4fc3a0c58dfbd1e68224521185cb9384" kind="variable"><name>id</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1acfb1795eb860b37ae4a0cf5007525b11" kind="variable"><name>r</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a69ddb9c845da426f636d9dd0dbed4e7e" kind="variable"><name>ip</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a8e0798404bf2cf5dabb84c5ba9a4f236" kind="variable"><name>port</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a7972334534f68166121a6e51b0aac2d6" kind="variable"><name>lat</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1aa96391e04b5977c50b96d77bea86a01d" kind="variable"><name>lon</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1ae1d905c6ac1a0c9b96dca16153917334" kind="variable"><name>cnt</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a8aed22e2c7b283705ec82e0120515618" kind="variable"><name>len</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1af161fc144504ebd2d6a3a287a47efcc0" kind="variable"><name>command</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1a667da8c0fec261cd7fc83ee7976f51dd" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="d7/d85/structNetworking_1_1PlannerAppendDatagram_1ad24229e650467998c85c0047a2970270" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="d7/d92/structMap_1_1PlannerPoint" kind="struct"><name>Map::PlannerPoint</name>
+    <member refid="d7/d92/structMap_1_1PlannerPoint_1a1db826cabd271c1931e78ebc1560604c" kind="variable"><name>command</name></member>
+  </compound>
+  <compound refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram" kind="struct"><name>Networking::PlannerRemoveDatagram</name>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a0ea604dd26c415c8f380323b91bdba56" kind="variable"><name>marker</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a4fc3a0c58dfbd1e68224521185cb9384" kind="variable"><name>id</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1acfb1795eb860b37ae4a0cf5007525b11" kind="variable"><name>r</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a7972334534f68166121a6e51b0aac2d6" kind="variable"><name>lat</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1aa96391e04b5977c50b96d77bea86a01d" kind="variable"><name>lon</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1ae1d905c6ac1a0c9b96dca16153917334" kind="variable"><name>cnt</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a8aed22e2c7b283705ec82e0120515618" kind="variable"><name>len</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a109d968b5269f4699117f067bda65529" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram_1a8cd5cbe90b83fca85b31a4230d77c20a" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram" kind="struct"><name>Networking::PlannerResponseDatagram</name>
+    <member refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram_1a0ea604dd26c415c8f380323b91bdba56" kind="variable"><name>marker</name></member>
+    <member refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram_1a4fc3a0c58dfbd1e68224521185cb9384" kind="variable"><name>id</name></member>
+    <member refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram_1ae1d905c6ac1a0c9b96dca16153917334" kind="variable"><name>cnt</name></member>
+    <member refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram_1ad8e8bf46284941b161387369faf8e633" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram_1a10fb184281eeaeaa9948edb825e4f3e0" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="d3/d16/classProvides" kind="class"><name>Provides</name>
+  </compound>
+  <compound refid="d8/d62/classNetworking_1_1RemoteData" kind="class"><name>Networking::RemoteData</name>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a49e2a8f80f7c33ebc5a1d7a7fb8b8bf0" kind="property"><name>storageSpace</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a59dd7fd046e1d147dcf9c0705f14e621" kind="property"><name>de10ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a1c275a6b06838caea6122394c0767c8d" kind="property"><name>jetsonping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1ab39ac4e3d485863ef6c202ad051c0c9e" kind="property"><name>navping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a5b6183207eb6ae612e3d99cc244d5792" kind="property"><name>utl1ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1abf82218f7aefb658f2b12da5fba445ab" kind="property"><name>utl2ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1aa716ff94b1a3216251bce6c7d8c1f307" kind="variable"><name>m_storageSpace</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1ab81d36ca594f418896772a4d49957674" kind="variable"><name>m_de10ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a66c4541b04e404f89b59c8910f0364e2" kind="variable"><name>m_jetsonping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a486ae96bbe1d9e6c1df650650efa0308" kind="variable"><name>m_navping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a1cd0c21228d32969f9d0ad305bf4126e" kind="variable"><name>m_utl1ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1aa62d1487b8e154a0a3d899f87b9a0afb" kind="variable"><name>m_utl2ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1aaa72d856aabec940cd92b5a4a4c96c37" kind="function"><name>RemoteData</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a854df8761ba784703b8543ee0e9b2d78" kind="function"><name>storageSpace</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1af736779d8389eef5f855ca65034a957c" kind="function"><name>setStorageSpace</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1ac64c29714a66620dee48a459f118c68c" kind="function"><name>de10ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a329b0cfe2f9b149003fdd14e3b770d41" kind="function"><name>setDe10ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a14a079675a4087dfda9102f6b83554b5" kind="function"><name>jetsonping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a412d41f9aaedd42b9c396347f40db97f" kind="function"><name>setJetsonping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1aa0b2fe459570db1d4c6356a5f31aad67" kind="function"><name>navping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a4a79cb1891ba5f44433c852e94a0a9c4" kind="function"><name>setNavping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1acb72cb3af1eb72eb4fee825410409243" kind="function"><name>utl1ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a226b87411c691617314a20f62b1f8b58" kind="function"><name>setUtl1ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a3ac5a076d66ade7eb3d26807fb06df76" kind="function"><name>utl2ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1ad50504aad5c584f0a31183e083eb6e50" kind="function"><name>setUtl2ping</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a5faa336516f22efe1185a1568dd87a9b" kind="signal"><name>storageSpaceChanged</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1ac02a60b04cd7eb8dd63027e220a2ad17" kind="signal"><name>de10pingChanged</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a135d8589f4c561d2104fd35a4decb588" kind="signal"><name>jetsonpingChanged</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a163dfa547ce1d0b17d8a11aed2bc2b27" kind="signal"><name>navpingChanged</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a9e74f724cf98b30013ca7476804b66b4" kind="signal"><name>utl1pingChanged</name></member>
+    <member refid="d8/d62/classNetworking_1_1RemoteData_1a2c7e79eb7989b93eb13b825a5c3177c5" kind="signal"><name>utl2pingChanged</name></member>
+  </compound>
+  <compound refid="d8/d9a/classMap_1_1Route" kind="class"><name>Map::Route</name>
+    <member refid="d8/d9a/classMap_1_1Route_1ae0c638fc1b84216006b3ae29ced0de41" kind="property"><name>fullRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1ab0c637baae864ec7e81d4d50f57e9377" kind="property"><name>recentRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1aa64c1ad1a87039f401d83a308ac8a99e" kind="variable"><name>RECENT_ROUTE_SIZE</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1ae1ac2e86c8dadc7c51df07be796ebb7a" kind="variable"><name>m_fullRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1af9bdc6e8e00baf045ba6eb3e37102dfa" kind="variable"><name>m_recentRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1aedc243a82f72d905ff214ce378ae81fb" kind="variable"><name>logger</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1abf8f0335ce7019e4bcda70b40e81e913" kind="function"><name>Route</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1ab935fd8c8d5276b18bc5f0747b5442ea" kind="function"><name>~Route</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1ab9cec07369c778d881c23357cd391024" kind="function"><name>append</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1ac8bb3912a3ce86b15842e79d0b421204" kind="function"><name>clear</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1a810eef70b5fd29d4b815c3eb48a05a67" kind="function"><name>fullRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1a1dd34209c3489fbc7e006a576b3183a6" kind="function"><name>setFullRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1a9c13bcb36f4b12c07a52b56eca671428" kind="function"><name>recentRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1a5dff03ade4beb1f704cf107726122476" kind="function"><name>setRecentRoute</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1a6369df2a4711871118b3dddc03e1cc5a" kind="signal"><name>fullRouteChanged</name></member>
+    <member refid="d8/d9a/classMap_1_1Route_1abf54adecb898b3189ac550d6d2a4f064" kind="signal"><name>recentRouteChanged</name></member>
+  </compound>
+  <compound refid="dd/d0f/classMap_1_1RouteLogger" kind="class"><name>Map::RouteLogger</name>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1aa1e3ae72a87df4e58536e59cd9f7916e" kind="variable"><name>current_file</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1a53467faf6e87b0ca2becaafb18470e93" kind="variable"><name>format</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1af3b7279d878ff1e95a68f9a83f530183" kind="function"><name>RouteLogger</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1ab087029c633aa917d64b41f3f2899061" kind="function"><name>createLog</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1a288df2d16c9f22d186a5cae4db488f63" kind="function"><name>setFormat</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1afa477eaa532b013ce211c98be99f2f95" kind="function"><name>append</name></member>
+    <member refid="dd/d0f/classMap_1_1RouteLogger_1ad55316f5135cdae6aa6c5a763f6c3473" kind="function"><name>commit</name></member>
+  </compound>
+  <compound refid="dc/d18/classMap_1_1Ruler" kind="class"><name>Map::Ruler</name>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185" kind="enum"><name>SegmentRoles</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ad8851d3f3f9125b70d9f7f4f400837c8" kind="enumvalue"><name>index</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ab3c95b71cc459e44c9a666df201adbfb" kind="enumvalue"><name>segment</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185aa779debe837fb9096c9163aab139f9a4" kind="enumvalue"><name>segmentLength</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ac067f84b51034e9d23c77f852d53cb36" kind="enumvalue"><name>segmentCenter</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ac16358e705031bb4fde7cfd9b3ecffe3" kind="property"><name>lastLatitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1afc3bc644c2fbc1e65cc8ec8b0647449c" kind="property"><name>lastLongitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1abca6e90031b2e6f2894761e1fb9bd40c" kind="property"><name>totalLength</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ac604a4223f546d3b0d73958e4c5db105" kind="variable"><name>m_segments</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a0d1d1f430e4703f96a1d73e62a08ca12" kind="variable"><name>m_path</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a78263864698ba461e70e00a0ea1ad42f" kind="variable"><name>m_segmentsCenter</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ad591e0afa677fbbb68d4826520bc70f9" kind="variable"><name>m_orthodrom</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1af4a51fae7eff573c693986efefc0feda" kind="variable"><name>m_lastLatitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a8e99b350db5bfe069cce613f69063977" kind="variable"><name>m_lastLongitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a72f5f7e8a24a9472810d6984b7006259" kind="variable"><name>m_totalLength</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a6f398fecf387fc50e6677af45c7e8bff" kind="function"><name>Ruler</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a6a4292807ed39129cc1833f0ce66ec54" kind="function"><name>~Ruler</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ae93b915598cdbe5ae59dddf41d917a53" kind="function"><name>data</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a0ec0e31df18472075967b0410ee4b3be" kind="function"><name>roleNames</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a51dd94ef911c8f4c6495093a1561b45a" kind="function"><name>rowCount</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a080886a2e747059294f915e9f43ba853" kind="function"><name>setRoute</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a022b5aa9d5a00f7ae086758ad609b2db" kind="function"><name>resetRoute</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ab2fe0a510570d4396422170103a5f6ca" kind="function"><name>insertPoint</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a89292483df8a52c36b99d1caddf558a6" kind="function"><name>removePoint</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a940f2e550202673718f76a39aa53bd8a" kind="function"><name>updatePoint</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1afc71491ed963f5c72970f4c1c868f4a1" kind="function"><name>calculateCenter</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a593f44e48dd7f99f1d412d50eeb10878" kind="function"><name>calculateAngle</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a4a8ab00417c4dc729b2fc0efb8230ac5" kind="function"><name>totalLength</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a5d3b44804dce22c119af994b3cbb2593" kind="function"><name>setTotalLength</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a6462f8755e43ec7a8e4268173229bc3c" kind="function"><name>lastLatitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1ae59255a6de84b0bb71b7ed90eddd582c" kind="function"><name>setLastLatitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1245bb5d5e61e91c32a05c4dacfdc646" kind="function"><name>lastLongitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a544c56a13d79cc7576e0b2fcf0a1027a" kind="function"><name>setLastLongitude</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a1b98ee101915375d9c1d813adf10e386" kind="signal"><name>totalLengthChanged</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a8e5ec1f4734b4d0c6419c5914698c6ee" kind="signal"><name>lastLatitudeChanged</name></member>
+    <member refid="dc/d18/classMap_1_1Ruler_1a0921f29455e20cbccc964b746b575dda" kind="signal"><name>lastLongitudeChanged</name></member>
+  </compound>
+  <compound refid="da/dfc/structMap_1_1StripFormatMetadata" kind="struct"><name>Map::StripFormatMetadata</name>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a9eae6c1f38db98ab568f3ed3771a969d" kind="variable"><name>dx</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a8f461b6142ce8725218813abb23b06a3" kind="variable"><name>dy</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1ac6894c88aabf335922736a63b2b87b97" kind="variable"><name>course</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a26fd84d522945b6038221d9e38c7cc39" kind="variable"><name>roll</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a3c9556645d92e863376a4063a3ad7001" kind="variable"><name>x0</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a018e57d63b6c2c3a802377f95d7a4e96" kind="variable"><name>word_size</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a26ce98a1cefae97e7a803b1dbec972c1" kind="variable"><name>polarization</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1af77b1a54442f2443cf64a4766f916bcd" kind="variable"><name>y</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a31a74a81efd0ba14cbc4853f7fce3af0" kind="variable"><name>nx</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a9696b3729bc7ba3effc41ee585be5b27" kind="variable"><name>ny</name></member>
+    <member refid="da/dfc/structMap_1_1StripFormatMetadata_1a9fc4cca635a26c692681a7071e379aa7" kind="variable"><name>k</name></member>
+  </compound>
+  <compound refid="de/ddd/structMap_1_1StripHeaderMetadata" kind="struct"><name>Map::StripHeaderMetadata</name>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1a51bdee9eea878b90b917afc0f8c99435" kind="variable"><name>marker</name></member>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1ab6d7b6f8c2ceaba7acda80aaf05f4899" kind="variable"><name>version</name></member>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1aaba88b24a21a6c70c895c0d55f4a69a0" kind="variable"><name>size</name></member>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1ae1d905c6ac1a0c9b96dca16153917334" kind="variable"><name>cnt</name></member>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1a4fc3a0c58dfbd1e68224521185cb9384" kind="variable"><name>id</name></member>
+    <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1acb5cfd209ba75c853d03f701e7f91679" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="dc/dac/structMap_1_1StripImage" kind="struct"><name>Map::StripImage</name>
+    <member refid="dc/dac/structMap_1_1StripImage_1aac274af37f5fbaaa2c47d19145cfd856" kind="variable"><name>filename</name></member>
+    <member refid="dc/dac/structMap_1_1StripImage_1a21f6223bafe02b5aefb14dad40053aff" kind="variable"><name>path</name></member>
+    <member refid="dc/dac/structMap_1_1StripImage_1a28e3c179a86f337095088b3ca02a2b2a" kind="variable"><name>valid</name></member>
+    <member refid="dc/dac/structMap_1_1StripImage_1a6f4dca6b48529c4d3dade0e8d46f4e43" kind="variable"><name>opacity</name></member>
+    <member refid="dc/dac/structMap_1_1StripImage_1a7ae0e8d0bb6c47a49569f47fd21f62d5" kind="variable"><name>shown</name></member>
+  </compound>
+  <compound refid="d0/dec/structMap_1_1StripImageDatagram" kind="struct"><name>Map::StripImageDatagram</name>
+    <member refid="d0/dec/structMap_1_1StripImageDatagram_1a4933a7958441c5ae6d2368ee0cd3ca08" kind="variable"><name>header</name></member>
+    <member refid="d0/dec/structMap_1_1StripImageDatagram_1abfa29e049309fc0e665ae2f4e803136a" kind="variable"><name>nav</name></member>
+    <member refid="d0/dec/structMap_1_1StripImageDatagram_1a91c69b8cbecc9c15db7257234349fa1c" kind="variable"><name>format</name></member>
+  </compound>
+  <compound refid="d6/d47/structMap_1_1StripNavigationMetadata" kind="struct"><name>Map::StripNavigationMetadata</name>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a282e7d4378d4a18a805b8980295ac86c" kind="variable"><name>pitch</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a26fd84d522945b6038221d9e38c7cc39" kind="variable"><name>roll</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a1c921d7f2f6a29b15d709c49d2df1797" kind="variable"><name>elevation</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a76714bdbc5c536fa77dfb14533ff82a9" kind="variable"><name>latitude</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac155e35fdeebafc89723a51520fb9fe6" kind="variable"><name>longitude</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac46e821ae08930cc9e257642e34275a3" kind="variable"><name>velocity</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1ac6894c88aabf335922736a63b2b87b97" kind="variable"><name>course</name></member>
+    <member refid="d6/d47/structMap_1_1StripNavigationMetadata_1a1f721d77724f0712d13dbb6719895531" kind="variable"><name>track_ang</name></member>
+  </compound>
+  <compound refid="d5/d32/classTCP" kind="class"><name>TCP</name>
+  </compound>
+  <compound refid="d8/d6e/classNetworking_1_1TCPSocket" kind="class"><name>Networking::TCPSocket</name>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a201f51317c2f59cf7cb3d60e52382690" kind="variable"><name>TCP_TIMEOUT</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ab6b01cd6ef981331a675874b45bf6911" kind="variable"><name>readFile</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ac9bf98314de179fa3424221599846d37" kind="variable"><name>server</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a0558920c8ed7149d80c3051117c2d60f" kind="variable"><name>socket</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ae0f3267ca73ca79b3a97682c8e0e7d2c" kind="variable"><name>timer</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4ce2214ca936398a46f7306e5c610f11" kind="variable"><name>imageData</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a7960f9c558f9ee2c3d4a8fdea096fb56" kind="variable"><name>success</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a394f53a161794bcef23e0e6438896113" kind="variable"><name>splitIndex</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a48f46ad02b77a00b795d15626ba1d42e" kind="variable"><name>fileSize</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1aac274af37f5fbaaa2c47d19145cfd856" kind="variable"><name>filename</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a3617f52d9bcbc6bdd7aa3a47c2ab4c7c" kind="function"><name>TCPSocket</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1abd4f5313475f5675af97fd717fafbbc1" kind="function"><name>startServer</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1ac1e551c19cd6ce8d7da8b13d1f290863" kind="function"><name>stopServer</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4f0aa3afbd6ac7dd9cb856b55e889141" kind="function"><name>progress</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a009d42df202b2b5f7001ae737d92efd6" kind="signal"><name>receivingFinished</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4b33200464fba1e0b425162610ce251e" kind="signal"><name>progressChanged</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" kind="signal"><name>socketMetrics</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a0f3fef331e9a832c0ae7209d9a039efe" kind="function"><name>readFileInfo</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a44e62f4e2299c98f72757323c3c7f92a" kind="function"><name>readFileBody</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a4a4eeaa4f12b6ba913f859fdd5584380" kind="slot"><name>clientConnected</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a23e7de45af6a2773386435bfe58f4316" kind="slot"><name>serverRead</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a7070d5277d80b41a0a052cbd79669b1c" kind="slot"><name>clientDisconnected</name></member>
+    <member refid="d8/d6e/classNetworking_1_1TCPSocket_1a9d6c6bb6fc8580e4f703e362b0342f82" kind="slot"><name>connectionTimeout</name></member>
+  </compound>
+  <compound refid="dd/dee/classNetworking_1_1Telemetry" kind="class"><name>Networking::Telemetry</name>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a76714bdbc5c536fa77dfb14533ff82a9" kind="property"><name>latitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ac155e35fdeebafc89723a51520fb9fe6" kind="property"><name>longitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a2b13d276aee0d9fd646c8fa3647e869b" kind="property"><name>altitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1afa723e1374eb19e2e10db4a6b3e5815e" kind="property"><name>velocityCourse</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a48225c209a84b1098a141317282b7f62" kind="property"><name>velocityEast</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a4a32aadf7bc6787e7be2c5a7f1bf7671" kind="property"><name>velocityNorth</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ac33511cc237d58d0dc4e7376de956ac6" kind="property"><name>velocityVertical</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a34c057a0378030db67bd6a129f37d938" kind="property"><name>pitch</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a1d3228afa3a1d6773954f40c1e519eb9" kind="property"><name>roll</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a21cd490f6191f66678f55b4c242a10cf" kind="property"><name>yaw</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1acaa2fde7e3fad7df8f5755347603d17b" kind="property"><name>course</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a5d34a8f2dfe25421b2b473a5fd37b0ed" kind="property"><name>time</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a691915f3fb4792e167a2351c6e932483" kind="property"><name>satellites</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a342bd4ad68854574f375d53da457eae7" kind="property"><name>seaLevel</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a03e748f3a80873c5d269d50f3af29d2d" kind="variable"><name>m_datetime</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ad5e960185cf25f75cecf9024e92b7390" kind="variable"><name>datagram</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a365b82073e2fc70801fa113e89e10dd0" kind="variable"><name>m_seaLevel</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ab425a6f0d34227288593ce62079f254c" kind="function"><name>Telemetry</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a3f99e460a793739de2ef6976b2a034d4" kind="function"><name>latitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a5ecc1e48920ff4ae4d61b4fe5b421040" kind="function"><name>setLatitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a00f3340e5829cf7e97f73d9e174d0a57" kind="function"><name>longitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a34d7c6faeefcc800e6ef256fd61b2619" kind="function"><name>setLongitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a9ba929c38859c0949c16432889ee636d" kind="function"><name>altitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a3708080d533c027de7dfba9cbe45f97d" kind="function"><name>setAltitude</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a69a6347f449dc86f5ec58f0f737a0fd2" kind="function"><name>velocityCourse</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a93bfd7a0e001eb9288ffb259ccce0569" kind="function"><name>setVelocityCourse</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a52c09f68220263729a983ad88241fed8" kind="function"><name>velocityEast</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ada297de432aee82141fe5248d86e7c5f" kind="function"><name>setVelocityEast</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a22b9768f26ac4ad80689d649adba020e" kind="function"><name>velocityNorth</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a2511376a04f95f81f18a305e7d526c78" kind="function"><name>setVelocityNorth</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1adc7b1eb57d4c6f6f52a5c88525b75067" kind="function"><name>velocityVertical</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a0bc3444220fed8b23d072a2703e73eb3" kind="function"><name>setVelocityVertical</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ab8005e2012f7f1b5b2c80051c480586d" kind="function"><name>pitch</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a333c45a5b9f7098f42a44a54afd709a4" kind="function"><name>setPitch</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1aed87239ee2b94ce4e939bf7c26f6c2fc" kind="function"><name>roll</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a4995963b421aacb6093c2062567a6807" kind="function"><name>setRoll</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a8f084efc326ffbb20ab4593381857b98" kind="function"><name>yaw</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a4154dd0e74f0b0836c661e8bd4f125eb" kind="function"><name>setYaw</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ae18750f825d840cfa520d4ef132e071e" kind="function"><name>course</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a7378b10d27b411b2d8bcd52ac4b519a8" kind="function"><name>setCourse</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1af59a1cec1d4304e2950e1652c9d9d500" kind="function"><name>time</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ab674c9996212d09f438f5f068df79dd8" kind="function"><name>setTime</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ad9b8a7567f94188568edd794ee5a086e" kind="function"><name>satellites</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a73892e81b2008af97e4f775d8c928da3" kind="function"><name>setSatellites</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ad84a24b08eb4399debdb779c4b8724bf" kind="function"><name>seaLevel</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a9a0561da95fdfe2f8124378372788fa5" kind="function"><name>setSeaLevel</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1aaaaee0a57329ffbf051538edecbcbdf0" kind="signal"><name>latitudeChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a9ffd0dff3765ac6c7c4530429be970da" kind="signal"><name>longitudeChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a8fa94787b01741e74eefa0806b8b094b" kind="signal"><name>altitudeChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a47fcf25d4a3b2df625f86aca6c22e01a" kind="signal"><name>velocityCourseChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a59b1494d934fd5f8bc27524dee2a58a8" kind="signal"><name>velocityEastChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a913280e288005cfd3c809aa567c40a52" kind="signal"><name>velocityNorthChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1aa027a996aeaa76cfe03d17df35abc807" kind="signal"><name>velocityVerticalChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1abe2ed26bc01368fc01e836fd36f90161" kind="signal"><name>pitchChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a1bac733de566e83ea9a18eb6dfa74205" kind="signal"><name>rollChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a1728925f56a8b950db64dca303131979" kind="signal"><name>yawChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a2438a2945d2e1f5daa42826811bea83a" kind="signal"><name>courseChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1ad3d01602a07df20146442192a11e2b54" kind="signal"><name>timeChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1a394b4a56ffc6c9348eaf82e5ac5cb15a" kind="signal"><name>satellitesChanged</name></member>
+    <member refid="dd/dee/classNetworking_1_1Telemetry_1aad8f6253f56e321f22c17bc1e74bd225" kind="signal"><name>seaLevelChanged</name></member>
+  </compound>
+  <compound refid="d2/d81/structNetworking_1_1TelemetryDatagram" kind="struct"><name>Networking::TelemetryDatagram</name>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a0ea604dd26c415c8f380323b91bdba56" kind="variable"><name>marker</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1ab22abc2906422da61885ac6c8e6a1a59" kind="variable"><name>version</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a76714bdbc5c536fa77dfb14533ff82a9" kind="variable"><name>latitude</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1ac155e35fdeebafc89723a51520fb9fe6" kind="variable"><name>longitude</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a2b13d276aee0d9fd646c8fa3647e869b" kind="variable"><name>altitude</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a1cc3289ef7b73c8e162d430e00c7f5ef" kind="variable"><name>velocity_course</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a968a00cf20306de6c97d362b509abefe" kind="variable"><name>velocity_east</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a5dfe7d6fa7d6ccc819aa45ee3ebfbb56" kind="variable"><name>velocity_north</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1aeb6f0994320a1acbcb6aaff582c8ee42" kind="variable"><name>velocity_vertical</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a34c057a0378030db67bd6a129f37d938" kind="variable"><name>pitch</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a1d3228afa3a1d6773954f40c1e519eb9" kind="variable"><name>roll</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a21cd490f6191f66678f55b4c242a10cf" kind="variable"><name>yaw</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1acaa2fde7e3fad7df8f5755347603d17b" kind="variable"><name>course</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a35486a245cee06695e814e1bcac83aac" kind="variable"><name>time</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1aa306fbda3e6f642c3668c299361d25d0" kind="variable"><name>satellites</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a4438e0df9f58b1861feb3fc659f52534" kind="variable"><name>crc16</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1af1b1c5fe6cadd39db7277bfb71438ecc" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="d2/d81/structNetworking_1_1TelemetryDatagram_1a938d6f128a41c8f63c84a34136307c88" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="da/d29/structNetworking_1_1TelemetryRequest" kind="struct"><name>Networking::TelemetryRequest</name>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a0ea604dd26c415c8f380323b91bdba56" kind="variable"><name>marker</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a210e06aa846736988dbee1b9f1bb4464" kind="variable"><name>init_flag</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a8e0798404bf2cf5dabb84c5ba9a4f236" kind="variable"><name>port</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a90ade0bc499be730c6d20696fffaf4f7" kind="variable"><name>interval_ms</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a4438e0df9f58b1861feb3fc659f52534" kind="variable"><name>crc16</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1ac69478bea23f6c57b2d6be7048ce4070" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="da/d29/structNetworking_1_1TelemetryRequest_1a257b8f840bc19ee0d415ccdd702a66f0" kind="friend"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="dc/dfd/classNetworking_1_1TelemetrySocket" kind="class"><name>Networking::TelemetrySocket</name>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1acdfc8898c9e67fbcec81f3b04ae61bd9" kind="property"><name>frequency</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a5717a1b606133f3956a3b238cd6bac45" kind="variable"><name>MARKER</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a3e2469649a6271bb4af3797f5b75ae40" kind="variable"><name>RECV_MARKER_LITTLE</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8ad896d26a65c3d692ecfbe6b7a914a5" kind="variable"><name>RECV_MARKER_BIG</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1acf8b2853252b483f36bf643a013ce63a" kind="variable"><name>CRC_CHECK</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a3cae6a673e0292040e5c064fdcf9a04a" kind="variable"><name>m_updateTimer</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1afb98bf73752f173ea1827cc2edb44216" kind="variable"><name>m_requestsock</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a2bae886ab2c21c8d5a926525346b9674" kind="variable"><name>m_frequency</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1abe0fb5277195a93ed5042ca2b12f3396" kind="variable"><name>output</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1aa2d29b25563c1c620147bd6f0d74042e" kind="variable"><name>req_addr</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1adf68917197a84d16ae9fa3745365e51b" kind="variable"><name>req_port</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1af3f7956dcff0a74cf57b2afb4a8aea15" kind="variable"><name>recv_port</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1af45ae5dae59622dc9960f4e454f8a7ee" kind="function"><name>TelemetrySocket</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1aa474dc82e979bd2cd1f1863c6def3956" kind="function"><name>start</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8c528baf37154d347366083f0f816846" kind="function"><name>stop</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8e0b885b8423672eec948899b7bb504f" kind="function"><name>frequency</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1ad0c3f907d44825f9ae6803ac3de17f50" kind="function"><name>setFrequency</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a7cb443bd2f957c9765aad7fa7d711ba6" kind="signal"><name>frequencyChanged</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1ad8136df344f340b0653c27e3317c08f5" kind="signal"><name>ping</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8cfd84f7ee31281886bcea23eaad3ca5" kind="slot"><name>processTelemetry</name></member>
+    <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a1798758d7cbaa29f7c0be526694ee6a5" kind="slot"><name>requestTelemetry</name></member>
+  </compound>
+  <compound refid="d0/dfa/classGUI_1_1TerminalBase" kind="class"><name>GUI::TerminalBase</name>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013" kind="enum"><name>MessageType</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013ac909e86054cb6ad83c22bfc2b3e6e5b8" kind="enumvalue"><name>Debug</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a1cd805eaf0bb58a90fe7e7e4cf6a3cdc" kind="enumvalue"><name>Info</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a48f2bb70fceb692a2dedd8cea496c44b" kind="enumvalue"><name>Warning</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a4dfd42ec49d09d8c6555c218301cc30f" kind="enumvalue"><name>Error</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013ab70475a010e4a14389a53af0eaf7c336" kind="enumvalue"><name>Extra1</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a36190021682aff8f47800d2627f87381" kind="enumvalue"><name>Extra2</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013acdced1b785715a95ca137e30fce9d507" kind="enumvalue"><name>Extra3</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a3009fee560c2b85b2646084bc95d4763" kind="enumvalue"><name>Extra4</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a0af7bed5c07d3c96258e56db5b9c8baa" kind="enumvalue"><name>Extra5</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a88c60aacbe1acdcb382091bc6ede5eff" kind="enumvalue"><name>Extra6</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013aba71512c9d1ba2739074f4b92dc42174" kind="enumvalue"><name>Extra7</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a88f5e2807da51b12ab556298d4be4fb1" kind="enumvalue"><name>Extra8</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac6606ebe91c8ac66a2c314c79f5ab013a3f293c9851725675e5598edd59ff4a40" kind="enumvalue"><name>Extra9</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7d83e4f1efd20b7c111a343f7a125a55" kind="enum"><name>ModelRoles</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" kind="enumvalue"><name>Index</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7d83e4f1efd20b7c111a343f7a125a55a2dfbf31ed014852927c31c352feac51f" kind="enumvalue"><name>Message</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7d83e4f1efd20b7c111a343f7a125a55a9c350e62d934f682177eb6af3d64e4d2" kind="enumvalue"><name>Module</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7d83e4f1efd20b7c111a343f7a125a55a56205085b8e5cc892bead298d181fae6" kind="enumvalue"><name>Type</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a6e42220da71ba15b71a9666e7df08188" kind="variable"><name>storage</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a7237512bc3dc94c185e3b91b23c5cd41" kind="function"><name>TerminalBase</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a51dd94ef911c8f4c6495093a1561b45a" kind="function"><name>rowCount</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ae93b915598cdbe5ae59dddf41d917a53" kind="function"><name>data</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a893d1b7c0d8fc61472f7dcd4d3efa055" kind="function"><name>setData</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a94b72913aaca8d2f406790577465920f" kind="function"><name>append</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1ac8bb3912a3ce86b15842e79d0b421204" kind="function"><name>clear</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a62c7a07c6d12d3e80180f32272e785ff" kind="function"><name>replaceLast</name></member>
+    <member refid="d0/dfa/classGUI_1_1TerminalBase_1a0ec0e31df18472075967b0410ee4b3be" kind="function"><name>roleNames</name></member>
+  </compound>
+  <compound refid="db/dbe/classGUI_1_1Theme" kind="class"><name>GUI::Theme</name>
+    <member refid="db/dbe/classGUI_1_1Theme_1a98761eaac2ef87e52f2aa26c40cfd16b" kind="variable"><name>d_ptr</name></member>
+    <member refid="db/dbe/classGUI_1_1Theme_1a6bc4142d21cf07671512c8cf80f04754" kind="function"><name>~Theme</name></member>
+    <member refid="db/dbe/classGUI_1_1Theme_1a510b7bc42bf06fe23a2c7ce903269ca5" kind="function"><name>color</name></member>
+    <member refid="db/dbe/classGUI_1_1Theme_1a0ec3c14e3ea5c6b9baea2eb61c7619bf" kind="function"><name>colorText</name></member>
+    <member refid="db/dbe/classGUI_1_1Theme_1adbbc69ae19dda89128bcc93e034a3bc8" kind="signal"><name>colorsChanged</name></member>
+    <member refid="db/dbe/classGUI_1_1Theme_1a4117dc7297f67ea9acda17300864c6a5" kind="function"><name>Theme</name></member>
+  </compound>
+  <compound refid="d3/de2/classGUI_1_1ThemePrivate" kind="class"><name>GUI::ThemePrivate</name>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1aa7b7d443f9e7dbf832c07cf68b8d1124" kind="variable"><name>foundThemes</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1a80b0fb38ff3cf1647377f104210d5097" kind="variable"><name>q_ptr</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1ac5d2655204d70cb73fea63bcc2bfa29c" kind="variable"><name>m_color</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1a785b36b91df3715e9c9bfb0db29c8421" kind="function"><name>ThemePrivate</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1a54226ebec0e5420049f0b450d103781d" kind="function"><name>~ThemePrivate</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1a62d95d1635d924be0935cd808e9d1fee" kind="function"><name>applyTheme</name></member>
+    <member refid="d3/de2/classGUI_1_1ThemePrivate_1abf056f86bd7dc3b442e44a283faf8037" kind="slot"><name>findThemesInFolder</name></member>
+  </compound>
+  <compound refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem" kind="struct"><name>Map::OfflineTileLoader::TileItem</name>
+    <member refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem_1a5e5db6617bb54377565484b1b257e7d4" kind="variable"><name>zoom</name></member>
+    <member refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem_1aae8a40a17c0be29c1f06ca6b4f9e2235" kind="variable"><name>x</name></member>
+    <member refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem_1a9c02f93c9698e4486878867c4f265c48" kind="variable"><name>y</name></member>
+    <member refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem_1a7b447f6c06cb771d3be5f771fcb2ec8b" kind="function"><name>TileItem</name></member>
+  </compound>
+  <compound refid="d2/de6/structNetworking_1_1utils_1_1vt100__result__t" kind="struct"><name>Networking::utils::vt100_result_t</name>
+    <member refid="d2/de6/structNetworking_1_1utils_1_1vt100__result__t_1a139cb20c6c3584d0fab4f8c6239cb392" kind="variable"><name>result</name></member>
+    <member refid="d2/de6/structNetworking_1_1utils_1_1vt100__result__t_1a0490749abd5dec65ca747529e2e2d481" kind="variable"><name>return_carriage</name></member>
+    <member refid="d2/de6/structNetworking_1_1utils_1_1vt100__result__t_1a26cdcd0a22d2d034297280e591b77bd4" kind="variable"><name>move_up</name></member>
+  </compound>
+  <compound refid="db/dc9/classGUI_1_1VT100Terminal" kind="class"><name>GUI::VT100Terminal</name>
+    <member refid="db/dc9/classGUI_1_1VT100Terminal_1a146202a77d996aa231dd685f0eded8bf" kind="function"><name>VT100Terminal</name></member>
+  </compound>
+  <compound refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData" kind="struct"><name>GUI::WarningsModel::WarningData</name>
+    <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1ac765329451135abec74c45e1897abf26" kind="variable"><name>type</name></member>
+    <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a7eaf039e27259097d5cf0d8b07ab1d96" kind="variable"><name>msg</name></member>
+    <member refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData_1a3ba48eaccf8247ca8d2b932263af2d2e" kind="variable"><name>is_major</name></member>
+  </compound>
+  <compound refid="d6/d0f/classGUI_1_1WarningsModel" kind="class"><name>GUI::WarningsModel</name>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89" kind="enum"><name>Notification</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89ae6542f08265992d2de94175c85380c13" kind="enumvalue"><name>NotConnected</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89a45ccf3979cb1ad92f6a60a4d81e32f44" kind="enumvalue"><name>Uncalibrated</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55" kind="enum"><name>ModelRoles</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" kind="enumvalue"><name>Index</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a2dfbf31ed014852927c31c352feac51f" kind="enumvalue"><name>Message</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55abf86141fa29ab96a0cf6fad57b11d842" kind="enumvalue"><name>Major</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7b0e4e57f5c2227e44bea6c3c2043129" kind="variable"><name>storage</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a51dd94ef911c8f4c6495093a1561b45a" kind="function"><name>rowCount</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1ae93b915598cdbe5ae59dddf41d917a53" kind="function"><name>data</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a893d1b7c0d8fc61472f7dcd4d3efa055" kind="function"><name>setData</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7af1ee600c2b5598af87ba39db31b57e" kind="function"><name>append</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a30c2194ff56953579bea2eb71b4fd733" kind="function"><name>remove</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1ac8bb3912a3ce86b15842e79d0b421204" kind="function"><name>clear</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a0ec0e31df18472075967b0410ee4b3be" kind="function"><name>roleNames</name></member>
+    <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7c6471b21fdbcf77b56a73e25b0f37c5" kind="function"><name>WarningsModel</name></member>
+  </compound>
+  <compound refid="d2/dff/namespaceConfig" kind="namespace"><name>Config</name>
+  </compound>
+  <compound refid="d5/d9f/namespaceGUI" kind="namespace"><name>GUI</name>
+  </compound>
+  <compound refid="da/d88/namespaceMap" kind="namespace"><name>Map</name>
+    <member refid="d5/d10/offlinetileloader_8c_09_09_1a170db2d03b288eb9688049f46fc77b1d" kind="variable"><name>MAX_ALLOWED_PARALLEL</name></member>
+    <member refid="d4/dc8/image_8c_09_09_1a27ff066470a9d8df569999dc44a0c5c1" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a509ef748d6cfd50624e5d609ed64d0c7" kind="function"><name>__attribute__</name></member>
+    <member refid="d5/d10/offlinetileloader_8c_09_09_1a33d2fae416c2c10e7714295370c205a5" kind="function"><name>longitudeToTileX</name></member>
+    <member refid="d5/d10/offlinetileloader_8c_09_09_1af89ad319d7f97963678c68663f14c1a5" kind="function"><name>latitudeToTileY</name></member>
+    <member refid="d5/d10/offlinetileloader_8c_09_09_1a34122ecca5550a48867173703e13e16c" kind="function"><name>tileXToLongitude</name></member>
+    <member refid="d5/d10/offlinetileloader_8c_09_09_1a167557226e119f82b28894a1abe735db" kind="function"><name>tileYToLatitude</name></member>
+  </compound>
+  <compound refid="da/d8a/namespaceNamespace" kind="namespace"><name>Namespace</name>
+  </compound>
+  <compound refid="d7/df6/namespaceNetworking" kind="namespace"><name>Networking</name>
+    <member refid="d5/d97/plannerdatagram_8h_1a667da8c0fec261cd7fc83ee7976f51dd" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="d5/d97/plannerdatagram_8h_1ad24229e650467998c85c0047a2970270" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="d5/d97/plannerdatagram_8h_1a109d968b5269f4699117f067bda65529" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="d5/d97/plannerdatagram_8h_1a8cd5cbe90b83fca85b31a4230d77c20a" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="d5/d97/plannerdatagram_8h_1ad8e8bf46284941b161387369faf8e633" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="d5/d97/plannerdatagram_8h_1a10fb184281eeaeaa9948edb825e4f3e0" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="de/d60/telemetrydatagram_8h_1af1b1c5fe6cadd39db7277bfb71438ecc" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="de/d60/telemetrydatagram_8h_1a938d6f128a41c8f63c84a34136307c88" kind="function"><name>operator&gt;&gt;</name></member>
+    <member refid="de/d60/telemetrydatagram_8h_1ac69478bea23f6c57b2d6be7048ce4070" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="de/d60/telemetrydatagram_8h_1a257b8f840bc19ee0d415ccdd702a66f0" kind="function"><name>operator&gt;&gt;</name></member>
+  </compound>
+  <compound refid="da/d41/namespaceNetworking_1_1utils" kind="namespace"><name>Networking::utils</name>
+    <member refid="d0/def/vt100parser_8h_1aa64bb4934b8dd5e9afff6860afc79835" kind="function"><name>parse_vt100_string</name></member>
+  </compound>
+  <compound refid="de/d7c/namespaceOS" kind="namespace"><name>OS</name>
+  </compound>
+  <compound refid="d7/d4a/namespaceProcessing" kind="namespace"><name>Processing</name>
+  </compound>
+  <compound refid="d4/d4f/config_8c_09_09" kind="file"><name>config.c++</name>
+    <member refid="d4/d4f/config_8c_09_09_1a9592cded2169a0727532c46cb4ef4bd5" kind="define"><name>QSTRING_CAST</name></member>
+  </compound>
+  <compound refid="db/d16/config_8h" kind="file"><name>config.h</name>
+    <member refid="db/d16/config_8h_1a57ac94d78fd654075be8b8c9edc5781b" kind="define"><name>CONFIG</name></member>
+  </compound>
+  <compound refid="da/d17/paths_8c_09_09" kind="file"><name>paths.c++</name>
+    <member refid="da/d17/paths_8c_09_09_1ad272df6470b7b68371b0521572f15d87" kind="define"><name>PATH_MKDIR</name></member>
+  </compound>
+  <compound refid="dd/df2/paths_8h" kind="file"><name>paths.h</name>
+  </compound>
+  <compound refid="de/da9/entry_8c_09_09" kind="file"><name>entry.c++</name>
+  </compound>
+  <compound refid="d1/dc6/entry_8h" kind="file"><name>entry.h</name>
+  </compound>
+  <compound refid="d6/ddc/filesystem_8c_09_09" kind="file"><name>filesystem.c++</name>
+  </compound>
+  <compound refid="dd/dd8/filesystem_8h" kind="file"><name>filesystem.h</name>
+  </compound>
+  <compound refid="d9/de9/debugconsole_8c_09_09" kind="file"><name>debugconsole.c++</name>
+  </compound>
+  <compound refid="df/d48/debugconsole_8h" kind="file"><name>debugconsole.h</name>
+    <member refid="df/d48/debugconsole_8h_1a9ea7945fc70fa30dab49e3c537dce13e" kind="define"><name>CONSOLE_INTERNAL_PROJECT_STRING</name></member>
+    <member refid="df/d48/debugconsole_8h_1af9f866890471d2357d9d58e49164eba2" kind="define"><name>CONSOLE_HANDLER</name></member>
+    <member refid="df/d48/debugconsole_8h_1a3fa88b9e48410e48ad9c6c178aaa9048" kind="define"><name>CONSOLE_INIT_HANDLER</name></member>
+  </compound>
+  <compound refid="dc/d83/terminalbase_8c_09_09" kind="file"><name>terminalbase.c++</name>
+  </compound>
+  <compound refid="da/d9d/terminalbase_8h" kind="file"><name>terminalbase.h</name>
+  </compound>
+  <compound refid="d3/d8a/vt100terminal_8c_09_09" kind="file"><name>vt100terminal.c++</name>
+  </compound>
+  <compound refid="d7/d1a/vt100terminal_8h" kind="file"><name>vt100terminal.h</name>
+  </compound>
+  <compound refid="d2/d73/theme_8h" kind="file"><name>theme.h</name>
+    <member refid="d2/d73/theme_8h_1aa24e9c95164fb9fac439e602a4162457" kind="define"><name>THEME</name></member>
+  </compound>
+  <compound refid="d3/dc0/theme_8c_09_09" kind="file"><name>theme.c++</name>
+  </compound>
+  <compound refid="dd/dbc/theme__p_8h" kind="file"><name>theme_p.h</name>
+  </compound>
+  <compound refid="d9/d2f/warningsmodel_8c_09_09" kind="file"><name>warningsmodel.c++</name>
+  </compound>
+  <compound refid="d1/d5b/warningsmodel_8h" kind="file"><name>warningsmodel.h</name>
+  </compound>
+  <compound refid="d7/daa/main_8c_09_09" kind="file"><name>main.c++</name>
+    <member refid="d7/daa/main_8c_09_09_1a6e4956cb7691b74b34acb5c67f8f6df6" kind="variable"><name>usages</name></member>
+    <member refid="d7/daa/main_8c_09_09_1a0ddf1224851353fc92bfbff6f499fa97" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="df/dc7/clickhandler_8c_09_09" kind="file"><name>clickhandler.c++</name>
+  </compound>
+  <compound refid="d1/d78/clickhandler_8h" kind="file"><name>clickhandler.h</name>
+  </compound>
+  <compound refid="d4/d2c/diagram_8c_09_09" kind="file"><name>diagram.c++</name>
+  </compound>
+  <compound refid="d9/d1b/diagram_8h" kind="file"><name>diagram.h</name>
+  </compound>
+  <compound refid="d4/dc8/image_8c_09_09" kind="file"><name>image.c++</name>
+  </compound>
+  <compound refid="d5/db2/image_8h" kind="file"><name>image.h</name>
+    <member refid="d5/db2/image_8h_1adf1bcf93530d4d690251612a5058e623" kind="typedef"><name>image_file_t</name></member>
+  </compound>
+  <compound refid="dd/da3/imagemetadata_8h" kind="file"><name>imagemetadata.h</name>
+    <member refid="dd/da3/imagemetadata_8h_1a51bdee9eea878b90b917afc0f8c99435" kind="variable"><name>marker</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1ab6d7b6f8c2ceaba7acda80aaf05f4899" kind="variable"><name>version</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1aaba88b24a21a6c70c895c0d55f4a69a0" kind="variable"><name>size</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1ae1d905c6ac1a0c9b96dca16153917334" kind="variable"><name>cnt</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a4fc3a0c58dfbd1e68224521185cb9384" kind="variable"><name>id</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1acb5cfd209ba75c853d03f701e7f91679" kind="variable"><name>type</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a282e7d4378d4a18a805b8980295ac86c" kind="variable"><name>pitch</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a26fd84d522945b6038221d9e38c7cc39" kind="variable"><name>roll</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a1c921d7f2f6a29b15d709c49d2df1797" kind="variable"><name>elevation</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a76714bdbc5c536fa77dfb14533ff82a9" kind="variable"><name>latitude</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1ac155e35fdeebafc89723a51520fb9fe6" kind="variable"><name>longitude</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1ac46e821ae08930cc9e257642e34275a3" kind="variable"><name>velocity</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1ac6894c88aabf335922736a63b2b87b97" kind="variable"><name>course</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a1f721d77724f0712d13dbb6719895531" kind="variable"><name>track_ang</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a9eae6c1f38db98ab568f3ed3771a969d" kind="variable"><name>dx</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a8f461b6142ce8725218813abb23b06a3" kind="variable"><name>dy</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a3c9556645d92e863376a4063a3ad7001" kind="variable"><name>x0</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a018e57d63b6c2c3a802377f95d7a4e96" kind="variable"><name>word_size</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a26ce98a1cefae97e7a803b1dbec972c1" kind="variable"><name>polarization</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1af77b1a54442f2443cf64a4766f916bcd" kind="variable"><name>y</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a31a74a81efd0ba14cbc4853f7fce3af0" kind="variable"><name>nx</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a9696b3729bc7ba3effc41ee585be5b27" kind="variable"><name>ny</name></member>
+    <member refid="dd/da3/imagemetadata_8h_1a9fc4cca635a26c692681a7071e379aa7" kind="variable"><name>k</name></member>
+  </compound>
+  <compound refid="df/db4/marker_8c_09_09" kind="file"><name>marker.c++</name>
+  </compound>
+  <compound refid="d6/d58/marker_8h" kind="file"><name>marker.h</name>
+  </compound>
+  <compound refid="da/da6/stripimage_8c_09_09" kind="file"><name>stripimage.c++</name>
+  </compound>
+  <compound refid="d2/d27/stripimage_8h" kind="file"><name>stripimage.h</name>
+    <member refid="d2/d27/stripimage_8h_1adf1bcf93530d4d690251612a5058e623" kind="typedef"><name>image_file_t</name></member>
+  </compound>
+  <compound refid="db/d49/imagemodel_8c_09_09" kind="file"><name>imagemodel.c++</name>
+  </compound>
+  <compound refid="d0/d8b/imagemodel_8h" kind="file"><name>imagemodel.h</name>
+  </compound>
+  <compound refid="dd/d28/markermodel_8c_09_09" kind="file"><name>markermodel.c++</name>
+  </compound>
+  <compound refid="dd/dd4/markermodel_8h" kind="file"><name>markermodel.h</name>
+  </compound>
+  <compound refid="db/d1c/route_8c_09_09" kind="file"><name>route.c++</name>
+  </compound>
+  <compound refid="d9/d7f/route_8h" kind="file"><name>route.h</name>
+  </compound>
+  <compound refid="d7/d29/ruler_8c_09_09" kind="file"><name>ruler.c++</name>
+  </compound>
+  <compound refid="d5/d03/ruler_8h" kind="file"><name>ruler.h</name>
+  </compound>
+  <compound refid="d5/d10/offlinetileloader_8c_09_09" kind="file"><name>offlinetileloader.c++</name>
+  </compound>
+  <compound refid="d1/d80/offlinetileloader_8h" kind="file"><name>offlinetileloader.h</name>
+  </compound>
+  <compound refid="d4/d39/routelogger_8c_09_09" kind="file"><name>routelogger.c++</name>
+  </compound>
+  <compound refid="d0/d8f/routelogger_8h" kind="file"><name>routelogger.h</name>
+  </compound>
+  <compound refid="d9/d5f/abstractudpsocket_8c_09_09" kind="file"><name>abstractudpsocket.c++</name>
+  </compound>
+  <compound refid="dc/d88/abstractudpsocket_8h" kind="file"><name>abstractudpsocket.h</name>
+  </compound>
+  <compound refid="d0/d09/execdargumentlist_8c_09_09" kind="file"><name>execdargumentlist.c++</name>
+  </compound>
+  <compound refid="db/d03/execdargumentlist_8h" kind="file"><name>execdargumentlist.h</name>
+  </compound>
+  <compound refid="d8/dc2/execdsocket_8c_09_09" kind="file"><name>execdsocket.c++</name>
+  </compound>
+  <compound refid="d7/d60/execdsocket_8h" kind="file"><name>execdsocket.h</name>
+  </compound>
+  <compound refid="d3/de9/feedbacksocket_8c_09_09" kind="file"><name>feedbacksocket.c++</name>
+  </compound>
+  <compound refid="df/d54/feedbacksocket_8h" kind="file"><name>feedbacksocket.h</name>
+  </compound>
+  <compound refid="d3/d09/remotedata_8c_09_09" kind="file"><name>remotedata.c++</name>
+  </compound>
+  <compound refid="d9/db3/remotedata_8h" kind="file"><name>remotedata.h</name>
+  </compound>
+  <compound refid="da/d76/netenums_8h" kind="file"><name>netenums.h</name>
+  </compound>
+  <compound refid="d3/dd8/network_8c_09_09" kind="file"><name>network.c++</name>
+  </compound>
+  <compound refid="d9/d94/network_8h" kind="file"><name>network.h</name>
+  </compound>
+  <compound refid="dc/dee/ping_8c_09_09" kind="file"><name>ping.c++</name>
+  </compound>
+  <compound refid="d6/d2b/ping_8h" kind="file"><name>ping.h</name>
+  </compound>
+  <compound refid="d5/d97/plannerdatagram_8h" kind="file"><name>plannerdatagram.h</name>
+  </compound>
+  <compound refid="df/dac/tcpsocket_8c_09_09" kind="file"><name>tcpsocket.c++</name>
+  </compound>
+  <compound refid="d1/d06/tcpsocket_8h" kind="file"><name>tcpsocket.h</name>
+  </compound>
+  <compound refid="d3/d68/telemetry_8c_09_09" kind="file"><name>telemetry.c++</name>
+  </compound>
+  <compound refid="de/dc7/telemetry_8h" kind="file"><name>telemetry.h</name>
+  </compound>
+  <compound refid="de/d60/telemetrydatagram_8h" kind="file"><name>telemetrydatagram.h</name>
+  </compound>
+  <compound refid="d8/d04/telemetrysocket_8c_09_09" kind="file"><name>telemetrysocket.c++</name>
+  </compound>
+  <compound refid="d6/d56/telemetrysocket_8h" kind="file"><name>telemetrysocket.h</name>
+  </compound>
+  <compound refid="d2/d44/vt100parser_8c_09_09" kind="file"><name>vt100parser.c++</name>
+  </compound>
+  <compound refid="d0/def/vt100parser_8h" kind="file"><name>vt100parser.h</name>
+  </compound>
+  <compound refid="d5/dab/imageprocessing_8c_09_09" kind="file"><name>imageprocessing.c++</name>
+  </compound>
+  <compound refid="d1/d63/imageprocessing_8h" kind="file"><name>imageprocessing.h</name>
+  </compound>
+  <compound refid="d7/dcf/group__Properties" kind="group"><name>Properties</name>
+    <member refid="d7/dcf/group__Properties_1ga5c3324cb211ef10bcf9727270a396459" kind="property"><name>telemetry</name></member>
+    <member refid="d7/dcf/group__Properties_1gad897b2edb6cf9e8363925e6d2cc0a587" kind="property"><name>remoteData</name></member>
+    <member refid="d7/dcf/group__Properties_1gaa62ae767793c978210a16d5c8d9eb427" kind="property"><name>networkDelay</name></member>
+    <member refid="d7/dcf/group__Properties_1ga0b5560998ba764dc735edb92271c04a8" kind="property"><name>tcpProgress</name></member>
+    <member refid="d7/dcf/group__Properties_1ga9709aefe4930807392898aecb0cb8a79" kind="property"><name>connected</name></member>
+  </compound>
+  <compound refid="dir_fcb2a60e1810a51543a3cc3a113d0956" kind="dir"><name>src/c++</name>
+  </compound>
+  <compound refid="dir_48a82678458ea86f0aa1c1f2db0ce8e0" kind="dir"><name>src/c++/config</name>
+  </compound>
+  <compound refid="dir_40386f8e9d1c7fc56eb501866b4e09f9" kind="dir"><name>src/c++/map/entities</name>
+  </compound>
+  <compound refid="dir_6ef7e0ae247fe3f6196a2ffc3d436052" kind="dir"><name>src/c++/network/execd</name>
+  </compound>
+  <compound refid="dir_392cd7b15ef9ed290b0b4dd321bc05ae" kind="dir"><name>src/c++/filesystem</name>
+  </compound>
+  <compound refid="dir_26318e8bd4be45baf98311c3e5c1a731" kind="dir"><name>src/c++/gui</name>
+  </compound>
+  <compound refid="dir_7f5330c1be2e2d1c99334bc9c03a9087" kind="dir"><name>src/c++/gui/theme/include</name>
+  </compound>
+  <compound refid="dir_d88003ba6281a9447bd5134cfe1c08c9" kind="dir"><name>src/c++/map</name>
+  </compound>
+  <compound refid="dir_2658f57a99a735e2e16983d97ef2d726" kind="dir"><name>src/c++/network</name>
+  </compound>
+  <compound refid="dir_0e280728765a2a78de09bbe8971db092" kind="dir"><name>src/c++/network/planner</name>
+  </compound>
+  <compound refid="dir_4ceb41d6cb119213b0b762a086661145" kind="dir"><name>src/c++/processing</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_398df9372c01a5068ea5f12476cdb265" kind="dir"><name>src/c++/gui/theme/src</name>
+  </compound>
+  <compound refid="dir_3dd779012d603974b3147e6dab239616" kind="dir"><name>src/c++/network/telemetry</name>
+  </compound>
+  <compound refid="dir_10768d6f609ecfc3f66ae09e455d5fe5" kind="dir"><name>src/c++/gui/terminal</name>
+  </compound>
+  <compound refid="dir_d3531d735886cb25a1a9099ca3b863a1" kind="dir"><name>src/c++/gui/theme</name>
+  </compound>
+  <compound refid="dir_11930aa8d0a7c7302d7157dda08c92ef" kind="dir"><name>src/c++/map/tools</name>
+  </compound>
+  <compound refid="dir_60755ab0f925e32d4971f456ca5fc601" kind="dir"><name>src/c++/network/utils</name>
+  </compound>
+  <compound refid="d6/d43/connect-example" kind="example"><name>connect</name>
+  </compound>
+  <compound refid="d6/d5e/startTelemetrySocket-example" kind="example"><name>startTelemetrySocket</name>
+  </compound>
+  <compound refid="d2/d60/executeCommand-example" kind="example"><name>executeCommand</name>
+  </compound>
+  <compound refid="d3/d66/argument-example" kind="example"><name>argument</name>
+  </compound>
+  <compound refid="df/d4b/setArgument-example" kind="example"><name>setArgument</name>
+  </compound>
+  <compound refid="dd/d16/some_script-example" kind="example"><name>some_script</name>
+  </compound>
+</doxygenindex>

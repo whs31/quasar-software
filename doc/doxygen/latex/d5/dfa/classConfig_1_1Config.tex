@@ -1,0 +1,712 @@
+\hypertarget{classConfig_1_1Config}{}\doxysection{Config Class Reference}
+\label{classConfig_1_1Config}\index{Config@{Config}}
+
+
+\mbox{\hyperlink{classClass}{Class}} for working with local application settings, stored in filesystem.  
+
+
+
+
+{\ttfamily \#include $<$config.\+h$>$}
+
+
+
+Inherits QObject.
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConfig_1_1Config_a54dfba499c9d9e1003d4c9bcbe6ad1c5}\label{classConfig_1_1Config_a54dfba499c9d9e1003d4c9bcbe6ad1c5}} 
+virtual {\bfseries $\sim$\+Config} ()
+\begin{DoxyCompactList}\small\item\em Destroys config class and syncs settings with filesystem. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_ad55f80ed3cd8b6c4f247763b747016af}{sync}} ()
+\begin{DoxyCompactList}\small\item\em Syncs settings on disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_aae2c382151ef7c9aa913361172b30db6}{save}} ()
+\begin{DoxyCompactList}\small\item\em Saves settings on disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}{load}} ()
+\begin{DoxyCompactList}\small\item\em Discards settings and loads saved state from disk. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_a9cf620340e16aa417bb112e0294038df}{revert}} ()
+\begin{DoxyCompactList}\small\item\em Alternative name for \mbox{\hyperlink{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}{load()}}. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE void \mbox{\hyperlink{classConfig_1_1Config_ad20897c5c8bd47f5d4005989bead0e55}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Discards settings and .ini file and loads factory defaults. \end{DoxyCompactList}\item 
+Q\+\_\+\+INVOKABLE QString \mbox{\hyperlink{classConfig_1_1Config_a0664ef97a51606760964d90526e64ab2}{project\+Version}} ()
+\begin{DoxyCompactList}\small\item\em Returns current software version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classConfig_1_1Config_aab4f0df3041b8a7fb08052df350ebcbd}\label{classConfig_1_1Config_aab4f0df3041b8a7fb08052df350ebcbd}} 
+static \mbox{\hyperlink{classConfig_1_1Config}{Config}} $\ast$ {\bfseries get} ()
+\begin{DoxyCompactList}\small\item\em Returns singleton instance of class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}{remote\+IP}}
+\begin{DoxyCompactList}\small\item\em IPv4-\/address of SAR (DE10-\/\+NANO). \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}
+\begin{DoxyCompactList}\small\item\em IPv4-\/address of application host computer. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a75af3a7370fd6e32995373d2dbbf1f81}{jetson\+IP}}
+\begin{DoxyCompactList}\small\item\em IPv4-\/address of Jetson Xavier. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_aa9f58cbedfcdde939083775c3a77ef6e}{nav\+IP}}
+\begin{DoxyCompactList}\small\item\em IPv4-\/address of Nav\+SAR. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a8af317d04dbe29e8f495cd928c0f30cb}{utl1\+IP}}
+\begin{DoxyCompactList}\small\item\em Reserved IPv4-\/address. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_afdd91838bc17767a1510db9d4e569aaa}{utl2\+IP}}
+\begin{DoxyCompactList}\small\item\em Reserved IPv4-\/address. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a9400347615d36fd3eed76e4f027433df}{telemetry\+Port}}
+\begin{DoxyCompactList}\small\item\em Port for requesting telemetry. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_afa3175de72b10c5da5e4664f75936346}{telemetry\+Recv\+Port}}
+\begin{DoxyCompactList}\small\item\em Port for receiving telemetry. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a9a898d90c155973baa06c11e8ef95813}{tcp\+LFSPort}}
+\begin{DoxyCompactList}\small\item\em Port for receiving TCP-\/\+IP fsend data. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a0eddf3d43e33470977841fae03717c29}{udp\+LFSPort}}
+\begin{DoxyCompactList}\small\item\em Port for receiving UDP {\bfseries{fsend}} data. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_aa7c77c61e23cb38fce8948fff5baa648}{execd\+Port}}
+\begin{DoxyCompactList}\small\item\em Port for SAR {\bfseries{execd}} service. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a1c046609722570c50455a36d69d0a037}{feedback\+Port}}
+\begin{DoxyCompactList}\small\item\em Port for SAR {\bfseries{execd}} service. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classConfig_1_1Config_a752dbeb4be188be8d6e370263c380827}{telemetry\+Frequency}}
+\begin{DoxyCompactList}\small\item\em Telemetry package interval in seconds. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_ae862ff88f11a3a2ef7eee0c21957dcb7}{proxy\+Enabled}}
+\begin{DoxyCompactList}\small\item\em Legacy setting for replacing {\bfseries{-\/-\/remote}} flag. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a259e4f044a571c4bc7b34a23f39492be}{tcp\+Marker}}
+\begin{DoxyCompactList}\small\item\em Compatibility setting for old {\bfseries{fsend}} versions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a66213c53fe947a7a4757bcc2b7d7fbb3}{antenna\+Alignment}}
+\begin{DoxyCompactList}\small\item\em Describes, in which side of UAV antenna was placed. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classConfig_1_1Config_acc7856ea0497ce886547bd19075f4bcb}{angle\+Correction}}
+\begin{DoxyCompactList}\small\item\em Debug property for adding or subtracting angle values from image metadata. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_af6dc8053f62613e2dd7a79d2172c658d}{use\+Radians}}
+\begin{DoxyCompactList}\small\item\em Compatibility setting for older firmware versions. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_afcbc3ba0faa77bf6b0a9b01f878181e6}{use\+Drift\+Angle}}
+\begin{DoxyCompactList}\small\item\em Compatibility setting for older firmware versions. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classConfig_1_1Config_afd2df17ea5b9473da8b4d307395c5085}{theta\+Azimuth\+Correction}}
+\begin{DoxyCompactList}\small\item\em Debug property for subtracting diargam size angle value from image metadata. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_aced4a69727f347e1e1a73bfdd8761143}{override\+Image\+Height}}
+\begin{DoxyCompactList}\small\item\em Debug property for overriding image {\bfseries{ly}} parameter with real pixel height. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classConfig_1_1Config_a6e81ba455ac73046cba68a75c0d34991}{cut\+Image}}
+\begin{DoxyCompactList}\small\item\em Debug property for disabling image software cutting. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConfig_1_1Config_abdcb3cc37ddbefe06ad99b3daa720afc}{stored\+Latitude}}
+\begin{DoxyCompactList}\small\item\em Internal stored property for restoring map camera position between sessions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConfig_1_1Config_a5b2d3b040ee55818de48aed7ffc5806f}{stored\+Longitude}}
+\begin{DoxyCompactList}\small\item\em Internal stored property for restoring map camera position between sessions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classConfig_1_1Config_a6241b7c15dc9a3b9b8e412a80e00cc9d}{stored\+Zoom\+Level}}
+\begin{DoxyCompactList}\small\item\em Internal stored property for restoring map camera position between sessions. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a153feb691de604b107e5765377364a9d}{stored\+Catalogue}}
+\begin{DoxyCompactList}\small\item\em Internal stored property for restoring offline view folder between sessions. \end{DoxyCompactList}\item 
+QString \mbox{\hyperlink{classConfig_1_1Config_a53d9759116527e34443d82453b97f415}{theme}}
+\begin{DoxyCompactList}\small\item\em Selected application theme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classClass}{Class}} for working with local application settings, stored in filesystem. 
+
+\mbox{\hyperlink{classProvides}{Provides}} access to reading and writing application settings to local .ini file. Automatically load default settings on fresh application install. \mbox{\hyperlink{classClass}{Class}} mainly used as wrapper over {\bfseries{QSettings}} instance, providing useful invokable functions and properties avialable in QML.
+
+\mbox{\hyperlink{classConfig_1_1Config}{Config}} class also provides useful macro for accessing it\textquotesingle{}s properties from different classes and namespaces\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CONFIG(property\_name);}
+
+\end{DoxyCode}
+ Example usage of macro\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Network::startTelemetrySocket(CONFIG(\mbox{\hyperlink{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}{remoteIP}})\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(\mbox{\hyperlink{classConfig_1_1Config_a9400347615d36fd3eed76e4f027433df}{telemetryPort}}),\ CONFIG(\mbox{\hyperlink{classConfig_1_1Config_a752dbeb4be188be8d6e370263c380827}{telemetryFrequency}}));}
+
+\end{DoxyCode}
+
+
+In QML, exactly same code can be achieved using following example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Network.startTelemetrySocket(Config.remoteIP\ +\ "{}:"{}\ +\ Config.telemetryPort,\ Config.telemetryFrequency);}
+
+\end{DoxyCode}
+ 
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00036}{36}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}\label{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}} 
+\index{Config@{Config}!load@{load}}
+\index{load@{load}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Discards settings and loads saved state from disk. 
+
+Replaces all currently stored in RAM properties with stored in .ini file values. \begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classConfig_1_1Config_a9cf620340e16aa417bb112e0294038df}{revert()}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00062}{62}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a0664ef97a51606760964d90526e64ab2}\label{classConfig_1_1Config_a0664ef97a51606760964d90526e64ab2}} 
+\index{Config@{Config}!projectVersion@{projectVersion}}
+\index{projectVersion@{projectVersion}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{projectVersion()}{projectVersion()}}
+{\footnotesize\ttfamily QString project\+Version (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns current software version. 
+
+Version is taken from CMake definitions. \begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00105}{105}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_ad20897c5c8bd47f5d4005989bead0e55}\label{classConfig_1_1Config_ad20897c5c8bd47f5d4005989bead0e55}} 
+\index{Config@{Config}!reset@{reset}}
+\index{reset@{reset}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Discards settings and .ini file and loads factory defaults. 
+
+Fully erases all settings in .ini file and RAM, then loads statically stored in application memory default values. \begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00097}{97}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a9cf620340e16aa417bb112e0294038df}\label{classConfig_1_1Config_a9cf620340e16aa417bb112e0294038df}} 
+\index{Config@{Config}!revert@{revert}}
+\index{revert@{revert}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{revert()}{revert()}}
+{\footnotesize\ttfamily void revert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Alternative name for \mbox{\hyperlink{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}{load()}}. 
+
+\begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classConfig_1_1Config_a78f61ac2dd03bcba8e09ca20cd7d68e3}{load()}} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00095}{95}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_aae2c382151ef7c9aa913361172b30db6}\label{classConfig_1_1Config_aae2c382151ef7c9aa913361172b30db6}} 
+\index{Config@{Config}!save@{save}}
+\index{save@{save}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saves settings on disk. 
+
+Writes all currently present in RAM properties to .ini file on disk. \begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00017}{17}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_ad55f80ed3cd8b6c4f247763b747016af}\label{classConfig_1_1Config_ad55f80ed3cd8b6c4f247763b747016af}} 
+\index{Config@{Config}!sync@{sync}}
+\index{sync@{sync}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{sync()}{sync()}}
+{\footnotesize\ttfamily void sync (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Syncs settings on disk. 
+
+\begin{DoxyNote}{Note}
+Can be invoked from QML. 
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+Internal function. Do not call if you are not exactly knowing what you want to achieve. 
+\end{DoxyWarning}
+
+
+Definition at line \mbox{\hyperlink{config_8c_09_09_source_l00106}{106}} of file \mbox{\hyperlink{config_8c_09_09_source}{config.\+c++}}.
+
+
+
+\doxysubsection{Property Documentation}
+\mbox{\Hypertarget{classConfig_1_1Config_acc7856ea0497ce886547bd19075f4bcb}\label{classConfig_1_1Config_acc7856ea0497ce886547bd19075f4bcb}} 
+\index{Config@{Config}!angleCorrection@{angleCorrection}}
+\index{angleCorrection@{angleCorrection}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{angleCorrection}{angleCorrection}}
+{\footnotesize\ttfamily angle\+Correction\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Debug property for adding or subtracting angle values from image metadata. 
+
+Value describes, how many degrees will be added/subtracted from image metadata azimuth. By default, this property returns {\ttfamily 0} (no correction). \begin{DoxyNote}{Note}
+In current software version, it is probably better approach to use image editor for individual images. Setting this property to any values other than {\ttfamily 0} can result in strange image geopositioning behaviour. 
+\end{DoxyNote}
+\begin{DoxyParagraph}{angle\+Correction(), set\+Angle\+Correction(), angle\+Correction\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a66213c53fe947a7a4757bcc2b7d7fbb3}\label{classConfig_1_1Config_a66213c53fe947a7a4757bcc2b7d7fbb3}} 
+\index{Config@{Config}!antennaAlignment@{antennaAlignment}}
+\index{antennaAlignment@{antennaAlignment}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{antennaAlignment}{antennaAlignment}}
+{\footnotesize\ttfamily antenna\+Alignment\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Describes, in which side of UAV antenna was placed. 
+
+If boolean evaluates to {\ttfamily true}, antenna is placed on the right side of UAV, otherwise, on the left. By default, this property returns {\ttfamily false} (left side). \begin{DoxyParagraph}{antenna\+Alignment(), set\+Antenna\+Alignment(), antenna\+Alignment\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6e81ba455ac73046cba68a75c0d34991}\label{classConfig_1_1Config_a6e81ba455ac73046cba68a75c0d34991}} 
+\index{Config@{Config}!cutImage@{cutImage}}
+\index{cutImage@{cutImage}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{cutImage}{cutImage}}
+{\footnotesize\ttfamily cut\+Image\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Debug property for disabling image software cutting. 
+
+If value evaluates to false, no cutting will be applied to telescopic images. Otherwise, image will be cut according to it\textquotesingle{}s metadata. By default, this property returns {\ttfamily true} (cutting enabled). \begin{DoxyParagraph}{cut\+Image(), set\+Cut\+Image(), cut\+Image\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa7c77c61e23cb38fce8948fff5baa648}\label{classConfig_1_1Config_aa7c77c61e23cb38fce8948fff5baa648}} 
+\index{Config@{Config}!execdPort@{execdPort}}
+\index{execdPort@{execdPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{execdPort}{execdPort}}
+{\footnotesize\ttfamily execd\+Port\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for SAR {\bfseries{execd}} service. 
+
+Application will send command requests to this port. SAR can provide {\bfseries{execd}} feedback (not to confuse with {\bfseries{stdout}} feedback) to \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}. Needs to be used in pair with \mbox{\hyperlink{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}{remote\+IP}}. By default, this property returns {\ttfamily 9845}. \begin{DoxySeeAlso}{See also}
+\#execd\+Port(), set\+Execd\+Port(), execd\+Port\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a1c046609722570c50455a36d69d0a037}\label{classConfig_1_1Config_a1c046609722570c50455a36d69d0a037}} 
+\index{Config@{Config}!feedbackPort@{feedbackPort}}
+\index{feedbackPort@{feedbackPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{feedbackPort}{feedbackPort}}
+{\footnotesize\ttfamily feedback\+Port\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for SAR {\bfseries{execd}} service. 
+
+Port for SAR {\bfseries{stdout/stderr}}. SAR will redirect it\textquotesingle{}s {\bfseries{stdout}} and {\bfseries{stderr}} to this port. Needs to be used in pair with \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}. By default, this property returns {\ttfamily 9846}. \begin{DoxySeeAlso}{See also}
+\#feedback\+Port(), set\+Feedback\+Port(), feedback\+Port\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a75af3a7370fd6e32995373d2dbbf1f81}\label{classConfig_1_1Config_a75af3a7370fd6e32995373d2dbbf1f81}} 
+\index{Config@{Config}!jetsonIP@{jetsonIP}}
+\index{jetsonIP@{jetsonIP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{jetsonIP}{jetsonIP}}
+{\footnotesize\ttfamily jetson\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+IPv4-\/address of Jetson Xavier. 
+
+Currently, this property is used only for pinging Jetson Xavier. By default, this property returns {\ttfamily 192.\+168.\+1.\+48}. \begin{DoxySeeAlso}{See also}
+\#jetson\+IP(), set\+Jetson\+IP(), jetson\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}\label{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}} 
+\index{Config@{Config}!localIP@{localIP}}
+\index{localIP@{localIP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{localIP}{localIP}}
+{\footnotesize\ttfamily local\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+IPv4-\/address of application host computer. 
+
+This property is used for {\bfseries{feedback}} socket, {\bfseries{TCP-\/\+IP}} LFS socket and {\bfseries{UDP}} LFS socket. By default, this property returns {\ttfamily 127.\+0.\+0.\+1} (localhost). \begin{DoxySeeAlso}{See also}
+\#local\+IP(), set\+Local\+IP(), local\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_aa9f58cbedfcdde939083775c3a77ef6e}\label{classConfig_1_1Config_aa9f58cbedfcdde939083775c3a77ef6e}} 
+\index{Config@{Config}!navIP@{navIP}}
+\index{navIP@{navIP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{navIP}{navIP}}
+{\footnotesize\ttfamily nav\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+IPv4-\/address of Nav\+SAR. 
+
+Currently, this property is used only for pinging navigation module on SAR. By default, this property returns 192.\+168.\+1.\+49. \begin{DoxySeeAlso}{See also}
+\#nav\+IP(), set\+Nav\+IP(), nav\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_aced4a69727f347e1e1a73bfdd8761143}\label{classConfig_1_1Config_aced4a69727f347e1e1a73bfdd8761143}} 
+\index{Config@{Config}!overrideImageHeight@{overrideImageHeight}}
+\index{overrideImageHeight@{overrideImageHeight}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{overrideImageHeight}{overrideImageHeight}}
+{\footnotesize\ttfamily override\+Image\+Height\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Debug property for overriding image {\bfseries{ly}} parameter with real pixel height. 
+
+If value evaluates to true, {\bfseries{ly}} field of image metadata will be replaced with actual pixel height of this image. By default, this property returns {\ttfamily true} (ly is overriden). \begin{DoxyWarning}{Warning}
+Currently, setting this boolean to false results in incorrect cutting of image. This can be changed in future firmware versions. 
+\end{DoxyWarning}
+\begin{DoxyParagraph}{override\+Image\+Height(), set\+Override\+Image\+Height(), override\+Image\+Height\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_ae862ff88f11a3a2ef7eee0c21957dcb7}\label{classConfig_1_1Config_ae862ff88f11a3a2ef7eee0c21957dcb7}} 
+\index{Config@{Config}!proxyEnabled@{proxyEnabled}}
+\index{proxyEnabled@{proxyEnabled}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{proxyEnabled}{proxyEnabled}}
+{\footnotesize\ttfamily proxy\+Enabled\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Legacy setting for replacing {\bfseries{-\/-\/remote}} flag. 
+
+If this property evaluates to true, application will replace \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}} in --remote {\bfseries{execd}} argument with \mbox{\hyperlink{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}{remote\+IP}}. By default, this property returns {\ttfamily false}. \begin{DoxyWarning}{Warning}
+Implementation removed in {\bfseries{version}} {\bfseries{2.\+0}}. 
+\end{DoxyWarning}
+\begin{DoxyParagraph}{proxy\+Enabled(), set\+Proxy\+Enabled(), proxy\+Enabled\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}\label{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}} 
+\index{Config@{Config}!remoteIP@{remoteIP}}
+\index{remoteIP@{remoteIP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{remoteIP}{remoteIP}}
+{\footnotesize\ttfamily remote\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+IPv4-\/address of SAR (DE10-\/\+NANO). 
+
+This property is used for {\bfseries{telemetry}} socket and {\bfseries{Execd}} socket. By default, this property returns {\ttfamily 127.\+0.\+0.\+1} (localhost). \begin{DoxySeeAlso}{See also}
+\#remote\+IP(), set\+Remote\+IP(), remote\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a153feb691de604b107e5765377364a9d}\label{classConfig_1_1Config_a153feb691de604b107e5765377364a9d}} 
+\index{Config@{Config}!storedCatalogue@{storedCatalogue}}
+\index{storedCatalogue@{storedCatalogue}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{storedCatalogue}{storedCatalogue}}
+{\footnotesize\ttfamily stored\+Catalogue\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Internal stored property for restoring offline view folder between sessions. 
+
+\begin{DoxyParagraph}{stored\+Catalogue(), set\+Stored\+Catalogue(), stored\+Catalogue\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_abdcb3cc37ddbefe06ad99b3daa720afc}\label{classConfig_1_1Config_abdcb3cc37ddbefe06ad99b3daa720afc}} 
+\index{Config@{Config}!storedLatitude@{storedLatitude}}
+\index{storedLatitude@{storedLatitude}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{storedLatitude}{storedLatitude}}
+{\footnotesize\ttfamily stored\+Latitude\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Internal stored property for restoring map camera position between sessions. 
+
+\begin{DoxyParagraph}{stored\+Latitude(), set\+Stored\+Latitude(), stored\+Latitude\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a5b2d3b040ee55818de48aed7ffc5806f}\label{classConfig_1_1Config_a5b2d3b040ee55818de48aed7ffc5806f}} 
+\index{Config@{Config}!storedLongitude@{storedLongitude}}
+\index{storedLongitude@{storedLongitude}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{storedLongitude}{storedLongitude}}
+{\footnotesize\ttfamily stored\+Longitude\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Internal stored property for restoring map camera position between sessions. 
+
+\begin{DoxyParagraph}{stored\+Longitude(), set\+Stored\+Longitude(), stored\+Longitude\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a6241b7c15dc9a3b9b8e412a80e00cc9d}\label{classConfig_1_1Config_a6241b7c15dc9a3b9b8e412a80e00cc9d}} 
+\index{Config@{Config}!storedZoomLevel@{storedZoomLevel}}
+\index{storedZoomLevel@{storedZoomLevel}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{storedZoomLevel}{storedZoomLevel}}
+{\footnotesize\ttfamily stored\+Zoom\+Level\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Internal stored property for restoring map camera position between sessions. 
+
+\begin{DoxyParagraph}{stored\+Zoom\+Level(), set\+Stored\+Zoom\+Level(), stored\+Zoom\+Level\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a9a898d90c155973baa06c11e8ef95813}\label{classConfig_1_1Config_a9a898d90c155973baa06c11e8ef95813}} 
+\index{Config@{Config}!tcpLFSPort@{tcpLFSPort}}
+\index{tcpLFSPort@{tcpLFSPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{tcpLFSPort}{tcpLFSPort}}
+{\footnotesize\ttfamily tcp\+LFSPort\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for receiving TCP-\/\+IP fsend data. 
+
+TCP-\/\+IP LFS server will be working on this port. SAR {\bfseries{fsend}} service will try to connect to this port when data is ready to send. Application will automatically set this port and \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}} as {\bfseries{execd}} argument. Needs to be used in pair with \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}. By default, this property returns {\ttfamily 10000}. \begin{DoxySeeAlso}{See also}
+\#tcp\+LFSPort(), set\+Tcp\+LFSPort(), tcp\+LFSPort\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a259e4f044a571c4bc7b34a23f39492be}\label{classConfig_1_1Config_a259e4f044a571c4bc7b34a23f39492be}} 
+\index{Config@{Config}!tcpMarker@{tcpMarker}}
+\index{tcpMarker@{tcpMarker}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{tcpMarker}{tcpMarker}}
+{\footnotesize\ttfamily tcp\+Marker\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Compatibility setting for old {\bfseries{fsend}} versions. 
+
+Describes, which split char between file size and file name will be used on parsing TCP-\/\+IP data packet. In known cases, can evaluate to {\ttfamily NULL} char and {\ttfamily NEWLINE} char. By default, this property returns {\ttfamily \textbackslash{}0} (NULL). \begin{DoxyParagraph}{tcp\+Marker(), set\+Tcp\+Marker(), tcp\+Marker\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a752dbeb4be188be8d6e370263c380827}\label{classConfig_1_1Config_a752dbeb4be188be8d6e370263c380827}} 
+\index{Config@{Config}!telemetryFrequency@{telemetryFrequency}}
+\index{telemetryFrequency@{telemetryFrequency}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{telemetryFrequency}{telemetryFrequency}}
+{\footnotesize\ttfamily telemetry\+Frequency\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Telemetry package interval in seconds. 
+
+Describes how fast SAR {\bfseries{navd2}} service will send telemetry packages to application host computer. By default, this property returns {\ttfamily 0.\+1} (seconds). \begin{DoxyParagraph}{telemetry\+Frequency(), set\+Telemetry\+Frequency(), telemetry\+Frequency\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a9400347615d36fd3eed76e4f027433df}\label{classConfig_1_1Config_a9400347615d36fd3eed76e4f027433df}} 
+\index{Config@{Config}!telemetryPort@{telemetryPort}}
+\index{telemetryPort@{telemetryPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{telemetryPort}{telemetryPort}}
+{\footnotesize\ttfamily telemetry\+Port\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for requesting telemetry. 
+
+This port is used for connecting to SAR {\bfseries{navd2}} service and requesting telemetry. Needs to be used in pair with property \mbox{\hyperlink{classConfig_1_1Config_a29ca03d2272c4051d7c324cd6bac3b0b}{remote\+IP}}. By default, this property returns {\ttfamily 9955}. \begin{DoxySeeAlso}{See also}
+\#telemetry\+Port(), set\+Telemetry\+Port(), telemetry\+Port\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_afa3175de72b10c5da5e4664f75936346}\label{classConfig_1_1Config_afa3175de72b10c5da5e4664f75936346}} 
+\index{Config@{Config}!telemetryRecvPort@{telemetryRecvPort}}
+\index{telemetryRecvPort@{telemetryRecvPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{telemetryRecvPort}{telemetryRecvPort}}
+{\footnotesize\ttfamily telemetry\+Recv\+Port\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for receiving telemetry. 
+
+This port is used for receiving telemetry from SAR {\bfseries{navd2}} service and requesting telemetry. Needs to be used in pair with property \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}. By default, this property returns {\ttfamily 10337}. \begin{DoxySeeAlso}{See also}
+\#telemetry\+Recv\+Port(), set\+Telemetry\+Recv\+Port(), telemetry\+Recv\+Port\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a53d9759116527e34443d82453b97f415}\label{classConfig_1_1Config_a53d9759116527e34443d82453b97f415}} 
+\index{Config@{Config}!theme@{theme}}
+\index{theme@{theme}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{theme}{theme}}
+{\footnotesize\ttfamily theme\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Selected application theme. 
+
+Currently can evaluates to {\ttfamily nord} or {\ttfamily contrast}. In future rework of theme engine, it will fetch theme type from theme .json file. By default, this property returns {\ttfamily contrast}. \begin{DoxyParagraph}{theme(), set\+Theme(), theme\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_afd2df17ea5b9473da8b4d307395c5085}\label{classConfig_1_1Config_afd2df17ea5b9473da8b4d307395c5085}} 
+\index{Config@{Config}!thetaAzimuthCorrection@{thetaAzimuthCorrection}}
+\index{thetaAzimuthCorrection@{thetaAzimuthCorrection}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{thetaAzimuthCorrection}{thetaAzimuthCorrection}}
+{\footnotesize\ttfamily theta\+Azimuth\+Correction\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Debug property for subtracting diargam size angle value from image metadata. 
+
+Value describes, how many degrees will be subtracted from image metadata theta-\/azimuth (div). By default, this property returns {\ttfamily 5} (diargam angle is lower by 5 degrees). \begin{DoxyParagraph}{theta\+Azimuth\+Correction(), set\+Theta\+Azimuth\+Correction(), theta\+Azimuth\+Correction\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a0eddf3d43e33470977841fae03717c29}\label{classConfig_1_1Config_a0eddf3d43e33470977841fae03717c29}} 
+\index{Config@{Config}!udpLFSPort@{udpLFSPort}}
+\index{udpLFSPort@{udpLFSPort}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{udpLFSPort}{udpLFSPort}}
+{\footnotesize\ttfamily udp\+LFSPort\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Port for receiving UDP {\bfseries{fsend}} data. 
+
+UDP LFS server will be working on this port. SAR {\bfseries{fsend}} service will try to connect to this port when strip data is ready to send. Needs to be used in pair with \mbox{\hyperlink{classConfig_1_1Config_abb00f8fd5508af1ffc1b56f474a7ba22}{local\+IP}}. By default, this property returns {\ttfamily 48455}. \begin{DoxyWarning}{Warning}
+Functionality of UDP LFS server is currently {\bfseries{not}} implemented. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\#udp\+LFSPort(), set\+Udp\+LFSPort(), udp\+LFSPort\+Changed() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_afcbc3ba0faa77bf6b0a9b01f878181e6}\label{classConfig_1_1Config_afcbc3ba0faa77bf6b0a9b01f878181e6}} 
+\index{Config@{Config}!useDriftAngle@{useDriftAngle}}
+\index{useDriftAngle@{useDriftAngle}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{useDriftAngle}{useDriftAngle}}
+{\footnotesize\ttfamily use\+Drift\+Angle\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Compatibility setting for older firmware versions. 
+
+If boolean evalueates to {\ttfamily true}, image metadata decoding process will use drift angle values in geopositioning, otherwise drift angle value will be ignored. User needs to manually uncheck this boolean, if resulting images are incorrectly aligned. By default, this property returns {\ttfamily true}. \begin{DoxyParagraph}{use\+Drift\+Angle(), set\+Use\+Drift\+Angle(), use\+Drift\+Angle\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_af6dc8053f62613e2dd7a79d2172c658d}\label{classConfig_1_1Config_af6dc8053f62613e2dd7a79d2172c658d}} 
+\index{Config@{Config}!useRadians@{useRadians}}
+\index{useRadians@{useRadians}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{useRadians}{useRadians}}
+{\footnotesize\ttfamily use\+Radians\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Compatibility setting for older firmware versions. 
+
+If boolean evalueates to {\ttfamily true}, image metadata decoding process will expect radian values in azimuth, drift angle and div fields. VT45-\/firmware (target platform) currently behaves like that. User needs to manually uncheck this boolean, if resulting images are poor cut and incorrectly aligned. By default, this property returns {\ttfamily true}. \begin{DoxyParagraph}{use\+Radians(), set\+Use\+Radians(), use\+Radians\+Changed()}
+
+\end{DoxyParagraph}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_a8af317d04dbe29e8f495cd928c0f30cb}\label{classConfig_1_1Config_a8af317d04dbe29e8f495cd928c0f30cb}} 
+\index{Config@{Config}!utl1IP@{utl1IP}}
+\index{utl1IP@{utl1IP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{utl1IP}{utl1IP}}
+{\footnotesize\ttfamily utl1\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Reserved IPv4-\/address. 
+
+Currently, this property is used only for pinging setted IP-\/address. In future, this property will hold address of antenna commutator. By default, this property returns 192.\+168.\+1.\+50. \begin{DoxySeeAlso}{See also}
+\#utl1\+IP(), set\+Utl1\+IP(), utl1\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+
+\mbox{\Hypertarget{classConfig_1_1Config_afdd91838bc17767a1510db9d4e569aaa}\label{classConfig_1_1Config_afdd91838bc17767a1510db9d4e569aaa}} 
+\index{Config@{Config}!utl2IP@{utl2IP}}
+\index{utl2IP@{utl2IP}!Config@{Config}}
+\doxysubsubsection{\texorpdfstring{utl2IP}{utl2IP}}
+{\footnotesize\ttfamily utl2\+IP\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+
+
+Reserved IPv4-\/address. 
+
+Currently, this property is used only for pinging setted IP-\/address. In future, this property will hold address of power commutator. By default, this property returns 192.\+168.\+1.\+51. \begin{DoxySeeAlso}{See also}
+\#utl2\+IP(), set\+Utl2\+IP(), utl2\+IPChanged() 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{config_8h_source_l00001}{1}} of file \mbox{\hyperlink{config_8h_source}{config.\+h}}.
+

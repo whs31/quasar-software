@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d7/d92/structMap_1_1PlannerPoint" kind="struct" language="C++" prot="public">
+    <compoundname>Map::PlannerPoint</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Marker</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d7/d92/structMap_1_1PlannerPoint_1a1db826cabd271c1931e78ebc1560604c" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString command</definition>
+        <argsstring></argsstring>
+        <name>command</name>
+        <qualifiedname>Map::PlannerPoint::command</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/marker.h" line="21" column="17" bodyfile="src/c++/map/entities/marker.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/marker.h" line="19" column="5" bodyfile="src/c++/map/entities/marker.h" bodystart="20" bodyend="22"/>
+    <listofallmembers>
+      <member refid="d6/d7c/structMap_1_1Marker_1a54c5bda1909b6f48d9ae297507ce3b85" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>color</name></member>
+      <member refid="d7/d92/structMap_1_1PlannerPoint_1a1db826cabd271c1931e78ebc1560604c" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>command</name></member>
+      <member refid="d6/d7c/structMap_1_1Marker_1aaefd3f4e955f8d35e8b62947f58b2e81" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>icon</name></member>
+      <member refid="d6/d7c/structMap_1_1Marker_1a76714bdbc5c536fa77dfb14533ff82a9" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>latitude</name></member>
+      <member refid="d6/d7c/structMap_1_1Marker_1ac155e35fdeebafc89723a51520fb9fe6" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>longitude</name></member>
+      <member refid="d6/d7c/structMap_1_1Marker_1ab4d14a08db7ff35c5b312c82810d511e" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>Marker</name></member>
+      <member refid="d6/d7c/structMap_1_1Marker_1abc29e461e01cc0c712944f8f47f91331" prot="public" virt="non-virtual"><scope>Map::PlannerPoint</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

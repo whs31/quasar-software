@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="de/ddd/structMap_1_1StripHeaderMetadata" kind="struct" language="C++" prot="public">
+    <compoundname>Map::StripHeaderMetadata</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1a51bdee9eea878b90b917afc0f8c99435" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t marker</definition>
+        <argsstring></argsstring>
+        <name>marker</name>
+        <qualifiedname>Map::StripHeaderMetadata::marker</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="45" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1ab6d7b6f8c2ceaba7acda80aaf05f4899" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <qualifiedname>Map::StripHeaderMetadata::version</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="46" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1aaba88b24a21a6c70c895c0d55f4a69a0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Map::StripHeaderMetadata::size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="47" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1ae1d905c6ac1a0c9b96dca16153917334" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t cnt</definition>
+        <argsstring></argsstring>
+        <name>cnt</name>
+        <qualifiedname>Map::StripHeaderMetadata::cnt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="48" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1a4fc3a0c58dfbd1e68224521185cb9384" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Map::StripHeaderMetadata::id</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="49" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/ddd/structMap_1_1StripHeaderMetadata_1acb5cfd209ba75c853d03f701e7f91679" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Map::StripHeaderMetadata::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/imagemetadata.h" line="50" column="18" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/imagemetadata.h" line="43" column="5" bodyfile="src/c++/map/entities/imagemetadata.h" bodystart="44" bodyend="51"/>
+    <listofallmembers>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1ae1d905c6ac1a0c9b96dca16153917334" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>cnt</name></member>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1a4fc3a0c58dfbd1e68224521185cb9384" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>id</name></member>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1a51bdee9eea878b90b917afc0f8c99435" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>marker</name></member>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1aaba88b24a21a6c70c895c0d55f4a69a0" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>size</name></member>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1acb5cfd209ba75c853d03f701e7f91679" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>type</name></member>
+      <member refid="de/ddd/structMap_1_1StripHeaderMetadata_1ab6d7b6f8c2ceaba7acda80aaf05f4899" prot="public" virt="non-virtual"><scope>Map::StripHeaderMetadata</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,73 @@
+\hypertarget{terminalbase_8h_source}{}\doxysection{terminalbase.\+h}
+\label{terminalbase_8h_source}\index{src/c++/gui/terminal/terminalbase.h@{src/c++/gui/terminal/terminalbase.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QAbstractListModel>}}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00006}00006\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }GUI}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{class\ }TerminalBase\ :\ \textcolor{keyword}{public}\ QAbstractListModel}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ MessageType}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Info,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Warning,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Error,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra1,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra2,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra3,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra4,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra5,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra6,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra7,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra8,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Extra9}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }BasicMessage}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QString\ msg;}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QString\ mdl;}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MessageType\ type;}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_ENUM(MessageType)}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ ModelRoles}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Index\ =\ Qt::UserRole\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Message,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Module,}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Type}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ TerminalBase(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rowCount(\textcolor{keyword}{const}\ QModelIndex\&\ parent\ =\ QModelIndex())\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ QVariant\ data(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ setData(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keyword}{const}\ QVariant\&\ value,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ append(\textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keyword}{const}\ QString\&\ module\ =\ \textcolor{stringliteral}{"{}"{}},\ GUI::TerminalBase::MessageType\ type\ =\ Debug);}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ replaceLast(\textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keyword}{const}\ QString\&\ module\ =\ \textcolor{stringliteral}{"{}"{}},\ GUI::TerminalBase::MessageType\ type\ =\ Debug);}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ QHash<int,\ QByteArray>\ roleNames()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ vector<BasicMessage>\ storage;}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00065}00065\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00066}00066\ \}\ \textcolor{comment}{//\ GUI}}
+\DoxyCodeLine{\Hypertarget{terminalbase_8h_source_l00067}00067\ }
+
+\end{DoxyCode}

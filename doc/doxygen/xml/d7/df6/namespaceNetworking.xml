@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d7/df6/namespaceNetworking" kind="namespace" language="C++">
+    <compoundname>Networking</compoundname>
+    <innerclass refid="db/db6/classNetworking_1_1AbstractUDPSocket" prot="public">Networking::AbstractUDPSocket</innerclass>
+    <innerclass refid="db/d64/classNetworking_1_1Enums" prot="public">Networking::Enums</innerclass>
+    <innerclass refid="dd/d83/structNetworking_1_1ExecdArgument" prot="public">Networking::ExecdArgument</innerclass>
+    <innerclass refid="d2/d08/classNetworking_1_1ExecdArgumentList" prot="public">Networking::ExecdArgumentList</innerclass>
+    <innerclass refid="d9/d86/classNetworking_1_1ExecdSocket" prot="public">Networking::ExecdSocket</innerclass>
+    <innerclass refid="df/def/classNetworking_1_1FeedbackSocket" prot="public">Networking::FeedbackSocket</innerclass>
+    <innerclass refid="de/df8/classNetworking_1_1Network" prot="public">Networking::Network</innerclass>
+    <innerclass refid="dd/d83/classNetworking_1_1Pinger" prot="public">Networking::Pinger</innerclass>
+    <innerclass refid="d7/d85/structNetworking_1_1PlannerAppendDatagram" prot="public">Networking::PlannerAppendDatagram</innerclass>
+    <innerclass refid="d8/d75/structNetworking_1_1PlannerRemoveDatagram" prot="public">Networking::PlannerRemoveDatagram</innerclass>
+    <innerclass refid="d3/dbd/structNetworking_1_1PlannerResponseDatagram" prot="public">Networking::PlannerResponseDatagram</innerclass>
+    <innerclass refid="d8/d62/classNetworking_1_1RemoteData" prot="public">Networking::RemoteData</innerclass>
+    <innerclass refid="d8/d6e/classNetworking_1_1TCPSocket" prot="public">Networking::TCPSocket</innerclass>
+    <innerclass refid="dd/dee/classNetworking_1_1Telemetry" prot="public">Networking::Telemetry</innerclass>
+    <innerclass refid="d2/d81/structNetworking_1_1TelemetryDatagram" prot="public">Networking::TelemetryDatagram</innerclass>
+    <innerclass refid="da/d29/structNetworking_1_1TelemetryRequest" prot="public">Networking::TelemetryRequest</innerclass>
+    <innerclass refid="dc/dfd/classNetworking_1_1TelemetrySocket" prot="public">Networking::TelemetrySocket</innerclass>
+    <innernamespace refid="da/d41/namespaceNetworking_1_1utils">Networking::utils</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1a667da8c0fec261cd7fc83ee7976f51dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const PlannerAppendDatagram &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const PlannerAppendDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="66" column="12" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="66" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1ad24229e650467998c85c0047a2970270" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, PlannerAppendDatagram &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>PlannerAppendDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="82" column="24" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="82" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1a109d968b5269f4699117f067bda65529" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const PlannerRemoveDatagram &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const PlannerRemoveDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="98" column="12" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="98" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1a8cd5cbe90b83fca85b31a4230d77c20a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, PlannerRemoveDatagram &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>PlannerRemoveDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="111" column="24" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="111" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1ad8e8bf46284941b161387369faf8e633" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const PlannerResponseDatagram &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const PlannerResponseDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="124" column="12" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="124" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d97/plannerdatagram_8h_1a10fb184281eeaeaa9948edb825e4f3e0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, PlannerResponseDatagram &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>PlannerResponseDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/planner/plannerdatagram.h" line="133" column="24" bodyfile="src/c++/network/planner/plannerdatagram.h" bodystart="133" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d60/telemetrydatagram_8h_1af1b1c5fe6cadd39db7277bfb71438ecc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const TelemetryDatagram &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const TelemetryDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="71" column="12" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="71" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d60/telemetrydatagram_8h_1a938d6f128a41c8f63c84a34136307c88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, TelemetryDatagram &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>TelemetryDatagram &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="93" column="24" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="93" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d60/telemetrydatagram_8h_1ac69478bea23f6c57b2d6be7048ce4070" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&lt;&lt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, const TelemetryRequest &amp;data)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <qualifiedname>Networking::operator&lt;&lt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>const TelemetryRequest &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="115" column="12" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="115" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d60/telemetrydatagram_8h_1a257b8f840bc19ee0d415ccdd702a66f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>QDataStream &amp;</type>
+        <definition>QDataStream &amp; operator&gt;&gt;</definition>
+        <argsstring>(QDataStream &amp;dataStream, TelemetryRequest &amp;data)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <qualifiedname>Networking::operator&gt;&gt;</qualifiedname>
+        <param>
+          <type>QDataStream &amp;</type>
+          <declname>dataStream</declname>
+        </param>
+        <param>
+          <type>TelemetryRequest &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrydatagram.h" line="126" column="24" bodyfile="src/c++/network/telemetry/telemetrydatagram.h" bodystart="126" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/abstractudpsocket.h" line="7" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,76 @@
+\hypertarget{route_8c_09_09_source}{}\doxysection{route.\+c++}
+\label{route_8c_09_09_source}\index{src/c++/map/route.c++@{src/c++/map/route.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}route.h"{}}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}tools/routelogger.h"{}}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QFile>}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtPositioning/QGeoCoordinate>}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00007}00007\ \textcolor{keyword}{using\ namespace\ }Map;}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00009}00009\ Route::Route(QObject*\ parent)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00010}00010\ \ \ \ \ :\ QObject\{parent\}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00011}00011\ \ \ \ \ ,\ logger(new\ RouteLogger(this))}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00012}00012\ \{\}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00014}00014\ Route::\string~Route()}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00016}00016\ \ \ \ \ logger-\/>commit();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00019}00019\ \textcolor{keywordtype}{void}\ Route::append(\textcolor{keyword}{const}\ QGeoCoordinate\&\ coord,\ \textcolor{keywordtype}{float}\ speed,\ \textcolor{keywordtype}{int}\ satellites)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ created\_log\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}(m\_fullRoute.empty()\ and\ not\ created\_log)\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00023}00023\ \ \ \ \ \ \ \ \ logger-\/>createLog();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00024}00024\ \ \ \ \ \ \ \ \ created\_log\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}(logger-\/>current\_file)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00028}00028\ \ \ \ \ \ \ \ \ logger-\/>append(coord,\ speed,\ satellites);}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}(coord.latitude()\ ==\ 0\ or\ coord.longitude()\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00033}00033\ \ \ \ \ m\_fullRoute.push\_back(QVariant::fromValue(coord));}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00034}00034\ \ \ \ \ emit\ fullRouteChanged();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}(m\_recentRoute.size()\ >=\ RECENT\_ROUTE\_SIZE)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00037}00037\ \ \ \ \ \ \ \ \ m\_recentRoute.pop\_front();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00038}00038\ \ \ \ \ m\_recentRoute.push\_back(QVariant::fromValue(coord));}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00039}00039\ \ \ \ \ emit\ recentRouteChanged();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00042}00042\ \textcolor{keywordtype}{void}\ Route::clear()}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}(fullRoute().empty())\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00045}00045\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[ROUTE]\ Tried\ to\ clear\ empty\ track"{}};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00049}00049\ \ \ \ \ setFullRoute(QVariantList());}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00050}00050\ \ \ \ \ setRecentRoute(QVariantList());}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00051}00051\ \ \ \ \ logger-\/>commit();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00054}00054\ QVariantList\ Route::fullRoute()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_fullRoute;\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00055}00055\ \textcolor{keywordtype}{void}\ Route::setFullRoute(\textcolor{keyword}{const}\ QVariantList\&\ other)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_fullRoute\ ==\ other)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00059}00059\ \ \ \ \ m\_fullRoute\ =\ other;}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00060}00060\ \ \ \ \ emit\ fullRouteChanged();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00063}00063\ QVariantList\ Route::recentRoute()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ m\_recentRoute;\ \}}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00064}00064\ \textcolor{keywordtype}{void}\ Route::setRecentRoute(\textcolor{keyword}{const}\ QVariantList\&\ other)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00065}00065\ \{}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_recentRoute\ ==\ other)}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00068}00068\ \ \ \ \ m\_recentRoute\ =\ other;}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00069}00069\ \ \ \ \ emit\ recentRouteChanged();}
+\DoxyCodeLine{\Hypertarget{route_8c_09_09_source_l00070}00070\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,206 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d2/d08/classNetworking_1_1ExecdArgumentList" kind="class" language="C++" prot="public">
+    <compoundname>Networking::ExecdArgumentList</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d2/d08/classNetworking_1_1ExecdArgumentList_1ac99a24b573f07ab3a24e7e644453f3e2" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, ExecdArgument &gt;</type>
+        <definition>QMap&lt;QString, ExecdArgument&gt; defaults</definition>
+        <argsstring></argsstring>
+        <name>defaults</name>
+        <qualifiedname>Networking::ExecdArgumentList::defaults</qualifiedname>
+        <initializer>= {
+            {&quot;-f&quot;, ExecdArgument(&quot;m1&quot;)},            
+            {&quot;-m&quot;, ExecdArgument(1)},               
+            {&quot;-t&quot;, ExecdArgument(1.0f)},            
+            {&quot;-b&quot;, ExecdArgument(0.0f)},            
+            {&quot;-e&quot;, ExecdArgument(-1.0f)},           
+            {&quot;-v&quot;, ExecdArgument(-1.0f)},           
+            {&quot;-i&quot;, ExecdArgument(0)},               
+            {&quot;--Ts&quot;, ExecdArgument(1.0f)},          
+            {&quot;--Tstrip&quot;, ExecdArgument(1.0f)},      
+            {&quot;--kR&quot;, ExecdArgument(1)},             
+            {&quot;--kL&quot;, ExecdArgument(1)},             
+            {&quot;--jq&quot;, ExecdArgument(80)},            
+
+            {&quot;--dx&quot;, ExecdArgument(1.0f)},          
+            {&quot;--dy&quot;, ExecdArgument(1.0f)},          
+            {&quot;--x0&quot;, ExecdArgument(100.0f)},        
+            {&quot;--y0&quot;, ExecdArgument(0.0f)},          
+            {&quot;--lx&quot;, ExecdArgument(2&apos;000.0f)},      
+            {&quot;--ly&quot;, ExecdArgument(400.0f)},        
+            {&quot;--ip&quot;, ExecdArgument(&quot;./img/&quot;)},      
+            {&quot;--remote&quot;, ExecdArgument(&quot;None&quot;)},    
+            {&quot;--DSP&quot;, ExecdArgument(&quot;DSP_FFTW&quot;)},   
+            {&quot;--mirror&quot;, ExecdArgument(&quot;False&quot;)},   
+
+            {&quot;--e0&quot;, ExecdArgument(0.0f)}           
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="34" column="14" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a91efacb394ec81844ceca98fb30220c2" prot="private" static="no" mutable="no">
+        <type>QMap&lt; QString, ExecdArgument &gt;</type>
+        <definition>QMap&lt;QString, ExecdArgument&gt; focus_defaults</definition>
+        <argsstring></argsstring>
+        <name>focus_defaults</name>
+        <qualifiedname>Networking::ExecdArgumentList::focus_defaults</qualifiedname>
+        <initializer>= {
+            {&quot;-f&quot;, ExecdArgument(&quot;m1&quot;)},            
+            {&quot;-b&quot;, ExecdArgument(0.0f)},            
+            {&quot;-e&quot;, ExecdArgument(-1.0f)},           
+            {&quot;-v&quot;, ExecdArgument(-1.0f)},           
+            {&quot;--Ts&quot;, ExecdArgument(1.0f)},          
+            {&quot;--remote&quot;, ExecdArgument(&quot;None&quot;)},    
+            {&quot;--e0&quot;, ExecdArgument(0.0f)},          
+
+            {&quot;--px&quot;, ExecdArgument(-1.0f)},         
+            {&quot;--py&quot;, ExecdArgument(-1.0f)},         
+            {&quot;--ls&quot;, ExecdArgument(50.0f)},         
+            {&quot;--vmin&quot;, ExecdArgument(-1.0f)},       
+            {&quot;--vmax&quot;, ExecdArgument(-1.0f)},       
+            {&quot;--ni&quot;, ExecdArgument(10)},            
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="63" column="14" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a2407873c0bcb27639ae2496c360dda93" prot="public" static="no" mutable="no">
+        <type>QMap&lt; QString, ExecdArgument &gt;</type>
+        <definition>QMap&lt;QString, ExecdArgument&gt; argument_list</definition>
+        <argsstring></argsstring>
+        <name>argument_list</name>
+        <qualifiedname>Networking::ExecdArgumentList::argument_list</qualifiedname>
+        <initializer>= defaults</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="87" column="18" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a19b6d5dfbd653b1c016059e727139a3e" prot="public" static="no" mutable="no">
+        <type>QMap&lt; QString, ExecdArgument &gt;</type>
+        <definition>QMap&lt;QString, ExecdArgument&gt; reform_argument_list</definition>
+        <argsstring></argsstring>
+        <name>reform_argument_list</name>
+        <qualifiedname>Networking::ExecdArgumentList::reform_argument_list</qualifiedname>
+        <initializer>= defaults</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="88" column="18" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a001ba3c908f034c311bfb072d592173a" prot="public" static="no" mutable="no">
+        <type>QMap&lt; QString, ExecdArgument &gt;</type>
+        <definition>QMap&lt;QString, ExecdArgument&gt; focus_argument_list</definition>
+        <argsstring></argsstring>
+        <name>focus_argument_list</name>
+        <qualifiedname>Networking::ExecdArgumentList::focus_argument_list</qualifiedname>
+        <initializer>= focus_defaults</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="89" column="18" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a0ff072a16b432ca2c3fca3a18bab05b6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdArgumentList</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ExecdArgumentList</name>
+        <qualifiedname>Networking::ExecdArgumentList::ExecdArgumentList</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="81" column="22" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/d08/classNetworking_1_1ExecdArgumentList_1aef662bcdf98102a3b70f00aa1fb80922" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString getFormArguments</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>getFormArguments</name>
+        <qualifiedname>Networking::ExecdArgumentList::getFormArguments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="83" column="21" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="42" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/d08/classNetworking_1_1ExecdArgumentList_1aadba8c6a2c4c94f621db548b539cc18f" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString getReformArguments</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>getReformArguments</name>
+        <qualifiedname>Networking::ExecdArgumentList::getReformArguments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="84" column="21" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="62" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/d08/classNetworking_1_1ExecdArgumentList_1a78fe1baa942e1f462b98f844883ee06b" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>QString</type>
+        <definition>QString getFocusArguments</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>getFocusArguments</name>
+        <qualifiedname>Networking::ExecdArgumentList::getFocusArguments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="85" column="21" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="82" bodyend="100"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/execd/execdargumentlist.h" line="30" column="5" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="31" bodyend="90"/>
+    <listofallmembers>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a2407873c0bcb27639ae2496c360dda93" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>argument_list</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1ac99a24b573f07ab3a24e7e644453f3e2" prot="private" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>defaults</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a0ff072a16b432ca2c3fca3a18bab05b6" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>ExecdArgumentList</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a001ba3c908f034c311bfb072d592173a" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>focus_argument_list</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a91efacb394ec81844ceca98fb30220c2" prot="private" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>focus_defaults</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a78fe1baa942e1f462b98f844883ee06b" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>getFocusArguments</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1aef662bcdf98102a3b70f00aa1fb80922" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>getFormArguments</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1aadba8c6a2c4c94f621db548b539cc18f" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>getReformArguments</name></member>
+      <member refid="d2/d08/classNetworking_1_1ExecdArgumentList_1a19b6d5dfbd653b1c016059e727139a3e" prot="public" virt="non-virtual"><scope>Networking::ExecdArgumentList</scope><name>reform_argument_list</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

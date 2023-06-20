@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dc/dfd/classNetworking_1_1TelemetrySocket" kind="class" language="C++" prot="public">
+    <compoundname>Networking::TelemetrySocket</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">AbstractUDPSocket</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="dc/dfd/classNetworking_1_1TelemetrySocket_1acdfc8898c9e67fbcec81f3b04ae61bd9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <qualifiedname>Networking::TelemetrySocket::frequency</qualifiedname>
+        <read>frequency</read>
+        <write>setFrequency</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a5717a1b606133f3956a3b238cd6bac45" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t MARKER</definition>
+        <argsstring></argsstring>
+        <name>MARKER</name>
+        <qualifiedname>Networking::TelemetrySocket::MARKER</qualifiedname>
+        <initializer>= 0x55bb55bb</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="16" column="35" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a3e2469649a6271bb4af3797f5b75ae40" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t RECV_MARKER_LITTLE</definition>
+        <argsstring></argsstring>
+        <name>RECV_MARKER_LITTLE</name>
+        <qualifiedname>Networking::TelemetrySocket::RECV_MARKER_LITTLE</qualifiedname>
+        <initializer>= 0xaa55aa55</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="17" column="35" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a8ad896d26a65c3d692ecfbe6b7a914a5" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint32_t</type>
+        <definition>constexpr uint32_t RECV_MARKER_BIG</definition>
+        <argsstring></argsstring>
+        <name>RECV_MARKER_BIG</name>
+        <qualifiedname>Networking::TelemetrySocket::RECV_MARKER_BIG</qualifiedname>
+        <initializer>= 0x55aa55aa</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="18" column="35" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1acf8b2853252b483f36bf643a013ce63a" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool CRC_CHECK</definition>
+        <argsstring></argsstring>
+        <name>CRC_CHECK</name>
+        <qualifiedname>Networking::TelemetrySocket::CRC_CHECK</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="19" column="31" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a3cae6a673e0292040e5c064fdcf9a04a" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* m_updateTimer</definition>
+        <argsstring></argsstring>
+        <name>m_updateTimer</name>
+        <qualifiedname>Networking::TelemetrySocket::m_updateTimer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="39" column="20" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1afb98bf73752f173ea1827cc2edb44216" prot="private" static="no" mutable="no">
+        <type>QUdpSocket *</type>
+        <definition>QUdpSocket* m_requestsock</definition>
+        <argsstring></argsstring>
+        <name>m_requestsock</name>
+        <qualifiedname>Networking::TelemetrySocket::m_requestsock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="40" column="24" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a2bae886ab2c21c8d5a926525346b9674" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float m_frequency</definition>
+        <argsstring></argsstring>
+        <name>m_frequency</name>
+        <qualifiedname>Networking::TelemetrySocket::m_frequency</qualifiedname>
+        <initializer>= 0.2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="41" column="19" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1abe0fb5277195a93ed5042ca2b12f3396" prot="private" static="no" mutable="no">
+        <type>Telemetry *</type>
+        <definition>Telemetry* output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <qualifiedname>Networking::TelemetrySocket::output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="42" column="23" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1aa2d29b25563c1c620147bd6f0d74042e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString req_addr</definition>
+        <argsstring></argsstring>
+        <name>req_addr</name>
+        <qualifiedname>Networking::TelemetrySocket::req_addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="43" column="21" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1adf68917197a84d16ae9fa3745365e51b" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t req_port</definition>
+        <argsstring></argsstring>
+        <name>req_port</name>
+        <qualifiedname>Networking::TelemetrySocket::req_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="44" column="22" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dfd/classNetworking_1_1TelemetrySocket_1af3f7956dcff0a74cf57b2afb4a8aea15" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t recv_port</definition>
+        <argsstring></argsstring>
+        <name>recv_port</name>
+        <qualifiedname>Networking::TelemetrySocket::recv_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="45" column="22" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dc/dfd/classNetworking_1_1TelemetrySocket_1af45ae5dae59622dc9960f4e454f8a7ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>TelemetrySocket</definition>
+        <argsstring>(QObject *parent=nullptr, Telemetry *output=nullptr)</argsstring>
+        <name>TelemetrySocket</name>
+        <qualifiedname>Networking::TelemetrySocket::TelemetrySocket</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <param>
+          <type>Telemetry *</type>
+          <declname>output</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="22" column="13" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="12" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfd/classNetworking_1_1TelemetrySocket_1aa474dc82e979bd2cd1f1863c6def3956" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void start</definition>
+        <argsstring>(const QString &amp;address, const QString &amp;recv_address)</argsstring>
+        <name>start</name>
+        <qualifiedname>Networking::TelemetrySocket::start</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>recv_address</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="24" column="18" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="22" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a8c528baf37154d347366083f0f816846" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>Networking::TelemetrySocket::stop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="25" column="18" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a8e0b885b8423672eec948899b7bb504f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float frequency</definition>
+        <argsstring>() const</argsstring>
+        <name>frequency</name>
+        <qualifiedname>Networking::TelemetrySocket::frequency</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="27" column="20" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/dfd/classNetworking_1_1TelemetrySocket_1ad0c3f907d44825f9ae6803ac3de17f50" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFrequency</definition>
+        <argsstring>(float)</argsstring>
+        <name>setFrequency</name>
+        <qualifiedname>Networking::TelemetrySocket::setFrequency</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="27" column="41" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="114" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a7cb443bd2f957c9765aad7fa7d711ba6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void frequencyChanged</definition>
+        <argsstring>()</argsstring>
+        <name>frequencyChanged</name>
+        <qualifiedname>Networking::TelemetrySocket::frequencyChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="30" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dc/dfd/classNetworking_1_1TelemetrySocket_1ad8136df344f340b0653c27e3317c08f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ping</definition>
+        <argsstring>()</argsstring>
+        <name>ping</name>
+        <qualifiedname>Networking::TelemetrySocket::ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="31" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-slot">
+      <memberdef kind="slot" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a8cfd84f7ee31281886bcea23eaad3ca5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processTelemetry</definition>
+        <argsstring>(QByteArray data)</argsstring>
+        <name>processTelemetry</name>
+        <qualifiedname>Networking::TelemetrySocket::processTelemetry</qualifiedname>
+        <param>
+          <type>QByteArray</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="35" column="22" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="46" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="slot" id="dc/dfd/classNetworking_1_1TelemetrySocket_1a1798758d7cbaa29f7c0be526694ee6a5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void requestTelemetry</definition>
+        <argsstring>()</argsstring>
+        <name>requestTelemetry</name>
+        <qualifiedname>Networking::TelemetrySocket::requestTelemetry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetrysocket.h" line="36" column="22" bodyfile="src/c++/network/telemetry/telemetrysocket.c++" bodystart="94" bodyend="111"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/telemetry/telemetrysocket.h" line="11" column="5" bodyfile="src/c++/network/telemetry/telemetrysocket.h" bodystart="12" bodyend="46"/>
+    <listofallmembers>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a32422a487d1c53b078747f40bb7f3ce6" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>AbstractUDPSocket</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a01948d8cb99ea51677e34382c9e2c8aa" prot="public" virt="virtual"><scope>Networking::TelemetrySocket</scope><name>connect</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1acf8b2853252b483f36bf643a013ce63a" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>CRC_CHECK</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a960705de531a20389fb29928d43258c3" prot="public" virt="virtual"><scope>Networking::TelemetrySocket</scope><name>disconnect</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1acdfc8898c9e67fbcec81f3b04ae61bd9" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>frequency</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8e0b885b8423672eec948899b7bb504f" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>frequency</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a7cb443bd2f957c9765aad7fa7d711ba6" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>frequencyChanged</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a2bae886ab2c21c8d5a926525346b9674" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>m_frequency</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1afb98bf73752f173ea1827cc2edb44216" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>m_requestsock</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a3cae6a673e0292040e5c064fdcf9a04a" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>m_updateTimer</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a5717a1b606133f3956a3b238cd6bac45" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>MARKER</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1abe0fb5277195a93ed5042ca2b12f3396" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>output</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1ad8136df344f340b0653c27e3317c08f5" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>ping</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a6aac8bbc4a1ac6c37d4c9f0564256fbd" prot="public" virt="virtual"><scope>Networking::TelemetrySocket</scope><name>port</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8cfd84f7ee31281886bcea23eaad3ca5" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>processTelemetry</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a3eb63c5af67a44fb60ba731d3da7a56d" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>received</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8ad896d26a65c3d692ecfbe6b7a914a5" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>RECV_MARKER_BIG</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a3e2469649a6271bb4af3797f5b75ae40" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>RECV_MARKER_LITTLE</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1af3f7956dcff0a74cf57b2afb4a8aea15" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>recv_port</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1aa2d29b25563c1c620147bd6f0d74042e" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>req_addr</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1adf68917197a84d16ae9fa3745365e51b" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>req_port</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a1798758d7cbaa29f7c0be526694ee6a5" prot="private" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>requestTelemetry</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1ad1239ca09fddf150d1584cdf26baf7f3" prot="public" virt="virtual"><scope>Networking::TelemetrySocket</scope><name>send</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1ad0c3f907d44825f9ae6803ac3de17f50" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>setFrequency</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a270b32a7b4f3d08e655807d4101acbd7" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>socketDisconnected</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a58d7e2b4c7d46a5ae4041d122b03b584" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>socketMetrics</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1aa474dc82e979bd2cd1f1863c6def3956" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>start</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1a8c528baf37154d347366083f0f816846" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>stop</name></member>
+      <member refid="dc/dfd/classNetworking_1_1TelemetrySocket_1af45ae5dae59622dc9960f4e454f8a7ee" prot="public" virt="non-virtual"><scope>Networking::TelemetrySocket</scope><name>TelemetrySocket</name></member>
+      <member refid="db/db6/classNetworking_1_1AbstractUDPSocket_1a77ae26aeec30cf7f4c50d2c1a03bdb4b" prot="public" virt="virtual"><scope>Networking::TelemetrySocket</scope><name>~AbstractUDPSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

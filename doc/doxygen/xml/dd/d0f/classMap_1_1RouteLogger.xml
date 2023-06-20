@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dd/d0f/classMap_1_1RouteLogger" kind="class" language="C++" prot="public">
+    <compoundname>Map::RouteLogger</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="dd/d0f/classMap_1_1RouteLogger_1aa1e3ae72a87df4e58536e59cd9f7916e" prot="public" static="no" mutable="no">
+        <type>QFile *</type>
+        <definition>QFile* current_file</definition>
+        <argsstring></argsstring>
+        <name>current_file</name>
+        <qualifiedname>Map::RouteLogger::current_file</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="15" column="19" bodyfile="src/c++/map/tools/routelogger.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="dd/d0f/classMap_1_1RouteLogger_1a53467faf6e87b0ca2becaafb18470e93" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString format</definition>
+        <argsstring></argsstring>
+        <name>format</name>
+        <qualifiedname>Map::RouteLogger::format</qualifiedname>
+        <initializer>= &quot;gpx&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="25" column="21" bodyfile="src/c++/map/tools/routelogger.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dd/d0f/classMap_1_1RouteLogger_1af3b7279d878ff1e95a68f9a83f530183" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>RouteLogger</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>RouteLogger</name>
+        <qualifiedname>Map::RouteLogger::RouteLogger</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="17" column="22" bodyfile="src/c++/map/tools/routelogger.c++" bodystart="12" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d0f/classMap_1_1RouteLogger_1ab087029c633aa917d64b41f3f2899061" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void createLog</definition>
+        <argsstring>(const QString &amp;log_name=QString())</argsstring>
+        <name>createLog</name>
+        <qualifiedname>Map::RouteLogger::createLog</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>log_name</declname>
+          <defval>QString()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="19" column="18" bodyfile="src/c++/map/tools/routelogger.c++" bodystart="20" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d0f/classMap_1_1RouteLogger_1a288df2d16c9f22d186a5cae4db488f63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFormat</definition>
+        <argsstring>(const QString &amp;format)</argsstring>
+        <name>setFormat</name>
+        <qualifiedname>Map::RouteLogger::setFormat</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="20" column="18" bodyfile="src/c++/map/tools/routelogger.c++" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d0f/classMap_1_1RouteLogger_1afa477eaa532b013ce211c98be99f2f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void append</definition>
+        <argsstring>(const QGeoCoordinate &amp;point, float speed, int satellites)</argsstring>
+        <name>append</name>
+        <qualifiedname>Map::RouteLogger::append</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>speed</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>satellites</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="21" column="18" bodyfile="src/c++/map/tools/routelogger.c++" bodystart="48" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d0f/classMap_1_1RouteLogger_1ad55316f5135cdae6aa6c5a763f6c3473" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void commit</definition>
+        <argsstring>()</argsstring>
+        <name>commit</name>
+        <qualifiedname>Map::RouteLogger::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/routelogger.h" line="22" column="18" bodyfile="src/c++/map/tools/routelogger.c++" bodystart="64" bodyend="72"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/tools/routelogger.h" line="10" column="5" bodyfile="src/c++/map/tools/routelogger.h" bodystart="11" bodyend="26"/>
+    <listofallmembers>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1afa477eaa532b013ce211c98be99f2f95" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>append</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1ad55316f5135cdae6aa6c5a763f6c3473" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>commit</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1ab087029c633aa917d64b41f3f2899061" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>createLog</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1aa1e3ae72a87df4e58536e59cd9f7916e" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>current_file</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1a53467faf6e87b0ca2becaafb18470e93" prot="private" virt="non-virtual"><scope>Map::RouteLogger</scope><name>format</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1af3b7279d878ff1e95a68f9a83f530183" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>RouteLogger</name></member>
+      <member refid="dd/d0f/classMap_1_1RouteLogger_1a288df2d16c9f22d186a5cae4db488f63" prot="public" virt="non-virtual"><scope>Map::RouteLogger</scope><name>setFormat</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

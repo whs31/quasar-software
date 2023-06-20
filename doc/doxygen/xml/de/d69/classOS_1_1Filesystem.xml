@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="de/d69/classOS_1_1Filesystem" kind="class" language="C++" prot="public">
+    <compoundname>OS::Filesystem</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1a5e84ed65192a6a85aca09d8b0e8a0684" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Filesystem *</type>
+        <definition>Filesystem * get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>OS::Filesystem::get</qualifiedname>
+        <briefdescription>
+<para>Returns singleton instance of class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="18" column="31" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="17" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1a5d4d76eadea546e4017593a46362f383" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE bool</type>
+        <definition>bool fetchImageDirectory</definition>
+        <argsstring>()</argsstring>
+        <name>fetchImageDirectory</name>
+        <qualifiedname>OS::Filesystem::fetchImageDirectory</qualifiedname>
+        <briefdescription>
+<para>Searches for image files in application cache directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ignores occurences, already present in model. Can be invoked from QML. <simplesect kind="see"><para>Emits imageListCached() - signal, which holds list of filenames, marked for processing. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="26" column="30" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="19" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1aa5a5adb0e730b9b703d52015ee744bca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void fetchTCPCache</definition>
+        <argsstring>()</argsstring>
+        <name>fetchTCPCache</name>
+        <qualifiedname>OS::Filesystem::fetchTCPCache</qualifiedname>
+        <briefdescription>
+<para>Searches for image files in application TCP-IO cache directory. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Ignores occurences, already present in model. Can be invoked from QML. <simplesect kind="see"><para>Emits imageListCached() - signal, which holds list of filenames, marked for processing. </para>
+</simplesect>
+<simplesect kind="note"><para>(WIP) Replaces occurence, found in model. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="35" column="30" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="53" bodyend="88"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="de/d69/classOS_1_1Filesystem_1a53e577925b27924ac14315a47bf819e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void exportImagesToFolder</definition>
+        <argsstring>(const QList&lt; QString &gt; &amp;ls, const QString &amp;folder)</argsstring>
+        <name>exportImagesToFolder</name>
+        <qualifiedname>OS::Filesystem::exportImagesToFolder</qualifiedname>
+        <param>
+          <type>const QList&lt; QString &gt; &amp;</type>
+          <declname>ls</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>folder</declname>
+        </param>
+        <briefdescription>
+<para>Exports given list of filenames in LOD0 cache to specified folder. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ls</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- list of filenames to export. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>folder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- destination folder. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="42" column="22" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="90" bodyend="108"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="de/d69/classOS_1_1Filesystem_1acf20251bcc5f823e14b0183d255ac5d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void imageListCached</definition>
+        <argsstring>(const QList&lt; QString &gt; &amp;filenames)</argsstring>
+        <name>imageListCached</name>
+        <qualifiedname>OS::Filesystem::imageListCached</qualifiedname>
+        <param>
+          <type>const QList&lt; QString &gt; &amp;</type>
+          <declname>filenames</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="45" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/d69/classOS_1_1Filesystem_1a4067ba95b19c1f0f0db1688732436ba0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void binaryCached</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>binaryCached</name>
+        <qualifiedname>OS::Filesystem::binaryCached</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="46" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1aa5f976de4a4e0fa24895325600826547" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Filesystem</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Filesystem</name>
+        <qualifiedname>OS::Filesystem::Filesystem</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="49" column="13" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1a0fc9b6fb3ea8fa6e1492078e13d5792b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Filesystem</definition>
+        <argsstring>(const Filesystem &amp;)</argsstring>
+        <name>Filesystem</name>
+        <qualifiedname>OS::Filesystem::Filesystem</qualifiedname>
+        <param>
+          <type>const Filesystem &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="50" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1ac487a3d1432bd72a8a63de2129839d8d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Filesystem &amp;</type>
+        <definition>Filesystem &amp; operator=</definition>
+        <argsstring>(const Filesystem &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>OS::Filesystem::operator=</qualifiedname>
+        <param>
+          <type>const Filesystem &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="51" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1acd856b2e2940fd7dc0f25b993fb73706" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool checkOcurrence</definition>
+        <argsstring>(QString target_folder, QString filename)</argsstring>
+        <name>checkOcurrence</name>
+        <qualifiedname>OS::Filesystem::checkOcurrence</qualifiedname>
+        <param>
+          <type>QString</type>
+          <declname>target_folder</declname>
+        </param>
+        <param>
+          <type>QString</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="53" column="18" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="110" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="de/d69/classOS_1_1Filesystem_1a43851aec2ef3dfcc32fcfd8cf003e0cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QList&lt; QString &gt;</type>
+        <definition>QList&lt; QString &gt; fetchBinaryList</definition>
+        <argsstring>()</argsstring>
+        <name>fetchBinaryList</name>
+        <qualifiedname>OS::Filesystem::fetchBinaryList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/filesystem/filesystem.h" line="55" column="19" bodyfile="src/c++/filesystem/filesystem.c++" bodystart="121" bodyend="152"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/filesystem/filesystem.h" line="12" column="5" bodyfile="src/c++/filesystem/filesystem.h" bodystart="13" bodyend="56"/>
+    <listofallmembers>
+      <member refid="de/d69/classOS_1_1Filesystem_1a4067ba95b19c1f0f0db1688732436ba0" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>binaryCached</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1acd856b2e2940fd7dc0f25b993fb73706" prot="private" virt="non-virtual"><scope>OS::Filesystem</scope><name>checkOcurrence</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1a53e577925b27924ac14315a47bf819e2" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>exportImagesToFolder</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1a43851aec2ef3dfcc32fcfd8cf003e0cc" prot="private" virt="non-virtual"><scope>OS::Filesystem</scope><name>fetchBinaryList</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1a5d4d76eadea546e4017593a46362f383" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>fetchImageDirectory</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1aa5a5adb0e730b9b703d52015ee744bca" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>fetchTCPCache</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1aa5f976de4a4e0fa24895325600826547" prot="private" virt="non-virtual"><scope>OS::Filesystem</scope><name>Filesystem</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1a0fc9b6fb3ea8fa6e1492078e13d5792b" prot="private" virt="non-virtual"><scope>OS::Filesystem</scope><name>Filesystem</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1a5e84ed65192a6a85aca09d8b0e8a0684" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>get</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1acf20251bcc5f823e14b0183d255ac5d8" prot="public" virt="non-virtual"><scope>OS::Filesystem</scope><name>imageListCached</name></member>
+      <member refid="de/d69/classOS_1_1Filesystem_1ac487a3d1432bd72a8a63de2129839d8d" prot="private" virt="non-virtual"><scope>OS::Filesystem</scope><name>operator=</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

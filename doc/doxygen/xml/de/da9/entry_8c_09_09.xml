@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="de/da9/entry_8c_09_09" kind="file" language="C++">
+    <compoundname>entry.c++</compoundname>
+    <includes refid="d1/dc6/entry_8h" local="yes">entry.h</includes>
+    <includes local="no">QtCore/QCoreApplication</includes>
+    <includes local="no">QtCore/QDebug</includes>
+    <includes local="no">QtCore/QProcess</includes>
+    <includes local="no">QtQml/qqml.h</includes>
+    <includes refid="d2/d73/theme_8h" local="yes">gui/theme/include/theme.h</includes>
+    <includes refid="d7/d1a/vt100terminal_8h" local="yes">gui/terminal/vt100terminal.h</includes>
+    <includes refid="df/d48/debugconsole_8h" local="yes">gui/terminal/debugconsole.h</includes>
+    <includes refid="d1/d5b/warningsmodel_8h" local="yes">gui/warningsmodel.h</includes>
+    <includes refid="dd/df2/paths_8h" local="yes">config/paths.h</includes>
+    <includes refid="db/d16/config_8h" local="yes">config/config.h</includes>
+    <includes refid="dd/dd8/filesystem_8h" local="yes">filesystem/filesystem.h</includes>
+    <includes refid="d1/d63/imageprocessing_8h" local="yes">processing/imageprocessing.h</includes>
+    <includes refid="d5/d03/ruler_8h" local="yes">map/ruler.h</includes>
+    <includes refid="d9/d7f/route_8h" local="yes">map/route.h</includes>
+    <includes refid="d1/d78/clickhandler_8h" local="yes">map/clickhandler.h</includes>
+    <includes refid="d0/d8b/imagemodel_8h" local="yes">map/imagemodel.h</includes>
+    <includes refid="dd/dd4/markermodel_8h" local="yes">map/markermodel.h</includes>
+    <includes refid="d9/d1b/diagram_8h" local="yes">map/entities/diagram.h</includes>
+    <includes refid="d1/d80/offlinetileloader_8h" local="yes">map/tools/offlinetileloader.h</includes>
+    <includes refid="d9/d94/network_8h" local="yes">network/network.h</includes>
+    <incdepgraph>
+      <node id="20">
+        <label>config/config.h</label>
+        <link refid="db/d16/config_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>config/paths.h</label>
+        <link refid="dd/df2/paths_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/c++/entry.c++</label>
+        <link refid="de/da9/entry_8c_09_09"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>entry.h</label>
+        <link refid="d1/dc6/entry_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>filesystem/filesystem.h</label>
+        <link refid="dd/dd8/filesystem_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>gui/terminal/debugconsole.h</label>
+        <link refid="df/d48/debugconsole_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>terminalbase.h</label>
+        <link refid="da/d9d/terminalbase_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>gui/terminal/vt100terminal.h</label>
+        <link refid="d7/d1a/vt100terminal_8h_source"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gui/theme/include/theme.h</label>
+        <link refid="d2/d73/theme_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>gui/warningsmodel.h</label>
+        <link refid="d1/d5b/warningsmodel_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>map/clickhandler.h</label>
+        <link refid="d1/d78/clickhandler_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>map/entities/diagram.h</label>
+        <link refid="d9/d1b/diagram_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>entities/image.h</label>
+        <link refid="d5/db2/image_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>imagemetadata.h</label>
+        <link refid="dd/da3/imagemetadata_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>entities/marker.h</label>
+        <link refid="d6/d58/marker_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>map/imagemodel.h</label>
+        <link refid="d0/d8b/imagemodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>map/markermodel.h</label>
+        <link refid="dd/dd4/markermodel_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>map/route.h</label>
+        <link refid="d9/d7f/route_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>map/ruler.h</label>
+        <link refid="d5/d03/ruler_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>map/tools/offlinetileloader.h</label>
+        <link refid="d1/d80/offlinetileloader_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>execd/remotedata.h</label>
+        <link refid="d9/db3/remotedata_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>netenums.h</label>
+        <link refid="da/d76/netenums_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>network/network.h</label>
+        <link refid="d9/d94/network_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>telemetry/telemetry.h</label>
+        <link refid="de/dc7/telemetry_8h_source"/>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>telemetrydatagram.h</label>
+        <link refid="de/d60/telemetrydatagram_8h_source"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>processing/imageprocessing.h</label>
+        <link refid="d1/d63/imageprocessing_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>CCL/Orthodrom</label>
+      </node>
+      <node id="10">
+        <label>LPVL/Global</label>
+      </node>
+      <node id="39">
+        <label>QPair</label>
+      </node>
+      <node id="14">
+        <label>QtCore/QAbstractListModel</label>
+      </node>
+      <node id="4">
+        <label>QtCore/QCoreApplication</label>
+      </node>
+      <node id="50">
+        <label>QtCore/QDataStream</label>
+      </node>
+      <node id="51">
+        <label>QtCore/QDateTime</label>
+      </node>
+      <node id="5">
+        <label>QtCore/QDebug</label>
+      </node>
+      <node id="9">
+        <label>QtCore/QHash</label>
+      </node>
+      <node id="24">
+        <label>QtCore/QList</label>
+      </node>
+      <node id="21">
+        <label>QtCore/QMap</label>
+      </node>
+      <node id="47">
+        <label>QtCore/QMetaType</label>
+      </node>
+      <node id="3">
+        <label>QtCore/QObject</label>
+      </node>
+      <node id="6">
+        <label>QtCore/QProcess</label>
+      </node>
+      <node id="44">
+        <label>QtCore/QQueue</label>
+      </node>
+      <node id="38">
+        <label>QtCore/QString</label>
+      </node>
+      <node id="22">
+        <label>QtCore/QVariant</label>
+      </node>
+      <node id="30">
+        <label>QtCore/QVariantList</label>
+      </node>
+      <node id="33">
+        <label>QtCore/QVector</label>
+      </node>
+      <node id="34">
+        <label>QtPositioning/QGeoCoordinate</label>
+      </node>
+      <node id="7">
+        <label>QtQml/qqml.h</label>
+      </node>
+      <node id="37">
+        <label>cstdint</label>
+      </node>
+      <node id="16">
+        <label>functional</label>
+      </node>
+      <node id="17">
+        <label>map</label>
+      </node>
+      <node id="28">
+        <label>memory</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;entry.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QCoreApplication&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QDebug&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtCore/QProcess&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;QtQml/qqml.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gui/theme/include/theme.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gui/terminal/vt100terminal.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gui/terminal/debugconsole.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;gui/warningsmodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;config/paths.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;config/config.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;filesystem/filesystem.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;processing/imageprocessing.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/ruler.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/route.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/clickhandler.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/imagemodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/markermodel.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/entities/diagram.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;map/tools/offlinetileloader.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;network/network.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">Entry::Entry(QObject<sp/>*parent)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>QObject{parent}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Config::Paths,<sp/></highlight><highlight class="stringliteral">&quot;Config&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Paths&quot;</highlight><highlight class="normal">,<sp/>Config::Paths::get());</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(<ref refid="d5/dfa/classConfig_1_1Config" kindref="compound">Config::Config</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Config&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Config&quot;</highlight><highlight class="normal">,<sp/><ref refid="d5/dfa/classConfig_1_1Config_1aab4f0df3041b8a7fb08052df350ebcbd" kindref="member">Config::Config::get</ref>());</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(GUI::Theme,<sp/></highlight><highlight class="stringliteral">&quot;Theme&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Theme&quot;</highlight><highlight class="normal">,<sp/>GUI::Theme::get());</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(GUI::VT100Terminal,<sp/></highlight><highlight class="stringliteral">&quot;Terminals&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;VT100Terminal&quot;</highlight><highlight class="normal">,<sp/>GUI::VT100Terminal::get());</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(GUI::DebugConsole,<sp/></highlight><highlight class="stringliteral">&quot;Terminals&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;DebugConsole&quot;</highlight><highlight class="normal">,<sp/>GUI::DebugConsole::get());</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(GUI::WarningsModel,<sp/></highlight><highlight class="stringliteral">&quot;Notifications&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;WarningsModel&quot;</highlight><highlight class="normal">,<sp/>GUI::WarningsModel::get());</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(OS::Filesystem,<sp/></highlight><highlight class="stringliteral">&quot;Filesystem&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Filesystem&quot;</highlight><highlight class="normal">,<sp/>OS::Filesystem::get());</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Networking::Network,<sp/></highlight><highlight class="stringliteral">&quot;Network&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Network&quot;</highlight><highlight class="normal">,<sp/>Networking::Network::get());</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>qmlRegisterUncreatableType&lt;Networking::Enums&gt;(</highlight><highlight class="stringliteral">&quot;Network&quot;</highlight><highlight class="normal">,<sp/>1,<sp/>0,<sp/></highlight><highlight class="stringliteral">&quot;Net&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Enumeration&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Map::ImageModel,<sp/></highlight><highlight class="stringliteral">&quot;Images&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ImagesModel&quot;</highlight><highlight class="normal">,<sp/>Processing::ImageProcessing::get()-&gt;model());</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Map::MarkerModel,<sp/></highlight><highlight class="stringliteral">&quot;Markers&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;MarkersModel&quot;</highlight><highlight class="normal">,<sp/>Map::ClickHandler::get()-&gt;markerModel());</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Map::ClickHandler,<sp/></highlight><highlight class="stringliteral">&quot;ClickHandler&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ClickHandler&quot;</highlight><highlight class="normal">,<sp/>Map::ClickHandler::get());</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Map::OfflineTileLoader,<sp/></highlight><highlight class="stringliteral">&quot;Offline&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;TileLoader&quot;</highlight><highlight class="normal">,<sp/>Map::OfflineTileLoader::get());</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANCE(Processing::ImageProcessing,<sp/></highlight><highlight class="stringliteral">&quot;ImageProcessing&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;ImageProcessing&quot;</highlight><highlight class="normal">,<sp/>Processing::ImageProcessing::get());</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANTIABLE(Map::Ruler,<sp/></highlight><highlight class="stringliteral">&quot;Ruler&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;RulerModel&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANTIABLE(Map::Route,<sp/></highlight><highlight class="stringliteral">&quot;Route&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;Route&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>QML_EXPOSE_INSTANTIABLE(Map::Diagram,<sp/></highlight><highlight class="stringliteral">&quot;RadarDiagram&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="stringliteral">&quot;RadarDiagram&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(OS::Filesystem::get(),<sp/>&amp;OS::Filesystem::imageListCached,<sp/>Processing::ImageProcessing::get(),<sp/>&amp;Processing::ImageProcessing::processList,<sp/>Qt::QueuedConnection);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(Processing::ImageProcessing::get()-&gt;model(),<sp/>&amp;Map::ImageModel::markedForExport,<sp/>OS::Filesystem::get(),<sp/>&amp;OS::Filesystem::exportImagesToFolder);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<ref refid="d5/dfa/classConfig_1_1Config_1aab4f0df3041b8a7fb08052df350ebcbd" kindref="member">Config::Config::get</ref>(),<sp/>&amp;Config::Config::scheduleRestart,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[CORE]<sp/>Requested<sp/>restart,<sp/>but<sp/>current<sp/>configuration<sp/>will<sp/>fail<sp/>executing<sp/>it.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>qWarning()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;[CORE]<sp/>Please,<sp/>restart<sp/>manually.&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(<ref refid="d5/dfa/classConfig_1_1Config_1aab4f0df3041b8a7fb08052df350ebcbd" kindref="member">Config::Config::get</ref>(),<sp/>&amp;Config::Config::tcpLFSPortChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Form);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Focus);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Reform);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Form);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Focus);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>Networking::Network::get()-&gt;setArgument(</highlight><highlight class="stringliteral">&quot;--remote&quot;</highlight><highlight class="normal">,<sp/>QString(CONFIG(localIP)<sp/>+<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>+<sp/>CONFIG(tcpLFSPort)),<sp/>Networking::Enums::ArgumentCategory::Reform);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>GUI::WarningsModel::get()-&gt;append(GUI::WarningsModel::NotConnected,<sp/></highlight><highlight class="stringliteral">&quot;Отсутствует<sp/>соединение<sp/>с<sp/>РЛС&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>connect(Networking::Network::get(),<sp/>&amp;Networking::Network::connectedChanged,<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">,<sp/>[</highlight><highlight class="keyword">this</highlight><highlight class="normal">](){</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(Networking::Network::get()-&gt;connected()<sp/>!=<sp/>2)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GUI::WarningsModel::get()-&gt;append(GUI::WarningsModel::NotConnected,<sp/></highlight><highlight class="stringliteral">&quot;Отсутствует<sp/>соединение<sp/>с<sp/>РЛС&quot;</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>GUI::WarningsModel::get()-&gt;remove(GUI::WarningsModel::NotConnected);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>});</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/c++/entry.c++"/>
+  </compounddef>
+</doxygen>

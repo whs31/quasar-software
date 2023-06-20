@@ -1,0 +1,54 @@
+\hypertarget{markermodel_8h_source}{}\doxysection{markermodel.\+h}
+\label{markermodel_8h_source}\index{src/c++/map/markermodel.h@{src/c++/map/markermodel.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QAbstractListModel>}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtCore/QVector>}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QtPositioning/QGeoCoordinate>}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}entities/marker.h"{}}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00010}00010\ \textcolor{keyword}{namespace\ }Map}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{class\ }MarkerModel\ :\ \textcolor{keyword}{public}\ QAbstractListModel}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ ModelRoles}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Index\ =\ Qt::UserRole\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Latitude,}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Longitude,}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MarkerName,}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MarkerColor,}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MarkerIcon}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ MarkerModel(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rowCount(\textcolor{keyword}{const}\ QModelIndex\&\ parent\ =\ QModelIndex())\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ QVariant\ data(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ setData(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keyword}{const}\ QVariant\&\ value,\ \textcolor{keywordtype}{int}\ role)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ add(\textcolor{keyword}{const}\ Map::Marker\&\ image);}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ remove(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ clear();}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ added();}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ QHash<int,\ QByteArray>\ roleNames()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ QVector<Marker>\ storage;}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00045}00045\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00046}00046\ \}\ \textcolor{comment}{//\ namespace\ Map;}}
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8h_source_l00048}00048\ Q\_DECLARE\_METATYPE(Map::MarkerModel*)}
+
+\end{DoxyCode}

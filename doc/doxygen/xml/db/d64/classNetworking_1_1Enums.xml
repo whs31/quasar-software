@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="db/d64/classNetworking_1_1Enums" kind="class" language="C++" prot="public">
+    <compoundname>Networking::Enums</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469" prot="public" static="no" strong="no">
+        <type></type>
+        <name>PingStatus</name>
+        <qualifiedname>Networking::Enums::PingStatus</qualifiedname>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c" prot="public">
+          <name>Success</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a2c7a898b13c2c0e0cf81a4dad1ad112b" prot="public">
+          <name>DelayedSuccess</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a98cb58869380e6582c793dcd0e86598c" prot="public">
+          <name>Timeout</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469ad3fa9ae9431d6cb1772f9d9df48cab19" prot="public">
+          <name>Idle</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/netenums.h" line="21" column="13" bodyfile="src/c++/network/netenums.h" bodystart="22" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="enum" id="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ArgumentCategory</name>
+        <qualifiedname>Networking::Enums::ArgumentCategory</qualifiedname>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09afdd6bb1a793bfa4502ad03cee614638f" prot="public">
+          <name>Form</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09ace9aabd8e13c884472588325a665e44e" prot="public">
+          <name>Focus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09aa8d76445d1381f9e8af31e5f225dbfe6" prot="public">
+          <name>Reform</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/netenums.h" line="30" column="13" bodyfile="src/c++/network/netenums.h" bodystart="31" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486e" prot="public" static="no" strong="no">
+        <type></type>
+        <name>NetworkCommand</name>
+        <qualifiedname>Networking::Enums::NetworkCommand</qualifiedname>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea4712813eafc5945074b22fe2e4655434" prot="public">
+          <name>FormImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea29db7d56a39efc080425bc86be966a1f" prot="public">
+          <name>FocusImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eae63d5e0d6f7ad5820b84c5db3d34ee08" prot="public">
+          <name>ReformImage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eab852b7dd27a86b98629f1502e1392386" prot="public">
+          <name>RemoteStorageStatus</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea2bcce22d62ab5e5ce2590c13529b7e64" prot="public">
+          <name>ClearRemoteStorage</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7" prot="public">
+          <name>Reboot</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea5fbdc735bed4e23b9d19caeacffa73c6" prot="public">
+          <name>Poweroff</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/netenums.h" line="50" column="13" bodyfile="src/c++/network/netenums.h" bodystart="51" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/netenums.h" line="10" column="5" bodyfile="src/c++/network/netenums.h" bodystart="11" bodyend="64"/>
+    <listofallmembers>
+      <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>ArgumentCategory</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea2bcce22d62ab5e5ce2590c13529b7e64" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>ClearRemoteStorage</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a2c7a898b13c2c0e0cf81a4dad1ad112b" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>DelayedSuccess</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09ace9aabd8e13c884472588325a665e44e" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Focus</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea29db7d56a39efc080425bc86be966a1f" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>FocusImage</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09afdd6bb1a793bfa4502ad03cee614638f" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Form</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea4712813eafc5945074b22fe2e4655434" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>FormImage</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469ad3fa9ae9431d6cb1772f9d9df48cab19" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Idle</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486e" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>NetworkCommand</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>PingStatus</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486ea5fbdc735bed4e23b9d19caeacffa73c6" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Poweroff</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Reboot</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a19451e9aa738da7e4404cf614b4c9e09aa8d76445d1381f9e8af31e5f225dbfe6" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Reform</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eae63d5e0d6f7ad5820b84c5db3d34ee08" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>ReformImage</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a8dd47094c7079ec1fcbd5df9870c486eab852b7dd27a86b98629f1502e1392386" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>RemoteStorageStatus</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Success</name></member>
+      <member refid="db/d64/classNetworking_1_1Enums_1a26cd5c2531deeff8b716e740ddc8e469a98cb58869380e6582c793dcd0e86598c" prot="public" virt="non-virtual"><scope>Networking::Enums</scope><name>Timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

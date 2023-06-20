@@ -1,0 +1,49 @@
+\hypertarget{clickhandler_8h_source}{}\doxysection{clickhandler.\+h}
+\label{clickhandler_8h_source}\index{src/c++/map/clickhandler.h@{src/c++/map/clickhandler.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <LPVL/Global>}}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }Map}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{class\ }MarkerModel;}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{class\ }ClickHandler\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ \textcolor{keyword}{enum}\ MouseState\ \{}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ Idle,}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ RulerActive,}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ ProtractorActive,}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ MarkerActive,}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ PlannerActive,}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ TileLoaderActive}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ Q\_ENUM(MouseState);}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ Q\_PROPERTY(MouseState\ state\ READ\ state\ WRITE\ setState\ NOTIFY\ stateChanged)}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ LPVL\_DECLARE\_SINGLETON(ClickHandler)}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ [[nodiscard]]\ MouseState\ state()\ \textcolor{keyword}{const};\ \textcolor{keywordtype}{void}\ setState(\textcolor{keyword}{const}\ MouseState\&);}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ copyCoordinatesToClipboard(\textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{double}\ longitude);}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ MarkerModel*\ markerModel();}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ addMarker(\textcolor{keywordtype}{double}\ latitude,\ \textcolor{keywordtype}{double}\ longitude,\ \textcolor{keyword}{const}\ QString\&\ name,\ \textcolor{keyword}{const}\ QString\&\ color,\ \textcolor{keyword}{const}\ QString\&\ icon);}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ stateChanged();}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ ClickHandler(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ MouseState\ m\_state\ =\ Idle;}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ MarkerModel*\ marker\_model;}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00042}00042\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{clickhandler_8h_source_l00043}00043\ \}\ \textcolor{comment}{//\ namespace\ Map;}}
+
+\end{DoxyCode}

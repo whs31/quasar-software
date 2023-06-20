@@ -1,0 +1,610 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dc/d18/classMap_1_1Ruler" kind="class" language="C++" prot="public">
+    <compoundname>Map::Ruler</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185" prot="public" static="no" strong="no">
+        <type></type>
+        <name>SegmentRoles</name>
+        <qualifiedname>Map::Ruler::SegmentRoles</qualifiedname>
+        <enumvalue id="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ad8851d3f3f9125b70d9f7f4f400837c8" prot="public">
+          <name>index</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ab3c95b71cc459e44c9a666df201adbfb" prot="public">
+          <name>segment</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185aa779debe837fb9096c9163aab139f9a4" prot="public">
+          <name>segmentLength</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ac067f84b51034e9d23c77f852d53cb36" prot="public">
+          <name>segmentCenter</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="21" column="13" bodyfile="src/c++/map/ruler.h" bodystart="21" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="dc/d18/classMap_1_1Ruler_1ac16358e705031bb4fde7cfd9b3ecffe3" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double lastLatitude</definition>
+        <argsstring></argsstring>
+        <name>lastLatitude</name>
+        <qualifiedname>Map::Ruler::lastLatitude</qualifiedname>
+        <read>lastLatitude</read>
+        <write>setLastLatitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="1" column="0" bodyfile="src/c++/map/ruler.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dc/d18/classMap_1_1Ruler_1afc3bc644c2fbc1e65cc8ec8b0647449c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double lastLongitude</definition>
+        <argsstring></argsstring>
+        <name>lastLongitude</name>
+        <qualifiedname>Map::Ruler::lastLongitude</qualifiedname>
+        <read>lastLongitude</read>
+        <write>setLastLongitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="1" column="0" bodyfile="src/c++/map/ruler.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dc/d18/classMap_1_1Ruler_1abca6e90031b2e6f2894761e1fb9bd40c" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double totalLength</definition>
+        <argsstring></argsstring>
+        <name>totalLength</name>
+        <qualifiedname>Map::Ruler::totalLength</qualifiedname>
+        <read>totalLength</read>
+        <write>setTotalLength</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="1" column="0" bodyfile="src/c++/map/ruler.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1ac604a4223f546d3b0d73958e4c5db105" prot="private" static="no" mutable="no">
+        <type>QList&lt; QVariantList &gt;</type>
+        <definition>QList&lt;QVariantList&gt; m_segments</definition>
+        <argsstring></argsstring>
+        <name>m_segments</name>
+        <qualifiedname>Map::Ruler::m_segments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="50" column="19" bodyfile="src/c++/map/ruler.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1a0d1d1f430e4703f96a1d73e62a08ca12" prot="private" static="no" mutable="no">
+        <type>QList&lt; QGeoCoordinate &gt;</type>
+        <definition>QList&lt;QGeoCoordinate&gt; m_path</definition>
+        <argsstring></argsstring>
+        <name>m_path</name>
+        <qualifiedname>Map::Ruler::m_path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="51" column="19" bodyfile="src/c++/map/ruler.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1a78263864698ba461e70e00a0ea1ad42f" prot="private" static="no" mutable="no">
+        <type>QList&lt; QGeoCoordinate &gt;</type>
+        <definition>QList&lt;QGeoCoordinate&gt; m_segmentsCenter</definition>
+        <argsstring></argsstring>
+        <name>m_segmentsCenter</name>
+        <qualifiedname>Map::Ruler::m_segmentsCenter</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="52" column="19" bodyfile="src/c++/map/ruler.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1ad591e0afa677fbbb68d4826520bc70f9" prot="private" static="no" mutable="no">
+        <type>CCL::Orthodrom</type>
+        <definition>CCL::Orthodrom m_orthodrom</definition>
+        <argsstring></argsstring>
+        <name>m_orthodrom</name>
+        <qualifiedname>Map::Ruler::m_orthodrom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="53" column="28" bodyfile="src/c++/map/ruler.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1af4a51fae7eff573c693986efefc0feda" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double m_lastLatitude</definition>
+        <argsstring></argsstring>
+        <name>m_lastLatitude</name>
+        <qualifiedname>Map::Ruler::m_lastLatitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="55" column="20" bodyfile="src/c++/map/ruler.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1a8e99b350db5bfe069cce613f69063977" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double m_lastLongitude</definition>
+        <argsstring></argsstring>
+        <name>m_lastLongitude</name>
+        <qualifiedname>Map::Ruler::m_lastLongitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="56" column="20" bodyfile="src/c++/map/ruler.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/d18/classMap_1_1Ruler_1a72f5f7e8a24a9472810d6984b7006259" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double m_totalLength</definition>
+        <argsstring></argsstring>
+        <name>m_totalLength</name>
+        <qualifiedname>Map::Ruler::m_totalLength</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="57" column="20" bodyfile="src/c++/map/ruler.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a6f398fecf387fc50e6677af45c7e8bff" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Ruler</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Ruler</name>
+        <qualifiedname>Map::Ruler::Ruler</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="18" column="22" bodyfile="src/c++/map/ruler.c++" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a6a4292807ed39129cc1833f0ce66ec54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Ruler</definition>
+        <argsstring>() override</argsstring>
+        <name>~Ruler</name>
+        <qualifiedname>Map::Ruler::~Ruler</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="19" column="13" bodyfile="src/c++/map/ruler.c++" bodystart="13" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1ae93b915598cdbe5ae59dddf41d917a53" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>Map::Ruler::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="28" column="22" bodyfile="src/c++/map/ruler.c++" bodystart="25" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a0ec0e31df18472075967b0410ee4b3be" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>Map::Ruler::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="29" column="19" bodyfile="src/c++/map/ruler.c++" bodystart="39" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a51dd94ef911c8f4c6495093a1561b45a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>Map::Ruler::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="30" column="17" bodyfile="src/c++/map/ruler.c++" bodystart="20" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a080886a2e747059294f915e9f43ba853" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void setRoute</definition>
+        <argsstring>(const QList&lt; QGeoCoordinate &gt; &amp;_path)</argsstring>
+        <name>setRoute</name>
+        <qualifiedname>Map::Ruler::setRoute</qualifiedname>
+        <param>
+          <type>const QList&lt; QGeoCoordinate &gt; &amp;</type>
+          <declname>_path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="32" column="30" bodyfile="src/c++/map/ruler.c++" bodystart="49" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a022b5aa9d5a00f7ae086758ad609b2db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void resetRoute</definition>
+        <argsstring>()</argsstring>
+        <name>resetRoute</name>
+        <qualifiedname>Map::Ruler::resetRoute</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="33" column="30" bodyfile="src/c++/map/ruler.c++" bodystart="65" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1ab2fe0a510570d4396422170103a5f6ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void insertPoint</definition>
+        <argsstring>(const QGeoCoordinate &amp;_point, quint16 _index)</argsstring>
+        <name>insertPoint</name>
+        <qualifiedname>Map::Ruler::insertPoint</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>_point</declname>
+        </param>
+        <param>
+          <type>quint16</type>
+          <declname>_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="34" column="30" bodyfile="src/c++/map/ruler.c++" bodystart="76" bodyend="126"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a89292483df8a52c36b99d1caddf558a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void removePoint</definition>
+        <argsstring>(quint16 _index)</argsstring>
+        <name>removePoint</name>
+        <qualifiedname>Map::Ruler::removePoint</qualifiedname>
+        <param>
+          <type>quint16</type>
+          <declname>_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="35" column="30" bodyfile="src/c++/map/ruler.c++" bodystart="128" bodyend="166"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a940f2e550202673718f76a39aa53bd8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void updatePoint</definition>
+        <argsstring>(const QGeoCoordinate &amp;_point, int _index)</argsstring>
+        <name>updatePoint</name>
+        <qualifiedname>Map::Ruler::updatePoint</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate &amp;</type>
+          <declname>_point</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="36" column="30" bodyfile="src/c++/map/ruler.c++" bodystart="168" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1afc71491ed963f5c72970f4c1c868f4a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE QGeoCoordinate</type>
+        <definition>QGeoCoordinate calculateCenter</definition>
+        <argsstring>(quint16 _index)</argsstring>
+        <name>calculateCenter</name>
+        <qualifiedname>Map::Ruler::calculateCenter</qualifiedname>
+        <param>
+          <type>quint16</type>
+          <declname>_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="37" column="40" bodyfile="src/c++/map/ruler.c++" bodystart="205" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a593f44e48dd7f99f1d412d50eeb10878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE qreal</type>
+        <definition>qreal calculateAngle</definition>
+        <argsstring>(const QGeoCoordinate _coord1, const QGeoCoordinate _coord2)</argsstring>
+        <name>calculateAngle</name>
+        <qualifiedname>Map::Ruler::calculateAngle</qualifiedname>
+        <param>
+          <type>const QGeoCoordinate</type>
+          <declname>_coord1</declname>
+        </param>
+        <param>
+          <type>const QGeoCoordinate</type>
+          <declname>_coord2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="38" column="31" bodyfile="src/c++/map/ruler.c++" bodystart="223" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a4a8ab00417c4dc729b2fc0efb8230ac5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalLength</definition>
+        <argsstring>() const</argsstring>
+        <name>totalLength</name>
+        <qualifiedname>Map::Ruler::totalLength</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="40" column="21" bodyfile="src/c++/map/ruler.c++" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a5d3b44804dce22c119af994b3cbb2593" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTotalLength</definition>
+        <argsstring>(double)</argsstring>
+        <name>setTotalLength</name>
+        <qualifiedname>Map::Ruler::setTotalLength</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="40" column="44" bodyfile="src/c++/map/ruler.c++" bodystart="256" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a6462f8755e43ec7a8e4268173229bc3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double lastLatitude</definition>
+        <argsstring>() const</argsstring>
+        <name>lastLatitude</name>
+        <qualifiedname>Map::Ruler::lastLatitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="41" column="21" bodyfile="src/c++/map/ruler.c++" bodystart="262" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1ae59255a6de84b0bb71b7ed90eddd582c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLastLatitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setLastLatitude</name>
+        <qualifiedname>Map::Ruler::setLastLatitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="41" column="45" bodyfile="src/c++/map/ruler.c++" bodystart="263" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a1245bb5d5e61e91c32a05c4dacfdc646" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double lastLongitude</definition>
+        <argsstring>() const</argsstring>
+        <name>lastLongitude</name>
+        <qualifiedname>Map::Ruler::lastLongitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="42" column="21" bodyfile="src/c++/map/ruler.c++" bodystart="269" bodyend="269"/>
+      </memberdef>
+      <memberdef kind="function" id="dc/d18/classMap_1_1Ruler_1a544c56a13d79cc7576e0b2fcf0a1027a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLastLongitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setLastLongitude</name>
+        <qualifiedname>Map::Ruler::setLastLongitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="42" column="46" bodyfile="src/c++/map/ruler.c++" bodystart="270" bodyend="274"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="dc/d18/classMap_1_1Ruler_1a1b98ee101915375d9c1d813adf10e386" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void totalLengthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>totalLengthChanged</name>
+        <qualifiedname>Map::Ruler::totalLengthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="45" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dc/d18/classMap_1_1Ruler_1a8e5ec1f4734b4d0c6419c5914698c6ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lastLatitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastLatitudeChanged</name>
+        <qualifiedname>Map::Ruler::lastLatitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="46" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dc/d18/classMap_1_1Ruler_1a0921f29455e20cbccc964b746b575dda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lastLongitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>lastLongitudeChanged</name>
+        <qualifiedname>Map::Ruler::lastLongitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/ruler.h" line="47" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/ruler.h" line="10" column="5" bodyfile="src/c++/map/ruler.h" bodystart="11" bodyend="58"/>
+    <listofallmembers>
+      <member refid="dc/d18/classMap_1_1Ruler_1a593f44e48dd7f99f1d412d50eeb10878" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>calculateAngle</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1afc71491ed963f5c72970f4c1c868f4a1" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>calculateCenter</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ae93b915598cdbe5ae59dddf41d917a53" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>data</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ad8851d3f3f9125b70d9f7f4f400837c8" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>index</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ab2fe0a510570d4396422170103a5f6ca" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>insertPoint</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ac16358e705031bb4fde7cfd9b3ecffe3" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLatitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a6462f8755e43ec7a8e4268173229bc3c" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLatitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a8e5ec1f4734b4d0c6419c5914698c6ee" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLatitudeChanged</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1afc3bc644c2fbc1e65cc8ec8b0647449c" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLongitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1245bb5d5e61e91c32a05c4dacfdc646" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLongitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a0921f29455e20cbccc964b746b575dda" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>lastLongitudeChanged</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1af4a51fae7eff573c693986efefc0feda" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_lastLatitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a8e99b350db5bfe069cce613f69063977" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_lastLongitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ad591e0afa677fbbb68d4826520bc70f9" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_orthodrom</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a0d1d1f430e4703f96a1d73e62a08ca12" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_path</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ac604a4223f546d3b0d73958e4c5db105" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_segments</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a78263864698ba461e70e00a0ea1ad42f" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_segmentsCenter</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a72f5f7e8a24a9472810d6984b7006259" prot="private" virt="non-virtual"><scope>Map::Ruler</scope><name>m_totalLength</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a89292483df8a52c36b99d1caddf558a6" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>removePoint</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a022b5aa9d5a00f7ae086758ad609b2db" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>resetRoute</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a0ec0e31df18472075967b0410ee4b3be" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>roleNames</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a51dd94ef911c8f4c6495093a1561b45a" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>rowCount</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a6f398fecf387fc50e6677af45c7e8bff" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>Ruler</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ab3c95b71cc459e44c9a666df201adbfb" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>segment</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185ac067f84b51034e9d23c77f852d53cb36" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>segmentCenter</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185aa779debe837fb9096c9163aab139f9a4" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>segmentLength</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1e0ccf00513a01047ba9df1721853185" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>SegmentRoles</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1ae59255a6de84b0bb71b7ed90eddd582c" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>setLastLatitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a544c56a13d79cc7576e0b2fcf0a1027a" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>setLastLongitude</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a080886a2e747059294f915e9f43ba853" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>setRoute</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a5d3b44804dce22c119af994b3cbb2593" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>setTotalLength</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1abca6e90031b2e6f2894761e1fb9bd40c" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>totalLength</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a4a8ab00417c4dc729b2fc0efb8230ac5" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>totalLength</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a1b98ee101915375d9c1d813adf10e386" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>totalLengthChanged</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a940f2e550202673718f76a39aa53bd8a" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>updatePoint</name></member>
+      <member refid="dc/d18/classMap_1_1Ruler_1a6a4292807ed39129cc1833f0ce66ec54" prot="public" virt="non-virtual"><scope>Map::Ruler</scope><name>~Ruler</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,56 @@
+\hypertarget{paths_8h_source}{}\doxysection{paths.\+h}
+\label{paths_8h_source}\index{src/c++/config/paths.h@{src/c++/config/paths.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceConfig}{Config}}}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{class\ }Paths\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00013}00013\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ LOD\_LEVELS\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ Paths*\ get();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ root();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ imageCache();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ lod(\textcolor{keywordtype}{int}\ level);}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ tcp();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ mapConfig();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ offlineTiles();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ config();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ logs();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ themes();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ bash();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ [[nodiscard]]\ \textcolor{keyword}{static}\ QString\ runtimeBash();}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ createImageCache(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ Q\_INVOKABLE\ \textcolor{keywordtype}{void}\ clearImageCache(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Paths(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ Paths(\textcolor{keyword}{const}\ Paths\&);}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ Paths\ \&operator=(\textcolor{keyword}{const}\ Paths\&);}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ createMapConfigs(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00084}00084\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{paths_8h_source_l00085}00085\ \}\ \textcolor{comment}{//\ namespace\ Config;}}
+
+\end{DoxyCode}

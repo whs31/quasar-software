@@ -1,0 +1,1072 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="de/df8/classNetworking_1_1Network" kind="class" language="C++" prot="public">
+    <compoundname>Networking::Network</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga5c3324cb211ef10bcf9727270a396459" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>Telemetry *</type>
+        <definition>Telemetry* telemetry</definition>
+        <argsstring></argsstring>
+        <name>telemetry</name>
+        <qualifiedname>Networking::Network::telemetry</qualifiedname>
+        <read>telemetry</read>
+        <write>setTelemetry</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1gad897b2edb6cf9e8363925e6d2cc0a587" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>RemoteData *</type>
+        <definition>RemoteData* remoteData</definition>
+        <argsstring></argsstring>
+        <name>remoteData</name>
+        <qualifiedname>Networking::Network::remoteData</qualifiedname>
+        <read>remoteData</read>
+        <write>setRemoteData</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1gaa62ae767793c978210a16d5c8d9eb427" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float networkDelay</definition>
+        <argsstring></argsstring>
+        <name>networkDelay</name>
+        <qualifiedname>Networking::Network::networkDelay</qualifiedname>
+        <read>networkDelay</read>
+        <write>setNetworkDelay</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga0b5560998ba764dc735edb92271c04a8" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>float</type>
+        <definition>float tcpProgress</definition>
+        <argsstring></argsstring>
+        <name>tcpProgress</name>
+        <qualifiedname>Networking::Network::tcpProgress</qualifiedname>
+        <read>tcpProgress</read>
+        <write>setTcpProgress</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d7/dcf/group__Properties_1ga9709aefe4930807392898aecb0cb8a79" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int connected</definition>
+        <argsstring></argsstring>
+        <name>connected</name>
+        <qualifiedname>Networking::Network::connected</qualifiedname>
+        <read>connected</read>
+        <write>setConnected</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="1" column="0" bodyfile="src/c++/network/network.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a7c770404591227aa4358de408d9dacb6" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float DISCONNECT_DELAY_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>DISCONNECT_DELAY_THRESHOLD</name>
+        <qualifiedname>Networking::Network::DISCONNECT_DELAY_THRESHOLD</qualifiedname>
+        <initializer>= 10.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="43" column="32" bodyfile="src/c++/network/network.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1ab292ae912d709977abc15b39fd6bb83c" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float SEMICONNECT_DELAY_THRESHOLD</definition>
+        <argsstring></argsstring>
+        <name>SEMICONNECT_DELAY_THRESHOLD</name>
+        <qualifiedname>Networking::Network::SEMICONNECT_DELAY_THRESHOLD</qualifiedname>
+        <initializer>= 3.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="46" column="32" bodyfile="src/c++/network/network.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1af221c7d4574fd7143da99a371596ba1c" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float PING_INTERVAL</definition>
+        <argsstring></argsstring>
+        <name>PING_INTERVAL</name>
+        <qualifiedname>Networking::Network::PING_INTERVAL</qualifiedname>
+        <initializer>= 5.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="49" column="32" bodyfile="src/c++/network/network.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a36725a20adc2566be1e4384c6bcaf697" prot="public" static="no" mutable="no">
+        <type>TelemetrySocket *</type>
+        <definition>TelemetrySocket* telemetrySocket</definition>
+        <argsstring></argsstring>
+        <name>telemetrySocket</name>
+        <qualifiedname>Networking::Network::telemetrySocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="55" column="29" bodyfile="src/c++/network/network.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a8c85ae3d115e40f62c4eb23af9f5c768" prot="public" static="no" mutable="no">
+        <type>ExecdSocket *</type>
+        <definition>ExecdSocket* execdSocket</definition>
+        <argsstring></argsstring>
+        <name>execdSocket</name>
+        <qualifiedname>Networking::Network::execdSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="56" column="25" bodyfile="src/c++/network/network.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1ad927e18ce2220f666989021d6ea80dd9" prot="public" static="no" mutable="no">
+        <type>FeedbackSocket *</type>
+        <definition>FeedbackSocket* feedbackSocket</definition>
+        <argsstring></argsstring>
+        <name>feedbackSocket</name>
+        <qualifiedname>Networking::Network::feedbackSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="57" column="28" bodyfile="src/c++/network/network.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a266668c89035af8614ce74e924bb0804" prot="public" static="no" mutable="no">
+        <type>TCPSocket *</type>
+        <definition>TCPSocket* tcpSocket</definition>
+        <argsstring></argsstring>
+        <name>tcpSocket</name>
+        <qualifiedname>Networking::Network::tcpSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="58" column="23" bodyfile="src/c++/network/network.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1af700b33a365f5e795d2819ba49309e08" prot="private" static="no" mutable="no">
+        <type>QTimer *</type>
+        <definition>QTimer* m_network_delay_timer</definition>
+        <argsstring></argsstring>
+        <name>m_network_delay_timer</name>
+        <qualifiedname>Networking::Network::m_network_delay_timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="147" column="20" bodyfile="src/c++/network/network.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a631937bf410cf31207a98c3940999959" prot="private" static="no" mutable="no">
+        <type>Telemetry *</type>
+        <definition>Telemetry* m_telemetry</definition>
+        <argsstring></argsstring>
+        <name>m_telemetry</name>
+        <qualifiedname>Networking::Network::m_telemetry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="149" column="23" bodyfile="src/c++/network/network.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1abf6399b6244dc446e3acfb15fcc39659" prot="private" static="no" mutable="no">
+        <type>RemoteData *</type>
+        <definition>RemoteData* m_remoteData</definition>
+        <argsstring></argsstring>
+        <name>m_remoteData</name>
+        <qualifiedname>Networking::Network::m_remoteData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="150" column="24" bodyfile="src/c++/network/network.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1af8b8132b7fd492faf38cf8b0f376f881" prot="private" static="no" mutable="no">
+        <type>Pinger *</type>
+        <definition>Pinger* m_de10ping</definition>
+        <argsstring></argsstring>
+        <name>m_de10ping</name>
+        <qualifiedname>Networking::Network::m_de10ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="152" column="20" bodyfile="src/c++/network/network.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1af9d034d952bc533d0ff8696b8de2c9a0" prot="private" static="no" mutable="no">
+        <type>Pinger *</type>
+        <definition>Pinger* m_jetsonping</definition>
+        <argsstring></argsstring>
+        <name>m_jetsonping</name>
+        <qualifiedname>Networking::Network::m_jetsonping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="153" column="20" bodyfile="src/c++/network/network.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1ac2b843693f558b2cd4b5546066a4a380" prot="private" static="no" mutable="no">
+        <type>Pinger *</type>
+        <definition>Pinger* m_navping</definition>
+        <argsstring></argsstring>
+        <name>m_navping</name>
+        <qualifiedname>Networking::Network::m_navping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="154" column="20" bodyfile="src/c++/network/network.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1ad6f9c72c1c7c89d92ca78e0fa9626872" prot="private" static="no" mutable="no">
+        <type>Pinger *</type>
+        <definition>Pinger* m_utl1ping</definition>
+        <argsstring></argsstring>
+        <name>m_utl1ping</name>
+        <qualifiedname>Networking::Network::m_utl1ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="155" column="20" bodyfile="src/c++/network/network.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a7aa7c6b37190d03eff49e6d3def4b4dd" prot="private" static="no" mutable="no">
+        <type>Pinger *</type>
+        <definition>Pinger* m_utl2ping</definition>
+        <argsstring></argsstring>
+        <name>m_utl2ping</name>
+        <qualifiedname>Networking::Network::m_utl2ping</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="156" column="20" bodyfile="src/c++/network/network.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1ad80cfe012cb5c842a9c6c99c782b4e7f" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float m_networkDelay</definition>
+        <argsstring></argsstring>
+        <name>m_networkDelay</name>
+        <qualifiedname>Networking::Network::m_networkDelay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="158" column="19" bodyfile="src/c++/network/network.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a7f584a9889133cbb34b61a5c8a0708cf" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int m_connected</definition>
+        <argsstring></argsstring>
+        <name>m_connected</name>
+        <qualifiedname>Networking::Network::m_connected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="159" column="17" bodyfile="src/c++/network/network.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="de/df8/classNetworking_1_1Network_1a140fe3aa5e68f25b0ca33d556b560192" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float m_tcpProgress</definition>
+        <argsstring></argsstring>
+        <name>m_tcpProgress</name>
+        <qualifiedname>Networking::Network::m_tcpProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="160" column="19" bodyfile="src/c++/network/network.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a4375ce843b59746a5d8b99050c076f30" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Network *</type>
+        <definition>Network * get</definition>
+        <argsstring>()</argsstring>
+        <name>get</name>
+        <qualifiedname>Networking::Network::get</qualifiedname>
+        <briefdescription>
+<para>Returns singleton instance of class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="53" column="28" bodyfile="src/c++/network/network.c++" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1abfdd473206a4330e935839d9d54d8110" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void startTelemetrySocket</definition>
+        <argsstring>(const QString &amp;request_address, const QString &amp;recv_address, float frequency)</argsstring>
+        <name>startTelemetrySocket</name>
+        <qualifiedname>Networking::Network::startTelemetrySocket</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>request_address</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>recv_address</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="66" column="30" bodyfile="src/c++/network/network.c++" bodystart="79" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1abfb4943845190af905406c346f620e39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void stopTelemetrySocket</definition>
+        <argsstring>()</argsstring>
+        <name>stopTelemetrySocket</name>
+        <qualifiedname>Networking::Network::stopTelemetrySocket</qualifiedname>
+        <briefdescription>
+<para>Stops telemetry socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="70" column="30" bodyfile="src/c++/network/network.c++" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a76a0b63b6f84c4b073a274f5fc2576ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void startExecdSocket</definition>
+        <argsstring>(const QString &amp;execd_address, const QString &amp;feedback_address)</argsstring>
+        <name>startExecdSocket</name>
+        <qualifiedname>Networking::Network::startExecdSocket</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>execd_address</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>feedback_address</declname>
+        </param>
+        <briefdescription>
+<para>Starts execd and feedback sockets with given parameters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>execd_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- IPv4 address and port for requests. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>feedback_address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>- IPv4 address and port for feedback (stdout and stderr).</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="76" column="30" bodyfile="src/c++/network/network.c++" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a99525a5bbb8d8a1ea17f2fb2c125a465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void stopExecdSocket</definition>
+        <argsstring>()</argsstring>
+        <name>stopExecdSocket</name>
+        <qualifiedname>Networking::Network::stopExecdSocket</qualifiedname>
+        <briefdescription>
+<para>Stops execd and feedback sockets. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="80" column="30" bodyfile="src/c++/network/network.c++" bodystart="93" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1abb9a1172e35eb1d8e61e25b0dcd5765a" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void executeCommand</definition>
+        <argsstring>(const Networking::Enums::NetworkCommand command) noexcept</argsstring>
+        <name>executeCommand</name>
+        <qualifiedname>Networking::Network::executeCommand</qualifiedname>
+        <param>
+          <type>const Networking::Enums::NetworkCommand</type>
+          <declname>command</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="89" column="30" bodyfile="src/c++/network/network.c++" bodystart="99" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a725d496b394638566a72ae8284739cd5" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void executeString</definition>
+        <argsstring>(const QString &amp;string) noexcept</argsstring>
+        <name>executeString</name>
+        <qualifiedname>Networking::Network::executeString</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="94" column="30" bodyfile="src/c++/network/network.c++" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a0a2a2a80222d19f8d0dd722265840d94" prot="public" static="no" const="yes" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE QString</type>
+        <definition>QString argument</definition>
+        <argsstring>(const QString &amp;key, Networking::Enums::ArgumentCategory category=Enums::Form) const noexcept</argsstring>
+        <name>argument</name>
+        <qualifiedname>Networking::Network::argument</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>Networking::Enums::ArgumentCategory</type>
+          <declname>category</declname>
+          <defval>Enums::Form</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="102" column="33" bodyfile="src/c++/network/network.c++" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a31a22d1b57bfbbe705b2d07622956884" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void setArgument</definition>
+        <argsstring>(const QString &amp;key, const QVariant &amp;value, Networking::Enums::ArgumentCategory category=Enums::Form) noexcept</argsstring>
+        <name>setArgument</name>
+        <qualifiedname>Networking::Network::setArgument</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>key</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>Networking::Enums::ArgumentCategory</type>
+          <declname>category</declname>
+          <defval>Enums::Form</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="111" column="30" bodyfile="src/c++/network/network.c++" bodystart="116" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a83418d4b55aaeb0db99633905f46dce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void startTCPSocket</definition>
+        <argsstring>(const QString &amp;address)</argsstring>
+        <name>startTCPSocket</name>
+        <qualifiedname>Networking::Network::startTCPSocket</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>address</declname>
+        </param>
+        <briefdescription>
+<para>Starts TCP-IP LFS socket at given address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Can be invoked from QML. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="115" column="30" bodyfile="src/c++/network/network.c++" bodystart="127" bodyend="127"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a345361fcf67e2fc761099213dcab80b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void stopTCPSocket</definition>
+        <argsstring>()</argsstring>
+        <name>stopTCPSocket</name>
+        <qualifiedname>Networking::Network::stopTCPSocket</qualifiedname>
+        <briefdescription>
+<para>Stops TCP-IP socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="118" column="30" bodyfile="src/c++/network/network.c++" bodystart="128" bodyend="128"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1ac6ce464ee16dd13ef252c7ed754ba9a2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>Telemetry *</type>
+        <definition>Telemetry * telemetry</definition>
+        <argsstring>() const</argsstring>
+        <name>telemetry</name>
+        <qualifiedname>Networking::Network::telemetry</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="120" column="24" bodyfile="src/c++/network/network.c++" bodystart="130" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1affd8dbb3174e7e2d1701bfe9ad1c048a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTelemetry</definition>
+        <argsstring>(Telemetry *)</argsstring>
+        <name>setTelemetry</name>
+        <qualifiedname>Networking::Network::setTelemetry</qualifiedname>
+        <param>
+          <type>Telemetry *</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="120" column="45" bodyfile="src/c++/network/network.c++" bodystart="131" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a9d88acdb4301f8f4a06aaa4a646c24f2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>RemoteData *</type>
+        <definition>RemoteData * remoteData</definition>
+        <argsstring>() const</argsstring>
+        <name>remoteData</name>
+        <qualifiedname>Networking::Network::remoteData</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="121" column="25" bodyfile="src/c++/network/network.c++" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a1432b3a422f70eaf1b0f532141e449d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRemoteData</definition>
+        <argsstring>(RemoteData *)</argsstring>
+        <name>setRemoteData</name>
+        <qualifiedname>Networking::Network::setRemoteData</qualifiedname>
+        <param>
+          <type>RemoteData *</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="121" column="47" bodyfile="src/c++/network/network.c++" bodystart="139" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1ae71b89de668470df02e8a541bdd32ad5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float networkDelay</definition>
+        <argsstring>() const</argsstring>
+        <name>networkDelay</name>
+        <qualifiedname>Networking::Network::networkDelay</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="122" column="20" bodyfile="src/c++/network/network.c++" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1ac3db62e17773eab70880645b766004d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setNetworkDelay</definition>
+        <argsstring>(float)</argsstring>
+        <name>setNetworkDelay</name>
+        <qualifiedname>Networking::Network::setNetworkDelay</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="122" column="44" bodyfile="src/c++/network/network.c++" bodystart="147" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a0a58ccf8071f24609c44225b0cf1aed8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int connected</definition>
+        <argsstring>() const</argsstring>
+        <name>connected</name>
+        <qualifiedname>Networking::Network::connected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="123" column="18" bodyfile="src/c++/network/network.c++" bodystart="160" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a1c536b13a9211b18b0e63f4a1a4085d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setConnected</definition>
+        <argsstring>(int)</argsstring>
+        <name>setConnected</name>
+        <qualifiedname>Networking::Network::setConnected</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="123" column="39" bodyfile="src/c++/network/network.c++" bodystart="161" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a7fc583bd7b551fc76f7b2c42c9835a33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float tcpProgress</definition>
+        <argsstring>() const</argsstring>
+        <name>tcpProgress</name>
+        <qualifiedname>Networking::Network::tcpProgress</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="124" column="20" bodyfile="src/c++/network/network.c++" bodystart="167" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a7f6ea6943301ac07a2b052d518356027" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTcpProgress</definition>
+        <argsstring>(float)</argsstring>
+        <name>setTcpProgress</name>
+        <qualifiedname>Networking::Network::setTcpProgress</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="124" column="43" bodyfile="src/c++/network/network.c++" bodystart="168" bodyend="173"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1ab85cd090ef589eb9e1ca27d28e6cfaa8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void telemetryChanged</definition>
+        <argsstring>()</argsstring>
+        <name>telemetryChanged</name>
+        <qualifiedname>Networking::Network::telemetryChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="127" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1ada349bbe903e926c4ae7f3175db3ee52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void remoteDataChanged</definition>
+        <argsstring>()</argsstring>
+        <name>remoteDataChanged</name>
+        <qualifiedname>Networking::Network::remoteDataChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="128" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a128a688dc588bac19801640f0a28f827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void networkDelayChanged</definition>
+        <argsstring>()</argsstring>
+        <name>networkDelayChanged</name>
+        <qualifiedname>Networking::Network::networkDelayChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="129" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a5b6aa4f5f9c6f38ea29be4bb2c313521" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void connectedChanged</definition>
+        <argsstring>()</argsstring>
+        <name>connectedChanged</name>
+        <qualifiedname>Networking::Network::connectedChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="130" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a906439a635f0c59c8b2e45a7b07edd8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void tcpProgressChanged</definition>
+        <argsstring>()</argsstring>
+        <name>tcpProgressChanged</name>
+        <qualifiedname>Networking::Network::tcpProgressChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="131" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a494c9269792068b8e0ecff130f346a8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void telemetrySocketMetrics</definition>
+        <argsstring>(const QString &amp;data, int size_bytes, bool out)</argsstring>
+        <name>telemetrySocketMetrics</name>
+        <qualifiedname>Networking::Network::telemetrySocketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>@group Metrics</para>
+<para><ref refid="d3/d16/classProvides" kindref="compound">Provides</ref> stringified data, packet size and direction. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="135" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a8c7be2f1298e09c11e7629889a53d722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void execdSocketMetrics</definition>
+        <argsstring>(const QString &amp;data, int size_bytes, bool out)</argsstring>
+        <name>execdSocketMetrics</name>
+        <qualifiedname>Networking::Network::execdSocketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="136" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1a541f0f13ac9611f77c38df89c3ce4977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void feedbackSocketMetrics</definition>
+        <argsstring>(const QString &amp;data, int size_bytes, bool out)</argsstring>
+        <name>feedbackSocketMetrics</name>
+        <qualifiedname>Networking::Network::feedbackSocketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="137" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1ae1c378bc3ccf4c8b1619d3f5406a484e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void lfsSocketMetrics</definition>
+        <argsstring>(const QString &amp;msg, int size_bytes, bool out)</argsstring>
+        <name>lfsSocketMetrics</name>
+        <qualifiedname>Networking::Network::lfsSocketMetrics</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="138" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="de/df8/classNetworking_1_1Network_1ad049bcdb3f89d7dcaf4d7839c14a9ade" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void stripSocketMetrics</definition>
+        <argsstring>(const QString msg, int size_bytes, bool out)</argsstring>
+        <name>stripSocketMetrics</name>
+        <qualifiedname>Networking::Network::stripSocketMetrics</qualifiedname>
+        <param>
+          <type>const QString</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size_bytes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="139" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a837d351e50ac69aecaa4bc46dcdd9fbb" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Network</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Network</name>
+        <qualifiedname>Networking::Network::Network</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="142" column="22" bodyfile="src/c++/network/network.c++" bodystart="21" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1a6443420097525e1f3680022ef5efa57d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Network</definition>
+        <argsstring>(const Network &amp;)</argsstring>
+        <name>Network</name>
+        <qualifiedname>Networking::Network::Network</qualifiedname>
+        <param>
+          <type>const Network &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="143" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="de/df8/classNetworking_1_1Network_1afa7ac45715771aeb0c914a3565a53984" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Network &amp;</type>
+        <definition>Network &amp; operator=</definition>
+        <argsstring>(const Network &amp;)</argsstring>
+        <name>operator=</name>
+        <qualifiedname>Networking::Network::operator=</qualifiedname>
+        <param>
+          <type>const Network &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/network.h" line="144" column="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/network.h" line="22" column="5" bodyfile="src/c++/network/network.h" bodystart="23" bodyend="161"/>
+    <listofallmembers>
+      <member refid="de/df8/classNetworking_1_1Network_1a0a2a2a80222d19f8d0dd722265840d94" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>argument</name></member>
+      <member refid="d7/dcf/group__Properties_1ga9709aefe4930807392898aecb0cb8a79" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>connected</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a0a58ccf8071f24609c44225b0cf1aed8" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>connected</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a5b6aa4f5f9c6f38ea29be4bb2c313521" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>connectedChanged</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a7c770404591227aa4358de408d9dacb6" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>DISCONNECT_DELAY_THRESHOLD</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a8c85ae3d115e40f62c4eb23af9f5c768" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>execdSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a8c7be2f1298e09c11e7629889a53d722" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>execdSocketMetrics</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1abb9a1172e35eb1d8e61e25b0dcd5765a" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>executeCommand</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a725d496b394638566a72ae8284739cd5" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>executeString</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ad927e18ce2220f666989021d6ea80dd9" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>feedbackSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a541f0f13ac9611f77c38df89c3ce4977" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>feedbackSocketMetrics</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a4375ce843b59746a5d8b99050c076f30" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>get</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ae1c378bc3ccf4c8b1619d3f5406a484e" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>lfsSocketMetrics</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a7f584a9889133cbb34b61a5c8a0708cf" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_connected</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1af8b8132b7fd492faf38cf8b0f376f881" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_de10ping</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1af9d034d952bc533d0ff8696b8de2c9a0" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_jetsonping</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ac2b843693f558b2cd4b5546066a4a380" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_navping</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1af700b33a365f5e795d2819ba49309e08" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_network_delay_timer</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ad80cfe012cb5c842a9c6c99c782b4e7f" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_networkDelay</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1abf6399b6244dc446e3acfb15fcc39659" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_remoteData</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a140fe3aa5e68f25b0ca33d556b560192" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_tcpProgress</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a631937bf410cf31207a98c3940999959" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_telemetry</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ad6f9c72c1c7c89d92ca78e0fa9626872" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_utl1ping</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a7aa7c6b37190d03eff49e6d3def4b4dd" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>m_utl2ping</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a837d351e50ac69aecaa4bc46dcdd9fbb" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>Network</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a6443420097525e1f3680022ef5efa57d" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>Network</name></member>
+      <member refid="d7/dcf/group__Properties_1gaa62ae767793c978210a16d5c8d9eb427" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>networkDelay</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ae71b89de668470df02e8a541bdd32ad5" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>networkDelay</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a128a688dc588bac19801640f0a28f827" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>networkDelayChanged</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1afa7ac45715771aeb0c914a3565a53984" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>operator=</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1af221c7d4574fd7143da99a371596ba1c" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>PING_INTERVAL</name></member>
+      <member refid="d7/dcf/group__Properties_1gad897b2edb6cf9e8363925e6d2cc0a587" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>remoteData</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a9d88acdb4301f8f4a06aaa4a646c24f2" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>remoteData</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ada349bbe903e926c4ae7f3175db3ee52" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>remoteDataChanged</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ab292ae912d709977abc15b39fd6bb83c" prot="private" virt="non-virtual"><scope>Networking::Network</scope><name>SEMICONNECT_DELAY_THRESHOLD</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a31a22d1b57bfbbe705b2d07622956884" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setArgument</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a1c536b13a9211b18b0e63f4a1a4085d8" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setConnected</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ac3db62e17773eab70880645b766004d0" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setNetworkDelay</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a1432b3a422f70eaf1b0f532141e449d7" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setRemoteData</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a7f6ea6943301ac07a2b052d518356027" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setTcpProgress</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1affd8dbb3174e7e2d1701bfe9ad1c048a" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>setTelemetry</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a76a0b63b6f84c4b073a274f5fc2576ea" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>startExecdSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a83418d4b55aaeb0db99633905f46dce8" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>startTCPSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1abfdd473206a4330e935839d9d54d8110" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>startTelemetrySocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a99525a5bbb8d8a1ea17f2fb2c125a465" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>stopExecdSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a345361fcf67e2fc761099213dcab80b3" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>stopTCPSocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1abfb4943845190af905406c346f620e39" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>stopTelemetrySocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ad049bcdb3f89d7dcaf4d7839c14a9ade" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>stripSocketMetrics</name></member>
+      <member refid="d7/dcf/group__Properties_1ga0b5560998ba764dc735edb92271c04a8" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>tcpProgress</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a7fc583bd7b551fc76f7b2c42c9835a33" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>tcpProgress</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a906439a635f0c59c8b2e45a7b07edd8a" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>tcpProgressChanged</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a266668c89035af8614ce74e924bb0804" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>tcpSocket</name></member>
+      <member refid="d7/dcf/group__Properties_1ga5c3324cb211ef10bcf9727270a396459" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>telemetry</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ac6ce464ee16dd13ef252c7ed754ba9a2" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>telemetry</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1ab85cd090ef589eb9e1ca27d28e6cfaa8" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>telemetryChanged</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a36725a20adc2566be1e4384c6bcaf697" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>telemetrySocket</name></member>
+      <member refid="de/df8/classNetworking_1_1Network_1a494c9269792068b8e0ecff130f346a8e" prot="public" virt="non-virtual"><scope>Networking::Network</scope><name>telemetrySocketMetrics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

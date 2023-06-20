@@ -1,0 +1,46 @@
+\hypertarget{ping_8h_source}{}\doxysection{ping.\+h}
+\label{ping_8h_source}\index{src/c++/network/ping.h@{src/c++/network/ping.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QObject>}}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtCore/QStringList>}}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00007}00007\ \textcolor{keyword}{class\ }QTimer;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00008}00008\ \textcolor{keyword}{class\ }QProcess;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00010}00010\ \textcolor{keyword}{using\ }std::vector;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00013}00013\ \textcolor{keyword}{namespace\ }Networking}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{class\ }Pinger\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ Pinger(QObject*\ parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \string~Pinger();}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ start(uint32\_t\ interval,\ \textcolor{keyword}{const}\ QString\&\ address,\ \textcolor{keyword}{const}\ vector<QString>\ args\ =\ \{\});}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ stop()\ noexcept;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ signals:}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ result(\textcolor{keywordtype}{int}\ status);}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ private:}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ private\ slots:}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ping();}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ recv();}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ private:}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ QProcess*\ ch;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ QTimer*\ t;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ addr;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ QStringList\ m\_args;}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00052}00052\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{ping_8h_source_l00053}00053\ \}\ \textcolor{comment}{//\ Network}}
+
+\end{DoxyCode}

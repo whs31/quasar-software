@@ -1,0 +1,96 @@
+\hypertarget{markermodel_8c_09_09_source}{}\doxysection{markermodel.\+c++}
+\label{markermodel_8c_09_09_source}\index{src/c++/map/markermodel.c++@{src/c++/map/markermodel.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}markermodel.h"{}}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }Map;}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00006}00006\ MarkerModel::MarkerModel(QObject*\ parent)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00007}00007\ \ \ \ \ :\ QAbstractListModel(parent)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00008}00008\ \{\}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00010}00010\ QHash<int,\ QByteArray>\ MarkerModel::roleNames()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00011}00011\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00012}00012\ \ \ \ \ QHash<int,\ QByteArray>\ roles;}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00013}00013\ \ \ \ \ roles[Index]\ =\ \textcolor{stringliteral}{"{}index"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00014}00014\ \ \ \ \ roles[Latitude]\ =\ \textcolor{stringliteral}{"{}latitude"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00015}00015\ \ \ \ \ roles[Longitude]\ =\ \textcolor{stringliteral}{"{}longitude"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00016}00016\ \ \ \ \ roles[MarkerName]\ =\ \textcolor{stringliteral}{"{}marker\_name"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00017}00017\ \ \ \ \ roles[MarkerColor]\ =\ \textcolor{stringliteral}{"{}marker\_color"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00018}00018\ \ \ \ \ roles[MarkerIcon]\ =\ \textcolor{stringliteral}{"{}marker\_icon"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ roles;}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00022}00022\ \textcolor{keywordtype}{int}\ MarkerModel::rowCount(\textcolor{keyword}{const}\ QModelIndex\&\ parent)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ storage.size();\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00023}00023\ QVariant\ MarkerModel::data(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keywordtype}{int}\ role)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00024}00024\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}(not\ index.isValid())}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ QVariant();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{switch}\ (role)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Index:\ \textcolor{keywordflow}{return}\ index.row();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Latitude:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].latitude);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Longitude:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].longitude);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerName:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].name);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerColor:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].color);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerIcon:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].icon);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Error\ reading\ from\ model"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00041}00041\ \textcolor{keywordtype}{bool}\ MarkerModel::setData(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keyword}{const}\ QVariant\&\ value,\ \textcolor{keywordtype}{int}\ role)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00042}00042\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (data(index,\ role)\ !=\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (role)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00046}00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Index:\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Latitude:\ storage[index.row()].latitude\ =\ value.toDouble();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Longitude:\ storage[index.row()].longitude\ =\ value.toDouble();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerName:\ storage[index.row()].name\ =\ value.toString();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerColor:\ storage[index.row()].color\ =\ value.toString();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ MarkerIcon:\ storage[index.row()].icon\ =\ value.toString();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00056}00056\ \ \ \ \ \ \ \ \ emit\ dataChanged(index,\ index,\ \{role\});}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00062}00062\ \textcolor{keywordtype}{void}\ MarkerModel::add(\textcolor{keyword}{const}\ Marker\&\ image)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00064}00064\ \ \ \ \ beginInsertRows(QModelIndex(),\ rowCount(),\ rowCount());}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00065}00065\ \ \ \ \ storage.push\_back(image);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00066}00066\ \ \ \ \ endInsertRows();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00067}00067\ \ \ \ \ emit\ added();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00069}00069\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[MARKER]\ Model\ received\ new\ marker.\ Now\ it\ contains"{}}\ <<\ rowCount()\ <<\ \textcolor{stringliteral}{"{}markers"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00072}00072\ \textcolor{keywordtype}{void}\ MarkerModel::remove(\textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00074}00074\ \ \ \ \ beginRemoveRows(QModelIndex(),\ index,\ index);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00075}00075\ \ \ \ \ storage.remove(index);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00076}00076\ \ \ \ \ endRemoveRows();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00078}00078\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[MARKER]\ Model\ lost\ an\ marker.\ Now\ it\ contains"{}}\ <<\ rowCount()\ <<\ \textcolor{stringliteral}{"{}markers"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00081}00081\ \textcolor{keywordtype}{void}\ MarkerModel::clear()}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00083}00083\ \ \ \ \ beginRemoveRows(QModelIndex(),\ 0,\ rowCount()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00084}00084\ \ \ \ \ storage.clear();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00085}00085\ \ \ \ \ endRemoveRows();}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00087}00087\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[MARKER]\ Model\ cleared"{}};}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{markermodel_8c_09_09_source_l00090}00090\ }
+
+\end{DoxyCode}

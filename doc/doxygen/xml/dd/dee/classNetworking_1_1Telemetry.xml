@@ -1,0 +1,1012 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dd/dee/classNetworking_1_1Telemetry" kind="class" language="C++" prot="public">
+    <compoundname>Networking::Telemetry</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a76714bdbc5c536fa77dfb14533ff82a9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double latitude</definition>
+        <argsstring></argsstring>
+        <name>latitude</name>
+        <qualifiedname>Networking::Telemetry::latitude</qualifiedname>
+        <read>latitude</read>
+        <write>setLatitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1ac155e35fdeebafc89723a51520fb9fe6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double longitude</definition>
+        <argsstring></argsstring>
+        <name>longitude</name>
+        <qualifiedname>Networking::Telemetry::longitude</qualifiedname>
+        <read>longitude</read>
+        <write>setLongitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a2b13d276aee0d9fd646c8fa3647e869b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double altitude</definition>
+        <argsstring></argsstring>
+        <name>altitude</name>
+        <qualifiedname>Networking::Telemetry::altitude</qualifiedname>
+        <read>altitude</read>
+        <write>setAltitude</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1afa723e1374eb19e2e10db4a6b3e5815e" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double velocityCourse</definition>
+        <argsstring></argsstring>
+        <name>velocityCourse</name>
+        <qualifiedname>Networking::Telemetry::velocityCourse</qualifiedname>
+        <read>velocityCourse</read>
+        <write>setVelocityCourse</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a48225c209a84b1098a141317282b7f62" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double velocityEast</definition>
+        <argsstring></argsstring>
+        <name>velocityEast</name>
+        <qualifiedname>Networking::Telemetry::velocityEast</qualifiedname>
+        <read>velocityEast</read>
+        <write>setVelocityEast</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a4a32aadf7bc6787e7be2c5a7f1bf7671" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double velocityNorth</definition>
+        <argsstring></argsstring>
+        <name>velocityNorth</name>
+        <qualifiedname>Networking::Telemetry::velocityNorth</qualifiedname>
+        <read>velocityNorth</read>
+        <write>setVelocityNorth</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1ac33511cc237d58d0dc4e7376de956ac6" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double velocityVertical</definition>
+        <argsstring></argsstring>
+        <name>velocityVertical</name>
+        <qualifiedname>Networking::Telemetry::velocityVertical</qualifiedname>
+        <read>velocityVertical</read>
+        <write>setVelocityVertical</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a34c057a0378030db67bd6a129f37d938" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double pitch</definition>
+        <argsstring></argsstring>
+        <name>pitch</name>
+        <qualifiedname>Networking::Telemetry::pitch</qualifiedname>
+        <read>pitch</read>
+        <write>setPitch</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a1d3228afa3a1d6773954f40c1e519eb9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double roll</definition>
+        <argsstring></argsstring>
+        <name>roll</name>
+        <qualifiedname>Networking::Telemetry::roll</qualifiedname>
+        <read>roll</read>
+        <write>setRoll</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a21cd490f6191f66678f55b4c242a10cf" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double yaw</definition>
+        <argsstring></argsstring>
+        <name>yaw</name>
+        <qualifiedname>Networking::Telemetry::yaw</qualifiedname>
+        <read>yaw</read>
+        <write>setYaw</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1acaa2fde7e3fad7df8f5755347603d17b" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double course</definition>
+        <argsstring></argsstring>
+        <name>course</name>
+        <qualifiedname>Networking::Telemetry::course</qualifiedname>
+        <read>course</read>
+        <write>setCourse</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a5d34a8f2dfe25421b2b473a5fd37b0ed" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <qualifiedname>Networking::Telemetry::time</qualifiedname>
+        <read>time</read>
+        <write>setTime</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a691915f3fb4792e167a2351c6e932483" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int satellites</definition>
+        <argsstring></argsstring>
+        <name>satellites</name>
+        <qualifiedname>Networking::Telemetry::satellites</qualifiedname>
+        <read>satellites</read>
+        <write>setSatellites</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="dd/dee/classNetworking_1_1Telemetry_1a342bd4ad68854574f375d53da457eae7" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double seaLevel</definition>
+        <argsstring></argsstring>
+        <name>seaLevel</name>
+        <qualifiedname>Networking::Telemetry::seaLevel</qualifiedname>
+        <read>seaLevel</read>
+        <write>setSeaLevel</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="1" column="0" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="dd/dee/classNetworking_1_1Telemetry_1a03e748f3a80873c5d269d50f3af29d2d" prot="private" static="no" mutable="no">
+        <type>QDateTime</type>
+        <definition>QDateTime m_datetime</definition>
+        <argsstring></argsstring>
+        <name>m_datetime</name>
+        <qualifiedname>Networking::Telemetry::m_datetime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="63" column="23" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/dee/classNetworking_1_1Telemetry_1ad5e960185cf25f75cecf9024e92b7390" prot="private" static="no" mutable="no">
+        <type>TelemetryDatagram</type>
+        <definition>TelemetryDatagram datagram</definition>
+        <argsstring></argsstring>
+        <name>datagram</name>
+        <qualifiedname>Networking::Telemetry::datagram</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="64" column="31" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/dee/classNetworking_1_1Telemetry_1a365b82073e2fc70801fa113e89e10dd0" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double m_seaLevel</definition>
+        <argsstring></argsstring>
+        <name>m_seaLevel</name>
+        <qualifiedname>Networking::Telemetry::m_seaLevel</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="65" column="20" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ab425a6f0d34227288593ce62079f254c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Telemetry</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>Telemetry</name>
+        <qualifiedname>Networking::Telemetry::Telemetry</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="29" column="22" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a3f99e460a793739de2ef6976b2a034d4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double latitude</definition>
+        <argsstring>() const</argsstring>
+        <name>latitude</name>
+        <qualifiedname>Networking::Telemetry::latitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="31" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a5ecc1e48920ff4ae4d61b4fe5b421040" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLatitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setLatitude</name>
+        <qualifiedname>Networking::Telemetry::setLatitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="31" column="41" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="10" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a00f3340e5829cf7e97f73d9e174d0a57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double longitude</definition>
+        <argsstring>() const</argsstring>
+        <name>longitude</name>
+        <qualifiedname>Networking::Telemetry::longitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="32" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a34d7c6faeefcc800e6ef256fd61b2619" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLongitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setLongitude</name>
+        <qualifiedname>Networking::Telemetry::setLongitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="32" column="42" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="18" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a9ba929c38859c0949c16432889ee636d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double altitude</definition>
+        <argsstring>() const</argsstring>
+        <name>altitude</name>
+        <qualifiedname>Networking::Telemetry::altitude</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="33" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a3708080d533c027de7dfba9cbe45f97d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setAltitude</definition>
+        <argsstring>(double)</argsstring>
+        <name>setAltitude</name>
+        <qualifiedname>Networking::Telemetry::setAltitude</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="33" column="41" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="26" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a69a6347f449dc86f5ec58f0f737a0fd2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double velocityCourse</definition>
+        <argsstring>() const</argsstring>
+        <name>velocityCourse</name>
+        <qualifiedname>Networking::Telemetry::velocityCourse</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="34" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a93bfd7a0e001eb9288ffb259ccce0569" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVelocityCourse</definition>
+        <argsstring>(double)</argsstring>
+        <name>setVelocityCourse</name>
+        <qualifiedname>Networking::Telemetry::setVelocityCourse</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="34" column="47" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="35" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a52c09f68220263729a983ad88241fed8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double velocityEast</definition>
+        <argsstring>() const</argsstring>
+        <name>velocityEast</name>
+        <qualifiedname>Networking::Telemetry::velocityEast</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="35" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ada297de432aee82141fe5248d86e7c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVelocityEast</definition>
+        <argsstring>(double)</argsstring>
+        <name>setVelocityEast</name>
+        <qualifiedname>Networking::Telemetry::setVelocityEast</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="35" column="45" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="42" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a22b9768f26ac4ad80689d649adba020e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double velocityNorth</definition>
+        <argsstring>() const</argsstring>
+        <name>velocityNorth</name>
+        <qualifiedname>Networking::Telemetry::velocityNorth</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="36" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a2511376a04f95f81f18a305e7d526c78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVelocityNorth</definition>
+        <argsstring>(double)</argsstring>
+        <name>setVelocityNorth</name>
+        <qualifiedname>Networking::Telemetry::setVelocityNorth</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="36" column="46" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="49" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1adc7b1eb57d4c6f6f52a5c88525b75067" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double velocityVertical</definition>
+        <argsstring>() const</argsstring>
+        <name>velocityVertical</name>
+        <qualifiedname>Networking::Telemetry::velocityVertical</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="37" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a0bc3444220fed8b23d072a2703e73eb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setVelocityVertical</definition>
+        <argsstring>(double)</argsstring>
+        <name>setVelocityVertical</name>
+        <qualifiedname>Networking::Telemetry::setVelocityVertical</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="37" column="49" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="56" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ab8005e2012f7f1b5b2c80051c480586d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double pitch</definition>
+        <argsstring>() const</argsstring>
+        <name>pitch</name>
+        <qualifiedname>Networking::Telemetry::pitch</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="38" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a333c45a5b9f7098f42a44a54afd709a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setPitch</definition>
+        <argsstring>(double)</argsstring>
+        <name>setPitch</name>
+        <qualifiedname>Networking::Telemetry::setPitch</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="38" column="38" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="63" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1aed87239ee2b94ce4e939bf7c26f6c2fc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double roll</definition>
+        <argsstring>() const</argsstring>
+        <name>roll</name>
+        <qualifiedname>Networking::Telemetry::roll</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="39" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a4995963b421aacb6093c2062567a6807" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setRoll</definition>
+        <argsstring>(double)</argsstring>
+        <name>setRoll</name>
+        <qualifiedname>Networking::Telemetry::setRoll</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="39" column="37" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="70" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a8f084efc326ffbb20ab4593381857b98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double yaw</definition>
+        <argsstring>() const</argsstring>
+        <name>yaw</name>
+        <qualifiedname>Networking::Telemetry::yaw</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="40" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a4154dd0e74f0b0836c661e8bd4f125eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setYaw</definition>
+        <argsstring>(double)</argsstring>
+        <name>setYaw</name>
+        <qualifiedname>Networking::Telemetry::setYaw</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="40" column="36" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ae18750f825d840cfa520d4ef132e071e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double course</definition>
+        <argsstring>() const</argsstring>
+        <name>course</name>
+        <qualifiedname>Networking::Telemetry::course</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="41" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a7378b10d27b411b2d8bcd52ac4b519a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setCourse</definition>
+        <argsstring>(double)</argsstring>
+        <name>setCourse</name>
+        <qualifiedname>Networking::Telemetry::setCourse</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="41" column="39" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1af59a1cec1d4304e2950e1652c9d9d500" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>uint64_t</type>
+        <definition>uint64_t time</definition>
+        <argsstring>() const</argsstring>
+        <name>time</name>
+        <qualifiedname>Networking::Telemetry::time</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="42" column="23" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ab674c9996212d09f438f5f068df79dd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setTime</definition>
+        <argsstring>(const uint64_t &amp;)</argsstring>
+        <name>setTime</name>
+        <qualifiedname>Networking::Telemetry::setTime</qualifiedname>
+        <param>
+          <type>const uint64_t &amp;</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="42" column="39" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ad9b8a7567f94188568edd794ee5a086e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int satellites</definition>
+        <argsstring>() const</argsstring>
+        <name>satellites</name>
+        <qualifiedname>Networking::Telemetry::satellites</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="43" column="18" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a73892e81b2008af97e4f775d8c928da3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSatellites</definition>
+        <argsstring>(int)</argsstring>
+        <name>setSatellites</name>
+        <qualifiedname>Networking::Telemetry::setSatellites</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="43" column="40" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="98" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1ad84a24b08eb4399debdb779c4b8724bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double seaLevel</definition>
+        <argsstring>() const</argsstring>
+        <name>seaLevel</name>
+        <qualifiedname>Networking::Telemetry::seaLevel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="44" column="21" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/dee/classNetworking_1_1Telemetry_1a9a0561da95fdfe2f8124378372788fa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSeaLevel</definition>
+        <argsstring>(double)</argsstring>
+        <name>setSeaLevel</name>
+        <qualifiedname>Networking::Telemetry::setSeaLevel</qualifiedname>
+        <param>
+          <type>double</type>
+          <defname>o</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="44" column="41" bodyfile="src/c++/network/telemetry/telemetry.c++" bodystart="105" bodyend="110"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1aaaaee0a57329ffbf051538edecbcbdf0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void latitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>latitudeChanged</name>
+        <qualifiedname>Networking::Telemetry::latitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="47" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a9ffd0dff3765ac6c7c4530429be970da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void longitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>longitudeChanged</name>
+        <qualifiedname>Networking::Telemetry::longitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="48" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a8fa94787b01741e74eefa0806b8b094b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void altitudeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>altitudeChanged</name>
+        <qualifiedname>Networking::Telemetry::altitudeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="49" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a47fcf25d4a3b2df625f86aca6c22e01a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void velocityCourseChanged</definition>
+        <argsstring>()</argsstring>
+        <name>velocityCourseChanged</name>
+        <qualifiedname>Networking::Telemetry::velocityCourseChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="50" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a59b1494d934fd5f8bc27524dee2a58a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void velocityEastChanged</definition>
+        <argsstring>()</argsstring>
+        <name>velocityEastChanged</name>
+        <qualifiedname>Networking::Telemetry::velocityEastChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="51" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a913280e288005cfd3c809aa567c40a52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void velocityNorthChanged</definition>
+        <argsstring>()</argsstring>
+        <name>velocityNorthChanged</name>
+        <qualifiedname>Networking::Telemetry::velocityNorthChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="52" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1aa027a996aeaa76cfe03d17df35abc807" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void velocityVerticalChanged</definition>
+        <argsstring>()</argsstring>
+        <name>velocityVerticalChanged</name>
+        <qualifiedname>Networking::Telemetry::velocityVerticalChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="53" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1abe2ed26bc01368fc01e836fd36f90161" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void pitchChanged</definition>
+        <argsstring>()</argsstring>
+        <name>pitchChanged</name>
+        <qualifiedname>Networking::Telemetry::pitchChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="54" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a1bac733de566e83ea9a18eb6dfa74205" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rollChanged</definition>
+        <argsstring>()</argsstring>
+        <name>rollChanged</name>
+        <qualifiedname>Networking::Telemetry::rollChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="55" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a1728925f56a8b950db64dca303131979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void yawChanged</definition>
+        <argsstring>()</argsstring>
+        <name>yawChanged</name>
+        <qualifiedname>Networking::Telemetry::yawChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="56" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a2438a2945d2e1f5daa42826811bea83a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void courseChanged</definition>
+        <argsstring>()</argsstring>
+        <name>courseChanged</name>
+        <qualifiedname>Networking::Telemetry::courseChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="57" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1ad3d01602a07df20146442192a11e2b54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void timeChanged</definition>
+        <argsstring>()</argsstring>
+        <name>timeChanged</name>
+        <qualifiedname>Networking::Telemetry::timeChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="58" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1a394b4a56ffc6c9348eaf82e5ac5cb15a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void satellitesChanged</definition>
+        <argsstring>()</argsstring>
+        <name>satellitesChanged</name>
+        <qualifiedname>Networking::Telemetry::satellitesChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="59" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="dd/dee/classNetworking_1_1Telemetry_1aad8f6253f56e321f22c17bc1e74bd225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void seaLevelChanged</definition>
+        <argsstring>()</argsstring>
+        <name>seaLevelChanged</name>
+        <qualifiedname>Networking::Telemetry::seaLevelChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/telemetry/telemetry.h" line="60" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/telemetry/telemetry.h" line="10" column="5" bodyfile="src/c++/network/telemetry/telemetry.h" bodystart="11" bodyend="66"/>
+    <listofallmembers>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a2b13d276aee0d9fd646c8fa3647e869b" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>altitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a9ba929c38859c0949c16432889ee636d" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>altitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a8fa94787b01741e74eefa0806b8b094b" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>altitudeChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1acaa2fde7e3fad7df8f5755347603d17b" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>course</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ae18750f825d840cfa520d4ef132e071e" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>course</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a2438a2945d2e1f5daa42826811bea83a" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>courseChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ad5e960185cf25f75cecf9024e92b7390" prot="private" virt="non-virtual"><scope>Networking::Telemetry</scope><name>datagram</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a76714bdbc5c536fa77dfb14533ff82a9" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>latitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a3f99e460a793739de2ef6976b2a034d4" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>latitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1aaaaee0a57329ffbf051538edecbcbdf0" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>latitudeChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ac155e35fdeebafc89723a51520fb9fe6" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>longitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a00f3340e5829cf7e97f73d9e174d0a57" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>longitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a9ffd0dff3765ac6c7c4530429be970da" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>longitudeChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a03e748f3a80873c5d269d50f3af29d2d" prot="private" virt="non-virtual"><scope>Networking::Telemetry</scope><name>m_datetime</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a365b82073e2fc70801fa113e89e10dd0" prot="private" virt="non-virtual"><scope>Networking::Telemetry</scope><name>m_seaLevel</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a34c057a0378030db67bd6a129f37d938" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>pitch</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ab8005e2012f7f1b5b2c80051c480586d" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>pitch</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1abe2ed26bc01368fc01e836fd36f90161" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>pitchChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a1d3228afa3a1d6773954f40c1e519eb9" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>roll</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1aed87239ee2b94ce4e939bf7c26f6c2fc" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>roll</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a1bac733de566e83ea9a18eb6dfa74205" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>rollChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a691915f3fb4792e167a2351c6e932483" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>satellites</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ad9b8a7567f94188568edd794ee5a086e" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>satellites</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a394b4a56ffc6c9348eaf82e5ac5cb15a" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>satellitesChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a342bd4ad68854574f375d53da457eae7" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>seaLevel</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ad84a24b08eb4399debdb779c4b8724bf" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>seaLevel</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1aad8f6253f56e321f22c17bc1e74bd225" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>seaLevelChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a3708080d533c027de7dfba9cbe45f97d" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setAltitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a7378b10d27b411b2d8bcd52ac4b519a8" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setCourse</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a5ecc1e48920ff4ae4d61b4fe5b421040" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setLatitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a34d7c6faeefcc800e6ef256fd61b2619" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setLongitude</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a333c45a5b9f7098f42a44a54afd709a4" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setPitch</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a4995963b421aacb6093c2062567a6807" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setRoll</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a73892e81b2008af97e4f775d8c928da3" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setSatellites</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a9a0561da95fdfe2f8124378372788fa5" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setSeaLevel</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ab674c9996212d09f438f5f068df79dd8" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setTime</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a93bfd7a0e001eb9288ffb259ccce0569" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setVelocityCourse</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ada297de432aee82141fe5248d86e7c5f" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setVelocityEast</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a2511376a04f95f81f18a305e7d526c78" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setVelocityNorth</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a0bc3444220fed8b23d072a2703e73eb3" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setVelocityVertical</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a4154dd0e74f0b0836c661e8bd4f125eb" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>setYaw</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ab425a6f0d34227288593ce62079f254c" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>Telemetry</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a5d34a8f2dfe25421b2b473a5fd37b0ed" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>time</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1af59a1cec1d4304e2950e1652c9d9d500" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>time</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ad3d01602a07df20146442192a11e2b54" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>timeChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1afa723e1374eb19e2e10db4a6b3e5815e" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityCourse</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a69a6347f449dc86f5ec58f0f737a0fd2" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityCourse</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a47fcf25d4a3b2df625f86aca6c22e01a" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityCourseChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a48225c209a84b1098a141317282b7f62" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityEast</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a52c09f68220263729a983ad88241fed8" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityEast</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a59b1494d934fd5f8bc27524dee2a58a8" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityEastChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a4a32aadf7bc6787e7be2c5a7f1bf7671" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityNorth</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a22b9768f26ac4ad80689d649adba020e" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityNorth</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a913280e288005cfd3c809aa567c40a52" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityNorthChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1ac33511cc237d58d0dc4e7376de956ac6" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityVertical</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1adc7b1eb57d4c6f6f52a5c88525b75067" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityVertical</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1aa027a996aeaa76cfe03d17df35abc807" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>velocityVerticalChanged</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a21cd490f6191f66678f55b4c242a10cf" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>yaw</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a8f084efc326ffbb20ab4593381857b98" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>yaw</name></member>
+      <member refid="dd/dee/classNetworking_1_1Telemetry_1a1728925f56a8b950db64dca303131979" prot="public" virt="non-virtual"><scope>Networking::Telemetry</scope><name>yawChanged</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

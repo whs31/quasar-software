@@ -1,0 +1,46 @@
+\hypertarget{image_8c_09_09_source}{}\doxysection{image.\+c++}
+\label{image_8c_09_09_source}\index{src/c++/map/entities/image.c++@{src/c++/map/entities/image.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}image.h"{}}}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00004}00004\ \textcolor{keyword}{namespace\ }Map\ \{}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00006}00006\ QDebug\&\ operator<<\ (QDebug\&\ d,\ Image\&\ image)}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00008}00008\ \ \ \ \ d\ <<\ \textcolor{stringliteral}{"{}name:\ "{}}\ <<\ image.filename}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00009}00009\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}marker:\ "{}}\ <<\ image.header.meta\_marker}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00010}00010\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}metasize:\ "{}}\ <<\ image.header.meta\_size}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00011}00011\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}latitude:\ "{}}\ <<\ image.meta.latitude}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00012}00012\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}longitude:\ "{}}\ <<\ image.meta.longitude}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00013}00013\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}dx:\ "{}}\ <<\ image.meta.dx}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00014}00014\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}dy:\ "{}}\ <<\ image.meta.dy}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00015}00015\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}x0:\ "{}}\ <<\ image.meta.x0}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00016}00016\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}y0:\ "{}}\ <<\ image.meta.y0}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00017}00017\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}angle:\ "{}}\ <<\ image.meta.angle}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00018}00018\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}drift\_angle:\ "{}}\ <<\ image.meta.drift\_angle}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00019}00019\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}lx:\ "{}}\ <<\ image.meta.lx}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00020}00020\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}ly:\ "{}}\ <<\ image.meta.ly}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00021}00021\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}div:\ "{}}\ <<\ image.meta.div}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00022}00022\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}velocity:\ "{}}\ <<\ image.meta.velocity}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00023}00023\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}altitude:\ "{}}\ <<\ image.meta.altitude}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00024}00024\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}kr:\ "{}}\ <<\ image.meta.kr}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00025}00025\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}time\_shift:\ "{}}\ <<\ image.meta.time\_shift}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00026}00026\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}time\_duration:\ "{}}\ <<\ image.meta.time\_duration}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00027}00027\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}reserved\_1:\ "{}}\ <<\ image.meta.reserved\_1}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00028}00028\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}reserved\_2:\ "{}}\ <<\ image.meta.reserved\_2}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00029}00029\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}mode:\ "{}}\ <<\ image.meta.mode}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00030}00030\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}image\_type:\ "{}}\ <<\ image.meta.image\_type}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00031}00031\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}reserved\_3:\ "{}}\ <<\ image.meta.reserved\_3}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00032}00032\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}reserved\_4:\ "{}}\ <<\ image.meta.reserved\_4}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00033}00033\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}crc16:\ "{}}\ <<\ image.meta.crc16}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00034}00034\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}lod0:\ "{}}\ <<\ image.path.first}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00035}00035\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}lod1:\ "{}}\ <<\ image.path.second}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00036}00036\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}valid:\ "{}}\ <<\ image.valid;}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ d;}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{image_8c_09_09_source_l00040}00040\ \}}
+
+\end{DoxyCode}

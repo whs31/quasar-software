@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dc/dac/structMap_1_1StripImage" kind="struct" language="C++" prot="public">
+    <compoundname>Map::StripImage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="dc/dac/structMap_1_1StripImage_1aac274af37f5fbaaa2c47d19145cfd856" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <qualifiedname>Map::StripImage::filename</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="13" column="17" bodyfile="src/c++/map/entities/stripimage.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dac/structMap_1_1StripImage_1a21f6223bafe02b5aefb14dad40053aff" prot="public" static="no" mutable="no">
+        <type>image_file_t</type>
+        <definition>image_file_t path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>Map::StripImage::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="14" column="22" bodyfile="src/c++/map/entities/stripimage.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dac/structMap_1_1StripImage_1a28e3c179a86f337095088b3ca02a2b2a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>Map::StripImage::valid</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="15" column="14" bodyfile="src/c++/map/entities/stripimage.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dac/structMap_1_1StripImage_1a6f4dca6b48529c4d3dade0e8d46f4e43" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float opacity</definition>
+        <argsstring></argsstring>
+        <name>opacity</name>
+        <qualifiedname>Map::StripImage::opacity</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="17" column="15" bodyfile="src/c++/map/entities/stripimage.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dc/dac/structMap_1_1StripImage_1a7ae0e8d0bb6c47a49569f47fd21f62d5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool shown</definition>
+        <argsstring></argsstring>
+        <name>shown</name>
+        <qualifiedname>Map::StripImage::shown</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/entities/stripimage.h" line="18" column="14" bodyfile="src/c++/map/entities/stripimage.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/entities/stripimage.h" line="11" column="5" bodyfile="src/c++/map/entities/stripimage.h" bodystart="12" bodyend="19"/>
+    <listofallmembers>
+      <member refid="dc/dac/structMap_1_1StripImage_1aac274af37f5fbaaa2c47d19145cfd856" prot="public" virt="non-virtual"><scope>Map::StripImage</scope><name>filename</name></member>
+      <member refid="dc/dac/structMap_1_1StripImage_1a6f4dca6b48529c4d3dade0e8d46f4e43" prot="public" virt="non-virtual"><scope>Map::StripImage</scope><name>opacity</name></member>
+      <member refid="dc/dac/structMap_1_1StripImage_1a21f6223bafe02b5aefb14dad40053aff" prot="public" virt="non-virtual"><scope>Map::StripImage</scope><name>path</name></member>
+      <member refid="dc/dac/structMap_1_1StripImage_1a7ae0e8d0bb6c47a49569f47fd21f62d5" prot="public" virt="non-virtual"><scope>Map::StripImage</scope><name>shown</name></member>
+      <member refid="dc/dac/structMap_1_1StripImage_1a28e3c179a86f337095088b3ca02a2b2a" prot="public" virt="non-virtual"><scope>Map::StripImage</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,532 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d4/db0/classProcessing_1_1ImageProcessing" kind="class" language="C++" prot="public">
+    <compoundname>Processing::ImageProcessing</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ImageType</name>
+        <qualifiedname>Processing::ImageProcessing::ImageType</qualifiedname>
+        <enumvalue id="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0a9f1f85ba332e06415eb8fcb9707b10cc" prot="public">
+          <name>Telescopic</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0ad859b7c26116bfcabea6b4d2a01bc236" prot="public">
+          <name>Strip</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="32" column="13" bodyfile="src/c++/processing/imageprocessing.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="d4/db0/classProcessing_1_1ImageProcessing_1a980ba0d182d83608b86c8dbfd76e98d1" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool processingImage</definition>
+        <argsstring></argsstring>
+        <name>processingImage</name>
+        <qualifiedname>Processing::ImageProcessing::processingImage</qualifiedname>
+        <read>processingImage</read>
+        <write>setProcessingImage</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="1" column="0" bodyfile="src/c++/processing/imageprocessing.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="d4/db0/classProcessing_1_1ImageProcessing_1a329116d5aaa99131a10fc97617d51ea9" prot="public" static="no" readable="yes" writable="yes" gettable="no" privategettable="no" protectedgettable="no" settable="no" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool processingStrip</definition>
+        <argsstring></argsstring>
+        <name>processingStrip</name>
+        <qualifiedname>Processing::ImageProcessing::processingStrip</qualifiedname>
+        <read>processingStrip</read>
+        <write>setProcessingStrip</write>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="1" column="0" bodyfile="src/c++/processing/imageprocessing.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a935e7e3b5064d22804862d6eeb05e767" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float INITIAL_OPACITY</definition>
+        <argsstring></argsstring>
+        <name>INITIAL_OPACITY</name>
+        <qualifiedname>Processing::ImageProcessing::INITIAL_OPACITY</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="24" column="32" bodyfile="src/c++/processing/imageprocessing.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a98c3520ca63cf194c95acb45eb87f8ea" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool INITIAL_VISIBILITY</definition>
+        <argsstring></argsstring>
+        <name>INITIAL_VISIBILITY</name>
+        <qualifiedname>Processing::ImageProcessing::INITIAL_VISIBILITY</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="25" column="31" bodyfile="src/c++/processing/imageprocessing.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1af73aeacf7c581a5eb5b5cf104fafcd7e" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED</definition>
+        <argsstring></argsstring>
+        <name>DEBUG_SAVE_STRIP_DATA_DESERIALIZED</name>
+        <qualifiedname>Processing::ImageProcessing::DEBUG_SAVE_STRIP_DATA_DESERIALIZED</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="27" column="31" bodyfile="src/c++/processing/imageprocessing.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a018b2218802481470904afd816b8c14b" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool DEBUG_SHOW_STRIP_DATA_MATRIX</definition>
+        <argsstring></argsstring>
+        <name>DEBUG_SHOW_STRIP_DATA_MATRIX</name>
+        <qualifiedname>Processing::ImageProcessing::DEBUG_SHOW_STRIP_DATA_MATRIX</qualifiedname>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="28" column="31" bodyfile="src/c++/processing/imageprocessing.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a977353be8173673a8e688b2ff781c355" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr bool</type>
+        <definition>constexpr bool DEBUG_PRESERVE_BINARY</definition>
+        <argsstring></argsstring>
+        <name>DEBUG_PRESERVE_BINARY</name>
+        <qualifiedname>Processing::ImageProcessing::DEBUG_PRESERVE_BINARY</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="29" column="31" bodyfile="src/c++/processing/imageprocessing.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a115f38bee181e867b022971ef9e3f2cf" prot="private" static="no" mutable="no">
+        <type>Map::ImageModel *</type>
+        <definition>Map::ImageModel* m_model</definition>
+        <argsstring></argsstring>
+        <name>m_model</name>
+        <qualifiedname>Processing::ImageProcessing::m_model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="57" column="29" bodyfile="src/c++/processing/imageprocessing.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1a1f926261238d790675113bb9cc91eff6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool m_processingImage</definition>
+        <argsstring></argsstring>
+        <name>m_processingImage</name>
+        <qualifiedname>Processing::ImageProcessing::m_processingImage</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="64" column="18" bodyfile="src/c++/processing/imageprocessing.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/db0/classProcessing_1_1ImageProcessing_1af8258c0c9057153556e7fce3d72d1e8a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool m_processingStrip</definition>
+        <argsstring></argsstring>
+        <name>m_processingStrip</name>
+        <qualifiedname>Processing::ImageProcessing::m_processingStrip</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="65" column="18" bodyfile="src/c++/processing/imageprocessing.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1af9c82b51168b8881fe9ef9aa8fec3a9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Map::ImageModel *</type>
+        <definition>Map::ImageModel * model</definition>
+        <argsstring>()</argsstring>
+        <name>model</name>
+        <qualifiedname>Processing::ImageProcessing::model</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="37" column="29" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="366" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a72b3fc0aea207021d75c6a0103f191f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool exists</definition>
+        <argsstring>(const QString &amp;name)</argsstring>
+        <name>exists</name>
+        <qualifiedname>Processing::ImageProcessing::exists</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="39" column="18" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="369" bodyend="380"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1abaac175570c5cc67dc11308fbf5d7621" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int indexFrom</definition>
+        <argsstring>(const QString &amp;name) noexcept</argsstring>
+        <name>indexFrom</name>
+        <qualifiedname>Processing::ImageProcessing::indexFrom</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="40" column="17" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="382" bodyend="393"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a0881e92213af1984d788566056450c95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool processingImage</definition>
+        <argsstring>() const</argsstring>
+        <name>processingImage</name>
+        <qualifiedname>Processing::ImageProcessing::processingImage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="42" column="19" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="395" bodyend="395"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a0e7de0de2c4dde8872531aefb8e20faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setProcessingImage</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setProcessingImage</name>
+        <qualifiedname>Processing::ImageProcessing::setProcessingImage</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="42" column="46" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="396" bodyend="401"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1add9e875f2c3c97524fba34928fdf854b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool processingStrip</definition>
+        <argsstring>() const</argsstring>
+        <name>processingStrip</name>
+        <qualifiedname>Processing::ImageProcessing::processingStrip</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="43" column="19" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="403" bodyend="403"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a8af605766140cc11567e123489b69d23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setProcessingStrip</definition>
+        <argsstring>(bool)</argsstring>
+        <name>setProcessingStrip</name>
+        <qualifiedname>Processing::ImageProcessing::setProcessingStrip</qualifiedname>
+        <param>
+          <type>bool</type>
+          <defname>other</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="43" column="46" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="404" bodyend="409"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-slot">
+      <memberdef kind="slot" id="d4/db0/classProcessing_1_1ImageProcessing_1a37eabc64bf37789ca9a7c041bfe19b40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processList</definition>
+        <argsstring>(const QList&lt; QString &gt; &amp;list)</argsstring>
+        <name>processList</name>
+        <qualifiedname>Processing::ImageProcessing::processList</qualifiedname>
+        <param>
+          <type>const QList&lt; QString &gt; &amp;</type>
+          <declname>list</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="46" column="22" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="34" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="slot" id="d4/db0/classProcessing_1_1ImageProcessing_1a3717b6fda559acd512a6a0d19ae62f71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void passImage</definition>
+        <argsstring>(const Map::Image &amp;image)</argsstring>
+        <name>passImage</name>
+        <qualifiedname>Processing::ImageProcessing::passImage</qualifiedname>
+        <param>
+          <type>const Map::Image &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="47" column="22" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="367" bodyend="367"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="d4/db0/classProcessing_1_1ImageProcessing_1a6cec84550eedb9df543e7d4636f829ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processImageFinished</definition>
+        <argsstring>(const Map::Image &amp;image)</argsstring>
+        <name>processImageFinished</name>
+        <qualifiedname>Processing::ImageProcessing::processImageFinished</qualifiedname>
+        <param>
+          <type>const Map::Image &amp;</type>
+          <declname>image</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="50" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d4/db0/classProcessing_1_1ImageProcessing_1a179b6942ae3a34304d18dec28d212af3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void stripVector8bit</definition>
+        <argsstring>(vector&lt; uint8_t &gt; vec, int rows, int columns)</argsstring>
+        <name>stripVector8bit</name>
+        <qualifiedname>Processing::ImageProcessing::stripVector8bit</qualifiedname>
+        <param>
+          <type>vector&lt; uint8_t &gt;</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rows</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>columns</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="51" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d4/db0/classProcessing_1_1ImageProcessing_1aa776a51d3f9547d8536f3ac5ebaa4dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processingImageChanged</definition>
+        <argsstring>()</argsstring>
+        <name>processingImageChanged</name>
+        <qualifiedname>Processing::ImageProcessing::processingImageChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="52" column="22"/>
+      </memberdef>
+      <memberdef kind="signal" id="d4/db0/classProcessing_1_1ImageProcessing_1acd360cd0daa5fe620937893b9d3bc465" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processingStripChanged</definition>
+        <argsstring>()</argsstring>
+        <name>processingStripChanged</name>
+        <qualifiedname>Processing::ImageProcessing::processingStripChanged</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="53" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a802b7e5bf8557bc1591dd70d2c6e55f6" prot="private" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ImageProcessing</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>ImageProcessing</name>
+        <qualifiedname>Processing::ImageProcessing::ImageProcessing</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="56" column="22" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="23" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1acab65bd759062bbde8e7a155e7cfc2df" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void asyncProcess</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>asyncProcess</name>
+        <qualifiedname>Processing::ImageProcessing::asyncProcess</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="59" column="18" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="75" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a38d80311c583d23bbc06bd0cc489404f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void asyncStripProcess</definition>
+        <argsstring>(const QString &amp;filename)</argsstring>
+        <name>asyncStripProcess</name>
+        <qualifiedname>Processing::ImageProcessing::asyncStripProcess</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="60" column="18" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="211" bodyend="352"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/db0/classProcessing_1_1ImageProcessing_1a73fee56559fd355e8f22cd7d47b5257e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray fileToByteArray</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>fileToByteArray</name>
+        <qualifiedname>Processing::ImageProcessing::fileToByteArray</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/processing/imageprocessing.h" line="61" column="24" bodyfile="src/c++/processing/imageprocessing.c++" bodystart="354" bodyend="364"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/processing/imageprocessing.h" line="17" column="5" bodyfile="src/c++/processing/imageprocessing.h" bodystart="18" bodyend="66"/>
+    <listofallmembers>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1acab65bd759062bbde8e7a155e7cfc2df" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>asyncProcess</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a38d80311c583d23bbc06bd0cc489404f" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>asyncStripProcess</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a977353be8173673a8e688b2ff781c355" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>DEBUG_PRESERVE_BINARY</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af73aeacf7c581a5eb5b5cf104fafcd7e" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>DEBUG_SAVE_STRIP_DATA_DESERIALIZED</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a018b2218802481470904afd816b8c14b" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>DEBUG_SHOW_STRIP_DATA_MATRIX</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a72b3fc0aea207021d75c6a0103f191f6" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>exists</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a73fee56559fd355e8f22cd7d47b5257e" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>fileToByteArray</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a802b7e5bf8557bc1591dd70d2c6e55f6" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>ImageProcessing</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>ImageType</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1abaac175570c5cc67dc11308fbf5d7621" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>indexFrom</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a935e7e3b5064d22804862d6eeb05e767" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>INITIAL_OPACITY</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a98c3520ca63cf194c95acb45eb87f8ea" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>INITIAL_VISIBILITY</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a115f38bee181e867b022971ef9e3f2cf" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>m_model</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a1f926261238d790675113bb9cc91eff6" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>m_processingImage</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af8258c0c9057153556e7fce3d72d1e8a" prot="private" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>m_processingStrip</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1af9c82b51168b8881fe9ef9aa8fec3a9b" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>model</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3717b6fda559acd512a6a0d19ae62f71" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>passImage</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a6cec84550eedb9df543e7d4636f829ce" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processImageFinished</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a980ba0d182d83608b86c8dbfd76e98d1" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingImage</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a0881e92213af1984d788566056450c95" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingImage</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1aa776a51d3f9547d8536f3ac5ebaa4dc6" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingImageChanged</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a329116d5aaa99131a10fc97617d51ea9" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingStrip</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1add9e875f2c3c97524fba34928fdf854b" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingStrip</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1acd360cd0daa5fe620937893b9d3bc465" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processingStripChanged</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a37eabc64bf37789ca9a7c041bfe19b40" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>processList</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a0e7de0de2c4dde8872531aefb8e20faa" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>setProcessingImage</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a8af605766140cc11567e123489b69d23" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>setProcessingStrip</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0ad859b7c26116bfcabea6b4d2a01bc236" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>Strip</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a179b6942ae3a34304d18dec28d212af3" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>stripVector8bit</name></member>
+      <member refid="d4/db0/classProcessing_1_1ImageProcessing_1a3154c405c975616503bac23f51b78fc0a9f1f85ba332e06415eb8fcb9707b10cc" prot="public" virt="non-virtual"><scope>Processing::ImageProcessing</scope><name>Telescopic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

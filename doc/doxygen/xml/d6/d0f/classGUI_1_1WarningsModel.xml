@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d6/d0f/classGUI_1_1WarningsModel" kind="class" language="C++" prot="public">
+    <compoundname>GUI::WarningsModel</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QAbstractListModel</basecompoundref>
+    <innerclass refid="df/d8d/structGUI_1_1WarningsModel_1_1WarningData" prot="private">GUI::WarningsModel::WarningData</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Notification</name>
+        <qualifiedname>GUI::WarningsModel::Notification</qualifiedname>
+        <enumvalue id="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89ae6542f08265992d2de94175c85380c13" prot="public">
+          <name>NotConnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89a45ccf3979cb1ad92f6a60a4d81e32f44" prot="public">
+          <name>Uncalibrated</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="23" column="13" bodyfile="src/c++/gui/warningsmodel.h" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="enum" id="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ModelRoles</name>
+        <qualifiedname>GUI::WarningsModel::ModelRoles</qualifiedname>
+        <enumvalue id="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" prot="public">
+          <name>Index</name>
+          <initializer>= Qt::UserRole + 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a2dfbf31ed014852927c31c352feac51f" prot="public">
+          <name>Message</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55abf86141fa29ab96a0cf6fad57b11d842" prot="public">
+          <name>Major</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="30" column="13" bodyfile="src/c++/gui/warningsmodel.h" bodystart="31" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d6/d0f/classGUI_1_1WarningsModel_1a7b0e4e57f5c2227e44bea6c3c2043129" prot="private" static="no" mutable="no">
+        <type>vector&lt; WarningData &gt;</type>
+        <definition>vector&lt;WarningData&gt; storage</definition>
+        <argsstring></argsstring>
+        <name>storage</name>
+        <qualifiedname>GUI::WarningsModel::storage</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="52" column="20" bodyfile="src/c++/gui/warningsmodel.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a51dd94ef911c8f4c6495093a1561b45a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rowCount</definition>
+        <argsstring>(const QModelIndex &amp;parent=QModelIndex()) const override</argsstring>
+        <name>rowCount</name>
+        <qualifiedname>GUI::WarningsModel::rowCount</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>parent</declname>
+          <defval>QModelIndex()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="37" column="17" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1ae93b915598cdbe5ae59dddf41d917a53" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QVariant</type>
+        <definition>QVariant data</definition>
+        <argsstring>(const QModelIndex &amp;index, int role) const override</argsstring>
+        <name>data</name>
+        <qualifiedname>GUI::WarningsModel::data</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="38" column="22" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="21" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a893d1b7c0d8fc61472f7dcd4d3efa055" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool setData</definition>
+        <argsstring>(const QModelIndex &amp;index, const QVariant &amp;value, int role) override</argsstring>
+        <name>setData</name>
+        <qualifiedname>GUI::WarningsModel::setData</qualifiedname>
+        <param>
+          <type>const QModelIndex &amp;</type>
+          <declname>index</declname>
+        </param>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>value</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>role</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="39" column="18" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="36" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a7af1ee600c2b5598af87ba39db31b57e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void append</definition>
+        <argsstring>(int type, const QString &amp;message, bool is_major)</argsstring>
+        <name>append</name>
+        <qualifiedname>GUI::WarningsModel::append</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>message</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>is_major</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="41" column="30" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="55" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a30c2194ff56953579bea2eb71b4fd733" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void remove</definition>
+        <argsstring>(int type) noexcept</argsstring>
+        <name>remove</name>
+        <qualifiedname>GUI::WarningsModel::remove</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="42" column="30" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="68" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GUI::WarningsModel::clear</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="43" column="30" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="91" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a0ec0e31df18472075967b0410ee4b3be" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>QHash&lt; int, QByteArray &gt;</type>
+        <definition>QHash&lt; int, QByteArray &gt; roleNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>roleNames</name>
+        <qualifiedname>GUI::WarningsModel::roleNames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="46" column="19" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="11" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="d6/d0f/classGUI_1_1WarningsModel_1a7c6471b21fdbcf77b56a73e25b0f37c5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>WarningsModel</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>WarningsModel</name>
+        <qualifiedname>GUI::WarningsModel::WarningsModel</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/gui/warningsmodel.h" line="49" column="13" bodyfile="src/c++/gui/warningsmodel.c++" bodystart="7" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/gui/warningsmodel.h" line="11" column="5" bodyfile="src/c++/gui/warningsmodel.h" bodystart="12" bodyend="53"/>
+    <listofallmembers>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7af1ee600c2b5598af87ba39db31b57e" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>append</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>clear</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1ae93b915598cdbe5ae59dddf41d917a53" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>data</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a3340c8ecc8e48277387c30bd3c435799" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>Index</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55abf86141fa29ab96a0cf6fad57b11d842" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>Major</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55a2dfbf31ed014852927c31c352feac51f" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>Message</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7d83e4f1efd20b7c111a343f7a125a55" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>ModelRoles</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89ae6542f08265992d2de94175c85380c13" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>NotConnected</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>Notification</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a30c2194ff56953579bea2eb71b4fd733" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>remove</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a0ec0e31df18472075967b0410ee4b3be" prot="protected" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>roleNames</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a51dd94ef911c8f4c6495093a1561b45a" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>rowCount</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a893d1b7c0d8fc61472f7dcd4d3efa055" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>setData</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7b0e4e57f5c2227e44bea6c3c2043129" prot="private" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>storage</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a9b7018c6a58f6d63a9446fea1f12ad89a45ccf3979cb1ad92f6a60a4d81e32f44" prot="public" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>Uncalibrated</name></member>
+      <member refid="d6/d0f/classGUI_1_1WarningsModel_1a7c6471b21fdbcf77b56a73e25b0f37c5" prot="private" virt="non-virtual"><scope>GUI::WarningsModel</scope><name>WarningsModel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

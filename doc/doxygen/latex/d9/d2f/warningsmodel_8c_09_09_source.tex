@@ -1,0 +1,104 @@
+\hypertarget{warningsmodel_8c_09_09_source}{}\doxysection{warningsmodel.\+c++}
+\label{warningsmodel_8c_09_09_source}\index{src/c++/gui/warningsmodel.c++@{src/c++/gui/warningsmodel.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}warningsmodel.h"{}}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00004}00004\ \textcolor{keyword}{namespace\ }GUI}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00005}00005\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00007}00007\ WarningsModel::WarningsModel(QObject*\ parent)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00008}00008\ \ \ \ \ :\ QAbstractListModel(parent)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00009}00009\ \{\}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00011}00011\ QHash<int,\ QByteArray>\ WarningsModel::roleNames()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00012}00012\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00013}00013\ \ \ \ \ QHash<int,\ QByteArray>\ roles;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00014}00014\ \ \ \ \ roles[Index]\ =\ \textcolor{stringliteral}{"{}index"{}};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00015}00015\ \ \ \ \ roles[Message]\ =\ \textcolor{stringliteral}{"{}message"{}};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00016}00016\ \ \ \ \ roles[Major]\ =\ \textcolor{stringliteral}{"{}major"{}};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ roles;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00020}00020\ \textcolor{keywordtype}{int}\ WarningsModel::rowCount(\textcolor{keyword}{const}\ QModelIndex\&\ parent)\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ storage.size();\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00021}00021\ QVariant\ WarningsModel::data(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keywordtype}{int}\ role)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00022}00022\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}(not\ index.isValid())}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ QVariant();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{switch}\ (role)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{case}\ Index:\ \textcolor{keywordflow}{return}\ index.row();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{case}\ Message:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].msg);}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{case}\ Major:\ \textcolor{keywordflow}{return}\ QVariant::fromValue(storage[index.row()].is\_major);}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Error\ reading\ from\ model"{}};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00036}00036\ \textcolor{keywordtype}{bool}\ WarningsModel::setData(\textcolor{keyword}{const}\ QModelIndex\&\ index,\ \textcolor{keyword}{const}\ QVariant\&\ value,\ \textcolor{keywordtype}{int}\ role)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00037}00037\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (data(index,\ role)\ !=\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (role)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00041}00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Index:\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Message:\ storage[index.row()].msg\ =\ value.toString();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ Major:\ storage[index.row()].is\_major\ =\ value.toBool();\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00049}00049\ \ \ \ \ \ \ \ \ emit\ dataChanged(index,\ index,\ \{role\});}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00053}00053\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00055}00055\ \textcolor{keywordtype}{void}\ WarningsModel::append(\textcolor{keywordtype}{int}\ type,\ \textcolor{keyword}{const}\ QString\&\ message,\ \textcolor{keywordtype}{bool}\ is\_major)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ notification\ :\ storage)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(notification.type\ ==\ type)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00061}00061\ \ \ \ \ beginInsertRows(QModelIndex(),\ rowCount(),\ rowCount());}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00062}00062\ \ \ \ \ storage.push\_back(\{type,\ message,\ is\_major\});}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00063}00063\ \ \ \ \ endInsertRows();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00065}00065\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[NOTIFICATIONS]\ Warning\ added:\ "{}}\ <<\ storage.size();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00068}00068\ \textcolor{keywordtype}{void}\ WarningsModel::remove(\textcolor{keywordtype}{int}\ type)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00070}00070\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ notification\ :\ storage)}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(notification.type\ ==\ type)\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00078}00078\ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00079}00079\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{if}(index\ <\ 0\ or\ index\ >=\ storage.size())}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00084}00084\ \ \ \ \ beginRemoveRows(QModelIndex(),\ index,\ index);}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00085}00085\ \ \ \ \ storage.erase(storage.begin()\ +\ index);}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00086}00086\ \ \ \ \ endRemoveRows();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00088}00088\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[NOTIFICATIONS]\ Warning\ removed:\ "{}}\ <<\ storage.size();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00091}00091\ \textcolor{keywordtype}{void}\ WarningsModel::clear()}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00092}00092\ \{}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00093}00093\ \ \ \ \ beginRemoveRows(QModelIndex(),\ 0,\ rowCount()\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00094}00094\ \ \ \ \ storage.clear();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00095}00095\ \ \ \ \ endRemoveRows();}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{warningsmodel_8c_09_09_source_l00098}00098\ \}\ \textcolor{comment}{//\ GUI}}
+
+\end{DoxyCode}

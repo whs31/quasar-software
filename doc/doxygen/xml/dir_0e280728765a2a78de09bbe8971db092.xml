@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dir_0e280728765a2a78de09bbe8971db092" kind="dir">
+    <compoundname>src/c++/network/planner</compoundname>
+    <innerfile refid="d5/d97/plannerdatagram_8h">plannerdatagram.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/planner/"/>
+  </compounddef>
+</doxygen>

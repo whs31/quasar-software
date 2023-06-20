@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="d6/dce/classMap_1_1OfflineTileLoader" kind="class" language="C++" prot="public">
+    <compoundname>Map::OfflineTileLoader</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">QObject</basecompoundref>
+    <innerclass refid="dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem" prot="private">Map::OfflineTileLoader::TileItem</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1a5d237b772cffb4fba31e17cf260627ea" prot="private" static="no" mutable="no">
+        <type>QNetworkAccessManager *</type>
+        <definition>QNetworkAccessManager* m_netaccs</definition>
+        <argsstring></argsstring>
+        <name>m_netaccs</name>
+        <qualifiedname>Map::OfflineTileLoader::m_netaccs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="47" column="35" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1a9d94cfa6094bd8f6d6c0898c78326903" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t m_totalTiles</definition>
+        <argsstring></argsstring>
+        <name>m_totalTiles</name>
+        <qualifiedname>Map::OfflineTileLoader::m_totalTiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="48" column="22" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1af4a1b80027768c1ebda8550efb02b9d5" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t m_loadedTiles</definition>
+        <argsstring></argsstring>
+        <name>m_loadedTiles</name>
+        <qualifiedname>Map::OfflineTileLoader::m_loadedTiles</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="49" column="22" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1a49b5ee20581912877b02ca21c0c353e9" prot="private" static="no" mutable="no">
+        <type>QQueue&lt; TileItem &gt;</type>
+        <definition>QQueue&lt;TileItem&gt; m_tilesQueue</definition>
+        <argsstring></argsstring>
+        <name>m_tilesQueue</name>
+        <qualifiedname>Map::OfflineTileLoader::m_tilesQueue</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="50" column="20" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1a948616424c1258a713f5e025545ce7be" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t m_parallelLoadedCount</definition>
+        <argsstring></argsstring>
+        <name>m_parallelLoadedCount</name>
+        <qualifiedname>Map::OfflineTileLoader::m_parallelLoadedCount</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="51" column="21" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1aaa247f7db35b5d0d972d2e5bfacf11ef" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString m_serverUrl</definition>
+        <argsstring></argsstring>
+        <name>m_serverUrl</name>
+        <qualifiedname>Map::OfflineTileLoader::m_serverUrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="52" column="21" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/dce/classMap_1_1OfflineTileLoader_1a01b18547adedb0258e24977712ee287e" prot="private" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString m_storagePath</definition>
+        <argsstring></argsstring>
+        <name>m_storagePath</name>
+        <qualifiedname>Map::OfflineTileLoader::m_storagePath</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="53" column="21" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a8ab39b4d356e559b277dd2a0e3860b63" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OfflineTileLoader</definition>
+        <argsstring>(QObject *parent=nullptr)</argsstring>
+        <name>OfflineTileLoader</name>
+        <qualifiedname>Map::OfflineTileLoader::OfflineTileLoader</qualifiedname>
+        <param>
+          <type>QObject *</type>
+          <declname>parent</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="18" column="22" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="40" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1ad02d348c6d5b7090ae3955e6420d19bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void download</definition>
+        <argsstring>(uint8_t zoom, uint32_t x, uint32_t y)</argsstring>
+        <name>download</name>
+        <qualifiedname>Map::OfflineTileLoader::download</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="20" column="18" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="80" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a764d260475f41a7c61c47875dc5a3d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void download</definition>
+        <argsstring>(const QGeoPolygon &amp;polygon, int maximum_zoom=18)</argsstring>
+        <name>download</name>
+        <qualifiedname>Map::OfflineTileLoader::download</qualifiedname>
+        <param>
+          <type>const QGeoPolygon &amp;</type>
+          <declname>polygon</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maximum_zoom</declname>
+          <defval>18</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="21" column="18" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="89" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a530731c9e29b813127008192f4e24424" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>Q_INVOKABLE void</type>
+        <definition>void download</definition>
+        <argsstring>(const QVariantList &amp;list, int maximum_zoom=18)</argsstring>
+        <name>download</name>
+        <qualifiedname>Map::OfflineTileLoader::download</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maximum_zoom</declname>
+          <defval>18</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="22" column="30" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="136" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a94ccf2689da51c52d2d49ca5c918aa2e" prot="public" static="no" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
+        <type>Q_INVOKABLE int</type>
+        <definition>int estimateTileCount</definition>
+        <argsstring>(const QVariantList &amp;list, int maximum_zoom=18) noexcept</argsstring>
+        <name>estimateTileCount</name>
+        <qualifiedname>Map::OfflineTileLoader::estimateTileCount</qualifiedname>
+        <param>
+          <type>const QVariantList &amp;</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maximum_zoom</declname>
+          <defval>18</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="23" column="29" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="144" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1af850933e8c541d17c73ac2aa588d6ea2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setServerUrl</definition>
+        <argsstring>(const QString &amp;url)</argsstring>
+        <name>setServerUrl</name>
+        <qualifiedname>Map::OfflineTileLoader::setServerUrl</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>url</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="25" column="18" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="195" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a83893cba564418b02ad19adabeb3dec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStoragePath</definition>
+        <argsstring>(const QString &amp;path)</argsstring>
+        <name>setStoragePath</name>
+        <qualifiedname>Map::OfflineTileLoader::setStoragePath</qualifiedname>
+        <param>
+          <type>const QString &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="26" column="18" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="196" bodyend="196"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1ac805f77076b1639c38a1c9a4b867037d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>QByteArray</type>
+        <definition>QByteArray tile</definition>
+        <argsstring>(uint8_t zoom, uint32_t x, uint32_t y)</argsstring>
+        <name>tile</name>
+        <qualifiedname>Map::OfflineTileLoader::tile</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>zoom</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="28" column="24" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="198" bodyend="210"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="signal">
+      <memberdef kind="signal" id="d6/dce/classMap_1_1OfflineTileLoader_1a00ea94a78df6cc042ca5611ca1110eb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void progress</definition>
+        <argsstring>(int percent)</argsstring>
+        <name>progress</name>
+        <qualifiedname>Map::OfflineTileLoader::progress</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>percent</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="31" column="22"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="d6/dce/classMap_1_1OfflineTileLoader_1a08a9916d5f1ceca25bd11997574b1746" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void processDownload</definition>
+        <argsstring>()</argsstring>
+        <name>processDownload</name>
+        <qualifiedname>Map::OfflineTileLoader::processDownload</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/map/tools/offlinetileloader.h" line="55" column="18" bodyfile="src/c++/map/tools/offlinetileloader.c++" bodystart="212" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/map/tools/offlinetileloader.h" line="12" column="5" bodyfile="src/c++/map/tools/offlinetileloader.h" bodystart="13" bodyend="56"/>
+    <listofallmembers>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1ad02d348c6d5b7090ae3955e6420d19bd" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>download</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a764d260475f41a7c61c47875dc5a3d7f" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>download</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a530731c9e29b813127008192f4e24424" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>download</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a94ccf2689da51c52d2d49ca5c918aa2e" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>estimateTileCount</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1af4a1b80027768c1ebda8550efb02b9d5" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_loadedTiles</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a5d237b772cffb4fba31e17cf260627ea" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_netaccs</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a948616424c1258a713f5e025545ce7be" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_parallelLoadedCount</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1aaa247f7db35b5d0d972d2e5bfacf11ef" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_serverUrl</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a01b18547adedb0258e24977712ee287e" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_storagePath</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a49b5ee20581912877b02ca21c0c353e9" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_tilesQueue</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a9d94cfa6094bd8f6d6c0898c78326903" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>m_totalTiles</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a8ab39b4d356e559b277dd2a0e3860b63" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>OfflineTileLoader</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a08a9916d5f1ceca25bd11997574b1746" prot="private" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>processDownload</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a00ea94a78df6cc042ca5611ca1110eb2" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>progress</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1af850933e8c541d17c73ac2aa588d6ea2" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>setServerUrl</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1a83893cba564418b02ad19adabeb3dec0" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>setStoragePath</name></member>
+      <member refid="d6/dce/classMap_1_1OfflineTileLoader_1ac805f77076b1639c38a1c9a4b867037d" prot="public" virt="non-virtual"><scope>Map::OfflineTileLoader</scope><name>tile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

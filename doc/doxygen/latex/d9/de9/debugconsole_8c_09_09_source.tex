@@ -1,0 +1,104 @@
+\hypertarget{debugconsole_8c_09_09_source}{}\doxysection{debugconsole.\+c++}
+\label{debugconsole_8c_09_09_source}\index{src/c++/gui/terminal/debugconsole.c++@{src/c++/gui/terminal/debugconsole.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}debugconsole.h"{}}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QCoreApplication>}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QProcess>}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}network/network.h"{}}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}config/config.h"{}}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00008}00008\ \textcolor{keyword}{namespace\ }GUI}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00011}00011\ \textcolor{keywordtype}{void}\ DebugConsole::execute(\textcolor{keyword}{const}\ QString\&\ command)}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{if}(command\_list.find(command)\ !=\ command\_list.end())}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00014}00014\ \ \ \ \ \ \ \ \ command\_list[command]();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00016}00016\ \ \ \ \ \ \ \ \ qWarning().nospace().noquote()\ <<\ \textcolor{stringliteral}{"{}[CONSOLE]\ Unrecognized\ console\ command\ ["{}}\ <<\ command\ <<\ \textcolor{stringliteral}{"{}]"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00019}00019\ DebugConsole::DebugConsole(QObject*\ parent)}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00020}00020\ \ \ \ \ :\ TerminalBase(parent)}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00022}00022\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ Console\ initialized"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00025}00025\ \textcolor{keywordtype}{void}\ DebugConsole::help()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00027}00027\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ <i><u>"{}}\ <<\ CONSOLE\_INTERNAL\_PROJECT\_STRING\ <<\ \textcolor{stringliteral}{"{}CONSOLE\ v0.9</u></i>"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00028}00028\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>quit</i>\ -\/\ exits\ the\ application\ and\ cleanup\ used\ resources"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00029}00029\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>telsock\_start</i>\ -\/\ starts\ the\ telemetry\ socket\ at\ default\ frequency"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00030}00030\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>telsock\_stop</i>\ -\/\ stops\ the\ telemetry\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00031}00031\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>execdsock\_start</i>\ -\/\ starts\ the\ execd\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00032}00032\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>execdsock\_stop</i>\ -\/\ stops\ the\ execd\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00033}00033\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>tcp\_start</i>\ -\/\ stops\ the\ TCP-\/IP\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00034}00034\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>tcp\_stop</i>\ -\/\ stops\ the\ TCP-\/IP\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00035}00035\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>connect</i>\ -\/\ starts\ all\ sockets,\ except\ UDP-\/LFS"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00036}00036\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ \(\backslash\)t\ <i>clear</i>\ -\/\ clears\ console\ log"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00039}00039\ \textcolor{keywordtype}{void}\ DebugConsole::quit()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00041}00041\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Shutting\ down..."{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00042}00042\ \ \ \ \ QCoreApplication::quit();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00045}00045\ \textcolor{keywordtype}{void}\ DebugConsole::telsock\_start()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00047}00047\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ start\ of\ telemetry\ socket\ at\ default\ frequency"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00048}00048\ \ \ \ \ Networking::Network::get()-\/>startTelemetrySocket(CONFIG(remoteIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(telemetryPort),}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CONFIG(remoteIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(telemetryRecvPort),}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CONFIG(telemetryFrequency));}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00053}00053\ \textcolor{keywordtype}{void}\ DebugConsole::telsock\_stop()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00054}00054\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00055}00055\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ stop\ of\ telemetry\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00056}00056\ \ \ \ \ Networking::Network::get()-\/>stopTelemetrySocket();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00057}00057\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00059}00059\ \textcolor{keywordtype}{void}\ DebugConsole::execdsock\_start()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00060}00060\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00061}00061\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ start\ of\ execd\ +\ feedback\ socket\ at\ default\ frequency"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00062}00062\ \ \ \ \ Networking::Network::get()-\/>startExecdSocket(CONFIG(remoteIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(execdPort),}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(feedbackPort));}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00066}00066\ \textcolor{keywordtype}{void}\ DebugConsole::execdsock\_stop()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00068}00068\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ stop\ of\ execd\ and\ feedback\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00069}00069\ \ \ \ \ Networking::Network::get()-\/>stopExecdSocket();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00072}00072\ \textcolor{keywordtype}{void}\ DebugConsole::tcp\_start()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00074}00074\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ start\ of\ tcp-\/ip\ socket\ at\ default\ frequency"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00075}00075\ \ \ \ \ Networking::Network::get()-\/>startTCPSocket(CONFIG(localIP)\ +\ \textcolor{stringliteral}{"{}:"{}}\ +\ CONFIG(tcpLFSPort));}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00076}00076\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00078}00078\ \textcolor{keywordtype}{void}\ DebugConsole::tcp\_stop()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00079}00079\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00080}00080\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Forcing\ stop\ of\ tcp-\/ip\ socket"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00081}00081\ \ \ \ \ Networking::Network::get()-\/>stopTCPSocket();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00082}00082\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00084}00084\ \textcolor{keywordtype}{void}\ DebugConsole::sim()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00085}00085\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00086}00086\ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[CONSOLE]\ Emulator\ support\ was\ removed\ in\ version\ 2.11.1"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00087}00087\ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[CONSOLE]\ Consider\ using\ quasar-\/firmware\ instance"{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00088}00088\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00090}00090\ \textcolor{keywordtype}{void}\ DebugConsole::connect()}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00092}00092\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}\$\ [CONSOLE]\ Trying\ to\ connect\ through\ console..."{}};}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00093}00093\ \ \ \ \ execdsock\_start();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00094}00094\ \ \ \ \ telsock\_start();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00095}00095\ \ \ \ \ tcp\_start();}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{debugconsole_8c_09_09_source_l00098}00098\ \}\ \textcolor{comment}{//\ GUI}}
+
+\end{DoxyCode}

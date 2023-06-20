@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.6" xml:lang="en-US">
+  <compounddef id="dd/d83/structNetworking_1_1ExecdArgument" kind="struct" language="C++" prot="public">
+    <compoundname>Networking::ExecdArgument</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>ArgumentType</name>
+        <qualifiedname>Networking::ExecdArgument::ArgumentType</qualifiedname>
+        <enumvalue id="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ad67b0ee7230dcecb610254e4e5e589cd" prot="public">
+          <name>Float</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5a1e2f89e867cd91c3de2ea9fbd2ef96a3" prot="public">
+          <name>Integer</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ade17ec82ff106e0c2b4417f5ca231eae" prot="public">
+          <name>String</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="12" column="9" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="13" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="dd/d83/structNetworking_1_1ExecdArgument_1a0ce34266d9f2cd3afca36ac08587c945" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr const int</type>
+        <definition>constexpr const int FLOATING_POINT_PRECISION</definition>
+        <argsstring></argsstring>
+        <name>FLOATING_POINT_PRECISION</name>
+        <qualifiedname>Networking::ExecdArgument::FLOATING_POINT_PRECISION</qualifiedname>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="10" column="36" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="dd/d83/structNetworking_1_1ExecdArgument_1a0c0d1b18d3033cb858562e5e8636c18f" prot="public" static="no" mutable="no">
+        <type>QString</type>
+        <definition>QString value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <qualifiedname>Networking::ExecdArgument::value</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="26" column="17" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="dd/d83/structNetworking_1_1ExecdArgument_1ab47e2ea14e436a96c033b7cb01d825a4" prot="public" static="no" mutable="no">
+        <type>ArgumentType</type>
+        <definition>ArgumentType type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Networking::ExecdArgument::type</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="27" column="22" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="dd/d83/structNetworking_1_1ExecdArgument_1ac4b6acf611caeda82cabffa2c4fa3262" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdArgument</definition>
+        <argsstring>()</argsstring>
+        <name>ExecdArgument</name>
+        <qualifiedname>Networking::ExecdArgument::ExecdArgument</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="19" column="9" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="7" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d83/structNetworking_1_1ExecdArgument_1a07326e2c81da9de7b0844cabaca94150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdArgument</definition>
+        <argsstring>(int)</argsstring>
+        <name>ExecdArgument</name>
+        <qualifiedname>Networking::ExecdArgument::ExecdArgument</qualifiedname>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="20" column="9" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d83/structNetworking_1_1ExecdArgument_1a796e03a55b20feca95798810188b64aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdArgument</definition>
+        <argsstring>(float)</argsstring>
+        <name>ExecdArgument</name>
+        <qualifiedname>Networking::ExecdArgument::ExecdArgument</qualifiedname>
+        <param>
+          <type>float</type>
+          <defname>f</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="21" column="9" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d83/structNetworking_1_1ExecdArgument_1a60514ba9570e608dfbc302e125aad34e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ExecdArgument</definition>
+        <argsstring>(QString)</argsstring>
+        <name>ExecdArgument</name>
+        <qualifiedname>Networking::ExecdArgument::ExecdArgument</qualifiedname>
+        <param>
+          <type>QString</type>
+          <defname>s</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="22" column="9" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="dd/d83/structNetworking_1_1ExecdArgument_1a31d6169bed77d2623b89a30a5931e24d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set</definition>
+        <argsstring>(const QVariant &amp;v)</argsstring>
+        <name>set</name>
+        <qualifiedname>Networking::ExecdArgument::set</qualifiedname>
+        <param>
+          <type>const QVariant &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/c++/network/execd/execdargumentlist.h" line="24" column="14" bodyfile="src/c++/network/execd/execdargumentlist.c++" bodystart="27" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/c++/network/execd/execdargumentlist.h" line="8" column="5" bodyfile="src/c++/network/execd/execdargumentlist.h" bodystart="9" bodyend="28"/>
+    <listofallmembers>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>ArgumentType</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1ac4b6acf611caeda82cabffa2c4fa3262" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>ExecdArgument</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a07326e2c81da9de7b0844cabaca94150" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>ExecdArgument</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a796e03a55b20feca95798810188b64aa" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>ExecdArgument</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a60514ba9570e608dfbc302e125aad34e" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>ExecdArgument</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ad67b0ee7230dcecb610254e4e5e589cd" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>Float</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a0ce34266d9f2cd3afca36ac08587c945" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>FLOATING_POINT_PRECISION</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5a1e2f89e867cd91c3de2ea9fbd2ef96a3" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>Integer</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a31d6169bed77d2623b89a30a5931e24d" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>set</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1aa15f3f718db408445afc1b93c12294c5ade17ec82ff106e0c2b4417f5ca231eae" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>String</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1ab47e2ea14e436a96c033b7cb01d825a4" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>type</name></member>
+      <member refid="dd/d83/structNetworking_1_1ExecdArgument_1a0c0d1b18d3033cb858562e5e8636c18f" prot="public" virt="non-virtual"><scope>Networking::ExecdArgument</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,120 @@
+\hypertarget{paths_8c_09_09_source}{}\doxysection{paths.\+c++}
+\label{paths_8c_09_09_source}\index{src/c++/config/paths.c++@{src/c++/config/paths.c++}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}paths.h"{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QtCore/QCoreApplication>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QtCore/QDir>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QtCore/QDebug>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QtCore/QFile>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QtCore/QSaveFile>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QtCore/QTextStream>}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00010}00010\ \textcolor{preprocessor}{\#define\ PATH\_MKDIR(name)\ QDir\ name\#\#Directory(name());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00011}00011\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ if(not\ name\#\#Directory.exists())\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00012}00012\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ name\#\#Directory.mkpath(name());\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00013}00013\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qInfo()\ <<\ "{}[PATH]\ Created"{}}\ <<\ \#name\ <<\ "{}folder\ at"{}\ <<\ name();\ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00016}00016\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceConfig}{Config}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00018}00018\ Paths::Paths(QObject\ *parent)\ :\ QObject\{parent\}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00020}00020\ \ \ \ \ this-\/>createImageCache();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00022}00022\ \ \ \ \ PATH\_MKDIR(config)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00023}00023\ \ \ \ \ PATH\_MKDIR(mapConfig)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00024}00024\ \ \ \ \ PATH\_MKDIR(themes)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00025}00025\ \ \ \ \ PATH\_MKDIR(offlineTiles)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00026}00026\ \ \ \ \ PATH\_MKDIR(logs)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00027}00027\ \ \ \ \ PATH\_MKDIR(runtimeBash)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00029}00029\ \ \ \ \ this-\/>createMapConfigs();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{if}(themesDirectory.isEmpty())}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00032}00032\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00033}00033\ \ \ \ \ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/themes/nord.json"{}},\ themes()\ +\ \textcolor{stringliteral}{"{}/nord.json"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00034}00034\ \ \ \ \ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/themes/catpuccin.json"{}},\ themes()\ +\ \textcolor{stringliteral}{"{}/catpuccin.json"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00035}00035\ \ \ \ \ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}[PATH]\ Default\ themes\ placed\ in\ folder"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}(runtimeBashDirectory.isEmpty(QDir::Files))}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00039}00039\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00040}00040\ \ \ \ \ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/wrapped/poweroff.sh"{}},\ bash()\ +\ \textcolor{stringliteral}{"{}/poweroff.sh"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00041}00041\ \ \ \ \ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/wrapped/reboot.sh"{}},\ bash()\ +\ \textcolor{stringliteral}{"{}/reboot.sh"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00045}00045\ Paths\ *Paths::get()\ \{\ \textcolor{keyword}{static}\ Paths\ instance;\ \textcolor{keywordflow}{return}\ \&instance;\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00046}00046\ QString\ Paths::root()\ \{\ \textcolor{keywordflow}{return}\ QCoreApplication::applicationDirPath();\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00047}00047\ QString\ Paths::imageCache()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/cache"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00049}00049\ QString\ Paths::lod(\textcolor{keywordtype}{int}\ level)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}(level\ >\ LOD\_LEVELS\ -\/\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00052}00052\ \ \ \ \ \ \ \ \ qCritical()\ <<\ \textcolor{stringliteral}{"{}[PATH]\ Someone\ asked\ for\ non-\/existent\ LOD\ folder"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{stringliteral}{"{}Invalid\ LOD\ level"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ imageCache()\ +\ \textcolor{stringliteral}{"{}/lod"{}}\ +\ QString::number(level);}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00056}00056\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00058}00058\ QString\ Paths::tcp()\ \{\ \textcolor{keywordflow}{return}\ imageCache()\ +\ \textcolor{stringliteral}{"{}/tcp"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00059}00059\ QString\ Paths::mapConfig()\ \{\ \textcolor{keywordflow}{return}\ config()\ +\ \textcolor{stringliteral}{"{}/map"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00060}00060\ QString\ Paths::offlineTiles()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/offline"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00061}00061\ QString\ Paths::config()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/config"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00062}00062\ QString\ Paths::logs()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/logs"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00063}00063\ QString\ Paths::themes()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/themes"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00064}00064\ QString\ Paths::bash()\ \{\ \textcolor{keywordflow}{return}\ root()\ +\ \textcolor{stringliteral}{"{}/bash"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00065}00065\ QString\ Paths::runtimeBash()\ \{\ \textcolor{keywordflow}{return}\ bash()\ +\ \textcolor{stringliteral}{"{}/custom"{}};\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00067}00067\ \textcolor{keywordtype}{void}\ Paths::createImageCache(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00068}00068\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00069}00069\ \ \ \ \ QDir\ dir(imageCache());}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{if}(not\ dir.exists())}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00071}00071\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00072}00072\ \ \ \ \ \ \ \ \ dir.mkpath(imageCache());}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00073}00073\ \ \ \ \ \ \ \ \ dir.mkpath(tcp());}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ LOD\_LEVELS;\ ++i)}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ dir.mkpath(lod(i));}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00077}00077\ \ \ \ \ qInfo()\ <<\ \textcolor{stringliteral}{"{}[PATH]\ Created\ image\ cache\ at\ "{}}\ <<\ imageCache();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00080}00080\ \textcolor{keywordtype}{void}\ Paths::clearImageCache(\textcolor{keywordtype}{void})\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00082}00082\ \ \ \ \ QDir\ dir(imageCache());}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}(dir.exists())}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00084}00084\ \ \ \ \ \ \ \ \ dir.removeRecursively();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00085}00085\ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[PATH]\ Deleted\ image\ cache"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00086}00086\ \ \ \ \ createImageCache();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00089}00089\ \textcolor{keywordtype}{void}\ Paths::createMapConfigs(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00090}00090\ \{}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00091}00091\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/satellite"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/satellite"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00092}00092\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/terrain"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/terrain"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00093}00093\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/transit"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/transit"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00094}00094\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/cycle"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/cycle"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00095}00095\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/hiking"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/hiking"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00096}00096\ \ \ \ \ QFile::copy(\textcolor{stringliteral}{"{}:/osmconfigs/night-\/transit"{}},\ mapConfig()\ +\ \textcolor{stringliteral}{"{}/night-\/transit"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00098}00098\ \ \ \ \ QString\ \_street\ =\ \textcolor{stringliteral}{"{}\{\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}UrlTemplate\(\backslash\)"{}\ :\ \(\backslash\)"{}"{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}file:///"{}}\ +}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ offlineTiles()\ +}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}/\%z/\%x/\%y"{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}ImageFormat\(\backslash\)"{}\ :\ \(\backslash\)"{}png\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ "{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}QImageFormat\(\backslash\)"{}\ :\ \(\backslash\)"{}Indexed8\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}MaximumZoomLevel\(\backslash\)"{}\ :\ 18,\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}ID\(\backslash\)"{}\ :\ \(\backslash\)"{}wmf-\/intl-\/1x\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}MapCopyRight\(\backslash\)"{}\ :\ "{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}<a\ href=\(\backslash\)'https://wikimediafoundation.org/wiki/Terms\_of\_Use\(\backslash\)'>WikiMedia\ Foundation</a>\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}DataCopyRight\(\backslash\)"{}\ :\ "{}}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}<a\ href=\(\backslash\)'http://www.openstreetmap.org/copyright\(\backslash\)'>OpenStreetMap</a>\ contributors\(\backslash\)"{},\(\backslash\)r\(\backslash\)n\ \ \ \ \(\backslash\)"{}Timestamp\(\backslash\)"{}\ :\ \(\backslash\)"{}2019-\/02-\/01\(\backslash\)"{}\(\backslash\)r\(\backslash\)n\}\(\backslash\)r\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00106}00106\ \ \ \ \ QSaveFile\ street(mapConfig()\ +\ \textcolor{stringliteral}{"{}/street"{}});}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00107}00107\ \ \ \ \ street.open(QIODevice::WriteOnly);}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00108}00108\ \ \ \ \ QTextStream\ out7(\&street);}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00109}00109\ \ \ \ \ out7\ <<\ \_street;}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00110}00110\ \ \ \ \ street.commit();}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00112}00112\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}[PATH]\ Map\ configs\ placed\ in\ folder"{}};}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{paths_8c_09_09_source_l00114}00114\ }
+
+\end{DoxyCode}

@@ -22,66 +22,66 @@ namespace Config
 
         //! @defgroup Network settings
         //! @{
-        //! @var IPv4-address of SAR (DE10-NANO).
+        //! @property IPv4-address of SAR (DE10-NANO).
         Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
-        //! @var IPv4-address of host computer.
+        //! @property IPv4-address of host computer.
         Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
-        //! @var IPv4-address of Jetson block.
+        //! @property IPv4-address of Jetson block.
         Q_PROPERTY(QString jetsonIP READ jetsonIP WRITE setJetsonIP NOTIFY jetsonIPChanged)
-        //! @var IPv4-address of NavSAR.
+        //! @property IPv4-address of NavSAR.
         Q_PROPERTY(QString navIP READ navIP WRITE setNavIP NOTIFY navIPChanged)
-        //! @var IPv4-address (reserved for commutator).
+        //! @property IPv4-address (reserved for commutator).
         Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
-        //! @var IPv4-address (reserved for commutator).
+        //! @property IPv4-address (reserved for commutator).
         Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
-        //! @var Port for telemetry request.
+        //! @property Port for telemetry request.
         Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
-        //! @var Port for telemetry feedback.
+        //! @property Port for telemetry feedback.
         Q_PROPERTY(QString telemetryRecvPort READ telemetryRecvPort WRITE setTelemetryRecvPort NOTIFY telemetryRecvPortChanged)
-        //! @var Port for fsend TCP-IP service.
+        //! @property Port for fsend TCP-IP service.
         Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
-        //! @var Port for fsend UDP service.
+        //! @property Port for fsend UDP service.
         Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
-        //! @var Port for execd service requests.
+        //! @property Port for execd service requests.
         Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
-        //! @var Port for execd service feedback.
+        //! @property Port for execd service feedback.
         Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
-        //! @var Telemetry receivement interval in seconds.
+        //! @property Telemetry receivement interval in seconds.
         Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
-        //! @var Legacy setting for proxy --remote flag.
+        //! @property Legacy setting for proxy --remote flag.
         Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
-        //! @var Fsend TCP-IP split marker. Can be '\0' or '\n'.
+        //! @property Fsend TCP-IP split marker. Can be '\0' or '\n'.
         Q_PROPERTY(QString tcpMarker READ tcpMarker WRITE setTcpMarker NOTIFY tcpMarkerChanged)
         //! @}
 
         //! @defgroup UAV settings
         //! @{
-        //! @var Antenna alignment. True means antenna aligned to right.
+        //! @property Antenna alignment. True means antenna aligned to right.
         Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
 
-        //! @var Value, added to azimuth in SAR image metadata in degrees.
+        //! @property Value, added to azimuth in SAR image metadata in degrees.
         Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
-        //! @var Flag for expecting using radians in SAR image metadata.
+        //! @property Flag for expecting using radians in SAR image metadata.
         Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
-        //! @var Flag for expecting using drift angle value in SAR image metadata.
+        //! @property Flag for expecting using drift angle value in SAR image metadata.
         Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
-        //! @var Value, subtracted from thetha-azimuth in SAR image metadata (degrees).
+        //! @property Value, subtracted from thetha-azimuth in SAR image metadata (degrees).
         Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
-        //! @var Flag for overriding ly field in SAR image metadata. True means that received ly will be replaced with image pixel height.
+        //! @property Flag for overriding ly field in SAR image metadata. True means that received ly will be replaced with image pixel height.
         Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
-        //! @var Flag for enabling software cutting telescopic images.
+        //! @property Flag for enabling software cutting telescopic images.
         Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
         //! @}
 
         //! @defgroup Previous session settings
         //! @{
-        //! @var Previous session camera latitude.
+        //! @property Previous session camera latitude.
         Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
-        //! @var Previous session camera longitude.
+        //! @property Previous session camera longitude.
         Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
-        //! @var Previous session camera zoom level.
+        //! @property Previous session camera zoom level.
         Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
-        //! @var Previous session image folder.
+        //! @property Previous session image folder.
         Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
         //! @}
 

@@ -22,36 +22,99 @@ namespace Networking
     class Network : public QObject
     {
         Q_OBJECT
-        Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
-        Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
-        Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
-        Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
-        Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
 
+        //! @defgroup Properties
+        //! @{
+        //! @property Holds pointer to telemetry storage.
+        Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
+        //! @property Holds pointer to remote data storage.
+        Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
+        //! @property Network delay in seconds from last received packet.
+        Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
+        //! @property TCP-IP package loading progress value.
+        Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
+        //! @property Connection state. 2 means fully connected, 0 means fully unconnected.
+        Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
+        //! @}
+
+        //! @var Constant threshold for connection indicator.
+        //!      Connection status will be changed to unconnected if
+        //!      network delay will exceed threshold.
         constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
+
+        //! @var Constant threshold for connection problems indicator.
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
+
+        //! @var How often (in seconds) ping command will be executed.
         constexpr static float PING_INTERVAL = 5.0f;
 
         public:
             //! @brief Returns singleton instance of class.
             static Network* get();
 
-            TelemetrySocket* telemetrySocket;
-            ExecdSocket* execdSocket;
-            FeedbackSocket* feedbackSocket;
-            TCPSocket* tcpSocket;
+            TelemetrySocket* telemetrySocket;       //! @var Pointer to telemetry socket instance.
+            ExecdSocket* execdSocket;               //! @var Pointer to execd socket instance.
+            FeedbackSocket* feedbackSocket;         //! @var Pointer to feedback socket instance.
+            TCPSocket* tcpSocket;                   //! @var Pointer to tcp-ip socket instance.
 
+            //! @brief   Starts telemetry socket with given parameters
+            //! @param   request_address - IPv4 address and port for requests.
+            //! @param   recv_address - IPv4 address and port for receiving telemetry.
+            //! @param   frequency - interval between incoming packages in seconds.
+            //! @details Can be invoked from QML.
+            //! @example startTelemetrySocket("192.168.1.47:9955", "192.168.1.10:10337", 0.1);
             Q_INVOKABLE void startTelemetrySocket(const QString& request_address, const QString& recv_address, float frequency);
+
+            //! @brief   Stops telemetry socket.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void stopTelemetrySocket();
 
+            //! @brief   Starts execd and feedback sockets with given parameters
+            //! @param   execd_address - IPv4 address and port for requests.
+            //! @param   feedback_address - IPv4 address and port for feedback (stdout and stderr).
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);
+
+            //! @brief   Stops execd and feedback sockets.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void stopExecdSocket();
+
+            //! @brief   Executes built-in execd command.
+            //! @details If command relies on argument list (e.g. focus, telescopic, strip),
+            //!          arguments will be automatically calculated from ExecdArgumentList.
+            //!          More info in documentation for ExecdArgumentList and functions
+            //!          setArgument(...), argument(...).
+            //! @details Can be invoked from QML.
+            //! @example executeCommand(Networking::Enums::FormImage);
             Q_INVOKABLE void executeCommand(const Networking::Enums::NetworkCommand command) noexcept;
+
+            //! @brief   Wraps and tries to execute any custom string command.
+            //! @details Can be invoked from QML.
+            //! @example executeCommand("$clear_storage()");
             Q_INVOKABLE void executeString(const QString& string) noexcept;
+
+            //! @brief   Returns argument from ArgumentList instance.
+            //! @param   key - argument key (e.g. "--x0").
+            //! @param   category - category of argument (Form, Focus, Reform).
+            //! @returns QString argument.
+            //! @details Can be invoked from QML.
+            //! @example argument("--e0", Networking::Enums::Form);
             Q_INVOKABLE QString argument(const QString& key, Networking::Enums::ArgumentCategory category = Enums::Form) const noexcept;
+
+            //! @brief   Sets argument in ArgumentList instance.
+            //! @param   key - argument key (e.g. "--x0".
+            //! @param   value - QVariant-value. Will be automatically casted
+            //!          to QString internally.
+            //! @param   category - category of argument, same as argument(...) function.
+            //! @details Can be invoked from QML.
+            //! @example setArgument("-v", QVariant::fromValue(159.0f), Networking::Enums::Focus);
             Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
 
+            //! @brief   Starts TCP-IP LFS socket at given address.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void startTCPSocket(const QString& address);
+
+            //! @brief   Stops TCP-IP socket.
             Q_INVOKABLE void stopTCPSocket();
 
             [[nodiscard]] Telemetry* telemetry() const; void setTelemetry(Telemetry*);
@@ -65,13 +128,15 @@ namespace Networking
                 void remoteDataChanged();
                 void networkDelayChanged();
                 void connectedChanged();
-
-                void telemetrySocketMetrics(const QString& data, int size_bytes, bool out);
-                void execdSocketMetrics(const QString& data, int size_bytes, bool out);
-                void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);
-                void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
-                void stripSocketMetrics(const QString msg, int size_bytes, bool out);
                 void tcpProgressChanged();
+
+                //! @group Metrics
+                //! @details Provides stringified data, packet size and direction.
+                void telemetrySocketMetrics(const QString& data, int size_bytes, bool out); //! @ingroup Metrics
+                void execdSocketMetrics(const QString& data, int size_bytes, bool out);     //! @ingroup Metrics
+                void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);  //! @ingroup Metrics
+                void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);        //! @ingroup Metrics
+                void stripSocketMetrics(const QString msg, int size_bytes, bool out);       //! @ingroup Metrics
 
         private:
             explicit Network(QObject* parent = nullptr);

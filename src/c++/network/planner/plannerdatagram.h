@@ -16,7 +16,7 @@
     При достижении зоны события сервис отправляет сообщение по адресу, указанному при добавлении точки.
 */
 
-namespace Network
+namespace Networking
 {
     //! @struct Стуктура добавления точки в полётное задание. Сериализована в Big Endian.
     struct PlannerAppendDatagram

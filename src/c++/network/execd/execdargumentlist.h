@@ -3,7 +3,7 @@
 #include <QtCore/QMap>
 #include <QtCore/QObject>
 
-namespace Network
+namespace Networking
 {
     struct ExecdArgument
     {

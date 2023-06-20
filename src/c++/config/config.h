@@ -93,28 +93,34 @@ namespace Config
 
         public:
             //! @brief Returns singleton instance of class.
-            static Config* get() { static Config instance; return &instance; }
+            static Config* get();
             virtual ~Config();
 
-            //! @brief Syncs settings from RAM to .ini file on disk.
-            //! @sa Internal function. Do not call if you are not exactly knowing
-            //!     what you want to achieve.
+            //! @brief   Syncs settings from RAM to .ini file on disk.
+            //! @details Can be invoked from QML.
+            //! @sa      Internal function. Do not call if you are not
+            //!          exactly knowing what you want to achieve.
             Q_INVOKABLE void sync();
 
-            //! @brief Saves settings from RAM to .ini file on disk.
+            //! @brief   Saves settings from RAM to .ini file on disk.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void save();
 
-            //! @brief Discards all current settings and loads stored settings
-            //!        from .ini file on disk.
+            //! @brief   Discards all current settings and loads stored settings
+            //!          from .ini file on disk.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void load();
 
-            //! @brief Alias for load().
+            //! @brief   Alias for load().
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void revert();
 
-            //! @brief Discards current settings, .ini file and loads default settings.
+            //! @brief   Discards current settings, .ini file and loads default settings.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE void reset();
 
-            //! @brief Returns application version.
+            //! @brief   Returns application version.
+            //! @details Can be invoked from QML.
             Q_INVOKABLE QString projectVersion();
 
             [[nodiscard]] QString remoteIP() const; void setRemoteIP(const QString&);

@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>Main.qml</file>
-        <file>layouts/TelemetryLayout.qml</file>
-        <file>layouts/MapView.qml</file>
-        <file>layouts/ControlsLayout.qml</file>
-    </qresource>
-</RCC>

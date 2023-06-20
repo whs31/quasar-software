@@ -2,7 +2,7 @@
 
 #include <QtCore/QString>
 
-namespace Network
+namespace Networking
 {
     namespace utils
     {

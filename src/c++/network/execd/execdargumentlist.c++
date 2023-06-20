@@ -1,7 +1,7 @@
 #include "execdargumentlist.h"
 #include <QtCore/QVariant>
 
-namespace Network
+namespace Networking
 {
 
 ExecdArgument::ExecdArgument()

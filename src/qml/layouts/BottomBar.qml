@@ -64,7 +64,7 @@ Rectangle {
                                                  Config.remoteIP + ":" + Config.telemetryRecvPort,
                                                  Config.telemetryFrequency);
                     Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
-                    Network.executeCommand(Network.RemoteStorageStatus);
+                    Network.executeCommand(Net.RemoteStorageStatus);
                     disconnect_timer.start();
                 }
             }

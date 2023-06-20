@@ -1,6 +1,6 @@
 #include "telemetry.h"
 
-using namespace Network;
+using namespace Networking;
 
 Telemetry::Telemetry(QObject *parent)
     : QObject{parent}

@@ -3,7 +3,7 @@
 #include <QtCore/QObject>
 #include "network/netenums.h"
 
-namespace Network
+namespace Networking
 {
     class RemoteData : public QObject
     {

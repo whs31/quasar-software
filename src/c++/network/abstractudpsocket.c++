@@ -1,7 +1,7 @@
 #include "abstractudpsocket.h"
 #include <QtCore/QDebug>
 
-using namespace Network;
+using namespace Networking;
 
 AbstractUDPSocket::AbstractUDPSocket(QObject* parent)
     : QUdpSocket{parent}
@@ -9,7 +9,7 @@ AbstractUDPSocket::AbstractUDPSocket(QObject* parent)
 
 AbstractUDPSocket::~AbstractUDPSocket() { this->disconnect(); }
 
-bool Network::AbstractUDPSocket::connect(const QString& address)
+bool AbstractUDPSocket::connect(const QString& address)
 {
     QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket, Qt::DirectConnection);
 
@@ -37,6 +37,7 @@ void AbstractUDPSocket::disconnect()
     this->close();
     m_hostaddress.clear();
     m_port = 0;
+
     emit socketDisconnected();
 }
 
@@ -48,6 +49,8 @@ bool AbstractUDPSocket::send(QByteArray data)
     }
     return this->writeDatagram(data, m_hostaddress, m_port);
 }
+
+uint16_t AbstractUDPSocket::port() const noexcept { return m_port; }
 
 void AbstractUDPSocket::readSocket()
 {

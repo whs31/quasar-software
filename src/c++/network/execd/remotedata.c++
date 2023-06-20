@@ -1,14 +1,14 @@
 #include "remotedata.h"
-using namespace Network;
+using namespace Networking;
 
 RemoteData::RemoteData(QObject *parent)
     : QObject{parent}
     , m_storageSpace(0)
-    , m_de10ping((int)PingStatus::Idle)
-    , m_jetsonping((int)PingStatus::Idle)
-    , m_navping((int)PingStatus::Idle)
-    , m_utl1ping((int)PingStatus::Idle)
-    , m_utl2ping((int)PingStatus::Idle)
+    , m_de10ping((int)Enums::PingStatus::Idle)
+    , m_jetsonping((int)Enums::PingStatus::Idle)
+    , m_navping((int)Enums::PingStatus::Idle)
+    , m_utl1ping((int)Enums::PingStatus::Idle)
+    , m_utl2ping((int)Enums::PingStatus::Idle)
 {}
 
 float RemoteData::storageSpace() const { return m_storageSpace; }

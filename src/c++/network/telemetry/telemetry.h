@@ -5,7 +5,7 @@
 #include <QtCore/QMetaType>
 #include <QtCore/QDateTime>
 
-namespace Network
+namespace Networking
 {
     class Telemetry : public QObject
     {
@@ -64,6 +64,6 @@ namespace Network
             TelemetryDatagram datagram;
             double m_seaLevel = 0;
     };
-} // namespace Network
+} // namespace Networking
 
-Q_DECLARE_METATYPE(Network::Telemetry*)
+Q_DECLARE_METATYPE(Networking::Telemetry*)

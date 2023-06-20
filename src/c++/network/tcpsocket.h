@@ -6,7 +6,7 @@ class QTcpServer;
 class QTcpSocket;
 class QTimer;
 
-namespace Network
+namespace Networking
 {
     class TCPSocket : public QObject
     {

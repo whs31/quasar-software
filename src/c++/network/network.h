@@ -8,7 +8,8 @@
 
 class QTimer;
 
-namespace Network
+//! @namespace Namespace network-related classes.
+namespace Networking
 {
     class TelemetrySocket;
     class ExecdSocket;
@@ -16,6 +17,8 @@ namespace Network
     class TCPSocket;
     class Pinger;
 
+    //! @class Class-factory for common network
+    //!        operations.
     class Network : public QObject
     {
         Q_OBJECT
@@ -25,34 +28,13 @@ namespace Network
         Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
 
-        Q_ENUM(PingStatus)
-        LPVL_DECLARE_SINGLETON(Network);
-
         constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
         constexpr static float PING_INTERVAL = 5.0f;
 
         public:
-            enum ArgumentCategory
-            {
-                Form,
-                Focus,
-                Reform
-            };
-
-            enum NetworkCommand
-            {
-                FormImage,
-                FocusImage,
-                ReformImage,
-                RemoteStorageStatus,
-                ClearRemoteStorage,
-                Reboot,
-                Poweroff
-            };
-
-            Q_ENUM(ArgumentCategory)
-            Q_ENUM(NetworkCommand)
+            //! @brief Returns singleton instance of class.
+            static Network* get();
 
             TelemetrySocket* telemetrySocket;
             ExecdSocket* execdSocket;
@@ -64,10 +46,10 @@ namespace Network
 
             Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);
             Q_INVOKABLE void stopExecdSocket();
-            Q_INVOKABLE void executeCommand(const Network::Network::NetworkCommand command) noexcept;
+            Q_INVOKABLE void executeCommand(const Networking::Enums::NetworkCommand command) noexcept;
             Q_INVOKABLE void executeString(const QString& string) noexcept;
-            Q_INVOKABLE QString argument(const QString& key, Network::Network::ArgumentCategory category = Form) const noexcept;
-            Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Network::Network::ArgumentCategory category = Form) noexcept;
+            Q_INVOKABLE QString argument(const QString& key, Networking::Enums::ArgumentCategory category = Enums::Form) const noexcept;
+            Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
 
             Q_INVOKABLE void startTCPSocket(const QString& address);
             Q_INVOKABLE void stopTCPSocket();
@@ -93,6 +75,8 @@ namespace Network
 
         private:
             explicit Network(QObject* parent = nullptr);
+            Network(const Network &);
+            Network &operator=(const Network &);
 
         private:
             QTimer* m_network_delay_timer;

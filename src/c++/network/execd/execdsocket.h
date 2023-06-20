@@ -1,8 +1,9 @@
 #pragma once
 
 #include "network/abstractudpsocket.h"
+#include "network/netenums.h"
 
-namespace Network
+namespace Networking
 {
     class ExecdArgumentList;
     class ExecdSocket : public AbstractUDPSocket
@@ -15,23 +16,12 @@ namespace Network
         constexpr static const char* COMMAND_CLEAR_STORAGE = "$clear_storage()";
 
         public:
-            enum Command
-            {
-                FormImage,
-                FocusImage,
-                ReformImage,
-                RemoteStorageStatus,
-                ClearRemoteStorage,
-                Reboot,
-                Poweroff
-            };
-
             explicit ExecdSocket(QObject* parent = nullptr);
 
             void start(const QString& address);
             void stop();
             void executeCommand(const QString& command);
-            void executeCommand(Command command);
+            void executeCommand(Enums::NetworkCommand command);
             ExecdArgumentList* list() const noexcept;
 
             signals:

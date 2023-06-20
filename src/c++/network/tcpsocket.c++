@@ -8,7 +8,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
 
-using namespace Network;
+using namespace Networking;
 
 TCPSocket::TCPSocket(QObject *parent)
     : QObject{parent}

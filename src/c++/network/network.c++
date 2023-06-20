@@ -13,7 +13,10 @@
 #include "gui/terminal/vt100terminal.h"
 #include "utils/vt100parser.h"
 
-namespace Network {
+namespace Networking
+{
+
+Network *Network::get() { static Network instance; return &instance; }
 
 Network::Network(QObject* parent)
     : QObject{parent}
@@ -51,7 +54,7 @@ Network::Network(QObject* parent)
     });
 
     QObject::connect(tcpSocket, &TCPSocket::progressChanged, this, [this](float progress){ setTcpProgress(progress); });
-    QObject::connect(tcpSocket, &TCPSocket::receivingFinished, this, [this](){ executeCommand(RemoteStorageStatus); });
+    QObject::connect(tcpSocket, &TCPSocket::receivingFinished, this, [this](){ executeCommand(Enums::RemoteStorageStatus); });
     QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
 
     QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){ remoteData()->setDe10ping(result); });
@@ -67,9 +70,9 @@ Network::Network(QObject* parent)
     m_utl2ping->start(0, CONFIG(utl2IP));
 
     QObject::connect(telemetry(), &Telemetry::seaLevelChanged, this, [this](){
-        setArgument("--e0", telemetry()->seaLevel(), Form);
-        setArgument("--e0", telemetry()->seaLevel(), Reform);
-        setArgument("--e0", telemetry()->seaLevel(), Focus);
+        setArgument("--e0", telemetry()->seaLevel(), Enums::Form);
+        setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
+        setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
     });
 }
 
@@ -93,40 +96,30 @@ void Network::stopExecdSocket()
     feedbackSocket->stop();
 }
 
-void Network::executeCommand(const NetworkCommand command) noexcept
+void Network::executeCommand(const Networking::Enums::NetworkCommand command) noexcept
 {
-    switch (command)
-    {
-        case FormImage: execdSocket->executeCommand(ExecdSocket::FormImage); break;
-        case FocusImage: execdSocket->executeCommand(ExecdSocket::FocusImage); break;
-        case ReformImage: execdSocket->executeCommand(ExecdSocket::ReformImage); break;
-        case RemoteStorageStatus: execdSocket->executeCommand(ExecdSocket::RemoteStorageStatus); break;
-        case ClearRemoteStorage: execdSocket->executeCommand(ExecdSocket::ClearRemoteStorage); break;
-        case Reboot: execdSocket->executeCommand(ExecdSocket::Reboot); break;
-        case Poweroff: execdSocket->executeCommand(ExecdSocket::Poweroff); break;
-        default: qWarning() << "[NETWORK] Invalid command type"; break;
-    }
+    execdSocket->executeCommand(command);
 }
 
 void Network::executeString(const QString &string) noexcept { execdSocket->executeCommand(string); }
-QString Network::argument(const QString& key, ArgumentCategory category) const noexcept
+QString Network::argument(const QString& key, Enums::ArgumentCategory category) const noexcept
 {
     switch (category)
     {
-        case Form: return execdSocket->list()->argument_list[key].value;
-        case Focus: return execdSocket->list()->focus_argument_list[key].value;
-        case Reform: return execdSocket->list()->reform_argument_list[key].value;
+        case Enums::Form: return execdSocket->list()->argument_list[key].value;
+        case Enums::Focus: return execdSocket->list()->focus_argument_list[key].value;
+        case Enums::Reform: return execdSocket->list()->reform_argument_list[key].value;
         default: return "Argument Category Error"; break;
     }
 }
 
-void Network::setArgument(const QString& key, const QVariant& value, ArgumentCategory category) noexcept
+void Network::setArgument(const QString& key, const QVariant& value, Enums::ArgumentCategory category) noexcept
 {
     switch (category)
     {
-        case Form: execdSocket->list()->argument_list[key].set(value); break;
-        case Focus: execdSocket->list()->focus_argument_list[key].set(value); break;
-        case Reform: execdSocket->list()->reform_argument_list[key].set(value); break;
+        case Enums::Form: execdSocket->list()->argument_list[key].set(value); break;
+        case Enums::Focus: execdSocket->list()->focus_argument_list[key].set(value); break;
+        case Enums::Reform: execdSocket->list()->reform_argument_list[key].set(value); break;
         default: qCritical() << "[NETWORK] Invalid category for argument provided"; break;
     }
 }

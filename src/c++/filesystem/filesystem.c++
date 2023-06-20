@@ -11,7 +11,10 @@
 using namespace OS;
 
 Filesystem::Filesystem(QObject* parent)
-    : QObject{parent} { }
+    : QObject{parent}
+{}
+
+Filesystem *Filesystem::get() { static Filesystem instance; return &instance; }
 
 bool Filesystem::fetchImageDirectory()
 {
@@ -111,6 +114,7 @@ bool Filesystem::checkOcurrence(QString target_folder, QString filename)
     for(const QString& str : initial_directory.entryList())
         if(str == filename)
             return true;
+
     return false;
 }
 

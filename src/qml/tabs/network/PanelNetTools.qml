@@ -21,7 +21,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("light0");
             Material.background: Theme.color("dark3");
-            onPressed: Network.executeCommand(Network.RemoteStorageStatus);
+            onPressed: Network.executeCommand(Net.RemoteStorageStatus);
         }
 
         RoundButton { id: button_Reboot;
@@ -34,7 +34,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("orange");
-            onPressed: Network.executeCommand(Network.Reboot);
+            onPressed: Network.executeCommand(Net.Reboot);
         }
 
         RoundButton { id: button_Shutdown;
@@ -47,7 +47,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("red");
-            onPressed: Network.executeCommand(Network.Poweroff);
+            onPressed: Network.executeCommand(Net.Poweroff);
         }
     }
 }

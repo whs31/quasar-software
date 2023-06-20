@@ -4,7 +4,6 @@
 #include <QtCore/QProcess>
 #include "network/network.h"
 #include "config/config.h"
-#include "config/paths.h"
 
 namespace GUI
 {
@@ -47,7 +46,7 @@ void DebugConsole::quit()
 void DebugConsole::telsock_start()
 {
     qInfo() << "$ [CONSOLE] Forcing start of telemetry socket at default frequency";
-    Network::Network::get()->startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort),
+    Networking::Network::get()->startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort),
                                                   CONFIG(remoteIP) + ":" + CONFIG(telemetryRecvPort),
                                                   CONFIG(telemetryFrequency));
 }
@@ -55,32 +54,32 @@ void DebugConsole::telsock_start()
 void DebugConsole::telsock_stop()
 {
     qInfo() << "$ [CONSOLE] Forcing stop of telemetry socket";
-    Network::Network::get()->stopTelemetrySocket();
+    Networking::Network::get()->stopTelemetrySocket();
 }
 
 void DebugConsole::execdsock_start()
 {
     qInfo() << "$ [CONSOLE] Forcing start of execd + feedback socket at default frequency";
-    Network::Network::get()->startExecdSocket(CONFIG(remoteIP) + ":" + CONFIG(execdPort),
+    Networking::Network::get()->startExecdSocket(CONFIG(remoteIP) + ":" + CONFIG(execdPort),
                                               CONFIG(localIP) + ":" + CONFIG(feedbackPort));
 }
 
 void DebugConsole::execdsock_stop()
 {
     qInfo() << "$ [CONSOLE] Forcing stop of execd and feedback socket";
-    Network::Network::get()->stopExecdSocket();
+    Networking::Network::get()->stopExecdSocket();
 }
 
 void DebugConsole::tcp_start()
 {
     qInfo() << "$ [CONSOLE] Forcing start of tcp-ip socket at default frequency";
-    Network::Network::get()->startTCPSocket(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort));
+    Networking::Network::get()->startTCPSocket(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort));
 }
 
 void DebugConsole::tcp_stop()
 {
     qInfo() << "$ [CONSOLE] Forcing stop of tcp-ip socket";
-    Network::Network::get()->stopTCPSocket();
+    Networking::Network::get()->stopTCPSocket();
 }
 
 void DebugConsole::sim()

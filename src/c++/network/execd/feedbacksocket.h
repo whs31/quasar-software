@@ -2,7 +2,7 @@
 
 #include "../abstractudpsocket.h"
 
-namespace Network
+namespace Networking
 {
     class FeedbackSocket : public AbstractUDPSocket
     {

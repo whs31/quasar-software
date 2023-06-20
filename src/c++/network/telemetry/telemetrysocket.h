@@ -4,7 +4,7 @@
 
 class QTimer;
 
-namespace Network
+namespace Networking
 {
     class Telemetry;
 

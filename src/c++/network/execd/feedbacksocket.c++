@@ -1,6 +1,6 @@
 #include "feedbacksocket.h"
 
-using namespace Network;
+using namespace Networking;
 
 FeedbackSocket::FeedbackSocket(QObject* parent)
     : AbstractUDPSocket{parent}

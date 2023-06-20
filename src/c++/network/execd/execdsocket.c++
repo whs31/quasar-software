@@ -5,7 +5,7 @@
 #include "config/paths.h"
 #include "execdargumentlist.h"
 
-using namespace Network;
+using namespace Networking;
 
 ExecdSocket::ExecdSocket(QObject* parent)
     : AbstractUDPSocket{parent}
@@ -35,28 +35,28 @@ void ExecdSocket::executeCommand(const QString& command)
     emit socketMetrics(com, com.length(), true);
 }
 
-void ExecdSocket::executeCommand(Command command)
+void ExecdSocket::executeCommand(Enums::NetworkCommand command)
 {
     QByteArray com;
 
     switch (command)
     {
-        case FormImage:
+        case Enums::FormImage:
             com = finalize(wrap(COMMAND_TELESCOPIC+ args->getFormArguments()));
             break;
-        case FocusImage:
+        case Enums::FocusImage:
             com = finalize(wrap(COMMAND_FOCUS + args->getFocusArguments()));
             break;
-        case ReformImage:
+        case Enums::ReformImage:
             com = finalize(wrap(COMMAND_TELESCOPIC + args->getReformArguments()));
             break;
-        case RemoteStorageStatus:
+        case Enums::RemoteStorageStatus:
             com = finalize(wrap(COMMAND_STORAGE_STATUS));
             break;
-        case ClearRemoteStorage:
+        case Enums::ClearRemoteStorage:
             com = finalize(wrap(COMMAND_CLEAR_STORAGE));
             break;
-        case Reboot:
+        case Enums::Reboot:
         {
             QFile str(Config::Paths::bash() + "/reboot.sh");
             if(str.open(QFile::ReadOnly))
@@ -66,7 +66,7 @@ void ExecdSocket::executeCommand(Command command)
             }
             break;
         }
-        case Poweroff:
+        case Enums::Poweroff:
         {
             QFile str(Config::Paths::bash() + "/poweroff.sh");
             if(str.open(QFile::ReadOnly))

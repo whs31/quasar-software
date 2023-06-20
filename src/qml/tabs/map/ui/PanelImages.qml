@@ -80,7 +80,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-t", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-t", text, Net.Form);
                     }
 
                     Text {
@@ -112,7 +112,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-b", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-b", text, Net.Form);
                     }
 
                     Text {
@@ -144,7 +144,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-e", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-e", text, Net.Form);
                     }
 
                     Text {
@@ -176,7 +176,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-v", text, Network.Form);
+                        onEditingFinished: Network.setArgument("-v", text, Net.Form);
                     }
 
                     Text {
@@ -207,7 +207,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Ts", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--Ts", text, Net.Form);
                     }
 
                     Text {
@@ -238,7 +238,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Tstrip", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--Tstrip", text, Net.Form);
                     }
 
                     Text {
@@ -262,7 +262,7 @@ Pane { id: panel_ImageTools;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -298,7 +298,7 @@ Pane { id: panel_ImageTools;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -334,7 +334,7 @@ Pane { id: panel_ImageTools;
                             from: 1;
                             to: 100;
                             value: 80;
-                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Network.Form);
+                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -382,8 +382,8 @@ Pane { id: panel_ImageTools;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("--dx", text, Network.Form);
-                            Network.setArgument("--dy", text, Network.Form);
+                            Network.setArgument("--dx", text, Net.Form);
+                            Network.setArgument("--dy", text, Net.Form);
                         }
                     }
 
@@ -415,7 +415,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--x0", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--x0", text, Net.Form);
                     }
 
                     Text {
@@ -446,7 +446,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--y0", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--y0", text, Net.Form);
                     }
 
                     Text {
@@ -477,7 +477,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--lx", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--lx", text, Net.Form);
                     }
 
                     Text {
@@ -508,7 +508,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ly", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--ly", text, Net.Form);
                     }
 
                     Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
@@ -535,7 +535,7 @@ Pane { id: panel_ImageTools;
                         model: [ "DSP_FFTW", "DSP_CUDA" ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
-                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Network.Form);
+                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Net.Form);
                     }
 
                     Text {
@@ -560,7 +560,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ip", text, Network.Form);
+                        onEditingFinished: Network.setArgument("--ip", text, Net.Form);
                     }
 
                     Text {
@@ -582,7 +582,7 @@ Pane { id: panel_ImageTools;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Network.Form);
+                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Net.Form);
                     }
 
                     Text {
@@ -604,7 +604,7 @@ Pane { id: panel_ImageTools;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Network.Form);
+                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Net.Form);
                     }
                 }
             }
@@ -629,7 +629,7 @@ Pane { id: panel_ImageTools;
                         messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
                 }
 
-                Widgets.TT { ff: root.mainfont; text: "Добавить на карту изображения из выбранного каталога"; }
+                Widgets.TT { ff: root.mainfont; txt: "Добавить на карту изображения из выбранного каталога"; }
             }
 
             RoundButton { id: button_ChooseCatalogue;
@@ -643,7 +643,7 @@ Pane { id: panel_ImageTools;
                 text: "Изменить каталог";
                 onPressed: window_FileDialog.open();
 
-                Widgets.TT { ff: root.mainfont; text: "Выбрать каталог для добавления изображений на карту"; }
+                Widgets.TT { ff: root.mainfont; txt: "Выбрать каталог для добавления изображений на карту"; }
             }
 
             RoundButton { id: button_ClearLocalCache;
@@ -659,7 +659,7 @@ Pane { id: panel_ImageTools;
                 onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
                                              "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
 
-                Widgets.TT { ff: root.mainfont; text: "Очистить локальный кэш программы"; }
+                Widgets.TT { ff: root.mainfont; txt: "Очистить локальный кэш программы"; }
 
                 Connections {
                     target: dialogwindow;

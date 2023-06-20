@@ -55,7 +55,7 @@ Pane {
                                             : Theme.color("yellow");
             onPressed: {
                 if(!checkable)
-                    Network.executeCommand(Network.FormImage);
+                    Network.executeCommand(Net.FormImage);
             }
 
             onCheckedChanged: {
@@ -83,7 +83,7 @@ Pane {
                     val = 7;
                 if(val === 5)
                     val = 6;
-                Network.setArgument("-m", val, Network.Form);
+                Network.setArgument("-m", val, Net.Form);
             }
         }
 
@@ -129,7 +129,7 @@ Pane {
                 function onClosed(status, uid) {
                     if(uid === 27 && status === true) {
                         console.log("[GUI] Clearing remote storage");
-                        Network.executeCommand(Network.ClearRemoteStorage);
+                        Network.executeCommand(Net.ClearRemoteStorage);
                     }
                 }
             }

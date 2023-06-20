@@ -54,11 +54,6 @@ windows:
      - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtQuick $CI_PROJECT_TITLE/qml
      - cp -r /usr/x86_64-w64-mingw32/sys-root/mingw/lib/qt5/qml/QtQuick.2 $CI_PROJECT_TITLE/qml
 
-     - cd subprojects/quasar-emulator
-     - mingw64-cmake -GNinja -DCMAKE_BUILD_TYPE=Release && cmake --build .
-     - cd ../../
-     - cp subprojects/quasar-emulator/QuaSAR-Emulator.exe $CI_PROJECT_TITLE
-
   artifacts:
     name: $CI_PROJECT_TITLE-$CI_COMMIT_TAG-$CI_COMMIT_REF_NAME
     paths: [$CI_PROJECT_TITLE]

@@ -32,7 +32,8 @@ Entry::Entry(QObject *parent)
     QML_EXPOSE_INSTANCE(GUI::DebugConsole, "Terminals", "DebugConsole", GUI::DebugConsole::get());
     QML_EXPOSE_INSTANCE(GUI::WarningsModel, "Notifications", "WarningsModel", GUI::WarningsModel::get());
     QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
-    QML_EXPOSE_INSTANCE(Network::Network, "Network", "Network", Network::Network::get());
+    QML_EXPOSE_INSTANCE(Networking::Network, "Network", "Network", Networking::Network::get());
+    qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
     QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
     QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
     QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
@@ -48,23 +49,20 @@ Entry::Entry(QObject *parent)
     connect(Config::Config::get(), &Config::Config::scheduleRestart, this, [this](){
         qWarning() << "[CORE] Requested restart, but current configuration will fail executing it.";
         qWarning() << "[CORE] Please, restart manually.";
-//        QCoreApplication::instance()->quit();
-//        QProcess::startDetached(QCoreApplication::instance()->arguments()[0],
-//                                QCoreApplication ::instance()->arguments());
     });
     connect(Config::Config::get(), &Config::Config::tcpLFSPortChanged, this, [this](){
-        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);
-        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
-        Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
+        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Form);
+        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Focus);
+        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Reform);
     });
 
-    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Form);
-    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Focus);
-    Network::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Network::Network::Reform);
+    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Form);
+    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Focus);
+    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Reform);
 
     GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
-    connect(Network::Network::get(), &Network::Network::connectedChanged, this, [this](){
-        if(Network::Network::get()->connected() != 2)
+    connect(Networking::Network::get(), &Networking::Network::connectedChanged, this, [this](){
+        if(Networking::Network::get()->connected() != 2)
             GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
         else
             GUI::WarningsModel::get()->remove(GUI::WarningsModel::NotConnected);

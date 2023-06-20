@@ -42,6 +42,7 @@ Paths::Paths(QObject *parent) : QObject{parent}
     }
 }
 
+Paths *Paths::get() { static Paths instance; return &instance; }
 QString Paths::root() { return QCoreApplication::applicationDirPath(); }
 QString Paths::imageCache() { return root() + "/cache"; }
 
@@ -63,7 +64,7 @@ QString Paths::themes() { return root() + "/themes"; }
 QString Paths::bash() { return root() + "/bash"; }
 QString Paths::runtimeBash() { return bash() + "/custom"; }
 
-void Paths::createImageCache(void)
+void Paths::createImageCache(void) noexcept
 {
     QDir dir(imageCache());
     if(not dir.exists())
@@ -76,7 +77,7 @@ void Paths::createImageCache(void)
     qInfo() << "[PATH] Created image cache at " << imageCache();
 }
 
-void Paths::clearImageCache(void)
+void Paths::clearImageCache(void) noexcept
 {
     QDir dir(imageCache());
     if(dir.exists())

@@ -3,8 +3,9 @@
 #include <QtCore/QProcess>
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
+#include "netenums.h"
 
-namespace Network
+namespace Networking
 {
 
 Pinger::Pinger(QObject *parent)
@@ -19,10 +20,7 @@ Pinger::Pinger(QObject *parent)
     connect(t, &QTimer::timeout, this, &Pinger::ping);
 }
 
-Pinger::~Pinger()
-{
-    ch->terminate();
-}
+Pinger::~Pinger() { ch->terminate(); }
 
 void Pinger::start(uint32_t interval, const QString& address, const vector<QString> args)
 {
@@ -61,7 +59,7 @@ void Pinger::recv()
     success = data.contains("time=");
     #endif
 
-    emit result(success ? (int)PingStatus::Success : (int)PingStatus::Timeout);
+    emit result(success ? (int)Enums::PingStatus::Success : (int)Enums::PingStatus::Timeout);
 }
 
 } // Network

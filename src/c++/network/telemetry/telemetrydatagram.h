@@ -29,7 +29,7 @@ pub struct Datagram
 #include <cstdint>
 #include <QtCore/QDataStream>
 
-namespace Network
+namespace Networking
 {
     //! @struct Датаграма телеметрии от РЛС к наземке. Сериализована в Big Endian.
     struct TelemetryDatagram

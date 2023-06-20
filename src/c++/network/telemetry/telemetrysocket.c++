@@ -7,7 +7,7 @@
 #include <LPVL/Math>
 #include <LPVL/Crypto>
 
-using namespace Network;
+using namespace Networking;
 
 TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
     : AbstractUDPSocket{parent}
@@ -75,7 +75,7 @@ void TelemetrySocket::processTelemetry(QByteArray data)
     output->setTime(received.time);
     output->setSatellites(received.satellites >> 1);
 
-    uint16_t crc = CRC_CHECK ? LPVL::crc16_ccitt((const char*)&received, sizeof(Network::TelemetryDatagram) - sizeof(uint16_t))
+    uint16_t crc = CRC_CHECK ? LPVL::crc16_ccitt((const char*)&received, sizeof(Networking::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
     if(crc != received.crc16)
         qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";

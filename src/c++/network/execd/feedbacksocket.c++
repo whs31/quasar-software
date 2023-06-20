@@ -5,7 +5,7 @@ using namespace Network;
 FeedbackSocket::FeedbackSocket(QObject* parent)
     : AbstractUDPSocket{parent}
 {
-    QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult, Qt::QueuedConnection);
+    QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult, Qt::DirectConnection);
 }
 
 void FeedbackSocket::start(const QString& address)

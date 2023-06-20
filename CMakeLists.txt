@@ -27,21 +27,21 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Concurrent
 )
 
-include_directories(src/cpp libs)
+include_directories(src/c++ libs)
 
 file(GLOB_RECURSE CPP_SOURCES
-    src/cpp/gui/*
-    src/cpp/filesystem/*
-    src/cpp/config/*
-    src/cpp/map/*
-    src/cpp/scenegraph/*
-    src/cpp/network/*
-    src/cpp/processing/*
+    src/c++/gui/*
+    src/c++/filesystem/*
+    src/c++/config/*
+    src/c++/map/*
+    src/c++/scenegraph/*
+    src/c++/network/*
+    src/c++/processing/*
 )
 
 set(PROJECT_SOURCES
-    src/cpp/main.c++
-    src/cpp/entry.h    src/cpp/entry.c++
+    src/c++/main.c++
+    src/c++/entry.h    src/c++/entry.c++
 
     src/qml/qml.qrc
     resources/resources.qrc

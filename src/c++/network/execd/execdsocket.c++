@@ -12,7 +12,7 @@ ExecdSocket::ExecdSocket(QObject* parent)
     , args(new ExecdArgumentList(this))
     , message_uid(0)
 {
-    QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult, Qt::QueuedConnection);
+    QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult, Qt::DirectConnection);
 }
 
 void ExecdSocket::start(const QString& address)
@@ -122,7 +122,7 @@ void ExecdSocket::processResult(QByteArray data)
     if(crc16 == receivedCrc16)
         qDebug() << "[EXECD] Command executed successfully";
     else
-        qWarning() << "[EXECD] Failed to execute command due to crc16 mismatch";
+        qWarning() << "[EXECD] CRC16 mismatch";
 
     if(receivedCrc16 != 0)
         emit ping();

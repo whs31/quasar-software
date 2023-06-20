@@ -52,7 +52,7 @@ void Config::Config::save()
     if(schedule_restart)
     {
         qInfo() << "[CONFIG] Requested restart";
-        ini->sync();
+        this->sync();
         emit scheduleRestart();
     }
 }

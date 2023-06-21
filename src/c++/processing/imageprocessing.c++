@@ -4,8 +4,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <ostream>
-#include <fstream>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
@@ -186,12 +184,13 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     // эти значения нужно пересчитывать каждый раз при выводе матрицы на экран
     // лучше сделать вычисление максимального значения рекуррентно,
-    // т.к. с ростом матрицы многокрано увеличится объем обработки и будет lag
+    // т.к. с ростом матрицы многократно увеличится объем обработки и будет lag
     const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
     const float k = max_value / 255.0f;
 
     qInfo().noquote().nospace() << "$ [PROCESSING] Matrix size: { " << x << ", " << y << " }";
-    qInfo().noquote().nospace() << "$ [PROCESSING] Max value: " << max_value << " }";
+    qInfo().noquote().nospace() << "$ [PROCESSING] Max value: { " << max_value << " }";
+    qInfo().noquote().nospace() << "$ [PROCESSING] Size: { " << x * y << " }";
 
     int out_size = x * y;
     uint8_t* out_buf = (uint8_t*)malloc(out_size);
@@ -203,9 +202,14 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     // сохранение результата
     if(DEBUG_SAVE_STRIP_DATA_DESERIALIZED)
     {
-        std::ofstream f("fmatrix.bin", std::ios_base::out);
-        f.write( (const char*)out_buf, out_size );
-        f.close();
+        QFile file(Config::Paths::lod(0) + "/matrix_" + filename);
+        if(file.open(QIODevice::WriteOnly))
+        {
+            file.write(reinterpret_cast<const char*>(out_buf), out_size);
+            file.close();
+        }
+        else
+            qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
     }
 
     free((void*)header);

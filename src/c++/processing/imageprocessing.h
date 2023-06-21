@@ -23,7 +23,7 @@ namespace Processing
         constexpr static const float INITIAL_OPACITY = 1;
         constexpr static const bool INITIAL_VISIBILITY = true;
 
-        constexpr static const bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED = false;
+        constexpr static const bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED = true;
         constexpr static const bool DEBUG_SHOW_STRIP_DATA_MATRIX = true;
         constexpr static const bool DEBUG_PRESERVE_BINARY = false;
 

@@ -37,6 +37,9 @@ Rectangle {
         anchors.right: parent.right;
 
         RoundButton { id: button_Connect;
+            property bool timeout: false;
+
+            enabled: !timeout;
             font.family: root.mainfont;
             height: 40;
             radius: 4;
@@ -65,11 +68,12 @@ Rectangle {
                                                  Config.telemetryFrequency);
                     Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
                     Network.executeCommand(Net.RemoteStorageStatus);
+                    timeout = true;
                     disconnect_timer.start();
                 }
             }
 
-            Timer { id: disconnect_timer; running: false; repeat: false; interval: 10000; onTriggered: {
+            Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {
                     if(!Network.connected)
                     {
                         Network.stopExecdSocket();
@@ -77,6 +81,7 @@ Rectangle {
                         Network.stopTCPSocket();
                         Network.networkDelay = 100;
                     }
+                    button_Connect.timeout = false;
                 }
             }
         }

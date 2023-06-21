@@ -119,12 +119,11 @@ void ExecdSocket::processResult(QByteArray data)
     uint16_t crc16 = LPVL::crc16(LPVL::str_data(check_crc), check_crc.length());
     uint16_t receivedCrc16 = raw.split("|").last().toUInt(nullptr, 16);
 
-    if(crc16 == receivedCrc16)
+    if(crc16 == receivedCrc16) {
         qDebug() << "[EXECD] Command executed successfully";
+        emit ping();
+    }
     else
         qWarning() << "[EXECD] CRC16 mismatch";
-
-    if(receivedCrc16 != 0)
-        emit ping();
 }
 

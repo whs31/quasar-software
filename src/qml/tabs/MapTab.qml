@@ -223,6 +223,7 @@ Map { id: maptab_root;
             margins: 5
         }
         z: 60;
+        enabled: shown;
         opacity: shown ? 0.85 : 0;
         Behavior on opacity { NumberAnimation { duration: 500; } }
     }

@@ -104,9 +104,9 @@ namespace Config
 
         /*! 
          *  @property telemetryPort
-         *  @brief Port for requesting telemetry.
-         *  @details This port is used for connecting to SAR \b navd2 service
-         *  and requesting telemetry. Needs to be used in pair with property #remoteIP.
+         *  @brief Порт для запросов телеметрии.
+         *  @details Этот порт используется для подключения к сервису \b navd2 на РЛС и
+         *  отправки запроса на телеметрию. Порт должен использоваться в паре с #remoteIP.
          *  По умолчанию, свойство возвращает \c 9955.
          *  @par %telemetryPort(), setTelemetryPort(), telemetryPortChanged()
          */
@@ -114,33 +114,33 @@ namespace Config
 
         /*! 
          *  @property telemetryRecvPort
-         *  @brief Port for receiving telemetry.
-         *  @details This port is used for receiving telemetry from SAR \b navd2 service
-         *  and requesting telemetry. Needs to be used in pair with property #localIP.
-         *  By default, this property returns \c 10337.
+         *  @brief Порт для входящих пакетов телеметрии.
+         *  @details Определяет, какой порт будет использоваться для связи с сервисом \b navd2
+         *  на РЛС и получаться входящие пакеты телеметрии. Порт должен быть использован в паре с #localIP.
+         *  По умолчанию, свойство возвращает \c 10337.
          *  @par %telemetryRecvPort(), setTelemetryRecvPort(), telemetryRecvPortChanged()
          */
         Q_PROPERTY(QString telemetryRecvPort READ telemetryRecvPort WRITE setTelemetryRecvPort NOTIFY telemetryRecvPortChanged)
 
         /*! 
          *  @property tcpLFSPort
-         *  @brief Port for receiving TCP-IP fsend data.
-         *  @details TCP-IP LFS server will be working on this port.
-         *  SAR \b fsend service will try to connect to this port when data is ready to send.
-         *  Application will automatically set this port and #localIP as \b execd argument.
-         *  Needs to be used in pair with #localIP.
-         *  By default, this property returns \c 10000.
+         *  @brief Порт для сервера TCP-IP, используемого сервисом \b fsend на РЛС.
+         *  @details TCP-IP сервер будет запущен на этом порте.
+         *  Сервис \b fsend на РЛС будет подключаться к этому порту, когда РЛС будет готова
+         *  отправить пакет данных.
+         *  Порт должен быть использован в паре с #localIP.
+         *  По умолчанию, свойство возвращает \c 10000.
          *  @par %tcpLFSPort(), setTcpLFSPort(), tcpLFSPortChanged()
          */
         Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
 
         /*! 
          *  @property udpLFSPort
-         *  @brief Port for receiving UDP \b fsend data.
-         *  @details UDP LFS server will be working on this port.
-         *  SAR \b fsend service will try to connect to this port when strip data is ready to send.
-         *  Needs to be used in pair with #localIP.
-         *  By default, this property returns \c 48455.
+         *  @brief Порт для сервера UDP, используемого сервисом \b fsend на РЛС.
+         *  @details Сервис \b fsend на РЛС будет подключаться к этому порту, когда РЛС будет готова
+         *  отправить пакет данных. Этот порт в данный момент принимает только данные полосовых
+         *  изображений. Порт должен быть использован в паре с #localIP.
+         *  По умолчанию, свойство возвращает \c 48455.
          *  @warning Functionality of UDP LFS server is currently \b not implemented.
          *  @par %udpLFSPort(), setUdpLFSPort(), udpLFSPortChanged()
          */
@@ -148,172 +148,174 @@ namespace Config
 
         /*! 
          *  @property execdPort
-         *  @brief Port for SAR \b execd service.
-         *  @details Application will send command requests to this port.
-         *  SAR can provide \b execd feedback (not to confuse with \b stdout feedback) to #localIP.
-         *  Needs to be used in pair with #remoteIP.
-         *  By default, this property returns \c 9845.
+         *  @brief Порт для сервиса \b execd на РЛС.
+         *  @details Свойство определяет, в какой порт приложение будет отправлять команды для
+         *  сервиса \b execd.
+         *  Порт должен быть использован в паре с #remoteIP.
+         *  По умолчанию, свойство возвращает \c 9845.
          *  @par %execdPort(), setExecdPort(), execdPortChanged()
          */
         Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
 
         /*! 
          *  @property feedbackPort
-         *  @brief Port for SAR \b execd service.
-         *  @details Port for SAR \b stdout/stderr.
-         *  SAR will redirect it's \b stdout and \b stderr to this port.
-         *  Needs to be used in pair with #localIP.
-         *  By default, this property returns \c 9846.
+         *  @brief Порт для сервиса \b execd на РЛС.
+         *  @details Свойство определяет, в какой порт будет перенаправляться вывод stdout/stderr
+         *  с РЛС сервисом \b execd.
+         *  Порт должен быть использован в паре с #localIP.
+         *  По умолчанию, свойство возвращает \c 9846.
          *  @par %feedbackPort(), setFeedbackPort(), feedbackPortChanged()
          */
         Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
 
         /*! 
          *  @property telemetryFrequency
-         *  @brief Telemetry package interval in seconds.
-         *  @details Describes how fast SAR \b navd2 service will send telemetry
-         *  packages to application host computer.
-         *  By default, this property returns \c 0.1 (seconds).
+         *  @brief Интервал между пакетами телеметрии.
+         *  @details Определяет, с каким интервалом (в секундах) сервис \b navd2 на РЛС будет
+         *  отправлять пакеты с телеметрией на компьютер с приложением..
+         *  По умолчанию, свойство возвращает \c 0.1 (сек).
          *  @par %telemetryFrequency(), setTelemetryFrequency(), telemetryFrequencyChanged()
          */
         Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
 
         /*! 
          *  @property proxyEnabled
-         *  @brief Legacy setting for replacing \b --remote flag.
-         *  @details If this property evaluates to true, application will
-         *  replace #localIP in --remote \b execd argument with #remoteIP.
-         *  By default, this property returns \c false.
-         *  @warning Implementation removed in \b version \b 2.0.
+         *  @brief Свойство совместимости, переопределяющее флаг \b --remote.
+         *  @details Если свойство равняется \c true, то #localIP во флаге \b --remote
+         *  будет заменен на #remoteIP. Свойство необходимо для совместимости с прокси
+         *  НПК СПО.
+         *  По умолчанию, свойство возвращает \c false.
+         *  @warning Реализация удалена в версии приложения \b 2.0.
          *  @par %proxyEnabled(), setProxyEnabled(), proxyEnabledChanged()
          */
         Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
 
         /*! 
          *  @property tcpMarker
-         *  @brief Compatibility setting for old \b fsend versions.
-         *  @details Describes, which split char between file size and 
-         *  file name will be used on parsing TCP-IP data packet.
-         *  In known cases, can evaluate to \c NULL char and \c NEWLINE char.
-         *  By default, this property returns \c \0 (NULL).
+         *  @brief Свойство совместимости со старыми версиями сервиса \b fsend.
+         *  @details Определяет, какой символ будет использоваться для разделения
+         *  пакета данных сокета TCP-IP data.
+         *  В текущей реальности может равняться \c NULL или \c NEWLINE.
+         *  По умолчанию, свойство возвращает \c \0 (NULL).
          *  @par %tcpMarker(), setTcpMarker(), tcpMarkerChanged()
          */
         Q_PROPERTY(QString tcpMarker READ tcpMarker WRITE setTcpMarker NOTIFY tcpMarkerChanged)
 
         /*! 
          *  @property antennaAlignment
-         *  @brief Describes, in which side of UAV antenna was placed.
-         *  @details If boolean evaluates to \c true, antenna is placed on
-         *  the right side of UAV, otherwise, on the left.
-         *  By default, this property returns \c false (left side).
+         *  @brief Свойство, определяющее, на какой стороне борта установленна антенна.
+         *  @details Если свойство равняется \c true, приложение будет считать, что
+         *  антенна установлена на правой стороне борта.
+         *  По умолчанию, свойство возвращает \c false (слева).
          *  @par %antennaAlignment(), setAntennaAlignment(), antennaAlignmentChanged()
          */
         Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
 
         /*! 
          *  @property angleCorrection
-         *  @brief Debug property for adding or subtracting angle values from image metadata.
-         *  @details Value describes, how many degrees will be added/subtracted from image
-         *  metadata azimuth.
-         *  By default, this property returns \c 0 (no correction).
-         *  @note In current software version, it is probably better approach to use image editor
-         *  for individual images. Setting this property to any values other than \c 0 can result 
-         *  in strange image geopositioning behaviour.
+         *  @brief Отладочное свойство для коррекции азимута РЛИ.
+         *  @details Свойство описывает, на сколько градусов будет скорректирован азимут из
+         *  метаданных радиолокационного изображения.
+         *  По умолчанию, свойство возвращает \c 0 (коррекция отсутствует).
+         *  @note В текущей версии приложения, лучшим подходом будет использовать индивидуальные
+         *  коррекции из редактора изображений для каждого изображения. Установка значения этого
+         *  свойства на любые значения, отличные от нуля, может привести к некорректной геопривязке.
          *  @par %angleCorrection(), setAngleCorrection(), angleCorrectionChanged()
          */
         Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
 
         /*! 
          *  @property useRadians
-         *  @brief Compatibility setting for older firmware versions.
-         *  @details If boolean evalueates to \c true, image metadata decoding process
-         *  will expect radian values in azimuth, drift angle and div fields. VT45-firmware
-         *  (target platform) currently behaves like that. User needs to manually uncheck 
-         *  this boolean, if resulting images are poor cut and incorrectly aligned.
-         *  By default, this property returns \c true.
+         *  @brief Свойство совместимости для старых версий прошивки.
+         *  @details Если свойство равняется \c true, процесс декодирования метаданных изображения
+         *  будет использовать значения азимута, угла сноса и угла расхождения диаграммы
+         *  направленности в радианах, а не в градусах. Пользователь приложения должен вручную изменить значение
+         *  этой настройки, если результат геопривязки некорректен.
+         *  По умолчанию, свойство возвращает \c true.
          *  @par %useRadians(), setUseRadians(), useRadiansChanged()
          */
         Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
 
         /*! 
          *  @property useDriftAngle
-         *  @brief Compatibility setting for older firmware versions.
-         *  @details If boolean evalueates to \c true, image metadata decoding process
-         *  will use drift angle values in geopositioning, otherwise drift angle value
-         *  will be ignored. User needs to manually uncheck this boolean,
-         *  if resulting images are incorrectly aligned.
-         *  By default, this property returns \c true.
+         *  @brief Свойство совместимости для старых версий прошивки.
+         *  @details Если свойство равняется \c true, процесс декодирования метаданных изображения
+         *  будет использовать значения угла сноса в геопривязке. В противном случае угол сноса
+         *  будет считаться равным нулю. Пользователь приложения должен вручную изменить значение
+         *  этой настройки, если результат геопривязки некорректен.
+         *  По умолчанию, свойство возвращает \c true.
          *  @par %useDriftAngle(), setUseDriftAngle(), useDriftAngleChanged()
          */
         Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
 
         /*! 
          *  @property thetaAzimuthCorrection
-         *  @brief Debug property for subtracting diargam size angle value from image metadata.
-         *  @details Value describes, how many degrees will be subtracted from image
-         *  metadata theta-azimuth (div).
-         *  By default, this property returns \c 5 (diargam angle is lower by 5 degrees).
+         *  @brief Отладочное свойство для коррекции угла расхождения диаграммы РЛИ.
+         *  @details Свойство определяет, на сколько градусов будет уменьшен угол
+         *  расхождения диаграммы направленности из метаданных РЛИ при его обрезке.
+         *  По умолчанию, свойство возвращает \c 5 (тета-азимут диаграммы уменьшен на 5 градусов).
          *  @par %thetaAzimuthCorrection(), setThetaAzimuthCorrection(), thetaAzimuthCorrectionChanged()
          */
         Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
 
         /*! 
          *  @property overrideImageHeight
-         *  @brief Debug property for overriding image \b ly parameter with real pixel height.
-         *  @details If value evaluates to true, \b ly field of image metadata will be replaced
-         *  with actual pixel height of this image. 
-         *  By default, this property returns \c true (ly is overriden).
-         *  @warning Currently, setting this boolean to false results in incorrect cutting of image.
-         *  This can be changed in future firmware versions.
+         *  @brief Отладочное свойство для коррекции пиксельной высоты РЛИ.
+         *  @details Если свойство равняется \c true, поле --ly из метаданных будет заменено
+         *  на реальную пиксельную высоту данного изображения.
+         *  По умолчанию, свойство возвращает \c true (ly скорректировано).
+         *  @warning В данный момент установка данного свойства на значение \c false приводит к
+         *  некорректной обрезке изображения по диаграмме направленности. Это может измениться
+         *  в будущих версиях прошивки РЛС.
          *  @par %overrideImageHeight(), setOverrideImageHeight(), overrideImageHeightChanged()
          */
         Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
 
         /*! 
          *  @property cutImage
-         *  @brief Debug property for disabling image software cutting.
-         *  @details If value evaluates to false, no cutting will be applied to
-         *  telescopic images. Otherwise, image will be cut according to it's 
-         *  metadata.
-         *  By default, this property returns \c true (cutting enabled).
+         *  @brief Отладочное свойство, регулирующее обрезку РЛИ по диаграмме.
+         *  @details Если свойство равняется \c true, к любым найденным и полученным
+         *  РЛИ будет применена обрезка по диаграмме направленности из его метаданных
+         *  (только для телескопических РЛИ).
+         *  По умолчанию, свойство возвращает \c true (cutting enabled).
          *  @par %cutImage(), setCutImage(), cutImageChanged()
          */
         Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
 
         /*! 
          *  @property storedLatitude
-         *  @brief Internal stored property for restoring map camera position between sessions.
+         *  @brief Приватное свойство для сохранения состояния карты между сессиями.ns.
          *  @par %storedLatitude(), setStoredLatitude(), storedLatitudeChanged()
          */
         Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
 
         /*! @property storedLongitude
-         *  @brief Internal stored property for restoring map camera position between sessions.
+         *  @brief Приватное свойство для сохранения состояния карты между сессиями.
          *  @par %storedLongitude(), setStoredLongitude(), storedLongitudeChanged()
          */
         Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
 
         /*! 
          *  @property storedZoomLevel
-         *  @brief Internal stored property for restoring map camera position between sessions.
+         *  @brief Приватное свойство для сохранения состояния карты между сессиями.
          *  @par %storedZoomLevel(), setStoredZoomLevel(), storedZoomLevelChanged()
          */
         Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
 
         /*! 
          *  @property storedCatalogue
-         *  @brief Internal stored property for restoring offline view folder between sessions.
+         *  @brief Приватное свойство, хранящее каталог с оффлайн-изображениями из прошлой сессии.
          *  @par %storedCatalogue(), setStoredCatalogue(), storedCatalogueChanged()
          */
         Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
 
         /*! 
          *  @property theme
-         *  @brief Selected application theme.
-         *  @details Currently can evaluates to \c nord or \c contrast.
-         *  In future rework of theme engine, it will fetch theme type from 
-         *  theme .json file.
-         *  By default, this property returns \c contrast.
+         *  @brief Выбранная цветовая схема приложения.
+         *  @details В данный момент может быть \c nord или \c contrast.
+         *  В будущих обновлениях приложения будет добавлена поддержка чтения
+         *  имени темы из названия .json-файла произвольной темы.
+         *  По умолчанию, свойство возвращает \c contrast.
          *  @par %theme(), setTheme(), themeChanged()
          */
         Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)

@@ -59,7 +59,7 @@ namespace Processing
 
                 void progressChanged();
 
-            private:
+        private:
             explicit ImageProcessing(QObject* parent = nullptr);
             ImageProcessing(const ImageProcessing &);
             ImageProcessing &operator=(const ImageProcessing &);

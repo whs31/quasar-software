@@ -27,8 +27,8 @@ namespace Processing
         constexpr static bool DEBUG_SHOW_STRIP_DATA_MATRIX = true;
         constexpr static bool DEBUG_PRESERVE_BINARY = false;
 
-        constexpr static int CONCURRENT_THREADS_COUNT_TELESCOPIC = 1;
-        constexpr static int CONCURRENT_THREADS_COUNT_STRIP = 1;
+        constexpr static int CONCURRENT_THREADS_COUNT_TELESCOPIC = 2;
+        constexpr static int CONCURRENT_THREADS_COUNT_STRIP = 4;
 
         public:
             enum ImageType

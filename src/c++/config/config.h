@@ -8,30 +8,34 @@
 
 class QSettings;
 
-//! @brief Namespace for working with data, which is shared between sessions.   
+//! @brief Пространство имен для данных, сохраняемых между сессиями.
 namespace Config
 {
     /*! 
-     *  @brief Class for working with local application settings, stored in filesystem.
-     *  @details Provides access to reading and writing application settings to local
-     *  .ini file. Automatically load default settings on fresh application install.
-     *  Class mainly used as wrapper over \b QSettings instance, providing useful invokable
-     *  functions and properties avialable in QML.
+     *  @brief Класс-синглтон для работы с локальными настройками приложения, сохранямыми на диске.
+     *  @details Класс предоставляет доступ к чтению и записи настроек конфигурационного
+     *  .ini файла приложения. Автоматически загружает настройки по умолчанию на чистой
+     *  установке приложения. Основное предназначение класса - обёртка над экземпляром класса
+     *  \b QSettings, предоставляющая глобально доступные функции и свойства (в том числе для
+     *  QML).
      *
-     *  Config class also provides useful macro for accessing it's properties from different
-     *  classes and namespaces:
+     *  Класс Config также предоставляет полезный макрос для доступа к его свойствам и функциям из
+     *  других классов и пространств имён в С++:
      *  \code {.cpp}
      *  CONFIG(property_name);
      *  \endcode
-     *  Example usage of macro:
+     *
+     *  Пример доступа к конфигурационному файлу приложения из С++:
      *  \code {.cpp}
      *  Network::startTelemetrySocket(CONFIG(remoteIP) + ":" + CONFIG(telemetryPort), CONFIG(telemetryFrequency));
      *  \endcode
      *  
-     *  In QML, exactly same code can be achieved using following example:
+     *  Пример доступа к конфигурационному файлу приложения из QML^
      *  \code {.js}
      *  Network.startTelemetrySocket(Config.remoteIP + ":" + Config.telemetryPort, Config.telemetryFrequency);
      *  \endcode
+     *
+     *  @note Класс необходимо зарегистрировать как \c singletonInstance для доступа к нему из QML.
      */
     class Config : public QObject
     {
@@ -39,61 +43,61 @@ namespace Config
 
         /*! 
          *  @property remoteIP
-         *  @brief IPv4-address of SAR (DE10-NANO).
-         *  @details This property is used for \b telemetry socket and \b Execd socket.
-         *  By default, this property returns \c 127.0.0.1 (localhost).
+         *  @brief IPv4-адрес РЛС (DE10-NANO).
+         *  @details Это свойство используется для сокета телеметрии и сокета \b Execd.
+         *  По умолчанию, свойство возвращает \c 127.0.0.1 (localhost).
          *  @par %remoteIP(), setRemoteIP(), remoteIPChanged()
          */
         Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
         
         /*! 
          *  @property localIP
-         *  @brief IPv4-address of application host computer.
-         *  @details This property is used for \b feedback socket, \b TCP-IP LFS
-         *  socket and \b UDP LFS socket. 
-         *  By default, this property returns \c 127.0.0.1 (localhost).
+         *  @brief IPv4-адрес компьютера, на котором установлео приложение.
+         *  @details Это свойство используется для сокета обратной связи, \b TCP-IP LFS
+         *  сокета и \b UDP LFS сокета.
+         *  По умолчанию, свойство возвращает \c 127.0.0.1 (localhost).
          *  @par %localIP(), setLocalIP(), localIPChanged()
          */
         Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
         
         /*! 
          *  @property jetsonIP
-         *  @brief IPv4-address of Jetson Xavier.
-         *  @details Currently, this property is used only for pinging
-         *  Jetson Xavier.
-         *  By default, this property returns \c 192.168.1.48.
+         *  @brief IPv4-адрес вычислителя Jetson Xavier.
+         *  @details В настоящее время это свойство используется только для проверки
+         *  доступности соединения с вычислителем.
+         *  По умолчанию, свойство возвращает \c 192.168.1.48.
          *  @par %jetsonIP(), setJetsonIP(), jetsonIPChanged()
          */
         Q_PROPERTY(QString jetsonIP READ jetsonIP WRITE setJetsonIP NOTIFY jetsonIPChanged)
 
         /*! 
          *  @property navIP
-         *  @brief IPv4-address of NavSAR.
-         *  @details Currently, this property is used only for pinging
-         *  navigation module on SAR.
-         *  By default, this property returns 192.168.1.49.
+         *  @brief IPv4-адрес бортовой навигации.
+         *  @details В настоящее время это свойство используется только для проверки
+         *  доступности соединения с навигационным модулем на борту.
+         *  По умолчанию, свойство возвращает \c 192.168.1.49.
          *  @par %navIP(), setNavIP(), navIPChanged()
          */
         Q_PROPERTY(QString navIP READ navIP WRITE setNavIP NOTIFY navIPChanged)
 
         /*! 
          *  @property utl1IP
-         *  @brief Reserved IPv4-address.
-         *  @details Currently, this property is used only for pinging
-         *  setted IP-address. In future, this property will hold address of
-         *  antenna commutator.
-         *  By default, this property returns 192.168.1.50.
+         *  @brief Зарезервированный IPv4-адрес.
+         *  @details В настоящее время это свойство используется только для проверки
+         *  доступности соединения с указанным IP-адресом. В дальнейшем развитии программы,
+         *  эт свойство будет хранить адрес коммутатора антенн.
+         *  По умолчанию, свойство возвращает \c 192.168.1.50.
          *  @par %utl1IP(), setUtl1IP(), utl1IPChanged()
          */
         Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
 
         /*! 
          *  @property utl2IP
-         *  @brief Reserved IPv4-address.
-         *  @details Currently, this property is used only for pinging
-         *  setted IP-address. In future, this property will hold address of
-         *  power commutator.
-         *  By default, this property returns 192.168.1.51.
+         *  @brief Зарезервированный IPv4-адрес.
+         *  @details В настоящее время это свойство используется только для проверки
+         *  доступности соединения с указанным IP-адресом. В дальнейшем развитии программы,
+         *  эт свойство будет хранить адрес коммутатора питания.
+         *  По умолчанию, свойство возвращает \c 192.168.1.51.
          *  @par %utl2IP(), setUtl2IP(), utl2IPChanged()
          */
         Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
@@ -103,7 +107,7 @@ namespace Config
          *  @brief Port for requesting telemetry.
          *  @details This port is used for connecting to SAR \b navd2 service
          *  and requesting telemetry. Needs to be used in pair with property #remoteIP.
-         *  By default, this property returns \c 9955.
+         *  По умолчанию, свойство возвращает \c 9955.
          *  @par %telemetryPort(), setTelemetryPort(), telemetryPortChanged()
          */
         Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
@@ -315,55 +319,56 @@ namespace Config
         Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
 
         public:
-            //! @brief Returns singleton instance of class.
+            //! @brief Возвращает указатель на статический экземпляр класса.
             static Config* get();
 
-            //! @brief Destroys config class and syncs settings with filesystem.
             virtual ~Config();
 
             /*! 
-             *  @brief Syncs settings on disk.
-             *  @note Can be invoked from QML.
-             *  @warning Internal function. Do not call if you are not exactly knowing what you want to achieve.
+             *  @brief Синхронизирует настройки в ОЗУ с файлом на диске.
+             *  @note Может быть вызванна из QML через мета-объектную систему.
+             *  @warning Отладочная функция. Не вызывайте её, если не имеете четкого
+             *  представления о своих действиях.
              */
             Q_INVOKABLE void sync();
 
             /*! 
-             *  @brief Saves settings on disk.
-             *  @details Writes all currently present in RAM properties to
-            *   .ini file on disk.
-             *  @note Can be invoked from QML.
+             *  @brief Сохраняет настройки из памяти на диск.
+             *  @details Записывает все текущие настройки из оперативной памяти
+             *  приложения в .ini-файл на диске.
+             *  @note Может быть вызванна из QML через мета-объектную систему.
              */
             Q_INVOKABLE void save();
 
             /*! 
-             *  @brief Discards settings and loads saved state from disk.
-             *  @details Replaces all currently stored in RAM properties 
-             *  with stored in .ini file values.
-             *  @note Can be invoked from QML.
+             *  @brief Загружает в память приложения настройки из файла.
+             *  @details Полностью заменяет все текущие настройки программы на
+             *  настройки из файла на диске.
+             *  @note Может быть вызванна из QML через мета-объектную систему.
              *  @sa revert()
              */
             Q_INVOKABLE void load();
 
             /*! 
-             *  @brief Alternative name for #load().
-             *  @note Can be invoked from QML.
+             *  @brief Альтернативное имя для #load().
+             *  @note Может быть вызванна из QML через мета-объектную систему.
              *  @sa load()
              */
             Q_INVOKABLE void revert();
 
             /*! 
-             *  @brief Discards settings and .ini file and loads factory defaults.
-             *  @details Fully erases all settings in .ini file and RAM, then loads
-             *  statically stored in application memory default values.
-             *  @note Can be invoked from QML.
+             *  @brief Сбрасывает настройки в ОЗУ и в файле на диске к заводским.
+             *  @details Полностью очищает все настройки в оперативной памяти приложения
+             *  и в.ini-файле, затем заполняет их заводскими настройками из статической
+             *  памяти приложения.
+             *  @note Может быть вызванна из QML через мета-объектную систему.
              */
             Q_INVOKABLE void reset();
 
             /*! 
-             *  @brief Returns current software version.
-             *  @details Version is taken from CMake definitions.
-             *  @note Can be invoked from QML.
+             *  @brief Возвращает текущую версию приложения.
+             *  @details Версия приложения указывается при сборке проекта в системе CMake.
+             *  @note Может быть вызванна из QML через мета-объектную систему.
              */
             Q_INVOKABLE QString projectVersion(); 
 

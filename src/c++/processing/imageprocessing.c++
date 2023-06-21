@@ -20,6 +20,7 @@
 #include "map/entities/stripimage.h"
 #include "config/paths.h"
 #include "config/config.h"
+#include "config/internalconfig.h"
 #include "arrayreader.h"
 
 using namespace Processing;
@@ -33,6 +34,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
     , m_total(0)
     , m_processed(0)
 {
+    Config::InternalConfig::get();
     qRegisterMetaType<Map::Image>("Map::Image");
     qRegisterMetaType<Map::StripImage>("Map::StripImage");
     qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
@@ -54,10 +56,10 @@ void ImageProcessing::processList(const QList<QString>& list)
 
     QFuture<void> wrap = QtConcurrent::run([this, list](){
         QThreadPool pool1;
-        pool1.setMaxThreadCount(CONCURRENT_THREADS_COUNT_TELESCOPIC);
+        pool1.setMaxThreadCount(ICFG<int>("PROCESSING_CONCURRENCY_THREADS_TELESCOPIC"));
 
         QThreadPool pool2;
-        pool2.setMaxThreadCount(CONCURRENT_THREADS_COUNT_STRIP);
+        pool2.setMaxThreadCount(ICFG<int>("PROCESSING_CONCURRENCY_THREADS_STRIP"));
 
         for(const QString& filename : list)
         {
@@ -103,8 +105,8 @@ void ImageProcessing::asyncProcess(const QString& filename)
     }
 
     image.filename = filename;
-    image.opacity = INITIAL_OPACITY;
-    image.shown = INITIAL_VISIBILITY;
+    image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");
+    image.shown = ICFG<bool>("PROCESSING_IMAGE_INITIAL_VISIBILITY");
     image.mercator_zoom_level = CCL::mqiZoomLevel(image.meta.latitude, image.meta.dx);
 
     QImage image_data(image.path.first);
@@ -137,6 +139,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
 void ImageProcessing::asyncStripProcess(const QString& filename)
 {
+    const int MAX_PACKAGE_SIZE = ICFG<int>("PROCESSING_STRIP_PACKAGE_MAX_SIZE");
     Map::StripImage image;
     image.path.first = Config::Paths::lod(0) + "/" + filename;
     QByteArray file = fileToByteArray(image.path.first);
@@ -199,8 +202,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     for(int i = 0; i < out_size; i++)
         out_buf[i] = fmatrix[i] / k;
 
-    // сохранение результата
-    if(DEBUG_SAVE_STRIP_DATA_DESERIALIZED)
+    if(ICFG<bool>("PROCESSING_DEBUG_SAVE_STRIP_MATRIX"))
     {
         QFile file(Config::Paths::lod(0) + "/matrix_" + filename);
         if(file.open(QIODevice::WriteOnly))
@@ -217,7 +219,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     free((void*)fbuf);
     free((void*)out_buf);
 
-    if(not DEBUG_PRESERVE_BINARY)
+    if(not ICFG<bool>("PROCESSING_DEBUG_PRESERVE_BINARY"))
         QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
     emit concurrencyFinished();

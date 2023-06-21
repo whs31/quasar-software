@@ -46,5 +46,6 @@
         <file>tabs/focus/PanelEditorToolbar.qml</file>
         <file>tabs/focus/PanelToolbar.qml</file>
         <file>widgets/TT.qml</file>
+        <file>widgets/ImageProgressPopup.qml</file>
     </qresource>
 </RCC>

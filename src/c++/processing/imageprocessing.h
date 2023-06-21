@@ -18,8 +18,7 @@ namespace Processing
     class ImageProcessing : public QObject
     {
         Q_OBJECT
-        Q_PROPERTY(bool processingImage READ processingImage WRITE setProcessingImage NOTIFY processingImageChanged)
-        Q_PROPERTY(bool processingStrip READ processingStrip WRITE setProcessingStrip NOTIFY processingStripChanged)
+        Q_PROPERTY(float progress READ progress WRITE setProgress NOTIFY progressChanged)
 
         constexpr static float INITIAL_OPACITY = 1;
         constexpr static bool INITIAL_VISIBILITY = true;
@@ -27,6 +26,9 @@ namespace Processing
         constexpr static bool DEBUG_SAVE_STRIP_DATA_DESERIALIZED = false;
         constexpr static bool DEBUG_SHOW_STRIP_DATA_MATRIX = true;
         constexpr static bool DEBUG_PRESERVE_BINARY = false;
+
+        constexpr static int CONCURRENT_THREADS_COUNT_TELESCOPIC = 1;
+        constexpr static int CONCURRENT_THREADS_COUNT_STRIP = 1;
 
         public:
             enum ImageType
@@ -42,8 +44,7 @@ namespace Processing
             bool exists(const QString& name);
             int indexFrom(const QString& name) noexcept;
 
-            [[nodiscard]] bool processingImage() const; void setProcessingImage(bool);
-            [[nodiscard]] bool processingStrip() const; void setProcessingStrip(bool);
+            [[nodiscard]] float progress() const; void setProgress(float);
 
             public slots:
                 void processList(const QList<QString>& list);
@@ -52,10 +53,11 @@ namespace Processing
             signals:
                 void processImageFinished(const Map::Image& image);
                 void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
-                void processingImageChanged();
-                void processingStripChanged();
+                void concurrencyFinished();
 
-        private:
+                void progressChanged();
+
+            private:
             explicit ImageProcessing(QObject* parent = nullptr);
             ImageProcessing(const ImageProcessing &);
             ImageProcessing &operator=(const ImageProcessing &);
@@ -68,7 +70,8 @@ namespace Processing
 
         private:
             Map::ImageModel* m_model;
-            bool m_processingImage = false;
-            bool m_processingStrip = false;
+            float m_progress;
+            int m_total;
+            int m_processed;
     };
 } // namespace Processing;

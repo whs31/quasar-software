@@ -385,12 +385,4 @@ Map { id: maptab_root;
         checkable: true;
         onCheckedChanged: panel_ImageTools.shown = checked;
     }
-
-    BusyIndicator {
-        width: 150;
-        height: 150;
-        running: ImageProcessing.processingImage || ImageProcessing.processingStrip;
-        anchors.centerIn: parent;
-        Material.accent: Theme.color("light0");
-    }
 }

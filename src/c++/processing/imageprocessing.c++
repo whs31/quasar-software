@@ -25,23 +25,34 @@ ImageProcessing* ImageProcessing::get() { static ImageProcessing instance; retur
 ImageProcessing::ImageProcessing(QObject* parent)
     : QObject{parent}
     , m_model(new Map::ImageModel(this))
+    , m_progress(0)
+    , m_total(0)
+    , m_processed(0)
 {
     qRegisterMetaType<Map::Image>("Map::Image");
     qRegisterMetaType<Map::StripImage>("Map::StripImage");
     qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
     connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage, Qt::QueuedConnection);
+    connect(this, &ImageProcessing::concurrencyFinished, this, [this](){
+        m_processed++;
+        this->setProgress((float)m_processed / (float)m_total);
+     }, Qt::QueuedConnection);
 }
 
 void ImageProcessing::processList(const QList<QString>& list)
 {
     qDebug() << "[PROCESSING] Received list of" << list.size() << "images and binaries";
 
+    m_total = list.size();
+    m_processed = 0;
+    this->setProgress(0);
+
     QThreadPool pool1;
-    pool1.setMaxThreadCount(2);
+    pool1.setMaxThreadCount(CONCURRENT_THREADS_COUNT_TELESCOPIC);
 
     QThreadPool pool2;
-    pool2.setMaxThreadCount(4);
+    pool2.setMaxThreadCount(CONCURRENT_THREADS_COUNT_STRIP);
 
     for(const QString& filename : list)
     {
@@ -53,8 +64,6 @@ void ImageProcessing::processList(const QList<QString>& list)
                 QFuture<void> future = QtConcurrent::run(&pool1, [=](){
                     this->asyncProcess(filename);
                 });
-
-                setProcessingImage(true);
                 break;
             }
             case Strip:
@@ -62,8 +71,6 @@ void ImageProcessing::processList(const QList<QString>& list)
                 QFuture<void> future = QtConcurrent::run(&pool2, [=](){
                     this->asyncStripProcess(filename);
                 });
-
-                setProcessingStrip(true);
                 break;
             }
             default:
@@ -118,7 +125,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
     image.path.first = Config::Paths::lod(0) + "/" + target_filename;
     QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
-    setProcessingImage(false);
+    emit concurrencyFinished();
     emit processImageFinished(image);
 }
 
@@ -131,7 +138,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     if(not DEBUG_PRESERVE_BINARY)
         QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
-    setProcessingStrip(false);
+    emit concurrencyFinished();
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -259,18 +266,10 @@ int ImageProcessing::indexFrom(const QString& name) noexcept
     return -1;
 }
 
-bool ImageProcessing::processingImage() const { return m_processingImage; }
-void ImageProcessing::setProcessingImage(bool other) {
-    if (m_processingImage == other)
+float ImageProcessing::progress() const { return m_progress; }
+void ImageProcessing::setProgress(float other) {
+    if (qFuzzyCompare(m_progress, other * 100))
         return;
-    m_processingImage = other;
-    emit processingImageChanged();
-}
-
-bool ImageProcessing::processingStrip() const { return m_processingStrip; }
-void ImageProcessing::setProcessingStrip(bool other) {
-    if (m_processingStrip == other)
-        return;
-    m_processingStrip = other;
-    emit processingStripChanged();
+    m_progress = other * 100;
+    emit progressChanged();
 }

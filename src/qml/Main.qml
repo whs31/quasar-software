@@ -10,6 +10,7 @@ import Network 1.0
 import Filesystem 1.0
 import Images 1.0
 import Offline 1.0
+import ImageProcessing 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -108,6 +109,7 @@ ApplicationWindow  { id: window_root;
             Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
             Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
             Widgets.TilePopup { id: popup_TileLoader; progress: tileloadprogress; anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; z: 100; }
+            Widgets.ImageProgressPopup { id: popup_ImageProgress; progress: ImageProcessing.progress; anchors.centerIn: parent; z: 100; }
 
             Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }

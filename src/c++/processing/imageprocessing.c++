@@ -48,17 +48,18 @@ void ImageProcessing::processList(const QList<QString>& list)
     m_processed = 0;
     this->setProgress(0);
 
-    QThreadPool pool1;
-    pool1.setMaxThreadCount(CONCURRENT_THREADS_COUNT_TELESCOPIC);
+    QFuture<void> wrap = QtConcurrent::run([this, list](){
+        QThreadPool pool1;
+        pool1.setMaxThreadCount(CONCURRENT_THREADS_COUNT_TELESCOPIC);
 
-    QThreadPool pool2;
-    pool2.setMaxThreadCount(CONCURRENT_THREADS_COUNT_STRIP);
+        QThreadPool pool2;
+        pool2.setMaxThreadCount(CONCURRENT_THREADS_COUNT_STRIP);
 
-    for(const QString& filename : list)
-    {
-        ImageType T = filename.endsWith(".bin") ? Strip : Telescopic;
-        switch (T)
+        for(const QString& filename : list)
         {
+            ImageType T = filename.endsWith(".bin") ? Strip : Telescopic;
+            switch (T)
+            {
             case Telescopic:
             {
                 QFuture<void> future = QtConcurrent::run(&pool1, [=](){
@@ -78,8 +79,9 @@ void ImageProcessing::processList(const QList<QString>& list)
                 qCritical() << "[PROCESSING] Incorrect image list format";
                 break;
             }
+            }
         }
-    }
+    });
 }
 
 void ImageProcessing::asyncProcess(const QString& filename)

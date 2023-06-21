@@ -107,9 +107,15 @@ ApplicationWindow  { id: window_root;
 
             Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
             Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
-            Widgets.TCPPopup { id: popup_TCP; progress: Network.tcpProgress; anchors.centerIn: parent; z: 100; }
-            Widgets.TilePopup { id: popup_TileLoader; progress: tileloadprogress; anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; z: 100; }
-            Widgets.ImageProgressPopup { id: popup_ImageProgress; progress: ImageProcessing.progress; anchors.centerIn: parent; z: 100; }
+            Widgets.ProgressPopup { anchors.centerIn: parent; progress: Network.tcpProgress; z: 100;
+                text: "Загрузка изображения по TCP-IP";
+            }
+            Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100;
+                text: "Обработка изображений";
+            }
+            Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: tileloadprogress; z: 100;
+                text: "Загрузка оффлайн-карт";
+            }
 
             Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }

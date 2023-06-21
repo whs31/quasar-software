@@ -23,7 +23,6 @@
         <file>tabs/map/MapMarker.qml</file>
         <file>windows/StripMatrixWindow.qml</file>
         <file>tabs/map/AttitudeIndicator.qml</file>
-        <file>widgets/TCPPopup.qml</file>
         <file>tabs/map/ui/PanelTools.qml</file>
         <file>tabs/map/ui/PanelEntities.qml</file>
         <file>tabs/map/ui/PanelParameters.qml</file>
@@ -42,10 +41,9 @@
         <file>tabs/map/ZoomScale.qml</file>
         <file>tabs/network/PanelNetTools.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
-        <file>widgets/TilePopup.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>
         <file>tabs/focus/PanelToolbar.qml</file>
         <file>widgets/TT.qml</file>
-        <file>widgets/ImageProgressPopup.qml</file>
+        <file>widgets/ProgressPopup.qml</file>
     </qresource>
 </RCC>

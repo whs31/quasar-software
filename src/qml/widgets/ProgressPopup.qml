@@ -4,9 +4,10 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import Theme 1.0
 
-Pane {
+Pane { id: control;
     property real progress: 0;
     property bool shown: progress !== 0 && progress !== 100;
+    property string text: "Загрузка...";
 
     opacity: shown ? 0.9 : 0;
     Behavior on opacity { NumberAnimation { duration: 300; } }
@@ -16,7 +17,7 @@ Pane {
         spacing: 10;
 
         Text {
-            text: "Обработка изображений";
+            text: control.text;
             font.family: root.mainfont;
             font.bold: true;
             color: Theme.color("light1");

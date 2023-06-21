@@ -143,24 +143,6 @@ Map { id: maptab_root;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 
-    property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);
-    MapPolygon { id: tileloaderpolygon;
-        property bool shown: true;
-        border.width: 3;
-        border.color: Theme.color("green");
-        color: Qt.lighter(Theme.color("green"), 1.2);
-        opacity: shown ? 0.4 : 0;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-    }
-
-    MapQuickItem { id: tileloaderui;
-        property bool shown: false;
-        opacity: shown ? 0.75 : 0;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-        Behavior on coordinate { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
-        coordinate: tileloaderlastclicked;
-        sourceItem: MapTabUI.DialogTileLoader { id: dialog_TileDownloader; }
-    }
     Connections {
         target: dialog_TileDownloader;
         function onClr() {
@@ -197,6 +179,25 @@ Map { id: maptab_root;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapMarker { }
+    }
+
+    property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);
+    MapPolygon { id: tileloaderpolygon;
+        property bool shown: true;
+        border.width: 3;
+        border.color: Theme.color("green");
+        color: Qt.lighter(Theme.color("green"), 1.2);
+        opacity: shown ? 0.4 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    MapQuickItem { id: tileloaderui;
+        property bool shown: false;
+        opacity: shown ? 0.75 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+        Behavior on coordinate { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+        coordinate: tileloaderlastclicked;
+        sourceItem: MapTabUI.DialogTileLoader { id: dialog_TileDownloader; }
     }
 
     // ui

@@ -36,10 +36,19 @@ Rectangle {
         anchors.bottom: parent.bottom;
         anchors.right: parent.right;
 
+        BusyIndicator {
+            enabled: !button_Connect.enabled;
+            visible: enabled;
+            height: 40;
+            width: 40;
+            running: enabled;
+        }
+
         RoundButton { id: button_Connect;
             property bool timeout: false;
 
             enabled: !timeout;
+            opacity: enabled ? 1 : 0.5;
             font.family: root.mainfont;
             height: 40;
             radius: 4;
@@ -51,6 +60,8 @@ Rectangle {
             Material.foreground: Theme.color("dark0");
             Material.background: Network.connected ? Theme.color("red") : Theme.color("color3");
             Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
+            Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
+
             onPressed: {
                 if(Network.connected)
                 {

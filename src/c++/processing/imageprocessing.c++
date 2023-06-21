@@ -214,6 +214,36 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
     }
 
+    vector<uint8_t> output(out_buf, out_buf + out_size);
+
+    if(ICFG<bool>("PROCESSING_DEBUG_SHOW_STRIP_WINDOW"))
+        emit stripVector8bit(output, y, x);
+
+    QImage strip_result(x, y, QImage::Format_Grayscale16);
+    vector<vector<float>> image_result;
+    image_result.resize(y);
+    for(size_t i = 0; i < y; ++i)
+    {
+        image_result[i].resize(x);
+        for(size_t j = 0; j < x; ++j)
+            image_result[i][j] = output[j + x * i];
+    }
+    float max = *std::max_element(output.begin(), output.end());
+    for(size_t row = 0; row < image_result.size(); ++row)
+    {
+        for(size_t column = 0; column < image_result[row].size(); ++column)
+        {
+            float t = (image_result[row][column] * 255) / max;
+            uint8_t d[4] = {static_cast<uint8_t>(t), static_cast<uint8_t>(t), static_cast<uint8_t>(t), 255};
+            uint32_t* rs = (uint32_t*)d;
+            strip_result.setPixel(column, row, *rs);
+        }
+    }
+
+    QString result_name = filename.chopped(3) + "png";
+    strip_result.save(Config::Paths::lod(0) + "/" + result_name, "PNG");
+    qInfo() << "$ [PROCESSING] Saved strip image" << (Config::Paths::lod(0) + "/" + result_name);
+
     free((void*)header);
     free((void*)buf);
     free((void*)fbuf);

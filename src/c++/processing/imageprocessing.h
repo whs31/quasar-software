@@ -42,6 +42,7 @@ namespace Processing
 
             signals:
                 void processImageFinished(const Map::Image& image);
+                void processStripFinished(const Map::StripImage& image);
                 void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
                 void concurrencyFinished();
 

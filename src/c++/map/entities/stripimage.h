@@ -3,6 +3,7 @@
 #include "imagemetadata.h"
 #include <QtCore/QString>
 #include <QtCore/QPair>
+#include <QtPositioning/QGeoCoordinate>
 
 typedef QPair<QString, QString> image_file_t;
 
@@ -16,6 +17,8 @@ namespace Map
 
         float opacity = 1;
         bool shown = true;
+
+        QGeoCoordinate coordinate;
     };
 
     struct StripImageDatagram

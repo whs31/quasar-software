@@ -156,6 +156,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     int y = 0;
     std::vector<float> fmatrix;
 
+    bool navigation_read = false;
     while(ar.readed() < data_size)
     {
         if((data_size - ar.readed()) < header_size)
@@ -178,6 +179,12 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
             y += img.ny;
         }
 
+        if(not navigation_read)
+        {
+            image.coordinate = { nav.latitude, nav.longitude };
+            navigation_read = true;
+        }
+
         ar.read((uint8_t*) buf, head.size );
 
         // запись промежуточного результата в матрицу
@@ -194,6 +201,8 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     qInfo().noquote().nospace() << "$ [PROCESSING] Matrix size: { " << x << ", " << y << " }";
     qInfo().noquote().nospace() << "$ [PROCESSING] Max value: { " << max_value << " }";
     qInfo().noquote().nospace() << "$ [PROCESSING] Size: { " << x * y << " }";
+    qInfo().noquote().nospace() << "$ [PROCESSING] Coords: { " << image.coordinate.latitude()
+                                << ", " << image.coordinate.longitude()  << " }";
 
     int out_size = x * y;
     uint8_t* out_buf = (uint8_t*)malloc(out_size);
@@ -240,9 +249,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
         }
     }
 
-    QString result_name = filename.chopped(3) + "png";
-    strip_result.save(Config::Paths::lod(0) + "/" + result_name, "PNG");
-    qInfo() << "$ [PROCESSING] Saved strip image" << (Config::Paths::lod(0) + "/" + result_name);
+    QString result_path = Config::Paths::lod(0) + "/" + filename.chopped(3) + "png";
+    strip_result.save(result_path, "PNG");
+    image.path.first = result_path;
+    image.valid = true;
+    qInfo() << "$ [PROCESSING] Saved strip image to" << result_path;
 
     free((void*)header);
     free((void*)buf);

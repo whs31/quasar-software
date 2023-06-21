@@ -80,7 +80,7 @@ namespace Map
         float roll = 0;                         //! <@brief
         float x0 = 0;                           //! <@brief
         uint8_t word_size = 0;                  //! <@brief
-        uint8_t polrization = 0;                //! <@brief
+        uint8_t polarization = 0;               //! <@brief
         int16_t y = 0;                          //! <@brief
         uint16_t nx = 0;                        //! <@brief
         uint16_t ny = 0;                        //! <@brief

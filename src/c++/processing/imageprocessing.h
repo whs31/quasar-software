@@ -2,9 +2,10 @@
 
 #include <QtCore/QObject>
 #include <vector>
-#include <LPVL/Global>
 
 using std::vector;
+
+class QImage;
 
 namespace Map {
     class Image;
@@ -19,7 +20,6 @@ namespace Processing
         Q_OBJECT
         Q_PROPERTY(bool processingImage READ processingImage WRITE setProcessingImage NOTIFY processingImageChanged)
         Q_PROPERTY(bool processingStrip READ processingStrip WRITE setProcessingStrip NOTIFY processingStripChanged)
-        LPVL_DECLARE_SINGLETON(ImageProcessing)
 
         constexpr static float INITIAL_OPACITY = 1;
         constexpr static bool INITIAL_VISIBILITY = true;
@@ -29,10 +29,13 @@ namespace Processing
         constexpr static bool DEBUG_PRESERVE_BINARY = false;
 
         public:
-            enum ImageType {
+            enum ImageType
+            {
                 Telescopic,
                 Strip
             };
+
+            static ImageProcessing* get();
 
             Map::ImageModel* model();
 
@@ -54,13 +57,17 @@ namespace Processing
 
         private:
             explicit ImageProcessing(QObject* parent = nullptr);
-            Map::ImageModel* m_model;
+            ImageProcessing(const ImageProcessing &);
+            ImageProcessing &operator=(const ImageProcessing &);
 
             void asyncProcess(const QString& filename);
             void asyncStripProcess(const QString& filename);
             QByteArray fileToByteArray(const QString& path);
+            Map::Image decodeTelescopic(const QString& path);
+            QImage cutImage(const Map::Image& image) noexcept;
 
         private:
+            Map::ImageModel* m_model;
             bool m_processingImage = false;
             bool m_processingStrip = false;
     };

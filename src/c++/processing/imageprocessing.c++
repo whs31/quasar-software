@@ -1,6 +1,11 @@
 #include "imageprocessing.h"
 #include <cmath>
 #include <stdexcept>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <ostream>
+#include <fstream>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
@@ -17,6 +22,7 @@
 #include "map/entities/stripimage.h"
 #include "config/paths.h"
 #include "config/config.h"
+#include "arrayreader.h"
 
 using namespace Processing;
 
@@ -134,8 +140,78 @@ void ImageProcessing::asyncProcess(const QString& filename)
 void ImageProcessing::asyncStripProcess(const QString& filename)
 {
     Map::StripImage image;
+    image.path.first = Config::Paths::lod(0) + "/" + filename;
+    QByteArray file = fileToByteArray(image.path.first);
 
-    // ...
+    const uint8_t* data = reinterpret_cast<uint8_t*>(file.data());
+    int data_size = file.size();
+    const int header_size = sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripFormatMetadata) + sizeof(Map::StripNavigationMetadata);
+    ArrayReader<uint8_t> ar((uint8_t*)data);
+    uint8_t* header = (uint8_t*)malloc(header_size);
+    uint8_t* buf = (uint8_t*)malloc(MAX_PACKAGE_SIZE - header_size);
+    float* fbuf = (float*)malloc((MAX_PACKAGE_SIZE - header_size) * sizeof(float));
+
+    int x = 0;
+    int y = 0;
+    std::vector<float> fmatrix;
+
+    while(ar.readed() < data_size)
+    {
+        if((data_size - ar.readed()) < header_size)
+            break;
+
+        ar.read(header, header_size);
+        ArrayReader<uint8_t>header_reader(header);
+
+        Map::StripHeaderMetadata head;
+        Map::StripNavigationMetadata nav;
+        Map::StripFormatMetadata img;
+
+        header_reader.read((uint8_t*)&head, sizeof(Map::StripHeaderMetadata));
+        header_reader.read((uint8_t*)&nav, sizeof(Map::StripNavigationMetadata));
+        header_reader.read((uint8_t*)&img, sizeof(Map::StripFormatMetadata));
+
+        if(head.cnt == 0)
+        {
+            x = img.nx;
+            y += img.ny;
+        }
+
+        ar.read((uint8_t*) buf, head.size );
+
+        // запись промежуточного результата в матрицу
+        for(int i = 0; i < head.size; i++)
+            fmatrix.push_back( (float)buf[i] * img.k);
+    }
+
+    // эти значения нужно пересчитывать каждый раз при выводе матрицы на экран
+    // лучше сделать вычисление максимального значения рекуррентно,
+    // т.к. с ростом матрицы многокрано увеличится объем обработки и будет lag
+    const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
+    const float k = max_value / 255.0f;
+
+    qInfo().noquote().nospace() << "$ [PROCESSING] Matrix size: { " << x << ", " << y << " }";
+    qInfo().noquote().nospace() << "$ [PROCESSING] Max value: " << max_value << " }";
+
+    int out_size = x * y;
+    uint8_t* out_buf = (uint8_t*)malloc(out_size);
+
+    // обратное масштабирование
+    for(int i = 0; i < out_size; i++)
+        out_buf[i] = fmatrix[i] / k;
+
+    // сохранение результата
+    if(DEBUG_SAVE_STRIP_DATA_DESERIALIZED)
+    {
+        std::ofstream f("fmatrix.bin", std::ios_base::out);
+        f.write( (const char*)out_buf, out_size );
+        f.close();
+    }
+
+    free((void*)header);
+    free((void*)buf);
+    free((void*)fbuf);
+    free((void*)out_buf);
 
     if(not DEBUG_PRESERVE_BINARY)
         QFile::remove(Config::Paths::lod(0) + "/" + filename);

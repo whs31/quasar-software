@@ -67,7 +67,7 @@ ApplicationWindow  { id: window_root;
 
     Loader {
         anchors.fill: parent;
-        active: true;
+        active: !splashscreen.enabled;
         asynchronous: true;
         sourceComponent: Item { id: root;
             anchors.fill: parent;
@@ -201,5 +201,12 @@ ApplicationWindow  { id: window_root;
                 Tabs.NetworkTab { id: c_NetworkTab; }
             }
         }
+    }
+
+    Widgets.SplashScreen { id: splashscreen;
+        anchors.fill: parent;
+        enabled: true;
+
+        Timer { interval: 800; repeat: false; running: true; onTriggered: splashscreen.enabled = false; }
     }
 }

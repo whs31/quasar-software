@@ -45,5 +45,6 @@
         <file>tabs/focus/PanelToolbar.qml</file>
         <file>widgets/TT.qml</file>
         <file>widgets/ProgressPopup.qml</file>
+        <file>widgets/SplashScreen.qml</file>
     </qresource>
 </RCC>

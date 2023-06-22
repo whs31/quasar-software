@@ -76,10 +76,6 @@ namespace Networking
         Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
 
-        constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
-        constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
-        constexpr static float PING_INTERVAL = 5.0f;
-
         public:
             //! @brief Возвращает указатель на статический экземпляр класса.
             static Network* get();

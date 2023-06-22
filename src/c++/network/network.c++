@@ -3,6 +3,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QVariant>
 #include "config/config.h"
+#include "config/internalconfig.h"
 #include "telemetry/telemetry.h"
 #include "telemetry/telemetrysocket.h"
 #include "execd/execdsocket.h"
@@ -27,7 +28,7 @@ Network::Network(QObject* parent)
     , feedbackSocket(new FeedbackSocket(this))
     , tcpSocket(new TCPSocket(this))
     , m_network_delay_timer(new QTimer(this))
-    , m_networkDelay(DISCONNECT_DELAY_THRESHOLD + .1f)
+    , m_networkDelay(ICFG<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
     , m_connected(0)
     , m_de10ping(new Pinger(this))
     , m_jetsonping(new Pinger(this))
@@ -171,9 +172,9 @@ void Network::setNetworkDelay(float other) {
     m_networkDelay = other;
     emit networkDelayChanged();
 
-    if(networkDelay() >= DISCONNECT_DELAY_THRESHOLD)
+    if(networkDelay() >= ICFG<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT"))
         setConnected(0);
-    else if(networkDelay() >= SEMICONNECT_DELAY_THRESHOLD)
+    else if(networkDelay() >= ICFG<float>("NETWORK_DELAY_THRESHOLD_BADCONNECT"))
         setConnected(1);
     else
         setConnected(2);

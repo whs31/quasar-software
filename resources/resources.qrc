@@ -90,5 +90,6 @@
         <file>icons/google-material/hand.png</file>
         <file>logo/logo_large_gray.png</file>
         <file>logo/logo_large_orange.png</file>
+        <file>json/constants.json</file>
     </qresource>
 </RCC>

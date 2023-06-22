@@ -7,7 +7,7 @@ import Network 1.0
 import Theme 1.0
 
 Pane { id: control;
-    width: 400;
+    width: 600;
     height: 500;
     x: root.width / 2;
     y: root.height / 2;
@@ -15,7 +15,7 @@ Pane { id: control;
     clip: true;
     opacity: root.vt100termshown ? 1 : 0;
 
-    Behavior on opacity { NumberAnimation { duration: 300; } }
+    Behavior on opacity { NumberAnimation { duration: 150; } }
     Material.background: Qt.darker(Theme.color("dark0"), 1.2);
     Material.elevation: 200;
 

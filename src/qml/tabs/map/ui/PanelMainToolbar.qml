@@ -61,9 +61,15 @@ Pane {
 
             onCheckedChanged: {
                 if(checked)
+                {
                     Network.executeCommand(Net.StartStrip);
+                    Network.setRecording(true);
+                }
                 else
+                {
                     Network.executeCommand(Net.StopStrip);
+                    Network.setRecording(false);
+                }
             }
         }
 

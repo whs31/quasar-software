@@ -1,5 +1,4 @@
 #include "network.h"
-#include <QtCore/QDebug>
 #include <QtCore/QTimer>
 #include <QtCore/QVariant>
 #include "config/config.h"
@@ -76,8 +75,8 @@ Network::Network(QObject* parent)
         setArgument("--e0", telemetry()->seaLevel(), Enums::Form);
         setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
         setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
-                     });
-    }
+    });
+}
 
 void Network::processFeedback(QByteArray data) noexcept
 {

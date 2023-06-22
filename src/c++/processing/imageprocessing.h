@@ -2,16 +2,17 @@
 
 #include <QtCore/QObject>
 #include <vector>
+#include "map/entities/image.h"
+#include "map/entities/stripimage.h"
 
 using std::vector;
 
-class QImage;
-
-namespace Map {
-    class Image;
-    class StripImage;
+namespace Map
+{
     class ImageModel;
-}
+} // Map
+
+class QImage;
 
 namespace Processing
 {
@@ -37,12 +38,12 @@ namespace Processing
             [[nodiscard]] float progress() const; void setProgress(float);
 
             public slots:
-                void processList(const QList<QString>& list);
-                void passImage(const Map::Image& image);
+                void processList(QList<QString> list);
+                void passImage(Map::Image image);
 
             signals:
-                void processImageFinished(const Map::Image& image);
-                void processStripFinished(const Map::StripImage& image);
+                void processImageFinished(Map::Image image);
+                void processStripFinished(Map::StripImage image);
                 void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
                 void concurrencyFinished();
 
@@ -50,8 +51,8 @@ namespace Processing
 
         private:
             explicit ImageProcessing(QObject* parent = nullptr);
-            ImageProcessing(const ImageProcessing &);
-            ImageProcessing &operator=(const ImageProcessing &);
+            ImageProcessing(const ImageProcessing&);
+            ImageProcessing &operator=(const ImageProcessing&);
 
             void asyncProcess(const QString& filename);
             void asyncStripProcess(const QString& filename);

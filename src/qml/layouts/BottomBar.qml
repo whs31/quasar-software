@@ -38,10 +38,11 @@ Rectangle {
 
         BusyIndicator {
             enabled: !button_Connect.enabled;
-            visible: enabled;
+            opacity: enabled ? 1 : 0;
             height: 40;
             width: 40;
             running: enabled;
+            Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 300; } }
         }
 
         RoundButton { id: button_Connect;
@@ -92,6 +93,7 @@ Rectangle {
                         Network.stopTCPSocket();
                         Network.networkDelay = 100;
                     }
+
                     button_Connect.timeout = false;
                 }
             }

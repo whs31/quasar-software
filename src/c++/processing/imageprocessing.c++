@@ -17,7 +17,6 @@
 #include <LPVL/Crypto>
 #include <CCL/Geomath>
 #include "map/imagemodel.h"
-#include "map/entities/stripimage.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "config/internalconfig.h"
@@ -46,7 +45,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
      }, Qt::QueuedConnection);
 }
 
-void ImageProcessing::processList(const QList<QString>& list)
+void ImageProcessing::processList(QList<QString> list)
 {
     qDebug() << "[PROCESSING] Received list of" << list.size() << "images and binaries";
 
@@ -363,7 +362,7 @@ QImage ImageProcessing::cutImage(const Map::Image& image) noexcept
 }
 
 Map::ImageModel* ImageProcessing::model() { return this->m_model; }
-void ImageProcessing::passImage(const Map::Image& image) { model()->add(image); }
+void ImageProcessing::passImage(Map::Image image) { model()->add(image); }
 
 bool ImageProcessing::exists(const QString& name)
 {

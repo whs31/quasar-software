@@ -42,8 +42,8 @@ namespace OS
                 void exportImagesToFolder(const QList<QString>& ls, const QString& folder);
 
             signals:
-                void imageListCached(const QList<QString>& filenames);
-                void binaryCached(const QString& filename);
+                void imageListCached(QList<QString> filenames);
+                void binaryCached(QString filename);
 
         private:
             Filesystem(QObject* parent = nullptr);

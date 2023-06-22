@@ -50,15 +50,6 @@ Entry::Entry(QObject *parent)
         qWarning() << "[CORE] Requested restart, but current configuration will fail executing it.";
         qWarning() << "[CORE] Please, restart manually.";
     });
-    connect(Config::Config::get(), &Config::Config::tcpLFSPortChanged, this, [this](){
-        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Form);
-        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Focus);
-        Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Reform);
-    });
-
-    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Form);
-    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Focus);
-    Networking::Network::get()->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Networking::Enums::ArgumentCategory::Reform);
 
     GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
     connect(Networking::Network::get(), &Networking::Network::connectedChanged, this, [this](){

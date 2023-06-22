@@ -19,6 +19,7 @@ Pane {
         spacing: -2;
 
         RoundButton { id: button_ToggleMode;
+            enabled: !button_FormImage.checked;
             Layout.preferredHeight: 45;
             height: 40;
             radius: 4;
@@ -60,9 +61,9 @@ Pane {
 
             onCheckedChanged: {
                 if(checked)
-                    console.error("Starting strip form... (not implemented)");
+                    Network.executeCommand(Net.StartStrip);
                 else
-                    console.error("Stopping strip form... (not implemented)");
+                    Network.executeCommand(Net.StopStrip);
             }
         }
 

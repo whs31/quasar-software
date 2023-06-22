@@ -2,22 +2,16 @@
 
 #include <QtCore/QObject>
 
-//! @namespace Namespace for network-related classes.
+//! @brief Пространство имен для работы с сетевыми подключениями к РЛС.
 namespace Networking
 {
-    //! @class Provides common network-related enums.
-    //! @details Enums are avialable in QML via meta-object system.
+    //! @brief Класс-обёртка для общих перечислений пространства имён #Networking.
     class Enums : public QObject
     {
         Q_OBJECT
 
         public:
-            //! @enum     Enumeration for ping status.
-            //! @memberof Success - ping finished successfully.
-            //! @memberof DelayedSuccess - ping finished successfully
-            //!           with significant delay.
-            //! @memberof Timeout - ping failed with timeout.
-            //! @memberof Idle - ping doesn't started yet.
+            //! @brief Перечисление статус-кодов команды ping.
             enum PingStatus
             {
                 Success,
@@ -26,7 +20,7 @@ namespace Networking
                 Idle
             };
 
-            //! @enum Enumeration for execd argument category.
+            //! @brief Перечисление категорий аргументов параметров формирования.
             enum ArgumentCategory
             {
                 Form,
@@ -34,23 +28,13 @@ namespace Networking
                 Reform
             };
 
-            //! @enum     Enumeration for execd command type.
-            //! @memberof FormImage - asks SAR to form telescopic
-            //!           image with arguments.
-            //! @memberof FocusImage - asks SAR to focus telescopic
-            //!           image at given point and arguments.
-            //! @memberof ReformImage - asks SAR to reform existing
-            //!           hologram with another set of arguments.
-            //! @memberof RemoteStorageStatus - asks SAR about
-            //!           remaining disk space.
-            //! @memberof ClearRemoteStorage - asks SAR to clear
-            //!           disk storage from images and binaries.
-            //! @memberof Reboot - forces SAR to reboot itself.
-            //! @memberof Poweroff - forces SAR to shutdown itself.
+            //! @brief Перечисление встроенных в приложение команд.
             enum NetworkCommand
             {
                 FormImage,
                 FocusImage,
+                StartStrip,
+                StopStrip,
                 ReformImage,
                 RemoteStorageStatus,
                 ClearRemoteStorage,
@@ -65,7 +49,6 @@ namespace Networking
 } // Network
 
 #include <QtCore/QMetaType>
-Q_DECLARE_METATYPE(Networking::Enums*)
 Q_DECLARE_METATYPE(Networking::Enums::PingStatus)
 Q_DECLARE_METATYPE(Networking::Enums::ArgumentCategory)
 Q_DECLARE_METATYPE(Networking::Enums::NetworkCommand)

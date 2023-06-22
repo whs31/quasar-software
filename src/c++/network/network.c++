@@ -98,6 +98,27 @@ void Network::stopExecdSocket()
 
 void Network::executeCommand(const Networking::Enums::NetworkCommand command) noexcept
 {
+    switch(command)
+    {
+        case Enums::FormImage:
+            this->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Enums::Form);
+            break;
+        case Enums::FocusImage:
+            this->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Enums::Focus);
+            break;
+        case Enums::ReformImage:
+            this->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(tcpLFSPort)), Enums::Reform);
+            break;
+        case Enums::StartStrip:
+            this->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(udpLFSPort)), Enums::Form);
+            break;
+        case Enums::StopStrip:
+            this->setArgument("--remote", QString(CONFIG(localIP) + ":" + CONFIG(udpLFSPort)), Enums::Form);
+            break;
+
+        default: break;
+    }
+
     execdSocket->executeCommand(command);
 }
 

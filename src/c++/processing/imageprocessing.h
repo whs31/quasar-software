@@ -52,7 +52,7 @@ namespace Processing
         private:
             explicit ImageProcessing(QObject* parent = nullptr);
             ImageProcessing(const ImageProcessing&);
-            ImageProcessing &operator=(const ImageProcessing&);
+            ImageProcessing& operator=(const ImageProcessing&);
 
             void asyncProcess(const QString& filename);
             void asyncStripProcess(const QString& filename);

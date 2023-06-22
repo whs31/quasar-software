@@ -88,5 +88,7 @@
         <file>icons/google-material/map-offline.png</file>
         <file>icons/google-material/focus-scope.png</file>
         <file>icons/google-material/hand.png</file>
+        <file>logo/logo_large_gray.png</file>
+        <file>logo/logo_large_orange.png</file>
     </qresource>
 </RCC>

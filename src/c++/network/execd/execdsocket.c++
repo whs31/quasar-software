@@ -42,7 +42,7 @@ void ExecdSocket::executeCommand(Enums::NetworkCommand command)
     switch (command)
     {
         case Enums::FormImage:
-            com = finalize(wrap(COMMAND_TELESCOPIC+ args->getFormArguments()));
+            com = finalize(wrap(COMMAND_TELESCOPIC + args->getFormArguments()));
             break;
         case Enums::FocusImage:
             com = finalize(wrap(COMMAND_FOCUS + args->getFocusArguments()));
@@ -55,6 +55,12 @@ void ExecdSocket::executeCommand(Enums::NetworkCommand command)
             break;
         case Enums::ClearRemoteStorage:
             com = finalize(wrap(COMMAND_CLEAR_STORAGE));
+            break;
+        case Enums::StartStrip:
+            com = finalize(wrap(COMMAND_START_STRIP + args->getFormArguments()));
+            break;
+        case Enums::StopStrip:
+            com = finalize(wrap(COMMAND_STOP_STRIP));
             break;
         case Enums::Reboot:
         {
@@ -104,10 +110,7 @@ QString ExecdSocket::wrap(const QString& string)
     return command;
 }
 
-QByteArray ExecdSocket::finalize(const QString& string)
-{
-    return string.toUtf8();
-}
+QByteArray ExecdSocket::finalize(const QString& string) { return string.toUtf8(); }
 
 void ExecdSocket::processResult(QByteArray data)
 {

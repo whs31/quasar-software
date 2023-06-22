@@ -76,24 +76,25 @@ Network::Network(QObject* parent)
     });
 }
 
-void Network::startTelemetrySocket(const QString& address, const QString& recv_address, float frequency)
+void Network::begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr, float telemetry_frequency,
+                    const QString& execd_addr, const QString& feedback_addr, const QString& tcp_lfs_addr, const QString& udp_lfs_addr) noexcept
 {
-    telemetrySocket->setFrequency(frequency);
-    telemetrySocket->start(address, recv_address);
+    telemetrySocket->setFrequency(telemetry_frequency);
+    telemetrySocket->start(telemetry_request_addr, telemetry_recv_addr);
+    execdSocket->start(execd_addr);
+    feedbackSocket->start(feedback_addr);
+    tcpSocket->startServer(tcp_lfs_addr);
+    // @TODO
 }
 
-void Network::stopTelemetrySocket() { telemetrySocket->stop(); }
-
-void Network::startExecdSocket(const QString& execd_address, const QString& feedback_address)
+void Network::stop() noexcept
 {
-    execdSocket->start(execd_address);
-    feedbackSocket->start(feedback_address);
-}
-
-void Network::stopExecdSocket()
-{
+    telemetrySocket->stop();
     execdSocket->stop();
     feedbackSocket->stop();
+    tcpSocket->stopServer();
+    // @TODO
+    this->setNetworkDelay(100);
 }
 
 void Network::executeCommand(const Networking::Enums::NetworkCommand command) noexcept
@@ -142,11 +143,8 @@ void Network::setArgument(const QString& key, const QVariant& value, Enums::Argu
         case Enums::Focus: execdSocket->list()->focus_argument_list[key].set(value); break;
         case Enums::Reform: execdSocket->list()->reform_argument_list[key].set(value); break;
         default: qCritical() << "[NETWORK] Invalid category for argument provided"; break;
-    }
+        }
 }
-
-void Network::startTCPSocket(const QString &address) { tcpSocket->startServer(address); }
-void Network::stopTCPSocket() { tcpSocket->stopServer(); }
 
 Telemetry* Network::telemetry() const { return m_telemetry; }
 void Network::setTelemetry(Telemetry* other) {

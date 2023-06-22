@@ -65,20 +65,17 @@ Rectangle {
 
             onPressed: {
                 if(Network.connected)
-                {
-                    Network.stopExecdSocket();
-                    Network.stopTelemetrySocket();
-                    Network.stopTCPSocket();
-                    Network.networkDelay = 100;
-                }
+                    Network.stop();
                 else
                 {
-                    Network.startExecdSocket(Config.remoteIP + ":" + Config.execdPort,
-                                             Config.localIP + ":" + Config.feedbackPort);
-                    Network.startTelemetrySocket(Config.remoteIP + ":" + Config.telemetryPort,
-                                                 Config.remoteIP + ":" + Config.telemetryRecvPort,
-                                                 Config.telemetryFrequency);
-                    Network.startTCPSocket(Config.localIP + ":" + Config.tcpLFSPort);
+                    Network.begin(Config.remoteIP + ":" + Config.telemetryPort,
+                                  Config.remoteIP + ":" + Config.telemetryRecvPort,
+                                  Config.telemetryFrequency,
+                                  Config.remoteIP + ":" + Config.execdPort,
+                                  Config.localIP + ":" + Config.feedbackPort,
+                                  Config.localIP + ":" + Config.tcpLFSPort,
+                                  Config.localIP + ":" + Config.udpLFSPort
+                    );
                     Network.executeCommand(Net.RemoteStorageStatus);
                     timeout = true;
                     disconnect_timer.start();
@@ -87,13 +84,7 @@ Rectangle {
 
             Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {
                     if(!Network.connected)
-                    {
-                        Network.stopExecdSocket();
-                        Network.stopTelemetrySocket();
-                        Network.stopTCPSocket();
-                        Network.networkDelay = 100;
-                    }
-
+                        Network.stop();
                     button_Connect.timeout = false;
                 }
             }

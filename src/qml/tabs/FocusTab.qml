@@ -33,8 +33,8 @@ Rectangle { id: focustab_root;
             panel_Reform.setVelocityAndElevation(Number(ImagesModel.getRole(currentAssignedIndex, "velocity")).toFixed(1),
                                                  Number(ImagesModel.getRole(currentAssignedIndex, "elevation")).toFixed(1));
 
-            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Reform);
-            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Network.Focus);
+            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Reform);
+            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Focus);
         }
     }
 

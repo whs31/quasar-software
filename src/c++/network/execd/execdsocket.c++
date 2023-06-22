@@ -39,7 +39,7 @@ void ExecdSocket::executeCommand(Enums::NetworkCommand command)
 {
     QByteArray com;
 
-    switch (command)
+    switch(command)
     {
         case Enums::FormImage:
             com = finalize(wrap(COMMAND_TELESCOPIC + args->getFormArguments()));

@@ -10,22 +10,22 @@ Pane { id: panel_FocusSettings;
     Material.elevation: 30;
 
     property real focus_ls: 50;
-    onFocus_lsChanged: Network.setArgument("--ls", focus_ls, Network.Focus);
+    onFocus_lsChanged: Network.setArgument("--ls", focus_ls, Net.Focus);
 
     property int focus_ni: 10;
-    onFocus_niChanged: Network.setArgument("--ni", focus_ni, Network.Focus);
+    onFocus_niChanged: Network.setArgument("--ni", focus_ni, Net.Focus);
 
     property real focus_vmin: 10;
-    onFocus_vminChanged: Network.setArgument("--vmin", focus_vmin, Network.Focus);
+    onFocus_vminChanged: Network.setArgument("--vmin", focus_vmin, Net.Focus);
 
     property real focus_vmax: 100;
-    onFocus_vmaxChanged: Network.setArgument("--vmax", focus_vmax, Network.Focus);
+    onFocus_vmaxChanged: Network.setArgument("--vmax", focus_vmax, Net.Focus);
 
     property real focus_px: 0;
-    onFocus_pxChanged: Network.setArgument("--px", focus_px, Network.Focus);
+    onFocus_pxChanged: Network.setArgument("--px", focus_px, Net.Focus);
 
     property real focus_py: 0;
-    onFocus_pyChanged: Network.setArgument("--py", focus_py, Network.Focus);
+    onFocus_pyChanged: Network.setArgument("--py", focus_py, Net.Focus);
 
     Behavior on implicitWidth { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
 

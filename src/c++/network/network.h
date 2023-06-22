@@ -57,27 +57,12 @@ namespace Networking
             FeedbackSocket* feedbackSocket;         //! @var Pointer to feedback socket instance.
             TCPSocket* tcpSocket;                   //! @var Pointer to tcp-ip socket instance.
 
-            //! @brief   Starts telemetry socket with given parameters
-            //! @param   request_address - IPv4 address and port for requests.
-            //! @param   recv_address - IPv4 address and port for receiving telemetry.
-            //! @param   frequency - interval between incoming packages in seconds.
-            //! @details Can be invoked from QML.
-            //! @example startTelemetrySocket("192.168.1.47:9955", "192.168.1.10:10337", 0.1);
-            Q_INVOKABLE void startTelemetrySocket(const QString& request_address, const QString& recv_address, float frequency);
+            Q_INVOKABLE void begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,
+                                   float telemetry_frequency,
+                                   const QString& execd_addr, const QString& feedback_addr,
+                                   const QString& tcp_lfs_addr, const QString& udp_lfs_addr) noexcept;
 
-            //! @brief   Stops telemetry socket.
-            //! @details Can be invoked from QML.
-            Q_INVOKABLE void stopTelemetrySocket();
-
-            //! @brief   Starts execd and feedback sockets with given parameters
-            //! @param   execd_address - IPv4 address and port for requests.
-            //! @param   feedback_address - IPv4 address and port for feedback (stdout and stderr).
-            //! @details Can be invoked from QML.
-            Q_INVOKABLE void startExecdSocket(const QString& execd_address, const QString& feedback_address);
-
-            //! @brief   Stops execd and feedback sockets.
-            //! @details Can be invoked from QML.
-            Q_INVOKABLE void stopExecdSocket();
+            Q_INVOKABLE void stop() noexcept;
 
             //! @brief   Executes built-in execd command.
             //! @details If command relies on argument list (e.g. focus, telescopic, strip),
@@ -109,13 +94,6 @@ namespace Networking
             //! @details Can be invoked from QML.
             //! @example setArgument("-v", QVariant::fromValue(159.0f), Networking::Enums::Focus);
             Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
-
-            //! @brief   Starts TCP-IP LFS socket at given address.
-            //! @details Can be invoked from QML.
-            Q_INVOKABLE void startTCPSocket(const QString& address);
-
-            //! @brief   Stops TCP-IP socket.
-            Q_INVOKABLE void stopTCPSocket();
 
             [[nodiscard]] Telemetry* telemetry() const; void setTelemetry(Telemetry*);
             [[nodiscard]] RemoteData* remoteData() const; void setRemoteData(RemoteData*);

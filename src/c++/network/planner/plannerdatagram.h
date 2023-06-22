@@ -18,46 +18,46 @@
 
 namespace Networking
 {
-    //! @struct Стуктура добавления точки в полётное задание. Сериализована в Big Endian.
+    //! @brief Структура добавления точки в полётное задание. Сериализована в Big Endian.
     struct PlannerAppendDatagram
     {
-        uint32_t marker;    //! @variable Маркер датаграмы. Всегда равен 0x55DD55DD.
-        uint16_t id;        //! @variable Номер точки для планировщика от 0 до UINT16_MAX. Точка будет перезаписана, если номер не уникален.
-        uint16_t r;         //! @variable Радиус зоны, в которой будет срабатывать задание планировщика (в м).
-        uint32_t ip;        //! @variable IP-адрес для обратной связи в hex-виде (см. utils/netutils.h++).
-        uint16_t port;      //! @variable Порт для обратной связи.
-        double lat;         //! @variable Широта точки в WGS-84 (в градусах).
-        double lon;         //! @variable Долгота точки в WGS-84 (в градусах).
-        uint16_t cnt;       //! @variable Количество срабатывания события в точке перед ее удалением от 0 до UINT16_MAX.
-        uint16_t len;       //! @variable Количество байт в command.
-        QByteArray command; //! @variable Команда для выполнения в точке в формате execd.
-                            //! @example  $some_script(arg1, arg2, arg3)  ; для этой команды len = 30.
+        uint32_t marker;    //!< Маркер датаграмы. Всегда равен 0x55DD55DD.
+        uint16_t id;        //!< Номер точки для планировщика от 0 до \c UINT16_MAX. Точка будет перезаписана, если номер не уникален.
+        uint16_t r;         //!< Радиус зоны, в которой будет срабатывать задание планировщика (в м).
+        uint32_t ip;        //!< IP-адрес для обратной связи в hex-виде.
+        uint16_t port;      //!< Порт для обратной связи.
+        double lat;         //!< Широта точки в WGS-84 (в градусах).
+        double lon;         //!< Долгота точки в WGS-84 (в градусах).
+        uint16_t cnt;       //!< Количество срабатывания события в точке перед ее удалением от 0 до \c UINT16_MAX.
+        uint16_t len;       //!< Количество байт в #command.
+        QByteArray command; //!< Команда для выполнения в точке в формате \b execd.
+                            // $some_script(arg1, arg2, arg3)  ; для этой команды len = 30.
 
         friend QDataStream& operator << (QDataStream& dataStream, const PlannerAppendDatagram& data);
         friend QDataStream& operator >> (QDataStream& dataStream, PlannerAppendDatagram& data);
     };
 
-    //! @struct Стуктура удаления точки из полётного задания. Сериализована в Big Endian.
+    //! @brief Структура удаления точки из полётного задания. Сериализована в Big Endian.
     struct PlannerRemoveDatagram
     {
-        uint32_t marker;    //! @variable Маркер датаграмы. Всегда равен 0x55DD55DD.
-        uint16_t id;        //! @variable Номер точки для удаления.
-        uint16_t r = 0;     //! @variable Всегда равен 0.
-        double lat = 0;     //! @variable Всегда равен 0.
-        double lon = 0;     //! @variable Всегда равен 0.
-        uint16_t cnt = 0;   //! @variable Всегда равен 0.
-        uint16_t len = 0;   //! @variable Всегда равен 0.
+        uint32_t marker;    //!< Маркер датаграмы. Всегда равен \c 0x55DD55DD.
+        uint16_t id;        //!< Номер точки для удаления.
+        uint16_t r = 0;     //!< Всегда равен 0.
+        double lat = 0;     //!< Всегда равен 0.
+        double lon = 0;     //!< Всегда равен 0.
+        uint16_t cnt = 0;   //!< Всегда равен 0.
+        uint16_t len = 0;   //!< Всегда равен 0.
 
         friend QDataStream& operator << (QDataStream& dataStream, const PlannerRemoveDatagram& data);
         friend QDataStream& operator >> (QDataStream& dataStream, PlannerRemoveDatagram& data);
     };
 
-    //! @struct Стуктура ответа на прохождение БПЛА через точку из полётного задания. Сериализована в Big Endian.
+    //! @brief Структура ответа на прохождение БПЛА через точку из полётного задания. Сериализована в Big Endian.
     struct PlannerResponseDatagram
     {
-        uint32_t marker;    //! @variable Маркер датаграмы. Всегда равен 0x55CC55CC.
-        uint16_t id;        //! @variable Номер точки.
-        uint16_t cnt;       //! @variable Актуальное значение счетчика времени жизни точки.
+        uint32_t marker;    //!< Маркер датаграмы. Всегда равен \c 0x55CC55CC.
+        uint16_t id;        //!< Номер точки.
+        uint16_t cnt;       //!< Актуальное значение счетчика времени жизни точки.
 
         friend QDataStream& operator << (QDataStream& dataStream, const PlannerResponseDatagram& data);
         friend QDataStream& operator >> (QDataStream& dataStream, PlannerResponseDatagram& data);

@@ -8,7 +8,6 @@
 
 #include <QtCore/QObject>
 
-//! @brief Пространство имен для работы с сетевыми подключениями к РЛС.
 namespace Networking
 {
     //! @brief Класс-обёртка для общих перечислений пространства имён #Networking.

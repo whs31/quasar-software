@@ -14,7 +14,7 @@
 
 class QTimer;
 
-//! @namespace Namespace for network-related classes.
+//! @brief Пространство имен для работы с сетевыми подключениями к РЛС.
 namespace Networking
 {
     class TelemetrySocket;
@@ -177,7 +177,7 @@ namespace Networking
             [[nodiscard]] float tcpProgress() const; void setTcpProgress(float);
             [[nodiscard]] bool recording() const; void setRecording(bool);
 
-        signals:
+            signals:
                 void telemetryChanged();
                 void remoteDataChanged();
                 void networkDelayChanged();

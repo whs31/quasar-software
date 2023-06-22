@@ -9,10 +9,9 @@ class QProcess;
 
 using std::vector;
 
-//! @namespace Namespace network-related classes.
 namespace Networking
 {
-    //! @class Class for checking connection to
+    //! @brief Class for checking connection to
     //!        specified IPv4 address via ICMP.
     class Pinger : public QObject
     {

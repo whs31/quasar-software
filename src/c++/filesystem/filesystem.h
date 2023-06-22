@@ -3,11 +3,10 @@
 #include <QtCore/QObject>
 #include <QtCore/QList>
 
-//! @namespace Namespace for working with OS-specific
-//!            data and filesystems.
+//! @brief Пространство имен для работы с файловой системой ОС.
 namespace OS
 {
-    //! @class Class, providing access to filesystem
+    //! @brief Class, providing access to filesystem
     //!        operations and cache manipulation.
     class Filesystem : public QObject
     {
@@ -21,7 +20,7 @@ namespace OS
             //!          cache directory.
             //! @details Ignores occurences, already present in model.
             //!          Can be invoked from QML.
-            //! @sa      Emits imageListCached() - signal, which holds
+            //! @note      Emits imageListCached() - signal, which holds
             //!          list of filenames, marked for processing.
             Q_INVOKABLE bool fetchImageDirectory();
 
@@ -29,9 +28,9 @@ namespace OS
             //!          TCP-IO cache directory.
             //! @details Ignores occurences, already present in model.
             //!          Can be invoked from QML.
-            //! @sa      Emits imageListCached() - signal, which holds
+            //! @note      Emits imageListCached() - signal, which holds
             //!          list of filenames, marked for processing.
-            //! @note    (WIP) Replaces occurence, found in model.
+            //! @warning    (WIP) Replaces occurence, found in model.
             Q_INVOKABLE void fetchTCPCache();
 
             public slots:

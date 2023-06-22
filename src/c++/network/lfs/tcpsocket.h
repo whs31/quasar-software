@@ -6,16 +6,14 @@ class QTcpServer;
 class QTcpSocket;
 class QTimer;
 
-//! @namespace Namespace for network-related classes.
 namespace Networking
 {
-    //! @class TCP-IP LFS data socket.
+    //! @brief TCP-IP LFS data socket.
     class TCPSocket : public QObject
     {
         Q_OBJECT
 
-        //! @var Constant timeout for TCP connection break.
-        constexpr static uint32_t TCP_TIMEOUT = 10'000;
+        constexpr static uint32_t TCP_TIMEOUT = 10'000; // @FIXME to ICFG
 
         public:
             //! @brief Constructs a new TCPSocket object with

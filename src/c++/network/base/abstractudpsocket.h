@@ -3,12 +3,10 @@
 #include <QtCore/QByteArray>
 #include <QtNetwork/QUdpSocket>
 
-//! @namespace Namespace network-related classes.
 namespace Networking
 {
-    //! @class Class, which serves as base for all
+    //! @brief Class, which serves as base for all
     //!        UDP sockets.
-    //! @extends QUdpSocket.
     class AbstractUDPSocket : public QUdpSocket
     {
         Q_OBJECT
@@ -19,12 +17,11 @@ namespace Networking
 
             //! @brief   Connects to given IPv4 address and port.
             //! @param   address - IPv4 address with port.
-            //! @example connect("192.168.1.151:25565);
-            //! @details Can be invoked from QML.
+            //! @note Can be invoked from QML.
             Q_INVOKABLE virtual bool connect(const QString& address);
 
             //! @brief   Disconnects from current session.
-            //! @details Can be invoked from QML.
+            //! @note Can be invoked from QML.
             Q_INVOKABLE virtual void disconnect();
 
             //! @brief Sends given QByteArray to socket.

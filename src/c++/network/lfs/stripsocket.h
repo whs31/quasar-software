@@ -14,6 +14,8 @@ namespace Networking
             void start(const QString& address);
             void stop();
 
+            void setStripStatus(bool status) noexcept;
+
             signals:
                 void textReceived(QByteArray text);
                 void diskSpaceReceived(long free, long total);
@@ -21,5 +23,8 @@ namespace Networking
         private:
             private slots:
                 void processResult(QByteArray data);
+
+        private:
+            bool m_stripstatus;
     };
 } // namespace Network;

@@ -10,6 +10,7 @@
 #include "execd/execdargumentlist.h"
 #include "execd/feedbacksocket.h"
 #include "lfs/tcpsocket.h"
+#include "lfs/stripsocket.h"
 #include "gui/terminal/vt100terminal.h"
 #include "utils/ping.h"
 #include "utils/vt100parser.h"
@@ -87,7 +88,7 @@ void Network::begin(const QString& telemetry_request_addr, const QString& teleme
     execdSocket->start(execd_addr);
     feedbackSocket->start(feedback_addr);
     tcpSocket->startServer(tcp_lfs_addr);
-    // @TODO
+    stripSocket->start(udp_lfs_addr);
 }
 
 void Network::stop() noexcept
@@ -96,7 +97,7 @@ void Network::stop() noexcept
     execdSocket->stop();
     feedbackSocket->stop();
     tcpSocket->stopServer();
-    // @TODO
+    stripSocket->stop();
     this->setNetworkDelay(100);
 }
 
@@ -202,6 +203,8 @@ void Network::setRecording(bool other) {
         return;
     m_recording = other;
     emit recordingChanged();
+
+    stripSocket->setStripStatus(recording());
 }
 
 }

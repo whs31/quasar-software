@@ -12,6 +12,7 @@
 #include "ping.h"
 #include "gui/terminal/vt100terminal.h"
 #include "utils/vt100parser.h"
+#include "utils/commonutils.h"
 
 namespace Networking
 {
@@ -145,6 +146,8 @@ void Network::setArgument(const QString& key, const QVariant& value, Enums::Argu
         default: qCritical() << "[NETWORK] Invalid category for argument provided"; break;
         }
 }
+
+QString Network::stringifyIP(const QString& ip, const QString& port) noexcept { return utils::host_to_string(ip, port); }
 
 Telemetry* Network::telemetry() const { return m_telemetry; }
 void Network::setTelemetry(Telemetry* other) {

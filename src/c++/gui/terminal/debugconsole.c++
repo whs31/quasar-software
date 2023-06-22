@@ -48,12 +48,19 @@ void DebugConsole::sim()
 void DebugConsole::connect()
 {
     qInfo() << "$ [CONSOLE] Trying to connect through console...";
-    //Networking::Network::get()->begin(CONFIG(telemetryPort))
+    Networking::Network::get()->begin(Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(telemetryPort)),
+                                      Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(telemetryRecvPort)),
+                                      CONFIG(telemetryFrequency),
+                                      Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(execdPort)),
+                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(feedbackPort)),
+                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)),
+                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)));
 }
 
 void DebugConsole::disconnect()
 {
     qInfo() << "$ [CONSOLE] Disconnecting through console...";
+    Networking::Network::get()->stop();
 }
 
 } // GUI

@@ -95,6 +95,8 @@ namespace Networking
             //! @example setArgument("-v", QVariant::fromValue(159.0f), Networking::Enums::Focus);
             Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
 
+            Q_INVOKABLE static QString stringifyIP(const QString& ip, const QString& port) noexcept;
+
             [[nodiscard]] Telemetry* telemetry() const; void setTelemetry(Telemetry*);
             [[nodiscard]] RemoteData* remoteData() const; void setRemoteData(RemoteData*);
             [[nodiscard]] float networkDelay() const; void setNetworkDelay(float);

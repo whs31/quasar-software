@@ -68,13 +68,13 @@ Rectangle {
                     Network.stop();
                 else
                 {
-                    Network.begin(Config.remoteIP + ":" + Config.telemetryPort,
-                                  Config.remoteIP + ":" + Config.telemetryRecvPort,
+                    Network.begin(Network.stringifyIP(Config.remoteIP, Config.telemetryPort),
+                                  Network.stringifyIP(Config.remoteIP, Config.telemetryRecvPort),
                                   Config.telemetryFrequency,
-                                  Config.remoteIP + ":" + Config.execdPort,
-                                  Config.localIP + ":" + Config.feedbackPort,
-                                  Config.localIP + ":" + Config.tcpLFSPort,
-                                  Config.localIP + ":" + Config.udpLFSPort
+                                  Network.stringifyIP(Config.remoteIP, Config.execdPort),
+                                  Network.stringifyIP(Config.localIP, Config.feedbackPort),
+                                  Network.stringifyIP(Config.localIP, Config.tcpLFSPort),
+                                  Network.stringifyIP(Config.localIP, Config.udpLFSPort)
                     );
                     Network.executeCommand(Net.RemoteStorageStatus);
                     timeout = true;

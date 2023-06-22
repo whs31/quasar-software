@@ -3,7 +3,7 @@
 #include <QtCore/QProcess>
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
-#include "netenums.h"
+#include "network/netenums.h"
 
 namespace Networking
 {
@@ -42,9 +42,9 @@ void Pinger::stop() noexcept { t->stop(); }
 void Pinger::ping()
 {
     #ifdef Q_OS_WIN
-    ch->start("ping", QStringList("-t") << QString(addr) );
+        ch->start("ping", QStringList("-t") << QString(addr) );
     #else
-    ch->start("ping", QStringList() << QString(addr) );
+        ch->start("ping", QStringList() << QString(addr) );
     #endif
     qDebug().noquote() << "[PING] Starting ping at" << addr;
 }
@@ -54,9 +54,9 @@ void Pinger::recv()
     auto data = ch->readAll();
     bool success = false;
     #ifdef Q_OS_WIN
-    success = data.contains("TTL=");
+        success = data.contains("TTL=");
     #else
-    success = data.contains("time=");
+        success = data.contains("time=");
     #endif
 
     emit result(success ? (int)Enums::PingStatus::Success : (int)Enums::PingStatus::Timeout);

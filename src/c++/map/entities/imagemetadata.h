@@ -1,3 +1,10 @@
+/*!
+ *  @file imagemetadata.h
+ *  @author Dmitry Ryazancev
+ *  @date 22.06.2023
+ *  @copyright Radar-MMS 2023
+ */
+
 #pragma once
 
 #include <cstdint>

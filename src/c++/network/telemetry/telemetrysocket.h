@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/abstractudpsocket.h"
+#include "network/base/abstractudpsocket.h"
 
 class QTimer;
 

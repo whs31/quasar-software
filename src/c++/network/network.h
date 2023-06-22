@@ -1,8 +1,14 @@
+/*!
+ *  @file network.h
+ *  @author Dmitry Ryazancev
+ *  @date 22.06.2023
+ *  @copyright Radar-MMS 2023
+ */
+
 #pragma once
 
 #include <QtCore/QObject>
-#include <LPVL/Global>
-#include "netenums.h"
+#include "network/netenums.h"
 #include "telemetry/telemetry.h"
 #include "execd/remotedata.h"
 
@@ -15,86 +21,150 @@ namespace Networking
     class ExecdSocket;
     class FeedbackSocket;
     class TCPSocket;
+    class StripSocket;
     class Pinger;
 
-    //! @class Class-factory for common network
-    //!        operations.
+    /*!
+     *  @brief Класс-синглтон, отвечающий за связь с РЛС.
+     *  @details Фабричный класс, регулирующий инстанциирование и запуск
+     *  объектов сокетов TCP и UDP. Класс предоставляет функции для чтения
+     *  и записи аргументов формирования, проверки доступности соединения и
+     *  прямого управления сокетами. Также предоставляет указатели на хранилища
+     *  данных (телеметрии и общих данных РЛС).
+     *  Для отладочной информации класс предоставляет в виде сигналов метрики каждого дочернего сокета.
+     *  @note Класс необходимо зарегистрировать как \c singletonInstance для доступа к нему из QML.
+     */
     class Network : public QObject
     {
         Q_OBJECT
 
-        //! @defgroup Properties
-        //! @{
-        //! @property Holds pointer to telemetry storage.
+        /*!
+         *  @property telemetry
+         *  @brief Указатель на хранилище телеметрии.
+         *  @details Свойство возвращает указатель на класс Telemetry.
+         *  @par %telemetry(), setTelemetry(), telemetryChanged()
+         *
+         *  @property remoteData
+         *  @brief Указатель на хранилище информации об РЛС.
+         *  @details Свойство возвращает указатель на класс RemoteData.
+         *  @par %remoteData(), setRemoteData(), remoteDataChanged()
+         *
+         *  @property networkDelay
+         *  @brief Предоставляет текущую задержку в получении пакетов.
+         *  @details Свойство хранит задержку между пакетами, которая
+         *  учитывается в свойстве #connected. Задержка измеряется в
+         *  секундах.
+         *  @par %networkDelay(), setNetworkDelay(), networkDelayChanged()
+         *
+         *  @property tcpProgress
+         *  @brief Предоставляет текущее состояние загрузчика TCP-IP.
+         *  @details Свойство хранит текущий прогресс загрузки пакета
+         *  данных по сокету TCP-IP. Диапазон значений - от 0 до 100.
+         *  @par %tcpProgress(), setTcpProgress(), tcpProgressChanged()
+         *
+         *  @property connected
+         *  @brief Предоставляет информацию о статусе соединения.
+         *  @details Свойство хранит текущий статус соединения в виде \c int,
+         *  где: 0 - полностью отключенно, 1 - частичное соединение и 2 - подключено
+         *  к РЛС.
+         *  @par %connected(), setConnected(), connectedChanged()
+         */
+
         Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
-        //! @property Holds pointer to remote data storage.
         Q_PROPERTY(RemoteData* remoteData READ remoteData WRITE setRemoteData NOTIFY remoteDataChanged)
-        //! @property Network delay in seconds from last received packet.
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
-        //! @property TCP-IP package loading progress value.
         Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
-        //! @property Connection state. 2 means fully connected, 0 means fully unconnected.
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
-        //! @}
 
-        //! @var Constant threshold for connection indicator.
-        //!      Connection status will be changed to unconnected if
-        //!      network delay will exceed threshold.
         constexpr static float DISCONNECT_DELAY_THRESHOLD = 10.0f;
-
-        //! @var Constant threshold for connection problems indicator.
         constexpr static float SEMICONNECT_DELAY_THRESHOLD = 3.0f;
-
-        //! @var How often (in seconds) ping command will be executed.
         constexpr static float PING_INTERVAL = 5.0f;
 
         public:
-            //! @brief Returns singleton instance of class.
+            //! @brief Возвращает указатель на статический экземпляр класса.
             static Network* get();
 
-            TelemetrySocket* telemetrySocket;       //! @var Pointer to telemetry socket instance.
-            ExecdSocket* execdSocket;               //! @var Pointer to execd socket instance.
-            FeedbackSocket* feedbackSocket;         //! @var Pointer to feedback socket instance.
-            TCPSocket* tcpSocket;                   //! @var Pointer to tcp-ip socket instance.
+            TelemetrySocket* telemetrySocket;       //!< Указатель на объект сокета телеметрии (сервис \b navd2 на РЛС).
+            ExecdSocket* execdSocket;               //!< Указатель на объект сокета команд РЛС (сервис \b execd на РЛС).
+            FeedbackSocket* feedbackSocket;         //!< Указатель на объект сокета обратной связи (поток \b stdout с РЛС).
+            TCPSocket* tcpSocket;                   //!< Указатель на объект сокета TCP-IP (сервис \b fsend на РЛС).
+            StripSocket* stripSocket;               //!< Указатель на объект сокета полосовых данных.
 
+            /*!
+             * @brief Производит попытку подключения к РЛС.
+             * @details Функция запускает все дочерние сокеты с выбранными
+             * параметрами и адресами.
+             * @param telemetry_request_addr - IP-адрес для запросов телеметрии в формате \c 192.168.1.0:5555.
+             * @param telemetry_recv_addr - IP-адрес для получения телеметрии.
+             * @param telemetry_frequency - интервал в секундах между пакетами телеметрии.
+             * @param execd_addr - IP-адрес для команд в сервис \b Execd на РЛС.
+             * @param feedback_addr - IP-адрес для приема потока \b stdout с РЛС.
+             * @param tcp_lfs_addr - IP-адрес для сервера TCP-IP.
+             * @param udp_lfs_addr - IP-адрес для сокета полосовых изображений.
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE void begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,
                                    float telemetry_frequency,
                                    const QString& execd_addr, const QString& feedback_addr,
                                    const QString& tcp_lfs_addr, const QString& udp_lfs_addr) noexcept;
 
+            /*!
+             * @brief Производит отключение от РЛС.
+             * @details Функция останавливает все дочерние сокеты и устанавливает
+             * состояние подключения и задержку.
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE void stop() noexcept;
 
-            //! @brief   Executes built-in execd command.
-            //! @details If command relies on argument list (e.g. focus, telescopic, strip),
-            //!          arguments will be automatically calculated from ExecdArgumentList.
-            //!          More info in documentation for ExecdArgumentList and functions
-            //!          setArgument(...), argument(...).
-            //! @details Can be invoked from QML.
-            //! @example executeCommand(Networking::Enums::FormImage);
+            /*!
+             * @brief Выполняет встроенную команду сервиса \b execd.
+             * @details Функция посылает в сервис \b execd выбранную встроенную
+             * команду из списка команд (см. #Networking::Enums). Если команда
+             * требует дополнительных аргументов, то они будут добавлены автоматически.
+             * @param command - выбранная команда.
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE void executeCommand(const Networking::Enums::NetworkCommand command) noexcept;
 
-            //! @brief   Wraps and tries to execute any custom string command.
-            //! @details Can be invoked from QML.
-            //! @example executeCommand("$clear_storage()");
+            /*!
+             * @brief Выполняет произвольную команду сервиса \b execd.
+             * @details Функция конвертирует выбранную строку в команду
+             * сервиса \b execd и отправляет ее на РЛС. Если команда валидна,
+             * то она будет выполнена.
+             * @param string - строка для выполнения.
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE void executeString(const QString& string) noexcept;
 
-            //! @brief   Returns argument from ArgumentList instance.
-            //! @param   key - argument key (e.g. "--x0").
-            //! @param   category - category of argument (Form, Focus, Reform).
-            //! @returns QString argument.
-            //! @details Can be invoked from QML.
-            //! @example argument("--e0", Networking::Enums::Form);
+            /*!
+             * @brief Возвращает аргумент из списка сервиса \b execd.
+             * @details Функция возвращает константный аргумент по заданному ключу
+             * и категории аргументов.
+             * @param key - ключ (например, "--x0").
+             * @param category - категория аргумента (см. #Enums::ArgumentCategory).
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE QString argument(const QString& key, Networking::Enums::ArgumentCategory category = Enums::Form) const noexcept;
 
-            //! @brief   Sets argument in ArgumentList instance.
-            //! @param   key - argument key (e.g. "--x0".
-            //! @param   value - QVariant-value. Will be automatically casted
-            //!          to QString internally.
-            //! @param   category - category of argument, same as argument(...) function.
-            //! @details Can be invoked from QML.
-            //! @example setArgument("-v", QVariant::fromValue(159.0f), Networking::Enums::Focus);
+            /*!
+             * @brief Устанавливает аргумент из списка сервиса \b execd.
+             * @details Функция устанавливает выбранный аргумент в приватный список
+             * аргументов сервиса \b execd и выбранную категорию. Значение аргумента
+             * будет автоматически приведено к корректному виду (\c int, \c float, \c string).
+             * @param key - ключ (например, "--x0").
+             * @param value - новое значение аргумента.
+             * @param category - категория аргумента (см. #Enums::ArgumentCategory).
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
 
+            /*!
+             * @brief Конвертирует IP-адрес и порт в общую строку.
+             * @param ip - IP-адрес (например, "192.168.1.10").
+             * @param port - порт в виде строки (например, "9955").
+             * @return Строка с IP-адресом и портом (например, "192.168.1.10:9955").
+             * @note Может быть вызвана из QML через мета-объектную систему.
+             */
             Q_INVOKABLE static QString stringifyIP(const QString& ip, const QString& port) noexcept;
 
             [[nodiscard]] Telemetry* telemetry() const; void setTelemetry(Telemetry*);
@@ -110,13 +180,21 @@ namespace Networking
                 void connectedChanged();
                 void tcpProgressChanged();
 
-                //! @group Metrics
-                //! @details Provides stringified data, packet size and direction.
-                void telemetrySocketMetrics(const QString& data, int size_bytes, bool out); //! @ingroup Metrics
-                void execdSocketMetrics(const QString& data, int size_bytes, bool out);     //! @ingroup Metrics
-                void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);  //! @ingroup Metrics
-                void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);        //! @ingroup Metrics
-                void stripSocketMetrics(const QString msg, int size_bytes, bool out);       //! @ingroup Metrics
+                /*!
+                 *  @brief Метрики сокетов.
+                 *  @details Группа сигналов, предоставляющих отладочную информацию
+                 *  о данных, проходящих через сокет в обоих направлениях.
+                 *  @param data - данные, приведенные к виду строки.
+                 *  @param size_bytes - размер данных в байтах.
+                 *  @param out - направление движения данных: \c true означает выходной поток, \c false - входной.
+                 *  @{
+                 */
+                void telemetrySocketMetrics(const QString& data, int size_bytes, bool out);
+                void execdSocketMetrics(const QString& data, int size_bytes, bool out);
+                void feedbackSocketMetrics(const QString& data, int size_bytes, bool out);
+                void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
+                void stripSocketMetrics(const QString msg, int size_bytes, bool out);
+                //! @}
 
         private:
             explicit Network(QObject* parent = nullptr);

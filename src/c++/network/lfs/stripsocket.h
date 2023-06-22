@@ -4,14 +4,12 @@
 
 namespace Networking
 {
-    class FeedbackSocket : public AbstractUDPSocket
+    class StripSocket : public AbstractUDPSocket
     {
         Q_OBJECT
 
-        constexpr static const char* STORAGE_STATUS_MARKER = "*FREE_DISK_SPACE*";
-
         public:
-            explicit FeedbackSocket(QObject* parent = nullptr);
+            explicit StripSocket(QObject* parent = nullptr);
 
             void start(const QString& address);
             void stop();

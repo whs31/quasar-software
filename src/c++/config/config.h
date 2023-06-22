@@ -1,3 +1,10 @@
+/*!
+ *  @file config.h
+ *  @author Dmitry Ryazancev
+ *  @date 22.06.2023
+ *  @copyright Radar-MMS 2023
+ */
+
 #pragma once
 
 #include <QtCore/QObject>
@@ -39,48 +46,34 @@ namespace Config
      */
     class Config : public QObject
     {
-        Q_OBJECT
-
-        /*! 
+        /*!
          *  @property remoteIP
          *  @brief IPv4-адрес РЛС (DE10-NANO).
          *  @details Это свойство используется для сокета телеметрии и сокета \b Execd.
          *  По умолчанию, свойство возвращает \c 127.0.0.1 (localhost).
          *  @par %remoteIP(), setRemoteIP(), remoteIPChanged()
-         */
-        Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
-        
-        /*! 
+         *
          *  @property localIP
          *  @brief IPv4-адрес компьютера, на котором установлено приложение.
          *  @details Это свойство используется для сокета обратной связи, \b TCP-IP LFS
          *  сокета и \b UDP LFS сокета.
          *  По умолчанию, свойство возвращает \c 127.0.0.1 (localhost).
          *  @par %localIP(), setLocalIP(), localIPChanged()
-         */
-        Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
-        
-        /*! 
+         *
          *  @property jetsonIP
          *  @brief IPv4-адрес вычислителя Jetson Xavier.
          *  @details В настоящее время это свойство используется только для проверки
          *  доступности соединения с вычислителем.
          *  По умолчанию, свойство возвращает \c 192.168.1.48.
          *  @par %jetsonIP(), setJetsonIP(), jetsonIPChanged()
-         */
-        Q_PROPERTY(QString jetsonIP READ jetsonIP WRITE setJetsonIP NOTIFY jetsonIPChanged)
-
-        /*! 
+         *
          *  @property navIP
          *  @brief IPv4-адрес бортовой навигации.
          *  @details В настоящее время это свойство используется только для проверки
          *  доступности соединения с навигационным модулем на борту.
          *  По умолчанию, свойство возвращает \c 192.168.1.49.
          *  @par %navIP(), setNavIP(), navIPChanged()
-         */
-        Q_PROPERTY(QString navIP READ navIP WRITE setNavIP NOTIFY navIPChanged)
-
-        /*! 
+         *
          *  @property utl1IP
          *  @brief Зарезервированный IPv4-адрес.
          *  @details В настоящее время это свойство используется только для проверки
@@ -88,10 +81,7 @@ namespace Config
          *  эт свойство будет хранить адрес коммутатора антенн.
          *  По умолчанию, свойство возвращает \c 192.168.1.50.
          *  @par %utl1IP(), setUtl1IP(), utl1IPChanged()
-         */
-        Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
-
-        /*! 
+         *
          *  @property utl2IP
          *  @brief Зарезервированный IPv4-адрес.
          *  @details В настоящее время это свойство используется только для проверки
@@ -99,30 +89,21 @@ namespace Config
          *  эт свойство будет хранить адрес коммутатора питания.
          *  По умолчанию, свойство возвращает \c 192.168.1.51.
          *  @par %utl2IP(), setUtl2IP(), utl2IPChanged()
-         */
-        Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
-
-        /*! 
+         *
          *  @property telemetryPort
          *  @brief Порт для запросов телеметрии.
          *  @details Этот порт используется для подключения к сервису \b navd2 на РЛС и
          *  отправки запроса на телеметрию. Порт должен использоваться в паре с #remoteIP.
          *  По умолчанию, свойство возвращает \c 9955.
          *  @par %telemetryPort(), setTelemetryPort(), telemetryPortChanged()
-         */
-        Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
-
-        /*! 
+         *
          *  @property telemetryRecvPort
          *  @brief Порт для входящих пакетов телеметрии.
          *  @details Определяет, какой порт будет использоваться для связи с сервисом \b navd2
          *  на РЛС и получаться входящие пакеты телеметрии. Порт должен быть использован в паре с #localIP.
          *  По умолчанию, свойство возвращает \c 10337.
          *  @par %telemetryRecvPort(), setTelemetryRecvPort(), telemetryRecvPortChanged()
-         */
-        Q_PROPERTY(QString telemetryRecvPort READ telemetryRecvPort WRITE setTelemetryRecvPort NOTIFY telemetryRecvPortChanged)
-
-        /*! 
+         *
          *  @property tcpLFSPort
          *  @brief Порт для сервера TCP-IP, используемого сервисом \b fsend на РЛС.
          *  @details TCP-IP сервер будет запущен на этом порте.
@@ -131,10 +112,7 @@ namespace Config
          *  Порт должен быть использован в паре с #localIP.
          *  По умолчанию, свойство возвращает \c 10000.
          *  @par %tcpLFSPort(), setTcpLFSPort(), tcpLFSPortChanged()
-         */
-        Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
-
-        /*! 
+         *
          *  @property udpLFSPort
          *  @brief Порт для сервера UDP, используемого сервисом \b fsend на РЛС.
          *  @details Сервис \b fsend на РЛС будет подключаться к этому порту, когда РЛС будет готова
@@ -143,10 +121,7 @@ namespace Config
          *  По умолчанию, свойство возвращает \c 48455.
          *  @warning Functionality of UDP LFS server is currently \b not implemented.
          *  @par %udpLFSPort(), setUdpLFSPort(), udpLFSPortChanged()
-         */
-        Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
-
-        /*! 
+         *
          *  @property execdPort
          *  @brief Порт для сервиса \b execd на РЛС.
          *  @details Свойство определяет, в какой порт приложение будет отправлять команды для
@@ -154,10 +129,7 @@ namespace Config
          *  Порт должен быть использован в паре с #remoteIP.
          *  По умолчанию, свойство возвращает \c 9845.
          *  @par %execdPort(), setExecdPort(), execdPortChanged()
-         */
-        Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
-
-        /*! 
+         *
          *  @property feedbackPort
          *  @brief Порт для сервиса \b execd на РЛС.
          *  @details Свойство определяет, в какой порт будет перенаправляться вывод stdout/stderr
@@ -165,20 +137,14 @@ namespace Config
          *  Порт должен быть использован в паре с #localIP.
          *  По умолчанию, свойство возвращает \c 9846.
          *  @par %feedbackPort(), setFeedbackPort(), feedbackPortChanged()
-         */
-        Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
-
-        /*! 
+         *
          *  @property telemetryFrequency
          *  @brief Интервал между пакетами телеметрии.
          *  @details Определяет, с каким интервалом (в секундах) сервис \b navd2 на РЛС будет
          *  отправлять пакеты с телеметрией на компьютер с приложением..
          *  По умолчанию, свойство возвращает \c 0.1 (сек).
          *  @par %telemetryFrequency(), setTelemetryFrequency(), telemetryFrequencyChanged()
-         */
-        Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
-
-        /*! 
+         *
          *  @property proxyEnabled
          *  @brief Свойство совместимости, переопределяющее флаг \b --remote.
          *  @details Если свойство равняется \c true, то #localIP во флаге \b --remote
@@ -187,10 +153,7 @@ namespace Config
          *  По умолчанию, свойство возвращает \c false.
          *  @warning Реализация удалена в версии приложения \b 2.0.
          *  @par %proxyEnabled(), setProxyEnabled(), proxyEnabledChanged()
-         */
-        Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
-
-        /*! 
+         *
          *  @property tcpMarker
          *  @brief Свойство совместимости со старыми версиями сервиса \b fsend.
          *  @details Определяет, какой символ будет использоваться для разделения
@@ -198,20 +161,14 @@ namespace Config
          *  В текущей реальности может равняться \c NULL или \c NEWLINE.
          *  По умолчанию, свойство возвращает \c \0 (NULL).
          *  @par %tcpMarker(), setTcpMarker(), tcpMarkerChanged()
-         */
-        Q_PROPERTY(QString tcpMarker READ tcpMarker WRITE setTcpMarker NOTIFY tcpMarkerChanged)
-
-        /*! 
+         *
          *  @property antennaAlignment
          *  @brief Свойство, определяющее, на какой стороне борта установленна антенна.
          *  @details Если свойство равняется \c true, приложение будет считать, что
          *  антенна установлена на правой стороне борта.
          *  По умолчанию, свойство возвращает \c false (слева).
          *  @par %antennaAlignment(), setAntennaAlignment(), antennaAlignmentChanged()
-         */
-        Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
-
-        /*! 
+         *
          *  @property angleCorrection
          *  @brief Отладочное свойство для коррекции азимута РЛИ.
          *  @details Свойство описывает, на сколько градусов будет скорректирован азимут из
@@ -221,10 +178,7 @@ namespace Config
          *  коррекции из редактора изображений для каждого изображения. Установка значения этого
          *  свойства на любые значения, отличные от нуля, может привести к некорректной геопривязке.
          *  @par %angleCorrection(), setAngleCorrection(), angleCorrectionChanged()
-         */
-        Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
-
-        /*! 
+         *
          *  @property useRadians
          *  @brief Свойство совместимости для старых версий прошивки.
          *  @details Если свойство равняется \c true, процесс декодирования метаданных изображения
@@ -233,10 +187,7 @@ namespace Config
          *  этой настройки, если результат геопривязки некорректен.
          *  По умолчанию, свойство возвращает \c true.
          *  @par %useRadians(), setUseRadians(), useRadiansChanged()
-         */
-        Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
-
-        /*! 
+         *
          *  @property useDriftAngle
          *  @brief Свойство совместимости для старых версий прошивки.
          *  @details Если свойство равняется \c true, процесс декодирования метаданных изображения
@@ -245,20 +196,14 @@ namespace Config
          *  этой настройки, если результат геопривязки некорректен.
          *  По умолчанию, свойство возвращает \c true.
          *  @par %useDriftAngle(), setUseDriftAngle(), useDriftAngleChanged()
-         */
-        Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
-
-        /*! 
+         *
          *  @property thetaAzimuthCorrection
          *  @brief Отладочное свойство для коррекции угла расхождения диаграммы РЛИ.
          *  @details Свойство определяет, на сколько градусов будет уменьшен угол
          *  расхождения диаграммы направленности из метаданных РЛИ при его обрезке.
          *  По умолчанию, свойство возвращает \c 5 (тета-азимут диаграммы уменьшен на 5 градусов).
          *  @par %thetaAzimuthCorrection(), setThetaAzimuthCorrection(), thetaAzimuthCorrectionChanged()
-         */
-        Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
-
-        /*! 
+         *
          *  @property overrideImageHeight
          *  @brief Отладочное свойство для коррекции пиксельной высоты РЛИ.
          *  @details Если свойство равняется \c true, поле --ly из метаданных будет заменено
@@ -268,10 +213,7 @@ namespace Config
          *  некорректной обрезке изображения по диаграмме направленности. Это может измениться
          *  в будущих версиях прошивки РЛС.
          *  @par %overrideImageHeight(), setOverrideImageHeight(), overrideImageHeightChanged()
-         */
-        Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
-
-        /*! 
+         *
          *  @property cutImage
          *  @brief Отладочное свойство, регулирующее обрезку РЛИ по диаграмме.
          *  @details Если свойство равняется \c true, к любым найденным и полученным
@@ -279,37 +221,23 @@ namespace Config
          *  (только для телескопических РЛИ).
          *  По умолчанию, свойство возвращает \c true (cutting enabled).
          *  @par %cutImage(), setCutImage(), cutImageChanged()
-         */
-        Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
-
-        /*! 
+         *
          *  @property storedLatitude
          *  @brief Приватное свойство для сохранения состояния карты между сессиями.ns.
          *  @par %storedLatitude(), setStoredLatitude(), storedLatitudeChanged()
-         */
-        Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
-
-        /*! @property storedLongitude
+         *
+         *  @property storedLongitude
          *  @brief Приватное свойство для сохранения состояния карты между сессиями.
          *  @par %storedLongitude(), setStoredLongitude(), storedLongitudeChanged()
-         */
-        Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
-
-        /*! 
+         *
          *  @property storedZoomLevel
          *  @brief Приватное свойство для сохранения состояния карты между сессиями.
          *  @par %storedZoomLevel(), setStoredZoomLevel(), storedZoomLevelChanged()
-         */
-        Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
-
-        /*! 
+         *
          *  @property storedCatalogue
          *  @brief Приватное свойство, хранящее каталог с оффлайн-изображениями из прошлой сессии.
          *  @par %storedCatalogue(), setStoredCatalogue(), storedCatalogueChanged()
-         */
-        Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
-
-        /*! 
+         *
          *  @property theme
          *  @brief Выбранная цветовая схема приложения.
          *  @details В данный момент может быть \c nord или \c contrast.
@@ -318,6 +246,35 @@ namespace Config
          *  По умолчанию, свойство возвращает \c contrast.
          *  @par %theme(), setTheme(), themeChanged()
          */
+
+        Q_OBJECT
+
+        Q_PROPERTY(QString remoteIP READ remoteIP WRITE setRemoteIP NOTIFY remoteIPChanged)
+        Q_PROPERTY(QString localIP READ localIP WRITE setLocalIP NOTIFY localIPChanged)
+        Q_PROPERTY(QString jetsonIP READ jetsonIP WRITE setJetsonIP NOTIFY jetsonIPChanged)
+        Q_PROPERTY(QString navIP READ navIP WRITE setNavIP NOTIFY navIPChanged)
+        Q_PROPERTY(QString utl1IP READ utl1IP WRITE setUtl1IP NOTIFY utl1IPChanged)
+        Q_PROPERTY(QString utl2IP READ utl2IP WRITE setUtl2IP NOTIFY utl2IPChanged)
+        Q_PROPERTY(QString telemetryPort READ telemetryPort WRITE setTelemetryPort NOTIFY telemetryPortChanged)
+        Q_PROPERTY(QString telemetryRecvPort READ telemetryRecvPort WRITE setTelemetryRecvPort NOTIFY telemetryRecvPortChanged)
+        Q_PROPERTY(QString tcpLFSPort READ tcpLFSPort WRITE setTcpLFSPort NOTIFY tcpLFSPortChanged)
+        Q_PROPERTY(QString udpLFSPort READ udpLFSPort WRITE setUdpLFSPort NOTIFY udpLFSPortChanged)
+        Q_PROPERTY(QString execdPort READ execdPort WRITE setExecdPort NOTIFY execdPortChanged)
+        Q_PROPERTY(QString feedbackPort READ feedbackPort WRITE setFeedbackPort NOTIFY feedbackPortChanged)
+        Q_PROPERTY(float telemetryFrequency READ telemetryFrequency WRITE setTelemetryFrequency NOTIFY telemetryFrequencyChanged)
+        Q_PROPERTY(bool proxyEnabled READ proxyEnabled WRITE setProxyEnabled NOTIFY proxyEnabledChanged)
+        Q_PROPERTY(QString tcpMarker READ tcpMarker WRITE setTcpMarker NOTIFY tcpMarkerChanged)
+        Q_PROPERTY(bool antennaAlignment READ antennaAlignment WRITE setAntennaAlignment NOTIFY antennaAlignmentChanged)
+        Q_PROPERTY(float angleCorrection READ angleCorrection WRITE setAngleCorrection NOTIFY angleCorrectionChanged)
+        Q_PROPERTY(bool useRadians READ useRadians WRITE setUseRadians NOTIFY useRadiansChanged)
+        Q_PROPERTY(bool useDriftAngle READ useDriftAngle WRITE setUseDriftAngle NOTIFY useDriftAngleChanged)
+        Q_PROPERTY(float thetaAzimuthCorrection READ thetaAzimuthCorrection WRITE setThetaAzimuthCorrection NOTIFY thetaAzimuthCorrectionChanged)
+        Q_PROPERTY(bool overrideImageHeight READ overrideImageHeight WRITE setOverrideImageHeight NOTIFY overrideImageHeightChanged)
+        Q_PROPERTY(bool cutImage READ cutImage WRITE setCutImage NOTIFY cutImageChanged)
+        Q_PROPERTY(double storedLatitude READ storedLatitude WRITE setStoredLatitude NOTIFY storedLatitudeChanged)
+        Q_PROPERTY(double storedLongitude READ storedLongitude WRITE setStoredLongitude NOTIFY storedLongitudeChanged)
+        Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
+        Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
         Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
 
         public:
@@ -499,3 +456,4 @@ namespace Config
             QString m_telemetryRecvPort;
     };
 } // namespace Config;
+

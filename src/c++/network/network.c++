@@ -8,9 +8,9 @@
 #include "execd/execdsocket.h"
 #include "execd/execdargumentlist.h"
 #include "execd/feedbacksocket.h"
-#include "tcpsocket.h"
-#include "ping.h"
+#include "lfs/tcpsocket.h"
 #include "gui/terminal/vt100terminal.h"
+#include "utils/ping.h"
 #include "utils/vt100parser.h"
 #include "utils/commonutils.h"
 

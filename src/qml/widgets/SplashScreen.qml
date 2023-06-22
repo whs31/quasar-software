@@ -2,9 +2,15 @@ import QtQuick 2.15
 import Theme 1.0
 
 Rectangle {
+    property bool smooth_startup: true;
     enabled: true;
-    opacity: enabled ? 1 : 0;
+    opacity: enabled ? smooth_startup ? 0 : 1 : 0;
     color: Theme.color("dark0");
+
+    Component.onCompleted: {
+        smooth_startup = true;
+        smooth_startup = false;
+    }
 
     Behavior on opacity { NumberAnimation { duration: 300; easing.type: Easing.InOutQuad; } }
 
@@ -14,6 +20,6 @@ Rectangle {
         anchors.centerIn: parent;
         source: "qrc:/logo/logo_large_gray.png";
 
-        NumberAnimation on rotation { from: 180; to: 0; easing.type: Easing.InOutQuad; running: true; duration: 800; }
+        NumberAnimation on rotation { from: 270; to: 0; easing.type: Easing.InOutSine; running: true; duration: 800; }
     }
 }

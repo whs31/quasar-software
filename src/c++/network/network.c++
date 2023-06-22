@@ -30,6 +30,7 @@ Network::Network(QObject* parent)
     , m_network_delay_timer(new QTimer(this))
     , m_networkDelay(ICFG<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
     , m_connected(0)
+    , m_recording(false)
     , m_de10ping(new Pinger(this))
     , m_jetsonping(new Pinger(this))
     , m_navping(new Pinger(this))
@@ -193,6 +194,14 @@ void Network::setTcpProgress(float other) {
         return;
     m_tcpProgress = other;
     emit tcpProgressChanged();
+}
+
+bool Network::recording() const { return m_recording; }
+void Network::setRecording(bool other) {
+    if (m_recording == other)
+        return;
+    m_recording = other;
+    emit recordingChanged();
 }
 
 }

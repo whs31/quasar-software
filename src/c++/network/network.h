@@ -68,6 +68,12 @@ namespace Networking
          *  где: 0 - полностью отключенно, 1 - частичное соединение и 2 - подключено
          *  к РЛС.
          *  @par %connected(), setConnected(), connectedChanged()
+         *
+         *  @property recording
+         *  @brief Предоставляет состояние полосовой съемки.
+         *  @details Если свойство равняется \c true, то в данный момент РЛС
+         *  ведет съемку полосового изображения.
+         *  @par %recording(), setRecording(), recordingChanged()
          */
 
         Q_PROPERTY(Telemetry* telemetry READ telemetry WRITE setTelemetry NOTIFY telemetryChanged)
@@ -75,6 +81,7 @@ namespace Networking
         Q_PROPERTY(float networkDelay READ networkDelay WRITE setNetworkDelay NOTIFY networkDelayChanged)
         Q_PROPERTY(float tcpProgress READ tcpProgress WRITE setTcpProgress NOTIFY tcpProgressChanged)
         Q_PROPERTY(int connected READ connected WRITE setConnected NOTIFY connectedChanged)
+        Q_PROPERTY(bool recording READ recording WRITE setRecording NOTIFY recordingChanged)
 
         public:
             //! @brief Возвращает указатель на статический экземпляр класса.
@@ -168,13 +175,15 @@ namespace Networking
             [[nodiscard]] float networkDelay() const; void setNetworkDelay(float);
             [[nodiscard]] int connected() const; void setConnected(int);
             [[nodiscard]] float tcpProgress() const; void setTcpProgress(float);
+            [[nodiscard]] bool recording() const; void setRecording(bool);
 
-            signals:
+        signals:
                 void telemetryChanged();
                 void remoteDataChanged();
                 void networkDelayChanged();
                 void connectedChanged();
                 void tcpProgressChanged();
+                void recordingChanged();
 
                 /*!
                  *  @brief Метрики сокетов.
@@ -212,5 +221,6 @@ namespace Networking
             float m_networkDelay;
             int m_connected;
             float m_tcpProgress;
+            bool m_recording;
     };
 } // namespace Network;

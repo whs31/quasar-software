@@ -22,17 +22,24 @@ void FeedbackSocket::stop()
 
 void FeedbackSocket::processResult(QByteArray data)
 {
-    QString dataString = data.data();
-    if(dataString.contains(STORAGE_STATUS_MARKER))
+    try
     {
-        dataString.remove(STORAGE_STATUS_MARKER);
-        dataString.remove(0, 1);
+        QString dataString = data;
+        if(dataString.contains(STORAGE_STATUS_MARKER))
+        {
+            dataString.remove(STORAGE_STATUS_MARKER);
+            dataString.remove(0, 1);
 
-        qDebug().noquote() << "[SAR] Received storage status: " << dataString;
+            qDebug().noquote() << "[SAR] Received storage status: " << dataString;
 
-        emit diskSpaceReceived(dataString.split(' ', Qt::SkipEmptyParts).first().toLong(),
-                               dataString.split(' ', Qt::SkipEmptyParts).last().toLong());
+            emit diskSpaceReceived(dataString.split(' ', Qt::SkipEmptyParts).first().toLong(),
+                                   dataString.split(' ', Qt::SkipEmptyParts).last().toLong());
+        }
+
+        emit textReceived(data);
     }
-
-    emit textReceived(data);
+    catch(...)
+    {
+        qCritical() << "[FEEDBACK] Exception at parsing result";
+    }
 }

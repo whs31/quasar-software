@@ -206,6 +206,8 @@ namespace Networking
             Network(const Network &);
             Network &operator=(const Network &);
 
+            void processFeedback(QByteArray) noexcept;
+
         private:
             QTimer* m_network_delay_timer;
 

@@ -16,7 +16,7 @@ Pane { id: control;
     opacity: root.vt100termshown ? 1 : 0;
 
     Behavior on opacity { NumberAnimation { duration: 300; } }
-    Material.background: Theme.color("dark0");
+    Material.background: Qt.darker(Theme.color("dark0"), 1.2);
     Material.elevation: 200;
 
     Pane { id: header;
@@ -124,10 +124,11 @@ Pane { id: control;
             Text {
                 text: message;
                 font.family: root.monofont;
-                color: Theme.color("light0");
+                color: text.charAt(0) === "%" ? Theme.color("color3")
+                                              : Theme.color("light0");
                 font.bold: true;
-                font.pixelSize: 14;
-                textFormat: Text.RichText;
+                font.pixelSize: 15;
+                textFormat: Text.StyledText;
             }
         }
 

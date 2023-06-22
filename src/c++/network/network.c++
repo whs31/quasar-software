@@ -50,9 +50,7 @@ Network::Network(QObject* parent)
     QObject::connect(execdSocket, &ExecdSocket::ping, this, [this](){ setNetworkDelay(0); });
     QObject::connect(execdSocket, &ExecdSocket::socketMetrics, this, &Network::execdSocketMetrics);
     QObject::connect(feedbackSocket, &FeedbackSocket::socketMetrics, this, &Network::feedbackSocketMetrics);
-    QObject::connect(feedbackSocket, &FeedbackSocket::textReceived, this, [this](const QString& data){
-        GUI::VT100Terminal::get()->append(data);
-    });
+    QObject::connect(feedbackSocket, &FeedbackSocket::textReceived, this, &Network::processFeedback);
     QObject::connect(feedbackSocket, &FeedbackSocket::diskSpaceReceived, this, [this](long free, long total) {
         float space = free / (float)total;
         remoteData()->setStorageSpace(space);
@@ -78,7 +76,25 @@ Network::Network(QObject* parent)
         setArgument("--e0", telemetry()->seaLevel(), Enums::Form);
         setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
         setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
-    });
+                     });
+    }
+
+void Network::processFeedback(QByteArray data) noexcept
+{
+    QString tstr = data;
+    QList<QString> ls;
+    const int SPLIT_LENGTH = 70;
+    while(tstr.length() > SPLIT_LENGTH)
+    {
+        ls.push_back(tstr.left(SPLIT_LENGTH));
+        tstr.remove(0, SPLIT_LENGTH);
+    }
+
+    if(ls.empty())
+        GUI::VT100Terminal::get()->append(utils::parse_vt100_string(tstr).result);
+    else
+        for(const auto& line : ls)
+            GUI::VT100Terminal::get()->append(utils::parse_vt100_string(line).result);
 }
 
 void Network::begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr, float telemetry_frequency,
@@ -128,7 +144,11 @@ void Network::executeCommand(const Networking::Enums::NetworkCommand command) no
     execdSocket->executeCommand(command);
 }
 
-void Network::executeString(const QString &string) noexcept { execdSocket->executeCommand(string); }
+void Network::executeString(const QString &string) noexcept
+{
+    GUI::VT100Terminal::get()->append("% Выполняется " + string);
+    execdSocket->executeCommand(string);
+}
 QString Network::argument(const QString& key, Enums::ArgumentCategory category) const noexcept
 {
     switch (category)

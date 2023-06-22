@@ -6,13 +6,6 @@ Networking::utils::vt100_result_t Networking::utils::parse_vt100_string(const QS
     vt100_result_t ret;
     ret.result = string;
 
-    QRegExp regex("\\033\\[\\d+D");
-    if(string.contains(regex))
-    {
-        ret.result.remove(regex);
-        ret.move_up = true;
-        ret.return_carriage = true;
-    }
 
     return ret;
 }

@@ -15,8 +15,8 @@
 #include <LPVL/Math>
 #include <LPVL/Crypto>
 #include <CCL/Geomath>
-#include "map/imagemodel.h"
-#include "map/stripmodel.h"
+#include "map/models/imagemodel.h"
+#include "map/models/stripmodel.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "config/internalconfig.h"

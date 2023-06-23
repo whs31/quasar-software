@@ -1,7 +1,10 @@
 #include "terminalbase.h"
+#include <mutex>
 
 namespace GUI
 {
+
+  std::mutex locker;
 
   TerminalBase::TerminalBase(QObject* parent)
     : QAbstractListModel(parent)
@@ -21,7 +24,7 @@ namespace GUI
   QVariant TerminalBase::data(const QModelIndex& index, int role) const
   {
     if(not index.isValid())
-      return QVariant();
+      return {};
 
     switch (role)
     {
@@ -55,16 +58,20 @@ namespace GUI
 
   void TerminalBase::append(const QString& message, const QString& module, MessageType type)
   {
+    locker.lock();
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     storage.push_back({message, module, type});
     endInsertRows();
+    locker.unlock();
   }
 
   void TerminalBase::clear()
   {
+    locker.lock();
     beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
     storage.clear();
     endRemoveRows();
+    locker.unlock();
   }
 
 } // GUI

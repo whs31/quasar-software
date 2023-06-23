@@ -49,8 +49,6 @@ namespace OS
       Filesystem(const Filesystem&);
       Filesystem& operator=(const Filesystem&);
 
-      bool checkOcurrence(QString target_folder, QString filename);
-
       QList<QString> fetchBinaryList(const QString& path);
   };
 } // namespace OS;

@@ -2,7 +2,6 @@
 #include "config/config.h"
 #include "config/paths.h"
 #include "processing/imageprocessing.h"
-#include "map/imagemodel.h"
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>
@@ -105,18 +104,6 @@ void Filesystem::exportImagesToFolder(const QList<QString>& ls, const QString& f
     QFile::copy(img, dest);
     qDebug() << "$ [FILESYSTEM] Image" << img << "exported as" << dest;
   }
-}
-
-bool Filesystem::checkOcurrence(QString target_folder, QString filename)
-{
-  QStringList initial_file_list;
-  QDir initial_directory(target_folder, {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
-                         QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
-  for(const QString& str : initial_directory.entryList())
-    if(str == filename)
-      return true;
-
-  return false;
 }
 
 QList<QString> Filesystem::fetchBinaryList(const QString& path)

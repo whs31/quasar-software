@@ -3,7 +3,7 @@
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QVector>
 #include <QtPositioning/QGeoCoordinate>
-#include "entities/image.h"
+#include "map/entities/image.h"
 
 namespace Map
 {

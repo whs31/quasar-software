@@ -2,7 +2,7 @@
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>
 #include <QtGui/QClipboard>
-#include "markermodel.h"
+#include "map/models/markermodel.h"
 
 namespace Map
 {

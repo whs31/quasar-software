@@ -1,13 +1,14 @@
 #pragma once
 
+#include <QtCore/QObject>
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QVector>
 #include <QtPositioning/QGeoCoordinate>
-#include "entities/image.h"
+#include "map/entities/marker.h"
 
 namespace Map
 {
-  class StripModel : public QAbstractListModel
+  class MarkerModel : public QAbstractListModel
   {
     Q_OBJECT
 
@@ -15,42 +16,32 @@ namespace Map
       enum ModelRoles
       {
         Index = Qt::UserRole + 1,
-        Filename,
         Latitude,
         Longitude,
-        Azimuth,
-        LX,
-        LY,
-        DX,
-        Valid,
-        LOD1FilePath,
-        LOD0FilePath,
-        Transparency,
-        Shown,
-        MercatorZoomLevel,
-        MarkedForExport
+        MarkerName,
+        MarkerColor,
+        MarkerIcon
       };
 
-      explicit StripModel(QObject* parent = nullptr);
+      explicit MarkerModel(QObject* parent = nullptr);
 
       int rowCount(const QModelIndex& parent = QModelIndex()) const override;
       QVariant data(const QModelIndex& index, int role) const override;
       bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-      void add(const StripImage& image);
+      Q_INVOKABLE void add(const Map::Marker& image);
       Q_INVOKABLE void remove(int index);
       Q_INVOKABLE void clear();
-      Q_INVOKABLE bool exportSelectedImages(const QString& target) noexcept;
-
-      QVector<StripImage>* direct();
 
     signals:
-      void markedForExport(const QList<QString>& abs_paths, const QString& folder);
+      void added();
 
     protected:
       QHash<int, QByteArray> roleNames() const override;
 
     private:
-      QVector<StripImage> storage;
+      QVector<Marker> storage;
   };
-} // Map
+} // namespace Map;
+
+Q_DECLARE_METATYPE(Map::MarkerModel*)

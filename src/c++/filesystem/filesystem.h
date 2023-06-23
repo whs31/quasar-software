@@ -51,6 +51,6 @@ namespace OS
 
       bool checkOcurrence(QString target_folder, QString filename);
 
-      QList<QString> fetchBinaryList();
+      QList<QString> fetchBinaryList(const QString& path);
   };
 } // namespace OS;

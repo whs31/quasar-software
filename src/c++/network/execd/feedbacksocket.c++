@@ -1,4 +1,5 @@
 #include "feedbacksocket.h"
+#include "config/networkconfig.h"
 
 namespace Networking
 {
@@ -26,9 +27,9 @@ namespace Networking
     try
     {
       QString dataString = data;
-      if(dataString.contains(STORAGE_STATUS_MARKER))
+      if(dataString.contains(NETCFG("STDOUT_STORAGE_STATUS")))
       {
-        dataString.remove(STORAGE_STATUS_MARKER);
+        dataString.remove(NETCFG("STDOUT_STORAGE_STATUS"));
         dataString.remove(0, 1);
 
         qDebug().noquote() << "[SAR] Received storage status: " << dataString;

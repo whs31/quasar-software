@@ -9,12 +9,6 @@ namespace Networking
   class ExecdSocket : public UDPSocketBase
   {
     Q_OBJECT
-      constexpr static const char* COMMAND_TELESCOPIC = "$telescopic";
-      constexpr static const char* COMMAND_START_STRIP = "$strip_start";
-      constexpr static const char* COMMAND_STOP_STRIP = "$strip_stop";
-      constexpr static const char* COMMAND_FOCUS = "$focus";
-      constexpr static const char* COMMAND_STORAGE_STATUS = "$storage_status()";
-      constexpr static const char* COMMAND_CLEAR_STORAGE = "$clear_storage()";
 
     public:
       explicit ExecdSocket(QObject* parent = nullptr);

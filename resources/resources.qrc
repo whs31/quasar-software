@@ -91,5 +91,6 @@
         <file>logo/logo_large_gray.png</file>
         <file>logo/logo_large_orange.png</file>
         <file>json/constants.json</file>
+        <file>json/network.json</file>
     </qresource>
 </RCC>

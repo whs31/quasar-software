@@ -3,6 +3,7 @@
 #include <QtCore/QFile>
 #include <LPVL/Crypto>
 #include "config/paths.h"
+#include "config/networkconfig.h"
 #include "execdargumentlist.h"
 
 namespace Networking
@@ -41,25 +42,25 @@ namespace Networking
     switch(command)
     {
       case Enums::FormImage:
-        com = finalize(wrap(COMMAND_TELESCOPIC + args->getFormArguments()));
+        com = finalize(wrap(NETCFG("EXECD_FORM_TELESCOPIC") + args->getFormArguments()));
         break;
       case Enums::FocusImage:
-        com = finalize(wrap(COMMAND_FOCUS + args->getFocusArguments()));
+        com = finalize(wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getFocusArguments()));
         break;
       case Enums::ReformImage:
-        com = finalize(wrap(COMMAND_TELESCOPIC + args->getReformArguments()));
+        com = finalize(wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getReformArguments()));
         break;
       case Enums::RemoteStorageStatus:
-        com = finalize(wrap(COMMAND_STORAGE_STATUS));
+        com = finalize(wrap(NETCFG("EXECD_STORAGE_FETCH")));
         break;
       case Enums::ClearRemoteStorage:
-        com = finalize(wrap(COMMAND_CLEAR_STORAGE));
+        com = finalize(wrap(NETCFG("EXECD_STORAGE_CLEAR")));
         break;
       case Enums::StartStrip:
-        com = finalize(wrap(COMMAND_START_STRIP + args->getFormArguments()));
+        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_START") + args->getFormArguments()));
         break;
       case Enums::StopStrip:
-        com = finalize(wrap(COMMAND_STOP_STRIP));
+        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_STOP")));
         break;
       case Enums::Reboot:
       {

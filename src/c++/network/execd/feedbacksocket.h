@@ -8,8 +8,6 @@ namespace Networking
   {
     Q_OBJECT
 
-      constexpr static const char* STORAGE_STATUS_MARKER = "*FREE_DISK_SPACE*";
-
     public:
       explicit FeedbackSocket(QObject* parent = nullptr);
 

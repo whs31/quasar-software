@@ -31,6 +31,8 @@ namespace Networking
   {
     Q_OBJECT
 
+    // todo: to json.
+
       //! @brief Значения аргументов \b execd по умолчанию
       QMap<QString, ExecdArgument> defaults = {
         {"-f", ExecdArgument("m1")},            //!< Имя файла радиоголограммы без расширения.

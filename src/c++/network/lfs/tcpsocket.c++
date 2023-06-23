@@ -88,7 +88,7 @@ namespace Networking
     if(not filename.contains(".zip"))
     {
       QFile file(Config::Paths::tcp() + "/" + filename);
-      if(file.open(QIODevice::WriteOnly))
+      if(not file.open(QIODevice::WriteOnly))
       {
         qCritical() << "[TCP] Failed to save result";
         return;

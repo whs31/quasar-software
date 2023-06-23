@@ -19,8 +19,8 @@ namespace Config
 
     private:
       InternalConfig();
-      InternalConfig(const InternalConfig &);
-      InternalConfig &operator=(const InternalConfig &);
+      InternalConfig(const InternalConfig&);
+      InternalConfig& operator=(const InternalConfig&);
 
     private:
       QMap<QString, QVariant> m_values;

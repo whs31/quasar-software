@@ -19,7 +19,7 @@ Filesystem *Filesystem::get() { static Filesystem instance; return &instance; }
 bool Filesystem::fetchImageDirectory()
 {
   qDebug().noquote() << "[FILESYSTEM] Fetching images from" << CONFIG(storedCatalogue);
-  QList<QString> pass = this->fetchBinaryList();
+  QList<QString> pass = this->fetchBinaryList(CONFIG(storedCatalogue));
 
   QList<QString> path_list;
   QDir directory(CONFIG(storedCatalogue), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
@@ -54,7 +54,7 @@ void Filesystem::fetchTCPCache()
 {
   qDebug().noquote() << "[FILESYSTEM] Fetching images from" << Config::Paths::imageCache() + "/tcp";
 
-  QList<QString> pass;
+  QList<QString> pass = this->fetchBinaryList(Config::Paths::imageCache() + "/tcp");
   QList<QString> path_list;
 
   QDir directory(Config::Paths::tcp(), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
@@ -110,7 +110,8 @@ void Filesystem::exportImagesToFolder(const QList<QString>& ls, const QString& f
 bool Filesystem::checkOcurrence(QString target_folder, QString filename)
 {
   QStringList initial_file_list;
-  QDir initial_directory(target_folder, {"*.jpg"}, QDir::Name | QDir::IgnoreCase, QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
+  QDir initial_directory(target_folder, {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+                         QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
   for(const QString& str : initial_directory.entryList())
     if(str == filename)
       return true;
@@ -118,13 +119,13 @@ bool Filesystem::checkOcurrence(QString target_folder, QString filename)
   return false;
 }
 
-QList<QString> Filesystem::fetchBinaryList()
+QList<QString> Filesystem::fetchBinaryList(const QString& path)
 {
   QList<QString> ret;
-  qDebug().noquote() << "[FILESYSTEM] Fetching binaries from" << CONFIG(storedCatalogue);
+  qDebug().noquote() << "[FILESYSTEM] Fetching binaries from" << path;
 
   QList<QString> path_list;
-  QDir directory(CONFIG(storedCatalogue), {"*.bin"}, QDir::Name | QDir::IgnoreCase,
+  QDir directory(path, {"*.bin"}, QDir::Name | QDir::IgnoreCase,
                  QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
   for(const QString& filename : directory.entryList())

@@ -9,6 +9,8 @@ namespace GUI
 {
   class TerminalBase : public QAbstractListModel
   {
+    Q_OBJECT
+
     public:
       enum MessageType
       {
@@ -33,12 +35,8 @@ namespace GUI
         QString mdl;
         MessageType type;
       };
-
-    private:
-    Q_OBJECT
       Q_ENUM(MessageType)
 
-    public:
       enum ModelRoles
       {
         Index = Qt::UserRole + 1,
@@ -58,8 +56,6 @@ namespace GUI
 
     protected:
       QHash<int, QByteArray> roleNames() const override;
-
-    private:
       vector<BasicMessage> storage;
   };
 } // GUI

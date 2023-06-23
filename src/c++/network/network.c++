@@ -82,7 +82,7 @@ namespace Networking
 
   void Network::processFeedback(QByteArray data) noexcept
   {
-    GUI::VT100Terminal::get()->append(data);
+    GUI::VT100Terminal::get()->print(data);
   }
 
   void Network::begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,

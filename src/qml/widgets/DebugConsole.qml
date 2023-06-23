@@ -96,13 +96,10 @@ Pane {
 
     }
 
-    ListView {
-        id: scrollView
-
-        model: DebugConsole
-        interactive: true
-        clip: true
-        onCountChanged: scrollView.ScrollBar.vertical.position = 1
+    ListView { id: scrollView;
+        model: DebugConsole;
+        interactive: true;
+        clip: true;
 
         anchors {
             left: parent.left
@@ -133,16 +130,17 @@ Pane {
                 property var colors: [Theme.color("light0"), Theme.color("color3"), Theme.color("yellow"),
                     Theme.color("red"), Theme.color("green"), Theme.color("accent"), Theme.color("light1")]
 
-                text: message
-                font.family: root.monofont
+                width: scrollView.width;
+                text: message;
+                font.family: root.monofont;
                 color: colors[type]
                 font.bold: true
                 font.pixelSize: 12
                 textFormat: Text.RichText
             }
-
         }
 
+        onCountChanged: scrollView.ScrollBar.vertical.position = 1.0;
     }
 
     Rectangle {
@@ -161,30 +159,28 @@ Pane {
         }
 
         TextInput {
-            anchors.fill: parent
-            anchors.leftMargin: 3
-            color: Theme.color("light1")
-            text: ""
-            verticalAlignment: Text.AlignVCenter
-            selectByMouse: true
-            selectedTextColor: Theme.color("dark0")
-            selectionColor: Theme.color("yellow")
-            font.family: root.monofont
-            font.pixelSize: 13
+            anchors.fill: parent;
+            anchors.leftMargin: 3;
+            color: Theme.color("light1");
+            text: "";
+            verticalAlignment: Text.AlignVCenter;
+            selectByMouse: true;
+            selectedTextColor: Theme.color("dark0");
+            selectionColor: Theme.color("yellow");
+            font.family: root.monofont;
+            font.pixelSize: 13;
             onAccepted: {
                 DebugConsole.execute(text);
                 text = "";
             }
         }
 
-        Rectangle {
-            id: resizeButton
-
+        Rectangle { id: resizeButton;
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            width: 16
-            height: 16
-            color: Theme.color("dark1")
+            width: 16;
+            height: 16;
+            color: Theme.color("dark1");
 
             // resize window mouse area
             MouseArea {

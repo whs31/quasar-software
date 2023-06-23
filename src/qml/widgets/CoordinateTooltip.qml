@@ -20,6 +20,6 @@ Rectangle {
         color: Theme.color("light0");
         textFormat: Text.RichText;
         text: "Широта: <b>" + Theme.colorText(Number(Math.abs(latitude)).toFixed(6) + "°" + s_LatSuffix, Theme.color("red")) +
-              "</b>, долгота: <b>" + Theme.colorText(Number(Math.abs(longitude)).toFixed(6) + "°" + s_LonSuffix, Theme.color("red"));
+            "</b>, долгота: <b>" + Theme.colorText(Number(Math.abs(longitude)).toFixed(6) + "°" + s_LonSuffix, Theme.color("red"));
     }
 }

@@ -83,20 +83,7 @@ namespace Networking
 
   void Network::processFeedback(QByteArray data) noexcept
   {
-    QString tstr = data;
-    QList<QString> ls;
-    const int SPLIT_LENGTH = 70;
-    while(tstr.length() > SPLIT_LENGTH)
-    {
-      ls.push_back(tstr.left(SPLIT_LENGTH));
-      tstr.remove(0, SPLIT_LENGTH);
-    }
-
-    if(ls.empty())
-      GUI::VT100Terminal::get()->append(utils::parse_vt100_string(tstr).result);
-    else
-      for(const auto& line : ls)
-        GUI::VT100Terminal::get()->append(utils::parse_vt100_string(line).result);
+    GUI::VT100Terminal::get()->append(utils::parse_vt100_string(data).result);
   }
 
   void Network::begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,

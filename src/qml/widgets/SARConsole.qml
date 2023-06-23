@@ -123,12 +123,13 @@ Pane { id: control;
 
             Text {
                 text: message;
+                width: scrollView.width;
                 font.family: root.monofont;
                 color: text.charAt(0) === "%" ? Theme.color("color3")
                                               : Theme.color("light0");
                 font.bold: true;
                 font.pixelSize: 15;
-                textFormat: Text.StyledText;
+                wrapMode: Text.WordWrap;
             }
         }
 

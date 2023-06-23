@@ -69,7 +69,7 @@ Rectangle {
                 else
                 {
                     Network.begin(Network.stringifyIP(Config.remoteIP, Config.telemetryPort),
-                                  Network.stringifyIP(Config.remoteIP, Config.telemetryRecvPort),
+                                  Network.stringifyIP(Config.localIP, Config.telemetryRecvPort),
                                   Config.telemetryFrequency,
                                   Network.stringifyIP(Config.remoteIP, Config.execdPort),
                                   Network.stringifyIP(Config.localIP, Config.feedbackPort),

@@ -203,8 +203,8 @@ namespace Networking
 
     private:
       explicit Network(QObject* parent = nullptr);
-      Network(const Network &);
-      Network &operator=(const Network &);
+      Network(const Network&);
+      Network& operator=(const Network&);
 
       void processFeedback(QByteArray) noexcept;
 

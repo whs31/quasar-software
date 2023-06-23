@@ -6,7 +6,7 @@
 namespace Networking
 {
   class ExecdArgumentList;
-  class ExecdSocket : public AbstractUDPSocket
+  class ExecdSocket : public UDPSocketBase
   {
     Q_OBJECT
       constexpr static const char* COMMAND_TELESCOPIC = "$telescopic";

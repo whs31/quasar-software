@@ -4,15 +4,15 @@
 namespace Networking
 {
 
-  AbstractUDPSocket::AbstractUDPSocket(QObject* parent)
+  UDPSocketBase::UDPSocketBase(QObject* parent)
     : QUdpSocket{parent}
   {}
 
-  AbstractUDPSocket::~AbstractUDPSocket() { this->disconnect(); }
+  UDPSocketBase::~UDPSocketBase() { this->disconnect(); }
 
-  bool AbstractUDPSocket::connect(const QString& address)
+  bool UDPSocketBase::connect(const QString& address)
   {
-    QObject::connect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket, Qt::DirectConnection);
+    QObject::connect(this, &QUdpSocket::readyRead, this, &UDPSocketBase::readSocket, Qt::DirectConnection);
 
     if(not address.contains(":"))
     {
@@ -33,9 +33,9 @@ namespace Networking
     return this->bind(ip, port);
   }
 
-  void AbstractUDPSocket::disconnect()
+  void UDPSocketBase::disconnect()
   {
-    QObject::disconnect(this, &QUdpSocket::readyRead, this, &AbstractUDPSocket::readSocket);
+    QObject::disconnect(this, &QUdpSocket::readyRead, this, &UDPSocketBase::readSocket);
     qDebug().noquote() << "[SOCKET] Disconnecting from" << this->peerAddress();
     this->close();
     m_hostaddress.clear();
@@ -44,7 +44,7 @@ namespace Networking
     emit socketDisconnected();
   }
 
-  bool AbstractUDPSocket::send(QByteArray data)
+  bool UDPSocketBase::send(QByteArray data)
   {
     if(m_hostaddress.isNull() or m_port == 0)
     {
@@ -54,9 +54,9 @@ namespace Networking
     return this->writeDatagram(data, m_hostaddress, m_port);
   }
 
-  uint16_t AbstractUDPSocket::port() const noexcept { return m_port; }
+  uint16_t UDPSocketBase::port() const noexcept { return m_port; }
 
-  void AbstractUDPSocket::readSocket()
+  void UDPSocketBase::readSocket()
   {
     if(m_hostaddress.isNull() or m_port == 0)
     {

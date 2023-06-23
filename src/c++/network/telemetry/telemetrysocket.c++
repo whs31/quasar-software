@@ -11,7 +11,7 @@ namespace Networking
 {
 
   TelemetrySocket::TelemetrySocket(QObject* parent, Telemetry* output)
-    : AbstractUDPSocket{parent}, m_updateTimer(new QTimer(this)), output(output), m_requestsock(new QUdpSocket(this))
+    : UDPSocketBase{parent}, m_updateTimer(new QTimer(this)), output(output), m_requestsock(new QUdpSocket(this))
   {
     QObject::connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::requestTelemetry);
     QObject::connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);

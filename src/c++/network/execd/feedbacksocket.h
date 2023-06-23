@@ -4,7 +4,7 @@
 
 namespace Networking
 {
-  class FeedbackSocket : public AbstractUDPSocket
+  class FeedbackSocket : public UDPSocketBase
   {
     Q_OBJECT
 

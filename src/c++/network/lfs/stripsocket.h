@@ -4,7 +4,7 @@
 
 namespace Networking
 {
-  class StripSocket : public AbstractUDPSocket
+  class StripSocket : public UDPSocketBase
   {
     Q_OBJECT
 
@@ -21,10 +21,14 @@ namespace Networking
       void diskSpaceReceived(long free, long total);
 
     private:
+      void saveResult(const QString& path, const QByteArray& data) noexcept;
+
     private slots:
       void processResult(QByteArray data);
 
     private:
+      uint32_t m_currentindex;
+      QByteArray m_storeddata;
       bool m_stripstatus;
   };
 } // namespace Network;

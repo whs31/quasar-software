@@ -1,10 +1,14 @@
 #include "stripsocket.h"
+#include <QtCore/QFile>
+#include "config/paths.h"
+#include "filesystem/filesystem.h"
 
 namespace Networking
 {
 
   StripSocket::StripSocket(QObject* parent)
-    : AbstractUDPSocket(parent)
+    : UDPSocketBase(parent)
+    , m_currentindex(1)
     , m_stripstatus(false)
   {
     QObject::connect(this, &StripSocket::received, this, &StripSocket::processResult, Qt::DirectConnection);
@@ -27,11 +31,32 @@ namespace Networking
     if(status == m_stripstatus)
       return;
     m_stripstatus = status;
+    if(m_stripstatus == true)
+      m_storeddata.clear();
+    else
+      this->saveResult(Config::Paths::tcp() + "/striplfs_" + QString::number(m_currentindex), m_storeddata);
   }
 
   void StripSocket::processResult(QByteArray data)
   {
+    m_storeddata.push_back(data);
+    emit socketMetrics("DATA with size of " + QString::number(data.size()), data.size(), false);
+  }
 
+  void StripSocket::saveResult(const QString& path, const QByteArray& data) noexcept
+  {
+    m_currentindex++;
+    QFile file(path);
+    if(not file.open(QIODevice::WriteOnly))
+    {
+      qCritical() << "[STRIPLFS] Failed to save result";
+      return;
+    }
+
+    file.write(data);
+    file.close();
+
+    OS::Filesystem::get()->fetchTCPCache();
   }
 
 } // Networking

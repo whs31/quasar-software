@@ -7,13 +7,13 @@ namespace Networking
 {
   //! @brief Class, which serves as base for all
   //!        UDP sockets.
-  class AbstractUDPSocket : public QUdpSocket
+  class UDPSocketBase : public QUdpSocket
   {
     Q_OBJECT
 
     public:
-      explicit AbstractUDPSocket(QObject* parent = nullptr);
-      ~AbstractUDPSocket() override;
+      explicit UDPSocketBase(QObject* parent = nullptr);
+      ~UDPSocketBase() override;
 
       //! @brief   Connects to given IPv4 address and port.
       //! @param   address - IPv4 address with port.

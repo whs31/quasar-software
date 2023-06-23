@@ -7,7 +7,7 @@ class QTimer;
 namespace Networking
 {
   class Telemetry;
-  class TelemetrySocket : public AbstractUDPSocket
+  class TelemetrySocket : public UDPSocketBase
   {
     Q_OBJECT
       Q_PROPERTY(float frequency READ frequency WRITE setFrequency NOTIFY frequencyChanged)

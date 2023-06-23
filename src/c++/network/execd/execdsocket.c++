@@ -9,7 +9,7 @@ namespace Networking
 {
 
   ExecdSocket::ExecdSocket(QObject* parent)
-    : AbstractUDPSocket{parent}, args(new ExecdArgumentList(this)), message_uid(0)
+    : UDPSocketBase{parent}, args(new ExecdArgumentList(this)), message_uid(0)
   {
     QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::processResult, Qt::DirectConnection);
   }

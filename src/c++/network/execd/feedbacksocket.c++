@@ -4,7 +4,7 @@ namespace Networking
 {
 
   FeedbackSocket::FeedbackSocket(QObject* parent)
-    : AbstractUDPSocket{parent}
+    : UDPSocketBase{parent}
   {
     QObject::connect(this, &FeedbackSocket::received, this, &FeedbackSocket::processResult, Qt::DirectConnection);
   }

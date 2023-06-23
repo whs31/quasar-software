@@ -245,6 +245,13 @@ namespace Config
        *  имени темы из названия .json-файла произвольной темы.
        *  По умолчанию, свойство возвращает \c contrast.
        *  @par %theme(), setTheme(), themeChanged()
+       *
+       *  @property enableDebugStrip
+       *  @brief Открывает доступ к предварительной версии полосовой съемки.
+       *  @details Регулирует использование пробной версии полосовой съемки.
+       *  Будет удалено в будущих обновлениях.
+       *  По умолчанию, свойство возвращает \c true.
+       *  @par %enableDebugStrip(), setEnableDebugStrip(), enableDebugStripChanged()
        */
 
     Q_OBJECT
@@ -276,6 +283,7 @@ namespace Config
       Q_PROPERTY(double storedZoomLevel READ storedZoomLevel WRITE setStoredZoomLevel NOTIFY storedZoomLevelChanged)
       Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
       Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
+      Q_PROPERTY(bool enableDebugStrip READ enableDebugStrip WRITE setEnableDebugStrip NOTIFY enableDebugStripChanged)
 
     public:
       //! @brief Возвращает указатель на статический экземпляр класса.
@@ -358,6 +366,7 @@ namespace Config
       [[nodiscard]] QString utl1IP() const; void setUtl1IP(const QString&);
       [[nodiscard]] QString utl2IP() const; void setUtl2IP(const QString&);
       [[nodiscard]] QString telemetryRecvPort() const; void setTelemetryRecvPort(const QString&);
+      [[nodiscard]] bool enableDebugStrip() const; void setEnableDebugStrip(bool);
 
     signals:
       void remoteIPChanged();
@@ -388,6 +397,7 @@ namespace Config
       void utl1IPChanged();
       void utl2IPChanged();
       void telemetryRecvPortChanged();
+      void enableDebugStripChanged();
 
     private:
       explicit Config(QObject* parent = nullptr);
@@ -422,7 +432,8 @@ namespace Config
         {"thetaAzimuthCorrection", "5"},
         {"overrideImageHeight", "true"},
         {"cutImage", "true"},
-        {"theme", "contrast"}
+        {"theme", "contrast"},
+        {"enableDebugStrip", "true"}
       };
 
       QSettings* ini;
@@ -454,6 +465,7 @@ namespace Config
       QString m_utl1IP;
       QString m_utl2IP;
       QString m_telemetryRecvPort;
+      bool m_enableDebugStrip;
   };
 } // namespace Config;
 

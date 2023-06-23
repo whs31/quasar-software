@@ -45,6 +45,7 @@ void Config::Config::save()
   ini->setValue("thetaAzimuthCorrection", QSTRING_CAST(thetaAzimuthCorrection()));
   ini->setValue("overrideImageHeight", QSTRING_CAST(overrideImageHeight()));
   ini->setValue("cutImage", QSTRING_CAST(cutImage()));
+  ini->setValue("enableDebugStrip", QSTRING_CAST(enableDebugStrip()));
 
   if(ini->value("theme").toString() != theme())
     schedule_restart = true;
@@ -90,6 +91,7 @@ void Config::Config::load()
   setOverrideImageHeight(ini->value("overrideImageHeight").toBool());
   setCutImage(ini->value("cutImage").toBool());
   setTheme(ini->value("theme").toString());
+  setEnableDebugStrip(ini->value("enableDebugStrip").toBool());
 }
 
 void Config::Config::revert() { this->load(); }
@@ -343,6 +345,15 @@ namespace Config {
       return;
     m_telemetryRecvPort = other;
     emit telemetryRecvPortChanged();
+  }
+
+  bool Config::enableDebugStrip() const { return m_enableDebugStrip; }
+  void Config::setEnableDebugStrip(bool other)
+  {
+    if(m_enableDebugStrip == other)
+      return;
+    m_enableDebugStrip = other;
+    emit enableDebugStripChanged();
   }
 
 } // Config

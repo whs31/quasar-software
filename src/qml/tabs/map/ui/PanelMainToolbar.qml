@@ -46,6 +46,7 @@ Pane {
             icon.source: "qrc:/icons/google-material/take-photo.png"
             icon.color: Theme.color("dark0")
             text: mode === 0 ? "Формирование изображения" : checked ? "Остановка записи" : "Начало записи"
+            enabled: mode === 0 || !Config.enableDebugStrip
             checkable: mode === 1
             Material.elevation: 30
             Material.foreground: Theme.color("dark0")
@@ -53,7 +54,6 @@ Pane {
             onPressed: {
                 if (!checkable)
                     Network.executeCommand(Net.FormImage);
-
             }
             onCheckedChanged: {
                 if (checked) {
@@ -70,9 +70,33 @@ Pane {
                     easing.type: Easing.Linear
                     duration: 100
                 }
-
             }
+        }
 
+        RoundButton {
+            id: button_SimpleStrip
+
+            Layout.preferredHeight: 45
+            font.family: root.mainfont
+            height: 40
+            radius: 4
+            visible: Config.enableDebugStrip && width > 0
+            enabled: visible;
+            width: mode === 0 ? 0 : implicitWidth
+            icon.source: "qrc:/icons/google-material/take-photo.png"
+            icon.color: Theme.color("dark0")
+            text: "Формирование упр. полосового изображения"
+            Material.elevation: 30
+            Material.foreground: Theme.color("dark0")
+            Material.background: Theme.color("yellow")
+            onPressed: Network.executeCommand(Net.SimpleStrip)
+
+            Behavior on width {
+                NumberAnimation {
+                    easing.type: Easing.Linear
+                    duration: 200
+                }
+            }
         }
 
         ComboBox {
@@ -99,8 +123,8 @@ Pane {
             }
 
             Widgets.TT {
-                ff: root.mainfont;
-                txt: parent.descriptions[parent.currentIndex];
+                ff: root.mainfont
+                txt: parent.descriptions[parent.currentIndex]
             }
 
         }
@@ -136,6 +160,7 @@ Pane {
             }
 
         }
+
     }
 
     Behavior on implicitWidth {
@@ -143,6 +168,7 @@ Pane {
             easing.type: Easing.InOutQuad
             duration: 200
         }
+
     }
 
 }

@@ -56,6 +56,9 @@ namespace Networking
       case Enums::ClearRemoteStorage:
         com = finalize(wrap(NETCFG("EXECD_STORAGE_CLEAR")));
         break;
+      case Enums::SimpleStrip:
+        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_DEBUG") + args->getFormArguments()));
+        break;
       case Enums::StartStrip:
         com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_START") + args->getFormArguments()));
         break;

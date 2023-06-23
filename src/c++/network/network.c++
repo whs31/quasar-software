@@ -115,6 +115,9 @@ namespace Networking
       case Enums::FormImage:
         this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Form);
         break;
+      case Enums::SimpleStrip:
+        this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Form);
+        break;
       case Enums::FocusImage:
         this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Focus);
         break;

@@ -12,7 +12,6 @@
 #include "lfs/stripsocket.h"
 #include "gui/terminal/vt100terminal.h"
 #include "utils/ping.h"
-#include "utils/vt100parser.h"
 #include "utils/commonutils.h"
 
 namespace Networking
@@ -83,13 +82,13 @@ namespace Networking
 
   void Network::processFeedback(QByteArray data) noexcept
   {
-    GUI::VT100Terminal::get()->append(utils::parse_vt100_string(data).result);
+    GUI::VT100Terminal::get()->append(data);
   }
 
   void Network::begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,
                       float telemetry_frequency,
                       const QString& execd_addr, const QString& feedback_addr,
-                      const QString& tcp_lfs_addr, const QString& udp_lfs_addr) noexcept
+                      const QString& tcp_lfs_addr, const QString& udp_lfs_addr) const noexcept
   {
     telemetrySocket->setFrequency(telemetry_frequency);
     telemetrySocket->start(telemetry_request_addr, telemetry_recv_addr);
@@ -109,7 +108,7 @@ namespace Networking
     this->setNetworkDelay(100);
   }
 
-  void Network::executeCommand(const Networking::Enums::NetworkCommand command) noexcept
+  void Network::executeCommand(Networking::Enums::NetworkCommand command) const noexcept
   {
     switch(command)
     {
@@ -135,7 +134,7 @@ namespace Networking
     execdSocket->executeCommand(command);
   }
 
-  void Network::executeString(const QString &string) noexcept
+  void Network::executeString(const QString &string) const noexcept
   {
     GUI::VT100Terminal::get()->append("% Выполняется " + string);
     execdSocket->executeCommand(string);
@@ -152,7 +151,7 @@ namespace Networking
     }
   }
 
-  void Network::setArgument(const QString& key, const QVariant& value, Enums::ArgumentCategory category) noexcept
+  void Network::setArgument(const QString& key, const QVariant& value, Enums::ArgumentCategory category) const noexcept
   {
     switch (category)
     {

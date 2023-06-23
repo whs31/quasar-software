@@ -4,7 +4,6 @@
 #include <QtCore/QAbstractListModel>
 #include <QtCore/QVector>
 #include <QtPositioning/QGeoCoordinate>
-
 #include "entities/image.h"
 
 namespace Map
@@ -36,7 +35,6 @@ namespace Map
         TimeShift,
         TimeDuration,
         Mode,
-        ImageType,
         Crc16,
         Valid,
         LOD1FilePath,
@@ -53,7 +51,7 @@ namespace Map
       QVariant data(const QModelIndex& index, int role) const override;
       bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-      Q_INVOKABLE void add(const Image& image);
+      Q_INVOKABLE void add(const TelescopicImage& image);
       Q_INVOKABLE void remove(int index);
       Q_INVOKABLE void clear();
 
@@ -62,7 +60,7 @@ namespace Map
       Q_INVOKABLE QGeoCoordinate lastImagePosition();
       Q_INVOKABLE bool exportSelectedImages(const QString& target) noexcept;
 
-      QVector<Image>* direct();
+      QVector<TelescopicImage>* direct();
 
       [[nodiscard]] int totalCount() const; void setTotalCount(int);
 
@@ -75,7 +73,7 @@ namespace Map
       QHash<int, QByteArray> roleNames() const override;
 
     private:
-      QVector<Image> storage;
+      QVector<TelescopicImage> storage;
       int m_totalCount;
   };
 } // namespace Map;

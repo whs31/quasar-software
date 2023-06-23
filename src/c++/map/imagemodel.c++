@@ -6,6 +6,7 @@ namespace Map
 
   ImageModel::ImageModel(QObject* parent)
     : QAbstractListModel(parent)
+    , m_totalCount(0)
   {}
 
   QHash<int, QByteArray> ImageModel::roleNames() const
@@ -153,7 +154,7 @@ namespace Map
     return false;
   }
 
-  void ImageModel::add(const Image& image)
+  void ImageModel::add(const TelescopicImage& image)
   {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     storage.push_back(image);
@@ -237,7 +238,7 @@ namespace Map
     }
   }
 
-  QVector<Image>* ImageModel::direct()
+  QVector<TelescopicImage>* ImageModel::direct()
   { return &storage; }
 
   int ImageModel::totalCount() const

@@ -3,7 +3,6 @@
 #include <QtCore/QObject>
 #include <vector>
 #include "map/entities/image.h"
-#include "map/entities/stripimage.h"
 
 using std::vector;
 
@@ -39,10 +38,10 @@ namespace Processing
 
     public slots:
       void processList(QList<QString> list);
-      void passImage(Map::Image image);
+      void passImage(Map::TelescopicImage image);
 
     signals:
-      void processImageFinished(Map::Image image);
+      void processImageFinished(Map::TelescopicImage image);
       void processStripFinished(Map::StripImage image);
       void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
       void concurrencyFinished();
@@ -57,8 +56,8 @@ namespace Processing
       void asyncProcess(const QString& filename);
       void asyncStripProcess(const QString& filename);
       static QByteArray fileToByteArray(const QString& path);
-      Map::Image decodeTelescopic(const QString& path);
-      QImage cutImage(const Map::Image& image) noexcept;
+      Map::TelescopicImage decodeTelescopic(const QString& path);
+      QImage cutImage(const Map::TelescopicImage& image) noexcept;
 
     private:
       Map::ImageModel* m_model;

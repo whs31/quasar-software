@@ -1,7 +1,6 @@
 #include "imageprocessing.h"
 #include <cmath>
 #include <stdexcept>
-#include <string>
 #include <vector>
 #include <algorithm>
 #include <QtCore/QDebug>
@@ -34,7 +33,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
   , m_processed(0)
 {
   Config::InternalConfig::get();
-  qRegisterMetaType<Map::Image>("Map::Image");
+  qRegisterMetaType<Map::TelescopicImage>("Map::TelescopicImage");
   qRegisterMetaType<Map::StripImage>("Map::StripImage");
   qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
@@ -91,14 +90,14 @@ void ImageProcessing::processList(QList<QString> list)
 
 void ImageProcessing::asyncProcess(const QString& filename)
 {
-  Map::Image image;
+  Map::TelescopicImage image;
   try
   {
     image = decodeTelescopic(Config::Paths::lod(0) + "/" + filename);
   }
   catch(const std::runtime_error& err)
   {
-    qCritical() << "[PROCESSING] Catched exception";
+    qCritical() << "[PROCESSING] Caught exception";
     qCritical() << err.what();
     return;
   }
@@ -277,9 +276,9 @@ QByteArray ImageProcessing::fileToByteArray(const QString& path)
   return file.readAll();
 }
 
-Map::Image ImageProcessing::decodeTelescopic(const QString& path)
+Map::TelescopicImage ImageProcessing::decodeTelescopic(const QString& path)
 {
-  Map::Image image;
+  Map::TelescopicImage image;
   image.path.first = path;
   QByteArray data = fileToByteArray(image.path.first);
 
@@ -313,7 +312,7 @@ Map::Image ImageProcessing::decodeTelescopic(const QString& path)
   return image;
 }
 
-QImage ImageProcessing::cutImage(const Map::Image& image) noexcept
+QImage ImageProcessing::cutImage(const Map::TelescopicImage& image) noexcept
 {
   QImage image_data(image.path.first);
   QImage sample(image_data.width(), image_data.height(), QImage::Format_ARGB32_Premultiplied);
@@ -362,7 +361,7 @@ QImage ImageProcessing::cutImage(const Map::Image& image) noexcept
 }
 
 Map::ImageModel* ImageProcessing::model() { return this->m_model; }
-void ImageProcessing::passImage(Map::Image image) { model()->add(image); }
+void ImageProcessing::passImage(Map::TelescopicImage image) { model()->add(image); }
 
 bool ImageProcessing::exists(const QString& name)
 {

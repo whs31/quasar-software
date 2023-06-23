@@ -109,7 +109,7 @@ namespace Networking
       Q_INVOKABLE void begin(const QString& telemetry_request_addr, const QString& telemetry_recv_addr,
                              float telemetry_frequency,
                              const QString& execd_addr, const QString& feedback_addr,
-                             const QString& tcp_lfs_addr, const QString& udp_lfs_addr) noexcept;
+                             const QString& tcp_lfs_addr, const QString& udp_lfs_addr) const noexcept;
 
       /*!
        * @brief Производит отключение от РЛС.
@@ -127,7 +127,7 @@ namespace Networking
        * @param command - выбранная команда.
        * @note Может быть вызвана из QML через мета-объектную систему.
        */
-      Q_INVOKABLE void executeCommand(const Networking::Enums::NetworkCommand command) noexcept;
+      Q_INVOKABLE void executeCommand(Networking::Enums::NetworkCommand command) const noexcept;
 
       /*!
        * @brief Выполняет произвольную команду сервиса \b execd.
@@ -137,7 +137,7 @@ namespace Networking
        * @param string - строка для выполнения.
        * @note Может быть вызвана из QML через мета-объектную систему.
        */
-      Q_INVOKABLE void executeString(const QString& string) noexcept;
+      Q_INVOKABLE void executeString(const QString& string) const noexcept;
 
       /*!
        * @brief Возвращает аргумент из списка сервиса \b execd.
@@ -159,7 +159,7 @@ namespace Networking
        * @param category - категория аргумента (см. #Enums::ArgumentCategory).
        * @note Может быть вызвана из QML через мета-объектную систему.
        */
-      Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) noexcept;
+      Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, Networking::Enums::ArgumentCategory category = Enums::Form) const noexcept;
 
       /*!
        * @brief Конвертирует IP-адрес и порт в общую строку.

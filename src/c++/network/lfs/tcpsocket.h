@@ -59,7 +59,7 @@ namespace Networking
       QByteArray imageData;
 
       bool success = false;
-      [[maybe_unused]] uint8_t splitIndex = 0;
+      uint8_t splitIndex = 0;
       uint32_t fileSize = 0;
       QString filename;
   };

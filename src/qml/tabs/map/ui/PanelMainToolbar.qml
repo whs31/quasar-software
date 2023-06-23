@@ -136,39 +136,6 @@ Pane {
             }
 
         }
-
-        RoundButton {
-            id: button_ClearDisk
-
-            Layout.preferredHeight: 45
-            font.family: root.mainfont
-            height: 40
-            radius: 4
-            icon.source: "qrc:/icons/google-material/delete.png"
-            icon.color: Theme.color("dark0")
-            Material.elevation: 30
-            Material.foreground: Theme.color("dark0")
-            Material.background: Theme.color("red")
-            onPressed: dialogwindow.open("Очистка удаленного диска", "Вы уверены, что хотите очистить удаленное хранилище на РЛС?", "error", 27)
-
-            Connections {
-                function onClosed(status, uid) {
-                    if (uid === 27 && status === true) {
-                        console.log("[GUI] Clearing remote storage");
-                        Network.executeCommand(Net.ClearRemoteStorage);
-                    }
-                }
-
-                target: dialogwindow
-            }
-
-            Widgets.TT {
-                ff: root.mainfont
-                txt: "Очистить хранилище на РЛС"
-            }
-
-        }
-
     }
 
     Behavior on implicitWidth {
@@ -176,7 +143,6 @@ Pane {
             easing.type: Easing.InOutQuad
             duration: 200
         }
-
     }
 
 }

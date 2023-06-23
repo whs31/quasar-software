@@ -81,6 +81,7 @@ Pane { id: panel_Entities;
                     if(uid === 4 && status === true) {
                         console.log("[GUI] Images cleared");
                         ImagesModel.clear();
+                        StripModel.clear();
                     }
                 }
             }

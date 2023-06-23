@@ -30,6 +30,10 @@ namespace Map
   struct StripImage : public Image
   {
     QGeoCoordinate coordinate;
+    float azimuth;
+    float lx;
+    float ly;
+    float dx;
   };
 
   struct StripImageDatagram

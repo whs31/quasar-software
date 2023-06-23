@@ -1,1 +1,1 @@
-#ssh('systemctl poweroff')
+$poweroff()

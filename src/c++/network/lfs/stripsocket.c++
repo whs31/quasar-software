@@ -1,5 +1,6 @@
 #include "stripsocket.h"
 #include <QtCore/QFile>
+#include <QtCore/QDateTime>
 #include "config/paths.h"
 #include "filesystem/filesystem.h"
 
@@ -38,7 +39,9 @@ namespace Networking
     }
     else
     {
-      this->saveResult(Config::Paths::tcp() + "/striplfs_" + QString::number(m_currentindex), m_storeddata);
+      if(m_storeddata.size() > 1024)
+        this->saveResult(Config::Paths::tcp() + "/striplfs_" + QString::number(QDateTime::currentSecsSinceEpoch())
+                         + "_" + QString::number(m_currentindex), m_storeddata);
       emit socketMetrics("Finished receiving.", 0, true);
     }
   }

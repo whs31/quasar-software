@@ -1,1 +1,1 @@
-#ssh('systemctl reboot')
+$reboot()

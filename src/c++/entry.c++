@@ -14,6 +14,7 @@
 #include "map/route.h"
 #include "map/clickhandler.h"
 #include "map/imagemodel.h"
+#include "map/stripmodel.h"
 #include "map/markermodel.h"
 #include "map/entities/diagram.h"
 #include "map/tools/offlinetileloader.h"
@@ -32,6 +33,7 @@ Entry::Entry(QObject *parent)
   QML_EXPOSE_INSTANCE(Networking::Network, "Network", "Network", Networking::Network::get());
   qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
   QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
+  QML_EXPOSE_INSTANCE(Map::StripModel, "Images", "StripModel", Processing::ImageProcessing::get()->stripModel());
   QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
   QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
   QML_EXPOSE_INSTANCE(Map::OfflineTileLoader, "Offline", "TileLoader", Map::OfflineTileLoader::get());

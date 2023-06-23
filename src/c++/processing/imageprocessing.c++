@@ -16,6 +16,7 @@
 #include <LPVL/Crypto>
 #include <CCL/Geomath>
 #include "map/imagemodel.h"
+#include "map/stripmodel.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "config/internalconfig.h"
@@ -28,6 +29,7 @@ ImageProcessing* ImageProcessing::get() { static ImageProcessing instance; retur
 ImageProcessing::ImageProcessing(QObject* parent)
   : QObject{parent}
   , m_model(new Map::ImageModel(this))
+  , m_stripModel(new Map::StripModel(this))
   , m_progress(0)
   , m_total(0)
   , m_processed(0)
@@ -38,6 +40,7 @@ ImageProcessing::ImageProcessing(QObject* parent)
   qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
   connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage, Qt::QueuedConnection);
+  connect(this, &ImageProcessing::processStripFinished, this, &ImageProcessing::passStrip, Qt::QueuedConnection);
   connect(this, &ImageProcessing::concurrencyFinished, this, [this](){
     m_processed++;
     this->setProgress((float)m_processed / (float)m_total);
@@ -139,6 +142,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 {
   const int MAX_PACKAGE_SIZE = ICFG<int>("PROCESSING_STRIP_PACKAGE_MAX_SIZE");
   Map::StripImage image;
+  image.filename = filename;
   image.path.first = Config::Paths::lod(0) + "/" + filename;
   QByteArray file = fileToByteArray(image.path.first);
 
@@ -180,6 +184,10 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     if(not navigation_read)
     {
       image.coordinate = { nav.latitude, nav.longitude };
+      image.azimuth = nav.track_ang;
+      image.lx = img.nx;
+      image.ly = img.ny;
+      image.dx = img.dx;
       navigation_read = true;
     }
 
@@ -190,7 +198,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
       fmatrix.push_back( (float)buf[i] * img.k);
   }
 
-  // эти значения нужно пересчитывать каждый раз при выводе матрицы на экран
+  // Эти значения нужно пересчитывать каждый раз при выводе матрицы на экран
   // лучше сделать вычисление максимального значения рекуррентно,
   // т.к. с ростом матрицы многократно увеличится объем обработки и будет lag
   const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
@@ -262,6 +270,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
   emit concurrencyFinished();
+  emit passStrip(image);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -361,11 +370,22 @@ QImage ImageProcessing::cutImage(const Map::TelescopicImage& image) noexcept
 }
 
 Map::ImageModel* ImageProcessing::model() { return this->m_model; }
+Map::StripModel* ImageProcessing::stripModel() { return this->m_stripModel; }
 void ImageProcessing::passImage(Map::TelescopicImage image) { model()->add(image); }
+void ImageProcessing::passStrip(Map::StripImage image) { stripModel()->add(image); }
 
 bool ImageProcessing::exists(const QString& name)
 {
-  for(const Map::Image &image : *model()->direct())
+  for(const Map::Image& image : *model()->direct())
+  {
+    if(image.filename == name)
+      return true;
+
+    if(image.filename.chopped(4) == name.chopped(4))
+      return true;
+  }
+
+  for(const Map::StripImage& image : *stripModel()->direct())
   {
     if(image.filename == name)
       return true;

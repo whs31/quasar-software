@@ -9,6 +9,7 @@ using std::vector;
 namespace Map
 {
   class ImageModel;
+  class StripModel;
 } // Map
 
 class QImage;
@@ -30,6 +31,7 @@ namespace Processing
       static ImageProcessing* get();
 
       Map::ImageModel* model();
+      Map::StripModel* stripModel();
 
       bool exists(const QString& name);
       int indexFrom(const QString& name) noexcept;
@@ -39,6 +41,7 @@ namespace Processing
     public slots:
       void processList(QList<QString> list);
       void passImage(Map::TelescopicImage image);
+      void passStrip(Map::StripImage image);
 
     signals:
       void processImageFinished(Map::TelescopicImage image);
@@ -61,6 +64,7 @@ namespace Processing
 
     private:
       Map::ImageModel* m_model;
+      Map::StripModel* m_stripModel;
       float m_progress;
       int m_total;
       int m_processed;

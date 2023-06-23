@@ -9,40 +9,40 @@
 
 namespace Map
 {
-    class MarkerModel : public QAbstractListModel
-    {
-        Q_OBJECT
+  class MarkerModel : public QAbstractListModel
+  {
+    Q_OBJECT
 
-        public:
-            enum ModelRoles
-            {
-                Index = Qt::UserRole + 1,
-                Latitude,
-                Longitude,
-                MarkerName,
-                MarkerColor,
-                MarkerIcon
-            };
+    public:
+      enum ModelRoles
+      {
+        Index = Qt::UserRole + 1,
+        Latitude,
+        Longitude,
+        MarkerName,
+        MarkerColor,
+        MarkerIcon
+      };
 
-            explicit MarkerModel(QObject* parent = nullptr);
+      explicit MarkerModel(QObject* parent = nullptr);
 
-            int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-            QVariant data(const QModelIndex& index, int role) const override;
-            bool setData(const QModelIndex& index, const QVariant& value, int role) override;
+      int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+      QVariant data(const QModelIndex& index, int role) const override;
+      bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-            Q_INVOKABLE void add(const Map::Marker& image);
-            Q_INVOKABLE void remove(int index);
-            Q_INVOKABLE void clear();
+      Q_INVOKABLE void add(const Map::Marker& image);
+      Q_INVOKABLE void remove(int index);
+      Q_INVOKABLE void clear();
 
-            signals:
-                void added();
+    signals:
+      void added();
 
-        protected:
-            QHash<int, QByteArray> roleNames() const override;
+    protected:
+      QHash<int, QByteArray> roleNames() const override;
 
-        private:
-            QVector<Marker> storage;
-    };
+    private:
+      QVector<Marker> storage;
+  };
 } // namespace Map;
 
 Q_DECLARE_METATYPE(Map::MarkerModel*)

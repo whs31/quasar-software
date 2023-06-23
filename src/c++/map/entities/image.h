@@ -8,20 +8,20 @@ typedef QPair<QString, QString> image_file_t;
 
 namespace Map
 {
-    struct Image
-    {
-        QString filename;
-        ImageMetaHeader header;
-        ImageMetadata meta;
-        image_file_t path;
-        bool valid = false;
+  struct Image
+  {
+    QString filename;
+    ImageMetaHeader header;
+    ImageMetadata meta;
+    image_file_t path;
+    bool valid = false;
 
-        float opacity = 1;
-        bool shown = true;
-        bool marked_for_export = false;
-        double mercator_zoom_level;
+    float opacity = 1;
+    bool shown = true;
+    bool marked_for_export = false;
+    double mercator_zoom_level;
 
-        friend QDebug& operator<< (QDebug& d, Map::Image& image);
-    };
+    friend QDebug& operator<<(QDebug& d, Map::Image& image);
+  };
 } // namespace Map;
 

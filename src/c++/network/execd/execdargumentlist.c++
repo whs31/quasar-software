@@ -4,99 +4,99 @@
 namespace Networking
 {
 
-ExecdArgument::ExecdArgument()
+  ExecdArgument::ExecdArgument()
     : value("Error")
     , type(String)
-{}
+  {}
 
-ExecdArgument::ExecdArgument(int i)
+  ExecdArgument::ExecdArgument(int i)
     : value(QString::number(i))
     , type(Integer)
-{}
+  {}
 
-ExecdArgument::ExecdArgument(float f)
+  ExecdArgument::ExecdArgument(float f)
     : value(QString::number(f, 'f', FLOATING_POINT_PRECISION))
     , type(Float)
-{}
+  {}
 
-ExecdArgument::ExecdArgument(QString s)
+  ExecdArgument::ExecdArgument(QString s)
     : value(s)
     , type(String)
-{}
+  {}
 
-void ExecdArgument::set(const QVariant& v)
-{
+  void ExecdArgument::set(const QVariant& v)
+  {
     switch (type)
     {
-        case Float: value = QString::number(v.toFloat(), 'f', FLOATING_POINT_PRECISION); break;
-        case Integer: value = QString::number(v.toInt()); break;
-        case String: value = v.toString(); break;
-        default: break;
+      case Float: value = QString::number(v.toFloat(), 'f', FLOATING_POINT_PRECISION); break;
+      case Integer: value = QString::number(v.toInt()); break;
+      case String: value = v.toString(); break;
+      default: break;
     }
-}
+  }
 
-ExecdArgumentList::ExecdArgumentList(QObject* parent)
+  ExecdArgumentList::ExecdArgumentList(QObject* parent)
     : QObject{parent}
-{}
+  {}
 
-QString ExecdArgumentList::getFormArguments() const noexcept
-{
+  QString ExecdArgumentList::getFormArguments() const noexcept
+  {
     QString ret = "(";
     bool nospace = true;
     for(const auto& key : argument_list.keys())
     {
-        if(argument_list.value(key).value != defaults.value(key).value)
-        {
-            if(nospace) {
-                ret += (key + " " + argument_list.value(key).value);
-                nospace = false;
-            }
-            else
-                ret += (" " + key + " " + argument_list.value(key).value);
+      if(argument_list.value(key).value != defaults.value(key).value)
+      {
+        if(nospace) {
+          ret += (key + " " + argument_list.value(key).value);
+          nospace = false;
         }
+        else
+          ret += (" " + key + " " + argument_list.value(key).value);
+      }
     }
     ret += ")";
     return ret;
-}
+  }
 
-QString ExecdArgumentList::getReformArguments() const noexcept
-{
+  QString ExecdArgumentList::getReformArguments() const noexcept
+  {
     QString ret = "(";
     bool nospace = true;
     for(const auto& key : reform_argument_list.keys())
     {
-        if(reform_argument_list.value(key).value != defaults.value(key).value)
-        {
-            if(nospace) {
-                ret += (key + " " + reform_argument_list.value(key).value);
-                nospace = false;
-            }
-            else
-                ret += (" " + key + " " + reform_argument_list.value(key).value);
+      if(reform_argument_list.value(key).value != defaults.value(key).value)
+      {
+        if(nospace) {
+          ret += (key + " " + reform_argument_list.value(key).value);
+          nospace = false;
         }
+        else
+          ret += (" " + key + " " + reform_argument_list.value(key).value);
+      }
     }
     ret += ")";
     return ret;
-}
+  }
 
-QString ExecdArgumentList::getFocusArguments() const noexcept
-{
+  QString ExecdArgumentList::getFocusArguments() const noexcept
+  {
     QString ret = "(";
     bool nospace = true;
     for(const auto& key : focus_argument_list.keys())
     {
-        if(focus_argument_list.value(key).value != focus_defaults.value(key).value)
-        {
-            if(nospace) {
-                ret += (key + " " + focus_argument_list.value(key).value);
-                nospace = false;
-            }
-            else
-                ret += (" " + key + " " + focus_argument_list.value(key).value);
+      if(focus_argument_list.value(key).value != focus_defaults.value(key).value)
+      {
+        if(nospace) {
+          ret += (key + " " + focus_argument_list.value(key).value);
+          nospace = false;
         }
+        else
+          ret += (" " + key + " " + focus_argument_list.value(key).value);
+      }
     }
     ret += ")";
     return ret;
-}
+  }
 
-} // Network
+} // Networking

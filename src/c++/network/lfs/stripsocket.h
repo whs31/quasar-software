@@ -4,27 +4,27 @@
 
 namespace Networking
 {
-    class StripSocket : public AbstractUDPSocket
-    {
-        Q_OBJECT
+  class StripSocket : public AbstractUDPSocket
+  {
+    Q_OBJECT
 
-        public:
-            explicit StripSocket(QObject* parent = nullptr);
+    public:
+      explicit StripSocket(QObject* parent = nullptr);
 
-            void start(const QString& address);
-            void stop();
+      void start(const QString& address);
+      void stop();
 
-            void setStripStatus(bool status) noexcept;
+      void setStripStatus(bool status) noexcept;
 
-            signals:
-                void textReceived(QByteArray text);
-                void diskSpaceReceived(long free, long total);
+    signals:
+      void textReceived(QByteArray text);
+      void diskSpaceReceived(long free, long total);
 
-        private:
-            private slots:
-                void processResult(QByteArray data);
+    private:
+    private slots:
+      void processResult(QByteArray data);
 
-        private:
-            bool m_stripstatus;
-    };
+    private:
+      bool m_stripstatus;
+  };
 } // namespace Network;

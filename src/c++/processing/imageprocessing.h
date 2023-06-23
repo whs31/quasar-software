@@ -9,61 +9,61 @@ using std::vector;
 
 namespace Map
 {
-    class ImageModel;
+  class ImageModel;
 } // Map
 
 class QImage;
 
 namespace Processing
 {
-    class ImageProcessing : public QObject
-    {
-        Q_OBJECT
-        Q_PROPERTY(float progress READ progress WRITE setProgress NOTIFY progressChanged)
+  class ImageProcessing : public QObject
+  {
+    Q_OBJECT
+      Q_PROPERTY(float progress READ progress WRITE setProgress NOTIFY progressChanged)
 
-        public:
-            enum ImageType
-            {
-                Telescopic,
-                Strip
-            };
+    public:
+      enum ImageType
+      {
+        Telescopic,
+        Strip
+      };
 
-            static ImageProcessing* get();
+      static ImageProcessing* get();
 
-            Map::ImageModel* model();
+      Map::ImageModel* model();
 
-            bool exists(const QString& name);
-            int indexFrom(const QString& name) noexcept;
+      bool exists(const QString& name);
+      int indexFrom(const QString& name) noexcept;
 
-            [[nodiscard]] float progress() const; void setProgress(float);
+      [[nodiscard]] float progress() const; void setProgress(float);
 
-            public slots:
-                void processList(QList<QString> list);
-                void passImage(Map::Image image);
+    public slots:
+      void processList(QList<QString> list);
+      void passImage(Map::Image image);
 
-            signals:
-                void processImageFinished(Map::Image image);
-                void processStripFinished(Map::StripImage image);
-                void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
-                void concurrencyFinished();
+    signals:
+      void processImageFinished(Map::Image image);
+      void processStripFinished(Map::StripImage image);
+      void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
+      void concurrencyFinished();
 
-                void progressChanged();
+      void progressChanged();
 
-        private:
-            explicit ImageProcessing(QObject* parent = nullptr);
-            ImageProcessing(const ImageProcessing&);
-            ImageProcessing& operator=(const ImageProcessing&);
+    private:
+      explicit ImageProcessing(QObject* parent = nullptr);
+      ImageProcessing(const ImageProcessing&);
+      ImageProcessing& operator=(const ImageProcessing&);
 
-            void asyncProcess(const QString& filename);
-            void asyncStripProcess(const QString& filename);
-            QByteArray fileToByteArray(const QString& path);
-            Map::Image decodeTelescopic(const QString& path);
-            QImage cutImage(const Map::Image& image) noexcept;
+      void asyncProcess(const QString& filename);
+      void asyncStripProcess(const QString& filename);
+      static QByteArray fileToByteArray(const QString& path);
+      Map::Image decodeTelescopic(const QString& path);
+      QImage cutImage(const Map::Image& image) noexcept;
 
-        private:
-            Map::ImageModel* m_model;
-            float m_progress;
-            int m_total;
-            int m_processed;
-    };
+    private:
+      Map::ImageModel* m_model;
+      float m_progress;
+      int m_total;
+      int m_processed;
+  };
 } // namespace Processing;

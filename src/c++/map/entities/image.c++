@@ -1,10 +1,11 @@
 #include "image.h"
 #include <QtCore/QDebug>
 
-namespace Map {
-
-QDebug& operator<< (QDebug& d, Image& image)
+namespace Map
 {
+
+  QDebug& operator<< (QDebug& d, Image& image)
+  {
     d << "name: " << image.filename
       << "marker: " << image.header.meta_marker
       << "metasize: " << image.header.meta_size
@@ -36,5 +37,6 @@ QDebug& operator<< (QDebug& d, Image& image)
       << "valid: " << image.valid;
 
     return d;
-}
-}
+  }
+
+} // Map

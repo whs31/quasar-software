@@ -9,22 +9,22 @@ typedef QPair<QString, QString> image_file_t;
 
 namespace Map
 {
-    struct StripImage
-    {
-        QString filename;
-        image_file_t path;
-        bool valid = false;
+  struct StripImage
+  {
+    QString filename;
+    image_file_t path;
+    bool valid = false;
 
-        float opacity = 1;
-        bool shown = true;
+    float opacity = 1;
+    bool shown = true;
 
-        QGeoCoordinate coordinate;
-    };
+    QGeoCoordinate coordinate;
+  };
 
-    struct StripImageDatagram
-    {
-        StripHeaderMetadata header;
-        StripNavigationMetadata nav;
-        StripFormatMetadata format;
-    };
+  struct StripImageDatagram
+  {
+    StripHeaderMetadata header;
+    StripNavigationMetadata nav;
+    StripFormatMetadata format;
+  };
 } // namespace Map;

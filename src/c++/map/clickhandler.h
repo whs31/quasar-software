@@ -1,43 +1,47 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include <LPVL/Global>
 
 namespace Map
 {
-    class MarkerModel;
+  class MarkerModel;
 
-    class ClickHandler : public QObject
-    {
-        public: enum MouseState {
-            Idle,
-            RulerActive,
-            ProtractorActive,
-            MarkerActive,
-            PlannerActive,
-            TileLoaderActive
-        };
+  class ClickHandler : public QObject
+  {
+    public:
+      enum MouseState
+      {
+        Idle,
+        RulerActive,
+        ProtractorActive,
+        MarkerActive,
+        PlannerActive,
+        TileLoaderActive
+      };
 
-        Q_OBJECT
-        Q_ENUM(MouseState);
-        Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
-        LPVL_DECLARE_SINGLETON(ClickHandler)
+    Q_OBJECT
+      Q_ENUM(MouseState);
+      Q_PROPERTY(MouseState state READ state WRITE setState NOTIFY stateChanged)
 
-        public:
-            [[nodiscard]] MouseState state() const; void setState(const MouseState&);
+    public:
+      static ClickHandler* get();
 
-            Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
-            Q_INVOKABLE MarkerModel* markerModel();
-            Q_INVOKABLE void addMarker(double latitude, double longitude, const QString& name, const QString& color, const QString& icon);
+      [[nodiscard]] MouseState state() const; void setState(const MouseState&);
 
-            signals:
-                void stateChanged();
+      Q_INVOKABLE void copyCoordinatesToClipboard(double latitude, double longitude);
+      Q_INVOKABLE Map::MarkerModel* markerModel();
+      Q_INVOKABLE void addMarker(double latitude, double longitude, const QString& name, const QString& color, const QString& icon);
 
-        private:
-            explicit ClickHandler(QObject* parent = nullptr);
+    signals:
+      void stateChanged();
 
-        private:
-            MouseState m_state = Idle;
-            MarkerModel* marker_model;
-    };
+    private:
+      explicit ClickHandler(QObject* parent = nullptr);
+      ClickHandler(const ClickHandler&);
+      ClickHandler& operator=(const ClickHandler&);
+
+    private:
+      MouseState m_state = Idle;
+      MarkerModel* marker_model;
+  };
 } // namespace Map;

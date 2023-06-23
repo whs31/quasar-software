@@ -17,29 +17,29 @@ using namespace Config;
 
 Paths::Paths(QObject *parent) : QObject{parent}
 {
-    this->createImageCache();
+  this->createImageCache();
 
-    PATH_MKDIR(config)
-    PATH_MKDIR(mapConfig)
-    PATH_MKDIR(themes)
-    PATH_MKDIR(offlineTiles)
-    PATH_MKDIR(logs)
-    PATH_MKDIR(runtimeBash)
+  PATH_MKDIR(config)
+  PATH_MKDIR(mapConfig)
+  PATH_MKDIR(themes)
+  PATH_MKDIR(offlineTiles)
+  PATH_MKDIR(logs)
+  PATH_MKDIR(runtimeBash)
 
-    this->createMapConfigs();
+  this->createMapConfigs();
 
-    if(themesDirectory.isEmpty())
-    {
-        QFile::copy(":/themes/nord.json", themes() + "/nord.json");
-        QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
-        qInfo() << "[PATH] Default themes placed in folder";
-    }
+  if(themesDirectory.isEmpty())
+  {
+    QFile::copy(":/themes/nord.json", themes() + "/nord.json");
+    QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
+    qInfo() << "[PATH] Default themes placed in folder";
+  }
 
-    if(runtimeBashDirectory.isEmpty(QDir::Files))
-    {
-        QFile::copy(":/wrapped/poweroff.sh", bash() + "/poweroff.sh");
-        QFile::copy(":/wrapped/reboot.sh", bash() + "/reboot.sh");
-    }
+  if(runtimeBashDirectory.isEmpty(QDir::Files))
+  {
+    QFile::copy(":/wrapped/poweroff.sh", bash() + "/poweroff.sh");
+    QFile::copy(":/wrapped/reboot.sh", bash() + "/reboot.sh");
+  }
 }
 
 Paths *Paths::get() { static Paths instance; return &instance; }
@@ -48,11 +48,11 @@ QString Paths::imageCache() { return root() + "/cache"; }
 
 QString Paths::lod(int level)
 {
-    if(level > LOD_LEVELS - 1) {
-        qCritical() << "[PATH] Someone asked for non-existent LOD folder";
-        return "Invalid LOD level";
-    }
-    return imageCache() + "/lod" + QString::number(level);
+  if(level > LOD_LEVELS - 1) {
+    qCritical() << "[PATH] Someone asked for non-existent LOD folder";
+    return "Invalid LOD level";
+  }
+  return imageCache() + "/lod" + QString::number(level);
 }
 
 QString Paths::tcp() { return imageCache() + "/tcp"; }
@@ -64,51 +64,51 @@ QString Paths::themes() { return root() + "/themes"; }
 QString Paths::bash() { return root() + "/bash"; }
 QString Paths::runtimeBash() { return bash() + "/custom"; }
 
-void Paths::createImageCache(void) noexcept
+void Paths::createImageCache() noexcept
 {
-    QDir dir(imageCache());
-    if(not dir.exists())
-    {
-        dir.mkpath(imageCache());
-        dir.mkpath(tcp());
-        for(size_t i = 0; i < LOD_LEVELS; ++i)
-            dir.mkpath(lod(i));
-    }
-    qInfo() << "[PATH] Created image cache at " << imageCache();
+  QDir dir(imageCache());
+  if(not dir.exists())
+  {
+    dir.mkpath(imageCache());
+    dir.mkpath(tcp());
+    for(size_t i = 0; i < LOD_LEVELS; ++i)
+      dir.mkpath(lod(i));
+  }
+  qInfo() << "[PATH] Created image cache at " << imageCache();
 }
 
-void Paths::clearImageCache(void) noexcept
+void Paths::clearImageCache() noexcept
 {
-    QDir dir(imageCache());
-    if(dir.exists())
-        dir.removeRecursively();
-    qWarning() << "[PATH] Deleted image cache";
-    createImageCache();
+  QDir dir(imageCache());
+  if(dir.exists())
+    dir.removeRecursively();
+  qWarning() << "[PATH] Deleted image cache";
+  createImageCache();
 }
 
-void Paths::createMapConfigs(void)
+void Paths::createMapConfigs() noexcept
 {
-    QFile::copy(":/osmconfigs/satellite", mapConfig() + "/satellite");
-    QFile::copy(":/osmconfigs/terrain", mapConfig() + "/terrain");
-    QFile::copy(":/osmconfigs/transit", mapConfig() + "/transit");
-    QFile::copy(":/osmconfigs/cycle", mapConfig() + "/cycle");
-    QFile::copy(":/osmconfigs/hiking", mapConfig() + "/hiking");
-    QFile::copy(":/osmconfigs/night-transit", mapConfig() + "/night-transit");
+  QFile::copy(":/osmconfigs/satellite", mapConfig() + "/satellite");
+  QFile::copy(":/osmconfigs/terrain", mapConfig() + "/terrain");
+  QFile::copy(":/osmconfigs/transit", mapConfig() + "/transit");
+  QFile::copy(":/osmconfigs/cycle", mapConfig() + "/cycle");
+  QFile::copy(":/osmconfigs/hiking", mapConfig() + "/hiking");
+  QFile::copy(":/osmconfigs/night-transit", mapConfig() + "/night-transit");
 
-    QString _street = "{\r\n    \"UrlTemplate\" : \""
-              "file:///" +
-              offlineTiles() +
-              "/%z/%x/%y"
-              "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
-              "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
-              "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
-              "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
-    QSaveFile street(mapConfig() + "/street");
-    street.open(QIODevice::WriteOnly);
-    QTextStream out7(&street);
-    out7 << _street;
-    street.commit();
+  QString _street = "{\r\n    \"UrlTemplate\" : \""
+                    "file:///" +
+                    offlineTiles() +
+                    "/%z/%x/%y"
+                    "\",\r\n    \"ImageFormat\" : \"png\",\r\n    "
+                    "\"QImageFormat\" : \"Indexed8\",\r\n    \"MaximumZoomLevel\" : 18,\r\n    \"ID\" : \"wmf-intl-1x\",\r\n    \"MapCopyRight\" : "
+                    "\"<a href=\'https://wikimediafoundation.org/wiki/Terms_of_Use\'>WikiMedia Foundation</a>\",\r\n    \"DataCopyRight\" : "
+                    "\"<a href=\'http://www.openstreetmap.org/copyright\'>OpenStreetMap</a> contributors\",\r\n    \"Timestamp\" : \"2019-02-01\"\r\n}\r\n";
+  QSaveFile street(mapConfig() + "/street");
+  street.open(QIODevice::WriteOnly);
+  QTextStream out7(&street);
+  out7 << _street;
+  street.commit();
 
-    qDebug() << "[PATH] Map configs placed in folder";
+  qDebug() << "[PATH] Map configs placed in folder";
 }
 

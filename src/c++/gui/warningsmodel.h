@@ -2,54 +2,57 @@
 
 #include <vector>
 #include <QtCore/QAbstractListModel>
-#include <LPVL/Global>
 
 using std::vector;
 
 namespace GUI
 {
-    class WarningsModel : public QAbstractListModel
+  class WarningsModel : public QAbstractListModel
+  {
+    Q_OBJECT
+
+    struct WarningData
     {
-        Q_OBJECT
-        LPVL_DECLARE_SINGLETON(WarningsModel)
+      int type;
+      QString msg;
+      bool is_major;
+    };
 
-        struct WarningData {
-            int type;
-            QString msg;
-            bool is_major;
-        };
+    public:
+      enum Notification
+      {
+        NotConnected,
+        Uncalibrated
+      };
+      Q_ENUM(Notification)
 
-        public:
-            enum Notification
-            {
-                NotConnected,
-                Uncalibrated
-            };
-            Q_ENUM(Notification)
+      enum ModelRoles
+      {
+        Index = Qt::UserRole + 1,
+        Message,
+        Major
+      };
 
-            enum ModelRoles
-            {
-                Index = Qt::UserRole + 1,
-                Message,
-                Major
-            };
+      static WarningsModel* get();
 
-            int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-            QVariant data(const QModelIndex& index, int role) const override;
-            bool setData(const QModelIndex& index, const QVariant& value, int role) override;
+      int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+      QVariant data(const QModelIndex& index, int role) const override;
+      bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
-            Q_INVOKABLE void append(int type, const QString& message, bool is_major);
-            Q_INVOKABLE void remove(int type) noexcept;
-            Q_INVOKABLE void clear();
+      Q_INVOKABLE void append(int type, const QString& message, bool is_major);
+      Q_INVOKABLE void remove(int type) noexcept;
+      Q_INVOKABLE void clear();
 
-        protected:
-            QHash<int, QByteArray> roleNames() const override;
+    protected:
+      QHash<int, QByteArray> roleNames() const override;
 
-        private:
-            WarningsModel(QObject* parent = nullptr);
+    private:
+      explicit WarningsModel(QObject* parent = nullptr);
+      WarningsModel(const WarningsModel&);
+      WarningsModel& operator=(const WarningsModel&);
 
-        private:
-            vector<WarningData> storage;
-};
+    private:
+      vector<WarningData> storage;
+  };
 } // GUI
 

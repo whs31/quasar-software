@@ -3,9 +3,8 @@
 
 Networking::utils::vt100_result_t Networking::utils::parse_vt100_string(const QString& string)
 {
-    vt100_result_t ret;
-    ret.result = string;
+  vt100_result_t ret;
+  ret.result = string;
 
-
-    return ret;
+  return ret;
 }

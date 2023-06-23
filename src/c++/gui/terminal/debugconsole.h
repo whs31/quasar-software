@@ -6,41 +6,41 @@
 
 namespace GUI
 {
-    class DebugConsole : public TerminalBase
-    {
-        Q_OBJECT
+  class DebugConsole : public TerminalBase
+  {
+    Q_OBJECT
 
-        public:
-            static DebugConsole* get();
+    public:
+      static DebugConsole* get();
 
-            Q_INVOKABLE void execute(const QString& command);
+      Q_INVOKABLE void execute(const QString& command);
 
-        private:
-            DebugConsole(QObject* parent = nullptr);
-            DebugConsole(const DebugConsole&);
-            DebugConsole& operator=(const DebugConsole&);
+    private:
+      explicit DebugConsole(QObject* parent = nullptr);
+      DebugConsole(const DebugConsole&);
+      DebugConsole& operator=(const DebugConsole&);
 
-            std::map<QString, std::function<void()>> command_list = {
-                { "help", [this](){ help(); } },
-                { "quit", [this](){ quit(); } },
-                { "sim", [this](){ sim(); } },
-                { "connect", [this](){ connect(); } },
-                { "disconnect", [this](){ disconnect(); } },
-                { "clear", [this](){ clear(); } }
-            };
+      std::map<QString, std::function<void()>> command_list = {
+        { "help", [this](){ help(); } },
+        { "quit", [this](){ quit(); } },
+        { "sim", [this](){ sim(); } },
+        { "connect", [this](){ connect(); } },
+        { "disconnect", [this](){ disconnect(); } },
+        { "clear", [this](){ clear(); } }
+      };
 
-            void help();
-            void quit();
-            void sim();
-            void connect();
-            void disconnect();
-    };
+      void help();
+      void quit();
+      void sim();
+      void connect();
+      void disconnect();
+  };
 } // GUI
 
 #ifdef PROJECT_NAME
-    #define CONSOLE_INTERNAL_PROJECT_STRING PROJECT_NAME
+#define CONSOLE_INTERNAL_PROJECT_STRING PROJECT_NAME
 #else
-    #define CONSOLE_INTERNAL_PROJECT_STRING QString()
+#define CONSOLE_INTERNAL_PROJECT_STRING QString()
 #endif
 
 #define CONSOLE_HANDLER consoleHandler

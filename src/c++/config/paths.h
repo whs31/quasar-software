@@ -4,78 +4,78 @@
 
 namespace Config
 {
-    //! @brief Class, providing access to commonly
-    //!        used filesystem paths and resource
-    //!        management.
-    class Paths : public QObject
-    {
-        Q_OBJECT
+  //! @brief Class, providing access to commonly
+  //!        used filesystem paths and resource
+  //!        management.
+  class Paths : public QObject
+  {
+    Q_OBJECT
 
-        constexpr static const int LOD_LEVELS = 2;
+      constexpr static const int LOD_LEVELS = 2;
 
-        public:
-            //! @brief   Returns singleton instance of class.
-            static Paths* get();
+    public:
+      //! @brief   Returns singleton instance of class.
+      static Paths* get();
 
-            //! @brief   Returns application root directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString root();
+      //! @brief   Returns application root directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString root();
 
-            //! @brief   Returns cache directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString imageCache();
+      //! @brief   Returns cache directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString imageCache();
 
-            //! @brief   Returns specified LOD directory.
-            //! @param   level - specified LOD level for directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString lod(int level);
+      //! @brief   Returns specified LOD directory.
+      //! @param   level - specified LOD level for directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString lod(int level);
 
-            //! @brief   Returns TCP-IP cache directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString tcp();
+      //! @brief   Returns TCP-IP cache directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString tcp();
 
-            //! @brief   Returns osmconfigs directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString mapConfig();
+      //! @brief   Returns osmconfigs directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString mapConfig();
 
-            //! @brief   Returns offline tiles directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString offlineTiles();
+      //! @brief   Returns offline tiles directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString offlineTiles();
 
-            //! @brief   Returns config directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString config();
+      //! @brief   Returns config directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString config();
 
-            //! @brief   Returns logs and route-logs directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString logs();
+      //! @brief   Returns logs and route-logs directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString logs();
 
-            //! @brief   Returns themes directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString themes();
+      //! @brief   Returns themes directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString themes();
 
-            //! @brief   Returns bash-scripts directory.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString bash();
+      //! @brief   Returns bash-scripts directory.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString bash();
 
-            //! @brief   Returns directory for runtime-evaluated bash scripts.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE [[nodiscard]] static QString runtimeBash();
+      //! @brief   Returns directory for runtime-evaluated bash scripts.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE [[nodiscard]] static QString runtimeBash();
 
 
-            //! @brief   Creates and setups image cache.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE void createImageCache(void) noexcept;
+      //! @brief   Creates and setups image cache.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE void createImageCache() noexcept;
 
-            //! @brief   Erases image and TCP-IP cache from disk.
-            //! @note Can be invoked from QML.
-            Q_INVOKABLE void clearImageCache(void) noexcept;
+      //! @brief   Erases image and TCP-IP cache from disk.
+      //! @note Can be invoked from QML.
+      Q_INVOKABLE void clearImageCache() noexcept;
 
-        private:
-            explicit Paths(QObject* parent = nullptr);
-            Paths(const Paths&);
-            Paths &operator=(const Paths&);
+    private:
+      explicit Paths(QObject* parent = nullptr);
+      Paths(const Paths&);
+      Paths &operator=(const Paths&);
 
-            void createMapConfigs(void);
-    };
+      void createMapConfigs() noexcept;
+  };
 } // namespace Config;

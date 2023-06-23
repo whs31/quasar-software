@@ -4,8 +4,8 @@
 
 class Entry : public QObject
 {
-    Q_OBJECT
+  Q_OBJECT
 
-    public:
-        explicit Entry(QObject* parent = nullptr);
+  public:
+    explicit Entry(QObject* parent = nullptr);
 };

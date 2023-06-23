@@ -1,63 +1,65 @@
 #include "tcpsocket.h"
-#include "config/paths.h"
-#include "config/config.h"
-#include "filesystem/filesystem.h"
 #include <QtCore/QDebug>
 #include <QtCore/QTimer>
 #include <QtCore/QFile>
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
+#include "config/paths.h"
+#include "config/config.h"
+#include "filesystem/filesystem.h"
 
-using namespace Networking;
-
-TCPSocket::TCPSocket(QObject *parent)
-    : QObject{parent}
-    , server(new QTcpServer(this))
-    , timer(new QTimer(this))
+namespace Networking
 {
+
+  TCPSocket::TCPSocket(QObject* parent)
+    : QObject{parent}, server(new QTcpServer(this)), timer(new QTimer(this))
+  {
     QObject::connect(server, &QTcpServer::newConnection, this, &TCPSocket::clientConnected);
     timer->setInterval(TCP_TIMEOUT);
     QObject::connect(timer, &QTimer::timeout, this, &TCPSocket::connectionTimeout);
-}
+  }
 
-void TCPSocket::startServer(const QString& address)
-{
-    if(not address.contains(":") or address.split(":").size() > 2) {
-        qCritical().noquote() << "[TCP] Provided incorrect IP:" << address;
-        return;
+  void TCPSocket::startServer(const QString& address)
+  {
+    if(not address.contains(":") or address.split(":").size() > 2)
+    {
+      qCritical().noquote() << "[TCP] Provided incorrect IP:" << address;
+      return;
     }
 
     QString ip = address.split(":").first();
     uint16_t port = address.split(":").last().toUInt();
-    if(not server->listen(QHostAddress(ip), port)) {
-        qCritical() << "[TCP] TCP-IP server has failed to start.";
-        return;
+    if(not server->listen(QHostAddress(ip), port))
+    {
+      qCritical() << "[TCP] TCP-IP server has failed to start.";
+      return;
     }
 
     qInfo() << "[TCP] TCP-IP server started.";
-}
+  }
 
-void TCPSocket::stopServer()
-{
+  void TCPSocket::stopServer()
+  {
     server->close();
     qInfo() << "[TCP] TCP-IP server closed connection";
-}
+  }
 
-float TCPSocket::progress()
-{
-    float percent = (float)imageData.size() / fileSize;
+  float TCPSocket::progress()
+  {
+    float percent = (float) imageData.size() / fileSize;
     emit progressChanged(percent * 100);
     return percent;
-}
+  }
 
-void TCPSocket::clientConnected()
-{
+  void TCPSocket::clientConnected()
+  {
     qInfo() << "[TCP] SAR connected";
 
     socket = server->nextPendingConnection();
-    if(not socket) {
-        qCritical() << "[TCP] NextPendingConnection returned nullptr. Aborting connection";
-        return;
+    if(not socket)
+    {
+      qCritical() << "[TCP] NextPendingConnection returned nullptr. Aborting connection";
+      return;
     }
 
     connect(socket, &QTcpSocket::readyRead, this, &TCPSocket::serverRead);
@@ -69,15 +71,12 @@ void TCPSocket::clientConnected()
     splitIndex = 0;
 
     qInfo() << "[TCP] SAR ready to send image";
-}
+  }
 
-void TCPSocket::serverRead()
-{
-    (this->*readFile)(socket->readAll());
-}
+  void TCPSocket::serverRead() { (this->*readFile)(socket->readAll()); }
 
-void TCPSocket::clientDisconnected()
-{
+  void TCPSocket::clientDisconnected()
+  {
     socket->close();
     timer->stop();
 
@@ -86,23 +85,20 @@ void TCPSocket::clientDisconnected()
 
     if(not filename.contains(".zip"))
     {
-        QFile file(Config::Paths::tcp() + "/" + filename);
-        file.open(QIODevice::WriteOnly);
-        file.write(imageData);
-        file.close();
+      QFile file(Config::Paths::tcp() + "/" + filename);
+      file.open(QIODevice::WriteOnly);
+      file.write(imageData);
+      file.close();
 
-        OS::Filesystem::get()->fetchTCPCache();
+      OS::Filesystem::get()->fetchTCPCache();
     }
     emit receivingFinished();
-}
+  }
 
-void TCPSocket::connectionTimeout()
-{
-    socket->close();
-}
+  void TCPSocket::connectionTimeout() { socket->close(); }
 
-void TCPSocket::readFileInfo(QByteArray data)
-{
+  void TCPSocket::readFileInfo(QByteArray data)
+  {
     readFile = &TCPSocket::readFileBody;
 
     uint8_t i = data.indexOf(CONFIG(tcpMarker).constData()->toLatin1()) + 1; // maybe + 1;
@@ -121,15 +117,16 @@ void TCPSocket::readFileInfo(QByteArray data)
     timer->stop();
     timer->start();
     (this->*readFile)(data);
-}
+  }
 
-void TCPSocket::readFileBody(QByteArray data)
-{
+  void TCPSocket::readFileBody(QByteArray data)
+  {
     timer->stop();
     timer->start();
     if(data.size())
-        imageData.append(data);
+      imageData.append(data);
     this->progress();
     emit socketMetrics("DATA with size of " + QString::number(data.size()), data.size(), false);
-}
+  }
 
+} // Networking

@@ -6,24 +6,24 @@ using std::vector;
 
 namespace GUI
 {
-    class ThemePrivate : public QObject
-    {
-        Q_OBJECT
-        Q_DECLARE_PUBLIC(Theme)
+  class ThemePrivate : public QObject
+  {
+    Q_OBJECT
+    Q_DECLARE_PUBLIC(Theme)
 
-        public:
-            ThemePrivate(Theme* parent);
-            virtual ~ThemePrivate() = default;
+    public:
+      ThemePrivate(Theme* parent);
+      ~ThemePrivate() override = default;
 
-            void applyTheme(QString theme);
+      void applyTheme(QString theme);
 
-            vector<QString> foundThemes;
+      vector<QString> foundThemes;
 
-            public slots:
-                void findThemesInFolder();
+    public slots:
+      void findThemesInFolder();
 
-        private:
-            Theme* q_ptr;
-            QHash<QString, QString> m_color;
-    };
+    private:
+      Theme* q_ptr;
+      QHash<QString, QString> m_color;
+  };
 } // namespace GUI;

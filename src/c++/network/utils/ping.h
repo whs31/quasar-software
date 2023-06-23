@@ -11,42 +11,42 @@ using std::vector;
 
 namespace Networking
 {
-    //! @brief Class for checking connection to
-    //!        specified IPv4 address via ICMP.
-    class Pinger : public QObject
-    {
-        Q_OBJECT
+  //! @brief Class for checking connection to
+  //!        specified IPv4 address via ICMP.
+  class Pinger : public QObject
+  {
+    Q_OBJECT
 
-        public:
-            //! @brief Constructs new Pinger object with
-            //!        given parent.
-            explicit Pinger(QObject* parent = nullptr);
-            ~Pinger();
+    public:
+      //! @brief Constructs new Pinger object with
+      //!        given parent.
+      explicit Pinger(QObject* parent = nullptr);
+      ~Pinger() override;
 
-            //! @brief Starts pinging given address, until Pinger
-            //!        is not destroyed or stopped.
-            //! @param interval - ms interval between pings. 0 means auto.
-            //! @param address - IPv4 address to ping.
-            //! @param args - ping command line arguments.
-            void start(uint32_t interval, const QString& address, const vector<QString> args = {});
+      //! @brief Starts pinging given address, until Pinger
+      //!        is not destroyed or stopped.
+      //! @param interval - ms interval between pings. 0 means auto.
+      //! @param address - IPv4 address to ping.
+      //! @param args - ping command line arguments.
+      void start(uint32_t interval, const QString& address, const vector<QString>& args = {});
 
-            //! @brief Stops pinging address.
-            void stop() noexcept;
+      //! @brief Stops pinging address.
+      void stop() noexcept;
 
-            signals:
-                //! @brief Emitted when ping is finished.
-                //! @param status - Network::PingStatus result code.
-                void result(int status);
+    signals:
+      //! @brief Emitted when ping is finished.
+      //! @param status - Network::PingStatus result code.
+      void result(int status);
 
-        private:
-            private slots:
-                void ping();
-                void recv();
+    private:
+    private slots:
+      void ping();
+      void recv();
 
-        private:
-            QProcess* ch;
-            QTimer* t;
-            QString addr;
-            QStringList m_args;
-    };
+    private:
+      QProcess* ch;
+      QTimer* t;
+      QString addr;
+      QStringList m_args;
+  };
 } // Network

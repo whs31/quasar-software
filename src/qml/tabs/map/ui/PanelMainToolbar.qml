@@ -63,12 +63,12 @@ Pane {
                 if(checked)
                 {
                     Network.executeCommand(Net.StartStrip);
-                    Network.setRecording(true);
+                    Network.recording = true;
                 }
                 else
                 {
                     Network.executeCommand(Net.StopStrip);
-                    Network.setRecording(false);
+                    Network.recording = false;
                 }
             }
         }

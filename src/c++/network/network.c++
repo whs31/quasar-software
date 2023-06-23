@@ -60,6 +60,7 @@ namespace Networking
       executeCommand(Enums::RemoteStorageStatus);
     });
     QObject::connect(tcpSocket, &TCPSocket::socketMetrics, this, &Network::lfsSocketMetrics);
+    QObject::connect(stripSocket, &StripSocket::socketMetrics, this, &Network::stripSocketMetrics);
 
     QObject::connect(m_de10ping, &Pinger::result, this, [this](int result){ remoteData()->setDe10ping(result); });
     QObject::connect(m_jetsonping, &Pinger::result, this, [this](int result){ remoteData()->setJetsonping(result); });

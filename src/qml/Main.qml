@@ -25,7 +25,7 @@ ApplicationWindow  { id: window_root;
     Material.foreground: Theme.color("light0");
     Material.background: Theme.color("dark1");
 
-    title: "СПО РЛС «‎Квазар»";
+    title: "QuaSAR";
     minimumWidth: 1280;
     minimumHeight: 720;
     width: 1280;
@@ -84,7 +84,7 @@ ApplicationWindow  { id: window_root;
 
             readonly property int tab: control_TabBar.currentIndex;
             function openTab(i)
-            {
+                {
                 control_TabBar.currentIndex = i;
                 console.log("[GUI] Opening tab " + (i + 1));
             }

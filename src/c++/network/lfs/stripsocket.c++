@@ -32,9 +32,15 @@ namespace Networking
       return;
     m_stripstatus = status;
     if(m_stripstatus == true)
+    {
       m_storeddata.clear();
+      emit socketMetrics("Waiting for data.", 0, true);
+    }
     else
+    {
       this->saveResult(Config::Paths::tcp() + "/striplfs_" + QString::number(m_currentindex), m_storeddata);
+      emit socketMetrics("Finished receiving.", 0, true);
+    }
   }
 
   void StripSocket::processResult(QByteArray data)

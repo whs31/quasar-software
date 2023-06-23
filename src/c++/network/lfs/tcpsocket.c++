@@ -54,6 +54,7 @@ namespace Networking
   void TCPSocket::clientConnected()
   {
     qInfo() << "[TCP] SAR connected";
+    emit socketMetrics("Started receiving", 0, true);
 
     socket = server->nextPendingConnection();
     if(not socket)
@@ -77,6 +78,7 @@ namespace Networking
 
   void TCPSocket::clientDisconnected()
   {
+    emit socketMetrics("Finished receiving", 0, true);
     socket->close();
     timer->stop();
 

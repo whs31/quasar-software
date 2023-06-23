@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.15
 
 import Theme 1.0
 
-Pane {
+Pane { id: control;
     function open(header, content, icon, uid_num) {
         title = header;
         contentText.text = content;

@@ -93,5 +93,6 @@ Pane { id: networktab_root;
         function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }
         function onExecdSocketMetrics(data, size_bytes, out) { panel_ExecdConsole.logdata(data, size_bytes, out); }
         function onLfsSocketMetrics(data, size_bytes, out) { panel_LFSConsole.logdata(data, size_bytes, out); }
+        function onStripSocketMetrics(data, size_bytes, out) { panel_StripConsole.logdata(data, size_bytes, out); }
     }
 }

@@ -3,7 +3,6 @@
 #include <map>
 #include <QtCore/QObject>
 
-// @todo class needs to self-register self with attribute constructor
 namespace GUI
 {
   namespace internal
@@ -43,33 +42,40 @@ namespace GUI
         Q_INVOKABLE QString color(Color key) const noexcept;
         void set(const std::map<Color, QString>& theme_dict) noexcept;
 
+        std::map<QString, Color> keyMap =
+          {
+            {"base_shade", BaseShade},
+            {"surface", Surface},
+            {"overlay", Overlay},
+            {"subtext", Subtext},
+            {"text", Text},
+            {"lavender", Lavender},
+            {"primary_dark", PrimaryDark},
+            {"primary", Primary},
+            {"primary_light", PrimaryLight},
+            {"primary_lightest", PrimaryLightest},
+            {"accent", Accent},
+            {"red", Red},
+            {"pink", Pink},
+            {"maroon", Maroon},
+            {"rosewater", Rosewater},
+            {"orange", Orange},
+            {"yellow", Yellow},
+            {"green", Green},
+            {"mauve", Mauve}
+          };
+
       private:
         std::map<Color, QString> m_activeTheme;
-        std::map<Color, QString> m_keyMap =
-          {
-            {BaseShade, "base_shade"},
-            {Surface, "surface"},
-            {Overlay, "overlay"},
-            {Subtext, "subtext"},
-            {Text, "text"},
-            {Lavender, "lavender"},
-            {PrimaryDark, "primary_dark"},
-            {Primary, "primary"},
-            {PrimaryLight, "primary_light"},
-            {PrimaryLightest, "primary_lightest"},
-            {Accent, "accent"},
-            {Red, "red"},
-            {Pink, "pink"},
-            {Maroon, "maroon"},
-            {Rosewater, "rosewater"},
-            {Orange, "orange"},
-            {Yellow, "yellow"},
-            {Green, "green"},
-            {Mauve, "mauve"}
-          };
     };
   } // internal
+} // GUI
 
+#include <QtCore/QMetaType>
+Q_DECLARE_METATYPE(GUI::internal::ColorThemeWrapper*)
+
+namespace GUI
+{
   class ColorTheme : public QObject
   {
     Q_OBJECT
@@ -78,7 +84,7 @@ namespace GUI
       Q_PROPERTY(QStringList themeList MEMBER m_themeList NOTIFY themeListChanged)
 
     public:
-      explicit ColorTheme(QObject* parent = nullptr);
+      static ColorTheme* get();
       ~ColorTheme() override = default;
 
       void set(const std::map<internal::ColorThemeWrapper::Color, QString>& dict) noexcept;
@@ -90,11 +96,17 @@ namespace GUI
       void themeListChanged();
 
     private:
+      explicit ColorTheme(QObject* parent = nullptr);
+      ColorTheme(const ColorTheme&);
+      ColorTheme& operator=(const ColorTheme&);
+
+      void scanThemes() noexcept;
+      void apply() noexcept;
+
+    private:
       internal::ColorThemeWrapper* m_wrapper;
       QString m_activeThemeName;
       QStringList m_themeList;
+      std::map<QString, QString> m_files; // name, filename
   };
 } // GUI
-
-#include <QtCore/QMetaType>
-Q_DECLARE_METATYPE(GUI::internal::ColorThemeWrapper*)

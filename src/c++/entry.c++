@@ -6,6 +6,7 @@
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
+#include "gui/colortheme.h"
 #include "config/paths.h"
 #include "config/config.h"
 #include "filesystem/filesystem.h"
@@ -29,6 +30,7 @@ Entry::Entry(QObject *parent)
   QML_EXPOSE_INSTANCE(GUI::VT100Terminal, "Terminals", "VT100Terminal", GUI::VT100Terminal::get());
   QML_EXPOSE_INSTANCE(GUI::DebugConsole, "Terminals", "DebugConsole", GUI::DebugConsole::get());
   QML_EXPOSE_INSTANCE(GUI::WarningsModel, "Notifications", "WarningsModel", GUI::WarningsModel::get());
+  qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());
   QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
   QML_EXPOSE_INSTANCE(Networking::Network, "Network", "Network", Networking::Network::get());
   qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");

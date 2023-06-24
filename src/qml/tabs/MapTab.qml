@@ -22,7 +22,7 @@ import "map/ui" as MapTabUI;
 import "../widgets" as Widgets;
 
 Map { id: maptab_root;
-    property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - sattelite }
+    property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - satellite }
     property alias routeType: c_Route.type;
 
     Component.onDestruction: {

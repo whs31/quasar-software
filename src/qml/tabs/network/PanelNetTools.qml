@@ -34,7 +34,17 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("orange");
-            onPressed: Network.executeCommand(Net.Reboot);
+            onPressed: dialogwindow.open("Перезагрузка РЛС", "Вы уверены, что хотите перезагрузить РЛС?", "warn", 21);
+
+            Connections {
+                target: dialogwindow;
+                function onClosed(status, uid) {
+                    if(uid === 21 && status === true) {
+                        console.log("[GUI] Reboot requested");
+                        Network.executeCommand(Net.Reboot);
+                    }
+                }
+            }
         }
 
         RoundButton { id: button_Shutdown;
@@ -47,7 +57,17 @@ Pane {
             Material.elevation: 30;
             Material.foreground: Theme.color("dark0");
             Material.background: Theme.color("red");
-            onPressed: Network.executeCommand(Net.Poweroff);
+            onPressed: dialogwindow.open("Выключение РЛС", "Вы уверены, что хотите выключить РЛС?", "warn", 22);
+
+            Connections {
+                target: dialogwindow;
+                function onClosed(status, uid) {
+                    if(uid === 22 && status === true) {
+                        console.log("[GUI] Reboot requested");
+                        Network.executeCommand(Net.Poweroff);
+                    }
+                }
+            }
         }
     }
 }

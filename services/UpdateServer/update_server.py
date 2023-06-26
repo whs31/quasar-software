@@ -1,7 +1,6 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
-
-quasar_version = "2.11.7"
+import json
 
 class S(BaseHTTPRequestHandler):
     def _set_response(self):
@@ -13,7 +12,17 @@ class S(BaseHTTPRequestHandler):
         logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         self._set_response()
         self.send_response(200)
-        self.wfile.write(quasar_version.encode('utf-8'))
+        f = open('apps.json')
+        data = json.load(f)
+        name = ''
+        version = ''
+        link = ''
+        for i in data['apps']:
+            print(i)
+            name = i.get('app_name', 'ERR')
+            version = i.get('app_version', '0.0.0')
+            link = i.get('app_link', 'ERR')
+        self.wfile.write('{};{};{}'.format(name, version, link).encode('utf-8'))
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data

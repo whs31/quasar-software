@@ -123,6 +123,7 @@ ApplicationWindow  { id: window_root;
             Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
             Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
             Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
+            Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
 
             Layouts.BottomBar { id: layout_BottomBar;
                 height: 46;

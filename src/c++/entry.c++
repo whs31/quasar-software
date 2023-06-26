@@ -25,6 +25,7 @@ Entry::Entry(QObject* parent)
   : QObject(parent)
   , m_updateManager(new Application::UpdateManager(this))
 {
+  qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
   m_updateManager->fetch();
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());

@@ -12,8 +12,10 @@ namespace Application
     public:
       explicit UpdateManager(QObject* parent);
 
+      [[nodiscard]] Q_INVOKABLE QString remoteVersion() const;
+      [[nodiscard]] QString link() const;
+
       void setFetchUrl(const QString& url) noexcept;
-      void setDownloadUrl(const QString& url) noexcept;
 
       void fetch() noexcept;
 
@@ -24,8 +26,9 @@ namespace Application
 
     private:
       QString m_fetchUrl;
-      QString m_downloadUrl;
       QString m_projectVersion;
+      QString m_remoteVersion;
+      QString m_link;
 
       bool m_status;
   };

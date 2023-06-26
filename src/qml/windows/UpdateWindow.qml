@@ -1,0 +1,123 @@
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Material 2.15
+import QtQuick.Layouts 1.15
+
+import Theme 1.0
+import Config 1.0
+import Application 1.0
+
+Pane {
+    property bool b_Shown: UpdateNotifier.status
+
+    width: b_Shown ? implicitWidth : 0
+    height: b_Shown ? implicitHeight : 0
+    visible: height > 0
+    enabled: visible
+    Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+    Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+    clip: true
+
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.elevation: 200
+
+    ColumnLayout {
+        Text {
+            Layout.fillWidth: true
+            font {
+                family: root.mainfont
+                pixelSize: 16
+                bold: true
+            }
+            color: ColorTheme.active.color(ColorTheme.Text)
+            text: "ДОСТУПНО ОБНОВЛЕНИЕ ПРИЛОЖЕНИЯ"
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        Item { Layout.preferredHeight: 15; }
+
+        RowLayout {
+            Layout.fillWidth: true
+
+            Text {
+                Layout.fillWidth: true
+                font {
+                    family: root.mainfont
+                    pixelSize: 14
+                    bold: true
+                }
+                color: ColorTheme.active.color(ColorTheme.Text)
+                text: "Текущая версия приложения:"
+                horizontalAlignment: Text.AlignLeft
+            }
+
+            Text {
+                font {
+                    family: root.mainfont
+                    pixelSize: 15
+                    bold: true
+                }
+                color: ColorTheme.active.color(ColorTheme.Orange)
+                text: Config.projectVersion()
+                horizontalAlignment: Text.AlignRight
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+
+            Text {
+                Layout.fillWidth: true
+                font {
+                    family: root.mainfont
+                    pixelSize: 14
+                    bold: true
+                }
+                color: ColorTheme.active.color(ColorTheme.Text)
+                text: "Доступная версия приложения:"
+                horizontalAlignment: Text.AlignLeft
+            }
+
+            Text {
+                font {
+                    family: root.mainfont
+                    pixelSize: 15
+                    bold: true
+                }
+                color: ColorTheme.active.color(ColorTheme.Green)
+                text: UpdateNotifier.remoteVersion()
+                horizontalAlignment: Text.AlignRight
+            }
+        }
+
+        Item { Layout.preferredHeight: 30; }
+
+        Row {
+            Layout.fillWidth: true
+            RoundButton {
+                enabled: false
+                width: 200
+                font.family: root.mainfont
+                font.weight: Font.Bold
+                height: 44
+                radius: 4
+                Material.elevation: 30
+                Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+                text: "Обновить"
+                onPressed: b_Shown = false
+            }
+
+            RoundButton {
+                width: 200
+                font.family: root.mainfont
+                font.weight: Font.Bold
+                height: 44
+                radius: 4
+                Material.elevation: 30
+                Material.background: ColorTheme.active.color(ColorTheme.Dark)
+                text: "Закрыть"
+                onPressed: b_Shown = false
+            }
+        }
+    }
+}

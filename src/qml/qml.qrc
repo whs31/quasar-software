@@ -46,5 +46,6 @@
         <file>widgets/TT.qml</file>
         <file>widgets/ProgressPopup.qml</file>
         <file>widgets/SplashScreen.qml</file>
+        <file>windows/UpdateWindow.qml</file>
     </qresource>
 </RCC>

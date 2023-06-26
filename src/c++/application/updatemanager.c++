@@ -11,7 +11,6 @@ namespace Application
   UpdateManager::UpdateManager(QObject* parent)
     : QObject(parent)
     , m_fetchUrl("http://195.133.13.123:8090")
-    , m_downloadUrl("http://ya.ru")
     , m_projectVersion(PROJECT_VERSION)
     , m_status(false)
   {}
@@ -21,18 +20,8 @@ namespace Application
     m_fetchUrl = url;
   }
 
-  void UpdateManager::setDownloadUrl(const QString& url) noexcept
-  {
-    m_downloadUrl = url;
-  }
-
   void UpdateManager::fetch() noexcept
   {
-    #ifndef Q_OS_WIN
-    setStatus(false);
-    return;
-    #endif
-
     QEventLoop loop;
     QNetworkAccessManager accessManager;
     QNetworkRequest request(m_fetchUrl);
@@ -91,6 +80,9 @@ namespace Application
     else
       setStatus(false);
 
+    m_remoteVersion = server_version;
+    m_link = server_link;
+
     qDebug() << "$ [UPDATE MANAGER] Server-side version:" << server_version << "[" << server_side << "]";
     qDebug() << "$ [UPDATE MANAGER] Current version:" << m_projectVersion << "[" << client_side << "]";
     qDebug() << "$ [UPDATE MANAGER] Update required:" << status();
@@ -103,6 +95,16 @@ namespace Application
       return;
     m_status = other;
     emit statusChanged();
+  }
+
+  QString UpdateManager::remoteVersion() const
+  {
+    return m_remoteVersion;
+  }
+
+  QString UpdateManager::link() const
+  {
+    return m_link;
   }
 
 } // Application

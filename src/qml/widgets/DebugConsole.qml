@@ -23,7 +23,7 @@ Pane {
         id: header
 
         height: 32
-        Material.background: ColorTheme.active.color(ColorTheme.Overlay)
+        Material.background: ColorTheme.active.color(ColorTheme.Surface)
         Material.elevation: 20
 
         anchors {

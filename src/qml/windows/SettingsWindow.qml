@@ -8,13 +8,13 @@ import Config 1.0
 
 Window {
     Material.theme: Material.Dark
-    Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
+    Material.accent: ColorTheme.active.color(ColorTheme.Maroon)
     Material.primary: ColorTheme.active.color(ColorTheme.Accent)
     Material.foreground: ColorTheme.active.color(ColorTheme.Text)
     Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
     width: 700
     height: 800
-    color: ColorTheme.active.color(ColorTheme.Text)
+    color: ColorTheme.active.color(ColorTheme.Dark)
     modality: Qt.NonModal
     title: "Параметры"
 

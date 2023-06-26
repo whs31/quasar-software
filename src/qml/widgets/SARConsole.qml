@@ -28,7 +28,7 @@ Pane { id: control;
             margins: -12
         }
 
-        Material.background: ColorTheme.active.color(ColorTheme.Overlay);
+        Material.background: ColorTheme.active.color(ColorTheme.Surface);
         Material.elevation: 20;
 
         Text { id: title;

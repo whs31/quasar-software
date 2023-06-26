@@ -18,6 +18,7 @@ namespace Networking
 
   void HTTPDownloader::download(const QString& url) noexcept
   {
+    m_data.clear();
     qDebug() << "[HTTP DOWNLOADER] Requested download from" << url;
     QNetworkRequest request(url);
     QNetworkReply* m_reply = m_accessManager->get(request);

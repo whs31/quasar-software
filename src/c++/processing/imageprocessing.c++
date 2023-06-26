@@ -122,7 +122,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
   target_filename.chop(3);
   target_filename += "png";
 
-  if(CONFIG(cutImage))
+  if(CONFIG(cutImage) and image.meta.image_type == 0)
     image_data = cutImage(image);
 
   bool ret = image_data.save(Config::Paths::lod(0) + "/" + target_filename);

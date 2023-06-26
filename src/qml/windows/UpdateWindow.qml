@@ -117,6 +117,7 @@ Pane {
         Row {
             Layout.fillWidth: true
             RoundButton {
+                enabled: false;
                 width: 200
                 font.family: root.mainfont
                 font.weight: Font.Bold

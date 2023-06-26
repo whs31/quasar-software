@@ -147,12 +147,12 @@ Pane { id: control;
         height: 28;
         color: ColorTheme.active.color(ColorTheme.BaseShade)
         border.width: 0.5;
-        border.color: Theme.color("dark2");
+        border.color: ColorTheme.active.color(ColorTheme.Surface)
 
         TextInput { id: input;
             anchors.fill: parent;
             anchors.leftMargin: 3;
-            color: Theme.color("color0");
+            color: ColorTheme.active.color(ColorTheme.PrimaryDark)
             text: "$";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;

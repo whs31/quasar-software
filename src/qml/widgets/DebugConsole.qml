@@ -180,7 +180,7 @@ Pane {
             anchors.bottom: parent.bottom
             width: 16;
             height: 16;
-            color: Theme.color("dark1");
+            color: ColorTheme.active.color(ColorTheme.BaseShade)
 
             // resize window mouse area
             MouseArea {

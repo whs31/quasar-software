@@ -2,7 +2,6 @@
 
 #include <QtCore/QCoreApplication>
 #include <QtQml/qqml.h>
-#include "gui/theme/include/theme.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
@@ -24,26 +23,29 @@
 Entry::Entry(QObject *parent)
   : QObject{parent}
 {
-  QML_EXPOSE_INSTANCE(Config::Paths, "Config", "Paths", Config::Paths::get());
-  QML_EXPOSE_INSTANCE(Config::Config, "Config", "Config", Config::Config::get());
-  QML_EXPOSE_INSTANCE(GUI::Theme, "Theme", "Theme", GUI::Theme::get());
-  QML_EXPOSE_INSTANCE(GUI::VT100Terminal, "Terminals", "VT100Terminal", GUI::VT100Terminal::get());
-  QML_EXPOSE_INSTANCE(GUI::DebugConsole, "Terminals", "DebugConsole", GUI::DebugConsole::get());
-  QML_EXPOSE_INSTANCE(GUI::WarningsModel, "Notifications", "WarningsModel", GUI::WarningsModel::get());
-  qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());
-  QML_EXPOSE_INSTANCE(OS::Filesystem, "Filesystem", "Filesystem", OS::Filesystem::get());
-  QML_EXPOSE_INSTANCE(Networking::Network, "Network", "Network", Networking::Network::get());
-  qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
-  QML_EXPOSE_INSTANCE(Map::ImageModel, "Images", "ImagesModel", Processing::ImageProcessing::get()->model());
-  QML_EXPOSE_INSTANCE(Map::StripModel, "Images", "StripModel", Processing::ImageProcessing::get()->stripModel());
-  QML_EXPOSE_INSTANCE(Map::MarkerModel, "Markers", "MarkersModel", Map::ClickHandler::get()->markerModel());
-  QML_EXPOSE_INSTANCE(Map::ClickHandler, "ClickHandler", "ClickHandler", Map::ClickHandler::get());
-  QML_EXPOSE_INSTANCE(Map::OfflineTileLoader, "Offline", "TileLoader", Map::OfflineTileLoader::get());
-  QML_EXPOSE_INSTANCE(Processing::ImageProcessing, "ImageProcessing", "ImageProcessing", Processing::ImageProcessing::get());
+  qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
+  qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
 
-  QML_EXPOSE_INSTANTIABLE(Map::Ruler, "Ruler", "RulerModel");
-  QML_EXPOSE_INSTANTIABLE(Map::Route, "Route", "Route");
-  QML_EXPOSE_INSTANTIABLE(Map::Diagram, "RadarDiagram", "RadarDiagram");
+  qmlRegisterSingletonInstance<GUI::VT100Terminal>("Terminals", 1, 0, "VT100Terminal", GUI::VT100Terminal::get());
+  qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
+  qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get());
+  qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());
+
+  qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get());
+
+  qmlRegisterSingletonInstance<Networking::Network>("Network", 1, 0, "Network", Networking::Network::get());
+  qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
+
+  qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
+  qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
+  qmlRegisterSingletonInstance<Map::MarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->markerModel());
+  qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get());
+  qmlRegisterSingletonInstance<Map::OfflineTileLoader>("Offline", 1, 0, "TileLoader", Map::OfflineTileLoader::get());
+  qmlRegisterType<Map::Ruler>("Ruler", 1, 0, "RulerModel");
+  qmlRegisterType<Map::Route>("Route", 1, 0, "Route");
+  qmlRegisterType<Map::Diagram>("RadarDiagram", 1, 0, "RadarDiagram");
+
+  qmlRegisterSingletonInstance<Processing::ImageProcessing>("ImageProcessing", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
 
   connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
   connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);

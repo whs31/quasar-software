@@ -8,7 +8,7 @@ Rectangle {
 
     height: 20;
     width: txt.paintedWidth + 10;
-    color: Theme.color("dark1");
+    color: ColorTheme.active.color(ColorTheme.BaseShade)
 
     Text { id: txt;
         property string s_LatSuffix: latitude > 0 ? "N" : "S";
@@ -17,9 +17,9 @@ Rectangle {
         anchors.centerIn: parent;
         font.family: root.mainfont;
         font.weight: Font.DemiBold;
-        color: Theme.color("light0");
+        color: ColorTheme.active.color(ColorTheme.Text)
         textFormat: Text.RichText;
-        text: "Широта: <b>" + Theme.colorText(Number(Math.abs(latitude)).toFixed(6) + "°" + s_LatSuffix, Theme.color("red")) +
-            "</b>, долгота: <b>" + Theme.colorText(Number(Math.abs(longitude)).toFixed(6) + "°" + s_LonSuffix, Theme.color("red"));
+        text: "Широта: <b>" + Number(Math.abs(latitude)).toFixed(6) + "°" + s_LatSuffix +
+              "</b>, долгота: <b>" + Number(Math.abs(longitude)).toFixed(6) + "°" + s_LonSuffix;
     }
 }

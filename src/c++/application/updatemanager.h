@@ -13,7 +13,7 @@ namespace Application
       explicit UpdateManager(QObject* parent);
 
       [[nodiscard]] Q_INVOKABLE QString remoteVersion() const;
-      [[nodiscard]] QString link() const;
+      [[nodiscard]] Q_INVOKABLE QString link() const;
 
       void setFetchUrl(const QString& url) noexcept;
 

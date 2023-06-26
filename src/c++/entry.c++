@@ -20,12 +20,15 @@
 #include "map/entities/diagram.h"
 #include "map/tools/offlinetileloader.h"
 #include "network/network.h"
+#include "network/http/httpdownloader.h"
 
 Entry::Entry(QObject* parent)
   : QObject(parent)
   , m_updateManager(new Application::UpdateManager(this))
+  , m_httpDownloader(new Networking::HTTPDownloader(this))
 {
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
+  qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
   m_updateManager->fetch();
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());

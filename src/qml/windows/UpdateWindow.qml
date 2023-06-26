@@ -93,9 +93,30 @@ Pane {
         Item { Layout.preferredHeight: 30; }
 
         Row {
+            visible: UpdateLoader.progress != 0;
+            Layout.fillWidth: true;
+
+            ProgressBar {
+                from: 0
+                to: 1
+                value: UpdateLoader.progress
+            }
+
+            Text {
+                font {
+                    family: root.mainfont
+                    pixelSize: 15
+                    bold: true
+                }
+                color: ColorTheme.active.color(ColorTheme.Text)
+                text: Number(UpdateLoader.downloadedBytes / 1024) + " кБ/" + Number(UpdateLoader.totalBytes / 1024) + " кБ";
+                horizontalAlignment: Text.AlignRight
+            }
+        }
+
+        Row {
             Layout.fillWidth: true
             RoundButton {
-                enabled: false
                 width: 200
                 font.family: root.mainfont
                 font.weight: Font.Bold
@@ -104,7 +125,7 @@ Pane {
                 Material.elevation: 30
                 Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
                 text: "Обновить"
-                onPressed: b_Shown = false
+                onPressed: UpdateLoader.download(UpdateNotifier.link());
             }
 
             RoundButton {
@@ -117,6 +138,15 @@ Pane {
                 Material.background: ColorTheme.active.color(ColorTheme.Dark)
                 text: "Закрыть"
                 onPressed: b_Shown = false
+            }
+
+            Connections {
+                target: UpdateLoader;
+                function onDownloadFinished() {
+                    UpdateLoader.cache(Paths.imageCache() + "/QuaSAR.exe");
+                    b_Shown = false;
+                    console.log("$ [GUI] Update download completed");
+                }
             }
         }
     }

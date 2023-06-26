@@ -7,6 +7,11 @@ namespace Application
   class UpdateManager;
 }
 
+namespace Networking
+{
+  class HTTPDownloader;
+}
+
 class Entry : public QObject
 {
   Q_OBJECT
@@ -16,4 +21,5 @@ class Entry : public QObject
 
   private:
     Application::UpdateManager* m_updateManager;
+    Networking::HTTPDownloader* m_httpDownloader;
 };

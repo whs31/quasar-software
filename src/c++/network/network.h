@@ -23,6 +23,7 @@ namespace Networking
   class TCPSocket;
   class StripSocket;
   class Pinger;
+  class RedirectServer;
 
   /*!
    *  @brief Класс-синглтон, отвечающий за связь с РЛС.
@@ -219,6 +220,8 @@ namespace Networking
       Pinger* m_navping;
       Pinger* m_utl1ping;
       Pinger* m_utl2ping;
+
+      RedirectServer* m_redirectServer;
 
       float m_networkDelay;
       int m_connected;

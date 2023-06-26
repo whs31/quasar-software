@@ -13,6 +13,7 @@
 #include "gui/terminal/vt100terminal.h"
 #include "utils/ping.h"
 #include "utils/commonutils.h"
+#include "utils/redirectserver.h"
 
 namespace Networking
 {
@@ -20,7 +21,7 @@ namespace Networking
   Network *Network::get() { static Network instance; return &instance; }
 
   Network::Network(QObject* parent)
-    : QObject{parent}
+    : QObject(parent)
     , m_telemetry(new Telemetry(this))
     , m_remoteData(new RemoteData(this))
     , execdSocket(new ExecdSocket(this))
@@ -36,6 +37,7 @@ namespace Networking
     , m_navping(new Pinger(this))
     , m_utl1ping(new Pinger(this))
     , m_utl2ping(new Pinger(this))
+    , m_redirectServer(new RedirectServer(this))
   {
     telemetrySocket = new TelemetrySocket(this, m_telemetry);
 
@@ -82,6 +84,8 @@ namespace Networking
 
   void Network::processFeedback(QByteArray data) noexcept
   {
+    // @todo if config redirect enabled
+    m_redirectServer->push(data);
     GUI::VT100Terminal::get()->print(data);
   }
 
@@ -96,6 +100,7 @@ namespace Networking
     feedbackSocket->start(feedback_addr);
     tcpSocket->startServer(tcp_lfs_addr);
     stripSocket->start(udp_lfs_addr);
+    m_redirectServer->start(stringifyIP(CONFIG(localIP), "24757"));
   }
 
   void Network::stop() noexcept
@@ -105,6 +110,7 @@ namespace Networking
     feedbackSocket->stop();
     tcpSocket->stopServer();
     stripSocket->stop();
+    m_redirectServer->stop();
     this->setNetworkDelay(100);
   }
 

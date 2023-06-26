@@ -12,7 +12,9 @@ namespace Networking
 {
 
   TCPSocket::TCPSocket(QObject* parent)
-    : QObject{parent}, server(new QTcpServer(this)), timer(new QTimer(this))
+    : QObject{parent}
+    , server(new QTcpServer(this))
+    , timer(new QTimer(this))
   {
     QObject::connect(server, &QTcpServer::newConnection, this, &TCPSocket::clientConnected);
     timer->setInterval(TCP_TIMEOUT);

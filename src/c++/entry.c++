@@ -29,7 +29,7 @@ Entry::Entry(QObject* parent)
 {
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
   qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
-  //m_updateManager->fetch();
+  m_updateManager->fetch();
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());

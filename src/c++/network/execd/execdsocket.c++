@@ -29,7 +29,7 @@ namespace Networking
 
   void ExecdSocket::executeCommand(const QString& command)
   {
-    auto com = finalize(wrap(command));
+    auto com = wrap(command);
     this->send(com);
     qDebug().noquote() << "[EXECD] Sended string command";
     emit socketMetrics(com, com.length(), true);
@@ -42,28 +42,28 @@ namespace Networking
     switch(command)
     {
       case Enums::FormImage:
-        com = finalize(wrap(NETCFG("EXECD_FORM_TELESCOPIC") + args->getFormArguments()));
+        com = wrap(NETCFG("EXECD_FORM_TELESCOPIC") + args->getFormArguments());
         break;
       case Enums::FocusImage:
-        com = finalize(wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getFocusArguments()));
+        com = wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getFocusArguments());
         break;
       case Enums::ReformImage:
-        com = finalize(wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getReformArguments()));
+        com = wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getReformArguments());
         break;
       case Enums::RemoteStorageStatus:
-        com = finalize(wrap(NETCFG("EXECD_STORAGE_FETCH")));
+        com = wrap(NETCFG("EXECD_STORAGE_FETCH"));
         break;
       case Enums::ClearRemoteStorage:
-        com = finalize(wrap(NETCFG("EXECD_STORAGE_CLEAR")));
+        com = wrap(NETCFG("EXECD_STORAGE_CLEAR") + " " + NETCFG("EXECD_STORAGE_FETCH"));
         break;
       case Enums::SimpleStrip:
-        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_DEBUG") + args->getFormArguments()));
+        com = wrap(NETCFG("EXECD_FORM_STRIP_DEBUG") + args->getFormArguments());
         break;
       case Enums::StartStrip:
-        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_START") + args->getFormArguments()));
+        com = wrap(NETCFG("EXECD_FORM_STRIP_START") + args->getFormArguments());
         break;
       case Enums::StopStrip:
-        com = finalize(wrap(NETCFG("EXECD_FORM_STRIP_STOP")));
+        com = wrap(NETCFG("EXECD_FORM_STRIP_STOP"));
         break;
       case Enums::Reboot:
       {
@@ -71,7 +71,7 @@ namespace Networking
         if(str.open(QFile::ReadOnly))
         {
           QString content = str.readAll();
-          com = finalize(wrap(content));
+          com = wrap(content);
         }
         break;
       }
@@ -81,7 +81,7 @@ namespace Networking
         if(str.open(QFile::ReadOnly))
         {
           QString content = str.readAll();
-          com = finalize(wrap(content));
+          com = wrap(content);
         }
         break;
       }
@@ -98,22 +98,21 @@ namespace Networking
 
   ExecdArgumentList* ExecdSocket::list() const noexcept { return args; }
 
-  QString ExecdSocket::wrap(const QString& string)
+  QByteArray ExecdSocket::wrap(const QString& string)
   {
     // prevents UID overflow
     if(message_uid == 9999)
       message_uid = 0;
 
     QString command = ":" + QStringLiteral("%1").arg(++message_uid, 4, 10, QLatin1Char('0')) + "|";
-    QString hexlen = QString("%1").arg(string.length(), 2, 16, QLatin1Char('0'));
-    command.append(hexlen + "|" + string + "|");
+    QString hex_length = QString("%1").arg(string.length(), 2, 16, QLatin1Char('0'));
+    command.append(hex_length + "|" + string + "|");
     command.append(QStringLiteral("%1").arg(LPVL::crc16(LPVL::str_data(command),
                                                         command.length()),
                                             4, 16, QLatin1Char('0')));
-    return command;
+    return command.toUtf8();
   }
 
-  QByteArray ExecdSocket::finalize(const QString& string) { return string.toUtf8(); }
   void ExecdSocket::processResult(QByteArray data)
   {
     QString raw = data.data();

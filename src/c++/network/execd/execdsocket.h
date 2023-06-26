@@ -23,8 +23,7 @@ namespace Networking
       void ping();
 
     private:
-      QString wrap(const QString& string);
-      QByteArray finalize(const QString& string);
+      QByteArray wrap(const QString& string);
 
     private slots:
       void processResult(QByteArray data);

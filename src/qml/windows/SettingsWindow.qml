@@ -681,14 +681,19 @@ Window {
                         font.weight: Font.Bold
                         font.pixelSize: 14
                         implicitWidth: 250
-                        currentIndex: Config.theme === "dark" ? 1 : 0
-                        model: ["Контрастная", "Темная"]
+                        currentIndex: 0
+                        model: ColorTheme.themeList;
                         Layout.alignment: Qt.AlignRight
-                        onCurrentValueChanged: {
-                            if (currentValue === "Контрастная")
-                                Config.theme = "contrast";
-                            else
-                                Config.theme = "dark";
+                        onCurrentValueChanged: Config.theme = currentValue
+                        Component.onCompleted: {
+                            for(let i = 0; i < ColorTheme.themeList.length; ++i)
+                            {
+                                if(ColorTheme.themeList[i] === Config.theme)
+                                {
+                                    currentIndex = i;
+                                    break;
+                                }
+                            }
                         }
                     }
 

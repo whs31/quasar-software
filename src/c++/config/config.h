@@ -438,7 +438,7 @@ namespace Config
         {"thetaAzimuthCorrection", "5"},
         {"overrideImageHeight", "true"},
         {"cutImage", "true"},
-        {"theme", "contrast"},
+        {"theme", "Dark"},
         {"enableDebugStrip", "true"},
         {"redirect", "true"},
         {"redirectAddress", "127.0.0.1:24757"}

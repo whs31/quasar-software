@@ -3,7 +3,6 @@
 #include <QtCore/QFile>
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
-#include <QtCore/QDebug>
 #include "config/config.h"
 #include "config/paths.h"
 
@@ -56,21 +55,21 @@ namespace GUI
       QFile json_file(file.absoluteFilePath());
       if(not json_file.open(QIODevice::ReadOnly))
       {
-        qWarning() << "[COLORTHEME] Error opening" << json_file.fileName();
+        qWarning() << "[COLORSCHEME] Error opening" << json_file.fileName();
         continue;
       }
 
       QJsonDocument json = QJsonDocument::fromJson(json_file.readAll());
       if(not json.isObject())
       {
-        qWarning() << "[COLORTHEME] Parsing error at JSON file:" << json_file.fileName();
+        qWarning() << "[COLORSCHEME] Parsing error at JSON file:" << json_file.fileName();
         continue;
       }
 
       QJsonObject object = json.object();
       if(not object.contains("theme_name"))
       {
-        qWarning() << "[COLORTHEME] Theme file does not contain theme name:" << json_file.fileName();
+        qWarning() << "[COLORSCHEME] Theme file does not contain theme name:" << json_file.fileName();
         continue;
       }
 
@@ -79,20 +78,20 @@ namespace GUI
     }
 
     emit themeListChanged();
-    qInfo() << "[COLORTHEME] Total themes found:" << m_themeList.size();
+    qInfo() << "[COLORSCHEME] Total themes found:" << m_themeList.size();
   }
 
   void ColorTheme::apply() noexcept
   {
     if(m_themeList.empty())
     {
-      qCritical() << "[COLORTHEME] Themes not found. Reinstall application";
+      qCritical() << "[COLORSCHEME] Themes not found. Reinstall application";
       return;
     }
 
     if(not m_themeList.contains(CONFIG(theme)))
     {
-      qWarning() << "[COLORTHEME] Selected theme isn't present in total found list";
+      qWarning() << "[COLORSCHEME] Selected theme isn't present in total found list";
       this->setActiveThemeName(m_themeList.first());
     }
 
@@ -103,7 +102,7 @@ namespace GUI
     QFile file(m_files.at(activeThemeName()));
     if(not file.open(QIODevice::ReadOnly))
     {
-      qCritical() << "[COLORTHEME] Something went wrong in applying theme";
+      qCritical() << "[COLORSCHEME] Something went wrong in applying theme";
       return;
     }
 

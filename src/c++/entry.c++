@@ -20,8 +20,8 @@
 #include "map/tools/offlinetileloader.h"
 #include "network/network.h"
 
-Entry::Entry(QObject *parent)
-  : QObject{parent}
+Entry::Entry(QObject* parent)
+  : QObject(parent)
 {
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());

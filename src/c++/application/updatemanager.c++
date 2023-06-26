@@ -1,6 +1,7 @@
 #include "updatemanager.h"
 #include <QtCore/QEventLoop>
 #include <QtCore/QDebug>
+#include <QtCore/QTimer>
 #include <QtNetwork/QNetworkReply>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkAccessManager>
@@ -26,6 +27,7 @@ namespace Application
     QNetworkAccessManager accessManager;
     QNetworkRequest request(m_fetchUrl);
     QNetworkReply* reply = accessManager.get(request);
+    QTimer::singleShot(2'000, &loop, &QEventLoop::quit);
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     loop.exec();
     QByteArray buffer = reply->readAll();

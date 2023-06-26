@@ -7,13 +7,13 @@
 namespace Networking
 {
   HTTPDownloader::HTTPDownloader(QObject* parent)
-    : QObject(parent)
-    , m_accessManager(new QNetworkAccessManager(this))
-    , m_progress(0)
-    , m_downloadedBytes(0)
-    , m_totalBytes(1)
+      : QObject(parent)
+      , m_accessManager(new QNetworkAccessManager(this))
+      , m_progress(0)
+      , m_downloadedBytes(0)
+      , m_totalBytes(1)
   {
-    connect(m_accessManager, &QNetworkAccessManager::finished, this, &HTTPDownloader::fileDownloaded);
+    connect(m_accessManager, &QNetworkAccessManager::finished, this, &HTTPDownloader::fileDownloaded, Qt::QueuedConnection);
   }
 
   void HTTPDownloader::download(const QString& url) noexcept
@@ -21,13 +21,11 @@ namespace Networking
     m_data.clear();
     qDebug() << "[HTTP DOWNLOADER] Requested download from" << url;
     QNetworkRequest request(url);
+    request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, true);
     QNetworkReply* m_reply = m_accessManager->get(request);
-    connect(m_reply, &QNetworkReply::downloadProgress, this, [this](qint64 recv, qint64 total)
-    {
-      this->setDownloadedBytes(recv);
-      this->setTotalBytes(total);
-      if(total != 0)
-        this->setProgress(recv / total);
+    connect(m_reply, &QNetworkReply::downloadProgress, this, &HTTPDownloader::progressReply);
+    connect(m_reply, &QNetworkReply::readyRead, this, [this, m_reply](){
+      m_data = m_reply->readAll();
     });
   }
 
@@ -51,9 +49,16 @@ namespace Networking
 
   void HTTPDownloader::fileDownloaded(QNetworkReply* reply)
   {
-    m_data = reply->readAll();
     reply->deleteLater();
     emit downloadFinished();
+  }
+
+  void HTTPDownloader::progressReply(qint64 recv, qint64 total)
+  {
+    this->setDownloadedBytes(recv);
+    this->setTotalBytes(total);
+    if(total != 0)
+      this->setProgress((float)recv / (float)total);
   }
 
   float HTTPDownloader::progress() const { return m_progress; }

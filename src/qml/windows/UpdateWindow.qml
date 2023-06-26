@@ -92,7 +92,7 @@ Pane {
 
         Item { Layout.preferredHeight: 30; }
 
-        Row {
+        RowLayout {
             visible: UpdateLoader.progress != 0;
             Layout.fillWidth: true;
 
@@ -100,6 +100,7 @@ Pane {
                 from: 0
                 to: 1
                 value: UpdateLoader.progress
+                width: 295
             }
 
             Text {
@@ -109,15 +110,18 @@ Pane {
                     bold: true
                 }
                 color: ColorTheme.active.color(ColorTheme.Text)
-                text: Number(UpdateLoader.downloadedBytes / 1024) + " кБ/" + Number(UpdateLoader.totalBytes / 1024) + " кБ";
+                text: Number(UpdateLoader.downloadedBytes / 1024).toFixed(0) + " кБ / " + Number(UpdateLoader.totalBytes / 1024).toFixed(0) + " кБ";
                 horizontalAlignment: Text.AlignRight
+                verticalAlignment: Text.AlignVCenter
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
             }
         }
 
         Row {
             Layout.fillWidth: true
             RoundButton {
-                enabled: false;
+                enabled: UpdateLoader.progress === 0;
                 width: 200
                 font.family: root.mainfont
                 font.weight: Font.Bold
@@ -130,6 +134,7 @@ Pane {
             }
 
             RoundButton {
+                enabled: UpdateLoader.progress === 0;
                 width: 200
                 font.family: root.mainfont
                 font.weight: Font.Bold

@@ -35,6 +35,7 @@ namespace Networking
 
     private slots:
       void fileDownloaded(QNetworkReply* reply);
+      void progressReply(qint64 recv, qint64 total);
 
     private:
       QNetworkAccessManager* m_accessManager;

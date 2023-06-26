@@ -28,6 +28,11 @@ namespace Application
 
   void UpdateManager::fetch() noexcept
   {
+    #ifndef Q_OS_WIN
+    setStatus(false);
+    return;
+    #endif
+
     QEventLoop loop;
     QNetworkAccessManager accessManager;
     QNetworkRequest request(m_fetchUrl);
@@ -35,7 +40,40 @@ namespace Application
     connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
     loop.exec();
     QByteArray buffer = reply->readAll();
-    qDebug() << "$ " << buffer << m_projectVersion;
+
+    auto split_ss = QString(buffer).split('.');
+    auto split_cs = m_projectVersion.split('.');
+    if(split_ss.length() != 3 or split_cs.length() != 3)
+    {
+      qCritical() << "[UPDATE MANAGER] Incorrect server result";
+      return;
+    }
+
+    int server_side = 0;
+    int client_side = 0;
+    try
+    {
+      server_side += split_ss[0].toInt() * 10'000;
+      server_side += split_ss[1].toInt() * 100;
+      server_side += split_ss.last().toInt();
+
+      client_side += split_cs[0].toInt() * 10'000;
+      client_side += split_cs[1].toInt() * 100;
+      client_side += split_cs.last().toInt();
+    }
+    catch(...)
+    {
+      qCritical() << "[UPDATE MANAGER] Safe block failed";
+    }
+
+    if(client_side < server_side)
+      setStatus(true);
+    else
+      setStatus(false);
+
+    qDebug() << "$ [UPDATE MANAGER] Server-side version:" << buffer << "[" << server_side << "]";
+    qDebug() << "$ [UPDATE MANAGER] Current version:" << m_projectVersion << "[" << client_side << "]";
+    qDebug() << "$ [UPDATE MANAGER] Update required:" << status();
   }
 
   bool UpdateManager::status() const { return m_status; }

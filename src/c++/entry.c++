@@ -2,6 +2,7 @@
 
 #include <QtCore/QCoreApplication>
 #include <QtQml/qqml.h>
+#include "application/updatemanager.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
@@ -22,7 +23,10 @@
 
 Entry::Entry(QObject* parent)
   : QObject(parent)
+  , m_updateManager(new Application::UpdateManager(this))
 {
+  m_updateManager->fetch();
+
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
 

@@ -31,6 +31,7 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 include_directories(src/c++ libs)
 
 file(GLOB_RECURSE CPP_SOURCES
+    src/c++/application/*
     src/c++/gui/*
     src/c++/filesystem/*
     src/c++/config/*

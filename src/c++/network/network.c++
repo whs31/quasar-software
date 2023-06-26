@@ -100,7 +100,9 @@ namespace Networking
     feedbackSocket->start(feedback_addr);
     tcpSocket->startServer(tcp_lfs_addr);
     stripSocket->start(udp_lfs_addr);
-    m_redirectServer->start(stringifyIP(CONFIG(localIP), "24757"));
+
+    if(CONFIG(redirect))
+      m_redirectServer->start(CONFIG(redirectAddress));
   }
 
   void Network::stop() noexcept

@@ -46,10 +46,8 @@ void Config::Config::save()
   ini->setValue("overrideImageHeight", QSTRING_CAST(overrideImageHeight()));
   ini->setValue("cutImage", QSTRING_CAST(cutImage()));
   ini->setValue("enableDebugStrip", QSTRING_CAST(enableDebugStrip()));
-
-  if(ini->value("theme").toString() != theme())
-    schedule_restart = true;
-
+  ini->setValue("redirect", QSTRING_CAST(redirect()));
+  ini->setValue("redirectAddress", redirectAddress());
   ini->setValue("theme", theme());
 
   if(schedule_restart)
@@ -92,6 +90,8 @@ void Config::Config::load()
   setCutImage(ini->value("cutImage").toBool());
   setTheme(ini->value("theme").toString());
   setEnableDebugStrip(ini->value("enableDebugStrip").toBool());
+  setRedirect(ini->value("redirect").toBool());
+  setRedirectAddress(ini->value("redirectAddress").toString());
 }
 
 void Config::Config::revert() { this->load(); }
@@ -354,6 +354,22 @@ namespace Config {
       return;
     m_enableDebugStrip = other;
     emit enableDebugStripChanged();
+  }
+
+  bool Config::redirect() const { return m_redirect; }
+  void Config::setRedirect(bool other) {
+    if(m_redirect == other)
+      return;
+    m_redirect = other;
+    emit redirectChanged();
+  }
+
+  QString Config::redirectAddress() const { return m_redirectAddress; }
+  void Config::setRedirectAddress(const QString& other) {
+    if(m_redirectAddress == other)
+      return;
+    m_redirectAddress = other;
+    emit redirectAddressChanged();
   }
 
 } // Config

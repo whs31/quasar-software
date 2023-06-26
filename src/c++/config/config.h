@@ -284,6 +284,8 @@ namespace Config
       Q_PROPERTY(QString storedCatalogue READ storedCatalogue WRITE setStoredCatalogue NOTIFY storedCatalogueChanged)
       Q_PROPERTY(QString theme READ theme WRITE setTheme NOTIFY themeChanged)
       Q_PROPERTY(bool enableDebugStrip READ enableDebugStrip WRITE setEnableDebugStrip NOTIFY enableDebugStripChanged)
+      Q_PROPERTY(bool redirect READ redirect WRITE setRedirect NOTIFY redirectChanged)
+      Q_PROPERTY(QString redirectAddress READ redirectAddress WRITE setRedirectAddress NOTIFY redirectAddressChanged)
 
     public:
       //! @brief Возвращает указатель на статический экземпляр класса.
@@ -367,6 +369,8 @@ namespace Config
       [[nodiscard]] QString utl2IP() const; void setUtl2IP(const QString&);
       [[nodiscard]] QString telemetryRecvPort() const; void setTelemetryRecvPort(const QString&);
       [[nodiscard]] bool enableDebugStrip() const; void setEnableDebugStrip(bool);
+      [[nodiscard]] bool redirect() const; void setRedirect(bool);
+      [[nodiscard]] QString redirectAddress() const; void setRedirectAddress(const QString&);
 
     signals:
       void remoteIPChanged();
@@ -398,6 +402,8 @@ namespace Config
       void utl2IPChanged();
       void telemetryRecvPortChanged();
       void enableDebugStripChanged();
+      void redirectChanged();
+      void redirectAddressChanged();
 
     private:
       explicit Config(QObject* parent = nullptr);
@@ -433,7 +439,9 @@ namespace Config
         {"overrideImageHeight", "true"},
         {"cutImage", "true"},
         {"theme", "contrast"},
-        {"enableDebugStrip", "true"}
+        {"enableDebugStrip", "true"},
+        {"redirect", "true"},
+        {"redirectAddress", "127.0.0.1:24757"}
       };
 
       QSettings* ini;
@@ -466,6 +474,8 @@ namespace Config
       QString m_utl2IP;
       QString m_telemetryRecvPort;
       bool m_enableDebugStrip;
+      bool m_redirect;
+      QString m_redirectAddress;
   };
 } // namespace Config;
 

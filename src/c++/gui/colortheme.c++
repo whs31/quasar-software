@@ -5,6 +5,7 @@
 #include <QtCore/QJsonObject>
 #include "config/config.h"
 #include "config/paths.h"
+#include "config/internalconfig.h"
 
 namespace GUI
 {
@@ -72,6 +73,9 @@ namespace GUI
         qWarning() << "[COLORSCHEME] Theme file does not contain theme name:" << json_file.fileName();
         continue;
       }
+
+      if(not ICFG<bool>("THEMES_ALLOW_BETA_THEMES") and object.value("theme_name").toString().contains("beta"))
+        continue;
 
       m_themeList.push_back(object.value("theme_name").toString());
       m_files.insert({object.value("theme_name").toString(), file.absoluteFilePath()});

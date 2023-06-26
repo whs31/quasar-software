@@ -36,9 +36,9 @@ Pane { id: dialog_TileLoader;
                 text: "Загрузить выбранную область";
 
                 icon.source: "qrc:/icons/google-material/take-photo.png";
-                icon.color: enabled ? Theme.color("dark0") : Theme.color("light0");
-                Material.background: enabled ? Theme.color("green") : Theme.color("dark2");
-                Material.foreground: enabled ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                Material.background: enabled ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
+                Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 onPressed: {
                     TileLoader.download(poly);
@@ -57,9 +57,9 @@ Pane { id: dialog_TileLoader;
                 text: "Отмена";
 
                 icon.source: "qrc:/icons/google-material/close.png";
-                icon.color: enabled ? Theme.color("dark0") : Theme.color("light0");
-                Material.background: enabled ? Theme.color("red") : Theme.color("dark2");
-                Material.foreground: enabled ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                Material.background: enabled ? ColorTheme.active.color(ColorTheme.Red) : ColorTheme.active.color(ColorTheme.Surface)
+                Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 onPressed: {
                     clr();
@@ -86,7 +86,7 @@ Pane { id: dialog_TileLoader;
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: Number(slider1.value).toFixed(0) + " уровень";
@@ -101,7 +101,7 @@ Pane { id: dialog_TileLoader;
                 pixelSize: 15
             }
             text: "Ожидаемый размер загрузки: " + Number(tilecount * 16 / 1024).toFixed(0) + " МБ";
-            color: Theme.color("light0");
+            color: ColorTheme.active.color(ColorTheme.Text)
         }
     }
 }

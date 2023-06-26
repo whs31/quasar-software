@@ -19,11 +19,11 @@ import "windows" as Windows
 import "widgets/tabbar" as NPM
 
 ApplicationWindow  { id: window_root;
-    Material.theme: Material.Dark;
-    Material.accent: Theme.color("color1");
-    Material.primary: Theme.color("accent");
-    Material.foreground: Theme.color("light0");
-    Material.background: Theme.color("dark1");
+    Material.theme: Material.Dark
+    Material.accent: ColorTheme.active.color(ColorTheme.Primary)
+    Material.primary: ColorTheme.active.color(ColorTheme.Accent)
+    Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
 
     title: "QuaSAR";
     minimumWidth: 1280;
@@ -31,7 +31,7 @@ ApplicationWindow  { id: window_root;
     width: 1280;
     height: 720;
     visible: true;
-    color: Theme.color("dark0");
+    color: ColorTheme.active.color(ColorTheme.Dark)
     Component.onCompleted: showMaximized();
 
     FileDialog { id: window_FileDialog;
@@ -150,9 +150,9 @@ ApplicationWindow  { id: window_root;
 
                     icon.source: "qrc:/icons/google-material/earth.png";
                     palette {
-                        buttonText: Theme.color("light0");
-                        highlight: Theme.color("dark3");
-                        highlightedText: Theme.color("light0");
+                        buttonText: ColorTheme.active.color(ColorTheme.Text)
+                        highlight: ColorTheme.active.color(ColorTheme.Green)
+                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
                     }
                 }
 
@@ -163,9 +163,9 @@ ApplicationWindow  { id: window_root;
                     }
                     icon.source: "qrc:/icons/google-material/edit.png";
                     palette {
-                        buttonText: Theme.color("light0");
-                        highlight: Theme.color("yellow");
-                        highlightedText: Theme.color("dark2");
+                        buttonText: ColorTheme.active.color(ColorTheme.Text)
+                        highlight: ColorTheme.active.color(ColorTheme.Yellow)
+                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
                     }
                     enabled: c_FocusTab.currentAssignedIndex >= 0;
                 }
@@ -177,9 +177,9 @@ ApplicationWindow  { id: window_root;
                     }
                     icon.source: "qrc:/icons/google-material/link.png";
                     palette {
-                        buttonText: Theme.color("light0");
-                        highlight: Theme.color("color3");
-                        highlightedText: Theme.color("dark2");
+                        buttonText: ColorTheme.active.color(ColorTheme.Text)
+                        highlight: ColorTheme.active.color(ColorTheme.PrimaryLightest)
+                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
                     }
                 }
             }

@@ -23,7 +23,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 text: "Режим карты   ";
                 Layout.alignment: Qt.AlignLeft;
             }
@@ -68,7 +68,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 text: "Тип трека   ";
                 Layout.alignment: Qt.AlignLeft;
             }
@@ -96,13 +96,13 @@ Pane { id: panel_Parameters;
             RoundButton { id: button_ClearTrack;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/clear.png";
-                icon.color: Theme.color("dark0");
+                icon.color: ColorTheme.active.color(ColorTheme.Dark)
                 height: 40;
                 font.family: root.mainfont;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
-                Material.foreground: Theme.color("dark0");
-                Material.background: Theme.color("red");
+                Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+                Material.background: ColorTheme.active.color(ColorTheme.Red)
                 onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
                 Connections {
                     target: dialogwindow;
@@ -130,7 +130,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 text: "Тип диаграммы   ";
                 Layout.alignment: Qt.AlignLeft;
             }

@@ -23,10 +23,10 @@ Pane {
             height: 40
             radius: 4
             icon.source: mode === 0 ? "qrc:/icons/google-material/camera.png" : "qrc:/icons/google-material/videocamera.png"
-            icon.color: Theme.color("dark0")
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             checkable: true
             Material.elevation: 30
-            Material.background: mode === 0 ? Theme.color("accent") : Theme.color("yellow")
+            Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Yellow)
             onCheckedChanged: checked ? mode = 1 : mode = 0
 
             Widgets.TT {
@@ -44,13 +44,16 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/google-material/take-photo.png"
-            icon.color: Theme.color("dark0")
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: mode === 0 ? "Формирование изображения" : checked ? "Остановка записи" : "Начало записи"
             enabled: mode === 0 || !Config.enableDebugStrip
             checkable: mode === 1
             Material.elevation: 30
-            Material.foreground: Theme.color("dark0")
-            Material.background: mode === 0 ? Theme.color("accent") : checked ? Theme.color("orange") : Theme.color("yellow")
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent)
+                                            : checked
+                                            ? ColorTheme.active.color(ColorTheme.Orange)
+                                            : ColorTheme.active.color(ColorTheme.Yellow)
             onPressed: {
                 if (!checkable)
                     Network.executeCommand(Net.FormImage);
@@ -84,11 +87,11 @@ Pane {
             enabled: visible;
             width: mode === 0 ? 0 : implicitWidth
             icon.source: "qrc:/icons/google-material/take-photo.png"
-            icon.color: Theme.color("dark0")
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: "Формирование упр. полосового изображения"
             Material.elevation: 30
-            Material.foreground: Theme.color("dark0")
-            Material.background: Theme.color("yellow")
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Yellow)
             onPressed: Network.executeCommand(Net.SimpleStrip)
 
             Behavior on width {
@@ -137,10 +140,10 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/google-material/water.png"
-            icon.color: Theme.color("dark0")
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30
-            Material.foreground: Theme.color("dark0")
-            Material.background: Theme.color("color0")
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.PrimaryDark)
             onPressed: dialogwindow.open("Калибровка высоты", "Выполнить калибровку высоты? Убедитесь, что БПЛА находится на земле.", "info", 17)
 
             Connections {

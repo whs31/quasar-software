@@ -35,7 +35,7 @@ Pane { id: panel_FocusSettings;
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: "Размер области для фокусировки  ";
@@ -50,14 +50,14 @@ Pane { id: panel_FocusSettings;
                 to: 200;
                 value: 50;
                 onValueChanged: focus_ls = value;
-                Material.accent: Theme.color("orange");
+                Material.accent: ColorTheme.active.color(ColorTheme.Orange)
             }
 
             Text {
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: Theme.color("orange");
+                color: ColorTheme.active.color(ColorTheme.Orange)
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: Number(slider1.value).toFixed(0) + " м";
@@ -70,7 +70,7 @@ Pane { id: panel_FocusSettings;
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: "Диапазон гипотезы по скорости  ";
@@ -87,14 +87,14 @@ Pane { id: panel_FocusSettings;
                 second.value: 100;
                 first.onValueChanged: focus_vmin = first.value;
                 second.onValueChanged: focus_vmax = second.value;
-                Material.accent: Theme.color("orange");
+                Material.accent: ColorTheme.active.color(ColorTheme.Orange)
             }
 
             Text {
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: Theme.color("orange");
+                color: ColorTheme.active.color(ColorTheme.Orange)
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: Number(slider2.first.value).toFixed(0) + " - "
@@ -110,7 +110,7 @@ Pane { id: panel_FocusSettings;
                     family: root.mainfont;
                     pixelSize: 14;
                 }
-                color: Theme.color("light1");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 Layout.alignment: Qt.AlignLeft;
             }
 
@@ -129,7 +129,7 @@ Pane { id: panel_FocusSettings;
                 }
 
                 Layout.alignment: Qt.AlignRight;
-                Material.accent: Theme.color("orange");
+                Material.accent: ColorTheme.active.color(ColorTheme.Orange)
 
                 onEditingFinished: focus_ni = parseInt(text);
             }
@@ -148,7 +148,7 @@ Pane { id: panel_FocusSettings;
                     pixelSize: 14;
                     bold: true;
                 }
-                color: Theme.color("light1");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 Layout.alignment: Qt.AlignLeft;
             }
         }

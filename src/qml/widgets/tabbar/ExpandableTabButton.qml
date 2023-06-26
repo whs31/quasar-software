@@ -16,9 +16,9 @@ TabButton {
     icon.color: checked ? palette.highlightedText : palette.buttonText;
     font.bold: true;
     palette {
-        buttonText: Theme.color("dark2");
-        highlight: Theme.color("light0");
-        highlightedText: Theme.color("orange");
+        buttonText: ColorTheme.active.color(ColorTheme.Surface)
+        highlight: ColorTheme.active.color(ColorTheme.Text)
+        highlightedText: ColorTheme.active.color(ColorTheme.Orange)
     }
     contentItem: Item {
         implicitWidth: img.width + (root.spacing + label.contentWidth) * label.visible;

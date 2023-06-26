@@ -1,5 +1,6 @@
 {
     "theme_name": "Light",
+    "dark": "#dce0e8",
     "base_shade": "#eff1f5",
     "surface": "#bcc0cc",
     "overlay": "#8c8fa1",

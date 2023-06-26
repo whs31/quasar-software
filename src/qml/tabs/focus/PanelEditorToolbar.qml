@@ -14,11 +14,11 @@ Pane { id: panel_EditorToolbar;
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/refresh.png";
-            icon.color: Theme.color("dark0");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: "Переформирование изображения";
             Material.elevation: 30;
-            Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("accent");
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Accent)
             onPressed: Network.executeCommand(Net.ReformImage);
         }
 
@@ -28,14 +28,12 @@ Pane { id: panel_EditorToolbar;
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/take-photo.png";
-            icon.color: Theme.color("dark0");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: "Фокусировка изображения";
             Material.elevation: 30;
-            Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("orange");
-            onPressed: {
-                Network.executeCommand(Net.FocusImage);
-            }
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Orange)
+            onPressed: Network.executeCommand(Net.FocusImage);
         }
     }
 }

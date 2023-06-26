@@ -20,7 +20,7 @@ Pane { id: control;
             text: control.text;
             font.family: root.mainfont;
             font.bold: true;
-            color: Theme.color("light1");
+            color: ColorTheme.active.color(ColorTheme.Text)
             font.pixelSize: 15;
             horizontalAlignment: Text.AlignHCenter;
             Layout.fillWidth: true;
@@ -33,9 +33,9 @@ Pane { id: control;
                 to: 100;
                 value: progress;
                 indeterminate: progress === 0;
-                Material.accent: value === 0 ? Theme.color("light0") : value > 75 ? Theme.color("green")
-                                                                                  : value > 40 ? Theme.color("yellow")
-                                                                                  : Theme.color("red");
+                Material.accent: value === 0 ? ColorTheme.active.color(ColorTheme.Text) : value > 75 ? ColorTheme.active.color(ColorTheme.Green)
+                                                                                  : value > 40 ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                                                  : ColorTheme.active.color(ColorTheme.Red);
                 Layout.fillWidth: true;
                 Layout.fillHeight: true;
             }
@@ -44,9 +44,9 @@ Pane { id: control;
                 text: Number(progress).toFixed(0) + "%";
                 font.family: root.mainfont;
                 font.bold: true;
-                color: progress === 0 ? Theme.color("light0") : progress > 75 ? Theme.color("green")
-                                                                              : progress > 40 ? Theme.color("yellow")
-                                                                              : Theme.color("red");
+                color: progress === 0 ? ColorTheme.active.color(ColorTheme.Text) : progress > 75 ? ColorTheme.active.color(ColorTheme.Green)
+                                                                              : progress > 40 ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                                              : ColorTheme.active.color(ColorTheme.Red);
                 font.pixelSize: 14;
                 Layout.fillHeight: true;
                 verticalAlignment: Text.AlignVCenter;

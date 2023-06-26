@@ -81,8 +81,8 @@ MapQuickItem  {
             width: 36;
 
             icon.source: "qrc:/icons/google-material/close.png";
-            icon.color: Theme.color("dark0");
-            Material.background: Theme.color("red");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Red)
             onPressed: MarkersModel.remove(index);
         }
     }

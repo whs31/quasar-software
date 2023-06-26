@@ -10,7 +10,7 @@ import "bottombar" as Bottom
 import "../widgets" as Widgets
 
 Rectangle {
-    color: Theme.color("dark1");
+    color: ColorTheme.active.color(ColorTheme.BaseShade)
 
     Bottom.StatusWidget { id: c_StatusWidget;
         anchors.left: parent.left;
@@ -55,11 +55,12 @@ Rectangle {
             radius: 4;
             icon.source: Network.connected ? "qrc:/icons/google-material/unlink.png"
                                            : "qrc:/icons/google-material/link.png";
-            icon.color: Theme.color("dark0");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: Network.connected ? "Отключиться" : "Подключиться к РЛС";
             Material.elevation: 30;
-            Material.foreground: Theme.color("dark0");
-            Material.background: Network.connected ? Theme.color("red") : Theme.color("color3");
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: Network.connected ? ColorTheme.active.color(ColorTheme.Red)
+                                                   : ColorTheme.active.color(ColorTheme.PrimaryLightest)
             Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
             Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
@@ -95,9 +96,9 @@ Rectangle {
             height: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/settings.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: {
                 if(c_SettingsWindow.visible === true)
                     c_SettingsWindow.hide();
@@ -113,9 +114,9 @@ Rectangle {
             height: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/info.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: {
                 if(c_InfoWindow.b_Shown)
                     c_InfoWindow.b_Shown = false;
@@ -131,9 +132,9 @@ Rectangle {
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/terminal.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: root.consoleshown = !root.consoleshown;
 
             Widgets.TT { ff: root.mainfont; txt: "Консоль разработчика"; }
@@ -144,9 +145,9 @@ Rectangle {
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/remote_monitor.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: root.vt100termshown = !root.vt100termshown;
 
             Widgets.TT { ff: root.mainfont; txt: "Консоль РЛС"; }

@@ -14,8 +14,8 @@ ListView {
         RoundButton {
             flat: true;
             icon.source: "qrc:/icons/google-material/warning.png";
-            icon.color: major ? Theme.color("red")
-                              : Theme.color("orange");
+            icon.color: major ? ColorTheme.active.color(ColorTheme.Red)
+                              : ColorTheme.active.color(ColorTheme.Orange)
         }
 
         Text {
@@ -29,8 +29,8 @@ ListView {
             }
 
             text: message;
-            color: major ? Theme.color("red")
-                         : Theme.color("orange");
+            color: major ? ColorTheme.active.color(ColorTheme.Red)
+                         : ColorTheme.active.color(ColorTheme.Orange)
             verticalAlignment: Text.AlignVCenter;
         }
     }

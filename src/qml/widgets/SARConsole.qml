@@ -16,7 +16,7 @@ Pane { id: control;
     opacity: root.vt100termshown ? 1 : 0;
 
     Behavior on opacity { NumberAnimation { duration: 150; } }
-    Material.background: Qt.darker(Theme.color("dark0"), 1.2);
+    Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2);
     Material.elevation: 200;
 
     Pane { id: header;
@@ -28,7 +28,7 @@ Pane { id: control;
             margins: -12
         }
 
-        Material.background: Theme.color("dark3");
+        Material.background: ColorTheme.active.color(ColorTheme.Overlay);
         Material.elevation: 20;
 
         Text { id: title;
@@ -46,7 +46,7 @@ Pane { id: control;
             }
 
             text: "КОНСОЛЬ РЛС";
-            color: Theme.color("light0");
+            color: ColorTheme.active.color(ColorTheme.Subtext);
             verticalAlignment: Text.AlignVCenter;
         }
 
@@ -80,7 +80,7 @@ Pane { id: control;
             RoundButton {
                 width: 26;
                 height: 26;
-                Material.background: Theme.color("orange");
+                Material.background: ColorTheme.active.color(ColorTheme.Orange);
                 Material.elevation: 100;
                 onPressed: VT100Terminal.clear();
             }
@@ -88,7 +88,7 @@ Pane { id: control;
             RoundButton {
                 width: 26;
                 height: 26;
-                Material.background: Theme.color("red");
+                Material.background: ColorTheme.active.color(ColorTheme.Red);
                 onPressed: root.vt100termshown = false;
             }
         }
@@ -113,8 +113,8 @@ Pane { id: control;
                 implicitWidth: 4;
                 implicitHeight: 100;
                 radius: width / 2;
-                color: vbar.pressed ? Theme.color("dark3")
-                                    : Theme.color("dark2");
+                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay)
+                                    : ColorTheme.active.color(ColorTheme.Surface);
             }
         }
 
@@ -125,8 +125,8 @@ Pane { id: control;
                 text: message;
                 width: scrollView.width;
                 font.family: root.monofont;
-                color: text.charAt(0) === "%" ? Theme.color("color3")
-                                              : Theme.color("light0");
+                color: text.charAt(0) === "%" ? ColorTheme.active.color(ColorTheme.PrimaryLightest)
+                                              : ColorTheme.active.color(ColorTheme.Text);
                 font.bold: true;
                 font.pixelSize: 15;
                 wrapMode: Text.WordWrap;
@@ -145,7 +145,7 @@ Pane { id: control;
         }
 
         height: 28;
-        color: Theme.color("dark1");
+        color: ColorTheme.active.color(ColorTheme.BaseShade)
         border.width: 0.5;
         border.color: Theme.color("dark2");
 
@@ -156,8 +156,8 @@ Pane { id: control;
             text: "$";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;
-            selectedTextColor: Theme.color("dark0");
-            selectionColor: Theme.color("yellow");
+            selectedTextColor: ColorTheme.active.color(ColorTheme.Dark)
+            selectionColor: ColorTheme.active.color(ColorTheme.Yellow)
             font.family: root.monofont;
             font.pixelSize: 14;
             onAccepted: {
@@ -171,7 +171,7 @@ Pane { id: control;
             verticalAlignment: Text.AlignVCenter;
             font.family: root.monofont;
             font.pixelSize: 14;
-            color: Theme.color("light0");
+            color: ColorTheme.active.color(ColorTheme.Text)
             text: input.text.length < 2 ? "  Введите команду для РЛС..." : "";
         }
 
@@ -180,17 +180,17 @@ Pane { id: control;
             anchors.bottom: parent.bottom;
             width: 16;
             height: 16;
-            color: Theme.color("dark1");
+            color: ColorTheme.active.color(ColorTheme.BaseShade)
 
             MouseArea { // resize window mouse area
                 property point offset: Qt.point(0, 0);
                 anchors.fill: parent;
                 hoverEnabled: true;
                 onPressed: {
-                    parent.color = Theme.color("dark2");
+                    parent.color = ColorTheme.active.color(ColorTheme.Surface)
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: parent.color = Theme.color("dark1");
+                onReleased: parent.color = ColorTheme.active.color(ColorTheme.BaseShade)
                 onPositionChanged: {
                     if(pressed) {
                         let global_pos = mapToItem(control, mouseX, mouseY);

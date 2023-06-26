@@ -14,7 +14,7 @@ Pane {
     Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
     clip: true;
 
-    Material.background: Theme.color("dark0");
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;
 
     implicitWidth: 400;
@@ -33,11 +33,11 @@ Pane {
     }
 
     Text {
-        text: "Версия " + Theme.colorText(Config.projectVersion(), Theme.color("yellow"));
+        text: "Версия " + Config.projectVersion();
         font.family: root.mainfont;
         font.bold: true;
         font.pixelSize: 22;
-        color: Theme.color("yellow");
+        color: ColorTheme.active.color(ColorTheme.Yellow)
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.top: image_Logo.bottom;
     }
@@ -89,7 +89,7 @@ Pane {
         height: 44;
         radius: 4;
         Material.elevation: 30;
-        Material.background: Theme.color("dark0");
+        Material.background: ColorTheme.active.color(ColorTheme.Dark)
         text: "Закрыть";
         onPressed: b_Shown = false;
     }

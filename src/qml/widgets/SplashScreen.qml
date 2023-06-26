@@ -5,7 +5,7 @@ Rectangle {
     property bool smooth_startup: true;
     enabled: true;
     opacity: enabled ? smooth_startup ? 0 : 1 : 0;
-    color: Theme.color("dark0");
+    color: ColorTheme.active.color(ColorTheme.Dark)
 
     Component.onCompleted: {
         smooth_startup = true;

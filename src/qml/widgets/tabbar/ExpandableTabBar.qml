@@ -11,7 +11,7 @@ TabBar {
     bottomPadding: 3;
     leftPadding: 5;
     palette {
-        base: Theme.color("dark1");
+        base: ColorTheme.active.color(ColorTheme.BaseShade)
     }
     contentItem: ListView {
         model: root.contentModel;

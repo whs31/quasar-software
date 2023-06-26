@@ -34,7 +34,7 @@ Item {
     Text {
         id: txt_Lat
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -52,7 +52,7 @@ Item {
     Text {
         id: txt_LatValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -79,7 +79,7 @@ Item {
     Text {
         id: txt_Lon
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -97,7 +97,7 @@ Item {
     Text {
         id: txt_LonValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -117,7 +117,7 @@ Item {
         height: 32
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: txt_LatValue.right
-        color: Theme.color("dark3")
+        color: ColorTheme.active.color(ColorTheme.Overlay)
     }
 
     Image {
@@ -135,7 +135,7 @@ Item {
     Text {
         id: txt_Alt
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -153,7 +153,7 @@ Item {
     Text {
         id: txt_AltValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 16
@@ -181,7 +181,7 @@ Item {
     Text {
         id: txt_Sea
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -199,7 +199,7 @@ Item {
     Text {
         id: txt_SeaValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -219,7 +219,7 @@ Item {
         height: 32
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: txt_SeaValue.right
-        color: Theme.color("dark3")
+        color: ColorTheme.active.color(ColorTheme.Overlay)
     }
 
     Image {
@@ -237,7 +237,7 @@ Item {
     Text {
         id: txt_Speed
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -255,7 +255,7 @@ Item {
     Text {
         id: txt_SpeedValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 16
@@ -283,7 +283,7 @@ Item {
     Text {
         id: txt_Direction
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -301,7 +301,7 @@ Item {
     Text {
         id: txt_DirectionValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.DemiBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -321,7 +321,7 @@ Item {
         height: 32
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: txt_DirectionValue.right
-        color: Theme.color("dark3")
+        color: ColorTheme.active.color(ColorTheme.Overlay)
     }
 
     Image {
@@ -339,13 +339,14 @@ Item {
     Text {
         id: txt_Satellites
 
-        property string s_CurrentColor: i_SatellitesCount < 3 ? "red" : i_SatellitesCount < 6 ? "yellow" : "green"
-
-        color: Theme.color("light0")
+        color: i_SatellitesCount < 3 ? ColorTheme.active.color(ColorTheme.Red)
+                                     : i_SatellitesCount < 6
+                                     ? ColorTheme.active.color(ColorTheme.Yellow)
+                                     : ColorTheme.active.color(ColorTheme.Green)
         font.weight: Font.Bold
         font.family: root.mainfont
         font.pixelSize: 13
-        text: Theme.colorText(Number(i_SatellitesCount).toFixed(0), s_CurrentColor) + " спутников"
+        text: Number(i_SatellitesCount).toFixed(0) + " спутников"
         width: 110
         height: 12
         anchors.top: ico_Satellites.top
@@ -370,14 +371,17 @@ Item {
     Text {
         id: txt_Delay
 
-        property string s_CurrentColor: fl_ConnectionDelay < 3 ? "green" : fl_ConnectionDelay < 8 ? "yellow" : "red"
         property string s_CurrentDelay: fl_ConnectionDelay < 0.2 ? "~0 с" : Number(fl_ConnectionDelay).toFixed(1) + " с"
 
-        color: Theme.color("light0")
+        color: fl_ConnectionDelay < 3
+               ? ColorTheme.active.color(ColorTheme.Green)
+               : fl_ConnectionDelay < 8
+               ? ColorTheme.active.color(ColorTheme.Yellow)
+               : ColorTheme.active.color(ColorTheme.Red)
         font.weight: Font.Bold
         font.family: root.mainfont
         font.pixelSize: 13
-        text: "Задержка " + Theme.colorText(s_CurrentDelay, s_CurrentColor)
+        text: "Задержка " + s_CurrentDelay
         width: 110
         height: 12
         anchors.top: ico_DelayIcon.top
@@ -395,7 +399,7 @@ Item {
         height: 32
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: txt_Delay.right
-        color: Theme.color("dark3")
+        color: ColorTheme.active.color(ColorTheme.Overlay)
     }
 
     Image {
@@ -413,7 +417,7 @@ Item {
     Text {
         id: txt_Disk
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -437,13 +441,16 @@ Item {
         anchors.topMargin: 7
         value: fl_RemoteDiskSpace
         indeterminate: fl_RemoteDiskSpace === 0
-        Material.accent: value === 0 ? Theme.color("light0") : value < 0.5 ? Theme.color("red") : value < 0.8 ? Theme.color("orange") : Theme.color("green")
+        Material.accent: value === 0 ? ColorTheme.active.color(ColorTheme.Text) : value < 0.5 ? ColorTheme.active.color(ColorTheme.Red)
+                                                                                              : value < 0.8
+                                                                                              ? ColorTheme.active.color(ColorTheme.Orange)
+                                                                                              : ColorTheme.active.color(ColorTheme.Green)
     }
 
     Text {
         id: txt_DiskValue
 
-        color: Theme.color("light0")
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.weight: Font.ExtraBold
         font.family: root.mainfont
         font.pixelSize: 12
@@ -475,10 +482,10 @@ Item {
         width: 40
         radius: 20
         icon.source: "qrc:/icons/google-material/delete.png"
-        icon.color: Theme.color("dark0")
+        icon.color: ColorTheme.active.color(ColorTheme.Dark)
         Material.elevation: 30
-        Material.foreground: Theme.color("dark0")
-        Material.background: Theme.color("red")
+        Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+        Material.background: ColorTheme.active.color(ColorTheme.Red)
         onPressed: dialogwindow.open("Очистка удаленного диска", "Вы уверены, что хотите очистить удаленное хранилище на РЛС?", "error", 27)
 
         Connections {

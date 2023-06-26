@@ -14,6 +14,7 @@ namespace GUI
       public:
         enum Color
         {
+          Dark,
           BaseShade,
           Surface,
           Overlay,
@@ -45,6 +46,7 @@ namespace GUI
         std::map<QString, Color> keyMap =
           {
             {"base_shade", BaseShade},
+            {"dark", Dark},
             {"surface", Surface},
             {"overlay", Overlay},
             {"subtext", Subtext},
@@ -79,11 +81,36 @@ namespace GUI
   class ColorTheme : public QObject
   {
     Q_OBJECT
-      Q_PROPERTY(internal::ColorThemeWrapper* active MEMBER m_wrapper NOTIFY activeChanged)
+      Q_PROPERTY(GUI::internal::ColorThemeWrapper* active MEMBER m_wrapper NOTIFY activeChanged)
       Q_PROPERTY(QString activeThemeName READ activeThemeName WRITE setActiveThemeName NOTIFY activeThemeNameChanged)
       Q_PROPERTY(QStringList themeList MEMBER m_themeList NOTIFY themeListChanged)
 
     public:
+      enum ColorAlias // basically an alias, because registering another class here is a pain
+      {
+        Dark,
+        BaseShade,
+        Surface,
+        Overlay,
+        Subtext,
+        Text,
+        Lavender,
+        PrimaryDark,
+        Primary,
+        PrimaryLight,
+        PrimaryLightest,
+        Accent,
+        Red,
+        Pink,
+        Maroon,
+        Rosewater,
+        Orange,
+        Yellow,
+        Green,
+        Mauve
+      };
+      Q_ENUM(ColorAlias)
+
       static ColorTheme* get();
       ~ColorTheme() override = default;
 

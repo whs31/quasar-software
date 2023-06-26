@@ -6,9 +6,9 @@ Rectangle { id: control;
     width: 10;
     height: 10;
     radius: width / 2;
-    color: connected === 2 ? Theme.color("green")
-                           : connected === 1 ? Theme.color("yellow")
-                           : Theme.color("red");
+    color: connected === 2 ? ColorTheme.active.color(ColorTheme.Green)
+                           : connected === 1 ? ColorTheme.active.color(ColorTheme.Yellow)
+                           : ColorTheme.active.color(ColorTheme.Red)
 
     SequentialAnimation {
         NumberAnimation {

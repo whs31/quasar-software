@@ -8,7 +8,7 @@ import Network 1.0
 
 Pane {
     Material.elevation: 60;
-    Material.background: Theme.color("dark2");
+    Material.background: ColorTheme.active.color(ColorTheme.Surface)
 
     RowLayout {
         RoundButton { id: button_Ping;
@@ -17,10 +17,10 @@ Pane {
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/storage.png"
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.foreground: Theme.color("light0");
-            Material.background: Theme.color("dark3");
+            Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+            Material.background: ColorTheme.active.color(ColorTheme.Overlay)
             onPressed: Network.executeCommand(Net.RemoteStorageStatus);
         }
 
@@ -30,10 +30,10 @@ Pane {
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/reboot.png"
-            icon.color: Theme.color("dark0");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30;
-            Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("orange");
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Orange)
             onPressed: dialogwindow.open("Перезагрузка РЛС", "Вы уверены, что хотите перезагрузить РЛС?", "warn", 21);
 
             Connections {
@@ -53,10 +53,10 @@ Pane {
             height: 40;
             radius: 4;
             icon.source: "qrc:/icons/google-material/poweroff.png"
-            icon.color: Theme.color("dark0");
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30;
-            Material.foreground: Theme.color("dark0");
-            Material.background: Theme.color("red");
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: ColorTheme.active.color(ColorTheme.Red)
             onPressed: dialogwindow.open("Выключение РЛС", "Вы уверены, что хотите выключить РЛС?", "warn", 22);
 
             Connections {

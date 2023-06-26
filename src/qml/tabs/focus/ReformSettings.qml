@@ -46,7 +46,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -78,7 +78,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -109,7 +109,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -144,7 +144,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -179,7 +179,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -214,7 +214,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -248,7 +248,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -279,7 +279,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -301,7 +301,7 @@ Pane { id: panel_ReformSettings;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text)
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider1.value).toFixed(0);
@@ -315,7 +315,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -337,7 +337,7 @@ Pane { id: panel_ReformSettings;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text)
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider2.value).toFixed(0);
@@ -351,7 +351,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -373,7 +373,7 @@ Pane { id: panel_ReformSettings;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text)
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider3.value).toFixed(0);
@@ -391,7 +391,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -425,7 +425,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -456,7 +456,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -487,7 +487,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -518,7 +518,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -552,7 +552,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -576,7 +576,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -601,7 +601,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -623,7 +623,7 @@ Pane { id: panel_ReformSettings;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 

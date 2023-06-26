@@ -15,9 +15,9 @@ Pane { id: panel_EditorTools;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/hand.png";
-            icon.color: focustab_root.currentTool === 0 ? Theme.color("dark0") : Theme.color("light0");
+            icon.color: focustab_root.currentTool === 0 ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
             Material.elevation: 30;
-            Material.background: focustab_root.currentTool === 0 ? Theme.color("color0") : Theme.color("dark2");
+            Material.background: focustab_root.currentTool === 0 ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.Surface);
             onPressed: focustab_root.currentTool = 0;
 
             Widgets.TT { ff: root.mainfont; txt: "Инструмент перемещения"; }
@@ -28,9 +28,9 @@ Pane { id: panel_EditorTools;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/focus-scope.png";
-            icon.color: focustab_root.currentTool === 1 ? Theme.color("dark0") : Theme.color("light0");
+            icon.color: focustab_root.currentTool === 1 ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
             Material.elevation: 30;
-            Material.background: focustab_root.currentTool === 1 ? Theme.color("orange") : Theme.color("dark2");
+            Material.background: focustab_root.currentTool === 1 ? ColorTheme.active.color(ColorTheme.Orange) : ColorTheme.active.color(ColorTheme.Surface);
             onPressed: {
                 if(focustab_root.currentTool === 1)
                     focustab_root.currentTool = 0;

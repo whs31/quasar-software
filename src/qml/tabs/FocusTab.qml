@@ -11,7 +11,7 @@ import Network 1.0
 import "focus" as FocusTab
 
 Rectangle { id: focustab_root;
-    color: Theme.color("dark0");
+    color: ColorTheme.active.color(ColorTheme.Dark)
 
     property int currentAssignedIndex: -1;
     property int currentTool: 0; // 0 - hand, 1 - focus
@@ -28,7 +28,7 @@ Rectangle { id: focustab_root;
             currentLx = ImagesModel.getRole(currentAssignedIndex, "lx");
             currentLy = ImagesModel.getRole(currentAssignedIndex, "ly");
             currentX0 = ImagesModel.getRole(currentAssignedIndex, "x0");
-            filename_label.filename_string = Theme.colorText(ImagesModel.getRole(currentAssignedIndex, "filename"), Theme.color("yellow"));
+            filename_label.filename_string = ImagesModel.getRole(currentAssignedIndex, "filename")
 
             panel_Reform.setVelocityAndElevation(Number(ImagesModel.getRole(currentAssignedIndex, "velocity")).toFixed(1),
                                                  Number(ImagesModel.getRole(currentAssignedIndex, "elevation")).toFixed(1));
@@ -59,7 +59,7 @@ Rectangle { id: focustab_root;
 
         Rectangle {
             id: rect;
-            color: Theme.color("dark0");
+            color: ColorTheme.active.color(ColorTheme.Dark)
             width: Math.max(mapImage.sourceSize.width, flick.width);
             height: Math.max(mapImage.sourceSize.height, flick.height);
             transform: Scale {
@@ -83,7 +83,7 @@ Rectangle { id: focustab_root;
 
                 Rectangle {
                     property bool shown: currentTool === 1;
-                    border.color: Theme.color("orange");
+                    border.color: ColorTheme.active.color(ColorTheme.Orange)
                     border.width: 2;
                     color: "transparent";
                     width: panel_FocusSettings.focus_ls * currentStep;
@@ -105,7 +105,7 @@ Rectangle { id: focustab_root;
                     ColorOverlay {
                         anchors.fill: pattern;
                         source: pattern;
-                        color: Theme.color("orange");
+                        color: ColorTheme.active.color(ColorTheme.Orange)
                         smooth: true;
                         antialiasing: true;
                     }
@@ -199,7 +199,7 @@ Rectangle { id: focustab_root;
                 family: root.mainfont
                 pixelSize: 15
             }
-            color: Theme.color("light1");
+            color: ColorTheme.active.color(ColorTheme.Text)
         }
     }
 

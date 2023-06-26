@@ -17,14 +17,14 @@ Pane {
     }
 
     Material.elevation: 6;
-    Material.background: Theme.color("dark1");
+    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
 
     Rectangle { id: header;
         anchors.top: parent.top;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.margins: -12;
-        color: Theme.color("dark2");
+        color: ColorTheme.active.color(ColorTheme.Surface)
         height: 24;
 
         Text {
@@ -32,14 +32,14 @@ Pane {
             anchors.leftMargin: 3;
             text: name;
             font.family: root.mainfont;
-            color: Theme.color("light1");
+            color: ColorTheme.active.color(ColorTheme.Text)
             font.bold: true;
             font.pixelSize: 15;
         }
     }
 
     Rectangle { id: textareabackground;
-        color: Theme.color("dark0");
+        color: ColorTheme.active.color(ColorTheme.Dark)
         anchors.top: header.bottom;
         anchors.topMargin: 12;
         anchors.left: parent.left;
@@ -60,12 +60,12 @@ Pane {
                     height: 12;
                     width: 30;
                     radius: 6;
-                    color: direction ? Theme.color("accent") : Theme.color("dark3");
+                    color: direction ? ColorTheme.active.color(ColorTheme.Orange) : ColorTheme.active.color(ColorTheme.Green)
 
                     Text {
                         font.family: root.monofont;
                         anchors.centerIn: parent;
-                        color: direction ? Theme.color("dark0") : Theme.color("light0");
+                        color: ColorTheme.active.color(ColorTheme.Dark)
                         font.bold: true;
                         font.pixelSize: 12;
                         text: direction ? "OUT" : "IN";
@@ -75,7 +75,7 @@ Pane {
                 Text {
                     text: txt;
                     font.family: root.monofont;
-                    color: Theme.color("light0");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     font.bold: true;
                     font.pixelSize: 12;
                     textFormat: Text.RichText;
@@ -99,15 +99,15 @@ Pane {
         anchors.bottomMargin: 6;
         radius: 15;
         clip: true;
-        color: Theme.color("dark1");
+        color: ColorTheme.active.color(ColorTheme.BaseShade)
 
         LPVLRealtimeLinePlot { id: plot;
             anchors.fill: parent;
             from: 0;
             to: 256;
-            backgroundColor: Theme.color("dark2");
-            plottingColor: Theme.color("color1");
-            foregroundColor: Theme.color("light0");
+            backgroundColor: ColorTheme.active.color(ColorTheme.Surface)
+            plottingColor: ColorTheme.active.color(ColorTheme.Primary)
+            foregroundColor: ColorTheme.active.color(ColorTheme.Text)
             interval: 1;
             seconds: 30;
             drawAxes: false;

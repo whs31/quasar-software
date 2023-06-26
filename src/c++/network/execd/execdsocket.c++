@@ -48,7 +48,7 @@ namespace Networking
         com = wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getFocusArguments());
         break;
       case Enums::ReformImage:
-        com = wrap(NETCFG("EXECD_FOCUS_TELESCOPIC") + args->getReformArguments());
+        com = wrap(NETCFG("EXECD_FORM_TELESCOPIC") + args->getReformArguments());
         break;
       case Enums::RemoteStorageStatus:
         com = wrap(NETCFG("EXECD_STORAGE_FETCH"));

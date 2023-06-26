@@ -11,7 +11,7 @@ Pane {
     property string name: "Ping Console";
 
     Material.elevation: 60;
-    Material.background: Theme.color("dark1");
+    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
 
 
     Rectangle { id: header;
@@ -19,7 +19,7 @@ Pane {
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.margins: -12;
-        color: Theme.color("dark2");
+        color: ColorTheme.active.color(ColorTheme.Surface)
         height: 24;
 
         Text {
@@ -31,12 +31,12 @@ Pane {
                 pixelSize: 15
             }
             text: name;
-            color: Theme.color("light1");
+            color: ColorTheme.active.color(ColorTheme.Text)
         }
     }
 
     Rectangle { id: textareabackground;
-        color: Theme.color("dark1");
+        color: ColorTheme.active.color(ColorTheme.BaseShade)
         anchors {
             top: header.bottom
             topMargin: 12
@@ -58,7 +58,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Радиолокационный модуль: "
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     Layout.fillWidth: true;
                 }
 
@@ -70,10 +70,10 @@ Pane {
                     }
                     text: Network.remoteData.de10ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                             : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.de10ping === 0 ? Theme.color("green")
+                    color: Network.remoteData.de10ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
                                                              : Network.remoteData.de10ping === 1
-                                                             ? Theme.color("yellow")
-                                                             : Theme.color("red");
+                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                             : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
@@ -93,7 +93,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Бортовой вычислитель: "
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     Layout.fillWidth: true;
                 }
 
@@ -105,10 +105,10 @@ Pane {
                     }
                     text: Network.remoteData.jetsonping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                             : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.jetsonping === 0 ? Theme.color("green")
+                    color: Network.remoteData.jetsonping === 0 ? ColorTheme.active.color(ColorTheme.Green)
                                                              : Network.remoteData.de10ping === 1
-                                                             ? Theme.color("yellow")
-                                                             : Theme.color("red");
+                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                             : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
@@ -128,7 +128,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Навигация: "
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     Layout.fillWidth: true;
                 }
 
@@ -140,10 +140,10 @@ Pane {
                     }
                     text: Network.remoteData.navping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                             : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.navping === 0 ? Theme.color("green")
+                    color: Network.remoteData.navping === 0 ? ColorTheme.active.color(ColorTheme.Green)
                                                              : Network.remoteData.de10ping === 1
-                                                             ? Theme.color("yellow")
-                                                             : Theme.color("red");
+                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                             : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
@@ -163,7 +163,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Коммутатор антенн: "
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     Layout.fillWidth: true;
                 }
 
@@ -175,10 +175,10 @@ Pane {
                     }
                     text: Network.remoteData.utl1ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                             : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.utl1ping === 0 ? Theme.color("green")
+                    color: Network.remoteData.utl1ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
                                                              : Network.remoteData.de10ping === 1
-                                                             ? Theme.color("yellow")
-                                                             : Theme.color("red");
+                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                             : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
@@ -198,7 +198,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Коммутатор питания: "
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     Layout.fillWidth: true;
                 }
 
@@ -210,10 +210,10 @@ Pane {
                     }
                     text: Network.remoteData.utl2ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                             : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.utl2ping === 0 ? Theme.color("green")
+                    color: Network.remoteData.utl2ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
                                                              : Network.remoteData.de10ping === 1
-                                                             ? Theme.color("yellow")
-                                                             : Theme.color("red");
+                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
+                                                             : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {

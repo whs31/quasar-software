@@ -9,7 +9,7 @@ import Config 1.0
 import "network" as NetworkTab
 
 Pane { id: networktab_root;
-    Material.background: Theme.color("dark0");
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
 
     Flickable {
         anchors.fill: parent;
@@ -28,7 +28,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ ТЕЛЕМЕТРИИ";
             width: 720;
             height: 450;
-            color: Theme.color("color3");
+            color: ColorTheme.active.color(ColorTheme.Lavender)
         }
 
         NetworkTab.SocketConsole { id: panel_ExecdConsole;
@@ -40,7 +40,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ КОМАНД";
             width: 1155;
             height: 450;
-            color: Theme.color("accent");
+            color: ColorTheme.active.color(ColorTheme.Mauve)
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;
@@ -52,7 +52,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ TCP-IP";
             width: 300;
             height: 450;
-            color: Theme.color("green");
+            color: ColorTheme.active.color(ColorTheme.Pink)
         }
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
@@ -64,7 +64,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ UDP LFS";
             width: 300;
             height: 450;
-            color: Theme.color("color0");
+            color: ColorTheme.active.color(ColorTheme.Orange)
         }
 
         NetworkTab.PingConsole { id: panel_pingStatus;

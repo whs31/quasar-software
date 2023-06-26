@@ -23,7 +23,7 @@ Pane { id: panel_ImageTools;
             height: 35;
             radius: 4;
             icon.source: "qrc:/icons/google-material/image.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать выбранные изображения";
             Material.elevation: 30;
             Material.background: Theme.color("dark1");
@@ -37,10 +37,10 @@ Pane { id: panel_ImageTools;
             height: 35;
             radius: 4;
             icon.source: "qrc:/icons/google-material/text.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать маркеры в текст";
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             Layout.fillWidth: true;
             enabled: false;
         }
@@ -51,10 +51,10 @@ Pane { id: panel_ImageTools;
             height: 35;
             radius: 4;
             icon.source: "qrc:/icons/google-material/save.png";
-            icon.color: Theme.color("light0");
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать маркеры в XML";
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             Layout.fillWidth: true;
             enabled: false;
         }

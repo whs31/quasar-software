@@ -10,15 +10,15 @@ import Theme 1.0
 
 Window {
     Material.theme: Material.Dark;
-    Material.accent: Theme.color("color1");
-    Material.primary: Theme.color("accent");
-    Material.foreground: Theme.color("light0");
-    Material.background: Theme.color("dark1");
+    Material.accent: ColorTheme.active.color(ColorTheme.Maroon)
+    Material.primary: ColorTheme.active.color(ColorTheme.Accent)
+    Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
 
     width: 900;
     height: 500;
 
-    color: Theme.color("dark0");
+    color: ColorTheme.active.color(ColorTheme.Dark)
     modality: Qt.NonModal;
     title: "Матрица полосового изображения";
 
@@ -68,7 +68,7 @@ Window {
                     text: "Контрастность матрицы: ";
                     font.family: root.mainfont;
                     verticalAlignment: Text.AlignVCenter;
-                    color: Theme.color("light0");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     font.bold: true;
                 }
 

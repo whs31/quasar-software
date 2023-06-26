@@ -38,7 +38,7 @@ Pane { id: control;
 
     clip: true;
 
-    Material.background: Theme.color("dark0");
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;
 
     implicitWidth: 600;
@@ -65,7 +65,7 @@ Pane { id: control;
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;
         font.family: root.mainfont;
-        color: Theme.color("light1");
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.bold: true;
         font.pixelSize: 14;
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere;
@@ -82,7 +82,7 @@ Pane { id: control;
             height: 44;
             radius: 4;
             Material.elevation: 30;
-            Material.background: Theme.color("dark0");
+            Material.background: ColorTheme.active.color(ColorTheme.Dark)
             text: "Ок";
             onPressed: accept();
         }
@@ -94,7 +94,7 @@ Pane { id: control;
             height: 44;
             radius: 4;
             Material.elevation: 30;
-            Material.background: Theme.color("dark0");
+            Material.background: ColorTheme.active.color(ColorTheme.Dark)
             text: "Отмена";
             onPressed: decline();
         }

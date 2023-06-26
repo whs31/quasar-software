@@ -16,7 +16,7 @@ Item {
     height: 46;
 
     Rectangle {
-        color: Theme.color("dark0");
+        color: ColorTheme.active.color(ColorTheme.Dark)
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.bottom: parent.bottom;
@@ -31,7 +31,8 @@ Item {
             anchors.left: parent.left;
             anchors.leftMargin: 12;
             anchors.verticalCenter: parent.verticalCenter;
-            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
+            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? ColorTheme.active.color(ColorTheme.Green)
+                                                                                  : ColorTheme.active.color(ColorTheme.Red)
 
             SequentialAnimation {
                 NumberAnimation {
@@ -54,7 +55,8 @@ Item {
         }
 
         Text {
-            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? Theme.color("green") : Theme.color("red");
+            color: i_ConnectionStatus === StatusWidget.ConnectionStatus.Connected ? ColorTheme.active.color(ColorTheme.Green)
+                                                                                  : ColorTheme.active.color(ColorTheme.Red)
             font.weight: Font.ExtraBold;
             font.family: root.mainfont;
             font.pixelSize: 15;
@@ -68,7 +70,7 @@ Item {
     }
 
     Rectangle {
-        color: Theme.color("dark1");
+        color: ColorTheme.active.color(ColorTheme.BaseShade)
         width: 111;
         height: 12;
         radius: 3;
@@ -81,7 +83,7 @@ Item {
             font.family: root.mainfont;
             font.weight: Font.DemiBold;
             font.pixelSize: 10;
-            color: Theme.color("light0");
+            color: ColorTheme.active.color(ColorTheme.Text)
         }
     }
 }

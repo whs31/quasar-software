@@ -137,8 +137,8 @@ Map { id: maptab_root;
         property bool shown: true;
         path: c_RadarDiagram.polygon;
         border.width: 3;
-        border.color: Theme.color("yellow");
-        color: Qt.lighter(Theme.color("yellow"), 1.2);
+        border.color: ColorTheme.active.color(ColorTheme.Yellow)
+        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Yellow), 1.2);
         opacity: shown ? 0.2 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
@@ -185,8 +185,8 @@ Map { id: maptab_root;
     MapPolygon { id: tileloaderpolygon;
         property bool shown: true;
         border.width: 3;
-        border.color: Theme.color("green");
-        color: Qt.lighter(Theme.color("green"), 1.2);
+        border.color: ColorTheme.active.color(ColorTheme.Green);
+        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Green), 1.2);
         opacity: shown ? 0.4 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
@@ -251,7 +251,7 @@ Map { id: maptab_root;
         radius: 4;
         icon.source: attitude.shown ? "qrc:/icons/google-material/expand-more.png"
                                     : "qrc:/icons/google-material/expand-less.png";
-        icon.color: Theme.color("light0");
+        icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: attitude.shown ? "" : "Авиагоризонт";
         Material.background: Material.background;
@@ -321,7 +321,7 @@ Map { id: maptab_root;
         radius: 4;
         icon.source: panel_Parameters.shown ? "qrc:/icons/google-material/collapse.png"
                                                  : "qrc:/icons/google-material/expand.png";
-        icon.color: Theme.color("light0");
+        icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: panel_Parameters.shown ? "" : "Параметры карты";
         Material.elevation: 30;
@@ -349,8 +349,8 @@ Map { id: maptab_root;
         height: 40;
         radius: 4;
         icon.source: panel_Export.shown ? "qrc:/icons/google-material/collapse.png"
-                                            : "qrc:/icons/google-material/export.png";
-        icon.color: Theme.color("light0");
+                                        : "qrc:/icons/google-material/export.png";
+        icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: panel_Export.shown ? "" : "Экспорт";
         Material.elevation: 30;
@@ -380,7 +380,7 @@ Map { id: maptab_root;
         radius: 4;
         icon.source: panel_ImageTools.shown ? "qrc:/icons/google-material/expand-more.png"
                                             : "qrc:/icons/google-material/expand-less.png";
-        icon.color: Theme.color("light0");
+        icon.color: ColorTheme.active.color(ColorTheme.Text)
         text: panel_ImageTools.shown ? "" : "Работа с изображениями";
         Material.elevation: 30;
         Material.background: Material.background;

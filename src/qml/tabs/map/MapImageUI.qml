@@ -24,8 +24,8 @@ MapQuickItem {
             width: 44;
             radius: 15;
             Material.elevation: 30;
-            Material.background: Theme.color("dark1");
-            icon.color: Theme.color("light1");
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
             onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
         }
 
@@ -41,7 +41,7 @@ MapQuickItem {
             Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
             Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
             clip: true;
-            Material.background: Theme.color("dark0");
+            Material.background: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30;
             z: 51;
 
@@ -50,7 +50,7 @@ MapQuickItem {
                     Text {
                         font.family: root.mainfont;
                         text: "Изображение №" + Number(index + 1);
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         font.weight: Font.Bold;
                         font.pixelSize: 16;
                         horizontalAlignment: Text.AlignHCenter;
@@ -62,15 +62,15 @@ MapQuickItem {
                     RoundButton { id: button_CloseDialog;
                         z: 50;
                         icon.source: "qrc:/icons/google-material/close.png";
-                        icon.color: Theme.color("dark0");
+                        icon.color: ColorTheme.active.color(ColorTheme.Dark);
                         Layout.preferredHeight: 36;
                         Layout.preferredWidth: 36;
                         height: 36;
                         width: 36;
                         radius: 18;
                         Material.elevation: 30;
-                        Material.foreground: Theme.color("dark0");
-                        Material.background: Theme.color("red");
+                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark);
+                        Material.background: ColorTheme.active.color(ColorTheme.Red);
                         onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
                     }
                 }
@@ -78,26 +78,26 @@ MapQuickItem {
                 Row {
                     RoundButton { id: button_HideImage;
                         icon.source: "qrc:/icons/google-material/hide.png";
-                        icon.color: Theme.color("light0");
+                        icon.color: ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: shown ? "Скрыть изображение" : "Показать изображение";
                         height: 40;
                         radius: 4;
                         Material.elevation: 30;
-                        Material.background: Theme.color("dark1");
+                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade);
                         onPressed: shown = !shown;
                     }
 
                     RoundButton { id: button_DeleteImage;
                         icon.source: "qrc:/icons/google-material/delete.png";
-                        icon.color: Theme.color("dark0");
+                        icon.color: ColorTheme.active.color(ColorTheme.Dark);
                         font.family: root.mainfont;
                         text: "Удалить изображение";
                         height: 40;
                         radius: 4;
                         Material.elevation: 30;
-                        Material.foreground: Theme.color("dark0");
-                        Material.background: Theme.color("red");
+                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark);
+                        Material.background: ColorTheme.active.color(ColorTheme.Red);
                         onPressed: deleteImage(index);
                     }
                 }
@@ -105,7 +105,7 @@ MapQuickItem {
                 Row {
                     RoundButton { id: button_ShowControls;
                         icon.source: "qrc:/icons/google-material/adjust.png";
-                        icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Параметры";
                         checkable: true;
@@ -113,13 +113,13 @@ MapQuickItem {
                         height: 35;
                         radius: 4;
                         Material.elevation: 30;
-                        Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
-                        Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
+                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
+                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.BaseShade);
                     }
 
                     RoundButton { id: button_Showmeta;
                         icon.source: "qrc:/icons/google-material/list.png";
-                        icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Метаданные";
                         height: 35;
@@ -127,8 +127,8 @@ MapQuickItem {
                         checkable: true;
                         checked: false;
                         Material.elevation: 30;
-                        Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
-                        Material.background: checked ? Theme.color("color0") : Theme.color("dark1");
+                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
+                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.BaseShade);
                     }
                 }
 
@@ -140,13 +140,13 @@ MapQuickItem {
                         Layout.fillWidth: true;
                         Layout.preferredHeight: 35;
                         icon.source: "qrc:/icons/google-material/edit.png";
-                        icon.color: Theme.color("light0");
+                        icon.color: ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Редактирование изображения";
                         height: 35;
                         radius: 4;
                         Material.elevation: 30;
-                        Material.background: Theme.color("dark1");
+                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade);
                         onPressed: {
                             c_FocusTab.currentAssignedIndex = index;
                             root.openTab(1);
@@ -160,7 +160,7 @@ MapQuickItem {
                             Layout.fillWidth: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text);
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: "Непрозрачность: ";
@@ -201,44 +201,44 @@ MapQuickItem {
                         ListModel { id: meta_model
                             Component.onCompleted:
                             {
-                                append({str: "Имя файла:", col: Theme.color("light0"), fill: true});
-                                append({str: filename, col: Theme.color("color0"), fill: false});
-                                append({str: "Широта:", col: Theme.color("light0"), fill: true});
-                                append({str: Number(latitude).toFixed(8) + "°", col: Theme.color("color1"), fill: false});
-                                append({str: "Долгота:", col: Theme.color("light0"), fill: true});
-                                append({str: Number(longitude).toFixed(8) + "°", col: Theme.color("color1"), fill: false});
-                                append({str: "Шаг по гор. дальности:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(dx).toFixed(1),  col: Theme.color("light0"), fill: false});
-                                append({str: "Шаг по путевой дальности:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(dy).toFixed(1),  col: Theme.color("light0"), fill: false});
-                                append({str: "Ближняя граница по гор. дальности:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(x0).toFixed(1),  col: Theme.color("light0"), fill: false});
-                                append({str: "Смещение кадра по путевой дальности:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(y0).toFixed(1),  col: Theme.color("light0"), fill: false});
-                                append({str: "Азимут:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(angle).toFixed(1) + "°",  col: Theme.color("yellow"), fill: false});
-                                append({str: "Угол сноса:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(drift_angle).toFixed(1) + "°",  col: Theme.color("yellow"), fill: false});
-                                append({str: "Ширина диаграммы направлености:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(div).toFixed(1) + "°",  col: Theme.color("yellow"), fill: false});
-                                append({str: "Ширина изображения:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(lx).toFixed(1) + " px",  col: Theme.color("light0"), fill: false});
-                                append({str: "Высота изображения:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(ly).toFixed(1) + " px",  col: Theme.color("light0"), fill: false});
-                                append({str: "Скорость носителя:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(velocity).toFixed(1) + " м/с",  col: Theme.color("accent"), fill: false});
-                                append({str: "Высота носителя:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(altitude).toFixed(1) + " м",  col: Theme.color("accent"), fill: false});
-                                append({str: "Коэффициент частотной интерполяции:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(kr).toFixed(1),  col: Theme.color("color3"), fill: false});
-                                append({str: "Время сдвига:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(time_shift).toFixed(1)  + " c",  col: Theme.color("color3"), fill: false});
-                                append({str: "Время синтезирования:",  col: Theme.color("light0"), fill: true});
-                                append({str: Number(time_duration).toFixed(1)  + " c",  col: Theme.color("color3"), fill: false});
-                                append({str: "Контрольная сумма:",  col: Theme.color("light0"), fill: true});
-                                append({str: "0x" + Number(crc16).toString(16),  col: Theme.color("orange"), fill: false});
-                                append({str: "Совпадение CRC:",  col: Theme.color("light0"), fill: true});
-                                append({str: valid ? "ДА" : "НЕТ",  col: valid ? Theme.color("green") : Theme.color("red"), fill: false});
+                                append({str: "Имя файла:", col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: filename, col: ColorTheme.active.color(ColorTheme.PrimaryDark), fill: false});
+                                append({str: "Широта:", col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(latitude).toFixed(8) + "°", col: ColorTheme.active.color(ColorTheme.Primary), fill: false});
+                                append({str: "Долгота:", col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(longitude).toFixed(8) + "°", col: ColorTheme.active.color(ColorTheme.Primary), fill: false});
+                                append({str: "Шаг по гор. дальности:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(dx).toFixed(1),  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Шаг по путевой дальности:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(dy).toFixed(1),  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Ближняя граница по гор. дальности:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(x0).toFixed(1),  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Смещение кадра по путевой дальности:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(y0).toFixed(1),  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Азимут:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(angle).toFixed(1) + "°",  col: ColorTheme.active.color(ColorTheme.Yellow), fill: false});
+                                append({str: "Угол сноса:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(drift_angle).toFixed(1) + "°",  col: ColorTheme.active.color(ColorTheme.Yellow), fill: false});
+                                append({str: "Ширина диаграммы направлености:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(div).toFixed(1) + "°",  col: ColorTheme.active.color(ColorTheme.Yellow), fill: false});
+                                append({str: "Ширина изображения:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(lx).toFixed(1) + " px",  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Высота изображения:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(ly).toFixed(1) + " px",  col: ColorTheme.active.color(ColorTheme.Text), fill: false});
+                                append({str: "Скорость носителя:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(velocity).toFixed(1) + " м/с",  col: ColorTheme.active.color(ColorTheme.Accent), fill: false});
+                                append({str: "Высота носителя:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(altitude).toFixed(1) + " м",  col: ColorTheme.active.color(ColorTheme.Accent), fill: false});
+                                append({str: "Коэффициент частотной интерполяции:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(kr).toFixed(1),  col: ColorTheme.active.color(ColorTheme.PrimaryLightest), fill: false});
+                                append({str: "Время сдвига:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(time_shift).toFixed(1)  + " c",  col: ColorTheme.active.color(ColorTheme.PrimaryLightest), fill: false});
+                                append({str: "Время синтезирования:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: Number(time_duration).toFixed(1)  + " c",  col: ColorTheme.active.color(ColorTheme.PrimaryLightest), fill: false});
+                                append({str: "Контрольная сумма:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: "0x" + Number(crc16).toString(16),  col: ColorTheme.active.color(ColorTheme.Orange), fill: false});
+                                append({str: "Совпадение CRC:",  col: ColorTheme.active.color(ColorTheme.Text), fill: true});
+                                append({str: valid ? "ДА" : "НЕТ",  col: valid ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Red), fill: false});
                             }
                         }
 
@@ -261,14 +261,14 @@ MapQuickItem {
 
         Rectangle { id: panel_SARImageTooltip;
             visible: !panel_ImageDialog.b_Shown;
-            color: Theme.color("dark1");
+            color: ColorTheme.active.color(ColorTheme.BaseShade);
             width: (text_ImageIndex.paintedWidth + 5);
             height: (text_ImageIndex.paintedHeight + 3);
             anchors.top: button_openImageDialog.bottom;
             anchors.horizontalCenter: button_openImageDialog.horizontalCenter;
             radius: width / 2;
             Text { id: text_ImageIndex;
-                color: Theme.color("light0");
+                color: ColorTheme.active.color(ColorTheme.Text);
                 enabled: true;
                 anchors.fill: parent;
                 font.pointSize: 8;

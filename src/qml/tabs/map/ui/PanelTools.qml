@@ -27,9 +27,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/ruler.png";
-                icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
-                Material.background: checked ? Theme.color("yellow") : Theme.color("dark2");
+                Material.background: checked ? ColorTheme.active.color(ColorTheme.Yellow) : ColorTheme.active.color(ColorTheme.Surface)
                 onCheckedChanged: {
                     if(checked && ClickHandler.state === ClickHandler.Idle)
                         ClickHandler.state = ClickHandler.RulerActive;
@@ -47,9 +47,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/map-offline.png";
-                icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
-                Material.background: checked ? Theme.color("green") : Theme.color("dark2");
+                Material.background: checked ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
                 onCheckedChanged: {
                     if(checked && ClickHandler.state === ClickHandler.Idle)
                         ClickHandler.state = ClickHandler.TileLoaderActive;
@@ -68,9 +68,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/ruler2.png";
-                icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
-                Material.background: checked ? Theme.color("accent") : Theme.color("dark2");
+                Material.background: checked ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface)
                 onCheckedChanged: {
                     if(checked && ClickHandler.state === ClickHandler.Idle)
                         ClickHandler.state = ClickHandler.ProtractorActive;
@@ -88,9 +88,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/gps.png";
-                icon.color: Theme.color("light0");
+                icon.color: ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
-                Material.background: Theme.color("dark2");
+                Material.background: ColorTheme.active.color(ColorTheme.Surface)
                 onPressed: maptab_root.center = c_UAV.coordinate;
 
                 Widgets.TT { ff: root.mainfont; txt: "Центрировать карту на БПЛА"; }
@@ -106,8 +106,8 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/image-gps.png";
-                icon.color: Theme.color("light0");
-                Material.background: Theme.color("dark2");
+                icon.color: ColorTheme.active.color(ColorTheme.Text)
+                Material.background: ColorTheme.active.color(ColorTheme.Surface)
                 Material.elevation: 30;
                 onPressed: self();
 

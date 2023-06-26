@@ -8,13 +8,13 @@ import Config 1.0
 
 Window {
     Material.theme: Material.Dark
-    Material.accent: Theme.color("color1")
-    Material.primary: Theme.color("accent")
-    Material.foreground: Theme.color("light0")
-    Material.background: Theme.color("dark1")
+    Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
+    Material.primary: ColorTheme.active.color(ColorTheme.Accent)
+    Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
     width: 700
     height: 800
-    color: Theme.color("dark0")
+    color: ColorTheme.active.color(ColorTheme.Text)
     modality: Qt.NonModal
     title: "Параметры"
 
@@ -56,7 +56,7 @@ Window {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: -12
-                    color: Theme.color("dark2")
+                    color: ColorTheme.active.color(ColorTheme.Surface)
                     height: 24
 
                     Text {
@@ -64,7 +64,7 @@ Window {
                         anchors.leftMargin: 3
                         text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.bold: true
                         font.pixelSize: 15
                     }
@@ -81,7 +81,7 @@ Window {
                     Text {
                         text: "IP-адрес РЛМ:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -96,14 +96,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.remoteIP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.remoteIP = text
                     }
 
                     Text {
                         text: "IP-адрес вычислителя:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -118,14 +118,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.jetsonIP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.jetsonIP = text
                     }
 
                     Text {
                         text: "IP-адрес навигации:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -140,14 +140,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.navIP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.navIP = text
                     }
 
                     Text {
                         text: "IP-адрес коммутатора антенн:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -162,14 +162,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.utl1IP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.utl1IP = text
                     }
 
                     Text {
                         text: "IP-адрес коммутатора питания:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -184,14 +184,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.utl2IP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.utl2IP = text
                     }
 
                     Text {
                         text: "IP-адрес АРМ:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -206,14 +206,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.localIP
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.localIP = text
                     }
 
                     Text {
                         text: "Порт сокета телеметрии:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -228,14 +228,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.telemetryPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.telemetryPort = text
                     }
 
                     Text {
                         text: "Порт входящей телеметрии:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -250,14 +250,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.telemetryRecvPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.telemetryRecvPort = text
                     }
 
                     Text {
                         text: "Порт сокета выполнения команд:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -272,14 +272,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.execdPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.execdPort = text
                     }
 
                     Text {
                         text: "Порт сокета обратной связи:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -294,14 +294,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.feedbackPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.feedbackPort = text
                     }
 
                     Text {
                         text: "Порт TCP-загрузчика:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -316,14 +316,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.tcpLFSPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.tcpLFSPort = text
                     }
 
                     Text {
                         text: "Порт UDP-загрузчика:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -338,14 +338,14 @@ Window {
                         font.pixelSize: 14
                         text: Config.udpLFSPort
                         Layout.alignment: Qt.AlignRight
-                        color: b_Valid ? Theme.color("light1") : Theme.color("red")
+                        color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                         onEditingFinished: Config.udpLFSPort = text
                     }
 
                     Text {
                         text: "Частота запроса телеметрии, c:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -386,7 +386,7 @@ Window {
                     Text {
                         text: "Маркер TCP-сокета:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -426,7 +426,7 @@ Window {
                         enabled: Config.redirect
                         text: "Адрес для перенаправления вывода:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -438,7 +438,7 @@ Window {
                         font.pixelSize: 14
                         text: Config.redirectAddress
                         Layout.alignment: Qt.AlignRight
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         onEditingFinished: Config.redirectAddress = text
                     }
                 }
@@ -460,7 +460,7 @@ Window {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: -12
-                    color: Theme.color("dark2")
+                    color: ColorTheme.active.color(ColorTheme.Surface)
                     height: 24
 
                     Text {
@@ -468,7 +468,7 @@ Window {
                         anchors.leftMargin: 3
                         text: "ПАРАМЕТРЫ НОСИТЕЛЯ"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.bold: true
                         font.pixelSize: 15
                     }
@@ -485,7 +485,7 @@ Window {
                     Text {
                         text: "Положение антенны:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -527,7 +527,7 @@ Window {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: -12
-                    color: Theme.color("dark2")
+                    color: ColorTheme.active.color(ColorTheme.Surface)
                     height: 24
 
                     Text {
@@ -535,7 +535,7 @@ Window {
                         anchors.leftMargin: 3
                         text: "ПАРАМЕТРЫ ГЕОПРИВЯЗКИ"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.bold: true
                         font.pixelSize: 15
                     }
@@ -552,7 +552,7 @@ Window {
                     Text {
                         text: "Общая коррекция угла:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -574,7 +574,7 @@ Window {
                     Text {
                         text: "Коррекция тета-азимута:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -644,7 +644,7 @@ Window {
                     anchors.left: parent.left
                     anchors.right: parent.right
                     anchors.margins: -12
-                    color: Theme.color("dark2")
+                    color: ColorTheme.active.color(ColorTheme.Surface)
                     height: 24
 
                     Text {
@@ -652,7 +652,7 @@ Window {
                         anchors.leftMargin: 3
                         text: "ПРИЛОЖЕНИЕ"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.bold: true
                         font.pixelSize: 15
                     }
@@ -669,7 +669,7 @@ Window {
                     Text {
                         text: "Тема приложения:"
                         font.family: root.mainfont
-                        color: Theme.color("light1")
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         font.pixelSize: 14
                         Layout.alignment: Qt.AlignLeft
                     }
@@ -720,7 +720,7 @@ Window {
             height: 44
             radius: 4
             Material.elevation: 30
-            Material.background: Theme.color("dark1")
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             text: "Применить"
             onPressed: {
                 Config.save();
@@ -737,11 +737,10 @@ Window {
             height: 44
             radius: 4
             Material.elevation: 30
-            Material.background: Theme.color("dark1")
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             text: "Отмена"
             onPressed: {
                 Config.revert();
-                //                sb_1.value = Config.telemetryFrequency;
                 hide();
             }
         }

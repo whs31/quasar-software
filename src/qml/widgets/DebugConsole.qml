@@ -15,7 +15,7 @@ Pane {
     z: 100
     clip: true
 
-    Material.background: Qt.darker(Theme.color("dark0"), 1.2)
+    Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2)
     Material.elevation: 200
     Component.onCompleted: DebugConsole.execute("help")
 
@@ -23,7 +23,7 @@ Pane {
         id: header
 
         height: 32
-        Material.background: Theme.color("dark3")
+        Material.background: ColorTheme.active.color(ColorTheme.Overlay)
         Material.elevation: 20
 
         anchors {
@@ -37,7 +37,7 @@ Pane {
             id: title
 
             text: "КОНСОЛЬ РАЗРАБОТЧИКА"
-            color: Theme.color("light0")
+            color: ColorTheme.active.color(ColorTheme.Subtext)
             verticalAlignment: Text.AlignVCenter
 
             anchors {
@@ -88,7 +88,7 @@ Pane {
             RoundButton {
                 width: 26
                 height: 26
-                Material.background: Theme.color("red")
+                Material.background: ColorTheme.active.color(ColorTheme.Red)
                 onPressed: root.consoleshown = false
             }
 
@@ -118,7 +118,7 @@ Pane {
                 implicitWidth: 4
                 implicitHeight: 100
                 radius: width / 2
-                color: vbar.pressed ? Theme.color("dark3") : Theme.color("dark2")
+                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay) : ColorTheme.active.color(ColorTheme.Surface)
             }
 
         }
@@ -127,8 +127,8 @@ Pane {
             spacing: 5
 
             Text {
-                property var colors: [Theme.color("light0"), Theme.color("color3"), Theme.color("yellow"),
-                    Theme.color("red"), Theme.color("green"), Theme.color("accent"), Theme.color("light1")]
+                property var colors: [ColorTheme.active.color(ColorTheme.Subtext), ColorTheme.active.color(ColorTheme.Primary), ColorTheme.active.color(ColorTheme.Yellow),
+                    ColorTheme.active.color(ColorTheme.Red), ColorTheme.active.color(ColorTheme.Green), ColorTheme.active.color(ColorTheme.Pink), ColorTheme.active.color(ColorTheme.Text)]
 
                 width: scrollView.width;
                 text: message;
@@ -146,9 +146,9 @@ Pane {
     Rectangle {
         id: inputArea
 
-        color: Theme.color("dark1")
+        color: ColorTheme.active.color(ColorTheme.BaseShade)
         border.width: 0.5
-        border.color: Theme.color("dark2")
+        border.color: ColorTheme.active.color(ColorTheme.Surface)
         height: 28
 
         anchors {
@@ -161,12 +161,12 @@ Pane {
         TextInput {
             anchors.fill: parent;
             anchors.leftMargin: 3;
-            color: Theme.color("light1");
+            color: ColorTheme.active.color(ColorTheme.Text)
             text: "";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;
-            selectedTextColor: Theme.color("dark0");
-            selectionColor: Theme.color("yellow");
+            selectedTextColor: ColorTheme.active.color(ColorTheme.Dark)
+            selectionColor: ColorTheme.active.color(ColorTheme.Yellow)
             font.family: root.monofont;
             font.pixelSize: 13;
             onAccepted: {
@@ -189,10 +189,10 @@ Pane {
                 anchors.fill: parent
                 hoverEnabled: true
                 onPressed: {
-                    parent.color = Theme.color("dark2");
+                    parent.color = ColorTheme.active.color(ColorTheme.Surface)
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: parent.color = Theme.color("dark1")
+                onReleased: parent.color = ColorTheme.active.color(ColorTheme.BaseShade)
                 onPositionChanged: {
                     if (pressed) {
                         let global_pos = mapToItem(control, mouseX, mouseY);

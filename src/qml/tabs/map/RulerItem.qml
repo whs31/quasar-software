@@ -15,7 +15,7 @@ MapItemView { id: orthodromSegments;
 
         MapPolyline {
             id: segmentItem;
-            line.color: Theme.color("color3");
+            line.color: ColorTheme.active.color(ColorTheme.PrimaryLightest)
             line.width: 5;
             antialiasing: true;
             path: segment;
@@ -31,7 +31,7 @@ MapItemView { id: orthodromSegments;
                 width: 16;
                 height: 16;
                 radius: 8;
-                color: Theme.color("color2");
+                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
             }
         }
 
@@ -44,7 +44,7 @@ MapItemView { id: orthodromSegments;
                 width: 16;
                 height: 16;
                 radius: 8;
-                color: Theme.color("color2");
+                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
             }
         }
 
@@ -59,8 +59,8 @@ MapItemView { id: orthodromSegments;
                 height: segmentLengthText.height * 1.1;
                 radius: 4;
                 border.width: 1;
-                border.color: Theme.color("color2");
-                color: Theme.color("color2");
+                border.color: ColorTheme.active.color(ColorTheme.PrimaryLight)
+                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
                 visible: true;
 
                 Text {
@@ -69,7 +69,7 @@ MapItemView { id: orthodromSegments;
                     text: segmentLength < 10000 ? Number(segmentLength).toFixed(0) + " м" : Number(segmentLength / 1000).toFixed(1) + " км"
                     font.family: root.mainfont;
                     font.bold: true;
-                    color: Theme.color("dark0");
+                    color: ColorTheme.active.color(ColorTheme.Dark)
                 }
             }
         }

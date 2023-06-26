@@ -33,7 +33,7 @@ Pane {
 
     clip: true;
 
-    Material.background: Theme.color("dark0");
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;
 
     implicitWidth: 500;
@@ -60,7 +60,7 @@ Pane {
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;
         font.family: root.mainfont;
-        color: Theme.color("light1");
+        color: ColorTheme.active.color(ColorTheme.Text)
         font.bold: true;
         font.pixelSize: 14;
         wrapMode: Text.WordWrap;
@@ -75,7 +75,7 @@ Pane {
         height: 44;
         radius: 4;
         Material.elevation: 30;
-        Material.background: Theme.color("dark0");
+        Material.background: ColorTheme.active.color(ColorTheme.Dark)
         text: "Ок";
         onPressed: b_Shown = false;
     }

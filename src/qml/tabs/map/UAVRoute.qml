@@ -25,7 +25,7 @@ MapPolyline {
                                            fl_CurrentSpeed, i_CurrentSats);
 
     line.width: 5;
-    line.color: Theme.color("yellow");
+    line.color: ColorTheme.active.color(ColorTheme.Yellow)
     path: type === UAVRoute.Full ? c_Route.fullRoute : c_Route.recentRoute;
 
     Route { id: c_Route; }

@@ -35,14 +35,14 @@ Pane {
     Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutQuad; } }
     clip: true;
 
-    Material.background: Theme.color("dark0");
+    Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;
 
         ColumnLayout {
             Text {
                 font.family: root.mainfont;
                 text: "Добавление маркера";
-                color: Theme.color("light1");
+                color: ColorTheme.active.color(ColorTheme.Text)
                 font.weight: Font.Bold;
                 font.pixelSize: 15;
                 horizontalAlignment: Text.AlignHCenter;
@@ -55,7 +55,7 @@ Pane {
                     Layout.fillWidth: true;
                     text: "Имя маркера:     ";
                     font.family: root.mainfont;
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     font.pixelSize: 14;
                     height: input_MarkerName.height;
                     verticalAlignment: Text.AlignVCenter;
@@ -66,7 +66,7 @@ Pane {
                     font.weight: Font.Bold;
                     font.pixelSize: 14;
                     text: s_MarkerName;
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     horizontalAlignment: Text.AlignRight;
 
                     onEditingFinished: s_MarkerName = text;
@@ -76,7 +76,7 @@ Pane {
                     Layout.fillWidth: true;
                     text: "Широта:";
                     font.family: root.mainfont;
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     font.pixelSize: 14;
                     height: input_MarkerName.height;
                     verticalAlignment: Text.AlignVCenter;
@@ -89,7 +89,7 @@ Pane {
                     font.weight: Font.Bold;
                     font.pixelSize: 14;
                     text: Number(coord_MarkerCoords.latitude).toFixed(8);
-                    color: b_Valid ? Theme.color("light1") : Theme.color("red");
+                    color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                     horizontalAlignment: Text.AlignRight;
 
                     onEditingFinished: coord_MarkerCoords.latitude = parseFloat(text);
@@ -99,7 +99,7 @@ Pane {
                     Layout.fillWidth: true;
                     text: "Долгота:";
                     font.family: root.mainfont;
-                    color: Theme.color("light1");
+                    color: ColorTheme.active.color(ColorTheme.Text)
                     font.pixelSize: 14;
                     height: input_MarkerName.height;
                     verticalAlignment: Text.AlignVCenter;
@@ -112,7 +112,7 @@ Pane {
                     font.weight: Font.Bold;
                     font.pixelSize: 14;
                     text: Number(coord_MarkerCoords.longitude).toFixed(8);
-                    color: b_Valid ? Theme.color("light1") : Theme.color("red");
+                    color: b_Valid ? ColorTheme.active.color(ColorTheme.Text) : ColorTheme.active.color(ColorTheme.Red)
                     horizontalAlignment: Text.AlignRight;
 
                     onEditingFinished: coord_MarkerCoords.longitude = parseFloat(text);
@@ -189,7 +189,7 @@ Pane {
                     height: 44;
                     radius: 4;
                     Material.elevation: 30;
-                    Material.background: Theme.color("dark0");
+                    Material.background: ColorTheme.active.color(ColorTheme.Dark)
                     text: "ОК";
                     onPressed: accept();
                 }
@@ -201,7 +201,7 @@ Pane {
                     height: 44;
                     radius: 4;
                     Material.elevation: 30;
-                    Material.background: Theme.color("dark0");
+                    Material.background: ColorTheme.active.color(ColorTheme.Dark)
                     text: "Отмена";
                     onPressed: b_Shown = false;
                 }

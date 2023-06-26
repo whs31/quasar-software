@@ -18,9 +18,9 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/marker.png";
-            icon.color: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("dark0") : Theme.color("light0");
+            icon.color: ClickHandler.state === ClickHandler.MarkerActive ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
-            Material.background: ClickHandler.state === ClickHandler.MarkerActive ? Theme.color("accent") : Theme.color("dark2");
+            Material.background: ClickHandler.state === ClickHandler.MarkerActive ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface);
             onPressed: ClickHandler.state = ClickHandler.MarkerActive;
 
             Widgets.TT { ff: root.mainfont; txt: "Установка нового маркера карты"; }
@@ -32,8 +32,8 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/flag.png";
-            icon.color: Theme.color("light0");
-            Material.background: ClickHandler.state === ClickHandler.PlannerActive ? Theme.color("accent") : Theme.color("dark2");
+            icon.color: ColorTheme.active.color(ColorTheme.Text);
+            Material.background: ClickHandler.state === ClickHandler.PlannerActive ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface);
             Material.elevation: 30;
             onPressed: ClickHandler.state = ClickHandler.PlannerActive;
 
@@ -45,8 +45,8 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/remove-layer.png";
-            icon.color: Theme.color("light0");
-            Material.background: Theme.color("dark2");
+            icon.color: ColorTheme.active.color(ColorTheme.Text);
+            Material.background: ColorTheme.active.color(ColorTheme.Surface);
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
 
@@ -68,8 +68,8 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/google-material/remove-image.png";
-            icon.color: Theme.color("light0");
-            Material.background: Theme.color("dark2");
+            icon.color: ColorTheme.active.color(ColorTheme.Text);
+            Material.background: ColorTheme.active.color(ColorTheme.Surface);
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
 

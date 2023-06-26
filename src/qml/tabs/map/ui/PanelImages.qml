@@ -30,11 +30,11 @@ Pane { id: panel_ImageTools;
                 width: layout_ImageTools.width;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/adjust.png";
-                icon.color: checked ? Theme.color("dark0") : Theme.color("light0");
+                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                 text: "Параметры формирования";
                 Material.elevation: 30;
-                Material.foreground: checked ? Theme.color("dark0") : Theme.color("light0");
-                Material.background: checked ? Theme.color("color0") : Theme.color("dark1");      
+                Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
+                Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.BaseShade);
             }
 
             ScrollView { id: scrollview2;
@@ -58,7 +58,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -89,7 +89,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -121,7 +121,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -153,7 +153,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text)
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -185,7 +185,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -216,7 +216,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -247,7 +247,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -269,7 +269,7 @@ Pane { id: panel_ImageTools;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text);
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider1.value).toFixed(0);
@@ -283,7 +283,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -305,7 +305,7 @@ Pane { id: panel_ImageTools;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text);
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider2.value).toFixed(0);
@@ -319,7 +319,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -341,7 +341,7 @@ Pane { id: panel_ImageTools;
                             Layout.fillHeight: true;
                             Layout.alignment: Qt.AlignVCenter;
                             font.family: root.mainfont;
-                            color: Theme.color("light0");
+                            color: ColorTheme.active.color(ColorTheme.Text);
                             font.pixelSize: 14;
                             font.weight: Font.DemiBold;
                             text: Number(slider3.value).toFixed(0);
@@ -359,7 +359,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -393,7 +393,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -424,7 +424,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -455,7 +455,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -486,7 +486,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -520,7 +520,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -544,7 +544,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -569,7 +569,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -591,7 +591,7 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                         }
-                        color: Theme.color("light1");
+                        color: ColorTheme.active.color(ColorTheme.Text);
                         Layout.alignment: Qt.AlignLeft;
                     }
 
@@ -619,7 +619,7 @@ Pane { id: panel_ImageTools;
                 height: 40;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/refresh.png";
-                icon.color: Theme.color("light0");
+                icon.color: ColorTheme.active.color(ColorTheme.Text);
                 text: "Обновить каталог";
                 Material.elevation: 30;
                 Material.background: Material.background;
@@ -637,7 +637,7 @@ Pane { id: panel_ImageTools;
                 height: 40;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/folder.png";
-                icon.color: Theme.color("light0");
+                icon.color: ColorTheme.active.color(ColorTheme.Text);
                 Material.elevation: 30;
                 Material.background: Material.background;
                 text: "Изменить каталог";
@@ -651,10 +651,10 @@ Pane { id: panel_ImageTools;
                 height: 40;
                 radius: 4;
                 icon.source: "qrc:/icons/google-material/delete.png";
-                icon.color: Theme.color("dark0");
+                icon.color: ColorTheme.active.color(ColorTheme.Dark);
                 Material.elevation: 30;
-                Material.foreground: Theme.color("dark0");
-                Material.background: Theme.color("red");
+                Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+                Material.background: ColorTheme.active.color(ColorTheme.Red)
                 text: "Очистить кэш";
                 onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
                                              "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);

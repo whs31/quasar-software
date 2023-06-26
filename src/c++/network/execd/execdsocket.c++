@@ -127,8 +127,9 @@ namespace Networking
       qDebug() << "[EXECD] Command executed successfully";
       emit ping();
     }
-    else
-      qWarning() << "[EXECD] CRC16 mismatch";
+//    else
+//      qWarning() << "[EXECD] CRC16 mismatch";
+    emit socketMetrics(raw, data.size(), false);
   }
 
 } // Networking

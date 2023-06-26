@@ -58,6 +58,7 @@ add_executable(${PROJECT_NAME}
 add_subdirectory(libs/LPVL)
 add_subdirectory(libs/CCL)
 add_subdirectory(libs/argparse)
+#add_subdirectory(libs/corrosion) # tell devops to install rustc
 
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")

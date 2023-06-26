@@ -92,7 +92,7 @@ namespace GUI
 
     if(not m_themeList.contains(CONFIG(theme)))
     {
-      qCritical() << "[COLORTHEME] Selected theme isn't present in total found list";
+      qWarning() << "[COLORTHEME] Selected theme isn't present in total found list";
       this->setActiveThemeName(m_themeList.first());
     }
 

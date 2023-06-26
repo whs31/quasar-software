@@ -41,7 +41,26 @@ namespace Application
     loop.exec();
     QByteArray buffer = reply->readAll();
 
-    auto split_ss = QString(buffer).split('.');
+    auto split_reply = QString(buffer).split(';');
+    if(split_reply.length() != 3)
+    {
+      qCritical() << "[UPDATE MANAGER] Incorrect server result";
+      return;
+    }
+    QString server_app, server_version, server_link;
+    try
+    {
+      server_app = split_reply[0];
+      server_version = split_reply[1];
+      server_link = split_reply.last();
+    }
+    catch(...)
+    {
+      qCritical() << "[UPDATE MANAGER] Exception catched";
+      return;
+    }
+
+    auto split_ss = server_version.split('.');
     auto split_cs = m_projectVersion.split('.');
     if(split_ss.length() != 3 or split_cs.length() != 3)
     {
@@ -64,6 +83,7 @@ namespace Application
     catch(...)
     {
       qCritical() << "[UPDATE MANAGER] Safe block failed";
+      return;
     }
 
     if(client_side < server_side)
@@ -71,7 +91,7 @@ namespace Application
     else
       setStatus(false);
 
-    qDebug() << "$ [UPDATE MANAGER] Server-side version:" << buffer << "[" << server_side << "]";
+    qDebug() << "$ [UPDATE MANAGER] Server-side version:" << server_version << "[" << server_side << "]";
     qDebug() << "$ [UPDATE MANAGER] Current version:" << m_projectVersion << "[" << client_side << "]";
     qDebug() << "$ [UPDATE MANAGER] Update required:" << status();
   }

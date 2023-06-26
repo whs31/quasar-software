@@ -45,7 +45,7 @@ Window {
                 id: panel_Network
 
                 x: 25
-                height: 785
+                height: 890
                 Material.elevation: 50
                 width: view.width - 50
 
@@ -409,6 +409,38 @@ Window {
                         }
                     }
 
+                    CheckBox {
+                        checked: Config.redirect
+                        text: "Перенаправлять вывод РЛС"
+                        font.family: root.mainfont
+                        font.pixelSize: 14
+                        onCheckedChanged: Config.redirect = checked
+                    }
+
+                    Item {
+                        Layout.fillHeight: true
+                        Layout.fillWidth: true
+                    }
+
+                    Text {
+                        enabled: Config.redirect
+                        text: "Адрес для перенаправления вывода:"
+                        font.family: root.mainfont
+                        color: Theme.color("light1")
+                        font.pixelSize: 14
+                        Layout.alignment: Qt.AlignLeft
+                    }
+
+                    TextField {
+                        enabled: Config.redirect
+                        font.family: root.mainfont
+                        font.weight: Font.Bold
+                        font.pixelSize: 14
+                        text: Config.redirectAddress
+                        Layout.alignment: Qt.AlignRight
+                        color: Theme.color("light1")
+                        onEditingFinished: Config.redirectAddress = text
+                    }
                 }
 
             }

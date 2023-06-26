@@ -92,5 +92,7 @@
         <file>logo/logo_large_orange.png</file>
         <file>json/constants.json</file>
         <file>json/network.json</file>
+        <file>themes/dark.json</file>
+        <file>themes/light.json</file>
     </qresource>
 </RCC>

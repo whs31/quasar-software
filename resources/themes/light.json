@@ -1,0 +1,22 @@
+{
+    "theme_name": "Light",
+    "base_shade": "#eff1f5",
+    "surface": "#bcc0cc",
+    "overlay": "#8c8fa1",
+    "subtext": "#5c5f77",
+    "text": "#4c4f69",
+    "lavender": "#7287fd",
+    "primary_dark": "#1e66f5",
+    "primary": "#04a5e5",
+    "primary_light": "#179299",
+    "primary_lightest": "#209fb5",
+    "accent": "#8839ef",
+    "red": "#d20f39",
+    "pink": "#ea76cb",
+    "maroon": "#e64553",
+    "rosewater": "#dc8a78",
+    "orange": "#fe640b",
+    "yellow": "#df8e1d",
+    "green": "#40a02b",
+    "mauve": "#8839ef"
+}

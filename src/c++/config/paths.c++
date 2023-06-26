@@ -32,6 +32,8 @@ Paths::Paths(QObject *parent) : QObject{parent}
   {
     QFile::copy(":/themes/nord.json", themes() + "/nord.json");
     QFile::copy(":/themes/catpuccin.json", themes() + "/catpuccin.json");
+    QFile::copy(":/themes/dark.json", themes() + "/dark.json");
+    QFile::copy(":/themes/light.json", themes() + "/light.json");
     qInfo() << "[PATH] Default themes placed in folder";
   }
 

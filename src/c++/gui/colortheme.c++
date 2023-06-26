@@ -47,7 +47,7 @@ namespace GUI
 
   void ColorTheme::scanThemes() noexcept
   {
-    QDir folder(Config::Paths::themes(), ".json", QDir::Name | QDir::IgnoreCase, QDir::Files);
+    QDir folder(Config::Paths::themes(), "*.json", QDir::Name | QDir::IgnoreCase, QDir::Files);
     QList<QFileInfo> files = folder.entryInfoList();
 
     m_themeList.clear();
@@ -75,7 +75,7 @@ namespace GUI
       }
 
       m_themeList.push_back(object.value("theme_name").toString());
-      m_files.insert({object.value("theme_name").toString(), file.fileName()});
+      m_files.insert({object.value("theme_name").toString(), file.absoluteFilePath()});
     }
 
     emit themeListChanged();
@@ -98,6 +98,8 @@ namespace GUI
 
     this->setActiveThemeName(CONFIG(theme));
 
+    if(not m_files.count(activeThemeName()))
+      setActiveThemeName(m_files.begin()->first);
     QFile file(m_files.at(activeThemeName()));
     if(not file.open(QIODevice::ReadOnly))
     {

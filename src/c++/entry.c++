@@ -1,6 +1,7 @@
 #include "entry.h"
 
 #include <QtCore/QCoreApplication>
+#include <QtCore/QProcess>
 #include <QtQml/qqml.h>
 #include "application/updatemanager.h"
 #include "gui/terminal/vt100terminal.h"
@@ -28,8 +29,6 @@ Entry::Entry(QObject* parent)
   , m_httpDownloader(new Networking::HTTPDownloader(this))
 {
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
-  qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
-  m_updateManager->fetch();
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
@@ -43,6 +42,7 @@ Entry::Entry(QObject* parent)
 
   qmlRegisterSingletonInstance<Networking::Network>("Network", 1, 0, "Network", Networking::Network::get());
   qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
+  qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
 
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
@@ -68,5 +68,15 @@ Entry::Entry(QObject* parent)
       GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
     else
       GUI::WarningsModel::get()->remove(GUI::WarningsModel::NotConnected);
+  });
+
+  m_updateManager->fetch();
+  connect(m_httpDownloader, &Networking::HTTPDownloader::downloadFinished, this, [this](){
+    #ifdef Q_OS_WIN
+    QProcess::startDetached(Config::Paths::root() + "/UpdateService.exe", {});
+    #else
+    QProcess::startDetached(Config::Paths::root() + "/UpdateService", {});
+    #endif
+    qApp->quit();
   });
 }

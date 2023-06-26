@@ -1,65 +1,45 @@
-import socket
-import sys
+from http.server import BaseHTTPRequestHandler, HTTPServer
+import logging
 
-class MyHTTPServer:
-  def __init__(self, host, port, server_name):
-    self._host = host
-    self._port = port
-    self._server_name = server_name
+quasar_version = "2.11.7"
 
-  def serve_forever(self):
-    serv_sock = socket.socket(
-      socket.AF_INET,
-      socket.SOCK_STREAM,
-      proto=0)
+class S(BaseHTTPRequestHandler):
+    def _set_response(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
 
+    def do_GET(self):
+        logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
+        self._set_response()
+        self.send_response(200)
+        self.wfile.write(quasar_version.encode('utf-8'))
+
+    def do_POST(self):
+        content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
+        post_data = self.rfile.read(content_length) # <--- Gets the data itself
+        logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
+                str(self.path), str(self.headers), post_data.decode('utf-8'))
+
+        self._set_response()
+        self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
+
+def run(server_class=HTTPServer, handler_class=S, port=8090):
+    logging.basicConfig(level=logging.INFO)
+    server_address = ('', port)
+    httpd = server_class(server_address, handler_class)
+    logging.info('Starting httpd...\n')
     try:
-      serv_sock.bind((self._host, self._port))
-      serv_sock.listen()
-
-      while True:
-        conn, _ = serv_sock.accept()
-        try:
-          self.serve_client(conn)
-        except Exception as e:
-          print('Client serving failed', e)
-    finally:
-      serv_sock.close()
-
-  def serve_client(self, conn):
-    try:
-      req = self.parse_request(conn)
-      resp = self.handle_request(req)
-      self.send_response(conn, resp)
-    except ConnectionResetError:
-      conn = None
-    except Exception as e:
-      self.send_error(conn, e)
-
-    if conn:
-      conn.close()
-
-  def parse_request(self, conn):
-    pass  # TODO: implement me
-
-  def handle_request(self, req):
-    pass  # TODO: implement me
-
-  def send_response(self, conn, resp):
-    pass  # TODO: implement me
-
-  def send_error(self, conn, err):
-    pass  # TODO: implement me
-
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    httpd.server_close()
+    logging.info('Stopping httpd...\n')
 
 if __name__ == '__main__':
-  host = "127.0.0.1"
-  port = int(10378)
-  name = "Update Server"
+    from sys import argv
 
-  serv = MyHTTPServer(host, port, name)
-  try:
-    serv.serve_forever()
-  except KeyboardInterrupt:
-    print("Keyboard interrupt")
-    sys.exit() 
+    if len(argv) == 2:
+        run(port=int(argv[1]))
+    else:
+        run()

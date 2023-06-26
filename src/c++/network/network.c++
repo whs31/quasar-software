@@ -99,7 +99,8 @@ namespace Networking
     execdSocket->start(execd_addr);
     feedbackSocket->start(feedback_addr);
     tcpSocket->startServer(tcp_lfs_addr);
-    stripSocket->start(udp_lfs_addr);
+    if(not ICFG<bool>("NETWORK_MERGE_FSEND_SOCKETS"))
+      stripSocket->start(udp_lfs_addr);
 
     if(CONFIG(redirect))
       m_redirectServer->start(CONFIG(redirectAddress));
@@ -133,10 +134,16 @@ namespace Networking
         this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Reform);
         break;
       case Enums::StartStrip:
-        this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)), Enums::Form);
+        if(ICFG<bool>("NETWORK_MERGE_FSEND_SOCKETS"))
+          this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Form);
+        else
+          this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)), Enums::Form);
         break;
       case Enums::StopStrip:
-        this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)), Enums::Form);
+        if(ICFG<bool>("NETWORK_MERGE_FSEND_SOCKETS"))
+          this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)), Enums::Form);
+        else
+          this->setArgument("--remote", stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)), Enums::Form);
         break;
 
       default: break;

@@ -31,6 +31,7 @@ namespace Map
     roles[TimeShift] = "time_shift";
     roles[TimeDuration] = "time_duration";
     roles[Mode] = "mode";
+    roles[ImageType] = "image_type";
     roles[Crc16] = "crc16";
     roles[Valid] = "valid";
     roles[LOD1FilePath] = "lod1";
@@ -73,6 +74,7 @@ namespace Map
       case TimeShift: return QVariant::fromValue(storage[index.row()].meta.time_shift);
       case TimeDuration: return QVariant::fromValue(storage[index.row()].meta.time_duration);
       case Mode: return QVariant::fromValue(storage[index.row()].meta.mode);
+      case ImageType: return QVariant::fromValue(storage[index.row()].meta.image_type);
       case Crc16: return QVariant::fromValue(QString("0x" + QString::number(storage[index.row()].meta.crc16, 16)));
       case Valid: return QVariant::fromValue(storage[index.row()].valid);
       case LOD1FilePath: return QVariant::fromValue(storage[index.row()].path.second);
@@ -127,8 +129,9 @@ namespace Map
           break;
         case TimeDuration: storage[index.row()].meta.time_duration = value.toFloat();
           break;
-        case Mode: storage[index.row()].meta.mode = value.toFloat();
+        case Mode: storage[index.row()].meta.mode = value.toInt();
           break;
+        case ImageType: storage[index.row()].meta.image_type = value.toInt(); break;
         case Crc16: storage[index.row()].meta.crc16 = value.toUInt();
           break;
         case Valid: storage[index.row()].valid = value.toBool();

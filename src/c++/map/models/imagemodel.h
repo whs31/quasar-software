@@ -34,6 +34,7 @@ namespace Map
         TimeShift,
         TimeDuration,
         Mode,
+        ImageType,
         Crc16,
         Valid,
         LOD1FilePath,

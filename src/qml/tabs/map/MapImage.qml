@@ -4,7 +4,7 @@ import QtPositioning 5.15
 
 MapQuickItem  {
     anchorPoint.x: -x0;
-    anchorPoint.y: ly / 2;
+    anchorPoint.y: image_type === 1 ? ly : ly / 2;
     z: 2;
     visible: shown;
     zoomLevel: mercator_zoom_level;
@@ -23,9 +23,10 @@ MapQuickItem  {
                 asynchronous: true;
                 transform: Rotation {
                     id: imageRotation;
+                    property real corrected_drift_angle: (image_type === 0) ? drift_angle : 0
                     origin.x: -x0;
                     origin.y: ly / 2;
-                    angle: model.angle + drift_angle;
+                    angle: model.angle + corrected_drift_angle
                 }
                 smooth: true;
                 antialiasing: true;

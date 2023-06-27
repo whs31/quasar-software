@@ -41,7 +41,7 @@ Pane { id: dialog_TileLoader;
                 Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 onPressed: {
-                    TileLoader.download(poly);
+                    TileLoader.download(poly, slider1.value);
                     tilecount = 0;
                     clr();
                 }

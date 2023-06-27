@@ -2,7 +2,7 @@
   "EXECD_FORM_TELESCOPIC": "$telescopic",
   "EXECD_FORM_STRIP_DEBUG": "$strip",
   "EXECD_FORM_STRIP_START": "$strip_start",
-  "EXECD_FORM_STRIP_STOP": "$strip_stop()",
+  "EXECD_FORM_STRIP_STOP": "$strip_stop",
   "EXECD_FOCUS_TELESCOPIC": "$focus",
   "EXECD_STORAGE_FETCH": "$storage_status()",
   "EXECD_STORAGE_CLEAR": "$clear_storage()",

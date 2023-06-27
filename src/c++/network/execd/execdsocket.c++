@@ -63,7 +63,7 @@ namespace Networking
         com = wrap(NETCFG("EXECD_FORM_STRIP_START") + args->getFormArguments());
         break;
       case Enums::StopStrip:
-        com = wrap(NETCFG("EXECD_FORM_STRIP_STOP"));
+        com = wrap(NETCFG("EXECD_FORM_STRIP_STOP") + args->getFormArguments());
         break;
       case Enums::Reboot:
       {

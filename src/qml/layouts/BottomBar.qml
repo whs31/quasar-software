@@ -42,7 +42,7 @@ Rectangle {
 
         Bottom.TelemetryWidget {
             id: telemetry_widget
-            height: scroll_area.height
+            height: scroll_area.height - 4
         }
     }
 

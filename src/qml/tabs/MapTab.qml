@@ -124,6 +124,7 @@ Map { id: maptab_root;
 
     MapTab.UAV { id: c_UAV; }
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
+    MapTab.StripRoute {id: stripRoute}
     RadarDiagram {  id: c_RadarDiagram;
         angle: 30 - Config.thetaAzimuthCorrection; // @FIXME
         uavPosition: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);

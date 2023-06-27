@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtGraphicalEffects 1.15
 import Theme 1.0
 import Config 1.0
 
@@ -15,20 +16,29 @@ Pane {
     clip: true;
 
     Material.background: ColorTheme.active.color(ColorTheme.Dark)
-    Material.elevation: 200;
+    Material.elevation: 200
 
-    implicitWidth: 400;
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
+
+    implicitWidth: 350;
     implicitHeight: 500;
 
     Image { id: image_Logo;
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.top: parent.top;
-        width: 400;
+        width: 300;
         height: 150;
         fillMode: Image.PreserveAspectFit;
         smooth: true;
         antialiasing: true;
-        source: "qrc:/logo/full-logo.png";
+        source: "qrc:/logo/logo_label.svg";
         mipmap: true;
     }
 

@@ -1,6 +1,8 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtGraphicalEffects 1.15
+
 import Terminals 1.0
 import Theme 1.0
 
@@ -18,6 +20,15 @@ Pane {
     Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2)
     Material.elevation: 200
     Component.onCompleted: DebugConsole.execute("help")
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
 
     Pane {
         id: header

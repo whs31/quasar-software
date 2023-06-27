@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
+import QtGraphicalEffects 1.15
 
 import Terminals 1.0
 import Network 1.0
@@ -18,6 +19,15 @@ Pane { id: control;
     Behavior on opacity { NumberAnimation { duration: 150; } }
     Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2);
     Material.elevation: 200;
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
 
     Pane { id: header;
         height: 32;

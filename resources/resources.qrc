@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>resources.qrc</file>
-        <file>logo/full-logo.png</file>
         <file>logo/gitlab.png</file>
         <file>logo/radar-mms_white.png</file>
         <file>map/markers/default.png</file>
@@ -103,5 +102,6 @@
         <file>icons/vector/network/wifi_off.svg</file>
         <file>icons/vector/network/poweroff.svg</file>
         <file>icons/vector/misc/earth.svg</file>
+        <file>logo/logo_label.svg</file>
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtPositioning 5.15
+import QtGraphicalEffects 1.15
 
 import Theme 1.0
 import ClickHandler 1.0
@@ -34,6 +35,15 @@ Pane {
     Behavior on height { NumberAnimation { duration: 150; easing.type: Easing.InOutQuad; } }
     Behavior on width { NumberAnimation { duration: 150; easing.type: Easing.InOutQuad; } }
     clip: true;
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
 
     Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;

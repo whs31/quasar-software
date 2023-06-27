@@ -2,6 +2,8 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
+
 import Theme 1.0
 
 Pane { id: control;
@@ -12,6 +14,15 @@ Pane { id: control;
     opacity: shown ? 0.9 : 0;
     Behavior on opacity { NumberAnimation { duration: 300; } }
     enabled: shown;
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
 
     ColumnLayout {
         spacing: 10;

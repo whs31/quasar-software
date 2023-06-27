@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
+import QtGraphicalEffects 1.15
 
 import Theme 1.0
 
@@ -40,6 +41,15 @@ Pane { id: control;
 
     Material.background: ColorTheme.active.color(ColorTheme.Dark)
     Material.elevation: 200;
+
+    layer.enabled: true
+    layer.effect: DropShadow {
+        samples: 16
+        radius: 16
+        horizontalOffset: 6
+        verticalOffset: 6
+        opacity: 0.5
+    }
 
     implicitWidth: 600;
     implicitHeight: 180;

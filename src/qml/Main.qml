@@ -84,7 +84,7 @@ ApplicationWindow  { id: window_root;
             readonly property int tab: tabbar.currentIndex;
             function openTab(i)
                 {
-                control_TabBar.currentIndex = i;
+                tabbar.currentIndex = i;
                 console.log("[GUI] Opening tab " + (i + 1));
             }
 

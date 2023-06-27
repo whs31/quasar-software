@@ -30,6 +30,11 @@ int main(int argc, char* argv[])
   QCoreApplication::setApplicationName(PROJECT_NAME);
   QCoreApplication::setApplicationVersion(PROJECT_VERSION);
   QCoreApplication::setOrganizationName(PROJECT_COMPANY);
+  #ifndef Q_OS_WIN
+  app.setWindowIcon(QIcon(":/icon.png"));
+  #else
+  app.setWindowIcon(QIcon(":/icon.ico"));
+  #endif
 
   int no_console = 0;
   struct argparse_option options[] = {

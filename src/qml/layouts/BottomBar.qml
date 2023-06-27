@@ -25,17 +25,25 @@ Rectangle {
     }
 
     Flickable {
-        anchors.left: connection_status_indicator.right;
-        anchors.leftMargin: 16;
-        anchors.top: parent.top;
-        anchors.bottom: parent.bottom;
-        anchors.right: layout_SharedToolbar.left;
-        clip: true;
-        interactive: true;
-        contentWidth: c_InfoPanel.width;
-        flickableDirection: Flickable.HorizontalFlick;
+        id: scroll_area
+        anchors {
+            left: connection_status_indicator.right
+            leftMargin: 14
+            top: parent.top
+            topMargin: 3
+            bottom: parent.bottom
+            right: layout_SharedToolbar.left
+        }
 
-        Bottom.InfoPanel { id: c_InfoPanel; }
+        clip: true
+        interactive: true
+        contentWidth: 1100
+        flickableDirection: Flickable.HorizontalFlick
+
+        Bottom.TelemetryWidget {
+            id: telemetry_widget
+            height: scroll_area.height
+        }
     }
 
     Row { id: layout_SharedToolbar;

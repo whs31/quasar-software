@@ -6,8 +6,6 @@
         <file>tabs/MapTab.qml</file>
         <file>tabs/FocusTab.qml</file>
         <file>tabs/map/RulerItem.qml</file>
-        <file>layouts/bottombar/StatusWidget.qml</file>
-        <file>layouts/bottombar/InfoPanel.qml</file>
         <file>tabs/NetworkTab.qml</file>
         <file>tabs/map/UAV.qml</file>
         <file>tabs/map/UAVRoute.qml</file>
@@ -46,5 +44,6 @@
         <file>widgets/SplashScreen.qml</file>
         <file>windows/UpdateWindow.qml</file>
         <file>layouts/bottombar/ConnectionStatusIndicator.qml</file>
+        <file>layouts/bottombar/TelemetryWidget.qml</file>
     </qresource>
 </RCC>

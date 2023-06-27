@@ -81,7 +81,7 @@ ApplicationWindow  { id: window_root;
                 NetworkView
             }
 
-            readonly property int tab: control_TabBar.currentIndex;
+            readonly property int tab: tabbar.currentIndex;
             function openTab(i)
                 {
                 control_TabBar.currentIndex = i;

@@ -14,7 +14,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <LPVL/Math>
 #include <LPVL/Crypto>
-#include <CCL/Geomath>
+#include <SDK/GeoMath>
 #include "map/models/imagemodel.h"
 #include "map/models/stripmodel.h"
 #include "config/paths.h"
@@ -108,7 +108,7 @@ void ImageProcessing::asyncProcess(const QString& filename)
   image.filename = filename;
   image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");
   image.shown = ICFG<bool>("PROCESSING_IMAGE_INITIAL_VISIBILITY");
-  image.mercator_zoom_level = CCL::mqiZoomLevel(image.meta.latitude, image.meta.dx);
+  image.mercator_zoom_level = SDK::Cartography::mqi_zoom_level(image.meta.latitude, image.meta.dx);
 
   QImage image_data(image.path.first);
   if(image_data.isNull()) {

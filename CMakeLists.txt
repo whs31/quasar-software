@@ -59,6 +59,7 @@ add_executable(${PROJECT_NAME}
 add_subdirectory(libs/LPVL)
 add_subdirectory(libs/CCL)
 add_subdirectory(libs/argparse)
+add_subdirectory(src/c++/sdk)
 #add_subdirectory(libs/corrosion) # tell devops to install rustc
 
 if(WIN32)
@@ -84,6 +85,7 @@ target_link_libraries(${PROJECT_NAME}
     LPVL
     CCL
     argparse
+    SDK
 )
 
 install(TARGETS ${PROJECT_NAME}

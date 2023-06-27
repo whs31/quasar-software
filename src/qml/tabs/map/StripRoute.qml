@@ -6,30 +6,28 @@ import Network 1.0
 import Route 1.0
 import Theme 1.0
 
-
-MapItemView{
+MapItemView
+{
     property real lat_reevaluate: Network.telemetry.latitude
     onLat_reevaluateChanged: {
-        if (Network.recording) {
+        if(Network.recording)
             eventModel.appendNewValue(QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude))
-        }
     }
-    TrackEventModel{id: eventModel}
-    model: eventModel
-    delegate: MapItemGroup{
-        MapPolyline{
+
+    model: TrackEventModel{ id: eventModel }
+    delegate: MapItemGroup {
+        MapPolyline {
             path: model.eventPath
             line.width: 5
             line.color: ColorTheme.active.color(ColorTheme.Red)
         }
-
     }
-    Connections{
+
+    Connections {
         target: Network
         function onRecordingChanged() {
-            if(Network.recording){
+            if(Network.recording)
                 eventModel.createNewEvent();
-            }
         }
     }
 }

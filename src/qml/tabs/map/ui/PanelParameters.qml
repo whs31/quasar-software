@@ -63,6 +63,13 @@ Pane { id: panel_Parameters;
             onCheckedChanged: c_Route.opacity = checked ? 1 : 0;
         }
 
+        CheckBox { id: checkbox_ShowStripTrack;
+            font.family: root.mainfont;
+            checked: true;
+            text: "Отображать точки записи полосового РЛИ";
+            onCheckedChanged: stripRoute.opacity = checked ? 1 : 0;
+        }
+
         RowLayout {
             Text {
                 font.family: root.mainfont;

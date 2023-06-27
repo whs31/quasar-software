@@ -1,38 +1,38 @@
-#ifndef TRACKEVENTMODEL_H
-#define TRACKEVENTMODEL_H
+#pragma once
 
 #include <QtCore/QAbstractListModel>
 
 class QGeoCoordinate;
-namespace Map {
-class TrackEventModel : public QAbstractListModel
+
+namespace Map
 {
+  class TrackEventModel : public QAbstractListModel
+  {
     Q_OBJECT
-    enum ModelRoles{
+      enum ModelRoles
+      {
         EventIndex = Qt::UserRole + 1,
         EventPath
-    };
-    struct EventData{
+      };
+
+      struct EventData
+      {
         QVariantList m_path;
+      };
 
-    };
+    public:
+      explicit TrackEventModel(QObject* parent = nullptr);
 
+      int rowCount(const QModelIndex& parent = QModelIndex()) const override;
+      QVariant data(const QModelIndex& index, int role) const override;
+      QHash<int, QByteArray> roleNames() const override;
 
-public:
-    explicit TrackEventModel(QObject *parent = nullptr);
+      Q_INVOKABLE void createNewEvent();
+      Q_INVOKABLE void appendNewValue(const QGeoCoordinate& coord);
+      Q_INVOKABLE void setMaxEvents(int count);
 
-    int rowCount(const QModelIndex& parent = QModelIndex()) const override;
-    QVariant data(const QModelIndex& index, int role) const override;
-    QHash<int, QByteArray> roleNames() const override;
-    Q_INVOKABLE void createNewEvent();
-    Q_INVOKABLE void appendNewValue(const QGeoCoordinate &_coord);
-    Q_INVOKABLE void setEventsCount(const quint8 _eventsCount);
-
-signals:
-private:
-    std::vector<EventData> m_data;
-    quint8 m_eventsCount = 2;
-};
-}
-
-#endif // TRACKEVENTMODEL_H
+    private:
+      std::vector<EventData> m_data;
+      int m_maxEvents;
+  };
+} // Map

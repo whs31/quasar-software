@@ -17,15 +17,6 @@
         <file>osmconfigs/terrain</file>
         <file>osmconfigs/transit</file>
         <file>fonts/Overpass.ttf</file>
-        <file>icons/bottombar/altitude.png</file>
-        <file>icons/bottombar/compass.png</file>
-        <file>icons/bottombar/disc.png</file>
-        <file>icons/bottombar/latitude.png</file>
-        <file>icons/bottombar/longitude.png</file>
-        <file>icons/bottombar/ping.png</file>
-        <file>icons/bottombar/satellite.png</file>
-        <file>icons/bottombar/sea-level.png</file>
-        <file>icons/bottombar/speed.png</file>
         <file>icons/dialog/error.png</file>
         <file>icons/dialog/info.png</file>
         <file>icons/dialog/warning.png</file>

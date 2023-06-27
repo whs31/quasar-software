@@ -45,5 +45,6 @@
         <file>widgets/ProgressPopup.qml</file>
         <file>widgets/SplashScreen.qml</file>
         <file>windows/UpdateWindow.qml</file>
+        <file>layouts/bottombar/ConnectionStatusIndicator.qml</file>
     </qresource>
 </RCC>

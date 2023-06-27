@@ -12,14 +12,20 @@ import "../widgets" as Widgets
 Rectangle {
     color: ColorTheme.active.color(ColorTheme.BaseShade)
 
-    Bottom.StatusWidget { id: c_StatusWidget;
-        anchors.left: parent.left;
-        anchors.leftMargin: 6;
-        anchors.top: parent.top;
+    Bottom.ConnectionStatusIndicator {
+        id: connection_status_indicator
+        anchors {
+            left: parent.left
+            leftMargin: 6
+            verticalCenter: parent.verticalCenter
+        }
+        height: 35
+        width: 300
+        connected: Network.connected
     }
 
     Flickable {
-        anchors.left: c_StatusWidget.right;
+        anchors.left: connection_status_indicator.right;
         anchors.leftMargin: 16;
         anchors.top: parent.top;
         anchors.bottom: parent.bottom;

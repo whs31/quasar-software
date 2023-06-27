@@ -239,7 +239,8 @@ Item {
                     family: root.mainfont
                     pixelSize: 13
                 }
-                text: Number(i_SatellitesCount).toFixed(0)
+                text: i_SatellitesCount > 0 ? Number(i_SatellitesCount).toFixed(0)
+                                            : "НЕТ"
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
             }

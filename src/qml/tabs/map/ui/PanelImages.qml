@@ -29,7 +29,7 @@ Pane { id: panel_ImageTools;
                 height: 35;
                 width: layout_ImageTools.width;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/adjust.png";
+                icon.source: "qrc:/icons/vector/common/list.svg"
                 icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                 text: "Параметры формирования";
                 Material.elevation: 30;
@@ -618,7 +618,7 @@ Pane { id: panel_ImageTools;
                 font.family: root.mainfont;
                 height: 40;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/refresh.png";
+                icon.source: "qrc:/icons/vector/common/refresh.svg"
                 icon.color: ColorTheme.active.color(ColorTheme.Text);
                 text: "Обновить каталог";
                 Material.elevation: 30;
@@ -636,7 +636,7 @@ Pane { id: panel_ImageTools;
                 font.family: root.mainfont;
                 height: 40;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/folder.png";
+                icon.source: "qrc:/icons/vector/common/open.svg"
                 icon.color: ColorTheme.active.color(ColorTheme.Text);
                 Material.elevation: 30;
                 Material.background: Material.background;
@@ -650,7 +650,7 @@ Pane { id: panel_ImageTools;
                 font.family: root.mainfont;
                 height: 40;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/delete.png";
+                icon.source: "qrc:/icons/vector/common/delete.svg"
                 icon.color: ColorTheme.active.color(ColorTheme.Dark);
                 Material.elevation: 30;
                 Material.foreground: ColorTheme.active.color(ColorTheme.Dark)

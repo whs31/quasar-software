@@ -35,7 +35,7 @@ Pane { id: dialog_TileLoader;
                 }
                 text: "Загрузить выбранную область";
 
-                icon.source: "qrc:/icons/google-material/take-photo.png";
+                icon.source: "qrc:/icons/vector/common/download.svg";
                 icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.background: enabled ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
                 Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
@@ -56,7 +56,7 @@ Pane { id: dialog_TileLoader;
                 }
                 text: "Отмена";
 
-                icon.source: "qrc:/icons/google-material/close.png";
+                icon.source: "qrc:/icons/vector/common/close.svg";
                 icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.background: enabled ? ColorTheme.active.color(ColorTheme.Red) : ColorTheme.active.color(ColorTheme.Surface)
                 Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)

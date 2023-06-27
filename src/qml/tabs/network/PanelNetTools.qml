@@ -16,7 +16,7 @@ Pane {
             font.family: root.mainfont;
             height: 40;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/storage.png"
+            icon.source: "qrc:/icons/vector/network/hdd.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.foreground: ColorTheme.active.color(ColorTheme.Text)
@@ -29,7 +29,7 @@ Pane {
             font.family: root.mainfont;
             height: 40;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/reboot.png"
+            icon.source: "qrc:/icons/vector/common/refresh.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30;
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
@@ -52,7 +52,7 @@ Pane {
             font.family: root.mainfont;
             height: 40;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/poweroff.png"
+            icon.source: "qrc:/icons/vector/network/poweroff.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30;
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)

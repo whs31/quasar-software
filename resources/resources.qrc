@@ -4,14 +4,9 @@
         <file>logo/full-logo.png</file>
         <file>logo/gitlab.png</file>
         <file>logo/radar-mms_white.png</file>
-        <file>map/markers/autocapture.png</file>
         <file>map/markers/default.png</file>
-        <file>map/markers/flag.png</file>
-        <file>map/markers/preset.psd</file>
-        <file>map/markers/radar.png</file>
         <file>map/items/gpsarrow.png</file>
         <file>map/patterns/diagonal.png</file>
-        <file>icons/console/cross.png</file>
         <file>icons/console/handle.png</file>
         <file>fonts/UbuntuMono.ttf</file>
         <file>osmconfigs/cycle</file>
@@ -34,63 +29,88 @@
         <file>icons/dialog/error.png</file>
         <file>icons/dialog/info.png</file>
         <file>icons/dialog/warning.png</file>
-        <file>map/items/image.png</file>
-        <file>icons/google-material/expand-less.png</file>
-        <file>icons/google-material/expand-more.png</file>
-        <file>icons/google-material/hide.png</file>
-        <file>icons/google-material/link.png</file>
-        <file>icons/google-material/remove-image.png</file>
-        <file>icons/google-material/remove-layer.png</file>
-        <file>icons/google-material/show.png</file>
-        <file>icons/google-material/take-photo.png</file>
-        <file>icons/google-material/unlink.png</file>
-        <file>icons/google-material/clear.png</file>
-        <file>icons/google-material/delete.png</file>
-        <file>icons/google-material/flag.png</file>
-        <file>icons/google-material/folder.png</file>
-        <file>icons/google-material/gps.png</file>
-        <file>icons/google-material/image-gps.png</file>
-        <file>icons/google-material/marker.png</file>
-        <file>icons/google-material/refresh.png</file>
-        <file>icons/google-material/ruler.png</file>
-        <file>icons/google-material/ruler2.png</file>
-        <file>icons/google-material/expand.png</file>
-        <file>icons/google-material/adjust.png</file>
-        <file>icons/google-material/altitude.png</file>
-        <file>icons/google-material/collapse.png</file>
-        <file>icons/google-material/coordinate.png</file>
-        <file>icons/google-material/earth.png</file>
-        <file>icons/google-material/edit.png</file>
-        <file>icons/google-material/info.png</file>
-        <file>icons/google-material/list.png</file>
-        <file>icons/google-material/satellite.png</file>
-        <file>icons/google-material/settings.png</file>
-        <file>icons/google-material/speed.png</file>
-        <file>icons/google-material/storage.png</file>
-        <file>icons/google-material/terminal.png</file>
-        <file>icons/google-material/timer.png</file>
-        <file>icons/google-material/water.png</file>
-        <file>icons/google-material/remote_monitor.png</file>
-        <file>icons/google-material/camera.png</file>
-        <file>icons/google-material/videocamera.png</file>
-        <file>icons/google-material/export.png</file>
-        <file>icons/google-material/image.png</file>
-        <file>icons/google-material/save.png</file>
-        <file>icons/google-material/text.png</file>
-        <file>icons/google-material/warning.png</file>
-        <file>icons/google-material/zoom-in.png</file>
-        <file>icons/google-material/zoom-out.png</file>
-        <file>icons/google-material/reboot.png</file>
-        <file>icons/google-material/poweroff.png</file>
-        <file>icons/google-material/close.png</file>
-        <file>icons/google-material/map-offline.png</file>
-        <file>icons/google-material/focus-scope.png</file>
-        <file>icons/google-material/hand.png</file>
         <file>logo/logo_large_gray.png</file>
         <file>logo/logo_large_orange.png</file>
         <file>json/constants.json</file>
         <file>json/network.json</file>
         <file>themes/dark.json</file>
         <file>themes/light.json</file>
+        <file>icons/vector/toolbar/angle.svg</file>
+        <file>icons/vector/toolbar/gps.svg</file>
+        <file>icons/vector/toolbar/pan.svg</file>
+        <file>icons/vector/toolbar/ruler.svg</file>
+        <file>icons/vector/toolbar/select.svg</file>
+        <file>icons/vector/toolbar/bookmark_new.svg</file>
+        <file>icons/vector/toolbar/image_search.svg</file>
+        <file>icons/vector/toolbar/marker_new.svg</file>
+        <file>icons/vector/toolbar/marker_remove.svg</file>
+        <file>icons/vector/toolbar/photo_remove.svg</file>
+        <file>icons/vector/common/minus.svg</file>
+        <file>icons/vector/common/plus.svg</file>
+        <file>icons/vector/common/back.svg</file>
+        <file>icons/vector/common/backspace.svg</file>
+        <file>icons/vector/common/block.svg</file>
+        <file>icons/vector/common/close.svg</file>
+        <file>icons/vector/common/collapse.svg</file>
+        <file>icons/vector/common/delete.svg</file>
+        <file>icons/vector/common/done.svg</file>
+        <file>icons/vector/common/done_done.svg</file>
+        <file>icons/vector/common/dots.svg</file>
+        <file>icons/vector/common/down.svg</file>
+        <file>icons/vector/common/download.svg</file>
+        <file>icons/vector/common/expand.svg</file>
+        <file>icons/vector/common/info.svg</file>
+        <file>icons/vector/common/key.svg</file>
+        <file>icons/vector/common/left.svg</file>
+        <file>icons/vector/common/left_small.svg</file>
+        <file>icons/vector/common/list.svg</file>
+        <file>icons/vector/common/list_big.svg</file>
+        <file>icons/vector/common/list_tilted.svg</file>
+        <file>icons/vector/common/more.svg</file>
+        <file>icons/vector/common/new_window.svg</file>
+        <file>icons/vector/common/plus_box.svg</file>
+        <file>icons/vector/common/refresh.svg</file>
+        <file>icons/vector/common/remote_display.svg</file>
+        <file>icons/vector/common/right.svg</file>
+        <file>icons/vector/common/right_small.svg</file>
+        <file>icons/vector/common/settings.svg</file>
+        <file>icons/vector/common/sort.svg</file>
+        <file>icons/vector/common/undo.svg</file>
+        <file>icons/vector/common/up.svg</file>
+        <file>icons/vector/common/terminal.svg</file>
+        <file>icons/vector/common/warning.svg</file>
+        <file>icons/vector/common/hide.svg</file>
+        <file>icons/vector/common/show.svg</file>
+        <file>icons/vector/common/timer.svg</file>
+        <file>icons/vector/common/timer_off.svg</file>
+        <file>icons/vector/common/tune.svg</file>
+        <file>icons/vector/images/area.svg</file>
+        <file>icons/vector/images/camera.svg</file>
+        <file>icons/vector/images/crop.svg</file>
+        <file>icons/vector/images/focus.svg</file>
+        <file>icons/vector/images/focus_circle.svg</file>
+        <file>icons/vector/images/image.svg</file>
+        <file>icons/vector/images/images.svg</file>
+        <file>icons/vector/images/settings_image.svg</file>
+        <file>icons/vector/images/terrain.svg</file>
+        <file>icons/vector/images/videocam.svg</file>
+        <file>icons/vector/common/edit.svg</file>
+        <file>icons/vector/images/reform.svg</file>
+        <file>icon.ico</file>
+        <file>icon.png</file>
+        <file>icons/vector/images/pan.svg</file>
+        <file>icons/vector/common/export.svg</file>
+        <file>icons/vector/common/file.svg</file>
+        <file>icons/vector/common/folder.svg</file>
+        <file>icons/vector/common/open.svg</file>
+        <file>icons/vector/common/save.svg</file>
+        <file>icons/vector/network/hdd.svg</file>
+        <file>icons/vector/network/link.svg</file>
+        <file>icons/vector/network/storage.svg</file>
+        <file>icons/vector/network/unlink.svg</file>
+        <file>icons/vector/network/wifi.svg</file>
+        <file>icons/vector/network/wifi_off.svg</file>
+        <file>icons/vector/network/poweroff.svg</file>
+        <file>icons/vector/misc/earth.svg</file>
     </qresource>
 </RCC>

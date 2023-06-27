@@ -26,7 +26,7 @@ Pane {
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/ruler.png";
+                icon.source: "qrc:/icons/vector/toolbar/ruler.svg";
                 icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 Material.background: checked ? ColorTheme.active.color(ColorTheme.Yellow) : ColorTheme.active.color(ColorTheme.Surface)
@@ -46,7 +46,7 @@ Pane {
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/map-offline.png";
+                icon.source: "qrc:/icons/vector/toolbar/select.svg";
                 icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 Material.background: checked ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
@@ -67,7 +67,7 @@ Pane {
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/ruler2.png";
+                icon.source: "qrc:/icons/vector/toolbar/angle.svg";
                 icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 Material.background: checked ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface)
@@ -87,7 +87,7 @@ Pane {
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/gps.png";
+                icon.source: "qrc:/icons/vector/toolbar/gps.svg";
                 icon.color: ColorTheme.active.color(ColorTheme.Text)
                 Material.elevation: 30;
                 Material.background: ColorTheme.active.color(ColorTheme.Surface)
@@ -105,7 +105,7 @@ Pane {
                 height: 44;
                 width: 44;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/image-gps.png";
+                icon.source: "qrc:/icons/vector/toolbar/image_search.svg";
                 icon.color: ColorTheme.active.color(ColorTheme.Text)
                 Material.background: ColorTheme.active.color(ColorTheme.Surface)
                 Material.elevation: 30;

@@ -11,7 +11,7 @@ Pane {
             height: 44
             width: 44
             radius: 4
-            icon.source: "qrc:/icons/google-material/zoom-in.png"
+            icon.source: "qrc:/icons/vector/common/plus.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30
             Material.background: ColorTheme.active.color(ColorTheme.Surface)
@@ -22,7 +22,7 @@ Pane {
             height: 44
             width: 44
             radius: 4
-            icon.source: "qrc:/icons/google-material/zoom-out.png"
+            icon.source: "qrc:/icons/vector/common/minus.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30
             Material.background: ColorTheme.active.color(ColorTheme.Surface)

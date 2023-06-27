@@ -53,8 +53,8 @@ Rectangle {
             font.family: root.mainfont;
             height: 40;
             radius: 4;
-            icon.source: Network.connected ? "qrc:/icons/google-material/unlink.png"
-                                           : "qrc:/icons/google-material/link.png";
+            icon.source: Network.connected ? "qrc:/icons/vector/network/wifi_off.svg"
+                                           : "qrc:/icons/vector/network/wifi.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: Network.connected ? "Отключиться" : "Подключиться к РЛС";
             Material.elevation: 30;
@@ -95,7 +95,7 @@ Rectangle {
             font.family: root.mainfont;
             height: 44;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/settings.png";
+            icon.source: "qrc:/icons/vector/common/settings.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
@@ -113,7 +113,7 @@ Rectangle {
             font.family: root.mainfont;
             height: 44;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/info.png";
+            icon.source: "qrc:/icons/vector/common/info.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
@@ -131,7 +131,7 @@ Rectangle {
             height: 44;
             width: 44;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/terminal.png";
+            icon.source: "qrc:/icons/vector/common/terminal.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
@@ -144,7 +144,7 @@ Rectangle {
             height: 44;
             width: 44;
             radius: 4;
-            icon.source: "qrc:/icons/google-material/remote_monitor.png";
+            icon.source: "qrc:/icons/vector/common/remote_display.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)

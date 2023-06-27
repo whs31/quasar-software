@@ -80,7 +80,7 @@ MapQuickItem  {
             height: 36;
             width: 36;
 
-            icon.source: "qrc:/icons/google-material/close.png";
+            icon.source: "qrc:/icons/vector/common/close.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Red)
             onPressed: MarkersModel.remove(index);

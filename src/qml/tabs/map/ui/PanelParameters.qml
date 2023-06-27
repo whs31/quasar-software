@@ -95,7 +95,7 @@ Pane { id: panel_Parameters;
 
             RoundButton { id: button_ClearTrack;
                 radius: 4;
-                icon.source: "qrc:/icons/google-material/clear.png";
+                icon.source: "qrc:/icons/vector/common/list_tilted.svg";
                 icon.color: ColorTheme.active.color(ColorTheme.Dark)
                 height: 40;
                 font.family: root.mainfont;

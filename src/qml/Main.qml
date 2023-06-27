@@ -16,7 +16,6 @@ import "widgets" as Widgets
 import "layouts" as Layouts
 import "tabs" as Tabs
 import "windows" as Windows
-import "widgets/tabbar" as NPM
 
 ApplicationWindow  { id: window_root;
     Material.theme: Material.Dark
@@ -117,7 +116,7 @@ ApplicationWindow  { id: window_root;
                 text: "Загрузка оффлайн-карт";
             }
 
-            Windows.InfoWindow { id: c_InfoWindow; z: 98; anchors.centerIn: root; }
+            Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
             Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
             Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
@@ -134,66 +133,51 @@ ApplicationWindow  { id: window_root;
                 }
             }
 
-            NPM.ExpandableTabBar { id: control_TabBar;
-                z: 100;
-                contentHeight: 25;
+            TabBar { id: tabbar
+                z: 100
+                contentHeight: 40
                 anchors {
-                    left: parent.left;
-                    right: parent.right;
-                    top: parent.top;
+                    left: parent.left
+                    right: parent.right
+                    top: parent.top
+                }
+                Material.accent: ColorTheme.active.color(ColorTheme.Overlay)
+
+                TabButton {
+                    text: "Интерактивная карта"
+                    font.family: root.mainfont
+                    font.bold: true
+                    icon.source: "qrc:/icons/vector/misc/earth.svg"
+                    Material.accent: ColorTheme.active.color(ColorTheme.Green)
                 }
 
-                NPM.ExpandableTabButton {
-                    text: "ИНТЕРАКТИВНАЯ КАРТА";
-                    font {
-                        family: root.mainfont
-                    }
-
-                    icon.source: "qrc:/icons/google-material/earth.png";
-                    palette {
-                        buttonText: ColorTheme.active.color(ColorTheme.Text)
-                        highlight: ColorTheme.active.color(ColorTheme.Green)
-                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
-                    }
+                TabButton {
+                    text: "Редактирование изображений"
+                    font.family: root.mainfont
+                    font.bold: true
+                    icon.source: "qrc:/icons/vector/common/edit.svg"
+                    Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
+                    enabled: c_FocusTab.currentAssignedIndex >= 0
                 }
 
-                NPM.ExpandableTabButton {
-                    text: "РЕДАКТИРОВАНИЕ ИЗОБРАЖЕНИЙ";
-                    font {
-                        family: root.mainfont
-                    }
-                    icon.source: "qrc:/icons/google-material/edit.png";
-                    palette {
-                        buttonText: ColorTheme.active.color(ColorTheme.Text)
-                        highlight: ColorTheme.active.color(ColorTheme.Yellow)
-                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
-                    }
-                    enabled: c_FocusTab.currentAssignedIndex >= 0;
-                }
-
-                NPM.ExpandableTabButton {
-                    text: "СЕТЕВЫЕ ПОДКЛЮЧЕНИЯ";
-                    font {
-                        family: root.mainfont
-                    }
-                    icon.source: "qrc:/icons/google-material/link.png";
-                    palette {
-                        buttonText: ColorTheme.active.color(ColorTheme.Text)
-                        highlight: ColorTheme.active.color(ColorTheme.PrimaryLightest)
-                        highlightedText: ColorTheme.active.color(ColorTheme.BaseShade)
-                    }
+                TabButton {
+                    text: "Сетевые подключения"
+                    font.family: root.mainfont
+                    font.bold: true
+                    icon.source: "qrc:/icons/vector/network/wifi.svg"
+                    Material.accent: ColorTheme.active.color(ColorTheme.PrimaryLight)
                 }
             }
 
             SwipeView { id: view_MainView;
                 anchors {
-                    top: control_TabBar.bottom;
+                    top: tabbar.bottom;
                     bottom: layout_BottomBar.top;
                     left: parent.left;
                     right: parent.right;
                 }
                 interactive: false;
-                currentIndex: control_TabBar.currentIndex;
+                currentIndex: tabbar.currentIndex;
                 contentWidth: view_MainView.width;
                 contentHeight: view_MainView.height;
 

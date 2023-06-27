@@ -81,19 +81,17 @@ Pane {
                 right: parent.right
                 top: parent.top
                 bottom: parent.bottom
-                topMargin: -8
+                topMargin: -10
                 bottomMargin: -3
             }
 
             RoundButton {
-                width: 26
-                height: 26
+                width: 30
+                height: 30
                 Material.background: ColorTheme.active.color(ColorTheme.Red)
                 onPressed: root.consoleshown = false
             }
-
         }
-
     }
 
     ListView { id: scrollView;
@@ -127,8 +125,15 @@ Pane {
             spacing: 5
 
             Text {
-                property var colors: [ColorTheme.active.color(ColorTheme.Subtext), ColorTheme.active.color(ColorTheme.Primary), ColorTheme.active.color(ColorTheme.Yellow),
-                    ColorTheme.active.color(ColorTheme.Red), ColorTheme.active.color(ColorTheme.Green), ColorTheme.active.color(ColorTheme.Pink), ColorTheme.active.color(ColorTheme.Text)]
+                property var colors: [
+                    ColorTheme.active.color(ColorTheme.Subtext),
+                    ColorTheme.active.color(ColorTheme.Primary),
+                    ColorTheme.active.color(ColorTheme.Yellow),
+                    ColorTheme.active.color(ColorTheme.Red),
+                    ColorTheme.active.color(ColorTheme.Green),
+                    ColorTheme.active.color(ColorTheme.Pink),
+                    ColorTheme.active.color(ColorTheme.Text)
+                ]
 
                 width: scrollView.width;
                 text: message;

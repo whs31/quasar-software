@@ -249,8 +249,8 @@ Map { id: maptab_root;
         }
         height: 40;
         radius: 4;
-        icon.source: attitude.shown ? "qrc:/icons/google-material/expand-more.png"
-                                    : "qrc:/icons/google-material/expand-less.png";
+        icon.source: attitude.shown ? "qrc:/icons/vector/common/collapse.svg"
+                                    : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: attitude.shown ? "" : "Авиагоризонт";
@@ -319,8 +319,8 @@ Map { id: maptab_root;
         checkable: true;
         height: 40;
         radius: 4;
-        icon.source: panel_Parameters.shown ? "qrc:/icons/google-material/collapse.png"
-                                                 : "qrc:/icons/google-material/expand.png";
+        icon.source: panel_Parameters.shown ? "qrc:/icons/vector/common/collapse.svg"
+                                            : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: panel_Parameters.shown ? "" : "Параметры карты";
@@ -348,8 +348,8 @@ Map { id: maptab_root;
         checkable: true;
         height: 40;
         radius: 4;
-        icon.source: panel_Export.shown ? "qrc:/icons/google-material/collapse.png"
-                                        : "qrc:/icons/google-material/export.png";
+        icon.source: panel_Export.shown ? "qrc:/icons/vector/common/collapse.svg"
+                                        : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
         font.family: root.mainfont;
         text: panel_Export.shown ? "" : "Экспорт";
@@ -360,31 +360,33 @@ Map { id: maptab_root;
         onCheckedChanged: panel_Export.shown = checked;
     }
 
-    MapTabUI.PanelImages { id: panel_ImageTools;
+    MapTabUI.PanelImages {
+        id: panel_ImageTools
         anchors {
-            bottom: parent.bottom;
-            left: parent.left;
+            bottom: parent.bottom
+            left: parent.left
         }
-        opacity: 0.85;
+        opacity: 0.85
     }
 
-    RoundButton { id: button_ToggleImageTools;
+    RoundButton {
+        id: button_ToggleImageTools
         anchors {
-            bottom: panel_ImageTools.top;
-            bottomMargin: -7;
-            left: panel_ImageTools.left;
-            leftMargin: -7;
+            bottom: panel_ImageTools.top
+            bottomMargin: -7
+            left: panel_ImageTools.left
+            leftMargin: -7
         }
-        font.family: root.mainfont;
-        height: 40;
-        radius: 4;
-        icon.source: panel_ImageTools.shown ? "qrc:/icons/google-material/expand-more.png"
-                                            : "qrc:/icons/google-material/expand-less.png";
+        font.family: root.mainfont
+        height: 40
+        radius: 4
+        icon.source: panel_ImageTools.shown ? "qrc:/icons/vector/common/collapse.svg"
+                                            : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
-        text: panel_ImageTools.shown ? "" : "Работа с изображениями";
-        Material.elevation: 30;
-        Material.background: Material.background;
-        checkable: true;
-        onCheckedChanged: panel_ImageTools.shown = checked;
+        text: panel_ImageTools.shown ? "" : "Работа с изображениями"
+        Material.elevation: 30
+        Material.background: Material.background
+        checkable: true
+        onCheckedChanged: panel_ImageTools.shown = checked
     }
 }

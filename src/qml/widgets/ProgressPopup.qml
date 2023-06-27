@@ -49,6 +49,8 @@ Pane { id: control;
                                                                               : ColorTheme.active.color(ColorTheme.Red);
                 font.pixelSize: 14;
                 Layout.fillHeight: true;
+                Layout.preferredWidth: 50;
+                Layout.alignment: Qt.AlignRight
                 verticalAlignment: Text.AlignVCenter;
                 horizontalAlignment: Text.AlignHCenter;
             }

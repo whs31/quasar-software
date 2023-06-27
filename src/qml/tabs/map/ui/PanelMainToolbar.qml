@@ -22,18 +22,14 @@ Pane {
             Layout.preferredHeight: 45
             height: 40
             radius: 4
-            icon.source: mode === 0 ? "qrc:/icons/google-material/camera.png" : "qrc:/icons/google-material/videocamera.png"
+            icon.source: mode === 0 ? "qrc:/icons/vector/images/camera.svg" : "qrc:/icons/vector/images/videocam.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             checkable: true
             Material.elevation: 30
             Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Yellow)
             onCheckedChanged: checked ? mode = 1 : mode = 0
 
-            Widgets.TT {
-                ff: root.mainfont
-                txt: "Переключение между телескопическим и полосовым режимом"
-            }
-
+            Widgets.TT { ff: root.mainfont; txt: "Переключение между телескопическим и полосовым режимом" }
         }
 
         RoundButton {
@@ -43,7 +39,7 @@ Pane {
             font.family: root.mainfont
             height: 40
             radius: 4
-            icon.source: "qrc:/icons/google-material/take-photo.png"
+            icon.source: "qrc:/icons/vector/images/focus.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: mode === 0 ? "Формирование изображения" : checked ? "Остановка записи" : "Начало записи"
             enabled: mode === 0 || !Config.enableDebugStrip
@@ -86,7 +82,7 @@ Pane {
             visible: Config.enableDebugStrip && width > 0
             enabled: visible;
             width: mode === 0 ? 0 : implicitWidth
-            icon.source: "qrc:/icons/google-material/take-photo.png"
+            icon.source: "qrc:/icons/vector/images/area.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: "Формирование упр. полосового изображения"
             Material.elevation: 30
@@ -139,7 +135,7 @@ Pane {
             font.family: root.mainfont
             height: 40
             radius: 4
-            icon.source: "qrc:/icons/google-material/water.png"
+            icon.source: "qrc:/icons/vector/images/terrain.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
@@ -157,21 +153,9 @@ Pane {
                 target: dialogwindow
             }
 
-            Widgets.TT {
-                ff: root.mainfont
-                txt: "Выполнить калибровку высоты над рельефом в точке старта"
-            }
-
+            Widgets.TT { ff: root.mainfont; txt: "Выполнить калибровку высоты над рельефом в точке старта" }
         }
-
     }
 
-    Behavior on implicitWidth {
-        NumberAnimation {
-            easing.type: Easing.InOutQuad
-            duration: 200
-        }
-
-    }
-
+    Behavior on implicitWidth { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200 } }
 }

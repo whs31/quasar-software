@@ -22,7 +22,7 @@ Pane { id: panel_ImageTools;
             font.family: root.mainfont
             height: 35
             radius: 4
-            icon.source: "qrc:/icons/google-material/image.png"
+            icon.source: "qrc:/icons/vector/images/images.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать выбранные изображения"
             Material.elevation: 30
@@ -36,7 +36,7 @@ Pane { id: panel_ImageTools;
             font.family: root.mainfont
             height: 35
             radius: 4
-            icon.source: "qrc:/icons/google-material/text.png"
+            icon.source: "qrc:/icons/vector/common/file.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать маркеры в текст"
             Material.elevation: 30
@@ -50,7 +50,7 @@ Pane { id: panel_ImageTools;
             font.family: root.mainfont
             height: 35
             radius: 4
-            icon.source: "qrc:/icons/google-material/save.png"
+            icon.source: "qrc:/icons/vector/common/file.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             text: "Экспортировать маркеры в XML"
             Material.elevation: 30

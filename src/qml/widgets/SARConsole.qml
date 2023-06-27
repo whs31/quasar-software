@@ -73,21 +73,22 @@ Pane { id: control;
                 right: parent.right
                 top: parent.top
                 bottom: parent.bottom
-                topMargin: -8;
+                topMargin: -10;
                 bottomMargin: -3;
             }
 
             RoundButton {
-                width: 26;
-                height: 26;
+                height: 30;
                 Material.background: ColorTheme.active.color(ColorTheme.Orange);
+                Material.foreground: ColorTheme.active.color(ColorTheme.Dark);
                 Material.elevation: 100;
+                text: "Очистка"
                 onPressed: VT100Terminal.clear();
             }
 
             RoundButton {
-                width: 26;
-                height: 26;
+                width: 30;
+                height: 30;
                 Material.background: ColorTheme.active.color(ColorTheme.Red);
                 onPressed: root.vt100termshown = false;
             }

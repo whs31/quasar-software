@@ -481,7 +481,7 @@ Item {
         height: height
         width: 40
         radius: 20
-        icon.source: "qrc:/icons/google-material/delete.png"
+        icon.source: "qrc:/icons/vector/common/delete.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Dark)
         Material.elevation: 30
         Material.foreground: ColorTheme.active.color(ColorTheme.Dark)

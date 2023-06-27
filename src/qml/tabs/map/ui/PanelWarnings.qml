@@ -13,7 +13,7 @@ ListView {
     delegate: RowLayout {
         RoundButton {
             flat: true;
-            icon.source: "qrc:/icons/google-material/warning.png";
+            icon.source: "qrc:/icons/vector/common/warning.svg";
             icon.color: major ? ColorTheme.active.color(ColorTheme.Red)
                               : ColorTheme.active.color(ColorTheme.Orange)
         }

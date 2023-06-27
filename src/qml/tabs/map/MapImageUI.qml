@@ -19,7 +19,7 @@ MapQuickItem {
     sourceItem: Item { z: 50;
         RoundButton { id: button_openImageDialog;
             z: 50;
-            icon.source: "qrc:/map/items/image.png";
+            icon.source: "qrc:/icons/vector/images/image.svg";
             height: 44;
             width: 44;
             radius: 15;
@@ -61,7 +61,7 @@ MapQuickItem {
 
                     RoundButton { id: button_CloseDialog;
                         z: 50;
-                        icon.source: "qrc:/icons/google-material/close.png";
+                        icon.source: "qrc:/icons/vector/common/close.svg";
                         icon.color: ColorTheme.active.color(ColorTheme.Dark);
                         Layout.preferredHeight: 36;
                         Layout.preferredWidth: 36;
@@ -77,7 +77,7 @@ MapQuickItem {
 
                 Row {
                     RoundButton { id: button_HideImage;
-                        icon.source: "qrc:/icons/google-material/hide.png";
+                        icon.source: shown ? "qrc:/icons/vector/common/hide.svg" : "qrc:/icons/vector/common/show.svg";
                         icon.color: ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: shown ? "Скрыть изображение" : "Показать изображение";
@@ -89,22 +89,22 @@ MapQuickItem {
                     }
 
                     RoundButton { id: button_DeleteImage;
-                        icon.source: "qrc:/icons/google-material/delete.png";
-                        icon.color: ColorTheme.active.color(ColorTheme.Dark);
-                        font.family: root.mainfont;
-                        text: "Удалить изображение";
-                        height: 40;
-                        radius: 4;
-                        Material.elevation: 30;
-                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark);
-                        Material.background: ColorTheme.active.color(ColorTheme.Red);
-                        onPressed: deleteImage(index);
+                        icon.source: "qrc:/icons/vector/common/delete.svg"
+                        icon.color: ColorTheme.active.color(ColorTheme.Dark)
+                        font.family: root.mainfont
+                        text: "Удалить изображение"
+                        height: 40
+                        radius: 4
+                        Material.elevation: 30
+                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+                        Material.background: ColorTheme.active.color(ColorTheme.Red)
+                        onPressed: deleteImage(index)
                     }
                 }
 
                 Row {
                     RoundButton { id: button_ShowControls;
-                        icon.source: "qrc:/icons/google-material/adjust.png";
+                        icon.source: "qrc:/icons/vector/common/tune.svg"
                         icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Параметры";
@@ -118,7 +118,7 @@ MapQuickItem {
                     }
 
                     RoundButton { id: button_Showmeta;
-                        icon.source: "qrc:/icons/google-material/list.png";
+                        icon.source: "qrc:/icons/vector/common/list.svg"
                         icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Метаданные";
@@ -139,7 +139,7 @@ MapQuickItem {
                     RoundButton { id: button_EditImage;
                         Layout.fillWidth: true;
                         Layout.preferredHeight: 35;
-                        icon.source: "qrc:/icons/google-material/edit.png";
+                        icon.source: "qrc:/icons/vector/common/edit.svg";
                         icon.color: ColorTheme.active.color(ColorTheme.Text);
                         font.family: root.mainfont;
                         text: "Редактирование изображения";

@@ -103,5 +103,9 @@
         <file>icons/vector/network/poweroff.svg</file>
         <file>icons/vector/misc/earth.svg</file>
         <file>logo/logo_label.svg</file>
+        <file>icons/vector/images/move.svg</file>
+        <file>icons/vector/images/rotate.svg</file>
+        <file>icons/vector/images/scale.svg</file>
+        <file>icons/vector/images/transform.svg</file>
     </qresource>
 </RCC>

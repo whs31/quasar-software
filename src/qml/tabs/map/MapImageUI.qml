@@ -17,78 +17,127 @@ MapQuickItem {
     opacity: m_opacity;
     coordinate: QtPositioning.coordinate(latitude, longitude);
     sourceItem: Item { z: 50;
-        RoundButton { id: button_openImageDialog;
-            z: 50;
-            icon.source: "qrc:/icons/vector/images/image.svg";
-            height: 44;
-            width: 44;
-            radius: 15;
-            Material.elevation: 30;
+        RoundButton {
+            id: button_openImageDialog
+            z: 50
+            icon.source: "qrc:/icons/vector/images/image.svg"
+            height: 44
+            width: 44
+            radius: 15
+            Material.elevation: 30
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             icon.color: ColorTheme.active.color(ColorTheme.Text)
-            onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
+            onPressed: panel_ImageDialog.shown = !panel_ImageDialog.shown
         }
 
-        Pane { id: panel_ImageDialog;
-            anchors.left: button_openImageDialog.right;
-            anchors.top: button_openImageDialog.top;
+        Pane {
+            property bool shown: false//button_ShowTransform.checked
 
-            property bool b_Shown: false;
-            width: b_Shown ? implicitWidth : 0;
-            height: b_Shown ? implicitHeight : 0;
-            visible: height > 0;
-            enabled: visible;
+            id: panel_TransformEditor
+            anchors {
+                right: button_openImageDialog.left
+                top: button_openImageDialog.top
+            }
+
+            width: shown ? implicitWidth : 0
+            height: shown ? implicitHeight : 0
+            visible: height > 0
+            enabled: visible
+            z: 51
+            clip: true
+
+            Material.background: ColorTheme.active.color(ColorTheme.Dark)
+            Material.elevation: 30
+
             Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
             Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
-            clip: true;
+
+            ColumnLayout {
+                Switch {
+                    id: enabletransform
+                    Layout.fillWidth: true
+                    icon.source: "qrc:/icons/vector/images/transform.svg"
+                    checked: false
+                    font.family: root.mainfont
+                    text: "Перемещение изображения"
+                }
+            }
+        }
+
+        Pane {
+            property bool shown: false
+
+            id: panel_ImageDialog
+            anchors {
+                left: button_openImageDialog.right
+                top: button_openImageDialog.top
+            }
+
+            width: shown ? implicitWidth : 0
+            height: shown ? implicitHeight : 0
+            visible: height > 0
+            enabled: visible
+            z: 51
+            clip: true
+
             Material.background: ColorTheme.active.color(ColorTheme.Dark)
-            Material.elevation: 30;
-            z: 51;
+            Material.elevation: 30
+
+            Behavior on height { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
+            Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
 
             ColumnLayout {
                 RowLayout {
+                    Layout.fillWidth: true
+
                     Text {
-                        font.family: root.mainfont;
-                        text: "Изображение №" + Number(index + 1);
-                        color: ColorTheme.active.color(ColorTheme.Text);
-                        font.weight: Font.Bold;
-                        font.pixelSize: 16;
-                        horizontalAlignment: Text.AlignHCenter;
-                        Layout.alignment: Qt.AlignHCenter;
-                        Layout.fillWidth: true;
-                        Layout.leftMargin: 36;
+                        font.family: root.mainfont
+                        text: "Изображение №" + Number(index + 1)
+                        color: ColorTheme.active.color(ColorTheme.Text)
+                        font.weight: Font.Bold
+                        font.pixelSize: 16
+                        horizontalAlignment: Text.AlignHCenter
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.fillWidth: true
+                        Layout.leftMargin: 36
                     }
 
-                    RoundButton { id: button_CloseDialog;
-                        z: 50;
-                        icon.source: "qrc:/icons/vector/common/close.svg";
-                        icon.color: ColorTheme.active.color(ColorTheme.Dark);
-                        Layout.preferredHeight: 36;
-                        Layout.preferredWidth: 36;
-                        height: 36;
-                        width: 36;
-                        radius: 18;
-                        Material.elevation: 30;
-                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark);
-                        Material.background: ColorTheme.active.color(ColorTheme.Red);
-                        onPressed: panel_ImageDialog.b_Shown = !panel_ImageDialog.b_Shown;
+                    RoundButton {
+                        id: button_CloseDialog
+                        z: 50
+                        icon.source: "qrc:/icons/vector/common/close.svg"
+                        icon.color: ColorTheme.active.color(ColorTheme.Dark)
+                        Layout.preferredHeight: 36
+                        Layout.preferredWidth: 36
+                        height: 36
+                        width: 36
+                        radius: 18
+                        Material.elevation: 30
+                        Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+                        Material.background: ColorTheme.active.color(ColorTheme.Red)
+                        onPressed: panel_ImageDialog.shown = !panel_ImageDialog.shown
                     }
                 }
 
-                Row {
-                    RoundButton { id: button_HideImage;
-                        icon.source: shown ? "qrc:/icons/vector/common/hide.svg" : "qrc:/icons/vector/common/show.svg";
-                        icon.color: ColorTheme.active.color(ColorTheme.Text);
-                        font.family: root.mainfont;
-                        text: shown ? "Скрыть изображение" : "Показать изображение";
-                        height: 40;
-                        radius: 4;
-                        Material.elevation: 30;
-                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade);
-                        onPressed: shown = !shown;
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    RoundButton { id: button_HideImage
+                        icon.source: shown ? "qrc:/icons/vector/common/hide.svg"
+                                           : "qrc:/icons/vector/common/show.svg"
+                        icon.color: ColorTheme.active.color(ColorTheme.Text)
+                        font.family: root.mainfont
+                        text: shown ? "Скрыть изображение" : "Показать изображение"
+                        height: 40
+                        radius: 4
+                        Material.elevation: 30
+                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+                        onPressed: shown = !shown
                     }
 
-                    RoundButton { id: button_DeleteImage;
+                    RoundButton {
+                        id: button_DeleteImage
+                        Layout.fillWidth: true
                         icon.source: "qrc:/icons/vector/common/delete.svg"
                         icon.color: ColorTheme.active.color(ColorTheme.Dark)
                         font.family: root.mainfont
@@ -102,103 +151,137 @@ MapQuickItem {
                     }
                 }
 
-                Row {
-                    RoundButton { id: button_ShowControls;
+                RowLayout {
+                    Layout.fillWidth: true
+
+                    RoundButton {
+                        id: button_ShowControls
+                        Layout.fillWidth: true
                         icon.source: "qrc:/icons/vector/common/tune.svg"
-                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
-                        font.family: root.mainfont;
-                        text: "Параметры";
-                        checkable: true;
-                        checked: false;
-                        height: 35;
-                        radius: 4;
-                        Material.elevation: 30;
-                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
-                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.BaseShade);
+                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                            : ColorTheme.active.color(ColorTheme.Text)
+                        font.family: root.mainfont
+                        text: "Параметры"
+                        checkable: true
+                        checked: false
+                        height: 35
+                        radius: 4
+                        Material.elevation: 30
+                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                                     : ColorTheme.active.color(ColorTheme.Text)
+                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark)
+                                                     : ColorTheme.active.color(ColorTheme.BaseShade)
                     }
 
-                    RoundButton { id: button_Showmeta;
+                    RoundButton {
+                        id: button_Showmeta
                         icon.source: "qrc:/icons/vector/common/list.svg"
-                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
-                        font.family: root.mainfont;
-                        text: "Метаданные";
-                        height: 35;
-                        radius: 4;
-                        checkable: true;
-                        checked: false;
-                        Material.elevation: 30;
-                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text);
-                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.BaseShade);
+                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                            : ColorTheme.active.color(ColorTheme.Text)
+                        font.family: root.mainfont
+                        text: "Метаданные"
+                        height: 35
+                        radius: 4
+                        checkable: true
+                        checked: false
+                        Material.elevation: 30
+                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                                     : ColorTheme.active.color(ColorTheme.Text)
+                        Material.background: checked ? ColorTheme.active.color(ColorTheme.PrimaryDark)
+                                                     : ColorTheme.active.color(ColorTheme.BaseShade)
+                    }
+
+                    RoundButton {
+                        id: button_ShowTransform
+                        icon.source: "qrc:/icons/vector/images/transform.svg"
+                        icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                            : ColorTheme.active.color(ColorTheme.Text)
+                        font.family: root.mainfont
+                        text: "Геопривязка"
+                        height: 35
+                        radius: 4
+                        checkable: true
+                        checked: false
+                        Material.elevation: 30
+                        Material.foreground: checked ? ColorTheme.active.color(ColorTheme.Dark)
+                                                     : ColorTheme.active.color(ColorTheme.Text)
+                        Material.background: checked ? ColorTheme.active.color(ColorTheme.Green)
+                                                     : ColorTheme.active.color(ColorTheme.BaseShade)
                     }
                 }
 
                 ColumnLayout {
-                    visible: button_ShowControls.checked;
-                    spacing: -6;
+                    visible: button_ShowControls.checked
+                    spacing: -6
+                    Layout.fillWidth: true
 
-                    RoundButton { id: button_EditImage;
-                        Layout.fillWidth: true;
-                        Layout.preferredHeight: 35;
-                        icon.source: "qrc:/icons/vector/common/edit.svg";
-                        icon.color: ColorTheme.active.color(ColorTheme.Text);
-                        font.family: root.mainfont;
-                        text: "Редактирование изображения";
-                        height: 35;
-                        radius: 4;
-                        Material.elevation: 30;
-                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade);
+                    RoundButton {
+                        id: button_EditImage
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: 35
+                        icon.source: "qrc:/icons/vector/common/edit.svg"
+                        icon.color: ColorTheme.active.color(ColorTheme.Text)
+                        font.family: root.mainfont
+                        text: "Редактирование изображения"
+                        height: 35
+                        radius: 4
+                        Material.elevation: 30
+                        Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
                         onPressed: {
-                            c_FocusTab.currentAssignedIndex = index;
-                            root.openTab(1);
+                            c_FocusTab.currentAssignedIndex = index
+                            root.openTab(1)
                         }
                     }
 
                     RowLayout {
-                        Layout.fillWidth: true;
+                        Layout.fillWidth: true
+
                         Text {
-                            Layout.fillHeight: true;
-                            Layout.fillWidth: true;
-                            Layout.alignment: Qt.AlignVCenter;
-                            font.family: root.mainfont;
-                            color: ColorTheme.active.color(ColorTheme.Text);
-                            font.pixelSize: 14;
-                            font.weight: Font.DemiBold;
-                            text: "Непрозрачность: ";
-                            verticalAlignment: Text.AlignVCenter;
+                            Layout.fillHeight: true
+                            Layout.fillWidth: true
+                            Layout.alignment: Qt.AlignVCenter
+                            font.family: root.mainfont
+                            color: ColorTheme.active.color(ColorTheme.Text)
+                            font.pixelSize: 14
+                            font.weight: Font.DemiBold
+                            text: "Непрозрачность: "
+                            verticalAlignment: Text.AlignVCenter
                         }
 
                         Slider {
-                            Layout.fillWidth: true;
-                            Layout.fillHeight: true;
-                            Layout.alignment: Qt.AlignRight;
-                            from: 0;
-                            to: 1;
-                            value: transparency;
-                            onValueChanged: transparency = value;
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            Layout.alignment: Qt.AlignRight
+                            from: 0
+                            to: 1
+                            value: transparency
+                            onValueChanged: transparency = value
                         }
                     }
 
                     CheckBox {
-                        checked: marked_for_export;
-                        text: "Пометить для экспорта";
-                        font.family: root.mainfont;
-                        font.pixelSize: 14;
-                        onCheckedChanged: marked_for_export = checked;
+                        checked: marked_for_export
+                        text: "Пометить для экспорта"
+                        font.family: root.mainfont
+                        font.pixelSize: 14
+                        onCheckedChanged: marked_for_export = checked
                     }
                 }
 
-                ScrollView {id: layout_Meta;
-                    Layout.fillWidth: true;
-                    visible: button_Showmeta.checked;
-                    implicitHeight: 200;
-                    clip: true;
-                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn;
+                ScrollView {
+                    id: layout_Meta
+                    Layout.fillWidth: true
+                    visible: button_Showmeta.checked
+                    implicitHeight: 200
+                    clip: true
+                    ScrollBar.vertical.policy: ScrollBar.AlwaysOn
 
                     GridLayout {
-                        columns: 2;
-                        rowSpacing: -2;
+                        columns: 2
+                        rowSpacing: -2
 
-                        ListModel { id: meta_model
+                        ListModel {
+                            id: meta_model
                             Component.onCompleted:
                             {
                                 append({str: "Имя файла:", col: ColorTheme.active.color(ColorTheme.Text), fill: true});
@@ -242,16 +325,17 @@ MapQuickItem {
                             }
                         }
 
-                        Repeater { id: repeater
-                            model: meta_model;
+                        Repeater {
+                            id: repeater
+                            model: meta_model
                             delegate: Text {
                                 font.family: root.mainfont
                                 font.pixelSize: 12
-                                font.bold: !fill;
-                                Layout.fillWidth: fill;
-                                Layout.alignment: fill ? Qt.AlignLeft : Qt.AlignRight;
-                                color: col;
-                                text: str;
+                                font.bold: !fill
+                                Layout.fillWidth: fill
+                                Layout.alignment: fill ? Qt.AlignLeft : Qt.AlignRight
+                                color: col
+                                text: str
                             }
                         }
                     }
@@ -259,25 +343,26 @@ MapQuickItem {
             }
         }
 
-        Rectangle { id: panel_SARImageTooltip;
-            visible: !panel_ImageDialog.b_Shown;
-            color: ColorTheme.active.color(ColorTheme.BaseShade);
-            width: (text_ImageIndex.paintedWidth + 5);
-            height: (text_ImageIndex.paintedHeight + 3);
-            anchors.top: button_openImageDialog.bottom;
-            anchors.horizontalCenter: button_openImageDialog.horizontalCenter;
-            radius: width / 2;
-            Text { id: text_ImageIndex;
-                color: ColorTheme.active.color(ColorTheme.Text);
-                enabled: true;
-                anchors.fill: parent;
-                font.pointSize: 8;
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
-                textFormat: Text.RichText;
-                text: "\u00A0РЛИ №" + Number(index + 1) + "\u00A0";
-                horizontalAlignment: Text.AlignHCenter;
-                verticalAlignment: Text.AlignVCenter;
+        Rectangle {
+            id: panel_SARImageTooltip
+            visible: !panel_ImageDialog.shown
+            color: ColorTheme.active.color(ColorTheme.BaseShade)
+            width: (text_ImageIndex.paintedWidth + 5)
+            height: (text_ImageIndex.paintedHeight + 3)
+            anchors.top: button_openImageDialog.bottom
+            anchors.horizontalCenter: button_openImageDialog.horizontalCenter
+            radius: width / 2
+            Text { id: text_ImageIndex
+                color: ColorTheme.active.color(ColorTheme.Text)
+                enabled: true
+                anchors.fill: parent
+                font.pointSize: 8
+                font.family: root.mainfont
+                font.weight: Font.Bold
+                textFormat: Text.RichText
+                text: "\u00A0РЛИ №" + Number(index + 1) + "\u00A0"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
             }
         }
     }

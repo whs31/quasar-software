@@ -45,5 +45,6 @@
         <file>windows/UpdateWindow.qml</file>
         <file>layouts/bottombar/ConnectionStatusIndicator.qml</file>
         <file>layouts/bottombar/TelemetryWidget.qml</file>
+        <file>tabs/map/StripRoute.qml</file>
     </qresource>
 </RCC>

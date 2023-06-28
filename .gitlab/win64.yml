@@ -8,7 +8,6 @@ windows:
      - mkdir -p $CI_PROJECT_TITLE/plugins/platforms $CI_PROJECT_TITLE/plugins/imageformats
      - cp QuaSAR.exe $CI_PROJECT_TITLE
      - cp libs/LPVL/liblpvl.dll $CI_PROJECT_TITLE
-     - cp libs/CCL/libccl.dll $CI_PROJECT_TITLE
 
      - cpwinlib libgcc_s_seh-1.dll $CI_PROJECT_TITLE
      - cpwinlib libEGL.dll $CI_PROJECT_TITLE

@@ -57,7 +57,6 @@ add_executable(${PROJECT_NAME}
 )
 
 add_subdirectory(libs/LPVL)
-add_subdirectory(libs/CCL)
 add_subdirectory(libs/argparse)
 add_subdirectory(src/c++/sdk)
 #add_subdirectory(libs/corrosion) # tell devops to install rustc
@@ -65,12 +64,8 @@ add_subdirectory(src/c++/sdk)
 if(WIN32)
     set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll.a")
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.dll")
-
-    set_property(TARGET LPVL PROPERTY IMPORTED_IMPLIB "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.dll.a")
-    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.dll")
 else()
     set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/liblpvl.so")
-    set_property(TARGET LPVL PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/libs/LVPL/build/libccl.so")
 endif()
 
 target_link_libraries(${PROJECT_NAME}
@@ -83,7 +78,6 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::QuickControls2
     Qt${QT_VERSION_MAJOR}::Concurrent
     LPVL
-    CCL
     argparse
     SDK
 )

@@ -12,7 +12,6 @@ astra linux special edition:
     - cp $CI_PROJECT_TITLE deb/opt/$CI_PROJECT_TITLE
     - mkdir -p deb/lib/x86_64-linux-gnu
     - cp libs/LPVL/liblpvl.so deb/lib/x86_64-linux-gnu
-    - cp libs/CCL/libccl.so deb/lib/x86_64-linux-gnu
     - mkdir -p deb/usr/share/applications
     - cp src/cmake/$CI_PROJECT_TITLE.desktop deb/usr/share/applications
     - dpkg-deb -b deb $CI_PROJECT_TITLE'_'$GIT_VERSION'_'amd64.deb

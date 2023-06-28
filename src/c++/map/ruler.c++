@@ -1,6 +1,6 @@
 #include "ruler.h"
 #include <QtCore/QPointF>
-#include <CCL/Geomath>
+#include <SDK/Geomath>
 #include <cmath>
 
 namespace Map
@@ -225,8 +225,8 @@ namespace Map
   qreal Ruler::calculateAngle(const QGeoCoordinate& _coord1, const QGeoCoordinate& _coord2)
   {
       qreal result;
-      QPointF coord1 = CCL::geo2webmercator(_coord1);
-      QPointF coord2 = CCL::geo2webmercator(_coord2);
+      QPointF coord1 = SDK::Cartography::geocoordinate_to_webmercator(_coord1);
+      QPointF coord2 = SDK::Cartography::geocoordinate_to_webmercator(_coord2);
       qreal newLong1 = _coord1.longitude();
       qreal newLong2 = _coord2.longitude();
 
@@ -237,8 +237,8 @@ namespace Map
           {
               newLong1 = _coord1.longitude() + shift;
               newLong2 = (_coord2.longitude() + shift) - 360;
-              coord1 = CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
-              coord2 = CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
+              coord1 = SDK::Cartography::geocoordinate_to_webmercator(QGeoCoordinate(_coord1.latitude(), _coord1.longitude() + shift));
+              coord2 = SDK::Cartography::geocoordinate_to_webmercator(QGeoCoordinate(_coord2.latitude(), (_coord2.longitude() + shift) - 360));
           }
       }
       else if(_coord2.longitude() < 0 && _coord1.longitude() > 0)
@@ -248,8 +248,8 @@ namespace Map
           {
               newLong1 = (_coord1.longitude() + shift) - 360;
               newLong2 = _coord2.longitude() + shift;
-              coord2 = CCL::geo2webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
-              coord1 = CCL::geo2webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
+              coord2 = SDK::Cartography::geocoordinate_to_webmercator(QGeoCoordinate(_coord2.latitude(), _coord2.longitude() + shift));
+              coord1 = SDK::Cartography::geocoordinate_to_webmercator(QGeoCoordinate(_coord1.latitude(), (_coord1.longitude() + shift) - 360));
           }
       }
       qreal angle = atan2(abs(coord1.y() - coord2.y()), abs(coord1.x() - coord2.x())) * 180 / M_PI;

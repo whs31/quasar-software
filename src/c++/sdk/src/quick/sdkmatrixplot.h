@@ -20,8 +20,8 @@ namespace SDK::Quick
       explicit MatrixPlot(QQuickItem* parent = nullptr);
 
       Q_INVOKABLE void set(const vector<float>& array2d, int rows, int columns);
-      Q_INVOKABLE void set(const vector<int> array2d, int rows, int columns);
-      Q_INVOKABLE void set(const vector<uint8_t> array2d, int rows, int columns);
+      Q_INVOKABLE void set(const vector<int>& array2d, int rows, int columns);
+      Q_INVOKABLE void set(const vector<uint8_t>& array2d, int rows, int columns);
       Q_INVOKABLE void clean();
 
       [[nodiscard]] float tintRed() const; void setTintRed(float);

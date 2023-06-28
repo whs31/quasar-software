@@ -33,7 +33,7 @@ namespace SDK::Quick
     this->update();
   }
 
-  void MatrixPlot::set(const vector<int> array2d, int rows, int columns)
+  void MatrixPlot::set(const vector<int>& array2d, int rows, int columns)
   {
     data.clear();
     data.resize(rows);
@@ -48,7 +48,7 @@ namespace SDK::Quick
     this->update();
   }
 
-  void MatrixPlot::set(const vector<uint8_t> array2d, int rows, int columns)
+  void MatrixPlot::set(const vector<uint8_t>& array2d, int rows, int columns)
   {
     data.clear();
     data.resize(rows);
@@ -72,13 +72,13 @@ namespace SDK::Quick
 
   QSGNode* MatrixPlot::updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*)
   {
-    QSGGeometry* geometry = nullptr;
-    QSGGeometryNode* node = static_cast<QSGGeometryNode*>(old_node);
+    QSGGeometry* geometry;
+    auto* node = dynamic_cast<QSGGeometryNode*>(old_node);
     if(node == nullptr)
     {
       node = new QSGGeometryNode;
 
-      QSGVertexColorMaterial* material = new QSGVertexColorMaterial;
+      auto* material = new QSGVertexColorMaterial;
       material->setFlag(QSGMaterial::Blending);
 
       node->setMaterial(material);
@@ -93,27 +93,28 @@ namespace SDK::Quick
     geometry = node->geometry();
 
     vector<SDK::Scenegraph::VertexC> gl;
-    float dx = width() / data.front().size();
-    float dy = height() / data.size();
+    float dx = (float)width() / (float)data.front().size();
+    float dy = (float)height() / (float)data.size();
     for(size_t row = 0; row < data.size(); ++row)
     {
       for(size_t column = 0; column < data[row].size(); ++column)
       {
         float d = (data[row][column] * 255) / current_max * brightness();
-        uint8_t r = grayscale() ? d : (d > 50 and d < 150) ? 0 : d * tintRed();
-        uint8_t g = grayscale() ? d : (d <= 50) ? 0 : d * tintGreen();
-        uint8_t b = grayscale() ? d : (d > 150) ? 0 : d * tintBlue();
+        uint8_t r = grayscale() ? static_cast<uint8_t>(d) : (d > 50 and d < 150) ? 0 : static_cast<uint8_t>(d * tintRed());
+        uint8_t g = grayscale() ? static_cast<uint8_t>(d) : (d <= 50) ? 0 : static_cast<uint8_t>(d * tintGreen());
+        uint8_t b = grayscale() ? static_cast<uint8_t>(d) : (d > 150) ? 0 : static_cast<uint8_t>(d * tintBlue());
 
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx, row * dy, r, g, b, 1));
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx + dx, row * dy, r, g, b, 1));
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx + dx, row * dy + dy, r, g, b, 1));
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx + dx, row * dy + dy, r, g, b, 1));
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx, row * dy + dy, r, g, b, 1));
-        gl.push_back(SDK::Scenegraph::VertexC(column * dx, row * dy, r, g, b, 1));
+        // narrowing here cause im too lazy to write static_cast
+        gl.emplace_back(column * dx, row * dy, r, g, b, 1);
+        gl.emplace_back(column * dx + dx, row * dy, r, g, b, 1);
+        gl.emplace_back(column * dx + dx, row * dy + dy, r, g, b, 1);
+        gl.emplace_back(column * dx + dx, row * dy + dy, r, g, b, 1);
+        gl.emplace_back(column * dx, row * dy + dy, r, g, b, 1);
+        gl.emplace_back(column * dx, row * dy, r, g, b, 1);
       }
     }
 
-    geometry->allocate(gl.size());
+    geometry->allocate((int)gl.size());
     for(size_t i = 0; i < gl.size(); i++)
       geometry->vertexDataAsColoredPoint2D()[i].set(gl.at(i).x, gl.at(i).y,
                                                     gl.at(i).r, gl.at(i).g,

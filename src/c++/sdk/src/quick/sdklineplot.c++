@@ -9,6 +9,9 @@ namespace SDK::Quick
       : ChartBase(parent)
       , m_drawAxes(true)
       , m_fill(true)
+      , x_size(0)
+      , y_max(0)
+      , y_min(0)
   {
     this->setFlags(ItemHasContents);
   }
@@ -35,12 +38,10 @@ namespace SDK::Quick
 
   QSGNode *LinePlot::updatePaintNode(QSGNode* old_node, UpdatePaintNodeData*)
   {
-    QSGGeometry* geometry = nullptr;
-    QSGGeometry* plot_geometry = nullptr;
-    QSGGeometry* outline_geometry = nullptr;
-    QSGGeometry* axis_geometry = nullptr;
-    QSGGeometryNode* plot_node = nullptr;
-    auto* node = static_cast<QSGGeometryNode*>(old_node);
+    QSGGeometry* geometry;
+    QSGGeometry* axis_geometry;
+    QSGGeometryNode* plot_node;
+    auto* node = dynamic_cast<QSGGeometryNode*>(old_node);
 
     if(node == nullptr)
     {
@@ -94,8 +95,8 @@ namespace SDK::Quick
       float x = ox_dx;
       while(x < width())
       {
-        gla.push_back(SDK::Scenegraph::Vertex(x, 0));
-        gla.push_back(SDK::Scenegraph::Vertex(x, (float)height()));
+        gla.emplace_back(x, 0);
+        gla.emplace_back(x, (float)height());
         x += ox_dx;
       }
 
@@ -103,8 +104,8 @@ namespace SDK::Quick
       float y = oy_dy;
       while(y < height())
       {
-        gla.push_back(SDK::Scenegraph::Vertex(0, y));
-        gla.push_back(SDK::Scenegraph::Vertex((float)width(), y));
+        gla.emplace_back(0, y);
+        gla.emplace_back((float)width(), y);
         y += oy_dy;
       }
 
@@ -119,7 +120,7 @@ namespace SDK::Quick
 
   void LinePlot::calculate_bounds(bool skip)
   {
-    x_size = v.size();
+    x_size = static_cast<float>(v.size());
     if(not skip)
     {
       const auto [min, max] = std::minmax_element(v.begin(), v.end());

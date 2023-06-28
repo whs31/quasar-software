@@ -1,6 +1,4 @@
 #include "execdsocket.h"
-#include <QtCore/QDebug>
-#include <QtCore/QFile>
 #include <LPVL/Crypto>
 #include "config/paths.h"
 #include "config/networkconfig.h"
@@ -67,22 +65,12 @@ namespace Networking
         break;
       case Enums::Reboot:
       {
-        QFile str(Config::Paths::bash() + "/reboot.sh");
-        if(str.open(QFile::ReadOnly))
-        {
-          QString content = str.readAll();
-          com = wrap(content);
-        }
+        com = wrap(NETCFG("EXECD_REBOOT") + args->getFormArguments());
         break;
       }
       case Enums::Poweroff:
       {
-        QFile str(Config::Paths::bash() + "/poweroff.sh");
-        if(str.open(QFile::ReadOnly))
-        {
-          QString content = str.readAll();
-          com = wrap(content);
-        }
+        com = wrap(NETCFG("EXECD_POWEROFF") + args->getFormArguments());
         break;
       }
       default:

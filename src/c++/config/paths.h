@@ -54,15 +54,6 @@ namespace Config
       //! @note Can be invoked from QML.
       Q_INVOKABLE [[nodiscard]] static QString themes();
 
-      //! @brief   Returns bash-scripts directory.
-      //! @note Can be invoked from QML.
-      Q_INVOKABLE [[nodiscard]] static QString bash();
-
-      //! @brief   Returns directory for runtime-evaluated bash scripts.
-      //! @note Can be invoked from QML.
-      Q_INVOKABLE [[nodiscard]] static QString runtimeBash();
-
-
       //! @brief   Creates and setups image cache.
       //! @note Can be invoked from QML.
       Q_INVOKABLE void createImageCache() noexcept;

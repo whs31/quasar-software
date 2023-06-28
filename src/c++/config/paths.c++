@@ -24,7 +24,6 @@ Paths::Paths(QObject *parent) : QObject{parent}
   PATH_MKDIR(themes)
   PATH_MKDIR(offlineTiles)
   PATH_MKDIR(logs)
-  PATH_MKDIR(runtimeBash)
 
   this->createMapConfigs();
 
@@ -33,12 +32,6 @@ Paths::Paths(QObject *parent) : QObject{parent}
     QFile::copy(":/themes/dark.json", themes() + "/dark.json");
     QFile::copy(":/themes/light.json", themes() + "/light.json");
     qInfo() << "[PATH] Default themes placed in folder";
-  }
-
-  if(runtimeBashDirectory.isEmpty(QDir::Files))
-  {
-    QFile::copy(":/wrapped/poweroff.sh", bash() + "/poweroff.sh");
-    QFile::copy(":/wrapped/reboot.sh", bash() + "/reboot.sh");
   }
 }
 
@@ -61,8 +54,6 @@ QString Paths::offlineTiles() { return root() + "/offline"; }
 QString Paths::config() { return root() + "/config"; }
 QString Paths::logs() { return root() + "/logs"; }
 QString Paths::themes() { return root() + "/themes"; }
-QString Paths::bash() { return root() + "/bash"; }
-QString Paths::runtimeBash() { return bash() + "/custom"; }
 
 void Paths::createImageCache() noexcept
 {

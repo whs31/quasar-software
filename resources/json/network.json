@@ -6,6 +6,8 @@
   "EXECD_FOCUS_TELESCOPIC": "$focus",
   "EXECD_STORAGE_FETCH": "$storage_status()",
   "EXECD_STORAGE_CLEAR": "$clear_storage()",
+  "EXECD_REBOOT": "$reboot()",
+  "EXECD_POWEROFF": "$poweroff()",
 
   "STDOUT_STORAGE_STATUS": "*FREE_DISK_SPACE*"
 }

@@ -10,8 +10,7 @@ astra linux special edition:
     - "echo 'Architecture: amd64' >> deb/DEBIAN/control"
     - mkdir -p deb/opt/$CI_PROJECT_TITLE
     - cp $CI_PROJECT_TITLE deb/opt/$CI_PROJECT_TITLE
-    - mkdir -p deb/lib/x86_64-linux-gnu
-    - cp libs/LPVL/liblpvl.so deb/lib/x86_64-linux-gnu
+    #- mkdir -p deb/lib/x86_64-linux-gnu
     - mkdir -p deb/usr/share/applications
     - cp src/cmake/$CI_PROJECT_TITLE.desktop deb/usr/share/applications
     - dpkg-deb -b deb $CI_PROJECT_TITLE'_'$GIT_VERSION'_'amd64.deb

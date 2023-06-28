@@ -7,7 +7,6 @@ windows:
      - mkdir -p $CI_PROJECT_TITLE/plugins/geoservices $CI_PROJECT_TITLE/plugins/bearer $CI_PROJECT_TITLE/plugins/iconengines 
      - mkdir -p $CI_PROJECT_TITLE/plugins/platforms $CI_PROJECT_TITLE/plugins/imageformats
      - cp QuaSAR.exe $CI_PROJECT_TITLE
-     - cp libs/LPVL/liblpvl.dll $CI_PROJECT_TITLE
 
      - cpwinlib libgcc_s_seh-1.dll $CI_PROJECT_TITLE
      - cpwinlib libEGL.dll $CI_PROJECT_TITLE

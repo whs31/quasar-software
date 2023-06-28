@@ -12,9 +12,9 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
 #include <QtConcurrent/QtConcurrent>
-#include <LPVL/Math>
-#include <LPVL/Crypto>
+#include <SDK/Math>
 #include <SDK/GeoMath>
+#include <SDK/CRC16>
 #include "map/models/imagemodel.h"
 #include "map/models/stripmodel.h"
 #include "config/paths.h"
@@ -302,7 +302,7 @@ Map::TelescopicImage ImageProcessing::decodeTelescopic(const QString& path)
   memcpy(&image.meta, (data_ptr + image.header.JPEG_HEADER_SIZE + sizeof(uint32_t)), *meta_size);
 
   char* crc_data = (char*)&image.meta;
-  uint16_t crc16 = LPVL::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
+  uint16_t crc16 = SDK::Crypto::crc16(crc_data, sizeof(Map::ImageMetadata) - sizeof(uint16_t));
 
   image.valid = crc16 == image.meta.crc16;
   if(not image.valid)
@@ -311,9 +311,9 @@ Map::TelescopicImage ImageProcessing::decodeTelescopic(const QString& path)
 
   if(CONFIG(useRadians))
   {
-    image.meta.angle = LPVL::rad2deg(image.meta.angle) + CONFIG(angleCorrection);
-    image.meta.drift_angle = CONFIG(useDriftAngle) ? LPVL::rad2deg(image.meta.drift_angle) : 0;
-    image.meta.div = LPVL::rad2deg(image.meta.div);
+    image.meta.angle = SDK::rad2deg(image.meta.angle) + CONFIG(angleCorrection);
+    image.meta.drift_angle = CONFIG(useDriftAngle) ? SDK::rad2deg(image.meta.drift_angle) : 0;
+    image.meta.div = SDK::rad2deg(image.meta.div);
   }
   else
     image.meta.angle += CONFIG(angleCorrection);
@@ -342,18 +342,18 @@ QImage ImageProcessing::cutImage(const Map::TelescopicImage& image) noexcept
 
   const int top[8] =
     {
-      0, (int)((image.meta.ly / 2) - 2 * image.meta.x0 * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
+      0, (int)((image.meta.ly / 2) - 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
       0, 0,
       (int)image.meta.lx, 0,
-      (int)image.meta.lx, (int)((image.meta.ly / 2) - (2 * image.meta.x0 + image.meta.lx) * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
+      (int)image.meta.lx, (int)((image.meta.ly / 2) - (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
     };
 
   const int bottom[8] =
     {
-      0, (int)((image.meta.ly / 2) + 2 * image.meta.x0 * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
+      0, (int)((image.meta.ly / 2) + 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
       0, (int)image.meta.ly,
       (int)image.meta.lx, (int)image.meta.ly,
-      (int)image.meta.lx, (int)((image.meta.ly / 2) + (2 * image.meta.x0 + image.meta.lx) * tan(LPVL::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
+      (int)image.meta.lx, (int)((image.meta.ly / 2) + (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
     };
 
   p1.setPoints(4, top);

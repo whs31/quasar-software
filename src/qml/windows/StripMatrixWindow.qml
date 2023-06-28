@@ -4,7 +4,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import LPVL.Charts 1.0
+import Charts 1.0
 import ImageProcessing 1.0
 import Theme 1.0
 
@@ -30,7 +30,7 @@ Window {
         }
     }
 
-    LPVLMatrixPlot { id: plot;
+    MatrixPlot { id: plot;
         anchors.fill: parent;
         anchors.margins: 50;
         anchors.bottomMargin: 100;

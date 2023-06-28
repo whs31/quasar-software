@@ -16,7 +16,7 @@ namespace SDK::Quick
       , m_from(0)
       , m_to(0)
   {
-    setFlags(ItemHasContents);
+    this->setFlags(ItemHasContents);
     connect(timer, &QTimer::timeout, this, &RealtimeLinePlot::tick);
 
     vec.resize(static_cast<size_t>((float)seconds() / interval()));

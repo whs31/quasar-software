@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15 // LEGACY
 
-import LPVL.Charts 1.0
+import Charts 1.0
 import Theme 1.0
 
 Pane {
@@ -101,21 +101,24 @@ Pane {
         clip: true;
         color: ColorTheme.active.color(ColorTheme.BaseShade)
 
-        LPVLRealtimeLinePlot { id: plot;
-            anchors.fill: parent;
-            from: 0;
-            to: 256;
+        RealtimeLinePlot {
+            id: plot
+            anchors.fill: parent
+            from: 0
+            to: 256
             backgroundColor: ColorTheme.active.color(ColorTheme.Surface)
             plottingColor: ColorTheme.active.color(ColorTheme.Primary)
             foregroundColor: ColorTheme.active.color(ColorTheme.Text)
-            interval: 1;
-            seconds: 30;
-            drawAxes: false;
-            layer.enabled: true;
-            layer.smooth: true;
-            layer.samples: 8;
-            layer.effect: OpacityMask {
-                maskSource: parent;
+            interval: 1
+            seconds: 30
+            drawAxes: false
+            layer {
+                enabled: true
+                smooth: true
+                samples: 8
+                effect: OpacityMask {
+                    maskSource: parent
+                }
             }
         }
     }

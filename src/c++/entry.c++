@@ -3,6 +3,8 @@
 #include <QtCore/QCoreApplication>
 #include <QtCore/QProcess>
 #include <QtQml/qqml.h>
+#include <SDK/RealtimeLinePlot>
+#include <SDK/MatrixPlot>
 #include "application/updatemanager.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
@@ -29,6 +31,9 @@ Entry::Entry(QObject* parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
 {
+  qmlRegisterType<SDK::Quick::RealtimeLinePlot>("Charts", 1, 0, "RealtimeLinePlot");
+  qmlRegisterType<SDK::Quick::MatrixPlot>("Charts", 1, 0, "MatrixPlot");
+
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());

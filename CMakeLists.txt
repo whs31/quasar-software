@@ -60,6 +60,8 @@ add_subdirectory(libs/argparse)
 add_subdirectory(src/c++/sdk)
 #add_subdirectory(libs/corrosion) # tell devops to install rustc
 
+add_subdirectory(services/UpdateService)
+
 target_link_libraries(${PROJECT_NAME}
     PRIVATE Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick

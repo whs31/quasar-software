@@ -40,6 +40,8 @@ namespace Networking
 
     file.write(m_data);
     file.close();
+
+    m_data.clear();
   }
 
   QByteArray HTTPDownloader::data() const

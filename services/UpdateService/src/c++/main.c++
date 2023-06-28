@@ -1,3 +1,5 @@
+#include <iostream>
+#include <thread>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
@@ -19,19 +21,32 @@ int main(int argc, char* argv[])
   QString source_file_path = QCoreApplication::applicationDirPath() + "/cache/QuaSAR.exe";
   QFile source(source_file_path);
 
+  std::this_thread::sleep_for(std::chrono::seconds(3));
+
   if(not source.exists())
   {
     qCritical() << "Source file is missing";
+    std::cout << "Press any key to exit...";
+    std::cin.get();
     return 1;
   }
 
-  bool res = source.copy(QCoreApplication::applicationDirPath() + "QuaSAR.exe");
+  bool res = source.copy(QCoreApplication::applicationDirPath() + "/QuaSAR.exe");
   if(not res)
   {
     qCritical() << "Failed to copy";
+    std::cout << "Press any key to exit...";
+    std::cin.get();
     return 1;
   }
 
   source.remove();
+
+  QFile::remove(QCoreApplication::applicationDirPath() + "/config/constants.json");
+  QFile::remove(QCoreApplication::applicationDirPath() + "/config/network.json");
+
+  std::cout << "Press any key to exit...";
+  std::cin.get();
+
   return 0;
 }

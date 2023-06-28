@@ -19,6 +19,12 @@ class Entry : public QObject
   public:
     explicit Entry(QObject* parent = nullptr);
 
+  signals:
+    void scheduleClose();
+
+  private slots:
+    void closeApplication() noexcept;
+
   private:
     Application::UpdateManager* m_updateManager;
     Networking::HTTPDownloader* m_httpDownloader;

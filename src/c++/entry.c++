@@ -4,6 +4,7 @@
 #include <QtQml/qqml.h>
 #include <SDK/RealtimeLinePlot>
 #include <SDK/MatrixPlot>
+#include <SDK/Gizmos>
 #include "application/updatemanager.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
@@ -32,6 +33,7 @@ Entry::Entry(QObject* parent)
 {
   qmlRegisterType<SDK::Quick::RealtimeLinePlot>("Charts", 1, 0, "RealtimeLinePlot");
   qmlRegisterType<SDK::Quick::MatrixPlot>("Charts", 1, 0, "MatrixPlot");
+  qmlRegisterType<SDK::Gizmos::Gizmos>("Gizmos", 1, 0, "Gizmos");
 
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
 

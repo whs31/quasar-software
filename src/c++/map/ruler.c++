@@ -1,6 +1,6 @@
 #include "ruler.h"
 #include <QtCore/QPointF>
-#include <SDK/Geomath>
+#include <SDK/GeoMath>
 #include <cmath>
 
 namespace Map

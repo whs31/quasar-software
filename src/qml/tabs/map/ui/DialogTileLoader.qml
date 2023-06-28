@@ -24,9 +24,10 @@ Pane { id: dialog_TileLoader;
             tilecount = TileLoader.estimateTileCount(poly, tilezoom);
     }
 
-    Column {
-        Row {
+    ColumnLayout {
+        RowLayout {
             RoundButton { id: button_Accept;
+                Layout.fillWidth: true;
                 enabled: poly.length >= 4;
                 height: 44;
                 radius: 4;
@@ -94,14 +95,32 @@ Pane { id: dialog_TileLoader;
             }
         }
 
-        Text {
-            font {
-                family: root.mainfont
-                bold: true
-                pixelSize: 15
+        RowLayout {
+            Layout.fillWidth: true
+
+            Text {
+                Layout.fillWidth: true
+                font {
+                    family: root.mainfont
+                    bold: true
+                    pixelSize: 15
+                }
+                text: "Ожидаемый размер загрузки:"
+                color: ColorTheme.active.color(ColorTheme.Text)
             }
-            text: "Ожидаемый размер загрузки: " + Number(tilecount * 16 / 1024).toFixed(0) + " МБ";
-            color: ColorTheme.active.color(ColorTheme.Text)
+
+            Text {
+                Layout.alignment: Qt.AlignRight
+                font {
+                    family: root.mainfont
+                    bold: true
+                    pixelSize: 15
+                }
+
+                text: Number(tilecount * 16 / 1024).toFixed(0) + " МБ"
+                color: ColorTheme.active.color(ColorTheme.Orange)
+                horizontalAlignment: Text.AlignRight
+            }
         }
     }
 }

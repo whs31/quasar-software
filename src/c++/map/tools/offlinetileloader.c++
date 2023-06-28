@@ -3,8 +3,6 @@
 #include <stdexcept>
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
-//#include <QtCore/QtMath>
-#include <QtCore/QDebug>
 #include <QtGui/QPolygonF>
 #include <QtNetwork/QNetworkReply>
 #include <QtPositioning/QGeoPolygon>

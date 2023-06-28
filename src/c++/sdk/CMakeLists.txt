@@ -17,14 +17,12 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
 
 include_directories(src include)
 
-set(SDK_CORE
-    src/cartography/sdkgeomath.h src/cartography/sdkgeomath.c++
-    src/cartography/sdkorthodrom.h src/cartography/sdkorthodrom.c++
+file(GLOB_RECURSE SDK_CORE
+    src/*
 )
 
-set(SDK_CORE_INCLUDE
-    include/SDK/GeoMath
-    include/SDK/Orthodrom
+file(GLOB_RECURSE SDK_CORE_INCLUDE
+    include/*
 )
 
 set(SRC ${SDK_CORE} ${SDK_CORE_INCLUDE} )

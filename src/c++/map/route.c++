@@ -1,8 +1,8 @@
 #include "route.h"
-#include "tools/routelogger.h"
 #include <QtCore/QFile>
 #include <QtCore/QDebug>
 #include <QtPositioning/QGeoCoordinate>
+#include "tools/routelogger.h"
 
 namespace Map
 {

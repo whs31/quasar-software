@@ -1,5 +1,5 @@
 #include "execdsocket.h"
-#include <LPVL/Crypto>
+#include <SDK/CRC16>
 #include "config/paths.h"
 #include "config/networkconfig.h"
 #include "execdargumentlist.h"
@@ -95,7 +95,7 @@ namespace Networking
     QString command = ":" + QStringLiteral("%1").arg(++message_uid, 4, 10, QLatin1Char('0')) + "|";
     QString hex_length = QString("%1").arg(string.length(), 2, 16, QLatin1Char('0'));
     command.append(hex_length + "|" + string + "|");
-    command.append(QStringLiteral("%1").arg(LPVL::crc16(LPVL::str_data(command),
+    command.append(QStringLiteral("%1").arg(SDK::Crypto::crc16(SDK::Crypto::str_data(command),
                                                         command.length()),
                                             4, 16, QLatin1Char('0')));
     return command.toUtf8();
@@ -107,7 +107,7 @@ namespace Networking
     QString check_crc = raw;
     check_crc.chop(5);
 
-    uint16_t crc16 = LPVL::crc16(LPVL::str_data(check_crc), check_crc.length());
+    uint16_t crc16 = SDK::Crypto::crc16(SDK::Crypto::str_data(check_crc), check_crc.length());
     uint16_t receivedCrc16 = raw.split("|").last().toUInt(nullptr, 16);
 
     if(crc16 == receivedCrc16)

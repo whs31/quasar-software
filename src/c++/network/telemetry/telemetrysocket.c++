@@ -4,8 +4,8 @@
 #include <QtCore/QTimer>
 #include <QtCore/QDebug>
 #include <QtCore/QDataStream>
-#include <LPVL/Math>
-#include <LPVL/Crypto>
+#include <SDK/Math>
+#include <SDK/CRC16>
 
 namespace Networking
 {
@@ -62,21 +62,21 @@ namespace Networking
       return;
     }
 
-    output->setLatitude(LPVL::rad2deg(received.latitude));
-    output->setLongitude(LPVL::rad2deg(received.longitude));
+    output->setLatitude(SDK::rad2deg(received.latitude));
+    output->setLongitude(SDK::rad2deg(received.longitude));
     output->setAltitude(received.altitude);
     output->setVelocityCourse(received.velocity_course * 3.6);
     output->setVelocityEast(received.velocity_east * 3.6);
     output->setVelocityNorth(received.velocity_north * 3.6);
     output->setVelocityCourse(received.velocity_course * 3.6);
-    output->setPitch(LPVL::rad2deg(received.pitch));
-    output->setRoll(LPVL::rad2deg(received.roll));
-    output->setYaw(LPVL::rad2deg(received.yaw));
-    output->setCourse(LPVL::rad2deg(received.course));
+    output->setPitch(SDK::rad2deg(received.pitch));
+    output->setRoll(SDK::rad2deg(received.roll));
+    output->setYaw(SDK::rad2deg(received.yaw));
+    output->setCourse(SDK::rad2deg(received.course));
     output->setTime(received.time);
     output->setSatellites(received.satellites >> 1);
 
-    uint16_t crc = CRC_CHECK ? LPVL::crc16_ccitt((const char*) &received,
+    uint16_t crc = CRC_CHECK ? SDK::Crypto::crc16_alt((const char*) &received,
                                                  sizeof(Networking::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
     if(crc != received.crc16)
@@ -106,7 +106,7 @@ namespace Networking
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
     TelemetryRequest request = {MARKER, 0x01, (uint16_t) (recv_port), (uint32_t) (this->frequency() * 1'000), 0};
-    uint16_t crc = LPVL::crc16_ccitt((const char*) &request, sizeof(TelemetryRequest) - sizeof(uint16_t));
+    uint16_t crc = SDK::Crypto::crc16_alt((const char*) &request, sizeof(TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 
     stream << request;

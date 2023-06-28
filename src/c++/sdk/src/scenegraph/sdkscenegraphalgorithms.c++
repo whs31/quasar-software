@@ -76,7 +76,7 @@ namespace SDK::Scenegraph
   }
 
   QSGGeometryNode*
-  Scenegraph::createLineStripNode(const vector<float>& v, float dx, float dy, float w, float h, const QString& col,
+  createLineStripNode(const vector<float>& v, float dx, float dy, float w, float h, const QString& col,
                                   float alpha, float line_width)
   {
     auto ret = new QSGGeometryNode;

@@ -25,7 +25,7 @@ namespace Networking
     QNetworkReply* m_reply = m_accessManager->get(request);
     connect(m_reply, &QNetworkReply::downloadProgress, this, &HTTPDownloader::progressReply);
     connect(m_reply, &QNetworkReply::readyRead, this, [this, m_reply](){
-      m_data = m_reply->readAll();
+      m_data.append(m_reply->readAll());
     });
   }
 
@@ -40,8 +40,6 @@ namespace Networking
 
     file.write(m_data);
     file.close();
-
-    m_data.clear();
   }
 
   QByteArray HTTPDownloader::data() const

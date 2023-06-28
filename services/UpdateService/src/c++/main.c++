@@ -21,8 +21,10 @@ int main(int argc, char* argv[])
   QString source_file_path = QCoreApplication::applicationDirPath() + "/cache/QuaSAR.exe";
   QFile source(source_file_path);
 
+  qDebug() << "Waiting for app to close...";
   std::this_thread::sleep_for(std::chrono::seconds(3));
 
+  qDebug() << "Checking if file downloaded correctly...";
   if(not source.exists())
   {
     qCritical() << "Source file is missing";
@@ -31,6 +33,14 @@ int main(int argc, char* argv[])
     return 1;
   }
 
+  qDebug() << "Checking previous executable...";
+  if(QFile::exists(QCoreApplication::applicationDirPath() + "/QuaSAR.exe"))
+  {
+    qDebug() << "Deleting previous executable...";
+    QFile::remove(QCoreApplication::applicationDirPath() + "/QuaSAR.exe");
+  }
+
+  qDebug() << "Copying...";
   bool res = source.copy(QCoreApplication::applicationDirPath() + "/QuaSAR.exe");
   if(not res)
   {
@@ -40,11 +50,14 @@ int main(int argc, char* argv[])
     return 1;
   }
 
+  qDebug() << "Cleaning up...";
   source.remove();
 
+  qDebug() << "Removing old configs...";
   QFile::remove(QCoreApplication::applicationDirPath() + "/config/constants.json");
   QFile::remove(QCoreApplication::applicationDirPath() + "/config/network.json");
 
+  qDebug() << "Success!";
   std::cout << "Press any key to exit...";
   std::cin.get();
 

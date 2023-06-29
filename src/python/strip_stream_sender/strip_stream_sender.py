@@ -1,9 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import time 
+import time
+import socket
 import c_deserial
 
-nav_struct = """typedef struct __attribute__ ((__packed__)){
+nav_struct = """
+typedef struct __attribute__ ((__packed__))
+{
     float pitch;
     float roll;     
     float ele;      
@@ -15,7 +18,9 @@ nav_struct = """typedef struct __attribute__ ((__packed__)){
 } nav_t;
 """
 
-head_struct = """typedef struct __attribute__ ((__packed__)){
+head_struct = """
+typedef struct __attribute__ ((__packed__))
+{
     uint16_t marker;
     uint16_t version;
     uint16_t size;
@@ -25,7 +30,9 @@ head_struct = """typedef struct __attribute__ ((__packed__)){
 } head_t;
 """
 
-img_struct = """typedef struct __attribute__ ((__packed__)){
+img_struct = """
+typedef struct __attribute__ ((__packed__))
+{
     float dx;
     float dy;
     float course;
@@ -40,6 +47,14 @@ img_struct = """typedef struct __attribute__ ((__packed__)){
 } img_t;
 """
 
+UDP_IP = "127.0.0.1"
+UDP_PORT = 48455
+
+print("UDP target IP:", UDP_IP)
+print("UDP target port:", UDP_PORT)
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 
 class ArrayReader():
     def __init__(self, data):
@@ -51,7 +66,7 @@ class ArrayReader():
         if self.index >= len(self.data):
             return np.nan
 
-        if (length == 1):
+        if length == 1:
             data = self.data[self.index]
         else:
             data = self.data[self.index:self.index + length]
@@ -78,16 +93,16 @@ while 1:
     nav = pack_nav.to_dict(header_reader.read(pack_nav.size()))
     img = pack_img.to_dict(header_reader.read(pack_img.size()))
 
-    # print(head)
-    # print(nav)
-    # print(img)
-
     chunk = ar.read(head["size"])
     if img["word_size"] == 2:
         chunk = chunk.view(np.uint16)
     chunk = chunk * img["k"]
 
     a = np.append(a, chunk)
+
+    print("Sending data")
+    sock.sendto(chunk, (UDP_IP, UDP_PORT))
+    time.sleep(0.5)
 
 print("word_size:", img["word_size"])
 line_len = int(img["dx"] * img["nx"])

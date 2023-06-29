@@ -26,9 +26,9 @@ ApplicationWindow  { id: window_root;
 
     title: "QuaSAR";
     minimumWidth: 1280;
-    minimumHeight: 720;
+    minimumHeight: 800;
     width: 1280;
-    height: 720;
+    height: 800;
     visible: true;
     color: ColorTheme.active.color(ColorTheme.Dark)
     Component.onCompleted: showMaximized();

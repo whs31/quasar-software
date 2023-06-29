@@ -40,6 +40,7 @@ namespace Processing
 
     public slots:
       void processList(QList<QString> list);
+      void processChunk(const QByteArray& chunk);
       void passImage(Map::TelescopicImage image);
       void passStrip(Map::StripImage image);
 
@@ -58,6 +59,7 @@ namespace Processing
 
       void asyncProcess(const QString& filename);
       void asyncStripProcess(const QString& filename);
+
       static QByteArray fileToByteArray(const QString& path);
       Map::TelescopicImage decodeTelescopic(const QString& path);
       QImage cutImage(const Map::TelescopicImage& image) noexcept;

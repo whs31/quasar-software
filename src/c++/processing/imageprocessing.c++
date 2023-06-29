@@ -8,6 +8,7 @@
 #include <QtCore/QtEndian>
 #include <QtCore/QMetaType>
 #include <QtCore/QDataStream>
+#include <QtCore/QDateTime>
 #include <QtGui/QImage>
 #include <QtGui/QPainter>
 #include <QtGui/QPainterPath>
@@ -88,6 +89,28 @@ void ImageProcessing::processList(QList<QString> list)
         }
       }
     }
+  });
+}
+
+void ImageProcessing::processChunk(const QByteArray& chunk)
+{
+  QFuture<void> wrap = QtConcurrent::run([this, chunk](){
+    QThreadPool pool;
+    pool.setMaxThreadCount(ICFG<int>("PROCESSING_CONCURRENCY_THREADS_STRIP"));
+
+    QString filename = "strip_" + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".bin";
+    QFile chunk_file(Config::Paths::lod(0) + "/" + filename);
+    if(not chunk_file.open(QIODevice::WriteOnly))
+    {
+      qCritical() << "[PROCESSING] Failed to write to temporary file";
+      return;
+    }
+    chunk_file.write(chunk);
+    chunk_file.close();
+
+    QFuture<void> future = QtConcurrent::run(&pool, [=](){
+      //this->asyncStripProcess(filename);
+    });
   });
 }
 
@@ -195,7 +218,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     // запись промежуточного результата в матрицу
     for(int i = 0; i < head.size; i++)
-      fmatrix.push_back( (float)buf[i] * img.k);
+      fmatrix.push_back((float)buf[i] * img.k);
   }
 
   // Эти значения нужно пересчитывать каждый раз при выводе матрицы на экран

@@ -233,8 +233,6 @@ namespace Networking
       return;
     m_recording = other;
     emit recordingChanged();
-
-    stripSocket->setStripStatus(recording());
   }
 } // Network
 

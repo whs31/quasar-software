@@ -214,11 +214,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
       navigation_read = true;
     }
 
-    ar.read((uint8_t*) buf, head.size );
+    ar.read((uint8_t*)buf, head.size);
 
     // запись промежуточного результата в матрицу
     for(int i = 0; i < head.size; i++)
-      fmatrix.push_back((float)buf[i] * img.k);
+      fmatrix.push_back(static_cast<float>(buf[i] * img.k));
   }
 
   // Эти значения нужно пересчитывать каждый раз при выводе матрицы на экран

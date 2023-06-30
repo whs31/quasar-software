@@ -13,7 +13,7 @@ namespace Config::internal
     public:
       explicit SettingsWrapper(QObject* parent = nullptr);
 
-      Q_INVOKABLE QVariant parameter(const QString& key) const noexcept;
+      [[nodiscard]] Q_INVOKABLE QVariant parameter(const QString& key) const noexcept;
       void set(const QString& key, const QVariant& value) noexcept;
 
     private:

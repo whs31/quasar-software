@@ -25,8 +25,7 @@ namespace Networking
 
   void StripSocket::processResult(const QByteArray& data)
   {
-    if(data.size() >= 1024)
-        Processing::ImageProcessing::get()->processChunk(data);
+    Processing::ImageProcessing::get()->processChunk(data);
     emit socketMetrics("DATA with size of " + QString::number(data.size()), data.size(), false);
   }
 

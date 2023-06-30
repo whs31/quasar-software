@@ -1,8 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import time
-import socket
 import c_deserial
+import socket
 
 nav_struct = """
 typedef struct __attribute__ ((__packed__))
@@ -47,14 +46,6 @@ typedef struct __attribute__ ((__packed__))
 } img_t;
 """
 
-UDP_IP = "127.0.0.1"
-UDP_PORT = 48455
-
-print("UDP target IP:", UDP_IP)
-print("UDP target port:", UDP_PORT)
-
-sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 
 class ArrayReader():
     def __init__(self, data):
@@ -69,7 +60,7 @@ class ArrayReader():
         if length == 1:
             data = self.data[self.index]
         else:
-            data = self.data[self.index:self.index + length]
+            data = self.data[self.index:self.index+length]
         self.index += length
         return data
 
@@ -82,6 +73,15 @@ pack_head = c_deserial.Deserial(head_struct)
 pack_nav = c_deserial.Deserial(nav_struct)
 pack_img = c_deserial.Deserial(img_struct)
 
+
+UDP_IP = "127.0.0.1"
+UDP_PORT = 48455
+
+print("UDP target IP:", UDP_IP)
+print("UDP target port:", UDP_PORT)
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
 a = np.array([])
 while 1:
     header = ar.read(84)
@@ -89,26 +89,32 @@ while 1:
         break
     header_reader = ArrayReader(header)
 
-    head = pack_head.to_dict(header_reader.read(pack_head.size()))
-    nav = pack_nav.to_dict(header_reader.read(pack_nav.size()))
-    img = pack_img.to_dict(header_reader.read(pack_img.size()))
+    head = pack_head.to_dict( header_reader.read( pack_head.size() ) )
+    nav = pack_nav.to_dict( header_reader.read( pack_nav.size() ) )
+    img = pack_img.to_dict( header_reader.read( pack_img.size() ) )
 
     chunk = ar.read(head["size"])
+
+    print(head["size"])
+    print(img["dx"] * img["nx"])
+
+    input('enter')
+
+    sock.sendto(header.tobytes() + chunk.tobytes(), (UDP_IP, UDP_PORT))
+
     if img["word_size"] == 2:
         chunk = chunk.view(np.uint16)
     chunk = chunk * img["k"]
 
     a = np.append(a, chunk)
 
-    print("Sending data")
-    sock.sendto(chunk, (UDP_IP, UDP_PORT))
-    time.sleep(0.5)
 
-print("word_size:", img["word_size"])
+print("word_size:", img["word_size"] )
 line_len = int(img["dx"] * img["nx"])
 n_rows = int(len(a) / line_len)
 a = a.reshape((n_rows, line_len))
-
+print('shape', a.shape)
 plt.matshow(a, cmap='gray')
 
 plt.show()
+

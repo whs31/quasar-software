@@ -94,6 +94,10 @@ void ImageProcessing::processList(QList<QString> list)
 
 void ImageProcessing::processChunk(const QByteArray& chunk)
 {
+  m_total = 1;
+  m_processed = 0;
+  this->setProgress(0);
+
   QFuture<void> wrap = QtConcurrent::run([this, chunk](){
     QThreadPool pool;
     pool.setMaxThreadCount(ICFG<int>("PROCESSING_CONCURRENCY_THREADS_STRIP"));
@@ -109,7 +113,7 @@ void ImageProcessing::processChunk(const QByteArray& chunk)
     chunk_file.close();
 
     QFuture<void> future = QtConcurrent::run(&pool, [=](){
-      //this->asyncStripProcess(filename);
+      this->asyncStripProcess(filename);
     });
   });
 }

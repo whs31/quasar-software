@@ -1,6 +1,6 @@
 #pragma once
 
-#include "network/base/abstractudpsocket.h"
+#include "network/base/udpsocketbase.h"
 
 namespace Networking
 {

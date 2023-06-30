@@ -89,9 +89,9 @@ while 1:
         break
     header_reader = ArrayReader(header)
 
-    head = pack_head.to_dict( header_reader.read( pack_head.size() ) )
-    nav = pack_nav.to_dict( header_reader.read( pack_nav.size() ) )
-    img = pack_img.to_dict( header_reader.read( pack_img.size() ) )
+    head = pack_head.to_dict(header_reader.read(pack_head.size()))
+    nav = pack_nav.to_dict(header_reader.read(pack_nav.size()))
+    img = pack_img.to_dict(header_reader.read(pack_img.size()))
 
     chunk = ar.read(head["size"])
 

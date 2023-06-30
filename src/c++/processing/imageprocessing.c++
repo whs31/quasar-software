@@ -211,10 +211,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     if(not navigation_read)
     {
       image.coordinate = { nav.latitude, nav.longitude };
-      image.azimuth = nav.track_ang;
+      image.azimuth = img.course;
       image.lx = img.nx;
       image.ly = img.ny;
       image.dx = img.dx;
+      image.offset_x =
       navigation_read = true;
     }
 

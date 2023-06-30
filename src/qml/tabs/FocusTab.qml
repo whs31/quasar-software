@@ -23,7 +23,7 @@ Rectangle { id: focustab_root;
 
     onCurrentAssignedIndexChanged: {
         if(currentAssignedIndex >= 0) {
-            mapImage.source = "file:///" + ImagesModel.getRole(currentAssignedIndex, "filepath");
+            mapImage.source = "file:" + ImagesModel.getRole(currentAssignedIndex, "filepath");
             currentStep = ImagesModel.getRole(currentAssignedIndex, "dx");
             currentLx = ImagesModel.getRole(currentAssignedIndex, "lx");
             currentLy = ImagesModel.getRole(currentAssignedIndex, "ly");

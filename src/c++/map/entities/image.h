@@ -34,6 +34,8 @@ namespace Map
     float lx;
     float ly;
     float dx;
+    float offset_x;
+    float offset_y;
   };
 
   struct StripImageDatagram

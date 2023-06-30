@@ -21,6 +21,8 @@ namespace Map
         Azimuth,
         LX,
         LY,
+        OffsetX,
+        OffsetY,
         DX,
         Valid,
         LOD1FilePath,

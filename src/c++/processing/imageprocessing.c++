@@ -215,7 +215,8 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
       image.lx = img.nx;
       image.ly = img.ny;
       image.dx = img.dx;
-      image.offset_x =
+      image.offset_x = img.x0;
+      image.offset_y = static_cast<float>(static_cast<float>(img.y) / 10);
       navigation_read = true;
     }
 
@@ -271,12 +272,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     for(size_t j = 0; j < x; ++j)
       image_result[i][j] = output[j + x * i];
   }
-  float max = *std::max_element(output.begin(), output.end());
   for(size_t row = 0; row < image_result.size(); ++row)
   {
     for(size_t column = 0; column < image_result[row].size(); ++column)
     {
-      float t = (image_result[row][column] * 255) / max;
+      float t = (image_result[row][column] * 255);
       uint8_t d[4] = {static_cast<uint8_t>(t), static_cast<uint8_t>(t), static_cast<uint8_t>(t), 255};
       auto* rs = (uint32_t*)d;
       strip_result.setPixel(column, row, *rs);
@@ -298,7 +298,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     QFile::remove(Config::Paths::lod(0) + "/" + filename);
 
   emit concurrencyFinished();
-  emit passStrip(image);
+  emit processStripFinished(image);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)

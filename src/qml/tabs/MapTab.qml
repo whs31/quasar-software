@@ -17,9 +17,10 @@ import RadarDiagram 1.0
 import Notifications 1.0
 import ImageProcessing 1.0
 
-import "map" as MapTab;
-import "map/ui" as MapTabUI;
-import "../widgets" as Widgets;
+import "map" as MapTab
+import "map/ui" as MapTabUI
+import "map/mapquickitems" as MapQuickItems
+import "../widgets" as Widgets
 
 Map { id: maptab_root;
     property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - satellite }
@@ -173,6 +174,13 @@ Map { id: maptab_root;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapTab.MapImageUI { }
+    }
+
+    MapItemView {
+        model: StripModel
+        add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
+        remove: Transition { NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
+        delegate: MapQuickItems.Strip { }
     }
 
     MapItemView {

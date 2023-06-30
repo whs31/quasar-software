@@ -294,6 +294,11 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
   free((void*)fbuf);
   free((void*)out_buf);
 
+  image.filename = filename;
+  image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");
+  image.shown = ICFG<bool>("PROCESSING_IMAGE_INITIAL_VISIBILITY");
+  image.mercator_zoom_level = SDK::Cartography::mqi_zoom_level(image.coordinate.latitude(), image.dx);
+
   if(not ICFG<bool>("PROCESSING_DEBUG_PRESERVE_BINARY"))
     QFile::remove(Config::Paths::lod(0) + "/" + filename);
 

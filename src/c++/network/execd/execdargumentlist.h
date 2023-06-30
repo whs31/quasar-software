@@ -98,7 +98,8 @@ namespace Networking
      <tr><td>Length of square side for focusing, meters</td><td>--ls</td><td>Float</td><td>50</td><td>0 - ∞</td><td></td></tr>
      <tr><td>Minimal value of speed prediction for focusing</td><td>--vmin</td><td>Float</td><td>-1</td><td>0 - ∞</td><td></td></tr>
      <tr><td>Maximal value of speed prediction for focusing</td><td>--vmax</td><td>Float</td><td>-1</td><td>0 - ∞</td><td></td></tr>
-     <tr><td>Number of speed predictions</td><td>--ni</td><td>Integer</td><td>10</td><td>1 - ∞</td><td></td></tr></tbody></table>
+     <tr><td>Number of speed predictions</td><td>--ni</td><td>Integer</td><td>10</td><td>1 - ∞</td><td></td></tr>
+     </table>
    */
   class ExecdArgumentList : public QObject
   {

@@ -1,3 +1,10 @@
+/**
+ *  \file execdargumentlist.h
+ *  \author Dmitry Ryazancev
+ *  \date 30.06.2023
+ *  \copyright Radar-MMS 2023
+ */
+
 #pragma once
 
 #include <QtCore/QMap>
@@ -5,64 +12,131 @@
 
 namespace Networking
 {
+  /**
+   * \brief Type for working with \c execd arguments.
+   * \details ExecdArgument provides useful constructors
+   * and functions for abstracting \c execd arguments of
+   * different literal types. Instead of using plain integers
+   * and floats and manually converting them to string, use this
+   * type instead.
+   */
   struct ExecdArgument
   {
+    /// \brief Constant describing how many numbers will remain in float after point.
     constexpr static const int FLOATING_POINT_PRECISION = 1;
 
+    /// \brief Enum for type of argument.
     enum ArgumentType
     {
-      Float,
-      Integer,
-      String
+      Float,    ///< Floating-point type.
+      Integer,  ///< Integer type.
+      String    ///< String type.
     };
 
+    /// \brief Constructs empty argument with #ArgumentType::String.
     ExecdArgument();
+
+    /// \brief Constructs argument from given integer.
     ExecdArgument(int);
+
+    /// \brief Constructs argument from given float.
     ExecdArgument(float);
+
+    /// \brief Constructs argument from given string.
     ExecdArgument(QString);
 
+    /**
+     * \brief Sets value to argument.
+     * \details Automatically converts given \c QVariant value
+     * to type of argument, assigned on it's construction.
+     * \param v - variant value to assign.
+     */
     void set(const QVariant& v);
 
+    /// \brief Current string value of argument type.
     QString value;
+
+    /// \brief Type of argument, assigned on it's construction.
     ArgumentType type;
   };
 
+  /**
+   * \brief Class for storing and processing \c execd arguments.
+   * \details Provides useful functions for automatic conversion
+   * values to \c execd arguments. Stores 3 different argument lists
+   * for form, reform and focus mode respectively.
+   *
+   * List of all \c execd arguments:
+   * <table>
+     <caption id="multi_row">Arguments table</caption>
+     <tr><th>Description    <th>Argument key   <th>Value type   <th>Default value   <th>Range   <th>Note
+     <tr><td>Name of .bin file without file extension</td><td>-f</td><td>String</td><td>m1</td><td></td><td></td></tr>
+     <tr><td>Probing mode</td><td>-m</td><td>Integer</td><td>1</td><td>1..4, 6..7</td><td></td></tr>
+     <tr><td>Time shift relative to start</td><td>-t</td><td>Float</td><td>1</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Brightness of resulting image</td><td>-b</td><td>Float</td><td>0</td><td>0 - ∞</td><td>0 means auto</td></tr>
+     <tr><td>Altitude of UAV, meters</td><td>-e</td><td>Float</td><td>-1</td><td>any</td><td>Sea-level. -1 means auto </td></tr>
+     <tr><td>Speed of UAV, km/h</td><td>-v</td><td>Float</td><td>-1</td><td>0 - ∞</td><td>-1 means auto</td></tr>
+     <tr><td>Speed interpolation mode</td><td>-i</td><td>Integer</td><td>0</td><td>0 or 1</td><td>Treated as boolean</td></tr>
+     <tr><td>SAR synthesis time</td><td>--Ts</td><td>Float</td><td>1</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Strip synthesis time</td><td>--Tstrip</td><td>Float</td><td>1</td><td>0 - ∞</td><td>Only for strip images</td></tr>
+     <tr><td>Frequency interpolation factor (x)</td><td>--kR</td><td>Integer</td><td>1</td><td>1..4</td><td></td></tr>
+     <tr><td>Frequency interpolation factor (y)</td><td>--kL</td><td>Integer</td><td>1</td><td>1..4</td><td></td></tr>
+     <tr><td>JPEG compression quality</td><td>--jq</td><td>Integer</td><td>80</td><td>0 - 100</td><td></td></tr>
+     <tr><td>Discrete size (x) in meters</td><td>--dx</td><td>Float</td><td>1</td><td>0 - ∞</td><td>Must be equal with --dy</td></tr>
+     <tr><td>Discrete size (y) in meters</td><td>--dy</td><td>Float</td><td>1</td><td>0 - ∞</td><td>Must be equal with --dx</td></tr>
+     <tr><td>Distance to near edge of image, meters</td><td>--x0</td><td>Float </td><td>100</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Frame shift (y)</td><td>--y0</td><td>Float</td><td>0</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Image length (x), meters</td><td>--lx</td><td>Float</td><td>2'000</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Image length (y), meters</td><td>--ly</td><td>Float</td><td>400</td><td>0 - ∞</td><td>Unused</td></tr>
+     <tr><td>Path to storage in SAR</td><td>--ip</td><td>String</td><td>./img/</td><td></td><td></td></tr>
+     <tr><td>Address for fsend service to send result</td><td>--remote</td><td>String</td><td>None</td><td></td><td>e.g. 192.168.1.10:25565</td></tr>
+     <tr><td>Computer type</td><td>--DSP</td><td>String</td><td>DSP_FFTW</td><td>DSP_FFTW or DSP_CUDA</td><td></td></tr>
+     <tr><td>Vertical mirroring of image</td><td>--mirror</td><td>String</td><td>False</td><td>True or False</td><td>Booleans must start with capital letter</td></tr>
+     <tr><td>Altitude of ground in start point</td><td>--e0</td><td>Float</td><td>0</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>OX coordinate for focusing</td><td>--px</td><td>Float</td><td>-1</td><td>any</td><td></td></tr>
+     <tr><td>OY coordinate for focusing</td><td>--py</td><td>Float</td><td>-1</td><td>any</td><td></td></tr>
+     <tr><td>Length of square side for focusing, meters</td><td>--ls</td><td>Float</td><td>50</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Minimal value of speed prediction for focusing</td><td>--vmin</td><td>Float</td><td>-1</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Maximal value of speed prediction for focusing</td><td>--vmax</td><td>Float</td><td>-1</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Number of speed predictions</td><td>--ni</td><td>Integer</td><td>10</td><td>1 - ∞</td><td></td></tr></tbody></table>
+   */
   class ExecdArgumentList : public QObject
   {
     Q_OBJECT
 
-    // todo: to json.
-
-      //! @brief Значения аргументов \b execd по умолчанию
+      /**
+       * \brief Default values for forming mode in \c execd service.
+       * \note In future releases will be replaced with .json file.
+       */
       QMap<QString, ExecdArgument> defaults = {
-        {"-f", ExecdArgument("m1")},            //!< Имя файла радиоголограммы без расширения.
-        {"-m", ExecdArgument(1)},               //!< Режим зондирования [1..4, 6, 7].
-        {"-t", ExecdArgument(1.0f)},            //!< Смещение времени начала формирования отн. начала зондирования [0 - ∞].
-        {"-b", ExecdArgument(0.0f)},            //!< Яркость РЛИ, 0 - авто [0 - ∞].
-        {"-e", ExecdArgument(-1.0f)},           //!< Высота БПЛА отн. уровня моря, -1 - авто, м.
-        {"-v", ExecdArgument(-1.0f)},           //!< Скорость БПЛА, -1 - авто, км/ч.
-        {"-i", ExecdArgument(0)},               //!< Интерполяция скорости [0, 1] - 0: среднее значение за Ts, 1: интерполированное значение для каждого периода за Ts.
-        {"--Ts", ExecdArgument(1.0f)},          //!< Время синтезирования апертуры антенны [0 - ∞].
-        {"--Tstrip", ExecdArgument(1.0f)},      //!< Время формирования полосового РЛИ [0 - ∞].
-        {"--kR", ExecdArgument(1)},             //!< Коэффициент частотной интерполяции по наклонной дальности [1..4].
-        {"--kL", ExecdArgument(1)},             //!< Коэффициент частотной интерполяции по путевой дальности [1..4].
-        {"--jq", ExecdArgument(80)},            //!< Качество РЛИ после компрессии JPEG [1..100].
+        {"-f", ExecdArgument("m1")},
+        {"-m", ExecdArgument(1)},
+        {"-t", ExecdArgument(1.0f)},
+        {"-b", ExecdArgument(0.0f)},
+        {"-e", ExecdArgument(-1.0f)},
+        {"-v", ExecdArgument(-1.0f)},
+        {"-i", ExecdArgument(0)},
+        {"--Ts", ExecdArgument(1.0f)},
+        {"--Tstrip", ExecdArgument(1.0f)},
+        {"--kR", ExecdArgument(1)},
+        {"--kL", ExecdArgument(1)},
+        {"--jq", ExecdArgument(80)},
 
-        {"--dx", ExecdArgument(1.0f)},          //!< Размер элемента разрешения РЛИ по дальности, м [0 - ∞].
-        {"--dy", ExecdArgument(1.0f)},          //!< Размер элемента разрешения РЛИ по путевой дальности, м [0 - ∞].
-        {"--x0", ExecdArgument(100.0f)},        //!< Расстояние до ближней границы РЛИ, м [0 - ∞].
-        {"--y0", ExecdArgument(0.0f)},          //!< Смещение кадра РЛИ по путевой дальности, м [0 - ∞].
-        {"--lx", ExecdArgument(2'000.0f)},      //!< Протяженность РЛИ по дальности, м [0 - ∞].
-        {"--ly", ExecdArgument(400.0f)},        //!< Протяженность РЛИ по путевой дальности, м [0 - ∞].
-        {"--ip", ExecdArgument("./img/")},      //!< Путь для сохранения РЛИ на РЛС.
-        {"--remote", ExecdArgument("None")},    //!< IP-адрес сервера TCP для передачи РЛИ (напр. \c 127.0.0.1:9955).
-        {"--DSP", ExecdArgument("DSP_FFTW")},   //!< Тип вычислителя [\c DSP_FFTW, \c DSP_CUDA].
-        {"--mirror", ExecdArgument("False")},   //!< Вертикальное отзеркаливание РЛИ [\c True, \c False]. Стиль написания булевых переменных - с заглавной буквы.
+        {"--dx", ExecdArgument(1.0f)},
+        {"--dy", ExecdArgument(1.0f)},
+        {"--x0", ExecdArgument(100.0f)},
+        {"--y0", ExecdArgument(0.0f)},
+        {"--lx", ExecdArgument(2'000.0f)},
+        {"--ly", ExecdArgument(400.0f)},
+        {"--ip", ExecdArgument("./img/")},
+        {"--remote", ExecdArgument("None")},
+        {"--DSP", ExecdArgument("DSP_FFTW")},
+        {"--mirror", ExecdArgument("False")},
 
-        {"--e0", ExecdArgument(0.0f)}           //!< Высота над уровнем моря.
+        {"--e0", ExecdArgument(0.0f)}
       };
 
-      //! @brief Значения аргументов фокусировки \b execd по умолчанию
+      /// @brief Значения аргументов фокусировки \b execd по умолчанию
       QMap<QString, ExecdArgument> focus_defaults = {
         {"-f", ExecdArgument("m1")},            // <-
         {"-b", ExecdArgument(0.0f)},            // <-
@@ -72,23 +146,49 @@ namespace Networking
         {"--remote", ExecdArgument("None")},    // <-
         {"--e0", ExecdArgument(0.0f)},          // <-
 
-        {"--px", ExecdArgument(-1.0f)},         //!< Координата по дальности точки для фокусировки.
-        {"--py", ExecdArgument(-1.0f)},         //!< Координата по путевой дальности точки для фокусировки..
-        {"--ls", ExecdArgument(50.0f)},         //!< Размер стороны квадрата в м, по которой производится фокусировка.
-        {"--vmin", ExecdArgument(-1.0f)},       //!< Минимальное  значение гипотезы по скорости для фокусировки, км/ч.
-        {"--vmax", ExecdArgument(-1.0f)},       //!< Максимальное значение гипотезы по скорости для фокусировки, км/ч.
-        {"--ni", ExecdArgument(10)},            //!< Количество гипотез по скорости [1 - ∞].
+        {"--px", ExecdArgument(-1.0f)},
+        {"--py", ExecdArgument(-1.0f)},
+        {"--ls", ExecdArgument(50.0f)},
+        {"--vmin", ExecdArgument(-1.0f)},
+        {"--vmax", ExecdArgument(-1.0f)},
+        {"--ni", ExecdArgument(10)},
       };
 
     public:
+      /// \brief Constructs new instance of ExecdArgumentList with given parent.
       explicit ExecdArgumentList(QObject* parent = nullptr);
 
-      QString getFormArguments() const noexcept;
-      QString getReformArguments() const noexcept;
-      QString getFocusArguments() const noexcept;
+      /**
+       * \brief Returns arguments for Form mode.
+       * \details Function returns string, containing all of
+       * changed Form mode arguments inside brackets.
+       * \return String with changed arguments.
+       */
+      [[nodiscard]] QString getFormArguments() const noexcept;
 
+      /**
+       * \brief Returns arguments for Reform mode.
+       * \details Function returns string, containing all of
+       * changed Reform mode arguments inside brackets.
+       * \return String with changed arguments.
+       */
+      [[nodiscard]] QString getReformArguments() const noexcept;
+
+      /**
+       * \brief Returns arguments for Focus mode.
+       * \details Function returns string, containing all of
+       * changed Focus mode arguments inside brackets.
+       * \return String with changed arguments.
+       */
+      [[nodiscard]] QString getFocusArguments() const noexcept;
+
+      /// \brief Container for arguments in Form mode.
       QMap<QString, ExecdArgument> argument_list = defaults;
+
+      /// \brief Container for arguments in Reform mode.
       QMap<QString, ExecdArgument> reform_argument_list = defaults;
+
+      /// \brief Container for arguments in Focus mode.
       QMap<QString, ExecdArgument> focus_argument_list = focus_defaults;
   };
 } // Network

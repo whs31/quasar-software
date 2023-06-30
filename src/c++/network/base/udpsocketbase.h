@@ -1,8 +1,8 @@
-/*!
+/**
  *  \file udpsocketbase.h
  *  \author Dmitry Ryazancev
  *  \date 30.06.2023
- *  \copyright Radar-MMS 2023
+ *  \copyright Radar-MMS 2023 
  */
 
 #pragma once
@@ -12,7 +12,7 @@
 
 namespace Networking
 {
-  /*!
+  /**
    * \brief Base class for handling UDP connections.
    * \extends QUdpSocket
    * \details Class provides useful extensions over
@@ -26,11 +26,11 @@ namespace Networking
     Q_OBJECT
 
     public:
-      //! \brief Constructs new UDP socket with specified parent.
+      /// \brief Constructs new UDP socket with specified parent.
       explicit UDPSocketBase(QObject* parent = nullptr);
       ~UDPSocketBase() override;
 
-      /*!
+      /**
        * \brief Binds this socket to specified address.
        * \param address - address to connect (e.g. <tt>192.168.1.47:25565<tt>).
        * \return Operation result.
@@ -38,7 +38,7 @@ namespace Networking
        */
       Q_INVOKABLE virtual bool connect(const QString& address);
 
-      /*!
+      /**
        * \brief Returns socket to unconnected state.
        * \note Can be invoked from QML via meta-object system.
        */
@@ -51,17 +51,17 @@ namespace Networking
       [[nodiscard]] virtual uint16_t port() const noexcept;
 
     signals:
-      /*!
+      /**
        * \brief Signal with received data.
        * \details Emitted when socket receives data via UDP.
        * Data is provided in raw format without any changes.
        */
       void received(QByteArray data);
 
-      //! @brief Emitted when socket breaks connection.
+      /// @brief Emitted when socket breaks connection.
       void socketDisconnected();
 
-      /*!
+      /**
        * \brief Signal with debug socket metrics.
        * \details Emitted when socket receives or sends data via UDP.
        * Data is provided in string format with direction and size.

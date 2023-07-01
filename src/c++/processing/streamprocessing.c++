@@ -18,8 +18,8 @@ namespace Processing
   StreamProcessing::StreamProcessing(QObject* parent)
     : QObject(parent)
   {
-    connect(this, &StreamProcessing::processingFinished, this, &StreamProcessing::passChunk, Qt::QueuedConnection);
-    connect(this, &StreamProcessing::passQueue, this, &StreamProcessing::processChunk, Qt::QueuedConnection);
+    connect(this, &StreamProcessing::processingFinished, this, &StreamProcessing::passChunk);
+    connect(this, &StreamProcessing::passQueue, this, &StreamProcessing::processChunk);
     connect(this, &StreamProcessing::finishedQueue, this, [](){
       qDebug() << "$ [STREAM] Queue finished";
     });
@@ -30,6 +30,7 @@ namespace Processing
   void StreamProcessing::append(const QByteArray& data) noexcept
   {
     m_queue.push(data);
+    qInfo() << "$ " << data.size();
     qDebug() << "$ [STREAM] Current queue size:" << m_queue.size();
 
     if(m_queue.size() == 1)
@@ -85,7 +86,8 @@ namespace Processing
 
       if(head.marker != 0xDEFA and head.marker != 0xFADE)
       {
-        emit passQueue();
+        if(not m_queue.empty())
+          emit passQueue();
         return;
       }
 
@@ -176,7 +178,8 @@ namespace Processing
     image.mercator_zoom_level = SDK::Cartography::mqi_zoom_level(image.coordinate.latitude(), image.dx);
 
     emit processingFinished(image);
-    emit passQueue();
+    if(not m_queue.empty())
+      emit passQueue();
   }
 
   void StreamProcessing::passChunk(Map::StripImage image) { model()->add(image); }

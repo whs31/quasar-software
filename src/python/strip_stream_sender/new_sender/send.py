@@ -13,8 +13,10 @@ while True:
         break
     data = f.read(size)
     strip_sender.put(data)
+    time.sleep(0.3)
     i+=1
     if len(data) < size:
+        print('3rd')
         time.sleep(0.1)
 
 strip_sender.stop()

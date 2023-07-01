@@ -64,7 +64,7 @@ namespace Networking
       return;
     }
 
-    QByteArray buffer(pendingDatagramSize(), 0x0);
+    QByteArray buffer(static_cast<int>(pendingDatagramSize()), 0x0);
 
     while(hasPendingDatagrams())
       this->readDatagram(buffer.data(), buffer.size(), &m_hostaddress, &m_port);

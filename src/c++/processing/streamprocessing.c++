@@ -82,6 +82,13 @@ namespace Processing
       Map::StripFormatMetadata img;
 
       header_reader.read((uint8_t*)&head, sizeof(Map::StripHeaderMetadata));
+
+      if(head.marker != 0xDEFA and head.marker != 0xFADE)
+      {
+        emit passQueue();
+        return;
+      }
+
       header_reader.read((uint8_t*)&nav, sizeof(Map::StripNavigationMetadata));
       header_reader.read((uint8_t*)&img, sizeof(Map::StripFormatMetadata));
 

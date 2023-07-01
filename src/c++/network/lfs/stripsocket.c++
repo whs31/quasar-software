@@ -1,6 +1,6 @@
 #include "stripsocket.h"
 #include "config/paths.h"
-#include "processing/imageprocessing.h"
+#include "processing/streamprocessing.h"
 
 namespace Networking
 {
@@ -25,7 +25,7 @@ namespace Networking
 
   void StripSocket::processResult(const QByteArray& data)
   {
-    Processing::ImageProcessing::get()->processChunk(data);
+    Processing::StreamProcessing::get()->append(data);
     emit socketMetrics("DATA with size of " + QString::number(data.size()), data.size(), false);
   }
 

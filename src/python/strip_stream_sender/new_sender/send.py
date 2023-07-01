@@ -7,7 +7,6 @@ strip_sender = sender.Sender(remote, size)
 
 i = 0
 while True:
-    input('enter')
     try:
         f = open("pack/{}".format(i), 'rb')
     except:
@@ -16,6 +15,6 @@ while True:
     strip_sender.put(data)
     i+=1
     if len(data) < size:
-        time.sleep(1)
+        time.sleep(0.1)
 
 strip_sender.stop()

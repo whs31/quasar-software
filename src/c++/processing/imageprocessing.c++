@@ -177,9 +177,9 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
   int data_size = file.size();
   const int header_size = sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripFormatMetadata) + sizeof(Map::StripNavigationMetadata);
   ArrayReader<uint8_t> ar((uint8_t*)data);
-  auto* header = (uint8_t*)malloc(header_size);
-  auto* buf = (uint8_t*)malloc(MAX_PACKAGE_SIZE - header_size);
-  auto* fbuf = (float*)malloc((MAX_PACKAGE_SIZE - header_size) * sizeof(float));
+  uint8_t header[header_size];
+  uint8_t buf[MAX_PACKAGE_SIZE - header_size];
+  float fbuf[MAX_PACKAGE_SIZE - header_size];
 
   int x = 0;
   int y = 0;
@@ -240,7 +240,7 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
                               << ", " << image.coordinate.longitude()  << " }";
 
   int out_size = x * y;
-  auto* out_buf = (uint8_t*)malloc(out_size);
+  uint8_t out_buf[out_size];
 
   // обратное масштабирование
   for(int i = 0; i < out_size; i++)
@@ -272,11 +272,12 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
     for(size_t j = 0; j < x; ++j)
       image_result[i][j] = output[j + x * i];
   }
+
   for(size_t row = 0; row < image_result.size(); ++row)
   {
     for(size_t column = 0; column < image_result[row].size(); ++column)
     {
-      float t = (image_result[row][column] * 255);
+      float t = (image_result[row][column]);
       uint8_t d[4] = {static_cast<uint8_t>(t), static_cast<uint8_t>(t), static_cast<uint8_t>(t), 255};
       auto* rs = (uint32_t*)d;
       strip_result.setPixel(column, row, *rs);
@@ -288,11 +289,6 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
   image.path.first = result_path;
   image.valid = true;
   qInfo() << "$ [PROCESSING] Saved strip image to" << result_path;
-
-  free((void*)header);
-  free((void*)buf);
-  free((void*)fbuf);
-  free((void*)out_buf);
 
   image.filename = filename;
   image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");

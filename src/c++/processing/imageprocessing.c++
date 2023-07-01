@@ -172,14 +172,15 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
   image.filename = filename;
   image.path.first = Config::Paths::lod(0) + "/" + filename;
   QByteArray file = fileToByteArray(image.path.first);
-
   const uint8_t* data = reinterpret_cast<uint8_t*>(file.data());
   int data_size = file.size();
+
   const int header_size = sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripFormatMetadata) + sizeof(Map::StripNavigationMetadata);
-  ArrayReader<uint8_t> ar((uint8_t*)data);
   uint8_t header[header_size];
   uint8_t buf[MAX_PACKAGE_SIZE - header_size];
   float fbuf[MAX_PACKAGE_SIZE - header_size];
+
+  ArrayReader<uint8_t> ar((uint8_t*)data);
 
   int x = 0;
   int y = 0;
@@ -224,7 +225,12 @@ void ImageProcessing::asyncStripProcess(const QString& filename)
 
     // запись промежуточного результата в матрицу
     for(int i = 0; i < head.size; i++)
-      fmatrix.push_back(static_cast<float>(buf[i] * img.k));
+    {
+      if(i >= MAX_PACKAGE_SIZE - header_size)
+        break;
+      auto f = float((buf[i] * img.k));
+      fmatrix.push_back(f);
+    }
   }
 
   // Эти значения нужно пересчитывать каждый раз при выводе матрицы на экран

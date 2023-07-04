@@ -32,7 +32,7 @@ namespace Networking
 
       /**
        * \brief Binds this socket to specified address.
-       * \param address - address to connect (e.g. <tt>192.168.1.47:25565<tt>).
+       * \param address - address to connect (e.g. <tt>192.168.1.47:25565</tt>).
        * \return Operation result.
        * \note Can be invoked from QML via meta-object system.
        */

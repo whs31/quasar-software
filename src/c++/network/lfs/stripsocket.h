@@ -27,7 +27,7 @@ namespace Networking
     Q_OBJECT
 
     public:
-      /// \brief Constructs new StripSocket with given parent.
+      /// \brief Constructs new UDP with given parent.
       explicit StripSocket(QObject* parent = nullptr);
 
       /**

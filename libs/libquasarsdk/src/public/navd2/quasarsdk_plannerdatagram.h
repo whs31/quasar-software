@@ -1,0 +1,8 @@
+//
+// Created by whs31 on 04.07.23.
+//
+
+#ifndef QUASAR_PLANNERDATAGRAM_H
+#define QUASAR_PLANNERDATAGRAM_H
+
+#endif //QUASAR_PLANNERDATAGRAM_H

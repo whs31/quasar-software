@@ -1,0 +1,8 @@
+//
+// Created by whs31 on 04.07.23.
+//
+
+#ifndef QUASAR_TELEMETRYDATAGRAM_H
+#define QUASAR_TELEMETRYDATAGRAM_H
+
+#endif //QUASAR_TELEMETRYDATAGRAM_H

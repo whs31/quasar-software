@@ -56,9 +56,10 @@ add_executable(${PROJECT_NAME}
 )
 
 add_subdirectory(libs/argparse)
-add_subdirectory(src/c++/sdk)
-#add_subdirectory(libs/corrosion) # tell devops to install rustc
-
+add_subdirectory(src/c++/sdk) # deprecated
+add_subdirectory(libs/libscenegraph)
+add_subdirectory(libs/libquasarsdk)
+add_subdirectory(libs/corrosion) # requires rustc package
 add_subdirectory(services/UpdateService)
 
 target_link_libraries(${PROJECT_NAME}
@@ -72,6 +73,8 @@ target_link_libraries(${PROJECT_NAME}
     Qt${QT_VERSION_MAJOR}::Concurrent
     argparse
     SDK
+    libscenegraph
+    libquasarsdk
 )
 
 install(TARGETS ${PROJECT_NAME}

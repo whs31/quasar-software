@@ -19,7 +19,9 @@ namespace QuasarSDK
       explicit BaseUDPSocket(QObject* parent = nullptr);
       ~BaseUDPSocket() override;
 
-      virtual bool start(const QString& address);
+      [[nodiscard]] QString name() const; void setName(const QString&) noexcept;
+
+      virtual void start(const QString& address);
       virtual void stop() noexcept;
 
       virtual void send(const QByteArray& data) noexcept;
@@ -57,6 +59,7 @@ namespace QuasarSDK
       Q_SLOT virtual void readSocket() noexcept;
 
     private:
+      QString m_socketname;
       QHostAddress m_address;
       uint16_t m_port;
   };

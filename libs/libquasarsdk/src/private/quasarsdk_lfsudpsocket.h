@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "QuasarSDK/Private/BaseUDPSocket"
+#include "quasarsdk_baseudpsocket.h"
 
 namespace QuasarSDK
 {

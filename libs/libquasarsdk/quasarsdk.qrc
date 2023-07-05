@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/quasarsdk">
+        <file>rc/sdk-config.json</file>
+    </qresource>
+</RCC>

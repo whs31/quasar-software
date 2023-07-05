@@ -24,7 +24,7 @@ namespace Networking
    * to scan TCP cache.
    *
    * Provides debug metrics.
-   * \extends UDPSocketBase
+   * \extends QObject
    */
   class TCPSocket : public QObject
   {

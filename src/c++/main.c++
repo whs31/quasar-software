@@ -7,6 +7,7 @@
 #include <QtQuickControls2/QQuickStyle>
 #include <argparse.h>
 #include "gui/terminal/debugconsole.h"
+#include <QuasarSDK/Config>
 
 #if defined(Q_OS_WIN)
 #include <windows.h>
@@ -71,6 +72,8 @@ int main(int argc, char* argv[])
     qInstallMessageHandler(0);
     qCritical() << "FATAL QML ERROR: " << component.errorString();
   }
+
+  QuasarSDK::Config::get();
 
   return app.exec();
 }

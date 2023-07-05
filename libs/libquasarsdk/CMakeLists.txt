@@ -19,7 +19,7 @@ include_directories(src include)
 
 file(GLOB_RECURSE SDK_CORE src/* )
 file(GLOB_RECURSE SDK_CORE_INCLUDE include/* )
-set(SRC ${SDK_CORE} ${SDK_CORE_INCLUDE} )
+set(SRC ${SDK_CORE} ${SDK_CORE_INCLUDE} quasarsdk.qrc )
 
 add_library(${PROJECT_NAME} ${SRC})
 

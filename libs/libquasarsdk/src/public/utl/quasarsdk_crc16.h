@@ -11,9 +11,9 @@
 
 class QString;
 
-namespace QuasarSDK
+namespace QuasarSDK::Utils
 {
   uint16_t crc16(char* data, int size) noexcept;
   uint16_t crc16_ccitt(const char* data, int size) noexcept;
   char* str_data(const QString& str) noexcept;
-} // QuasarSDK
+} // QuasarSDK::Utils

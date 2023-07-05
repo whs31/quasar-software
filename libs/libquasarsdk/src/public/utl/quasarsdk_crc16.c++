@@ -37,7 +37,7 @@ constexpr const uint16_t CRC16_TABLE[256] =
     , 0x6E17, 0x7E36, 0x4E55, 0x5E74, 0x2E93, 0x3EB2, 0x0ED1, 0x1EF0
 };
 
-namespace QuasarSDK
+namespace QuasarSDK::Utils
 {
   /**
    * \brief Вычисляет контрольную сумму CRC16.
@@ -91,4 +91,4 @@ namespace QuasarSDK
    * \return Указатель на *char*.
    */
   char* str_data(const QString& str) noexcept { return str.toLocal8Bit().data(); }
-} // QuasarSDK
+} // QuasarSDK::Utils

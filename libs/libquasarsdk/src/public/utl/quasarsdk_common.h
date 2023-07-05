@@ -1,13 +1,19 @@
-//
-// Created by whs31 on 04.07.23.
-//
+/**
+ *  \file quasarsdk_common.h
+ *  \author Дмитрий Рязанцев
+ *  \date 04.07.2023
+ *  \copyright Radar-MMS 2023
+ */
 
 #pragma once
 
-namespace QuasarSDK
+namespace QuasarSDK::Utils
 {
-  class Common
-  {
+  double log(double base, double value) noexcept;
 
-  };
-} // QuasarSDK
+  double deg2rad(double degrees) noexcept;
+  double rad2deg(double radians) noexcept;
+
+  double NaN() noexcept;
+  bool isNaN(double other) noexcept;
+} // QuasarSDK::Utils

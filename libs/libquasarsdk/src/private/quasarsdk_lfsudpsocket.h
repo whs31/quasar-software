@@ -1,5 +1,5 @@
 /**
- *  \file quasarsdk_seamlessudpsocket.h
+ *  \file quasarsdk_lfsudpsocket.h
  *  \author Дмитрий Рязанцев
  *  \date 04.07.2023
  *  \copyright Radar-MMS 2023

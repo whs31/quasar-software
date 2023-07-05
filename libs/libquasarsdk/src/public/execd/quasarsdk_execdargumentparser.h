@@ -12,15 +12,6 @@
 
 namespace QuasarSDK
 {
-  /**
-   * \brief Тип данных для работы с сервисом \c execd.
-   * \details ExecdArgument предоставляет полезные конструкторы
-   * и функции для абстракции над аргументами сервиса. Вместо
-   * приведения различных типов данных к строке вручную, используйте
-   * этот тип.
-   * \note После вызова конструктора тип аргумента не может быть изменен.
-   * Инициализируйте аргументы значениями по умолчанию, а не пустыми конструкторами.
-   */
   struct ExecdArgument
   {
     /// \brief Константа, определяющая, сколько знаков после запятой сохраняется после приведения числа к строке.
@@ -34,35 +25,84 @@ namespace QuasarSDK
       String    ///< Строка.
     };
 
-    /// \brief Создает пустой аргумент с типом ArgumentType::String.
     ExecdArgument();
+    explicit ExecdArgument(int);
+    explicit ExecdArgument(float);
+    explicit ExecdArgument(QString);
 
-    /// \brief Создает аргумент целочисленного типа из данного числа.
-    ExecdArgument(int);
-
-    /// \brief Создает аргумент вещественного типа из данного числа.
-    ExecdArgument(float);
-
-    /// \brief Создает аргумент строкового типа из данной строки.
-    ExecdArgument(QString);
-
-    /**
-     * \brief Устанавливает значение в аргумент.
-     * \details Автоматически преобразовывает данное значение \c QVariant
-     * к типу аргумента, указанному при его создании.
-     * \param v - значение для присвоения.
-     */
     void set(const QVariant& v);
 
-    /// \brief Текущее значение аргумента в виде строки.
-    QString value;
-
-    /// \brief Тип значения аргумента, присвоенный при создании.
-    ArgumentType type;
+    QString value;      ///< Текущее значение аргумента в виде строки.
+    ArgumentType type;  ///< Тип значения аргумента, присвоенный при создании.
   };
 
-  class ExecdArgumentParser
+  class ExecdArgumentParser : public QObject
   {
+    Q_OBJECT
 
+    public:
+      explicit ExecdArgumentParser(QObject* parent = nullptr);
+
+      [[nodiscard]] QString formArgumentString() const noexcept;
+      [[nodiscard]] QString reformArgumentString() const noexcept;
+      [[nodiscard]] QString focusArgumentString() const noexcept;
+
+      QMap<QString, ExecdArgument> formArgumentList = defaults;       ///< Список аргументов для режима формирования.
+      QMap<QString, ExecdArgument> reformArgumentList = defaults;     ///< Список аргументов для режима переформирования.
+      QMap<QString, ExecdArgument> focusArgumentList = focus_defaults;///< Список аргументов для режима фокусировки.
+
+    private:
+      /**
+       * \brief Значения по умолчанию для режима формирования и переформирования в сервисе \c execd.
+       * \deprecated В будущем будет заменено на файл .json.
+       */
+      QMap<QString, ExecdArgument> defaults = {
+          {"-f", ExecdArgument("m1")},
+          {"-m", ExecdArgument(1)},
+          {"-t", ExecdArgument(1.0f)},
+          {"-b", ExecdArgument(0.0f)},
+          {"-e", ExecdArgument(-1.0f)},
+          {"-v", ExecdArgument(-1.0f)},
+          {"-i", ExecdArgument(0)},
+          {"--Ts", ExecdArgument(1.0f)},
+          {"--Tstrip", ExecdArgument(1.0f)},
+          {"--kR", ExecdArgument(1)},
+          {"--kL", ExecdArgument(1)},
+          {"--jq", ExecdArgument(80)},
+
+          {"--dx", ExecdArgument(1.0f)},
+          {"--dy", ExecdArgument(1.0f)},
+          {"--x0", ExecdArgument(100.0f)},
+          {"--y0", ExecdArgument(0.0f)},
+          {"--lx", ExecdArgument(2'000.0f)},
+          {"--ly", ExecdArgument(400.0f)},
+          {"--ip", ExecdArgument("./img/")},
+          {"--remote", ExecdArgument("None")},
+          {"--DSP", ExecdArgument("DSP_FFTW")},
+          {"--mirror", ExecdArgument("False")},
+
+          {"--e0", ExecdArgument(0.0f)}
+      };
+
+      /**
+       * \brief Значения аргументов для режима фокусировки по умолчанию.
+       * \deprecated В будущем будет заменено на файл .json.
+       */
+      QMap<QString, ExecdArgument> focus_defaults = {
+          {"-f", ExecdArgument("m1")},            // <-
+          {"-b", ExecdArgument(0.0f)},            // <-
+          {"-e", ExecdArgument(-1.0f)},           // <-
+          {"-v", ExecdArgument(-1.0f)},           // <-
+          {"--Ts", ExecdArgument(1.0f)},          // <-
+          {"--remote", ExecdArgument("None")},    // <-
+          {"--e0", ExecdArgument(0.0f)},          // <-
+
+          {"--px", ExecdArgument(-1.0f)},
+          {"--py", ExecdArgument(-1.0f)},
+          {"--ls", ExecdArgument(50.0f)},
+          {"--vmin", ExecdArgument(-1.0f)},
+          {"--vmax", ExecdArgument(-1.0f)},
+          {"--ni", ExecdArgument(10)},
+      };
   };
 } // QuasarSDK

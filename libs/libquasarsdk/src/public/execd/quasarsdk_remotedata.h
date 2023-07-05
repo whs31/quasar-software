@@ -1,6 +1,9 @@
-//
-// Created by whs31 on 04.07.23.
-//
+/**
+ *  \file quasarsdk_remotedata.h
+ *  \author Дмитрий Рязанцев
+ *  \date 06.07.2023
+ *  \copyright Radar-MMS 2023
+ */
 
 #pragma once
 

@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <QtCore/QDataStream>
 
-namespace QuasarSDK
+namespace QuasarSDK::Datagrams
 {
   /**
    * \brief Датаграмма телеметрии от РЛС к наземке.
@@ -38,7 +38,7 @@ namespace QuasarSDK
         valid : bool,
         crc : u16
     }
-   \endcode
+   * \endcode
    * \note Сериализована в Big Endian.
    */
   struct TelemetryDatagram
@@ -58,10 +58,12 @@ namespace QuasarSDK
     double course = 0;                  //!< Курс (азимут) БПЛА в радианах.
     quint64 time = 0;                   //!< Unix-time на борту.
     uint8_t satellites = 0;             //!< Текущее количество спутников навигации.
-    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCIT.
+    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCITT.
 
+    /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data);
     friend QDataStream& operator >> (QDataStream& dataStream, TelemetryDatagram& data);
+    /// \endcond
   };
 
   /**
@@ -74,10 +76,12 @@ namespace QuasarSDK
     uint8_t init_flag = 0x00;           //!< Тип команды. \c 0x00 завершает передачу, \c 0х01 - начинает.
     uint16_t port = 0;                  //!< Порт для обратной связи.
     uint32_t interval_ms = 0;           //!< Интервал передачи телеметрии в мс.
-    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграvмы \c CRC16_CCIT.
+    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCITT.
 
+    /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data);
     friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data);
+    /// \endcond
   };
 
   inline QDataStream &operator <<(QDataStream &dataStream, const TelemetryDatagram &data)
@@ -145,4 +149,4 @@ namespace QuasarSDK
 
     return dataStream;
   }
-} // QuasarSDK
+} // QuasarSDK::Datagrams

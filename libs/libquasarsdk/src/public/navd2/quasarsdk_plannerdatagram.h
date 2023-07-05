@@ -10,10 +10,10 @@
 #include <cstdint>
 #include <QtCore/QDataStream>
 
-namespace QuasarSDK
+namespace QuasarSDK::Datagrams
 {
   /**
-   * \struct QuasarSDK::PlannerAppendDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
+   * \struct QuasarSDK::Datagrams::PlannerAppendDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура добавления точки в полётное задание.
    * \details Для создания полетного задания необходимо передать сервису сообщение,
    * которое состоит из заголовка и данных. Данные должны располагаться сразу же после заголовка.
@@ -39,12 +39,14 @@ namespace QuasarSDK
     uint16_t len;       //!< Количество байт в #command.
     QByteArray command; //!< Команда для выполнения в точке в формате \b execd.
 
+    /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerAppendDatagram& data);
     friend QDataStream& operator >> (QDataStream& dataStream, PlannerAppendDatagram& data);
+    /// \endcond
   };
 
   /**
-   * \struct QuasarSDK::PlannerRemoveDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
+   * \struct QuasarSDK::Datagrams::PlannerRemoveDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура удаления точки из полётного задания.
    * \details Точки удаляются автоматически при достижении cnt = 0;
    * При очередном достижении зоны события счетчик cnt уменьшается на 1.
@@ -61,12 +63,14 @@ namespace QuasarSDK
     uint16_t cnt = 0;   //!< Всегда равен 0.
     uint16_t len = 0;   //!< Всегда равен 0.
 
+    /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerRemoveDatagram& data);
     friend QDataStream& operator >> (QDataStream& dataStream, PlannerRemoveDatagram& data);
+    /// \endcond
   };
 
   /**
-   * \struct QuasarSDK::PlannerResponseDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
+   * \struct QuasarSDK::Datagrams::PlannerResponseDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура ответа на прохождение БПЛА через точку из полётного задания.
    * \details При достижении зоны события сервис отправляет сообщение по адресу,
    * указанному при добавлении точки.
@@ -78,8 +82,10 @@ namespace QuasarSDK
     uint16_t id;        //!< Номер точки.
     uint16_t cnt;       //!< Актуальное значение счетчика времени жизни точки.
 
+    /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerResponseDatagram& data);
     friend QDataStream& operator >> (QDataStream& dataStream, PlannerResponseDatagram& data);
+    /// \endcond
   };
 
   inline QDataStream &operator << (QDataStream &dataStream, const PlannerAppendDatagram &data)
@@ -157,5 +163,5 @@ namespace QuasarSDK
 
     return dataStream;
   }
-} // QuasarSDK
+} // QuasarSDK::Datagrams
 

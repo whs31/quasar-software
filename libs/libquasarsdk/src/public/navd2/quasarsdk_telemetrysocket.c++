@@ -113,7 +113,7 @@ namespace QuasarSDK
 
     QDataStream stream(&data, ReadOnly);
     stream.setByteOrder(QDataStream::BigEndian);
-    TelemetryDatagram received;
+    Datagrams::TelemetryDatagram received;
     stream >> received;
 
     if(received.marker != RECV_MARKER_BIG)
@@ -138,7 +138,7 @@ namespace QuasarSDK
 
     output->setDatagram(received);
 
-    uint16_t crc = checkCRC() ? Utils::crc16_ccitt((const char*) &received, sizeof(TelemetryDatagram) - sizeof(uint16_t))
+    uint16_t crc = checkCRC() ? Utils::crc16_ccitt((const char*) &received, sizeof(Datagrams::TelemetryDatagram) - sizeof(uint16_t))
                              : received.crc16;
     if(crc != received.crc16)
       qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
@@ -166,8 +166,8 @@ namespace QuasarSDK
     stream.setByteOrder(QDataStream::BigEndian);
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
-    TelemetryRequest request = { MARKER, 0x01, (uint16_t)(recv_port), (uint32_t)(this->frequency() * 1'000), 0 };
-    uint16_t crc = Utils::crc16_ccitt((const char*)&request, sizeof(TelemetryRequest) - sizeof(uint16_t));
+    Datagrams::TelemetryRequest request = { MARKER, 0x01, (uint16_t)(recv_port), (uint32_t)(this->frequency() * 1'000), 0 };
+    uint16_t crc = Utils::crc16_ccitt((const char*)&request, sizeof(Datagrams::TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 
     stream << request;

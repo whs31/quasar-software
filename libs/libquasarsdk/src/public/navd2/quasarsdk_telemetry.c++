@@ -21,7 +21,7 @@ namespace QuasarSDK
    * \brief Задает новую датаграмму телеметрии в класс.
    * \param datagram - новая датаграмма.
    */
-  void Telemetry::setDatagram(const TelemetryDatagram& datagram) noexcept
+  void Telemetry::setDatagram(const Datagrams::TelemetryDatagram& datagram) noexcept
   {
     m_datagram = datagram;
 
@@ -41,7 +41,7 @@ namespace QuasarSDK
    */
   QGeoCoordinate Telemetry::position() const
   {
-    return QGeoCoordinate(m_datagram.latitude, m_datagram.longitude, m_datagram.altitude);
+    return {m_datagram.latitude, m_datagram.longitude, m_datagram.altitude};
   }
 
   /**
@@ -53,7 +53,7 @@ namespace QuasarSDK
    */
   QVector2D Telemetry::velocity() const
   {
-    return QVector2D(m_datagram.velocity_course, m_datagram.velocity_vertical);
+    return {static_cast<float>(m_datagram.velocity_course), static_cast<float>(m_datagram.velocity_vertical)};
   }
 
   /**
@@ -68,7 +68,7 @@ namespace QuasarSDK
    */
   QVector3D Telemetry::eulerAxes() const
   {
-    return QVector3D(m_datagram.pitch, m_datagram.yaw, m_datagram.roll);
+    return {static_cast<float>(m_datagram.pitch), static_cast<float>(m_datagram.yaw), static_cast<float>(m_datagram.roll)};
   }
 
   /**

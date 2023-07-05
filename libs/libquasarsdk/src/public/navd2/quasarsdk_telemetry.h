@@ -28,7 +28,7 @@ namespace QuasarSDK
     public:
       explicit Telemetry(QObject* parent = nullptr);
 
-      void setDatagram(const TelemetryDatagram& datagram) noexcept;
+      void setDatagram(const Datagrams::TelemetryDatagram& datagram) noexcept;
 
       [[nodiscard]] QGeoCoordinate position() const;
       [[nodiscard]] QVector2D velocity() const;
@@ -45,7 +45,7 @@ namespace QuasarSDK
       void seaLevelChanged();
 
     private:
-      TelemetryDatagram m_datagram;
+      Datagrams::TelemetryDatagram m_datagram;
       float m_seaLevel;
   };
 } // QuasarSDK

@@ -26,8 +26,19 @@ namespace QuasarSDK
       void stop() noexcept;
 
     signals:
+      /**
+       * \brief Срабатывает, когда сервер завершает прием данных от клиента.
+       * \param data - массив байт с данными.
+       */
       void received(QByteArray data);
+
+      /**
+       * \brief Срабатывает во время изменения прогресса загрузки файла.
+       * \param progress - процент загрузки (от 0 до 100).
+       */
       void progressChanged(float progress);
+
+      /// \brief Отладочные метрики сокета, аналогичные BaseUDPSocket::metrics.
       void metrics(const QString& data, int size_bytes, bool out);
 
     private:

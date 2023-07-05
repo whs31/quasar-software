@@ -2,7 +2,7 @@
   * \class QuasarSDK::TCPServer quasarsdk_tcpserver.h <QuasarSDK/FSend/TCP>
   * \brief Класс для приема больших файлов с РЛС по протоколу TCP-IP.
   * \details Используется для приема цельных пакетов с телескопическими и
-  * полосовыми изображениями с РЛС, а также для приёма .zi-архивов.
+  * полосовыми изображениями с РЛС, а также для приёма .zip-архивов.
   *
   * Предоставляет отладочные метрики по аналогии с классами-наследниками
   * BaseUDPSocket.
@@ -17,7 +17,7 @@
 
 namespace QuasarSDK
 {
-
+  /// \brief Создает новый объект TCPServer с указанным родителем.
   TCPServer::TCPServer(QObject* parent)
     : QObject(parent)
     , server(new QTcpServer(this))
@@ -31,6 +31,10 @@ namespace QuasarSDK
     timer->setInterval(Config::get()->value<int>("TCP_SERVER_TIMEOUT"));
   }
 
+  /**
+   * \brief Запускает TCP-IP сервер на указанном адресе.
+   * \param address - строка адреса в формате <tt>192.168.1.10:10000</tt>.
+   */
   void TCPServer::start(const QString& address) noexcept
   {
     if(not address.contains(":") or address.split(":").size() > 2)
@@ -50,6 +54,7 @@ namespace QuasarSDK
     qInfo() << "[TCP] TCP-IP server started.";
   }
 
+  /// \brief Останавливает запущенный TCP-IP сервер.
   void TCPServer::stop() noexcept
   {
     server->close();

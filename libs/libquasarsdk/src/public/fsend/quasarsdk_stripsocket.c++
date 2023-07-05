@@ -5,7 +5,6 @@
   * \extends SeamlessUDPSocket
   */
 
-
 #include "quasarsdk_stripsocket.h"
 
 namespace QuasarSDK
@@ -15,6 +14,7 @@ namespace QuasarSDK
   StripSocket::StripSocket(QObject* parent)
       : SeamlessUDPSocket(parent)
   {
+    this->setName("Strip");
     connect(this, &SeamlessUDPSocket::received, this, &StripSocket::processChunk);
   }
 

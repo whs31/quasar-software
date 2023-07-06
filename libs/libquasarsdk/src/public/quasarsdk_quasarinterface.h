@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <array>
 #include <QtCore/QObject>
 #include "quasarsdk_enums.h"
 #include "navd2/quasarsdk_telemetry.h"
@@ -33,20 +34,108 @@ namespace QuasarSDK
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
 
     public:
+      static QuasarInterface* get();
+
       [[nodiscard]] Telemetry* telemetry() const;
       [[nodiscard]] RemoteData* remote() const;
       [[nodiscard]] bool isConnected() const; void setConnected(bool);
       [[nodiscard]] float currentNetworkDelay() const; void setCurrentNetworkDelay(float);
 
-      TelemetrySocket* telemetrySocket();
-      ExecdSocket* execdSocket();
-      OutputSocket* outputSocket();
-      TCPServer* tcpServer();
-      StripSocket* stripSocket();
+      [[nodiscard]] TelemetrySocket* telemetrySocket();
+      [[nodiscard]] ExecdSocket* execdSocket();
+      [[nodiscard]] OutputSocket* outputSocket();
+      [[nodiscard]] TCPServer* tcpServer();
+      [[nodiscard]] StripSocket* stripSocket();
+
+      Q_INVOKABLE void start(const QString& telemetry_request_address,
+                 const QString& telemetry_receive_address,
+                 float telemetry_frequency,
+                 const QString& execd_address,
+                 const QString& feedback_address,
+                 const QString& tcp_lfs_address,
+                 const QString& udp_lfs_address) noexcept;
+
+      Q_INVOKABLE void startPings() noexcept;
+
+      Q_INVOKABLE void stop() noexcept;
+
+      Q_INVOKABLE void execute(QuasarSDK::Enums::NetworkCommand command) noexcept;
+      Q_INVOKABLE void execute(const QString& command) noexcept;
+
+      Q_INVOKABLE [[nodiscard]] QString argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) const noexcept;
+      Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, QuasarSDK::Enums::ArgumentCategory category) noexcept;
+
+      Q_INVOKABLE static QString stringify(const QString& ip, const QString& port);
+
+      void setRemoteAddressList(const std::array<QString, 2>& list) noexcept;
+      void setPingAddressList(const std::array<QString, 5>& list) noexcept;
+      void enableRedirect() noexcept;
+      void disableRedirect() noexcept;
 
     signals:
       void connectedChanged();
       void currentNetworkDelayChanged();
+
+      /**
+       * \brief Срабатывает, когда сервер TCP-IP завершает приём данных.
+       * \param data - данные, полученные сервером.
+       */
+      void tcpDataReceived(QByteArray data);
+
+      /**
+       * \brief Срабатывает, когда сокет UDP для полосовых РЛИ получает данные.
+       * \param data - данные, полученные сокетом.
+       */
+      void udpDataReceived(QByteArray data);
+
+      /**
+        *  \brief Метрики сокета телеметрии.
+        *  \details Предоставляет отладочную информацию
+        *  о данных, проходящих через сокет в обоих направлениях.
+        *  \param data - данные, приведенные к виду строки.
+        *  \param size_bytes - размер данных в байтах.
+        *  \param out - направление движения данных: \c true означает выходной поток, \c false - входной.
+        */
+      void telemetrySocketMetrics(const QString& data, int size_bytes, bool out);
+
+      /**
+        *  \brief Метрики сокета выполнения команд.
+        *  \details Предоставляет отладочную информацию
+        *  о данных, проходящих через сокет в обоих направлениях.
+        *  \param data - данные, приведенные к виду строки.
+        *  \param size_bytes - размер данных в байтах.
+        *  \param out - направление движения данных: \c true означает выходной поток, \c false - входной.
+        */
+      void execdSocketMetrics(const QString& data, int size_bytes, bool out);
+
+      /**
+        *  \brief Метрики сервера TCP-IP.
+        *  \details Предоставляет отладочную информацию
+        *  о данных, проходящих через сокет в обоих направлениях.
+        *  \param data - данные, приведенные к виду строки.
+        *  \param size_bytes - размер данных в байтах.
+        *  \param out - направление движения данных: \c true означает выходной поток, \c false - входной.
+        */
+      void lfsSocketMetrics(const QString& msg, int size_bytes, bool out);
+
+      /**
+        *  \brief Метрики сокета для приема больших данных.
+        *  \details Предоставляет отладочную информацию
+        *  о данных, проходящих через сокет в обоих направлениях.
+        *  \param data - данные, приведенные к виду строки.
+        *  \param size_bytes - размер данных в байтах.
+        *  \param out - направление движения данных: \c true означает выходной поток, \c false - входной.
+        */
+      void stripSocketMetrics(const QString& msg, int size_bytes, bool out);
+
+    private:
+      explicit QuasarInterface(QObject* parent = nullptr);
+      QuasarInterface(const QuasarInterface&);
+      QuasarInterface& operator=(const QuasarInterface&);
+
+      void processFeedback(QByteArray) noexcept;
+
+      Q_SLOT void reset_delay();
 
     private:
       Telemetry* m_telemetry;
@@ -69,5 +158,9 @@ namespace QuasarSDK
       OutputSocket* m_outputSocket;
       TCPServer* m_tcpServer;
       StripSocket* m_stripSocket;
+
+      std::array<QString, 2> m_remote_address_list;
+      std::array<QString, 5> m_ping_address_list;
+      bool m_redirect;
   };
 } // QuasarSDK

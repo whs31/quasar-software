@@ -24,7 +24,6 @@
 #include "map/models/trackeventmodel.h"
 #include "map/entities/diagram.h"
 #include "map/tools/offlinetileloader.h"
-#include "network/network.h"
 #include "network/http/httpdownloader.h"
 
 using QuasarSDK::QuasarAPI;

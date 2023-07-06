@@ -34,7 +34,6 @@ namespace QuasarSDK
       [[nodiscard]] QVector2D velocity() const;
       [[nodiscard]] QVector3D eulerAxes() const;
       [[nodiscard]] int satellites() const;
-
       [[nodiscard]] float seaLevel() const; void setSeaLevel(float);
 
     signals:

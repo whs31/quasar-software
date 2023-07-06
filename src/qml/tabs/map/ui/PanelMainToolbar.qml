@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import Theme 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 import Config 1.0
 import "../../../widgets" as Widgets
 
@@ -52,15 +52,15 @@ Pane {
                                             : ColorTheme.active.color(ColorTheme.Yellow)
             onPressed: {
                 if (!checkable)
-                    Network.executeCommand(Net.FormImage);
+                    NetworkAPI.execute(Net.FormImage);
             }
             onCheckedChanged: {
                 if (checked) {
-                    Network.executeCommand(Net.StartStrip);
-                    Network.recording = true;
+                    NetworkAPI.execute(Net.StartStrip);
+                    NetworkAPI.remote.isRecordingStrip = true;
                 } else {
-                    Network.executeCommand(Net.StopStrip);
-                    Network.recording = false;
+                    NetworkAPI.execute(Net.StopStrip);
+                    NetworkAPI.remote.isRecordingStrip = false;
                 }
             }
 
@@ -88,7 +88,7 @@ Pane {
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Yellow)
-            onPressed: Network.executeCommand(Net.SimpleStrip)
+            onPressed: NetworkAPI.execute(Net.SimpleStrip)
 
             Behavior on width {
                 NumberAnimation {
@@ -112,7 +112,7 @@ Pane {
                 if (val === 5)
                     val = 6;
 
-                Network.setArgument("-m", val, Net.Form);
+                NetworkAPI.setArgument("-m", val, Net.Form);
             }
 
             font {
@@ -146,7 +146,7 @@ Pane {
                 function onClosed(status, uid) {
                     if (uid === 17 && status === true) {
                         console.log("[GUI] Calibrating altitude");
-                        Network.telemetry.seaLevel = Network.telemetry.altitude;
+                        NetworkAPI.telemetry.seaLevel = NetworkAPI.telemetry.position.altitude;
                     }
                 }
 

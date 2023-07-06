@@ -1,9 +1,10 @@
 #include "debugconsole.h"
 #include <QtCore/QDebug>
 #include <QtCore/QCoreApplication>
-#include <QtCore/QProcess>
-#include "network/network.h"
+#include <QuasarSDK/API>
 #include "config/config.h"
+
+using QuasarSDK::QuasarAPI;
 
 namespace GUI
 {
@@ -48,19 +49,19 @@ namespace GUI
   void DebugConsole::connect()
   {
     qInfo() << "$ [CONSOLE] Trying to connect through console...";
-    Networking::Network::get()->begin(Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(telemetryPort)),
-                                      Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(telemetryRecvPort)),
-                                      CONFIG(telemetryFrequency),
-                                      Networking::Network::stringifyIP(CONFIG(remoteIP), CONFIG(execdPort)),
-                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(feedbackPort)),
-                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(tcpLFSPort)),
-                                      Networking::Network::stringifyIP(CONFIG(localIP), CONFIG(udpLFSPort)));
+    QuasarAPI::get()->start(QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(telemetryPort)),
+                            QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(telemetryRecvPort)),
+                            CONFIG(telemetryFrequency),
+                            QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(execdPort)),
+                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(feedbackPort)),
+                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(tcpLFSPort)),
+                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(udpLFSPort)));
   }
 
   void DebugConsole::disconnect()
   {
     qInfo() << "$ [CONSOLE] Disconnecting through console...";
-    Networking::Network::get()->stop();
+    QuasarAPI::get()->stop();
   }
 
 } // GUI

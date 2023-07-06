@@ -4,8 +4,9 @@ import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15 // LEGACY
 import QtQuick.Layouts 1.15
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
-import Network 1.0
 
 Pane {
     property string name: "Ping Console";
@@ -68,16 +69,14 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: Network.remoteData.de10ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                            : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.de10ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
-                                                             : Network.remoteData.de10ping === 1
-                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
-                                                             : ColorTheme.active.color(ColorTheme.Red)
+                    text: NetworkAPI.remote.pings[0] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    color: NetworkAPI.remote.pings[0] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
+                                                                      : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
-                    connected: Network.remoteData.de10ping === 0 ? 2 : 0;
+                    connected: NetworkAPI.remote.pings[0] === Net.Success ? 2 : 0;
                     Layout.fillHeight: true;
                     Layout.margins: 5;
                 }
@@ -103,16 +102,14 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: Network.remoteData.jetsonping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                            : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.jetsonping === 0 ? ColorTheme.active.color(ColorTheme.Green)
-                                                             : Network.remoteData.de10ping === 1
-                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
-                                                             : ColorTheme.active.color(ColorTheme.Red)
+                    text: NetworkAPI.remote.pings[1] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    color: NetworkAPI.remote.pings[1] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
+                                                                      : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
-                    connected: Network.remoteData.jetsonping === 0 ? 2 : 0;
+                    connected: NetworkAPI.remote.pings[1] === Net.Success ? 2 : 0;
                     Layout.fillHeight: true;
                     Layout.margins: 5;
                 }
@@ -138,16 +135,14 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: Network.remoteData.navping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                            : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.navping === 0 ? ColorTheme.active.color(ColorTheme.Green)
-                                                             : Network.remoteData.de10ping === 1
-                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
-                                                             : ColorTheme.active.color(ColorTheme.Red)
+                    text: NetworkAPI.remote.pings[2] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    color: NetworkAPI.remote.pings[2] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
+                                                                      : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
-                    connected: Network.remoteData.navping === 0 ? 2 : 0;
+                    connected: NetworkAPI.remote.pings[2] === Net.Success ? 2 : 0;
                     Layout.fillHeight: true;
                     Layout.margins: 5;
                 }
@@ -173,16 +168,14 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: Network.remoteData.utl1ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                            : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.utl1ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
-                                                             : Network.remoteData.de10ping === 1
-                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
-                                                             : ColorTheme.active.color(ColorTheme.Red)
+                    text: NetworkAPI.remote.pings[3] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    color: NetworkAPI.remote.pings[3] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
+                                                                      : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
-                    connected: Network.remoteData.utl1ping === 0 ? 2 : 0;
+                    connected: NetworkAPI.remote.pings[3] === Net.Success ? 2 : 0;
                     Layout.fillHeight: true;
                     Layout.margins: 5;
                 }
@@ -208,16 +201,14 @@ Pane {
                         bold: true
                         pixelSize: 14
                     }
-                    text: Network.remoteData.utl2ping === 0 ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                            : "НЕТ СОЕДИНЕНИЯ";
-                    color: Network.remoteData.utl2ping === 0 ? ColorTheme.active.color(ColorTheme.Green)
-                                                             : Network.remoteData.de10ping === 1
-                                                             ? ColorTheme.active.color(ColorTheme.Yellow)
-                                                             : ColorTheme.active.color(ColorTheme.Red)
+                    text: NetworkAPI.remote.pings[4] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
+                                                                     : "НЕТ СОЕДИНЕНИЯ";
+                    color: NetworkAPI.remote.pings[4] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
+                                                                      : ColorTheme.active.color(ColorTheme.Red)
                 }
 
                 ConnectionIndicator {
-                    connected: Network.remoteData.utl2ping === 0 ? 2 : 0;
+                    connected: NetworkAPI.remote.pings[4] === Net.Success ? 2 : 0;
                     Layout.fillHeight: true;
                     Layout.margins: 5;
                 }

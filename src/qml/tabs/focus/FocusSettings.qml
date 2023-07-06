@@ -4,28 +4,28 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 
 Pane { id: panel_FocusSettings;
     Material.elevation: 30;
 
     property real focus_ls: 50;
-    onFocus_lsChanged: Network.setArgument("--ls", focus_ls, Net.Focus);
+    onFocus_lsChanged: NetworkAPI.setArgument("--ls", focus_ls, Net.Focus);
 
     property int focus_ni: 10;
-    onFocus_niChanged: Network.setArgument("--ni", focus_ni, Net.Focus);
+    onFocus_niChanged: NetworkAPI.setArgument("--ni", focus_ni, Net.Focus);
 
     property real focus_vmin: 10;
-    onFocus_vminChanged: Network.setArgument("--vmin", focus_vmin, Net.Focus);
+    onFocus_vminChanged: NetworkAPI.setArgument("--vmin", focus_vmin, Net.Focus);
 
     property real focus_vmax: 100;
-    onFocus_vmaxChanged: Network.setArgument("--vmax", focus_vmax, Net.Focus);
+    onFocus_vmaxChanged: NetworkAPI.setArgument("--vmax", focus_vmax, Net.Focus);
 
     property real focus_px: 0;
-    onFocus_pxChanged: Network.setArgument("--px", focus_px, Net.Focus);
+    onFocus_pxChanged: NetworkAPI.setArgument("--px", focus_px, Net.Focus);
 
     property real focus_py: 0;
-    onFocus_pyChanged: Network.setArgument("--py", focus_py, Net.Focus);
+    onFocus_pyChanged: NetworkAPI.setArgument("--py", focus_py, Net.Focus);
 
     Behavior on implicitWidth { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
 

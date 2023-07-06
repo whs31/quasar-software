@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 
 Pane { id: panel_EditorToolbar
     Material.elevation: 30
@@ -19,7 +19,7 @@ Pane { id: panel_EditorToolbar
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Accent)
-            onPressed: Network.executeCommand(Net.ReformImage)
+            onPressed: NetworkAPI.execute(Net.ReformImage)
         }
 
         RoundButton { id: button_FocusImage
@@ -33,7 +33,7 @@ Pane { id: panel_EditorToolbar
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Orange)
-            onPressed: Network.executeCommand(Net.FocusImage)
+            onPressed: NetworkAPI.execute(Net.FocusImage)
         }
     }
 }

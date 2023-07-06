@@ -4,19 +4,19 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 import "../../widgets" as Widgets
 
 Item {
-    property real fl_Latitude: Network.telemetry.latitude
-    property real fl_Longitude: Network.telemetry.longitude
-    property real fl_Altitude: Network.telemetry.altitude - Network.telemetry.seaLevel
-    property real fl_SeaAltitude: Network.telemetry.altitude
-    property real fl_Velocity: Network.telemetry.velocityCourse
-    property real fl_Direction: Network.telemetry.course
-    property int i_SatellitesCount: Network.telemetry.satellites
-    property real fl_ConnectionDelay: Network.networkDelay
-    property real fl_RemoteDiskSpace: Network.remoteData.storageSpace
+    property real fl_Latitude: NetworkAPI.telemetry.position.latitude
+    property real fl_Longitude: NetworkAPI.telemetry.position.longitude
+    property real fl_Altitude: NetworkAPI.telemetry.position.altitude - NetworkAPI.telemetry.seaLevel
+    property real fl_SeaAltitude: NetworkAPI.telemetry.position.altitude
+    property real fl_Velocity: NetworkAPI.telemetry.velocity.x
+    property real fl_Direction: NetworkAPI.telemetry.eulerAxes.y
+    property int i_SatellitesCount: NetworkAPI.telemetry.satellites
+    property real fl_ConnectionDelay: NetworkAPI.currentNetworkDelay
+    property real fl_RemoteDiskSpace: NetworkAPI.remote.storageSpace
 
     RowLayout {
         spacing: 8
@@ -305,9 +305,9 @@ Item {
                     indeterminate: fl_RemoteDiskSpace === 0
                     Material.accent: value === 0
                                      ? ColorTheme.active.color(ColorTheme.Text)
-                                     : value < 0.5
+                                     : value < 50
                                      ? ColorTheme.active.color(ColorTheme.Red)
-                                     : value < 0.8
+                                     : value < 80
                                      ? ColorTheme.active.color(ColorTheme.Orange)
                                      : ColorTheme.active.color(ColorTheme.Green)
                 }
@@ -323,7 +323,7 @@ Item {
                         pixelSize: 13
                         capitalization: Font.AllUppercase
                     }
-                    text: Number(fl_RemoteDiskSpace * 100).toFixed(0) + "%"
+                    text: Number(fl_RemoteDiskSpace).toFixed(0) + "%"
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }
@@ -347,7 +347,7 @@ Item {
                 function onClosed(status, uid) {
                     if (uid === 27 && status === true) {
                         console.log("[GUI] Clearing remote storage");
-                        Network.executeCommand(Net.ClearRemoteStorage);
+                        NetworkAPI.execute(Net.ClearRemoteStorage);
                     }
                 }
 

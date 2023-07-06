@@ -2,8 +2,9 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
-import Network 1.0
 import Config 1.0
 
 import "network" as NetworkTab
@@ -89,7 +90,7 @@ Pane { id: networktab_root;
     }
 
     Connections {
-        target: Network;
+        target: NetworkAPI;
         function onTelemetrySocketMetrics(data, size_bytes, out) { panel_TelemetryConsole.logdata(data, size_bytes, out); }
         function onExecdSocketMetrics(data, size_bytes, out) { panel_ExecdConsole.logdata(data, size_bytes, out); }
         function onLfsSocketMetrics(data, size_bytes, out) { panel_LFSConsole.logdata(data, size_bytes, out); }

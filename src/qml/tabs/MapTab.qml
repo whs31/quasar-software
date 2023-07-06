@@ -5,13 +5,14 @@ import QtLocation 5.15
 import QtPositioning 5.15
 import QtQuick.Layouts 1.15
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
 import Ruler 1.0
 import ClickHandler 1.0
 import Filesystem 1.0
 import Config 1.0
 import Images 1.0
-import Network 1.0
 import Markers 1.0
 import RadarDiagram 1.0
 import Notifications 1.0
@@ -55,9 +56,9 @@ Map { id: maptab_root;
     Behavior on zoomLevel { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
 
     Connections {
-        target: Network.telemetry;
+        target: NetworkAPI.telemetry;
         function onSeaLevelChanged() {
-            if(Network.telemetry.seaLevel === 0)
+            if(NetworkAPI.telemetry.seaLevel === 0)
                 WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
             else
                 WarningsModel.remove(WarningsModel.Uncalibrated);
@@ -127,12 +128,12 @@ Map { id: maptab_root;
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     RadarDiagram {  id: c_RadarDiagram;
-        angle: 30 - Config.thetaAzimuthCorrection; // @FIXME
-        uavPosition: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
-        azimuth: Network.telemetry.yaw;
-        range: 3500;
-        direction: Config.antennaAlignment ? 1 : 0;
-        type: RadarDiagram.Telescopic;
+        angle: 30 - Config.thetaAzimuthCorrection // @FIXME
+        uavPosition: NetworkAPI.telemetry.position
+        azimuth: NetworkAPI.telemetry.eulerAxes.y
+        range: 3500
+        direction: Config.antennaAlignment ? 1 : 0
+        type: RadarDiagram.Telescopic
     }
 
     MapPolygon { id: c_RadarDiagramView;
@@ -245,9 +246,9 @@ Map { id: maptab_root;
         }
         width: 250;
         implicitHeight: 150;
-        pitch: Network.telemetry.pitch;
-        roll: Network.telemetry.roll;
-        yaw: Network.telemetry.yaw;
+        pitch: NetworkAPI.telemetry.eulerAxes.x
+        roll: NetworkAPI.telemetry.eulerAxes.z
+        yaw: NetworkAPI.telemetry.eulerAxes.y
     }
 
     RoundButton { id: button_HideIndicator;

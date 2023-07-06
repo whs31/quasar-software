@@ -3,8 +3,9 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
 import Theme 1.0
-import Network 1.0
 import Config 1.0
+
+import QuaSAR.API 1.0
 
 import "bottombar" as Bottom
 import "../widgets" as Widgets
@@ -21,7 +22,7 @@ Rectangle {
         }
         height: 35
         width: 300
-        connected: Network.connected
+        connected: NetworkAPI.isConnected
     }
 
     Flickable {
@@ -67,39 +68,39 @@ Rectangle {
             font.family: root.mainfont;
             height: 40;
             radius: 4;
-            icon.source: Network.connected ? "qrc:/icons/vector/network/wifi_off.svg"
-                                           : "qrc:/icons/vector/network/wifi.svg"
+            icon.source: NetworkAPI.isConnected ? "qrc:/icons/vector/network/wifi_off.svg"
+                                                : "qrc:/icons/vector/network/wifi.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
-            text: Network.connected ? "Отключиться" : "Подключиться к РЛС";
+            text: NetworkAPI.isConnected ? "Отключиться" : "Подключиться к РЛС";
             Material.elevation: 30;
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: Network.connected ? ColorTheme.active.color(ColorTheme.Red)
-                                                   : ColorTheme.active.color(ColorTheme.PrimaryLightest)
+            Material.background: NetworkAPI.isConnected ? ColorTheme.active.color(ColorTheme.Red)
+                                                        : ColorTheme.active.color(ColorTheme.PrimaryLightest)
             Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
             Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
             onPressed: {
-                if(Network.connected)
-                    Network.stop();
+                if(NetworkAPI.isConnected)
+                    NetworkAPI.stop();
                 else
                 {
-                    Network.begin(Network.stringifyIP(Config.remoteIP, Config.telemetryPort),
-                                  Network.stringifyIP(Config.localIP, Config.telemetryRecvPort),
-                                  Config.telemetryFrequency,
-                                  Network.stringifyIP(Config.remoteIP, Config.execdPort),
-                                  Network.stringifyIP(Config.localIP, Config.feedbackPort),
-                                  Network.stringifyIP(Config.localIP, Config.tcpLFSPort),
-                                  Network.stringifyIP(Config.localIP, Config.udpLFSPort)
+                    NetworkAPI.start(NetworkAPI.stringify(Config.remoteIP, Config.telemetryPort),
+                                     NetworkAPI.stringify(Config.localIP, Config.telemetryRecvPort),
+                                     Config.telemetryFrequency,
+                                     NetworkAPI.stringify(Config.remoteIP, Config.execdPort),
+                                     NetworkAPI.stringify(Config.localIP, Config.feedbackPort),
+                                     NetworkAPI.stringify(Config.localIP, Config.tcpLFSPort),
+                                     NetworkAPI.stringify(Config.localIP, Config.udpLFSPort)
                     );
-                    Network.executeCommand(Net.RemoteStorageStatus);
+                    NetworkAPI.execute(Net.RemoteStorageStatus);
                     timeout = true;
                     disconnect_timer.start();
                 }
             }
 
             Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {
-                    if(!Network.connected)
-                        Network.stop();
+                    if(!NetworkAPI.isConnected)
+                        NetworkAPI.stop();
                     button_Connect.timeout = false;
                 }
             }

@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.15
 
 import Theme 1.0
 import Config 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 import Filesystem 1.0
 
 import "../../../widgets" as Widgets
@@ -80,7 +80,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-t", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("-t", text, Net.Form);
                     }
 
                     Text {
@@ -112,7 +112,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-b", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("-b", text, Net.Form);
                     }
 
                     Text {
@@ -144,7 +144,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-e", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("-e", text, Net.Form);
                     }
 
                     Text {
@@ -176,7 +176,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-v", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("-v", text, Net.Form);
                     }
 
                     Text {
@@ -207,7 +207,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Ts", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--Ts", text, Net.Form);
                     }
 
                     Text {
@@ -238,7 +238,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Tstrip", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--Tstrip", text, Net.Form);
                     }
 
                     Text {
@@ -262,7 +262,7 @@ Pane { id: panel_ImageTools;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Net.Form);
+                            onValueChanged: NetworkAPI.setArgument("--kR", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -298,7 +298,7 @@ Pane { id: panel_ImageTools;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Net.Form);
+                            onValueChanged: NetworkAPI.setArgument("--kL", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -334,7 +334,7 @@ Pane { id: panel_ImageTools;
                             from: 1;
                             to: 100;
                             value: 80;
-                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Net.Form);
+                            onValueChanged: NetworkAPI.setArgument("--jq", Number(value).toFixed(0), Net.Form);
                         }
 
                         Text {
@@ -382,8 +382,8 @@ Pane { id: panel_ImageTools;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("--dx", text, Net.Form);
-                            Network.setArgument("--dy", text, Net.Form);
+                            NetworkAPI.setArgument("--dx", text, Net.Form);
+                            NetworkAPI.setArgument("--dy", text, Net.Form);
                         }
                     }
 
@@ -415,7 +415,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--x0", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--x0", text, Net.Form);
                     }
 
                     Text {
@@ -446,7 +446,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--y0", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--y0", text, Net.Form);
                     }
 
                     Text {
@@ -477,7 +477,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--lx", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--lx", text, Net.Form);
                     }
 
                     Text {
@@ -508,7 +508,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ly", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--ly", text, Net.Form);
                     }
 
                     Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
@@ -535,7 +535,7 @@ Pane { id: panel_ImageTools;
                         model: [ "DSP_FFTW", "DSP_CUDA" ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
-                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Net.Form);
+                        onCurrentValueChanged: NetworkAPI.setArgument("--DSP", currentValue, Net.Form);
                     }
 
                     Text {
@@ -560,7 +560,7 @@ Pane { id: panel_ImageTools;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ip", text, Net.Form);
+                        onEditingFinished: NetworkAPI.setArgument("--ip", text, Net.Form);
                     }
 
                     Text {
@@ -582,7 +582,7 @@ Pane { id: panel_ImageTools;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Net.Form);
+                        onCheckedChanged: NetworkAPI.setArgument("-i", (checked ? "1" : "0"), Net.Form);
                     }
 
                     Text {
@@ -604,7 +604,7 @@ Pane { id: panel_ImageTools;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Net.Form);
+                        onCheckedChanged: NetworkAPI.setArgument("--mirror", (checked ? "True" : "False"), Net.Form);
                     }
                 }
             }

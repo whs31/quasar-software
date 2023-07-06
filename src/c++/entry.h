@@ -23,7 +23,7 @@ class Entry : public QObject
     void scheduleClose();
 
   private slots:
-    void closeApplication() noexcept;
+    static void closeApplication() noexcept;
 
   private:
     Application::UpdateManager* m_updateManager;

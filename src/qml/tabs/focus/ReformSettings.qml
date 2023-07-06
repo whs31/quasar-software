@@ -4,17 +4,17 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 
 Pane { id: panel_ReformSettings;
     function setVelocityAndElevation(vel, ele)
     {
         input_velocity.text = vel;
         input_elevation.text = ele;
-        Network.setArgument("-v", input_velocity.text, Net.Reform);
-        Network.setArgument("-v", input_velocity.text, Net.Focus);
-        Network.setArgument("-e", input_elevation.text, Net.Reform);
-        Network.setArgument("-e", input_elevation.text, Net.Focus);
+        NetworkAPI.setArgument("-v", input_velocity.text, Net.Reform);
+        NetworkAPI.setArgument("-v", input_velocity.text, Net.Focus);
+        NetworkAPI.setArgument("-e", input_elevation.text, Net.Reform);
+        NetworkAPI.setArgument("-e", input_elevation.text, Net.Focus);
     }
 
     clip: true;
@@ -68,7 +68,7 @@ Pane { id: panel_ReformSettings;
                                 val = 7;
                             if(val === 5)
                                 val = 6;
-                            Network.setArgument("-m", val, Net.Reform);
+                            NetworkAPI.setArgument("-m", val, Net.Reform);
                         }
                     }
 
@@ -100,7 +100,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("-t", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("-t", text, Net.Reform);
                     }
 
                     Text {
@@ -133,8 +133,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("-b", text, Net.Reform);
-                            Network.setArgument("-b", text, Net.Focus);
+                            NetworkAPI.setArgument("-b", text, Net.Reform);
+                            NetworkAPI.setArgument("-b", text, Net.Focus);
                         }
                     }
 
@@ -168,8 +168,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("-e", text, Net.Reform);
-                            Network.setArgument("-e", text, Net.Focus);
+                            NetworkAPI.setArgument("-e", text, Net.Reform);
+                            NetworkAPI.setArgument("-e", text, Net.Focus);
                         }
                     }
 
@@ -203,8 +203,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("-v", text, Net.Reform);
-                            Network.setArgument("-v", text, Net.Focus);
+                            NetworkAPI.setArgument("-v", text, Net.Reform);
+                            NetworkAPI.setArgument("-v", text, Net.Focus);
                         }
                     }
 
@@ -237,8 +237,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("--Ts", text, Net.Reform);
-                            Network.setArgument("--Ts", text, Net.Focus);
+                            NetworkAPI.setArgument("--Ts", text, Net.Reform);
+                            NetworkAPI.setArgument("--Ts", text, Net.Focus);
                         }
                     }
 
@@ -270,7 +270,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--Tstrip", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--Tstrip", text, Net.Reform);
                     }
 
                     Text {
@@ -294,7 +294,7 @@ Pane { id: panel_ReformSettings;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kR", Number(value).toFixed(0), Net.Reform);
+                            onValueChanged: NetworkAPI.setArgument("--kR", Number(value).toFixed(0), Net.Reform);
                         }
 
                         Text {
@@ -330,7 +330,7 @@ Pane { id: panel_ReformSettings;
                             from: 0;
                             to: 4;
                             value: 1;
-                            onValueChanged: Network.setArgument("--kL", Number(value).toFixed(0), Net.Reform);
+                            onValueChanged: NetworkAPI.setArgument("--kL", Number(value).toFixed(0), Net.Reform);
                         }
 
                         Text {
@@ -366,7 +366,7 @@ Pane { id: panel_ReformSettings;
                             from: 1;
                             to: 100;
                             value: 80;
-                            onValueChanged: Network.setArgument("--jq", Number(value).toFixed(0), Net.Reform);
+                            onValueChanged: NetworkAPI.setArgument("--jq", Number(value).toFixed(0), Net.Reform);
                         }
 
                         Text {
@@ -414,8 +414,8 @@ Pane { id: panel_ReformSettings;
                         Layout.fillWidth: true;
 
                         onEditingFinished: {
-                            Network.setArgument("--dx", text, Net.Reform);
-                            Network.setArgument("--dy", text, Net.Reform);
+                            NetworkAPI.setArgument("--dx", text, Net.Reform);
+                            NetworkAPI.setArgument("--dy", text, Net.Reform);
                         }
                     }
 
@@ -447,7 +447,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--x0", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--x0", text, Net.Reform);
                     }
 
                     Text {
@@ -478,7 +478,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--y0", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--y0", text, Net.Reform);
                     }
 
                     Text {
@@ -509,7 +509,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--lx", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--lx", text, Net.Reform);
                     }
 
                     Text {
@@ -540,7 +540,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ly", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--ly", text, Net.Reform);
                     }
 
                     Item { Layout.fillWidth: true; Layout.fillHeight: true; height: 20; }
@@ -567,7 +567,7 @@ Pane { id: panel_ReformSettings;
                         model: [ "DSP_FFTW", "DSP_CUDA" ];
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
-                        onCurrentValueChanged: Network.setArgument("--DSP", currentValue, Net.Reform);
+                        onCurrentValueChanged: NetworkAPI.setArgument("--DSP", currentValue, Net.Reform);
                     }
 
                     Text {
@@ -592,7 +592,7 @@ Pane { id: panel_ReformSettings;
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
-                        onEditingFinished: Network.setArgument("--ip", text, Net.Reform);
+                        onEditingFinished: NetworkAPI.setArgument("--ip", text, Net.Reform);
                     }
 
                     Text {
@@ -614,7 +614,7 @@ Pane { id: panel_ReformSettings;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("-i", (checked ? "1" : "0"), Network.Reform);
+                        onCheckedChanged: NetworkAPI.setArgument("-i", (checked ? "1" : "0"), NetworkAPI.Reform);
                     }
 
                     Text {
@@ -636,7 +636,7 @@ Pane { id: panel_ReformSettings;
 
                         checked: false;
                         Layout.alignment: Qt.AlignRight;
-                        onCheckedChanged: Network.setArgument("--mirror", (checked ? "True" : "False"), Net.Reform);
+                        onCheckedChanged: NetworkAPI.setArgument("--mirror", (checked ? "True" : "False"), Net.Reform);
                     }
                 }
             }

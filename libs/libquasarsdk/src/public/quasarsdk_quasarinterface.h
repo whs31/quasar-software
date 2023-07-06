@@ -25,7 +25,7 @@ namespace QuasarSDK
   class PingTester;
   class OutputRedirectServer;
 
-  class QuasarInterface : public QObject
+  class QuasarAPI : public QObject
   {
     Q_OBJECT
     Q_PROPERTY(Telemetry* telemetry READ telemetry CONSTANT)
@@ -34,7 +34,7 @@ namespace QuasarSDK
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
 
     public:
-      static QuasarInterface* get();
+      static QuasarAPI* get();
 
       [[nodiscard]] Telemetry* telemetry() const;
       [[nodiscard]] RemoteData* remote() const;
@@ -62,14 +62,14 @@ namespace QuasarSDK
       Q_INVOKABLE void execute(QuasarSDK::Enums::NetworkCommand command) noexcept;
       Q_INVOKABLE void execute(const QString& command) noexcept;
 
-      Q_INVOKABLE [[nodiscard]] QString argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) const noexcept;
+      Q_INVOKABLE [[nodiscard]] QString argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) noexcept;
       Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, QuasarSDK::Enums::ArgumentCategory category) noexcept;
 
       Q_INVOKABLE static QString stringify(const QString& ip, const QString& port);
 
       void setRemoteAddressList(const std::array<QString, 2>& list) noexcept;
       void setPingAddressList(const std::array<QString, 5>& list) noexcept;
-      void enableRedirect() noexcept;
+      void enableRedirect(const QString& address) noexcept;
       void disableRedirect() noexcept;
 
     signals:
@@ -129,9 +129,9 @@ namespace QuasarSDK
       void stripSocketMetrics(const QString& msg, int size_bytes, bool out);
 
     private:
-      explicit QuasarInterface(QObject* parent = nullptr);
-      QuasarInterface(const QuasarInterface&);
-      QuasarInterface& operator=(const QuasarInterface&);
+      explicit QuasarAPI(QObject* parent = nullptr);
+      QuasarAPI(const QuasarAPI&);
+      QuasarAPI& operator=(const QuasarAPI&);
 
       void processFeedback(QByteArray) noexcept;
 
@@ -162,5 +162,6 @@ namespace QuasarSDK
       std::array<QString, 2> m_remote_address_list;
       std::array<QString, 5> m_ping_address_list;
       bool m_redirect;
+      QString m_redirectAddress;
   };
 } // QuasarSDK

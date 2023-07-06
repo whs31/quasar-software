@@ -61,6 +61,27 @@ namespace QuasarSDK::Datagrams
     uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCITT.
 
     /// \cond
+    TelemetryDatagram& operator = (TelemetryDatagram d)
+    {
+      marker = d.marker;
+      version = d.version;
+      latitude = d.latitude;
+      longitude = d.longitude;
+      altitude = d.altitude;
+      velocity_course = d.velocity_course;
+      velocity_east = d.velocity_east;
+      velocity_north = d.velocity_north;
+      velocity_vertical = d.velocity_vertical;
+      pitch = d.pitch;
+      roll = d.roll;
+      yaw = d.yaw;
+      course = d.course;
+      time = d.time;
+      satellites = d.satellites;
+      crc16 = d.crc16;
+      return *this;
+    }
+
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryDatagram& data);
     friend QDataStream& operator >> (QDataStream& dataStream, TelemetryDatagram& data);
     /// \endcond

@@ -6,7 +6,7 @@ import QtQuick.Dialogs 1.3
 
 import Theme 1.0
 import Config 1.0
-import Network 1.0
+import QuaSAR.API 1.0
 import Filesystem 1.0
 import Images 1.0
 import Offline 1.0
@@ -106,7 +106,7 @@ ApplicationWindow  { id: window_root;
 
             Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
             Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
-            Widgets.ProgressPopup { anchors.centerIn: parent; progress: Network.tcpProgress; z: 100;
+            Widgets.ProgressPopup { anchors.centerIn: parent; progress: NetworkAPI.remote.downloadProgress; z: 100;
                 text: "Загрузка изображения по TCP-IP";
             }
             Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100;

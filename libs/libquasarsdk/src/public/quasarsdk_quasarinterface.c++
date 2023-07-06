@@ -52,7 +52,7 @@ namespace QuasarSDK
       , m_com1PingTester(new PingTester(this))
       , m_com2PingTester(new PingTester(this))
       , m_redirectServer(new OutputRedirectServer(this))
-      , m_telemetrySocket(new TelemetrySocket(this))
+      , m_telemetrySocket(new TelemetrySocket(this, m_telemetry))
       , m_execdSocket(new ExecdSocket(this))
       , m_outputSocket(new OutputSocket(this))
       , m_tcpServer(new TCPServer(this))
@@ -80,6 +80,8 @@ namespace QuasarSDK
       setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
       setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
     });
+
+    telemetrySocket()->setCheckCRC(false);
 
     // execd
     connect(execdSocket(), &ExecdSocket::ping, this, &QuasarAPI::reset_delay);

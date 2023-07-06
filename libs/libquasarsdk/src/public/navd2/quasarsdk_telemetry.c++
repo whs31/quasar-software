@@ -14,6 +14,7 @@ namespace QuasarSDK
   /// \brief Создает новый объект Telemetry с указанным родителем.
   Telemetry::Telemetry(QObject* parent)
       : QObject(parent)
+      , m_datagram({})
       , m_seaLevel(0)
   {}
 

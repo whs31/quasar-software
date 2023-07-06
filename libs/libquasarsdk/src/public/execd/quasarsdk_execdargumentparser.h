@@ -40,17 +40,6 @@ namespace QuasarSDK
   {
     Q_OBJECT
 
-    public:
-      explicit ExecdArgumentParser(QObject* parent = nullptr);
-
-      [[nodiscard]] QString formArgumentString() const noexcept;
-      [[nodiscard]] QString reformArgumentString() const noexcept;
-      [[nodiscard]] QString focusArgumentString() const noexcept;
-
-      QMap<QString, ExecdArgument> formArgumentList = defaults;       ///< Список аргументов для режима формирования.
-      QMap<QString, ExecdArgument> reformArgumentList = defaults;     ///< Список аргументов для режима переформирования.
-      QMap<QString, ExecdArgument> focusArgumentList = focus_defaults;///< Список аргументов для режима фокусировки.
-
     private:
       /**
        * \brief Значения по умолчанию для режима формирования и переформирования в сервисе \c execd.
@@ -104,5 +93,16 @@ namespace QuasarSDK
           {"--vmax", ExecdArgument(-1.0f)},
           {"--ni", ExecdArgument(10)},
       };
+
+    public:
+      explicit ExecdArgumentParser(QObject* parent = nullptr);
+
+      [[nodiscard]] QString formArgumentString() const noexcept;
+      [[nodiscard]] QString reformArgumentString() const noexcept;
+      [[nodiscard]] QString focusArgumentString() const noexcept;
+
+      QMap<QString, ExecdArgument> formArgumentList = defaults;       ///< Список аргументов для режима формирования.
+      QMap<QString, ExecdArgument> reformArgumentList = defaults;     ///< Список аргументов для режима переформирования.
+      QMap<QString, ExecdArgument> focusArgumentList = focus_defaults;///< Список аргументов для режима фокусировки.
   };
 } // QuasarSDK

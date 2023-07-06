@@ -5,6 +5,7 @@
 #include <SDK/RealtimeLinePlot>
 #include <SDK/MatrixPlot>
 #include <SDK/Gizmos>
+#include <QuasarSDK/API>
 #include "application/updatemanager.h"
 #include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
@@ -25,6 +26,10 @@
 #include "map/tools/offlinetileloader.h"
 #include "network/network.h"
 #include "network/http/httpdownloader.h"
+
+using QuasarSDK::QuasarAPI;
+using QuasarSDK::Enums;
+using std::array;
 
 Entry::Entry(QObject* parent)
   : QObject(parent)
@@ -50,6 +55,16 @@ Entry::Entry(QObject* parent)
   qmlRegisterSingletonInstance<Networking::Network>("Network", 1, 0, "Network", Networking::Network::get());
   qmlRegisterUncreatableType<Networking::Enums>("Network", 1, 0, "Net", "Enumeration");
   qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
+
+  QuasarAPI::get()->setPingAddressList({
+    CONFIG(remoteIP), CONFIG(jetsonIP),
+    CONFIG(navIP), CONFIG(utl1IP),
+    CONFIG(utl2IP)
+  });
+  QuasarAPI::get()->setRemoteAddressList({
+    QuasarAPI::stringify(CONFIG(localIP), CONFIG(tcpLFSPort)),
+    QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(udpLFSPort))
+  });
 
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
@@ -90,7 +105,4 @@ Entry::Entry(QObject* parent)
   });
 }
 
-void Entry::closeApplication() noexcept
-{
-  qApp->quit();
-}
+void Entry::closeApplication() noexcept { qApp->quit(); }

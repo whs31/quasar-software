@@ -2,6 +2,9 @@
   * \namespace QuasarSDK
   * \brief Пространство имен комплекта разработчика РЛС "Квазар".
   *
+  * \namespace QuasarSDK::Utils
+  * \brief Пространство имен для вспомогательных функций комплекта разработчика.
   *
-  *
+  * \namespace QuasarSDK::Datagrams
+  * \brief Пространство имен для структур датаграмм.
   */

@@ -1,31 +1,5 @@
 #pragma once
 
-/*
-Telemetry Datagram in Rust
-
-#[repr(C, packed)]
-#[derive(Serialize)]
-pub struct Datagram
-{
-    marker : u32,
-    version : u8,
-    lat : f64,
-    lon : f64,
-    ele : f64,
-    velocity_course : f64,
-    velocity_east : f64,
-    velocity_north : f64,
-    velocity_vertical : f64,
-    pitch : f64,
-    roll : f64,
-    yaw : f64,
-    course : f64,
-    time : u64,
-    valid : bool,
-    crc : u16
-}
-*/
-
 #include <cstdint>
 #include <QtCore/QDataStream>
 
@@ -36,8 +10,8 @@ namespace Networking
   {
     uint32_t marker = 0x0;              //!< Маркер сообщения. Равен \c 0x55AA55AA.
     uint8_t version = 0x0;              //!< Версия протокола.
-    double latitude = 0;                //!< Широта в градусах.
-    double longitude = 0;               //!< Долгота в градусах.
+    double latitude = 0;                //!< Широта в **радианах**.
+    double longitude = 0;               //!< Долгота в **радианах**.
     double altitude = 0;                //!< Высота в метрах.
     double velocity_course = 0;         //!< Путевая скорость в м/с.
     double velocity_east = 0;           //!< Скорость на восток в м/с.
@@ -62,7 +36,7 @@ namespace Networking
     uint8_t init_flag = 0x00;           //!< Тип команды. \c 0x00 завершает передачу, \c 0х01 - начинает.
     uint16_t port = 0;                  //!< Порт для обратной связи.
     uint32_t interval_ms = 0;           //!< Интервал передачи телеметрии в мс.
-    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграмы \c CRC16_CCIT.
+    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCIT.
 
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data);
     friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data);

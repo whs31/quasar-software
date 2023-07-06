@@ -3,8 +3,9 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
-import Network 1.0
 
 Pane {
     Material.elevation: 60;
@@ -21,7 +22,7 @@ Pane {
             Material.elevation: 30;
             Material.foreground: ColorTheme.active.color(ColorTheme.Text)
             Material.background: ColorTheme.active.color(ColorTheme.Overlay)
-            onPressed: Network.executeCommand(Net.RemoteStorageStatus);
+            onPressed: NetworkAPI.execute(Net.RemoteStorageStatus);
         }
 
         RoundButton { id: button_Reboot;
@@ -41,7 +42,7 @@ Pane {
                 function onClosed(status, uid) {
                     if(uid === 21 && status === true) {
                         console.log("[GUI] Reboot requested");
-                        Network.executeCommand(Net.Reboot);
+                        NetworkAPI.execute(Net.Reboot);
                     }
                 }
             }
@@ -64,7 +65,7 @@ Pane {
                 function onClosed(status, uid) {
                     if(uid === 22 && status === true) {
                         console.log("[GUI] Reboot requested");
-                        Network.executeCommand(Net.Poweroff);
+                        NetworkAPI.execute(Net.PowerOff);
                     }
                 }
             }

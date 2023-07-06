@@ -1,20 +1,21 @@
 import QtQuick 2.15
-import Network 1.0
 import QtLocation 5.15
 import QtPositioning 5.15
 import QtGraphicalEffects 1.15
 
+import QuaSAR.API 1.0
+
 MapQuickItem {
-    anchorPoint.x: 20;
-    anchorPoint.y: 20;
+    anchorPoint.x: 20
+    anchorPoint.y: 20
     transform: Rotation {
-        id: rotation;
-        origin.x: 20;
-        origin.y: 20;
-        angle: Network.telemetry.course;
+        id: rotation
+        origin.x: 20
+        origin.y: 20
+        angle: NetworkAPI.telemetry.eulerAxes.y
     }
-    coordinate: QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude);
-    z: 18;
+    coordinate: NetworkAPI.telemetry.position
+    z: 18
     Behavior on coordinate { CoordinateAnimation { duration: 125; easing.type: Easing.Linear; } }
 
     sourceItem: Item {

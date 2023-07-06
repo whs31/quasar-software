@@ -2,16 +2,16 @@ import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
-import Network 1.0
+import QuaSAR.API 1.0
 import Route 1.0
 import Theme 1.0
 
 MapItemView
 {
-    property real lat_reevaluate: Network.telemetry.latitude
+    property real lat_reevaluate: NetworkAPI.telemetry.position.latitude
     onLat_reevaluateChanged: {
-        if(Network.recording)
-            eventModel.appendNewValue(QtPositioning.coordinate(Network.telemetry.latitude, Network.telemetry.longitude))
+        if(NetworkAPI.remote.isRecordingStrip)
+            eventModel.appendNewValue(NetworkAPI.telemetry.position)
     }
 
     model: TrackEventModel{ id: eventModel }
@@ -24,9 +24,9 @@ MapItemView
     }
 
     Connections {
-        target: Network
-        function onRecordingChanged() {
-            if(Network.recording)
+        target: NetworkAPI.remote
+        function onRecordingStripChanged() {
+            if(NetworkAPI.remote.isRecordingStrip)
                 eventModel.createNewEvent();
         }
     }

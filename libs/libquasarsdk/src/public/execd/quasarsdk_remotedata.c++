@@ -8,17 +8,21 @@
   */
 
 #include "quasarsdk_remotedata.h"
+#include <QtCore/QMetaType>
 
 namespace QuasarSDK
 {
   /// \brief Создает новый объект RemoteData с указанным родителем.
   RemoteData::RemoteData(QObject* parent)
       : QObject(parent)
-      , m_storageSpace(-1)
+      , m_storageSpace(0)
       , m_pings({Enums::Idle, Enums::Idle, Enums::Idle, Enums::Idle, Enums::Idle})
       , m_downloadProgress(0)
       , m_recordingStrip(false)
-  {}
+  {
+    qRegisterMetaType<Enums::PingStatus>("Enums::PingStatus");
+    qRegisterMetaType<QList<Enums::PingStatus>>("QList<Enums::PingStatus>");
+  }
 
     /**
      * \property RemoteData::storageSpace

@@ -4,9 +4,10 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Dialogs 1.3
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
 import Config 1.0
-import QuaSAR.API 1.0
 import Filesystem 1.0
 import Images 1.0
 import Offline 1.0

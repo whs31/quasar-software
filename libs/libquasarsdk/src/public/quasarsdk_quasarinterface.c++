@@ -275,6 +275,8 @@ namespace QuasarSDK
     tcpServer()->stop();
     stripSocket()->stop();
     m_redirectServer->stop();
+
+    this->setCurrentNetworkDelay(100);
   }
 
   /**

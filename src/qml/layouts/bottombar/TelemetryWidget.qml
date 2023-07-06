@@ -305,9 +305,9 @@ Item {
                     indeterminate: fl_RemoteDiskSpace === 0
                     Material.accent: value === 0
                                      ? ColorTheme.active.color(ColorTheme.Text)
-                                     : value < 0.5
+                                     : value < 50
                                      ? ColorTheme.active.color(ColorTheme.Red)
-                                     : value < 0.8
+                                     : value < 80
                                      ? ColorTheme.active.color(ColorTheme.Orange)
                                      : ColorTheme.active.color(ColorTheme.Green)
                 }
@@ -323,7 +323,7 @@ Item {
                         pixelSize: 13
                         capitalization: Font.AllUppercase
                     }
-                    text: Number(fl_RemoteDiskSpace * 100).toFixed(0) + "%"
+                    text: Number(fl_RemoteDiskSpace).toFixed(0) + "%"
                     horizontalAlignment: Text.AlignLeft
                     verticalAlignment: Text.AlignVCenter
                 }

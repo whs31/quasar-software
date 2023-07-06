@@ -3,8 +3,9 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15
 
+import QuaSAR.API 1.0
+
 import Terminals 1.0
-import Network 1.0
 import Theme 1.0
 
 Pane { id: control;
@@ -172,7 +173,7 @@ Pane { id: control;
             font.family: root.monofont;
             font.pixelSize: 14;
             onAccepted: {
-                Network.executeString(text);
+                NetworkAPI.execute(text);
                 text = "$";
             }
         }

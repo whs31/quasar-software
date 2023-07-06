@@ -4,9 +4,10 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15
 
+import QuaSAR.API 1.0
+
 import Theme 1.0
 import Images 1.0
-import Network 1.0
 
 import "focus" as FocusTab
 
@@ -33,8 +34,8 @@ Rectangle { id: focustab_root;
             panel_Reform.setVelocityAndElevation(Number(ImagesModel.getRole(currentAssignedIndex, "velocity")).toFixed(1),
                                                  Number(ImagesModel.getRole(currentAssignedIndex, "elevation")).toFixed(1));
 
-            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Reform);
-            Network.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Focus);
+            NetworkAPI.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Reform);
+            NetworkAPI.setArgument("-f", ImagesModel.getRole(currentAssignedIndex, "filename"), Net.Focus);
         }
     }
 

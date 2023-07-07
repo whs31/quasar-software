@@ -3,7 +3,7 @@
   * \brief Класс для перенаправления вывода РЛС в отдельный Telnet сервер.
   * \details Запускает TCP-IP сервер на выбранном адресе и перенаправляет
   * в него любые массивы данных, приходящие в функцию push().
-  * \extends QObject
+  * \extends QObject, IConnectable
   */
 
 #include "quasarsdk_outputredirectserver.h"
@@ -34,7 +34,7 @@ namespace QuasarSDK
    * \brief Запускает сервер перенаправления вывода на указанном адресе.
    * \param address - адрес для запуска сервера в формате <tt>192.168.1.47:25565</tt>.
    */
-  void OutputRedirectServer::start(const QString& address) noexcept
+  void OutputRedirectServer::start(const QString& address)
   {
     if(not address.contains(":") or address.split(":").size() > 2)
     {
@@ -72,5 +72,24 @@ namespace QuasarSDK
     if(m_socket != nullptr)
       delete m_socket;
     m_socket = m_server->nextPendingConnection();
+  }
+
+  /**
+   * \brief Не имеет реализации.
+   * \param address - QHostAddress.
+   */
+  void OutputRedirectServer::start(const QHostAddress& address) noexcept
+  {
+    qCritical() << "NOT IMPLEMENTED";
+  }
+
+  /**
+   * \brief Запускает сервер перенаправления вывода на указанном адресе.
+   * \param address - IPv4-адрес сервера.
+   * \param port - порт, на котором будет запущен сервер.
+   */
+  void OutputRedirectServer::start(const QHostAddress& address, uint16_t port) noexcept
+  {
+    this->start(address.toString() + ":" + QString::number(port));
   }
 } // QuasarSDK

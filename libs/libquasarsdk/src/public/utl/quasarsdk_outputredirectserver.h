@@ -8,6 +8,7 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include "interfaces/quasarsdk_iconnectable.h"
 
 class QTcpServer;
 class QTcpSocket;
@@ -15,6 +16,7 @@ class QTcpSocket;
 namespace QuasarSDK
 {
   class OutputRedirectServer : public QObject
+                             , public IConnectable
   {
     Q_OBJECT
 
@@ -22,8 +24,10 @@ namespace QuasarSDK
       explicit OutputRedirectServer(QObject* parent = nullptr);
       ~OutputRedirectServer() override;
 
-      void start(const QString& address) noexcept;
-      void stop() noexcept;
+      void start(const QString& address) final;
+      void start(const QHostAddress& address) noexcept final;
+      void start(const QHostAddress& address, uint16_t port) noexcept final;
+      void stop() noexcept final;
       void push(const QByteArray& data) noexcept;
 
     private:

@@ -8,7 +8,6 @@
   * \note Для случаев, когда недопустимо склеивание или кеширование
   * входящих датаграмм, используйте класс SeamlessUDPSocket как
   * основу для класса-сокета.
-  * \extends QUdpSocket
   */
 
 #include "quasarsdk_baseudpsocket.h"
@@ -132,5 +131,28 @@ namespace QuasarSDK
       this->readDatagram(buffer.data(), buffer.size(), &m_address, &m_port);
 
     emit received(buffer);
+  }
+
+  /**
+   * \brief Не имеет реализации.
+   * \details Эта функция наследуется от интерфейса IConnectable и не имеет
+   * реализации в этом классе.
+   * \param address - сетевой адрес.
+   */
+  void BaseUDPSocket::start(const QHostAddress& address) noexcept { qCritical() << "NOT IMPLEMENTED"; }
+
+  /**
+    * \brief Производит попытку подключения к указанному адресу.
+    * \param address - адрес в виде QHostAddress.
+    * \param _port - порт для подключения.
+    */
+  void BaseUDPSocket::start(const QHostAddress& address, uint16_t _port) noexcept
+  {
+    qInfo().noquote() << "[UDP] Starting" << name() << "UDP socket on" << address;
+    m_address = address;
+    m_port = _port;
+
+    this->bind(hostAddress(), port());
+    emit metrics("Socket opened on " + addressString(), 0, true);
   }
 } // QuasarSDK

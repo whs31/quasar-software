@@ -8,10 +8,12 @@
 #pragma once
 
 #include <QtNetwork/QUdpSocket>
+#include "interfaces/quasarsdk_iconnectable.h"
 
 namespace QuasarSDK
 {
-  class BaseUDPSocket : public QUdpSocket
+  class BaseUDPSocket : public QUdpSocket,
+                        public IConnectable
   {
     Q_OBJECT
 
@@ -21,8 +23,11 @@ namespace QuasarSDK
 
       [[nodiscard]] QString name() const; void setName(const QString&) noexcept;
 
-      virtual void start(const QString& address);
-      virtual void stop() noexcept;
+      void start(const QString& address) override;
+      void start(const QHostAddress& address) noexcept final;
+      void start(const QHostAddress& address, uint16_t port) noexcept override;
+
+      void stop() noexcept override;
 
       virtual void send(const QByteArray& data) noexcept;
 

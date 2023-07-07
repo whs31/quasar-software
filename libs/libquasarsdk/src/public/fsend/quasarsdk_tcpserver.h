@@ -8,6 +8,7 @@
 #pragma once
 
 #include <QtCore/QObject>
+#include "interfaces/quasarsdk_iconnectable.h"
 
 class QTcpServer;
 class QTcpSocket;
@@ -16,14 +17,17 @@ class QTimer;
 namespace QuasarSDK
 {
   class TCPServer : public QObject
+                  , public IConnectable
   {
     Q_OBJECT
 
     public:
       explicit TCPServer(QObject* parent = nullptr);
 
-      void start(const QString& address) noexcept;
-      void stop() noexcept;
+      void start(const QString& address) override;
+      void start(const QHostAddress& address) noexcept final;
+      void start(const QHostAddress& address, uint16_t port) noexcept override;
+      void stop() noexcept override;
 
     signals:
       /**

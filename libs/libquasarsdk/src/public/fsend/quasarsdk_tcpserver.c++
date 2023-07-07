@@ -6,7 +6,7 @@
   *
   * Предоставляет отладочные метрики по аналогии с классами-наследниками
   * BaseUDPSocket.
-  * \extends QObject
+  * \extends QObject, IConnectable
   */
 
 #include "quasarsdk_tcpserver.h"
@@ -24,6 +24,7 @@ namespace QuasarSDK
     , timer(new QTimer(this))
     , splitIndex(0)
     , fileSize(0)
+    , socket(nullptr)
   {
     connect(server, &QTcpServer::newConnection, this, &TCPServer::clientConnected);
     connect(timer, &QTimer::timeout, this, &TCPServer::connectionTimeout);
@@ -35,7 +36,7 @@ namespace QuasarSDK
    * \brief Запускает TCP-IP сервер на указанном адресе.
    * \param address - строка адреса в формате <tt>192.168.1.10:10000</tt>.
    */
-  void TCPServer::start(const QString& address) noexcept
+  void TCPServer::start(const QString& address)
   {
     if(not address.contains(":") or address.split(":").size() > 2)
     {
@@ -138,5 +139,29 @@ namespace QuasarSDK
   {
     float percent = static_cast<float>(imageData.size()) / static_cast<float>(fileSize);
     emit progressChanged(percent * 100);
+  }
+
+  /**
+   * \brief Не имеет реализации.
+   * \details Функция унаследована от интерфейса IConnectable и не имеет реализации
+   * в этом классе.
+   * \param address - QHostAddress.
+   */
+  void TCPServer::start(const QHostAddress& address) noexcept { qCritical() << "NOT IMPLEMENTED"; }
+
+  /**
+   * \brief Запускает TCP-IP сервер на указанном адресе.
+   * \param address - IPv4-адрес сервера.
+   * \param port - порт, на котором должен быть запущен сервер.
+   */
+  void TCPServer::start(const QHostAddress& address, uint16_t port) noexcept
+  {
+    if(not server->listen(address, port))
+    {
+      qCritical() << "[TCP] TCP-IP server has failed to start.";
+      return;
+    }
+
+    qInfo() << "[TCP] TCP-IP server started.";
   }
 } // QuasarSDK

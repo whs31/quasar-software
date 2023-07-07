@@ -9,6 +9,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
+#include "interfaces/quasarsdk_iconnectable.h"
 #include "public/quasarsdk_enums.h"
 
 class QProcess;
@@ -16,6 +17,7 @@ class QProcess;
 namespace QuasarSDK
 {
   class PingTester : public QObject
+                   , public IConnectable
   {
     Q_OBJECT
 
@@ -23,8 +25,10 @@ namespace QuasarSDK
       explicit PingTester(QObject* parent = nullptr);
       ~PingTester() override;
 
-      void start(const QString& address, const QStringList& args);
-      void stop() noexcept;
+      void start(const QString& address) override;
+      void start(const QHostAddress& address) noexcept override;
+      void start(const QHostAddress& address, uint16_t port) noexcept override;
+      void stop() noexcept override;
 
     signals:
       /**
@@ -40,6 +44,5 @@ namespace QuasarSDK
     private:
       QProcess* m_process;
       QString m_address;
-      QStringList m_args;
   };
 } // QuasarSDK

@@ -253,11 +253,16 @@ namespace QuasarSDK
    */
   void QuasarAPI::startPings() noexcept
   {
-    m_de10PingTester->start(m_ping_address_list[0], {});
-    m_jetson0PingTester->start(m_ping_address_list[1], {});
-    m_navPingTester->start(m_ping_address_list[2], {});
-    m_com1PingTester->start(m_ping_address_list[3], {});
-    m_com2PingTester->start(m_ping_address_list[4], {});
+    qDebug() << "$ [QUASAR] Starting pings at" << m_ping_address_list[0] << "|"
+                                               << m_ping_address_list[1] << "|"
+                                               << m_ping_address_list[2] << "|"
+                                               << m_ping_address_list[3] << "|"
+                                               << m_ping_address_list[4];
+    m_de10PingTester->start(m_ping_address_list[0]);
+    m_jetson0PingTester->start(m_ping_address_list[1]);
+    m_navPingTester->start(m_ping_address_list[2]);
+    m_com1PingTester->start(m_ping_address_list[3]);
+    m_com2PingTester->start(m_ping_address_list[4]);
   }
 
   /**

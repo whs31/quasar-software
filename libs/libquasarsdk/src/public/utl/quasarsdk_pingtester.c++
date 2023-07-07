@@ -6,7 +6,7 @@
   * \note На ОС Windows проверка выполняется не 5 раз, как в обычной команде
   * \c ping на этой системе, а до тех пор, пока процесс не будет завершен, как
   * на ОС Linux.
-  * \extends QObject
+  * \extends QObject, IConnectable
   */
 
 #include "quasarsdk_pingtester.h"
@@ -21,7 +21,6 @@ namespace QuasarSDK
       : QObject(parent)
       , m_process(new QProcess(this))
       , m_address("127.0.0.1")
-      , m_args({})
   {
     m_process->setProcessChannelMode(QProcess::MergedChannels);
     connect(m_process, &QProcess::readyRead, this, &PingTester::recv);
@@ -33,21 +32,38 @@ namespace QuasarSDK
   /**
    * \brief Запускает проверку доступности по указанному адресу.
    * \details Выбрасывает исключение, если адрес некорректный.
-   * \param address - IPv4-адрес для проверки.
-   * \param args - список аргументов для команды \c ping.
+   * \param address - IPv4-адрес для проверки в виде строки.
    * \throws std::invalid_argument.
    */
-  void PingTester::start(const QString& address, const QStringList& args)
+  void PingTester::start(const QString& address)
   {
     if(address.split('.').size() != 4)
       throw std::invalid_argument("Invalid address is provided to ping tester");
 
     m_address = address;
 
-    for(const auto& arg : args)
-      m_args += QString(arg);
-
     this->ping();
+  }
+
+  /**
+   * \brief Запускает проверку доступности по указанному адресу.
+   * \param address - IPv4-адрес для проверки в виде QHostAddress.
+   */
+  void PingTester::start(const QHostAddress& address) noexcept
+  {
+    m_address = address.toString();
+    this->ping();
+  }
+
+  /**
+   * \brief Запускает проверку доступности по указанному адресу.
+   * \param address - IPv4-адрес для проверки в виде QHostAddress.
+   * \param port - не используется.
+   */
+  void PingTester::start(const QHostAddress& address, uint16_t port) noexcept
+  {
+    Q_UNUSED(port);
+    this->start(address);
   }
 
   /// \brief Останавливает проверку доступности.

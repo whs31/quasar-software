@@ -14,7 +14,6 @@
 #include "CQuasarAPI.h"
 #include <QtCore/QTimer>
 #include <QtCore/QVariant>
-#include <QtQml/qqml.h>
 #include "CConfig.h"
 #include "CTelemetrySocket.h"
 #include "CExecdSocket.h"
@@ -24,6 +23,10 @@
 #include "CStripSocket.h"
 #include "CPingTester.h"
 #include "COutputRedirectServer.h"
+
+#ifdef QT_QML_LIB
+#include <QtQml/qqml.h>
+#endif
 
 namespace QuasarSDK
 {
@@ -63,8 +66,10 @@ namespace QuasarSDK
     qDebug() << "$ [QUASAR] Beginning network setup";
 
     // registration
+    #ifdef QT_QML_LIB
     qmlRegisterSingletonInstance<QuasarAPI>("QuaSAR.API", 1, 0, "NetworkAPI", this);
     qmlRegisterUncreatableType<QuasarSDK::Enums>("QuaSAR.API", 1, 0, "Net", "Enumeration");
+    #endif
 
     // delay handling
     m_networkDelayTimer->start(100);

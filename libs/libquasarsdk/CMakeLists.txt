@@ -2,6 +2,11 @@ cmake_minimum_required (VERSION 3.15)
 
 project(libquasarsdk LANGUAGES CXX)
 
+option(REGISTER_QML_TYPES
+  "Link against Qt5::Quick and let library register QML types automatically"
+  ON
+)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -9,11 +14,19 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOMOC ON)
 
 find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+if(REGISTER_QML_TYPES)
+  find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+    Core
+    Network
+    Quick
+  )
+else()
+  find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
     Network
     Gui
-)
+  )
+endif()
 
 include_directories(src include)
 
@@ -23,10 +36,18 @@ set(SRC ${SDK_CORE} ${SDK_CORE_INCLUDE} quasarsdk.qrc )
 
 add_library(${PROJECT_NAME} ${SRC})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE
-   Qt${QT_VERSION_MAJOR}::Core
-   Qt${QT_VERSION_MAJOR}::Network
-   Qt${QT_VERSION_MAJOR}::Gui
-)
+if(REGISTER_QML_TYPES)
+  target_link_libraries(${PROJECT_NAME} PRIVATE
+     Qt${QT_VERSION_MAJOR}::Core
+     Qt${QT_VERSION_MAJOR}::Network
+     Qt${QT_VERSION_MAJOR}::Quick
+  )
+else()
+  target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Network
+    Qt${QT_VERSION_MAJOR}::Gui
+  )
+endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC include src)

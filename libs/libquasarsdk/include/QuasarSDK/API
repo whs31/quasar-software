@@ -1,1 +1,1 @@
-#include "public/quasarsdk_quasarinterface.h"
+#include "Networking/CQuasarAPI.h"

@@ -1,8 +1,8 @@
 var namespaces_dup =
 [
-    [ "Config", "a00350.html", "a00350" ],
-    [ "Map", "a00356.html", "a00356" ],
-    [ "OS", "a00353.html", "a00353" ],
-    [ "Processing", "a00357.html", "a00357" ],
-    [ "QuasarSDK", "a00364.html", "a00364" ]
+    [ "Config", "a00353.html", "a00353" ],
+    [ "Map", "a00359.html", "a00359" ],
+    [ "OS", "a00356.html", "a00356" ],
+    [ "Processing", "a00360.html", "a00360" ],
+    [ "QuasarSDK", "a00367.html", "a00367" ]
 ];

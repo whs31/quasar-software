@@ -29,9 +29,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -114,27 +114,27 @@ $(document).ready(function(){initNavTree('a00284_source.html',''); initResizable
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="a00329.html">CBaseUDPSocket.h</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00364.html">QuasarSDK</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00367.html">QuasarSDK</a></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00614.html">   14</a></span>  <span class="keyword">class </span><a class="code hl_class" href="a00614.html">OutputSocket</a> : <span class="keyword">public</span> <a class="code hl_class" href="a00586.html">BaseUDPSocket</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00617.html">   14</a></span>  <span class="keyword">class </span><a class="code hl_class" href="a00617.html">OutputSocket</a> : <span class="keyword">public</span> <a class="code hl_class" href="a00589.html">BaseUDPSocket</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    Q_OBJECT</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      <span class="keyword">explicit</span> <a class="code hl_class" href="a00614.html">OutputSocket</a>(QObject* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      <span class="keyword">explicit</span> <a class="code hl_class" href="a00617.html">OutputSocket</a>(QObject* parent = <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    signals:</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00614.html#ae7259e99451bbab025d71c8683d73676">   27</a></span>      <span class="keywordtype">void</span> <a class="code hl_signal" href="a00614.html#ae7259e99451bbab025d71c8683d73676">diskSpaceReceived</a>(<span class="keywordtype">long</span> free, <span class="keywordtype">long</span> total);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00617.html#ae7259e99451bbab025d71c8683d73676">   27</a></span>      <span class="keywordtype">void</span> <a class="code hl_signal" href="a00617.html#ae7259e99451bbab025d71c8683d73676">diskSpaceReceived</a>(<span class="keywordtype">long</span> free, <span class="keywordtype">long</span> total);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>      Q_SLOT <span class="keywordtype">void</span> process(QByteArray data) <span class="keyword">noexcept</span>;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  };</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} <span class="comment">// QuasarSDK</span></div>
 <div class="ttc" id="aa00329_html"><div class="ttname"><a href="a00329.html">CBaseUDPSocket.h</a></div></div>
-<div class="ttc" id="aa00364_html"><div class="ttname"><a href="a00364.html">QuasarSDK</a></div><div class="ttdoc">Пространство имен комплекта разработчика РЛС &quot;Квазар&quot;.</div></div>
-<div class="ttc" id="aa00586_html"><div class="ttname"><a href="a00586.html">QuasarSDK::BaseUDPSocket</a></div><div class="ttdoc">Базовый класс для сокетов, работающих по протоколу UDP.</div><div class="ttdef"><b>Definition:</b> <a href="a00329_source.html#l00015">CBaseUDPSocket.h:17</a></div></div>
-<div class="ttc" id="aa00614_html"><div class="ttname"><a href="a00614.html">QuasarSDK::OutputSocket</a></div><div class="ttdoc">Сокет для приема и обработки вывода с РЛС.</div><div class="ttdef"><b>Definition:</b> <a href="a00284_source.html#l00014">COutputSocket.h:15</a></div></div>
-<div class="ttc" id="aa00614_html_ae7259e99451bbab025d71c8683d73676"><div class="ttname"><a href="a00614.html#ae7259e99451bbab025d71c8683d73676">QuasarSDK::OutputSocket::diskSpaceReceived</a></div><div class="ttdeci">void diskSpaceReceived(long free, long total)</div><div class="ttdoc">Срабатывает при получении информации о свободном месте на диске в РЛС.</div></div>
+<div class="ttc" id="aa00367_html"><div class="ttname"><a href="a00367.html">QuasarSDK</a></div><div class="ttdoc">Пространство имен комплекта разработчика РЛС &quot;Квазар&quot;.</div></div>
+<div class="ttc" id="aa00589_html"><div class="ttname"><a href="a00589.html">QuasarSDK::BaseUDPSocket</a></div><div class="ttdoc">Базовый класс для сокетов, работающих по протоколу UDP.</div><div class="ttdef"><b>Definition:</b> <a href="a00329_source.html#l00015">CBaseUDPSocket.h:17</a></div></div>
+<div class="ttc" id="aa00617_html"><div class="ttname"><a href="a00617.html">QuasarSDK::OutputSocket</a></div><div class="ttdoc">Сокет для приема и обработки вывода с РЛС.</div><div class="ttdef"><b>Definition:</b> <a href="a00284_source.html#l00014">COutputSocket.h:15</a></div></div>
+<div class="ttc" id="aa00617_html_ae7259e99451bbab025d71c8683d73676"><div class="ttname"><a href="a00617.html#ae7259e99451bbab025d71c8683d73676">QuasarSDK::OutputSocket::diskSpaceReceived</a></div><div class="ttdeci">void diskSpaceReceived(long free, long total)</div><div class="ttdoc">Срабатывает при получении информации о свободном месте на диске в РЛС.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

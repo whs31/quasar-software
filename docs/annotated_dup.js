@@ -1,106 +1,106 @@
 var annotated_dup =
 [
     [ "Application", null, [
-      [ "UpdateManager", "a00370.html", null ]
+      [ "UpdateManager", "a00373.html", null ]
     ] ],
-    [ "Config", "a00350.html", [
+    [ "Config", "a00353.html", [
       [ "internal", null, [
-        [ "SettingsWrapper", "a00390.html", null ]
+        [ "SettingsWrapper", "a00393.html", null ]
       ] ],
-      [ "Config", "a00374.html", "a00374" ],
-      [ "InternalConfig", "a00378.html", "a00378" ],
-      [ "NetworkConfig", "a00382.html", null ],
-      [ "Paths", "a00386.html", "a00386" ],
-      [ "Settings", "a00394.html", null ]
+      [ "Config", "a00377.html", "a00377" ],
+      [ "InternalConfig", "a00381.html", "a00381" ],
+      [ "NetworkConfig", "a00385.html", null ],
+      [ "Paths", "a00389.html", "a00389" ],
+      [ "Settings", "a00397.html", null ]
     ] ],
     [ "GUI", null, [
       [ "internal", null, [
-        [ "ColorThemeWrapper", "a00406.html", null ]
+        [ "ColorThemeWrapper", "a00409.html", null ]
       ] ],
-      [ "ColorTheme", "a00410.html", null ],
-      [ "DebugConsole", "a00414.html", null ],
-      [ "TerminalBase", "a00418.html", "a00418" ],
-      [ "VT100Terminal", "a00426.html", "a00426" ],
-      [ "WarningsModel", "a00434.html", "a00434" ]
+      [ "ColorTheme", "a00413.html", null ],
+      [ "DebugConsole", "a00417.html", null ],
+      [ "TerminalBase", "a00421.html", "a00421" ],
+      [ "VT100Terminal", "a00429.html", "a00429" ],
+      [ "WarningsModel", "a00437.html", "a00437" ]
     ] ],
-    [ "Map", "a00356.html", [
-      [ "ClickHandler", "a00442.html", null ],
-      [ "Diagram", "a00446.html", null ],
-      [ "Image", "a00450.html", null ],
-      [ "ImageMetadata", "a00356.html#a00470", "a00356_a00470_dup" ],
-      [ "ImageMetaHeader", "a00356.html#a00466", "a00356_a00466_dup" ],
-      [ "ImageModel", "a00494.html", null ],
-      [ "Marker", "a00486.html", null ],
-      [ "MarkerModel", "a00498.html", null ],
-      [ "OfflineTileLoader", "a00522.html", "a00522" ],
-      [ "PlannerPoint", "a00490.html", null ],
-      [ "Route", "a00514.html", null ],
-      [ "RouteLogger", "a00530.html", null ],
-      [ "Ruler", "a00518.html", null ],
-      [ "StripFormatMetadata", "a00356.html#a00482", "a00356_a00482_dup" ],
-      [ "StripHeaderMetadata", "a00356.html#a00474", "a00356_a00474_dup" ],
-      [ "StripImage", "a00458.html", null ],
-      [ "StripImageDatagram", "a00356.html#a00462", null ],
-      [ "StripModel", "a00502.html", null ],
-      [ "StripNavigationMetadata", "a00356.html#a00478", "a00356_a00478_dup" ],
-      [ "TelescopicImage", "a00454.html", null ],
-      [ "TrackEventModel", "a00506.html", "a00506" ]
+    [ "Map", "a00359.html", [
+      [ "ClickHandler", "a00445.html", null ],
+      [ "Diagram", "a00449.html", null ],
+      [ "Image", "a00453.html", null ],
+      [ "ImageMetadata", "a00359.html#a00473", "a00359_a00473_dup" ],
+      [ "ImageMetaHeader", "a00359.html#a00469", "a00359_a00469_dup" ],
+      [ "ImageModel", "a00497.html", null ],
+      [ "Marker", "a00489.html", null ],
+      [ "MarkerModel", "a00501.html", null ],
+      [ "OfflineTileLoader", "a00525.html", "a00525" ],
+      [ "PlannerPoint", "a00493.html", null ],
+      [ "Route", "a00517.html", null ],
+      [ "RouteLogger", "a00533.html", null ],
+      [ "Ruler", "a00521.html", null ],
+      [ "StripFormatMetadata", "a00359.html#a00485", "a00359_a00485_dup" ],
+      [ "StripHeaderMetadata", "a00359.html#a00477", "a00359_a00477_dup" ],
+      [ "StripImage", "a00461.html", null ],
+      [ "StripImageDatagram", "a00359.html#a00465", null ],
+      [ "StripModel", "a00505.html", null ],
+      [ "StripNavigationMetadata", "a00359.html#a00481", "a00359_a00481_dup" ],
+      [ "TelescopicImage", "a00457.html", null ],
+      [ "TrackEventModel", "a00509.html", "a00509" ]
     ] ],
     [ "Networking", null, [
-      [ "HTTPDownloader", "a00534.html", "a00534" ]
+      [ "HTTPDownloader", "a00537.html", "a00537" ]
     ] ],
-    [ "OS", "a00353.html", [
-      [ "Filesystem", "a00402.html", "a00402" ]
+    [ "OS", "a00356.html", [
+      [ "Filesystem", "a00405.html", "a00405" ]
     ] ],
-    [ "Processing", "a00357.html", [
-      [ "ArrayReader", "a00538.html", "a00538" ],
-      [ "ImageProcessing", "a00542.html", null ],
-      [ "StreamProcessing", "a00546.html", null ]
+    [ "Processing", "a00360.html", [
+      [ "ArrayReader", "a00541.html", "a00541" ],
+      [ "ImageProcessing", "a00545.html", null ],
+      [ "StreamProcessing", "a00549.html", null ]
     ] ],
-    [ "QuasarSDK", "a00364.html", [
-      [ "Datagrams", "a00366.html", [
-        [ "PlannerAppendDatagram", "a00366.html#a00654", "a00366_a00654_dup" ],
-        [ "PlannerRemoveDatagram", "a00366.html#a00658", "a00366_a00658_dup" ],
-        [ "PlannerResponseDatagram", "a00366.html#a00662", "a00366_a00662_dup" ],
-        [ "TelemetryDatagram", "a00366.html#a00666", "a00366_a00666_dup" ],
-        [ "TelemetryRequest", "a00366.html#a00670", "a00366_a00670_dup" ]
+    [ "QuasarSDK", "a00367.html", [
+      [ "Datagrams", "a00369.html", [
+        [ "PlannerAppendDatagram", "a00369.html#a00657", "a00369_a00657_dup" ],
+        [ "PlannerRemoveDatagram", "a00369.html#a00661", "a00369_a00661_dup" ],
+        [ "PlannerResponseDatagram", "a00369.html#a00665", "a00369_a00665_dup" ],
+        [ "TelemetryDatagram", "a00369.html#a00669", "a00369_a00669_dup" ],
+        [ "TelemetryRequest", "a00369.html#a00673", "a00369_a00673_dup" ]
       ] ],
-      [ "BaseUDPSocket", "a00586.html", "a00586" ],
-      [ "Config", "a00590.html", "a00590" ],
-      [ "Enums", "a00594.html", "a00594" ],
-      [ "ExecdArgument", "a00598.html", "a00598" ],
-      [ "ExecdArgumentParser", "a00602.html", "a00602" ],
-      [ "ExecdSocket", "a00606.html", "a00606" ],
-      [ "IConnectable", "a00650.html", "a00650" ],
-      [ "OutputRedirectServer", "a00610.html", "a00610" ],
-      [ "OutputSocket", "a00614.html", "a00614" ],
-      [ "PingTester", "a00618.html", "a00618" ],
-      [ "QuasarAPI", "a00622.html", "a00622" ],
-      [ "RemoteData", "a00626.html", "a00626" ],
-      [ "SeamlessUDPSocket", "a00630.html", "a00630" ],
-      [ "StripSocket", "a00634.html", "a00634" ],
-      [ "TCPServer", "a00638.html", "a00638" ],
-      [ "Telemetry", "a00642.html", "a00642" ],
-      [ "TelemetrySocket", "a00646.html", "a00646" ]
+      [ "BaseUDPSocket", "a00589.html", "a00589" ],
+      [ "Config", "a00593.html", "a00593" ],
+      [ "Enums", "a00597.html", "a00597" ],
+      [ "ExecdArgument", "a00601.html", "a00601" ],
+      [ "ExecdArgumentParser", "a00605.html", "a00605" ],
+      [ "ExecdSocket", "a00609.html", "a00609" ],
+      [ "IConnectable", "a00653.html", "a00653" ],
+      [ "OutputRedirectServer", "a00613.html", "a00613" ],
+      [ "OutputSocket", "a00617.html", "a00617" ],
+      [ "PingTester", "a00621.html", "a00621" ],
+      [ "QuasarAPI", "a00625.html", "a00625" ],
+      [ "RemoteData", "a00629.html", "a00629" ],
+      [ "SeamlessUDPSocket", "a00633.html", "a00633" ],
+      [ "StripSocket", "a00637.html", "a00637" ],
+      [ "TCPServer", "a00641.html", "a00641" ],
+      [ "Telemetry", "a00645.html", "a00645" ],
+      [ "TelemetrySocket", "a00649.html", "a00649" ]
     ] ],
     [ "SDK", null, [
       [ "Cartography", null, [
-        [ "Orthodrom", "a00550.html", null ]
+        [ "Orthodrom", "a00553.html", null ]
       ] ],
       [ "Gizmos", null, [
-        [ "Gizmos", "a00554.html", null ]
+        [ "Gizmos", "a00557.html", null ]
       ] ],
       [ "Quick", null, [
-        [ "ChartBase", "a00558.html", null ],
-        [ "LinePlot", "a00562.html", null ],
-        [ "MatrixPlot", "a00566.html", null ],
-        [ "RealtimeLinePlot", "a00570.html", null ]
+        [ "ChartBase", "a00561.html", null ],
+        [ "LinePlot", "a00565.html", null ],
+        [ "MatrixPlot", "a00569.html", null ],
+        [ "RealtimeLinePlot", "a00573.html", null ]
       ] ],
       [ "Scenegraph", null, [
-        [ "Vertex", "a00574.html", null ],
-        [ "VertexC", "a00582.html", null ],
-        [ "VertexT", "a00578.html", null ]
+        [ "Vertex", "a00577.html", null ],
+        [ "VertexC", "a00585.html", null ],
+        [ "VertexT", "a00581.html", null ]
       ] ]
     ] ],
-    [ "Entry", "a00398.html", null ]
+    [ "Entry", "a00401.html", null ]
 ];

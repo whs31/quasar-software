@@ -1,4 +1,4 @@
 var a00314 =
 [
-    [ "TelemetrySocket", "a00646.html", "a00646" ]
+    [ "TelemetrySocket", "a00649.html", "a00649" ]
 ];

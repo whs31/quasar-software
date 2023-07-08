@@ -29,9 +29,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -148,9 +148,9 @@ $(document).ready(function(){initNavTree('a00326_source.html',''); initResizable
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    , 0x6E17, 0x7E36, 0x4E55, 0x5E74, 0x2E93, 0x3EB2, 0x0ED1, 0x1EF0</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00365.html">QuasarSDK::Utils</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00368.html">QuasarSDK::Utils</a></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00365.html#a097cfb084605da99a62a9eeac5020848">   51</a></span>  uint16_t <a class="code hl_function" href="a00365.html#a097cfb084605da99a62a9eeac5020848">crc16</a>(<span class="keywordtype">char</span>* data, <span class="keywordtype">int</span> <a class="code hl_variable" href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a>) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="a00368.html#a097cfb084605da99a62a9eeac5020848">   51</a></span>  uint16_t <a class="code hl_function" href="a00368.html#a097cfb084605da99a62a9eeac5020848">crc16</a>(<span class="keywordtype">char</span>* data, <span class="keywordtype">int</span> <a class="code hl_variable" href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a>) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    uint16_t crc = 0xFFFF;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; <a class="code hl_variable" href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a>; i++)</div>
@@ -171,7 +171,7 @@ $(document).ready(function(){initNavTree('a00326_source.html',''); initResizable
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span> crc;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="a00365.html#a15a9ef310fea932c75d1cfee9d7dc1d4">   79</a></span>  uint16_t <a class="code hl_function" href="a00365.html#a15a9ef310fea932c75d1cfee9d7dc1d4">crc16_ccitt</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">int</span> <a class="code hl_variable" href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a>) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="a00368.html#a15a9ef310fea932c75d1cfee9d7dc1d4">   79</a></span>  uint16_t <a class="code hl_function" href="a00368.html#a15a9ef310fea932c75d1cfee9d7dc1d4">crc16_ccitt</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">int</span> <a class="code hl_variable" href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a>) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  {</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">const</span> <span class="keyword">auto</span>* d = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(data);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    uint16_t crc = 0xffff;</div>
@@ -180,14 +180,14 @@ $(document).ready(function(){initNavTree('a00326_source.html',''); initResizable
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> crc;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  }</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00365.html#a8e767ae01022414bd64c54dbc1337bfa">   93</a></span>  <span class="keywordtype">char</span>* <a class="code hl_function" href="a00365.html#a8e767ae01022414bd64c54dbc1337bfa">str_data</a>(<span class="keyword">const</span> QString&amp; str) <span class="keyword">noexcept</span> { <span class="keywordflow">return</span> str.toLocal8Bit().data(); }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="a00368.html#a8e767ae01022414bd64c54dbc1337bfa">   93</a></span>  <span class="keywordtype">char</span>* <a class="code hl_function" href="a00368.html#a8e767ae01022414bd64c54dbc1337bfa">str_data</a>(<span class="keyword">const</span> QString&amp; str) <span class="keyword">noexcept</span> { <span class="keywordflow">return</span> str.toLocal8Bit().data(); }</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>} <span class="comment">// QuasarSDK::Utils</span></div>
 <div class="ttc" id="aa00050_html_aaba88b24a21a6c70c895c0d55f4a69a0"><div class="ttname"><a href="a00050.html#aaba88b24a21a6c70c895c0d55f4a69a0">size</a></div><div class="ttdeci">uint16_t size</div><div class="ttdoc">Размер пакета в байтах, включая заголовок.</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00002">imagemetadata.h:2</a></div></div>
 <div class="ttc" id="aa00338_html"><div class="ttname"><a href="a00338.html">FCRC16.h</a></div></div>
-<div class="ttc" id="aa00365_html"><div class="ttname"><a href="a00365.html">QuasarSDK::Utils</a></div><div class="ttdoc">Пространство имен для вспомогательных функций комплекта разработчика.</div></div>
-<div class="ttc" id="aa00365_html_a097cfb084605da99a62a9eeac5020848"><div class="ttname"><a href="a00365.html#a097cfb084605da99a62a9eeac5020848">QuasarSDK::Utils::crc16</a></div><div class="ttdeci">uint16_t crc16(char *data, int size) noexcept</div><div class="ttdoc">Вычисляет контрольную сумму CRC16.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00051">FCRC16.c++:51</a></div></div>
-<div class="ttc" id="aa00365_html_a15a9ef310fea932c75d1cfee9d7dc1d4"><div class="ttname"><a href="a00365.html#a15a9ef310fea932c75d1cfee9d7dc1d4">QuasarSDK::Utils::crc16_ccitt</a></div><div class="ttdeci">uint16_t crc16_ccitt(const char *data, int size) noexcept</div><div class="ttdoc">Вычисляет контрольную сумму CRC16 по алгоритму CCITT.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00079">FCRC16.c++:79</a></div></div>
-<div class="ttc" id="aa00365_html_a8e767ae01022414bd64c54dbc1337bfa"><div class="ttname"><a href="a00365.html#a8e767ae01022414bd64c54dbc1337bfa">QuasarSDK::Utils::str_data</a></div><div class="ttdeci">char * str_data(const QString &amp;str) noexcept</div><div class="ttdoc">Конвертирует QString в указатель на char.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00093">FCRC16.c++:93</a></div></div>
+<div class="ttc" id="aa00368_html"><div class="ttname"><a href="a00368.html">QuasarSDK::Utils</a></div><div class="ttdoc">Пространство имен для вспомогательных функций комплекта разработчика.</div></div>
+<div class="ttc" id="aa00368_html_a097cfb084605da99a62a9eeac5020848"><div class="ttname"><a href="a00368.html#a097cfb084605da99a62a9eeac5020848">QuasarSDK::Utils::crc16</a></div><div class="ttdeci">uint16_t crc16(char *data, int size) noexcept</div><div class="ttdoc">Вычисляет контрольную сумму CRC16.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00051">FCRC16.c++:51</a></div></div>
+<div class="ttc" id="aa00368_html_a15a9ef310fea932c75d1cfee9d7dc1d4"><div class="ttname"><a href="a00368.html#a15a9ef310fea932c75d1cfee9d7dc1d4">QuasarSDK::Utils::crc16_ccitt</a></div><div class="ttdeci">uint16_t crc16_ccitt(const char *data, int size) noexcept</div><div class="ttdoc">Вычисляет контрольную сумму CRC16 по алгоритму CCITT.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00079">FCRC16.c++:79</a></div></div>
+<div class="ttc" id="aa00368_html_a8e767ae01022414bd64c54dbc1337bfa"><div class="ttname"><a href="a00368.html#a8e767ae01022414bd64c54dbc1337bfa">QuasarSDK::Utils::str_data</a></div><div class="ttdeci">char * str_data(const QString &amp;str) noexcept</div><div class="ttdoc">Конвертирует QString в указатель на char.</div><div class="ttdef"><b>Definition:</b> <a href="a00326_source.html#l00093">FCRC16.c++:93</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

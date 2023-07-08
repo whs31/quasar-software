@@ -1,5 +1,5 @@
-<map id="TerminalBase" name="TerminalBase">
-<area shape="rect" id="node1" title=" " alt="" coords="124,115,233,143"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,14,154,42"/>
-<area shape="rect" id="node3" title=" " alt="" coords="178,5,376,50"/>
+<map id="DebugConsole" name="DebugConsole">
+<area shape="rect" id="node1" title=" " alt="" coords="22,157,137,184"/>
+<area shape="rect" id="node2" href="$a00421.html" title=" " alt="" coords="25,81,134,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,154,33"/>
 </map>

@@ -1,4 +1,4 @@
 var a00296 =
 [
-    [ "QuasarAPI", "a00622.html", "a00622" ]
+    [ "QuasarAPI", "a00625.html", "a00625" ]
 ];

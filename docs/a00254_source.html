@@ -29,9 +29,9 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
   <link href="doxygen.css" rel="stylesheet" type="text/css" />
-  <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+  <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
     <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -115,9 +115,9 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;QtNetwork/QTcpServer&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;QtNetwork/QTcpSocket&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00364.html">QuasarSDK</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00367.html">QuasarSDK</a></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00610.html#a998b60d68b42b365b6248073502e9ff7">   17</a></span>  <a class="code hl_function" href="a00610.html#a998b60d68b42b365b6248073502e9ff7">OutputRedirectServer::OutputRedirectServer</a>(QObject* parent)</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00613.html#a998b60d68b42b365b6248073502e9ff7">   17</a></span>  <a class="code hl_function" href="a00613.html#a998b60d68b42b365b6248073502e9ff7">OutputRedirectServer::OutputRedirectServer</a>(QObject* parent)</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>      : QObject(parent)</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>      , m_server(new QTcpServer(this))</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>      , m_socket(nullptr)</div>
@@ -125,14 +125,14 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    connect(m_server, &amp;QTcpServer::newConnection, <span class="keyword">this</span>, &amp;OutputRedirectServer::clientConnected);</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  }</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00610.html#afccfb74379bac9eb8631f93431cabbf3">   26</a></span>  <a class="code hl_function" href="a00610.html#afccfb74379bac9eb8631f93431cabbf3">OutputRedirectServer::~OutputRedirectServer</a>()</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00613.html#afccfb74379bac9eb8631f93431cabbf3">   26</a></span>  <a class="code hl_function" href="a00613.html#afccfb74379bac9eb8631f93431cabbf3">OutputRedirectServer::~OutputRedirectServer</a>()</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">if</span>(m_socket)</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>      <span class="keyword">delete</span> m_socket;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    m_server-&gt;close();</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="a00610.html#abccbfc4c0255716f52c689b0f7b7cf16">   37</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00610.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QString&amp; address)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="a00613.html#abccbfc4c0255716f52c689b0f7b7cf16">   37</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00613.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QString&amp; address)</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">if</span>(not address.contains(<span class="stringliteral">&quot;:&quot;</span>) or address.split(<span class="stringliteral">&quot;:&quot;</span>).size() &gt; 2)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
@@ -149,9 +149,9 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      qCritical() &lt;&lt; <span class="stringliteral">&quot;[REDIRECT] Server failed to start&quot;</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00610.html#a4008ad2c644d84457e83d74b3809f2ec">   55</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00610.html#a4008ad2c644d84457e83d74b3809f2ec">OutputRedirectServer::stop</a>() noexcept { m_server-&gt;close(); }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="a00613.html#a4008ad2c644d84457e83d74b3809f2ec">   55</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00613.html#a4008ad2c644d84457e83d74b3809f2ec">OutputRedirectServer::stop</a>() noexcept { m_server-&gt;close(); }</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00610.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">   61</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00610.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">OutputRedirectServer::push</a>(<span class="keyword">const</span> QByteArray&amp; data) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00613.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">   61</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00613.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">OutputRedirectServer::push</a>(<span class="keyword">const</span> QByteArray&amp; data) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">if</span>(m_socket == <span class="keyword">nullptr</span>)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      <span class="keywordflow">return</span>;</div>
@@ -167,23 +167,23 @@ $(document).ready(function(){initNavTree('a00254_source.html',''); initResizable
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    m_socket = m_server-&gt;nextPendingConnection();</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="a00610.html#a6dd2bfebf59a94006c2c8273546a685c">   81</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00610.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QHostAddress&amp; address) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="a00613.html#a6dd2bfebf59a94006c2c8273546a685c">   81</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00613.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QHostAddress&amp; address) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  {</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    qCritical() &lt;&lt; <span class="stringliteral">&quot;NOT IMPLEMENTED&quot;</span>;</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  }</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="a00610.html#aec9b533a5c3d825c0fd5ee1734801b8f">   91</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00610.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QHostAddress&amp; address, uint16_t port) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="a00613.html#aec9b533a5c3d825c0fd5ee1734801b8f">   91</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="a00613.html#abccbfc4c0255716f52c689b0f7b7cf16">OutputRedirectServer::start</a>(<span class="keyword">const</span> QHostAddress&amp; address, uint16_t port) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  {</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    this-&gt;start(address.toString() + <span class="stringliteral">&quot;:&quot;</span> + QString::number(port));</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  }</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">// QuasarSDK</span></div>
 <div class="ttc" id="aa00236_html"><div class="ttname"><a href="a00236.html">COutputRedirectServer.h</a></div></div>
-<div class="ttc" id="aa00364_html"><div class="ttname"><a href="a00364.html">QuasarSDK</a></div><div class="ttdoc">Пространство имен комплекта разработчика РЛС &quot;Квазар&quot;.</div></div>
-<div class="ttc" id="aa00610_html_a4008ad2c644d84457e83d74b3809f2ec"><div class="ttname"><a href="a00610.html#a4008ad2c644d84457e83d74b3809f2ec">QuasarSDK::OutputRedirectServer::stop</a></div><div class="ttdeci">void stop() noexcept final</div><div class="ttdoc">Останавливает сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00055">COutputRedirectServer.c++:55</a></div></div>
-<div class="ttc" id="aa00610_html_a998b60d68b42b365b6248073502e9ff7"><div class="ttname"><a href="a00610.html#a998b60d68b42b365b6248073502e9ff7">QuasarSDK::OutputRedirectServer::OutputRedirectServer</a></div><div class="ttdeci">OutputRedirectServer(QObject *parent=nullptr)</div><div class="ttdoc">Создает новый объект сервера перенаправления вывода с указанным родителем.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00017">COutputRedirectServer.c++:17</a></div></div>
-<div class="ttc" id="aa00610_html_abccbfc4c0255716f52c689b0f7b7cf16"><div class="ttname"><a href="a00610.html#abccbfc4c0255716f52c689b0f7b7cf16">QuasarSDK::OutputRedirectServer::start</a></div><div class="ttdeci">void start(const QString &amp;address) final</div><div class="ttdoc">Запускает сервер перенаправления вывода на указанном адресе.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00037">COutputRedirectServer.c++:37</a></div></div>
-<div class="ttc" id="aa00610_html_ad9f50d5dc30f2e0482b19a5f0eba0e2e"><div class="ttname"><a href="a00610.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">QuasarSDK::OutputRedirectServer::push</a></div><div class="ttdeci">void push(const QByteArray &amp;data) noexcept</div><div class="ttdoc">Отправляет данные в сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00061">COutputRedirectServer.c++:61</a></div></div>
-<div class="ttc" id="aa00610_html_afccfb74379bac9eb8631f93431cabbf3"><div class="ttname"><a href="a00610.html#afccfb74379bac9eb8631f93431cabbf3">QuasarSDK::OutputRedirectServer::~OutputRedirectServer</a></div><div class="ttdeci">~OutputRedirectServer() override</div><div class="ttdoc">Удаляет объект и закрывает сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00026">COutputRedirectServer.c++:26</a></div></div>
+<div class="ttc" id="aa00367_html"><div class="ttname"><a href="a00367.html">QuasarSDK</a></div><div class="ttdoc">Пространство имен комплекта разработчика РЛС &quot;Квазар&quot;.</div></div>
+<div class="ttc" id="aa00613_html_a4008ad2c644d84457e83d74b3809f2ec"><div class="ttname"><a href="a00613.html#a4008ad2c644d84457e83d74b3809f2ec">QuasarSDK::OutputRedirectServer::stop</a></div><div class="ttdeci">void stop() noexcept final</div><div class="ttdoc">Останавливает сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00055">COutputRedirectServer.c++:55</a></div></div>
+<div class="ttc" id="aa00613_html_a998b60d68b42b365b6248073502e9ff7"><div class="ttname"><a href="a00613.html#a998b60d68b42b365b6248073502e9ff7">QuasarSDK::OutputRedirectServer::OutputRedirectServer</a></div><div class="ttdeci">OutputRedirectServer(QObject *parent=nullptr)</div><div class="ttdoc">Создает новый объект сервера перенаправления вывода с указанным родителем.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00017">COutputRedirectServer.c++:17</a></div></div>
+<div class="ttc" id="aa00613_html_abccbfc4c0255716f52c689b0f7b7cf16"><div class="ttname"><a href="a00613.html#abccbfc4c0255716f52c689b0f7b7cf16">QuasarSDK::OutputRedirectServer::start</a></div><div class="ttdeci">void start(const QString &amp;address) final</div><div class="ttdoc">Запускает сервер перенаправления вывода на указанном адресе.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00037">COutputRedirectServer.c++:37</a></div></div>
+<div class="ttc" id="aa00613_html_ad9f50d5dc30f2e0482b19a5f0eba0e2e"><div class="ttname"><a href="a00613.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e">QuasarSDK::OutputRedirectServer::push</a></div><div class="ttdeci">void push(const QByteArray &amp;data) noexcept</div><div class="ttdoc">Отправляет данные в сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00061">COutputRedirectServer.c++:61</a></div></div>
+<div class="ttc" id="aa00613_html_afccfb74379bac9eb8631f93431cabbf3"><div class="ttname"><a href="a00613.html#afccfb74379bac9eb8631f93431cabbf3">QuasarSDK::OutputRedirectServer::~OutputRedirectServer</a></div><div class="ttdeci">~OutputRedirectServer() override</div><div class="ttdoc">Удаляет объект и закрывает сервер.</div><div class="ttdef"><b>Definition:</b> <a href="a00254_source.html#l00026">COutputRedirectServer.c++:26</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

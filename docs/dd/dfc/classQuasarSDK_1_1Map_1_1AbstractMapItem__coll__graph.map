@@ -1,0 +1,4 @@
+<map id="AbstractMapItem" name="AbstractMapItem">
+<area shape="rect" id="node1" title="Абстрактный класс, реализующий функции интерфейса IMapItem, за исключением масштаба." alt="" coords="5,81,139,109"/>
+<area shape="rect" id="node2" href="$de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,114,33"/>
+</map>

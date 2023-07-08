@@ -6,6 +6,7 @@ var searchData=
   ['imagemetaheader_3',['ImageMetaHeader',['../da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader',1,'Map']]],
   ['imagemodel_4',['ImageModel',['../d4/dfc/classMap_1_1ImageModel.html',1,'Map']]],
   ['imageprocessing_5',['ImageProcessing',['../d4/db0/classProcessing_1_1ImageProcessing.html',1,'Processing']]],
-  ['imessage_6',['IMessage',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html',1,'QuasarSDK::IO']]],
-  ['internalconfig_7',['InternalConfig',['../de/dd8/classConfig_1_1InternalConfig.html',1,'Config']]]
+  ['imapitem_6',['IMapItem',['../de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html',1,'QuasarSDK::Map']]],
+  ['imessage_7',['IMessage',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html',1,'QuasarSDK::IO']]],
+  ['internalconfig_8',['InternalConfig',['../de/dd8/classConfig_1_1InternalConfig.html',1,'Config']]]
 ];

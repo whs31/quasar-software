@@ -1,5 +1,5 @@
 /**
- *  \file SImageDatagrams.h
+ *  \file SImageMetadata.h
  *  \author Дмитрий Рязанцев
  *  \date 08.07.2023
  *  \copyright Radar-MMS 2023
@@ -9,7 +9,7 @@
 
 #include <cstdint>
 
-namespace QuasarSDK::Datagrams
+namespace QuasarSDK::Processing::Datagrams
 {
   /**
     * \brief Заголовок метаданных **телескопического** радиолокационного изображения.
@@ -102,4 +102,4 @@ namespace QuasarSDK::Datagrams
     StripImageChunkNav navigation;
     StripImageChunkFormat format;
   };
-} // QuasarSDK::Datagrams
+} // QuasarSDK::Processing::Datagrams

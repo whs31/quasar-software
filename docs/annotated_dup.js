@@ -62,18 +62,29 @@ var annotated_dup =
         [ "PlannerAppendDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram_dup" ],
         [ "PlannerRemoveDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram_dup" ],
         [ "PlannerResponseDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram_dup" ],
-        [ "StripImageChunkFormat", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d46/structQuasarSDK_1_1Datagrams_1_1StripImageChunkFormat", "da/db8/namespaceQuasarSDK_1_1Datagrams_df/d46/structQuasarSDK_1_1Datagrams_1_1StripImageChunkFormat_dup" ],
-        [ "StripImageChunkHeader", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#db/d84/structQuasarSDK_1_1Datagrams_1_1StripImageChunkHeader", null ],
-        [ "StripImageChunkID", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#dd/dcd/structQuasarSDK_1_1Datagrams_1_1StripImageChunkID", "da/db8/namespaceQuasarSDK_1_1Datagrams_dd/dcd/structQuasarSDK_1_1Datagrams_1_1StripImageChunkID_dup" ],
-        [ "StripImageChunkNav", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#dc/d09/structQuasarSDK_1_1Datagrams_1_1StripImageChunkNav", "da/db8/namespaceQuasarSDK_1_1Datagrams_dc/d09/structQuasarSDK_1_1Datagrams_1_1StripImageChunkNav_dup" ],
         [ "TelemetryDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram_dup" ],
-        [ "TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest_dup" ],
-        [ "TelescopicImageMetadata", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d5/d2a/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadata", "da/db8/namespaceQuasarSDK_1_1Datagrams_d5/d2a/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadata_dup" ],
-        [ "TelescopicImageMetadataID", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#de/dc8/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadataID", "da/db8/namespaceQuasarSDK_1_1Datagrams_de/dc8/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadataID_dup" ]
+        [ "TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest_dup" ]
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
         [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
         [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ]
+      ] ],
+      [ "Map", "d2/d78/namespaceQuasarSDK_1_1Map.html", [
+        [ "AbstractMapItem", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem" ],
+        [ "FGSMapItem", "d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html", "d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem" ],
+        [ "IMapItem", "de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html", "de/dbb/classQuasarSDK_1_1Map_1_1IMapItem" ],
+        [ "ScalableMapItem", "df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html", "df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem" ],
+        [ "ScreenMapItem", "df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html", "df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem" ]
+      ] ],
+      [ "Processing", "d6/d16/namespaceQuasarSDK_1_1Processing.html", [
+        [ "Datagrams", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html", [
+          [ "StripImageChunkFormat", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat_dup" ],
+          [ "StripImageChunkHeader", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader", null ],
+          [ "StripImageChunkID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID_dup" ],
+          [ "StripImageChunkNav", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav_dup" ],
+          [ "TelescopicImageMetadata", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata_dup" ],
+          [ "TelescopicImageMetadataID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID_dup" ]
+        ] ]
       ] ],
       [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
       [ "Config", "da/dff/classQuasarSDK_1_1Config.html", "da/dff/classQuasarSDK_1_1Config" ],

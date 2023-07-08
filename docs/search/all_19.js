@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['_7ebaseudpsocket_0',['~BaseUDPSocket',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a8d9883122ea68f3982da0a6820e31ca5',1,'QuasarSDK::BaseUDPSocket']]],
-  ['_7eoutputredirectserver_1',['~OutputRedirectServer',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#afccfb74379bac9eb8631f93431cabbf3',1,'QuasarSDK::OutputRedirectServer']]],
-  ['_7epingtester_2',['~PingTester',['../d2/d74/classQuasarSDK_1_1PingTester.html#a1536c93dfb1f242946cf133d92df8985',1,'QuasarSDK::PingTester']]]
+  ['zoomlevel_0',['zoomLevel',['../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66',1,'QuasarSDK::Map::FGSMapItem::zoomLevel()'],['../df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66',1,'QuasarSDK::Map::ScalableMapItem::zoomLevel()'],['../df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66',1,'QuasarSDK::Map::ScreenMapItem::zoomLevel()'],['../de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html#a80463f63f8d3b31f942b735a391eb8ba',1,'QuasarSDK::Map::IMapItem::zoomLevel()']]]
 ];

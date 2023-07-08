@@ -1,4 +1,7 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html" title="Интерфейс, описывающий консольное сообщение." alt="" coords="5,5,89,33"/>
-<area shape="rect" id="node2" href="$d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html" title="Класс, реализующий базовое сообщение от РЛС." alt="" coords="137,5,243,33"/>
+<area shape="rect" id="node1" href="$de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="5,57,89,85"/>
+<area shape="rect" id="node2" href="$d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html" title="Абстрактный класс, реализующий функции интерфейса IMapItem, за исключением масштаба." alt="" coords="137,57,270,85"/>
+<area shape="rect" id="node3" href="$d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html" title=" " alt="" coords="333,5,438,33"/>
+<area shape="rect" id="node4" href="$df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html" title=" " alt="" coords="318,57,452,85"/>
+<area shape="rect" id="node5" href="$df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="324,109,447,137"/>
 </map>

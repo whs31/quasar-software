@@ -24,6 +24,7 @@
 #include "CPingTester.h"
 #include "COutputRedirectServer.h"
 
+// This block included only if Qt5/6::Quick linked to project.
 #ifdef QT_QML_LIB
 #include <QtQml/qqml.h>
 #endif

@@ -1,8 +1,8 @@
 var searchData=
 [
   ['addressstring_0',['addressString',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3c07e52a7dd282bbffe449aaca5b4604',1,'QuasarSDK::BaseUDPSocket']]],
-  ['altitude_1',['altitude',['../da/d88/namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'Map::ImageMetadata::altitude()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a2b13d276aee0d9fd646c8fa3647e869b',1,'QuasarSDK::Datagrams::TelemetryDatagram::altitude()']]],
-  ['angle_2',['angle',['../da/d88/namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'Map::ImageMetadata']]],
+  ['altitude_1',['altitude',['../da/d88/namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'Map::ImageMetadata::altitude()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a2b13d276aee0d9fd646c8fa3647e869b',1,'QuasarSDK::Datagrams::TelemetryDatagram::altitude()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'QuasarSDK::Datagrams::TelescopicImageMetadata::altitude()']]],
+  ['angle_2',['angle',['../da/d88/namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'Map::ImageMetadata::angle()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'QuasarSDK::Datagrams::TelescopicImageMetadata::angle()']]],
   ['anglecorrection_3',['angleCorrection',['../d5/dfa/classConfig_1_1Config.html#acc7856ea0497ce886547bd19075f4bcb',1,'Config::Config']]],
   ['antennaalignment_4',['antennaAlignment',['../d5/dfa/classConfig_1_1Config.html#a66213c53fe947a7a4757bcc2b7d7fbb3',1,'Config::Config']]],
   ['argument_5',['argument',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#af3543a6879806206a3ec067d1c712cfa',1,'QuasarSDK::QuasarAPI']]],

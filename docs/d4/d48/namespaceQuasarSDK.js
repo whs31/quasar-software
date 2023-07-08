@@ -1,6 +1,7 @@
 var namespaceQuasarSDK =
 [
     [ "Datagrams", "da/db8/namespaceQuasarSDK_1_1Datagrams.html", "da/db8/namespaceQuasarSDK_1_1Datagrams" ],
+    [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", "d7/daf/namespaceQuasarSDK_1_1IO" ],
     [ "Utils", "d4/d19/namespaceQuasarSDK_1_1Utils.html", [
       [ "log", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a3877486db4acc07f2a3d9e980d9866a5", null ],
       [ "deg2rad", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a06edcf94eff0754b506f72abfa78e29f", null ],

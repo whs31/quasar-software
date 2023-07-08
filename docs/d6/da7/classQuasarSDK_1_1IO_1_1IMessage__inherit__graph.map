@@ -1,0 +1,4 @@
+<map id="IMessage" name="IMessage">
+<area shape="rect" id="node1" title="Интерфейс, описывающий консольное сообщение." alt="" coords="17,5,100,33"/>
+<area shape="rect" id="node2" href="$d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html" title="Класс, реализующий базовое сообщение от РЛС." alt="" coords="5,81,112,109"/>
+</map>

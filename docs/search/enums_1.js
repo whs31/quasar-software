@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['networkcommand_0',['NetworkCommand',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e',1,'QuasarSDK::Enums']]]
+  ['messagetype_0',['MessageType',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013',1,'QuasarSDK::IO::IMessage']]]
 ];

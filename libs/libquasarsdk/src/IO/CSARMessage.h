@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <utility>
+
 #include "IO/IMessage.h"
 
 namespace QuasarSDK::IO
@@ -16,7 +18,7 @@ namespace QuasarSDK::IO
   {
     public:
       explicit SARMessage();
-      explicit SARMessage(const QString& msg, MessageType t = MessageType::Debug);
+      explicit SARMessage(QString  msg, MessageType t = MessageType::Debug);
 
       [[nodiscard]] QString message() const override;
       void setMessage(const QString& msg) override;
@@ -42,8 +44,8 @@ namespace QuasarSDK::IO
    * \param msg - содержимое сообщения.
    * \param t - тип сообщения.
    */
-  inline SARMessage::SARMessage(const QString& msg, IMessage::MessageType t)
-    : m_message(msg)
+  inline SARMessage::SARMessage(QString msg, IMessage::MessageType t)
+    : m_message(std::move(msg))
     , m_type(t)
   {}
 

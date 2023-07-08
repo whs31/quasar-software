@@ -1,4 +1,4 @@
-![](doc/logo_header.svg)
+![](docs/images/logo_header.svg)
 
 ## Графический интерфейс для РЛС "Квазар"
 

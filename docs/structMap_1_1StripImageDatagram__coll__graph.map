@@ -1,6 +1,0 @@
-<map id="StripImageDatagram" name="StripImageDatagram">
-<area shape="rect" id="node1" title=" " alt="" coords="203,98,360,126"/>
-<area shape="rect" id="node2" href="$namespaceMap.html#structMap_1_1StripHeaderMetadata" title="Заголовок пакета полосового РЛИ." alt="" coords="5,5,166,33"/>
-<area shape="rect" id="node3" href="$namespaceMap.html#structMap_1_1StripNavigationMetadata" title="Навигационные данные пакета полосового РЛИ." alt="" coords="189,5,374,33"/>
-<area shape="rect" id="node4" href="$namespaceMap.html#structMap_1_1StripFormatMetadata" title="Данные форматирования пакета полосового РЛИ." alt="" coords="398,5,557,33"/>
-</map>

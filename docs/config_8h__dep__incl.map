@@ -1,9 +1,0 @@
-<map id="config.h" name="config.h">
-<area shape="rect" id="node1" title=" " alt="" coords="380,5,452,33"/>
-<area shape="rect" id="node2" href="$colortheme_8c_09_09_source.html" title=" " alt="" coords="5,81,134,109"/>
-<area shape="rect" id="node3" href="$config_8c_09_09_source.html" title=" " alt="" coords="158,81,251,109"/>
-<area shape="rect" id="node4" href="$debugconsole_8c_09_09_source.html" title=" " alt="" coords="275,81,419,109"/>
-<area shape="rect" id="node5" href="$entry_8c_09_09_source.html" title=" " alt="" coords="444,81,530,109"/>
-<area shape="rect" id="node6" href="$filesystem_8c_09_09_source.html" title=" " alt="" coords="554,81,676,109"/>
-<area shape="rect" id="node7" href="$imageprocessing_8c_09_09_source.html" title=" " alt="" coords="700,81,866,109"/>
-</map>

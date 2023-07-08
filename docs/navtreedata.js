@@ -25,19 +25,19 @@
 var NAVTREE =
 [
   [ "QuaSAR", "index.html", [
-    [ "Документация по сервису execd", "a00722.html", [
-      [ "Принятые выражения", "a00722.html#EXECD_DOCUMENTATION_LEGEND", null ],
-      [ "Формирование запроса", "a00722.html#EXECD_DOCUMENTATION_FORMING", null ],
-      [ "Специальные команды", "a00722.html#EXECD_DOCUMENTATION_SPECIAL_COMMANDS", null ],
-      [ "Создание динамических очередей", "a00722.html#EXECD_DOCUMENTATION_DYNAMIC_QUEUES", null ],
-      [ "Ответ сервиса", "a00722.html#EXECD_DOCUMENTATION_RESPONSE", null ],
-      [ "Контрольная сумма", "a00722.html#EXECD_DOCUMENTATION_CHECKSUM", null ],
-      [ "Настройки", "a00722.html#EXECD_DOCUMENTATION_SETTINGS", null ],
-      [ "Сборка", "a00722.html#EXECD_DOCUMENTATION_BUILD", null ],
-      [ "Правила оформления скриптов", "a00722.html#EXECD_DOCUMENTATION_RULES", null ]
+    [ "Документация по сервису execd", "EXECD_DOCUMENTATION.html", [
+      [ "Принятые выражения", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_LEGEND", null ],
+      [ "Формирование запроса", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_FORMING", null ],
+      [ "Специальные команды", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_SPECIAL_COMMANDS", null ],
+      [ "Создание динамических очередей", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_DYNAMIC_QUEUES", null ],
+      [ "Ответ сервиса", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_RESPONSE", null ],
+      [ "Контрольная сумма", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_CHECKSUM", null ],
+      [ "Настройки", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_SETTINGS", null ],
+      [ "Сборка", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_BUILD", null ],
+      [ "Правила оформления скриптов", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_RULES", null ]
     ] ],
-    [ "Список устаревших определений и описаний", "a00350.html", null ],
-    [ "Список задач", "a00351.html", null ],
+    [ "Список устаревших определений и описаний", "deprecated.html", null ],
+    [ "Список задач", "todo.html", null ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
       [ "Члены пространств имен", "namespacemembers.html", [
@@ -70,10 +70,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"a00002_source.html",
-"a00369.html#a0ea604dd26c415c8f380323b91bdba56",
-"a00589.html#aa28fa3e334a61f326e74a170334fce3b",
-"a00645.html"
+"CBaseUDPSocket_8c_09_09_source.html",
+"classQuasarSDK_1_1BaseUDPSocket.html#a3c07e52a7dd282bbffe449aaca5b4604",
+"classQuasarSDK_1_1TCPServer.html#add3dd658f58b302a080d9d8d6e57812b",
+"namespaceQuasarSDK_1_1Datagrams.html#ac155e35fdeebafc89723a51520fb9fe6"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

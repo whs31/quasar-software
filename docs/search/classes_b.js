@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['networkconfig_0',['NetworkConfig',['../a00385.html',1,'Config']]]
+  ['networkconfig_0',['NetworkConfig',['../classConfig_1_1NetworkConfig.html',1,'Config']]]
 ];

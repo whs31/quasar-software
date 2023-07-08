@@ -1,106 +1,106 @@
 var annotated_dup =
 [
     [ "Application", null, [
-      [ "UpdateManager", "a00373.html", null ]
+      [ "UpdateManager", "classApplication_1_1UpdateManager.html", null ]
     ] ],
-    [ "Config", "a00353.html", [
+    [ "Config", "namespaceConfig.html", [
       [ "internal", null, [
-        [ "SettingsWrapper", "a00393.html", null ]
+        [ "SettingsWrapper", "classConfig_1_1internal_1_1SettingsWrapper.html", null ]
       ] ],
-      [ "Config", "a00377.html", "a00377" ],
-      [ "InternalConfig", "a00381.html", "a00381" ],
-      [ "NetworkConfig", "a00385.html", null ],
-      [ "Paths", "a00389.html", "a00389" ],
-      [ "Settings", "a00397.html", null ]
+      [ "Config", "classConfig_1_1Config.html", "classConfig_1_1Config" ],
+      [ "InternalConfig", "classConfig_1_1InternalConfig.html", "classConfig_1_1InternalConfig" ],
+      [ "NetworkConfig", "classConfig_1_1NetworkConfig.html", null ],
+      [ "Paths", "classConfig_1_1Paths.html", "classConfig_1_1Paths" ],
+      [ "Settings", "classConfig_1_1Settings.html", null ]
     ] ],
     [ "GUI", null, [
       [ "internal", null, [
-        [ "ColorThemeWrapper", "a00409.html", null ]
+        [ "ColorThemeWrapper", "classGUI_1_1internal_1_1ColorThemeWrapper.html", null ]
       ] ],
-      [ "ColorTheme", "a00413.html", null ],
-      [ "DebugConsole", "a00417.html", null ],
-      [ "TerminalBase", "a00421.html", "a00421" ],
-      [ "VT100Terminal", "a00429.html", "a00429" ],
-      [ "WarningsModel", "a00437.html", "a00437" ]
+      [ "ColorTheme", "classGUI_1_1ColorTheme.html", null ],
+      [ "DebugConsole", "classGUI_1_1DebugConsole.html", null ],
+      [ "TerminalBase", "classGUI_1_1TerminalBase.html", "classGUI_1_1TerminalBase" ],
+      [ "VT100Terminal", "classGUI_1_1VT100Terminal.html", "classGUI_1_1VT100Terminal" ],
+      [ "WarningsModel", "classGUI_1_1WarningsModel.html", "classGUI_1_1WarningsModel" ]
     ] ],
-    [ "Map", "a00359.html", [
-      [ "ClickHandler", "a00445.html", null ],
-      [ "Diagram", "a00449.html", null ],
-      [ "Image", "a00453.html", null ],
-      [ "ImageMetadata", "a00359.html#a00473", "a00359_a00473_dup" ],
-      [ "ImageMetaHeader", "a00359.html#a00469", "a00359_a00469_dup" ],
-      [ "ImageModel", "a00497.html", null ],
-      [ "Marker", "a00489.html", null ],
-      [ "MarkerModel", "a00501.html", null ],
-      [ "OfflineTileLoader", "a00525.html", "a00525" ],
-      [ "PlannerPoint", "a00493.html", null ],
-      [ "Route", "a00517.html", null ],
-      [ "RouteLogger", "a00533.html", null ],
-      [ "Ruler", "a00521.html", null ],
-      [ "StripFormatMetadata", "a00359.html#a00485", "a00359_a00485_dup" ],
-      [ "StripHeaderMetadata", "a00359.html#a00477", "a00359_a00477_dup" ],
-      [ "StripImage", "a00461.html", null ],
-      [ "StripImageDatagram", "a00359.html#a00465", null ],
-      [ "StripModel", "a00505.html", null ],
-      [ "StripNavigationMetadata", "a00359.html#a00481", "a00359_a00481_dup" ],
-      [ "TelescopicImage", "a00457.html", null ],
-      [ "TrackEventModel", "a00509.html", "a00509" ]
+    [ "Map", "namespaceMap.html", [
+      [ "ClickHandler", "classMap_1_1ClickHandler.html", null ],
+      [ "Diagram", "classMap_1_1Diagram.html", null ],
+      [ "Image", "structMap_1_1Image.html", null ],
+      [ "ImageMetadata", "namespaceMap.html#structMap_1_1ImageMetadata", "namespaceMap_structMap_1_1ImageMetadata_dup" ],
+      [ "ImageMetaHeader", "namespaceMap.html#structMap_1_1ImageMetaHeader", "namespaceMap_structMap_1_1ImageMetaHeader_dup" ],
+      [ "ImageModel", "classMap_1_1ImageModel.html", null ],
+      [ "Marker", "structMap_1_1Marker.html", null ],
+      [ "MarkerModel", "classMap_1_1MarkerModel.html", null ],
+      [ "OfflineTileLoader", "classMap_1_1OfflineTileLoader.html", "classMap_1_1OfflineTileLoader" ],
+      [ "PlannerPoint", "structMap_1_1PlannerPoint.html", null ],
+      [ "Route", "classMap_1_1Route.html", null ],
+      [ "RouteLogger", "classMap_1_1RouteLogger.html", null ],
+      [ "Ruler", "classMap_1_1Ruler.html", null ],
+      [ "StripFormatMetadata", "namespaceMap.html#structMap_1_1StripFormatMetadata", "namespaceMap_structMap_1_1StripFormatMetadata_dup" ],
+      [ "StripHeaderMetadata", "namespaceMap.html#structMap_1_1StripHeaderMetadata", "namespaceMap_structMap_1_1StripHeaderMetadata_dup" ],
+      [ "StripImage", "structMap_1_1StripImage.html", null ],
+      [ "StripImageDatagram", "namespaceMap.html#structMap_1_1StripImageDatagram", null ],
+      [ "StripModel", "classMap_1_1StripModel.html", null ],
+      [ "StripNavigationMetadata", "namespaceMap.html#structMap_1_1StripNavigationMetadata", "namespaceMap_structMap_1_1StripNavigationMetadata_dup" ],
+      [ "TelescopicImage", "structMap_1_1TelescopicImage.html", null ],
+      [ "TrackEventModel", "classMap_1_1TrackEventModel.html", "classMap_1_1TrackEventModel" ]
     ] ],
     [ "Networking", null, [
-      [ "HTTPDownloader", "a00537.html", "a00537" ]
+      [ "HTTPDownloader", "classNetworking_1_1HTTPDownloader.html", "classNetworking_1_1HTTPDownloader" ]
     ] ],
-    [ "OS", "a00356.html", [
-      [ "Filesystem", "a00405.html", "a00405" ]
+    [ "OS", "namespaceOS.html", [
+      [ "Filesystem", "classOS_1_1Filesystem.html", "classOS_1_1Filesystem" ]
     ] ],
-    [ "Processing", "a00360.html", [
-      [ "ArrayReader", "a00541.html", "a00541" ],
-      [ "ImageProcessing", "a00545.html", null ],
-      [ "StreamProcessing", "a00549.html", null ]
+    [ "Processing", "namespaceProcessing.html", [
+      [ "ArrayReader", "classProcessing_1_1ArrayReader.html", "classProcessing_1_1ArrayReader" ],
+      [ "ImageProcessing", "classProcessing_1_1ImageProcessing.html", null ],
+      [ "StreamProcessing", "classProcessing_1_1StreamProcessing.html", null ]
     ] ],
-    [ "QuasarSDK", "a00367.html", [
-      [ "Datagrams", "a00369.html", [
-        [ "PlannerAppendDatagram", "a00369.html#a00657", "a00369_a00657_dup" ],
-        [ "PlannerRemoveDatagram", "a00369.html#a00661", "a00369_a00661_dup" ],
-        [ "PlannerResponseDatagram", "a00369.html#a00665", "a00369_a00665_dup" ],
-        [ "TelemetryDatagram", "a00369.html#a00669", "a00369_a00669_dup" ],
-        [ "TelemetryRequest", "a00369.html#a00673", "a00369_a00673_dup" ]
+    [ "QuasarSDK", "namespaceQuasarSDK.html", [
+      [ "Datagrams", "namespaceQuasarSDK_1_1Datagrams.html", [
+        [ "PlannerAppendDatagram", "namespaceQuasarSDK_1_1Datagrams.html#structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", "namespaceQuasarSDK_1_1Datagrams_structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram_dup" ],
+        [ "PlannerRemoveDatagram", "namespaceQuasarSDK_1_1Datagrams.html#structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", "namespaceQuasarSDK_1_1Datagrams_structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram_dup" ],
+        [ "PlannerResponseDatagram", "namespaceQuasarSDK_1_1Datagrams.html#structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", "namespaceQuasarSDK_1_1Datagrams_structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram_dup" ],
+        [ "TelemetryDatagram", "namespaceQuasarSDK_1_1Datagrams.html#structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram", "namespaceQuasarSDK_1_1Datagrams_structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram_dup" ],
+        [ "TelemetryRequest", "namespaceQuasarSDK_1_1Datagrams.html#structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "namespaceQuasarSDK_1_1Datagrams_structQuasarSDK_1_1Datagrams_1_1TelemetryRequest_dup" ]
       ] ],
-      [ "BaseUDPSocket", "a00589.html", "a00589" ],
-      [ "Config", "a00593.html", "a00593" ],
-      [ "Enums", "a00597.html", "a00597" ],
-      [ "ExecdArgument", "a00601.html", "a00601" ],
-      [ "ExecdArgumentParser", "a00605.html", "a00605" ],
-      [ "ExecdSocket", "a00609.html", "a00609" ],
-      [ "IConnectable", "a00653.html", "a00653" ],
-      [ "OutputRedirectServer", "a00613.html", "a00613" ],
-      [ "OutputSocket", "a00617.html", "a00617" ],
-      [ "PingTester", "a00621.html", "a00621" ],
-      [ "QuasarAPI", "a00625.html", "a00625" ],
-      [ "RemoteData", "a00629.html", "a00629" ],
-      [ "SeamlessUDPSocket", "a00633.html", "a00633" ],
-      [ "StripSocket", "a00637.html", "a00637" ],
-      [ "TCPServer", "a00641.html", "a00641" ],
-      [ "Telemetry", "a00645.html", "a00645" ],
-      [ "TelemetrySocket", "a00649.html", "a00649" ]
+      [ "BaseUDPSocket", "classQuasarSDK_1_1BaseUDPSocket.html", "classQuasarSDK_1_1BaseUDPSocket" ],
+      [ "Config", "classQuasarSDK_1_1Config.html", "classQuasarSDK_1_1Config" ],
+      [ "Enums", "classQuasarSDK_1_1Enums.html", "classQuasarSDK_1_1Enums" ],
+      [ "ExecdArgument", "structQuasarSDK_1_1ExecdArgument.html", "structQuasarSDK_1_1ExecdArgument" ],
+      [ "ExecdArgumentParser", "classQuasarSDK_1_1ExecdArgumentParser.html", "classQuasarSDK_1_1ExecdArgumentParser" ],
+      [ "ExecdSocket", "classQuasarSDK_1_1ExecdSocket.html", "classQuasarSDK_1_1ExecdSocket" ],
+      [ "IConnectable", "classQuasarSDK_1_1IConnectable.html", "classQuasarSDK_1_1IConnectable" ],
+      [ "OutputRedirectServer", "classQuasarSDK_1_1OutputRedirectServer.html", "classQuasarSDK_1_1OutputRedirectServer" ],
+      [ "OutputSocket", "classQuasarSDK_1_1OutputSocket.html", "classQuasarSDK_1_1OutputSocket" ],
+      [ "PingTester", "classQuasarSDK_1_1PingTester.html", "classQuasarSDK_1_1PingTester" ],
+      [ "QuasarAPI", "classQuasarSDK_1_1QuasarAPI.html", "classQuasarSDK_1_1QuasarAPI" ],
+      [ "RemoteData", "classQuasarSDK_1_1RemoteData.html", "classQuasarSDK_1_1RemoteData" ],
+      [ "SeamlessUDPSocket", "classQuasarSDK_1_1SeamlessUDPSocket.html", "classQuasarSDK_1_1SeamlessUDPSocket" ],
+      [ "StripSocket", "classQuasarSDK_1_1StripSocket.html", "classQuasarSDK_1_1StripSocket" ],
+      [ "TCPServer", "classQuasarSDK_1_1TCPServer.html", "classQuasarSDK_1_1TCPServer" ],
+      [ "Telemetry", "classQuasarSDK_1_1Telemetry.html", "classQuasarSDK_1_1Telemetry" ],
+      [ "TelemetrySocket", "classQuasarSDK_1_1TelemetrySocket.html", "classQuasarSDK_1_1TelemetrySocket" ]
     ] ],
     [ "SDK", null, [
       [ "Cartography", null, [
-        [ "Orthodrom", "a00553.html", null ]
+        [ "Orthodrom", "classSDK_1_1Cartography_1_1Orthodrom.html", null ]
       ] ],
       [ "Gizmos", null, [
-        [ "Gizmos", "a00557.html", null ]
+        [ "Gizmos", "classSDK_1_1Gizmos_1_1Gizmos.html", null ]
       ] ],
       [ "Quick", null, [
-        [ "ChartBase", "a00561.html", null ],
-        [ "LinePlot", "a00565.html", null ],
-        [ "MatrixPlot", "a00569.html", null ],
-        [ "RealtimeLinePlot", "a00573.html", null ]
+        [ "ChartBase", "classSDK_1_1Quick_1_1ChartBase.html", null ],
+        [ "LinePlot", "classSDK_1_1Quick_1_1LinePlot.html", null ],
+        [ "MatrixPlot", "classSDK_1_1Quick_1_1MatrixPlot.html", null ],
+        [ "RealtimeLinePlot", "classSDK_1_1Quick_1_1RealtimeLinePlot.html", null ]
       ] ],
       [ "Scenegraph", null, [
-        [ "Vertex", "a00577.html", null ],
-        [ "VertexC", "a00585.html", null ],
-        [ "VertexT", "a00581.html", null ]
+        [ "Vertex", "structSDK_1_1Scenegraph_1_1Vertex.html", null ],
+        [ "VertexC", "structSDK_1_1Scenegraph_1_1VertexC.html", null ],
+        [ "VertexT", "structSDK_1_1Scenegraph_1_1VertexT.html", null ]
       ] ]
     ] ],
-    [ "Entry", "a00401.html", null ]
+    [ "Entry", "classEntry.html", null ]
 ];

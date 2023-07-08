@@ -1,0 +1,6 @@
+<map id="TelescopicImage" name="TelescopicImage">
+<area shape="rect" id="node1" title=" " alt="" coords="99,98,228,126"/>
+<area shape="rect" id="node2" href="$structMap_1_1Image.html" title=" " alt="" coords="5,5,68,33"/>
+<area shape="rect" id="node3" href="$namespaceMap.html#structMap_1_1ImageMetaHeader" title="Заголовок метаданных телескопического РЛИ." alt="" coords="92,5,234,33"/>
+<area shape="rect" id="node4" href="$namespaceMap.html#structMap_1_1ImageMetadata" title="Тело метаданных телескопического РЛИ." alt="" coords="258,5,383,33"/>
+</map>

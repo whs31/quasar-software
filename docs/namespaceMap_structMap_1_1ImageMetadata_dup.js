@@ -1,0 +1,26 @@
+var namespaceMap_structMap_1_1ImageMetadata_dup =
+[
+    [ "latitude", "namespaceMap.html#a76714bdbc5c536fa77dfb14533ff82a9", null ],
+    [ "longitude", "namespaceMap.html#ac155e35fdeebafc89723a51520fb9fe6", null ],
+    [ "dx", "namespaceMap.html#a9eae6c1f38db98ab568f3ed3771a969d", null ],
+    [ "dy", "namespaceMap.html#a8f461b6142ce8725218813abb23b06a3", null ],
+    [ "x0", "namespaceMap.html#a3c9556645d92e863376a4063a3ad7001", null ],
+    [ "y0", "namespaceMap.html#adf19b8ba42d497d3093c3a51b1a32cca", null ],
+    [ "angle", "namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76", null ],
+    [ "drift_angle", "namespaceMap.html#ab7a39bf91ada4d262ab661e533d05d13", null ],
+    [ "lx", "namespaceMap.html#afb7c4aa8c0b809f0f76628dbb5b6d62b", null ],
+    [ "ly", "namespaceMap.html#aaf431a94974e843174300e4c0fa47fbd", null ],
+    [ "div", "namespaceMap.html#af5070800ff7c2c630ebbf27bc2a99b49", null ],
+    [ "velocity", "namespaceMap.html#ac46e821ae08930cc9e257642e34275a3", null ],
+    [ "altitude", "namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6", null ],
+    [ "kr", "namespaceMap.html#a969c435ef4ca6cab2727eac4b439680d", null ],
+    [ "time_shift", "namespaceMap.html#aa7259eb42e936d73efb4c5b67d6f81b8", null ],
+    [ "time_duration", "namespaceMap.html#a720521ce5fb5d649ab31a92d2cfe7ae2", null ],
+    [ "reserved_1", "namespaceMap.html#acc7aaef71dceccbb72e185405cf5a88e", null ],
+    [ "reserved_2", "namespaceMap.html#abc8e5842a5c8f75c0660de3973c95d41", null ],
+    [ "mode", "namespaceMap.html#a37e90f5e3bd99fac2021fb3a326607d4", null ],
+    [ "image_type", "namespaceMap.html#a288f27498ba3215d3ef6de973806695e", null ],
+    [ "reserved_3", "namespaceMap.html#af8407645db2d0329264f3c6d0cbd6dd1", null ],
+    [ "reserved_4", "namespaceMap.html#aaf2eb7a7615ec891d7e5a9d49d433f37", null ],
+    [ "crc16", "namespaceMap.html#a4438e0df9f58b1861feb3fc659f52534", null ]
+];

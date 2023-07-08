@@ -7,4 +7,7 @@
   *
   * \namespace QuasarSDK::Datagrams
   * \brief Пространство имен для структур датаграмм.
+  *
+  * \namespace QuasarSDK::IO
+  * \brief Пространство имен для функций и классов, связанных с вводом и выводом РЛС.
   */

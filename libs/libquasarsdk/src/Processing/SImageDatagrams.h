@@ -70,8 +70,8 @@ namespace QuasarSDK::Datagrams
     float pitch = 0;                        ///< Тангаж в градусах.
     float roll = 0;                         ///< Крен в градусах.
     float elevation = 0;                    ///< Высота БПЛА в метрах.
-    double latitude = 0;                    ///< Широта в градусах в проекции WGS-84.
-    double longitude = 0;                   ///< Долгота в градусах в проекции WGS-84.
+    double latitude = 0;                    ///< Широта в радианах в проекции WGS-84.
+    double longitude = 0;                   ///< Долгота в радианах в проекции WGS-84.
     float velocity = 0;                     ///< Скорость БПЛА в м/с.
     float course = 0;                       ///< Курс БПЛА в градусах.
     float track_ang = 0;                    ///< Сумма курса БПЛА и угла сноса (в градусах).

@@ -1,5 +1,5 @@
 /**
-  * \page EXECD_DOCUMENTATION Документация по сервису execd
+  * \page execd_manual Документация по сервису execd
   * \tableofcontents
   * Сервис выполняет роль планировщика задач.
   * Обеспечивает следующий функционал:

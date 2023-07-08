@@ -25,19 +25,32 @@
 var NAVTREE =
 [
   [ "QuaSAR", "index.html", [
-    [ "Документация по сервису execd", "EXECD_DOCUMENTATION.html", [
-      [ "Принятые выражения", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_LEGEND", null ],
-      [ "Формирование запроса", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_FORMING", null ],
-      [ "Специальные команды", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_SPECIAL_COMMANDS", null ],
-      [ "Создание динамических очередей", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_DYNAMIC_QUEUES", null ],
-      [ "Ответ сервиса", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_RESPONSE", null ],
-      [ "Контрольная сумма", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_CHECKSUM", null ],
-      [ "Настройки", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_SETTINGS", null ],
-      [ "Сборка", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_BUILD", null ],
-      [ "Правила оформления скриптов", "EXECD_DOCUMENTATION.html#EXECD_DOCUMENTATION_RULES", null ]
+    [ "Документация", "index.html#docs", [
+      [ "Для пользователя", "index.html#essentials", null ],
+      [ "Для разработчика", "index.html#for_developer", null ],
+      [ "Для участника проекта", "index.html#for_maintainer", null ]
     ] ],
-    [ "Список устаревших определений и описаний", "deprecated.html", null ],
-    [ "Список задач", "todo.html", null ],
+    [ "О проекте", "index.html#about", [
+      [ "Используемые технологии", "index.html#stack", null ],
+      [ "Поддержка операционных систем", "index.html#os_support", null ],
+      [ "Стек", "index.html#stack_sub", [
+        [ "Языки", "index.html#langs", null ],
+        [ "Библиотеки", "index.html#libraries", null ]
+      ] ]
+    ] ],
+    [ "Документация по сервису execd", "dd/d88/execd_manual.html", [
+      [ "Принятые выражения", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_LEGEND", null ],
+      [ "Формирование запроса", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_FORMING", null ],
+      [ "Специальные команды", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_SPECIAL_COMMANDS", null ],
+      [ "Создание динамических очередей", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_DYNAMIC_QUEUES", null ],
+      [ "Ответ сервиса", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_RESPONSE", null ],
+      [ "Контрольная сумма", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_CHECKSUM", null ],
+      [ "Настройки", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_SETTINGS", null ],
+      [ "Сборка", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_BUILD", null ],
+      [ "Правила оформления скриптов", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_RULES", null ]
+    ] ],
+    [ "Список устаревших определений и описаний", "da/d58/deprecated.html", null ],
+    [ "Список задач", "dd/da0/todo.html", null ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
       [ "Члены пространств имен", "namespacemembers.html", [
@@ -70,10 +83,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"CBaseUDPSocket_8c_09_09_source.html",
-"classQuasarSDK_1_1BaseUDPSocket.html#a3c07e52a7dd282bbffe449aaca5b4604",
-"classQuasarSDK_1_1TCPServer.html#add3dd658f58b302a080d9d8d6e57812b",
-"namespaceQuasarSDK_1_1Datagrams.html#ac155e35fdeebafc89723a51520fb9fe6"
+"annotated.html",
+"d5/dfa/classConfig_1_1Config.html#a8af317d04dbe29e8f495cd928c0f30cb",
+"da/d88/namespaceMap.html#a9eae6c1f38db98ab568f3ed3771a969d",
+"de/d69/classOS_1_1Filesystem.html#a5d4d76eadea546e4017593a46362f383"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

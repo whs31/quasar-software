@@ -9,7 +9,7 @@ var indexSectionsWithContent =
   6: "anp",
   7: "cdfiprst",
   8: "acdefijlnoprstuv",
-  9: "дс"
+  9: "qдс"
 };
 
 var indexSectionNames =

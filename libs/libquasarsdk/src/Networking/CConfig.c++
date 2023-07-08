@@ -1,9 +1,10 @@
-/** \class CConfig CConfig.h <QuasarSDK/Networking/CConfig.h>
-  * \brief Класс, отвечающий за индивидуальные настройки библиотеки во времени выполнения.
-  * \details Предоставляет функционал чтения и записи \c .json файла с настройками,
+/** \class QuasarSDK::Config CConfig.h <QuasarSDK/Networking/CConfig.h>
+  * \tableofcontents
+  * \brief Синглтон, отвечающий за индивидуальные настройки библиотеки во времени выполнения.
+  * \details Предоставляет функционал чтения и записи <tt>.json</tt> файла с настройками,
   * связанными с обработкой изображений и сетевой частью комплекта разработчика РЛС "Квазар".
   *
-  * Настройки сохраняются по пути: <tt>./config/sdk-config.json"</tt>.
+  * Настройки сохраняются по пути: <tt>./config/sdk-config.json</tt>.
   * Если файл с настройками не существует, то будет создан новый файл, который
   * будет содержать настройки по умолчанию.
   *
@@ -52,6 +53,10 @@ inline void initialize_qrc_file_within_namespace() { Q_INIT_RESOURCE(quasarsdk);
 
 namespace QuasarSDK
 {
+  /**
+   * \brief Возвращает указатель на уникальный объект класса.
+   * \return Указатель на объект.
+   */
   Config* Config::get() { static Config instance; return &instance; }
 
   Config::Config()

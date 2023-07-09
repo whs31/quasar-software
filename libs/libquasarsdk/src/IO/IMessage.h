@@ -58,3 +58,6 @@ namespace QuasarSDK::IO
       virtual void setType(MessageType t) = 0;                ///< Задает тип сообщения.
   };
 } // QuasarSDK::IO
+
+#include <QtCore/QMetaType>
+Q_DECLARE_METATYPE(QuasarSDK::IO::IMessage::MessageType)

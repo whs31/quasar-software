@@ -13,7 +13,7 @@
 namespace QuasarSDK::Map
 {
   /// \brief Базовый класс для объектов карты, привязанных по размеру к экрану.
-  class ScreenMapObject : public AbstractMapItem
+  class ScreenMapObject : public AbstractMapObject
   {
     public:
       ScreenMapObject();
@@ -39,7 +39,7 @@ namespace QuasarSDK::Map
    * \details По умолчанию объект будет расположен в координате <tt>0, 0</tt>.
    */
   ScreenMapObject::ScreenMapObject()
-    : AbstractMapItem()
+    : AbstractMapObject()
   {}
 
   /**
@@ -50,7 +50,7 @@ namespace QuasarSDK::Map
    * \param visibility - видимость объекта. По умолчанию: <tt>true</tt>.
    */
   ScreenMapObject::ScreenMapObject(const QGeoCoordinate& coord, const QPointF& origin_point, float opacity_level, bool visibility)
-      : AbstractMapItem(coord, origin_point, opacity_level, visibility)
+      : AbstractMapObject(coord, origin_point, opacity_level, visibility)
   {}
 } // QuasarSDK::Map
 

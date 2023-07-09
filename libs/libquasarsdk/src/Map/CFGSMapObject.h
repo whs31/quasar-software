@@ -11,7 +11,7 @@
 
 namespace QuasarSDK::Map
 {
-  class FGSMapObject : public AbstractMapItem
+  class FGSMapObject : public AbstractMapObject
   {
     public:
       // ctors

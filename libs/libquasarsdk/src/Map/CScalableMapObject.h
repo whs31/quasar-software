@@ -11,7 +11,7 @@
 
 namespace QuasarSDK::Map
 {
-  class ScalableMapObject : public AbstractMapItem
+  class ScalableMapObject : public AbstractMapObject
   {
     public:
       [[nodiscard]] float zoomLevel() const final;

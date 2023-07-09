@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['abstractmapitem_0',['AbstractMapItem',['../d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html',1,'QuasarSDK::Map']]],
+  ['abstractmapobject_0',['AbstractMapObject',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html',1,'QuasarSDK::Map']]],
   ['addressstring_1',['addressString',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3c07e52a7dd282bbffe449aaca5b4604',1,'QuasarSDK::BaseUDPSocket']]],
   ['altitude_2',['altitude',['../da/d88/namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'Map::ImageMetadata::altitude()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a2b13d276aee0d9fd646c8fa3647e869b',1,'QuasarSDK::Datagrams::TelemetryDatagram::altitude()'],['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::altitude()']]],
   ['angle_3',['angle',['../da/d88/namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'Map::ImageMetadata::angle()'],['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::angle()']]],

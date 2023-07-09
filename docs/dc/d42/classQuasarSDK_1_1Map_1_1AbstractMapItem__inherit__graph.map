@@ -1,4 +1,4 @@
-<map id="AbstractMapItem" name="AbstractMapItem">
+<map id="AbstractMapObject" name="AbstractMapObject">
 <area shape="rect" id="node1" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="153,81,287,109"/>
 <area shape="rect" id="node3" href="$d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title=" " alt="" coords="5,157,123,184"/>
 <area shape="rect" id="node4" href="$db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html" title=" " alt="" coords="147,157,293,184"/>

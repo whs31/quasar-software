@@ -70,7 +70,7 @@ var annotated_dup =
         [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ]
       ] ],
       [ "Map", "d2/d78/namespaceQuasarSDK_1_1Map.html", [
-        [ "AbstractMapItem", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem" ],
+        [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject" ],
         [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" ],
         [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject" ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject" ],

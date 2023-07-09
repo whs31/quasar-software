@@ -26,7 +26,7 @@ var hierarchy =
     [ "ImageMetadata", "da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata", null ],
     [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", null ],
     [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", [
-      [ "AbstractMapItem", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html", [
+      [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", [
         [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", null ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", null ],
         [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", null ]

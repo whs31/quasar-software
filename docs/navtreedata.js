@@ -85,8 +85,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html#ace89a2cc71822178a93e08698abda3b8",
-"d8/d9a/classMap_1_1Route.html",
-"db/d03/classQuasarSDK_1_1Telemetry.html#a4d90ddb43bcba374ebe4e8738faafed1",
+"d9/d23/SImageMetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384",
+"db/d23/CStripSocket_8h_source.html",
 "df/d88/CBaseUDPSocket_8h_source.html"
 ];
 

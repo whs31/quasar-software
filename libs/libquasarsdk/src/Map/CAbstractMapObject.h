@@ -14,7 +14,7 @@ namespace QuasarSDK::Map
     /**
      * \brief Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба.
      */
-    class AbstractMapItem : public IMapObject
+    class AbstractMapObject : public IMapObject
     {
       public:
         [[nodiscard]] QGeoCoordinate coordinate() const final;
@@ -32,9 +32,9 @@ namespace QuasarSDK::Map
         void setVisible(bool state) final;
 
       protected:
-        AbstractMapItem();
-        explicit AbstractMapItem(const QGeoCoordinate& coord, const QPointF& origin_point = {0, 0},
-                         float opacity_value = 1, bool visibility = true);
+        AbstractMapObject();
+        explicit AbstractMapObject(const QGeoCoordinate& coord, const QPointF& origin_point = {0, 0},
+                                   float opacity_value = 1, bool visibility = true);
 
       protected:
         float m_zoomLevel;

@@ -26,5 +26,5 @@ var searchData=
   ['isconnected_23',['isConnected',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88',1,'QuasarSDK::QuasarAPI']]],
   ['isnan_24',['isNaN',['../d4/d19/namespaceQuasarSDK_1_1Utils.html#aaf0578b9d15d85ab4e18cee1256ff1e7',1,'QuasarSDK::Utils']]],
   ['isrecordingstrip_25',['isRecordingStrip',['../d0/d18/classQuasarSDK_1_1RemoteData.html#a087cca4afecc1dbdd07adabb7e26ac61',1,'QuasarSDK::RemoteData']]],
-  ['isvisible_26',['isVisible',['../d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html#a631cfae81b8a4b8f12e888c20e5bf04f',1,'QuasarSDK::Map::AbstractMapItem::isVisible()'],['../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a4534407d8573ea58bd598a8e15c6032c',1,'QuasarSDK::Map::IMapObject::isVisible()']]]
+  ['isvisible_26',['isVisible',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html#a631cfae81b8a4b8f12e888c20e5bf04f',1,'QuasarSDK::Map::AbstractMapObject::isVisible()'],['../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a4534407d8573ea58bd598a8e15c6032c',1,'QuasarSDK::Map::IMapObject::isVisible()']]]
 ];

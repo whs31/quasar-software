@@ -1,5 +1,5 @@
 <map id="FGSMapObject" name="FGSMapObject">
-<area shape="rect" id="node1" title=" " alt="" coords="13,157,131,184"/>
-<area shape="rect" id="node2" href="$d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,139,109"/>
-<area shape="rect" id="node3" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="24,5,120,33"/>
+<area shape="rect" id="node1" title=" " alt="" coords="19,157,137,184"/>
+<area shape="rect" id="node2" href="$de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,151,109"/>
+<area shape="rect" id="node3" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,126,33"/>
 </map>

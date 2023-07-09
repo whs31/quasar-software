@@ -12,6 +12,7 @@
 #include "CEnums.h"
 #include "CTelemetry.h"
 #include "CRemoteData.h"
+#include "IO/CSAROutputModel.h"
 
 class QTimer;
 
@@ -30,6 +31,7 @@ namespace QuasarSDK
     Q_OBJECT
     Q_PROPERTY(Telemetry* telemetry READ telemetry CONSTANT)
     Q_PROPERTY(RemoteData* remote READ remote CONSTANT)
+    Q_PROPERTY(QuasarSDK::IO::SAROutputModel* outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool isConnected READ isConnected WRITE setConnected NOTIFY connectedChanged)
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
 
@@ -38,6 +40,7 @@ namespace QuasarSDK
 
       [[nodiscard]] Telemetry* telemetry() const;
       [[nodiscard]] RemoteData* remote() const;
+      [[nodiscard]] IO::SAROutputModel* outputModel() const;
       [[nodiscard]] bool isConnected() const; void setConnected(bool);
       [[nodiscard]] float currentNetworkDelay() const; void setCurrentNetworkDelay(float);
 
@@ -140,6 +143,7 @@ namespace QuasarSDK
     private:
       Telemetry* m_telemetry;
       RemoteData* m_remoteData;
+      IO::SAROutputModel* m_outputModel;
       bool m_connected;
       float m_currentNetworkDelay;
 

@@ -302,6 +302,8 @@ Item {
 
                 ProgressBar {
                     value: fl_RemoteDiskSpace
+                    from: 0
+                    to: 100
                     indeterminate: fl_RemoteDiskSpace === 0
                     Material.accent: value === 0
                                      ? ColorTheme.active.color(ColorTheme.Text)

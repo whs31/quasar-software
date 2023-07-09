@@ -45,6 +45,7 @@ namespace QuasarSDK
       : QObject(parent)
       , m_telemetry(new Telemetry(this))
       , m_remoteData(new RemoteData(this))
+      , m_outputModel(new IO::SAROutputModel(this))
       , m_connected(false)
       , m_currentNetworkDelay(Config::get()->value<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
       , m_networkDelayTimer(new QTimer(this))
@@ -70,6 +71,7 @@ namespace QuasarSDK
     #ifdef QT_QML_LIB
     qmlRegisterSingletonInstance<QuasarAPI>("QuaSAR.API", 1, 0, "NetworkAPI", this);
     qmlRegisterUncreatableType<QuasarSDK::Enums>("QuaSAR.API", 1, 0, "Net", "Enumeration");
+    qmlRegisterSingletonInstance<QuasarSDK::IO::SAROutputModel>("QuaSAR.API.Extras", 1, 0, "NetworkOutput", outputModel());
     #endif
 
     // delay handling
@@ -151,6 +153,14 @@ namespace QuasarSDK
    * \see QuasarSDK::RemoteData
    */
   RemoteData* QuasarAPI::remote() const { return m_remoteData; }
+
+  /**
+   * \property QuasarAPI::outputModel
+   * \brief Предоставляет доступ к текстовой модели вывода РЛС.
+   * \details Свойство доступно только для чтения.
+   * \see QuasarSDK::IO::SAROutputModel
+   */
+  IO::SAROutputModel* QuasarAPI::outputModel() const { return m_outputModel; }
 
   /**
    * \property QuasarAPI::isConnected
@@ -387,12 +397,11 @@ namespace QuasarSDK
     */
   QString QuasarAPI::stringify(const QString& ip, const QString& port) { return QString(ip + ":" + port); }
 
-  /// \todo Интеграция с терминалом VT100.
   void QuasarAPI::processFeedback(QByteArray data) noexcept
   {
     if(m_redirect)
       m_redirectServer->push(data);
-    //GUI::VT100Terminal::get()->print(data);
+    m_outputModel->print(data);
   }
 
   void QuasarAPI::reset_delay() { this->setCurrentNetworkDelay(0); }

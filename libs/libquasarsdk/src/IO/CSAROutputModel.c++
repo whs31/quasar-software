@@ -173,8 +173,8 @@ namespace QuasarSDK::IO
     if(m_cursorPosition.x >= str.size())
       m_cursorPosition.x++;
 
-    int removeCount = (m_cursorPosition.x + text.size()) > str.size() ? str.size()
-                                                                        - m_cursorPosition.x : m_cursorPosition.x + text.size();
+    int removeCount = (m_cursorPosition.x + text.size()) > str.size() ? str.size() - m_cursorPosition.x
+                                                                      : m_cursorPosition.x + text.size();
     str.remove(m_cursorPosition.x, removeCount * 2);
     str.insert(m_cursorPosition.x, text);
 

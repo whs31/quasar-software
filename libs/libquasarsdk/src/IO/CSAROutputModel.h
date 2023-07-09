@@ -49,3 +49,6 @@ namespace QuasarSDK::IO
       } m_cursorPosition;
   };
 } // QuasarSDK::IO
+
+#include <QtCore/QMetaType>
+Q_DECLARE_METATYPE(QuasarSDK::IO::SAROutputModel*)

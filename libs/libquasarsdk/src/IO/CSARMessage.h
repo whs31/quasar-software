@@ -49,9 +49,9 @@ namespace QuasarSDK::IO
     , m_type(t)
   {}
 
-  QString SARMessage::message() const { return m_message; }
-  void SARMessage::setMessage(const QString& msg) { m_message = msg; }
+  inline QString SARMessage::message() const { return m_message; }
+  inline void SARMessage::setMessage(const QString& msg) { m_message = msg; }
 
-  IMessage::MessageType SARMessage::type() const { return m_type; }
-  void SARMessage::setType(IMessage::MessageType t) { m_type = t; }
+  inline IMessage::MessageType SARMessage::type() const { return m_type; }
+  inline void SARMessage::setType(IMessage::MessageType t) { m_type = t; }
 } // QuasarSDK::IO

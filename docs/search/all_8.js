@@ -5,7 +5,7 @@ var searchData=
   ['id_2',['id',['../d9/d23/SImageMetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'id():&#160;SImageMetadata.h'],['../dd/da3/imagemetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'id():&#160;imagemetadata.h'],['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'QuasarSDK::Processing::Datagrams::StripImageChunkID::id()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'QuasarSDK::Datagrams::PlannerResponseDatagram::id()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'QuasarSDK::Datagrams::PlannerRemoveDatagram::id()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'QuasarSDK::Datagrams::PlannerAppendDatagram::id()'],['../da/d88/namespaceMap.html#a4fc3a0c58dfbd1e68224521185cb9384',1,'Map::StripHeaderMetadata::id()']]],
   ['idle_3',['Idle',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469ad3fa9ae9431d6cb1772f9d9df48cab19',1,'QuasarSDK::Enums']]],
   ['image_4',['Image',['../d4/da1/structMap_1_1Image.html',1,'Map']]],
-  ['image_5ftype_5',['image_type',['../da/d88/namespaceMap.html#a288f27498ba3215d3ef6de973806695e',1,'Map::ImageMetadata::image_type()'],['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#a288f27498ba3215d3ef6de973806695e',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::image_type()']]],
+  ['image_5ftype_5',['image_type',['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#a288f27498ba3215d3ef6de973806695e',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::image_type()'],['../da/d88/namespaceMap.html#a288f27498ba3215d3ef6de973806695e',1,'Map::ImageMetadata::image_type()']]],
   ['imagecache_6',['imageCache',['../d1/d42/classConfig_1_1Paths.html#a91948fb992ef0c3c951e0708346d1c85',1,'Config::Paths']]],
   ['imagemetadata_7',['ImageMetadata',['../da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata',1,'Map']]],
   ['imagemetadata_2eh_8',['imagemetadata.h',['../dd/da3/imagemetadata_8h.html',1,'']]],
@@ -23,8 +23,10 @@ var searchData=
   ['internalconfig_20',['InternalConfig',['../de/dd8/classConfig_1_1InternalConfig.html',1,'Config']]],
   ['interval_5fms_21',['interval_ms',['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a90ade0bc499be730c6d20696fffaf4f7',1,'QuasarSDK::Datagrams::TelemetryRequest']]],
   ['ip_22',['ip',['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a69ddb9c845da426f636d9dd0dbed4e7e',1,'QuasarSDK::Datagrams::PlannerAppendDatagram']]],
-  ['isconnected_23',['isConnected',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88',1,'QuasarSDK::QuasarAPI']]],
-  ['isnan_24',['isNaN',['../d4/d19/namespaceQuasarSDK_1_1Utils.html#aaf0578b9d15d85ab4e18cee1256ff1e7',1,'QuasarSDK::Utils']]],
-  ['isrecordingstrip_25',['isRecordingStrip',['../d0/d18/classQuasarSDK_1_1RemoteData.html#a087cca4afecc1dbdd07adabb7e26ac61',1,'QuasarSDK::RemoteData']]],
-  ['isvisible_26',['isVisible',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html#a631cfae81b8a4b8f12e888c20e5bf04f',1,'QuasarSDK::Map::AbstractMapObject::isVisible()'],['../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a4534407d8573ea58bd598a8e15c6032c',1,'QuasarSDK::Map::IMapObject::isVisible()']]]
+  ['isarimage_23',['ISARImage',['../d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html',1,'QuasarSDK::Map']]],
+  ['isarimage_2eh_24',['ISARImage.h',['../d6/dd1/ISARImage_8h.html',1,'']]],
+  ['isconnected_25',['isConnected',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88',1,'QuasarSDK::QuasarAPI']]],
+  ['isnan_26',['isNaN',['../d4/d19/namespaceQuasarSDK_1_1Utils.html#aaf0578b9d15d85ab4e18cee1256ff1e7',1,'QuasarSDK::Utils']]],
+  ['isrecordingstrip_27',['isRecordingStrip',['../d0/d18/classQuasarSDK_1_1RemoteData.html#a087cca4afecc1dbdd07adabb7e26ac61',1,'QuasarSDK::RemoteData']]],
+  ['isvisible_28',['isVisible',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html#a631cfae81b8a4b8f12e888c20e5bf04f',1,'QuasarSDK::Map::AbstractMapObject::isVisible()'],['../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a4534407d8573ea58bd598a8e15c6032c',1,'QuasarSDK::Map::IMapObject::isVisible()']]]
 ];

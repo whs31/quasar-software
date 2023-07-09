@@ -81,7 +81,7 @@ namespace QuasarSDK
   void PingTester::recv()
   {
     auto data = m_process->readAll();
-    bool success = false;
+    bool success;
     #ifdef Q_OS_WIN
     success = data.contains("TTL=");
     #else

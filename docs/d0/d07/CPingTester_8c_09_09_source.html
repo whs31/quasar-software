@@ -164,7 +164,7 @@ $(document).ready(function(){initNavTree('d0/d07/CPingTester_8c_09_09_source.htm
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <span class="keywordtype">void</span> PingTester::recv()</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  {</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">auto</span> data = m_process-&gt;readAll();</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">bool</span> success = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">bool</span> success;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">    #ifdef Q_OS_WIN</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    success = data.contains(<span class="stringliteral">&quot;TTL=&quot;</span>);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">    #else</span></div>
@@ -189,7 +189,7 @@ $(document).ready(function(){initNavTree('d0/d07/CPingTester_8c_09_09_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_c5d4018c0fe90f1660bca3f6235e9876.html">libquasarsdk</a></li><li class="navelem"><a class="el" href="../../dir_0f9d83d35d962a1c6c5b739b964daf6d.html">src</a></li><li class="navelem"><a class="el" href="../../dir_bcc87e96ad48aad0b7d2cce6e389158e.html">Networking</a></li><li class="navelem"><b>CPingTester.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Вс 9 Июл 2023 13:14:22. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Вс 9 Июл 2023 21:22:17. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

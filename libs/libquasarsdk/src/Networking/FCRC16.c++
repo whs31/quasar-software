@@ -48,7 +48,7 @@ namespace QuasarSDK::Utils
    * \param size - размер данных для вычисления.
    * \return CRC16 указанных данных.
    */
-  uint16_t crc16(char* data, int size) noexcept
+  uint16_t crc16(const char* data, int size) noexcept
   {
     uint16_t crc = 0xFFFF;
     for(size_t i = 0; i < size; i++)

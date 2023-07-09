@@ -351,7 +351,7 @@ namespace QuasarSDK
       case Enums::Form: return execdSocket()->parser()->formArgumentList[key].value;
       case Enums::Focus: return execdSocket()->parser()->focusArgumentList[key].value;
       case Enums::Reform: return execdSocket()->parser()->reformArgumentList[key].value;
-      default: return "Argument Category Error"; break;
+      default: return "Argument Category Error";
     }
   }
 

@@ -27,7 +27,9 @@ var hierarchy =
     [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", null ],
     [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", [
       [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", [
-        [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", null ],
+        [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", [
+          [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", null ]
+        ] ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", null ],
         [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", null ]
       ] ]
@@ -36,6 +38,9 @@ var hierarchy =
       [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", null ]
     ] ],
     [ "InternalConfig", "de/dd8/classConfig_1_1InternalConfig.html", null ],
+    [ "ISARImage", "d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html", [
+      [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", null ]
+    ] ],
     [ "Marker", "d6/d7c/structMap_1_1Marker.html", [
       [ "PlannerPoint", "d7/d92/structMap_1_1PlannerPoint.html", null ]
     ] ],

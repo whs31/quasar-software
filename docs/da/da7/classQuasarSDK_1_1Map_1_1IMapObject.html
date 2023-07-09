@@ -121,9 +121,10 @@ $(document).ready(function(){initNavTree('da/da7/classQuasarSDK_1_1Map_1_1IMapOb
 <map name="aIMapObject_inherit__map" id="aIMapObject_inherit__map">
 <area shape="rect" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="172,5,268,33"/>
 <area shape="rect" href="../../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="147,81,293,109"/>
-<area shape="rect" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title=" " alt="" coords="5,157,123,184"/>
+<area shape="rect" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="5,157,123,184"/>
 <area shape="rect" href="../../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html" title=" " alt="" coords="147,157,293,184"/>
 <area shape="rect" href="../../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="318,157,453,184"/>
+<area shape="rect" href="../../d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="19,232,109,260"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
 <table class="memberdecls">
@@ -135,8 +136,6 @@ $(document).ready(function(){initNavTree('da/da7/classQuasarSDK_1_1Map_1_1IMapOb
 <tr class="separator:af9623d6c963b18dbcc25d7cb86accbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80463f63f8d3b31f942b735a391eb8ba"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a80463f63f8d3b31f942b735a391eb8ba">zoomLevel</a> () const =0</td></tr>
 <tr class="separator:a80463f63f8d3b31f942b735a391eb8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab11185e842e9eeace327155c45d1bbcb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#ab11185e842e9eeace327155c45d1bbcb">setZoomLevel</a> (float level)=0</td></tr>
-<tr class="separator:ab11185e842e9eeace327155c45d1bbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5df9968d14a11006a2022207bd6f3e32"><td class="memItemLeft" align="right" valign="top">virtual QPointF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a5df9968d14a11006a2022207bd6f3e32">origin</a> () const =0</td></tr>
 <tr class="separator:a5df9968d14a11006a2022207bd6f3e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a270eb9fdceba873574fac54719a5ff63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a270eb9fdceba873574fac54719a5ff63">setOrigin</a> (const QPointF &amp;point)=0</td></tr>
@@ -237,39 +236,9 @@ $(document).ready(function(){initNavTree('da/da7/classQuasarSDK_1_1Map_1_1IMapOb
 </table>
 </div><div class="memdoc">
 
-<p>Возвращает масштаб объекта. </p>
+<p>Возвращает масштаб объекта. Интерфейс не определяет сеттер для масштаба. </p>
 
 <p>Замещается в <a class="el" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">FGSMapObject</a>, <a class="el" href="../../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">ScalableMapObject</a> и <a class="el" href="../../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">ScreenMapObject</a>.</p>
-
-</div>
-</div>
-<a id="ab11185e842e9eeace327155c45d1bbcb" name="ab11185e842e9eeace327155c45d1bbcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab11185e842e9eeace327155c45d1bbcb">&#9670;&#160;</a></span>setZoomLevel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void setZoomLevel </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>level</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Устанавливает масштаб объекта. </p>
-
-<p>Замещается в <a class="el" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html#a9a39d683d70acc09d9aa65bfad5255fa">FGSMapObject</a>, <a class="el" href="../../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html#a9a39d683d70acc09d9aa65bfad5255fa">ScalableMapObject</a> и <a class="el" href="../../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html#a3b3721c1b3b7cf77a6d74ed9e9f351e7">ScreenMapObject</a>.</p>
 
 </div>
 </div>
@@ -459,7 +428,7 @@ $(document).ready(function(){initNavTree('da/da7/classQuasarSDK_1_1Map_1_1IMapOb
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d4/d48/namespaceQuasarSDK.html">QuasarSDK</a></li><li class="navelem"><a class="el" href="../../d2/d78/namespaceQuasarSDK_1_1Map.html">Map</a></li><li class="navelem"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html">IMapObject</a></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Вс 9 Июл 2023 13:14:22. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Вс 9 Июл 2023 21:22:17. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

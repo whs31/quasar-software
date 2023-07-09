@@ -17,4 +17,15 @@ namespace QuasarSDK::Map
       return static_cast<float>(Utils::log(2, MAP_SCALE_RATIO * cos(lat * M_PI / 180)));
     return static_cast<float>(Utils::log(2, MAP_SCALE_RATIO * cos(lat * M_PI / 180) / meters_per_px));
   }
+
+  FGSMapObject::FGSMapObject()
+    : AbstractMapObject()
+    , m_ratio(1)
+  {}
+
+  FGSMapObject::FGSMapObject(const QGeoCoordinate& coord, float dpx_ratio, const QPointF& origin_point,
+                             float opacity_value, bool visibility)
+    : AbstractMapObject(coord, origin_point, opacity_value, visibility)
+    , m_ratio(dpx_ratio)
+  {}
 } // QuasarSDK::Map

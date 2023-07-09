@@ -113,34 +113,34 @@ $(document).ready(function(){initNavTree('de/da2/CFGSMapItem_8c_09_09_source.htm
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/d78/namespaceQuasarSDK_1_1Map.html">QuasarSDK::Map</a></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span>{</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">    5</a></span>  <span class="keywordtype">float</span> <a class="code hl_function" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">FGSMapItem::zoomLevel</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">    5</a></span>  <span class="keywordtype">float</span> <a class="code hl_function" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">FGSMapObject::zoomLevel</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">  </span>{</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  }</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">   10</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">FGSMapItem::setZoomLevel</a>(<span class="keywordtype">float</span> val)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">   10</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">FGSMapObject::setZoomLevel</a>(<span class="keywordtype">float</span> val)</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  }</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">float</span> FGSMapItem::ratio()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">float</span> FGSMapObject::ratio()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">  </span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  }</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">void</span> FGSMapItem::setRatio(<span class="keywordtype">float</span> r)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">void</span> FGSMapObject::setRatio(<span class="keywordtype">float</span> r)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  }</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">float</span> FGSMapItem::calculate_mercator_zoom_level(<span class="keywordtype">double</span> lat, <span class="keywordtype">float</span> meters_per_px) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">float</span> FGSMapObject::calculate_mercator_zoom_level(<span class="keywordtype">double</span> lat, <span class="keywordtype">float</span> meters_per_px) <span class="keyword">noexcept</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  {</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  }</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <span class="comment">// QuasarSDK::Map</span></div>
 <div class="ttc" id="aCFGSMapItem_8h_html"><div class="ttname"><a href="../../d8/d1e/CFGSMapItem_8h.html">CFGSMapItem.h</a></div></div>
-<div class="ttc" id="aclassQuasarSDK_1_1Map_1_1FGSMapItem_html_a5f54dc38a09aa823e405d9c24b3eae66"><div class="ttname"><a href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">QuasarSDK::Map::FGSMapItem::zoomLevel</a></div><div class="ttdeci">float zoomLevel() const final</div><div class="ttdoc">Возвращает масштаб объекта.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/da2/CFGSMapItem_8c_09_09_source.html#l00005">CFGSMapItem.c++:5</a></div></div>
-<div class="ttc" id="aclassQuasarSDK_1_1Map_1_1FGSMapItem_html_a9a39d683d70acc09d9aa65bfad5255fa"><div class="ttname"><a href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">QuasarSDK::Map::FGSMapItem::setZoomLevel</a></div><div class="ttdeci">void setZoomLevel(float val) final</div><div class="ttdoc">Устанавливает масштаб объекта.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/da2/CFGSMapItem_8c_09_09_source.html#l00010">CFGSMapItem.c++:10</a></div></div>
+<div class="ttc" id="aclassQuasarSDK_1_1Map_1_1FGSMapItem_html_a5f54dc38a09aa823e405d9c24b3eae66"><div class="ttname"><a href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a5f54dc38a09aa823e405d9c24b3eae66">QuasarSDK::Map::FGSMapObject::zoomLevel</a></div><div class="ttdeci">float zoomLevel() const final</div><div class="ttdoc">Возвращает масштаб объекта.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/da2/CFGSMapItem_8c_09_09_source.html#l00005">CFGSMapItem.c++:5</a></div></div>
+<div class="ttc" id="aclassQuasarSDK_1_1Map_1_1FGSMapItem_html_a9a39d683d70acc09d9aa65bfad5255fa"><div class="ttname"><a href="../../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html#a9a39d683d70acc09d9aa65bfad5255fa">QuasarSDK::Map::FGSMapObject::setZoomLevel</a></div><div class="ttdeci">void setZoomLevel(float val) final</div><div class="ttdoc">Устанавливает масштаб объекта.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/da2/CFGSMapItem_8c_09_09_source.html#l00010">CFGSMapItem.c++:10</a></div></div>
 <div class="ttc" id="anamespaceQuasarSDK_1_1Map_html"><div class="ttname"><a href="../../d2/d78/namespaceQuasarSDK_1_1Map.html">QuasarSDK::Map</a></div><div class="ttdoc">Пространство имен для функций и классов, связанных с картой и картографией.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

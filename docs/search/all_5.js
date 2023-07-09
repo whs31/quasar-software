@@ -5,7 +5,7 @@ var searchData=
   ['feedbackport_2',['feedbackPort',['../d5/dfa/classConfig_1_1Config.html#a1c046609722570c50455a36d69d0a037',1,'Config::Config']]],
   ['fetchimagedirectory_3',['fetchImageDirectory',['../de/d69/classOS_1_1Filesystem.html#a5d4d76eadea546e4017593a46362f383',1,'OS::Filesystem']]],
   ['fetchtcpcache_4',['fetchTCPCache',['../de/d69/classOS_1_1Filesystem.html#aa5a5adb0e730b9b703d52015ee744bca',1,'OS::Filesystem']]],
-  ['fgsmapitem_5',['FGSMapItem',['../d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html',1,'QuasarSDK::Map']]],
+  ['fgsmapobject_5',['FGSMapObject',['../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html',1,'QuasarSDK::Map']]],
   ['filesystem_6',['Filesystem',['../de/d69/classOS_1_1Filesystem.html',1,'OS']]],
   ['float_7',['Float',['../d7/d54/structQuasarSDK_1_1ExecdArgument.html#aa15f3f718db408445afc1b93c12294c5ad67b0ee7230dcecb610254e4e5e589cd',1,'QuasarSDK::ExecdArgument']]],
   ['floating_5fpoint_5fprecision_8',['FLOATING_POINT_PRECISION',['../d7/d54/structQuasarSDK_1_1ExecdArgument.html#a0ce34266d9f2cd3afca36ac08587c945',1,'QuasarSDK::ExecdArgument']]],

@@ -1,8 +1,8 @@
 var namespaceQuasarSDK_1_1Map =
 [
     [ "AbstractMapItem", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem" ],
-    [ "FGSMapItem", "d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html", "d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem" ],
-    [ "IMapItem", "de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html", "de/dbb/classQuasarSDK_1_1Map_1_1IMapItem" ],
-    [ "ScalableMapItem", "df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html", "df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem" ],
-    [ "ScreenMapItem", "df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html", "df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem" ]
+    [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" ],
+    [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject" ],
+    [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject" ],
+    [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject" ]
 ];

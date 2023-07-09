@@ -1,5 +1,5 @@
 /**
- *  \file IMapItem.h
+ *  \file IMapObject.h
  *  \author Дмитрий Рязанцев
  *  \date 09.07.2023
  *  \copyright Radar-MMS 2023
@@ -15,7 +15,7 @@ namespace QuasarSDK::Map
   /**
    * \brief Интерфейс, описывающий абстрактный объект карты.
    */
-  class IMapItem
+  class IMapObject
   {
     public:
       [[nodiscard]] virtual QGeoCoordinate coordinate() const = 0;  ///< Возвращает координату на карте, к которой будет привязан объект.

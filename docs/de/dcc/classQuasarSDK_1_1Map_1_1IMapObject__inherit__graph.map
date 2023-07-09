@@ -1,0 +1,7 @@
+<map id="IMapObject" name="IMapObject">
+<area shape="rect" id="node1" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="172,5,268,33"/>
+<area shape="rect" id="node2" href="$d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="153,81,287,109"/>
+<area shape="rect" id="node3" href="$d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title=" " alt="" coords="5,157,123,184"/>
+<area shape="rect" id="node4" href="$db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html" title=" " alt="" coords="147,157,293,184"/>
+<area shape="rect" id="node5" href="$dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="318,157,453,184"/>
+</map>

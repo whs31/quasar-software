@@ -1,5 +1,5 @@
 /**
- *  \file CAbstractMapItem.h
+ *  \file CAbstractMapObject.h
  *  \author Дмитрий Рязанцев
  *  \date 09.07.2023
  *  \copyright Radar-MMS 2023
@@ -7,14 +7,14 @@
 
 #pragma once
 
-#include "IMapItem.h"
+#include "IMapObject.h"
 
 namespace QuasarSDK::Map
   {
     /**
-     * \brief Абстрактный класс, реализующий функции интерфейса IMapItem, за исключением масштаба.
+     * \brief Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба.
      */
-    class AbstractMapItem : public IMapItem
+    class AbstractMapItem : public IMapObject
     {
       public:
         [[nodiscard]] QGeoCoordinate coordinate() const final;
@@ -32,9 +32,16 @@ namespace QuasarSDK::Map
         void setVisible(bool state) final;
 
       protected:
+        AbstractMapItem();
+        explicit AbstractMapItem(const QGeoCoordinate& coord, const QPointF& origin_point = {0, 0},
+                         float opacity_value = 1, bool visibility = true);
+
+      protected:
+        float m_zoomLevel;
+
+      private:
         QGeoCoordinate m_coordinate;
         QPointF m_origin;
-        float m_zoomLevel;
         float m_opacity;
         bool m_visible;
     };

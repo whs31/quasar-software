@@ -1,10 +1,10 @@
 var dir_e51add405edec7cae67f4b27e009b062 =
 [
-    [ "CAbstractMapItem.c++", "d0/dd6/CAbstractMapItem_8c_09_09_source.html", null ],
-    [ "CAbstractMapItem.h", "d1/df8/CAbstractMapItem_8h.html", "d1/df8/CAbstractMapItem_8h" ],
-    [ "CFGSMapItem.c++", "de/da2/CFGSMapItem_8c_09_09_source.html", null ],
-    [ "CFGSMapItem.h", "d8/d1e/CFGSMapItem_8h.html", "d8/d1e/CFGSMapItem_8h" ],
-    [ "CScalableMapItem.h", "db/d5e/CScalableMapItem_8h.html", "db/d5e/CScalableMapItem_8h" ],
-    [ "CScreenMapItem.h", "d6/d6b/CScreenMapItem_8h.html", "d6/d6b/CScreenMapItem_8h" ],
-    [ "IMapItem.h", "d2/d59/IMapItem_8h.html", "d2/d59/IMapItem_8h" ]
+    [ "CAbstractMapObject.c++", "d8/d63/CAbstractMapObject_8c_09_09_source.html", null ],
+    [ "CAbstractMapObject.h", "dc/d2a/CAbstractMapObject_8h.html", "dc/d2a/CAbstractMapObject_8h" ],
+    [ "CFGSMapObject.c++", "d1/d78/CFGSMapObject_8c_09_09_source.html", null ],
+    [ "CFGSMapObject.h", "d3/dc1/CFGSMapObject_8h.html", "d3/dc1/CFGSMapObject_8h" ],
+    [ "CScalableMapObject.h", "d2/d5e/CScalableMapObject_8h.html", "d2/d5e/CScalableMapObject_8h" ],
+    [ "CScreenMapObject.h", "db/d98/CScreenMapObject_8h.html", "db/d98/CScreenMapObject_8h" ],
+    [ "IMapObject.h", "d5/dfb/IMapObject_8h.html", "d5/dfb/IMapObject_8h" ]
 ];

@@ -25,11 +25,11 @@ var hierarchy =
     ] ],
     [ "ImageMetadata", "da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata", null ],
     [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", null ],
-    [ "IMapItem", "de/dbb/classQuasarSDK_1_1Map_1_1IMapItem.html", [
+    [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", [
       [ "AbstractMapItem", "d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html", [
-        [ "FGSMapItem", "d1/da7/classQuasarSDK_1_1Map_1_1FGSMapItem.html", null ],
-        [ "ScalableMapItem", "df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html", null ],
-        [ "ScreenMapItem", "df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html", null ]
+        [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", null ],
+        [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", null ],
+        [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", null ]
       ] ]
     ] ],
     [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", [

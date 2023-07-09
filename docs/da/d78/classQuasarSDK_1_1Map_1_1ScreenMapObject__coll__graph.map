@@ -1,0 +1,5 @@
+<map id="ScreenMapObject" name="ScreenMapObject">
+<area shape="rect" id="node1" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="5,157,141,184"/>
+<area shape="rect" id="node2" href="$d7/da5/classQuasarSDK_1_1Map_1_1AbstractMapItem.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="6,81,140,109"/>
+<area shape="rect" id="node3" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="25,5,121,33"/>
+</map>

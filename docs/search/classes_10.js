@@ -1,8 +1,8 @@
 var searchData=
 [
   ['sarmessage_0',['SARMessage',['../d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html',1,'QuasarSDK::IO']]],
-  ['scalablemapitem_1',['ScalableMapItem',['../df/d2c/classQuasarSDK_1_1Map_1_1ScalableMapItem.html',1,'QuasarSDK::Map']]],
-  ['screenmapitem_2',['ScreenMapItem',['../df/d9b/classQuasarSDK_1_1Map_1_1ScreenMapItem.html',1,'QuasarSDK::Map']]],
+  ['scalablemapobject_1',['ScalableMapObject',['../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html',1,'QuasarSDK::Map']]],
+  ['screenmapobject_2',['ScreenMapObject',['../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html',1,'QuasarSDK::Map']]],
   ['seamlessudpsocket_3',['SeamlessUDPSocket',['../d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket.html',1,'QuasarSDK']]],
   ['settings_4',['Settings',['../d7/d8b/classConfig_1_1Settings.html',1,'Config']]],
   ['settingswrapper_5',['SettingsWrapper',['../df/d9e/classConfig_1_1internal_1_1SettingsWrapper.html',1,'Config::internal']]],

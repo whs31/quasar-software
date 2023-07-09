@@ -8,7 +8,6 @@
 #pragma once
 
 #include "Map/CAbstractMapObject.h"
-#include <stdexcept>
 
 namespace QuasarSDK::Map
 {
@@ -21,18 +20,10 @@ namespace QuasarSDK::Map
                                float opacity_level = 1, bool visibility = true);
 
       [[nodiscard]] float zoomLevel() const final;
-      void setZoomLevel(float) final;
   };
 
   /// \brief Всегда возвращает 0.
   float ScreenMapObject::zoomLevel() const { return 0; }
-
-  /**
-   * \brief Не используется.
-   * \throws std::runtime_error
-   * \note Вызов этой функции выбрасывает исключение std::runtime_error.
-   */
-  void ScreenMapObject::setZoomLevel(float) { throw std::runtime_error("Assignment of zoom level to ScreenMapItem is not allowed"); }
 
   /**
    * \brief Создает объект ScreenMapObject со значениями по умолчанию.

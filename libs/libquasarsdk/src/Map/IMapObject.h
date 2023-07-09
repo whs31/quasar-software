@@ -21,8 +21,7 @@ namespace QuasarSDK::Map
       [[nodiscard]] virtual QGeoCoordinate coordinate() const = 0;  ///< Возвращает координату на карте, к которой будет привязан объект.
       virtual void setCoordinate(const QGeoCoordinate& coord) = 0;  ///< Устанавливает координату на карте, к которой будет привязан объект.
 
-      [[nodiscard]] virtual float zoomLevel() const = 0;            ///< Возвращает масштаб объекта.
-      virtual void setZoomLevel(float level) = 0;                   ///< Устанавливает масштаб объекта.
+      [[nodiscard]] virtual float zoomLevel() const = 0;            ///< Возвращает масштаб объекта. Интерфейс не определяет сеттер для масштаба.
 
       [[nodiscard]] virtual QPointF origin() const = 0;             ///< Возвращает точку привязки на объекте (в *px*).
       virtual void setOrigin(const QPointF& point) = 0;             ///< Устанавливает точку привязки на объекте (в *px*).

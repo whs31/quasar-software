@@ -8,7 +8,7 @@ var searchData=
   ['reboot_5',['Reboot',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7',1,'QuasarSDK::Enums']]],
   ['received_6',['received',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3eb63c5af67a44fb60ba731d3da7a56d',1,'QuasarSDK::BaseUDPSocket::received()'],['../d9/df7/classQuasarSDK_1_1TCPServer.html#a3eb63c5af67a44fb60ba731d3da7a56d',1,'QuasarSDK::TCPServer::received()']]],
   ['receivedchunk_7',['receivedChunk',['../d9/d93/classQuasarSDK_1_1StripSocket.html#ae62d71d8b9f17efe249b34ac5463d24e',1,'QuasarSDK::StripSocket']]],
-  ['rectsize_8',['rectSize',['../d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html#abfd9f549fc6d68c408e590dbca6b551c',1,'QuasarSDK::Map::ISARImage::rectSize()'],['../d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html#a3051914ec2763bb9ddc79ebf70fd1b7c',1,'QuasarSDK::Map::MapImage::rectSize()']]],
+  ['rectsize_8',['rectSize',['../d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html#a3051914ec2763bb9ddc79ebf70fd1b7c',1,'QuasarSDK::Map::MapImage::rectSize()'],['../d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html#abfd9f549fc6d68c408e590dbca6b551c',1,'QuasarSDK::Map::ISARImage::rectSize()']]],
   ['reform_9',['Reform',['../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09aa8d76445d1381f9e8af31e5f225dbfe6',1,'QuasarSDK::Enums']]],
   ['reformargumentlist_10',['reformArgumentList',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#ad95297f0ae522b92ea3a82c870b6e789',1,'QuasarSDK::ExecdArgumentParser']]],
   ['reformargumentstring_11',['reformArgumentString',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#a1667fb6465a0fa73f837d7c6b9dc2cba',1,'QuasarSDK::ExecdArgumentParser']]],
@@ -28,5 +28,6 @@ var searchData=
   ['root_25',['root',['../d1/d42/classConfig_1_1Paths.html#ae7dd14725f2a5c12505996dc310610c1',1,'Config::Paths']]],
   ['route_26',['Route',['../d8/d9a/classMap_1_1Route.html',1,'Map']]],
   ['routelogger_27',['RouteLogger',['../dd/d0f/classMap_1_1RouteLogger.html',1,'Map']]],
-  ['ruler_28',['Ruler',['../dc/d18/classMap_1_1Ruler.html',1,'Map']]]
+  ['rowcount_28',['rowCount',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#a51dd94ef911c8f4c6495093a1561b45a',1,'QuasarSDK::IO::MessageModel']]],
+  ['ruler_29',['Ruler',['../dc/d18/classMap_1_1Ruler.html',1,'Map']]]
 ];

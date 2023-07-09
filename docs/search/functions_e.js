@@ -11,5 +11,6 @@ var searchData=
   ['reset_8',['reset',['../d5/dfa/classConfig_1_1Config.html#ad20897c5c8bd47f5d4005989bead0e55',1,'Config::Config']]],
   ['result_9',['result',['../d2/d74/classQuasarSDK_1_1PingTester.html#a3ec8bbafe23004823fbd69165109d0fc',1,'QuasarSDK::PingTester']]],
   ['revert_10',['revert',['../d5/dfa/classConfig_1_1Config.html#a9cf620340e16aa417bb112e0294038df',1,'Config::Config']]],
-  ['root_11',['root',['../d1/d42/classConfig_1_1Paths.html#ae7dd14725f2a5c12505996dc310610c1',1,'Config::Paths']]]
+  ['root_11',['root',['../d1/d42/classConfig_1_1Paths.html#ae7dd14725f2a5c12505996dc310610c1',1,'Config::Paths']]],
+  ['rowcount_12',['rowCount',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#a51dd94ef911c8f4c6495093a1561b45a',1,'QuasarSDK::IO::MessageModel']]]
 ];

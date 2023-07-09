@@ -1,0 +1,5 @@
+<map id="SAROutputModel" name="SAROutputModel">
+<area shape="rect" id="node1" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="13,157,146,184"/>
+<area shape="rect" id="node2" href="$d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html" title="Базовый класс для модели сообщений." alt="" coords="20,81,139,109"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,5,154,33"/>
+</map>

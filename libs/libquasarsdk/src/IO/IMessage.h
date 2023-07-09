@@ -9,6 +9,9 @@
 
 #include <QtCore/QString>
 
+using std::make_unique;
+using std::move;
+
 namespace QuasarSDK::IO
 {
   /**

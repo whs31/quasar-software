@@ -67,7 +67,9 @@ var annotated_dup =
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
         [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
-        [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ]
+        [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel" ],
+        [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ],
+        [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel" ]
       ] ],
       [ "Map", "d2/d78/namespaceQuasarSDK_1_1Map.html", [
         [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject" ],

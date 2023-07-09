@@ -4,6 +4,7 @@ var hierarchy =
     [ "TerminalBase::BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
     [ "VT100Terminal::CursorPosition", "db/dc9/classGUI_1_1VT100Terminal.html#d3/d33/structGUI_1_1VT100Terminal_1_1CursorPosition", null ],
+    [ "SAROutputModel::CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
     [ "TrackEventModel::EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
     [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", null ],
     [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", [
@@ -59,7 +60,10 @@ var hierarchy =
       [ "MarkerModel", "d3/d51/classMap_1_1MarkerModel.html", null ],
       [ "Ruler", "dc/d18/classMap_1_1Ruler.html", null ],
       [ "StripModel", "d3/d9a/classMap_1_1StripModel.html", null ],
-      [ "TrackEventModel", "d6/d55/classMap_1_1TrackEventModel.html", null ]
+      [ "TrackEventModel", "d6/d55/classMap_1_1TrackEventModel.html", null ],
+      [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", [
+        [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", null ]
+      ] ]
     ] ],
     [ "QObject", null, [
       [ "UpdateManager", "d2/dfe/classApplication_1_1UpdateManager.html", null ],

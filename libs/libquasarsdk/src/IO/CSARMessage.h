@@ -18,7 +18,7 @@ namespace QuasarSDK::IO
   {
     public:
       explicit SARMessage();
-      explicit SARMessage(QString  msg, MessageType t = MessageType::Debug);
+      explicit SARMessage(QString msg, MessageType t = MessageType::Debug);
 
       [[nodiscard]] QString message() const override;
       void setMessage(const QString& msg) override;

@@ -14,11 +14,12 @@ var searchData=
   ['port_11',['port',['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a8e0798404bf2cf5dabb84c5ba9a4f236',1,'QuasarSDK::Datagrams::TelemetryRequest::port()'],['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a6aac8bbc4a1ac6c37d4c9f0564256fbd',1,'QuasarSDK::BaseUDPSocket::port()'],['../da/db8/namespaceQuasarSDK_1_1Datagrams.html#a8e0798404bf2cf5dabb84c5ba9a4f236',1,'QuasarSDK::Datagrams::PlannerAppendDatagram::port()']]],
   ['position_12',['position',['../db/d03/classQuasarSDK_1_1Telemetry.html#a7130b1618285588513fd1ff97884b9d9',1,'QuasarSDK::Telemetry']]],
   ['poweroff_13',['PowerOff',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486ea015000f123643bed2f55db3d37ea7268',1,'QuasarSDK::Enums']]],
-  ['processfeedback_14',['processFeedback',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ac5bbf2e7a30c04d0f42fb824aba0ca84',1,'QuasarSDK::QuasarAPI']]],
-  ['processing_15',['Processing',['../d7/d4a/namespaceProcessing.html',1,'']]],
-  ['progress_16',['progress',['../d4/d85/classNetworking_1_1HTTPDownloader.html#a991fd2c404665f13f536fc7791e53504',1,'Networking::HTTPDownloader']]],
-  ['progresschanged_17',['progressChanged',['../d9/df7/classQuasarSDK_1_1TCPServer.html#a4b33200464fba1e0b425162610ce251e',1,'QuasarSDK::TCPServer']]],
-  ['projectversion_18',['projectVersion',['../d5/dfa/classConfig_1_1Config.html#a0664ef97a51606760964d90526e64ab2',1,'Config::Config']]],
-  ['proxyenabled_19',['proxyEnabled',['../d5/dfa/classConfig_1_1Config.html#ae862ff88f11a3a2ef7eee0c21957dcb7',1,'Config::Config']]],
-  ['push_20',['push',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e',1,'QuasarSDK::OutputRedirectServer']]]
+  ['print_14',['print',['../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a620b88d34aa4dd26e10d4cca96e6960e',1,'QuasarSDK::IO::SAROutputModel']]],
+  ['processfeedback_15',['processFeedback',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ac5bbf2e7a30c04d0f42fb824aba0ca84',1,'QuasarSDK::QuasarAPI']]],
+  ['processing_16',['Processing',['../d7/d4a/namespaceProcessing.html',1,'']]],
+  ['progress_17',['progress',['../d4/d85/classNetworking_1_1HTTPDownloader.html#a991fd2c404665f13f536fc7791e53504',1,'Networking::HTTPDownloader']]],
+  ['progresschanged_18',['progressChanged',['../d9/df7/classQuasarSDK_1_1TCPServer.html#a4b33200464fba1e0b425162610ce251e',1,'QuasarSDK::TCPServer']]],
+  ['projectversion_19',['projectVersion',['../d5/dfa/classConfig_1_1Config.html#a0664ef97a51606760964d90526e64ab2',1,'Config::Config']]],
+  ['proxyenabled_20',['proxyEnabled',['../d5/dfa/classConfig_1_1Config.html#ae862ff88f11a3a2ef7eee0c21957dcb7',1,'Config::Config']]],
+  ['push_21',['push',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#ad9f50d5dc30f2e0482b19a5f0eba0e2e',1,'QuasarSDK::OutputRedirectServer']]]
 ];

@@ -17,9 +17,9 @@ find_package(QT NAMES Qt5 Qt6 REQUIRED COMPONENTS Core)
 
 if(USE_QT_POSITIONING_LIBRARY)
   find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
-      Core
-      Quick
-      Positioning
+    Core
+    Quick
+    Positioning
   )
 else()
   find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS

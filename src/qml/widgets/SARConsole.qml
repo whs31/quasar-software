@@ -150,7 +150,8 @@ Pane {
                 text: message
                 width: scrollView.width
                 font.family: root.monofont
-                color: text.charAt(0) === "%" ? ColorTheme.active.color(ColorTheme.PrimaryLightest) : ColorTheme.active.color(ColorTheme.Text)
+                color: type === 0 ? ColorTheme.active.color(ColorTheme.Text)
+                                  : ColorTheme.active.color(ColorTheme.PrimaryLightest)
                 font.bold: true
                 font.pixelSize: 15
                 wrapMode: Text.WordWrap

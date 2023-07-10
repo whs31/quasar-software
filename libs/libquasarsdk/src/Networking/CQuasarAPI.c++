@@ -337,11 +337,10 @@ namespace QuasarSDK
     * то она будет выполнена.
     * \param command - строка для выполнения.
     * \note Может быть вызвана из QML через мета-объектную систему.
-    * \todo Интеграция с терминалом VT100.
     */
   void QuasarAPI::execute(const QString& command) noexcept
   {
-    //GUI::VT100Terminal::get()->append("% Выполняется " + string);
+    outputModel()->append(std::make_unique<IO::SARMessage>("> Выполняется команда [" + command + "]", IO::IMessage::Info));
     execdSocket()->execute(command);
   }
 

@@ -397,7 +397,7 @@ namespace QuasarSDK
     */
   QString QuasarAPI::stringify(const QString& ip, const QString& port) { return QString(ip + ":" + port); }
 
-  void QuasarAPI::processFeedback(QByteArray data) noexcept
+  void QuasarAPI::processFeedback(QByteArray data)
   {
     if(m_redirect)
       m_redirectServer->push(data);

@@ -11,14 +11,14 @@ namespace QuasarSDK::IO
     , m_cursorPosition({0, 0})
   {}
 
-  void SAROutputModel::newline() noexcept
+  void SAROutputModel::newline()
   {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_storage.emplace_back(std::move(make_unique<SARMessage>()));
     endInsertRows();
   }
 
-  void SAROutputModel::print(const QByteArray& data) noexcept
+  void SAROutputModel::print(const QByteArray& data)
   {
     QString text;
 
@@ -151,7 +151,7 @@ namespace QuasarSDK::IO
     this->appendString(text);
   }
 
-  QString SAROutputModel::lastLine() const noexcept
+  QString SAROutputModel::lastLine() const
   {
     if(m_storage.empty())
       return {};
@@ -179,7 +179,7 @@ namespace QuasarSDK::IO
     str.insert(m_cursorPosition.x, text);
 
     if(m_storage.empty() and removeCount != 6)
-      this->append(std::move(make_unique<SARMessage>(str, IMessage::Debug)));
+      this->append((make_unique<SARMessage>(str, IMessage::Debug)));
     else
       this->setLastLine(str);
   }

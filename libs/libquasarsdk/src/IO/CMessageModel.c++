@@ -1,8 +1,11 @@
 #include "CMessageModel.h"
+#include <mutex>
 #include <QtCore/QDebug>
 
 namespace QuasarSDK::IO
 {
+
+  std::mutex locker;
 
   MessageModel::MessageModel(QObject* parent)
       : QAbstractListModel(parent)
@@ -59,13 +62,22 @@ namespace QuasarSDK::IO
       return;
     }
 
+    locker.lock();
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());
     m_storage.emplace_back(std::move(message));
+    endInsertRows();
+    locker.unlock();
   }
 
   void QuasarSDK::IO::MessageModel::clear()
   {
     qDebug() << "[MESSAGE MODEL] Model cleared";
+
+    locker.lock();
+    beginRemoveRows(QModelIndex(), 0, rowCount() - 1);
     m_storage.clear();
+    endRemoveRows();
+    locker.unlock();
   }
 
 } // QuasarSDK::IO

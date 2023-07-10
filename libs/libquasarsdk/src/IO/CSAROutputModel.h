@@ -22,11 +22,11 @@ namespace QuasarSDK::IO
     public:
       explicit SAROutputModel(QObject* parent = nullptr);
 
-      void newline() noexcept;                                  ///< Добавляет пустую строку в модель.
-      void print(const QByteArray& data) noexcept;              ///< Обрабатывает VT100-последовательности и добавляет новые строки в модель.
+      void newline();                                  ///< Добавляет пустую строку в модель.
+      void print(const QByteArray& data);              ///< Обрабатывает VT100-последовательности и добавляет новые строки в модель.
 
     private:
-      [[nodiscard]] QString lastLine() const noexcept;
+      [[nodiscard]] QString lastLine() const;
       void setLastLine(const QString& str);
 
       void appendString(const QString& text);

@@ -136,7 +136,7 @@ namespace QuasarSDK
       QuasarAPI(const QuasarAPI&);
       QuasarAPI& operator=(const QuasarAPI&);
 
-      void processFeedback(QByteArray) noexcept;
+      void processFeedback(QByteArray);
 
       Q_SLOT void reset_delay();
 

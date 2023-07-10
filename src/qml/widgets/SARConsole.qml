@@ -2,8 +2,10 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15
+
 import QuaSAR.API 1.0
 import QuaSAR.API.Extras 1.0
+
 import Theme 1.0
 
 Pane {
@@ -134,7 +136,8 @@ Pane {
                 implicitWidth: 4
                 implicitHeight: 100
                 radius: width / 2
-                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay) : ColorTheme.active.color(ColorTheme.Surface)
+                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay)
+                                    : ColorTheme.active.color(ColorTheme.Surface)
             }
 
         }
@@ -190,6 +193,9 @@ Pane {
             font.family: root.monofont
             font.pixelSize: 14
             onAccepted: {
+                if(text === "$")
+                    return;
+
                 NetworkAPI.execute(text);
                 text = "$";
             }
@@ -201,7 +207,8 @@ Pane {
             font.family: root.monofont
             font.pixelSize: 14
             color: ColorTheme.active.color(ColorTheme.Text)
-            text: input.text.length < 2 ? "  Введите команду для РЛС..." : ""
+            text: input.text.length < 2 ? "  Введите команду для РЛС..."
+                                        : ""
         }
 
         Rectangle {
@@ -237,16 +244,13 @@ Pane {
                 source: "qrc:/icons/console/handle.png"
                 anchors.centerIn: parent
             }
-
         }
-
     }
 
     Behavior on opacity {
         NumberAnimation {
             duration: 150
         }
-
     }
 
     layer.effect: DropShadow {

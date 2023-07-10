@@ -59,9 +59,10 @@ var searchData=
   ['stripimagedatagram_56',['StripImageDatagram',['../da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram',1,'Map']]],
   ['stripmodel_57',['StripModel',['../d3/d9a/classMap_1_1StripModel.html',1,'Map']]],
   ['stripnavigationmetadata_58',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
-  ['stripsocket_59',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'StripSocket'],['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket::StripSocket()']]],
+  ['stripsocket_59',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]],
   ['stripsocket_60',['stripSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],
-  ['stripsocketmetrics_61',['stripSocketMetrics',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
-  ['success_62',['Success',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
-  ['sync_63',['sync',['../d5/dfa/classConfig_1_1Config.html#ad55f80ed3cd8b6c4f247763b747016af',1,'Config::Config']]]
+  ['stripsocket_61',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
+  ['stripsocketmetrics_62',['stripSocketMetrics',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
+  ['success_63',['Success',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
+  ['sync_64',['sync',['../d5/dfa/classConfig_1_1Config.html#ad55f80ed3cd8b6c4f247763b747016af',1,'Config::Config']]]
 ];

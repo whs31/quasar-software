@@ -20,7 +20,6 @@ var annotated_dup =
       [ "ColorTheme", "da/dea/classGUI_1_1ColorTheme.html", null ],
       [ "DebugConsole", "d3/d6a/classGUI_1_1DebugConsole.html", null ],
       [ "TerminalBase", "d0/dfa/classGUI_1_1TerminalBase.html", "d0/dfa/classGUI_1_1TerminalBase" ],
-      [ "VT100Terminal", "db/dc9/classGUI_1_1VT100Terminal.html", "db/dc9/classGUI_1_1VT100Terminal" ],
       [ "WarningsModel", "d6/d0f/classGUI_1_1WarningsModel.html", "d6/d0f/classGUI_1_1WarningsModel" ]
     ] ],
     [ "Map", "da/d88/namespaceMap.html", [

@@ -84,10 +84,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d19/namespaceQuasarSDK_1_1Utils.html#a8e767ae01022414bd64c54dbc1337bfa",
-"d7/d54/structQuasarSDK_1_1ExecdArgument.html#a60514ba9570e608dfbc302e125aad34e",
-"da/db8/namespaceQuasarSDK_1_1Datagrams.html#ae1d905c6ac1a0c9b96dca16153917334",
-"de/d69/classOS_1_1Filesystem.html#a5d4d76eadea546e4017593a46362f383"
+"d4/d19/namespaceQuasarSDK_1_1Utils.html#aaf0578b9d15d85ab4e18cee1256ff1e7",
+"d7/d54/structQuasarSDK_1_1ExecdArgument.html#a796e03a55b20feca95798810188b64aa",
+"da/db8/namespaceQuasarSDK_1_1Datagrams.html#af161fc144504ebd2d6a3a287a47efcc0",
+"de/d69/classOS_1_1Filesystem.html#aa5a5adb0e730b9b703d52015ee744bca"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

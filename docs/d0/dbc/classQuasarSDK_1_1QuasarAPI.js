@@ -24,9 +24,9 @@ var classQuasarSDK_1_1QuasarAPI =
     [ "execdSocketMetrics", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a8c7be2f1298e09c11e7629889a53d722", null ],
     [ "lfsSocketMetrics", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ae1c378bc3ccf4c8b1619d3f5406a484e", null ],
     [ "stripSocketMetrics", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996", null ],
-    [ "processFeedback", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ac5bbf2e7a30c04d0f42fb824aba0ca84", null ],
     [ "telemetry", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7caa83797f2f419d1201b652b1970ef9", null ],
     [ "remote", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a9efe0b9a30d46f7613978ab954918f3d", null ],
+    [ "outputModel", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ade241ee829184316a1a2be8e70a5f328", null ],
     [ "isConnected", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88", null ],
     [ "currentNetworkDelay", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0af2bd852f5ddf3a39df72fb1eb329dd", null ]
 ];

@@ -7,7 +7,6 @@
 #include <SDK/Gizmos>
 #include <QuasarSDK/API>
 #include "application/updatemanager.h"
-#include "gui/terminal/vt100terminal.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
 #include "gui/colortheme.h"
@@ -44,7 +43,6 @@ Entry::Entry(QObject* parent)
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
 
-  qmlRegisterSingletonInstance<GUI::VT100Terminal>("Terminals", 1, 0, "VT100Terminal", GUI::VT100Terminal::get());
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
   qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get());
   qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());

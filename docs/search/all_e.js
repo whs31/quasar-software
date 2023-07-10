@@ -7,8 +7,9 @@ var searchData=
   ['origin_4',['origin',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html#aa90a335b292aa2e9da91548c8ee3d8f9',1,'QuasarSDK::Map::AbstractMapObject::origin()'],['../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a5df9968d14a11006a2022207bd6f3e32',1,'QuasarSDK::Map::IMapObject::origin()']]],
   ['orthodrom_5',['Orthodrom',['../dd/d19/classSDK_1_1Cartography_1_1Orthodrom.html',1,'SDK::Cartography']]],
   ['os_6',['OS',['../de/d7c/namespaceOS.html',1,'']]],
-  ['outputredirectserver_7',['OutputRedirectServer',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#a998b60d68b42b365b6248073502e9ff7',1,'QuasarSDK::OutputRedirectServer::OutputRedirectServer()'],['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html',1,'OutputRedirectServer']]],
-  ['outputsocket_8',['outputSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a291f6bb2ace013b35d249897694143d4',1,'QuasarSDK::QuasarAPI']]],
-  ['outputsocket_9',['OutputSocket',['../d8/d25/classQuasarSDK_1_1OutputSocket.html',1,'QuasarSDK']]],
-  ['overrideimageheight_10',['overrideImageHeight',['../d5/dfa/classConfig_1_1Config.html#aced4a69727f347e1e1a73bfdd8761143',1,'Config::Config']]]
+  ['outputmodel_7',['outputModel',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ade241ee829184316a1a2be8e70a5f328',1,'QuasarSDK::QuasarAPI']]],
+  ['outputredirectserver_8',['OutputRedirectServer',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#a998b60d68b42b365b6248073502e9ff7',1,'QuasarSDK::OutputRedirectServer::OutputRedirectServer()'],['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html',1,'OutputRedirectServer']]],
+  ['outputsocket_9',['outputSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a291f6bb2ace013b35d249897694143d4',1,'QuasarSDK::QuasarAPI']]],
+  ['outputsocket_10',['OutputSocket',['../d8/d25/classQuasarSDK_1_1OutputSocket.html',1,'QuasarSDK']]],
+  ['overrideimageheight_11',['overrideImageHeight',['../d5/dfa/classConfig_1_1Config.html#aced4a69727f347e1e1a73bfdd8761143',1,'Config::Config']]]
 ];

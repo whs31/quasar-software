@@ -3,7 +3,6 @@ var hierarchy =
     [ "ArrayReader< T >", "d4/d1b/classProcessing_1_1ArrayReader.html", null ],
     [ "TerminalBase::BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
-    [ "VT100Terminal::CursorPosition", "db/dc9/classGUI_1_1VT100Terminal.html#d3/d33/structGUI_1_1VT100Terminal_1_1CursorPosition", null ],
     [ "SAROutputModel::CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
     [ "TrackEventModel::EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
     [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", null ],
@@ -52,8 +51,7 @@ var hierarchy =
     [ "PlannerResponseDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", null ],
     [ "QAbstractListModel", null, [
       [ "TerminalBase", "d0/dfa/classGUI_1_1TerminalBase.html", [
-        [ "DebugConsole", "d3/d6a/classGUI_1_1DebugConsole.html", null ],
-        [ "VT100Terminal", "db/dc9/classGUI_1_1VT100Terminal.html", null ]
+        [ "DebugConsole", "d3/d6a/classGUI_1_1DebugConsole.html", null ]
       ] ],
       [ "WarningsModel", "d6/d0f/classGUI_1_1WarningsModel.html", null ],
       [ "ImageModel", "d4/dfc/classMap_1_1ImageModel.html", null ],

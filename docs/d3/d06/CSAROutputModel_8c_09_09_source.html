@@ -122,14 +122,14 @@ $(document).ready(function(){initNavTree('d3/d06/CSAROutputModel_8c_09_09_source
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    , m_cursorPosition({0, 0})</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  {}</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#ac8707f37808b24c3094762ea5784aa83">   14</a></span>  <span class="keywordtype">void</span> SAROutputModel::newline() noexcept</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#ab5159a45ba6da86b4085607bea7569dc">   14</a></span>  <span class="keywordtype">void</span> SAROutputModel::newline()</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    beginInsertRows(QModelIndex(), rowCount(), rowCount());</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    m_storage.emplace_back(std::move(make_unique&lt;SARMessage&gt;()));</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    endInsertRows();</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  }</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a620b88d34aa4dd26e10d4cca96e6960e">   21</a></span>  <span class="keywordtype">void</span> SAROutputModel::print(<span class="keyword">const</span> QByteArray&amp; data) <span class="keyword">noexcept</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a85c5c443e29ae7a86396229679e4c8b5">   21</a></span>  <span class="keywordtype">void</span> SAROutputModel::print(<span class="keyword">const</span> QByteArray&amp; data)</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    QString text;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
@@ -262,8 +262,8 @@ $(document).ready(function(){initNavTree('d3/d06/CSAROutputModel_8c_09_09_source
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    this-&gt;appendString(text);</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  }</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  QString SAROutputModel::lastLine() const noexcept</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  QString SAROutputModel::lastLine()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">  </span>{</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordflow">if</span>(m_storage.empty())</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>      <span class="keywordflow">return</span> {};</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> m_storage.back()-&gt;message();</div>
@@ -284,13 +284,13 @@ $(document).ready(function(){initNavTree('d3/d06/CSAROutputModel_8c_09_09_source
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">if</span>(m_cursorPosition.x &gt;= str.size())</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>      m_cursorPosition.x++;</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">int</span> removeCount = (m_cursorPosition.x + text.size()) &gt; str.size() ? str.size()</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                                                                        - m_cursorPosition.x : m_cursorPosition.x + text.size();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">int</span> removeCount = (m_cursorPosition.x + text.size()) &gt; str.size() ? str.size() - m_cursorPosition.x</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                                                                      : m_cursorPosition.x + text.size();</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    str.remove(m_cursorPosition.x, removeCount * 2);</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    str.insert(m_cursorPosition.x, text);</div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">if</span>(m_storage.empty() and removeCount != 6)</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>      this-&gt;append(std::move(make_unique&lt;SARMessage&gt;(str, IMessage::Debug)));</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>      this-&gt;append((make_unique&lt;SARMessage&gt;(str, IMessage::Debug)));</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      this-&gt;setLastLine(str);</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  }</div>
@@ -302,7 +302,7 @@ $(document).ready(function(){initNavTree('d3/d06/CSAROutputModel_8c_09_09_source
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_c5d4018c0fe90f1660bca3f6235e9876.html">libquasarsdk</a></li><li class="navelem"><a class="el" href="../../dir_0f9d83d35d962a1c6c5b739b964daf6d.html">src</a></li><li class="navelem"><a class="el" href="../../dir_79194e3eeb0d99d18173ab4bfa62ea30.html">IO</a></li><li class="navelem"><b>CSAROutputModel.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Вс 9 Июл 2023 22:48:17. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Пн 10 Июл 2023 14:39:52. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>
 </body>

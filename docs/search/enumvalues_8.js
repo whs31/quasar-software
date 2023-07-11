@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timeout_0',['Timeout',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469a98cb58869380e6582c793dcd0e86598c',1,'QuasarSDK::Enums']]]
+  ['maroon_0',['Maroon',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cafd16b2466230f91a7376ffc13d6182d6',1,'Scenegraph::Utils::ColorProvider']]],
+  ['mauve_1',['Mauve',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca34037f276c915dd27b66a874ebdccfa7',1,'Scenegraph::Utils::ColorProvider']]]
 ];

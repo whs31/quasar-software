@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['reboot_0',['Reboot',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7',1,'QuasarSDK::Enums']]],
-  ['reform_1',['Reform',['../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09aa8d76445d1381f9e8af31e5f225dbfe6',1,'QuasarSDK::Enums']]],
-  ['reformimage_2',['ReformImage',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486eae63d5e0d6f7ad5820b84c5db3d34ee08',1,'QuasarSDK::Enums']]],
-  ['remotestoragestatus_3',['RemoteStorageStatus',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486eab852b7dd27a86b98629f1502e1392386',1,'QuasarSDK::Enums']]]
+  ['idle_0',['Idle',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469ad3fa9ae9431d6cb1772f9d9df48cab19',1,'QuasarSDK::Enums']]],
+  ['info_1',['Info',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013a1cd805eaf0bb58a90fe7e7e4cf6a3cdc',1,'QuasarSDK::IO::IMessage']]],
+  ['infospecific_2',['InfoSpecific',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013a37809ba60b764c13cb4fa7d28ad8d6e5',1,'QuasarSDK::IO::IMessage']]],
+  ['integer_3',['Integer',['../d7/d54/structQuasarSDK_1_1ExecdArgument.html#aa15f3f718db408445afc1b93c12294c5a1e2f89e867cd91c3de2ea9fbd2ef96a3',1,'QuasarSDK::ExecdArgument']]]
 ];

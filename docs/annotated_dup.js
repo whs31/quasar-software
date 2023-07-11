@@ -65,6 +65,8 @@ var annotated_dup =
         [ "TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest_dup" ]
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
+        [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", "d7/d4f/classQuasarSDK_1_1IO_1_1File" ],
+        [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", "d9/d90/classQuasarSDK_1_1IO_1_1IFile" ],
         [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
         [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel" ],
         [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ],
@@ -106,6 +108,11 @@ var annotated_dup =
       [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", "d9/df7/classQuasarSDK_1_1TCPServer" ],
       [ "Telemetry", "db/d03/classQuasarSDK_1_1Telemetry.html", "db/d03/classQuasarSDK_1_1Telemetry" ],
       [ "TelemetrySocket", "db/d5f/classQuasarSDK_1_1TelemetrySocket.html", "db/d5f/classQuasarSDK_1_1TelemetrySocket" ]
+    ] ],
+    [ "Scenegraph", "d9/d69/namespaceScenegraph.html", [
+      [ "Utils", "d9/de7/namespaceScenegraph_1_1Utils.html", [
+        [ "ColorProvider", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider" ]
+      ] ]
     ] ],
     [ "SDK", null, [
       [ "Cartography", null, [

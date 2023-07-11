@@ -19,6 +19,9 @@ var hierarchy =
       [ "PingTester", "d2/d74/classQuasarSDK_1_1PingTester.html", null ],
       [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", null ]
     ] ],
+    [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", [
+      [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", null ]
+    ] ],
     [ "Image", "d4/da1/structMap_1_1Image.html", [
       [ "StripImage", "dc/dac/structMap_1_1StripImage.html", null ],
       [ "TelescopicImage", "d5/d34/structMap_1_1TelescopicImage.html", null ]
@@ -88,7 +91,8 @@ var hierarchy =
       [ "QuasarAPI", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html", null ],
       [ "RemoteData", "d0/d18/classQuasarSDK_1_1RemoteData.html", null ],
       [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", null ],
-      [ "Telemetry", "db/d03/classQuasarSDK_1_1Telemetry.html", null ]
+      [ "Telemetry", "db/d03/classQuasarSDK_1_1Telemetry.html", null ],
+      [ "ColorProvider", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html", null ]
     ] ],
     [ "QQuickItem", null, [
       [ "Gizmos", "dd/dfe/classSDK_1_1Gizmos_1_1Gizmos.html", null ],

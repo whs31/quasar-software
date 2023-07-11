@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messagetype_0',['MessageType',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013',1,'QuasarSDK::IO::IMessage']]]
+  ['basecolor_0',['BaseColor',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28c',1,'Scenegraph::Utils::ColorProvider']]]
 ];

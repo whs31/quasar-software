@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['poweroff_0',['PowerOff',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486ea015000f123643bed2f55db3d37ea7268',1,'QuasarSDK::Enums']]]
+  ['green_0',['Green',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad0784a3f969fe736e8b271a5a161d106',1,'Scenegraph::Utils::ColorProvider']]]
 ];

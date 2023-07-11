@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clearremotestorage_0',['ClearRemoteStorage',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486ea2bcce22d62ab5e5ce2590c13529b7e64',1,'QuasarSDK::Enums']]]
+  ['blue_0',['Blue',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caf5e09dd1da4088464f264b7a3118bff8',1,'Scenegraph::Utils::ColorProvider']]]
 ];

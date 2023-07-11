@@ -1,13 +1,3 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" title=" " alt="" coords="5,188,154,216"/>
-<area shape="rect" id="node2" href="$d0/dfa/classGUI_1_1TerminalBase.html" title=" " alt="" coords="213,5,323,33"/>
-<area shape="rect" id="node4" href="$d6/d0f/classGUI_1_1WarningsModel.html" title=" " alt="" coords="207,57,329,85"/>
-<area shape="rect" id="node5" href="$d4/dfc/classMap_1_1ImageModel.html" title=" " alt="" coords="217,109,319,137"/>
-<area shape="rect" id="node6" href="$d3/d51/classMap_1_1MarkerModel.html" title=" " alt="" coords="215,161,321,189"/>
-<area shape="rect" id="node7" href="$dc/d18/classMap_1_1Ruler.html" title=" " alt="" coords="240,213,296,241"/>
-<area shape="rect" id="node8" href="$d3/d9a/classMap_1_1StripModel.html" title=" " alt="" coords="222,265,314,293"/>
-<area shape="rect" id="node9" href="$d6/d55/classMap_1_1TrackEventModel.html" title=" " alt="" coords="202,317,334,345"/>
-<area shape="rect" id="node10" href="$d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html" title="Базовый класс для модели сообщений." alt="" coords="208,369,328,397"/>
-<area shape="rect" id="node3" href="$d3/d6a/classGUI_1_1DebugConsole.html" title=" " alt="" coords="391,5,506,33"/>
-<area shape="rect" id="node11" href="$d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="382,369,514,397"/>
+<area shape="rect" id="node1" href="$da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram" title="Структура ответа на прохождение БПЛА через точку из полётного задания." alt="" coords="5,5,204,33"/>
 </map>

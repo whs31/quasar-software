@@ -1,0 +1,221 @@
+<!-- HTML header for doxygen 1.9.6-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.9.6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuaSAR: Исходный файл CColorProvider.h</title>
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
+              <td id="projectalign">
+                <div id="projectname">QuaSAR<span
+                    id="projectnumber">&#160;2.12.0</span>
+                </div>
+                <div id="projectbrief">SAR control software</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d5/d02/CColorProvider_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">CColorProvider.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/d02/CColorProvider_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;QtCore/QObject&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;QtCore/QColor&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">using </span>std::map;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/de7/namespaceScenegraph_1_1Utils.html">Scenegraph::Utils</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html">   21</a></span>  <span class="keyword">class </span><a class="code hl_class" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html">ColorProvider</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Q_OBJECT</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28c">   27</a></span>      <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28c">BaseColor</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>      {</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cab2f9125186fcff90d095b0018f05cc23">   29</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cab2f9125186fcff90d095b0018f05cc23">Rosewater</a>,        </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca7e4e45097eddfc7ec545663a67c0d94c">   30</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca7e4e45097eddfc7ec545663a67c0d94c">Flamingo</a>,         </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca500fa51afdd48f15c4176c234835c182">   31</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca500fa51afdd48f15c4176c234835c182">Pink</a>,             </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca34037f276c915dd27b66a874ebdccfa7">   32</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca34037f276c915dd27b66a874ebdccfa7">Mauve</a>,            </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad3163c1fcda01965b692ec2c3122b743">   33</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad3163c1fcda01965b692ec2c3122b743">Red</a>,              </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cafd16b2466230f91a7376ffc13d6182d6">   34</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cafd16b2466230f91a7376ffc13d6182d6">Maroon</a>,           </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caa02db2d7fcfc4c03db76de57c1c836e6">   35</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caa02db2d7fcfc4c03db76de57c1c836e6">Peach</a>,            </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cabf28513245738599d13e3ce36bd16c82">   36</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cabf28513245738599d13e3ce36bd16c82">Yellow</a>,           </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad0784a3f969fe736e8b271a5a161d106">   37</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad0784a3f969fe736e8b271a5a161d106">Green</a>,            </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca1b94b257c3fd7914649b7575853555c1">   38</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca1b94b257c3fd7914649b7575853555c1">Teal</a>,             </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca54df88f4c7ef11d448b6bedba092f4e6">   39</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca54df88f4c7ef11d448b6bedba092f4e6">Sky</a>,              </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca52dd0bdc4c3c70194bace0b5d4d0ff91">   40</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca52dd0bdc4c3c70194bace0b5d4d0ff91">Sapphire</a>,         </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caf5e09dd1da4088464f264b7a3118bff8">   41</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caf5e09dd1da4088464f264b7a3118bff8">Blue</a>,             </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca05ac21ba845e9ff8bafd47182b81c60b">Lavender</a>          </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca05ac21ba845e9ff8bafd47182b81c60b">   43</a></span>      };</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">   46</a></span>      <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">ThemeVariant</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633ab881c2fca9941a632de2b4af173a7906">   48</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633ab881c2fca9941a632de2b4af173a7906">Dark</a>,             </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633a40f3b2e02173a504f9b3720d1dcede51">Light</a>             </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633a40f3b2e02173a504f9b3720d1dcede51">   50</a></span>      };</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">   53</a></span>      <span class="keyword">enum</span> <a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">DistributionBehavior</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca23067fd87af60f212fe99f4713715628">   55</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca23067fd87af60f212fe99f4713715628">OrderedCycle</a>,     </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca80b77894f4ff93748815b60436ad24e7">   56</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca80b77894f4ff93748815b60436ad24e7">RandomCycle</a>,      </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca485f579e95fc6290c16ff47468e0fd94">   57</a></span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca485f579e95fc6290c16ff47468e0fd94">OrderedTint</a>,      </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_enumvalue" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787cae2d8b7a7db662bf4f27032e50f895172">RandomTint</a>        </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787cae2d8b7a7db662bf4f27032e50f895172">   59</a></span>      };</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      Q_ENUM(<a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">ThemeVariant</a>)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      Q_ENUM(<a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28c">BaseColor</a>)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      Q_ENUM(<a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">DistributionBehavior</a>)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <span class="keyword">explicit</span> <a class="code hl_class" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html">ColorProvider</a>(QObject* parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a5377800090fd93c5c1320c4aaf14da10">   67</a></span>      [[nodiscard]] <a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">ThemeVariant</a> <a class="code hl_function" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a5377800090fd93c5c1320c4aaf14da10">theme</a>() <span class="keyword">const</span>;           </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a7935ad87cb6c843efcd08dbd5c11de1d">   68</a></span>      <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a7935ad87cb6c843efcd08dbd5c11de1d">setTheme</a>(<a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">ThemeVariant</a> var);                    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#af78a7c6b117e632a249d1dc219312d5e">   70</a></span>      [[nodiscard]] <a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">DistributionBehavior</a> <a class="code hl_function" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#af78a7c6b117e632a249d1dc219312d5e">behavior</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#aa9cc8e6e99c991daed587ccb082d3c88">   71</a></span>      <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#aa9cc8e6e99c991daed587ccb082d3c88">setBehavior</a>(<a class="code hl_enumeration" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">DistributionBehavior</a> var);         </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a07032018ae8f354708cc9aa415e8f271">   77</a></span>      [[nodiscard]] QString <a class="code hl_function" href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a07032018ae8f354708cc9aa415e8f271">next</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      map&lt;BaseColor, QColor&gt; m_dark_palette;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      map&lt;BaseColor, QColor&gt; m_light_palette;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  };</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>} <span class="comment">// Scenegraph::Utils</span></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html">Scenegraph::Utils::ColorProvider</a></div><div class="ttdoc">Класс, предоставляющий палитру контрастных цветов.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00021">CColorProvider.h:22</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a07032018ae8f354708cc9aa415e8f271"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a07032018ae8f354708cc9aa415e8f271">Scenegraph::Utils::ColorProvider::next</a></div><div class="ttdeci">QString next() const</div><div class="ttdoc">Возвращает</div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28c"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28c">Scenegraph::Utils::ColorProvider::BaseColor</a></div><div class="ttdeci">BaseColor</div><div class="ttdoc">Перечисление базовых цветов палитры. Применимо как к темной, так и к светлой палитре.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00027">CColorProvider.h:28</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca05ac21ba845e9ff8bafd47182b81c60b"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca05ac21ba845e9ff8bafd47182b81c60b">Scenegraph::Utils::ColorProvider::Lavender</a></div><div class="ttdeci">@ Lavender</div><div class="ttdoc">Лавандовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00043">CColorProvider.h:42</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca1b94b257c3fd7914649b7575853555c1"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca1b94b257c3fd7914649b7575853555c1">Scenegraph::Utils::ColorProvider::Teal</a></div><div class="ttdeci">@ Teal</div><div class="ttdoc">Бирюзовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00038">CColorProvider.h:38</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca34037f276c915dd27b66a874ebdccfa7"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca34037f276c915dd27b66a874ebdccfa7">Scenegraph::Utils::ColorProvider::Mauve</a></div><div class="ttdeci">@ Mauve</div><div class="ttdoc">Фиолетовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00032">CColorProvider.h:32</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca500fa51afdd48f15c4176c234835c182"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca500fa51afdd48f15c4176c234835c182">Scenegraph::Utils::ColorProvider::Pink</a></div><div class="ttdeci">@ Pink</div><div class="ttdoc">Розовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00031">CColorProvider.h:31</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca52dd0bdc4c3c70194bace0b5d4d0ff91"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca52dd0bdc4c3c70194bace0b5d4d0ff91">Scenegraph::Utils::ColorProvider::Sapphire</a></div><div class="ttdeci">@ Sapphire</div><div class="ttdoc">Сапфировый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00040">CColorProvider.h:40</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca54df88f4c7ef11d448b6bedba092f4e6"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca54df88f4c7ef11d448b6bedba092f4e6">Scenegraph::Utils::ColorProvider::Sky</a></div><div class="ttdeci">@ Sky</div><div class="ttdoc">Голубой.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00039">CColorProvider.h:39</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28ca7e4e45097eddfc7ec545663a67c0d94c"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28ca7e4e45097eddfc7ec545663a67c0d94c">Scenegraph::Utils::ColorProvider::Flamingo</a></div><div class="ttdeci">@ Flamingo</div><div class="ttdoc">Темно-розовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00030">CColorProvider.h:30</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28caa02db2d7fcfc4c03db76de57c1c836e6"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caa02db2d7fcfc4c03db76de57c1c836e6">Scenegraph::Utils::ColorProvider::Peach</a></div><div class="ttdeci">@ Peach</div><div class="ttdoc">Оранжевый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00035">CColorProvider.h:35</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28cab2f9125186fcff90d095b0018f05cc23"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cab2f9125186fcff90d095b0018f05cc23">Scenegraph::Utils::ColorProvider::Rosewater</a></div><div class="ttdeci">@ Rosewater</div><div class="ttdoc">Светло-розовый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00029">CColorProvider.h:29</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28cabf28513245738599d13e3ce36bd16c82"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cabf28513245738599d13e3ce36bd16c82">Scenegraph::Utils::ColorProvider::Yellow</a></div><div class="ttdeci">@ Yellow</div><div class="ttdoc">Желтый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00036">CColorProvider.h:36</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28cad0784a3f969fe736e8b271a5a161d106"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad0784a3f969fe736e8b271a5a161d106">Scenegraph::Utils::ColorProvider::Green</a></div><div class="ttdeci">@ Green</div><div class="ttdoc">Зеленый.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00037">CColorProvider.h:37</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28cad3163c1fcda01965b692ec2c3122b743"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad3163c1fcda01965b692ec2c3122b743">Scenegraph::Utils::ColorProvider::Red</a></div><div class="ttdeci">@ Red</div><div class="ttdoc">Красный.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00033">CColorProvider.h:33</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28caf5e09dd1da4088464f264b7a3118bff8"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28caf5e09dd1da4088464f264b7a3118bff8">Scenegraph::Utils::ColorProvider::Blue</a></div><div class="ttdeci">@ Blue</div><div class="ttdoc">Синий.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00041">CColorProvider.h:41</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a20fe1c284bf1ea149abaeb73c316b28cafd16b2466230f91a7376ffc13d6182d6"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cafd16b2466230f91a7376ffc13d6182d6">Scenegraph::Utils::ColorProvider::Maroon</a></div><div class="ttdeci">@ Maroon</div><div class="ttdoc">Бледно-красный.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00034">CColorProvider.h:34</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a4c743b92917e955e3ae95efde906787c"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787c">Scenegraph::Utils::ColorProvider::DistributionBehavior</a></div><div class="ttdeci">DistributionBehavior</div><div class="ttdoc">Перечисление поведения класса при вызове функции next().</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00053">CColorProvider.h:54</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a4c743b92917e955e3ae95efde906787ca23067fd87af60f212fe99f4713715628"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca23067fd87af60f212fe99f4713715628">Scenegraph::Utils::ColorProvider::OrderedCycle</a></div><div class="ttdeci">@ OrderedCycle</div><div class="ttdoc">При вызове функции next() будет возвращен следующий по порядку цвет из палитры. Когда палитра закончи...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00055">CColorProvider.h:55</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a4c743b92917e955e3ae95efde906787ca485f579e95fc6290c16ff47468e0fd94"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca485f579e95fc6290c16ff47468e0fd94">Scenegraph::Utils::ColorProvider::OrderedTint</a></div><div class="ttdeci">@ OrderedTint</div><div class="ttdoc">При вызове функции next() будет возвращен следующий по порядку цвет из палитры. Когда палитра закончи...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00057">CColorProvider.h:57</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a4c743b92917e955e3ae95efde906787ca80b77894f4ff93748815b60436ad24e7"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca80b77894f4ff93748815b60436ad24e7">Scenegraph::Utils::ColorProvider::RandomCycle</a></div><div class="ttdeci">@ RandomCycle</div><div class="ttdoc">При вызове функции next() будет возвращен случайный цвет из палитры. Он не будет повторяться до тех п...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00056">CColorProvider.h:56</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a4c743b92917e955e3ae95efde906787cae2d8b7a7db662bf4f27032e50f895172"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787cae2d8b7a7db662bf4f27032e50f895172">Scenegraph::Utils::ColorProvider::RandomTint</a></div><div class="ttdeci">@ RandomTint</div><div class="ttdoc">При вызове функции next() будет возвращен случайный цвет из палитры. Когда палитра закончится,...</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00059">CColorProvider.h:58</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a5377800090fd93c5c1320c4aaf14da10"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a5377800090fd93c5c1320c4aaf14da10">Scenegraph::Utils::ColorProvider::theme</a></div><div class="ttdeci">ThemeVariant theme() const</div><div class="ttdoc">Возвращает текущую тему цветовой палитры.</div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_a7935ad87cb6c843efcd08dbd5c11de1d"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a7935ad87cb6c843efcd08dbd5c11de1d">Scenegraph::Utils::ColorProvider::setTheme</a></div><div class="ttdeci">void setTheme(ThemeVariant var)</div><div class="ttdoc">Устанавливает текущую тему цветовой палитры. Эта функция принудительно вызывает reset().</div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_aa9cc8e6e99c991daed587ccb082d3c88"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#aa9cc8e6e99c991daed587ccb082d3c88">Scenegraph::Utils::ColorProvider::setBehavior</a></div><div class="ttdeci">void setBehavior(DistributionBehavior var)</div><div class="ttdoc">Устанавливает текущее поведение при вызове функции next(). Эта функция принудительно вызывает reset()...</div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_abe601243d94bd50fce1e08004e1a8633"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633">Scenegraph::Utils::ColorProvider::ThemeVariant</a></div><div class="ttdeci">ThemeVariant</div><div class="ttdoc">Перечисление вариаций цветовой палитры.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00046">CColorProvider.h:47</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_abe601243d94bd50fce1e08004e1a8633a40f3b2e02173a504f9b3720d1dcede51"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633a40f3b2e02173a504f9b3720d1dcede51">Scenegraph::Utils::ColorProvider::Light</a></div><div class="ttdeci">@ Light</div><div class="ttdoc">Светлая палитра для светлой темы.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00050">CColorProvider.h:49</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_abe601243d94bd50fce1e08004e1a8633ab881c2fca9941a632de2b4af173a7906"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633ab881c2fca9941a632de2b4af173a7906">Scenegraph::Utils::ColorProvider::Dark</a></div><div class="ttdeci">@ Dark</div><div class="ttdoc">Темная палитра для темной темы.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d02/CColorProvider_8h_source.html#l00048">CColorProvider.h:48</a></div></div>
+<div class="ttc" id="aclassScenegraph_1_1Utils_1_1ColorProvider_html_af78a7c6b117e632a249d1dc219312d5e"><div class="ttname"><a href="../../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#af78a7c6b117e632a249d1dc219312d5e">Scenegraph::Utils::ColorProvider::behavior</a></div><div class="ttdeci">DistributionBehavior behavior() const</div><div class="ttdoc">Возвращает текущее поведение при вызове функции next().</div></div>
+<div class="ttc" id="anamespaceScenegraph_1_1Utils_html"><div class="ttname"><a href="../../d9/de7/namespaceScenegraph_1_1Utils.html">Scenegraph::Utils</a></div><div class="ttdoc">Пространство имен для вспомогательных классов и функций, связанных с QML Scenegraph.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_6719ab1f1f7655efc2fa43f7eb574fd1.html">libs</a></li><li class="navelem"><a class="el" href="../../dir_1a9852a19a2db34b2990ef662217d17c.html">libscenegraph</a></li><li class="navelem"><a class="el" href="../../dir_5fc2e61a583663daefa39001dfe74395.html">src</a></li><li class="navelem"><a class="el" href="../../dir_35a5926108911484b62ca35b57c808f7.html">Utils</a></li><li class="navelem"><a class="el" href="../../d5/d02/CColorProvider_8h.html">CColorProvider.h</a></li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Вт 11 Июл 2023 15:25:13. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
+</body>
+</html>

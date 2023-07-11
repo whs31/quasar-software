@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pingstatus_0',['PingStatus',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469',1,'QuasarSDK::Enums']]]
+  ['messagetype_0',['MessageType',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013',1,'QuasarSDK::IO::IMessage']]]
 ];

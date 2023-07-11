@@ -30,5 +30,6 @@ var classScenegraph_1_1Utils_1_1ColorProvider =
     [ "setTheme", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a7935ad87cb6c843efcd08dbd5c11de1d", null ],
     [ "behavior", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#af78a7c6b117e632a249d1dc219312d5e", null ],
     [ "setBehavior", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#aa9cc8e6e99c991daed587ccb082d3c88", null ],
-    [ "next", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a07032018ae8f354708cc9aa415e8f271", null ]
+    [ "next", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#adf47d2ced188f7db8107a18225820b5c", null ],
+    [ "reset", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#aa5cb0f299cfcc8e13b2f9cedba3d92ad", null ]
 ];

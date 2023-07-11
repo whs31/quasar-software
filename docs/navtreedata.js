@@ -87,7 +87,7 @@ var NAVTREEINDEX =
 "d4/d19/namespaceQuasarSDK_1_1Utils.html#a414e2d36554301965d1d9ae80da08a3f",
 "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a6ad60b957398102835e7fdc86a5a4662",
 "da/db8/namespaceQuasarSDK_1_1Datagrams.html#a0ea604dd26c415c8f380323b91bdba56",
-"dd/da3/imagemetadata_8h.html#a26ce98a1cefae97e7a803b1dbec972c1"
+"dd/da3/imagemetadata_8h.html#a1c921d7f2f6a29b15d709c49d2df1797"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

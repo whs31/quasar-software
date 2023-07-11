@@ -9,7 +9,7 @@
 
 #include <map>
 #include <QtCore/QObject>
-#include <QtCore/QColor>
+#include <QtGui/QColor>
 
 using std::map;
 
@@ -21,6 +21,20 @@ namespace Scenegraph::Utils
   class ColorProvider : public QObject
   {
     Q_OBJECT
+
+    /**
+     * \brief Текущая тема цветовой палитры.
+     * \details **Эта функция принудительно вызывает reset() при записи в свойство.**
+     * \see theme, setTheme, themeChanged
+     */
+    Q_PROPERTY(theme READ theme WRITE setTheme NOTIFY themeChanged)
+
+    /**
+     * \brief Текущее поведение при вызове функции next().
+     * \details **Эта функция принудительно вызывает reset() при записи в свойство.**
+     * \see behavior, setBehavior, behaviorChanged
+     */
+    Q_PROPERTY(behavior READ behavior WRITE setBehavior NOTIFY behaviorChanged)
 
     public:
       /// \brief Перечисление базовых цветов палитры. Применимо как к темной, так и к светлой палитре.
@@ -62,7 +76,33 @@ namespace Scenegraph::Utils
       Q_ENUM(BaseColor)
       Q_ENUM(DistributionBehavior)
 
+      /// \brief Создает объект с указанным родителем.
       explicit ColorProvider(QObject* parent = nullptr);
+
+      /**
+       * \brief Возвращает цвет согласно текущему поведению DistributionBehavior.
+       * \note Эта функция доступна в QML через мета-объектную систему.
+       * \see reset, behavior, setBehavior, DistributionBehavior
+       * \return Цвет в шестнадцатеричном формате (e. g. <tt>#FF00FF</tt>).
+       */
+      Q_INVOKABLE [[nodiscard]] QString next() const;
+
+      /**
+       * \brief Возвращает указанный цвет из палитры.
+       * \details *Эта функция не увеличивает внутренний счетчик.*
+       * \param base_color - тип цвета.
+       * \note Эта функция доступна в QML через мета-объектную систему.
+       * \see BaseColor
+       * \return Цвет в шестнадцатеричном формате (e. g. <tt>#FF00FF</tt>).
+       */
+      Q_INVOKABLE [[nodiscard]] QString exactColor(BaseColor base_color) const;
+
+      /**
+       * \brief Сбрасывает внутренний счетчик выданных цветов.
+       * \note Эта функция доступна в QML через мета-объектную систему.
+       * \see next
+       */
+      Q_INVOKABLE void reset() noexcept;
 
       [[nodiscard]] ThemeVariant theme() const;           ///< Возвращает текущую тему цветовой палитры.
       void setTheme(ThemeVariant var);                    ///< Устанавливает текущую тему цветовой палитры. **Эта функция принудительно вызывает reset()**.
@@ -71,15 +111,29 @@ namespace Scenegraph::Utils
       void setBehavior(DistributionBehavior var);         ///< Устанавливает текущее поведение при вызове функции next(). **Эта функция принудительно вызывает reset()**.
 
       /**
-       * \brief Возвращает
-       * \return
+       * \brief Устанавливает пользовательскую палитру для выбранной темы палитры.
+       * \param new_palette - новая палитра с цветами. Палитра должна содержать все цвета из перечисления BaseColor.
+       * \param palette_type - тип палитры. См. ThemeVariant.
        */
-      [[nodiscard]] QString next() const;
+      void setPalette(const map<BaseColor, QColor>& new_palette, ThemeVariant palette_type);
 
+    signals:
+      void themeChanged();
+      void behaviorChanged();
 
     private:
       map<BaseColor, QColor> m_dark_palette;
       map<BaseColor, QColor> m_light_palette;
 
+      ThemeVariant m_currentTheme;
+      DistributionBehavior m_currentBehavior;
+
+      struct CPIterator
+      {
+        int loop;
+        int count;
+      };
+
+      mutable CPIterator m_it;
   };
 } // Scenegraph::Utils

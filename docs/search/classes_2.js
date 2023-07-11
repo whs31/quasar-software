@@ -6,5 +6,6 @@ var searchData=
   ['colortheme_3',['ColorTheme',['../da/dea/classGUI_1_1ColorTheme.html',1,'GUI']]],
   ['colorthemewrapper_4',['ColorThemeWrapper',['../d3/d2f/classGUI_1_1internal_1_1ColorThemeWrapper.html',1,'GUI::internal']]],
   ['config_5',['Config',['../d5/dfa/classConfig_1_1Config.html',1,'Config'],['../da/dff/classQuasarSDK_1_1Config.html',1,'Config']]],
-  ['cursorposition_6',['CursorPosition',['../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition',1,'QuasarSDK::IO::SAROutputModel']]]
+  ['cpiterator_6',['CPIterator',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator',1,'Scenegraph::Utils::ColorProvider']]],
+  ['cursorposition_7',['CursorPosition',['../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition',1,'QuasarSDK::IO::SAROutputModel']]]
 ];

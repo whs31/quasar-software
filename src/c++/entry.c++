@@ -6,6 +6,7 @@
 #include <SDK/MatrixPlot>
 #include <SDK/Gizmos>
 #include <QuasarSDK/API>
+#include <Scenegraph/ColorProvider>
 #include "application/updatemanager.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
@@ -62,6 +63,8 @@ Entry::Entry(QObject* parent)
   });
 
   QuasarAPI::get()->startPings();
+
+  qmlRegisterType<Scenegraph::Utils::ColorProvider>("Scenegraph.Extras", 1, 0, "ColorProvider");
 
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());

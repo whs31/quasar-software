@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['localip_0',['localIP',['../d5/dfa/classConfig_1_1Config.html#abb00f8fd5508af1ffc1b56f474a7ba22',1,'Config::Config']]]
+  ['jetsonip_0',['jetsonIP',['../d5/dfa/classConfig_1_1Config.html#a75af3a7370fd6e32995373d2dbbf1f81',1,'Config::Config']]]
 ];

@@ -3,6 +3,7 @@ var hierarchy =
     [ "ArrayReader< T >", "d4/d1b/classProcessing_1_1ArrayReader.html", null ],
     [ "TerminalBase::BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
+    [ "ColorProvider::CPIterator", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
     [ "SAROutputModel::CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
     [ "TrackEventModel::EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
     [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", null ],

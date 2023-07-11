@@ -8,15 +8,48 @@
 #pragma once
 
 #include <map>
+#include <array>
 #include <QtCore/QObject>
 #include <QtGui/QColor>
 
 using std::map;
+using std::array;
 
 namespace Scenegraph::Utils
 {
   /**
    * \brief Класс, предоставляющий палитру контрастных цветов.
+   * \details Для использования класс необходимо зарегистрировать в QML либо как
+   * тип, либо как синглтон. Предпочтительнее регистрировать класс как одиночный тип:
+   * \code {.cpp}
+     qmlRegisterType<Scenegraph::Utils::ColorProvider>("Scenegraph.Extras", 1, 0, "ColorProvider");
+   * \endcode
+   *
+   * После этого необходимо импортировать тип в QML и создать объект:
+   * \code {.js}
+     import Scenegraph.Extras 1.0
+
+     Item {
+        ColorProvider {
+            id: provider
+            theme: ColorProvider.Light
+            behavior: ColorProvider.RandomCycle
+        }
+
+        // Пример получения цвета:
+        ListView {
+            model: 100
+            delegate: Rectangle {
+                width: 100
+                height: 100
+                color: provider.next()
+            }
+        }
+     }
+     \endcode
+
+     Пример с разными значениями DistributionBehavior:
+     \image html sg_colorprovider.jpg
    */
   class ColorProvider : public QObject
   {
@@ -27,14 +60,14 @@ namespace Scenegraph::Utils
      * \details **Эта функция принудительно вызывает reset() при записи в свойство.**
      * \see theme, setTheme, themeChanged
      */
-    Q_PROPERTY(theme READ theme WRITE setTheme NOTIFY themeChanged)
+    Q_PROPERTY(ThemeVariant theme READ theme WRITE setTheme NOTIFY themeChanged)
 
     /**
      * \brief Текущее поведение при вызове функции next().
      * \details **Эта функция принудительно вызывает reset() при записи в свойство.**
      * \see behavior, setBehavior, behaviorChanged
      */
-    Q_PROPERTY(behavior READ behavior WRITE setBehavior NOTIFY behaviorChanged)
+    Q_PROPERTY(DistributionBehavior behavior READ behavior WRITE setBehavior NOTIFY behaviorChanged)
 
     public:
       /// \brief Перечисление базовых цветов палитры. Применимо как к темной, так и к светлой палитре.
@@ -53,7 +86,10 @@ namespace Scenegraph::Utils
         Sky,              ///< <span style="background:#04a5e5">Голубой.</span>
         Sapphire,         ///< <span style="background:#209fb5">Сапфировый.</span>
         Blue,             ///< <span style="background:#1e66f5">Синий.</span>
-        Lavender          ///< <span style="background:#7287fd">Лавандовый.</span>
+        Lavender,         ///< <span style="background:#7287fd">Лавандовый.</span>
+
+        Max = Lavender,   ///< Максимальное значение перечисления.
+        Min = Rosewater   ///< Минимальное значение перечисления.
       };
 
       /// \brief Перечисление вариаций цветовой палитры.
@@ -67,9 +103,9 @@ namespace Scenegraph::Utils
       enum DistributionBehavior
       {
         OrderedCycle,     ///< При вызове функции next() будет возвращен **следующий по порядку** цвет из палитры. Когда палитра закончится, цвета снова будут браться из нее с начала.
-        RandomCycle,      ///< При вызове функции next() будет возвращен **случайный** цвет из палитры. Он не будет повторяться до тех пор, пока палитра не закончится.
+        RandomCycle,      ///< При вызове функции next() будет возвращен **случайный** цвет из палитры. Он может повторяться.
         OrderedTint,      ///< При вызове функции next() будет возвращен **следующий по порядку** цвет из палитры. Когда палитра закончится, цвета в ней будут слегка изменены и снова будут браться из ее начала.
-        RandomTint        ///< При вызове функции next() будет возвращен **случайный** цвет из палитры. Когда палитра закончится, цвета будут изменены и цикл начнется заново.
+        RandomTint        ///< При вызове функции next() будет возвращен **случайный** цвет из палитры. Если такой цвет был выдан ранее, он будет изменен.
       };
 
       Q_ENUM(ThemeVariant)
@@ -135,5 +171,6 @@ namespace Scenegraph::Utils
       };
 
       mutable CPIterator m_it;
+      mutable array<bool, Max> m_exclude_list;
   };
 } // Scenegraph::Utils

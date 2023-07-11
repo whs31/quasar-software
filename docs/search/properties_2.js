@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['downloadedbytes_0',['downloadedBytes',['../d4/d85/classNetworking_1_1HTTPDownloader.html#aaf17bf5a5fe2080b85e3d146e6a8706b',1,'Networking::HTTPDownloader']]],
-  ['downloadprogress_1',['downloadProgress',['../d0/d18/classQuasarSDK_1_1RemoteData.html#a245341f5c68aee26bb424084e9335e27',1,'QuasarSDK::RemoteData']]]
+  ['currentnetworkdelay_0',['currentNetworkDelay',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0af2bd852f5ddf3a39df72fb1eb329dd',1,'QuasarSDK::QuasarAPI']]],
+  ['cutimage_1',['cutImage',['../d5/dfa/classConfig_1_1Config.html#a6e81ba455ac73046cba68a75c0d34991',1,'Config::Config']]]
 ];

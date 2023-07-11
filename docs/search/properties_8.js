@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['navip_0',['navIP',['../d5/dfa/classConfig_1_1Config.html#aa9f58cbedfcdde939083775c3a77ef6e',1,'Config::Config']]]
+  ['localip_0',['localIP',['../d5/dfa/classConfig_1_1Config.html#abb00f8fd5508af1ffc1b56f474a7ba22',1,'Config::Config']]]
 ];

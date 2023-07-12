@@ -1,6 +1,9 @@
 <map id="FGSMapObject" name="FGSMapObject">
-<area shape="rect" id="node1" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="19,157,137,184"/>
-<area shape="rect" id="node4" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="33,232,123,260"/>
-<area shape="rect" id="node2" href="$de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,151,109"/>
-<area shape="rect" id="node3" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,126,33"/>
+<area shape="rect" id="Node000001" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="19,157,137,184"/>
+<area shape="rect" id="Node000004" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="33,232,123,260"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="81,199,81,232,75,232,75,199"/>
+<area shape="rect" id="Node000002" href="$de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,151,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,124,81,156,75,156,75,124"/>
+<area shape="rect" id="Node000003" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,126,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,48,81,81,75,81,75,48"/>
 </map>

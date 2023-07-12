@@ -1,5 +1,7 @@
 <map id="MatrixPlot" name="MatrixPlot">
-<area shape="rect" id="node1" title=" " alt="" coords="94,98,183,126"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,104,33"/>
-<area shape="rect" id="node3" title=" " alt="" coords="128,5,320,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="94,98,183,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,104,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,42,128,96,125,99,74,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="128,5,320,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="204,46,153,99,149,96,200,42"/>
 </map>

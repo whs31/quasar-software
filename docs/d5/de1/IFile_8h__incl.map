@@ -1,4 +1,5 @@
 <map id="IFile.h" name="IFile.h">
-<area shape="rect" id="node1" title=" " alt="" coords="34,5,95,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,124,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,95,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,124,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,34,67,66,62,66,62,34"/>
 </map>

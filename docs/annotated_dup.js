@@ -65,7 +65,8 @@ var annotated_dup =
         [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "d8/d07/group__sdk__protocol_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest" ]
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
-        [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", "d7/d4f/classQuasarSDK_1_1IO_1_1File" ],
+        [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" ],
+        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile" ],
         [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", "d9/d90/classQuasarSDK_1_1IO_1_1IFile" ],
         [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
         [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel" ],

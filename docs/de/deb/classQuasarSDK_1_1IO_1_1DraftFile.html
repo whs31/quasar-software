@@ -1,0 +1,498 @@
+<!-- HTML header for doxygen 1.9.6-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.9.7" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuaSAR: Класс DraftFile</title>
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
+              <td id="projectalign">
+                <div id="projectname">QuaSAR<span
+                    id="projectnumber">&#160;2.12.0</span>
+                </div>
+                <div id="projectbrief">SAR control software</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="../../d0/df3/classQuasarSDK_1_1IO_1_1DraftFile-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс DraftFile<div class="ingroups"><a class="el" href="../../dc/d5f/group__sdk__io.html">Ввод и вывод</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../d8/da8/CDraftFile_8h_source.html">CDraftFile.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:DraftFile:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d8/da8/classQuasarSDK_1_1IO_1_1DraftFile__inherit__graph.png" border="0" usemap="#aDraftFile_inherit__map" alt="Inheritance graph"/></div>
+<map name="aDraftFile_inherit__map" id="aDraftFile_inherit__map">
+<area shape="rect" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="7,157,83,184"/>
+<area shape="rect" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="5,81,85,109"/>
+<area shape="poly" title=" " alt="" coords="48,124,48,156,42,156,42,124"/>
+<area shape="rect" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="21,5,69,33"/>
+<area shape="poly" title=" " alt="" coords="48,48,48,81,42,81,42,48"/>
+</map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса DraftFile:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../dc/d52/classQuasarSDK_1_1IO_1_1DraftFile__coll__graph.png" border="0" usemap="#aDraftFile_coll__map" alt="Collaboration graph"/></div>
+<map name="aDraftFile_coll__map" id="aDraftFile_coll__map">
+<area shape="rect" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="62,175,138,203"/>
+<area shape="rect" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="5,82,85,110"/>
+<area shape="poly" title=" " alt="" coords="63,121,94,173,90,176,58,124"/>
+<area shape="rect" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="21,5,69,33"/>
+<area shape="poly" title=" " alt="" coords="48,48,48,82,42,82,42,48"/>
+<area shape="rect" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t" title=" " alt="" coords="109,82,200,110"/>
+<area shape="poly" title=" " alt="" coords="141,124,110,176,105,173,137,121"/>
+</map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t">filename_t</a></td></tr>
+<tr class="separator:d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a5cc9e767535b8cb89b50185d804da640"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a5cc9e767535b8cb89b50185d804da640">DraftFile</a> ()</td></tr>
+<tr class="separator:a5cc9e767535b8cb89b50185d804da640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b8681d8549a4813934c4c36e042979b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a2b8681d8549a4813934c4c36e042979b">DraftFile</a> (const QString &amp;name, const QString &amp;extension)</td></tr>
+<tr class="separator:a2b8681d8549a4813934c4c36e042979b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfb67113b61af0a926733ad5a4da24f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a9dfb67113b61af0a926733ad5a4da24f">filename</a> () const override</td></tr>
+<tr class="separator:a9dfb67113b61af0a926733ad5a4da24f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae465c7c8434db3b9324b25b3a7668f"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a0ae465c7c8434db3b9324b25b3a7668f">fileExtension</a> () const override</td></tr>
+<tr class="separator:a0ae465c7c8434db3b9324b25b3a7668f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb3999955018f947c2f40f829b545b4"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a3bb3999955018f947c2f40f829b545b4">filenameWithExtension</a> () const override</td></tr>
+<tr class="separator:a3bb3999955018f947c2f40f829b545b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c654c5575887eb458d14e14709bbe8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#ad8c654c5575887eb458d14e14709bbe8">saveToDisk</a> (const QByteArray &amp;data_to_save) noexcept</td></tr>
+<tr class="separator:ad8c654c5575887eb458d14e14709bbe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50668f6140fd8270675cb9fb590f56a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a50668f6140fd8270675cb9fb590f56a6">saveToDisk</a> (const QString &amp;path_to, const QByteArray &amp;data_to_save) noexcept</td></tr>
+<tr class="separator:a50668f6140fd8270675cb9fb590f56a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e329ff07e690bde3676a861bc1be6c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a4e329ff07e690bde3676a861bc1be6c0">removeFromDisk</a> () noexcept</td></tr>
+<tr class="separator:a4e329ff07e690bde3676a861bc1be6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classQuasarSDK_1_1IO_1_1BasicFile')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html">BasicFile</a></td></tr>
+<tr class="memitem:ae184a574ae070730c2e295944adc7013 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ae184a574ae070730c2e295944adc7013">fileExists</a> () const override</td></tr>
+<tr class="separator:ae184a574ae070730c2e295944adc7013 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dfb67113b61af0a926733ad5a4da24f inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a9dfb67113b61af0a926733ad5a4da24f">filename</a> () const override</td></tr>
+<tr class="separator:a9dfb67113b61af0a926733ad5a4da24f inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63cec5f600a47f95c50039d6e1d4695 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ab63cec5f600a47f95c50039d6e1d4695">fileSize</a> () const override</td></tr>
+<tr class="separator:ab63cec5f600a47f95c50039d6e1d4695 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae465c7c8434db3b9324b25b3a7668f inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a0ae465c7c8434db3b9324b25b3a7668f">fileExtension</a> () const override</td></tr>
+<tr class="separator:a0ae465c7c8434db3b9324b25b3a7668f inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb3999955018f947c2f40f829b545b4 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a3bb3999955018f947c2f40f829b545b4">filenameWithExtension</a> () const override</td></tr>
+<tr class="separator:a3bb3999955018f947c2f40f829b545b4 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afafd1e08fe22c6d981fbde776efec749 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#afafd1e08fe22c6d981fbde776efec749">absoluteFilePath</a> () const override</td></tr>
+<tr class="separator:afafd1e08fe22c6d981fbde776efec749 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a4f59f10d8ecacc225e3175ecfd2a4 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ae7a4f59f10d8ecacc225e3175ecfd2a4">setAbsoluteFilePath</a> (const QString &amp;path) override</td></tr>
+<tr class="separator:ae7a4f59f10d8ecacc225e3175ecfd2a4 inherit pub_methods_classQuasarSDK_1_1IO_1_1BasicFile"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2752a938fb71baba3bd969150f4d7d4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#ad2752a938fb71baba3bd969150f4d7d4">fileExists</a> () const =0</td></tr>
+<tr class="separator:ad2752a938fb71baba3bd969150f4d7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9457f14f25a4ffb8a6d79167186448e5"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a9457f14f25a4ffb8a6d79167186448e5">filename</a> () const =0</td></tr>
+<tr class="separator:a9457f14f25a4ffb8a6d79167186448e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b558e2f848fddfab126800bd66b8c42"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a4b558e2f848fddfab126800bd66b8c42">fileSize</a> () const =0</td></tr>
+<tr class="separator:a4b558e2f848fddfab126800bd66b8c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4a672d57f2c9dd9fa48b94867fa88e"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a1f4a672d57f2c9dd9fa48b94867fa88e">fileExtension</a> () const =0</td></tr>
+<tr class="separator:a1f4a672d57f2c9dd9fa48b94867fa88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0677f78b95ab84a595dbb733f2c42ee8"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0677f78b95ab84a595dbb733f2c42ee8">filenameWithExtension</a> () const =0</td></tr>
+<tr class="separator:a0677f78b95ab84a595dbb733f2c42ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b196afde9761bc9154d29a575df2acb"><td class="memItemLeft" align="right" valign="top">virtual QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0b196afde9761bc9154d29a575df2acb">absoluteFilePath</a> () const =0</td></tr>
+<tr class="separator:a0b196afde9761bc9154d29a575df2acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7791e149f93f501319399d17d7c7092e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a7791e149f93f501319399d17d7c7092e">setAbsoluteFilePath</a> (const QString &amp;path)=0</td></tr>
+<tr class="separator:a7791e149f93f501319399d17d7c7092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, описывающий черновик файла - файл, который еще не был сохранен на диск, но готовится к этому. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/da8/CDraftFile_8h_source.html">CDraftFile.h</a> строка <a class="el" href="../../d8/da8/CDraftFile_8h_source.html#l00016">16</a></p>
+</div><hr/><h2 class="groupheader">Классы</h2>
+<a name="d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t" id="d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t">&#9670;&#160;</a></span>QuasarSDK::IO::DraftFile::filename_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct QuasarSDK::IO::DraftFile::filename_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="textblock">
+<p class="definition">См. определение в файле <a class="el" href="../../d8/da8/CDraftFile_8h_source.html">CDraftFile.h</a> строка <a class="el" href="../../d8/da8/CDraftFile_8h_source.html#l00056">56</a></p>
+</div>
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a5cc9e767535b8cb89b50185d804da640" name="a5cc9e767535b8cb89b50185d804da640"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cc9e767535b8cb89b50185d804da640">&#9670;&#160;</a></span>DraftFile() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html">DraftFile</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создает пустой черновик файла. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00008">8</a></p>
+
+</div>
+</div>
+<a id="a2b8681d8549a4813934c4c36e042979b" name="a2b8681d8549a4813934c4c36e042979b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b8681d8549a4813934c4c36e042979b">&#9670;&#160;</a></span>DraftFile() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html">DraftFile</a> </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>extension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Создает черновик файла с указанным именем и расширением. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00013">13</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a9dfb67113b61af0a926733ad5a4da24f" name="a9dfb67113b61af0a926733ad5a4da24f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dfb67113b61af0a926733ad5a4da24f">&#9670;&#160;</a></span>filename()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString filename </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Имя файла черновика (<em>без расширения</em>). </p>
+
+<p>Переопределяет метод предка <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a9dfb67113b61af0a926733ad5a4da24f">BasicFile</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00018">18</a></p>
+
+</div>
+</div>
+<a id="a0ae465c7c8434db3b9324b25b3a7668f" name="a0ae465c7c8434db3b9324b25b3a7668f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae465c7c8434db3b9324b25b3a7668f">&#9670;&#160;</a></span>fileExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString fileExtension </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Расширение файла черновика. </p>
+
+<p>Переопределяет метод предка <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a0ae465c7c8434db3b9324b25b3a7668f">BasicFile</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00019">19</a></p>
+
+</div>
+</div>
+<a id="a3bb3999955018f947c2f40f829b545b4" name="a3bb3999955018f947c2f40f829b545b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb3999955018f947c2f40f829b545b4">&#9670;&#160;</a></span>filenameWithExtension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString filenameWithExtension </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Полное имя файла черновика с расширением. </p>
+
+<p>Переопределяет метод предка <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a3bb3999955018f947c2f40f829b545b4">BasicFile</a>.</p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00020">20</a></p>
+
+</div>
+</div>
+<a id="ad8c654c5575887eb458d14e14709bbe8" name="ad8c654c5575887eb458d14e14709bbe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8c654c5575887eb458d14e14709bbe8">&#9670;&#160;</a></span>saveToDisk() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveToDisk </td>
+          <td>(</td>
+          <td class="paramtype">const QByteArray &amp;&#160;</td>
+          <td class="paramname"><em>data_to_save</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сохраняет файл на диск по пути <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#afafd1e08fe22c6d981fbde776efec749" title="Абсолютный путь к файлу в файловой системе.">absoluteFilePath()</a>. </p>
+<p>Имя и расширение сохраненного файла совпадает с параметрами <a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a9dfb67113b61af0a926733ad5a4da24f" title="Имя файла черновика (без расширения).">filename()</a> и <a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a0ae465c7c8434db3b9324b25b3a7668f" title="Расширение файла черновика.">fileExtension()</a>.</p>
+<p>Если сохранение не удалось, функция вернет <code>false</code>. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data_to_save</td><td>- данные для сохранения. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат сохранения. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00022">22</a></p>
+
+</div>
+</div>
+<a id="a50668f6140fd8270675cb9fb590f56a6" name="a50668f6140fd8270675cb9fb590f56a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50668f6140fd8270675cb9fb590f56a6">&#9670;&#160;</a></span>saveToDisk() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool saveToDisk </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>path_to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QByteArray &amp;&#160;</td>
+          <td class="paramname"><em>data_to_save</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сохраняет файл в указанное место на диске. </p>
+<p>Изменяет параметр <a class="el" href="../../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#afafd1e08fe22c6d981fbde776efec749" title="Абсолютный путь к файлу в файловой системе.">absoluteFilePath()</a>, если сохранение удалось.</p>
+<p>Если сохранение не удалось, функция вернет <code>false</code>. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path_to</td><td>- путь, куда нужно сохранить файл. </td></tr>
+    <tr><td class="paramname">data_to_save</td><td>- данные для сохранения. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат сохранения. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00043">43</a></p>
+
+</div>
+</div>
+<a id="a4e329ff07e690bde3676a861bc1be6c0" name="a4e329ff07e690bde3676a861bc1be6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e329ff07e690bde3676a861bc1be6c0">&#9670;&#160;</a></span>removeFromDisk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool removeFromDisk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Удаляет сохраненный файл с диска. </p>
+<p>Если файл еще не был сохранен, или удаление не удалось по иной причине, функция вернет <code>false</code>. </p><dl class="section return"><dt>Возвращает</dt><dd>Результат удаления. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a> строка <a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html#l00064">64</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="../../d8/da8/CDraftFile_8h_source.html">CDraftFile.h</a></li>
+<li><a class="el" href="../../de/dd3/CDraftFile_8c_09_09_source.html">CDraftFile.c++</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/d48/namespaceQuasarSDK.html">QuasarSDK</a></li><li class="navelem"><a class="el" href="../../d7/daf/namespaceQuasarSDK_1_1IO.html">IO</a></li><li class="navelem"><a class="el" href="../../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html">DraftFile</a></li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Ср 12 Июл 2023 21:09:21. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

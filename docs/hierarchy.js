@@ -1,12 +1,13 @@
 var hierarchy =
 [
     [ "ArrayReader< T >", "d4/d1b/classProcessing_1_1ArrayReader.html", null ],
-    [ "TerminalBase::BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
+    [ "BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
-    [ "ColorProvider::CPIterator", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
-    [ "SAROutputModel::CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
-    [ "TrackEventModel::EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
+    [ "CPIterator", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
+    [ "CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
+    [ "EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
     [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", null ],
+    [ "filename_t", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t", null ],
     [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", [
       [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", [
         [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", null ],
@@ -21,7 +22,9 @@ var hierarchy =
       [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", null ]
     ] ],
     [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", [
-      [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", null ]
+      [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", [
+        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", null ]
+      ] ]
     ] ],
     [ "Image", "d4/da1/structMap_1_1Image.html", [
       [ "StripImage", "dc/dac/structMap_1_1StripImage.html", null ],
@@ -119,9 +122,9 @@ var hierarchy =
     [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", null ],
     [ "TelescopicImageMetadata", "d3/daf/group__sdk__images.html#dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata", null ],
     [ "TelescopicImageMetadataID", "d3/daf/group__sdk__images.html#d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID", null ],
-    [ "OfflineTileLoader::TileItem", "dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem.html", null ],
+    [ "TileItem", "dd/d0f/structMap_1_1OfflineTileLoader_1_1TileItem.html", null ],
     [ "Vertex", "da/deb/structSDK_1_1Scenegraph_1_1Vertex.html", null ],
     [ "VertexC", "de/dc3/structSDK_1_1Scenegraph_1_1VertexC.html", null ],
     [ "VertexT", "df/d7d/structSDK_1_1Scenegraph_1_1VertexT.html", null ],
-    [ "WarningsModel::WarningData", "d6/d0f/classGUI_1_1WarningsModel.html#df/d8d/structGUI_1_1WarningsModel_1_1WarningData", null ]
+    [ "WarningData", "d6/d0f/classGUI_1_1WarningsModel.html#df/d8d/structGUI_1_1WarningsModel_1_1WarningData", null ]
 ];

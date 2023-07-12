@@ -1,5 +1,7 @@
 <map id="ISARImage.h" name="ISARImage.h">
-<area shape="rect" id="node1" title=" " alt="" coords="81,5,186,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,121,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="145,81,266,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="81,5,186,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,121,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,35,87,72,84,68,119,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="145,81,266,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="148,32,185,68,181,72,145,35"/>
 </map>

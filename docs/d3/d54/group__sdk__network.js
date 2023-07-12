@@ -177,7 +177,7 @@ var group__sdk__network =
       [ "checkCRC", "db/d5f/classQuasarSDK_1_1TelemetrySocket.html#a4e364dd16670e0b52593e57472de695c", null ],
       [ "ping", "db/d5f/classQuasarSDK_1_1TelemetrySocket.html#ad8136df344f340b0653c27e3317c08f5", null ]
     ] ],
-    [ "QuasarSDK::Utils::crc16", "d3/d54/group__sdk__network.html#gafda5ee7aba055245d768c57faa02fb57", null ],
-    [ "QuasarSDK::Utils::crc16_ccitt", "d3/d54/group__sdk__network.html#ga15a9ef310fea932c75d1cfee9d7dc1d4", null ],
-    [ "QuasarSDK::Utils::str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ]
+    [ "crc16", "d3/d54/group__sdk__network.html#gafda5ee7aba055245d768c57faa02fb57", null ],
+    [ "crc16_ccitt", "d3/d54/group__sdk__network.html#ga15a9ef310fea932c75d1cfee9d7dc1d4", null ],
+    [ "str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ]
 ];

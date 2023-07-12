@@ -1,4 +1,5 @@
 <map id="ISARImage" name="ISARImage">
-<area shape="rect" id="node1" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="5,5,99,33"/>
-<area shape="rect" id="node2" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="7,81,97,109"/>
+<area shape="rect" id="Node000001" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="5,5,99,33"/>
+<area shape="rect" id="Node000002" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="7,81,97,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="55,48,55,81,49,81,49,48"/>
 </map>

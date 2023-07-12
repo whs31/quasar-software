@@ -1,6 +1,9 @@
 <map id="CFGSMapObject.h" name="CFGSMapObject.h">
-<area shape="rect" id="node1" title=" " alt="" coords="96,5,234,33"/>
-<area shape="rect" id="node2" href="$d1/d78/CFGSMapObject_8c_09_09_source.html" title=" " alt="" coords="5,81,165,109"/>
-<area shape="rect" id="node3" href="$d1/da9/CMapImage_8h.html" title=" " alt="" coords="189,81,301,109"/>
-<area shape="rect" id="node4" href="$d8/db4/CMapImage_8c_09_09_source.html" title=" " alt="" coords="179,157,311,184"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="96,5,234,33"/>
+<area shape="rect" id="Node000002" href="$d1/d78/CFGSMapObject_8c_09_09_source.html" title=" " alt="" coords="5,81,165,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="142,45,101,83,97,79,138,41"/>
+<area shape="rect" id="Node000003" href="$d1/da9/CMapImage_8h.html" title=" " alt="" coords="189,81,301,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,41,233,79,229,83,188,45"/>
+<area shape="rect" id="Node000004" href="$d8/db4/CMapImage_8c_09_09_source.html" title=" " alt="" coords="179,157,311,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="248,124,248,156,242,156,242,124"/>
 </map>

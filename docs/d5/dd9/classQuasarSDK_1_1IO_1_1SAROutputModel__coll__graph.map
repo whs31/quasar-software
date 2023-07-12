@@ -1,7 +1,11 @@
 <map id="SAROutputModel" name="SAROutputModel">
-<area shape="rect" id="node1" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="225,208,358,235"/>
-<area shape="rect" id="node2" href="$d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html" title="Базовый класс для модели сообщений." alt="" coords="127,115,246,143"/>
-<area shape="rect" id="node3" title=" " alt="" coords="5,14,154,42"/>
-<area shape="rect" id="node4" title=" " alt="" coords="177,5,409,50"/>
-<area shape="rect" id="node5" href="$d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition" title=" " alt="" coords="270,115,385,143"/>
+<area shape="rect" id="Node000001" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="225,208,358,235"/>
+<area shape="rect" id="Node000002" href="$d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html" title="Базовый класс для модели сообщений." alt="" coords="127,115,246,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,150,278,205,274,209,210,154"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,14,154,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="106,50,174,113,170,117,102,54"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="177,5,409,50"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="261,62,202,117,198,113,257,58"/>
+<area shape="rect" id="Node000005" href="$d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition" title=" " alt="" coords="270,115,385,143"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="319,157,299,208,294,206,315,155"/>
 </map>

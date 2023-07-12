@@ -1,4 +1,5 @@
 <map id="Marker" name="Marker">
-<area shape="rect" id="node1" title=" " alt="" coords="24,5,90,33"/>
-<area shape="rect" id="node2" href="$d7/d92/structMap_1_1PlannerPoint.html" title=" " alt="" coords="5,81,109,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="24,5,90,33"/>
+<area shape="rect" id="Node000002" href="$d7/d92/structMap_1_1PlannerPoint.html" title=" " alt="" coords="5,81,109,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,48,60,81,54,81,54,48"/>
 </map>

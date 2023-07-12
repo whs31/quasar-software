@@ -1,4 +1,5 @@
 <map id="RemoteData" name="RemoteData">
-<area shape="rect" id="node1" title="Класс&#45;хранилище для данных, связанных с РЛС." alt="" coords="5,81,109,109"/>
-<area shape="rect" id="node2" title=" " alt="" coords="20,5,94,33"/>
+<area shape="rect" id="Node000001" title="Класс&#45;хранилище для данных, связанных с РЛС." alt="" coords="5,81,109,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="20,5,94,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,48,60,81,54,81,54,48"/>
 </map>

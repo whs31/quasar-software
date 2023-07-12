@@ -1,5 +1,7 @@
 <map id="TerminalBase" name="TerminalBase">
-<area shape="rect" id="node1" title=" " alt="" coords="124,115,233,143"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,14,154,42"/>
-<area shape="rect" id="node3" title=" " alt="" coords="178,5,376,50"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="124,115,233,143"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,14,154,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,50,167,113,164,117,100,54"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="178,5,376,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="247,63,193,117,189,113,243,59"/>
 </map>

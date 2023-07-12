@@ -1,6 +1,9 @@
 <map id="StripImageDatagram" name="StripImageDatagram">
-<area shape="rect" id="node1" title=" " alt="" coords="203,98,360,126"/>
-<area shape="rect" id="node2" href="$da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata" title="Заголовок пакета полосового РЛИ." alt="" coords="5,5,166,33"/>
-<area shape="rect" id="node3" href="$da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata" title="Навигационные данные пакета полосового РЛИ." alt="" coords="189,5,374,33"/>
-<area shape="rect" id="node4" href="$da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata" title="Данные форматирования пакета полосового РЛИ." alt="" coords="398,5,557,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="203,98,360,126"/>
+<area shape="rect" id="Node000002" href="$da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata" title="Заголовок пакета полосового РЛИ." alt="" coords="5,5,166,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,37,254,95,252,100,126,42"/>
+<area shape="rect" id="Node000003" href="$da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata" title="Навигационные данные пакета полосового РЛИ." alt="" coords="189,5,374,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="284,48,284,98,279,98,279,48"/>
+<area shape="rect" id="Node000004" href="$da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata" title="Данные форматирования пакета полосового РЛИ." alt="" coords="398,5,557,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="437,42,311,100,309,95,435,37"/>
 </map>

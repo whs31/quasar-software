@@ -9,9 +9,10 @@ var searchData=
   ['reformargumentstring_6',['reformArgumentString',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#a1667fb6465a0fa73f837d7c6b9dc2cba',1,'QuasarSDK::ExecdArgumentParser']]],
   ['registerqmltypes_7',['registerQMLTypes',['../d9/d69/namespaceScenegraph.html#a87a9973e233bb86a6f2c631006212d2a',1,'Scenegraph']]],
   ['remotedata_8',['RemoteData',['../d0/d18/classQuasarSDK_1_1RemoteData.html#aaa72d856aabec940cd92b5a4a4c96c37',1,'QuasarSDK::RemoteData']]],
-  ['reset_9',['reset',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20194325f0380eb3bbc6bc6c8b2697d9',1,'Scenegraph::Utils::ColorProvider::reset()'],['../d5/dfa/classConfig_1_1Config.html#ad20897c5c8bd47f5d4005989bead0e55',1,'Config::Config::reset()']]],
-  ['result_10',['result',['../d2/d74/classQuasarSDK_1_1PingTester.html#a3ec8bbafe23004823fbd69165109d0fc',1,'QuasarSDK::PingTester']]],
-  ['revert_11',['revert',['../d5/dfa/classConfig_1_1Config.html#a9cf620340e16aa417bb112e0294038df',1,'Config::Config']]],
-  ['root_12',['root',['../d1/d42/classConfig_1_1Paths.html#ae7dd14725f2a5c12505996dc310610c1',1,'Config::Paths']]],
-  ['rowcount_13',['rowCount',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#a51dd94ef911c8f4c6495093a1561b45a',1,'QuasarSDK::IO::MessageModel']]]
+  ['removefromdisk_9',['removeFromDisk',['../de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a4e329ff07e690bde3676a861bc1be6c0',1,'QuasarSDK::IO::DraftFile']]],
+  ['reset_10',['reset',['../d5/dfa/classConfig_1_1Config.html#ad20897c5c8bd47f5d4005989bead0e55',1,'Config::Config::reset()'],['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20194325f0380eb3bbc6bc6c8b2697d9',1,'Scenegraph::Utils::ColorProvider::reset()']]],
+  ['result_11',['result',['../d2/d74/classQuasarSDK_1_1PingTester.html#a3ec8bbafe23004823fbd69165109d0fc',1,'QuasarSDK::PingTester']]],
+  ['revert_12',['revert',['../d5/dfa/classConfig_1_1Config.html#a9cf620340e16aa417bb112e0294038df',1,'Config::Config']]],
+  ['root_13',['root',['../d1/d42/classConfig_1_1Paths.html#ae7dd14725f2a5c12505996dc310610c1',1,'Config::Paths']]],
+  ['rowcount_14',['rowCount',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#a51dd94ef911c8f4c6495093a1561b45a',1,'QuasarSDK::IO::MessageModel']]]
 ];

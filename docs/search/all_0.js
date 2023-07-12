@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['absolutepath_0',['absolutePath',['../d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a196342fa7bf83df7709453d44db2b8f2',1,'QuasarSDK::IO::File::absolutePath()'],['../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a6eb7ba5dd697ef8a1b9d0a661241e59d',1,'QuasarSDK::IO::IFile::absolutePath()']]],
+  ['absolutefilepath_0',['absoluteFilePath',['../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#afafd1e08fe22c6d981fbde776efec749',1,'QuasarSDK::IO::BasicFile::absoluteFilePath()'],['../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0b196afde9761bc9154d29a575df2acb',1,'QuasarSDK::IO::IFile::absoluteFilePath()']]],
   ['abstractmapobject_1',['AbstractMapObject',['../de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html',1,'QuasarSDK::Map']]],
   ['addressstring_2',['addressString',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3c07e52a7dd282bbffe449aaca5b4604',1,'QuasarSDK::BaseUDPSocket']]],
-  ['altitude_3',['altitude',['../da/d88/namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'Map::ImageMetadata::altitude()'],['../d8/d07/group__sdk__protocol.html#a2b13d276aee0d9fd646c8fa3647e869b',1,'QuasarSDK::Datagrams::TelemetryDatagram::altitude()'],['../d3/daf/group__sdk__images.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::altitude()']]],
-  ['angle_4',['angle',['../da/d88/namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'Map::ImageMetadata::angle()'],['../d3/daf/group__sdk__images.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::angle()']]],
+  ['altitude_3',['altitude',['../da/d88/namespaceMap.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'Map::ImageMetadata::altitude'],['../d8/d07/group__sdk__protocol.html#a2b13d276aee0d9fd646c8fa3647e869b',1,'QuasarSDK::Datagrams::TelemetryDatagram::altitude'],['../d3/daf/group__sdk__images.html#a0e13a4b4ae0cefdac2a413284239caa6',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::altitude']]],
+  ['angle_4',['angle',['../da/d88/namespaceMap.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'Map::ImageMetadata::angle'],['../d3/daf/group__sdk__images.html#ab8ef1bf8a70cc07c6d55823c390a7e76',1,'QuasarSDK::Processing::Datagrams::TelescopicImageMetadata::angle']]],
   ['anglecorrection_5',['angleCorrection',['../d5/dfa/classConfig_1_1Config.html#acc7856ea0497ce886547bd19075f4bcb',1,'Config::Config']]],
   ['antennaalignment_6',['antennaAlignment',['../d5/dfa/classConfig_1_1Config.html#a66213c53fe947a7a4757bcc2b7d7fbb3',1,'Config::Config']]],
   ['append_7',['append',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#ab719096c3bc0e763c758500bf090a08f',1,'QuasarSDK::IO::MessageModel']]],

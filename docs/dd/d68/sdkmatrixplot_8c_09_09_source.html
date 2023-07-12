@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
-  <meta name="generator" content="Doxygen 1.9.6" />
+  <meta name="generator" content="Doxygen 1.9.7" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>QuaSAR: Исходный файл sdkmatrixplot.c++</title>
   <link href="../../tabs.css" rel="stylesheet" type="text/css" />
@@ -50,7 +50,7 @@
           </tbody>
         </table>
       </div>
-      <!-- end header part --><!-- Создано системой Doxygen 1.9.6 -->
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.7 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "../../search/",'.html');
@@ -211,9 +211,9 @@ $(document).ready(function(){initNavTree('dd/d68/sdkmatrixplot_8c_09_09_source.h
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> column = 0; column &lt; data[row].size(); ++column)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      {</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keywordtype">float</span> d = (data[row][column] * 255) / current_max * brightness();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        uint8_t r = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &gt; 50 and d &lt; 150) ? 0 : <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d * tintRed());</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        uint8_t g = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &lt;= 50) ? 0 : <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d * tintGreen());</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        uint8_t b = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &gt; 150) ? 0 : <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d * tintBlue());</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        uint8_t r = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &gt; 50 and d &lt; 150) ? 0 : static_cast&lt;uint8_t&gt;(d * tintRed());</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        uint8_t g = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &lt;= 50) ? 0 : static_cast&lt;uint8_t&gt;(d * tintGreen());</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        uint8_t b = grayscale() ? <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(d) : (d &gt; 150) ? 0 : static_cast&lt;uint8_t&gt;(d * tintBlue());</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="comment">// narrowing here cause im too lazy to write static_cast</span></div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        gl.emplace_back(column * <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a9eae6c1f38db98ab568f3ed3771a969d">dx</a>, row * <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a8f461b6142ce8725218813abb23b06a3">dy</a>, r, g, b, 1);</div>
@@ -285,15 +285,15 @@ $(document).ready(function(){initNavTree('dd/d68/sdkmatrixplot_8c_09_09_source.h
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    this-&gt;update();</div>
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  }</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>} <span class="comment">// SDK::Quick</span></div>
-<div class="ttc" id="aimagemetadata_8h_html_a8f461b6142ce8725218813abb23b06a3"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a8f461b6142ce8725218813abb23b06a3">dy</a></div><div class="ttdeci">float dy</div><div class="ttdoc">Дискрета по азимуту в метрах.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00001">imagemetadata.h:1</a></div></div>
-<div class="ttc" id="aimagemetadata_8h_html_a9eae6c1f38db98ab568f3ed3771a969d"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a9eae6c1f38db98ab568f3ed3771a969d">dx</a></div><div class="ttdeci">float dx</div><div class="ttdoc">Дискрета по дальности в метрах.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00000">imagemetadata.h:0</a></div></div>
+<div class="ttc" id="aimagemetadata_8h_html_a8f461b6142ce8725218813abb23b06a3"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a8f461b6142ce8725218813abb23b06a3">dy</a></div><div class="ttdeci">float dy</div><div class="ttdoc">Дискрета по азимуту в метрах.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00001">imagemetadata.h:1</a></div></div>
+<div class="ttc" id="aimagemetadata_8h_html_a9eae6c1f38db98ab568f3ed3771a969d"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a9eae6c1f38db98ab568f3ed3771a969d">dx</a></div><div class="ttdeci">float dx</div><div class="ttdoc">Дискрета по дальности в метрах.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00000">imagemetadata.h:0</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_fcb2a60e1810a51543a3cc3a113d0956.html">c++</a></li><li class="navelem"><a class="el" href="../../dir_5eaa9160e914aa78085dedce4b00e66f.html">sdk</a></li><li class="navelem"><a class="el" href="../../dir_72207ca2e38c1e1375ea23aa1480da49.html">src</a></li><li class="navelem"><a class="el" href="../../dir_b12f37765c7b1079f990cb4c3776fe72.html">quick</a></li><li class="navelem"><b>sdkmatrixplot.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Ср 12 Июл 2023 18:14:47. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    <li class="footer">Документация по QuaSAR. Последние изменения: Ср 12 Июл 2023 21:09:21. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

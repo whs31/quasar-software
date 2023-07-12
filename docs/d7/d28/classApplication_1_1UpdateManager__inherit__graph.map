@@ -1,4 +1,5 @@
 <map id="UpdateManager" name="UpdateManager">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,131,109"/>
-<area shape="rect" id="node2" title=" " alt="" coords="31,5,105,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,131,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="31,5,105,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,48,71,81,65,81,65,48"/>
 </map>

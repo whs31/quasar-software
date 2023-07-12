@@ -1,5 +1,7 @@
 <map id="MessageModel" name="MessageModel">
-<area shape="rect" id="node1" title="Базовый класс для модели сообщений." alt="" coords="127,115,246,143"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,14,154,42"/>
-<area shape="rect" id="node3" title=" " alt="" coords="177,5,409,50"/>
+<area shape="rect" id="Node000001" title="Базовый класс для модели сообщений." alt="" coords="127,115,246,143"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,14,154,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,50,174,113,170,117,102,54"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="177,5,409,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="261,62,202,117,198,113,257,58"/>
 </map>

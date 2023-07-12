@@ -1,0 +1,5 @@
+<map id="BasicFile" name="BasicFile">
+<area shape="rect" id="Node000001" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="5,81,85,109"/>
+<area shape="rect" id="Node000002" href="$d9/d90/classQuasarSDK_1_1IO_1_1IFile.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="21,5,69,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="48,48,48,81,42,81,42,48"/>
+</map>

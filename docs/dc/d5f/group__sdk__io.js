@@ -1,13 +1,24 @@
 var group__sdk__io =
 [
-    [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", [
-      [ "name", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a983f52f164eb4197a86c85731dc14af2", null ],
-      [ "setName", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a73e3ca1cd2e6e908c0a52e1b44060458", null ],
-      [ "extension", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#acdf7d67f53b28db221ea2d07b1801eec", null ],
-      [ "setExtension", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a3e2b6583744e96c9ba3f67d1f42c44c3", null ],
-      [ "fullName", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a99396233d4938f3fadf59f6427a9cae2", null ],
-      [ "absolutePath", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a196342fa7bf83df7709453d44db2b8f2", null ],
-      [ "setAbsolutePath", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a6ad60b957398102835e7fdc86a5a4662", null ]
+    [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", [
+      [ "fileExists", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ae184a574ae070730c2e295944adc7013", null ],
+      [ "filename", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a9dfb67113b61af0a926733ad5a4da24f", null ],
+      [ "fileSize", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ab63cec5f600a47f95c50039d6e1d4695", null ],
+      [ "fileExtension", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a0ae465c7c8434db3b9324b25b3a7668f", null ],
+      [ "filenameWithExtension", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#a3bb3999955018f947c2f40f829b545b4", null ],
+      [ "absoluteFilePath", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#afafd1e08fe22c6d981fbde776efec749", null ],
+      [ "setAbsoluteFilePath", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html#ae7a4f59f10d8ecacc225e3175ecfd2a4", null ]
+    ] ],
+    [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", [
+      [ "filename_t", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t", null ],
+      [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a5cc9e767535b8cb89b50185d804da640", null ],
+      [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a2b8681d8549a4813934c4c36e042979b", null ],
+      [ "filename", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a9dfb67113b61af0a926733ad5a4da24f", null ],
+      [ "fileExtension", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a0ae465c7c8434db3b9324b25b3a7668f", null ],
+      [ "filenameWithExtension", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a3bb3999955018f947c2f40f829b545b4", null ],
+      [ "saveToDisk", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#ad8c654c5575887eb458d14e14709bbe8", null ],
+      [ "saveToDisk", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a50668f6140fd8270675cb9fb590f56a6", null ],
+      [ "removeFromDisk", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#a4e329ff07e690bde3676a861bc1be6c0", null ]
     ] ],
     [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", [
       [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#a8f62eb9af83d7bf2289908587d15287f", null ],
@@ -31,12 +42,13 @@ var group__sdk__io =
       [ "print", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a85c5c443e29ae7a86396229679e4c8b5", null ]
     ] ],
     [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", [
-      [ "name", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a73f1eb795ef20ec4f072d143a28bf6c8", null ],
-      [ "setName", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#ae0f9c5f54b04d4fab746fc03532f4a89", null ],
-      [ "extension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70828012dd0f523a8be2c87aea74e41b", null ],
-      [ "setExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a932a542cf243091d1a0f592807c9c75b", null ],
-      [ "fullName", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70d9a6038f1d5d2008f3dec41f5ef6c3", null ],
-      [ "absolutePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a6eb7ba5dd697ef8a1b9d0a661241e59d", null ]
+      [ "fileExists", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#ad2752a938fb71baba3bd969150f4d7d4", null ],
+      [ "filename", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a9457f14f25a4ffb8a6d79167186448e5", null ],
+      [ "fileSize", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a4b558e2f848fddfab126800bd66b8c42", null ],
+      [ "fileExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a1f4a672d57f2c9dd9fa48b94867fa88e", null ],
+      [ "filenameWithExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0677f78b95ab84a595dbb733f2c42ee8", null ],
+      [ "absoluteFilePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0b196afde9761bc9154d29a575df2acb", null ],
+      [ "setAbsoluteFilePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a7791e149f93f501319399d17d7c7092e", null ]
     ] ],
     [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", [
       [ "MessageType", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013", [

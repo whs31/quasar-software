@@ -1,9 +1,10 @@
 var classQuasarSDK_1_1IO_1_1IFile =
 [
-    [ "name", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a73f1eb795ef20ec4f072d143a28bf6c8", null ],
-    [ "setName", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#ae0f9c5f54b04d4fab746fc03532f4a89", null ],
-    [ "extension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70828012dd0f523a8be2c87aea74e41b", null ],
-    [ "setExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a932a542cf243091d1a0f592807c9c75b", null ],
-    [ "fullName", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70d9a6038f1d5d2008f3dec41f5ef6c3", null ],
-    [ "absolutePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a6eb7ba5dd697ef8a1b9d0a661241e59d", null ]
+    [ "fileExists", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#ad2752a938fb71baba3bd969150f4d7d4", null ],
+    [ "filename", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a9457f14f25a4ffb8a6d79167186448e5", null ],
+    [ "fileSize", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a4b558e2f848fddfab126800bd66b8c42", null ],
+    [ "fileExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a1f4a672d57f2c9dd9fa48b94867fa88e", null ],
+    [ "filenameWithExtension", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0677f78b95ab84a595dbb733f2c42ee8", null ],
+    [ "absoluteFilePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a0b196afde9761bc9154d29a575df2acb", null ],
+    [ "setAbsoluteFilePath", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a7791e149f93f501319399d17d7c7092e", null ]
 ];

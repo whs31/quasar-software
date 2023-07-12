@@ -62,9 +62,9 @@ var group__sdk__images =
       [ "k", "d3/daf/group__sdk__images.html#a9fc4cca635a26c692681a7071e379aa7", null ]
     ] ],
     [ "StripImageChunkHeader", "d3/daf/group__sdk__images.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader", null ],
-    [ "QuasarSDK::Utils::log", "d3/daf/group__sdk__images.html#ga3877486db4acc07f2a3d9e980d9866a5", null ],
-    [ "QuasarSDK::Utils::deg2rad", "d3/daf/group__sdk__images.html#ga06edcf94eff0754b506f72abfa78e29f", null ],
-    [ "QuasarSDK::Utils::rad2deg", "d3/daf/group__sdk__images.html#ga414e2d36554301965d1d9ae80da08a3f", null ],
-    [ "QuasarSDK::Utils::NaN", "d3/daf/group__sdk__images.html#ga7f02b12a2b2b0b11df4aa991ff354000", null ],
-    [ "QuasarSDK::Utils::isNaN", "d3/daf/group__sdk__images.html#gaaf0578b9d15d85ab4e18cee1256ff1e7", null ]
+    [ "log", "d3/daf/group__sdk__images.html#ga3877486db4acc07f2a3d9e980d9866a5", null ],
+    [ "deg2rad", "d3/daf/group__sdk__images.html#ga06edcf94eff0754b506f72abfa78e29f", null ],
+    [ "rad2deg", "d3/daf/group__sdk__images.html#ga414e2d36554301965d1d9ae80da08a3f", null ],
+    [ "NaN", "d3/daf/group__sdk__images.html#ga7f02b12a2b2b0b11df4aa991ff354000", null ],
+    [ "isNaN", "d3/daf/group__sdk__images.html#gaaf0578b9d15d85ab4e18cee1256ff1e7", null ]
 ];

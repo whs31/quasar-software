@@ -1,5 +1,7 @@
 <map id="TerminalBase" name="TerminalBase">
-<area shape="rect" id="node1" title=" " alt="" coords="25,81,134,109"/>
-<area shape="rect" id="node3" href="$d3/d6a/classGUI_1_1DebugConsole.html" title=" " alt="" coords="22,157,137,184"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,5,154,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="25,81,134,109"/>
+<area shape="rect" id="Node000003" href="$d3/d6a/classGUI_1_1DebugConsole.html" title=" " alt="" coords="22,157,137,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="82,124,82,156,77,156,77,124"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,154,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,48,82,81,77,81,77,48"/>
 </map>

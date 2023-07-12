@@ -1,6 +1,9 @@
 <map id="config.h" name="config.h">
-<area shape="rect" id="node1" title=" " alt="" coords="170,5,243,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,128,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="152,81,261,109"/>
-<area shape="rect" id="node4" title=" " alt="" coords="285,81,411,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="170,5,243,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,128,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,36,105,76,103,72,180,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,81,261,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="209,34,209,66,204,66,204,34"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="285,81,411,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="233,31,311,72,309,76,231,36"/>
 </map>

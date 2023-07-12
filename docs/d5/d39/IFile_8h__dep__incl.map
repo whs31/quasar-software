@@ -1,4 +1,9 @@
 <map id="IFile.h" name="IFile.h">
-<area shape="rect" id="node1" title=" " alt="" coords="8,5,68,33"/>
-<area shape="rect" id="node2" href="$d3/db1/CFile_8h.html" title=" " alt="" coords="5,81,71,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="34,5,95,33"/>
+<area shape="rect" id="Node000002" href="$d1/db9/CBasicFile_8h.html" title=" " alt="" coords="14,81,115,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,48,67,81,62,81,62,48"/>
+<area shape="rect" id="Node000003" href="$d8/da8/CDraftFile_8h.html" title=" " alt="" coords="16,157,113,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="67,124,67,156,62,156,62,124"/>
+<area shape="rect" id="Node000004" href="$de/dd3/CDraftFile_8c_09_09_source.html" title=" " alt="" coords="5,232,124,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="67,199,67,232,62,232,62,199"/>
 </map>

@@ -13,7 +13,10 @@
 
 namespace QuasarSDK::IO
 {
-  /// \brief Класс, реализующий базовое сообщение от РЛС.
+  /**
+   * \ingroup sdk_io
+   * \brief Класс, реализующий базовое сообщение от РЛС.
+   */
   class SARMessage : public IMessage
   {
     public:

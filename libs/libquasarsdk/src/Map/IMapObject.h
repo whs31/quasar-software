@@ -13,6 +13,7 @@
 namespace QuasarSDK::Map
 {
   /**
+   * \ingroup sdk_map
    * \brief Интерфейс, описывающий абстрактный объект карты.
    */
   class IMapObject

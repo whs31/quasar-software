@@ -1,13 +1,14 @@
 /**
-  * \class QuasarSDK::TCPServer CTCPServer.h <QuasarSDK/Networking/CTCPServer.h>
-  * \brief Класс для приема больших файлов с РЛС по протоколу TCP-IP.
-  * \details Используется для приема цельных пакетов с телескопическими и
-  * полосовыми изображениями с РЛС, а также для приёма .zip-архивов.
-  *
-  * Предоставляет отладочные метрики по аналогии с классами-наследниками
-  * BaseUDPSocket.
-  * \extends QObject, IConnectable
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::TCPServer CTCPServer.h <QuasarSDK/Networking/CTCPServer.h>
+ * \brief Класс для приема больших файлов с РЛС по протоколу TCP-IP.
+ * \details Используется для приема цельных пакетов с телескопическими и
+ * полосовыми изображениями с РЛС, а также для приёма .zip-архивов.
+ *
+ * Предоставляет отладочные метрики по аналогии с классами-наследниками
+ * BaseUDPSocket.
+ * \extends QObject, IConnectable
+ */
 
 #include "CTCPServer.h"
 #include <QtCore/QTimer>

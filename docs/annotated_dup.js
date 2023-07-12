@@ -58,11 +58,11 @@ var annotated_dup =
     ] ],
     [ "QuasarSDK", "d4/d48/namespaceQuasarSDK.html", [
       [ "Datagrams", "da/db8/namespaceQuasarSDK_1_1Datagrams.html", [
-        [ "PlannerAppendDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram_dup" ],
-        [ "PlannerRemoveDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram_dup" ],
-        [ "PlannerResponseDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram_dup" ],
-        [ "TelemetryDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram_dup" ],
-        [ "TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "da/db8/namespaceQuasarSDK_1_1Datagrams_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest_dup" ]
+        [ "PlannerAppendDatagram", "d8/d07/group__sdk__protocol.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", "d8/d07/group__sdk__protocol_d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram" ],
+        [ "PlannerRemoveDatagram", "d8/d07/group__sdk__protocol.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", "d8/d07/group__sdk__protocol_d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram" ],
+        [ "PlannerResponseDatagram", "d8/d07/group__sdk__protocol.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", "d8/d07/group__sdk__protocol_df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram" ],
+        [ "TelemetryDatagram", "d8/d07/group__sdk__protocol.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram", "d8/d07/group__sdk__protocol_d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram" ],
+        [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "d8/d07/group__sdk__protocol_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest" ]
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
         [ "File", "d7/d4f/classQuasarSDK_1_1IO_1_1File.html", "d7/d4f/classQuasarSDK_1_1IO_1_1File" ],
@@ -83,12 +83,12 @@ var annotated_dup =
       ] ],
       [ "Processing", "d6/d16/namespaceQuasarSDK_1_1Processing.html", [
         [ "Datagrams", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html", [
-          [ "StripImageChunkFormat", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat_dup" ],
-          [ "StripImageChunkHeader", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader", null ],
-          [ "StripImageChunkID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID_dup" ],
-          [ "StripImageChunkNav", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav_dup" ],
-          [ "TelescopicImageMetadata", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata_dup" ],
-          [ "TelescopicImageMetadataID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html#d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams_d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID_dup" ]
+          [ "StripImageChunkFormat", "d3/daf/group__sdk__images.html#d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat", "d3/daf/group__sdk__images_d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat" ],
+          [ "StripImageChunkHeader", "d3/daf/group__sdk__images.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader", null ],
+          [ "StripImageChunkID", "d3/daf/group__sdk__images.html#da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID", "d3/daf/group__sdk__images_da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID" ],
+          [ "StripImageChunkNav", "d3/daf/group__sdk__images.html#df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav", "d3/daf/group__sdk__images_df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav" ],
+          [ "TelescopicImageMetadata", "d3/daf/group__sdk__images.html#dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata", "d3/daf/group__sdk__images_dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata" ],
+          [ "TelescopicImageMetadataID", "d3/daf/group__sdk__images.html#d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID", "d3/daf/group__sdk__images_d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID" ]
         ] ]
       ] ],
       [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],

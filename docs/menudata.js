@@ -25,6 +25,7 @@
 var menudata={children:[
 {text:"Титульная страница",url:"index.html"},
 {text:"Описания",url:"pages.html"},
+{text:"Группы",url:"modules.html"},
 {text:"Пространства имен",url:"namespaces.html",children:[
 {text:"Пространства имен",url:"namespaces.html"},
 {text:"Члены пространств имен",url:"namespacemembers.html",children:[

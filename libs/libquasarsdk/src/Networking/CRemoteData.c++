@@ -1,11 +1,12 @@
 /**
-  * \class QuasarSDK::RemoteData CRemoteData.h <QuasarSDK/Networking/CRemoteData.h>
-  * \brief Класс-хранилище для данных, связанных с РЛС.
-  * \details Хранит текущие значения загруженности диска на РЛС,
-  * доступности IPv4 адресов модулей РЛС
-  * и предоставляет доступ к ним для движка QML и мета-объектной
-  * системы.
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::RemoteData CRemoteData.h <QuasarSDK/Networking/CRemoteData.h>
+ * \brief Класс-хранилище для данных, связанных с РЛС.
+ * \details Хранит текущие значения загруженности диска на РЛС,
+ * доступности IPv4 адресов модулей РЛС
+ * и предоставляет доступ к ним для движка QML и мета-объектной
+ * системы.
+ */
 
 #include "CRemoteData.h"
 #include <QtCore/QMetaType>

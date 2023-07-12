@@ -11,6 +11,7 @@
 namespace QuasarSDK::Map
 {
   /**
+   * \ingroup sdk_map
    * \brief Интерфейс, описывающий радиолокационное изображение с РЛС.
    */
   class ISARImage

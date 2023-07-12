@@ -12,6 +12,7 @@
 namespace QuasarSDK::IO
 {
   /**
+   * \ingroup sdk_io
    * \brief Интерфейс, описывающий абстрактный файл в файловой системе.
    */
   class IFile

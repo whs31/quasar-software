@@ -13,6 +13,7 @@
 namespace QuasarSDK::Map
 {
   /**
+   * \ingroup sdk_map
    * \brief Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты.
    */
   class MapImage : public FGSMapObject,

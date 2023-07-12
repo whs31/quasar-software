@@ -1,11 +1,12 @@
 /**
-  * \class QuasarSDK::Telemetry CTelemetry.h <QuasarSDK/Networking/CTelemetry.h>
-  * \brief Класс-хранилище для текущей телеметрии РЛС.
-  * \details Хранит текущие значения телеметрии борта с РЛС
-  * и предоставляет доступ к ним для движка QML и мета-объектной
-  * системы.
-  * \extends QObject
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::Telemetry CTelemetry.h <QuasarSDK/Networking/CTelemetry.h>
+ * \brief Класс-хранилище для текущей телеметрии РЛС.
+ * \details Хранит текущие значения телеметрии борта с РЛС
+ * и предоставляет доступ к ним для движка QML и мета-объектной
+ * системы.
+ * \extends QObject
+ */
 
 #include "CTelemetry.h"
 

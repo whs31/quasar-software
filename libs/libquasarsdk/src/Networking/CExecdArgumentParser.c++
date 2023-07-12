@@ -1,22 +1,24 @@
 /**
-  * \struct QuasarSDK::ExecdArgument CExecdArgumentParser.h <QuasarSDK/Networking/CExecdArgumentParser.h>
-  * \brief Тип данных для работы с сервисом \c execd.
-  * \details ExecdArgument предоставляет полезные конструкторы
-  * и функции для абстракции над аргументами сервиса. Вместо
-  * приведения различных типов данных к строке вручную, используйте
-  * этот тип.
-  * \note После вызова конструктора тип аргумента не может быть изменен.
-  * Инициализируйте аргументы значениями по умолчанию, а не пустыми конструкторами.
-  */
+ * \ingroup sdk_network
+ * \struct QuasarSDK::ExecdArgument CExecdArgumentParser.h <QuasarSDK/Networking/CExecdArgumentParser.h>
+ * \brief Тип данных для работы с сервисом \c execd.
+ * \details ExecdArgument предоставляет полезные конструкторы
+ * и функции для абстракции над аргументами сервиса. Вместо
+ * приведения различных типов данных к строке вручную, используйте
+ * этот тип.
+ * \note После вызова конструктора тип аргумента не может быть изменен.
+ * Инициализируйте аргументы значениями по умолчанию, а не пустыми конструкторами.
+ */
 
 /**
-  * \class QuasarSDK::ExecdArgumentParser CExecdArgumentParser.h <QuasarSDK/Networking/CExecdArgumentParser.h>
-  * \brief Класс для хранения и обработки аргументов команд сервиса \c execd.
-  * \details Предоставляет функции и тип данных для удобной работы с аргументами.
-  * Хранит 3 списка аргументов для формирования, фокусировки и переформирования соответственно.
-  *
-  * Список всех аргументов сервиса:
-  * <table>
+ * \ingroup sdk_network
+ * \class QuasarSDK::ExecdArgumentParser CExecdArgumentParser.h <QuasarSDK/Networking/CExecdArgumentParser.h>
+ * \brief Класс для хранения и обработки аргументов команд сервиса \c execd.
+ * \details Предоставляет функции и тип данных для удобной работы с аргументами.
+ * Хранит 3 списка аргументов для формирования, фокусировки и переформирования соответственно.
+ *
+ * Список всех аргументов сервиса:
+ * <table>
      <caption id="multi_row">Таблица аргументов сервиса execd</caption>
      <tr><th>Описание    <th>Ключ аргумента   <th>Тип данных   <th>Значение по умолчанию   <th>Диапазон   <th>Примечание
      <tr><td>Имя голограммы (.bin) без расширения</td><td>-f</td><td>String</td><td>m1</td><td></td><td></td></tr>

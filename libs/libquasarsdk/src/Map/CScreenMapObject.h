@@ -11,7 +11,10 @@
 
 namespace QuasarSDK::Map
 {
-  /// \brief Базовый класс для объектов карты, привязанных по размеру к экрану.
+  /**
+   * \ingroup sdk_map
+   * \brief Базовый класс для объектов карты, привязанных по размеру к экрану.
+   */
   class ScreenMapObject : public AbstractMapObject
   {
     public:

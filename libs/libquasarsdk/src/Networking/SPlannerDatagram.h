@@ -13,6 +13,7 @@
 namespace QuasarSDK::Datagrams
 {
   /**
+   * \ingroup sdk_protocol
    * \struct QuasarSDK::Datagrams::PlannerAppendDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура добавления точки в полётное задание.
    * \details Для создания полетного задания необходимо передать сервису сообщение,
@@ -46,6 +47,7 @@ namespace QuasarSDK::Datagrams
   };
 
   /**
+   * \ingroup sdk_protocol
    * \struct QuasarSDK::Datagrams::PlannerRemoveDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура удаления точки из полётного задания.
    * \details Точки удаляются автоматически при достижении cnt = 0;
@@ -70,6 +72,7 @@ namespace QuasarSDK::Datagrams
   };
 
   /**
+   * \ingroup sdk_protocol
    * \struct QuasarSDK::Datagrams::PlannerResponseDatagram quasarsdk_plannerdatagram.h <QuasarSDK/Telemetry/PlannerDatagram>
    * \brief Структура ответа на прохождение БПЛА через точку из полётного задания.
    * \details При достижении зоны события сервис отправляет сообщение по адресу,

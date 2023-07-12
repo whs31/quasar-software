@@ -51,6 +51,7 @@ var NAVTREE =
     ] ],
     [ "Список устаревших определений и описаний", "da/d58/deprecated.html", null ],
     [ "Список задач", "dd/da0/todo.html", null ],
+    [ "Группы", "modules.html", "modules" ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],
       [ "Члены пространств имен", "namespacemembers.html", [
@@ -84,11 +85,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d19/namespaceQuasarSDK_1_1Utils.html#a414e2d36554301965d1d9ae80da08a3f",
-"d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a6ad60b957398102835e7fdc86a5a4662",
-"da/db8/namespaceQuasarSDK_1_1Datagrams.html#a0ea604dd26c415c8f380323b91bdba56",
-"dd/d19/classSDK_1_1Cartography_1_1Orthodrom.html",
-"functions_j.html"
+"d4/d85/classNetworking_1_1HTTPDownloader.html#a991fd2c404665f13f536fc7791e53504",
+"d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11",
+"db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633a40f3b2e02173a504f9b3720d1dcede51",
+"index.html#stack_sub"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

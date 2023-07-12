@@ -12,6 +12,7 @@
 namespace QuasarSDK::Processing::Datagrams
 {
   /**
+    * \ingroup sdk_images
     * \brief Заголовок метаданных **телескопического** радиолокационного изображения.
     * \note Сериализована в Big Endian.
     */
@@ -23,6 +24,7 @@ namespace QuasarSDK::Processing::Datagrams
   };
 
   /**
+   * \ingroup sdk_images
    * \brief Структура метаданных **телескопического** радиолокационного изображения.
    * \details Сериализована в Little Endian.
    */
@@ -53,7 +55,10 @@ namespace QuasarSDK::Processing::Datagrams
     uint16_t crc16 = 0;                     ///< Контрольная сумма CRC16.
   };
 
-  /// \brief Заголовок пакета **полосового** радиолокационного изображения.
+  /**
+   * \ingroup sdk_images
+   * \brief Заголовок пакета **полосового** радиолокационного изображения.
+   */
   struct StripImageChunkID
   {
     uint16_t marker = 0;                    ///< Идентификатор протокола. Равен 0xDEFA.
@@ -64,7 +69,10 @@ namespace QuasarSDK::Processing::Datagrams
     uint16_t type = 0;                      ///< Идентификатор типа сообщения. 0x1 - полосовое РЛИ. 0x2 - таблица обнаружений.
   } __attribute__((packed));
 
-  /// \brief Навигационные данные пакета **полосового** радиолокационного изображения.
+  /**
+   * \ingroup sdk_images
+   * \brief Навигационные данные пакета **полосового** радиолокационного изображения.
+   */
   struct StripImageChunkNav
   {
     float pitch = 0;                        ///< Тангаж в градусах.
@@ -77,7 +85,10 @@ namespace QuasarSDK::Processing::Datagrams
     float track_ang = 0;                    ///< Сумма курса БПЛА и угла сноса (в градусах).
   } __attribute__((packed));
 
-  /// \brief Данные форматирования пакета **полосового** радиолокационного изображения.
+  /**
+   * \ingroup sdk_images
+   * \brief Данные форматирования пакета **полосового** радиолокационного изображения.
+   */
   struct StripImageChunkFormat
   {
     float dx = 0;                           ///< Дискрета по дальности в метрах.
@@ -94,6 +105,7 @@ namespace QuasarSDK::Processing::Datagrams
   } __attribute__((packed));
 
   /**
+   * \ingroup sdk_images
    * \brief Полный заголовок пакета **полосового** потокового изображения.
    */
   struct StripImageChunkHeader

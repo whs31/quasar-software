@@ -1,11 +1,12 @@
 /**
-  * \class QuasarSDK::TelemetrySocket CTelemetrySocket.h <QuasarSDK/Networking/CTelemetrySocket.h>
-  * \brief Класс для работы с сервисом \c navd2 на РЛС.
-  * \details Предоставляет функционал запроса и приема датаграмм телеметрии
-  * с РЛС. Автоматически парсит пакеты телеметрии и записывает значения в класс-хранилище
-  * Telemetry.
-  * \extends BaseUDPSocket
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::TelemetrySocket CTelemetrySocket.h <QuasarSDK/Networking/CTelemetrySocket.h>
+ * \brief Класс для работы с сервисом \c navd2 на РЛС.
+ * \details Предоставляет функционал запроса и приема датаграмм телеметрии
+ * с РЛС. Автоматически парсит пакеты телеметрии и записывает значения в класс-хранилище
+ * Telemetry.
+ * \extends BaseUDPSocket
+ */
 
 #include "CTelemetrySocket.h"
 #include <QtCore/QTimer>

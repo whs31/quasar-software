@@ -5,14 +5,14 @@ var namespaceQuasarSDK =
     [ "Map", "d2/d78/namespaceQuasarSDK_1_1Map.html", "d2/d78/namespaceQuasarSDK_1_1Map" ],
     [ "Processing", "d6/d16/namespaceQuasarSDK_1_1Processing.html", "d6/d16/namespaceQuasarSDK_1_1Processing" ],
     [ "Utils", "d4/d19/namespaceQuasarSDK_1_1Utils.html", [
-      [ "log", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a3877486db4acc07f2a3d9e980d9866a5", null ],
-      [ "deg2rad", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a06edcf94eff0754b506f72abfa78e29f", null ],
-      [ "rad2deg", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a414e2d36554301965d1d9ae80da08a3f", null ],
-      [ "NaN", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a7f02b12a2b2b0b11df4aa991ff354000", null ],
-      [ "isNaN", "d4/d19/namespaceQuasarSDK_1_1Utils.html#aaf0578b9d15d85ab4e18cee1256ff1e7", null ],
-      [ "crc16", "d4/d19/namespaceQuasarSDK_1_1Utils.html#afda5ee7aba055245d768c57faa02fb57", null ],
-      [ "crc16_ccitt", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a15a9ef310fea932c75d1cfee9d7dc1d4", null ],
-      [ "str_data", "d4/d19/namespaceQuasarSDK_1_1Utils.html#a8e767ae01022414bd64c54dbc1337bfa", null ]
+      [ "log", "d3/daf/group__sdk__images.html#ga3877486db4acc07f2a3d9e980d9866a5", null ],
+      [ "deg2rad", "d3/daf/group__sdk__images.html#ga06edcf94eff0754b506f72abfa78e29f", null ],
+      [ "rad2deg", "d3/daf/group__sdk__images.html#ga414e2d36554301965d1d9ae80da08a3f", null ],
+      [ "NaN", "d3/daf/group__sdk__images.html#ga7f02b12a2b2b0b11df4aa991ff354000", null ],
+      [ "isNaN", "d3/daf/group__sdk__images.html#gaaf0578b9d15d85ab4e18cee1256ff1e7", null ],
+      [ "crc16", "d3/d54/group__sdk__network.html#gafda5ee7aba055245d768c57faa02fb57", null ],
+      [ "crc16_ccitt", "d3/d54/group__sdk__network.html#ga15a9ef310fea932c75d1cfee9d7dc1d4", null ],
+      [ "str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ]
     ] ],
     [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", "da/dff/classQuasarSDK_1_1Config" ],

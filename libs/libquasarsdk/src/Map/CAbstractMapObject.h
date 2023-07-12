@@ -12,6 +12,7 @@
 namespace QuasarSDK::Map
   {
     /**
+     * \ingroup sdk_map
      * \brief Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба.
      */
     class AbstractMapObject : public IMapObject

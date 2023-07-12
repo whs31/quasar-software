@@ -18,6 +18,7 @@ using std::unique_ptr;
 namespace QuasarSDK::IO
 {
   /**
+   * \ingroup sdk_io
    * \brief Базовый класс для модели сообщений.
    */
   class MessageModel : public QAbstractListModel

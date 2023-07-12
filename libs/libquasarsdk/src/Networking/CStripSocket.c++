@@ -1,9 +1,10 @@
 /**
-  * \class QuasarSDK::StripSocket CStripSocket.h <QuasarSDK/Networking/CStripSocket.h>
-  * \brief Класс для приема больших файлов с РЛС по протоколу UDP.
-  * \details Используется для приема потока полосового изображения с РЛС.
-  * \extends SeamlessUDPSocket
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::StripSocket CStripSocket.h <QuasarSDK/Networking/CStripSocket.h>
+ * \brief Класс для приема больших файлов с РЛС по протоколу UDP.
+ * \details Используется для приема потока полосового изображения с РЛС.
+ * \extends SeamlessUDPSocket
+ */
 
 #include "CStripSocket.h"
 

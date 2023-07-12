@@ -1,10 +1,11 @@
 /**
-  * \class QuasarSDK::OutputRedirectServer COutputRedirectServer.h <QuasarSDK/Network/COutputRedirectServer.h>
-  * \brief Класс для перенаправления вывода РЛС в отдельный Telnet сервер.
-  * \details Запускает TCP-IP сервер на выбранном адресе и перенаправляет
-  * в него любые массивы данных, приходящие в функцию push().
-  * \extends QObject, IConnectable
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::OutputRedirectServer COutputRedirectServer.h <QuasarSDK/Network/COutputRedirectServer.h>
+ * \brief Класс для перенаправления вывода РЛС в отдельный Telnet сервер.
+ * \details Запускает TCP-IP сервер на выбранном адресе и перенаправляет
+ * в него любые массивы данных, приходящие в функцию push().
+ * \extends QObject, IConnectable
+ */
 
 #include "COutputRedirectServer.h"
 #include <QtCore/QDebug>

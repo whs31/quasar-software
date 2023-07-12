@@ -1,13 +1,14 @@
 /**
-  * \class QuasarSDK::PingTester CPingTester.h <QuasarSDK/Networking/CPingTester.h>
-  * \brief Класс для постоянной проверки выбранного адреса на доступность.
-  * \details Выполняет постоянную проверку выбранного адреса командой \c ping
-  * по протоколу ICMP. Предоставляет результат в виде сигнала со статус-кодом.
-  * \note На ОС Windows проверка выполняется не 5 раз, как в обычной команде
-  * \c ping на этой системе, а до тех пор, пока процесс не будет завершен, как
-  * на ОС Linux.
-  * \extends QObject, IConnectable
-  */
+ * \ingroup sdk_network
+ * \class QuasarSDK::PingTester CPingTester.h <QuasarSDK/Networking/CPingTester.h>
+ * \brief Класс для постоянной проверки выбранного адреса на доступность.
+ * \details Выполняет постоянную проверку выбранного адреса командой \c ping
+ * по протоколу ICMP. Предоставляет результат в виде сигнала со статус-кодом.
+ * \note На ОС Windows проверка выполняется не 5 раз, как в обычной команде
+ * \c ping на этой системе, а до тех пор, пока процесс не будет завершен, как
+ * на ОС Linux.
+ * \extends QObject, IConnectable
+ */
 
 #include "CPingTester.h"
 #include <stdexcept>

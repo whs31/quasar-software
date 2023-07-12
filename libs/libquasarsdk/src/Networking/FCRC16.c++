@@ -40,6 +40,7 @@ constexpr const uint16_t CRC16_TABLE[256] =
 namespace QuasarSDK::Utils
 {
   /**
+   * \ingroup sdk_network
    * \brief Вычисляет контрольную сумму CRC16.
    * \details Алгоритм используется в сервисе \c execd на РЛС,
    * а также в метаданных приходящих с РЛС радиолокационных
@@ -70,6 +71,7 @@ namespace QuasarSDK::Utils
   }
 
   /**
+   * \ingroup sdk_network
    * \brief Вычисляет контрольную сумму CRC16 по алгоритму CCITT.
    * \details Алгоритм используется в сервисе телеметрии (\c navd2).
    * \param data - указатель на данные для вычисления.
@@ -86,6 +88,7 @@ namespace QuasarSDK::Utils
   }
 
   /**
+   * \ingroup sdk_network
    * \brief Конвертирует *QString* в указатель на *char*.
    * \param str - строка для конвертации.
    * \return Указатель на *char*.

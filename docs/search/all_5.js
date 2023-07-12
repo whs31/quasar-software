@@ -20,6 +20,7 @@ var searchData=
   ['formargumentlist_17',['formArgumentList',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#afc88ee28043f3b690d4ac2a2c1835163',1,'QuasarSDK::ExecdArgumentParser']]],
   ['formargumentstring_18',['formArgumentString',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#a4229af7f43489a4e64546f0c54677af0',1,'QuasarSDK::ExecdArgumentParser']]],
   ['formimage_19',['FormImage',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486ea4712813eafc5945074b22fe2e4655434',1,'QuasarSDK::Enums']]],
-  ['frequency_20',['frequency',['../db/d5f/classQuasarSDK_1_1TelemetrySocket.html#a8e0b885b8423672eec948899b7bb504f',1,'QuasarSDK::TelemetrySocket']]],
-  ['fullname_21',['fullName',['../d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a99396233d4938f3fadf59f6427a9cae2',1,'QuasarSDK::IO::File::fullName()'],['../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70d9a6038f1d5d2008f3dec41f5ef6c3',1,'QuasarSDK::IO::IFile::fullName()']]]
+  ['fregisterqml_2eh_20',['FRegisterQML.h',['../d9/d88/FRegisterQML_8h.html',1,'']]],
+  ['frequency_21',['frequency',['../db/d5f/classQuasarSDK_1_1TelemetrySocket.html#a8e0b885b8423672eec948899b7bb504f',1,'QuasarSDK::TelemetrySocket']]],
+  ['fullname_22',['fullName',['../d7/d4f/classQuasarSDK_1_1IO_1_1File.html#a99396233d4938f3fadf59f6427a9cae2',1,'QuasarSDK::IO::File::fullName()'],['../d9/d90/classQuasarSDK_1_1IO_1_1IFile.html#a70d9a6038f1d5d2008f3dec41f5ef6c3',1,'QuasarSDK::IO::IFile::fullName()']]]
 ];

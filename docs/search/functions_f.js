@@ -32,7 +32,7 @@ var searchData=
   ['startpings_29',['startPings',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a13b02c5d4d8aa656dcfbc2b567845df4',1,'QuasarSDK::QuasarAPI']]],
   ['stop_30',['stop',['../dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#a4008ad2c644d84457e83d74b3809f2ec',1,'QuasarSDK::OutputRedirectServer::stop()'],['../d3/db8/classQuasarSDK_1_1IConnectable.html#a5b7e5ca7163374ca49fea010385f3513',1,'QuasarSDK::IConnectable::stop()'],['../d9/df7/classQuasarSDK_1_1TCPServer.html#add3dd658f58b302a080d9d8d6e57812b',1,'QuasarSDK::TCPServer::stop()'],['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#aba28ee97ffe6d508e26f534ec7e62f8f',1,'QuasarSDK::QuasarAPI::stop()'],['../d2/d74/classQuasarSDK_1_1PingTester.html#add3dd658f58b302a080d9d8d6e57812b',1,'QuasarSDK::PingTester::stop()'],['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#add3dd658f58b302a080d9d8d6e57812b',1,'QuasarSDK::BaseUDPSocket::stop()']]],
   ['stop2way_31',['stop2way',['../db/d5f/classQuasarSDK_1_1TelemetrySocket.html#a7dd4a4ce2846754fe0c1f93bcf5d0a86',1,'QuasarSDK::TelemetrySocket']]],
-  ['str_5fdata_32',['str_data',['../d4/d19/namespaceQuasarSDK_1_1Utils.html#a8e767ae01022414bd64c54dbc1337bfa',1,'QuasarSDK::Utils']]],
+  ['str_5fdata_32',['str_data',['../d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa',1,'QuasarSDK::Utils']]],
   ['stringify_33',['stringify',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a964934b2654b053b60d0a69d7234b581',1,'QuasarSDK::QuasarAPI']]],
   ['stripsocket_34',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
   ['stripsocket_35',['stripSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],

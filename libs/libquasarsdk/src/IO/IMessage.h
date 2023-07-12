@@ -15,6 +15,7 @@ using std::move;
 namespace QuasarSDK::IO
 {
   /**
+   * \ingroup sdk_io
    * \brief Интерфейс, описывающий консольное сообщение.
    */
   class IMessage

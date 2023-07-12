@@ -5,5 +5,5 @@
 <area shape="rect" id="node4" href="$d3/db8/classQuasarSDK_1_1IConnectable.html" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="130,5,237,33"/>
 <area shape="rect" id="node5" href="$db/d03/classQuasarSDK_1_1Telemetry.html" title="Класс&#45;хранилище для текущей телеметрии РЛС." alt="" coords="266,98,352,126"/>
 <area shape="rect" id="node6" title=" " alt="" coords="268,5,342,33"/>
-<area shape="rect" id="node7" href="$da/db8/namespaceQuasarSDK_1_1Datagrams.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram" title="Датаграмма телеметрии от РЛС к наземке." alt="" coords="365,5,517,33"/>
+<area shape="rect" id="node7" href="$d8/d07/group__sdk__protocol.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram" title="Датаграмма телеметрии от РЛС к наземке." alt="" coords="365,5,517,33"/>
 </map>

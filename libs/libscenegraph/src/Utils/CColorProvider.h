@@ -18,6 +18,7 @@ using std::array;
 namespace Scenegraph::Utils
 {
   /**
+   * \ingroup legacy
    * \brief Класс, предоставляющий палитру контрастных цветов.
    * \details Для использования класс необходимо зарегистрировать в QML либо как
    * тип, либо как синглтон. Предпочтительнее регистрировать класс как одиночный тип:
@@ -26,7 +27,7 @@ namespace Scenegraph::Utils
    * \endcode
    *
    * После этого необходимо импортировать тип в QML и создать объект:
-   * \code {.js}
+   * \code {.py}
      import Scenegraph.Extras 1.0
 
      Item {

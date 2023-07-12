@@ -13,6 +13,7 @@
 namespace QuasarSDK::Datagrams
 {
   /**
+   * \ingroup sdk_protocol
    * \brief Датаграмма телеметрии от РЛС к наземке.
    * \details Датаграмма приходит в ответ на запрос
    * к РЛС. Исходная датаграмма в Rust выглядит так:
@@ -88,6 +89,7 @@ namespace QuasarSDK::Datagrams
   };
 
   /**
+    * \ingroup sdk_protocol
     * \brief Датаграмма запроса телеметрии от наземки к РЛС.
     * \note Сериализована в Big Endian.
     */

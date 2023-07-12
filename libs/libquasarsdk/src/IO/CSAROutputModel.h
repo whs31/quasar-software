@@ -14,6 +14,7 @@ namespace QuasarSDK::IO
 {
   /**
    * \ingroup sdk_io
+   * \ingroup sdk_models
    * \brief Класс-модель, обрабатывающий и хранящий сообщения от РЛС (*VT100*).
    */
   class SAROutputModel : public MessageModel

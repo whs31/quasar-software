@@ -19,6 +19,7 @@ namespace QuasarSDK::IO
 {
   /**
    * \ingroup sdk_io
+   * \ingroup sdk_models
    * \brief Базовый класс для модели сообщений.
    */
   class MessageModel : public QAbstractListModel

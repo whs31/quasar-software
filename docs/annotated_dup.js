@@ -85,22 +85,13 @@ var annotated_dup =
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject" ],
         [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject" ]
       ] ],
-      [ "Processing", "d6/d16/namespaceQuasarSDK_1_1Processing.html", [
-        [ "Datagrams", "de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html", [
-          [ "StripImageChunkFormat", "d3/daf/group__sdk__images.html#d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat", "d3/daf/group__sdk__images_d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat" ],
-          [ "StripImageChunkHeader", "d3/daf/group__sdk__images.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader", null ],
-          [ "StripImageChunkID", "d3/daf/group__sdk__images.html#da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID", "d3/daf/group__sdk__images_da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID" ],
-          [ "StripImageChunkNav", "d3/daf/group__sdk__images.html#df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav", "d3/daf/group__sdk__images_df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav" ],
-          [ "TelescopicImageMetadata", "d3/daf/group__sdk__images.html#dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata", "d3/daf/group__sdk__images_dd/db9/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadata" ],
-          [ "TelescopicImageMetadataID", "d3/daf/group__sdk__images.html#d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID", "d3/daf/group__sdk__images_d7/d26/structQuasarSDK_1_1Processing_1_1Datagrams_1_1TelescopicImageMetadataID" ]
-        ] ]
-      ] ],
       [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
       [ "Config", "da/dff/classQuasarSDK_1_1Config.html", "da/dff/classQuasarSDK_1_1Config" ],
       [ "Enums", "d6/de3/classQuasarSDK_1_1Enums.html", "d6/de3/classQuasarSDK_1_1Enums" ],
       [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", "d7/d54/structQuasarSDK_1_1ExecdArgument" ],
       [ "ExecdArgumentParser", "de/da2/classQuasarSDK_1_1ExecdArgumentParser.html", "de/da2/classQuasarSDK_1_1ExecdArgumentParser" ],
       [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", "d7/d42/classQuasarSDK_1_1ExecdSocket" ],
+      [ "FRegister", "d4/d48/namespaceQuasarSDK.html#da/d1e/classQuasarSDK_1_1FRegister", null ],
       [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", "d3/db8/classQuasarSDK_1_1IConnectable" ],
       [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer" ],
       [ "OutputSocket", "d8/d25/classQuasarSDK_1_1OutputSocket.html", "d8/d25/classQuasarSDK_1_1OutputSocket" ],

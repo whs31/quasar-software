@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['elevation_0',['elevation',['../d9/d23/SImageMetadata_8h.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'elevation:&#160;SImageMetadata.h'],['../dd/da3/imagemetadata_8h.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'elevation:&#160;imagemetadata.h'],['../da/d88/namespaceMap.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'Map::StripNavigationMetadata::elevation'],['../d3/daf/group__sdk__images.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'QuasarSDK::Processing::Datagrams::StripImageChunkNav::elevation']]],
+  ['elevation_0',['elevation',['../dd/da3/imagemetadata_8h.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'elevation:&#160;imagemetadata.h'],['../da/d88/namespaceMap.html#a1c921d7f2f6a29b15d709c49d2df1797',1,'Map::StripNavigationMetadata::elevation']]],
   ['enabledebugstrip_1',['enableDebugStrip',['../d5/dfa/classConfig_1_1Config.html#a81cb15c8bbaea8b30d48e0c5b6a3b803',1,'Config::Config']]],
   ['enableredirect_2',['enableRedirect',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a33670415719976b873d92b877de75669',1,'QuasarSDK::QuasarAPI']]],
   ['entry_3',['Entry',['../df/d40/classEntry.html',1,'']]],

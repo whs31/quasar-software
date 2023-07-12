@@ -5,5 +5,6 @@ var modules =
     [ "Сетевое взаимодействие с РЛС", "d3/d54/group__sdk__network.html", "d3/d54/group__sdk__network" ],
     [ "Датаграммы и сетевые протоколы", "d8/d07/group__sdk__protocol.html", "d8/d07/group__sdk__protocol" ],
     [ "Обработка РЛИ", "d3/daf/group__sdk__images.html", "d3/daf/group__sdk__images" ],
+    [ "Модели и представления", "d0/df8/group__sdk__models.html", "d0/df8/group__sdk__models" ],
     [ "Классы и функции, не рекомендуемые к использованию.", "d4/df9/group__legacy.html", "d4/df9/group__legacy" ]
 ];

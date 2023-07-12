@@ -19,9 +19,10 @@ namespace QuasarSDK::Map
   class MapImageSegment : public MapImage
                         , public IO::Base64Object
   {
-      /**
-       * \brief Создает объект MapImageSegment со значениями по умолчанию.
-       */
+   /**
+     * \brief Создает объект MapImageSegment со значениями по умолчанию.
+     */
+    public:
       MapImageSegment();
   };
 } // QuasarSDK:: Map

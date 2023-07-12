@@ -20,6 +20,7 @@ var namespaceQuasarSDK =
     [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", "d7/d54/structQuasarSDK_1_1ExecdArgument" ],
     [ "ExecdArgumentParser", "de/da2/classQuasarSDK_1_1ExecdArgumentParser.html", "de/da2/classQuasarSDK_1_1ExecdArgumentParser" ],
     [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", "d7/d42/classQuasarSDK_1_1ExecdSocket" ],
+    [ "FRegister", "d4/d48/namespaceQuasarSDK.html#da/d1e/classQuasarSDK_1_1FRegister", null ],
     [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", "d3/db8/classQuasarSDK_1_1IConnectable" ],
     [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer" ],
     [ "OutputSocket", "d8/d25/classQuasarSDK_1_1OutputSocket.html", "d8/d25/classQuasarSDK_1_1OutputSocket" ],

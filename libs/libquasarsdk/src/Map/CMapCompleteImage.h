@@ -19,6 +19,7 @@ namespace QuasarSDK::Map
   class CompleteMapImage : public MapImage
                          , public IO::DraftFile
   {
+    public:
       /**
        * \brief Создает объект CompleteMapImage со значениями по умолчанию.
        */

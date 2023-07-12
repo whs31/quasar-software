@@ -11,12 +11,8 @@ var searchData=
   ['stripformatmetadata_8',['StripFormatMetadata',['../da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata',1,'Map']]],
   ['stripheadermetadata_9',['StripHeaderMetadata',['../da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata',1,'Map']]],
   ['stripimage_10',['StripImage',['../dc/dac/structMap_1_1StripImage.html',1,'Map']]],
-  ['stripimagechunkformat_11',['StripImageChunkFormat',['../d3/daf/group__sdk__images.html#d4/dfa/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkFormat',1,'QuasarSDK::Processing::Datagrams']]],
-  ['stripimagechunkheader_12',['StripImageChunkHeader',['../d3/daf/group__sdk__images.html#d4/dde/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkHeader',1,'QuasarSDK::Processing::Datagrams']]],
-  ['stripimagechunkid_13',['StripImageChunkID',['../d3/daf/group__sdk__images.html#da/dbd/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkID',1,'QuasarSDK::Processing::Datagrams']]],
-  ['stripimagechunknav_14',['StripImageChunkNav',['../d3/daf/group__sdk__images.html#df/d8b/structQuasarSDK_1_1Processing_1_1Datagrams_1_1StripImageChunkNav',1,'QuasarSDK::Processing::Datagrams']]],
-  ['stripimagedatagram_15',['StripImageDatagram',['../da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram',1,'Map']]],
-  ['stripmodel_16',['StripModel',['../d3/d9a/classMap_1_1StripModel.html',1,'Map']]],
-  ['stripnavigationmetadata_17',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
-  ['stripsocket_18',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]]
+  ['stripimagedatagram_11',['StripImageDatagram',['../da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram',1,'Map']]],
+  ['stripmodel_12',['StripModel',['../d3/d9a/classMap_1_1StripModel.html',1,'Map']]],
+  ['stripnavigationmetadata_13',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
+  ['stripsocket_14',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]]
 ];

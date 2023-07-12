@@ -18,7 +18,7 @@ var classQuasarSDK_1_1QuasarAPI =
     [ "setPingAddressList", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#aa083206e6391e3e8d664e7696d716c4f", null ],
     [ "enableRedirect", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a33670415719976b873d92b877de75669", null ],
     [ "disableRedirect", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a5919211a0de475695e1ecc0eac7b2983", null ],
-    [ "tcpDataReceived", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a66b4d57572f1d20d0023a2992c24532c", null ],
+    [ "tcpDataReceived", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0c32f3080e6da7498b61a2452f9160cf", null ],
     [ "udpDataReceived", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a2d40009ab772b628305cadb77e4490c7", null ],
     [ "telemetrySocketMetrics", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a494c9269792068b8e0ecff130f346a8e", null ],
     [ "execdSocketMetrics", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a8c7be2f1298e09c11e7629889a53d722", null ],

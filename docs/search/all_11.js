@@ -8,7 +8,7 @@ var searchData=
   ['readed_5',['readed',['../d4/d1b/classProcessing_1_1ArrayReader.html#a0b96c8129d10d702583a79c336237728',1,'Processing::ArrayReader']]],
   ['realtimelineplot_6',['RealtimeLinePlot',['../d3/df0/classSDK_1_1Quick_1_1RealtimeLinePlot.html',1,'SDK::Quick']]],
   ['reboot_7',['Reboot',['../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486eaa49f6a8953e091ee4209d9b2c4019ff7',1,'QuasarSDK::Enums']]],
-  ['received_8',['received',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3eb63c5af67a44fb60ba731d3da7a56d',1,'QuasarSDK::BaseUDPSocket::received()'],['../d9/df7/classQuasarSDK_1_1TCPServer.html#a3eb63c5af67a44fb60ba731d3da7a56d',1,'QuasarSDK::TCPServer::received()']]],
+  ['received_8',['received',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html#a3eb63c5af67a44fb60ba731d3da7a56d',1,'QuasarSDK::BaseUDPSocket::received()'],['../d9/df7/classQuasarSDK_1_1TCPServer.html#ada238b8c6c896444790cb3610ce59817',1,'QuasarSDK::TCPServer::received()']]],
   ['receivedchunk_9',['receivedChunk',['../d9/d93/classQuasarSDK_1_1StripSocket.html#ae62d71d8b9f17efe249b34ac5463d24e',1,'QuasarSDK::StripSocket']]],
   ['rectsize_10',['rectSize',['../d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html#a3051914ec2763bb9ddc79ebf70fd1b7c',1,'QuasarSDK::Map::MapImage::rectSize()'],['../d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html#abfd9f549fc6d68c408e590dbca6b551c',1,'QuasarSDK::Map::ISARImage::rectSize()']]],
   ['red_11',['Red',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a20fe1c284bf1ea149abaeb73c316b28cad3163c1fcda01965b692ec2c3122b743',1,'Scenegraph::Utils::ColorProvider']]],

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['tcp_0',['tcp',['../d1/d42/classConfig_1_1Paths.html#a7560631e1c9c5f4f885c206a7dc3342c',1,'Config::Paths']]],
-  ['tcpdatareceived_1',['tcpDataReceived',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a66b4d57572f1d20d0023a2992c24532c',1,'QuasarSDK::QuasarAPI']]],
+  ['tcpdatareceived_1',['tcpDataReceived',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0c32f3080e6da7498b61a2452f9160cf',1,'QuasarSDK::QuasarAPI']]],
   ['tcplfsport_2',['tcpLFSPort',['../d5/dfa/classConfig_1_1Config.html#a9a898d90c155973baa06c11e8ef95813',1,'Config::Config']]],
   ['tcpmarker_3',['tcpMarker',['../d5/dfa/classConfig_1_1Config.html#a259e4f044a571c4bc7b34a23f39492be',1,'Config::Config']]],
   ['tcpserver_4',['TCPServer',['../d9/df7/classQuasarSDK_1_1TCPServer.html',1,'TCPServer'],['../d9/df7/classQuasarSDK_1_1TCPServer.html#aae83f860fbaa08693629478bba2b0ae0',1,'QuasarSDK::TCPServer::TCPServer()']]],

@@ -19,6 +19,15 @@
   * комплекта разработчика:
   *     - \ref sdk_documentation
   *     - \ref execd_manual
+  *
+  * Общие группы комплекта разработчика:
+  *     - \ref sdk_io
+  *     - \ref sdk_map
+  *     - \ref sdk_network
+  *     - \ref sdk_protocol
+  *     - \ref sdk_images
+  *
+  * Полный список классов и функций комплекта разработчика:
   *     - QuasarSDK
   *         - QuasarSDK::QuasarAPI
   *

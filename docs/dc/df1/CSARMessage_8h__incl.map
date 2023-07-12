@@ -1,7 +1,11 @@
 <map id="CSARMessage.h" name="CSARMessage.h">
-<area shape="rect" id="node1" title=" " alt="" coords="26,5,153,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,65,109"/>
-<area shape="rect" id="node3" href="$d6/dac/IMessage_8h.html" title=" " alt="" coords="89,81,202,109"/>
-<area shape="rect" id="node4" title=" " alt="" coords="9,157,128,184"/>
-<area shape="rect" id="node5" title=" " alt="" coords="151,157,295,184"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="26,5,153,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,65,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,35,55,71,51,68,78,32"/>
+<area shape="rect" id="Node000003" href="$d6/dac/IMessage_8h.html" title=" " alt="" coords="89,81,202,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="102,32,129,67,125,71,98,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="9,157,128,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="134,111,94,148,91,144,130,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="151,157,295,184"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="161,107,201,144,197,148,158,111"/>
 </map>

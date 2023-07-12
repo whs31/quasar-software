@@ -1,5 +1,7 @@
 <map id="Image" name="Image">
-<area shape="rect" id="node1" title=" " alt="" coords="87,5,149,33"/>
-<area shape="rect" id="node2" href="$dc/dac/structMap_1_1StripImage.html" title=" " alt="" coords="5,81,98,109"/>
-<area shape="rect" id="node3" href="$d5/d34/structMap_1_1TelescopicImage.html" title=" " alt="" coords="122,81,251,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="87,5,149,33"/>
+<area shape="rect" id="Node000002" href="$dc/dac/structMap_1_1StripImage.html" title=" " alt="" coords="5,81,98,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,46,65,82,61,79,94,42"/>
+<area shape="rect" id="Node000003" href="$d5/d34/structMap_1_1TelescopicImage.html" title=" " alt="" coords="122,81,251,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="142,42,176,79,172,82,138,46"/>
 </map>

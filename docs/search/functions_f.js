@@ -34,8 +34,8 @@ var searchData=
   ['stop2way_31',['stop2way',['../db/d5f/classQuasarSDK_1_1TelemetrySocket.html#a7dd4a4ce2846754fe0c1f93bcf5d0a86',1,'QuasarSDK::TelemetrySocket']]],
   ['str_5fdata_32',['str_data',['../d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa',1,'QuasarSDK::Utils']]],
   ['stringify_33',['stringify',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a964934b2654b053b60d0a69d7234b581',1,'QuasarSDK::QuasarAPI']]],
-  ['stripsocket_34',['stripSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],
-  ['stripsocket_35',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
+  ['stripsocket_34',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
+  ['stripsocket_35',['stripSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],
   ['stripsocketmetrics_36',['stripSocketMetrics',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
   ['sync_37',['sync',['../d5/dfa/classConfig_1_1Config.html#ad55f80ed3cd8b6c4f247763b747016af',1,'Config::Config']]]
 ];

@@ -1,8 +1,13 @@
 <map id="CMessageModel.h" name="CMessageModel.h">
-<area shape="rect" id="node1" title=" " alt="" coords="107,5,247,33"/>
-<area shape="rect" id="node2" href="$d9/d82/CMessageModel_8c_09_09_source.html" title=" " alt="" coords="5,81,167,109"/>
-<area shape="rect" id="node3" href="$d1/dae/CSAROutputModel_8h_source.html" title=" " alt="" coords="191,81,344,109"/>
-<area shape="rect" id="node4" href="$de/d83/CQuasarAPI_8h.html" title=" " alt="" coords="130,157,239,184"/>
-<area shape="rect" id="node6" href="$d3/d06/CSAROutputModel_8c_09_09_source.html" title=" " alt="" coords="263,157,437,184"/>
-<area shape="rect" id="node5" href="$d7/dda/CQuasarAPI_8c_09_09_source.html" title=" " alt="" coords="120,232,250,260"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="107,5,247,33"/>
+<area shape="rect" id="Node000002" href="$d9/d82/CMessageModel_8c_09_09_source.html" title=" " alt="" coords="5,81,167,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,44,104,83,100,78,148,40"/>
+<area shape="rect" id="Node000003" href="$d1/dae/CSAROutputModel_8h_source.html" title=" " alt="" coords="191,81,344,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,40,253,78,250,83,202,44"/>
+<area shape="rect" id="Node000004" href="$de/d83/CQuasarAPI_8h.html" title=" " alt="" coords="130,157,239,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="243,121,201,158,198,154,240,117"/>
+<area shape="rect" id="Node000006" href="$d3/d06/CSAROutputModel_8c_09_09_source.html" title=" " alt="" coords="263,157,437,184"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="295,117,337,154,334,158,291,121"/>
+<area shape="rect" id="Node000005" href="$d7/dda/CQuasarAPI_8c_09_09_source.html" title=" " alt="" coords="120,232,250,260"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="187,199,187,232,182,232,182,199"/>
 </map>

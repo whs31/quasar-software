@@ -1,7 +1,7 @@
 var searchData=
 [
   ['dark_0',['Dark',['../db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#abe601243d94bd50fce1e08004e1a8633ab881c2fca9941a632de2b4af173a7906',1,'Scenegraph::Utils::ColorProvider']]],
-  ['data_1',['data',['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#ae93b915598cdbe5ae59dddf41d917a53',1,'QuasarSDK::IO::MessageModel']]],
+  ['data_1',['data',['../df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html#ad44c6ce322034044d573e6d4678d630b',1,'QuasarSDK::IO::Base64Object::data'],['../d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html#ae93b915598cdbe5ae59dddf41d917a53',1,'QuasarSDK::IO::MessageModel::data()']]],
   ['debug_2',['Debug',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013ac909e86054cb6ad83c22bfc2b3e6e5b8',1,'QuasarSDK::IO::IMessage']]],
   ['debugconsole_3',['DebugConsole',['../d3/d6a/classGUI_1_1DebugConsole.html',1,'GUI']]],
   ['debugspecific_4',['DebugSpecific',['../d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html#ac6606ebe91c8ac66a2c314c79f5ab013a40710eda69ecae4933be2f304a9e9c97',1,'QuasarSDK::IO::IMessage']]],

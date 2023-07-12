@@ -1,5 +1,7 @@
 <map id="IMessage.h" name="IMessage.h">
-<area shape="rect" id="node1" title=" " alt="" coords="94,5,190,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,124,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="148,81,291,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="94,5,190,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,124,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,35,91,73,87,69,126,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="148,81,291,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,32,197,69,193,73,154,35"/>
 </map>

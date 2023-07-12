@@ -1,5 +1,6 @@
 var namespaceQuasarSDK_1_1IO =
 [
+    [ "Base64Object", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object" ],
     [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" ],
     [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile" ],
     [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", "d9/d90/classQuasarSDK_1_1IO_1_1IFile" ],

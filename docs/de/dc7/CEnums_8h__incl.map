@@ -1,5 +1,7 @@
 <map id="CEnums.h" name="CEnums.h">
-<area shape="rect" id="node1" title=" " alt="" coords="102,5,188,33"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,81,128,109"/>
-<area shape="rect" id="node3" title=" " alt="" coords="152,81,296,109"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="102,5,188,33"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,128,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,36,93,73,89,69,129,32"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="152,81,296,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,32,201,69,197,73,157,36"/>
 </map>

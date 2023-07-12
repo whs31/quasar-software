@@ -67,11 +67,10 @@ var searchData=
   ['stripimagedatagram_64',['StripImageDatagram',['../da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram',1,'Map']]],
   ['stripmodel_65',['StripModel',['../d3/d9a/classMap_1_1StripModel.html',1,'Map']]],
   ['stripnavigationmetadata_66',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
-  ['stripsocket_67',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]],
+  ['stripsocket_67',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'StripSocket'],['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket::StripSocket()']]],
   ['stripsocket_68',['stripSocket',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],
-  ['stripsocket_69',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
-  ['stripsocketmetrics_70',['stripSocketMetrics',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
-  ['success_71',['Success',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
-  ['sync_72',['sync',['../d5/dfa/classConfig_1_1Config.html#ad55f80ed3cd8b6c4f247763b747016af',1,'Config::Config']]],
-  ['utils_73',['Utils',['../d9/de7/namespaceScenegraph_1_1Utils.html',1,'Scenegraph']]]
+  ['stripsocketmetrics_69',['stripSocketMetrics',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
+  ['success_70',['Success',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
+  ['sync_71',['sync',['../d5/dfa/classConfig_1_1Config.html#ad55f80ed3cd8b6c4f247763b747016af',1,'Config::Config']]],
+  ['utils_72',['Utils',['../d9/de7/namespaceScenegraph_1_1Utils.html',1,'Scenegraph']]]
 ];

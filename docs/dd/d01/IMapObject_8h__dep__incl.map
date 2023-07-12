@@ -1,11 +1,27 @@
 <map id="IMapObject.h" name="IMapObject.h">
-<area shape="rect" id="node1" title=" " alt="" coords="320,5,427,33"/>
-<area shape="rect" id="node2" href="$dc/d2a/CAbstractMapObject_8h.html" title=" " alt="" coords="291,81,457,109"/>
-<area shape="rect" id="node3" href="$d8/d63/CAbstractMapObject_8c_09_09_source.html" title=" " alt="" coords="5,157,193,184"/>
-<area shape="rect" id="node4" href="$d3/dc1/CFGSMapObject_8h.html" title=" " alt="" coords="217,157,355,184"/>
-<area shape="rect" id="node8" href="$d2/d5e/CScalableMapObject_8h.html" title=" " alt="" coords="379,157,547,184"/>
-<area shape="rect" id="node9" href="$db/d98/CScreenMapObject_8h.html" title=" " alt="" coords="570,157,727,184"/>
-<area shape="rect" id="node5" href="$d1/d78/CFGSMapObject_8c_09_09_source.html" title=" " alt="" coords="126,232,285,260"/>
-<area shape="rect" id="node6" href="$d1/da9/CMapImage_8h.html" title=" " alt="" coords="310,232,421,260"/>
-<area shape="rect" id="node7" href="$d8/db4/CMapImage_8c_09_09_source.html" title=" " alt="" coords="300,308,432,336"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="320,5,427,33"/>
+<area shape="rect" id="Node000002" href="$dc/d2a/CAbstractMapObject_8h.html" title=" " alt="" coords="291,81,457,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="376,48,376,81,371,81,371,48"/>
+<area shape="rect" id="Node000003" href="$d8/d63/CAbstractMapObject_8c_09_09_source.html" title=" " alt="" coords="5,157,193,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="311,116,149,159,147,154,310,110"/>
+<area shape="rect" id="Node000004" href="$d3/dc1/CFGSMapObject_8h.html" title=" " alt="" coords="217,157,355,184"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="349,121,303,158,300,154,345,116"/>
+<area shape="rect" id="Node000012" href="$d2/d5e/CScalableMapObject_8h.html" title=" " alt="" coords="379,157,547,184"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="403,116,449,154,445,158,399,121"/>
+<area shape="rect" id="Node000013" href="$db/d98/CScreenMapObject_8h.html" title=" " alt="" coords="570,157,727,184"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="438,110,600,154,599,159,436,116"/>
+<area shape="rect" id="Node000005" href="$d1/d78/CFGSMapObject_8c_09_09_source.html" title=" " alt="" coords="126,232,285,260"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="263,196,222,234,218,230,259,193"/>
+<area shape="rect" id="Node000006" href="$d1/da9/CMapImage_8h.html" title=" " alt="" coords="310,232,421,260"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="312,193,353,230,350,234,309,196"/>
+<area shape="rect" id="Node000007" href="$d2/d1a/CMapCompleteImage_8h_source.html" title=" " alt="" coords="101,308,276,336"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="322,268,221,310,219,305,320,264"/>
+<area shape="rect" id="Node000009" href="$d8/db4/CMapImage_8c_09_09_source.html" title=" " alt="" coords="300,308,432,336"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="368,275,368,308,363,308,363,275"/>
+<area shape="rect" id="Node000010" href="$dd/d8a/CMapImageSegment_8h.html" title=" " alt="" coords="456,308,625,336"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="411,264,510,305,508,310,409,269"/>
+<area shape="rect" id="Node000008" href="$d9/dbe/CMapCompleteImage_8c_09_09_source.html" title=" " alt="" coords="91,384,286,411"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="191,351,191,383,186,383,186,351"/>
+<area shape="rect" id="Node000011" href="$dc/d83/CMapImageSegment_8c_09_09_source.html" title=" " alt="" coords="445,384,636,411"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="543,351,543,383,538,383,538,351"/>
 </map>

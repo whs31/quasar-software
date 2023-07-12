@@ -85,10 +85,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d3c/CTCPServer_8c_09_09_source.html",
-"d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11",
-"db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a9b0a91e6018042bcb2e3cf7229f89981",
-"functions_z.html"
+"d4/d26/stripmodel_8c_09_09_source.html",
+"d8/d07/group__sdk__protocol.html#aa96391e04b5977c50b96d77bea86a01d",
+"db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#a4c743b92917e955e3ae95efde906787ca23067fd87af60f212fe99f4713715628",
+"functions_h.html"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

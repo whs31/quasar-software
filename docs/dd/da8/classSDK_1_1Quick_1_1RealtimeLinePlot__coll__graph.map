@@ -1,7 +1,12 @@
 <map id="RealtimeLinePlot" name="RealtimeLinePlot">
-<area shape="rect" id="node1" title=" " alt="" coords="75,252,207,280"/>
-<area shape="rect" id="node2" href="$d9/de1/classSDK_1_1Quick_1_1LinePlot.html" title=" " alt="" coords="62,175,135,203"/>
-<area shape="rect" id="node3" href="$d9/d42/classSDK_1_1Quick_1_1ChartBase.html" title=" " alt="" coords="10,82,99,110"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,5,104,33"/>
-<area shape="rect" id="node5" title=" " alt="" coords="123,82,245,110"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="75,252,207,280"/>
+<area shape="rect" id="Node000002" href="$d9/de1/classSDK_1_1Quick_1_1LinePlot.html" title=" " alt="" coords="62,175,135,203"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,214,136,250,132,253,111,217"/>
+<area shape="rect" id="Node000003" href="$d9/d42/classSDK_1_1Quick_1_1ChartBase.html" title=" " alt="" coords="10,82,99,110"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,122,95,173,90,176,65,124"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,104,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="57,48,57,82,52,82,52,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="123,82,245,110"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="180,125,147,252,142,251,174,124"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="164,123,113,176,109,173,160,119"/>
 </map>

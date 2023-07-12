@@ -1,6 +1,9 @@
 var hierarchy =
 [
     [ "ArrayReader< T >", "d4/d1b/classProcessing_1_1ArrayReader.html", null ],
+    [ "Base64Object", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html", [
+      [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", null ]
+    ] ],
     [ "BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
     [ "CPIterator", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
@@ -23,7 +26,9 @@ var hierarchy =
     ] ],
     [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", [
       [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", [
-        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", null ]
+        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", [
+          [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "Image", "d4/da1/structMap_1_1Image.html", [
@@ -35,7 +40,10 @@ var hierarchy =
     [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", [
       [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", [
         [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", [
-          [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", null ]
+          [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", [
+            [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", null ],
+            [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", null ]
+          ] ]
         ] ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", null ],
         [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", null ]

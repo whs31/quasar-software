@@ -1,4 +1,5 @@
 <map id="ExecdArgumentParser" name="ExecdArgumentParser">
-<area shape="rect" id="node1" title="Класс для хранения и обработки аргументов команд сервиса execd." alt="" coords="5,81,169,109"/>
-<area shape="rect" id="node2" title=" " alt="" coords="50,5,124,33"/>
+<area shape="rect" id="Node000001" title="Класс для хранения и обработки аргументов команд сервиса execd." alt="" coords="5,81,169,109"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="50,5,124,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,48,90,81,84,81,84,48"/>
 </map>

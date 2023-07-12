@@ -33,8 +33,9 @@ namespace QuasarSDK
       /**
        * \brief Срабатывает, когда сервер завершает прием данных от клиента.
        * \param data - массив байт с данными.
+       * \param name - имя полученного файла.
        */
-      void received(QByteArray data);
+      void received(QByteArray data, QString name);
 
       /**
        * \brief Срабатывает во время изменения прогресса загрузки файла.

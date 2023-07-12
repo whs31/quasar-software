@@ -37,23 +37,23 @@ namespace QuasarSDK::IO
       QFileInfo m_info_provider;
   };
 
-  BasicFile::BasicFile()
+  inline BasicFile::BasicFile()
     : m_absolute_path(QString())
     , m_info_provider(QFileInfo())
   {}
 
-  BasicFile::BasicFile(QString path)
+  inline BasicFile::BasicFile(QString path)
     : m_absolute_path(std::move(path))
     , m_info_provider(m_absolute_path)
   {}
 
-  bool BasicFile::fileExists() const { return m_info_provider.exists(); }
-  QString BasicFile::filename() const { return m_info_provider.baseName(); }
-  int BasicFile::fileSize() const { return static_cast<int>(m_info_provider.size()); }
-  QString BasicFile::fileExtension() const { return m_info_provider.suffix(); }
-  QString BasicFile::filenameWithExtension() const { return m_info_provider.fileName(); }
-  QString BasicFile::absoluteFilePath() const { return m_absolute_path; }
-  void BasicFile::setAbsoluteFilePath(const QString& path)
+  inline bool BasicFile::fileExists() const { return m_info_provider.exists(); }
+  inline QString BasicFile::filename() const { return m_info_provider.baseName(); }
+  inline int BasicFile::fileSize() const { return static_cast<int>(m_info_provider.size()); }
+  inline QString BasicFile::fileExtension() const { return m_info_provider.suffix(); }
+  inline QString BasicFile::filenameWithExtension() const { return m_info_provider.fileName(); }
+  inline QString BasicFile::absoluteFilePath() const { return m_absolute_path; }
+  inline void BasicFile::setAbsoluteFilePath(const QString& path)
   {
     m_absolute_path = path;
     m_info_provider.setFile(path);

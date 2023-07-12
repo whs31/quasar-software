@@ -83,6 +83,20 @@ Entry::Entry(QObject* parent)
     qWarning() << "[CORE] Please, restart manually.";
   });
 
+  connect(QuasarAPI::get(), &QuasarSDK::QuasarAPI::tcpDataReceived, this, [this](const QByteArray& data, const QString& name){
+    QFile file(Config::Paths::tcp() + "/" + name);
+    if(not file.open(QIODevice::WriteOnly))
+    {
+      qCritical() << "[ENTRY] Failed to save result";
+      return;
+    }
+
+    file.write(data);
+    file.close();
+
+    OS::Filesystem::get()->fetchTCPCache();
+  });
+
   GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
   connect(QuasarAPI::get(), &QuasarAPI::connectedChanged, this, [this](){
     if(not QuasarAPI::get()->isConnected())

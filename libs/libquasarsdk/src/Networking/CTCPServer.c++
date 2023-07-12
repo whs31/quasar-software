@@ -131,7 +131,7 @@ namespace QuasarSDK
     (fileSize == imageData.size()) ? qInfo() << "[TCP] Package fully received from SAR"
                                    : qWarning() << "[TCP] Something went wrong in receiving SAR image";
 
-    emit received(imageData);
+    emit received(imageData, filename);
   }
 
   void TCPServer::connectionTimeout() { socket->close(); }

@@ -82,8 +82,9 @@ namespace QuasarSDK
       /**
        * \brief Срабатывает, когда сервер TCP-IP завершает приём данных.
        * \param data - данные, полученные сервером.
+       * \param name - имя полученного файла.
        */
-      void tcpDataReceived(QByteArray data);
+      void tcpDataReceived(QByteArray data, QString name);
 
       /**
        * \brief Срабатывает, когда сокет UDP для полосовых РЛИ получает данные.

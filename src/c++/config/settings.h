@@ -16,7 +16,6 @@ namespace Config::internal
       [[nodiscard]] Q_INVOKABLE QVariant parameter(const QString& key) const noexcept;
       void set(const QString& key, const QVariant& value) noexcept;
 
-    private:
       void load() noexcept;
       void save() noexcept;
 
@@ -34,7 +33,7 @@ namespace Config
   {
     Q_OBJECT
       // re-evaluate binding by this trick
-      Q_PROPERTY(internal::SettingsWrapper* read MEMBER m_wrapper NOTIFY readChanged)
+      Q_PROPERTY(internal::SettingsWrapper* io MEMBER m_wrapper NOTIFY ioChanged)
 
     public:
       static Settings* get();
@@ -43,11 +42,15 @@ namespace Config
       Q_INVOKABLE void setParameter(const QString& key, const QVariant& value) noexcept;
       Q_INVOKABLE void save() noexcept;
       Q_INVOKABLE void revert() noexcept;
+      Q_INVOKABLE void load() noexcept;
 
       [[nodiscard]] QVariant parameter(const QString& key) const;
 
+      template<typename T>
+      [[nodiscard]] T value(const QString& key) const { return parameter(key).value<T>(); }
+
     signals:
-      void readChanged();
+      void ioChanged();
 
     private:
       explicit Settings(QObject* parent = nullptr);

@@ -1,0 +1,33 @@
+{
+  "ip/de10": "192.168.1.47",
+  "ip/jetson": "192.168.1.48",
+  "ip/navigation": "192.168.1.49",
+  "ip/com1": "192.168.1.50",
+  "ip/com2": "192.168.1.51",
+  "ip/computer": "192.168.1.10",
+  "ip/redirect": "127.0.0.1",
+
+  "port/telemetry-request": "4554",
+  "port/telemetry-receive": "10337",
+  "port/tcp": "10000",
+  "port/strip": "48455",
+  "port/execd": "9845",
+  "port/stdout": "9846",
+  "port/redirect": "24757",
+
+  "misc/telemetry-frequency": "0.1",
+  "misc/antenna-alignment": "right",
+  "misc/redirect": "true",
+
+  "state/latitude": "60",
+  "state/longitude": "30",
+  "state/zoom": "6",
+  "state/folder": "C:/",
+
+  "image/radians": "false",
+  "image/drift-angle": "true",
+  "image/div-correction": "5",
+  "image/cut": "true",
+
+  "application/theme": "dark"
+}

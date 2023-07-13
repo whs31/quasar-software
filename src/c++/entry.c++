@@ -13,6 +13,7 @@
 #include "gui/colortheme.h"
 #include "config/paths.h"
 #include "config/config.h"
+#include "config/settings.h"
 #include "filesystem/filesystem.h"
 #include "processing/imageprocessing.h"
 #include "map/ruler.h"
@@ -45,6 +46,7 @@ Entry::Entry(QObject* parent)
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
+  qmlRegisterSingletonInstance<Config::Settings>("Config", 1, 0, "Settings", Config::Settings::get());
 
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
   qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get());

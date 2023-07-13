@@ -6,6 +6,7 @@
 #include <SDK/MatrixPlot>
 #include <SDK/Gizmos>
 #include <QuasarSDK/API>
+#include <QuasarSDK/Register>
 #include "application/updatemanager.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
@@ -34,6 +35,8 @@ Entry::Entry(QObject* parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
 {
+  QuasarSDK::registerQMLTypes();
+
   qmlRegisterType<SDK::Quick::RealtimeLinePlot>("Charts", 1, 0, "RealtimeLinePlot");
   qmlRegisterType<SDK::Quick::MatrixPlot>("Charts", 1, 0, "MatrixPlot");
   qmlRegisterType<SDK::Gizmos::Gizmos>("Gizmos", 1, 0, "Gizmos");

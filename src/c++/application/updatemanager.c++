@@ -35,7 +35,7 @@ namespace Application
     auto split_reply = QString(buffer).split(';');
     if(split_reply.length() != 3)
     {
-      qCritical() << "[UPDATE MANAGER] Incorrect server result";
+      qWarning() << "[UPDATE MANAGER] Incorrect server result";
       return;
     }
     QString server_app, server_version, server_link;
@@ -47,7 +47,7 @@ namespace Application
     }
     catch(...)
     {
-      qCritical() << "[UPDATE MANAGER] Exception catched";
+      qWarning() << "[UPDATE MANAGER] Exception catched";
       return;
     }
 
@@ -55,7 +55,7 @@ namespace Application
     auto split_cs = m_projectVersion.split('.');
     if(split_ss.length() != 3 or split_cs.length() != 3)
     {
-      qCritical() << "[UPDATE MANAGER] Incorrect server result";
+      qWarning() << "[UPDATE MANAGER] Incorrect server result";
       return;
     }
 

@@ -25,11 +25,6 @@
 #include "CPingTester.h"
 #include "COutputRedirectServer.h"
 
-// This block included only if Qt5/6::Quick linked to project.
-#ifdef QT_QML_LIB
-#include <QtQml/qqml.h>
-#endif
-
 namespace QuasarSDK
 {
   /**
@@ -67,13 +62,6 @@ namespace QuasarSDK
       , m_redirectAddress("127.0.0.1:10338")
   {
     qDebug() << "$ [QUASAR] Beginning network setup";
-
-    // registration
-    #ifdef QT_QML_LIB
-    qmlRegisterSingletonInstance<QuasarAPI>("QuaSAR.API", 1, 0, "NetworkAPI", this);
-    qmlRegisterUncreatableType<QuasarSDK::Enums>("QuaSAR.API", 1, 0, "Net", "Enumeration");
-    qmlRegisterSingletonInstance<QuasarSDK::IO::SAROutputModel>("QuaSAR.API.Extras", 1, 0, "NetworkOutput", outputModel());
-    #endif
 
     // delay handling
     m_networkDelayTimer->start(100);

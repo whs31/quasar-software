@@ -4,6 +4,7 @@
  *  \date 11.07.2023
  *  \copyright Radar-MMS 2023
  */
+
 #pragma once
 
 namespace Scenegraph

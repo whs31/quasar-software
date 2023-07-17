@@ -12,10 +12,10 @@
  * Документацию по сервису \c execd можно прочитать здесь: \ref EXECD_DOCUMENTATION
  */
 
-#include "CExecdSocket.h"
-#include "CConfig.h"
-#include "CExecdArgumentParser.h"
-#include "FCRC16.h"
+#include "execdsocket.h"
+#include "network_config.h"
+#include "execdparser.h"
+#include "crc16.h"
 
 namespace QuasarSDK
 {

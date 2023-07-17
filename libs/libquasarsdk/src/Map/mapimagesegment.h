@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "Map/CMapImage.h"
-#include "IO/CBase64Object.h"
+#include "Map/mapimage.h"
+#include "IO/base64object.h"
 
 namespace QuasarSDK::Map
 {

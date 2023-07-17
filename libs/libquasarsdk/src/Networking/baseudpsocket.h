@@ -8,7 +8,7 @@
 #pragma once
 
 #include <QtNetwork/QUdpSocket>
-#include "IConnectable.h"
+#include "iconnectable.h"
 
 namespace QuasarSDK
 {

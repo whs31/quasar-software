@@ -11,7 +11,7 @@
 #include <QtGui/QVector2D>
 #include <QtGui/QVector3D>
 #include <QtPositioning/QGeoCoordinate>
-#include "STelemetryDatagram.h"
+#include "telemetry_datagrams.h"
 
 namespace QuasarSDK
 {

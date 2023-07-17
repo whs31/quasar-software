@@ -10,7 +10,7 @@
 #include <QtCore/QAbstractListModel>
 #include <memory>
 #include <vector>
-#include "IMessage.h"
+#include "imessage.h"
 
 using std::vector;
 using std::unique_ptr;

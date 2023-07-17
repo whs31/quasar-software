@@ -54,7 +54,7 @@
   * \extends QObject
   */
 
-#include "CExecdArgumentParser.h"
+#include "execdparser.h"
 #include <utility>
 #include <QtCore/QVariant>
 

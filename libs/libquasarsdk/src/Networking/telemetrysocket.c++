@@ -8,11 +8,11 @@
  * \extends BaseUDPSocket
  */
 
-#include "CTelemetrySocket.h"
+#include "telemetrysocket.h"
 #include <QtCore/QTimer>
 #include <QtCore/QDataStream>
-#include "FCommon.h"
-#include "FCRC16.h"
+#include "common_func.h"
+#include "crc16.h"
 
 constexpr static uint32_t MARKER = 0x55bb55bb;
 constexpr static uint32_t RECV_MARKER_LITTLE = 0xaa55aa55;

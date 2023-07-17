@@ -7,7 +7,7 @@
  * \extends QObject, IConnectable
  */
 
-#include "COutputRedirectServer.h"
+#include "redirectserver.h"
 #include <QtCore/QDebug>
 #include <QtNetwork/QTcpServer>
 #include <QtNetwork/QTcpSocket>

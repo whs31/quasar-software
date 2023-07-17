@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "CBaseUDPSocket.h"
-#include "CEnums.h"
+#include "baseudpsocket.h"
+#include "network_enums.h"
 
 namespace QuasarSDK
 {

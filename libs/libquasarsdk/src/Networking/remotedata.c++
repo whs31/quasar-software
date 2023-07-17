@@ -8,7 +8,7 @@
  * системы.
  */
 
-#include "CRemoteData.h"
+#include "remotedata.h"
 #include <QtCore/QMetaType>
 
 namespace QuasarSDK

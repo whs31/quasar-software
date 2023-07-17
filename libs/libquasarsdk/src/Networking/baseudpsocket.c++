@@ -11,7 +11,7 @@
  * основу для класса-сокета.
  */
 
-#include "CBaseUDPSocket.h"
+#include "baseudpsocket.h"
 #include <stdexcept>
 #include <QtCore/QDebug>
 

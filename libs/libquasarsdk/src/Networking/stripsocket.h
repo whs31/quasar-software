@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "CSeamlessUDPSocket.h"
+#include "seamlessudpsocket.h"
 
 namespace QuasarSDK
 {

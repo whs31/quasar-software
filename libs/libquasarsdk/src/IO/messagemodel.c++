@@ -1,4 +1,4 @@
-#include "CMessageModel.h"
+#include "messagemodel.h"
 #include <mutex>
 #include <QtCore/QDebug>
 

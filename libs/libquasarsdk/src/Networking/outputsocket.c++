@@ -11,8 +11,8 @@
  * \extends BaseUDPSocket
  */
 
-#include "COutputSocket.h"
-#include "CConfig.h"
+#include "outputsocket.h"
+#include "network_config.h"
 
 namespace QuasarSDK
 {

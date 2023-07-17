@@ -12,18 +12,18 @@
  * \extends QObject
  */
 
-#include "CQuasarAPI.h"
+#include "quasar_api.h"
 #include <QtCore/QTimer>
 #include <QtCore/QVariant>
-#include "CConfig.h"
-#include "CTelemetrySocket.h"
-#include "CExecdSocket.h"
-#include "CExecdArgumentParser.h"
-#include "COutputSocket.h"
-#include "CTCPServer.h"
-#include "CStripSocket.h"
-#include "CPingTester.h"
-#include "COutputRedirectServer.h"
+#include "network_config.h"
+#include "telemetrysocket.h"
+#include "execdsocket.h"
+#include "execdparser.h"
+#include "outputsocket.h"
+#include "tcpserver.h"
+#include "stripsocket.h"
+#include "pingtester.h"
+#include "redirectserver.h"
 
 namespace QuasarSDK
 {

@@ -1,4 +1,4 @@
-#include "FCRC16.h"
+#include "crc16.h"
 #include <QtCore/QString>
 
 constexpr const uint16_t CRC16_TABLE[256] =

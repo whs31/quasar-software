@@ -8,7 +8,7 @@
 #pragma once
 
 #include <QtCore/QObject>
-#include "IConnectable.h"
+#include "iconnectable.h"
 
 class QTcpServer;
 class QTcpSocket;

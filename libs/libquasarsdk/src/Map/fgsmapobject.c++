@@ -1,6 +1,6 @@
-#include "CFGSMapObject.h"
+#include "fgsmapobject.h"
 #include <cmath>
-#include "Networking/FCommon.h"
+#include "Networking/common_func.h"
 
 constexpr const double MAP_SCALE_RATIO = 156'543.03392;
 
@@ -19,13 +19,13 @@ namespace QuasarSDK::Map
   }
 
   FGSMapObject::FGSMapObject()
-    : AbstractMapObject()
-    , m_ratio(1)
+    : BasicMapObject()
+      , m_ratio(1)
   {}
 
   FGSMapObject::FGSMapObject(const QGeoCoordinate& coord, float dpx_ratio, const QPointF& origin_point,
                              float opacity_value, bool visibility)
-    : AbstractMapObject(coord, origin_point, opacity_value, visibility)
-    , m_ratio(dpx_ratio)
+    : BasicMapObject(coord, origin_point, opacity_value, visibility)
+      , m_ratio(dpx_ratio)
   {}
 } // QuasarSDK::Map

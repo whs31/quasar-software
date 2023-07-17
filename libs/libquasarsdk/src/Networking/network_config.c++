@@ -46,7 +46,7 @@
  * \endcode
  */
 
-#include "CConfig.h"
+#include "network_config.h"
 #include <QtCore/QFile>
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>

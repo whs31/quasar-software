@@ -1,4 +1,4 @@
-#include "CSAROutputModel.h"
+#include "saroutputmodel.h"
 #include <QtCore/QTextCodec>
 
 namespace QuasarSDK::IO

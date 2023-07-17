@@ -9,7 +9,7 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QList>
-#include "CEnums.h"
+#include "network_enums.h"
 
 namespace QuasarSDK
 {

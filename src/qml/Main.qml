@@ -117,6 +117,7 @@ ApplicationWindow  { id: window_root;
                 text: "Загрузка оффлайн-карт";
             }
 
+            Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
             Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
             Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }

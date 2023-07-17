@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include "Map/CAbstractMapObject.h"
+#include "Map/basicmapobject.h"
 
 namespace QuasarSDK::Map
 {
-  class ScalableMapObject : public AbstractMapObject
+  class ScalableMapObject : public BasicMapObject
   {
     public:
       [[nodiscard]] float zoomLevel() const final;

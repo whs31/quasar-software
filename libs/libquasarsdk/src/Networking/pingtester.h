@@ -9,8 +9,8 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QStringList>
-#include "IConnectable.h"
-#include "CEnums.h"
+#include "iconnectable.h"
+#include "network_enums.h"
 
 class QProcess;
 

@@ -10,7 +10,7 @@
  * \extends QObject, IConnectable
  */
 
-#include "CPingTester.h"
+#include "pingtester.h"
 #include <stdexcept>
 #include <QtCore/QProcess>
 

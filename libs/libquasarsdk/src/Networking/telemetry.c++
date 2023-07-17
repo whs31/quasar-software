@@ -8,7 +8,7 @@
  * \extends QObject
  */
 
-#include "CTelemetry.h"
+#include "telemetry.h"
 
 namespace QuasarSDK
 {

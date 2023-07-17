@@ -9,7 +9,7 @@
 
 #include <utility>
 
-#include "IO/IMessage.h"
+#include "IO/imessage.h"
 
 namespace QuasarSDK::IO
 {

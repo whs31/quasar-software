@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Map/CAbstractMapObject.h"
+#include "Map/basicmapobject.h"
 
 namespace QuasarSDK::Map
 {
@@ -15,7 +15,7 @@ namespace QuasarSDK::Map
    * \ingroup sdk_map
    * \brief Базовый класс для объектов карты, привязанных по размеру к экрану.
    */
-  class ScreenMapObject : public AbstractMapObject
+  class ScreenMapObject : public BasicMapObject
   {
     public:
       ScreenMapObject();
@@ -33,7 +33,7 @@ namespace QuasarSDK::Map
    * \details По умолчанию объект будет расположен в координате <tt>0, 0</tt>.
    */
   ScreenMapObject::ScreenMapObject()
-    : AbstractMapObject()
+    : BasicMapObject()
   {}
 
   /**
@@ -44,7 +44,7 @@ namespace QuasarSDK::Map
    * \param visibility - видимость объекта. По умолчанию: <tt>true</tt>.
    */
   ScreenMapObject::ScreenMapObject(const QGeoCoordinate& coord, const QPointF& origin_point, float opacity_level, bool visibility)
-      : AbstractMapObject(coord, origin_point, opacity_level, visibility)
+      : BasicMapObject(coord, origin_point, opacity_level, visibility)
   {}
 } // QuasarSDK::Map
 

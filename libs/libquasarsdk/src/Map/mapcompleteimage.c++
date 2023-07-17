@@ -1,4 +1,4 @@
-#include "CMapCompleteImage.h"
+#include "mapcompleteimage.h"
 
 namespace QuasarSDK::Map
 {

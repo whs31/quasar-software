@@ -114,12 +114,7 @@ Rectangle {
             icon.color: ColorTheme.active.color(ColorTheme.Text)
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
-            onPressed: {
-                if(c_SettingsWindow.visible === true)
-                    c_SettingsWindow.hide();
-                else
-                    c_SettingsWindow.show();
-            }
+            onPressed: settingswindow.shown = !settingswindow.shown
 
             Widgets.TT { ff: root.mainfont; txt: "Настройки программы"; }
         }

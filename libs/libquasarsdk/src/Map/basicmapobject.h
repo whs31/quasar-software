@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "IMapObject.h"
+#include "imapobject.h"
 
 namespace QuasarSDK::Map
   {
@@ -15,7 +15,7 @@ namespace QuasarSDK::Map
      * \ingroup sdk_map
      * \brief Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба.
      */
-    class AbstractMapObject : public IMapObject
+    class BasicMapObject : public IMapObject
     {
       public:
         [[nodiscard]] QGeoCoordinate coordinate() const final;
@@ -33,9 +33,9 @@ namespace QuasarSDK::Map
         void setVisible(bool state) final;
 
       protected:
-        AbstractMapObject();
-        explicit AbstractMapObject(const QGeoCoordinate& coord, const QPointF& origin_point = {0, 0},
-                                   float opacity_value = 1, bool visibility = true);
+        BasicMapObject();
+        explicit BasicMapObject(const QGeoCoordinate& coord, const QPointF& origin_point = {0, 0},
+                                float opacity_value = 1, bool visibility = true);
 
       protected:
         float m_zoomLevel;

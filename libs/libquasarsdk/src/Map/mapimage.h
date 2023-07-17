@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "CFGSMapObject.h"
-#include "ISARImage.h"
+#include "fgsmapobject.h"
+#include "isarimage.h"
 
 namespace QuasarSDK::Map
 {

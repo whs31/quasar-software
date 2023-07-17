@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "CBaseUDPSocket.h"
-#include "CTelemetry.h"
+#include "baseudpsocket.h"
+#include "telemetry.h"
 
 class QTimer;
 

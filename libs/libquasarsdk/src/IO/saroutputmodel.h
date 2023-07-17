@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "IO/CMessageModel.h"
-#include "IO/CSARMessage.h"
+#include "IO/messagemodel.h"
+#include "IO/sarmessage.h"
 
 namespace QuasarSDK::IO
 {

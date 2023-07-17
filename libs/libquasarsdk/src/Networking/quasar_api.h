@@ -9,10 +9,10 @@
 
 #include <array>
 #include <QtCore/QObject>
-#include "CEnums.h"
-#include "CTelemetry.h"
-#include "CRemoteData.h"
-#include "IO/CSAROutputModel.h"
+#include "network_enums.h"
+#include "telemetry.h"
+#include "remotedata.h"
+#include "IO/saroutputmodel.h"
 
 class QTimer;
 

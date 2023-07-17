@@ -6,7 +6,7 @@
  * \extends SeamlessUDPSocket
  */
 
-#include "CStripSocket.h"
+#include "stripsocket.h"
 
 namespace QuasarSDK
 {

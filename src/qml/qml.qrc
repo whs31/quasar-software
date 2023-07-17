@@ -47,5 +47,6 @@
         <file>layouts/bottombar/TelemetryWidget.qml</file>
         <file>tabs/map/StripRoute.qml</file>
         <file>tabs/map/mapquickitems/Strip.qml</file>
+        <file>windows/NewSettingsWindow.qml</file>
     </qresource>
 </RCC>

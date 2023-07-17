@@ -10,7 +10,7 @@
  * \extends BaseUDPSocket
  */
 
-#include "CSeamlessUDPSocket.h"
+#include "seamlessudpsocket.h"
 #include <QtNetwork/QNetworkDatagram>
 
 namespace QuasarSDK

@@ -1,7 +1,7 @@
-#include "FRegister.h"
-#include "Networking/CQuasarAPI.h"
-#include "Networking/CEnums.h"
-#include "IO/CSAROutputModel.h"
+#include "register.h"
+#include "Networking/quasar_api.h"
+#include "Networking/network_enums.h"
+#include "IO/saroutputmodel.h"
 
 // This block included only if Qt5/6::Quick linked to project.
 #ifdef QT_QML_LIB

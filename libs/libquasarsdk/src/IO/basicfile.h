@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "IO/IFile.h"
+#include "IO/ifile.h"
 #include <QtCore/QFileInfo>
 #include <utility>
 

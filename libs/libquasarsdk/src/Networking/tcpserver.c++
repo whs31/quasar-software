@@ -10,11 +10,11 @@
  * \extends QObject, IConnectable
  */
 
-#include "CTCPServer.h"
+#include "tcpserver.h"
 #include <QtCore/QTimer>
 #include <QtNetwork/QTcpSocket>
 #include <QtNetwork/QTcpServer>
-#include "CConfig.h"
+#include "network_config.h"
 
 namespace QuasarSDK
 {

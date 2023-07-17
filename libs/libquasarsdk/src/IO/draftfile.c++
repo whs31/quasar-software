@@ -1,4 +1,4 @@
-#include "IO/CDraftFile.h"
+#include "IO/draftfile.h"
 #include <QtCore/QFile>
 #include <QtCore/QDebug>
 

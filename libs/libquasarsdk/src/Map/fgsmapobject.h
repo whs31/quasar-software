@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Map/CAbstractMapObject.h"
+#include "Map/basicmapobject.h"
 
 namespace QuasarSDK::Map
 {
@@ -16,7 +16,7 @@ namespace QuasarSDK::Map
    * \brief Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру.
    * \details Разрешение в пикселях на метр задается свойство ratio и setRatio.
    */
-  class FGSMapObject : public AbstractMapObject
+  class FGSMapObject : public BasicMapObject
   {
     public:
       /// \brief Создает объект с параметрами по умолчанию.

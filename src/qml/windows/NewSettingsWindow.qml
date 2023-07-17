@@ -34,7 +34,7 @@ Pane {
             Layout.fillWidth: true
             text: description + ":"
             color: ColorTheme.active.color(ColorTheme.Text)
-            font { family: root.mainfont; weight: Font.DemiBold }
+            font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
         TextField {
@@ -42,7 +42,7 @@ Pane {
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
-            font { family: root.mainfont; weight: Font.Bold }
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: Settings.setParameter(key, text)
         }
     }
@@ -56,7 +56,7 @@ Pane {
             Layout.fillWidth: true
             text: description + ":"
             color: ColorTheme.active.color(ColorTheme.Text)
-            font { family: root.mainfont; weight: Font.DemiBold }
+            font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
         TextField {
@@ -64,7 +64,7 @@ Pane {
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
-            font { family: root.mainfont; weight: Font.Bold }
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: Settings.setParameter(key, text)
         }
     }
@@ -78,7 +78,7 @@ Pane {
             Layout.fillWidth: true
             text: description + ":"
             color: ColorTheme.active.color(ColorTheme.Text)
-            font { family: root.mainfont; weight: Font.DemiBold }
+            font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
         TextField {
@@ -86,7 +86,7 @@ Pane {
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
-            font { family: root.mainfont; weight: Font.Bold }
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: Settings.setParameter(key, text)
         }
     }
@@ -99,7 +99,7 @@ Pane {
         Layout.fillWidth: true
         text: description
         checked: Settings.io.parameter(key)
-        font { family: root.mainfont; weight: Font.DemiBold }
+        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         onCheckedChanged: Settings.setParameter(key, checked)
     }
 
@@ -180,11 +180,11 @@ Pane {
                         Layout.fillWidth: true
                         text: "Единицы изм. угла в метаданных" + ":"
                         color: ColorTheme.active.color(ColorTheme.Text)
-                        font { family: root.mainfont; weight: Font.DemiBold }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                     }
 
                     ComboBox {
-                        font { family: root.mainfont; weight: Font.Bold }
+                        font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
                         currentIndex: Settings.io.parameter("image/radians") ? 1 : 0
                         model: ["Градусы", "Радианы"]
                         Layout.alignment: Qt.AlignRight
@@ -201,11 +201,11 @@ Pane {
                         Layout.fillWidth: true
                         text: "Положение антенны на БПЛА" + ":"
                         color: ColorTheme.active.color(ColorTheme.Text)
-                        font { family: root.mainfont; weight: Font.DemiBold }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                     }
 
                     ComboBox {
-                        font { family: root.mainfont; weight: Font.Bold }
+                        font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
                         currentIndex: Settings.io.parameter("misc/antenna-alignment") === "right" ? 1 : 0
                         model: ["Слева", "Справа"]
                         Layout.alignment: Qt.AlignRight

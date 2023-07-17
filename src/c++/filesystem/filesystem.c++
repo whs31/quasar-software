@@ -17,15 +17,25 @@ Filesystem *Filesystem::get() { static Filesystem instance; return &instance; }
 
 bool Filesystem::fetchImageDirectory()
 {
-  qDebug().noquote() << "[FILESYSTEM] Fetching images from" << Config::Settings::get()->value<QString>("state/folder");
-  QList<QString> pass = this->fetchBinaryList(Config::Settings::get()->value<QString>("state/folder"));
+  QString folder = Config::Settings::get()->value<QString>("state/folder");
+  if(folder.startsWith("file://"))
+  {
+    #ifdef Q_OS_WINDOWS
+    folder.remove(0, strlen("file:///"));
+    #else
+    folder.remove(0, strlen("file://"));
+    #endif
+  }
+
+  qDebug().noquote() << "[FILESYSTEM] Fetching images from" << folder;
+  QList<QString> pass = this->fetchBinaryList(folder);
 
   QList<QString> path_list;
-  QDir directory(Config::Settings::get()->value<QString>("state/folder"), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+  QDir directory(folder, {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
                  QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
   for (const QString& filename : directory.entryList())
-    path_list.push_back(Config::Settings::get()->value<QString>("state/folder") + "/" + filename);
+    path_list.push_back(folder + "/" + filename);
 
   if(path_list.empty()) {
     qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window...";

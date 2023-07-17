@@ -43,7 +43,7 @@ namespace Map
     , m_totalTiles(0)
     , m_loadedTiles(0)
     , m_parallelLoadedCount(0)
-    , m_serverUrl("https://mt.google.com/vt/lyrs=y&hl=ru&z=%1&x=%2&y=%3")
+    , m_serverUrl("https://mt.google.com/vt/lyrs=y&hl=ru&z=%1&x=%2&y=%3") // @TODO local address
     , m_storagePath(Config::Paths::offlineTiles())
   {
     connect(m_netaccs, &QNetworkAccessManager::finished, [this](QNetworkReply* reply) {

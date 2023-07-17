@@ -84,13 +84,13 @@ Rectangle {
                     NetworkAPI.stop();
                 else
                 {
-                    NetworkAPI.start(NetworkAPI.stringify(Config.remoteIP, Config.telemetryPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.telemetryRecvPort),
-                                     Config.telemetryFrequency,
-                                     NetworkAPI.stringify(Config.remoteIP, Config.execdPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.feedbackPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.tcpLFSPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.udpLFSPort)
+                    NetworkAPI.start(NetworkAPI.stringify(Settings.io.parameter("ip/de10"), Settings.io.parameter("port/telemetry-request")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/telemetry-receive")),
+                                     Settings.io.parameter("misc/telemetry-frequency"),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/de10"), Settings.io.parameter("port/execd")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/stdout")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/tcp")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/strip"))
                     );
                     NetworkAPI.execute(Net.RemoteStorageStatus);
                     timeout = true;

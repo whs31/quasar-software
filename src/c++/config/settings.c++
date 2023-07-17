@@ -74,5 +74,12 @@ namespace Config
   void Settings::revert() noexcept { m_wrapper->load(); emit ioChanged(); }
   void Settings::load() noexcept { this->revert(); }
   QVariant Settings::parameter(const QString& key) const { return m_wrapper->parameter(key); }
-  void Settings::setParameter(const QString& key, const QVariant& value) noexcept { m_wrapper->set(key, value); }
+  void Settings::setParameter(const QString& key, const QVariant& value) noexcept
+  {
+    m_wrapper->set(key, value);
+    if(key == "application/theme")
+      emit themeChanged();
+  }
+
+  QString Settings::projectVersion() { return PROJECT_VERSION; }
 } // Config

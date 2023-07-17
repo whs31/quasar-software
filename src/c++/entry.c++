@@ -12,7 +12,6 @@
 #include "gui/warningsmodel.h"
 #include "gui/colortheme.h"
 #include "config/paths.h"
-#include "config/config.h"
 #include "config/settings.h"
 #include "filesystem/filesystem.h"
 #include "processing/imageprocessing.h"
@@ -45,7 +44,6 @@ Entry::Entry(QObject* parent)
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
 
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
-  qmlRegisterSingletonInstance<Config::Config>("Config", 1, 0, "Config", Config::Config::get());
   qmlRegisterSingletonInstance<Config::Settings>("Config", 1, 0, "Settings", Config::Settings::get());
 
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
@@ -57,13 +55,15 @@ Entry::Entry(QObject* parent)
   qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
 
   QuasarAPI::get()->setPingAddressList({
-    CONFIG(remoteIP), CONFIG(jetsonIP),
-    CONFIG(navIP), CONFIG(utl1IP),
-    CONFIG(utl2IP)
+    Config::Settings::get()->value<QString>("ip/de10"),
+    Config::Settings::get()->value<QString>("ip/jetson"),
+    Config::Settings::get()->value<QString>("ip/navigation"),
+    Config::Settings::get()->value<QString>("ip/com1"),
+    Config::Settings::get()->value<QString>("ip/com2")
   });
   QuasarAPI::get()->setRemoteAddressList({
-    QuasarAPI::stringify(CONFIG(localIP), CONFIG(tcpLFSPort)),
-    QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(udpLFSPort))
+    QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/computer"), Config::Settings::get()->value<QString>("port/tcp")),
+    QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/de10"), Config::Settings::get()->value<QString>("port/strip"))
   });
 
   QuasarAPI::get()->startPings();
@@ -83,10 +83,6 @@ Entry::Entry(QObject* parent)
 
   connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
   connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);
-  connect(Config::Config::get(), &Config::Config::scheduleRestart, this, [this](){
-    qWarning() << "[CORE] Requested restart, but current configuration will fail executing it.";
-    qWarning() << "[CORE] Please, restart manually.";
-  });
 
   connect(QuasarAPI::get(), &QuasarSDK::QuasarAPI::tcpDataReceived, this, [this](const QByteArray& data, const QString& name){
     QFile file(Config::Paths::tcp() + "/" + name);

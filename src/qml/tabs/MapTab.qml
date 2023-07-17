@@ -28,9 +28,10 @@ Map { id: maptab_root;
     property alias routeType: c_Route.type;
 
     Component.onDestruction: {
-        Config.storedLatitude = center.latitude;
-        Config.storedLongitude = center.longitude;
-        Config.storedZoomLevel = zoomLevel;
+        Settings.setParameter("state/latitude", center.latitude)
+        Settings.setParameter("state/longitude", center.longitude)
+        Settings.setParameter("state/zoom", zoomLevel)
+        Settings.save()
     }
 
     tilt: 15;
@@ -47,8 +48,8 @@ Map { id: maptab_root;
     }
 
     activeMapType: maptab_root.supportedMapTypes[i_MapMode];
-    center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
-    zoomLevel: Config.storedZoomLevel;
+    center: QtPositioning.coordinate(Settings.io.parameter("state/latitude"), Settings.io.parameter("state/longitude"));
+    zoomLevel: Settings.io.parameter("state/zoom");
     copyrightsVisible: false;
     z: 0;
 
@@ -128,11 +129,11 @@ Map { id: maptab_root;
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     RadarDiagram {  id: c_RadarDiagram;
-        angle: 30 - Config.thetaAzimuthCorrection // @FIXME
+        angle: 30 - Settings.io.parameter("image/div-correction") // @FIXME
         uavPosition: NetworkAPI.telemetry.position
         azimuth: NetworkAPI.telemetry.eulerAxes.y
         range: 3500
-        direction: Config.antennaAlignment ? 1 : 0
+        direction: Settings.io.parameter("misc/antenna-alignment") === "right" ? 1 : 0
         type: RadarDiagram.Telescopic
     }
 

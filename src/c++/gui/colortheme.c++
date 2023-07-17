@@ -3,7 +3,7 @@
 #include <QtCore/QFile>
 #include <QtCore/QJsonDocument>
 #include <QtCore/QJsonObject>
-#include "config/config.h"
+#include "config/settings.h"
 #include "config/paths.h"
 #include "config/internalconfig.h"
 
@@ -36,7 +36,7 @@ namespace GUI
     this->scanThemes();
     this->apply();
 
-    connect(Config::Config::get(), &Config::Config::themeChanged, this, &ColorTheme::apply);
+    connect(Config::Settings::get(), &Config::Settings::themeChanged, this, &ColorTheme::apply);
   }
 
   void ColorTheme::set(const std::map<internal::ColorThemeWrapper::Color, QString>& dict) noexcept
@@ -93,13 +93,13 @@ namespace GUI
       return;
     }
 
-    if(not m_themeList.contains(CONFIG(theme)))
+    if(not m_themeList.contains(Config::Settings::get()->value<QString>("application/theme")))
     {
       qWarning() << "[COLORSCHEME] Selected theme isn't present in total found list";
       this->setActiveThemeName(m_themeList.first());
     }
 
-    this->setActiveThemeName(CONFIG(theme));
+    this->setActiveThemeName(Config::Settings::get()->value<QString>("application/theme"));
 
     if(not m_files.count(activeThemeName()))
       setActiveThemeName(m_files.begin()->first);

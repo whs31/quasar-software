@@ -43,7 +43,7 @@ Pane {
     }
 
     Text {
-        text: "Версия " + Config.projectVersion();
+        text: "Версия " + Settings.projectVersion;
         font.family: root.mainfont;
         font.bold: true;
         font.pixelSize: 22;

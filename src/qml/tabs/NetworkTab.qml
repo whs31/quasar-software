@@ -5,8 +5,6 @@ import QtQuick.Controls.Material 2.15
 import QuaSAR.API 1.0
 
 import Theme 1.0
-import Config 1.0
-
 import "network" as NetworkTab
 
 Pane { id: networktab_root;

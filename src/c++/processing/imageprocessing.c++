@@ -19,7 +19,7 @@
 #include "map/models/imagemodel.h"
 #include "map/models/stripmodel.h"
 #include "config/paths.h"
-#include "config/config.h"
+#include "config/settings.h"
 #include "config/internalconfig.h"
 #include "arrayreader.h"
 
@@ -142,14 +142,13 @@ void ImageProcessing::asyncProcess(const QString& filename)
     qCritical() << "[PROCESSING] Bad image file";
   }
 
-  if(CONFIG(overrideImageHeight))
-    image.meta.ly = static_cast<float>(image_data.height());
+  image.meta.ly = static_cast<float>(image_data.height());
 
   QString target_filename = filename;
   target_filename.chop(3);
   target_filename += "png";
 
-  if(CONFIG(cutImage) and image.meta.image_type == 0)
+  if(Config::Settings::get()->value<bool>("image/cut") and image.meta.image_type == 0)
     image_data = cutImage(image);
 
   bool ret = image_data.save(Config::Paths::lod(0) + "/" + target_filename);
@@ -344,14 +343,13 @@ Map::TelescopicImage ImageProcessing::decodeTelescopic(const QString& path)
     qWarning().noquote().nospace() << "[PROCESSING] Image CRC16 seems to be incorrect: expected 0x"
                                    << Qt::hex << crc16 << ", received 0x" << image.meta.crc16 << Qt::dec;
 
-  if(CONFIG(useRadians))
+  if(Config::Settings::get()->value<bool>("image/radians"))
   {
-    image.meta.angle = SDK::rad2deg(image.meta.angle) + CONFIG(angleCorrection);
-    image.meta.drift_angle = CONFIG(useDriftAngle) ? SDK::rad2deg(image.meta.drift_angle) : 0;
+    image.meta.angle = SDK::rad2deg(image.meta.angle);
+    image.meta.drift_angle = Config::Settings::get()->value<bool>("image/drift-angle")
+                           ? SDK::rad2deg(image.meta.drift_angle) : 0;
     image.meta.div = SDK::rad2deg(image.meta.div);
-  }
-  else
-    image.meta.angle += CONFIG(angleCorrection);
+  };
 
   return image;
 }
@@ -377,18 +375,18 @@ QImage ImageProcessing::cutImage(const Map::TelescopicImage& image) noexcept
 
   const int top[8] =
     {
-      0, (int)((image.meta.ly / 2) - 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
+      0, (int)((image.meta.ly / 2) - 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - Config::Settings::get()->value<float>("image/div-correction")) / 2))),
       0, 0,
       (int)image.meta.lx, 0,
-      (int)image.meta.lx, (int)((image.meta.ly / 2) - (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
+      (int)image.meta.lx, (int)((image.meta.ly / 2) - (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - Config::Settings::get()->value<float>("image/div-correction")) / 2)))
     };
 
   const int bottom[8] =
     {
-      0, (int)((image.meta.ly / 2) + 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2))),
+      0, (int)((image.meta.ly / 2) + 2 * image.meta.x0 * tan(SDK::deg2rad((image.meta.div - Config::Settings::get()->value<float>("image/div-correction")) / 2))),
       0, (int)image.meta.ly,
       (int)image.meta.lx, (int)image.meta.ly,
-      (int)image.meta.lx, (int)((image.meta.ly / 2) + (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - CONFIG(thetaAzimuthCorrection)) / 2)))
+      (int)image.meta.lx, (int)((image.meta.ly / 2) + (2 * image.meta.x0 + image.meta.lx) * tan(SDK::deg2rad((image.meta.div - Config::Settings::get()->value<float>("image/div-correction")) / 2)))
     };
 
   p1.setPoints(4, top);

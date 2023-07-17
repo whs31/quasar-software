@@ -68,7 +68,7 @@ Pane {
                     bold: true
                 }
                 color: ColorTheme.active.color(ColorTheme.Orange)
-                text: Config.projectVersion()
+                text: Settings.projectVersion
                 horizontalAlignment: Text.AlignRight
             }
         }

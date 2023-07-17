@@ -34,34 +34,35 @@ ApplicationWindow  { id: window_root;
     color: ColorTheme.active.color(ColorTheme.Dark)
     Component.onCompleted: showMaximized();
 
-    FileDialog { id: window_FileDialog;
-        property string s_Url: window_FileDialog.fileUrl;
+    FileDialog {
+        id: window_FileDialog
+        property string s_Url: window_FileDialog.fileUrl
         title: "Выберите каталог с радиолокационными изображениями";
-        folder: Paths.imageCache();
-        selectFolder: true;
+        folder: Paths.imageCache()
+        selectFolder: true
         onAccepted: {
-            console.log("[GUI] Selected folder " + window_FileDialog.fileUrl);
-            Config.storedCatalogue = fileUrl;
-            Filesystem.fetchImageDirectory();
+            console.log("[GUI] Selected folder " + window_FileDialog.fileUrl)
+            Settings.setParameter("state/folder", fileUrl)
+            Filesystem.fetchImageDirectory()
         }
         onRejected: {
             console.log("[GUI] Folder selection cancelled");
         }
     }
 
-    FileDialog { id: window_ExportDialog;
-        property string s_Url: window_ExportDialog.fileUrl;
-        title: "Выберите каталог для экспорта";
-        folder: Paths.imageCache();
-        selectFolder: true;
+    FileDialog { id: window_ExportDialog
+        property string s_Url: window_ExportDialog.fileUrl
+        title: "Выберите каталог для экспорта"
+        folder: Paths.imageCache()
+        selectFolder: true
         onAccepted: {
-            console.log("[GUI] Selected folder " + window_ExportDialog.fileUrl);
-            let b = ImagesModel.exportSelectedImages(fileUrl);
+            console.log("[GUI] Selected folder " + window_ExportDialog.fileUrl)
+            let b = ImagesModel.exportSelectedImages(fileUrl)
             if(!b)
-                messagebox.open("Нет экспортируемых РЛИ", "Вы не отметили для экспорта ни одного изображения с карты. Пожалуйста, отметьте изображения для экспорта.", "warn");
+                messagebox.open("Нет экспортируемых РЛИ", "Вы не отметили для экспорта ни одного изображения с карты. Пожалуйста, отметьте изображения для экспорта.", "warn")
         }
         onRejected: {
-            console.log("[GUI] Folder selection cancelled");
+            console.log("[GUI] Folder selection cancelled")
         }
     }
 
@@ -122,7 +123,6 @@ ApplicationWindow  { id: window_root;
             Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
             Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
             Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
-            Windows.SettingsWindow { id: c_SettingsWindow; visible: false; }
             Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
             Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
 

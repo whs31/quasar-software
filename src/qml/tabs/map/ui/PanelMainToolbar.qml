@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import Theme 1.0
 import QuaSAR.API 1.0
-import Config 1.0
 import "../../../widgets" as Widgets
 
 Pane {
@@ -42,7 +41,6 @@ Pane {
             icon.source: "qrc:/icons/vector/images/focus.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
             text: mode === 0 ? "Формирование изображения" : checked ? "Остановка записи" : "Начало записи"
-            enabled: mode === 0 || !Config.enableDebugStrip
             checkable: mode === 1
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
@@ -68,32 +66,6 @@ Pane {
                 NumberAnimation {
                     easing.type: Easing.Linear
                     duration: 100
-                }
-            }
-        }
-
-        RoundButton {
-            id: button_SimpleStrip
-
-            Layout.preferredHeight: 45
-            font.family: root.mainfont
-            height: 40
-            radius: 4
-            visible: Config.enableDebugStrip && width > 0
-            enabled: visible;
-            width: mode === 0 ? 0 : implicitWidth
-            icon.source: "qrc:/icons/vector/images/area.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Dark)
-            text: "Формирование упр. полосового изображения"
-            Material.elevation: 30
-            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: ColorTheme.active.color(ColorTheme.Yellow)
-            onPressed: NetworkAPI.execute(Net.SimpleStrip)
-
-            Behavior on width {
-                NumberAnimation {
-                    easing.type: Easing.Linear
-                    duration: 200
                 }
             }
         }

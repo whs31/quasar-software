@@ -43,11 +43,10 @@ ApplicationWindow  { id: window_root;
         onAccepted: {
             console.log("[GUI] Selected folder " + window_FileDialog.fileUrl)
             Settings.setParameter("state/folder", fileUrl)
+            Settings.save()
             Filesystem.fetchImageDirectory()
         }
-        onRejected: {
-            console.log("[GUI] Folder selection cancelled");
-        }
+        onRejected: console.log("[GUI] Folder selection cancelled");
     }
 
     FileDialog { id: window_ExportDialog

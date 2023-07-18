@@ -11,7 +11,6 @@
         <file>tabs/map/UAVRoute.qml</file>
         <file>windows/InfoWindow.qml</file>
         <file>tabs/network/SocketConsole.qml</file>
-        <file>windows/SettingsWindow.qml</file>
         <file>tabs/map/MapImage.qml</file>
         <file>windows/MessageWindow.qml</file>
         <file>tabs/map/MapImageUI.qml</file>

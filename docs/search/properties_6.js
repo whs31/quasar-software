@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['isconnected_0',['isConnected',['../d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88',1,'QuasarSDK::QuasarAPI']]],
-  ['isrecordingstrip_1',['isRecordingStrip',['../d0/d18/classQuasarSDK_1_1RemoteData.html#a087cca4afecc1dbdd07adabb7e26ac61',1,'QuasarSDK::RemoteData']]]
+  ['pings_0',['pings',['../d3/d54/group__sdk__network.html#ad66c276310b76da1b17d50be3b75e4c4',1,'QuasarSDK::RemoteData']]],
+  ['position_1',['position',['../d3/d54/group__sdk__network.html#a7130b1618285588513fd1ff97884b9d9',1,'QuasarSDK::Telemetry']]],
+  ['progress_2',['progress',['../d4/d85/classNetworking_1_1HTTPDownloader.html#a991fd2c404665f13f536fc7791e53504',1,'Networking::HTTPDownloader']]]
 ];

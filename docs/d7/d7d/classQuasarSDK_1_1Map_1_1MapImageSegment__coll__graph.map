@@ -1,15 +1,15 @@
 <map id="MapImageSegment" name="MapImageSegment">
-<area shape="rect" id="Node000001" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="131,308,279,336"/>
-<area shape="rect" id="Node000002" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="97,232,187,260"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,270,196,306,192,309,161,273"/>
-<area shape="rect" id="Node000003" href="$d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="19,157,137,184"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="101,194,133,230,129,234,97,197"/>
-<area shape="rect" id="Node000004" href="$de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,151,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="81,124,81,156,75,156,75,124"/>
-<area shape="rect" id="Node000005" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,126,33"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="81,48,81,81,75,81,75,48"/>
-<area shape="rect" id="Node000006" href="$d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="161,157,254,184"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="188,197,156,234,152,230,184,194"/>
-<area shape="rect" id="Node000007" href="$df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html" title="Объект, способный конвертировать свои бинарные данные в base64&#45;строку." alt="" coords="212,232,323,260"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="249,273,218,309,214,306,245,270"/>
+<area shape="rect" id="Node000001" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="121,308,269,336"/>
+<area shape="rect" id="Node000002" href="$d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="87,232,178,260"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,270,186,306,182,309,151,273"/>
+<area shape="rect" id="Node000003" href="$d6/d84/group__sdk__map.html#d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="10,157,127,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="91,194,123,230,119,234,87,197"/>
+<area shape="rect" id="Node000004" href="$d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,132,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="71,124,71,156,66,156,66,124"/>
+<area shape="rect" id="Node000005" href="$d6/d84/group__sdk__map.html#da/da7/classQuasarSDK_1_1Map_1_1IMapObject" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="21,5,116,33"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="71,48,71,81,66,81,66,48"/>
+<area shape="rect" id="Node000006" href="$d6/d84/group__sdk__map.html#d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="151,157,245,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="179,197,146,234,142,230,175,194"/>
+<area shape="rect" id="Node000007" href="$dc/d5f/group__sdk__io.html#df/d2f/classQuasarSDK_1_1IO_1_1Base64Object" title="Объект, способный конвертировать свои бинарные данные в base64&#45;строку." alt="" coords="202,232,314,260"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="239,273,208,309,204,306,235,270"/>
 </map>

@@ -146,7 +146,7 @@ $(document).ready(function(){initNavTree('de/d7c/updatemanager_8c_09_09_source.h
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">auto</span> split_reply = QString(buffer).split(<span class="charliteral">&#39;;&#39;</span>);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">if</span>(split_reply.length() != 3)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      qCritical() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Incorrect server result&quot;</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      qWarning() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Incorrect server result&quot;</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    QString server_app, server_version, server_link;</div>
@@ -158,7 +158,7 @@ $(document).ready(function(){initNavTree('de/d7c/updatemanager_8c_09_09_source.h
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">catch</span>(...)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      qCritical() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Exception catched&quot;</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      qWarning() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Exception catched&quot;</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
@@ -166,7 +166,7 @@ $(document).ready(function(){initNavTree('de/d7c/updatemanager_8c_09_09_source.h
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">auto</span> split_cs = m_projectVersion.split(<span class="charliteral">&#39;.&#39;</span>);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span>(split_ss.length() != 3 or split_cs.length() != 3)</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      qCritical() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Incorrect server result&quot;</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      qWarning() &lt;&lt; <span class="stringliteral">&quot;[UPDATE MANAGER] Incorrect server result&quot;</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
@@ -227,7 +227,7 @@ $(document).ready(function(){initNavTree('de/d7c/updatemanager_8c_09_09_source.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_fcb2a60e1810a51543a3cc3a113d0956.html">c++</a></li><li class="navelem"><a class="el" href="../../dir_c5171aff2693f781e67d327e1a130229.html">application</a></li><li class="navelem"><b>updatemanager.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Чт 13 Июл 2023 01:28:24. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

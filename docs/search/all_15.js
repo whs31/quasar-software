@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['value_0',['value',['../d7/d54/structQuasarSDK_1_1ExecdArgument.html#a0c0d1b18d3033cb858562e5e8636c18f',1,'QuasarSDK::ExecdArgument']]],
-  ['velocity_1',['velocity',['../da/d88/namespaceMap.html#ac46e821ae08930cc9e257642e34275a3',1,'Map::ImageMetadata::velocity'],['../da/d88/namespaceMap.html#ac46e821ae08930cc9e257642e34275a3',1,'Map::StripNavigationMetadata::velocity'],['../db/d03/classQuasarSDK_1_1Telemetry.html#aecfeca1289d00fbe5fc76a8dd5295913',1,'QuasarSDK::Telemetry::velocity'],['../dd/da3/imagemetadata_8h.html#ac46e821ae08930cc9e257642e34275a3',1,'velocity:&#160;imagemetadata.h']]],
+  ['value_0',['value',['../d3/d54/group__sdk__network.html#a0c0d1b18d3033cb858562e5e8636c18f',1,'QuasarSDK::ExecdArgument']]],
+  ['velocity_1',['velocity',['../da/d88/namespaceMap.html#ac46e821ae08930cc9e257642e34275a3',1,'Map::ImageMetadata::velocity'],['../da/d88/namespaceMap.html#ac46e821ae08930cc9e257642e34275a3',1,'Map::StripNavigationMetadata::velocity'],['../d3/d54/group__sdk__network.html#aecfeca1289d00fbe5fc76a8dd5295913',1,'QuasarSDK::Telemetry::velocity'],['../dd/da3/imagemetadata_8h.html#ac46e821ae08930cc9e257642e34275a3',1,'velocity:&#160;imagemetadata.h']]],
   ['velocity_5fcourse_2',['velocity_course',['../d8/d07/group__sdk__protocol.html#a1cc3289ef7b73c8e162d430e00c7f5ef',1,'QuasarSDK::Datagrams::TelemetryDatagram']]],
   ['velocity_5feast_3',['velocity_east',['../d8/d07/group__sdk__protocol.html#a968a00cf20306de6c97d362b509abefe',1,'QuasarSDK::Datagrams::TelemetryDatagram']]],
   ['velocity_5fnorth_4',['velocity_north',['../d8/d07/group__sdk__protocol.html#a5dfe7d6fa7d6ccc819aa45ee3ebfbb56',1,'QuasarSDK::Datagrams::TelemetryDatagram']]],

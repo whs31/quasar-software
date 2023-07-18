@@ -1,19 +1,19 @@
 <map id="CompleteMapImage" name="CompleteMapImage">
-<area shape="rect" id="Node000001" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="184,308,337,336"/>
-<area shape="rect" id="Node000002" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="162,232,253,260"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="228,271,253,306,249,309,223,274"/>
-<area shape="rect" id="Node000003" href="$d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="19,157,137,184"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="115,190,186,230,183,234,112,194"/>
-<area shape="rect" id="Node000004" href="$de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,151,109"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="81,124,81,156,75,156,75,124"/>
-<area shape="rect" id="Node000005" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="30,5,126,33"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="81,48,81,81,75,81,75,48"/>
-<area shape="rect" id="Node000006" href="$d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="161,157,254,184"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="210,199,210,232,205,232,205,199"/>
-<area shape="rect" id="Node000007" href="$de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="279,232,355,260"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="300,274,273,309,268,306,296,270"/>
-<area shape="rect" id="Node000008" href="$d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="278,157,358,184"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="320,199,320,232,314,232,315,199"/>
-<area shape="rect" id="Node000009" href="$d9/d90/classQuasarSDK_1_1IO_1_1IFile.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="294,81,342,109"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="321,124,321,156,315,156,315,124"/>
+<area shape="rect" id="Node000001" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="175,308,328,336"/>
+<area shape="rect" id="Node000002" href="$d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="153,232,243,260"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="218,271,244,306,240,309,214,274"/>
+<area shape="rect" id="Node000003" href="$d6/d84/group__sdk__map.html#d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="10,157,127,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="105,190,176,230,174,234,103,194"/>
+<area shape="rect" id="Node000004" href="$d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,132,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="71,124,71,156,66,156,66,124"/>
+<area shape="rect" id="Node000005" href="$d6/d84/group__sdk__map.html#da/da7/classQuasarSDK_1_1Map_1_1IMapObject" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="21,5,116,33"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="71,48,71,81,66,81,66,48"/>
+<area shape="rect" id="Node000006" href="$d6/d84/group__sdk__map.html#d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="151,157,245,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="201,199,201,232,195,232,195,199"/>
+<area shape="rect" id="Node000007" href="$dc/d5f/group__sdk__io.html#de/deb/classQuasarSDK_1_1IO_1_1DraftFile" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="269,232,345,260"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="290,274,263,309,259,306,286,270"/>
+<area shape="rect" id="Node000008" href="$dc/d5f/group__sdk__io.html#d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="269,157,348,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="311,199,310,232,305,232,305,199"/>
+<area shape="rect" id="Node000009" href="$dc/d5f/group__sdk__io.html#d9/d90/classQuasarSDK_1_1IO_1_1IFile" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="284,81,333,109"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="311,124,311,156,306,156,306,124"/>
 </map>

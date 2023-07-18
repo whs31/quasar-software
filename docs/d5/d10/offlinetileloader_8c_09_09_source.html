@@ -154,8 +154,8 @@ $(document).ready(function(){initNavTree('d5/d10/offlinetileloader_8c_09_09_sour
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    , m_totalTiles(0)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    , m_loadedTiles(0)</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    , m_parallelLoadedCount(0)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    , m_serverUrl(<span class="stringliteral">&quot;https://mt.google.com/vt/lyrs=y&amp;hl=ru&amp;z=%1&amp;x=%2&amp;y=%3&quot;</span>)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    , m_storagePath(<a class="code hl_namespace" href="../../d2/dff/namespaceConfig.html">Config</a>::Paths::offlineTiles())</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    , m_serverUrl(<span class="stringliteral">&quot;https://mt.google.com/vt/lyrs=y&amp;hl=ru&amp;z=%1&amp;x=%2&amp;y=%3&quot;</span>) <span class="comment">// @TODO local address</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    , m_storagePath(Config::Paths::offlineTiles())</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    connect(m_netaccs, &amp;QNetworkAccessManager::finished, [<span class="keyword">this</span>](QNetworkReply* reply) {</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      <span class="keywordflow">if</span> (reply-&gt;error() == QNetworkReply::NoError)</div>
@@ -335,7 +335,6 @@ $(document).ready(function(){initNavTree('d5/d10/offlinetileloader_8c_09_09_sour
 <div class="ttc" id="aimagemetadata_8h_html_a76714bdbc5c536fa77dfb14533ff82a9"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a76714bdbc5c536fa77dfb14533ff82a9">latitude</a></div><div class="ttdeci">double latitude</div><div class="ttdoc">Широта в градусах в проекции WGS-84.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00003">imagemetadata.h:3</a></div></div>
 <div class="ttc" id="aimagemetadata_8h_html_ac155e35fdeebafc89723a51520fb9fe6"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#ac155e35fdeebafc89723a51520fb9fe6">longitude</a></div><div class="ttdeci">double longitude</div><div class="ttdoc">Долгота в градусах в проекции WGS-84.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00004">imagemetadata.h:4</a></div></div>
 <div class="ttc" id="aimagemetadata_8h_html_af77b1a54442f2443cf64a4766f916bcd"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#af77b1a54442f2443cf64a4766f916bcd">y</a></div><div class="ttdeci">int16_t y</div><div class="ttdoc">Смещение по Y в метрах / 10.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00007">imagemetadata.h:7</a></div></div>
-<div class="ttc" id="anamespaceConfig_html"><div class="ttname"><a href="../../d2/dff/namespaceConfig.html">Config</a></div><div class="ttdoc">Пространство имен для данных, сохраняемых между сессиями.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d4f/config_8c_09_09_source.html#l00123">config.c++:123</a></div></div>
 <div class="ttc" id="anamespaceMap_html"><div class="ttname"><a href="../../da/d88/namespaceMap.html">Map</a></div><div class="ttdoc">Пространство имен для классов и функций, связанных с картографией.</div><div class="ttdef"><b>Definition</b> <a href="../../df/dc7/clickhandler_8c_09_09_source.html#l00007">clickhandler.c++:8</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -343,7 +342,7 @@ $(document).ready(function(){initNavTree('d5/d10/offlinetileloader_8c_09_09_sour
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_fcb2a60e1810a51543a3cc3a113d0956.html">c++</a></li><li class="navelem"><a class="el" href="../../dir_d88003ba6281a9447bd5134cfe1c08c9.html">map</a></li><li class="navelem"><a class="el" href="../../dir_11930aa8d0a7c7302d7157dda08c92ef.html">tools</a></li><li class="navelem"><b>offlinetileloader.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Чт 13 Июл 2023 01:28:24. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

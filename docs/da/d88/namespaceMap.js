@@ -2,6 +2,8 @@ var namespaceMap =
 [
     [ "ClickHandler", "d6/d20/classMap_1_1ClickHandler.html", null ],
     [ "Diagram", "d6/db2/classMap_1_1Diagram.html", null ],
+    [ "GeoMarker", "d2/d48/classMap_1_1GeoMarker.html", null ],
+    [ "GeoMarkerModel", "da/d88/namespaceMap.html#dc/d6a/classMap_1_1GeoMarkerModel", null ],
     [ "Image", "d4/da1/structMap_1_1Image.html", null ],
     [ "ImageMetadata", "da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata", "da/d88/namespaceMap_d6/d19/structMap_1_1ImageMetadata_dup" ],
     [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", "da/d88/namespaceMap_d0/df3/structMap_1_1ImageMetaHeader_dup" ],

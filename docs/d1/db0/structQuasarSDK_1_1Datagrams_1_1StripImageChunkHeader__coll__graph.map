@@ -1,6 +1,0 @@
-<map id="StripImageChunkHeader" name="StripImageChunkHeader">
-<area shape="rect" id="node1" title="Полный заголовок пакета полосового потокового изображения." alt="" coords="166,98,347,126"/>
-<area shape="rect" id="node2" href="$da/db8/namespaceQuasarSDK_1_1Datagrams.html#dd/dcd/structQuasarSDK_1_1Datagrams_1_1StripImageChunkID" title="Заголовок пакета полосового радиолокационного изображения." alt="" coords="5,5,153,33"/>
-<area shape="rect" id="node3" href="$da/db8/namespaceQuasarSDK_1_1Datagrams.html#dc/d09/structQuasarSDK_1_1Datagrams_1_1StripImageChunkNav" title="Навигационные данные пакета полосового радиолокационного изображения." alt="" coords="177,5,336,33"/>
-<area shape="rect" id="node4" href="$da/db8/namespaceQuasarSDK_1_1Datagrams.html#df/d46/structQuasarSDK_1_1Datagrams_1_1StripImageChunkFormat" title="Данные форматирования пакета полосового радиолокационного изображения." alt="" coords="360,5,539,33"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="IConnectable.h" name="IConnectable.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="93,5,212,33"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,81,124,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="138,36,93,73,89,69,135,31"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="148,81,336,109"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,31,216,69,213,73,167,36"/>
-</map>

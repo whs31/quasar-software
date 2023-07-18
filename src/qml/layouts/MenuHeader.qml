@@ -45,6 +45,63 @@ MenuBar {
 
         MenuSeparator { }
 
-        Action { text: "Выход"; onTriggered: Qt.quit(); }
+        Action {
+            text: "Выйти"
+            icon {
+                source: "qrc:/icons/vector/common/close.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+            onTriggered: Qt.quit()
+        }
+    }
+
+    Menu {
+        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        title: "Правка"
+
+        MenuSeparator { }
+
+        Action {
+            text: "Настройки"
+            icon {
+                source: "qrc:/icons/vector/common/settings.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+            onTriggered: settingswindow.shown = !settingswindow.shown
+        }
+    }
+
+    Menu {
+        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        title: "Дополнительно"
+        contentWidth: 300
+        Action {
+            text: "Консоль разработчика"
+            icon {
+                source: "qrc:/icons/vector/common/terminal.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+            onTriggered: root.consoleshown = !root.consoleshown
+        }
+
+        Action {
+            text: "Консоль РЛС"
+            icon {
+                source: "qrc:/icons/vector/common/remote_display.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+            onTriggered: root.vt100termshown = !root.vt100termshown
+        }
+
+        MenuSeparator { }
+
+        Action {
+            text: "О программе"
+            icon {
+                source: "qrc:/icons/vector/common/info.svg"
+                color: ColorTheme.active.color(ColorTheme.Accent)
+            }
+            onTriggered: c_InfoWindow.b_Shown = !c_InfoWindow.b_Shown
+        }
     }
 }

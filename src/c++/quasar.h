@@ -12,12 +12,12 @@ namespace Networking
   class HTTPDownloader;
 }
 
-class Entry : public QObject
+class QuaSAR : public QObject
 {
   Q_OBJECT
 
   public:
-    explicit Entry(QObject* parent = nullptr);
+    explicit QuaSAR(QObject* parent = nullptr);
 
   signals:
     void scheduleClose();

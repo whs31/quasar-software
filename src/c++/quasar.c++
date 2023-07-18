@@ -1,4 +1,4 @@
-#include "entry.h"
+#include "quasar.h"
 #include <QtCore/QProcess>
 #include <QtCore/QTimer>
 #include <QtQml/qqml.h>
@@ -30,7 +30,7 @@ using QuasarSDK::QuasarAPI;
 using QuasarSDK::Enums;
 using std::array;
 
-Entry::Entry(QObject* parent)
+QuaSAR::QuaSAR(QObject* parent)
   : QObject(parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
@@ -123,14 +123,14 @@ Entry::Entry(QObject* parent)
   });
 
   m_updateManager->fetch();
-  connect(this, &Entry::scheduleClose, this, &Entry::closeApplication);
+  connect(this, &QuaSAR::scheduleClose, this, &QuaSAR::closeApplication);
   connect(m_httpDownloader, &Networking::HTTPDownloader::downloadFinished, this, [this](){
     #ifdef Q_OS_WIN
     QProcess::startDetached(Config::Paths::root() + "/updateservice.exe", {});
     #endif
-    QTimer::singleShot(1000, this, &Entry::closeApplication);
+    QTimer::singleShot(1000, this, &QuaSAR::closeApplication);
     qDebug() << "Launching" << QString(Config::Paths::root() + "/updateservice.exe");
   });
 }
 
-void Entry::closeApplication() noexcept { qApp->quit(); }
+void QuaSAR::closeApplication() noexcept { qApp->quit(); }

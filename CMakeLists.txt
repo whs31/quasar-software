@@ -43,7 +43,7 @@ file(GLOB_RECURSE CPP_SOURCES
 
 set(PROJECT_SOURCES
     src/c++/main.c++
-    src/c++/entry.h    src/c++/entry.c++
+    src/c++/quasar.h src/c++/quasar.c++
 
     src/qml/qml.qrc
     resources/resources.qrc

@@ -20,7 +20,7 @@
 #include "map/clickhandler.h"
 #include "map/models/imagemodel.h"
 #include "map/models/stripmodel.h"
-#include "map/models/markermodel.h"
+#include "map/models/geomarkermodel.h"
 #include "map/models/trackeventmodel.h"
 #include "map/entities/diagram.h"
 #include "map/tools/offlinetileloader.h"
@@ -71,7 +71,7 @@ Entry::Entry(QObject* parent)
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
 
-  qmlRegisterSingletonInstance<Map::MarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->markerModel());
+  qmlRegisterSingletonInstance<Map::GeoMarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->geoMarkerModel());
   qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get());
   qmlRegisterSingletonInstance<Map::OfflineTileLoader>("Offline", 1, 0, "TileLoader", Map::OfflineTileLoader::get());
   qmlRegisterType<Map::Ruler>("Ruler", 1, 0, "RulerModel");

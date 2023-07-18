@@ -2,7 +2,7 @@
 #include <QtCore/QDebug>
 #include <QtGui/QGuiApplication>
 #include <QtGui/QClipboard>
-#include "map/models/markermodel.h"
+#include "map/models/geomarkermodel.h"
 
 namespace Map
 {
@@ -11,7 +11,7 @@ namespace Map
 
   ClickHandler::ClickHandler(QObject* parent)
     : QObject{parent}
-    , marker_model(new MarkerModel(this))
+    , m_marker_model(new GeoMarkerModel(this))
   {}
 
   Map::ClickHandler::MouseState ClickHandler::state() const { return m_state; }
@@ -28,14 +28,11 @@ namespace Map
     qDebug() << "[GUI] Copied coordinates to clipboard:" << latitude << longitude;
   }
 
-  MarkerModel* ClickHandler::markerModel()
-  {
-    return marker_model;
-  }
-
   void ClickHandler::addMarker(double latitude, double longitude, const QString& name, const QString& color, const QString& icon)
   {
-    markerModel()->add(Marker(latitude, longitude, name, color, icon));
+    geoMarkerModel()->add(GeoMarker({latitude, longitude}, name, color, icon));
   }
+
+  GeoMarkerModel* ClickHandler::geoMarkerModel() const { return m_marker_model; }
 
 } // Map

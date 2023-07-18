@@ -26,13 +26,13 @@ namespace QuasarSDK::Map
   };
 
   /// \brief Всегда возвращает 0.
-  float ScreenMapObject::zoomLevel() const { return 0; }
+  inline float ScreenMapObject::zoomLevel() const { return 0; }
 
   /**
    * \brief Создает объект ScreenMapObject со значениями по умолчанию.
    * \details По умолчанию объект будет расположен в координате <tt>0, 0</tt>.
    */
-  ScreenMapObject::ScreenMapObject()
+  inline ScreenMapObject::ScreenMapObject()
     : BasicMapObject()
   {}
 
@@ -43,7 +43,7 @@ namespace QuasarSDK::Map
    * \param opacity_level - прозрачность объекта. По умолчанию: 1.
    * \param visibility - видимость объекта. По умолчанию: <tt>true</tt>.
    */
-  ScreenMapObject::ScreenMapObject(const QGeoCoordinate& coord, const QPointF& origin_point, float opacity_level, bool visibility)
+  inline ScreenMapObject::ScreenMapObject(const QGeoCoordinate& coord, const QPointF& origin_point, float opacity_level, bool visibility)
       : BasicMapObject(coord, origin_point, opacity_level, visibility)
   {}
 } // QuasarSDK::Map

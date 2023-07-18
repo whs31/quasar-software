@@ -18,6 +18,6 @@ namespace QuasarSDK::Map
       virtual void setZoomLevel(float val);
   };
 
-  float ScalableMapObject::zoomLevel() const { return m_zoomLevel; }
-  void ScalableMapObject::setZoomLevel(float val) { m_zoomLevel = val; }
+  inline float ScalableMapObject::zoomLevel() const { return m_zoomLevel; }
+  inline void ScalableMapObject::setZoomLevel(float val) { m_zoomLevel = val; }
 } // QuasarSDK::Map

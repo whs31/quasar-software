@@ -5,85 +5,107 @@ import QtQuick.Controls.Material 2.15
 import QtPositioning 5.15
 import QtGraphicalEffects 1.15
 import Markers 1.0
-
 import Theme 1.0
 
-MapQuickItem  {
-    anchorPoint.x: imageSource.sourceSize.width / 2;
-    anchorPoint.y: imageSource.sourceSize.height;
-    z: 2;
-    visible: true;
-    zoomLevel: 0;
-    property real m_opacity: 1;
-    opacity: m_opacity;
-    coordinate: QtPositioning.coordinate(latitude, longitude);
+MapQuickItem {
+    required property int index
+    required property var markerCoordinate
+    required property string markerName
+    required property color markerColor
+    required property string markerIcon
+
+    property real m_opacity: 1
+
+    anchorPoint.x: imageSource.sourceSize.width / 2
+    anchorPoint.y: imageSource.sourceSize.height
+    coordinate: markerCoordinate
+    opacity: m_opacity
+    visible: true
+    z: 2
+    zoomLevel: 0
+
     sourceItem: Item {
-        Image { id: imageSource;
-            asynchronous: true;
-            smooth: true;
-            antialiasing: true;
-            source: marker_icon;
-            visible: false;
-            sourceSize.width: 40;
-            sourceSize.height: 40;
+        Image {
+            id: imageSource
+
+            antialiasing: true
+            asynchronous: true
+            smooth: true
+            source: markerIcon
+            sourceSize.height: 40
+            sourceSize.width: 40
+            visible: false
         }
 
         ColorOverlay {
-            color: marker_color;
-            layer.enabled: true;
-            layer.smooth: true;
-            layer.samples: 8;
-            anchors.fill: imageSource;
-            source: imageSource;
+            anchors.fill: imageSource
+            color: markerColor
+            layer {
+                enabled: true
+                samples: 8
+                smooth: true
+            }
+            source: imageSource
         }
+        Rectangle {
+            id: panel_MarkerTooltip
 
-        Rectangle { id: panel_MarkerTooltip;
-            color: marker_color;
-            width: (text_MarkerName.paintedWidth + 5);
-            height: (text_MarkerName.paintedHeight + 1);
-            anchors.top: imageSource.bottom;
-            anchors.topMargin: 4;
-            anchors.horizontalCenter: imageSource.horizontalCenter;
-            radius: width / 2;
-            Text { id: text_MarkerName;
-                color: "black";
-                enabled: true;
-                anchors.fill: parent;
-                font.pointSize: 8;
-                font.family: root.mainfont;
-                font.weight: Font.Bold;
-                textFormat: Text.RichText;
-                text: "\u00A0" + marker_name + "\u00A0";
-                horizontalAlignment: Text.AlignHCenter;
-                verticalAlignment: Text.AlignVCenter;
+            anchors.horizontalCenter: imageSource.horizontalCenter
+            anchors.top: imageSource.bottom
+            anchors.topMargin: 4
+            color: markerColor
+            height: (text_MarkerName.paintedHeight + 1)
+            radius: width / 2
+            width: (text_MarkerName.paintedWidth + 5)
+
+            Text {
+                id: text_MarkerName
+
+                anchors.fill: parent
+                color: "black"
+                enabled: true
+                font.family: root.mainfont
+                font.pointSize: 8
+                font.weight: Font.Bold
+                horizontalAlignment: Text.AlignHCenter
+                text: "\u00A0" + markerName + "\u00A0"
+                textFormat: Text.RichText
+                verticalAlignment: Text.AlignVCenter
             }
         }
+        MouseArea {
+            id: markermousearea
 
-        MouseArea { id: markermousearea;
-            property bool showcontrols: false;
-            anchors.fill: imageSource;
-            anchors.topMargin: -50;
-            hoverEnabled: true;
-            propagateComposedEvents: true;
-            onPressed: showcontrols = !showcontrols;
+            property bool showcontrols: false
+
+            anchors.fill: imageSource
+            anchors.topMargin: -50
+            hoverEnabled: true
+            propagateComposedEvents: true
+
+            onPressed: showcontrols = !showcontrols
         }
-
         RoundButton {
-            opacity: markermousearea.showcontrols ? 1 : 0;
-            Behavior on opacity { NumberAnimation { duration: 150; } }
+            Material.background: ColorTheme.active.color(ColorTheme.Red)
+            height: 36
+            icon.color: ColorTheme.active.color(ColorTheme.Dark)
+            icon.source: "qrc:/icons/vector/common/close.svg"
+            opacity: markermousearea.showcontrols ? 1 : 0
+            width: 36
+
+            Behavior on opacity  {
+                NumberAnimation {
+                    duration: 150
+                }
+            }
+
+            onPressed: MarkersModel.remove(index)
+
             anchors {
                 bottom: imageSource.top
                 bottomMargin: 5
                 horizontalCenter: imageSource.horizontalCenter
             }
-
-            height: 36;
-            width: 36;
-
-            icon.source: "qrc:/icons/vector/common/close.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: ColorTheme.active.color(ColorTheme.Red)
-            onPressed: MarkersModel.remove(index);
         }
     }
 }

@@ -5,6 +5,8 @@
  *  \copyright Radar-MMS 2023
  */
 
+#pragma once
+
 #include <QtCore/QSizeF>
 #include <QtCore/QPointF>
 

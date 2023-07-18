@@ -23,7 +23,7 @@ Pane {
         }
 
         Text {
-            Layout.preferredWidth: 75
+            Layout.preferredWidth: 85
             color: ColorTheme.active.color(ColorTheme.Text)
             text: Number(Math.abs(latitude)).toFixed(6) + "°" + private_LatSuffix
 
@@ -45,7 +45,7 @@ Pane {
             }
         }
         Text {
-            Layout.preferredWidth: 75
+            Layout.preferredWidth: 85
             color: ColorTheme.active.color(ColorTheme.Text)
             text: Number(Math.abs(longitude)).toFixed(6) + "°" + private_LonSuffix
 

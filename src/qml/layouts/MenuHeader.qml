@@ -11,9 +11,10 @@ MenuBar {
     Menu {
         Material.background: ColorTheme.active.color(ColorTheme.Surface)
         title: "Файл"
+        contentWidth: 300
         Menu {
             Material.background: ColorTheme.active.color(ColorTheme.Surface)
-            contentWidth: 300
+            contentWidth: 400
             title: "Экспорт"
             Action {
                 text: "Экспортировать выбранные изображения";
@@ -46,7 +47,7 @@ MenuBar {
         MenuSeparator { }
 
         Action {
-            text: "Выйти"
+            text: "Закрыть программу"
             icon {
                 source: "qrc:/icons/vector/common/close.svg"
                 color: ColorTheme.active.color(ColorTheme.Text)

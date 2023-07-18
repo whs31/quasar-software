@@ -23,7 +23,7 @@ Pane { id: panel_Entities;
             Material.background: ClickHandler.state === ClickHandler.MarkerActive ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface);
             onPressed: ClickHandler.state = ClickHandler.MarkerActive;
 
-            Widgets.TT { ff: root.mainfont; txt: "Установка нового маркера карты"; }
+            Widgets.TT { txt: "Установка нового маркера карты"; }
         }
 
         RoundButton { id: button_PlannerPoint;
@@ -37,7 +37,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: ClickHandler.state = ClickHandler.PlannerActive;
 
-            Widgets.TT { ff: root.mainfont; txt: "Установка новой точки полётного задания"; }
+            Widgets.TT { txt: "Установка новой точки полётного задания"; }
         }
 
         RoundButton { id: button_ClearMarkers;
@@ -50,7 +50,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
 
-            Widgets.TT { ff: root.mainfont; txt: "Очистить карту от маркеров и точек полётного задания"; }
+            Widgets.TT { txt: "Очистить карту от маркеров и точек полётного задания"; }
 
             Connections {
                 target: dialogwindow;
@@ -73,7 +73,7 @@ Pane { id: panel_Entities;
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
 
-            Widgets.TT { ff: root.mainfont; txt: "Очистить карту от радиолокационных изображений"; }
+            Widgets.TT { txt: "Очистить карту от радиолокационных изображений"; }
 
             Connections {
                 target: dialogwindow;

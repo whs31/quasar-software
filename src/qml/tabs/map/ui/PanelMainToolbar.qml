@@ -28,7 +28,7 @@ Pane {
             Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Yellow)
             onCheckedChanged: checked ? mode = 1 : mode = 0
 
-            Widgets.TT { ff: root.mainfont; txt: "Переключение между телескопическим и полосовым режимом" }
+            Widgets.TT { txt: "Переключение между телескопическим и полосовым режимом" }
         }
 
         RoundButton {
@@ -71,7 +71,10 @@ Pane {
         }
 
         ComboBox {
-            property var descriptions: ["Разрешение до 0.5 м, дальность до 8 км", "Разрешение до 1 м, дальность до 15 км, скорость до 500 км/ч", "Разрешение до 1.5 м, дальность до 17 км, скорость до 500 км/ч", "Разрешение до 0.3 м, дальность до 9 км, скорость до 200 км/ч", "Разрешение до 0.8 м, дальность до 15 км, скорость до 185 км/ч", "Разрешение до 0.5 м, дальность до 30 км, скорость до 120 км/ч", "Разрешение до 0.3 м, дальность до 17 км, скорость до 120 км/ч"]
+            property var descriptions: ["Разрешение до 0.5 м, дальность до 8 км", "Разрешение до 1 м, дальность до 15 км, скорость до 500 км/ч",
+                "Разрешение до 1.5 м, дальность до 17 км, скорость до 500 км/ч", "Разрешение до 0.3 м, дальность до 9 км, скорость до 200 км/ч",
+                "Разрешение до 0.8 м, дальность до 15 км, скорость до 185 км/ч", "Разрешение до 0.5 м, дальность до 30 км, скорость до 120 км/ч",
+                "Разрешение до 0.3 м, дальность до 17 км, скорость до 120 км/ч"]
 
             Layout.preferredHeight: 45
             currentIndex: 0
@@ -93,11 +96,7 @@ Pane {
                 weight: Font.Bold
             }
 
-            Widgets.TT {
-                ff: root.mainfont
-                txt: parent.descriptions[parent.currentIndex]
-            }
-
+            Widgets.TT { txt: parent.descriptions[parent.currentIndex] }
         }
 
         RoundButton {
@@ -125,7 +124,7 @@ Pane {
                 target: dialogwindow
             }
 
-            Widgets.TT { ff: root.mainfont; txt: "Выполнить калибровку высоты над рельефом в точке старта" }
+            Widgets.TT { txt: "Выполнить калибровку высоты над рельефом в точке старта" }
         }
     }
 

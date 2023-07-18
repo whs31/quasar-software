@@ -116,7 +116,7 @@ Rectangle {
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: settingswindow.shown = !settingswindow.shown
 
-            Widgets.TT { ff: root.mainfont; txt: "Настройки программы"; }
+            Widgets.TT { txt: "Настройки программы"; }
         }
 
         RoundButton { id: button_About;
@@ -134,7 +134,7 @@ Rectangle {
                     c_InfoWindow.b_Shown = true;
             }
 
-            Widgets.TT { ff: root.mainfont; txt: "О программе"; }
+            Widgets.TT { txt: "О программе"; }
         }
 
         RoundButton { id: button_ToggleDebug;
@@ -147,7 +147,7 @@ Rectangle {
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: root.consoleshown = !root.consoleshown;
 
-            Widgets.TT { ff: root.mainfont; txt: "Консоль разработчика"; }
+            Widgets.TT { txt: "Консоль разработчика"; }
         }
 
         RoundButton { id: button_ToggleVT100;
@@ -160,7 +160,7 @@ Rectangle {
             Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
             onPressed: root.vt100termshown = !root.vt100termshown;
 
-            Widgets.TT { ff: root.mainfont; txt: "Консоль РЛС"; }
+            Widgets.TT { txt: "Консоль РЛС"; }
         }
     }
 }

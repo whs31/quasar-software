@@ -189,7 +189,7 @@ Map { id: maptab_root;
         model: MarkersModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
-        delegate: MapTab.MapMarker { }
+        delegate: MapQuickItems.GeoMarker { }
     }
 
     property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);

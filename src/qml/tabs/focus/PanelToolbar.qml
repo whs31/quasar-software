@@ -20,7 +20,7 @@ Pane { id: panel_EditorTools;
             Material.background: focustab_root.currentTool === 0 ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.Surface)
             onPressed: focustab_root.currentTool = 0
 
-            Widgets.TT { ff: root.mainfont; txt: "Инструмент перемещения"; }
+            Widgets.TT { txt: "Инструмент перемещения"; }
         }
 
         RoundButton { id: button_Focus
@@ -38,7 +38,7 @@ Pane { id: panel_EditorTools;
                     focustab_root.currentTool = 1
             }
 
-            Widgets.TT { ff: root.mainfont; txt: "Инструмент фокусировки"; }
+            Widgets.TT { txt: "Инструмент фокусировки"; }
         }
     }
 }

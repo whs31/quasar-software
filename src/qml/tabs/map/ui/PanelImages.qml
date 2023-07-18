@@ -629,7 +629,7 @@ Pane { id: panel_ImageTools;
                         messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
                 }
 
-                Widgets.TT { ff: root.mainfont; txt: "Добавить на карту изображения из выбранного каталога"; }
+                Widgets.TT { txt: "Добавить на карту изображения из выбранного каталога"; }
             }
 
             RoundButton { id: button_ChooseCatalogue;
@@ -643,7 +643,7 @@ Pane { id: panel_ImageTools;
                 text: "Изменить каталог";
                 onPressed: window_FileDialog.open();
 
-                Widgets.TT { ff: root.mainfont; txt: "Выбрать каталог для добавления изображений на карту"; }
+                Widgets.TT { txt: "Выбрать каталог для добавления изображений на карту"; }
             }
 
             RoundButton { id: button_ClearLocalCache;
@@ -659,7 +659,7 @@ Pane { id: panel_ImageTools;
                 onPressed: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
                                              "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3);
 
-                Widgets.TT { ff: root.mainfont; txt: "Очистить локальный кэш программы"; }
+                Widgets.TT { txt: "Очистить локальный кэш программы"; }
 
                 Connections {
                     target: dialogwindow;

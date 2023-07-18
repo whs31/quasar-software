@@ -86,6 +86,7 @@ MapQuickItem {
 
             onPressed: showcontrols = !showcontrols
         }
+
         RoundButton {
             Material.background: ColorTheme.active.color(ColorTheme.Red)
             height: 36

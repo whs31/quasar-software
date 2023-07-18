@@ -17,7 +17,6 @@
         <file>windows/DialogWindow.qml</file>
         <file>widgets/CoordinateTooltip.qml</file>
         <file>windows/MarkerWindow.qml</file>
-        <file>tabs/map/MapMarker.qml</file>
         <file>windows/StripMatrixWindow.qml</file>
         <file>tabs/map/AttitudeIndicator.qml</file>
         <file>tabs/map/ui/PanelTools.qml</file>
@@ -33,7 +32,6 @@
         <file>tabs/map/ui/PanelExport.qml</file>
         <file>tabs/map/ui/PanelWarnings.qml</file>
         <file>tabs/map/ui/PanelZoom.qml</file>
-        <file>tabs/map/ZoomScale.qml</file>
         <file>tabs/network/PanelNetTools.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>
@@ -47,5 +45,6 @@
         <file>tabs/map/StripRoute.qml</file>
         <file>tabs/map/mapquickitems/Strip.qml</file>
         <file>windows/NewSettingsWindow.qml</file>
+        <file>tabs/map/mapquickitems/GeoMarker.qml</file>
     </qresource>
 </RCC>

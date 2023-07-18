@@ -356,11 +356,7 @@ Item {
                 target: dialogwindow
             }
 
-            Widgets.TT {
-                ff: root.mainfont
-                txt: "Очистить хранилище на РЛС"
-            }
-
+            Widgets.TT {  txt: "Очистить хранилище на РЛС" }
         }
     }
 }

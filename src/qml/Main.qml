@@ -31,7 +31,31 @@ ApplicationWindow  { id: window_root;
     width: 1280;
     height: 800;
     visible: true;
+
     color: ColorTheme.active.color(ColorTheme.Dark)
+    font.family: root.mainfont
+    palette {
+        alternateBase: ColorTheme.active.color(ColorTheme.BaseShade)
+        base: ColorTheme.active.color(ColorTheme.Dark)
+        brightText: ColorTheme.active.color(ColorTheme.Accent)
+        button: ColorTheme.active.color(ColorTheme.Surface)
+        buttonText: ColorTheme.active.color(ColorTheme.Text)
+        dark: ColorTheme.active.color(ColorTheme.Dark)
+        highlight: ColorTheme.active.color(ColorTheme.Primary)
+        highlightedText: ColorTheme.active.color(ColorTheme.Dark)
+        light: ColorTheme.active.color(ColorTheme.Overlay)
+        link: ColorTheme.active.color(ColorTheme.PrimaryLight)
+        linkVisited: ColorTheme.active.color(ColorTheme.Mauve)
+        mid: ColorTheme.active.color(ColorTheme.BaseShade)
+        midlight: ColorTheme.active.color(ColorTheme.Surface)
+        shadow: "black"
+        text: ColorTheme.active.color(ColorTheme.Text)
+        toolTipBase: ColorTheme.active.color(ColorTheme.Dark)
+        toolTipText: ColorTheme.active.color(ColorTheme.Subtext)
+        window: ColorTheme.active.color(ColorTheme.Dark)
+        windowText: ColorTheme.active.color(ColorTheme.Text)
+    }
+
     Component.onCompleted: showMaximized();
 
     FileDialog {
@@ -105,26 +129,6 @@ ApplicationWindow  { id: window_root;
                 }
             }
 
-            Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
-            Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
-            Widgets.ProgressPopup { anchors.centerIn: parent; progress: NetworkAPI.remote.downloadProgress; z: 100;
-                text: "Загрузка изображения по TCP-IP";
-            }
-            Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100;
-                text: "Обработка изображений";
-            }
-            Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: tileloadprogress; z: 100;
-                text: "Загрузка оффлайн-карт";
-            }
-
-            Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
-            Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
-            Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
-            Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
-            Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
-            Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
-            Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
-
             Layouts.BottomBar { id: layout_BottomBar;
                 height: 46;
                 anchors {
@@ -186,6 +190,20 @@ ApplicationWindow  { id: window_root;
                 Tabs.FocusTab { id: c_FocusTab; }
                 Tabs.NetworkTab { id: c_NetworkTab; }
             }
+
+            Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
+            Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
+            Widgets.ProgressPopup { anchors.centerIn: parent; progress: NetworkAPI.remote.downloadProgress; z: 100; text: "Загрузка изображения по TCP-IP"; }
+            Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100; text: "Обработка изображений"; }
+            Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: tileloadprogress; z: 100; text: "Загрузка оффлайн-карт"; }
+
+            Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
+            Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
+            Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
+            Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
+            Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
+            Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
+            Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
         }
     }
 

@@ -30,7 +30,6 @@
         <file>widgets/SARConsole.qml</file>
         <file>tabs/map/ui/PanelWarnings.qml</file>
         <file>tabs/map/ui/PanelZoom.qml</file>
-        <file>tabs/network/PanelNetTools.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>
         <file>tabs/focus/PanelToolbar.qml</file>

@@ -13,8 +13,11 @@ namespace QuasarSDK
   void registerQMLTypes()
   {
     #ifdef QT_QML_LIB
+    qmlRegisterModule("QuaSAR.API", 1, 0);
     qmlRegisterSingletonInstance<QuasarAPI>("QuaSAR.API", 1, 0, "NetworkAPI", QuasarAPI::get());
     qmlRegisterUncreatableType<QuasarSDK::Enums>("QuaSAR.API", 1, 0, "Net", "Enumeration");
+
+    qmlRegisterModule("QuaSAR.API.Extras", 1, 0);
     qmlRegisterSingletonInstance<QuasarSDK::IO::SAROutputModel>("QuaSAR.API.Extras", 1, 0, "NetworkOutput", QuasarAPI::get()->outputModel());
     #endif
   }

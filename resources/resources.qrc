@@ -108,5 +108,6 @@
         <file>icons/vector/images/rotate.svg</file>
         <file>icons/vector/images/scale.svg</file>
         <file>icons/vector/images/transform.svg</file>
+        <file>icons/vector/common/file_percent.svg</file>
     </qresource>
 </RCC>

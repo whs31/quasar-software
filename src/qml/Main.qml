@@ -3,6 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Dialogs 1.3
+import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
@@ -11,7 +12,6 @@ import Config 1.0
 import Filesystem 1.0
 import Images 1.0
 import Offline 1.0
-import ImageProcessing 1.0
 
 import "widgets" as Widgets
 import "layouts" as Layouts
@@ -58,6 +58,16 @@ ApplicationWindow  { id: window_root;
 
     Component.onCompleted: showMaximized();
 
+    menuBar: Layouts.MenuHeader { }
+
+    // idc if i need it)
+//    header: ToolBar {
+//        Material.primary: ColorTheme.active.color(ColorTheme.BaseShade)
+
+//        RowLayout {
+//        }
+//    }
+
     FileDialog {
         id: window_FileDialog
         property string s_Url: window_FileDialog.fileUrl
@@ -89,123 +99,118 @@ ApplicationWindow  { id: window_root;
         }
     }
 
-    Loader {
+    Item { id: root;
         anchors.fill: parent;
-        active: !splashscreen.enabled;
-        asynchronous: true;
-        sourceComponent: Item { id: root;
-            anchors.fill: parent;
-            layer.smooth: true;
-            layer.samples: 8;
-            layer.enabled: true;
-
-            enum Tabs
-            {
-                MapView,
-                EditorView,
-                NetworkView
-            }
-
-            readonly property int tab: tabbar.currentIndex;
-            function openTab(i)
-                {
-                tabbar.currentIndex = i;
-                console.log("[GUI] Opening tab " + (i + 1));
-            }
-
-            property bool consoleshown: false;
-            property bool vt100termshown: false;
-            property string mainfont: font_Main.name;
-            property string monofont: font_Mono.name;
-
-            FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
-            FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
-
-            property real tileloadprogress;
-            Connections {
-                target: TileLoader;
-                function onProgress(a) {
-                    tileloadprogress = a;
-                }
-            }
-
-            Layouts.BottomBar { id: layout_BottomBar;
-                height: 46;
-                anchors {
-                    left: parent.left;
-                    right: parent.right;
-                    bottom: parent.bottom;
-                }
-            }
-
-            TabBar { id: tabbar
-                z: 100
-                contentHeight: 40
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    top: parent.top
-                }
-                Material.accent: ColorTheme.active.color(ColorTheme.Overlay)
-
-                TabButton {
-                    text: "Интерактивная карта"
-                    font.family: root.mainfont
-                    font.bold: true
-                    icon.source: "qrc:/icons/vector/misc/earth.svg"
-                    Material.accent: ColorTheme.active.color(ColorTheme.Green)
-                }
-
-                TabButton {
-                    text: "Редактирование изображений"
-                    font.family: root.mainfont
-                    font.bold: true
-                    icon.source: "qrc:/icons/vector/common/edit.svg"
-                    Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
-                    enabled: c_FocusTab.currentAssignedIndex >= 0
-                }
-
-                TabButton {
-                    text: "Сетевые подключения"
-                    font.family: root.mainfont
-                    font.bold: true
-                    icon.source: "qrc:/icons/vector/network/wifi.svg"
-                    Material.accent: ColorTheme.active.color(ColorTheme.PrimaryLight)
-                }
-            }
-
-            SwipeView { id: view_MainView;
-                anchors {
-                    top: tabbar.bottom;
-                    bottom: layout_BottomBar.top;
-                    left: parent.left;
-                    right: parent.right;
-                }
-                interactive: false;
-                currentIndex: tabbar.currentIndex;
-                contentWidth: view_MainView.width;
-                contentHeight: view_MainView.height;
-
-                Tabs.MapTab { id: c_MapTab; }
-                Tabs.FocusTab { id: c_FocusTab; }
-                Tabs.NetworkTab { id: c_NetworkTab; }
-            }
-
-            Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
-            Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
-            Widgets.ProgressPopup { anchors.centerIn: parent; progress: NetworkAPI.remote.downloadProgress; z: 100; text: "Загрузка изображения по TCP-IP"; }
-            Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100; text: "Обработка изображений"; }
-            Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: tileloadprogress; z: 100; text: "Загрузка оффлайн-карт"; }
-
-            Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
-            Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
-            Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
-            Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
-            Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
-            Windows.StripMatrixWindow { id: window_StripMatrix; visible: false; }
-            Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
+        layer {
+            smooth: true
+            samples: 8
+            enabled: true
         }
+        visible: !splashscreen.enabled
+
+        enum Tabs
+        {
+            MapView,
+            EditorView,
+            NetworkView
+        }
+
+        readonly property int tab: tabbar.currentIndex;
+        function openTab(i)
+        {
+            tabbar.currentIndex = i;
+            console.log("[GUI] Opening tab " + (i + 1));
+        }
+
+        property bool consoleshown: false
+        property bool vt100termshown: false
+        property string mainfont: font_Main.name
+        property string monofont: font_Mono.name
+
+        FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
+        FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
+
+        property real tileloadprogress
+        Connections {
+            target: TileLoader;
+            function onProgress(a) {
+                tileloadprogress = a;
+            }
+        }
+
+        Layouts.BottomBar { id: layout_BottomBar;
+            height: 46;
+            anchors {
+                left: parent.left;
+                right: parent.right;
+                bottom: parent.bottom;
+            }
+        }
+
+        TabBar { id: tabbar
+            z: 100
+            contentHeight: 40
+            anchors {
+                left: parent.left
+                right: parent.right
+                top: parent.top
+            }
+            Material.accent: ColorTheme.active.color(ColorTheme.Overlay)
+
+            TabButton {
+                text: "Интерактивная карта"
+                font.bold: true
+                icon.source: "qrc:/icons/vector/misc/earth.svg"
+                Material.accent: ColorTheme.active.color(ColorTheme.Green)
+            }
+
+            TabButton {
+                text: "Редактирование изображений"
+                font.bold: true
+                icon.source: "qrc:/icons/vector/common/edit.svg"
+                Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
+                enabled: c_FocusTab.currentAssignedIndex >= 0
+            }
+
+            TabButton {
+                text: "Сетевые подключения"
+                font.bold: true
+                icon.source: "qrc:/icons/vector/network/wifi.svg"
+                Material.accent: ColorTheme.active.color(ColorTheme.PrimaryLight)
+            }
+        }
+
+        SwipeView { id: view_MainView;
+            anchors {
+                top: tabbar.bottom;
+                bottom: layout_BottomBar.top;
+                left: parent.left;
+                right: parent.right;
+            }
+            interactive: false;
+            currentIndex: tabbar.currentIndex;
+            contentWidth: view_MainView.width;
+            contentHeight: view_MainView.height;
+
+            Tabs.MapTab { id: c_MapTab; }
+            Tabs.FocusTab { id: c_FocusTab; }
+            Tabs.NetworkTab { id: c_NetworkTab; }
+        }
+
+        Widgets.DebugConsole { id: debugConsole; enabled: root.consoleshown; }
+        Widgets.SARConsole { id: sarConsole; enabled: root.vt100termshown; }
+        Widgets.ProgressPopup { anchors.centerIn: parent; progress: NetworkAPI.remote.downloadProgress; z: 100; text: "Загрузка изображения по TCP-IP"; }
+        Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100; text: "Обработка изображений"; }
+        Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: root.tileloadprogress; z: 100; text: "Загрузка оффлайн-карт"; }
+
+        Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
+        Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
+        Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
+        Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }
+        Windows.MarkerWindow { id: markerwindow; anchors.centerIn: parent; z: 97; }
+        Windows.UpdateWindow { id: updatewindow; anchors.centerIn: parent; z: 100; }
     }
+
 
     Widgets.SplashScreen { id: splashscreen;
         anchors.fill: parent;

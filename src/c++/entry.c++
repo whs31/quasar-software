@@ -37,22 +37,29 @@ Entry::Entry(QObject* parent)
 {
   QuasarSDK::registerQMLTypes();
 
+  qmlRegisterModule("Charts", 1, 0);
   qmlRegisterType<SDK::Quick::RealtimeLinePlot>("Charts", 1, 0, "RealtimeLinePlot");
   qmlRegisterType<SDK::Quick::MatrixPlot>("Charts", 1, 0, "MatrixPlot");
-  qmlRegisterType<SDK::Gizmos::Gizmos>("Gizmos", 1, 0, "Gizmos");
 
+  qmlRegisterModule("Application", 1, 0);
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
+  qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
 
+  qmlRegisterModule("Config", 1, 0);
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());
   qmlRegisterSingletonInstance<Config::Settings>("Config", 1, 0, "Settings", Config::Settings::get());
 
+  qmlRegisterModule("Terminals", 1, 0);
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
+
+  qmlRegisterModule("Notifications", 1, 0);
   qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get());
+
+  qmlRegisterModule("Theme", 1, 0);
   qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());
 
+  qmlRegisterModule("Filesystem", 1, 0);
   qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get());
-
-  qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
 
   QuasarAPI::get()->setPingAddressList({
     Config::Settings::get()->value<QString>("ip/de10"),
@@ -68,18 +75,27 @@ Entry::Entry(QObject* parent)
 
   QuasarAPI::get()->startPings();
 
+  qmlRegisterModule("Images", 1, 0);
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
+  qmlRegisterSingletonInstance<Processing::ImageProcessing>("Images", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
 
+  qmlRegisterModule("Markers", 1, 0);
   qmlRegisterSingletonInstance<Map::GeoMarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->geoMarkerModel());
+
+  qmlRegisterModule("ClickHandler", 1, 0);
   qmlRegisterSingletonInstance<Map::ClickHandler>("ClickHandler", 1, 0, "ClickHandler", Map::ClickHandler::get());
+
+  qmlRegisterModule("Offline", 1, 0);
   qmlRegisterSingletonInstance<Map::OfflineTileLoader>("Offline", 1, 0, "TileLoader", Map::OfflineTileLoader::get());
+
+  qmlRegisterModule("Ruler", 1, 0);
   qmlRegisterType<Map::Ruler>("Ruler", 1, 0, "RulerModel");
+
+  qmlRegisterModule("Route", 1, 0);
   qmlRegisterType<Map::Route>("Route", 1, 0, "Route");
   qmlRegisterType<Map::TrackEventModel>("Route", 1, 0, "TrackEventModel");
-  qmlRegisterType<Map::Diagram>("RadarDiagram", 1, 0, "RadarDiagram");
-
-  qmlRegisterSingletonInstance<Processing::ImageProcessing>("ImageProcessing", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
+  qmlRegisterType<Map::Diagram>("Route", 1, 0, "RadarDiagram");
 
   connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
   connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);

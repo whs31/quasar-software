@@ -8,7 +8,7 @@
 #include <QtCore/QTextStream>
 
 #define PATH_MKDIR(name) QDir name##Directory(name());                                              \
-                         if(not name##Directory.exists()) {                                         \
+                         if(!name##Directory.exists()) {                                            \
                              name##Directory.mkpath(name());                                        \
                              qInfo() << "[PATH] Created" << #name << "folder at" << name();         \
                          }
@@ -24,6 +24,8 @@ Paths::Paths(QObject *parent) : QObject{parent}
   PATH_MKDIR(themes)
   PATH_MKDIR(offlineTiles)
   PATH_MKDIR(logs)
+  PATH_MKDIR(saves)
+  PATH_MKDIR(markers)
 
   this->createMapConfigs();
 
@@ -54,6 +56,8 @@ QString Paths::offlineTiles() { return root() + "/offline"; }
 QString Paths::config() { return root() + "/config"; }
 QString Paths::logs() { return root() + "/logs"; }
 QString Paths::themes() { return root() + "/themes"; }
+QString Paths::saves() { return root() + "/saves"; }
+QString Paths::markers() { return saves() + "/markers"; }
 
 void Paths::createImageCache() noexcept
 {

@@ -14,9 +14,8 @@ import Filesystem 1.0
 import Config 1.0
 import Images 1.0
 import Markers 1.0
-import RadarDiagram 1.0
+import Route 1.0
 import Notifications 1.0
-import ImageProcessing 1.0
 
 import "map" as MapTab
 import "map/ui" as MapTabUI
@@ -340,35 +339,6 @@ Map { id: maptab_root;
         Material.primary: Material.primary;
         Material.accent: Material.accent;
         onCheckedChanged: panel_Parameters.shown = checked;
-    }
-
-    MapTabUI.PanelExport { id: panel_Export;
-        anchors {
-            top: parent.top
-            right: panel_Tools.left
-            rightMargin: 5
-        }
-    }
-
-    RoundButton { id: button_ExpandExport;
-        anchors {
-            top: panel_Export.bottom;
-            topMargin: -7;
-            horizontalCenter: panel_Export.horizontalCenter;
-        }
-        checkable: true;
-        height: 40;
-        radius: 4;
-        icon.source: panel_Export.shown ? "qrc:/icons/vector/common/collapse.svg"
-                                        : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
-        font.family: root.mainfont;
-        text: panel_Export.shown ? "" : "Экспорт";
-        Material.elevation: 30;
-        Material.background: Material.background;
-        Material.primary: Material.primary;
-        Material.accent: Material.accent;
-        onCheckedChanged: panel_Export.shown = checked;
     }
 
     MapTabUI.PanelImages {

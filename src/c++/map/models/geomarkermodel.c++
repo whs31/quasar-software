@@ -4,6 +4,11 @@
 
 #include "geomarkermodel.h"
 #include <QtCore/QDebug>
+#include <QtCore/QJsonDocument>
+#include <QtCore/QJsonObject>
+#include <QtCore/QJsonValue>
+#include <QtCore/QJsonArray>
+#include <QtCore/QFile>
 
 namespace Map
 {
@@ -85,5 +90,70 @@ namespace Map
     roles[MarkerColor] = "markerColor";
     roles[MarkerIcon] = "markerIcon";
     return roles;
+  }
+
+  void GeoMarkerModel::save(const QString& path, GeoMarkerModel::SaveFormat format) const noexcept
+  {
+    if(m_storage.empty())
+    {
+      qWarning() << "[MARKER] No markers to save";
+      return;
+    }
+
+    QByteArray data;
+    switch(format)
+    {
+      case JSON: data = toJSON(); break;
+      case PlainText: data = toPlainText(); break;
+
+      default: qCritical() << "[MARKER] Incorrect format of save file";
+    }
+
+    QFile file(path);
+    if(not file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+      qCritical() << "[MARKER] Failed to save markers";
+      return;
+    }
+    file.write(data);
+    file.close();
+    qDebug() << "$ [MARKER] Saved markers to" << path;
+  }
+
+  void GeoMarkerModel::load(const QString& path) noexcept
+  {
+    // not implemented
+  }
+
+  QByteArray GeoMarkerModel::toJSON() const noexcept
+  {
+    QJsonArray json_array;
+    for(const auto& marker : m_storage)
+    {
+      QJsonObject marker_object;
+      marker_object["latitude"] = marker.coordinate().latitude();
+      marker_object["longitude"] = marker.coordinate().longitude();
+      marker_object["name"] = marker.name();
+      marker_object["color"] = marker.color().name();
+      marker_object["icon_path"] = marker.icon();
+
+      json_array.append(marker_object);
+    }
+
+    QJsonDocument document(json_array);
+    return document.toJson();
+  }
+
+  QByteArray GeoMarkerModel::toPlainText() const noexcept
+  {
+    QByteArray ret;
+    for(const auto& marker : m_storage)
+    {
+      ret.append("Маркер: " + marker.name().toUtf8() + "\n");
+      ret.append("\t широта: " + QString::number(marker.coordinate().latitude(), 'f', 8).toUtf8() + "\n");
+      ret.append("\t долгота: " + QString::number(marker.coordinate().longitude(), 'f', 8).toUtf8() + "\n");
+      ret.append("\n");
+    }
+    return ret;
   }
 } // Map

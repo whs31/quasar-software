@@ -7,7 +7,7 @@ ToolTip { id: control;
 
     visible: parent.hovered;
     font {
-        pixelSize: 11;
+        pixelSize: 13;
     }
     contentItem: Text {
         text: txt;

@@ -5,6 +5,7 @@
 namespace Application
 {
   class UpdateManager;
+  class QuickUtils;
 }
 
 namespace Networking
@@ -27,5 +28,6 @@ class QuaSAR : public QObject
 
   private:
     Application::UpdateManager* m_updateManager;
+    Application::QuickUtils* m_quickUtils;
     Networking::HTTPDownloader* m_httpDownloader;
 };

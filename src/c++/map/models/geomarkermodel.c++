@@ -65,6 +65,8 @@ namespace Map
 
   void GeoMarkerModel::remove(int index)
   {
+    if(index >= rowCount())
+      return;
     beginRemoveRows(QModelIndex(), index, index);
     m_storage.erase(m_storage.begin() + index);
     endRemoveRows();

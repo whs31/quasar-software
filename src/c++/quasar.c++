@@ -8,6 +8,7 @@
 #include <QuasarSDK/API>
 #include <QuasarSDK/Register>
 #include "application/updatemanager.h"
+#include "application/quickutils.h"
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
 #include "gui/colortheme.h"
@@ -34,6 +35,7 @@ QuaSAR::QuaSAR(QObject* parent)
   : QObject(parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
+  , m_quickUtils(new Application::QuickUtils(this))
 {
   QuasarSDK::registerQMLTypes();
 
@@ -44,6 +46,7 @@ QuaSAR::QuaSAR(QObject* parent)
   qmlRegisterModule("Application", 1, 0);
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);
   qmlRegisterSingletonInstance<Networking::HTTPDownloader>("Application", 1, 0, "UpdateLoader", m_httpDownloader);
+  qmlRegisterSingletonInstance<Application::QuickUtils>("Application", 1, 0, "Utils", m_quickUtils);
 
   qmlRegisterModule("Config", 1, 0);
   qmlRegisterSingletonInstance<Config::Paths>("Config", 1, 0, "Paths", Config::Paths::get());

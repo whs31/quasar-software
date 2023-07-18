@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
   else
   {
     qInstallMessageHandler(0);
-    qCritical() << "FATAL QML ERROR: " << component.errorString();
+    qCritical() << "[QML FAILURE] " << component.errorString();
   }
 
   return app.exec();

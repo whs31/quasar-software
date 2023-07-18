@@ -5,6 +5,7 @@ import QtQuick.Controls.Material 2.15
 import Theme 1.0
 import Config 1.0
 import Markers 1.0
+import Application 1.0
 
 MenuBar {
     Menu {
@@ -30,7 +31,7 @@ MenuBar {
                     source: "qrc:/icons/vector/common/file_percent.svg"
                     color: ColorTheme.active.color(ColorTheme.Text)
                 }
-                //onTriggered: window_ExportDialog.open()
+                onTriggered: MarkersModel.save(Paths.markers() + "/" + Utils.currentDateString() + ".json", MarkersModel.JSON)
             }
             Action {
                 text: "Сохранить маркеры в текстовый файл"
@@ -38,7 +39,7 @@ MenuBar {
                     source: "qrc:/icons/vector/common/file.svg"
                     color: ColorTheme.active.color(ColorTheme.Text)
                 }
-                //onTriggered: window_ExportDialog.open()
+                onTriggered: MarkersModel.save(Paths.markers() + "/" + Utils.currentDateString() + ".txt", MarkersModel.PlainText)
             }
         }
 

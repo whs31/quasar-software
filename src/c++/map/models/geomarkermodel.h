@@ -39,7 +39,7 @@ namespace Map
       Q_INVOKABLE void remove(int index);
       Q_INVOKABLE void clear();
 
-      Q_INVOKABLE void save(const QString& path, SaveFormat format) const noexcept;
+      Q_INVOKABLE void save(const QString& path, Map::GeoMarkerModel::SaveFormat format) const noexcept;
       Q_INVOKABLE void load(const QString& path) noexcept;
 
     protected:

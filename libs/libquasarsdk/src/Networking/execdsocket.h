@@ -22,6 +22,7 @@ namespace QuasarSDK
 
       void execute(const QString& command) noexcept;
       void execute(Enums::NetworkCommand command) noexcept;
+      void signal()
 
       [[nodiscard]] ExecdArgumentParser* parser() const;
 

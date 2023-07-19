@@ -154,7 +154,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::kill(int pid)
   {
-    QByteArray com = wrap("#kill(" + QString::number(pid) + ")");
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_KILL") + "(" + QString::number(pid) + ")");
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Killed" << pid;
@@ -168,7 +168,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
   {
-    QByteArray com = wrap("#sig(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_SIGNAL") + "(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Sent signal" << signal << "to process" << pid;
@@ -180,7 +180,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::showQueue()
   {
-    QByteArray com = wrap("#queue()");
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_SHOW"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Asked for queue";
@@ -192,7 +192,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::clearQueue()
   {
-    QByteArray com = wrap("#queue(clear)");
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_CLEAR"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Cleared queue";
@@ -204,7 +204,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::popQueue()
   {
-    QByteArray com = wrap("#queue(pop)");
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_POP"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Removed last command from queue";
@@ -219,10 +219,23 @@ namespace QuasarSDK
    */
   void ExecdSocket::ssh(const QString& command, const QString& host, const QString& password)
   {
-    QByteArray com = wrap("#ssh(" + command + ", " + host + ", " + (password.isNull() ? "" : password));
+    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_SSH") + "(" + command + ", " + host + ", " + (password.isNull() ? "" : password));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Executed command on" << host;
     emit metrics(com, com.length(), true);
+  }
+
+  /**
+   * \brief Оборачивает команды в условие.
+   * \param condition - условие для выполнения.
+   * \param pass - команда, выполняемая в случае успеха.
+   * \param fail - команда, выполняемая в случае неудачи.
+   * \return Обернутая команда.
+   */
+  QByteArray ExecdSocket::condition(const QString& condition, const QString& pass, const QString& fail) noexcept
+  {
+    QByteArray ret = condition.toUtf8() + " ? " + pass.toUtf8() + " : " + fail.toUtf8();
+    return ret;
   }
 } // QuasarSDK

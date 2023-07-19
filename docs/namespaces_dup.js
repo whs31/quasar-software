@@ -1,6 +1,5 @@
 var namespaces_dup =
 [
-    [ "Config", "d2/dff/namespaceConfig.html", "d2/dff/namespaceConfig" ],
     [ "Map", "da/d88/namespaceMap.html", "da/d88/namespaceMap" ],
     [ "OS", "de/d7c/namespaceOS.html", "de/d7c/namespaceOS" ],
     [ "Processing", "d7/d4a/namespaceProcessing.html", "d7/d4a/namespaceProcessing" ],

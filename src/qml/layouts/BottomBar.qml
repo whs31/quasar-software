@@ -84,13 +84,13 @@ Rectangle {
                     NetworkAPI.stop();
                 else
                 {
-                    NetworkAPI.start(NetworkAPI.stringify(Config.remoteIP, Config.telemetryPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.telemetryRecvPort),
-                                     Config.telemetryFrequency,
-                                     NetworkAPI.stringify(Config.remoteIP, Config.execdPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.feedbackPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.tcpLFSPort),
-                                     NetworkAPI.stringify(Config.localIP, Config.udpLFSPort)
+                    NetworkAPI.start(NetworkAPI.stringify(Settings.io.parameter("ip/de10"), Settings.io.parameter("port/telemetry-request")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/telemetry-receive")),
+                                     Settings.io.parameter("misc/telemetry-frequency"),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/de10"), Settings.io.parameter("port/execd")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/stdout")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/tcp")),
+                                     NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/strip"))
                     );
                     NetworkAPI.execute(Net.RemoteStorageStatus);
                     timeout = true;
@@ -104,68 +104,6 @@ Rectangle {
                     button_Connect.timeout = false;
                 }
             }
-        }
-
-        RoundButton { id: button_Settings;
-            font.family: root.mainfont;
-            height: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/vector/common/settings.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
-            Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
-            onPressed: {
-                if(c_SettingsWindow.visible === true)
-                    c_SettingsWindow.hide();
-                else
-                    c_SettingsWindow.show();
-            }
-
-            Widgets.TT { ff: root.mainfont; txt: "Настройки программы"; }
-        }
-
-        RoundButton { id: button_About;
-            font.family: root.mainfont;
-            height: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/vector/common/info.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
-            Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
-            onPressed: {
-                if(c_InfoWindow.b_Shown)
-                    c_InfoWindow.b_Shown = false;
-                else
-                    c_InfoWindow.b_Shown = true;
-            }
-
-            Widgets.TT { ff: root.mainfont; txt: "О программе"; }
-        }
-
-        RoundButton { id: button_ToggleDebug;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/vector/common/terminal.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
-            Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
-            onPressed: root.consoleshown = !root.consoleshown;
-
-            Widgets.TT { ff: root.mainfont; txt: "Консоль разработчика"; }
-        }
-
-        RoundButton { id: button_ToggleVT100;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/vector/common/remote_display.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
-            Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
-            onPressed: root.vt100termshown = !root.vt100termshown;
-
-            Widgets.TT { ff: root.mainfont; txt: "Консоль РЛС"; }
         }
     }
 }

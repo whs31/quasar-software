@@ -1,4 +1,4 @@
-#include "entry.h"
+#include "quasar.h"
 #include <QtWidgets/QApplication>
 #include <QtQml/QQmlEngine>
 #include <QtQml/QQmlComponent>
@@ -56,7 +56,7 @@ int main(int argc, char* argv[])
   qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
   QQuickStyle::setStyle("Material");
 
-  Entry entry;
+  QuaSAR quasar;
 
   QQmlEngine engine;
   QObject::connect(&engine, &QQmlEngine::quit, qApp, &QCoreApplication::quit);
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
   else
   {
     qInstallMessageHandler(0);
-    qCritical() << "FATAL QML ERROR: " << component.errorString();
+    qCritical() << "[QML FAILURE] " << component.errorString();
   }
 
   return app.exec();

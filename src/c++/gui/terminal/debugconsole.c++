@@ -2,7 +2,7 @@
 #include <QtCore/QDebug>
 #include <QtCore/QCoreApplication>
 #include <QuasarSDK/API>
-#include "config/config.h"
+#include "config/settings.h"
 
 using QuasarSDK::QuasarAPI;
 
@@ -49,13 +49,13 @@ namespace GUI
   void DebugConsole::connect()
   {
     qInfo() << "$ [CONSOLE] Trying to connect through console...";
-    QuasarAPI::get()->start(QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(telemetryPort)),
-                            QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(telemetryRecvPort)),
-                            CONFIG(telemetryFrequency),
-                            QuasarAPI::stringify(CONFIG(remoteIP), CONFIG(execdPort)),
-                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(feedbackPort)),
-                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(tcpLFSPort)),
-                            QuasarAPI::stringify(CONFIG(localIP), CONFIG(udpLFSPort)));
+    QuasarAPI::get()->start(QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/de10"), Config::Settings::get()->value<QString>("port/telemetry-request")),
+                            QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/computer"), Config::Settings::get()->value<QString>("port/telemetry-receive")),
+                            Config::Settings::get()->value<float>("misc/telemetry-frequency"),
+                            QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/de10"), Config::Settings::get()->value<QString>("port/execd")),
+                            QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/computer"), Config::Settings::get()->value<QString>("port/output")),
+                            QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/computer"), Config::Settings::get()->value<QString>("port/tcp")),
+                            QuasarAPI::stringify(Config::Settings::get()->value<QString>("ip/computer"), Config::Settings::get()->value<QString>("port/strip")));
   }
 
   void DebugConsole::disconnect()

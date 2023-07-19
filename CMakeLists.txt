@@ -43,7 +43,7 @@ file(GLOB_RECURSE CPP_SOURCES
 
 set(PROJECT_SOURCES
     src/c++/main.c++
-    src/c++/entry.h    src/c++/entry.c++
+    src/c++/quasar.h src/c++/quasar.c++
 
     src/qml/qml.qrc
     resources/resources.qrc
@@ -59,6 +59,7 @@ add_subdirectory(libs/argparse)
 add_subdirectory(src/c++/sdk) # deprecated
 add_subdirectory(libs/libscenegraph)
 add_subdirectory(libs/libquasarsdk)
+add_subdirectory(libs/libabstract)
 #add_subdirectory(libs/corrosion) # requires rustc package
 add_subdirectory(services/UpdateService)
 
@@ -75,6 +76,7 @@ target_link_libraries(${PROJECT_NAME}
     SDK
     libscenegraph
     libquasarsdk
+    libabstraction
 )
 
 install(TARGETS ${PROJECT_NAME}

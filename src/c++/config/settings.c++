@@ -8,7 +8,9 @@ namespace Config
 {
   internal::SettingsWrapper::SettingsWrapper(QObject* parent)
       : QObject(parent)
-  {}
+  {
+    qRegisterMetaType<internal::SettingsWrapper*>("internal::SettingsWrapper*");
+  }
 
   QVariant internal::SettingsWrapper::parameter(const QString& key) const noexcept
   {
@@ -43,6 +45,7 @@ namespace Config
   {
     qInfo() << "$ [SETTINGS] Saving settings";
     QByteArray data_to_save = QJsonDocument(QJsonObject::fromVariantMap(QMap<QString, QVariant>(m_json))).toJson();
+    QFile::remove(Config::Paths::config() + "/settings.json");
     QFile file(Config::Paths::config() + "/settings.json");
     if(file.open(QIODevice::WriteOnly | QIODevice::Text))
     {
@@ -71,5 +74,12 @@ namespace Config
   void Settings::revert() noexcept { m_wrapper->load(); emit ioChanged(); }
   void Settings::load() noexcept { this->revert(); }
   QVariant Settings::parameter(const QString& key) const { return m_wrapper->parameter(key); }
-  void Settings::setParameter(const QString& key, const QVariant& value) noexcept { m_wrapper->set(key, value); }
+  void Settings::setParameter(const QString& key, const QVariant& value) noexcept
+  {
+    m_wrapper->set(key, value);
+    if(key == "application/theme")
+      emit themeChanged();
+  }
+
+  QString Settings::projectVersion() { return PROJECT_VERSION; }
 } // Config

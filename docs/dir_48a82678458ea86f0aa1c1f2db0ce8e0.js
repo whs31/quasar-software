@@ -1,7 +1,5 @@
 var dir_48a82678458ea86f0aa1c1f2db0ce8e0 =
 [
-    [ "config.c++", "d4/d4f/config_8c_09_09_source.html", null ],
-    [ "config.h", "db/d16/config_8h.html", "db/d16/config_8h" ],
     [ "internalconfig.c++", "d0/def/internalconfig_8c_09_09_source.html", null ],
     [ "internalconfig.h", "dd/d9b/internalconfig_8h_source.html", null ],
     [ "networkconfig.c++", "d2/d65/networkconfig_8c_09_09_source.html", null ],

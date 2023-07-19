@@ -1,9 +1,9 @@
 <map id="DraftFile" name="DraftFile">
 <area shape="rect" id="Node000001" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="44,157,120,184"/>
-<area shape="rect" id="Node000004" href="$dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,232,159,260"/>
+<area shape="rect" id="Node000004" href="$d3/daf/group__sdk__images.html#dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,232,159,260"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="85,199,85,232,79,232,79,199"/>
-<area shape="rect" id="Node000002" href="$d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="42,81,122,109"/>
+<area shape="rect" id="Node000002" href="$dc/d5f/group__sdk__io.html#d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="42,81,122,109"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,124,85,156,79,156,79,124"/>
-<area shape="rect" id="Node000003" href="$d9/d90/classQuasarSDK_1_1IO_1_1IFile.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="58,5,106,33"/>
+<area shape="rect" id="Node000003" href="$dc/d5f/group__sdk__io.html#d9/d90/classQuasarSDK_1_1IO_1_1IFile" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="58,5,106,33"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="85,48,85,81,79,81,79,48"/>
 </map>

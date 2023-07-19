@@ -4,7 +4,7 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
 import Theme 1.0
-import RadarDiagram 1.0
+import Route 1.0
 
 Pane { id: panel_Parameters;
     property bool shown: false;

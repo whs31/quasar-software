@@ -3,11 +3,10 @@ var annotated_dup =
     [ "Application", null, [
       [ "UpdateManager", "d2/dfe/classApplication_1_1UpdateManager.html", null ]
     ] ],
-    [ "Config", "d2/dff/namespaceConfig.html", [
+    [ "Config", null, [
       [ "internal", null, [
         [ "SettingsWrapper", "df/d9e/classConfig_1_1internal_1_1SettingsWrapper.html", null ]
       ] ],
-      [ "Config", "d5/dfa/classConfig_1_1Config.html", "d5/dfa/classConfig_1_1Config" ],
       [ "InternalConfig", "de/dd8/classConfig_1_1InternalConfig.html", "de/dd8/classConfig_1_1InternalConfig" ],
       [ "NetworkConfig", "d4/d25/classConfig_1_1NetworkConfig.html", null ],
       [ "Paths", "d1/d42/classConfig_1_1Paths.html", "d1/d42/classConfig_1_1Paths" ],
@@ -25,6 +24,8 @@ var annotated_dup =
     [ "Map", "da/d88/namespaceMap.html", [
       [ "ClickHandler", "d6/d20/classMap_1_1ClickHandler.html", null ],
       [ "Diagram", "d6/db2/classMap_1_1Diagram.html", null ],
+      [ "GeoMarker", "d2/d48/classMap_1_1GeoMarker.html", null ],
+      [ "GeoMarkerModel", "da/d88/namespaceMap.html#dc/d6a/classMap_1_1GeoMarkerModel", null ],
       [ "Image", "d4/da1/structMap_1_1Image.html", null ],
       [ "ImageMetadata", "da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata", "da/d88/namespaceMap_d6/d19/structMap_1_1ImageMetadata_dup" ],
       [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", "da/d88/namespaceMap_d0/df3/structMap_1_1ImageMetaHeader_dup" ],
@@ -65,48 +66,47 @@ var annotated_dup =
         [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", "d8/d07/group__sdk__protocol_d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest" ]
       ] ],
       [ "IO", "d7/daf/namespaceQuasarSDK_1_1IO.html", [
-        [ "Base64Object", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object" ],
-        [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" ],
-        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile" ],
-        [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", "d9/d90/classQuasarSDK_1_1IO_1_1IFile" ],
-        [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
-        [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel" ],
-        [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ],
-        [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel" ]
+        [ "Base64Object", "dc/d5f/group__sdk__io.html#df/d2f/classQuasarSDK_1_1IO_1_1Base64Object", "dc/d5f/group__sdk__io_df/d2f/classQuasarSDK_1_1IO_1_1Base64Object" ],
+        [ "BasicFile", "dc/d5f/group__sdk__io.html#d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile", "dc/d5f/group__sdk__io_d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile" ],
+        [ "DraftFile", "dc/d5f/group__sdk__io.html#de/deb/classQuasarSDK_1_1IO_1_1DraftFile", "dc/d5f/group__sdk__io_de/deb/classQuasarSDK_1_1IO_1_1DraftFile" ],
+        [ "IFile", "dc/d5f/group__sdk__io.html#d9/d90/classQuasarSDK_1_1IO_1_1IFile", "dc/d5f/group__sdk__io_d9/d90/classQuasarSDK_1_1IO_1_1IFile" ],
+        [ "IMessage", "dc/d5f/group__sdk__io.html#d1/d41/classQuasarSDK_1_1IO_1_1IMessage", "dc/d5f/group__sdk__io_d1/d41/classQuasarSDK_1_1IO_1_1IMessage" ],
+        [ "MessageModel", "dc/d5f/group__sdk__io.html#d0/db5/classQuasarSDK_1_1IO_1_1MessageModel", "dc/d5f/group__sdk__io_d0/db5/classQuasarSDK_1_1IO_1_1MessageModel" ],
+        [ "SARMessage", "dc/d5f/group__sdk__io.html#d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage", "dc/d5f/group__sdk__io_d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage" ],
+        [ "SAROutputModel", "dc/d5f/group__sdk__io.html#d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel", "dc/d5f/group__sdk__io_d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel" ]
       ] ],
       [ "Map", "d2/d78/namespaceQuasarSDK_1_1Map.html", [
-        [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject" ],
-        [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage" ],
-        [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" ],
-        [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject" ],
-        [ "ISARImage", "d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html", "d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage" ],
-        [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage" ],
-        [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment" ],
+        [ "BasicMapObject", "d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject", "d6/d84/group__sdk__map_d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject" ],
+        [ "CompleteMapImage", "d3/daf/group__sdk__images.html#dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage", "d3/daf/group__sdk__images_dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage" ],
+        [ "FGSMapObject", "d6/d84/group__sdk__map.html#d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject", "d6/d84/group__sdk__map_d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" ],
+        [ "IMapObject", "d6/d84/group__sdk__map.html#da/da7/classQuasarSDK_1_1Map_1_1IMapObject", "d6/d84/group__sdk__map_da/da7/classQuasarSDK_1_1Map_1_1IMapObject" ],
+        [ "ISARImage", "d6/d84/group__sdk__map.html#d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage", "d6/d84/group__sdk__map_d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage" ],
+        [ "MapImage", "d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage", "d6/d84/group__sdk__map_d6/d61/classQuasarSDK_1_1Map_1_1MapImage" ],
+        [ "MapImageSegment", "d3/daf/group__sdk__images.html#d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment", "d3/daf/group__sdk__images_d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment" ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject" ],
-        [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject" ]
+        [ "ScreenMapObject", "d6/d84/group__sdk__map.html#dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject", "d6/d84/group__sdk__map_dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject" ]
       ] ],
-      [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
-      [ "Config", "da/dff/classQuasarSDK_1_1Config.html", "da/dff/classQuasarSDK_1_1Config" ],
-      [ "Enums", "d6/de3/classQuasarSDK_1_1Enums.html", "d6/de3/classQuasarSDK_1_1Enums" ],
-      [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", "d7/d54/structQuasarSDK_1_1ExecdArgument" ],
-      [ "ExecdArgumentParser", "de/da2/classQuasarSDK_1_1ExecdArgumentParser.html", "de/da2/classQuasarSDK_1_1ExecdArgumentParser" ],
-      [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", "d7/d42/classQuasarSDK_1_1ExecdSocket" ],
-      [ "FRegister", "d4/d48/namespaceQuasarSDK.html#da/d1e/classQuasarSDK_1_1FRegister", null ],
-      [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", "d3/db8/classQuasarSDK_1_1IConnectable" ],
-      [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer" ],
-      [ "OutputSocket", "d8/d25/classQuasarSDK_1_1OutputSocket.html", "d8/d25/classQuasarSDK_1_1OutputSocket" ],
-      [ "PingTester", "d2/d74/classQuasarSDK_1_1PingTester.html", "d2/d74/classQuasarSDK_1_1PingTester" ],
-      [ "QuasarAPI", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html", "d0/dbc/classQuasarSDK_1_1QuasarAPI" ],
-      [ "RemoteData", "d0/d18/classQuasarSDK_1_1RemoteData.html", "d0/d18/classQuasarSDK_1_1RemoteData" ],
-      [ "SeamlessUDPSocket", "d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket.html", "d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket" ],
-      [ "StripSocket", "d9/d93/classQuasarSDK_1_1StripSocket.html", "d9/d93/classQuasarSDK_1_1StripSocket" ],
-      [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", "d9/df7/classQuasarSDK_1_1TCPServer" ],
-      [ "Telemetry", "db/d03/classQuasarSDK_1_1Telemetry.html", "db/d03/classQuasarSDK_1_1Telemetry" ],
-      [ "TelemetrySocket", "db/d5f/classQuasarSDK_1_1TelemetrySocket.html", "db/d5f/classQuasarSDK_1_1TelemetrySocket" ]
+      [ "BaseUDPSocket", "d3/d54/group__sdk__network.html#da/dc1/classQuasarSDK_1_1BaseUDPSocket", "d3/d54/group__sdk__network_da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
+      [ "Config", "d3/d54/group__sdk__network.html#da/dff/classQuasarSDK_1_1Config", "d3/d54/group__sdk__network_da/dff/classQuasarSDK_1_1Config" ],
+      [ "Enums", "d3/d54/group__sdk__network.html#d6/de3/classQuasarSDK_1_1Enums", "d3/d54/group__sdk__network_d6/de3/classQuasarSDK_1_1Enums" ],
+      [ "ExecdArgument", "d3/d54/group__sdk__network.html#d7/d54/structQuasarSDK_1_1ExecdArgument", "d3/d54/group__sdk__network_d7/d54/structQuasarSDK_1_1ExecdArgument" ],
+      [ "ExecdArgumentParser", "d3/d54/group__sdk__network.html#de/da2/classQuasarSDK_1_1ExecdArgumentParser", "d3/d54/group__sdk__network_de/da2/classQuasarSDK_1_1ExecdArgumentParser" ],
+      [ "ExecdSocket", "d3/d54/group__sdk__network.html#d7/d42/classQuasarSDK_1_1ExecdSocket", "d3/d54/group__sdk__network_d7/d42/classQuasarSDK_1_1ExecdSocket" ],
+      [ "IConnectable", "d3/d54/group__sdk__network.html#d3/db8/classQuasarSDK_1_1IConnectable", "d3/d54/group__sdk__network_d3/db8/classQuasarSDK_1_1IConnectable" ],
+      [ "OutputRedirectServer", "d3/d54/group__sdk__network.html#dc/d2d/classQuasarSDK_1_1OutputRedirectServer", "d3/d54/group__sdk__network_dc/d2d/classQuasarSDK_1_1OutputRedirectServer" ],
+      [ "OutputSocket", "d3/d54/group__sdk__network.html#d8/d25/classQuasarSDK_1_1OutputSocket", "d3/d54/group__sdk__network_d8/d25/classQuasarSDK_1_1OutputSocket" ],
+      [ "PingTester", "d3/d54/group__sdk__network.html#d2/d74/classQuasarSDK_1_1PingTester", "d3/d54/group__sdk__network_d2/d74/classQuasarSDK_1_1PingTester" ],
+      [ "QuasarAPI", "d3/d54/group__sdk__network.html#d0/dbc/classQuasarSDK_1_1QuasarAPI", "d3/d54/group__sdk__network_d0/dbc/classQuasarSDK_1_1QuasarAPI" ],
+      [ "RemoteData", "d3/d54/group__sdk__network.html#d0/d18/classQuasarSDK_1_1RemoteData", "d3/d54/group__sdk__network_d0/d18/classQuasarSDK_1_1RemoteData" ],
+      [ "SeamlessUDPSocket", "d3/d54/group__sdk__network.html#d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket", "d3/d54/group__sdk__network_d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket" ],
+      [ "StripSocket", "d3/d54/group__sdk__network.html#d9/d93/classQuasarSDK_1_1StripSocket", "d3/d54/group__sdk__network_d9/d93/classQuasarSDK_1_1StripSocket" ],
+      [ "TCPServer", "d3/d54/group__sdk__network.html#d9/df7/classQuasarSDK_1_1TCPServer", "d3/d54/group__sdk__network_d9/df7/classQuasarSDK_1_1TCPServer" ],
+      [ "Telemetry", "d3/d54/group__sdk__network.html#db/d03/classQuasarSDK_1_1Telemetry", "d3/d54/group__sdk__network_db/d03/classQuasarSDK_1_1Telemetry" ],
+      [ "TelemetrySocket", "d3/d54/group__sdk__network.html#db/d5f/classQuasarSDK_1_1TelemetrySocket", "d3/d54/group__sdk__network_db/d5f/classQuasarSDK_1_1TelemetrySocket" ]
     ] ],
     [ "Scenegraph", "d9/d69/namespaceScenegraph.html", [
       [ "Utils", "d9/de7/namespaceScenegraph_1_1Utils.html", [
-        [ "ColorProvider", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider" ]
+        [ "ColorProvider", "d4/df9/group__legacy.html#db/d68/classScenegraph_1_1Utils_1_1ColorProvider", "d4/df9/group__legacy_db/d68/classScenegraph_1_1Utils_1_1ColorProvider" ]
       ] ]
     ] ],
     [ "SDK", null, [
@@ -128,5 +128,7 @@ var annotated_dup =
         [ "VertexT", "df/d7d/structSDK_1_1Scenegraph_1_1VertexT.html", null ]
       ] ]
     ] ],
-    [ "Entry", "df/d40/classEntry.html", null ]
+    [ "Entry", "df/d40/classEntry.html", null ],
+    [ "IColorable", "da/db4/classIColorable.html", null ],
+    [ "INameable", "d9/d46/classINameable.html", null ]
 ];

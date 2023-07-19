@@ -1,5 +1,5 @@
 #include "filesystem.h"
-#include "config/config.h"
+#include "config/settings.h"
 #include "config/paths.h"
 #include "processing/imageprocessing.h"
 
@@ -17,15 +17,25 @@ Filesystem *Filesystem::get() { static Filesystem instance; return &instance; }
 
 bool Filesystem::fetchImageDirectory()
 {
-  qDebug().noquote() << "[FILESYSTEM] Fetching images from" << CONFIG(storedCatalogue);
-  QList<QString> pass = this->fetchBinaryList(CONFIG(storedCatalogue));
+  QString folder = Config::Settings::get()->value<QString>("state/folder");
+  if(folder.startsWith("file://"))
+  {
+    #ifdef Q_OS_WINDOWS
+    folder.remove(0, strlen("file:///"));
+    #else
+    folder.remove(0, strlen("file://"));
+    #endif
+  }
+
+  qDebug().noquote() << "[FILESYSTEM] Fetching images from" << folder;
+  QList<QString> pass = this->fetchBinaryList(folder);
 
   QList<QString> path_list;
-  QDir directory(CONFIG(storedCatalogue), {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
+  QDir directory(folder, {"*.jpg"}, QDir::Name | QDir::IgnoreCase,
                  QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
   for (const QString& filename : directory.entryList())
-    path_list.push_back(CONFIG(storedCatalogue) + "/" + filename);
+    path_list.push_back(folder + "/" + filename);
 
   if(path_list.empty()) {
     qWarning() << "[FILESYSTEM] Target catalogue is empty, throwing warning window...";
@@ -42,7 +52,7 @@ bool Filesystem::fetchImageDirectory()
       pass.push_back(directory.entryList().at(i));
     }
     else
-      qDebug() << "[FILESYSTEM] Occurence found, skipping...";
+      qDebug() << "[FILESYSTEM] Occurrence found, skipping...";
   }
 
   emit imageListCached(pass);
@@ -77,7 +87,7 @@ void Filesystem::fetchTCPCache()
 
     if(int ndex = Processing::ImageProcessing::get()->indexFrom(directory.entryList().at(i)))
     {
-      qDebug() << "[FILESYSTEM] Occurence found in TCP cache. Replacing...";
+      qDebug() << "[FILESYSTEM] Occurrence found in TCP cache. Replacing...";
       qDebug() << "$ [PROCESSING] Replacing is not implemented for now.";
       //Processing::ImageProcessing::get()->model()->remove(ndex);
     }
@@ -116,7 +126,7 @@ QList<QString> Filesystem::fetchBinaryList(const QString& path)
                  QDir::Files | QDir::NoSymLinks | QDir::NoDot | QDir::NoDotDot);
 
   for(const QString& filename : directory.entryList())
-    path_list.push_back(CONFIG(storedCatalogue) + "/" + filename);
+    path_list.push_back(Config::Settings::get()->value<QString>("state/folder") + "/" + filename);
 
   if(path_list.empty()) {
     qDebug() << "[FILESYSTEM] Target catalogue does not contain binaries";
@@ -133,7 +143,7 @@ QList<QString> Filesystem::fetchBinaryList(const QString& path)
       ret.push_back(directory.entryList().at(i));
     }
     else
-      qDebug() << "[FILESYSTEM] Binary occurence found, skipping...";
+      qDebug() << "[FILESYSTEM] Binary occurrence found, skipping...";
   }
 
   return ret;

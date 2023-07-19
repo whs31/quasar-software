@@ -8,7 +8,7 @@ import Route 1.0
 import Theme 1.0
 
 MapPolyline {
-    function clear() { c_Route.clear(); }
+    function clear() { impl.clear(); }
 
     enum RouteType
     {
@@ -19,16 +19,15 @@ MapPolyline {
     property int type: UAVRoute.Recent;
 
 
-    property real fl_CurrentLat: NetworkAPI.telemetry.position.latitude
-    property real fl_CurrentSpeed: NetworkAPI.telemetry.velocity.x;
-    property int i_CurrentSats: NetworkAPI.telemetry.satellites;
+    property var currentPosition: NetworkAPI.telemetry.position
+    property real currentSpeed: NetworkAPI.telemetry.velocity.x;
+    property int currentSats: NetworkAPI.telemetry.satellites;
 
-    onFl_CurrentLatChanged: c_Route.append(NetworkAPI.telemetry.position,
-                                           fl_CurrentSpeed, i_CurrentSats);
+    onCurrentPositionChanged: impl.append(currentPosition, currentSpeed, currentSats)
 
     line.width: 5;
     line.color: ColorTheme.active.color(ColorTheme.Yellow)
-    path: type === UAVRoute.Full ? c_Route.fullRoute : c_Route.recentRoute;
+    path: type === UAVRoute.Full ? impl.fullRoute : impl.recentRoute;
 
-    Route { id: c_Route; }
+    Route { id: impl; }
 }

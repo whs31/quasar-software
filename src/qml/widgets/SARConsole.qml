@@ -114,10 +114,7 @@ Pane {
         model: NetworkOutput
         interactive: true
         clip: true
-        onCountChanged: {
-            scrollView.ScrollBar.vertical.position = 1;
-            console.error(count);
-        }
+        onCountChanged: scrollView.ScrollBar.vertical.position = 1;
 
         anchors {
             left: parent.left

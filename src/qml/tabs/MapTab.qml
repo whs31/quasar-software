@@ -14,9 +14,8 @@ import Filesystem 1.0
 import Config 1.0
 import Images 1.0
 import Markers 1.0
-import RadarDiagram 1.0
+import Route 1.0
 import Notifications 1.0
-import ImageProcessing 1.0
 
 import "map" as MapTab
 import "map/ui" as MapTabUI
@@ -28,9 +27,10 @@ Map { id: maptab_root;
     property alias routeType: c_Route.type;
 
     Component.onDestruction: {
-        Config.storedLatitude = center.latitude;
-        Config.storedLongitude = center.longitude;
-        Config.storedZoomLevel = zoomLevel;
+        Settings.setParameter("state/latitude", center.latitude)
+        Settings.setParameter("state/longitude", center.longitude)
+        Settings.setParameter("state/zoom", zoomLevel)
+        Settings.save()
     }
 
     tilt: 15;
@@ -47,8 +47,8 @@ Map { id: maptab_root;
     }
 
     activeMapType: maptab_root.supportedMapTypes[i_MapMode];
-    center: QtPositioning.coordinate(Config.storedLatitude, Config.storedLongitude);
-    zoomLevel: Config.storedZoomLevel;
+    center: QtPositioning.coordinate(Settings.io.parameter("state/latitude"), Settings.io.parameter("state/longitude"));
+    zoomLevel: Settings.io.parameter("state/zoom");
     copyrightsVisible: false;
     z: 0;
 
@@ -59,11 +59,11 @@ Map { id: maptab_root;
         target: NetworkAPI.telemetry;
         function onSeaLevelChanged() {
             if(NetworkAPI.telemetry.seaLevel === 0)
-                WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
+                NotificationsModel.add(NotificationsModel.Uncalibrated, NotificationsModel.Alert)
             else
-                WarningsModel.remove(WarningsModel.Uncalibrated);
+                NotificationsModel.remove(NotificationsModel.Uncalibrated);
         }
-        Component.onCompleted:  WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
+        Component.onCompleted: NotificationsModel.add(NotificationsModel.Uncalibrated, NotificationsModel.Alert)
     }
 
     MouseArea { id: c_MapMouseArea;
@@ -125,14 +125,15 @@ Map { id: maptab_root;
     }
 
     MapTab.UAV { id: c_UAV; }
+    MapQuickItems.NotificationsUI { }
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     RadarDiagram {  id: c_RadarDiagram;
-        angle: 30 - Config.thetaAzimuthCorrection // @FIXME
+        angle: 30 - Settings.io.parameter("image/div-correction") // @FIXME
         uavPosition: NetworkAPI.telemetry.position
         azimuth: NetworkAPI.telemetry.eulerAxes.y
         range: 3500
-        direction: Config.antennaAlignment ? 1 : 0
+        direction: Settings.io.parameter("misc/antenna-alignment") === "right" ? 1 : 0
         type: RadarDiagram.Telescopic
     }
 
@@ -188,7 +189,7 @@ Map { id: maptab_root;
         model: MarkersModel;
         add: Transition { NumberAnimation { property: "m_opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
-        delegate: MapTab.MapMarker { }
+        delegate: MapQuickItems.GeoMarker { }
     }
 
     property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);
@@ -282,16 +283,6 @@ Map { id: maptab_root;
         opacity: 0.85;
     }
 
-    MapTabUI.PanelWarnings { id: panel_Warnings;
-        anchors {
-            top: panel_MainToolbar.bottom
-            left: parent.left
-            margins: 5
-        }
-
-        opacity: 1;
-    }
-
     MapTabUI.PanelTools { id: panel_Tools;
         anchors {
             top: parent.top;
@@ -339,35 +330,6 @@ Map { id: maptab_root;
         Material.primary: Material.primary;
         Material.accent: Material.accent;
         onCheckedChanged: panel_Parameters.shown = checked;
-    }
-
-    MapTabUI.PanelExport { id: panel_Export;
-        anchors {
-            top: parent.top
-            right: panel_Tools.left
-            rightMargin: 5
-        }
-    }
-
-    RoundButton { id: button_ExpandExport;
-        anchors {
-            top: panel_Export.bottom;
-            topMargin: -7;
-            horizontalCenter: panel_Export.horizontalCenter;
-        }
-        checkable: true;
-        height: 40;
-        radius: 4;
-        icon.source: panel_Export.shown ? "qrc:/icons/vector/common/collapse.svg"
-                                        : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
-        font.family: root.mainfont;
-        text: panel_Export.shown ? "" : "Экспорт";
-        Material.elevation: 30;
-        Material.background: Material.background;
-        Material.primary: Material.primary;
-        Material.accent: Material.accent;
-        onCheckedChanged: panel_Export.shown = checked;
     }
 
     MapTabUI.PanelImages {

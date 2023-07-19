@@ -54,6 +54,18 @@ namespace Config
       //! @note Can be invoked from QML.
       Q_INVOKABLE [[nodiscard]] static QString themes();
 
+      /**
+       * \brief Возвращает путь к папке сохранений.
+       * \note Может быть вызвано из QML через мета-объектную систему.
+       */
+      Q_INVOKABLE [[nodiscard]] static QString saves();
+
+      /**
+       * \brief Возвращает путь к папке с сохраненными маркерами.
+       * \note Может быть вызвано из QML через мета-объектную систему.
+       */
+      Q_INVOKABLE [[nodiscard]] static QString markers();
+
       //! @brief   Creates and setups image cache.
       //! @note Can be invoked from QML.
       Q_INVOKABLE void createImageCache() noexcept;

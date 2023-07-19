@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('dc/d7e/colortheme_8c_09_09_source.html
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;QtCore/QFile&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QtCore/QJsonDocument&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QtCore/QJsonObject&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d16/config_8h.html">config/config.h</a>&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;config/settings.h&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;config/paths.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;config/internalconfig.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
@@ -147,7 +147,7 @@ $(document).ready(function(){initNavTree('dc/d7e/colortheme_8c_09_09_source.html
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    this-&gt;scanThemes();</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    this-&gt;apply();</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    connect(<a class="code hl_function" href="../../d5/dfa/classConfig_1_1Config.html#aab4f0df3041b8a7fb08052df350ebcbd">Config::Config::get</a>(), &amp;Config::Config::themeChanged, <span class="keyword">this</span>, &amp;ColorTheme::apply);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    connect(Config::Settings::get(), &amp;Config::Settings::themeChanged, <span class="keyword">this</span>, &amp;ColorTheme::apply);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  }</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordtype">void</span> ColorTheme::set(<span class="keyword">const</span> std::map&lt;internal::ColorThemeWrapper::Color, QString&gt;&amp; dict) <span class="keyword">noexcept</span></div>
@@ -204,13 +204,13 @@ $(document).ready(function(){initNavTree('dc/d7e/colortheme_8c_09_09_source.html
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span>(not m_themeList.contains(CONFIG(theme)))</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">if</span>(not m_themeList.contains(Config::Settings::get()-&gt;value&lt;QString&gt;(<span class="stringliteral">&quot;application/theme&quot;</span>)))</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      qWarning() &lt;&lt; <span class="stringliteral">&quot;[COLORSCHEME] Selected theme isn&#39;t present in total found list&quot;</span>;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      this-&gt;setActiveThemeName(m_themeList.first());</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    this-&gt;setActiveThemeName(CONFIG(theme));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    this-&gt;setActiveThemeName(Config::Settings::get()-&gt;value&lt;QString&gt;(<span class="stringliteral">&quot;application/theme&quot;</span>));</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span>(not m_files.count(activeThemeName()))</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      setActiveThemeName(m_files.begin()-&gt;first);</div>
@@ -241,16 +241,14 @@ $(document).ready(function(){initNavTree('dc/d7e/colortheme_8c_09_09_source.html
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    emit activeThemeNameChanged();</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  }</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>} <span class="comment">// GUI</span></div>
-<div class="ttc" id="aclassConfig_1_1Config_html_aab4f0df3041b8a7fb08052df350ebcbd"><div class="ttname"><a href="../../d5/dfa/classConfig_1_1Config.html#aab4f0df3041b8a7fb08052df350ebcbd">Config::Config::get</a></div><div class="ttdeci">static Config * get()</div><div class="ttdoc">Возвращает указатель на статический экземпляр класса.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d4f/config_8c_09_09_source.html#l00009">config.c++:9</a></div></div>
 <div class="ttc" id="aclassConfig_1_1Paths_html_addc33e2f765b93f743cb8eaae7089ebb"><div class="ttname"><a href="../../d1/d42/classConfig_1_1Paths.html#addc33e2f765b93f743cb8eaae7089ebb">Config::Paths::themes</a></div><div class="ttdeci">static Q_INVOKABLE QString themes()</div><div class="ttdoc">Returns themes directory.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d17/paths_8c_09_09_source.html#l00056">paths.c++:56</a></div></div>
-<div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="../../db/d16/config_8h.html">config.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="../../dir_fcb2a60e1810a51543a3cc3a113d0956.html">c++</a></li><li class="navelem"><a class="el" href="../../dir_26318e8bd4be45baf98311c3e5c1a731.html">gui</a></li><li class="navelem"><b>colortheme.c++</b></li>
-    <li class="footer">Документация по QuaSAR. Последние изменения: Чт 13 Июл 2023 01:28:24. Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
   </ul>
 </div>
 </body>

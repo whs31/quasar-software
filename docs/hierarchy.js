@@ -1,34 +1,37 @@
 var hierarchy =
 [
     [ "ArrayReader< T >", "d4/d1b/classProcessing_1_1ArrayReader.html", null ],
-    [ "Base64Object", "df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html", [
-      [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", null ]
+    [ "Base64Object", "dc/d5f/group__sdk__io.html#df/d2f/classQuasarSDK_1_1IO_1_1Base64Object", [
+      [ "MapImageSegment", "d3/daf/group__sdk__images.html#d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment", null ]
     ] ],
     [ "BasicMessage", "d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage", null ],
-    [ "Config", "da/dff/classQuasarSDK_1_1Config.html", null ],
-    [ "CPIterator", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
-    [ "CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
+    [ "Config", "d3/d54/group__sdk__network.html#da/dff/classQuasarSDK_1_1Config", null ],
+    [ "CPIterator", "d4/df9/group__legacy.html#d3/ded/structScenegraph_1_1Utils_1_1ColorProvider_1_1CPIterator", null ],
+    [ "CursorPosition", "dc/d5f/group__sdk__io.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
     [ "EventData", "d6/d55/classMap_1_1TrackEventModel.html#d2/d49/structMap_1_1TrackEventModel_1_1EventData", null ],
-    [ "ExecdArgument", "d7/d54/structQuasarSDK_1_1ExecdArgument.html", null ],
-    [ "filename_t", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t", null ],
-    [ "FRegister", "d4/d48/namespaceQuasarSDK.html#da/d1e/classQuasarSDK_1_1FRegister", null ],
-    [ "IConnectable", "d3/db8/classQuasarSDK_1_1IConnectable.html", [
-      [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", [
-        [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", null ],
-        [ "OutputSocket", "d8/d25/classQuasarSDK_1_1OutputSocket.html", null ],
-        [ "SeamlessUDPSocket", "d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket.html", [
-          [ "StripSocket", "d9/d93/classQuasarSDK_1_1StripSocket.html", null ]
-        ] ],
-        [ "TelemetrySocket", "db/d5f/classQuasarSDK_1_1TelemetrySocket.html", null ]
-      ] ],
-      [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", null ],
-      [ "PingTester", "d2/d74/classQuasarSDK_1_1PingTester.html", null ],
-      [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", null ]
+    [ "ExecdArgument", "d3/d54/group__sdk__network.html#d7/d54/structQuasarSDK_1_1ExecdArgument", null ],
+    [ "filename_t", "dc/d5f/group__sdk__io.html#d9/d10/structQuasarSDK_1_1IO_1_1DraftFile_1_1filename__t", null ],
+    [ "GeoMarkerModel", "da/d88/namespaceMap.html#dc/d6a/classMap_1_1GeoMarkerModel", null ],
+    [ "IColorable", "da/db4/classIColorable.html", [
+      [ "GeoMarker", "d2/d48/classMap_1_1GeoMarker.html", null ]
     ] ],
-    [ "IFile", "d9/d90/classQuasarSDK_1_1IO_1_1IFile.html", [
-      [ "BasicFile", "d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html", [
-        [ "DraftFile", "de/deb/classQuasarSDK_1_1IO_1_1DraftFile.html", [
-          [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", null ]
+    [ "IConnectable", "d3/d54/group__sdk__network.html#d3/db8/classQuasarSDK_1_1IConnectable", [
+      [ "BaseUDPSocket", "d3/d54/group__sdk__network.html#da/dc1/classQuasarSDK_1_1BaseUDPSocket", [
+        [ "ExecdSocket", "d3/d54/group__sdk__network.html#d7/d42/classQuasarSDK_1_1ExecdSocket", null ],
+        [ "OutputSocket", "d3/d54/group__sdk__network.html#d8/d25/classQuasarSDK_1_1OutputSocket", null ],
+        [ "SeamlessUDPSocket", "d3/d54/group__sdk__network.html#d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket", [
+          [ "StripSocket", "d3/d54/group__sdk__network.html#d9/d93/classQuasarSDK_1_1StripSocket", null ]
+        ] ],
+        [ "TelemetrySocket", "d3/d54/group__sdk__network.html#db/d5f/classQuasarSDK_1_1TelemetrySocket", null ]
+      ] ],
+      [ "OutputRedirectServer", "d3/d54/group__sdk__network.html#dc/d2d/classQuasarSDK_1_1OutputRedirectServer", null ],
+      [ "PingTester", "d3/d54/group__sdk__network.html#d2/d74/classQuasarSDK_1_1PingTester", null ],
+      [ "TCPServer", "d3/d54/group__sdk__network.html#d9/df7/classQuasarSDK_1_1TCPServer", null ]
+    ] ],
+    [ "IFile", "dc/d5f/group__sdk__io.html#d9/d90/classQuasarSDK_1_1IO_1_1IFile", [
+      [ "BasicFile", "dc/d5f/group__sdk__io.html#d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile", [
+        [ "DraftFile", "dc/d5f/group__sdk__io.html#de/deb/classQuasarSDK_1_1IO_1_1DraftFile", [
+          [ "CompleteMapImage", "d3/daf/group__sdk__images.html#dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage", null ]
         ] ]
       ] ]
     ] ],
@@ -38,24 +41,29 @@ var hierarchy =
     ] ],
     [ "ImageMetadata", "da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata", null ],
     [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", null ],
-    [ "IMapObject", "da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html", [
-      [ "AbstractMapObject", "de/d91/classQuasarSDK_1_1Map_1_1AbstractMapObject.html", [
-        [ "FGSMapObject", "d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html", [
-          [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", [
-            [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", null ],
-            [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", null ]
+    [ "IMapObject", "d6/d84/group__sdk__map.html#da/da7/classQuasarSDK_1_1Map_1_1IMapObject", [
+      [ "BasicMapObject", "d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject", [
+        [ "FGSMapObject", "d6/d84/group__sdk__map.html#d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject", [
+          [ "MapImage", "d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage", [
+            [ "CompleteMapImage", "d3/daf/group__sdk__images.html#dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage", null ],
+            [ "MapImageSegment", "d3/daf/group__sdk__images.html#d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment", null ]
           ] ]
         ] ],
         [ "ScalableMapObject", "db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html", null ],
-        [ "ScreenMapObject", "dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html", null ]
+        [ "ScreenMapObject", "d6/d84/group__sdk__map.html#dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject", [
+          [ "GeoMarker", "d2/d48/classMap_1_1GeoMarker.html", null ]
+        ] ]
       ] ]
     ] ],
-    [ "IMessage", "d1/d41/classQuasarSDK_1_1IO_1_1IMessage.html", [
-      [ "SARMessage", "d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage.html", null ]
+    [ "IMessage", "dc/d5f/group__sdk__io.html#d1/d41/classQuasarSDK_1_1IO_1_1IMessage", [
+      [ "SARMessage", "dc/d5f/group__sdk__io.html#d4/dd6/classQuasarSDK_1_1IO_1_1SARMessage", null ]
+    ] ],
+    [ "INameable", "d9/d46/classINameable.html", [
+      [ "GeoMarker", "d2/d48/classMap_1_1GeoMarker.html", null ]
     ] ],
     [ "InternalConfig", "de/dd8/classConfig_1_1InternalConfig.html", null ],
-    [ "ISARImage", "d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage.html", [
-      [ "MapImage", "d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html", null ]
+    [ "ISARImage", "d6/d84/group__sdk__map.html#d3/d4f/classQuasarSDK_1_1Map_1_1ISARImage", [
+      [ "MapImage", "d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage", null ]
     ] ],
     [ "Marker", "d6/d7c/structMap_1_1Marker.html", [
       [ "PlannerPoint", "d7/d92/structMap_1_1PlannerPoint.html", null ]
@@ -75,13 +83,12 @@ var hierarchy =
       [ "Ruler", "dc/d18/classMap_1_1Ruler.html", null ],
       [ "StripModel", "d3/d9a/classMap_1_1StripModel.html", null ],
       [ "TrackEventModel", "d6/d55/classMap_1_1TrackEventModel.html", null ],
-      [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", [
-        [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", null ]
+      [ "MessageModel", "dc/d5f/group__sdk__io.html#d0/db5/classQuasarSDK_1_1IO_1_1MessageModel", [
+        [ "SAROutputModel", "dc/d5f/group__sdk__io.html#d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel", null ]
       ] ]
     ] ],
     [ "QObject", null, [
       [ "UpdateManager", "d2/dfe/classApplication_1_1UpdateManager.html", null ],
-      [ "Config", "d5/dfa/classConfig_1_1Config.html", null ],
       [ "Paths", "d1/d42/classConfig_1_1Paths.html", null ],
       [ "Settings", "d7/d8b/classConfig_1_1Settings.html", null ],
       [ "SettingsWrapper", "df/d9e/classConfig_1_1internal_1_1SettingsWrapper.html", null ],
@@ -97,15 +104,15 @@ var hierarchy =
       [ "Filesystem", "de/d69/classOS_1_1Filesystem.html", null ],
       [ "ImageProcessing", "d4/db0/classProcessing_1_1ImageProcessing.html", null ],
       [ "StreamProcessing", "d7/d38/classProcessing_1_1StreamProcessing.html", null ],
-      [ "Enums", "d6/de3/classQuasarSDK_1_1Enums.html", null ],
-      [ "ExecdArgumentParser", "de/da2/classQuasarSDK_1_1ExecdArgumentParser.html", null ],
-      [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", null ],
-      [ "PingTester", "d2/d74/classQuasarSDK_1_1PingTester.html", null ],
-      [ "QuasarAPI", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html", null ],
-      [ "RemoteData", "d0/d18/classQuasarSDK_1_1RemoteData.html", null ],
-      [ "TCPServer", "d9/df7/classQuasarSDK_1_1TCPServer.html", null ],
-      [ "Telemetry", "db/d03/classQuasarSDK_1_1Telemetry.html", null ],
-      [ "ColorProvider", "db/d68/classScenegraph_1_1Utils_1_1ColorProvider.html", null ]
+      [ "Enums", "d3/d54/group__sdk__network.html#d6/de3/classQuasarSDK_1_1Enums", null ],
+      [ "ExecdArgumentParser", "d3/d54/group__sdk__network.html#de/da2/classQuasarSDK_1_1ExecdArgumentParser", null ],
+      [ "OutputRedirectServer", "d3/d54/group__sdk__network.html#dc/d2d/classQuasarSDK_1_1OutputRedirectServer", null ],
+      [ "PingTester", "d3/d54/group__sdk__network.html#d2/d74/classQuasarSDK_1_1PingTester", null ],
+      [ "QuasarAPI", "d3/d54/group__sdk__network.html#d0/dbc/classQuasarSDK_1_1QuasarAPI", null ],
+      [ "RemoteData", "d3/d54/group__sdk__network.html#d0/d18/classQuasarSDK_1_1RemoteData", null ],
+      [ "TCPServer", "d3/d54/group__sdk__network.html#d9/df7/classQuasarSDK_1_1TCPServer", null ],
+      [ "Telemetry", "d3/d54/group__sdk__network.html#db/d03/classQuasarSDK_1_1Telemetry", null ],
+      [ "ColorProvider", "d4/df9/group__legacy.html#db/d68/classScenegraph_1_1Utils_1_1ColorProvider", null ]
     ] ],
     [ "QQuickItem", null, [
       [ "Gizmos", "dd/dfe/classSDK_1_1Gizmos_1_1Gizmos.html", null ],
@@ -117,7 +124,7 @@ var hierarchy =
       [ "MatrixPlot", "d0/dfd/classSDK_1_1Quick_1_1MatrixPlot.html", null ]
     ] ],
     [ "QUdpSocket", null, [
-      [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", null ]
+      [ "BaseUDPSocket", "d3/d54/group__sdk__network.html#da/dc1/classQuasarSDK_1_1BaseUDPSocket", null ]
     ] ],
     [ "StripFormatMetadata", "da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata", null ],
     [ "StripHeaderMetadata", "da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata", null ],

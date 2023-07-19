@@ -17,7 +17,7 @@
 
   "misc/telemetry-frequency": "0.1",
   "misc/antenna-alignment": "right",
-  "misc/redirect": "true",
+  "misc/redirect": "false",
 
   "state/latitude": "60",
   "state/longitude": "30",
@@ -29,5 +29,5 @@
   "image/div-correction": "5",
   "image/cut": "true",
 
-  "application/theme": "dark"
+  "application/theme": "Dark"
 }

@@ -4,12 +4,10 @@ import Theme 1.0
 
 ToolTip { id: control;
     property string txt: "Tooltip";
-    property string ff: "Arial";
 
     visible: parent.hovered;
     font {
-        pixelSize: 11;
-        family: ff;
+        pixelSize: 13;
     }
     contentItem: Text {
         text: txt;

@@ -11,15 +11,12 @@
         <file>tabs/map/UAVRoute.qml</file>
         <file>windows/InfoWindow.qml</file>
         <file>tabs/network/SocketConsole.qml</file>
-        <file>windows/SettingsWindow.qml</file>
         <file>tabs/map/MapImage.qml</file>
         <file>windows/MessageWindow.qml</file>
         <file>tabs/map/MapImageUI.qml</file>
         <file>windows/DialogWindow.qml</file>
         <file>widgets/CoordinateTooltip.qml</file>
         <file>windows/MarkerWindow.qml</file>
-        <file>tabs/map/MapMarker.qml</file>
-        <file>windows/StripMatrixWindow.qml</file>
         <file>tabs/map/AttitudeIndicator.qml</file>
         <file>tabs/map/ui/PanelTools.qml</file>
         <file>tabs/map/ui/PanelEntities.qml</file>
@@ -31,11 +28,7 @@
         <file>tabs/focus/FocusSettings.qml</file>
         <file>tabs/map/ui/PanelMainToolbar.qml</file>
         <file>widgets/SARConsole.qml</file>
-        <file>tabs/map/ui/PanelExport.qml</file>
-        <file>tabs/map/ui/PanelWarnings.qml</file>
         <file>tabs/map/ui/PanelZoom.qml</file>
-        <file>tabs/map/ZoomScale.qml</file>
-        <file>tabs/network/PanelNetTools.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>
         <file>tabs/focus/PanelToolbar.qml</file>
@@ -47,5 +40,9 @@
         <file>layouts/bottombar/TelemetryWidget.qml</file>
         <file>tabs/map/StripRoute.qml</file>
         <file>tabs/map/mapquickitems/Strip.qml</file>
+        <file>windows/NewSettingsWindow.qml</file>
+        <file>tabs/map/mapquickitems/GeoMarker.qml</file>
+        <file>layouts/MenuHeader.qml</file>
+        <file>tabs/map/mapquickitems/NotificationsUI.qml</file>
     </qresource>
 </RCC>

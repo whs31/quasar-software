@@ -5,6 +5,7 @@ variables:
 
 include:
   - local: /.gitlab/alse.yml
+  - local: /.gitlab/ubuntu.yml
   - local: /.gitlab/win64.yml
 
 stages:

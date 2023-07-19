@@ -5,8 +5,6 @@ import QtQuick.Controls.Material 2.15
 import QuaSAR.API 1.0
 
 import Theme 1.0
-import Config 1.0
-
 import "network" as NetworkTab
 
 Pane { id: networktab_root;
@@ -78,14 +76,6 @@ Pane { id: networktab_root;
             name: "ДОСТУП К РЛС";
             width: 500;
             height: 180;
-        }
-    }
-
-    NetworkTab.PanelNetTools { id: panel_NetTools;
-        anchors {
-            right: parent.right
-            bottom: parent.bottom
-            margins: 5
         }
     }
 

@@ -37,7 +37,7 @@ Pane {
                         ClickHandler.state = ClickHandler.Idle;
                 }
 
-                Widgets.TT { ff: root.mainfont; txt: "Инструмент линейки"; }
+                Widgets.TT { txt: "Инструмент линейки"; }
             }
 
             RoundButton { id: button_TileLoader;
@@ -57,7 +57,7 @@ Pane {
                         ClickHandler.state = ClickHandler.Idle;
                 }
 
-                Widgets.TT { ff: root.mainfont; txt: "Инструмент загрузки оффлайн-карт"; }
+                Widgets.TT { txt: "Инструмент загрузки оффлайн-карт"; }
             }
 
             RoundButton { id: button_Protractor;
@@ -78,7 +78,7 @@ Pane {
                         ClickHandler.state = ClickHandler.Idle;
                 }
 
-                Widgets.TT { ff: root.mainfont; txt: "Инструмент для измерения углов"; }
+                Widgets.TT { txt: "Инструмент для измерения углов"; }
             }
         }
 
@@ -93,7 +93,7 @@ Pane {
                 Material.background: ColorTheme.active.color(ColorTheme.Surface)
                 onPressed: maptab_root.center = c_UAV.coordinate;
 
-                Widgets.TT { ff: root.mainfont; txt: "Центрировать карту на БПЛА"; }
+                Widgets.TT { txt: "Центрировать карту на БПЛА"; }
             }
 
             RoundButton { id: button_PanLastImage;
@@ -111,7 +111,7 @@ Pane {
                 Material.elevation: 30;
                 onPressed: self();
 
-                Widgets.TT { ff: root.mainfont; txt: "Центрировать карту на последнем полученном изображении"; }
+                Widgets.TT { txt: "Центрировать карту на последнем полученном изображении"; }
             }
         }
     }

@@ -19,7 +19,7 @@ MapItemView
         MapPolyline {
             path: model.eventPath
             line.width: 5
-            line.color: ColorTheme.active.color(ColorTheme.Red)
+            line.color: ColorTheme.active.color(ColorTheme.Maroon)
         }
     }
 

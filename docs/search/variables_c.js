@@ -1,7 +1,7 @@
 var searchData=
 [
   ['r_0',['r',['../d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11',1,'QuasarSDK::Datagrams::PlannerAppendDatagram::r'],['../d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11',1,'QuasarSDK::Datagrams::PlannerRemoveDatagram::r']]],
-  ['reformargumentlist_1',['reformArgumentList',['../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#ad95297f0ae522b92ea3a82c870b6e789',1,'QuasarSDK::ExecdArgumentParser']]],
+  ['reformargumentlist_1',['reformArgumentList',['../d3/d54/group__sdk__network.html#ad95297f0ae522b92ea3a82c870b6e789',1,'QuasarSDK::ExecdArgumentParser']]],
   ['reserved_5f1_2',['reserved_1',['../da/d88/namespaceMap.html#acc7aaef71dceccbb72e185405cf5a88e',1,'Map::ImageMetadata']]],
   ['reserved_5f2_3',['reserved_2',['../da/d88/namespaceMap.html#abc8e5842a5c8f75c0660de3973c95d41',1,'Map::ImageMetadata']]],
   ['reserved_5f3_4',['reserved_3',['../da/d88/namespaceMap.html#af8407645db2d0329264f3c6d0cbd6dd1',1,'Map::ImageMetadata']]],

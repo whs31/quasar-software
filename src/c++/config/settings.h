@@ -32,8 +32,8 @@ namespace Config
   class Settings : public QObject
   {
     Q_OBJECT
-      // re-evaluate binding by this trick
-      Q_PROPERTY(internal::SettingsWrapper* io MEMBER m_wrapper NOTIFY ioChanged)
+    Q_PROPERTY(internal::SettingsWrapper* io MEMBER m_wrapper NOTIFY ioChanged) // re-evaluate binding by this trick
+    Q_PROPERTY(QString projectVersion READ projectVersion CONSTANT)
 
     public:
       static Settings* get();
@@ -49,8 +49,11 @@ namespace Config
       template<typename T>
       [[nodiscard]] T value(const QString& key) const { return parameter(key).value<T>(); }
 
+      [[nodiscard]] static QString projectVersion() ;
+
     signals:
       void ioChanged();
+      void themeChanged();
 
     private:
       explicit Settings(QObject* parent = nullptr);

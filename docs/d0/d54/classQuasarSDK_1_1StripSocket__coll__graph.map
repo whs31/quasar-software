@@ -1,11 +1,11 @@
 <map id="StripSocket" name="StripSocket">
 <area shape="rect" id="Node000001" title="Класс для приема больших файлов с РЛС по протоколу UDP." alt="" coords="72,232,167,260"/>
-<area shape="rect" id="Node000002" href="$d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket.html" title="Базовый класс для UDP сокетов, требующих целостность датаграммы." alt="" coords="42,157,197,184"/>
+<area shape="rect" id="Node000002" href="$d3/d54/group__sdk__network.html#d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket" title="Базовый класс для UDP сокетов, требующих целостность датаграммы." alt="" coords="42,157,197,184"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,199,122,232,117,232,117,199"/>
-<area shape="rect" id="Node000003" href="$da/dc1/classQuasarSDK_1_1BaseUDPSocket.html" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="57,81,182,109"/>
+<area shape="rect" id="Node000003" href="$d3/d54/group__sdk__network.html#da/dc1/classQuasarSDK_1_1BaseUDPSocket" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="57,81,182,109"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="122,124,122,156,117,156,117,124"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="5,5,106,33"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="78,43,110,79,106,82,74,46"/>
-<area shape="rect" id="Node000005" href="$d3/db8/classQuasarSDK_1_1IConnectable.html" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="130,5,237,33"/>
+<area shape="rect" id="Node000005" href="$d3/d54/group__sdk__network.html#d3/db8/classQuasarSDK_1_1IConnectable" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="130,5,237,33"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="165,46,133,82,129,79,161,43"/>
 </map>

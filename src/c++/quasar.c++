@@ -12,6 +12,7 @@
 #include "gui/terminal/debugconsole.h"
 #include "gui/warningsmodel.h"
 #include "gui/colortheme.h"
+#include "gui/notificationsmodel.h"
 #include "config/paths.h"
 #include "config/settings.h"
 #include "filesystem/filesystem.h"
@@ -56,7 +57,8 @@ QuaSAR::QuaSAR(QObject* parent)
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
 
   qmlRegisterModule("Notifications", 1, 0);
-  qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get());
+  qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get()); // @FIXME del
+  qmlRegisterSingletonInstance<GUI::NotificationsModel>("Notifications", 1, 0, "NotificationsModel", GUI::NotificationsModel::get());
 
   qmlRegisterModule("Theme", 1, 0);
   qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());

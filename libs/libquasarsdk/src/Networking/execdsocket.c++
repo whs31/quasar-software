@@ -180,7 +180,11 @@ namespace QuasarSDK
    */
   void ExecdSocket::showQueue()
   {
+    QByteArray com = wrap("#queue()");
+    this->send(com);
 
+    qDebug().noquote() << "[EXECD] Asked for queue";
+    emit metrics(com, com.length(), true);
   }
 
   /**
@@ -188,7 +192,11 @@ namespace QuasarSDK
    */
   void ExecdSocket::clearQueue()
   {
+    QByteArray com = wrap("#queue(clear)");
+    this->send(com);
 
+    qDebug().noquote() << "[EXECD] Cleared queue";
+    emit metrics(com, com.length(), true);
   }
 
   /**
@@ -196,7 +204,11 @@ namespace QuasarSDK
    */
   void ExecdSocket::popQueue()
   {
+    QByteArray com = wrap("#queue(pop)");
+    this->send(com);
 
+    qDebug().noquote() << "[EXECD] Removed last command from queue";
+    emit metrics(com, com.length(), true);
   }
 
   /**
@@ -207,6 +219,10 @@ namespace QuasarSDK
    */
   void ExecdSocket::ssh(const QString& command, const QString& host, const QString& password)
   {
+    QByteArray com = wrap("#ssh(" + command + ", " + host + ", " + (password.isNull() ? "" : password));
+    this->send(com);
 
+    qDebug().noquote() << "[EXECD] Executed command on" << host;
+    emit metrics(com, com.length(), true);
   }
 } // QuasarSDK

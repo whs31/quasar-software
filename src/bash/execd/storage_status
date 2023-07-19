@@ -1,5 +1,0 @@
-#!/bin/bash
-#SPACE=$(df --output=avail -B 1 /root/Work/readdata/data-nfs |tail -n 1)
-SPACE=$(df -k /root/Work/readdata/data-nfs | tail -1 | awk '{print $2}')
-FREE=$(df -k /root/Work/readdata/data-nfs | tail -1 | awk '{print $4}')
-echo "*FREE_DISK_SPACE*" $FREE $SPACE

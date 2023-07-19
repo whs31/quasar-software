@@ -59,8 +59,6 @@ MapQuickItem {
                     }
 
                     text: message
-
-                    onPressAndHold: NotificationsModel.remove(NotificationsModel.Uncalibrated)
                 }
             }
         }

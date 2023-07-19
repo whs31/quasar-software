@@ -28,7 +28,6 @@
         <file>tabs/focus/FocusSettings.qml</file>
         <file>tabs/map/ui/PanelMainToolbar.qml</file>
         <file>widgets/SARConsole.qml</file>
-        <file>tabs/map/ui/PanelWarnings.qml</file>
         <file>tabs/map/ui/PanelZoom.qml</file>
         <file>tabs/map/ui/DialogTileLoader.qml</file>
         <file>tabs/focus/PanelEditorToolbar.qml</file>

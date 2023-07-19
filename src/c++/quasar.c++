@@ -10,7 +10,6 @@
 #include "application/updatemanager.h"
 #include "application/quickutils.h"
 #include "gui/terminal/debugconsole.h"
-#include "gui/warningsmodel.h"
 #include "gui/colortheme.h"
 #include "gui/notificationsmodel.h"
 #include "config/paths.h"
@@ -30,6 +29,7 @@
 
 using QuasarSDK::QuasarAPI;
 using QuasarSDK::Enums;
+using GUI::NotificationsModel;
 using std::array;
 
 QuaSAR::QuaSAR(QObject* parent)
@@ -57,7 +57,6 @@ QuaSAR::QuaSAR(QObject* parent)
   qmlRegisterSingletonInstance<GUI::DebugConsole>("Terminals", 1, 0, "DebugConsole", GUI::DebugConsole::get());
 
   qmlRegisterModule("Notifications", 1, 0);
-  qmlRegisterSingletonInstance<GUI::WarningsModel>("Notifications", 1, 0, "WarningsModel", GUI::WarningsModel::get()); // @FIXME del
   qmlRegisterSingletonInstance<GUI::NotificationsModel>("Notifications", 1, 0, "NotificationsModel", GUI::NotificationsModel::get());
 
   qmlRegisterModule("Theme", 1, 0);
@@ -119,12 +118,12 @@ QuaSAR::QuaSAR(QObject* parent)
     OS::Filesystem::get()->fetchTCPCache();
   });
 
-  GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
+  NotificationsModel::get()->add(NotificationsModel::NotConnected, NotificationsModel::Warn);
   connect(QuasarAPI::get(), &QuasarAPI::connectedChanged, this, [this](){
     if(not QuasarAPI::get()->isConnected())
-      GUI::WarningsModel::get()->append(GUI::WarningsModel::NotConnected, "Отсутствует соединение с РЛС", false);
+      NotificationsModel::get()->add(NotificationsModel::NotConnected, NotificationsModel::Warn);
     else
-      GUI::WarningsModel::get()->remove(GUI::WarningsModel::NotConnected);
+      NotificationsModel::get()->remove(NotificationsModel::NotConnected);
   });
 
   m_updateManager->fetch();

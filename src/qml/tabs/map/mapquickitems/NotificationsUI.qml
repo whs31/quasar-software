@@ -13,11 +13,14 @@ import Notifications 1.0
 
 MapQuickItem {
     anchorPoint.x: width / 2
-    anchorPoint.y: height
+    anchorPoint.y: height + 20
     coordinate: NetworkAPI.telemetry.position
     z: 19
+    visible: rpt.count > 0
+    enabled: visible
 
     Behavior on coordinate { CoordinateAnimation { duration: 125; easing.type: Easing.Linear; } }
+    Material.background: "#50181926" // @TODO use utils to convert it.
 
     sourceItem: Pane {
         clip: true
@@ -29,37 +32,35 @@ MapQuickItem {
             verticalOffset: 6
             opacity: 0.5
         }
-        Behavior on height { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200; } }
+        Behavior on implicitHeight { NumberAnimation { easing.type: Easing.InOutQuad; duration: 500; } }
+        Behavior on implicitWidth { NumberAnimation { easing.type: Easing.InOutQuad; duration: 500; } }
 
-        ListView {
-            add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 1000; } }
-            remove: Transition { NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 1000; } }
-            model: NotificationsModel
-            delegate: RowLayout {
-                required property int index
-                required property int level
-                required property string message
+        ColumnLayout {
+            Repeater {
+                id: rpt
+                model: NotificationsModel
+                delegate: RoundButton {
+                    required property int index
+                    required property int level
+                    required property string message
 
-                RoundButton {
                     flat: true
-                    icon.source: "qrc:/icons/vector/common/warning.svg"
+                    icon.source: level === NotificationsModel.Alert ? "qrc:/icons/vector/common/error.svg"
+                                                                    : "qrc:/icons/vector/common/warning.svg"
                     icon.color: level === NotificationsModel.Alert ? ColorTheme.active.color(ColorTheme.Red)
                                                                    : ColorTheme.active.color(ColorTheme.Orange)
-                }
+                    Material.foreground: level === NotificationsModel.Alert ? ColorTheme.active.color(ColorTheme.Red)
+                                                                            : ColorTheme.active.color(ColorTheme.Orange)
 
-                Text {
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
                     font {
-                        pixelSize: 14
-                        weight: Font.ExtraBold
+                        pixelSize: 12
+                        weight: Font.Bold
                         capitalization: Font.AllUppercase
                     }
 
                     text: message
-                    color: level === NotificationsModel.Alert ? ColorTheme.active.color(ColorTheme.Red)
-                                                              : ColorTheme.active.color(ColorTheme.Orange)
-                    verticalAlignment: Text.AlignVCenter
+
+                    onPressAndHold: NotificationsModel.remove(NotificationsModel.Uncalibrated)
                 }
             }
         }

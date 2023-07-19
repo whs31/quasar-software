@@ -59,11 +59,11 @@ Map { id: maptab_root;
         target: NetworkAPI.telemetry;
         function onSeaLevelChanged() {
             if(NetworkAPI.telemetry.seaLevel === 0)
-                WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
+                NotificationsModel.add(NotificationsModel.Uncalibrated, NotificationsModel.Alert)
             else
-                WarningsModel.remove(WarningsModel.Uncalibrated);
+                NotificationsModel.remove(NotificationsModel.Uncalibrated);
         }
-        Component.onCompleted:  WarningsModel.append(WarningsModel.Uncalibrated, "Не проведена калибровка высоты!", true);
+        Component.onCompleted: NotificationsModel.add(NotificationsModel.Uncalibrated, NotificationsModel.Alert)
     }
 
     MouseArea { id: c_MapMouseArea;
@@ -281,16 +281,6 @@ Map { id: maptab_root;
         }
 
         opacity: 0.85;
-    }
-
-    MapTabUI.PanelWarnings { id: panel_Warnings;
-        anchors {
-            top: panel_MainToolbar.bottom
-            left: parent.left
-            margins: 5
-        }
-
-        opacity: 1;
     }
 
     MapTabUI.PanelTools { id: panel_Tools;

@@ -125,6 +125,7 @@ Map { id: maptab_root;
     }
 
     MapTab.UAV { id: c_UAV; }
+    MapQuickItems.NotificationsUI { }
     MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
     RadarDiagram {  id: c_RadarDiagram;

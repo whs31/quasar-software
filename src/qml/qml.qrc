@@ -44,5 +44,6 @@
         <file>windows/NewSettingsWindow.qml</file>
         <file>tabs/map/mapquickitems/GeoMarker.qml</file>
         <file>layouts/MenuHeader.qml</file>
+        <file>tabs/map/mapquickitems/NotificationsUI.qml</file>
     </qresource>
 </RCC>

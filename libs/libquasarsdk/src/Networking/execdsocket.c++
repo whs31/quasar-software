@@ -17,6 +17,8 @@
 #include "execdparser.h"
 #include "crc16.h"
 
+#define FROM_JSON(key) Config::get()->value<QString>(key)
+
 namespace QuasarSDK
 {
   /// \brief Создает новый объект ExecdSocket с указанным родителем.
@@ -58,39 +60,51 @@ namespace QuasarSDK
 
     switch(command)
     {
-      case Enums::FormImage:
-        com = wrap(Config::get()->value<QString>("EXECD_FORM_TELESCOPIC") + m_args->formArgumentString());
+      case Enums::FormTelescopic:
+        com = wrap(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->formArgumentString());
         break;
       case Enums::FocusImage:
-        com = wrap(Config::get()->value<QString>("EXECD_FOCUS_TELESCOPIC") + m_args->focusArgumentString());
+        com = wrap(FROM_JSON("EXECD_FOCUS_TELESCOPIC") + m_args->focusArgumentString());
         break;
       case Enums::ReformImage:
-        com = wrap(Config::get()->value<QString>("EXECD_FORM_TELESCOPIC") + m_args->reformArgumentString());
+        com = wrap(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->reformArgumentString());
         break;
       case Enums::RemoteStorageStatus:
-        com = wrap(Config::get()->value<QString>("EXECD_STORAGE_FETCH"));
+        com = wrap(FROM_JSON("EXECD_STORAGE_FETCH"));
         break;
       case Enums::ClearRemoteStorage:
-        com = wrap(Config::get()->value<QString>("EXECD_STORAGE_CLEAR") + " " + Config::get()->value<QString>("EXECD_STORAGE_FETCH"));
+        com = wrap(FROM_JSON("EXECD_STORAGE_CLEAR") + " " + FROM_JSON("EXECD_STORAGE_FETCH"));
         break;
-      case Enums::SimpleStrip:
-        com = wrap(Config::get()->value<QString>("EXECD_FORM_STRIP_DEBUG") + m_args->formArgumentString());
-        break;
-      case Enums::StartStrip:
-        com = wrap(Config::get()->value<QString>("EXECD_FORM_STRIP_START") + m_args->formArgumentString());
+      case Enums::StripStart:
+      {
+        QString strip_comma = FROM_JSON("EXECD_FORM_STRIP_START") + m_args->formArgumentString();
+        com = wrap(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip_shot)",
+                             FROM_JSON("EXECD_SPECIAL_PASS"), strip_comma));
         m_strip_pid = m_message_uid;
         break;
-      case Enums::StopStrip:
+      }
+      case Enums::StripStop:
+        signalToProcess(m_strip_pid, Enums::SigINT);
+        return;
+      case Enums::StreamStart:
+      {
+        QString stream_comma = FROM_JSON("EXECD_FORM_STREAM_START") + m_args->formArgumentString();
+        com = wrap(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip)",
+                             FROM_JSON("EXECD_SPECIAL_PASS"), stream_comma));
+        m_strip_pid = m_message_uid;
+        break;
+      }
+      case Enums::StreamStop:
         signalToProcess(m_strip_pid, Enums::SigINT);
         return;
       case Enums::Reboot:
       {
-        com = wrap(Config::get()->value<QString>("EXECD_REBOOT"));
+        com = wrap(FROM_JSON("EXECD_REBOOT"));
         break;
       }
       case Enums::PowerOff:
       {
-        com = wrap(Config::get()->value<QString>("EXECD_POWEROFF"));
+        com = wrap(FROM_JSON("EXECD_POWEROFF"));
         break;
       }
       default:
@@ -154,7 +168,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::kill(int pid)
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_KILL") + "(" + QString::number(pid) + ")");
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_KILL") + "(" + QString::number(pid) + ")");
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Killed" << pid;
@@ -168,7 +182,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_SIGNAL") + "(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_SIGNAL") + "(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Sent signal" << signal << "to process" << pid;
@@ -180,7 +194,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::showQueue()
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_SHOW"));
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_QUEUE_SHOW"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Asked for queue";
@@ -192,7 +206,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::clearQueue()
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_CLEAR"));
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_QUEUE_CLEAR"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Cleared queue";
@@ -204,7 +218,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::popQueue()
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_QUEUE_POP"));
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_QUEUE_POP"));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Removed last command from queue";
@@ -219,7 +233,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::ssh(const QString& command, const QString& host, const QString& password)
   {
-    QByteArray com = wrap(Config::get()->value<QString>("EXECD_SPECIAL_SSH") + "(" + command + ", " + host + ", " + (password.isNull() ? "" : password));
+    QByteArray com = wrap(FROM_JSON("EXECD_SPECIAL_SSH") + "(" + command + ", " + host + ", " + (password.isNull() ? "" : password));
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Executed command on" << host;
@@ -233,9 +247,8 @@ namespace QuasarSDK
    * \param fail - команда, выполняемая в случае неудачи.
    * \return Обернутая команда.
    */
-  QByteArray ExecdSocket::condition(const QString& condition, const QString& pass, const QString& fail) noexcept
+  QString ExecdSocket::condition(const QString& condition, const QString& pass, const QString& fail) noexcept
   {
-    QByteArray ret = condition.toUtf8() + " ? " + pass.toUtf8() + " : " + fail.toUtf8();
-    return ret;
+    return condition + " ? " + pass + " : " + fail;
   }
 } // QuasarSDK

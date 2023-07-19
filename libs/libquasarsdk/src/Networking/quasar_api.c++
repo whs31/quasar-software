@@ -299,8 +299,8 @@ namespace QuasarSDK
   {
     switch(command)
     {
-      case Enums::FormImage:
-      case Enums::SimpleStrip:
+      case Enums::FormTelescopic:
+      case Enums::StripStart:
         this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
         break;
       case Enums::FocusImage:
@@ -309,8 +309,8 @@ namespace QuasarSDK
       case Enums::ReformImage:
         this->setArgument("--remote", m_remote_address_list[0], Enums::Reform);
         break;
-      case Enums::StartStrip:
-      case Enums::StopStrip:
+      case Enums::StreamStart:
+      case Enums::StreamStop:
         this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
         break;
       default: break;

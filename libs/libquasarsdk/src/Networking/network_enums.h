@@ -24,36 +24,37 @@ namespace QuasarSDK
     Q_OBJECT
 
     public:
-      //! @brief Перечисление статус-кодов команды ping.
+      /// @brief Перечисление статус-кодов команды ping.
       enum PingStatus
       {
-        Success,            //!< Успешное выполнение команды ping.
-        DelayedSuccess,     //!< Команда выполнена с задержкой.
-        Timeout,            //!< Команда не выполнена.
-        Idle                //!< Выполнение команды не было запрошено.
+        Success,            ///< Успешное выполнение команды ping.
+        DelayedSuccess,     ///< Команда выполнена с задержкой.
+        Timeout,            ///< Команда не выполнена.
+        Idle                ///< Выполнение команды не было запрошено.
       };
 
-      //! @brief Перечисление категорий аргументов параметров формирования.
+      /// @brief Перечисление категорий аргументов параметров формирования.
       enum ArgumentCategory
       {
-        Form,               //!< Аргументы формирования.
-        Focus,              //!< Аргументы фокусировки.
-        Reform              //!< Аргументы переформирования.
+        Form,               ///< Аргументы формирования.
+        Focus,              ///< Аргументы фокусировки.
+        Reform              ///< Аргументы переформирования.
       };
 
-      //! @brief Перечисление встроенных в приложение команд.
+      /// @brief Перечисление встроенных в приложение команд.
       enum NetworkCommand
       {
-        FormImage,          //!< Запуск формирования телескопического изображения.
-        FocusImage,         //!< Фокусировка телескопического изображения.
-        SimpleStrip,        //!< Запуск формирования упрощенного полосового изображения.
-        StartStrip,         //!< Запуск съемки полосового изображения.
-        StopStrip,          //!< Остановка съемки полосового изображения.
-        ReformImage,        //!< Переформирование телескопического изображения.
-        RemoteStorageStatus,//!< Запрос информации о дисковом хранилище на РЛС.
-        ClearRemoteStorage, //!< Очистка дискового хранилища на РЛС.
-        Reboot,             //!< Запрос на перезагрузку систем РЛС.
-        PowerOff            //!< Запрос на выключение систем РЛС.
+        FormTelescopic,     ///< Запуск формирования телескопического изображения.
+        FocusImage,         ///< Фокусировка телескопического изображения.
+        StripStart,         ///< Запуск съемки полосового изображения.
+        StripStop,          ///< Остановка съемки полосового изображения.
+        StreamStart,        ///< Запуск потока полосового изображения.
+        StreamStop,         ///< Остановка потока полосового изображения.
+        ReformImage,        ///< Переформирование телескопического изображения.
+        RemoteStorageStatus,///< Запрос информации о дисковом хранилище на РЛС.
+        ClearRemoteStorage, ///< Очистка дискового хранилища на РЛС.
+        Reboot,             ///< Запрос на перезагрузку систем РЛС.
+        PowerOff            ///< Запрос на выключение систем РЛС.
       };
 
       /// \brief Перечисление сигналов для процесса (https://ru.wikipedia.org/wiki/Сигнал_(Unix))
@@ -89,10 +90,19 @@ namespace QuasarSDK
         SigXFSZ,              ///< <b>Исключение</b>: процесс превысил допустимый размер файла.
       };
 
+      /// \brief Перечисление режимов формирования.
+      enum FormingMode
+      {
+        Telescopic,           ///< Телескопический режим.
+        Strip,                ///< Полосовой режим.
+        Stream                ///< Режим полосового потока.
+      };
+
       Q_ENUM(PingStatus)
       Q_ENUM(ArgumentCategory)
       Q_ENUM(NetworkCommand)
       Q_ENUM(UnixSignal)
+      Q_ENUM(FormingMode)
   };
 } // QuasarSDK
 
@@ -101,3 +111,4 @@ Q_DECLARE_METATYPE(QuasarSDK::Enums::PingStatus)
 Q_DECLARE_METATYPE(QuasarSDK::Enums::ArgumentCategory)
 Q_DECLARE_METATYPE(QuasarSDK::Enums::NetworkCommand)
 Q_DECLARE_METATYPE(QuasarSDK::Enums::UnixSignal)
+Q_DECLARE_METATYPE(QuasarSDK::Enums::FormingMode)

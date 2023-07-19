@@ -41,7 +41,7 @@ namespace QuasarSDK
   {
     auto com = wrap(command);
     this->send(com);
-    qDebug().noquote() << "[EXECD] Sended string command";
+    qDebug().noquote() << "[EXECD] Sent string command";
     emit metrics(com, com.length(), true);
   }
 
@@ -100,7 +100,7 @@ namespace QuasarSDK
 
     this->send(com);
 
-    qDebug().noquote() << "[EXECD] Sended built-in command";
+    qDebug().noquote() << "[EXECD] Sent built-in command";
     emit metrics(com, com.length(), true);
   }
 
@@ -148,13 +148,65 @@ namespace QuasarSDK
     return command.toUtf8();
   }
 
-  void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
+  /**
+   * \brief Принудительно завершает выбранный процесс.
+   * \param pid - PID процесса.
+   */
+  void ExecdSocket::kill(int pid)
   {
-    QByteArray com;
-    com = wrap("#sig(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
+    QByteArray com = wrap("#kill(" + QString::number(pid) + ")");
     this->send(com);
 
-    qDebug().noquote() << "[EXECD] Sended signal" << signal << "to process" << pid;
+    qDebug().noquote() << "[EXECD] Killed" << pid;
     emit metrics(com, com.length(), true);
+  }
+
+  /**
+   * \brief Подает сигнал (https://ru.wikipedia.org/wiki/Сигнал_(Unix) процессу.
+   * \param pid - PID процесса.
+   * \param signal - сигнал (см. Enums::UnixSignal).
+   */
+  void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
+  {
+    QByteArray com = wrap("#sig(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
+    this->send(com);
+
+    qDebug().noquote() << "[EXECD] Sent signal" << signal << "to process" << pid;
+    emit metrics(com, com.length(), true);
+  }
+
+  /**
+   * \brief Возвращает список процессов в динамической очереди.
+   */
+  void ExecdSocket::showQueue()
+  {
+
+  }
+
+  /**
+   * \brief Очищает динамическую очередь.
+   */
+  void ExecdSocket::clearQueue()
+  {
+
+  }
+
+  /**
+   * \brief Удаляет последнюю команду из динамической очереди.
+   */
+  void ExecdSocket::popQueue()
+  {
+
+  }
+
+  /**
+   * \brief Запускает выбранную команду на удаленном хосте.
+   * \param command - команда для запуска.
+   * \param host - хост (например, <tt>user@192.168.1.48</tt>.
+   * \param password - пароль. Для подключения без пароля оставьте строку пустой.
+   */
+  void ExecdSocket::ssh(const QString& command, const QString& host, const QString& password)
+  {
+
   }
 } // QuasarSDK

@@ -22,7 +22,7 @@ namespace QuasarSDK
 
       void execute(const QString& command) noexcept;
       void execute(Enums::NetworkCommand command) noexcept;
-      void signal()
+      void signalToProcess(int pid, Enums::UnixSignal signal);
 
       [[nodiscard]] ExecdArgumentParser* parser() const;
 
@@ -36,5 +36,6 @@ namespace QuasarSDK
     private:
       ExecdArgumentParser* m_args;
       int m_message_uid;
+      int m_strip_pid;
   };
 } // QuasarSDK

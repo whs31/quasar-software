@@ -24,6 +24,7 @@ namespace QuasarSDK
       : BaseUDPSocket(parent)
       , m_args(new ExecdArgumentParser(this))
       , m_message_uid(0)
+      , m_strip_pid(-1)
   {
     this->setName("Execd");
     QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::process, Qt::DirectConnection);
@@ -77,10 +78,11 @@ namespace QuasarSDK
         break;
       case Enums::StartStrip:
         com = wrap(Config::get()->value<QString>("EXECD_FORM_STRIP_START") + m_args->formArgumentString());
+        m_strip_pid = m_message_uid;
         break;
       case Enums::StopStrip:
-        com = wrap(Config::get()->value<QString>("EXECD_FORM_STRIP_STOP") + m_args->formArgumentString());
-        break;
+        signalToProcess(m_strip_pid, Enums::SigINT);
+        return;
       case Enums::Reboot:
       {
         com = wrap(Config::get()->value<QString>("EXECD_REBOOT"));
@@ -144,5 +146,15 @@ namespace QuasarSDK
     command.append(QStringLiteral("%1").arg(Utils::crc16(Utils::str_data(command), command.length()),
                                             4, 16, QLatin1Char('0')));
     return command.toUtf8();
+  }
+
+  void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
+  {
+    QByteArray com;
+    com = wrap("#sig(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")");
+    this->send(com);
+
+    qDebug().noquote() << "[EXECD] Sended signal" << signal << "to process" << pid;
+    emit metrics(com, com.length(), true);
   }
 } // QuasarSDK

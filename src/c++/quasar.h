@@ -13,6 +13,11 @@ namespace Networking
   class HTTPDownloader;
 }
 
+namespace Processing
+{
+  class StreamProcessor;
+}
+
 class QuaSAR : public QObject
 {
   Q_OBJECT
@@ -33,4 +38,5 @@ class QuaSAR : public QObject
     Application::UpdateManager* m_updateManager;
     Application::QuickUtils* m_quickUtils;
     Networking::HTTPDownloader* m_httpDownloader;
+    Processing::StreamProcessor* m_stream_processor;
 };

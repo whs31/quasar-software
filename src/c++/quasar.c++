@@ -16,6 +16,7 @@
 #include "config/settings.h"
 #include "filesystem/filesystem.h"
 #include "processing/imageprocessing.h"
+#include "processing/streamprocessor.h"
 #include "map/ruler.h"
 #include "map/route.h"
 #include "map/clickhandler.h"
@@ -37,6 +38,7 @@ QuaSAR::QuaSAR(QObject* parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
   , m_quickUtils(new Application::QuickUtils(this))
+  , m_stream_processor(new Processing::StreamProcessor(this))
 {
   QuasarSDK::registerQMLTypes();
 
@@ -83,6 +85,7 @@ QuaSAR::QuaSAR(QObject* parent)
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
   qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
   qmlRegisterSingletonInstance<Processing::ImageProcessing>("Images", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
+  qmlRegisterSingletonInstance<Processing::StreamProcessor>("Images", 1, 0, "StreamProcessor", m_stream_processor);
 
   qmlRegisterModule("Markers", 1, 0);
   qmlRegisterSingletonInstance<Map::GeoMarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->geoMarkerModel());
@@ -143,7 +146,4 @@ void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
   OS::Filesystem::get()->fetchTCPCache();
 }
 
-void QuaSAR::passUDPData(const QByteArray& data) noexcept
-{
-  qDebug() << data.size();
-}
+void QuaSAR::passUDPData(const QByteArray& data) noexcept { m_stream_processor->process(data); }

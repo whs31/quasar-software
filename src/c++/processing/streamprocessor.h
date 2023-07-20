@@ -11,6 +11,7 @@
 using std::queue;
 using QuasarSDK::Map::MapImageSegment;
 
+namespace Map { class StreamSegmentModel; }
 namespace Processing
 {
   class StreamProcessor : public QObject
@@ -19,8 +20,7 @@ namespace Processing
 
     public:
       explicit StreamProcessor(QObject* parent = nullptr);
-
-      // model
+      [[nodiscard]] ::Map::StreamSegmentModel* model() const;
 
       void process(const QByteArray& data) noexcept;
 
@@ -32,9 +32,10 @@ namespace Processing
 
     private:
       Q_SLOT void processChunk() noexcept;
-      Q_SLOT void pass(MapImageSegment segment);
+      Q_SLOT void pass(const MapImageSegment& segment) const;
 
     private:
       queue<QByteArray> m_queue;
+      ::Map::StreamSegmentModel* m_model;
   };
 } // Processing

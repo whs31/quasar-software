@@ -10,6 +10,7 @@
 #include <QuasarSDK/ImageDatagrams>
 #include "config/internalconfig.h"
 #include "processing/arrayreader.h"
+#include "map/models/streamsegmentmodel.h"
 
 using namespace QuasarSDK;
 using std::vector;
@@ -18,6 +19,7 @@ namespace Processing
 {
   StreamProcessor::StreamProcessor(QObject* parent)
     : QObject(parent)
+    , m_model(new ::Map::StreamSegmentModel(this))
   {
     connect(this, &StreamProcessor::finished, this, &StreamProcessor::pass);
     connect(this, &StreamProcessor::queuePassed, this, &StreamProcessor::processChunk);
@@ -25,6 +27,8 @@ namespace Processing
       qDebug() << "$ [STREAM] Queue finished";
     });
   }
+
+  ::Map::StreamSegmentModel* StreamProcessor::model() const { return m_model; }
 
   void StreamProcessor::process(const QByteArray& data) noexcept
   {
@@ -136,7 +140,7 @@ namespace Processing
 
     // обратное масштабирование
     for(int i = 0; i < out_size; i++)
-      out_buf[i] = fmatrix[i] / k;
+      out_buf[i] = static_cast<uint8_t>(fmatrix[i] / k);
 
     vector<uint8_t> output(out_buf, out_buf + out_size);
 
@@ -175,9 +179,5 @@ namespace Processing
         emit queuePassed();
   }
 
-  void StreamProcessor::pass(QuasarSDK::Map::MapImageSegment segment)
-  {
-
-  }
-
+  void StreamProcessor::pass(const QuasarSDK::Map::MapImageSegment& segment) const { model()->add(segment); }
 } // Processing

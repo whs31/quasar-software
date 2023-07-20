@@ -29,7 +29,7 @@ MapQuickItem  {
 
                 // точка вращения
                 transform: Rotation {
-                    origin: Qt.point(0, 0)
+                    origin: chunkOffset
                     angle: chunkAzimuth
                 }
 

@@ -21,7 +21,7 @@
 #include "map/route.h"
 #include "map/clickhandler.h"
 #include "map/models/imagemodel.h"
-#include "map/models/stripmodel.h"
+#include "map/models/streamsegmentmodel.h"
 #include "map/models/geomarkermodel.h"
 #include "map/models/trackeventmodel.h"
 #include "map/entities/diagram.h"
@@ -83,7 +83,7 @@ QuaSAR::QuaSAR(QObject* parent)
 
   qmlRegisterModule("Images", 1, 0);
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
-  qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
+  qmlRegisterSingletonInstance<Map::StreamSegmentModel>("Images", 1, 0, "StreamSegmentModel", m_stream_processor->model());
   qmlRegisterSingletonInstance<Processing::ImageProcessing>("Images", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
   qmlRegisterSingletonInstance<Processing::StreamProcessor>("Images", 1, 0, "StreamProcessor", m_stream_processor);
 

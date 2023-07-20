@@ -179,8 +179,8 @@ Map { id: maptab_root;
     }
 
     MapItemView {
-        model: StripModel
-        add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
+        model: StreamSegmentModel
+        add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 1500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapQuickItems.Strip { }
     }
@@ -202,13 +202,20 @@ Map { id: maptab_root;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
 
-    MapQuickItem { id: tileloaderui;
-        property bool shown: false;
-        opacity: shown ? 0.75 : 0;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-        Behavior on coordinate { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
-        coordinate: tileloaderlastclicked;
-        sourceItem: MapTabUI.DialogTileLoader { id: dialog_TileDownloader; }
+    MapQuickItem {
+        id: tileloaderui
+        property bool shown: false
+        opacity: shown ? 0.75 : 0
+        Behavior on opacity { NumberAnimation { duration: 200 } }
+        Behavior on coordinate { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad } }
+        coordinate: tileloaderlastclicked
+        sourceItem: MapTabUI.DialogTileLoader { id: dialog_TileDownloader }
+    }
+
+    MapQuickItems.StripEraser {
+        id: eraser
+        coordinate: maptab_root.toCoordinate(Qt.point(c_MapMouseArea.mouseX, c_MapMouseArea.mouseY))
+        visible: false
     }
 
     // ui
@@ -276,7 +283,7 @@ Map { id: maptab_root;
     MapTabUI.PanelMainToolbar { id: panel_MainToolbar;
         anchors {
             top: parent.top
-            left: parent.left
+            horizontalCenter: parent.horizontalCenter
             margins: 5
         }
 

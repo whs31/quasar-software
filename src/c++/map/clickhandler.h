@@ -16,7 +16,8 @@ namespace Map
         ProtractorActive,
         MarkerActive,
         PlannerActive,
-        TileLoaderActive
+        TileLoaderActive,
+        EraserActive
       };
 
     Q_OBJECT

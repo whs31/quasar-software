@@ -71,6 +71,7 @@ Pane {
                     }
                     text: NetworkAPI.remote.pings[0] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                                      : "НЕТ СОЕДИНЕНИЯ";
+                    Component.onCompleted: console.error(NetworkAPI.remote.pings[0])
                     color: NetworkAPI.remote.pings[0] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
                                                                       : ColorTheme.active.color(ColorTheme.Red)
                 }

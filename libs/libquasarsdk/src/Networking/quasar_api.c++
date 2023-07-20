@@ -44,6 +44,7 @@ namespace QuasarSDK
       , m_outputModel(new IO::SAROutputModel(this))
       , m_connected(false)
       , m_currentNetworkDelay(Config::get()->value<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
+      , m_currentFormingMode(static_cast<int>(Enums::Telescopic))
       , m_networkDelayTimer(new QTimer(this))
       , m_de10PingTester(new PingTester(this))
       , m_jetson0PingTester(new PingTester(this))
@@ -185,6 +186,20 @@ namespace QuasarSDK
   }
 
   /**
+   * \property QuasarAPI::currentFormingMode
+   * \brief Предоставляет текущий режим формирования изображения.
+   * \details Свойство доступно для чтения и записи.
+   */
+  int QuasarAPI::currentFormingMode() const { return m_currentFormingMode; }
+  void QuasarAPI::setCurrentFormingMode(int o)
+  {
+    if(m_currentFormingMode == o)
+      return;
+    m_currentFormingMode = o;
+    emit currentFormingModeChanged();
+  }
+
+  /**
    * \brief Возвращает указатель на сокет телеметрии.
    * \return Ненулевой указатель на TelemetrySocket.
    */
@@ -299,8 +314,8 @@ namespace QuasarSDK
   {
     switch(command)
     {
-      case Enums::FormImage:
-      case Enums::SimpleStrip:
+      case Enums::FormTelescopic:
+      case Enums::StripStart:
         this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
         break;
       case Enums::FocusImage:
@@ -309,8 +324,8 @@ namespace QuasarSDK
       case Enums::ReformImage:
         this->setArgument("--remote", m_remote_address_list[0], Enums::Reform);
         break;
-      case Enums::StartStrip:
-      case Enums::StopStrip:
+      case Enums::StreamStart:
+      case Enums::StreamStop:
         this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
         break;
       default: break;

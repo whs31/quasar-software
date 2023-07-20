@@ -6,14 +6,8 @@
 
 using std::vector;
 
-namespace Map
-{
-  class ImageModel;
-  class StripModel;
-} // Map
-
 class QImage;
-
+namespace Map { class ImageModel; }
 namespace Processing
 {
   class ImageProcessing : public QObject
@@ -31,7 +25,6 @@ namespace Processing
       static ImageProcessing* get();
 
       Map::ImageModel* model();
-      Map::StripModel* stripModel();
 
       bool exists(const QString& name);
       int indexFrom(const QString& name) noexcept;
@@ -40,14 +33,10 @@ namespace Processing
 
     public slots:
       void processList(QList<QString> list);
-      void processChunk(const QByteArray& chunk);
       void passImage(Map::TelescopicImage image);
-      void passStrip(Map::StripImage image);
 
     signals:
       void processImageFinished(Map::TelescopicImage image);
-      void processStripFinished(Map::StripImage image);
-      void stripVector8bit(vector<uint8_t> vec, int rows, int columns);
       void concurrencyFinished();
 
       void progressChanged();
@@ -58,7 +47,6 @@ namespace Processing
       ImageProcessing& operator=(const ImageProcessing&);
 
       void asyncProcess(const QString& filename);
-      void asyncStripProcess(const QString& filename);
 
       static QByteArray fileToByteArray(const QString& path);
       Map::TelescopicImage decodeTelescopic(const QString& path);
@@ -66,7 +54,6 @@ namespace Processing
 
     private:
       Map::ImageModel* m_model;
-      Map::StripModel* m_stripModel;
       float m_progress;
       int m_total;
       int m_processed;

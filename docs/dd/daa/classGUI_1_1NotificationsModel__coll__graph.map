@@ -1,0 +1,9 @@
+<map id="NotificationsModel" name="NotificationsModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="334,65,477,93"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="27,5,175,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,31,310,54,347,62,346,67,309,59,189,36"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,57,197,102"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,77,333,77,333,82,211,82"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="14,126,188,171"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="202,123,309,99,343,91,344,96,310,104,203,129"/>
+</map>

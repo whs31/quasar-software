@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['themevariant_0',['ThemeVariant',['../d4/df9/group__legacy.html#abe601243d94bd50fce1e08004e1a8633',1,'Scenegraph::Utils::ColorProvider']]]
+  ['pingstatus_0',['PingStatus',['../d6/de3/classQuasarSDK_1_1Enums.html#a26cd5c2531deeff8b716e740ddc8e469',1,'QuasarSDK::Enums']]]
 ];

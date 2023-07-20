@@ -16,11 +16,12 @@
 #include "config/settings.h"
 #include "filesystem/filesystem.h"
 #include "processing/imageprocessing.h"
+#include "processing/streamprocessor.h"
 #include "map/ruler.h"
 #include "map/route.h"
 #include "map/clickhandler.h"
 #include "map/models/imagemodel.h"
-#include "map/models/stripmodel.h"
+#include "map/models/streamsegmentmodel.h"
 #include "map/models/geomarkermodel.h"
 #include "map/models/trackeventmodel.h"
 #include "map/entities/diagram.h"
@@ -37,6 +38,7 @@ QuaSAR::QuaSAR(QObject* parent)
   , m_updateManager(new Application::UpdateManager(this))
   , m_httpDownloader(new Networking::HTTPDownloader(this))
   , m_quickUtils(new Application::QuickUtils(this))
+  , m_stream_processor(new Processing::StreamProcessor(this))
 {
   QuasarSDK::registerQMLTypes();
 
@@ -81,8 +83,9 @@ QuaSAR::QuaSAR(QObject* parent)
 
   qmlRegisterModule("Images", 1, 0);
   qmlRegisterSingletonInstance<Map::ImageModel>("Images", 1, 0, "ImagesModel", Processing::ImageProcessing::get()->model());
-  qmlRegisterSingletonInstance<Map::StripModel>("Images", 1, 0, "StripModel", Processing::ImageProcessing::get()->stripModel());
+  qmlRegisterSingletonInstance<Map::StreamSegmentModel>("Images", 1, 0, "StreamSegmentModel", m_stream_processor->model());
   qmlRegisterSingletonInstance<Processing::ImageProcessing>("Images", 1, 0, "ImageProcessing", Processing::ImageProcessing::get());
+  qmlRegisterSingletonInstance<Processing::StreamProcessor>("Images", 1, 0, "StreamProcessor", m_stream_processor);
 
   qmlRegisterModule("Markers", 1, 0);
   qmlRegisterSingletonInstance<Map::GeoMarkerModel>("Markers", 1, 0, "MarkersModel", Map::ClickHandler::get()->geoMarkerModel());
@@ -104,19 +107,8 @@ QuaSAR::QuaSAR(QObject* parent)
   connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
   connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);
 
-  connect(QuasarAPI::get(), &QuasarSDK::QuasarAPI::tcpDataReceived, this, [this](const QByteArray& data, const QString& name){
-    QFile file(Config::Paths::tcp() + "/" + name);
-    if(not file.open(QIODevice::WriteOnly))
-    {
-      qCritical() << "[ENTRY] Failed to save result";
-      return;
-    }
-
-    file.write(data);
-    file.close();
-
-    OS::Filesystem::get()->fetchTCPCache();
-  });
+  connect(QuasarAPI::get(), &QuasarAPI::tcpDataReceived, this, &QuaSAR::passTCPData);
+  connect(QuasarAPI::get(), &QuasarAPI::udpDataReceived, this, &QuaSAR::passUDPData);
 
   NotificationsModel::get()->add(NotificationsModel::NotConnected, NotificationsModel::Warn);
   connect(QuasarAPI::get(), &QuasarAPI::connectedChanged, this, [this](){
@@ -138,3 +130,20 @@ QuaSAR::QuaSAR(QObject* parent)
 }
 
 void QuaSAR::closeApplication() noexcept { qApp->quit(); }
+
+void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
+{
+  QFile file(Config::Paths::tcp() + "/" + name);
+  if(not file.open(QIODevice::WriteOnly))
+  {
+    qCritical() << "[ENTRY] Failed to save result";
+    return;
+  }
+
+  file.write(data);
+  file.close();
+
+  OS::Filesystem::get()->fetchTCPCache();
+}
+
+void QuaSAR::passUDPData(const QByteArray& data) noexcept { m_stream_processor->process(data); }

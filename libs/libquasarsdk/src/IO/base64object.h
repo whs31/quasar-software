@@ -28,14 +28,8 @@ namespace QuasarSDK::IO
        */
       explicit Base64Object(QByteArray data_array);
 
-      /**
-       * \brief Конвертирует данные объекта (data) в base64-строку.
-       * \return base64-строка.
-       */
-      [[nodiscard]] QString toBase64() const noexcept;
-
-      /// \brief Данные объекта.
-      QByteArray data;
+      [[nodiscard]] QString base64() const;
+      void setData(const QByteArray& non_b64_array) noexcept;
 
       /**
        * \brief Конвертирует произвольную последовательность данных в base64-строку.
@@ -43,5 +37,9 @@ namespace QuasarSDK::IO
        * \return base64-строка.
        */
       static QString toBase64(const QByteArray& data_array) noexcept;
+
+    private:
+      QByteArray m_data;
+      QString m_base64data;
   };
 } // QuasarSDK::IO

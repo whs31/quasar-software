@@ -1,7 +1,3 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="Node000000" href="$d4/da1/structMap_1_1Image.html" title=" " alt="" coords="5,32,68,60"/>
-<area shape="rect" id="Node000001" href="$dc/dac/structMap_1_1StripImage.html" title=" " alt="" coords="134,5,227,33"/>
-<area shape="poly" id="edge51_Node000000_Node000001" title=" " alt="" coords="82,35,133,25,134,30,83,40"/>
-<area shape="rect" id="Node000002" href="$d5/d34/structMap_1_1TelescopicImage.html" title=" " alt="" coords="116,57,245,85"/>
-<area shape="poly" id="edge52_Node000000_Node000002" title=" " alt="" coords="83,51,116,57,115,62,82,56"/>
+<area shape="rect" id="Node000000" href="$da/d88/namespaceMap.html#d6/d19/structMap_1_1ImageMetadata" title="Тело метаданных телескопического РЛИ." alt="" coords="5,5,130,33"/>
 </map>

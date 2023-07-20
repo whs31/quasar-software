@@ -2,7 +2,6 @@
 #include <cmath>
 #include <stdexcept>
 #include <vector>
-#include <algorithm>
 #include <QtCore/QDebug>
 #include <QtCore/QFile>
 #include <QtCore/QtEndian>
@@ -17,7 +16,6 @@
 #include <SDK/GeoMath>
 #include <SDK/CRC16>
 #include "map/models/imagemodel.h"
-#include "map/models/stripmodel.h"
 #include "config/paths.h"
 #include "config/settings.h"
 #include "config/internalconfig.h"
@@ -30,7 +28,6 @@ ImageProcessing* ImageProcessing::get() { static ImageProcessing instance; retur
 ImageProcessing::ImageProcessing(QObject* parent)
   : QObject{parent}
   , m_model(new Map::ImageModel(this))
-  , m_stripModel(new Map::StripModel(this))
   , m_progress(0)
   , m_total(0)
   , m_processed(0)
@@ -41,7 +38,6 @@ ImageProcessing::ImageProcessing(QObject* parent)
   qRegisterMetaType<vector<uint8_t>>("vector<uint8_t>");
 
   connect(this, &ImageProcessing::processImageFinished, this, &ImageProcessing::passImage, Qt::QueuedConnection);
-  connect(this, &ImageProcessing::processStripFinished, this, &ImageProcessing::passStrip, Qt::QueuedConnection);
   connect(this, &ImageProcessing::concurrencyFinished, this, [this](){
     m_processed++;
     this->setProgress((float)m_processed / (float)m_total);
@@ -75,13 +71,6 @@ void ImageProcessing::processList(QList<QString> list)
           });
           break;
         }
-        case Strip:
-        {
-          QFuture<void> future = QtConcurrent::run(&pool2, [=](){
-            this->asyncStripProcess(filename);
-          });
-          break;
-        }
         default:
         {
           qCritical() << "[PROCESSING] Incorrect image list format";
@@ -89,32 +78,6 @@ void ImageProcessing::processList(QList<QString> list)
         }
       }
     }
-  });
-}
-
-void ImageProcessing::processChunk(const QByteArray& chunk)
-{
-  m_total = 1;
-  m_processed = 0;
-  this->setProgress(0);
-
-  QFuture<void> wrap = QtConcurrent::run([this, chunk](){
-    QThreadPool pool;
-    pool.setMaxThreadCount(ICFG<int>("PROCESSING_CONCURRENCY_THREADS_STRIP"));
-
-    QString filename = "strip_" + QString::number(QDateTime::currentMSecsSinceEpoch()) + ".bin";
-    QFile chunk_file(Config::Paths::lod(0) + "/" + filename);
-    if(not chunk_file.open(QIODevice::WriteOnly))
-    {
-      qCritical() << "[PROCESSING] Failed to write to temporary file";
-      return;
-    }
-    chunk_file.write(chunk);
-    chunk_file.close();
-
-    QFuture<void> future = QtConcurrent::run(&pool, [=](){
-      this->asyncStripProcess(filename);
-    });
   });
 }
 
@@ -162,149 +125,6 @@ void ImageProcessing::asyncProcess(const QString& filename)
 
   emit concurrencyFinished();
   emit processImageFinished(image);
-}
-
-void ImageProcessing::asyncStripProcess(const QString& filename)
-{
-  const int MAX_PACKAGE_SIZE = ICFG<int>("PROCESSING_STRIP_PACKAGE_MAX_SIZE");
-  Map::StripImage image;
-  image.filename = filename;
-  image.path.first = Config::Paths::lod(0) + "/" + filename;
-  QByteArray file = fileToByteArray(image.path.first);
-  const uint8_t* data = reinterpret_cast<uint8_t*>(file.data());
-  int data_size = file.size();
-
-  const int header_size = sizeof(Map::StripHeaderMetadata) + sizeof(Map::StripFormatMetadata) + sizeof(Map::StripNavigationMetadata);
-  uint8_t header[header_size];
-  uint8_t buf[MAX_PACKAGE_SIZE - header_size];
-  float fbuf[MAX_PACKAGE_SIZE - header_size];
-
-  ArrayReader<uint8_t> ar((uint8_t*)data);
-
-  int x = 0;
-  int y = 0;
-  std::vector<float> fmatrix;
-
-  bool navigation_read = false;
-  while(ar.readed() < data_size)
-  {
-    if((data_size - ar.readed()) < header_size)
-      break;
-
-    ar.read(header, header_size);
-    ArrayReader<uint8_t>header_reader(header);
-
-    Map::StripHeaderMetadata head;
-    Map::StripNavigationMetadata nav;
-    Map::StripFormatMetadata img;
-
-    header_reader.read((uint8_t*)&head, sizeof(Map::StripHeaderMetadata));
-    header_reader.read((uint8_t*)&nav, sizeof(Map::StripNavigationMetadata));
-    header_reader.read((uint8_t*)&img, sizeof(Map::StripFormatMetadata));
-
-    if(head.cnt == 0)
-    {
-      x = img.nx;
-      y += img.ny;
-    }
-
-    if(not navigation_read)
-    {
-      image.coordinate = { nav.latitude, nav.longitude };
-      image.azimuth = img.course;
-      image.lx = img.nx;
-      image.ly = img.ny;
-      image.dx = img.dx;
-      image.offset_x = img.x0;
-      image.offset_y = static_cast<float>(static_cast<float>(img.y) / 10);
-      navigation_read = true;
-    }
-
-    ar.read((uint8_t*)buf, head.size);
-
-    // запись промежуточного результата в матрицу
-    for(int i = 0; i < head.size; i++)
-    {
-      if(i >= MAX_PACKAGE_SIZE - header_size)
-        break;
-      auto f = float((buf[i] * img.k));
-      fmatrix.push_back(f);
-    }
-  }
-
-  // Эти значения нужно пересчитывать каждый раз при выводе матрицы на экран
-  // лучше сделать вычисление максимального значения рекуррентно,
-  // т.к. с ростом матрицы многократно увеличится объем обработки и будет lag
-  const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
-  const float k = max_value / 255.0f;
-
-  qInfo().noquote().nospace() << "$ [PROCESSING] Matrix size: { " << x << ", " << y << " }";
-  qInfo().noquote().nospace() << "$ [PROCESSING] Max value: { " << max_value << " }";
-  qInfo().noquote().nospace() << "$ [PROCESSING] Size: { " << x * y << " }";
-  qInfo().noquote().nospace() << "$ [PROCESSING] Coords: { " << image.coordinate.latitude()
-                              << ", " << image.coordinate.longitude()  << " }";
-
-  int out_size = x * y;
-  uint8_t out_buf[out_size];
-
-  // обратное масштабирование
-  for(int i = 0; i < out_size; i++)
-    out_buf[i] = fmatrix[i] / k;
-
-  if(ICFG<bool>("PROCESSING_DEBUG_SAVE_STRIP_MATRIX"))
-  {
-    QFile file(Config::Paths::lod(0) + "/matrix_" + filename);
-    if(file.open(QIODevice::WriteOnly))
-    {
-      file.write(reinterpret_cast<const char*>(out_buf), out_size);
-      file.close();
-    }
-    else
-      qWarning() << "[PROCESSING] Failed to save debug strip data to file.";
-  }
-
-  vector<uint8_t> output(out_buf, out_buf + out_size);
-
-  if(ICFG<bool>("PROCESSING_DEBUG_SHOW_STRIP_WINDOW"))
-    emit stripVector8bit(output, y, x);
-
-  QImage strip_result(x, y, QImage::Format_Grayscale16);
-  vector<vector<float>> image_result;
-  image_result.resize(y);
-  for(size_t i = 0; i < y; ++i)
-  {
-    image_result[i].resize(x);
-    for(size_t j = 0; j < x; ++j)
-      image_result[i][j] = output[j + x * i];
-  }
-
-  for(size_t row = 0; row < image_result.size(); ++row)
-  {
-    for(size_t column = 0; column < image_result[row].size(); ++column)
-    {
-      float t = (image_result[row][column]);
-      uint8_t d[4] = {static_cast<uint8_t>(t), static_cast<uint8_t>(t), static_cast<uint8_t>(t), 255};
-      auto* rs = (uint32_t*)d;
-      strip_result.setPixel(column, row, *rs);
-    }
-  }
-
-  QString result_path = Config::Paths::lod(0) + "/" + filename.chopped(3) + "png";
-  strip_result.save(result_path, "PNG");
-  image.path.first = result_path;
-  image.valid = true;
-  qInfo() << "$ [PROCESSING] Saved strip image to" << result_path;
-
-  image.filename = filename;
-  image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");
-  image.shown = ICFG<bool>("PROCESSING_IMAGE_INITIAL_VISIBILITY");
-  image.mercator_zoom_level = SDK::Cartography::mqi_zoom_level(image.coordinate.latitude(), image.dx);
-
-  if(not ICFG<bool>("PROCESSING_DEBUG_PRESERVE_BINARY"))
-    QFile::remove(Config::Paths::lod(0) + "/" + filename);
-
-  emit concurrencyFinished();
-  emit processStripFinished(image);
 }
 
 QByteArray ImageProcessing::fileToByteArray(const QString& path)
@@ -403,22 +223,11 @@ QImage ImageProcessing::cutImage(const Map::TelescopicImage& image) noexcept
 }
 
 Map::ImageModel* ImageProcessing::model() { return this->m_model; }
-Map::StripModel* ImageProcessing::stripModel() { return this->m_stripModel; }
 void ImageProcessing::passImage(Map::TelescopicImage image) { model()->add(image); }
-void ImageProcessing::passStrip(Map::StripImage image) { stripModel()->add(image); }
 
 bool ImageProcessing::exists(const QString& name)
 {
   for(const Map::Image& image : *model()->direct())
-  {
-    if(image.filename == name)
-      return true;
-
-    if(image.filename.chopped(4) == name.chopped(4))
-      return true;
-  }
-
-  for(const Map::StripImage& image : *stripModel()->direct())
   {
     if(image.filename == name)
       return true;

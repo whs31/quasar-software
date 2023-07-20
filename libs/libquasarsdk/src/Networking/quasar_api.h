@@ -34,6 +34,7 @@ namespace QuasarSDK
     Q_PROPERTY(QuasarSDK::IO::SAROutputModel* outputModel READ outputModel CONSTANT)
     Q_PROPERTY(bool isConnected READ isConnected WRITE setConnected NOTIFY connectedChanged)
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
+    Q_PROPERTY(int currentFormingMode READ currentFormingMode WRITE setCurrentFormingMode NOTIFY currentFormingModeChanged)
 
     public:
       static QuasarAPI* get();
@@ -43,6 +44,7 @@ namespace QuasarSDK
       [[nodiscard]] IO::SAROutputModel* outputModel() const;
       [[nodiscard]] bool isConnected() const; void setConnected(bool);
       [[nodiscard]] float currentNetworkDelay() const; void setCurrentNetworkDelay(float);
+      [[nodiscard]] int currentFormingMode() const; void setCurrentFormingMode(int);
 
       [[nodiscard]] TelemetrySocket* telemetrySocket();
       [[nodiscard]] ExecdSocket* execdSocket();
@@ -78,6 +80,7 @@ namespace QuasarSDK
     signals:
       void connectedChanged();
       void currentNetworkDelayChanged();
+      void currentFormingModeChanged();
 
       /**
        * \brief Срабатывает, когда сервер TCP-IP завершает приём данных.
@@ -147,6 +150,7 @@ namespace QuasarSDK
       IO::SAROutputModel* m_outputModel;
       bool m_connected;
       float m_currentNetworkDelay;
+      int m_currentFormingMode;
 
       QTimer* m_networkDelayTimer;
 

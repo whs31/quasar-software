@@ -3,15 +3,15 @@ import QtLocation 5.15
 import QtPositioning 5.15
 
 MapQuickItem  {
-    required property int                       index
-    required property var                       chunkCoordinate
-    required property real                      chunkAzimuth
-    required property point                     chunkOffset
-    required property size                      chunkSize
-    required property real                      chunkZoomLevel
-    required property real                      chunkOpacity
-    required property bool                      chunkVisibility
-    required property string                    base64
+    required property int    index
+    required property var    chunkCoordinate
+    required property real   chunkAzimuth
+    required property point  chunkOffset
+    required property size   chunkSize
+    required property real   chunkZoomLevel
+    required property real   chunkOpacity
+    required property bool   chunkVisibility
+    required property string base64
 
     z: 2
     anchorPoint: chunkOffset
@@ -29,7 +29,7 @@ MapQuickItem  {
 
                 // точка вращения
                 transform: Rotation {
-                    origin: chunkOffset
+                    origin: Qt.point(0, 0)
                     angle: chunkAzimuth
                 }
 

@@ -3,6 +3,7 @@
 //
 
 #include "streamprocessor.h"
+#include <cmath>
 #include <QtCore/QDebug>
 #include <QtCore/QBuffer>
 #include <QtGui/QImage>
@@ -108,7 +109,10 @@ namespace Processing
         image.setAzimuth(Utils::rad2deg(nav.track_ang));
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
-        image.setOffset(QPointF(img.x0, -static_cast<float>(img.y)/ 10.0f));
+        float x = img.x0;
+        float y = static_cast<float>(img.y)/ 10.0f;
+        image.setOffset(QPointF(x * cos(image.azimuth()) + y * sin(image.azimuth()),
+                                -x * sin(image.azimuth()) + y * cos(image.azimuth())));
         navigation_read = true;
       }
 

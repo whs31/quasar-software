@@ -105,7 +105,7 @@ namespace Processing
       if(not navigation_read)
       {
         image.setCoordinate(Utils::rad2deg(nav.latitude), Utils::rad2deg(nav.longitude));
-        image.setAzimuth(img.course);
+        image.setAzimuth(nav.track_ang);
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
         image.setOffset(QPointF(img.x0, static_cast<float>(img.y)/ 10.0f));
@@ -129,11 +129,9 @@ namespace Processing
     const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
     const float k = max_value / 255.0f;
 
-    qInfo().noquote().nospace() << "$ [STREAM] Matrix size: { " << x << ", " << y << " }";
-    qInfo().noquote().nospace() << "$ [STREAM] Max value: { " << max_value << " }";
-    qInfo().noquote().nospace() << "$ [STREAM] Size: { " << x * y << " }";
     qInfo().noquote().nospace() << "$ [STREAM] Coords: { " << image.coordinate().latitude()
                                 << ", " << image.coordinate().longitude()  << " }";
+    qInfo().noquote().nospace() << "$ [STREAM] Azimuth: { " << image.azimuth() << " }";
 
     int out_size = x * y;
     uint8_t out_buf[out_size];

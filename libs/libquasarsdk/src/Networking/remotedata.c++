@@ -44,8 +44,8 @@ namespace QuasarSDK
      * \brief Предоставляет список состояний доступности модулей РЛС.
      * \details Свойство доступно только для чтения.
      */
-   QList<Enums::PingStatus> RemoteData::pings() const { return m_pings; }
-   void RemoteData::setPings(const QList<Enums::PingStatus>& o) {
+   QList<int> RemoteData::pings() const { return m_pings; }
+   void RemoteData::setPings(const QList<int>& o) {
      m_pings = o;
      emit pingsChanged();
    }

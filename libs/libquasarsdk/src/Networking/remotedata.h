@@ -17,7 +17,7 @@ namespace QuasarSDK
   {
     Q_OBJECT
     Q_PROPERTY(float storageSpace READ storageSpace WRITE setStorageSpace NOTIFY storageSpaceChanged)
-    Q_PROPERTY(QList<Enums::PingStatus> pings READ pings WRITE setPings NOTIFY pingsChanged)
+    Q_PROPERTY(QList<int> pings READ pings WRITE setPings NOTIFY pingsChanged)
     Q_PROPERTY(float downloadProgress READ downloadProgress WRITE setDownloadProgress NOTIFY downloadProgressChanged)
     Q_PROPERTY(bool isRecordingStrip READ isRecordingStrip WRITE setRecordingStrip NOTIFY recordingStripChanged)
 
@@ -25,7 +25,7 @@ namespace QuasarSDK
       explicit RemoteData(QObject* parent = nullptr);
 
       [[nodiscard]] float storageSpace() const; void setStorageSpace(float);
-      [[nodiscard]] QList<Enums::PingStatus> pings() const; void setPings(const QList<Enums::PingStatus>&);
+      [[nodiscard]] QList<int> pings() const; void setPings(const QList<int>&);
       [[nodiscard]] float downloadProgress() const; void setDownloadProgress(float);
       [[nodiscard]] bool isRecordingStrip() const; void setRecordingStrip(bool);
 
@@ -37,7 +37,7 @@ namespace QuasarSDK
 
     private:
       float m_storageSpace;
-      QList<Enums::PingStatus> m_pings;
+      QList<int> m_pings;
       float m_downloadProgress;
       bool m_recordingStrip;
   };

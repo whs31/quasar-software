@@ -60,16 +60,29 @@ Pane {
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
             onPressed: {
-                if (!checkable)
-                    NetworkAPI.execute(Net.FormImage);
+                if(NetworkAPI.currentFormingMode === Net.Telescopic)
+                    NetworkAPI.execute(Net.FormTelescopic)
             }
             onCheckedChanged: {
-                if (checked) {
-                    NetworkAPI.execute(Net.StartStrip);
-                    NetworkAPI.remote.isRecordingStrip = true;
-                } else {
-                    NetworkAPI.execute(Net.StopStrip);
-                    NetworkAPI.remote.isRecordingStrip = false;
+                if(checked) {
+                    if(NetworkAPI.currentFormingMode === Net.Strip) {
+                        NetworkAPI.execute(Net.StripStart);
+                        NetworkAPI.remote.isRecordingStrip = true;
+                    }
+                    else {
+                        NetworkAPI.execute(Net.StreamStart);
+                        NetworkAPI.remote.isRecordingStrip = true;
+                    }
+                }
+                else {
+                    if(NetworkAPI.currentFormingMode === Net.Strip) {
+                        NetworkAPI.execute(Net.StripStop);
+                        NetworkAPI.remote.isRecordingStrip = false;
+                    }
+                    else {
+                        NetworkAPI.execute(Net.StreamStop);
+                        NetworkAPI.remote.isRecordingStrip = false;
+                    }
                 }
             }
 

@@ -115,8 +115,9 @@ $(document).ready(function(){initNavTree('d2/d6a/FRegisterQML_8c_09_09_source.ht
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="../../d9/d69/namespaceScenegraph.html#a87a9973e233bb86a6f2c631006212d2a">    5</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/d69/namespaceScenegraph.html#a87a9973e233bb86a6f2c631006212d2a">Scenegraph::registerQMLTypes</a>()</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  qmlRegisterType&lt;Scenegraph::Utils::ColorProvider&gt;(<span class="stringliteral">&quot;Scenegraph.Legacy&quot;</span>, 1, 0, <span class="stringliteral">&quot;ColorProvider&quot;</span>);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>  qmlRegisterModule(<span class="stringliteral">&quot;Scenegraph.Legacy&quot;</span>, 1, 0);</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  qmlRegisterType&lt;Scenegraph::Utils::ColorProvider&gt;(<span class="stringliteral">&quot;Scenegraph.Legacy&quot;</span>, 1, 0, <span class="stringliteral">&quot;ColorProvider&quot;</span>);</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>}</div>
 <div class="ttc" id="aCColorProvider_8h_html"><div class="ttname"><a href="../../d5/d02/CColorProvider_8h.html">CColorProvider.h</a></div></div>
 <div class="ttc" id="aFRegisterQML_8h_html"><div class="ttname"><a href="../../d9/d88/FRegisterQML_8h.html">FRegisterQML.h</a></div></div>
 <div class="ttc" id="anamespaceScenegraph_html_a87a9973e233bb86a6f2c631006212d2a"><div class="ttname"><a href="../../d9/d69/namespaceScenegraph.html#a87a9973e233bb86a6f2c631006212d2a">Scenegraph::registerQMLTypes</a></div><div class="ttdeci">void registerQMLTypes()</div><div class="ttdoc">Регистрирует сущности класса в мета-системе QML.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d6a/FRegisterQML_8c_09_09_source.html#l00005">FRegisterQML.c++:5</a></div></div>

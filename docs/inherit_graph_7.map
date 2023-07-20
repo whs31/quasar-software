@@ -1,71 +1,7 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="Node000000" href="$d3/d54/group__sdk__network.html#d3/db8/classQuasarSDK_1_1IConnectable" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="5,161,112,189"/>
-<area shape="rect" id="Node000001" href="$d3/d54/group__sdk__network.html#da/dc1/classQuasarSDK_1_1BaseUDPSocket" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="179,83,304,110"/>
-<area shape="poly" id="edge16_Node000000_Node000001" title=" " alt="" coords="96,151,159,121,191,108,193,113,161,126,98,156"/>
-<area shape="rect" id="Node000008" href="$d3/d54/group__sdk__network.html#dc/d2d/classQuasarSDK_1_1OutputRedirectServer" title="Класс для перенаправления вывода РЛС в отдельный Telnet сервер." alt="" coords="161,135,322,162"/>
-<area shape="poly" id="edge22_Node000000_Node000008" title=" " alt="" coords="126,163,160,158,161,163,127,168"/>
-<area shape="rect" id="Node000028" href="$d3/d54/group__sdk__network.html#d2/d74/classQuasarSDK_1_1PingTester" title="Класс для постоянной проверки выбранного адреса на доступность." alt="" coords="197,187,286,214"/>
-<area shape="poly" id="edge23_Node000000_Node000028" title=" " alt="" coords="127,182,197,192,196,197,126,187"/>
-<area shape="rect" id="Node000031" href="$d3/d54/group__sdk__network.html#d9/df7/classQuasarSDK_1_1TCPServer" title="Класс для приема больших файлов с РЛС по протоколу TCP&#45;IP." alt="" coords="198,239,285,266"/>
-<area shape="poly" id="edge24_Node000000_Node000031" title=" " alt="" coords="99,194,161,223,198,237,196,242,159,228,97,199"/>
-<area shape="rect" id="Node000002" href="$d3/d54/group__sdk__network.html#d7/d42/classQuasarSDK_1_1ExecdSocket" title="Сокет для отправки команд на РЛС." alt="" coords="398,5,500,33"/>
-<area shape="poly" id="edge17_Node000001_Node000002" title=" " alt="" coords="290,74,370,43,404,31,406,36,372,48,292,79"/>
-<area shape="rect" id="Node000003" href="$d3/d54/group__sdk__network.html#d8/d25/classQuasarSDK_1_1OutputSocket" title="Сокет для приема и обработки вывода с РЛС." alt="" coords="395,57,503,85"/>
-<area shape="poly" id="edge18_Node000001_Node000003" title=" " alt="" coords="318,84,394,75,394,80,319,90"/>
-<area shape="rect" id="Node000004" href="$d3/d54/group__sdk__network.html#d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket" title="Базовый класс для UDP сокетов, требующих целостность датаграммы." alt="" coords="371,109,526,137"/>
-<area shape="poly" id="edge19_Node000001_Node000004" title=" " alt="" coords="319,104,371,110,370,116,318,109"/>
-<area shape="rect" id="Node000006" href="$d3/d54/group__sdk__network.html#db/d5f/classQuasarSDK_1_1TelemetrySocket" title="Класс для работы с сервисом navd2 на РЛС." alt="" coords="384,161,513,189"/>
-<area shape="poly" id="edge21_Node000001_Node000006" title=" " alt="" coords="305,113,324,121,372,146,403,158,402,163,370,151,322,126,303,118"/>
-<area shape="rect" id="Node000005" href="$d3/d54/group__sdk__network.html#d9/d93/classQuasarSDK_1_1StripSocket" title="Класс для приема больших файлов с РЛС по протоколу UDP." alt="" coords="574,109,669,137"/>
-<area shape="poly" id="edge20_Node000004_Node000005" title=" " alt="" coords="541,121,574,121,574,126,541,126"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="22,759,95,786"/>
-<area shape="poly" id="edge43_Node000009_Node000008" title=" " alt="" coords="58,744,65,622,81,452,94,365,111,285,132,219,144,193,158,173,173,161,176,165,162,177,149,196,137,221,116,287,99,366,86,452,70,622,63,744"/>
-<area shape="poly" id="edge44_Node000009_Node000028" title=" " alt="" coords="59,744,67,631,84,477,97,398,114,326,134,267,158,225,175,212,196,204,198,208,178,216,162,229,138,269,119,328,103,399,90,478,72,632,64,744"/>
-<area shape="poly" id="edge47_Node000009_Node000031" title=" " alt="" coords="59,744,69,641,88,502,101,432,117,367,135,314,158,277,176,264,196,256,198,260,178,268,162,281,140,317,122,369,106,433,93,503,74,642,65,744"/>
-<area shape="rect" id="Node000010" href="$d2/dfe/classApplication_1_1UpdateManager.html" title=" " alt="" coords="179,915,304,942"/>
-<area shape="poly" id="edge25_Node000009_Node000010" title=" " alt="" coords="76,798,111,850,134,877,161,900,184,912,181,917,158,904,131,880,107,853,72,801"/>
-<area shape="rect" id="Node000011" href="$d1/d42/classConfig_1_1Paths.html" title="Class, providing access to commonly used filesystem paths and resource management." alt="" coords="213,967,270,994"/>
-<area shape="poly" id="edge26_Node000009_Node000011" title=" " alt="" coords="71,800,83,834,103,875,128,916,161,952,187,966,213,974,212,979,184,971,158,956,124,920,98,878,78,836,66,801"/>
-<area shape="rect" id="Node000012" href="$d7/d8b/classConfig_1_1Settings.html" title=" " alt="" coords="204,1019,279,1046"/>
-<area shape="poly" id="edge27_Node000009_Node000012" title=" " alt="" coords="67,800,77,845,95,900,123,956,140,981,161,1004,182,1017,205,1025,203,1030,179,1022,158,1008,136,985,118,958,90,902,72,846,62,801"/>
-<area shape="rect" id="Node000013" href="$df/d9e/classConfig_1_1internal_1_1SettingsWrapper.html" title=" " alt="" coords="177,1071,306,1098"/>
-<area shape="poly" id="edge28_Node000009_Node000013" title=" " alt="" coords="64,801,72,855,88,923,117,994,137,1027,161,1056,179,1068,175,1072,158,1060,133,1030,112,997,83,925,66,855,59,801"/>
-<area shape="rect" id="Node000014" href="$df/d40/classEntry.html" title=" " alt="" coords="214,1123,269,1150"/>
-<area shape="poly" id="edge29_Node000009_Node000014" title=" " alt="" coords="63,801,67,864,81,946,94,990,111,1033,133,1073,161,1108,186,1124,214,1131,212,1137,184,1129,158,1112,129,1076,106,1035,89,992,76,948,62,865,57,802"/>
-<area shape="rect" id="Node000015" href="$da/dea/classGUI_1_1ColorTheme.html" title=" " alt="" coords="191,1175,292,1202"/>
-<area shape="poly" id="edge30_Node000009_Node000015" title=" " alt="" coords="66,801,79,883,100,991,128,1093,144,1133,162,1160,175,1171,192,1178,189,1183,173,1175,158,1164,139,1136,123,1095,94,992,74,884,61,801"/>
-<area shape="rect" id="Node000016" href="$d3/d2f/classGUI_1_1internal_1_1ColorThemeWrapper.html" title=" " alt="" coords="164,1227,319,1254"/>
-<area shape="poly" id="edge31_Node000009_Node000016" title=" " alt="" coords="65,800,76,893,96,1016,125,1135,142,1181,162,1212,177,1224,174,1228,158,1216,137,1183,120,1136,91,1017,71,894,60,801"/>
-<area shape="rect" id="Node000017" href="$d6/d20/classMap_1_1ClickHandler.html" title=" " alt="" coords="189,1279,294,1306"/>
-<area shape="poly" id="edge32_Node000009_Node000017" title=" " alt="" coords="65,801,74,903,93,1042,106,1112,122,1176,140,1228,162,1264,174,1274,190,1282,187,1287,171,1279,158,1268,135,1231,117,1178,101,1113,88,1043,69,904,59,801"/>
-<area shape="rect" id="Node000018" href="$d6/db2/classMap_1_1Diagram.html" title=" " alt="" coords="203,1331,280,1358"/>
-<area shape="poly" id="edge33_Node000009_Node000018" title=" " alt="" coords="64,801,72,913,90,1067,103,1146,119,1217,138,1276,162,1316,180,1330,203,1338,201,1343,178,1335,158,1320,134,1278,114,1219,97,1147,84,1068,67,914,59,801"/>
-<area shape="rect" id="Node000019" href="$d6/dce/classMap_1_1OfflineTileLoader.html" title=" " alt="" coords="175,1383,308,1410"/>
-<area shape="poly" id="edge34_Node000009_Node000019" title=" " alt="" coords="63,801,70,923,86,1093,99,1179,116,1258,137,1324,149,1349,162,1368,176,1380,173,1384,158,1372,144,1352,132,1326,111,1260,94,1180,81,1093,65,923,58,801"/>
-<area shape="rect" id="Node000020" href="$d8/d9a/classMap_1_1Route.html" title=" " alt="" coords="212,291,271,318"/>
-<area shape="poly" id="edge35_Node000009_Node000020" title=" " alt="" coords="60,744,71,651,91,528,120,409,137,362,158,329,183,312,211,304,212,310,185,317,162,333,142,364,125,410,96,529,76,652,65,745"/>
-<area shape="rect" id="Node000021" href="$dd/d0f/classMap_1_1RouteLogger.html" title=" " alt="" coords="190,343,293,370"/>
-<area shape="poly" id="edge36_Node000009_Node000021" title=" " alt="" coords="61,744,74,661,94,553,123,450,139,409,158,381,172,370,188,363,190,367,175,375,162,385,144,412,128,452,100,554,79,662,66,744"/>
-<area shape="rect" id="Node000022" href="$d4/d85/classNetworking_1_1HTTPDownloader.html" title="Class for downloading files by HTTP/HTTPS protocol." alt="" coords="175,395,308,422"/>
-<area shape="poly" id="edge37_Node000009_Node000022" title=" " alt="" coords="57,743,62,680,76,597,89,553,106,510,129,469,158,433,175,421,178,425,162,437,133,472,111,512,94,555,81,599,67,681,63,744"/>
-<area shape="rect" id="Node000023" href="$de/d69/classOS_1_1Filesystem.html" title="Class, providing access to filesystem operations and cache manipulation." alt="" coords="195,447,288,474"/>
-<area shape="poly" id="edge38_Node000009_Node000023" title=" " alt="" coords="59,744,66,690,83,620,112,548,133,515,158,485,175,473,194,465,196,470,177,478,161,489,137,518,117,551,88,622,72,690,64,744"/>
-<area shape="rect" id="Node000024" href="$d4/db0/classProcessing_1_1ImageProcessing.html" title=" " alt="" coords="175,499,308,526"/>
-<area shape="poly" id="edge39_Node000009_Node000024" title=" " alt="" coords="62,744,72,699,90,643,118,587,136,560,158,537,177,525,180,529,161,541,140,564,123,589,95,645,77,700,67,745"/>
-<area shape="rect" id="Node000025" href="$d7/d38/classProcessing_1_1StreamProcessing.html" title=" " alt="" coords="172,551,311,578"/>
-<area shape="poly" id="edge40_Node000009_Node000025" title=" " alt="" coords="66,744,78,709,98,667,124,625,158,589,178,577,181,581,161,593,128,629,103,670,83,711,71,745"/>
-<area shape="rect" id="Node000026" href="$d3/d54/group__sdk__network.html#d6/de3/classQuasarSDK_1_1Enums" title="Класс&#45;обёртка для общих перечислений SDK РЛС &quot;Квазар&quot;." alt="" coords="209,603,274,630"/>
-<area shape="poly" id="edge41_Node000009_Node000026" title=" " alt="" coords="72,744,107,692,131,665,158,641,182,628,207,620,209,625,185,633,161,645,134,668,111,695,76,747"/>
-<area shape="rect" id="Node000027" href="$d3/d54/group__sdk__network.html#de/da2/classQuasarSDK_1_1ExecdArgumentParser" title="Класс для хранения и обработки аргументов команд сервиса execd." alt="" coords="160,655,323,682"/>
-<area shape="poly" id="edge42_Node000009_Node000027" title=" " alt="" coords="84,746,118,719,158,693,187,680,189,685,161,698,121,723,87,751"/>
-<area shape="rect" id="Node000029" href="$d3/d54/group__sdk__network.html#d0/dbc/classQuasarSDK_1_1QuasarAPI" title="Публичный интерфейс для работы с сетевой составляющей РЛС &quot;Квазар&quot;." alt="" coords="197,707,286,734"/>
-<area shape="poly" id="edge45_Node000009_Node000029" title=" " alt="" coords="109,756,196,730,198,736,110,761"/>
-<area shape="rect" id="Node000030" href="$d3/d54/group__sdk__network.html#d0/d18/classQuasarSDK_1_1RemoteData" title="Класс&#45;хранилище для данных, связанных с РЛС." alt="" coords="190,759,293,786"/>
-<area shape="poly" id="edge46_Node000009_Node000030" title=" " alt="" coords="110,770,189,770,189,775,110,775"/>
-<area shape="rect" id="Node000032" href="$d3/d54/group__sdk__network.html#db/d03/classQuasarSDK_1_1Telemetry" title="Класс&#45;хранилище для текущей телеметрии РЛС." alt="" coords="198,811,285,838"/>
-<area shape="poly" id="edge48_Node000009_Node000032" title=" " alt="" coords="110,784,198,810,197,815,108,789"/>
-<area shape="rect" id="Node000033" href="$d4/df9/group__legacy.html#db/d68/classScenegraph_1_1Utils_1_1ColorProvider" title="Класс, предоставляющий палитру контрастных цветов." alt="" coords="187,863,296,890"/>
-<area shape="poly" id="edge49_Node000009_Node000033" title=" " alt="" coords="87,794,121,822,161,847,189,860,187,865,158,852,118,826,84,799"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="8,83,109,110"/>
-<area shape="poly" id="edge50_Node000007_Node000001" title=" " alt="" coords="124,94,179,94,179,99,124,99"/>
+<area shape="rect" id="Node000000" href="$d4/da1/structMap_1_1Image.html" title=" " alt="" coords="5,32,68,60"/>
+<area shape="rect" id="Node000001" href="$dc/dac/structMap_1_1StripImage.html" title=" " alt="" coords="134,5,227,33"/>
+<area shape="poly" id="edge53_Node000000_Node000001" title=" " alt="" coords="82,35,133,25,134,30,83,40"/>
+<area shape="rect" id="Node000002" href="$d5/d34/structMap_1_1TelescopicImage.html" title=" " alt="" coords="116,57,245,85"/>
+<area shape="poly" id="edge54_Node000000_Node000002" title=" " alt="" coords="83,51,116,57,115,62,82,56"/>
 </map>

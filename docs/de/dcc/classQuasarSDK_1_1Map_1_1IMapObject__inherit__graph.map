@@ -1,18 +1,18 @@
 <map id="IMapObject" name="IMapObject">
 <area shape="rect" id="Node000001" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="277,5,372,33"/>
-<area shape="rect" id="Node000002" href="$d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="262,81,388,109"/>
+<area shape="rect" id="Node000002" href="$d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="262,81,388,109"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="327,48,327,81,322,81,322,48"/>
-<area shape="rect" id="Node000003" href="$d6/d84/group__sdk__map.html#d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="110,157,227,184"/>
+<area shape="rect" id="Node000003" href="$d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="110,157,227,184"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="285,118,197,159,195,154,282,113"/>
 <area shape="rect" id="Node000007" href="$db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html" title=" " alt="" coords="252,157,398,184"/>
 <area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="327,124,327,156,322,156,322,124"/>
-<area shape="rect" id="Node000008" href="$d6/d84/group__sdk__map.html#dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="422,157,558,184"/>
+<area shape="rect" id="Node000008" href="$dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="422,157,558,184"/>
 <area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="368,113,462,154,460,159,366,117"/>
-<area shape="rect" id="Node000004" href="$d6/d84/group__sdk__map.html#d6/d61/classQuasarSDK_1_1Map_1_1MapImage" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="124,232,214,260"/>
+<area shape="rect" id="Node000004" href="$d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="124,232,214,260"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="171,199,171,232,166,232,166,199"/>
-<area shape="rect" id="Node000005" href="$d3/daf/group__sdk__images.html#dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,308,159,336"/>
+<area shape="rect" id="Node000005" href="$dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,308,159,336"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="144,272,99,310,96,306,140,268"/>
-<area shape="rect" id="Node000006" href="$d3/daf/group__sdk__images.html#d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="183,308,331,336"/>
+<area shape="rect" id="Node000006" href="$d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="183,308,331,336"/>
 <area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="197,268,243,306,239,310,194,272"/>
 <area shape="rect" id="Node000009" href="$d2/d48/classMap_1_1GeoMarker.html" title=" " alt="" coords="444,232,536,260"/>
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="493,199,493,232,487,232,487,199"/>

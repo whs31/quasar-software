@@ -1,0 +1,446 @@
+<!-- HTML header for doxygen 1.9.6-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.9.7" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuaSAR: Класс IMapObject</title>
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
+              <td id="projectalign">
+                <div id="projectname">QuaSAR<span
+                    id="projectnumber">&#160;2.12.0</span>
+                </div>
+                <div id="projectbrief">SAR control software</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="../../d1/d74/classQuasarSDK_1_1Map_1_1IMapObject-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс IMapObject<span class="mlabels"><span class="mlabel">abstract</span></span><div class="ingroups"><a class="el" href="../../d6/d84/group__sdk__map.html">Картография</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="../../df/d6a/imapobject_8h_source.html">imapobject.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:IMapObject:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../de/dcc/classQuasarSDK_1_1Map_1_1IMapObject__inherit__graph.png" border="0" usemap="#aIMapObject_inherit__map" alt="Inheritance graph"/></div>
+<map name="aIMapObject_inherit__map" id="aIMapObject_inherit__map">
+<area shape="rect" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="277,5,372,33"/>
+<area shape="rect" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="262,81,388,109"/>
+<area shape="poly" title=" " alt="" coords="327,48,327,81,322,81,322,48"/>
+<area shape="rect" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="110,157,227,184"/>
+<area shape="poly" title=" " alt="" coords="285,118,197,159,195,154,282,113"/>
+<area shape="rect" href="../../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html" title=" " alt="" coords="252,157,398,184"/>
+<area shape="poly" title=" " alt="" coords="327,124,327,156,322,156,322,124"/>
+<area shape="rect" href="../../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="422,157,558,184"/>
+<area shape="poly" title=" " alt="" coords="368,113,462,154,460,159,366,117"/>
+<area shape="rect" href="../../d6/d61/classQuasarSDK_1_1Map_1_1MapImage.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="124,232,214,260"/>
+<area shape="poly" title=" " alt="" coords="171,199,171,232,166,232,166,199"/>
+<area shape="rect" href="../../dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,308,159,336"/>
+<area shape="poly" title=" " alt="" coords="144,272,99,310,96,306,140,268"/>
+<area shape="rect" href="../../d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="183,308,331,336"/>
+<area shape="poly" title=" " alt="" coords="197,268,243,306,239,310,194,272"/>
+<area shape="rect" href="../../d2/d48/classMap_1_1GeoMarker.html" title=" " alt="" coords="444,232,536,260"/>
+<area shape="poly" title=" " alt="" coords="493,199,493,232,487,232,487,199"/>
+</map>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:acbf8ea0d922375d6f810d43cfb03da3d"><td class="memItemLeft" align="right" valign="top">virtual QGeoCoordinate&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#acbf8ea0d922375d6f810d43cfb03da3d">coordinate</a> () const =0</td></tr>
+<tr class="separator:acbf8ea0d922375d6f810d43cfb03da3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9623d6c963b18dbcc25d7cb86accbf8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#af9623d6c963b18dbcc25d7cb86accbf8">setCoordinate</a> (const QGeoCoordinate &amp;coord)=0</td></tr>
+<tr class="separator:af9623d6c963b18dbcc25d7cb86accbf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80463f63f8d3b31f942b735a391eb8ba"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a80463f63f8d3b31f942b735a391eb8ba">zoomLevel</a> () const =0</td></tr>
+<tr class="separator:a80463f63f8d3b31f942b735a391eb8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df9968d14a11006a2022207bd6f3e32"><td class="memItemLeft" align="right" valign="top">virtual QPointF&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a5df9968d14a11006a2022207bd6f3e32">origin</a> () const =0</td></tr>
+<tr class="separator:a5df9968d14a11006a2022207bd6f3e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a270eb9fdceba873574fac54719a5ff63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a270eb9fdceba873574fac54719a5ff63">setOrigin</a> (const QPointF &amp;point)=0</td></tr>
+<tr class="separator:a270eb9fdceba873574fac54719a5ff63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8dd1a3930d34f9ab93f934382696b10"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#aa8dd1a3930d34f9ab93f934382696b10">opacity</a> () const =0</td></tr>
+<tr class="separator:aa8dd1a3930d34f9ab93f934382696b10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ba22365784630081c950deeeda23cb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a75ba22365784630081c950deeeda23cb">setOpacity</a> (float val)=0</td></tr>
+<tr class="separator:a75ba22365784630081c950deeeda23cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4534407d8573ea58bd598a8e15c6032c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a4534407d8573ea58bd598a8e15c6032c">isVisible</a> () const =0</td></tr>
+<tr class="separator:a4534407d8573ea58bd598a8e15c6032c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68fad8d02d12ec3b84dfec0e73eedf7e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html#a68fad8d02d12ec3b84dfec0e73eedf7e">setVisible</a> (bool state)=0</td></tr>
+<tr class="separator:a68fad8d02d12ec3b84dfec0e73eedf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс, описывающий абстрактный объект карты. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../df/d6a/imapobject_8h_source.html">imapobject.h</a> строка <a class="el" href="../../df/d6a/imapobject_8h_source.html#l00019">19</a></p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="acbf8ea0d922375d6f810d43cfb03da3d" name="acbf8ea0d922375d6f810d43cfb03da3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf8ea0d922375d6f810d43cfb03da3d">&#9670;&#160;</a></span>coordinate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QGeoCoordinate coordinate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает координату на карте, к которой будет привязан объект. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#a95564196099bec998d149682d58c6917">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="af9623d6c963b18dbcc25d7cb86accbf8" name="af9623d6c963b18dbcc25d7cb86accbf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9623d6c963b18dbcc25d7cb86accbf8">&#9670;&#160;</a></span>setCoordinate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setCoordinate </td>
+          <td>(</td>
+          <td class="paramtype">const QGeoCoordinate &amp;&#160;</td>
+          <td class="paramname"><em>coord</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает координату на карте, к которой будет привязан объект. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#aaeba2d5b787a7f766e11ac464434d964">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a80463f63f8d3b31f942b735a391eb8ba" name="a80463f63f8d3b31f942b735a391eb8ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80463f63f8d3b31f942b735a391eb8ba">&#9670;&#160;</a></span>zoomLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float zoomLevel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает масштаб объекта. Интерфейс не определяет сеттер для масштаба. </p>
+
+<p>Замещается в <a class="el" href="../../d7/d80/classQuasarSDK_1_1Map_1_1FGSMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">FGSMapObject</a>, <a class="el" href="../../db/dcf/classQuasarSDK_1_1Map_1_1ScalableMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">ScalableMapObject</a> и <a class="el" href="../../dc/ded/classQuasarSDK_1_1Map_1_1ScreenMapObject.html#a5f54dc38a09aa823e405d9c24b3eae66">ScreenMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a5df9968d14a11006a2022207bd6f3e32" name="a5df9968d14a11006a2022207bd6f3e32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df9968d14a11006a2022207bd6f3e32">&#9670;&#160;</a></span>origin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual QPointF origin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает точку привязки на объекте (в <em>px</em>). </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#aa90a335b292aa2e9da91548c8ee3d8f9">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a270eb9fdceba873574fac54719a5ff63" name="a270eb9fdceba873574fac54719a5ff63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a270eb9fdceba873574fac54719a5ff63">&#9670;&#160;</a></span>setOrigin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setOrigin </td>
+          <td>(</td>
+          <td class="paramtype">const QPointF &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает точку привязки на объекте (в <em>px</em>). </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#aa39601012d9f8de422678b34992077c6">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="aa8dd1a3930d34f9ab93f934382696b10" name="aa8dd1a3930d34f9ab93f934382696b10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8dd1a3930d34f9ab93f934382696b10">&#9670;&#160;</a></span>opacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float opacity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает прозрачность объекта от 0 до 1. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#a7aef4cad5bb8bd84b81563882b938101">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a75ba22365784630081c950deeeda23cb" name="a75ba22365784630081c950deeeda23cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ba22365784630081c950deeeda23cb">&#9670;&#160;</a></span>setOpacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setOpacity </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает прозрачность объекта от 0 до 1. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#a8d0053a9860b323a8ab5d369efbbcb11">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a4534407d8573ea58bd598a8e15c6032c" name="a4534407d8573ea58bd598a8e15c6032c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4534407d8573ea58bd598a8e15c6032c">&#9670;&#160;</a></span>isVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool isVisible </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает состояние видимости объекта. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#a631cfae81b8a4b8f12e888c20e5bf04f">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<a id="a68fad8d02d12ec3b84dfec0e73eedf7e" name="a68fad8d02d12ec3b84dfec0e73eedf7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68fad8d02d12ec3b84dfec0e73eedf7e">&#9670;&#160;</a></span>setVisible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void setVisible </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает состояние видимости объекта. </p>
+
+<p>Замещается в <a class="el" href="../../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html#a88192082e2da1aac5f9694a26e11dc60">BasicMapObject</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="../../df/d6a/imapobject_8h_source.html">imapobject.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/d48/namespaceQuasarSDK.html">QuasarSDK</a></li><li class="navelem"><a class="el" href="../../d2/d78/namespaceQuasarSDK_1_1Map.html">Map</a></li><li class="navelem"><a class="el" href="../../da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html">IMapObject</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

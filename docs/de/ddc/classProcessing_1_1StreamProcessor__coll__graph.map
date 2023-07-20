@@ -1,0 +1,7 @@
+<map id="StreamProcessor" name="StreamProcessor">
+<area shape="rect" id="Node000001" title=" " alt="" coords="48,98,180,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,79,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,43,106,96,102,99,59,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,5,269,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,46,126,99,122,96,165,43"/>
+</map>

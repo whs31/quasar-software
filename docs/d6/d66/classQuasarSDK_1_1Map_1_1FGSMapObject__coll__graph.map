@@ -1,7 +1,7 @@
 <map id="FGSMapObject" name="FGSMapObject">
 <area shape="rect" id="Node000001" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="10,157,127,184"/>
-<area shape="rect" id="Node000002" href="$d6/d84/group__sdk__map.html#d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,132,109"/>
+<area shape="rect" id="Node000002" href="$d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,132,109"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,124,71,156,66,156,66,124"/>
-<area shape="rect" id="Node000003" href="$d6/d84/group__sdk__map.html#da/da7/classQuasarSDK_1_1Map_1_1IMapObject" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="21,5,116,33"/>
+<area shape="rect" id="Node000003" href="$da/da7/classQuasarSDK_1_1Map_1_1IMapObject.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="21,5,116,33"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="71,48,71,81,66,81,66,48"/>
 </map>

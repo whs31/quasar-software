@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['messagetype_0',['MessageType',['../dc/d5f/group__sdk__io.html#ac6606ebe91c8ac66a2c314c79f5ab013',1,'QuasarSDK::IO::IMessage']]]
+  ['formingmode_0',['FormingMode',['../d6/de3/classQuasarSDK_1_1Enums.html#ab1288bc6750630bd0230fb622248d9d6',1,'QuasarSDK::Enums']]]
 ];

@@ -104,19 +104,8 @@ QuaSAR::QuaSAR(QObject* parent)
   connect(OS::Filesystem::get(), &OS::Filesystem::imageListCached, Processing::ImageProcessing::get(), &Processing::ImageProcessing::processList, Qt::QueuedConnection);
   connect(Processing::ImageProcessing::get()->model(), &Map::ImageModel::markedForExport, OS::Filesystem::get(), &OS::Filesystem::exportImagesToFolder);
 
-  connect(QuasarAPI::get(), &QuasarSDK::QuasarAPI::tcpDataReceived, this, [this](const QByteArray& data, const QString& name){
-    QFile file(Config::Paths::tcp() + "/" + name);
-    if(not file.open(QIODevice::WriteOnly))
-    {
-      qCritical() << "[ENTRY] Failed to save result";
-      return;
-    }
-
-    file.write(data);
-    file.close();
-
-    OS::Filesystem::get()->fetchTCPCache();
-  });
+  connect(QuasarAPI::get(), &QuasarAPI::tcpDataReceived, this, &QuaSAR::passTCPData);
+  connect(QuasarAPI::get(), &QuasarAPI::udpDataReceived, this, &QuaSAR::passUDPData);
 
   NotificationsModel::get()->add(NotificationsModel::NotConnected, NotificationsModel::Warn);
   connect(QuasarAPI::get(), &QuasarAPI::connectedChanged, this, [this](){
@@ -138,3 +127,23 @@ QuaSAR::QuaSAR(QObject* parent)
 }
 
 void QuaSAR::closeApplication() noexcept { qApp->quit(); }
+
+void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
+{
+  QFile file(Config::Paths::tcp() + "/" + name);
+  if(not file.open(QIODevice::WriteOnly))
+  {
+    qCritical() << "[ENTRY] Failed to save result";
+    return;
+  }
+
+  file.write(data);
+  file.close();
+
+  OS::Filesystem::get()->fetchTCPCache();
+}
+
+void QuaSAR::passUDPData(const QByteArray& data) noexcept
+{
+  qDebug() << data.size();
+}

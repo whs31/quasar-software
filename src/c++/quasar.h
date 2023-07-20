@@ -23,8 +23,11 @@ class QuaSAR : public QObject
   signals:
     void scheduleClose();
 
-  private slots:
-    static void closeApplication() noexcept;
+  private:
+    Q_SLOT void passTCPData(const QByteArray& data, const QString& name) noexcept;
+    Q_SLOT void passUDPData(const QByteArray& data) noexcept;
+
+    Q_SLOT static void closeApplication() noexcept;
 
   private:
     Application::UpdateManager* m_updateManager;

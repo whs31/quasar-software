@@ -44,6 +44,7 @@ namespace QuasarSDK
       , m_outputModel(new IO::SAROutputModel(this))
       , m_connected(false)
       , m_currentNetworkDelay(Config::get()->value<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
+      , m_currentFormingMode(static_cast<int>(Enums::Telescopic))
       , m_networkDelayTimer(new QTimer(this))
       , m_de10PingTester(new PingTester(this))
       , m_jetson0PingTester(new PingTester(this))
@@ -182,6 +183,20 @@ namespace QuasarSDK
       setConnected(false);
     else
       setConnected(true);
+  }
+
+  /**
+   * \property QuasarAPI::currentFormingMode
+   * \brief Предоставляет текущий режим формирования изображения.
+   * \details Свойство доступно для чтения и записи.
+   */
+  int QuasarAPI::currentFormingMode() const { return m_currentFormingMode; }
+  void QuasarAPI::setCurrentFormingMode(int o)
+  {
+    if(m_currentFormingMode == o)
+      return;
+    m_currentFormingMode = o;
+    emit currentFormingModeChanged();
   }
 
   /**

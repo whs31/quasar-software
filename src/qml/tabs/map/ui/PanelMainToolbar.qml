@@ -2,36 +2,48 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
-import Theme 1.0
+
 import QuaSAR.API 1.0
+
+import Theme 1.0
 import "../../../widgets" as Widgets
 
 Pane {
-    property int mode // 0 = telescopic, 1 = strip
-
     Material.elevation: 200
 
     RowLayout {
         spacing: -2
 
         RoundButton {
+            property var m_icons: ["qrc:/icons/vector/toolbar/angle.svg", "qrc:/icons/vector/images/shot.svg", "qrc:/icons/vector/network/stream.svg"]
+            property var m_labels: ["Телескопический", "Полосовой", "Потоковый"]
+            property var m_colors: [ColorTheme.active.color(ColorTheme.Accent), ColorTheme.active.color(ColorTheme.Yellow), ColorTheme.active.color(ColorTheme.Maroon)]
+
             id: button_ToggleMode
 
             enabled: !button_FormImage.checked
             Layout.preferredHeight: 45
             height: 40
             radius: 4
-            icon.source: mode === 0 ? "qrc:/icons/vector/images/camera.svg" : "qrc:/icons/vector/images/videocam.svg"
+            icon.source: m_icons[NetworkAPI.currentFormingMode]
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
-            checkable: true
+            text: m_labels[NetworkAPI.currentFormingMode]
             Material.elevation: 30
-            Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Yellow)
-            onCheckedChanged: checked ? mode = 1 : mode = 0
+            Material.background: m_colors[NetworkAPI.currentFormingMode]
+            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
 
-            Widgets.TT { txt: "Переключение между телескопическим и полосовым режимом" }
+            onPressed: {
+                if(NetworkAPI.currentFormingMode < 2)
+                    NetworkAPI.currentFormingMode += 1
+                else
+                    NetworkAPI.currentFormingMode = 0
+            }
+
+            Widgets.TT { txt: "Переключение между режимами работы РЛС" }
         }
 
         RoundButton {
+            property string checkstate_string: checked ? "Остановка" : "Начало"
             id: button_FormImage
 
             Layout.preferredHeight: 45
@@ -40,14 +52,13 @@ Pane {
             radius: 4
             icon.source: "qrc:/icons/vector/images/focus.svg"
             icon.color: ColorTheme.active.color(ColorTheme.Dark)
-            text: mode === 0 ? "Формирование изображения" : checked ? "Остановка записи" : "Начало записи"
-            checkable: mode === 1
+            text: NetworkAPI.currentFormingMode === Net.Telescopic ? "Формирование изображения"
+                  : NetworkAPI.currentFormingMode === Net.Strip ? checkstate_string + " записи"
+                  : checkstate_string + " потока"
+            checkable: NetworkAPI.currentFormingMode !== Net.Telescopic
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: mode === 0 ? ColorTheme.active.color(ColorTheme.Accent)
-                                            : checked
-                                            ? ColorTheme.active.color(ColorTheme.Orange)
-                                            : ColorTheme.active.color(ColorTheme.Yellow)
+            Material.background: button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
             onPressed: {
                 if (!checkable)
                     NetworkAPI.execute(Net.FormImage);

@@ -276,7 +276,7 @@ Map { id: maptab_root;
     MapTabUI.PanelMainToolbar { id: panel_MainToolbar;
         anchors {
             top: parent.top
-            left: parent.left
+            horizontalCenter: parent.horizontalCenter
             margins: 5
         }
 

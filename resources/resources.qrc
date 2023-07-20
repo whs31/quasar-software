@@ -110,5 +110,7 @@
         <file>icons/vector/images/transform.svg</file>
         <file>icons/vector/common/file_percent.svg</file>
         <file>icons/vector/common/error.svg</file>
+        <file>icons/vector/images/shot.svg</file>
+        <file>icons/vector/network/stream.svg</file>
     </qresource>
 </RCC>

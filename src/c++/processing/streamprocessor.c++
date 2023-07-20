@@ -106,13 +106,13 @@ namespace Processing
       if(not navigation_read)
       {
         image.setCoordinate(Utils::rad2deg(nav.latitude), Utils::rad2deg(nav.longitude));
-        image.setAzimuth(Utils::rad2deg(nav.course));
+        image.setAzimuth(static_cast<float>(Utils::rad2deg(nav.course)));
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
-        float x = -img.x0;
-        float y = static_cast<float>(img.y)/ 10.0f;
-        image.setOffset(QPointF(x * cos(image.azimuth()) + y * sin(image.azimuth()),
-                                -x * sin(image.azimuth()) + y * cos(image.azimuth())));
+        float _x_ = -img.x0;
+        float _y_ = static_cast<float>(img.y) / 10.0f;
+        image.setOffset(QPointF(_x_ * std::cos(image.azimuth()) + _y_ * std::sin(image.azimuth()),
+                                -_x_ * std::sin(image.azimuth()) + _y_ * std::cos(image.azimuth())));
         navigation_read = true;
       }
 

@@ -81,10 +81,32 @@ Pane { id: panel_Entities;
                     if(uid === 4 && status === true) {
                         console.log("[GUI] Images cleared");
                         ImagesModel.clear();
-                        StripModel.clear();
+                        StreamSegmentModel.clear();
                     }
                 }
             }
+        }
+
+        RoundButton { id: button_StripEraser;
+            enabled: false;
+            visible: false;
+            height: 44;
+            width: 44;
+            radius: 4;
+            icon.source: "qrc:/icons/vector/toolbar/eraser.svg";
+            icon.color: ClickHandler.state === ClickHandler.EraserActive ? ColorTheme.active.color(ColorTheme.Dark)
+                                                                         : ColorTheme.active.color(ColorTheme.Text)
+            Material.background: ClickHandler.state === ClickHandler.EraserActive ? ColorTheme.active.color(ColorTheme.Red)
+                                                                                  : ColorTheme.active.color(ColorTheme.Surface);
+            Material.elevation: 30;
+            onPressed: {
+                if(ClickHandler.state === ClickHandler.EraserActive)
+                    ClickHandler.state = ClickHandler.Idle
+                else
+                    ClickHandler.state = ClickHandler.EraserActive
+            }
+
+            Widgets.TT { txt: "Инструмент очистки карты от потоковых РЛИ"; }
         }
     }
 }

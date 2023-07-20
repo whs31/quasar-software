@@ -81,8 +81,8 @@ namespace QuasarSDK::Datagrams
     double latitude = 0;                    ///< Широта в радианах в проекции WGS-84.
     double longitude = 0;                   ///< Долгота в радианах в проекции WGS-84.
     float velocity = 0;                     ///< Скорость БПЛА в м/с.
-    float course = 0;                       ///< Курс БПЛА в градусах.
-    float track_ang = 0;                    ///< Сумма курса БПЛА и угла сноса (в градусах).
+    float course = 0;                       ///< Курс БПЛА в **радианах**.
+    float track_ang = 0;                    ///< Сумма курса БПЛА и угла сноса (в **радианах**).
   } __attribute__((packed));
 
   /**

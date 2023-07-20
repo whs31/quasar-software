@@ -105,10 +105,10 @@ namespace Processing
       if(not navigation_read)
       {
         image.setCoordinate(Utils::rad2deg(nav.latitude), Utils::rad2deg(nav.longitude));
-        image.setAzimuth(nav.track_ang);
+        image.setAzimuth(Utils::rad2deg(nav.track_ang));
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
-        image.setOffset(QPointF(img.x0, static_cast<float>(img.y)/ 10.0f));
+        image.setOffset(QPointF(img.x0, -static_cast<float>(img.y)/ 10.0f));
         navigation_read = true;
       }
 
@@ -151,6 +151,7 @@ namespace Processing
       for(size_t j = 0; j < x; ++j)
         image_result[i][j] = output[j + x * i];
     }
+    //strip_result = strip_result.mirrored(true, true);
 
     for(size_t row = 0; row < image_result.size(); ++row)
     {

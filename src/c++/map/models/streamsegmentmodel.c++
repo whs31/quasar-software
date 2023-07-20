@@ -23,6 +23,7 @@ namespace Map
     roles[ChunkRatio] = "chunkRatio";                 // real
     roles[ChunkOpacity] = "chunkOpacity";             // real
     roles[ChunkVisibility] = "chunkVisibility";       // bool
+    roles[Base64] = "base64";                         // string
     return roles;
   }
 
@@ -43,6 +44,7 @@ namespace Map
       case ChunkRatio: return QVariant::fromValue(m_storage[index.row()].ratio());
       case ChunkOpacity: return QVariant::fromValue(m_storage[index.row()].opacity());
       case ChunkVisibility: return QVariant::fromValue(m_storage[index.row()].isVisible());
+      case Base64: return QVariant::fromValue(m_storage[index.row()].base64());
 
       default: return "Error reading from model";
     }
@@ -63,6 +65,7 @@ namespace Map
         case ChunkRatio: m_storage[index.row()].setRatio(value.toFloat()); break;
         case ChunkOpacity: m_storage[index.row()].setOpacity(value.toFloat()); break;
         case ChunkVisibility: m_storage[index.row()].setVisible(value.toBool()); break;
+        case Base64: return false;
 
         default: return false;
       }

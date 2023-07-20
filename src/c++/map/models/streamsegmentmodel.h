@@ -25,7 +25,8 @@ namespace Map
         ChunkZoomLevel,
         ChunkRatio,
         ChunkOpacity,
-        ChunkVisibility
+        ChunkVisibility,
+        Base64
       };
 
       explicit StreamSegmentModel(QObject* parent = nullptr);

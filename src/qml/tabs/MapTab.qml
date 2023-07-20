@@ -179,7 +179,7 @@ Map { id: maptab_root;
     }
 
     MapItemView {
-        model: StripModel
+        model: StreamSegmentModel
         add: Transition { NumberAnimation { property: "opacity"; from: 0; to: 1; duration: 500; easing.type: Easing.OutCubic; } }
         remove: Transition { NumberAnimation { property: "opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapQuickItems.Strip { }

@@ -68,7 +68,7 @@ namespace Map
     if(index >= rowCount())
       return;
     beginRemoveRows(QModelIndex(), index, index);
-    m_storage.erase(m_storage.begin() + index);
+    m_storage.remove(index);
     endRemoveRows();
 
     qDebug() << "[MARKER] Model lost an marker. Now it contains" << rowCount() << "markers";

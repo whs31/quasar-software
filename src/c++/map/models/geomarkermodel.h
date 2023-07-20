@@ -1,10 +1,8 @@
 #pragma once
 
-#include <vector>
 #include <QtCore/QAbstractListModel>
+#include <QtCore/QVector>
 #include "map/entities/geomarker.h"
-
-using std::vector;
 
 namespace Map
 {
@@ -50,6 +48,6 @@ namespace Map
       QByteArray toPlainText() const noexcept;
 
     private:
-      vector<GeoMarker> m_storage;
+      QVector<GeoMarker> m_storage;
   };
 } // Map

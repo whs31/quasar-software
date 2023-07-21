@@ -18,6 +18,7 @@
   "misc/telemetry-frequency": "0.1",
   "misc/antenna-alignment": "right",
   "misc/redirect": "false",
+  "misc/compatibility": "false",
 
   "state/latitude": "60",
   "state/longitude": "30",

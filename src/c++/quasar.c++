@@ -67,6 +67,10 @@ QuaSAR::QuaSAR(QObject* parent)
   qmlRegisterModule("Filesystem", 1, 0);
   qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get());
 
+  QuasarAPI::get()->setCompatibilityMode(Config::Settings::get()->value<bool>("misc/compatibility"));
+  connect(Config::Settings::get(), &Config::Settings::compatibilityChanged, this, [this](){
+    QuasarAPI::get()->setCompatibilityMode(Config::Settings::get()->value<bool>("misc/compatibility"));
+  });
   QuasarAPI::get()->setPingAddressList({
     Config::Settings::get()->value<QString>("ip/de10"),
     Config::Settings::get()->value<QString>("ip/jetson"),

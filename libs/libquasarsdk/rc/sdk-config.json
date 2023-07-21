@@ -16,6 +16,9 @@
   "EXECD_SPECIAL_PID_OF": "#pidof",
   "EXECD_SPECIAL_PASS": "#pass()",
 
+  "EXECD_COMPAT_STRIP_START": "$strip_start",
+  "EXECD_COMPAT_STRIP_STOP": "$strip_stop",
+
   "STDOUT_STORAGE_STATUS": "*FREE_DISK_SPACE*",
 
   "TCP_SERVER_TIMEOUT": "10000",

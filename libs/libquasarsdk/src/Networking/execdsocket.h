@@ -18,7 +18,8 @@ namespace QuasarSDK
     Q_OBJECT
 
     public:
-      explicit ExecdSocket(QObject* parent = nullptr);
+      explicit ExecdSocket(bool compat_mode, QObject* parent = nullptr);
+      void setCompatibility(bool);
 
       void execute(const QString& command) noexcept;
       void execute(Enums::NetworkCommand command) noexcept;
@@ -46,5 +47,6 @@ namespace QuasarSDK
       ExecdArgumentParser* m_args;
       int m_message_uid;
       int m_strip_pid;
+      bool m_compatibilityMode;
   };
 } // QuasarSDK

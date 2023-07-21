@@ -45,6 +45,7 @@ namespace QuasarSDK
       , m_connected(false)
       , m_currentNetworkDelay(Config::get()->value<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
       , m_currentFormingMode(static_cast<int>(Enums::Telescopic))
+      , m_compatibilityMode(false)
       , m_networkDelayTimer(new QTimer(this))
       , m_de10PingTester(new PingTester(this))
       , m_jetson0PingTester(new PingTester(this))
@@ -53,7 +54,7 @@ namespace QuasarSDK
       , m_com2PingTester(new PingTester(this))
       , m_redirectServer(new OutputRedirectServer(this))
       , m_telemetrySocket(new TelemetrySocket(this, m_telemetry))
-      , m_execdSocket(new ExecdSocket(this))
+      , m_execdSocket(new ExecdSocket(compatibilityMode(), this))
       , m_outputSocket(new OutputSocket(this))
       , m_tcpServer(new TCPServer(this))
       , m_stripSocket(new StripSocket(this))
@@ -198,6 +199,25 @@ namespace QuasarSDK
     m_currentFormingMode = o;
     emit currentFormingModeChanged();
   }
+
+  /**
+   * \property QuasarAPI::compatibilityMode
+   * \brief Свойство совместимости со старой версией прошивки РЛС.
+   * \details Если свойство равняется <tt>true</tt>, то в сервис <tt>execd</tt>
+   * будут подаваться команды, совместимые со старой версией прошивки.
+   *
+   * Свойство доступно для чтения и записи.
+   */
+   bool QuasarAPI::compatibilityMode() const { return m_compatibilityMode; }
+   void QuasarAPI::setCompatibilityMode(bool o)
+   {
+     if(m_compatibilityMode == o)
+       return;
+     m_compatibilityMode = o;
+     emit compatibilityModeChanged();
+
+     execdSocket()->setCompatibility(compatibilityMode());
+   }
 
   /**
    * \brief Возвращает указатель на сокет телеметрии.

@@ -212,6 +212,7 @@ Pane {
                         onCurrentValueChanged: Settings.setParameter("misc/antenna-alignment", currentIndex === 1 ? "right" : "left")
                     }
                 }
+                ConfigCheckbox { id: checkbox_Compatibility; description: "Режим совместимости"; key: "misc/compatibility" }
             }
         }
 

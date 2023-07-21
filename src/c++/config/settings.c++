@@ -78,6 +78,8 @@ namespace Config
   void Settings::setParameter(const QString& key, const QVariant& value) noexcept
   {
     m_wrapper->set(key, value);
+    if(key == "misc/compatibility")
+      emit compatibilityChanged();
     if(key == "application/theme")
       emit themeChanged();
   }

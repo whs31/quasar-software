@@ -54,6 +54,7 @@ namespace Config
     signals:
       void ioChanged();
       void themeChanged();
+      void compatibilityChanged();
 
     private:
       explicit Settings(QObject* parent = nullptr);

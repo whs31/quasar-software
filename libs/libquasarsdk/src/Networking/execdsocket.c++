@@ -21,9 +21,14 @@
 
 namespace QuasarSDK
 {
-  /// \brief Создает новый объект ExecdSocket с указанным родителем.
-  ExecdSocket::ExecdSocket(QObject* parent)
+  /**
+   * \brief Создает новый объект ExecdSocket с указанным родителем.
+   * \param compat_mode - режим совместимости со старой версией прошивки РЛС.
+   * \param parent - родительский объект в дереве иерархии Qt.
+   */
+  ExecdSocket::ExecdSocket(bool compat_mode, QObject* parent)
       : BaseUDPSocket(parent)
+      , m_compatibilityMode(compat_mode)
       , m_args(new ExecdArgumentParser(this))
       , m_message_uid(0)
       , m_strip_pid(-1)
@@ -31,6 +36,9 @@ namespace QuasarSDK
     this->setName("Execd");
     QObject::connect(this, &ExecdSocket::received, this, &ExecdSocket::process, Qt::DirectConnection);
   }
+
+  /// \brief Включает или выключает режим совместимости со старой версией РЛС.
+  void ExecdSocket::setCompatibility(bool o) { m_compatibilityMode = o; }
 
   /**
     * \brief Выполняет произвольную команду в сервисе \c execd.
@@ -77,17 +85,32 @@ namespace QuasarSDK
         break;
       case Enums::StripStart:
       {
-        QString strip_comma = FROM_JSON("EXECD_FORM_STRIP_START") + m_args->formArgumentString();
-        com = wrap(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip_shot)",
-                             FROM_JSON("EXECD_SPECIAL_PASS"), strip_comma));
-        m_strip_pid = m_message_uid;
+        if(m_compatibilityMode)
+          com = wrap(FROM_JSON("EXECD_COMPAT_STRIP_START") + m_args->formArgumentString());
+        else
+        {
+          QString strip_comma = FROM_JSON("EXECD_FORM_STRIP_START") + m_args->formArgumentString();
+          com = wrap(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip_shot)",
+                               FROM_JSON("EXECD_SPECIAL_PASS"), strip_comma));
+          m_strip_pid = m_message_uid;
+        }
         break;
       }
       case Enums::StripStop:
-        signalToProcess(m_strip_pid, Enums::SigINT);
-        return;
+        if(m_compatibilityMode)
+        {
+          com = wrap(FROM_JSON("EXECD_COMPAT_STRIP_STOP") + m_args->formArgumentString());
+          break;
+        }
+        else
+        {
+          signalToProcess(m_strip_pid, Enums::SigINT);
+          return;
+        }
       case Enums::StreamStart:
       {
+        if(m_compatibilityMode)
+          return;
         QString stream_comma = FROM_JSON("EXECD_FORM_STREAM_START") + m_args->formArgumentString();
         com = wrap(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip)",
                              FROM_JSON("EXECD_SPECIAL_PASS"), stream_comma));
@@ -95,6 +118,8 @@ namespace QuasarSDK
         break;
       }
       case Enums::StreamStop:
+        if(m_compatibilityMode)
+          return;
         signalToProcess(m_strip_pid, Enums::SigINT);
         return;
       case Enums::Reboot:

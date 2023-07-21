@@ -35,6 +35,7 @@ namespace QuasarSDK
     Q_PROPERTY(bool isConnected READ isConnected WRITE setConnected NOTIFY connectedChanged)
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
     Q_PROPERTY(int currentFormingMode READ currentFormingMode WRITE setCurrentFormingMode NOTIFY currentFormingModeChanged)
+    Q_PROPERTY(bool compatibilityMode READ compatibilityMode WRITE setCompatibilityMode NOTIFY compatibilityModeChanged)
 
     public:
       static QuasarAPI* get();
@@ -45,6 +46,7 @@ namespace QuasarSDK
       [[nodiscard]] bool isConnected() const; void setConnected(bool);
       [[nodiscard]] float currentNetworkDelay() const; void setCurrentNetworkDelay(float);
       [[nodiscard]] int currentFormingMode() const; void setCurrentFormingMode(int);
+      [[nodiscard]] bool compatibilityMode() const; void setCompatibilityMode(bool);
 
       [[nodiscard]] TelemetrySocket* telemetrySocket();
       [[nodiscard]] ExecdSocket* execdSocket();
@@ -81,6 +83,7 @@ namespace QuasarSDK
       void connectedChanged();
       void currentNetworkDelayChanged();
       void currentFormingModeChanged();
+      void compatibilityModeChanged();
 
       /**
        * \brief Срабатывает, когда сервер TCP-IP завершает приём данных.
@@ -151,6 +154,7 @@ namespace QuasarSDK
       bool m_connected;
       float m_currentNetworkDelay;
       int m_currentFormingMode;
+      bool m_compatibilityMode;
 
       QTimer* m_networkDelayTimer;
 

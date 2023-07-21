@@ -130,11 +130,11 @@ ApplicationWindow  { id: window_root;
         FontLoader { id: font_Main; source: "qrc:/fonts/Overpass.ttf"; }
         FontLoader { id: font_Mono; source: "qrc:/fonts/UbuntuMono.ttf"; }
 
-        property real tileloadprogress
+        property real tileloadprogress: 0
         Connections {
             target: TileLoader;
             function onProgress(a) {
-                tileloadprogress = a;
+                root.tileloadprogress = a;
             }
         }
 

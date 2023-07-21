@@ -25,6 +25,7 @@ namespace Config
     QFile file(Config::Paths::config() + "/settings.json");
     if(not file.exists())
       QFile::copy(":/json/settings.json", Config::Paths::config() + "/settings.json");
+    file.setPermissions(QFileDevice::ReadUser | QFileDevice::WriteUser);
 
     if(file.open(QIODevice::ReadOnly | QIODevice::Text))
     {

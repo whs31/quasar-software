@@ -171,6 +171,9 @@ Map::TelescopicImage ImageProcessing::decodeTelescopic(const QString& path)
     image.meta.div = SDK::rad2deg(image.meta.div);
   };
 
+  if(qIsNaN(image.meta.drift_angle))
+    image.meta.drift_angle = 0;
+
   return image;
 }
 

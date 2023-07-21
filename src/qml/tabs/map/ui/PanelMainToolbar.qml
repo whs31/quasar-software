@@ -150,6 +150,24 @@ Pane {
 
             Widgets.TT { txt: "Выполнить калибровку высоты над рельефом в точке старта" }
         }
+
+        RoundButton {
+            id: button_FormParameters
+
+            checkable: true
+            checked: false
+            Layout.preferredHeight: 45
+            height: 40
+            radius: 4
+            icon.source: "qrc:/icons/vector/common/tune.svg"
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
+            Material.elevation: 30
+            Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+            Material.background: ColorTheme.active.color(ColorTheme.Surface)
+            onCheckedChanged: panel_FormParameters.shown = checked
+
+            Widgets.TT { txt: "Параметры формирования радиолокационных изображений" }
+        }
     }
 
     Behavior on implicitWidth { NumberAnimation { easing.type: Easing.InOutQuad; duration: 200 } }

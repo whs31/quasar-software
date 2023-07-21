@@ -45,5 +45,6 @@
         <file>layouts/MenuHeader.qml</file>
         <file>tabs/map/mapquickitems/NotificationsUI.qml</file>
         <file>tabs/map/mapquickitems/StripEraser.qml</file>
+        <file>tabs/map/ui/PanelFormParameters.qml</file>
     </qresource>
 </RCC>

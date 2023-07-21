@@ -247,96 +247,115 @@ Map { id: maptab_root;
         Behavior on opacity { NumberAnimation { duration: 500; } }
     }
 
-    MapTab.AttitudeIndicator { id: attitude;
+    MapTab.AttitudeIndicator {
+        id: attitude
         anchors {
-            bottom: parent.bottom;
-            horizontalCenter: parent.horizontalCenter;
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
         }
-        width: 250;
-        implicitHeight: 150;
+        enabled: false
+        visible: false
+        width: 250
+        implicitHeight: 150
         pitch: NetworkAPI.telemetry.eulerAxes.x
         roll: NetworkAPI.telemetry.eulerAxes.z
         yaw: NetworkAPI.telemetry.eulerAxes.y
     }
 
-    RoundButton { id: button_HideIndicator;
+    RoundButton {
+        id: button_HideIndicator
+        enabled: false
+        visible: false
         anchors {
-            bottom: attitude.top;
-            bottomMargin: -7;
-            horizontalCenter: attitude.horizontalCenter;
+            bottom: attitude.top
+            bottomMargin: -7
+            horizontalCenter: attitude.horizontalCenter
         }
-        height: 40;
-        radius: 4;
+        height: 40
+        radius: 4
         icon.source: attitude.shown ? "qrc:/icons/vector/common/collapse.svg"
                                     : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
-        font.family: root.mainfont;
-        text: attitude.shown ? "" : "Авиагоризонт";
-        Material.background: Material.background;
-        Material.primary: Material.primary;
-        Material.accent: Material.accent;
-        checkable: true;
-        checked: false;
-        onCheckedChanged: attitude.shown = checked;
+        font.family: root.mainfont
+        text: attitude.shown ? "" : "Авиагоризонт"
+        Material.background: Material.background
+        Material.primary: Material.primary
+        Material.accent: Material.accent
+        checkable: true
+        checked: false
+        onCheckedChanged: attitude.shown = checked
     }
 
-    MapTabUI.PanelMainToolbar { id: panel_MainToolbar;
+    MapTabUI.PanelMainToolbar {
+        id: panel_MainToolbar
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
             margins: 5
         }
-
-        opacity: 0.85;
+        opacity: 0.85
     }
 
-    MapTabUI.PanelTools { id: panel_Tools;
+    MapTabUI.PanelFormParameters {
+        id: panel_FormParameters
         anchors {
-            top: parent.top;
-            right: parent.right;
-            margins: 5;
+            top: panel_MainToolbar.bottom
+            left: panel_MainToolbar.left
+            right: panel_MainToolbar.right
         }
-        opacity: 0.85;
     }
 
-    MapTabUI.PanelEntities { id: panel_Entities;
+    MapTabUI.PanelTools {
+        id: panel_Tools
         anchors {
-            top: panel_Tools.bottom;
-            topMargin: 30;
-            right: parent.right;
-            margins: 5;
+            top: parent.top
+            right: parent.right
+            margins: 5
         }
-        opacity: 0.85;
+        opacity: 0.85
     }
 
-    MapTabUI.PanelParameters { id: panel_Parameters;
+    MapTabUI.PanelEntities {
+        id: panel_Entities
         anchors {
-            bottom: parent.bottom;
-            right: parent.right;
+            top: panel_Tools.bottom
+            topMargin: 30
+            right: parent.right
+            margins: 5
         }
-        opacity: 0.85;
+        opacity: 0.85
     }
 
-    RoundButton { id: button_ExpandParameters;
+    MapTabUI.PanelParameters {
+        id: panel_Parameters
         anchors {
-            bottom: panel_Parameters.top;
-            bottomMargin: -7;
-            right: panel_Parameters.right;
-            rightMargin: -7;
+            bottom: parent.bottom
+            right: parent.right
         }
-        checkable: true;
-        height: 40;
-        radius: 4;
+        opacity: 0.85
+    }
+
+    RoundButton {
+        id: button_ExpandParameters
+        anchors {
+            bottom: panel_Parameters.top
+            bottomMargin: -7
+            right: panel_Parameters.right
+            rightMargin: -7
+        }
+        checkable: true
+        height: 40
+        radius: 4
         icon.source: panel_Parameters.shown ? "qrc:/icons/vector/common/collapse.svg"
                                             : "qrc:/icons/vector/common/expand.svg"
         icon.color: ColorTheme.active.color(ColorTheme.Text)
-        font.family: root.mainfont;
-        text: panel_Parameters.shown ? "" : "Параметры карты";
-        Material.elevation: 30;
-        Material.background: Material.background;
-        Material.primary: Material.primary;
-        Material.accent: Material.accent;
-        onCheckedChanged: panel_Parameters.shown = checked;
+        font.family: root.mainfont
+        text: panel_Parameters.shown ? "" : "Параметры карты"
+        Material.elevation: 30
+        Material.background: Material.background
+        Material.primary: Material.primary
+        Material.accent: Material.accent
+        onCheckedChanged: panel_Parameters.shown = checked
     }
 
     MapTabUI.PanelImages {

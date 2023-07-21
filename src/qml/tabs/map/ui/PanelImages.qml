@@ -71,12 +71,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -100,13 +94,6 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                             bold: true;
-                        }
-
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
                         }
 
                         Layout.alignment: Qt.AlignRight;
@@ -134,13 +121,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
-
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -164,13 +144,6 @@ Pane { id: panel_ImageTools;
                             family: root.mainfont;
                             pixelSize: 14;
                             bold: true;
-                        }
-
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
                         }
 
                         Layout.alignment: Qt.AlignRight;
@@ -198,12 +171,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -229,12 +196,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -372,12 +333,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -406,12 +361,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -437,12 +386,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -468,12 +411,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 
@@ -499,12 +436,6 @@ Pane { id: panel_ImageTools;
                             bold: true;
                         }
 
-                        validator: DoubleValidator {
-                            decimals: 1;
-                            bottom: 0;
-                            top: 1000;
-                            locale: "en_US";
-                        }
                         Layout.alignment: Qt.AlignRight;
                         Layout.fillWidth: true;
 

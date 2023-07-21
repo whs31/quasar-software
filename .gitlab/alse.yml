@@ -2,7 +2,7 @@ astra linux special edition:
   stage: build
   tags: [alse]
   script:
-    - cmake . && make && strip $CI_PROJECT_TITLE
+    - mkdir .build && cd .build && cmake -GNinja .. && ninja && strip $CI_PROJECT_TITLE && mv $CI_PROJECT_TITLE .. && cd ..
     - mkdir -p deb/DEBIAN
     - GIT_VERSION=$(git describe --tags --always)
     - "echo 'Package: '$CI_PROJECT_TITLE > deb/DEBIAN/control"

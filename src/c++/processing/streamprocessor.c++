@@ -107,14 +107,18 @@ namespace Processing
       {
         image.setCoordinate(Utils::rad2deg(nav.latitude), Utils::rad2deg(nav.longitude));
         image.setAzimuth(static_cast<float>(Utils::rad2deg(nav.course)));
+        qCritical() << "\t Пришло:" << nav.course;
+        qCritical() << "\t Конверсия в градусы:" << image.azimuth();
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
-        float _x_ = img.x0;
+        float _x_ = -img.x0;
         float _y_ = static_cast<float>(img.y) / 10.0f;
-        float alpha = Utils::deg2rad(image.azimuth());
+        const float alpha = Utils::deg2rad(image.azimuth());
+        qCritical() << "\t Конверсия для матрицы:" << alpha;
         image.setOffset(QPointF(_x_ * std::cos(alpha) - _y_ * std::sin(alpha),
                                 _x_ * std::sin(alpha) + _y_ * std::cos(alpha)));
         navigation_read = true;
+        qCritical() << "\t Передано в QML:" << image.azimuth();
       }
 
       array_reader.read((uint8_t*)buf, head.size);
@@ -133,10 +137,6 @@ namespace Processing
     // Лучше сделать вычисление максимального значения рекуррентно
     const float max_value = *max_element(fmatrix.begin(), fmatrix.end());
     const float k = max_value / 255.0f;
-
-    qInfo().noquote().nospace() << "$ [STREAM] Coords: { " << image.coordinate().latitude()
-                                << ", " << image.coordinate().longitude()  << " }";
-    qInfo().noquote().nospace() << "$ [STREAM] Azimuth: { " << image.azimuth() << " }";
 
     int out_size = x * y;
     uint8_t out_buf[out_size];

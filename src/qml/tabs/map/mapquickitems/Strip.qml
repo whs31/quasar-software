@@ -28,9 +28,7 @@ MapQuickItem  {
                 asynchronous: true
 
                 // точка вращения
-                transform: Rotation {
-                    angle: chunkAzimuth
-                }
+                rotation: chunkAzimuth
 
                 smooth: true
                 antialiasing: true

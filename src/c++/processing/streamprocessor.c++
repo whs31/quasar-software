@@ -109,10 +109,11 @@ namespace Processing
         image.setAzimuth(static_cast<float>(Utils::rad2deg(nav.course)));
         image.setRectSize(QSizeF(img.nx, img.ny));
         image.setRatio(img.dx);
-        float _x_ = -img.x0;
+        float _x_ = img.x0;
         float _y_ = static_cast<float>(img.y) / 10.0f;
-        image.setOffset(QPointF(_x_ * std::cos(image.azimuth()) + _y_ * std::sin(image.azimuth()),
-                                -_x_ * std::sin(image.azimuth()) + _y_ * std::cos(image.azimuth())));
+        float alpha = Utils::deg2rad(image.azimuth());
+        image.setOffset(QPointF(_x_ * std::cos(alpha) - _y_ * std::sin(alpha),
+                                _x_ * std::sin(alpha) + _y_ * std::cos(alpha)));
         navigation_read = true;
       }
 

@@ -50,32 +50,7 @@ Pane { id: panel_ImageTools;
                     width: scrollview2.width - 30;
                     columns: 2;
                     columnSpacing: 6;
-                    rowSpacing: -4;
-
-                    Text {
-                        text: "Смещение по времени, с";
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                        }
-                        color: ColorTheme.active.color(ColorTheme.Text);
-                        Layout.alignment: Qt.AlignLeft;
-                    }
-
-                    TextField {
-                        text: "1.0";
-                        horizontalAlignment: Text.AlignRight;
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                            bold: true;
-                        }
-
-                        Layout.alignment: Qt.AlignRight;
-                        Layout.fillWidth: true;
-
-                        onEditingFinished: NetworkAPI.setArgument("-t", text, Net.Form);
-                    }
+                    rowSpacing: -4
 
                     Text {
                         text: "Яркость РЛИ";
@@ -150,31 +125,6 @@ Pane { id: panel_ImageTools;
                         Layout.fillWidth: true;
 
                         onEditingFinished: NetworkAPI.setArgument("-v", text, Net.Form);
-                    }
-
-                    Text {
-                        text: "Время синтезирования, с";
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                        }
-                        color: ColorTheme.active.color(ColorTheme.Text);
-                        Layout.alignment: Qt.AlignLeft;
-                    }
-
-                    TextField {
-                        text: "1.0";
-                        horizontalAlignment: Text.AlignRight;
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                            bold: true;
-                        }
-
-                        Layout.alignment: Qt.AlignRight;
-                        Layout.fillWidth: true;
-
-                        onEditingFinished: NetworkAPI.setArgument("--Ts", text, Net.Form);
                     }
 
                     Text {

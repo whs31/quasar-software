@@ -72,6 +72,47 @@ Pane {
         }
     }
 
+    component FormParametersSwitchableDecimalInput: RowLayout {
+        property bool switched: true
+        property string description: "None"
+        property string key: "--error"
+        property int category: Net.Form
+        property string defaultValue: "error"
+        opacity: enabled ? 1 : 0.4
+
+        Text {
+            Layout.fillWidth: true
+            text: description + ":"
+            color: ColorTheme.active.color(ColorTheme.Text)
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
+        }
+
+        Text {
+            text: __switch.checked ? "АВТО" : "ВРУЧНУЮ"
+            color: __switch.checked ? ColorTheme.active.color(ColorTheme.Yellow) : ColorTheme.active.color(ColorTheme.Text)
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
+        }
+
+        Switch {
+            id: __switch
+            checked: true
+        }
+
+        TextField {
+            enabled: !__switch.checked
+            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            selectByMouse: true
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            text: defaultValue
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
+            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+            onEnabledChanged: {
+                text = defaultValue
+                NetworkAPI.setArgument(key, text, category)
+            }
+        }
+    }
+
     component ConfigCheckbox: CheckBox {
         id: comp
         property string description: "None"
@@ -105,6 +146,12 @@ Pane {
             FormParametersDecimalInput { description: "Смещение кадра, м"; key: "--y0"; category: Net.Form; defaultValue: "0.0" }
             FormParametersDecimalInput { description: "Протяженность по путевой дальности, м"; key: "--ly"; category: Net.Form; defaultValue: "400.0" }
             FormParametersDualDecimalInput { description: "Элемент разрешения, м"; firstKey: "--dx"; secondKey: "--dy"; category: Net.Form; defaultValue: "1.0" }
+
+            Spacer { }
+
+            FormParametersDecimalInput { description: "Время синтезирования, с"; key: "--Ts"; category: Net.Form; defaultValue: "1.0" }
+            FormParametersDecimalInput { description: "Смещение по времени, с"; key: "-t"; category: Net.Form; defaultValue: "1.0" }
+            FormParametersSwitchableDecimalInput { description: "Яркость РЛИ"; key: "-b"; category: Net.Form; defaultValue: "0.0"; switched: false }
         }
     }
 }

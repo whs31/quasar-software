@@ -59,27 +59,6 @@ Pane {
 
                 Widgets.TT { txt: "Инструмент загрузки оффлайн-карт"; }
             }
-
-            RoundButton { id: button_Protractor;
-                enabled: false;
-                checkable: true;
-                checked: ClickHandler.state === ClickHandler.ProtractorActive;
-                height: 44;
-                width: 44;
-                radius: 4;
-                icon.source: "qrc:/icons/vector/toolbar/angle.svg";
-                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
-                Material.elevation: 30;
-                Material.background: checked ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface)
-                onCheckedChanged: {
-                    if(checked && ClickHandler.state === ClickHandler.Idle)
-                        ClickHandler.state = ClickHandler.ProtractorActive;
-                    else
-                        ClickHandler.state = ClickHandler.Idle;
-                }
-
-                Widgets.TT { txt: "Инструмент для измерения углов"; }
-            }
         }
 
         Column {

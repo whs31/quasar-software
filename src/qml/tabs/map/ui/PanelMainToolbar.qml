@@ -154,9 +154,6 @@ Pane {
         RoundButton {
             id: button_FormParameters
 
-            enabled: false
-            visible: false // @FIXME
-
             checkable: true
             checked: false
             Layout.preferredHeight: 45

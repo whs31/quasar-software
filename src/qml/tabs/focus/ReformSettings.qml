@@ -41,38 +41,6 @@ Pane { id: panel_ReformSettings;
                     rowSpacing: -4;
 
                     Text {
-                        text: "Режим формирования";
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                        }
-                        color: ColorTheme.active.color(ColorTheme.Text)
-                        Layout.alignment: Qt.AlignLeft;
-                    }
-
-                    ComboBox {
-                        font {
-                            family: root.mainfont;
-                            pixelSize: 14;
-                            weight: Font.Bold;
-                        }
-
-                        currentIndex: 0;
-                        model: [ "М1 телескопический", "М2 телескопический", "М3 телескопический", "М4 телескопический",
-                                 "М6 телескопический", "М7 телескопический", ];
-                        Layout.alignment: Qt.AlignRight;
-                        Layout.fillWidth: true;
-                        onCurrentValueChanged: {
-                            let val = (currentIndex + 1);
-                            if(val === 6)
-                                val = 7;
-                            if(val === 5)
-                                val = 6;
-                            NetworkAPI.setArgument("-m", val, Net.Reform);
-                        }
-                    }
-
-                    Text {
                         text: "Смещение по времени, с";
                         font {
                             family: root.mainfont;

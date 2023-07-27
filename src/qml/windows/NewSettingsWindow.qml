@@ -82,7 +82,7 @@ Pane {
         }
 
         TextField {
-            validator: RegExpValidator { regExp:  /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)

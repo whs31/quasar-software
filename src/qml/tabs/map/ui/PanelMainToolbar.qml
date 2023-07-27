@@ -58,7 +58,8 @@ Pane {
             checkable: NetworkAPI.currentFormingMode !== Net.Telescopic
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
+            Material.background: checked ? ColorTheme.active.color(ColorTheme.Red)
+                                         : button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
             onPressed: {
                 if(NetworkAPI.currentFormingMode === Net.Telescopic)
                     NetworkAPI.execute(Net.FormTelescopic)

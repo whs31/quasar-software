@@ -6,6 +6,8 @@ import QtQuick.Layouts 1.15
 import Theme 1.0
 import QuaSAR.API 1.0
 
+import "../../../widgets" as Widgets
+
 Pane {
     property bool shown: false
 
@@ -19,6 +21,43 @@ Pane {
     Material.elevation: 30
     Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
     Material.background: ColorTheme.active.color(ColorTheme.Dark)
+
+    component FormParametersDecimalInputWithInfo: RowLayout {
+        property string description: "None"
+        property string key: "--error"
+        property int category: Net.Form
+        property string defaultValue: "error"
+        property string details: "None"
+        opacity: enabled ? 1 : 0.4
+
+        RoundButton {
+            Layout.preferredHeight: 37
+            Layout.preferredWidth: 37
+            font.family: root.mainfont
+            radius: 13
+            icon.source: "qrc:/icons/vector/common/question.svg"
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
+            Material.elevation: 30
+
+            Widgets.TT {  txt: details }
+        }
+
+        Text {
+            Layout.fillWidth: true
+            text: description + ":"
+            color: ColorTheme.active.color(ColorTheme.Text)
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
+        }
+
+        TextField {
+            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            selectByMouse: true
+            inputMethodHints: Qt.ImhFormattedNumbersOnly
+            text: defaultValue
+            font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
+            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+        }
+    }
 
     component FormParametersDecimalInput: RowLayout {
         property string description: "None"
@@ -74,7 +113,20 @@ Pane {
         property string secondKey: "--error"
         property int category: Net.Form
         property string defaultValue: "error"
+        property string details: "None"
         opacity: enabled ? 1 : 0.4
+
+        RoundButton {
+            Layout.preferredHeight: 37
+            Layout.preferredWidth: 37
+            font.family: root.mainfont
+            radius: 13
+            icon.source: "qrc:/icons/vector/common/question.svg"
+            icon.color: ColorTheme.active.color(ColorTheme.Text)
+            Material.elevation: 30
+
+            Widgets.TT {  txt: details }
+        }
 
         Text {
             Layout.fillWidth: true
@@ -186,11 +238,11 @@ Pane {
             width: scrollview.width - 30;
             spacing: -5
 
-            FormParametersDecimalInput { description: "Ближняя граница РЛИ, м"; key: "--x0"; category: Net.Form; defaultValue: "100.0" }
-            FormParametersDecimalInput { description: "Протяженность по дальности, м"; key: "--lx"; category: Net.Form; defaultValue: "2000.0" }
-            FormParametersDecimalInput { description: "Смещение кадра, м"; key: "--y0"; category: Net.Form; defaultValue: "0.0" }
-            FormParametersDecimalInput { description: "Протяженность по путевой дальности, м"; key: "--ly"; category: Net.Form; defaultValue: "400.0" }
-            FormParametersDualDecimalInput { description: "Элемент разрешения, м"; firstKey: "--dx"; secondKey: "--dy"; category: Net.Form; defaultValue: "1.0" }
+            FormParametersDecimalInputWithInfo { description: "Ближняя граница РЛИ, м"; key: "--x0"; category: Net.Form; defaultValue: "100.0"; details: "Расстояние от БПЛА до ближнего края изображения" }
+            FormParametersDecimalInputWithInfo { description: "Протяженность по дальности, м"; key: "--lx"; category: Net.Form; defaultValue: "2000.0"; details: "Расстояние от ближнего края изображения до дальнего края изображения" }
+            FormParametersDecimalInputWithInfo { description: "Смещение кадра, м"; key: "--y0"; category: Net.Form; defaultValue: "0.0"; details: "Не используется в данной версии прошивки РЛС" }
+            FormParametersDecimalInputWithInfo { description: "Протяженность по путевой дальности, м"; key: "--ly"; category: Net.Form; defaultValue: "400.0"; details: "Не используется в данной версии прошивки РЛС" }
+            FormParametersDualDecimalInput { description: "Элемент разрешения, м"; firstKey: "--dx"; secondKey: "--dy"; category: Net.Form; defaultValue: "1.0"; details: "Количество метров в одном пикселе изображения" }
 
             LargeSpacer { }
 

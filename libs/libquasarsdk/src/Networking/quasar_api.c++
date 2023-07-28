@@ -65,6 +65,8 @@ namespace QuasarSDK
   {
     qDebug() << "$ [QUASAR] Beginning network setup";
 
+    qRegisterMetaType<ExecdSocket*>("ExecdSocket*");
+
     // delay handling
     m_networkDelayTimer->start(100);
     connect(m_networkDelayTimer, &QTimer::timeout, this, [this](){ setCurrentNetworkDelay(currentNetworkDelay() + .1f); });
@@ -226,8 +228,9 @@ namespace QuasarSDK
   TelemetrySocket* QuasarAPI::telemetrySocket() { return m_telemetrySocket; }
 
   /**
-   * \brief Возвращает указатель на сокет \c execd.
-   * \return Ненулевой указатель на ExecdSocket.
+   * \property QuasarAPI::execd
+   * \brief Сокет выполнения команд (<tt>execd</tt>).
+   * \details Свойство доступно для чтения и записи.
    */
   ExecdSocket* QuasarAPI::execdSocket() { return m_execdSocket; }
 
@@ -365,7 +368,6 @@ namespace QuasarSDK
   void QuasarAPI::execute(const QString& command) noexcept
   {
     outputModel()->append(std::make_unique<IO::SARMessage>("> Выполняется команда [" + command + "]", IO::IMessage::Info));
-    execdSocket()->execute(command);
   }
 
   /**
@@ -440,6 +442,7 @@ namespace QuasarSDK
   void QuasarAPI::setRemoteAddressList(const std::array<QString, 2>& list) noexcept
   {
     m_remote_address_list = list;
+    execdSocket()->setRemoteAddressList(list);
   }
 
   /**

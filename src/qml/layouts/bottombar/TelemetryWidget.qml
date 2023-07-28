@@ -349,7 +349,7 @@ Item {
                 function onClosed(status, uid) {
                     if (uid === 27 && status === true) {
                         console.log("[GUI] Clearing remote storage");
-                        NetworkAPI.execute(Net.ClearRemoteStorage);
+                        NetworkAPI.execd.execute(Net.ClearRemoteStorage)
                     }
                 }
 

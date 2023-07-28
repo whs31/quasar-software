@@ -62,26 +62,26 @@ Pane {
                                          : button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
             onPressed: {
                 if(NetworkAPI.currentFormingMode === Net.Telescopic)
-                    NetworkAPI.execute(Net.FormTelescopic)
+                    NetworkAPI.execd.execute(Net.FormTelescopic)
             }
             onCheckedChanged: {
                 if(checked) {
                     if(NetworkAPI.currentFormingMode === Net.Strip) {
-                        NetworkAPI.execute(Net.StripStart);
+                        NetworkAPI.execd.execute(Net.StripStart)
                         NetworkAPI.remote.isRecordingStrip = true;
                     }
                     else {
-                        NetworkAPI.execute(Net.StreamStart);
+                        NetworkAPI.execd.execute(Net.StreamStart)
                         NetworkAPI.remote.isRecordingStrip = true;
                     }
                 }
                 else {
                     if(NetworkAPI.currentFormingMode === Net.Strip) {
-                        NetworkAPI.execute(Net.StripStop);
+                        NetworkAPI.execd.execute(Net.StripStop)
                         NetworkAPI.remote.isRecordingStrip = false;
                     }
                     else {
-                        NetworkAPI.execute(Net.StreamStop);
+                        NetworkAPI.execd.execute(Net.StreamStop)
                         NetworkAPI.remote.isRecordingStrip = false;
                     }
                 }

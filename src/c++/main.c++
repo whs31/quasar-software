@@ -14,10 +14,11 @@
 
 CONSOLE_INIT_HANDLER
 
-static const char *const usages[] = {
+static const char* const usages[] =
+{
   "basic [options] [[--] args]",
   "basic [options]",
-  NULL,
+  nullptr,
 };
 
 int main(int argc, char* argv[])
@@ -40,7 +41,7 @@ int main(int argc, char* argv[])
   struct argparse_option options[] = {
     OPT_HELP(),
     OPT_GROUP("Basic options"),
-    OPT_BOOLEAN(0, "no-log-redirect", &no_console, "disable internal console and log into external terminal", NULL, 0, 0),
+    OPT_BOOLEAN(0, "no-log-redirect", &no_console, "disable internal console and log into external terminal", nullptr, 0, 0),
     OPT_END(),
   };
   struct argparse argparse;

@@ -42,6 +42,16 @@ namespace QuasarSDK
   void ExecdSocket::setCompatibility(bool o) { m_compatibilityMode = o; }
 
   /**
+   * \brief Задает адреса для обратной связи сервиса \c fsend.
+   * \details Порядок адресов следующий:
+   *    - TCP-IP сервер (например, <tt>192.168.1.10:10000</tt>
+   *    - UDP сокет для полосовых изображений (например, <tt>192.168.1.10:48455</tt>
+   * \param list - массив из двух адресов.
+   * \warning Функция должна быть вызвана перед вызовом метода start.
+   */
+  void ExecdSocket::setRemoteAddressList(const array<QString, 2>& list) noexcept { m_remote_address_list = list; }
+
+  /**
     * \brief Выполняет произвольную команду в сервисе \c execd.
     * \details Если команда некорректна, функция ничего не сделает.
     * Функция не добавляет аргументы к команде автоматически: для
@@ -49,7 +59,7 @@ namespace QuasarSDK
     * \param command - строка для выполнения.
     * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
     */
-  void ExecdSocket::execute(const QString& command) noexcept
+  void ExecdSocket::executeString(const QString& command) noexcept
   {
     auto com = Utils::wrapToExecdString(command, &m_message_uid);
     this->send(com);
@@ -65,19 +75,22 @@ namespace QuasarSDK
     * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
     * \see Enums::NetworkCommand
     */
-  void ExecdSocket::execute(Enums::NetworkCommand command) noexcept
+  void ExecdSocket::execute(QuasarSDK::Enums::NetworkCommand command) noexcept
   {
     QByteArray com;
 
     switch(command)
     {
       case Enums::FormTelescopic:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
         com = Utils::wrapToExecdString(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->formArgumentString(), &m_message_uid);
         break;
       case Enums::FocusImage:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Focus);
         com = Utils::wrapToExecdString(FROM_JSON("EXECD_FOCUS_TELESCOPIC") + m_args->focusArgumentString(), &m_message_uid);
         break;
       case Enums::ReformImage:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Reform);
         com = Utils::wrapToExecdString(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->reformArgumentString(), &m_message_uid);
         break;
       case Enums::RemoteStorageStatus:
@@ -88,6 +101,7 @@ namespace QuasarSDK
         break;
       case Enums::StripStart:
       {
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
         if(m_compatibilityMode)
           com = Utils::wrapToExecdString(FROM_JSON("EXECD_COMPAT_STRIP_START") + m_args->formArgumentString(), &m_message_uid);
         else
@@ -100,6 +114,7 @@ namespace QuasarSDK
         break;
       }
       case Enums::StripStop:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
         if(m_compatibilityMode)
         {
           com = Utils::wrapToExecdString(FROM_JSON("EXECD_COMPAT_STRIP_STOP") + m_args->formArgumentString(), &m_message_uid);
@@ -112,6 +127,7 @@ namespace QuasarSDK
         }
       case Enums::StreamStart:
       {
+        this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
         if(m_compatibilityMode)
           return;
         QString stream_comma = FROM_JSON("EXECD_FORM_STREAM_START") + m_args->formArgumentString();
@@ -121,6 +137,7 @@ namespace QuasarSDK
         break;
       }
       case Enums::StreamStop:
+        this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
         if(m_compatibilityMode)
           return;
         signalToProcess(m_strip_pid, Enums::SigINT);
@@ -147,6 +164,49 @@ namespace QuasarSDK
   }
 
   ExecdArgumentParser* ExecdSocket::parser() const { return m_args; }
+
+  /**
+    * \brief Возвращает аргумент из списка сервиса \b execd.
+    * \details Функция возвращает константный аргумент по заданному ключу
+    * и категории аргументов.
+    * \param key - ключ (например, <tt>"--x0"</tt>).
+    * \param category - категория аргумента (см. QuasarSDK::Enums::ArgumentCategory).
+    * \note Может быть вызвана из QML через мета-объектную систему.
+    * \see setArgument
+    */
+  QString ExecdSocket::argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) noexcept
+  {
+    switch (category)
+    {
+      case Enums::Form: return parser()->formArgumentList[key].value;
+      case Enums::Focus: return parser()->focusArgumentList[key].value;
+      case Enums::Reform: return parser()->reformArgumentList[key].value;
+      default: return "Argument Category Error";
+    }
+  }
+
+  /**
+    * \brief Устанавливает аргумент из списка сервиса \b execd.
+    * \details Функция устанавливает выбранный аргумент в приватный список
+    * аргументов сервиса \b execd и выбранную категорию. Значение аргумента
+    * будет автоматически приведено к корректному виду (\c int, \c float, \c string).
+    * \param key - ключ (например, <tt>"--x0"</tt>).
+    * \param value - новое значение аргумента.
+    * \param category - категория аргумента (см. QuasarSDK::Enums::ArgumentCategory).
+    * \note Может быть вызвана из QML через мета-объектную систему.
+    * \see argument
+    */
+  void ExecdSocket::setArgument(const QString& key, const QVariant& value,
+                              QuasarSDK::Enums::ArgumentCategory category) noexcept
+  {
+    switch (category)
+    {
+      case Enums::Form: parser()->formArgumentList[key].set(value); break;
+      case Enums::Focus: parser()->focusArgumentList[key].set(value); break;
+      case Enums::Reform: parser()->reformArgumentList[key].set(value); break;
+      default: qCritical() << "[EXECD] Invalid category for argument provided"; break;
+    }
+  }
 
   void ExecdSocket::process(QByteArray data)
   {

@@ -19,7 +19,7 @@ Pane { id: panel_EditorToolbar
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Accent)
-            onPressed: NetworkAPI.execute(Net.ReformImage)
+            onPressed: NetworkAPI.execd.execute(Net.ReformImage)
         }
 
         RoundButton { id: button_FocusImage
@@ -33,7 +33,7 @@ Pane { id: panel_EditorToolbar
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.Orange)
-            onPressed: NetworkAPI.execute(Net.FocusImage)
+            onPressed: NetworkAPI.execd.execute(Net.FocusImage)
         }
     }
 }

@@ -193,7 +193,7 @@ Pane {
                 if(text === "$")
                     return;
 
-                NetworkAPI.execute(text);
+                NetworkAPI.execd.executeString(text)
                 text = "$";
             }
         }

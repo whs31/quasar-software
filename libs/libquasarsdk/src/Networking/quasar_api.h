@@ -29,6 +29,8 @@ namespace QuasarSDK
   class QuasarAPI : public QObject
   {
     Q_OBJECT
+    Q_PROPERTY(ExecdSocket* execd READ execdSocket CONSTANT)
+    // other sockets belongs here
     Q_PROPERTY(Telemetry* telemetry READ telemetry CONSTANT)
     Q_PROPERTY(RemoteData* remote READ remote CONSTANT)
     Q_PROPERTY(QuasarSDK::IO::SAROutputModel* outputModel READ outputModel CONSTANT)

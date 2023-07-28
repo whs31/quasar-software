@@ -85,7 +85,7 @@ MenuBar {
                 source: "qrc:/icons/vector/network/hdd.svg"
                 color: ColorTheme.active.color(ColorTheme.Text)
             }
-            onTriggered: NetworkAPI.execute(Net.RemoteStorageStatus);
+            onTriggered: NetworkAPI.execd.execute(Net.RemoteStorageStatus)
         }
 
         MenuSeparator { }
@@ -148,11 +148,11 @@ MenuBar {
         function onClosed(status, uid) {
             if(uid === 21 && status === true) {
                 console.log("[GUI] Reboot requested");
-                NetworkAPI.execute(Net.Reboot);
+                NetworkAPI.execd.execute(Net.Reboot)
             }
             if(uid === 22 && status === true) {
                 console.log("[GUI] Reboot requested");
-                NetworkAPI.execute(Net.PowerOff);
+                NetworkAPI.execd.execute(Net.PowerOff)
             }
         }
     }

@@ -92,7 +92,7 @@ Rectangle {
                                      NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/tcp")),
                                      NetworkAPI.stringify(Settings.io.parameter("ip/computer"), Settings.io.parameter("port/strip"))
                     );
-                    NetworkAPI.execute(Net.RemoteStorageStatus);
+                    NetworkAPI.execd.execute(Net.RemoteStorageStatus)
                     timeout = true;
                     disconnect_timer.start();
                 }

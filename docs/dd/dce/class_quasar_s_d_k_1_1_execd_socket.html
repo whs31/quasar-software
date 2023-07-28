@@ -1,0 +1,783 @@
+<!-- HTML header for doxygen 1.9.6-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.9.7" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuaSAR: Класс ExecdSocket</title>
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
+              <td id="projectalign">
+                <div id="projectname">QuaSAR<span
+                    id="projectnumber">&#160;2.13.0</span>
+                </div>
+                <div id="projectbrief">SAR control software</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('dd/dce/class_quasar_s_d_k_1_1_execd_socket.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#signals">Сигналы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="../../d4/db6/class_quasar_s_d_k_1_1_execd_socket-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс ExecdSocket<div class="ingroups"><a class="el" href="../../d3/d54/group__sdk__network.html">Сетевое взаимодействие с РЛС</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:ExecdSocket:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d5/d3e/class_quasar_s_d_k_1_1_execd_socket__inherit__graph.png" border="0" usemap="#a_execd_socket_inherit__map" alt="Inheritance graph"/></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
+<div class="dynheader">
+Граф связей класса ExecdSocket:</div>
+<div class="dyncontent">
+<div class="center"><img src="../../d2/d34/class_quasar_s_d_k_1_1_execd_socket__coll__graph.png" border="0" usemap="#a_execd_socket_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
+Сигналы</h2></td></tr>
+<tr class="memitem:ad8136df344f340b0653c27e3317c08f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#ad8136df344f340b0653c27e3317c08f5">ping</a> ()</td></tr>
+<tr class="separator:ad8136df344f340b0653c27e3317c08f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header signals_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td colspan="2" onclick="javascript:toggleInherit('signals_class_quasar_s_d_k_1_1_base_u_d_p_socket')"><img src="../../closed.png" alt="-"/>&#160;Сигналы унаследованные от <a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html">BaseUDPSocket</a></td></tr>
+<tr class="memitem:a3eb63c5af67a44fb60ba731d3da7a56d inherit signals_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a3eb63c5af67a44fb60ba731d3da7a56d">received</a> (QByteArray data)</td></tr>
+<tr class="separator:a3eb63c5af67a44fb60ba731d3da7a56d inherit signals_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a563a67ebf5e4d8ba152045a7c51fd604 inherit signals_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a563a67ebf5e4d8ba152045a7c51fd604">metrics</a> (const QString &amp;data, int data_size, bool out)</td></tr>
+<tr class="separator:a563a67ebf5e4d8ba152045a7c51fd604 inherit signals_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ab77536f63c2f25f287cb82a6643175eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#ab77536f63c2f25f287cb82a6643175eb">ExecdSocket</a> (bool compat_mode, QObject *parent=nullptr)</td></tr>
+<tr class="separator:ab77536f63c2f25f287cb82a6643175eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d8130fd153a864bc5f77bea3c1e61c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a58d8130fd153a864bc5f77bea3c1e61c">setRemoteAddressList</a> (const array&lt; QString, 2 &gt; &amp;list) noexcept</td></tr>
+<tr class="separator:a58d8130fd153a864bc5f77bea3c1e61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f93c36f4bc9fb31d9cf0c42a5c49155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a3f93c36f4bc9fb31d9cf0c42a5c49155">setCompatibility</a> (bool)</td></tr>
+<tr class="separator:a3f93c36f4bc9fb31d9cf0c42a5c49155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3543a6879806206a3ec067d1c712cfa"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#af3543a6879806206a3ec067d1c712cfa">argument</a> (const QString &amp;key, <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a> category) noexcept</td></tr>
+<tr class="separator:af3543a6879806206a3ec067d1c712cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51be026891b678d621cb1947a3ed1fe6"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a51be026891b678d621cb1947a3ed1fe6">setArgument</a> (const QString &amp;key, const QVariant &amp;value, <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a> category) noexcept</td></tr>
+<tr class="separator:a51be026891b678d621cb1947a3ed1fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293690b8fb4cf14c7b75522680051f60"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a293690b8fb4cf14c7b75522680051f60">executeString</a> (const QString &amp;command) noexcept</td></tr>
+<tr class="separator:a293690b8fb4cf14c7b75522680051f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17df331fe378da15eb4b56bad7dbf174"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a17df331fe378da15eb4b56bad7dbf174">execute</a> (<a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486e">QuasarSDK::Enums::NetworkCommand</a> command) noexcept</td></tr>
+<tr class="separator:a17df331fe378da15eb4b56bad7dbf174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e554135d5e472e98b8176821a24a5cd"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a1e554135d5e472e98b8176821a24a5cd">kill</a> (int pid)</td></tr>
+<tr class="separator:a1e554135d5e472e98b8176821a24a5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac900a4bb35f1b2d950b46c8721368cb3"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#ac900a4bb35f1b2d950b46c8721368cb3">signalToProcess</a> (int pid, <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#ac844ec9026303b2c2da94416f52da986">Enums::UnixSignal</a> signal)</td></tr>
+<tr class="separator:ac900a4bb35f1b2d950b46c8721368cb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c138438cfe1141783fb1c5d696b8e19"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a9c138438cfe1141783fb1c5d696b8e19">showQueue</a> ()</td></tr>
+<tr class="separator:a9c138438cfe1141783fb1c5d696b8e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b7f09ace42f57bf958a1a379e935ea9"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a7b7f09ace42f57bf958a1a379e935ea9">clearQueue</a> ()</td></tr>
+<tr class="separator:a7b7f09ace42f57bf958a1a379e935ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecab9ecdedfc331aed9a0ae63ce193b"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a9ecab9ecdedfc331aed9a0ae63ce193b">popQueue</a> ()</td></tr>
+<tr class="separator:a9ecab9ecdedfc331aed9a0ae63ce193b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab472c906dd7da7698e2a2316e4ce6376"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#ab472c906dd7da7698e2a2316e4ce6376">ssh</a> (const QString &amp;command, const QString &amp;host, const QString &amp;password=QString())</td></tr>
+<tr class="separator:ab472c906dd7da7698e2a2316e4ce6376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket')"><img src="../../closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html">BaseUDPSocket</a></td></tr>
+<tr class="memitem:aa74c6101467f5a492c111453e39d89ea inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#aa74c6101467f5a492c111453e39d89ea">BaseUDPSocket</a> (QObject *parent=nullptr)</td></tr>
+<tr class="separator:aa74c6101467f5a492c111453e39d89ea inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d9883122ea68f3982da0a6820e31ca5 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a8d9883122ea68f3982da0a6820e31ca5">~BaseUDPSocket</a> () override</td></tr>
+<tr class="separator:a8d9883122ea68f3982da0a6820e31ca5 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e6ea749496bfaa328adc586fe00c87 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a85e6ea749496bfaa328adc586fe00c87">name</a> () const</td></tr>
+<tr class="separator:a85e6ea749496bfaa328adc586fe00c87 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18af9712714a5c702f50537ae560a69d inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a18af9712714a5c702f50537ae560a69d">setName</a> (const QString &amp;) noexcept</td></tr>
+<tr class="separator:a18af9712714a5c702f50537ae560a69d inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ba761a38a1a632dc057acba7c1a5ea inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#ab9ba761a38a1a632dc057acba7c1a5ea">start</a> (const QString &amp;address) override</td></tr>
+<tr class="separator:ab9ba761a38a1a632dc057acba7c1a5ea inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dd2bfebf59a94006c2c8273546a685c inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a6dd2bfebf59a94006c2c8273546a685c">start</a> (const QHostAddress &amp;address) noexcept final</td></tr>
+<tr class="separator:a6dd2bfebf59a94006c2c8273546a685c inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840c0d27d0ff00ce555c1a539adf8abf inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a840c0d27d0ff00ce555c1a539adf8abf">start</a> (const QHostAddress &amp;address, uint16_t <a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a6aac8bbc4a1ac6c37d4c9f0564256fbd">port</a>) noexcept override</td></tr>
+<tr class="separator:a840c0d27d0ff00ce555c1a539adf8abf inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add3dd658f58b302a080d9d8d6e57812b inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#add3dd658f58b302a080d9d8d6e57812b">stop</a> () noexcept override</td></tr>
+<tr class="separator:add3dd658f58b302a080d9d8d6e57812b inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff727bb24a856b41e03e5c2da1b7970 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a5ff727bb24a856b41e03e5c2da1b7970">send</a> (const QByteArray &amp;data) noexcept</td></tr>
+<tr class="separator:a5ff727bb24a856b41e03e5c2da1b7970 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c07e52a7dd282bbffe449aaca5b4604 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a3c07e52a7dd282bbffe449aaca5b4604">addressString</a> () const noexcept</td></tr>
+<tr class="separator:a3c07e52a7dd282bbffe449aaca5b4604 inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72de19e524866d67eac108348a7141a inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">QHostAddress&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#aa72de19e524866d67eac108348a7141a">hostAddress</a> () const noexcept</td></tr>
+<tr class="separator:aa72de19e524866d67eac108348a7141a inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28fa3e334a61f326e74a170334fce3b inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#aa28fa3e334a61f326e74a170334fce3b">hostAddressString</a> () const noexcept</td></tr>
+<tr class="separator:aa28fa3e334a61f326e74a170334fce3b inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6aac8bbc4a1ac6c37d4c9f0564256fbd inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html#a6aac8bbc4a1ac6c37d4c9f0564256fbd">port</a> () const noexcept</td></tr>
+<tr class="separator:a6aac8bbc4a1ac6c37d4c9f0564256fbd inherit pub_methods_class_quasar_s_d_k_1_1_base_u_d_p_socket"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e4a08a21d3f225b03765b409527bb77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dac/class_quasar_s_d_k_1_1_i_connectable.html#a7e4a08a21d3f225b03765b409527bb77">start</a> (const QString &amp;address)=0</td></tr>
+<tr class="separator:a7e4a08a21d3f225b03765b409527bb77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242f95d43813c916dff2aad4b347dd43"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dac/class_quasar_s_d_k_1_1_i_connectable.html#a242f95d43813c916dff2aad4b347dd43">start</a> (const QHostAddress &amp;address) noexcept=0</td></tr>
+<tr class="separator:a242f95d43813c916dff2aad4b347dd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e3f660e7c998c947c410d10c21982f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dac/class_quasar_s_d_k_1_1_i_connectable.html#ac4e3f660e7c998c947c410d10c21982f">start</a> (const QHostAddress &amp;address, uint16_t port) noexcept=0</td></tr>
+<tr class="separator:ac4e3f660e7c998c947c410d10c21982f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b7e5ca7163374ca49fea010385f3513"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/dac/class_quasar_s_d_k_1_1_i_connectable.html#a5b7e5ca7163374ca49fea010385f3513">stop</a> () noexcept=0</td></tr>
+<tr class="separator:a5b7e5ca7163374ca49fea010385f3513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a568be9ebaceb02844d9702690466a52c"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a568be9ebaceb02844d9702690466a52c">condition</a> (const QString &amp;condition, const QString &amp;pass, const QString &amp;fail) noexcept</td></tr>
+<tr class="separator:a568be9ebaceb02844d9702690466a52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Сокет для отправки команд на РЛС. </p>
+<p>Класс предоставляет функции для выполнения команд на стороне РЛС (как встроенных в программу, так и произвольных строковых команд). Поддерживает автоматический поиск и добавление аргументов для команд, которые требуют этого. Обрабатывает ответы РЛС (статус выполнения команды). Предоставляет отладочные метрики.</p>
+<p>Документацию по сервису <code>execd</code> можно прочитать здесь: EXECD_DOCUMENTATION </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d60/execdsocket_8h_source.html">execdsocket.h</a> строка <a class="el" href="../../d7/d60/execdsocket_8h_source.html#l00019">19</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ab77536f63c2f25f287cb82a6643175eb" name="ab77536f63c2f25f287cb82a6643175eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab77536f63c2f25f287cb82a6643175eb">&#9670;&#160;</a></span>ExecdSocket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html">ExecdSocket</a> </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>compat_mode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Создает новый объект <a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html" title="Сокет для отправки команд на РЛС.">ExecdSocket</a> с указанным родителем. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">compat_mode</td><td>- режим совместимости со старой версией прошивки РЛС. </td></tr>
+    <tr><td class="paramname">parent</td><td>- родительский объект в дереве иерархии Qt. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00030">30</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a58d8130fd153a864bc5f77bea3c1e61c" name="a58d8130fd153a864bc5f77bea3c1e61c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d8130fd153a864bc5f77bea3c1e61c">&#9670;&#160;</a></span>setRemoteAddressList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setRemoteAddressList </td>
+          <td>(</td>
+          <td class="paramtype">const array&lt; QString, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Задает адреса для обратной связи сервиса <code>fsend</code>. </p>
+<p>Порядок адресов следующий:</p><ul>
+<li>TCP-IP сервер (например, <code>192.168.1.10:10000</code></li>
+<li>UDP сокет для полосовых изображений (например, <code>192.168.1.10:48455</code> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>- массив из двух адресов. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Функция должна быть вызвана перед вызовом метода start. </dd></dl>
+</li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00052">52</a></p>
+
+</div>
+</div>
+<a id="a3f93c36f4bc9fb31d9cf0c42a5c49155" name="a3f93c36f4bc9fb31d9cf0c42a5c49155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f93c36f4bc9fb31d9cf0c42a5c49155">&#9670;&#160;</a></span>setCompatibility()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setCompatibility </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Включает или выключает режим совместимости со старой версией РЛС. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00042">42</a></p>
+
+</div>
+</div>
+<a id="af3543a6879806206a3ec067d1c712cfa" name="af3543a6879806206a3ec067d1c712cfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3543a6879806206a3ec067d1c712cfa">&#9670;&#160;</a></span>argument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString argument </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает аргумент из списка сервиса <b>execd</b>. </p>
+<p>Функция возвращает константный аргумент по заданному ключу и категории аргументов. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- ключ (например, <code>"--x0"</code>). </td></tr>
+    <tr><td class="paramname">category</td><td>- категория аргумента (см. <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09" title="Перечисление категорий аргументов параметров формирования.">QuasarSDK::Enums::ArgumentCategory</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Может быть вызвана из QML через мета-объектную систему. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#a51be026891b678d621cb1947a3ed1fe6" title="Устанавливает аргумент из списка сервиса execd.">setArgument</a> </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00177">177</a></p>
+
+</div>
+</div>
+<a id="a51be026891b678d621cb1947a3ed1fe6" name="a51be026891b678d621cb1947a3ed1fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51be026891b678d621cb1947a3ed1fe6">&#9670;&#160;</a></span>setArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setArgument </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает аргумент из списка сервиса <b>execd</b>. </p>
+<p>Функция устанавливает выбранный аргумент в приватный список аргументов сервиса <b>execd</b> и выбранную категорию. Значение аргумента будет автоматически приведено к корректному виду (<code>int</code>, <code>float</code>, <code>string</code>). </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- ключ (например, <code>"--x0"</code>). </td></tr>
+    <tr><td class="paramname">value</td><td>- новое значение аргумента. </td></tr>
+    <tr><td class="paramname">category</td><td>- категория аргумента (см. <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a19451e9aa738da7e4404cf614b4c9e09" title="Перечисление категорий аргументов параметров формирования.">QuasarSDK::Enums::ArgumentCategory</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Может быть вызвана из QML через мета-объектную систему. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html#af3543a6879806206a3ec067d1c712cfa" title="Возвращает аргумент из списка сервиса execd.">argument</a> </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00199">199</a></p>
+
+</div>
+</div>
+<a id="a293690b8fb4cf14c7b75522680051f60" name="a293690b8fb4cf14c7b75522680051f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293690b8fb4cf14c7b75522680051f60">&#9670;&#160;</a></span>executeString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executeString </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет произвольную команду в сервисе <code>execd</code>. </p>
+<p>Если команда некорректна, функция ничего не сделает. Функция не добавляет аргументы к команде автоматически: для добавления аргументов необходимо указать их вручную. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>- строка для выполнения. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00062">62</a></p>
+
+</div>
+</div>
+<a id="a17df331fe378da15eb4b56bad7dbf174" name="a17df331fe378da15eb4b56bad7dbf174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17df331fe378da15eb4b56bad7dbf174">&#9670;&#160;</a></span>execute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void execute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486e">QuasarSDK::Enums::NetworkCommand</a>&#160;</td>
+          <td class="paramname"><em>command</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Выполняет встроенную команду в сервисе <code>execd</code>. </p>
+<p>Функция автоматически добавляет аргументы к команде, если она требует их. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>- тип команды для выполнения. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486e" title="Перечисление встроенных в приложение команд.">Enums::NetworkCommand</a> </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00078">78</a></p>
+
+</div>
+</div>
+<a id="a1e554135d5e472e98b8176821a24a5cd" name="a1e554135d5e472e98b8176821a24a5cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e554135d5e472e98b8176821a24a5cd">&#9670;&#160;</a></span>kill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kill </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Принудительно завершает выбранный процесс. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>- PID процесса. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00235">235</a></p>
+
+</div>
+</div>
+<a id="ac900a4bb35f1b2d950b46c8721368cb3" name="ac900a4bb35f1b2d950b46c8721368cb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac900a4bb35f1b2d950b46c8721368cb3">&#9670;&#160;</a></span>signalToProcess()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signalToProcess </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#ac844ec9026303b2c2da94416f52da986">Enums::UnixSignal</a>&#160;</td>
+          <td class="paramname"><em>signal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Подает сигнал (<a href="https://ru.wikipedia.org/wiki/Сигнал_(Unix)">https://ru.wikipedia.org/wiki/Сигнал_(Unix)</a> процессу. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>- PID процесса. </td></tr>
+    <tr><td class="paramname">signal</td><td>- сигнал (см. <a class="el" href="../../d8/d13/class_quasar_s_d_k_1_1_enums.html#ac844ec9026303b2c2da94416f52da986" title="Перечисление сигналов для процесса (https://ru.wikipedia.org/wiki/Сигнал_(Unix))">Enums::UnixSignal</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00250">250</a></p>
+
+</div>
+</div>
+<a id="a9c138438cfe1141783fb1c5d696b8e19" name="a9c138438cfe1141783fb1c5d696b8e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c138438cfe1141783fb1c5d696b8e19">&#9670;&#160;</a></span>showQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void showQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Возвращает список процессов в динамической очереди. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00264">264</a></p>
+
+</div>
+</div>
+<a id="a7b7f09ace42f57bf958a1a379e935ea9" name="a7b7f09ace42f57bf958a1a379e935ea9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7f09ace42f57bf958a1a379e935ea9">&#9670;&#160;</a></span>clearQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clearQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Очищает динамическую очередь. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00277">277</a></p>
+
+</div>
+</div>
+<a id="a9ecab9ecdedfc331aed9a0ae63ce193b" name="a9ecab9ecdedfc331aed9a0ae63ce193b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ecab9ecdedfc331aed9a0ae63ce193b">&#9670;&#160;</a></span>popQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void popQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удаляет последнюю команду из динамической очереди. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00290">290</a></p>
+
+</div>
+</div>
+<a id="ab472c906dd7da7698e2a2316e4ce6376" name="ab472c906dd7da7698e2a2316e4ce6376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab472c906dd7da7698e2a2316e4ce6376">&#9670;&#160;</a></span>ssh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ssh </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>password</em> = <code>QString()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запускает выбранную команду на удаленном хосте. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>- команда для запуска. </td></tr>
+    <tr><td class="paramname">host</td><td>- хост (например, <code><a href="#" onclick="location.href='mai'+'lto:'+'use'+'r@'+'192'+'.1'+'68.'+'1.'+'48'; return false;">user@<span class="obfuscator">.nosp@m.</span>192.<span class="obfuscator">.nosp@m.</span>168.1<span class="obfuscator">.nosp@m.</span>.48</a></code>. </td></tr>
+    <tr><td class="paramname">password</td><td>- пароль. Для подключения без пароля оставьте строку пустой. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00305">305</a></p>
+
+</div>
+</div>
+<a id="ad8136df344f340b0653c27e3317c08f5" name="ad8136df344f340b0653c27e3317c08f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8136df344f340b0653c27e3317c08f5">&#9670;&#160;</a></span>ping</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ping </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Срабатывает, когда сокет получает ответ. </p>
+
+</div>
+</div>
+<a id="a568be9ebaceb02844d9702690466a52c" name="a568be9ebaceb02844d9702690466a52c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568be9ebaceb02844d9702690466a52c">&#9670;&#160;</a></span>condition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString condition </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>condition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>pass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>fail</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Оборачивает команды в условие. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">condition</td><td>- условие для выполнения. </td></tr>
+    <tr><td class="paramname">pass</td><td>- команда, выполняемая в случае успеха. </td></tr>
+    <tr><td class="paramname">fail</td><td>- команда, выполняемая в случае неудачи. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Обернутая команда. </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Это приватная функция. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00323">323</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="../../d7/d60/execdsocket_8h_source.html">execdsocket.h</a></li>
+<li><a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../d4/d0a/namespace_quasar_s_d_k.html">QuasarSDK</a></li><li class="navelem"><a class="el" href="../../dd/dce/class_quasar_s_d_k_1_1_execd_socket.html">ExecdSocket</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

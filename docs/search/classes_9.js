@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lineplot_0',['LinePlot',['../d9/de1/classSDK_1_1Quick_1_1LinePlot.html',1,'SDK::Quick']]]
+  ['lineplot_0',['LinePlot',['../d4/d49/class_s_d_k_1_1_quick_1_1_line_plot.html',1,'SDK::Quick']]]
 ];

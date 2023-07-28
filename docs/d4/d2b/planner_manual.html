@@ -1,0 +1,280 @@
+<!-- HTML header for doxygen 1.9.6-->
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+  <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=11" />
+  <meta name="generator" content="Doxygen 1.9.7" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QuaSAR: Документация по планировщику задач</title>
+  <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../../jquery.js"></script>
+  <script type="text/javascript" src="../../dynsections.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+  <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+  <script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+  </script>
+  <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+  <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+  <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+  <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+      <div id="titlearea">
+        <table cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr id="projectrow">
+              <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
+              <td id="projectalign">
+                <div id="projectname">QuaSAR<span
+                    id="projectnumber">&#160;2.13.0</span>
+                </div>
+                <div id="projectbrief">SAR control software</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end header part --><!-- Создано системой Doxygen 1.9.7 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d4/d2b/planner_manual.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Документация по планировщику задач</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Оглавление</h3>
+<ul><li class="level1"><a href="#PLANNER_CREATION">Создание полетного задания</a><ul><li class="level2"><a href="#PLANNER_SUB1">Процесс взаимодействия бортового и наземного сегмента ПО</a></li>
+<li class="level2"><a href="#PLANNER_SUB2">Заголовок запроса</a></li>
+<li class="level2"><a href="#PLANNER_SUB3">Данные запроса</a></li>
+<li class="level2"><a href="#PLANNER_SUB4">Заголовок ответа</a></li>
+<li class="level2"><a href="#PLANNER_SUB5">Добавление точки полетного задания</a></li>
+<li class="level2"><a href="#PLANNER_SUB6">Удаление точки полетного задания</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#PLANNER_STATUS">Запрос статуса</a><ul><li class="level2"><a href="#PLANNER_SUB7">Ответ сервиса</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#PLANNER_TABLES">Приложение</a><ul><li class="level2"><a href="#PLANNER_TABLE_1">Таблица 1: Биты поля switch</a></li>
+<li class="level2"><a href="#PLANNER_TABLE_2">Таблица 1: Биты поля sar</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="PLANNER_CREATION"></a>
+Создание полетного задания</h1>
+<h2><a class="anchor" id="PLANNER_SUB1"></a>
+Процесс взаимодействия бортового и наземного сегмента ПО</h2>
+<p>Взаимодействие происходит при помощи передачи и приема сообщений (датаграмм) посредством сетевого протокола UDP. Порядок байтов — Big endian. В общем случае сеанс обмена сообщениями состоит из передачи запроса с последующим приемом ответа сервиса. Запрос состоит из заголовка запроса и данных запроса, расположенных последовательно в сообщении: </p><div class="fragment"><div class="line">{</div>
+<div class="line">    marker</div>
+<div class="line">    id</div>
+<div class="line">    r</div>
+<div class="line">    ip</div>
+<div class="line">    port</div>
+<div class="line">    lat</div>
+<div class="line">    lon</div>
+<div class="line">    cnt</div>
+<div class="line">    len</div>
+<div class="line">    UTF-8 command string</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Ответ сервиса РЛС является подтверждением обработки запроса и состоит только из заголовка ответа.</p>
+<h2><a class="anchor" id="PLANNER_SUB2"></a>
+Заголовок запроса</h2>
+<p>Заголовок запроса имеет следующую структуру (пример реализации на языке Си): </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Point</div>
+<div class="line">{</div>
+<div class="line">    uint32_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a51bdee9eea878b90b917afc0f8c99435">marker</a>;</div>
+<div class="line">    uint16_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384">id</a>;</div>
+<div class="line">    uint16_t r;</div>
+<div class="line">    uint32_t ip;</div>
+<div class="line">    uint16_t port;</div>
+<div class="line">    <span class="keywordtype">double</span> lat;</div>
+<div class="line">    <span class="keywordtype">double</span> lon;</div>
+<div class="line">    uint16_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#ae1d905c6ac1a0c9b96dca16153917334">cnt</a>;</div>
+<div class="line">    uint16_t len;</div>
+<div class="line">};</div>
+<div class="ttc" id="aimagemetadata_8h_html_a4fc3a0c58dfbd1e68224521185cb9384"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384">id</a></div><div class="ttdeci">uint16_t id</div><div class="ttdoc">Идентификатор РЛС.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00004">imagemetadata.h:4</a></div></div>
+<div class="ttc" id="aimagemetadata_8h_html_a51bdee9eea878b90b917afc0f8c99435"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#a51bdee9eea878b90b917afc0f8c99435">marker</a></div><div class="ttdeci">uint16_t marker</div><div class="ttdoc">Идентификатор протокола.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00000">imagemetadata.h:0</a></div></div>
+<div class="ttc" id="aimagemetadata_8h_html_ae1d905c6ac1a0c9b96dca16153917334"><div class="ttname"><a href="../../dd/da3/imagemetadata_8h.html#ae1d905c6ac1a0c9b96dca16153917334">cnt</a></div><div class="ttdeci">uint16_t cnt</div><div class="ttdoc">Счётчик.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/da3/imagemetadata_8h_source.html#l00003">imagemetadata.h:3</a></div></div>
+</div><!-- fragment --><p> где:</p><ul>
+<li>marker - Константа, маркер сообщения. Всегда равен <code>0x55DD55DD</code>;</li>
+<li>id - идентификационный номер точки. Номер должен быть уникален для каждого нового объекта. В случае, если послать несколько сообщений с одним и тем же номером, то сообщения будут перезаписаны. Может принимать следующие значения: 0..65535;</li>
+<li>r - радиус зоны, при достижении которой происходит событие (далее - зона события). Может принимать следующие значения: 0..65535 метров;</li>
+<li>ip - IP-адрес (протокол IPv4) для обратной связи в бинарном виде. Например, ip <code>192.168.1.1</code> = <code>0xC0A80101</code>;</li>
+<li>port - порт IP-адресса дляобратной связи. Может принимать следующие значения: 0..65535;</li>
+<li>lat - географическая широта центра зоны события. Стандарт WGS-84. Может принимать следующие значения: -90..90 градусов;</li>
+<li>lon - географическая долгота центра зоны события. Стандарт WGS-84. Может принимать следующие значения: -180..180 градусов;</li>
+<li>cnt - время жизни зоны события (в количестве срабатываний при достижении). Может принимать следующие значения: 0..65535;</li>
+<li>len - количество байт данных.</li>
+</ul>
+<h2><a class="anchor" id="PLANNER_SUB3"></a>
+Данные запроса</h2>
+<p>Данные запроса должны быть представлены в виде строки в формате execd (без id, размера и контрольной суммы). Например: </p><div class="fragment"><div class="line">$some_script(arg1, arg2, arg3)</div>
+</div><!-- fragment --><p> Параметр len примера равен 30.</p>
+<h2><a class="anchor" id="PLANNER_SUB4"></a>
+Заголовок ответа</h2>
+<p>Заголовок ответа имеет следующую структуру (пример реализации на языке Си): </p><div class="fragment"><div class="line"><span class="keyword">struct </span>PointResponse</div>
+<div class="line">{</div>
+<div class="line">    uint32_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a51bdee9eea878b90b917afc0f8c99435">marker</a>;</div>
+<div class="line">    uint16_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a4fc3a0c58dfbd1e68224521185cb9384">id</a>;</div>
+<div class="line">    uint16_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#ae1d905c6ac1a0c9b96dca16153917334">cnt</a>;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> где:</p><ul>
+<li>marker - Константа, маркер сообщения. Всегда равен 0x55CC55CC;</li>
+<li>id - идентификационный номер точки;</li>
+<li>cnt - актуальное значение счётчика событий.</li>
+</ul>
+<h2><a class="anchor" id="PLANNER_SUB5"></a>
+Добавление точки полетного задания</h2>
+<p>Для добавления точки необходимо сформировать запрос, заполнив данные запроса и все поля заголовка запроса. После успешной обработки запроса сервис вышлет заголовок ответа. При попытке добавления точки с id, который был добавлен ранее — произойдёт замена точки.</p>
+<h2><a class="anchor" id="PLANNER_SUB6"></a>
+Удаление точки полетного задания</h2>
+<p>При достижении cnt = 0 — точки удаляются автоматически, при этом сервис вышлет оповещение об удалении точки на адрес, указанный при добавлении точки (поля ip и port). Автоматическое удаление происходит асинхронно и не требует запроса. При очередном достижении зоны события счетчик cnt декрементируется. Таким образом команда, содержащаяся в данных запроса точки будет передана столько раз на исполнение столько раз, сколько носитель РЛС достигнет зоны события, но не больше cnt раз, заданных при добавлении точки. Для ручного удаления точки необходимо передать сообщение со следующим заголовком запроса: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Point</div>
+<div class="line">{</div>
+<div class="line">    uint32_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a51bdee9eea878b90b917afc0f8c99435">marker</a> = 0x55DD55DD;</div>
+<div class="line">    uint16_t <span class="keywordtype">id</span> = <span class="keywordtype">id</span> удаляемой точки;</div>
+<div class="line">    uint16_t r = <span class="stringliteral">&quot;не имеет значения&quot;</span>;</div>
+<div class="line">    <span class="keywordtype">double</span> lat = <span class="stringliteral">&quot;не имеет значения&quot;</span>;</div>
+<div class="line">    <span class="keywordtype">double</span> lon = <span class="stringliteral">&quot;не имеет значения&quot;</span>;</div>
+<div class="line">    uint16_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#ae1d905c6ac1a0c9b96dca16153917334">cnt</a> = 0;</div>
+<div class="line">    uint16_t len = <span class="stringliteral">&quot;не имеет значения&quot;</span>;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> После успешной обработки запроса сервис вышлет заголовок ответа.</p>
+<h1><a class="anchor" id="PLANNER_STATUS"></a>
+Запрос статуса</h1>
+<p>Подписка на запрос статусных сообщений осуществляется по аналогии с подпиской на запрос навигационных данных, однако для получения статусных сообщений значение поля <code>marker</code> необходимо заменить на следующую константу: <code>0x55FF55FF</code>. </p>
+<h2><a class="anchor" id="PLANNER_SUB7"></a>
+Ответ сервиса</h2>
+<p>В ответ на инициализационное сообщение сервис начинает (или прекращает, в зависимости от значения флага инициализации) отправлять сообщения, которые имеют следующую структуру: </p><div class="fragment"><div class="line"><span class="keyword">struct </span>Status</div>
+<div class="line">{</div>
+<div class="line">    uint32_t <a class="code hl_variable" href="../../dd/da3/imagemetadata_8h.html#a51bdee9eea878b90b917afc0f8c99435">marker</a>;</div>
+<div class="line">    uint16_t voltage1;</div>
+<div class="line">    uint16_t voltage2;</div>
+<div class="line">    uint8_t <span class="keywordflow">switch</span>;</div>
+<div class="line">    uint8_t sar;</div>
+<div class="line">    uint8_t r1;</div>
+<div class="line">    uint8_t r2;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> где:</p><ul>
+<li>marker - Константа, маркер сообщения. Всегда равен <code>0x55EE55EE</code>;</li>
+<li>voltage1 — напряжение первичного источника питания, мВ;</li>
+<li>voltage2 — напряжение вторичного источника питания, мВ;</li>
+<li>switch — состояние коммутатора (см. <a class="el" href="../../d4/d2b/planner_manual.html#PLANNER_TABLE_1">Таблица 1: Биты поля switch</a>);</li>
+<li>sar — состояние радиолокационного модуля (см. <a class="el" href="../../d4/d2b/planner_manual.html#PLANNER_TABLE_2">Таблица 1: Биты поля sar</a>);</li>
+<li>r1 — резерв 1;</li>
+<li>r2 — резерв 2;</li>
+</ul>
+<h1><a class="anchor" id="PLANNER_TABLES"></a>
+Приложение</h1>
+<h2><a class="anchor" id="PLANNER_TABLE_1"></a>
+Таблица 1: Биты поля switch</h2>
+<a class="anchor" id="multi_row"></a>
+<table class="doxtable">
+<caption>Биты поля switch</caption>
+<tr>
+<th>Номер бита </th><th>Назначение </th><th>Значение </th></tr>
+<tr>
+<td>0 </td><td>Антенный коммутатор подключен </td><td>0: подключен; 1: отключен. </td></tr>
+<tr>
+<td>1, 2 </td><td>Состояние каналов </td><td>0: канал 1 и канал 2 выключены; 1: канал 1 включен, канал 2 выключен; 2: канал 1 выключен, канал 2 включен; 3: зарезервирован </td></tr>
+<tr>
+<td>3 </td><td>Наличие сигнала на входе коммутатора </td><td>0: отсутствует; 1: присутствует. </td></tr>
+<tr>
+<td>4 - 7 </td><td>Сбой </td><td>0: Ошибок нет; *: Код ошибки. </td></tr>
+</table>
+<h2><a class="anchor" id="PLANNER_TABLE_2"></a>
+Таблица 1: Биты поля sar</h2>
+<a class="anchor" id="multi_row"></a>
+<table class="doxtable">
+<caption>Биты поля switch</caption>
+<tr>
+<th>Номер бита </th><th>Назначение </th><th>Значение </th></tr>
+<tr>
+<td>0 </td><td>Излучение </td><td>0: выключено; 1: включено. </td></tr>
+<tr>
+<td>1 </td><td>Формирование РЛИ </td><td>0: вычислитель бездействует; 1: вычислитель формирует РЛИ. </td></tr>
+<tr>
+<td>2 </td><td>Вычислитель в сети </td><td>0: вычислитель отключен от сети; 1: вычислитель подключен к сети. </td></tr>
+<tr>
+<td>3 </td><td>Состояние планировщика задач (execd) </td><td>0: выключен; 1: включен. </td></tr>
+<tr>
+<td>4 </td><td>Передача файла (РЛИ) </td><td>0: нет передачи; 1: передача. </td></tr>
+<tr>
+<td>5 - 7 </td><td>Резерв </td><td>- </td></tr>
+</table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7 </li>
+  </ul>
+</div>
+</body>
+</html>

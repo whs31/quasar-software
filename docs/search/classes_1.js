@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['base64object_0',['Base64Object',['../df/d2f/classQuasarSDK_1_1IO_1_1Base64Object.html',1,'QuasarSDK::IO']]],
-  ['baseudpsocket_1',['BaseUDPSocket',['../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html',1,'QuasarSDK']]],
-  ['basicfile_2',['BasicFile',['../d3/d8a/classQuasarSDK_1_1IO_1_1BasicFile.html',1,'QuasarSDK::IO']]],
-  ['basicmapobject_3',['BasicMapObject',['../d3/d1c/classQuasarSDK_1_1Map_1_1BasicMapObject.html',1,'QuasarSDK::Map']]],
-  ['basicmessage_4',['BasicMessage',['../d0/dfa/classGUI_1_1TerminalBase.html#dd/d22/structGUI_1_1TerminalBase_1_1BasicMessage',1,'GUI::TerminalBase']]]
+  ['base64object_0',['Base64Object',['../d8/dec/class_quasar_s_d_k_1_1_i_o_1_1_base64_object.html',1,'QuasarSDK::IO']]],
+  ['baseudpsocket_1',['BaseUDPSocket',['../db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html',1,'QuasarSDK']]],
+  ['basicfile_2',['BasicFile',['../d3/d7e/class_quasar_s_d_k_1_1_i_o_1_1_basic_file.html',1,'QuasarSDK::IO']]],
+  ['basicmapobject_3',['BasicMapObject',['../d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html',1,'QuasarSDK::Map']]],
+  ['basicmessage_4',['BasicMessage',['../d2/db3/class_g_u_i_1_1_terminal_base.html#dd/dc2/struct_g_u_i_1_1_terminal_base_1_1_basic_message',1,'GUI::TerminalBase']]]
 ];

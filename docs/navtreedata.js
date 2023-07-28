@@ -49,6 +49,23 @@ var NAVTREE =
       [ "Сборка", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_BUILD", null ],
       [ "Правила оформления скриптов", "dd/d88/execd_manual.html#EXECD_DOCUMENTATION_RULES", null ]
     ] ],
+    [ "Документация по планировщику задач", "d4/d2b/planner_manual.html", [
+      [ "Создание полетного задания", "d4/d2b/planner_manual.html#PLANNER_CREATION", [
+        [ "Процесс взаимодействия бортового и наземного сегмента ПО", "d4/d2b/planner_manual.html#PLANNER_SUB1", null ],
+        [ "Заголовок запроса", "d4/d2b/planner_manual.html#PLANNER_SUB2", null ],
+        [ "Данные запроса", "d4/d2b/planner_manual.html#PLANNER_SUB3", null ],
+        [ "Заголовок ответа", "d4/d2b/planner_manual.html#PLANNER_SUB4", null ],
+        [ "Добавление точки полетного задания", "d4/d2b/planner_manual.html#PLANNER_SUB5", null ],
+        [ "Удаление точки полетного задания", "d4/d2b/planner_manual.html#PLANNER_SUB6", null ]
+      ] ],
+      [ "Запрос статуса", "d4/d2b/planner_manual.html#PLANNER_STATUS", [
+        [ "Ответ сервиса", "d4/d2b/planner_manual.html#PLANNER_SUB7", null ]
+      ] ],
+      [ "Приложение", "d4/d2b/planner_manual.html#PLANNER_TABLES", [
+        [ "Таблица 1: Биты поля switch", "d4/d2b/planner_manual.html#PLANNER_TABLE_1", null ],
+        [ "Таблица 1: Биты поля sar", "d4/d2b/planner_manual.html#PLANNER_TABLE_2", null ]
+      ] ]
+    ] ],
     [ "Список устаревших определений и описаний", "da/d58/deprecated.html", null ],
     [ "Список задач", "dd/da0/todo.html", null ],
     [ "Группы", "modules.html", "modules" ],
@@ -85,9 +102,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d2c/diagram_8c_09_09_source.html",
-"d9/d69/namespaceScenegraph.html",
-"dd/d88/execd_manual.html#EXECD_DOCUMENTATION_RULES"
+"d3/daf/group__sdk__images.html#a76714bdbc5c536fa77dfb14533ff82a9",
+"d8/d07/group__sdk__protocol.html#af161fc144504ebd2d6a3a287a47efcc0",
+"de/d36/struct_quasar_s_d_k_1_1_execd_argument.html#a60514ba9570e608dfbc302e125aad34e"
 ];
 
 var SYNCONMSG = 'нажмите на выключить для синхронизации панелей';

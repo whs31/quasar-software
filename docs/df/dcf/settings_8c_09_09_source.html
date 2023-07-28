@@ -133,9 +133,9 @@ $(document).ready(function(){initNavTree('df/dcf/settings_8c_09_09_source.html',
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordtype">void</span> internal::SettingsWrapper::load() noexcept</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    qInfo() &lt;&lt; <span class="stringliteral">&quot;$ [SETTINGS] Loading settings&quot;</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    QFile file(<a class="code hl_function" href="../../d1/d42/classConfig_1_1Paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    QFile file(<a class="code hl_function" href="../../d7/d33/class_config_1_1_paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordflow">if</span>(not file.exists())</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      QFile::copy(<span class="stringliteral">&quot;:/json/settings.json&quot;</span>, <a class="code hl_function" href="../../d1/d42/classConfig_1_1Paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>      QFile::copy(<span class="stringliteral">&quot;:/json/settings.json&quot;</span>, <a class="code hl_function" href="../../d7/d33/class_config_1_1_paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    file.setPermissions(QFileDevice::ReadUser | QFileDevice::WriteUser);</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">if</span>(file.open(QIODevice::ReadOnly | QIODevice::Text))</div>
@@ -157,8 +157,8 @@ $(document).ready(function(){initNavTree('df/dcf/settings_8c_09_09_source.html',
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    qInfo() &lt;&lt; <span class="stringliteral">&quot;$ [SETTINGS] Saving settings&quot;</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    QByteArray data_to_save = QJsonDocument(QJsonObject::fromVariantMap(QMap&lt;QString, QVariant&gt;(m_json))).toJson();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    QFile::remove(<a class="code hl_function" href="../../d1/d42/classConfig_1_1Paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    QFile file(<a class="code hl_function" href="../../d1/d42/classConfig_1_1Paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    QFile::remove(<a class="code hl_function" href="../../d7/d33/class_config_1_1_paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    QFile file(<a class="code hl_function" href="../../d7/d33/class_config_1_1_paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a>() + <span class="stringliteral">&quot;/settings.json&quot;</span>);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span>(file.open(QIODevice::WriteOnly | QIODevice::Text))</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      file.write(data_to_save);</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('df/dcf/settings_8c_09_09_source.html',
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  QString Settings::projectVersion() { <span class="keywordflow">return</span> PROJECT_VERSION; }</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>} <span class="comment">// Config</span></div>
-<div class="ttc" id="aclassConfig_1_1Paths_html_a8c771e9a4eb6555d1dc3e348244e2596"><div class="ttname"><a href="../../d1/d42/classConfig_1_1Paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a></div><div class="ttdeci">static Q_INVOKABLE QString config()</div><div class="ttdoc">Returns config directory.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d17/paths_8c_09_09_source.html#l00056">paths.c++:56</a></div></div>
+<div class="ttc" id="aclass_config_1_1_paths_html_a8c771e9a4eb6555d1dc3e348244e2596"><div class="ttname"><a href="../../d7/d33/class_config_1_1_paths.html#a8c771e9a4eb6555d1dc3e348244e2596">Config::Paths::config</a></div><div class="ttdeci">static Q_INVOKABLE QString config()</div><div class="ttdoc">Returns config directory.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d17/paths_8c_09_09_source.html#l00056">paths.c++:56</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,0 +1,36 @@
+var namespace_quasar_s_d_k =
+[
+    [ "Datagrams", "d9/d53/namespace_quasar_s_d_k_1_1_datagrams.html", "d9/d53/namespace_quasar_s_d_k_1_1_datagrams" ],
+    [ "IO", "d1/d21/namespace_quasar_s_d_k_1_1_i_o.html", "d1/d21/namespace_quasar_s_d_k_1_1_i_o" ],
+    [ "Map", "d9/d01/namespace_quasar_s_d_k_1_1_map.html", "d9/d01/namespace_quasar_s_d_k_1_1_map" ],
+    [ "Processing", "d1/de7/namespace_quasar_s_d_k_1_1_processing.html", "d1/de7/namespace_quasar_s_d_k_1_1_processing" ],
+    [ "Utils", "d3/dc4/namespace_quasar_s_d_k_1_1_utils.html", [
+      [ "log", "d3/daf/group__sdk__images.html#ga3877486db4acc07f2a3d9e980d9866a5", null ],
+      [ "deg2rad", "d3/daf/group__sdk__images.html#ga06edcf94eff0754b506f72abfa78e29f", null ],
+      [ "rad2deg", "d3/daf/group__sdk__images.html#ga414e2d36554301965d1d9ae80da08a3f", null ],
+      [ "NaN", "d3/daf/group__sdk__images.html#ga7f02b12a2b2b0b11df4aa991ff354000", null ],
+      [ "isNaN", "d3/daf/group__sdk__images.html#gaaf0578b9d15d85ab4e18cee1256ff1e7", null ],
+      [ "crc16", "d3/d54/group__sdk__network.html#gafda5ee7aba055245d768c57faa02fb57", null ],
+      [ "crc16_ccitt", "d3/d54/group__sdk__network.html#ga15a9ef310fea932c75d1cfee9d7dc1d4", null ],
+      [ "str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ],
+      [ "wrapToExecdString", "d3/dc4/namespace_quasar_s_d_k_1_1_utils.html#acf42a6506f0e8d93f2c81d5d914a4ad5", null ]
+    ] ],
+    [ "BaseUDPSocket", "db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html", "db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket" ],
+    [ "Config", "d5/df4/class_quasar_s_d_k_1_1_config.html", "d5/df4/class_quasar_s_d_k_1_1_config" ],
+    [ "Enums", "d8/d13/class_quasar_s_d_k_1_1_enums.html", "d8/d13/class_quasar_s_d_k_1_1_enums" ],
+    [ "ExecdArgument", "de/d36/struct_quasar_s_d_k_1_1_execd_argument.html", "de/d36/struct_quasar_s_d_k_1_1_execd_argument" ],
+    [ "ExecdArgumentParser", "d3/d1d/class_quasar_s_d_k_1_1_execd_argument_parser.html", "d3/d1d/class_quasar_s_d_k_1_1_execd_argument_parser" ],
+    [ "ExecdSocket", "dd/dce/class_quasar_s_d_k_1_1_execd_socket.html", "dd/dce/class_quasar_s_d_k_1_1_execd_socket" ],
+    [ "IConnectable", "df/dac/class_quasar_s_d_k_1_1_i_connectable.html", "df/dac/class_quasar_s_d_k_1_1_i_connectable" ],
+    [ "OutputRedirectServer", "df/d2b/class_quasar_s_d_k_1_1_output_redirect_server.html", "df/d2b/class_quasar_s_d_k_1_1_output_redirect_server" ],
+    [ "OutputSocket", "de/d4c/class_quasar_s_d_k_1_1_output_socket.html", "de/d4c/class_quasar_s_d_k_1_1_output_socket" ],
+    [ "PingTester", "de/d88/class_quasar_s_d_k_1_1_ping_tester.html", "de/d88/class_quasar_s_d_k_1_1_ping_tester" ],
+    [ "QuasarAPI", "d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html", "d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i" ],
+    [ "RemoteData", "df/d8a/class_quasar_s_d_k_1_1_remote_data.html", "df/d8a/class_quasar_s_d_k_1_1_remote_data" ],
+    [ "SeamlessUDPSocket", "d5/d90/class_quasar_s_d_k_1_1_seamless_u_d_p_socket.html", "d5/d90/class_quasar_s_d_k_1_1_seamless_u_d_p_socket" ],
+    [ "StripSocket", "d6/d4a/class_quasar_s_d_k_1_1_strip_socket.html", "d6/d4a/class_quasar_s_d_k_1_1_strip_socket" ],
+    [ "TCPServer", "db/dbd/class_quasar_s_d_k_1_1_t_c_p_server.html", "db/dbd/class_quasar_s_d_k_1_1_t_c_p_server" ],
+    [ "Telemetry", "d4/da9/class_quasar_s_d_k_1_1_telemetry.html", "d4/da9/class_quasar_s_d_k_1_1_telemetry" ],
+    [ "TelemetrySocket", "d5/d0a/class_quasar_s_d_k_1_1_telemetry_socket.html", "d5/d0a/class_quasar_s_d_k_1_1_telemetry_socket" ],
+    [ "registerQMLTypes", "d4/d0a/namespace_quasar_s_d_k.html#a87a9973e233bb86a6f2c631006212d2a", null ]
+];

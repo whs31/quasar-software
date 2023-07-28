@@ -1,0 +1,15 @@
+digraph "ISARImage"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="ISARImage",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Интерфейс, описывающий радиолокационное изображение с РЛС."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="MapImage",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html",tooltip="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="CompleteMapImage",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html",tooltip="Радиолокационное изображение на карте, сохраненное в файл."];
+  Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="MapImageSegment",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d1/d05/class_quasar_s_d_k_1_1_map_1_1_map_image_segment.html",tooltip="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64-строке."];
+}

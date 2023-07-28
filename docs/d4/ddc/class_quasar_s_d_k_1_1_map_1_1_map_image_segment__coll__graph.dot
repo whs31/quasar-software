@@ -1,0 +1,21 @@
+digraph "MapImageSegment"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="MapImageSegment",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64-строке."];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="MapImage",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html",tooltip="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты."];
+  Node3 -> Node2 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="FGSMapObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d9/dd3/class_quasar_s_d_k_1_1_map_1_1_f_g_s_map_object.html",tooltip="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру."];
+  Node4 -> Node3 [id="edge3_Node000003_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="BasicMapObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html",tooltip="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба."];
+  Node5 -> Node4 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="IMapObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html",tooltip="Интерфейс, описывающий абстрактный объект карты."];
+  Node6 -> Node2 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="ISARImage",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d7/d37/class_quasar_s_d_k_1_1_map_1_1_i_s_a_r_image.html",tooltip="Интерфейс, описывающий радиолокационное изображение с РЛС."];
+  Node7 -> Node1 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="Base64Object",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d8/dec/class_quasar_s_d_k_1_1_i_o_1_1_base64_object.html",tooltip="Объект, способный конвертировать свои бинарные данные в base64-строку."];
+}

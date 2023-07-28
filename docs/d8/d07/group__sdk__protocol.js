@@ -1,6 +1,6 @@
 var group__sdk__protocol =
 [
-    [ "TelemetryDatagram", "d8/d07/group__sdk__protocol.html#d7/df0/structQuasarSDK_1_1Datagrams_1_1TelemetryDatagram", [
+    [ "TelemetryDatagram", "d8/d07/group__sdk__protocol.html#da/d38/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_datagram", [
       [ "marker", "d8/d07/group__sdk__protocol.html#a0ea604dd26c415c8f380323b91bdba56", null ],
       [ "version", "d8/d07/group__sdk__protocol.html#ab22abc2906422da61885ac6c8e6a1a59", null ],
       [ "latitude", "d8/d07/group__sdk__protocol.html#a76714bdbc5c536fa77dfb14533ff82a9", null ],
@@ -18,14 +18,14 @@ var group__sdk__protocol =
       [ "satellites", "d8/d07/group__sdk__protocol.html#aa306fbda3e6f642c3668c299361d25d0", null ],
       [ "crc16", "d8/d07/group__sdk__protocol.html#a4438e0df9f58b1861feb3fc659f52534", null ]
     ] ],
-    [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d7/d26/structQuasarSDK_1_1Datagrams_1_1TelemetryRequest", [
+    [ "TelemetryRequest", "d8/d07/group__sdk__protocol.html#d9/dd7/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_request", [
       [ "marker", "d8/d07/group__sdk__protocol.html#a0ea604dd26c415c8f380323b91bdba56", null ],
       [ "init_flag", "d8/d07/group__sdk__protocol.html#a210e06aa846736988dbee1b9f1bb4464", null ],
       [ "port", "d8/d07/group__sdk__protocol.html#a8e0798404bf2cf5dabb84c5ba9a4f236", null ],
       [ "interval_ms", "d8/d07/group__sdk__protocol.html#a90ade0bc499be730c6d20696fffaf4f7", null ],
       [ "crc16", "d8/d07/group__sdk__protocol.html#a4438e0df9f58b1861feb3fc659f52534", null ]
     ] ],
-    [ "PlannerAppendDatagram", "d8/d07/group__sdk__protocol.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", [
+    [ "PlannerAppendDatagram", "d8/d07/group__sdk__protocol.html#dc/de6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_append_datagram", [
       [ "marker", "d8/d07/group__sdk__protocol.html#a0ea604dd26c415c8f380323b91bdba56", null ],
       [ "id", "d8/d07/group__sdk__protocol.html#a4fc3a0c58dfbd1e68224521185cb9384", null ],
       [ "r", "d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11", null ],
@@ -37,7 +37,7 @@ var group__sdk__protocol =
       [ "len", "d8/d07/group__sdk__protocol.html#a8aed22e2c7b283705ec82e0120515618", null ],
       [ "command", "d8/d07/group__sdk__protocol.html#af161fc144504ebd2d6a3a287a47efcc0", null ]
     ] ],
-    [ "PlannerRemoveDatagram", "d8/d07/group__sdk__protocol.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", [
+    [ "PlannerRemoveDatagram", "d8/d07/group__sdk__protocol.html#de/df6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_remove_datagram", [
       [ "marker", "d8/d07/group__sdk__protocol.html#a0ea604dd26c415c8f380323b91bdba56", null ],
       [ "id", "d8/d07/group__sdk__protocol.html#a4fc3a0c58dfbd1e68224521185cb9384", null ],
       [ "r", "d8/d07/group__sdk__protocol.html#acfb1795eb860b37ae4a0cf5007525b11", null ],
@@ -46,7 +46,7 @@ var group__sdk__protocol =
       [ "cnt", "d8/d07/group__sdk__protocol.html#ae1d905c6ac1a0c9b96dca16153917334", null ],
       [ "len", "d8/d07/group__sdk__protocol.html#a8aed22e2c7b283705ec82e0120515618", null ]
     ] ],
-    [ "PlannerResponseDatagram", "d8/d07/group__sdk__protocol.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", [
+    [ "PlannerResponseDatagram", "d8/d07/group__sdk__protocol.html#da/d4a/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_response_datagram", [
       [ "marker", "d8/d07/group__sdk__protocol.html#a0ea604dd26c415c8f380323b91bdba56", null ],
       [ "id", "d8/d07/group__sdk__protocol.html#a4fc3a0c58dfbd1e68224521185cb9384", null ],
       [ "cnt", "d8/d07/group__sdk__protocol.html#ae1d905c6ac1a0c9b96dca16153917334", null ]

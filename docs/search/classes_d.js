@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['paths_0',['Paths',['../d1/d42/classConfig_1_1Paths.html',1,'Config']]],
-  ['pingtester_1',['PingTester',['../d2/d74/classQuasarSDK_1_1PingTester.html',1,'QuasarSDK']]],
-  ['plannerappenddatagram_2',['PlannerAppendDatagram',['../d8/d07/group__sdk__protocol.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram',1,'QuasarSDK::Datagrams']]],
-  ['plannermark_3',['PlannerMark',['../da/d88/namespaceMap.html#d7/d76/classMap_1_1PlannerMark',1,'Map']]],
-  ['plannerremovedatagram_4',['PlannerRemoveDatagram',['../d8/d07/group__sdk__protocol.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram',1,'QuasarSDK::Datagrams']]],
-  ['plannerresponsedatagram_5',['PlannerResponseDatagram',['../d8/d07/group__sdk__protocol.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram',1,'QuasarSDK::Datagrams']]]
+  ['paths_0',['Paths',['../d7/d33/class_config_1_1_paths.html',1,'Config']]],
+  ['pingtester_1',['PingTester',['../de/d88/class_quasar_s_d_k_1_1_ping_tester.html',1,'QuasarSDK']]],
+  ['plannerappenddatagram_2',['PlannerAppendDatagram',['../d8/d07/group__sdk__protocol.html#dc/de6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_append_datagram',1,'QuasarSDK::Datagrams']]],
+  ['plannermark_3',['PlannerMark',['../d0/d82/namespace_map.html#db/d2b/class_map_1_1_planner_mark',1,'Map']]],
+  ['plannerremovedatagram_4',['PlannerRemoveDatagram',['../d8/d07/group__sdk__protocol.html#de/df6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_remove_datagram',1,'QuasarSDK::Datagrams']]],
+  ['plannerresponsedatagram_5',['PlannerResponseDatagram',['../d8/d07/group__sdk__protocol.html#da/d4a/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_response_datagram',1,'QuasarSDK::Datagrams']]]
 ];

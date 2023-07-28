@@ -1,11 +1,11 @@
 var group__sdk__images =
 [
-    [ "TelescopicImageMetadataID", "d3/daf/group__sdk__images.html#de/dc8/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadataID", [
+    [ "TelescopicImageMetadataID", "d3/daf/group__sdk__images.html#d2/db5/struct_quasar_s_d_k_1_1_datagrams_1_1_telescopic_image_metadata_i_d", [
       [ "JPEG_HEADER_SIZE", "d3/daf/group__sdk__images.html#a9b773bb2583171e07274d1ea066c09c8", null ],
       [ "meta_marker", "d3/daf/group__sdk__images.html#a1ef68cababe80d680337efbc77524812", null ],
       [ "meta_size", "d3/daf/group__sdk__images.html#afc253a7e3aa01efe133353d8c6034f4b", null ]
     ] ],
-    [ "TelescopicImageMetadata", "d3/daf/group__sdk__images.html#d5/d2a/structQuasarSDK_1_1Datagrams_1_1TelescopicImageMetadata", [
+    [ "TelescopicImageMetadata", "d3/daf/group__sdk__images.html#d2/ddf/struct_quasar_s_d_k_1_1_datagrams_1_1_telescopic_image_metadata", [
       [ "latitude", "d3/daf/group__sdk__images.html#a76714bdbc5c536fa77dfb14533ff82a9", null ],
       [ "longitude", "d3/daf/group__sdk__images.html#ac155e35fdeebafc89723a51520fb9fe6", null ],
       [ "dx", "d3/daf/group__sdk__images.html#a9eae6c1f38db98ab568f3ed3771a969d", null ],
@@ -30,7 +30,7 @@ var group__sdk__images =
       [ "reserved_4", "d3/daf/group__sdk__images.html#aaf2eb7a7615ec891d7e5a9d49d433f37", null ],
       [ "crc16", "d3/daf/group__sdk__images.html#a4438e0df9f58b1861feb3fc659f52534", null ]
     ] ],
-    [ "StripImageChunkID", "d3/daf/group__sdk__images.html#dd/dcd/structQuasarSDK_1_1Datagrams_1_1StripImageChunkID", [
+    [ "StripImageChunkID", "d3/daf/group__sdk__images.html#d3/d28/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_i_d", [
       [ "marker", "d3/daf/group__sdk__images.html#a51bdee9eea878b90b917afc0f8c99435", null ],
       [ "version", "d3/daf/group__sdk__images.html#ab6d7b6f8c2ceaba7acda80aaf05f4899", null ],
       [ "size", "d3/daf/group__sdk__images.html#aaba88b24a21a6c70c895c0d55f4a69a0", null ],
@@ -38,7 +38,7 @@ var group__sdk__images =
       [ "id", "d3/daf/group__sdk__images.html#a4fc3a0c58dfbd1e68224521185cb9384", null ],
       [ "type", "d3/daf/group__sdk__images.html#acb5cfd209ba75c853d03f701e7f91679", null ]
     ] ],
-    [ "StripImageChunkNav", "d3/daf/group__sdk__images.html#dc/d09/structQuasarSDK_1_1Datagrams_1_1StripImageChunkNav", [
+    [ "StripImageChunkNav", "d3/daf/group__sdk__images.html#d5/d2c/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_nav", [
       [ "pitch", "d3/daf/group__sdk__images.html#a282e7d4378d4a18a805b8980295ac86c", null ],
       [ "roll", "d3/daf/group__sdk__images.html#a26fd84d522945b6038221d9e38c7cc39", null ],
       [ "elevation", "d3/daf/group__sdk__images.html#a1c921d7f2f6a29b15d709c49d2df1797", null ],
@@ -48,7 +48,7 @@ var group__sdk__images =
       [ "course", "d3/daf/group__sdk__images.html#ac6894c88aabf335922736a63b2b87b97", null ],
       [ "track_ang", "d3/daf/group__sdk__images.html#a1f721d77724f0712d13dbb6719895531", null ]
     ] ],
-    [ "StripImageChunkFormat", "d3/daf/group__sdk__images.html#df/d46/structQuasarSDK_1_1Datagrams_1_1StripImageChunkFormat", [
+    [ "StripImageChunkFormat", "d3/daf/group__sdk__images.html#dc/dbc/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_format", [
       [ "dx", "d3/daf/group__sdk__images.html#a9eae6c1f38db98ab568f3ed3771a969d", null ],
       [ "dy", "d3/daf/group__sdk__images.html#a8f461b6142ce8725218813abb23b06a3", null ],
       [ "course", "d3/daf/group__sdk__images.html#ac6894c88aabf335922736a63b2b87b97", null ],
@@ -61,13 +61,13 @@ var group__sdk__images =
       [ "ny", "d3/daf/group__sdk__images.html#a9696b3729bc7ba3effc41ee585be5b27", null ],
       [ "k", "d3/daf/group__sdk__images.html#a9fc4cca635a26c692681a7071e379aa7", null ]
     ] ],
-    [ "StripImageChunkHeader", "d3/daf/group__sdk__images.html#db/d84/structQuasarSDK_1_1Datagrams_1_1StripImageChunkHeader", null ],
-    [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html", [
-      [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html#a9ec25d3868f6faf095360a027a006f5b", null ],
-      [ "CompleteMapImage", "dc/d7d/classQuasarSDK_1_1Map_1_1CompleteMapImage.html#aa761265feecb64b10d5c8c3ee23a26c0", null ]
+    [ "StripImageChunkHeader", "d3/daf/group__sdk__images.html#dc/d23/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_header", null ],
+    [ "CompleteMapImage", "dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html", [
+      [ "CompleteMapImage", "dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html#a9ec25d3868f6faf095360a027a006f5b", null ],
+      [ "CompleteMapImage", "dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html#aa761265feecb64b10d5c8c3ee23a26c0", null ]
     ] ],
-    [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html", [
-      [ "MapImageSegment", "d0/d66/classQuasarSDK_1_1Map_1_1MapImageSegment.html#a179a9346176b0f3dda0bb4ceacac2d3c", null ]
+    [ "MapImageSegment", "d1/d05/class_quasar_s_d_k_1_1_map_1_1_map_image_segment.html", [
+      [ "MapImageSegment", "d1/d05/class_quasar_s_d_k_1_1_map_1_1_map_image_segment.html#a179a9346176b0f3dda0bb4ceacac2d3c", null ]
     ] ],
     [ "log", "d3/daf/group__sdk__images.html#ga3877486db4acc07f2a3d9e980d9866a5", null ],
     [ "deg2rad", "d3/daf/group__sdk__images.html#ga06edcf94eff0754b506f72abfa78e29f", null ],

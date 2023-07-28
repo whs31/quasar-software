@@ -1,0 +1,15 @@
+digraph "StripImageChunkHeader"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="StripImageChunkHeader",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Полный заголовок пакета полосового потокового изображения."];
+  Node2 -> Node1 [id="edge1_Node000001_Node000002",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" id",fontcolor="grey" ];
+  Node2 [id="Node000002",label="StripImageChunkID",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/daf/group__sdk__images.html#d3/d28/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_i_d",tooltip="Заголовок пакета полосового радиолокационного изображения."];
+  Node3 -> Node1 [id="edge2_Node000001_Node000003",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" navigation",fontcolor="grey" ];
+  Node3 [id="Node000003",label="StripImageChunkNav",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/daf/group__sdk__images.html#d5/d2c/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_nav",tooltip="Навигационные данные пакета полосового радиолокационного изображения."];
+  Node4 -> Node1 [id="edge3_Node000001_Node000004",dir="back",color="darkorchid3",style="dashed",tooltip=" ",label=" format",fontcolor="grey" ];
+  Node4 [id="Node000004",label="StripImageChunkFormat",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d3/daf/group__sdk__images.html#dc/dbc/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_format",tooltip="Данные форматирования пакета полосового радиолокационного изображения."];
+}

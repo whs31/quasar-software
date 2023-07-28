@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['datagrams_0',['Datagrams',['../da/db8/namespaceQuasarSDK_1_1Datagrams.html',1,'QuasarSDK::Datagrams'],['../de/d4e/namespaceQuasarSDK_1_1Processing_1_1Datagrams.html',1,'QuasarSDK::Processing::Datagrams']]],
-  ['io_1',['IO',['../d7/daf/namespaceQuasarSDK_1_1IO.html',1,'QuasarSDK']]],
-  ['map_2',['Map',['../d2/d78/namespaceQuasarSDK_1_1Map.html',1,'QuasarSDK']]],
-  ['processing_3',['Processing',['../d6/d16/namespaceQuasarSDK_1_1Processing.html',1,'QuasarSDK']]],
-  ['quasarsdk_4',['QuasarSDK',['../d4/d48/namespaceQuasarSDK.html',1,'']]],
-  ['utils_5',['Utils',['../d4/d19/namespaceQuasarSDK_1_1Utils.html',1,'QuasarSDK']]]
+  ['datagrams_0',['Datagrams',['../d9/d53/namespace_quasar_s_d_k_1_1_datagrams.html',1,'QuasarSDK::Datagrams'],['../df/d81/namespace_quasar_s_d_k_1_1_processing_1_1_datagrams.html',1,'QuasarSDK::Processing::Datagrams']]],
+  ['io_1',['IO',['../d1/d21/namespace_quasar_s_d_k_1_1_i_o.html',1,'QuasarSDK']]],
+  ['map_2',['Map',['../d9/d01/namespace_quasar_s_d_k_1_1_map.html',1,'QuasarSDK']]],
+  ['processing_3',['Processing',['../d1/de7/namespace_quasar_s_d_k_1_1_processing.html',1,'QuasarSDK']]],
+  ['quasarsdk_4',['QuasarSDK',['../d4/d0a/namespace_quasar_s_d_k.html',1,'']]],
+  ['utils_5',['Utils',['../d3/dc4/namespace_quasar_s_d_k_1_1_utils.html',1,'QuasarSDK']]]
 ];

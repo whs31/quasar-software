@@ -29,16 +29,16 @@ namespace QuasarSDK::Datagrams
    */
   struct PlannerAppendDatagram
   {
-    uint32_t marker;    //!< Маркер датаграммы. Всегда равен 0x55DD55DD.
-    uint16_t id;        //!< Номер точки для планировщика от 0 до \c UINT16_MAX. Точка будет перезаписана, если номер не уникален.
-    uint16_t r;         //!< Радиус зоны, в которой будет срабатывать задание планировщика (в м).
-    uint32_t ip;        //!< IP-адрес для обратной связи в hex-виде.
-    uint16_t port;      //!< Порт для обратной связи.
-    double lat;         //!< Широта точки в WGS-84 (в градусах).
-    double lon;         //!< Долгота точки в WGS-84 (в градусах).
-    uint16_t cnt;       //!< Количество срабатывания события в точке перед ее удалением от 0 до \c UINT16_MAX.
-    uint16_t len;       //!< Количество байт в #command.
-    QByteArray command; //!< Команда для выполнения в точке в формате \b execd.
+    uint32_t marker;    ///< Маркер датаграммы. Всегда равен <tt>0x55DD55DD</tt>.
+    uint16_t id;        ///< Номер точки для планировщика от 0 до \c UINT16_MAX. Точка будет перезаписана, если номер не уникален.
+    uint16_t r;         ///< Радиус зоны, в которой будет срабатывать задание планировщика (в м).
+    uint32_t ip;        ///< IP-адрес для обратной связи в hex-виде.
+    uint16_t port;      ///< Порт для обратной связи.
+    double lat;         ///< Широта точки в WGS-84 (в градусах).
+    double lon;         ///< Долгота точки в WGS-84 (в градусах).
+    uint16_t cnt;       ///< Количество срабатывания события в точке перед ее удалением от 0 до \c UINT16_MAX.
+    uint16_t len;       ///< Количество байт в #command.
+    QByteArray command; ///< Команда для выполнения в точке в формате \b execd.
 
     /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerAppendDatagram& data);
@@ -57,13 +57,13 @@ namespace QuasarSDK::Datagrams
    */
   struct PlannerRemoveDatagram
   {
-    uint32_t marker;    //!< Маркер датаграммы. Всегда равен \c 0x55DD55DD.
-    uint16_t id;        //!< Номер точки для удаления.
-    uint16_t r = 0;     //!< Всегда равен 0.
-    double lat = 0;     //!< Всегда равен 0.
-    double lon = 0;     //!< Всегда равен 0.
-    uint16_t cnt = 0;   //!< Всегда равен 0.
-    uint16_t len = 0;   //!< Всегда равен 0.
+    uint32_t marker;    ///< Маркер датаграммы. Всегда равен \c 0x55DD55DD.
+    uint16_t id;        ///< Номер точки для удаления.
+    uint16_t r = 0;     ///< Всегда равен 0.
+    double lat = 0;     ///< Всегда равен 0.
+    double lon = 0;     ///< Всегда равен 0.
+    uint16_t cnt = 0;   ///< Всегда равен 0.
+    uint16_t len = 0;   ///< Всегда равен 0.
 
     /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerRemoveDatagram& data);
@@ -81,9 +81,9 @@ namespace QuasarSDK::Datagrams
    */
   struct PlannerResponseDatagram
   {
-    uint32_t marker;    //!< Маркер датаграммы. Всегда равен \c 0x55CC55CC.
-    uint16_t id;        //!< Номер точки.
-    uint16_t cnt;       //!< Актуальное значение счетчика времени жизни точки.
+    uint32_t marker;    ///< Маркер датаграммы. Всегда равен \c 0x55CC55CC.
+    uint16_t id;        ///< Номер точки.
+    uint16_t cnt;       ///< Актуальное значение счетчика времени жизни точки.
 
     /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const PlannerResponseDatagram& data);

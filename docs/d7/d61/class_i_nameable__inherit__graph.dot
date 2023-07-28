@@ -8,4 +8,6 @@ digraph "INameable"
   Node1 [id="Node000001",label="INameable",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node2 [id="Node000002",label="GeoMarker",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$d4/d7f/class_map_1_1_geo_marker.html",tooltip=" "];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="PlannerMark",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$db/d2b/class_map_1_1_planner_mark.html",tooltip=" "];
 }

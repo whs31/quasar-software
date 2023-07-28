@@ -9,7 +9,7 @@ var namespace_map =
     [ "ImageMetaHeader", "d0/d82/namespace_map.html#d1/dbd/struct_map_1_1_image_meta_header", "d0/d82/namespace_map_d1/dbd/struct_map_1_1_image_meta_header_dup" ],
     [ "ImageModel", "d0/d89/class_map_1_1_image_model.html", null ],
     [ "OfflineTileLoader", "d8/dfa/class_map_1_1_offline_tile_loader.html", "d8/dfa/class_map_1_1_offline_tile_loader" ],
-    [ "PlannerMark", "d0/d82/namespace_map.html#db/d2b/class_map_1_1_planner_mark", null ],
+    [ "PlannerMark", "db/d2b/class_map_1_1_planner_mark.html", null ],
     [ "Route", "d6/d47/class_map_1_1_route.html", null ],
     [ "RouteLogger", "d5/d14/class_map_1_1_route_logger.html", null ],
     [ "Ruler", "d2/dfd/class_map_1_1_ruler.html", null ],

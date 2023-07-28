@@ -12,4 +12,6 @@ digraph "ScreenMapObject"
   Node3 [id="Node000003",label="IMapObject",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html",tooltip="Интерфейс, описывающий абстрактный объект карты."];
   Node1 -> Node4 [id="edge3_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node4 [id="Node000004",label="GeoMarker",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$d4/d7f/class_map_1_1_geo_marker.html",tooltip=" "];
+  Node4 -> Node5 [id="edge4_Node000004_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="PlannerMark",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$db/d2b/class_map_1_1_planner_mark.html",tooltip=" "];
 }

@@ -16,4 +16,6 @@ digraph "GeoMarker"
   Node5 [id="Node000005",label="INameable",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$d9/d5a/class_i_nameable.html",tooltip=" "];
   Node6 -> Node1 [id="edge5_Node000001_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node6 [id="Node000006",label="IColorable",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$de/de2/class_i_colorable.html",tooltip=" "];
+  Node1 -> Node7 [id="edge6_Node000001_Node000007",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node7 [id="Node000007",label="PlannerMark",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$db/d2b/class_map_1_1_planner_mark.html",tooltip=" "];
 }

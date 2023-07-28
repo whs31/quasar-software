@@ -12,7 +12,9 @@ var hierarchy =
     [ "ExecdArgument", "de/d36/struct_quasar_s_d_k_1_1_execd_argument.html", null ],
     [ "filename_t", "d4/d32/class_quasar_s_d_k_1_1_i_o_1_1_draft_file.html#d4/d11/struct_quasar_s_d_k_1_1_i_o_1_1_draft_file_1_1filename__t", null ],
     [ "IColorable", "de/de2/class_i_colorable.html", [
-      [ "GeoMarker", "d4/d7f/class_map_1_1_geo_marker.html", null ]
+      [ "GeoMarker", "d4/d7f/class_map_1_1_geo_marker.html", [
+        [ "PlannerMark", "db/d2b/class_map_1_1_planner_mark.html", null ]
+      ] ]
     ] ],
     [ "IConnectable", "df/dac/class_quasar_s_d_k_1_1_i_connectable.html", [
       [ "BaseUDPSocket", "db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html", [
@@ -68,7 +70,6 @@ var hierarchy =
     [ "Notification", "de/df3/struct_g_u_i_1_1_notifications_model_1_1_notification.html", null ],
     [ "Orthodrom", "d6/d11/class_s_d_k_1_1_cartography_1_1_orthodrom.html", null ],
     [ "PlannerAppendDatagram", "d8/d07/group__sdk__protocol.html#dc/de6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_append_datagram", null ],
-    [ "PlannerMark", "d0/d82/namespace_map.html#db/d2b/class_map_1_1_planner_mark", null ],
     [ "PlannerRemoveDatagram", "d8/d07/group__sdk__protocol.html#de/df6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_remove_datagram", null ],
     [ "PlannerResponseDatagram", "d8/d07/group__sdk__protocol.html#da/d4a/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_response_datagram", null ],
     [ "QAbstractListModel", null, [

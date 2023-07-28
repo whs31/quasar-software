@@ -324,4 +324,87 @@ namespace QuasarSDK
   {
     return condition + " ? " + pass + " : " + fail;
   }
+
+  QString ExecdSocket::prepareCommand(QuasarSDK::Enums::NetworkCommand command) noexcept
+  {
+    QByteArray com;
+
+    switch(command)
+    {
+      case Enums::FormTelescopic:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->formArgumentString(), &m_message_uid);
+        break;
+      case Enums::FocusImage:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Focus);
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_FOCUS_TELESCOPIC") + m_args->focusArgumentString(), &m_message_uid);
+        break;
+      case Enums::ReformImage:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Reform);
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_FORM_TELESCOPIC") + m_args->reformArgumentString(), &m_message_uid);
+        break;
+      case Enums::RemoteStorageStatus:
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_STORAGE_FETCH"), &m_message_uid);
+        break;
+      case Enums::ClearRemoteStorage:
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_STORAGE_CLEAR") + " " + FROM_JSON("EXECD_STORAGE_FETCH"), &m_message_uid);
+        break;
+      case Enums::StripStart:
+      {
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
+        if(m_compatibilityMode)
+          com = Utils::wrapToExecdString(FROM_JSON("EXECD_COMPAT_STRIP_START") + m_args->formArgumentString(), &m_message_uid);
+        else
+        {
+          QString strip_comma = FROM_JSON("EXECD_FORM_STRIP_START") + m_args->formArgumentString();
+          com = Utils::wrapToExecdString(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip_shot)",
+                                                   FROM_JSON("EXECD_SPECIAL_PASS"), strip_comma), &m_message_uid);
+          m_strip_pid = m_message_uid;
+        }
+        break;
+      }
+      case Enums::StripStop:
+        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
+        if(m_compatibilityMode)
+        {
+          com = Utils::wrapToExecdString(FROM_JSON("EXECD_COMPAT_STRIP_STOP") + m_args->formArgumentString(), &m_message_uid);
+          break;
+        }
+        else
+          return {};
+      case Enums::StreamStart:
+      {
+        this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
+        if(m_compatibilityMode)
+          return {};
+        QString stream_comma = FROM_JSON("EXECD_FORM_STREAM_START") + m_args->formArgumentString();
+        com = Utils::wrapToExecdString(condition(FROM_JSON("EXECD_SPECIAL_PID_OF") + "(strip)",
+                                                 FROM_JSON("EXECD_SPECIAL_PASS"), stream_comma), &m_message_uid);
+        m_strip_pid = m_message_uid;
+        break;
+      }
+      case Enums::StreamStop:
+        this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
+        if(m_compatibilityMode)
+          return {};
+        return {};
+      case Enums::Reboot:
+      {
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_REBOOT"), &m_message_uid);
+        break;
+      }
+      case Enums::PowerOff:
+      {
+        com = Utils::wrapToExecdString(FROM_JSON("EXECD_POWEROFF"), &m_message_uid);
+        break;
+      }
+      default:
+        qWarning() << "[EXECD] Incorrect command type";
+        return {};
+    }
+
+    return {com};
+
+    qDebug().noquote() << "[EXECD] Prepared built-in command";
+  }
 } // QuasarSDK

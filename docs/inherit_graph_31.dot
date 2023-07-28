@@ -6,5 +6,5 @@ digraph "Иерархия классов. Графический вид."
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="TelemetryDatagram",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d07/group__sdk__protocol.html#da/d38/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_datagram",tooltip="Датаграмма телеметрии от РЛС к наземке."];
+  Node0 [id="Node000000",label="TelemetryRequest",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d07/group__sdk__protocol.html#d9/dd7/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_request",tooltip="Датаграмма запроса телеметрии от наземки к РЛС."];
 }

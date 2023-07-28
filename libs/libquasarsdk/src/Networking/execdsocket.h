@@ -31,6 +31,7 @@ namespace QuasarSDK
 
       Q_INVOKABLE void executeString(const QString& command) noexcept;
       Q_INVOKABLE void execute(QuasarSDK::Enums::NetworkCommand command) noexcept;
+      Q_INVOKABLE QString prepareCommand(QuasarSDK::Enums::NetworkCommand command) noexcept;
 
       Q_INVOKABLE void kill(int pid);
       Q_INVOKABLE void signalToProcess(int pid, Enums::UnixSignal signal);

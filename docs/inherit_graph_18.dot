@@ -6,5 +6,5 @@ digraph "Иерархия классов. Графический вид."
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="PlannerRemoveDatagram",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d07/group__sdk__protocol.html#de/df6/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_remove_datagram",tooltip="Структура удаления точки из полётного задания."];
+  Node0 [id="Node000000",label="PlannerResponseDatagram",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$d8/d07/group__sdk__protocol.html#da/d4a/struct_quasar_s_d_k_1_1_datagrams_1_1_planner_response_datagram",tooltip="Структура ответа на прохождение БПЛА через точку из полётного задания."];
 }

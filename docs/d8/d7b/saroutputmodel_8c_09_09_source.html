@@ -294,7 +294,12 @@ $(document).ready(function(){initNavTree('d8/d7b/saroutputmodel_8c_09_09_source.
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      this-&gt;setLastLine(str);</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>} <span class="comment">// QuasarSDK::IO</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="../../d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a6b08c069cc8c98166adb550dd24c73b4">  187</a></span>  <span class="keywordtype">void</span> SAROutputModel::displayCommand(<span class="keyword">const</span> QString&amp; command)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    append(std::make_unique&lt;IO::SARMessage&gt;(<span class="stringliteral">&quot;\n&gt; Выполняется команда [&quot;</span> + command + <span class="stringliteral">&quot;]\n&quot;</span>, IO::IMessage::Info));</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  }</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>} <span class="comment">// QuasarSDK::IO</span></div>
 <div class="ttc" id="anamespaceQuasarSDK_1_1IO_html"><div class="ttname"><a href="../../d7/daf/namespaceQuasarSDK_1_1IO.html">QuasarSDK::IO</a></div><div class="ttdoc">Пространство имен для функций и классов, связанных с вводом и выводом РЛС.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

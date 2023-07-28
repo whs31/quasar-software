@@ -133,17 +133,19 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <div class="dyncontent">
 <div class="center"><img src="../../dc/d7b/classQuasarSDK_1_1ExecdSocket__coll__graph.png" border="0" usemap="#aExecdSocket_coll__map" alt="Collaboration graph"/></div>
 <map name="aExecdSocket_coll__map" id="aExecdSocket_coll__map">
-<area shape="rect" title="Сокет для отправки команд на РЛС." alt="" coords="187,175,289,203"/>
+<area shape="rect" title="Сокет для отправки команд на РЛС." alt="" coords="272,175,375,203"/>
 <area shape="rect" href="../../da/dc1/classQuasarSDK_1_1BaseUDPSocket.html" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="93,82,218,110"/>
-<area shape="poly" title=" " alt="" coords="179,119,228,173,224,176,175,123"/>
+<area shape="poly" title=" " alt="" coords="194,115,300,172,298,177,191,120"/>
 <area shape="rect" title=" " alt="" coords="5,5,106,33"/>
 <area shape="poly" title=" " alt="" coords="86,40,140,80,136,84,83,44"/>
 <area shape="rect" href="../../d3/db8/classQuasarSDK_1_1IConnectable.html" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="130,5,237,33"/>
 <area shape="poly" title=" " alt="" coords="176,48,163,83,158,81,171,46"/>
 <area shape="rect" href="../../de/da2/classQuasarSDK_1_1ExecdArgumentParser.html" title="Класс для хранения и обработки аргументов команд сервиса execd." alt="" coords="242,82,405,110"/>
-<area shape="poly" title=" " alt="" coords="303,123,252,176,248,173,300,119"/>
+<area shape="poly" title=" " alt="" coords="326,125,326,175,321,175,321,125"/>
 <area shape="rect" title=" " alt="" coords="287,5,360,33"/>
 <area shape="poly" title=" " alt="" coords="326,48,326,82,321,82,321,48"/>
+<area shape="rect" title=" " alt="" coords="429,82,578,110"/>
+<area shape="poly" title=" " alt="" coords="466,119,351,177,349,172,463,115"/>
 </map>
 <center><span class="legend">[<a target="top" href="../../graph_legend.html">см. легенду</a>]</span></center></div>
 <table class="memberdecls">
@@ -161,12 +163,18 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 Открытые члены</h2></td></tr>
 <tr class="memitem:ab77536f63c2f25f287cb82a6643175eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#ab77536f63c2f25f287cb82a6643175eb">ExecdSocket</a> (bool compat_mode, QObject *parent=nullptr)</td></tr>
 <tr class="separator:ab77536f63c2f25f287cb82a6643175eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d8130fd153a864bc5f77bea3c1e61c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a58d8130fd153a864bc5f77bea3c1e61c">setRemoteAddressList</a> (const array&lt; QString, 2 &gt; &amp;list) noexcept</td></tr>
+<tr class="separator:a58d8130fd153a864bc5f77bea3c1e61c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f93c36f4bc9fb31d9cf0c42a5c49155"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a3f93c36f4bc9fb31d9cf0c42a5c49155">setCompatibility</a> (bool)</td></tr>
 <tr class="separator:a3f93c36f4bc9fb31d9cf0c42a5c49155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d7ed416a5bfbe867fbdd612720d6869"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a2d7ed416a5bfbe867fbdd612720d6869">execute</a> (const QString &amp;command) noexcept</td></tr>
-<tr class="separator:a2d7ed416a5bfbe867fbdd612720d6869"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2848e25d6032fa478d93f7ba3ad9421"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#ad2848e25d6032fa478d93f7ba3ad9421">execute</a> (<a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e">Enums::NetworkCommand</a> command) noexcept</td></tr>
-<tr class="separator:ad2848e25d6032fa478d93f7ba3ad9421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3543a6879806206a3ec067d1c712cfa"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#af3543a6879806206a3ec067d1c712cfa">argument</a> (const QString &amp;key, <a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a> category) noexcept</td></tr>
+<tr class="separator:af3543a6879806206a3ec067d1c712cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51be026891b678d621cb1947a3ed1fe6"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a51be026891b678d621cb1947a3ed1fe6">setArgument</a> (const QString &amp;key, const QVariant &amp;value, <a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a> category) noexcept</td></tr>
+<tr class="separator:a51be026891b678d621cb1947a3ed1fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293690b8fb4cf14c7b75522680051f60"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a293690b8fb4cf14c7b75522680051f60">executeString</a> (const QString &amp;command) noexcept</td></tr>
+<tr class="separator:a293690b8fb4cf14c7b75522680051f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17df331fe378da15eb4b56bad7dbf174"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a17df331fe378da15eb4b56bad7dbf174">execute</a> (<a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e">QuasarSDK::Enums::NetworkCommand</a> command) noexcept</td></tr>
+<tr class="separator:a17df331fe378da15eb4b56bad7dbf174"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e554135d5e472e98b8176821a24a5cd"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a1e554135d5e472e98b8176821a24a5cd">kill</a> (int pid)</td></tr>
 <tr class="separator:a1e554135d5e472e98b8176821a24a5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac900a4bb35f1b2d950b46c8721368cb3"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#ac900a4bb35f1b2d950b46c8721368cb3">signalToProcess</a> (int pid, <a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#ac844ec9026303b2c2da94416f52da986">Enums::UnixSignal</a> signal)</td></tr>
@@ -225,7 +233,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <p>Класс предоставляет функции для выполнения команд на стороне РЛС (как встроенных в программу, так и произвольных строковых команд). Поддерживает автоматический поиск и добавление аргументов для команд, которые требуют этого. Обрабатывает ответы РЛС (статус выполнения команды). Предоставляет отладочные метрики.</p>
 <p>Документацию по сервису <code>execd</code> можно прочитать здесь: EXECD_DOCUMENTATION </p>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d7/d60/execdsocket_8h_source.html">execdsocket.h</a> строка <a class="el" href="../../d7/d60/execdsocket_8h_source.html#l00016">16</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d7/d60/execdsocket_8h_source.html">execdsocket.h</a> строка <a class="el" href="../../d7/d60/execdsocket_8h_source.html#l00019">19</a></p>
 </div><h2 class="groupheader">Конструктор(ы)</h2>
 <a id="ab77536f63c2f25f287cb82a6643175eb" name="ab77536f63c2f25f287cb82a6643175eb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab77536f63c2f25f287cb82a6643175eb">&#9670;&#160;</a></span>ExecdSocket()</h2>
@@ -275,6 +283,47 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 </div>
 </div>
 <h2 class="groupheader">Методы</h2>
+<a id="a58d8130fd153a864bc5f77bea3c1e61c" name="a58d8130fd153a864bc5f77bea3c1e61c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d8130fd153a864bc5f77bea3c1e61c">&#9670;&#160;</a></span>setRemoteAddressList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setRemoteAddressList </td>
+          <td>(</td>
+          <td class="paramtype">const array&lt; QString, 2 &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Задает адреса для обратной связи сервиса <code>fsend</code>. </p>
+<p>Порядок адресов следующий:</p><ul>
+<li>TCP-IP сервер (например, <code>192.168.1.10:10000</code></li>
+<li>UDP сокет для полосовых изображений (например, <code>192.168.1.10:48455</code> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>- массив из двух адресов. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Функция должна быть вызвана перед вызовом метода start. </dd></dl>
+</li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00052">52</a></p>
+
+</div>
+</div>
 <a id="a3f93c36f4bc9fb31d9cf0c42a5c49155" name="a3f93c36f4bc9fb31d9cf0c42a5c49155"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f93c36f4bc9fb31d9cf0c42a5c49155">&#9670;&#160;</a></span>setCompatibility()</h2>
 
@@ -297,8 +346,8 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 
 </div>
 </div>
-<a id="a2d7ed416a5bfbe867fbdd612720d6869" name="a2d7ed416a5bfbe867fbdd612720d6869"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d7ed416a5bfbe867fbdd612720d6869">&#9670;&#160;</a></span>execute() <span class="overload">[1/2]</span></h2>
+<a id="af3543a6879806206a3ec067d1c712cfa" name="af3543a6879806206a3ec067d1c712cfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3543a6879806206a3ec067d1c712cfa">&#9670;&#160;</a></span>argument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +356,112 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void execute </td>
+          <td class="memname">QString argument </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Возвращает аргумент из списка сервиса <b>execd</b>. </p>
+<p>Функция возвращает константный аргумент по заданному ключу и категории аргументов. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- ключ (например, <code>"--x0"</code>). </td></tr>
+    <tr><td class="paramname">category</td><td>- категория аргумента (см. <a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09" title="Перечисление категорий аргументов параметров формирования.">QuasarSDK::Enums::ArgumentCategory</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Может быть вызвана из QML через мета-объектную систему. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#a51be026891b678d621cb1947a3ed1fe6" title="Устанавливает аргумент из списка сервиса execd.">setArgument</a> </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00177">177</a></p>
+
+</div>
+</div>
+<a id="a51be026891b678d621cb1947a3ed1fe6" name="a51be026891b678d621cb1947a3ed1fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51be026891b678d621cb1947a3ed1fe6">&#9670;&#160;</a></span>setArgument()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setArgument </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QVariant &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09">QuasarSDK::Enums::ArgumentCategory</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает аргумент из списка сервиса <b>execd</b>. </p>
+<p>Функция устанавливает выбранный аргумент в приватный список аргументов сервиса <b>execd</b> и выбранную категорию. Значение аргумента будет автоматически приведено к корректному виду (<code>int</code>, <code>float</code>, <code>string</code>). </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>- ключ (например, <code>"--x0"</code>). </td></tr>
+    <tr><td class="paramname">value</td><td>- новое значение аргумента. </td></tr>
+    <tr><td class="paramname">category</td><td>- категория аргумента (см. <a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a19451e9aa738da7e4404cf614b4c9e09" title="Перечисление категорий аргументов параметров формирования.">QuasarSDK::Enums::ArgumentCategory</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Может быть вызвана из QML через мета-объектную систему. </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../d7/d42/classQuasarSDK_1_1ExecdSocket.html#af3543a6879806206a3ec067d1c712cfa" title="Возвращает аргумент из списка сервиса execd.">argument</a> </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00199">199</a></p>
+
+</div>
+</div>
+<a id="a293690b8fb4cf14c7b75522680051f60" name="a293690b8fb4cf14c7b75522680051f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293690b8fb4cf14c7b75522680051f60">&#9670;&#160;</a></span>executeString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executeString </td>
           <td>(</td>
           <td class="paramtype">const QString &amp;&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
@@ -330,12 +484,12 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 </dl>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00052">52</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00062">62</a></p>
 
 </div>
 </div>
-<a id="ad2848e25d6032fa478d93f7ba3ad9421" name="ad2848e25d6032fa478d93f7ba3ad9421"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2848e25d6032fa478d93f7ba3ad9421">&#9670;&#160;</a></span>execute() <span class="overload">[2/2]</span></h2>
+<a id="a17df331fe378da15eb4b56bad7dbf174" name="a17df331fe378da15eb4b56bad7dbf174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17df331fe378da15eb4b56bad7dbf174">&#9670;&#160;</a></span>execute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -346,7 +500,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
         <tr>
           <td class="memname">void execute </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e">Enums::NetworkCommand</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e">QuasarSDK::Enums::NetworkCommand</a>&#160;</td>
           <td class="paramname"><em>command</em></td><td>)</td>
           <td></td>
         </tr>
@@ -368,7 +522,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 <dl class="section see"><dt>См. также</dt><dd><a class="el" href="../../d6/de3/classQuasarSDK_1_1Enums.html#a8dd47094c7079ec1fcbd5df9870c486e" title="Перечисление встроенных в приложение команд.">Enums::NetworkCommand</a> </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00068">68</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00078">78</a></p>
 
 </div>
 </div>
@@ -397,7 +551,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 </dl>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00175">175</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00235">235</a></p>
 
 </div>
 </div>
@@ -437,7 +591,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 </dl>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00190">190</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00250">250</a></p>
 
 </div>
 </div>
@@ -459,7 +613,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <p>Возвращает список процессов в динамической очереди. </p>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00204">204</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00264">264</a></p>
 
 </div>
 </div>
@@ -481,7 +635,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <p>Очищает динамическую очередь. </p>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00217">217</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00277">277</a></p>
 
 </div>
 </div>
@@ -503,7 +657,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <p>Удаляет последнюю команду из динамической очереди. </p>
 <dl class="section note"><dt>Заметки</dt><dd>Эта функция может быть вызвана из QML через мета-объектную систему Qt. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00230">230</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00290">290</a></p>
 
 </div>
 </div>
@@ -549,7 +703,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
   </dd>
 </dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00245">245</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00305">305</a></p>
 
 </div>
 </div>
@@ -632,7 +786,7 @@ $(document).ready(function(){initNavTree('d7/d42/classQuasarSDK_1_1ExecdSocket.h
 <dl class="section return"><dt>Возвращает</dt><dd>Обернутая команда. </dd></dl>
 <dl class="section warning"><dt>Предупреждения</dt><dd>Это приватная функция. </dd></dl>
 
-<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00263">263</a></p>
+<p class="definition">См. определение в файле <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html">execdsocket.c++</a> строка <a class="el" href="../../d8/dc2/execdsocket_8c_09_09_source.html#l00323">323</a></p>
 
 </div>
 </div>

@@ -69,6 +69,7 @@ var group__sdk__io =
     [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", [
       [ "CursorPosition", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#d6/df9/structQuasarSDK_1_1IO_1_1SAROutputModel_1_1CursorPosition", null ],
       [ "newline", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#ab5159a45ba6da86b4085607bea7569dc", null ],
-      [ "print", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a85c5c443e29ae7a86396229679e4c8b5", null ]
+      [ "print", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a85c5c443e29ae7a86396229679e4c8b5", null ],
+      [ "displayCommand", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html#a6b08c069cc8c98166adb550dd24c73b4", null ]
     ] ]
 ];

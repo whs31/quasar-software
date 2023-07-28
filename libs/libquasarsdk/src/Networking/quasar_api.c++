@@ -75,9 +75,9 @@ namespace QuasarSDK
     connect(telemetrySocket(), &TelemetrySocket::ping, this, &QuasarAPI::reset_delay);
     connect(telemetrySocket(), &TelemetrySocket::metrics, this, &QuasarAPI::telemetrySocketMetrics);
     connect(telemetry(), &Telemetry::seaLevelChanged, this, [this](){
-      setArgument("--e0", telemetry()->seaLevel(), Enums::Form);
-      setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
-      setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
+      execdSocket()->setArgument("--e0", telemetry()->seaLevel(), Enums::Form);
+      execdSocket()->setArgument("--e0", telemetry()->seaLevel(), Enums::Reform);
+      execdSocket()->setArgument("--e0", telemetry()->seaLevel(), Enums::Focus);
     });
 
     telemetrySocket()->setCheckCRC(false);
@@ -93,7 +93,7 @@ namespace QuasarSDK
 
     // tcp
     connect(tcpServer(), &TCPServer::received, this, &QuasarAPI::tcpDataReceived);
-    connect(tcpServer(), &TCPServer::received, this, [this](){ execute(Enums::RemoteStorageStatus); });
+    connect(tcpServer(), &TCPServer::received, this, [this](){ execdSocket()->execute(Enums::RemoteStorageStatus); });
     connect(tcpServer(), &TCPServer::metrics, this, &QuasarAPI::lfsSocketMetrics);
     connect(tcpServer(), &TCPServer::progressChanged, this, [this](float progress){
       remote()->setDownloadProgress(progress);
@@ -323,94 +323,6 @@ namespace QuasarSDK
     m_redirectServer->stop();
 
     this->setCurrentNetworkDelay(100);
-  }
-
-  /**
-    * \brief Выполняет встроенную команду сервиса \b execd.
-    * \details Функция посылает в сервис \b execd выбранную встроенную
-    * команду из списка команд (см. QuasarSDK::Enums). Если команда
-    * требует дополнительных аргументов, то они будут добавлены автоматически.
-    * \param command - выбранная команда.
-    * \note Может быть вызвана из QML через мета-объектную систему.
-    */
-  void QuasarAPI::execute(QuasarSDK::Enums::NetworkCommand command) noexcept
-  {
-    switch(command)
-    {
-      case Enums::FormTelescopic:
-      case Enums::StripStart:
-        this->setArgument("--remote", m_remote_address_list[0], Enums::Form);
-        break;
-      case Enums::FocusImage:
-        this->setArgument("--remote", m_remote_address_list[0], Enums::Focus);
-        break;
-      case Enums::ReformImage:
-        this->setArgument("--remote", m_remote_address_list[0], Enums::Reform);
-        break;
-      case Enums::StreamStart:
-      case Enums::StreamStop:
-        this->setArgument("--remote", m_remote_address_list[1], Enums::Form);
-        break;
-      default: break;
-    }
-
-    execdSocket()->execute(command);
-  }
-
-  /**
-    * \brief Выполняет произвольную команду сервиса \b execd.
-    * \details Функция конвертирует выбранную строку в команду
-    * сервиса \b execd и отправляет ее на РЛС. Если команда валидна,
-    * то она будет выполнена.
-    * \param command - строка для выполнения.
-    * \note Может быть вызвана из QML через мета-объектную систему.
-    */
-  void QuasarAPI::execute(const QString& command) noexcept
-  {
-    outputModel()->append(std::make_unique<IO::SARMessage>("> Выполняется команда [" + command + "]", IO::IMessage::Info));
-  }
-
-  /**
-    * \brief Возвращает аргумент из списка сервиса \b execd.
-    * \details Функция возвращает константный аргумент по заданному ключу
-    * и категории аргументов.
-    * \param key - ключ (например, <tt>"--x0"</tt>).
-    * \param category - категория аргумента (см. QuasarSDK::Enums::ArgumentCategory).
-    * \note Может быть вызвана из QML через мета-объектную систему.
-    * \see setArgument
-    */
-  QString QuasarAPI::argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) noexcept
-  {
-    switch (category)
-    {
-      case Enums::Form: return execdSocket()->parser()->formArgumentList[key].value;
-      case Enums::Focus: return execdSocket()->parser()->focusArgumentList[key].value;
-      case Enums::Reform: return execdSocket()->parser()->reformArgumentList[key].value;
-      default: return "Argument Category Error";
-    }
-  }
-
-  /**
-    * \brief Устанавливает аргумент из списка сервиса \b execd.
-    * \details Функция устанавливает выбранный аргумент в приватный список
-    * аргументов сервиса \b execd и выбранную категорию. Значение аргумента
-    * будет автоматически приведено к корректному виду (\c int, \c float, \c string).
-    * \param key - ключ (например, <tt>"--x0"</tt>).
-    * \param value - новое значение аргумента.
-    * \param category - категория аргумента (см. QuasarSDK::Enums::ArgumentCategory).
-    * \note Может быть вызвана из QML через мета-объектную систему.
-    * \see argument
-    */
-  void QuasarAPI::setArgument(const QString& key, const QVariant& value,
-                              QuasarSDK::Enums::ArgumentCategory category) noexcept
-  {
-    switch (category)
-    {
-      case Enums::Form: execdSocket()->parser()->formArgumentList[key].set(value); break;
-      case Enums::Focus: execdSocket()->parser()->focusArgumentList[key].set(value); break;
-      case Enums::Reform: execdSocket()->parser()->reformArgumentList[key].set(value); break;
-      default: qCritical() << "[NETWORK] Invalid category for argument provided"; break;
-    }
   }
 
   /**

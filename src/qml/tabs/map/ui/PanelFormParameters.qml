@@ -55,7 +55,7 @@ Pane {
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+            onEditingFinished: NetworkAPI.execd.setArgument(key, text, category)
         }
     }
 
@@ -79,7 +79,7 @@ Pane {
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+            onEditingFinished: NetworkAPI.execd.setArgument(key, text, category)
         }
     }
 
@@ -103,7 +103,7 @@ Pane {
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+            onEditingFinished: NetworkAPI.execd.setArgument(key, text, category)
         }
     }
 
@@ -142,8 +142,8 @@ Pane {
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: {
-                NetworkAPI.setArgument(firstKey, text, category)
-                NetworkAPI.setArgument(secondKey, text, category)
+                NetworkAPI.execd.setArgument(firstKey, text, category)
+                NetworkAPI.execd.setArgument(secondKey, text, category)
             }
         }
     }
@@ -181,10 +181,10 @@ Pane {
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-            onEditingFinished: NetworkAPI.setArgument(key, text, category)
+            onEditingFinished: NetworkAPI.execd.setArgument(key, text, category)
             onEnabledChanged: {
                 text = defaultValue
-                NetworkAPI.setArgument(key, text, category)
+                NetworkAPI.execd.setArgument(key, text, category)
             }
         }
     }
@@ -217,7 +217,7 @@ Pane {
             value: defaultValue
             from: min
             to: max
-            onValueChanged: NetworkAPI.setArgument(key, Number(value).toFixed(0), category)
+            onValueChanged: NetworkAPI.execd.setArgument(key, Number(value).toFixed(0), category)
         }
     }
 
@@ -279,7 +279,7 @@ Pane {
                     model: [ "DSP_FFTW", "DSP_CUDA" ]
                     Layout.alignment: Qt.AlignRight
                     Layout.fillWidth: true
-                    onCurrentValueChanged: NetworkAPI.setArgument("--DSP", currentValue, Net.Form)
+                    onCurrentValueChanged: NetworkAPI.execd.setArgument("--DSP", currentValue, Net.Form)
                 }
             }
             FormParametersFilePathInput { description: "Путь к файлам на РЛС"; key: "--ip"; category: Net.Form; defaultValue: "./img/" }
@@ -289,7 +289,7 @@ Pane {
                 text: "Интерполяция скорости"
                 checked: false
                 font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-                onCheckedChanged: NetworkAPI.setArgument("-i", (checked ? "1" : "0"), Net.Form)
+                onCheckedChanged: NetworkAPI.execd.setArgument("-i", (checked ? "1" : "0"), Net.Form)
             }
 
             CheckBox {
@@ -298,7 +298,7 @@ Pane {
                 text: "Отзеркаливание РЛИ"
                 checked: false
                 font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
-                onCheckedChanged: NetworkAPI.setArgument("--mirror", (checked ? "True" : "False"), Net.Form)
+                onCheckedChanged: NetworkAPI.execd.setArgument("--mirror", (checked ? "True" : "False"), Net.Form)
             }
         }
     }

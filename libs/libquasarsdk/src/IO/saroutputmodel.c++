@@ -183,4 +183,9 @@ namespace QuasarSDK::IO
     else
       this->setLastLine(str);
   }
+
+  void SAROutputModel::displayCommand(const QString& command)
+  {
+    append(std::make_unique<IO::SARMessage>("\n> Выполняется команда [" + command + "]\n", IO::IMessage::Info));
+  }
 } // QuasarSDK::IO

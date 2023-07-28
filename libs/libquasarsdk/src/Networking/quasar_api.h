@@ -68,12 +68,6 @@ namespace QuasarSDK
 
       Q_INVOKABLE void stop() noexcept;
 
-      Q_INVOKABLE void execute(QuasarSDK::Enums::NetworkCommand command) noexcept;
-      Q_INVOKABLE void execute(const QString& command) noexcept;
-
-      Q_INVOKABLE [[nodiscard]] QString argument(const QString& key, QuasarSDK::Enums::ArgumentCategory category) noexcept;
-      Q_INVOKABLE void setArgument(const QString& key, const QVariant& value, QuasarSDK::Enums::ArgumentCategory category) noexcept;
-
       Q_INVOKABLE static QString stringify(const QString& ip, const QString& port);
 
       void setRemoteAddressList(const std::array<QString, 2>& list) noexcept;

@@ -112,7 +112,7 @@ Pane {
                 if (val === 5)
                     val = 6;
 
-                NetworkAPI.setArgument("-m", val, Net.Form);
+                NetworkAPI.execd.setArgument("-m", val, Net.Form);
             }
 
             font {

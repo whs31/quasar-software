@@ -27,6 +27,9 @@ namespace QuasarSDK::IO
       void newline();                                  ///< Добавляет пустую строку в модель.
       void print(const QByteArray& data);              ///< Обрабатывает VT100-последовательности и добавляет новые строки в модель.
 
+      /// \brief Выводит в консоль введенную команду.
+      Q_INVOKABLE void displayCommand(const QString& command);
+
     private:
       [[nodiscard]] QString lastLine() const;
       void setLastLine(const QString& str);

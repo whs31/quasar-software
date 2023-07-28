@@ -1,13 +1,23 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="Node000000" title=" " alt="" coords="5,57,104,85"/>
-<area shape="rect" id="Node000001" href="$dd/dfe/classSDK_1_1Gizmos_1_1Gizmos.html" title=" " alt="" coords="161,5,231,33"/>
-<area shape="poly" id="edge66_Node000000_Node000001" title=" " alt="" coords="107,49,159,29,161,34,109,54"/>
-<area shape="rect" id="Node000002" href="$d9/d42/classSDK_1_1Quick_1_1ChartBase.html" title=" " alt="" coords="152,57,240,85"/>
-<area shape="poly" id="edge67_Node000000_Node000002" title=" " alt="" coords="119,69,151,69,151,74,119,74"/>
-<area shape="rect" id="Node000005" href="$d0/dfd/classSDK_1_1Quick_1_1MatrixPlot.html" title=" " alt="" coords="152,109,240,137"/>
-<area shape="poly" id="edge70_Node000000_Node000005" title=" " alt="" coords="109,88,157,106,155,111,107,93"/>
-<area shape="rect" id="Node000003" href="$d9/de1/classSDK_1_1Quick_1_1LinePlot.html" title=" " alt="" coords="288,57,361,85"/>
-<area shape="poly" id="edge68_Node000002_Node000003" title=" " alt="" coords="255,69,287,69,287,74,255,74"/>
-<area shape="rect" id="Node000004" href="$d3/df0/classSDK_1_1Quick_1_1RealtimeLinePlot.html" title=" " alt="" coords="409,57,542,85"/>
-<area shape="poly" id="edge69_Node000003_Node000004" title=" " alt="" coords="376,69,409,69,409,74,376,74"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,188,154,216"/>
+<area shape="rect" id="Node000001" href="$dc/dd8/classGUI_1_1NotificationsModel.html" title=" " alt="" coords="213,5,357,33"/>
+<area shape="poly" id="edge55_Node000000_Node000001" title=" " alt="" coords="93,173,135,108,165,74,200,44,223,31,226,36,203,48,169,77,140,112,97,176"/>
+<area shape="rect" id="Node000002" href="$d0/dfa/classGUI_1_1TerminalBase.html" title=" " alt="" coords="230,57,340,85"/>
+<area shape="poly" id="edge56_Node000000_Node000002" title=" " alt="" coords="102,175,145,135,200,96,229,83,231,88,203,100,149,139,106,179"/>
+<area shape="rect" id="Node000004" href="$dc/d6a/classMap_1_1GeoMarkerModel.html" title=" " alt="" coords="219,109,351,137"/>
+<area shape="poly" id="edge58_Node000000_Node000004" title=" " alt="" coords="125,179,201,147,236,135,237,140,203,152,127,184"/>
+<area shape="rect" id="Node000005" href="$d4/dfc/classMap_1_1ImageModel.html" title=" " alt="" coords="234,161,336,189"/>
+<area shape="poly" id="edge59_Node000000_Node000005" title=" " alt="" coords="168,188,233,179,234,184,169,193"/>
+<area shape="rect" id="Node000006" href="$dc/d18/classMap_1_1Ruler.html" title=" " alt="" coords="257,213,313,241"/>
+<area shape="poly" id="edge60_Node000000_Node000006" title=" " alt="" coords="169,210,257,221,257,226,168,215"/>
+<area shape="rect" id="Node000007" href="$dd/d00/classMap_1_1StreamSegmentModel.html" title=" " alt="" coords="202,265,368,293"/>
+<area shape="poly" id="edge61_Node000000_Node000007" title=" " alt="" coords="128,220,203,250,238,262,236,267,201,255,126,225"/>
+<area shape="rect" id="Node000008" href="$d6/d55/classMap_1_1TrackEventModel.html" title=" " alt="" coords="219,317,351,345"/>
+<area shape="poly" id="edge62_Node000000_Node000008" title=" " alt="" coords="106,224,149,264,203,302,230,314,228,319,200,307,146,268,102,228"/>
+<area shape="rect" id="Node000009" href="$d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html" title="Базовый класс для модели сообщений." alt="" coords="225,369,345,397"/>
+<area shape="poly" id="edge63_Node000000_Node000009" title=" " alt="" coords="97,227,140,291,169,325,203,354,226,366,223,371,200,359,165,329,135,294,93,230"/>
+<area shape="rect" id="Node000003" href="$d3/d6a/classGUI_1_1DebugConsole.html" title=" " alt="" coords="425,57,540,85"/>
+<area shape="poly" id="edge57_Node000002_Node000003" title=" " alt="" coords="354,69,424,69,424,74,354,74"/>
+<area shape="rect" id="Node000010" href="$d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="416,369,548,397"/>
+<area shape="poly" id="edge64_Node000009_Node000010" title=" " alt="" coords="360,381,416,381,416,386,360,386"/>
 </map>

@@ -42,7 +42,7 @@
               <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
               <td id="projectalign">
                 <div id="projectname">QuaSAR<span
-                    id="projectnumber">&#160;2.12.0</span>
+                    id="projectnumber">&#160;2.13.0</span>
                 </div>
                 <div id="projectbrief">SAR control software</div>
               </td>
@@ -130,10 +130,61 @@ $(document).ready(function(){initNavTree('d4/d19/namespaceQuasarSDK_1_1Utils.htm
 <tr class="separator:ga15a9ef310fea932c75d1cfee9d7dc1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8e767ae01022414bd64c54dbc1337bfa"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa">str_data</a> (const QString &amp;str) noexcept</td></tr>
 <tr class="separator:ga8e767ae01022414bd64c54dbc1337bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf42a6506f0e8d93f2c81d5d914a4ad5"><td class="memItemLeft" align="right" valign="top">QByteArray&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d19/namespaceQuasarSDK_1_1Utils.html#acf42a6506f0e8d93f2c81d5d914a4ad5">wrapToExecdString</a> (const QString &amp;string, int *uid_counter=nullptr) noexcept</td></tr>
+<tr class="separator:acf42a6506f0e8d93f2c81d5d914a4ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Пространство имен для вспомогательных функций комплекта разработчика. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Функции</h2>
+<a id="acf42a6506f0e8d93f2c81d5d914a4ad5" name="acf42a6506f0e8d93f2c81d5d914a4ad5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf42a6506f0e8d93f2c81d5d914a4ad5">&#9670;&#160;</a></span>wrapToExecdString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QByteArray wrapToExecdString </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>string</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>uid_counter</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Оборачивает строку в формат <code>execd</code>. </p>
+<p>Добавляет уникальный ID, длину строки в шестнадцатеричном формате и контрольную сумму CRC16 к указанной строке, разделяя это символом <code></code>|. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>- строка для оборачивания. </td></tr>
+    <tr><td class="paramname">uid_counter</td><td>- указатель на счетчик. Если указатель не передан, номер сообщения будет равен единице. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>UTF-8 данные для отправки в сокет. </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="../../de/d91/wrapper_8c_09_09_source.html">wrapper.c++</a> строка <a class="el" href="../../de/d91/wrapper_8c_09_09_source.html#l00010">10</a></p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -7,8 +7,8 @@ var searchData=
   ['seamlessudpsocket_4',['SeamlessUDPSocket',['../d9/d3e/classQuasarSDK_1_1SeamlessUDPSocket.html',1,'QuasarSDK']]],
   ['settings_5',['Settings',['../d7/d8b/classConfig_1_1Settings.html',1,'Config']]],
   ['settingswrapper_6',['SettingsWrapper',['../df/d9e/classConfig_1_1internal_1_1SettingsWrapper.html',1,'Config::internal']]],
-  ['streamprocessing_7',['StreamProcessing',['../d7/d38/classProcessing_1_1StreamProcessing.html',1,'Processing']]],
-  ['streamprocessor_8',['StreamProcessor',['../d4/d13/classProcessing_1_1StreamProcessor.html',1,'Processing']]],
+  ['streamprocessor_7',['StreamProcessor',['../d4/d13/classProcessing_1_1StreamProcessor.html',1,'Processing']]],
+  ['streamsegmentmodel_8',['StreamSegmentModel',['../dd/d00/classMap_1_1StreamSegmentModel.html',1,'Map']]],
   ['stripformatmetadata_9',['StripFormatMetadata',['../da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata',1,'Map']]],
   ['stripheadermetadata_10',['StripHeaderMetadata',['../da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata',1,'Map']]],
   ['stripimage_11',['StripImage',['../dc/dac/structMap_1_1StripImage.html',1,'Map']]],
@@ -17,7 +17,6 @@ var searchData=
   ['stripimagechunkid_14',['StripImageChunkID',['../d3/daf/group__sdk__images.html#dd/dcd/structQuasarSDK_1_1Datagrams_1_1StripImageChunkID',1,'QuasarSDK::Datagrams']]],
   ['stripimagechunknav_15',['StripImageChunkNav',['../d3/daf/group__sdk__images.html#dc/d09/structQuasarSDK_1_1Datagrams_1_1StripImageChunkNav',1,'QuasarSDK::Datagrams']]],
   ['stripimagedatagram_16',['StripImageDatagram',['../da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram',1,'Map']]],
-  ['stripmodel_17',['StripModel',['../d3/d9a/classMap_1_1StripModel.html',1,'Map']]],
-  ['stripnavigationmetadata_18',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
-  ['stripsocket_19',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]]
+  ['stripnavigationmetadata_17',['StripNavigationMetadata',['../da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata',1,'Map']]],
+  ['stripsocket_18',['StripSocket',['../d9/d93/classQuasarSDK_1_1StripSocket.html',1,'QuasarSDK']]]
 ];

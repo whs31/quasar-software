@@ -1,7 +1,11 @@
 <map id="StreamProcessor" name="StreamProcessor">
-<area shape="rect" id="Node000001" title=" " alt="" coords="48,98,180,126"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,79,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="63,43,106,96,102,99,59,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="103,5,269,33"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="169,46,126,99,122,96,165,43"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="120,175,252,203"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,82,79,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,116,166,172,164,177,73,120"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="103,82,269,110"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="189,125,189,175,183,175,183,125"/>
+<area shape="rect" id="Node000004" href="$dd/d00/classMap_1_1StreamSegmentModel.html" title=" " alt="" coords="294,82,460,110"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="337,119,215,177,213,172,335,114"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="303,5,451,33"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="379,48,379,82,374,82,374,48"/>
 </map>

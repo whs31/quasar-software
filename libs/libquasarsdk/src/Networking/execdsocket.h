@@ -21,15 +21,15 @@ namespace QuasarSDK
       explicit ExecdSocket(bool compat_mode, QObject* parent = nullptr);
       void setCompatibility(bool);
 
-      void execute(const QString& command) noexcept;
-      void execute(Enums::NetworkCommand command) noexcept;
+      Q_INVOKABLE void execute(const QString& command) noexcept;
+      Q_INVOKABLE void execute(Enums::NetworkCommand command) noexcept;
 
-      void kill(int pid);
-      void signalToProcess(int pid, Enums::UnixSignal signal);
+      Q_INVOKABLE void kill(int pid);
+      Q_INVOKABLE void signalToProcess(int pid, Enums::UnixSignal signal);
       //void feedback
-      void showQueue();
-      void clearQueue();
-      void popQueue();
+      Q_INVOKABLE void showQueue();
+      Q_INVOKABLE void clearQueue();
+      Q_INVOKABLE void popQueue();
       void ssh(const QString& command, const QString& host, const QString& password = QString());
       void isOccupied(int pid);
 
@@ -49,3 +49,6 @@ namespace QuasarSDK
       bool m_compatibilityMode;
   };
 } // QuasarSDK
+
+#include <QtCore/QMetaType>
+Q_DECLARE_METATYPE(QuasarSDK::ExecdSocket*)

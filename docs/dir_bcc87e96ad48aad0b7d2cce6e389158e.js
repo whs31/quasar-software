@@ -35,5 +35,7 @@ var dir_bcc87e96ad48aad0b7d2cce6e389158e =
     [ "telemetry.h", "de/dc7/telemetry_8h_source.html", null ],
     [ "telemetry_datagrams.h", "df/dc5/telemetry__datagrams_8h_source.html", null ],
     [ "telemetrysocket.c++", "d8/d04/telemetrysocket_8c_09_09_source.html", null ],
-    [ "telemetrysocket.h", "d6/d56/telemetrysocket_8h_source.html", null ]
+    [ "telemetrysocket.h", "d6/d56/telemetrysocket_8h_source.html", null ],
+    [ "wrapper.c++", "de/d91/wrapper_8c_09_09_source.html", null ],
+    [ "wrapper.h", "da/df1/wrapper_8h_source.html", null ]
 ];

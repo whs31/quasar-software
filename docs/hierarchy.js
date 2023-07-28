@@ -68,6 +68,7 @@ var hierarchy =
     [ "Notification", "d4/d3b/structGUI_1_1NotificationsModel_1_1Notification.html", null ],
     [ "Orthodrom", "dd/d19/classSDK_1_1Cartography_1_1Orthodrom.html", null ],
     [ "PlannerAppendDatagram", "d8/d07/group__sdk__protocol.html#d4/d94/structQuasarSDK_1_1Datagrams_1_1PlannerAppendDatagram", null ],
+    [ "PlannerMark", "da/d88/namespaceMap.html#d7/d76/classMap_1_1PlannerMark", null ],
     [ "PlannerRemoveDatagram", "d8/d07/group__sdk__protocol.html#d2/d1c/structQuasarSDK_1_1Datagrams_1_1PlannerRemoveDatagram", null ],
     [ "PlannerResponseDatagram", "d8/d07/group__sdk__protocol.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram", null ],
     [ "QAbstractListModel", null, [
@@ -78,7 +79,7 @@ var hierarchy =
       [ "GeoMarkerModel", "dc/d6a/classMap_1_1GeoMarkerModel.html", null ],
       [ "ImageModel", "d4/dfc/classMap_1_1ImageModel.html", null ],
       [ "Ruler", "dc/d18/classMap_1_1Ruler.html", null ],
-      [ "StripModel", "d3/d9a/classMap_1_1StripModel.html", null ],
+      [ "StreamSegmentModel", "dd/d00/classMap_1_1StreamSegmentModel.html", null ],
       [ "TrackEventModel", "d6/d55/classMap_1_1TrackEventModel.html", null ],
       [ "MessageModel", "d0/db5/classQuasarSDK_1_1IO_1_1MessageModel.html", [
         [ "SAROutputModel", "d2/d09/classQuasarSDK_1_1IO_1_1SAROutputModel.html", null ]
@@ -100,7 +101,6 @@ var hierarchy =
       [ "HTTPDownloader", "d4/d85/classNetworking_1_1HTTPDownloader.html", null ],
       [ "Filesystem", "de/d69/classOS_1_1Filesystem.html", null ],
       [ "ImageProcessing", "d4/db0/classProcessing_1_1ImageProcessing.html", null ],
-      [ "StreamProcessing", "d7/d38/classProcessing_1_1StreamProcessing.html", null ],
       [ "StreamProcessor", "d4/d13/classProcessing_1_1StreamProcessor.html", null ],
       [ "QuaSAR", "d4/de1/classQuaSAR.html", null ],
       [ "Enums", "d6/de3/classQuasarSDK_1_1Enums.html", null ],

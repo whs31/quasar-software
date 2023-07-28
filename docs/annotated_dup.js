@@ -32,14 +32,15 @@ var annotated_dup =
       [ "ImageMetaHeader", "da/d88/namespaceMap.html#d0/df3/structMap_1_1ImageMetaHeader", "da/d88/namespaceMap_d0/df3/structMap_1_1ImageMetaHeader_dup" ],
       [ "ImageModel", "d4/dfc/classMap_1_1ImageModel.html", null ],
       [ "OfflineTileLoader", "d6/dce/classMap_1_1OfflineTileLoader.html", "d6/dce/classMap_1_1OfflineTileLoader" ],
+      [ "PlannerMark", "da/d88/namespaceMap.html#d7/d76/classMap_1_1PlannerMark", null ],
       [ "Route", "d8/d9a/classMap_1_1Route.html", null ],
       [ "RouteLogger", "dd/d0f/classMap_1_1RouteLogger.html", null ],
       [ "Ruler", "dc/d18/classMap_1_1Ruler.html", null ],
+      [ "StreamSegmentModel", "dd/d00/classMap_1_1StreamSegmentModel.html", null ],
       [ "StripFormatMetadata", "da/d88/namespaceMap.html#da/dfc/structMap_1_1StripFormatMetadata", "da/d88/namespaceMap_da/dfc/structMap_1_1StripFormatMetadata_dup" ],
       [ "StripHeaderMetadata", "da/d88/namespaceMap.html#de/ddd/structMap_1_1StripHeaderMetadata", "da/d88/namespaceMap_de/ddd/structMap_1_1StripHeaderMetadata_dup" ],
       [ "StripImage", "dc/dac/structMap_1_1StripImage.html", null ],
       [ "StripImageDatagram", "da/d88/namespaceMap.html#d0/dec/structMap_1_1StripImageDatagram", null ],
-      [ "StripModel", "d3/d9a/classMap_1_1StripModel.html", null ],
       [ "StripNavigationMetadata", "da/d88/namespaceMap.html#d6/d47/structMap_1_1StripNavigationMetadata", "da/d88/namespaceMap_d6/d47/structMap_1_1StripNavigationMetadata_dup" ],
       [ "TelescopicImage", "d5/d34/structMap_1_1TelescopicImage.html", null ],
       [ "TrackEventModel", "d6/d55/classMap_1_1TrackEventModel.html", "d6/d55/classMap_1_1TrackEventModel" ]
@@ -53,7 +54,6 @@ var annotated_dup =
     [ "Processing", "d7/d4a/namespaceProcessing.html", [
       [ "ArrayReader", "d4/d1b/classProcessing_1_1ArrayReader.html", "d4/d1b/classProcessing_1_1ArrayReader" ],
       [ "ImageProcessing", "d4/db0/classProcessing_1_1ImageProcessing.html", null ],
-      [ "StreamProcessing", "d7/d38/classProcessing_1_1StreamProcessing.html", null ],
       [ "StreamProcessor", "d4/d13/classProcessing_1_1StreamProcessor.html", null ]
     ] ],
     [ "QuasarSDK", "d4/d48/namespaceQuasarSDK.html", [

@@ -111,7 +111,8 @@ var group__sdk__network =
       [ "focusArgumentList", "de/da2/classQuasarSDK_1_1ExecdArgumentParser.html#a7ceec978e88a0ce472a11c7d0e8519f6", null ]
     ] ],
     [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html", [
-      [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#aa88751a63390d47bdbd43c98c9dcf181", null ],
+      [ "ExecdSocket", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#ab77536f63c2f25f287cb82a6643175eb", null ],
+      [ "setCompatibility", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#a3f93c36f4bc9fb31d9cf0c42a5c49155", null ],
       [ "execute", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#a2d7ed416a5bfbe867fbdd612720d6869", null ],
       [ "execute", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#ad2848e25d6032fa478d93f7ba3ad9421", null ],
       [ "kill", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#a1e554135d5e472e98b8176821a24a5cd", null ],
@@ -121,7 +122,6 @@ var group__sdk__network =
       [ "popQueue", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#a9ecab9ecdedfc331aed9a0ae63ce193b", null ],
       [ "ssh", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#ab472c906dd7da7698e2a2316e4ce6376", null ],
       [ "ping", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#ad8136df344f340b0653c27e3317c08f5", null ],
-      [ "wrap", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#aa35903adfd1a228e80da2fe26259b398", null ],
       [ "condition", "d7/d42/classQuasarSDK_1_1ExecdSocket.html#a568be9ebaceb02844d9702690466a52c", null ]
     ] ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", [
@@ -169,7 +169,8 @@ var group__sdk__network =
       [ "outputModel", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ade241ee829184316a1a2be8e70a5f328", null ],
       [ "isConnected", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88", null ],
       [ "currentNetworkDelay", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0af2bd852f5ddf3a39df72fb1eb329dd", null ],
-      [ "currentFormingMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a35c4e126d76501c71a4d8bd76e5c7f06", null ]
+      [ "currentFormingMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a35c4e126d76501c71a4d8bd76e5c7f06", null ],
+      [ "compatibilityMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#af28d76bcb2557d3209d96a770f766fa7", null ]
     ] ],
     [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html", [
       [ "OutputRedirectServer", "dc/d2d/classQuasarSDK_1_1OutputRedirectServer.html#a998b60d68b42b365b6248073502e9ff7", null ],

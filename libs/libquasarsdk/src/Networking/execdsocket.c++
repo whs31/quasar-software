@@ -47,6 +47,7 @@ namespace QuasarSDK
     * Функция не добавляет аргументы к команде автоматически: для
     * добавления аргументов необходимо указать их вручную.
     * \param command - строка для выполнения.
+    * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
     */
   void ExecdSocket::execute(const QString& command) noexcept
   {
@@ -61,6 +62,7 @@ namespace QuasarSDK
     * \details Функция автоматически добавляет аргументы к команде,
     * если она требует их.
     * \param command - тип команды для выполнения.
+    * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
     * \see Enums::NetworkCommand
     */
   void ExecdSocket::execute(Enums::NetworkCommand command) noexcept
@@ -168,6 +170,7 @@ namespace QuasarSDK
   /**
    * \brief Принудительно завершает выбранный процесс.
    * \param pid - PID процесса.
+   * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
    */
   void ExecdSocket::kill(int pid)
   {
@@ -182,6 +185,7 @@ namespace QuasarSDK
    * \brief Подает сигнал (https://ru.wikipedia.org/wiki/Сигнал_(Unix) процессу.
    * \param pid - PID процесса.
    * \param signal - сигнал (см. Enums::UnixSignal).
+   * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
    */
   void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
   {
@@ -195,6 +199,7 @@ namespace QuasarSDK
 
   /**
    * \brief Возвращает список процессов в динамической очереди.
+   * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
    */
   void ExecdSocket::showQueue()
   {
@@ -207,6 +212,7 @@ namespace QuasarSDK
 
   /**
    * \brief Очищает динамическую очередь.
+   * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
    */
   void ExecdSocket::clearQueue()
   {
@@ -219,6 +225,7 @@ namespace QuasarSDK
 
   /**
    * \brief Удаляет последнюю команду из динамической очереди.
+   * \note Эта функция может быть вызвана из QML через мета-объектную систему Qt.
    */
   void ExecdSocket::popQueue()
   {
@@ -251,6 +258,7 @@ namespace QuasarSDK
    * \param pass - команда, выполняемая в случае успеха.
    * \param fail - команда, выполняемая в случае неудачи.
    * \return Обернутая команда.
+   * \warning Это приватная функция.
    */
   QString ExecdSocket::condition(const QString& condition, const QString& pass, const QString& fail) noexcept
   {

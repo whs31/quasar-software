@@ -29,5 +29,6 @@ var classQuasarSDK_1_1QuasarAPI =
     [ "outputModel", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#ade241ee829184316a1a2be8e70a5f328", null ],
     [ "isConnected", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a7e564e4120f565a5137596d39293ec88", null ],
     [ "currentNetworkDelay", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a0af2bd852f5ddf3a39df72fb1eb329dd", null ],
-    [ "currentFormingMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a35c4e126d76501c71a4d8bd76e5c7f06", null ]
+    [ "currentFormingMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#a35c4e126d76501c71a4d8bd76e5c7f06", null ],
+    [ "compatibilityMode", "d0/dbc/classQuasarSDK_1_1QuasarAPI.html#af28d76bcb2557d3209d96a770f766fa7", null ]
 ];

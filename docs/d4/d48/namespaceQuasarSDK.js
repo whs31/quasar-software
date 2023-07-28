@@ -12,7 +12,8 @@ var namespaceQuasarSDK =
       [ "isNaN", "d3/daf/group__sdk__images.html#gaaf0578b9d15d85ab4e18cee1256ff1e7", null ],
       [ "crc16", "d3/d54/group__sdk__network.html#gafda5ee7aba055245d768c57faa02fb57", null ],
       [ "crc16_ccitt", "d3/d54/group__sdk__network.html#ga15a9ef310fea932c75d1cfee9d7dc1d4", null ],
-      [ "str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ]
+      [ "str_data", "d3/d54/group__sdk__network.html#ga8e767ae01022414bd64c54dbc1337bfa", null ],
+      [ "wrapToExecdString", "d4/d19/namespaceQuasarSDK_1_1Utils.html#acf42a6506f0e8d93f2c81d5d914a4ad5", null ]
     ] ],
     [ "BaseUDPSocket", "da/dc1/classQuasarSDK_1_1BaseUDPSocket.html", "da/dc1/classQuasarSDK_1_1BaseUDPSocket" ],
     [ "Config", "da/dff/classQuasarSDK_1_1Config.html", "da/dff/classQuasarSDK_1_1Config" ],

@@ -1,12 +1,9 @@
 <map id="ImageProcessing" name="ImageProcessing">
-<area shape="rect" id="Node000001" title=" " alt="" coords="88,175,220,203"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,82,79,110"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,117,139,172,136,176,67,121"/>
-<area shape="rect" id="Node000003" href="$d4/dfc/classMap_1_1ImageModel.html" title=" " alt="" coords="103,82,205,110"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,125,157,175,151,175,151,125"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="140,5,288,33"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="197,46,166,84,162,80,193,43"/>
-<area shape="rect" id="Node000005" href="$d3/d9a/classMap_1_1StripModel.html" title=" " alt="" coords="230,82,321,110"/>
-<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="236,43,267,80,263,84,232,46"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="258,123,226,153,186,177,183,172,223,149,254,119"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,175,138,203"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="14,82,87,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,124,71,174,66,175,54,125"/>
+<area shape="rect" id="Node000003" href="$d4/dfc/classMap_1_1ImageModel.html" title=" " alt="" coords="111,82,213,110"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,123,86,177,83,173,137,119"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="88,5,236,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="165,48,165,82,160,82,160,48"/>
 </map>

@@ -42,7 +42,7 @@
               <td id="projectlogo"><img alt="Logo" src="../../icon.png" /></td>
               <td id="projectalign">
                 <div id="projectname">QuaSAR<span
-                    id="projectnumber">&#160;2.12.0</span>
+                    id="projectnumber">&#160;2.13.0</span>
                 </div>
                 <div id="projectbrief">SAR control software</div>
               </td>
@@ -179,7 +179,7 @@ $(document).ready(function(){initNavTree('d8/d8c/geomarkermodel_8c_09_09_source.
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordflow">if</span>(index &gt;= rowCount())</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    beginRemoveRows(QModelIndex(), index, index);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    m_storage.erase(m_storage.begin() + index);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    m_storage.remove(index);</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    endRemoveRows();</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    qDebug() &lt;&lt; <span class="stringliteral">&quot;[MARKER] Model lost an marker. Now it contains&quot;</span> &lt;&lt; rowCount() &lt;&lt; <span class="stringliteral">&quot;markers&quot;</span>;</div>

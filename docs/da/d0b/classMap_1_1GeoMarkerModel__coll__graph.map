@@ -1,7 +1,5 @@
 <map id="GeoMarkerModel" name="GeoMarkerModel">
-<area shape="rect" id="Node000001" title=" " alt="" coords="112,98,244,126"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,81,146,109"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,5,154,33"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,41,166,96,162,100,103,45"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="177,5,377,33"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,45,194,100,190,96,250,41"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,48,82,81,77,81,77,48"/>
 </map>

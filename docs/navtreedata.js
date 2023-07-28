@@ -66,8 +66,8 @@ var NAVTREE =
         [ "Таблица 1: Биты поля sar", "d4/d2b/planner_manual.html#PLANNER_TABLE_2", null ]
       ] ]
     ] ],
-    [ "Список устаревших определений и описаний", "da/d58/deprecated.html", null ],
     [ "Список задач", "dd/da0/todo.html", null ],
+    [ "Список устаревших определений и описаний", "da/d58/deprecated.html", null ],
     [ "Группы", "modules.html", "modules" ],
     [ "Пространства имен", "namespaces.html", [
       [ "Пространства имен", "namespaces.html", "namespaces_dup" ],

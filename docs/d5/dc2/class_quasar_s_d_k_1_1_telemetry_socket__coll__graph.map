@@ -1,0 +1,15 @@
+<map id="TelemetrySocket" name="TelemetrySocket">
+<area shape="rect" id="Node000001" title="Класс для работы с сервисом navd2 на РЛС." alt="" coords="183,191,314,218"/>
+<area shape="rect" id="Node000002" href="$db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="117,98,249,126"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,136,241,189,237,192,199,139"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,110,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,40,166,95,163,100,86,44"/>
+<area shape="rect" id="Node000004" href="$df/dac/class_quasar_s_d_k_1_1_i_connectable.html" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="134,5,240,33"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="188,48,186,98,181,98,183,48"/>
+<area shape="rect" id="Node000005" href="$d4/da9/class_quasar_s_d_k_1_1_telemetry.html" title="Класс&#45;хранилище для текущей телеметрии РЛС." alt="" coords="273,98,359,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="300,139,260,192,256,189,296,136"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="273,5,349,33"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="315,48,318,97,313,98,310,48"/>
+<area shape="rect" id="Node000007" href="$d8/d07/group__sdk__protocol.html#da/d38/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_datagram" title="Датаграмма телеметрии от РЛС к наземке." alt="" coords="373,5,524,33"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="419,44,337,100,334,95,416,39"/>
+</map>

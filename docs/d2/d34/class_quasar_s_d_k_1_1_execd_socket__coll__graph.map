@@ -1,0 +1,15 @@
+<map id="ExecdSocket" name="ExecdSocket">
+<area shape="rect" id="Node000001" title="Сокет для отправки команд на РЛС." alt="" coords="279,175,386,203"/>
+<area shape="rect" id="Node000002" href="$db/d21/class_quasar_s_d_k_1_1_base_u_d_p_socket.html" title="Базовый класс для сокетов, работающих по протоколу UDP." alt="" coords="92,82,223,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,115,308,172,306,177,195,120"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,110,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="88,40,142,80,138,84,85,44"/>
+<area shape="rect" id="Node000004" href="$df/dac/class_quasar_s_d_k_1_1_i_connectable.html" title="Абстрактный интерфейс для классов с функционалом подключения и отключения к сетевому адресу." alt="" coords="134,5,240,33"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="179,48,165,83,160,81,174,46"/>
+<area shape="rect" id="Node000005" href="$d3/d1d/class_quasar_s_d_k_1_1_execd_argument_parser.html" title="Класс для хранения и обработки аргументов команд сервиса execd." alt="" coords="248,82,417,110"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="335,125,335,175,330,175,330,125"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="294,5,370,33"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="335,48,335,82,330,82,330,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="440,82,587,110"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="475,119,360,177,357,172,473,115"/>
+</map>

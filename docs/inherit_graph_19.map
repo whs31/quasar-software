@@ -1,3 +1,23 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="Node000000" href="$d8/d07/group__sdk__protocol.html#df/d11/structQuasarSDK_1_1Datagrams_1_1PlannerResponseDatagram" title="Структура ответа на прохождение БПЛА через точку из полётного задания." alt="" coords="5,5,204,33"/>
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,188,154,216"/>
+<area shape="rect" id="Node000001" href="$d9/d3c/class_g_u_i_1_1_notifications_model.html" title=" " alt="" coords="216,5,354,33"/>
+<area shape="poly" id="edge56_Node000000_Node000001" title=" " alt="" coords="93,173,135,108,165,74,200,44,223,31,226,36,203,48,169,77,140,112,97,176"/>
+<area shape="rect" id="Node000002" href="$d2/db3/class_g_u_i_1_1_terminal_base.html" title=" " alt="" coords="229,57,341,85"/>
+<area shape="poly" id="edge57_Node000000_Node000002" title=" " alt="" coords="102,175,145,135,200,96,228,83,230,88,203,100,149,139,106,179"/>
+<area shape="rect" id="Node000004" href="$d2/def/class_map_1_1_geo_marker_model.html" title=" " alt="" coords="220,109,350,137"/>
+<area shape="poly" id="edge59_Node000000_Node000004" title=" " alt="" coords="125,179,201,147,236,135,237,140,203,152,127,184"/>
+<area shape="rect" id="Node000005" href="$d0/d89/class_map_1_1_image_model.html" title=" " alt="" coords="235,161,335,189"/>
+<area shape="poly" id="edge60_Node000000_Node000005" title=" " alt="" coords="168,188,234,179,235,184,168,193"/>
+<area shape="rect" id="Node000006" href="$d2/dfd/class_map_1_1_ruler.html" title=" " alt="" coords="257,213,313,241"/>
+<area shape="poly" id="edge61_Node000000_Node000006" title=" " alt="" coords="169,210,257,221,256,226,168,215"/>
+<area shape="rect" id="Node000007" href="$d4/db5/class_map_1_1_stream_segment_model.html" title=" " alt="" coords="202,265,368,293"/>
+<area shape="poly" id="edge62_Node000000_Node000007" title=" " alt="" coords="128,220,203,250,238,262,236,267,201,255,126,225"/>
+<area shape="rect" id="Node000008" href="$d9/d42/class_map_1_1_track_event_model.html" title=" " alt="" coords="218,317,352,345"/>
+<area shape="poly" id="edge63_Node000000_Node000008" title=" " alt="" coords="106,224,149,264,203,302,230,314,228,319,200,307,146,268,102,228"/>
+<area shape="rect" id="Node000009" href="$de/de9/class_quasar_s_d_k_1_1_i_o_1_1_message_model.html" title="Базовый класс для модели сообщений." alt="" coords="226,369,344,397"/>
+<area shape="poly" id="edge64_Node000000_Node000009" title=" " alt="" coords="97,227,140,291,169,325,203,354,226,367,224,371,200,359,165,329,135,294,93,230"/>
+<area shape="rect" id="Node000003" href="$d6/d30/class_g_u_i_1_1_debug_console.html" title=" " alt="" coords="424,57,542,85"/>
+<area shape="poly" id="edge58_Node000002_Node000003" title=" " alt="" coords="356,69,423,69,423,74,356,74"/>
+<area shape="rect" id="Node000010" href="$df/d9e/class_quasar_s_d_k_1_1_i_o_1_1_s_a_r_output_model.html" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="416,369,549,397"/>
+<area shape="poly" id="edge65_Node000009_Node000010" title=" " alt="" coords="359,381,416,381,416,386,359,386"/>
 </map>

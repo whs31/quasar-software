@@ -1,0 +1,13 @@
+<map id="FGSMapObject" name="FGSMapObject">
+<area shape="rect" id="Node000001" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="107,157,228,184"/>
+<area shape="rect" id="Node000004" href="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="124,232,212,260"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="170,199,170,232,165,232,165,199"/>
+<area shape="rect" id="Node000002" href="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="104,81,232,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="170,124,170,156,165,156,165,124"/>
+<area shape="rect" id="Node000003" href="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="121,5,215,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="170,48,170,81,165,81,165,48"/>
+<area shape="rect" id="Node000005" href="$dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,308,157,336"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="143,272,98,310,95,306,139,268"/>
+<area shape="rect" id="Node000006" href="$d1/d05/class_quasar_s_d_k_1_1_map_1_1_map_image_segment.html" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="181,308,328,336"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="196,268,241,306,237,310,192,272"/>
+</map>

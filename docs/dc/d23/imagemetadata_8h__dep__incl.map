@@ -1,19 +1,19 @@
 <map id="imagemetadata.h" name="imagemetadata.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="257,5,394,33"/>
-<area shape="rect" id="Node000002" href="$d5/db2/image_8h_source.html" title=" " alt="" coords="288,81,363,109"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="328,48,328,81,323,81,323,48"/>
-<area shape="rect" id="Node000003" href="$d0/d8b/imagemodel_8h_source.html" title=" " alt="" coords="192,157,307,184"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="303,121,265,158,261,154,300,117"/>
-<area shape="rect" id="Node000007" href="$d1/d63/imageprocessing_8h_source.html" title=" " alt="" coords="331,157,475,184"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="352,117,391,154,387,158,348,121"/>
-<area shape="rect" id="Node000004" href="$db/d49/imagemodel_8c_09_09_source.html" title=" " alt="" coords="5,232,142,260"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="206,193,106,234,104,229,204,188"/>
-<area shape="rect" id="Node000005" href="$d5/dab/imageprocessing_8c_09_09_source.html" title=" " alt="" coords="166,232,331,260"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="252,199,251,232,246,232,246,199"/>
-<area shape="rect" id="Node000006" href="$dc/d20/quasar_8c_09_09_source.html" title=" " alt="" coords="356,232,453,260"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="291,189,378,229,376,234,289,193"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="363,193,277,234,274,229,361,189"/>
-<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="406,199,407,232,401,232,401,199"/>
-<area shape="rect" id="Node000008" href="$d6/ddc/filesystem_8c_09_09_source.html" title=" " alt="" coords="476,232,599,260"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="441,189,515,230,512,234,438,194"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="252,5,386,33"/>
+<area shape="rect" id="Node000002" href="$d5/db2/image_8h_source.html" title=" " alt="" coords="282,81,356,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,48,322,81,316,81,316,48"/>
+<area shape="rect" id="Node000003" href="$d0/d8b/imagemodel_8h_source.html" title=" " alt="" coords="186,157,300,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="297,121,258,158,255,154,293,117"/>
+<area shape="rect" id="Node000007" href="$d1/d63/imageprocessing_8h_source.html" title=" " alt="" coords="324,157,469,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="345,117,384,154,381,158,342,121"/>
+<area shape="rect" id="Node000004" href="$db/d49/imagemodel_8c_09_09_source.html" title=" " alt="" coords="5,232,137,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="200,193,103,234,100,229,198,188"/>
+<area shape="rect" id="Node000005" href="$d5/dab/imageprocessing_8c_09_09_source.html" title=" " alt="" coords="161,232,325,260"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="246,199,246,232,240,232,240,199"/>
+<area shape="rect" id="Node000006" href="$dc/d20/quasar_8c_09_09_source.html" title=" " alt="" coords="348,232,445,260"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="285,189,370,229,368,234,282,193"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="357,193,271,234,269,229,355,189"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="399,199,399,232,394,232,394,199"/>
+<area shape="rect" id="Node000008" href="$d6/ddc/filesystem_8c_09_09_source.html" title=" " alt="" coords="468,232,586,260"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="434,190,505,230,503,234,431,194"/>
 </map>

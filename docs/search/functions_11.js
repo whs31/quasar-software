@@ -2,8 +2,8 @@ var searchData=
 [
   ['tcp_0',['tcp',['../d7/d33/class_config_1_1_paths.html#a7560631e1c9c5f4f885c206a7dc3342c',1,'Config::Paths']]],
   ['tcpdatareceived_1',['tcpDataReceived',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a0c32f3080e6da7498b61a2452f9160cf',1,'QuasarSDK::QuasarAPI']]],
-  ['tcpserver_2',['TCPServer',['../db/dbd/class_quasar_s_d_k_1_1_t_c_p_server.html#aae83f860fbaa08693629478bba2b0ae0',1,'QuasarSDK::TCPServer']]],
-  ['tcpserver_3',['tcpServer',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a2e0308f944d7d98fd86913cd6a0b4bed',1,'QuasarSDK::QuasarAPI']]],
+  ['tcpserver_2',['tcpServer',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a2e0308f944d7d98fd86913cd6a0b4bed',1,'QuasarSDK::QuasarAPI']]],
+  ['tcpserver_3',['TCPServer',['../db/dbd/class_quasar_s_d_k_1_1_t_c_p_server.html#aae83f860fbaa08693629478bba2b0ae0',1,'QuasarSDK::TCPServer']]],
   ['telemetry_4',['Telemetry',['../d4/da9/class_quasar_s_d_k_1_1_telemetry.html#ab425a6f0d34227288593ce62079f254c',1,'QuasarSDK::Telemetry']]],
   ['telemetrysocket_5',['TelemetrySocket',['../d5/d0a/class_quasar_s_d_k_1_1_telemetry_socket.html#af45ae5dae59622dc9960f4e454f8a7ee',1,'QuasarSDK::TelemetrySocket']]],
   ['telemetrysocket_6',['telemetrySocket',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a45ef9e3d873a8bf404fcfba1a4d0909d',1,'QuasarSDK::QuasarAPI']]],

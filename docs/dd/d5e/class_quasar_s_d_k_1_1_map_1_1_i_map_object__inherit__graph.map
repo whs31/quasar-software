@@ -1,0 +1,21 @@
+<map id="IMapObject" name="IMapObject">
+<area shape="rect" id="Node000001" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="279,5,374,33"/>
+<area shape="rect" id="Node000002" href="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="262,81,391,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="329,48,329,81,324,81,324,48"/>
+<area shape="rect" id="Node000003" href="$d9/dd3/class_quasar_s_d_k_1_1_map_1_1_f_g_s_map_object.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="107,157,228,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="286,118,197,159,195,154,284,113"/>
+<area shape="rect" id="Node000007" href="$da/d1a/class_quasar_s_d_k_1_1_map_1_1_scalable_map_object.html" title=" " alt="" coords="253,157,400,184"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="329,124,329,156,324,156,324,124"/>
+<area shape="rect" id="Node000008" href="$d5/daf/class_quasar_s_d_k_1_1_map_1_1_screen_map_object.html" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="424,157,562,184"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="370,113,465,154,462,159,368,117"/>
+<area shape="rect" id="Node000004" href="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="124,232,212,260"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="170,199,170,232,165,232,165,199"/>
+<area shape="rect" id="Node000005" href="$dc/dc3/class_quasar_s_d_k_1_1_map_1_1_complete_map_image.html" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="5,308,157,336"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="143,272,98,310,95,306,139,268"/>
+<area shape="rect" id="Node000006" href="$d1/d05/class_quasar_s_d_k_1_1_map_1_1_map_image_segment.html" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="181,308,328,336"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="196,268,241,306,237,310,192,272"/>
+<area shape="rect" id="Node000009" href="$d4/d7f/class_map_1_1_geo_marker.html" title=" " alt="" coords="447,232,539,260"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="496,199,496,232,490,232,490,199"/>
+<area shape="rect" id="Node000010" href="$db/d2b/class_map_1_1_planner_mark.html" title="Геометка с заданной командой для планировщика." alt="" coords="442,308,544,336"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="496,275,496,308,490,308,490,275"/>
+</map>

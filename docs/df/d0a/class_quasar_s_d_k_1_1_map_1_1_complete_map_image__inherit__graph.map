@@ -1,0 +1,19 @@
+<map id="CompleteMapImage" name="CompleteMapImage">
+<area shape="rect" id="Node000001" title="Радиолокационное изображение на карте, сохраненное в файл." alt="" coords="179,308,331,336"/>
+<area shape="rect" id="Node000002" href="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="157,232,246,260"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="222,271,248,306,243,309,218,274"/>
+<area shape="rect" id="Node000003" href="$d9/dd3/class_quasar_s_d_k_1_1_map_1_1_f_g_s_map_object.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="9,157,130,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="107,190,179,230,177,234,105,194"/>
+<area shape="rect" id="Node000004" href="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,134,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="72,124,72,156,67,156,67,124"/>
+<area shape="rect" id="Node000005" href="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="22,5,117,33"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="72,48,72,81,67,81,67,48"/>
+<area shape="rect" id="Node000006" href="$d7/d37/class_quasar_s_d_k_1_1_map_1_1_i_s_a_r_image.html" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="154,157,249,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="204,199,204,232,199,232,199,199"/>
+<area shape="rect" id="Node000007" href="$d4/d32/class_quasar_s_d_k_1_1_i_o_1_1_draft_file.html" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="273,232,349,260"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="294,274,267,309,263,306,290,270"/>
+<area shape="rect" id="Node000008" href="$d3/d7e/class_quasar_s_d_k_1_1_i_o_1_1_basic_file.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="273,157,354,184"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="315,199,314,232,309,232,310,199"/>
+<area shape="rect" id="Node000009" href="$df/dad/class_quasar_s_d_k_1_1_i_o_1_1_i_file.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="290,81,337,109"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="316,124,316,156,311,156,311,124"/>
+</map>

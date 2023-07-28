@@ -1,0 +1,7 @@
+<map id="ScreenMapObject" name="ScreenMapObject">
+<area shape="rect" id="Node000001" title="Базовый класс для объектов карты, привязанных по размеру к экрану." alt="" coords="5,157,144,184"/>
+<area shape="rect" id="Node000002" href="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="10,81,139,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="77,124,77,156,72,156,72,124"/>
+<area shape="rect" id="Node000003" href="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="27,5,122,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="77,48,77,81,72,81,72,48"/>
+</map>

@@ -32,6 +32,5 @@ namespace QuasarSDK::Map
 
       [[nodiscard]] virtual bool isVisible() const = 0;             ///< Возвращает состояние видимости объекта.
       virtual void setVisible(bool state) = 0;                      ///< Устанавливает состояние видимости объекта.
-
   };
 } // QuasarSDK::Map

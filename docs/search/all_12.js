@@ -93,12 +93,11 @@ var searchData=
   ['stripimagechunknav_90',['StripImageChunkNav',['../d3/daf/group__sdk__images.html#d5/d2c/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_nav',1,'QuasarSDK::Datagrams']]],
   ['stripimagedatagram_91',['StripImageDatagram',['../d0/d82/namespace_map.html#d1/dab/struct_map_1_1_strip_image_datagram',1,'Map']]],
   ['stripnavigationmetadata_92',['StripNavigationMetadata',['../d0/d82/namespace_map.html#d2/da4/struct_map_1_1_strip_navigation_metadata',1,'Map']]],
-  ['stripsocket_93',['StripSocket',['../d6/d4a/class_quasar_s_d_k_1_1_strip_socket.html',1,'QuasarSDK']]],
+  ['stripsocket_93',['StripSocket',['../d6/d4a/class_quasar_s_d_k_1_1_strip_socket.html',1,'StripSocket'],['../d6/d4a/class_quasar_s_d_k_1_1_strip_socket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket::StripSocket()']]],
   ['stripsocket_94',['stripSocket',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a47cc80adf9cdc5cd663ab4d1a2908c73',1,'QuasarSDK::QuasarAPI']]],
-  ['stripsocket_95',['StripSocket',['../d6/d4a/class_quasar_s_d_k_1_1_strip_socket.html#a1dc0347f6e97ffd1f34ed614272dbb47',1,'QuasarSDK::StripSocket']]],
-  ['stripsocketmetrics_96',['stripSocketMetrics',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
-  ['stripstart_97',['StripStart',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486ea02f38b0b7f5ea633194439f7b2f3b132',1,'QuasarSDK::Enums']]],
-  ['stripstop_98',['StripStop',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486ea8082b8824cdb868934c3cecd88305c79',1,'QuasarSDK::Enums']]],
-  ['success_99',['Success',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
-  ['utils_100',['Utils',['../d8/d37/namespace_scenegraph_1_1_utils.html',1,'Scenegraph']]]
+  ['stripsocketmetrics_95',['stripSocketMetrics',['../d2/d12/class_quasar_s_d_k_1_1_quasar_a_p_i.html#a0eaca412515be45380dcecc70304b996',1,'QuasarSDK::QuasarAPI']]],
+  ['stripstart_96',['StripStart',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486ea02f38b0b7f5ea633194439f7b2f3b132',1,'QuasarSDK::Enums']]],
+  ['stripstop_97',['StripStop',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a8dd47094c7079ec1fcbd5df9870c486ea8082b8824cdb868934c3cecd88305c79',1,'QuasarSDK::Enums']]],
+  ['success_98',['Success',['../d8/d13/class_quasar_s_d_k_1_1_enums.html#a26cd5c2531deeff8b716e740ddc8e469afdfbdf3247bd36a1f17270d5cec74c9c',1,'QuasarSDK::Enums']]],
+  ['utils_99',['Utils',['../d8/d37/namespace_scenegraph_1_1_utils.html',1,'Scenegraph']]]
 ];

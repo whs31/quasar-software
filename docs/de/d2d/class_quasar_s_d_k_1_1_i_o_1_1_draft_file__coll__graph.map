@@ -1,0 +1,9 @@
+<map id="DraftFile" name="DraftFile">
+<area shape="rect" id="Node000001" title="Класс, описывающий черновик файла &#45; файл, который еще не был сохранен на диск, но готовится к этому." alt="" coords="63,175,139,203"/>
+<area shape="rect" id="Node000002" href="$d3/d7e/class_quasar_s_d_k_1_1_i_o_1_1_basic_file.html" title="Абстрактный класс для существующего файла в файловой системе." alt="" coords="5,82,87,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,121,95,173,91,176,59,124"/>
+<area shape="rect" id="Node000003" href="$df/dad/class_quasar_s_d_k_1_1_i_o_1_1_i_file.html" title="Интерфейс, описывающий абстрактный файл в файловой системе." alt="" coords="22,5,70,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="49,48,49,82,43,82,43,48"/>
+<area shape="rect" id="Node000004" href="$d4/d32/class_quasar_s_d_k_1_1_i_o_1_1_draft_file.html#d4/d11/struct_quasar_s_d_k_1_1_i_o_1_1_draft_file_1_1filename__t" title=" " alt="" coords="111,82,200,110"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="142,124,111,176,106,173,138,121"/>
+</map>

@@ -1,0 +1,15 @@
+<map id="MapImageSegment" name="MapImageSegment">
+<area shape="rect" id="Node000001" title="Сегмент или полное радиолокационное изображение на карте, сохраненное в Base64&#45;строке." alt="" coords="124,308,271,336"/>
+<area shape="rect" id="Node000002" href="$df/d2b/class_quasar_s_d_k_1_1_map_1_1_map_image.html" title="Абстрактный класс, описывающий радиолокационное изображение в качестве объекта карты." alt="" coords="91,232,179,260"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,270,188,306,184,309,154,273"/>
+<area shape="rect" id="Node000003" href="$d9/dd3/class_quasar_s_d_k_1_1_map_1_1_f_g_s_map_object.html" title="Базовый класс для объектов карты, которые имеют четкую привязку в метрах по размеру." alt="" coords="9,157,130,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,194,125,230,121,234,89,197"/>
+<area shape="rect" id="Node000004" href="$d7/ddf/class_quasar_s_d_k_1_1_map_1_1_basic_map_object.html" title="Абстрактный класс, реализующий функции интерфейса IMapObject, за исключением масштаба." alt="" coords="5,81,134,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="72,124,72,156,67,156,67,124"/>
+<area shape="rect" id="Node000005" href="$d5/d1e/class_quasar_s_d_k_1_1_map_1_1_i_map_object.html" title="Интерфейс, описывающий абстрактный объект карты." alt="" coords="22,5,117,33"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="72,48,72,81,67,81,67,48"/>
+<area shape="rect" id="Node000006" href="$d7/d37/class_quasar_s_d_k_1_1_map_1_1_i_s_a_r_image.html" title="Интерфейс, описывающий радиолокационное изображение с РЛС." alt="" coords="154,157,249,184"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="182,197,149,234,145,230,178,194"/>
+<area shape="rect" id="Node000007" href="$d8/dec/class_quasar_s_d_k_1_1_i_o_1_1_base64_object.html" title="Объект, способный конвертировать свои бинарные данные в base64&#45;строку." alt="" coords="203,232,317,260"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="241,273,211,309,207,306,237,270"/>
+</map>

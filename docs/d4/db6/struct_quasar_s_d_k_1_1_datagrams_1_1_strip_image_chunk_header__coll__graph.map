@@ -1,0 +1,9 @@
+<map id="StripImageChunkHeader" name="StripImageChunkHeader">
+<area shape="rect" id="Node000001" title="Полный заголовок пакета полосового потокового изображения." alt="" coords="166,98,347,126"/>
+<area shape="rect" id="Node000002" href="$d3/daf/group__sdk__images.html#d3/d28/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_i_d" title="Заголовок пакета полосового радиолокационного изображения." alt="" coords="5,5,153,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,38,232,95,229,100,116,42"/>
+<area shape="rect" id="Node000003" href="$d3/daf/group__sdk__images.html#d5/d2c/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_nav" title="Навигационные данные пакета полосового радиолокационного изображения." alt="" coords="177,5,336,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="259,48,259,98,254,98,254,48"/>
+<area shape="rect" id="Node000004" href="$d3/daf/group__sdk__images.html#dc/dbc/struct_quasar_s_d_k_1_1_datagrams_1_1_strip_image_chunk_format" title="Данные форматирования пакета полосового радиолокационного изображения." alt="" coords="360,5,540,33"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="410,42,286,100,283,95,408,37"/>
+</map>

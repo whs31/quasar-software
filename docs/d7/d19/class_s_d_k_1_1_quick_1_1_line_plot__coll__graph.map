@@ -1,0 +1,9 @@
+<map id="LinePlot" name="LinePlot">
+<area shape="rect" id="Node000001" title=" " alt="" coords="113,175,186,203"/>
+<area shape="rect" id="Node000002" href="$d2/d20/class_s_d_k_1_1_quick_1_1_chart_base.html" title=" " alt="" coords="9,82,101,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,118,138,173,134,177,77,122"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,5,105,33"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="58,48,58,82,52,82,52,48"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="125,82,239,110"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,125,157,176,152,174,170,123"/>
+</map>

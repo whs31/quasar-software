@@ -1,0 +1,7 @@
+<map id="Telemetry" name="Telemetry">
+<area shape="rect" id="Node000001" title="Класс&#45;хранилище для текущей телеметрии РЛС." alt="" coords="68,98,155,126"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,82,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,43,104,96,100,99,60,46"/>
+<area shape="rect" id="Node000003" href="$d8/d07/group__sdk__protocol.html#da/d38/struct_quasar_s_d_k_1_1_datagrams_1_1_telemetry_datagram" title="Датаграмма телеметрии от РЛС к наземке." alt="" coords="105,5,257,33"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="164,46,124,99,119,96,160,43"/>
+</map>

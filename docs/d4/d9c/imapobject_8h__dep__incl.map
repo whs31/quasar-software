@@ -1,0 +1,27 @@
+<map id="imapobject.h" name="imapobject.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="273,5,377,33"/>
+<area shape="rect" id="Node000002" href="$db/d2f/basicmapobject_8h_source.html" title=" " alt="" coords="257,81,393,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="328,48,328,81,323,81,323,48"/>
+<area shape="rect" id="Node000003" href="$d7/d33/basicmapobject_8c_09_09_source.html" title=" " alt="" coords="5,157,160,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="269,116,127,159,125,154,267,111"/>
+<area shape="rect" id="Node000004" href="$da/de4/fgsmapobject_8h_source.html" title=" " alt="" coords="183,157,305,184"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="302,121,260,158,256,154,298,117"/>
+<area shape="rect" id="Node000012" href="$db/d65/scalablemapobject_8h_source.html" title=" " alt="" coords="329,157,484,184"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="352,117,394,154,390,158,349,121"/>
+<area shape="rect" id="Node000013" href="$da/d24/screenmapobject_8h_source.html" title=" " alt="" coords="508,157,654,184"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="385,111,536,154,535,159,384,116"/>
+<area shape="rect" id="Node000005" href="$d0/d04/fgsmapobject_8c_09_09_source.html" title=" " alt="" coords="101,232,240,260"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="222,197,185,234,182,230,218,193"/>
+<area shape="rect" id="Node000006" href="$d7/d16/mapimage_8h_source.html" title=" " alt="" coords="265,232,367,260"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="269,193,305,230,301,234,265,197"/>
+<area shape="rect" id="Node000007" href="$d1/d61/mapcompleteimage_8h_source.html" title=" " alt="" coords="69,308,232,336"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="274,269,181,310,179,305,272,264"/>
+<area shape="rect" id="Node000009" href="$d2/daa/mapimage_8c_09_09_source.html" title=" " alt="" coords="256,308,376,336"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="319,275,319,308,313,308,313,275"/>
+<area shape="rect" id="Node000010" href="$d1/da7/mapimagesegment_8h_source.html" title=" " alt="" coords="400,308,560,336"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="359,264,452,305,450,310,357,269"/>
+<area shape="rect" id="Node000008" href="$d2/dca/mapcompleteimage_8c_09_09_source.html" title=" " alt="" coords="60,384,241,411"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="153,351,153,383,148,383,148,351"/>
+<area shape="rect" id="Node000011" href="$dd/d06/mapimagesegment_8c_09_09_source.html" title=" " alt="" coords="391,384,569,411"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="483,351,483,383,477,383,477,351"/>
+</map>

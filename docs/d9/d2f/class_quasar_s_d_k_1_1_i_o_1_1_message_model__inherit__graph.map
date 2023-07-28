@@ -1,0 +1,7 @@
+<map id="MessageModel" name="MessageModel">
+<area shape="rect" id="Node000001" title="Базовый класс для модели сообщений." alt="" coords="20,81,139,109"/>
+<area shape="rect" id="Node000003" href="$df/d9e/class_quasar_s_d_k_1_1_i_o_1_1_s_a_r_output_model.html" title="Класс&#45;модель, обрабатывающий и хранящий сообщения от РЛС (VT100)." alt="" coords="13,157,146,184"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="82,124,82,156,77,156,77,124"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,154,33"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="82,48,82,81,77,81,77,48"/>
+</map>

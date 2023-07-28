@@ -1,0 +1,9 @@
+<map id="DebugConsole" name="DebugConsole">
+<area shape="rect" id="Node000001" title=" " alt="" coords="119,192,237,220"/>
+<area shape="rect" id="Node000002" href="$d2/db3/class_g_u_i_1_1_terminal_base.html" title=" " alt="" coords="122,115,234,143"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,158,181,192,176,192,176,158"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,14,154,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="104,50,167,113,164,117,100,54"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="178,5,376,50"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="247,63,193,117,189,113,243,59"/>
+</map>

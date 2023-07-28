@@ -1,0 +1,9 @@
+<map id="ClickHandler" name="ClickHandler">
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,175,117,203"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,82,82,110"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="52,124,64,174,59,175,47,125"/>
+<area shape="rect" id="Node000003" href="$d2/def/class_map_1_1_geo_marker_model.html" title=" " alt="" coords="106,82,237,110"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,122,82,176,79,172,143,118"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="97,5,246,33"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="174,48,174,82,169,82,169,48"/>
+</map>

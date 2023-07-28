@@ -1,0 +1,7 @@
+<map id="INameable" name="INameable">
+<area shape="rect" id="Node000001" title=" " alt="" coords="11,5,102,33"/>
+<area shape="rect" id="Node000002" href="$d4/d7f/class_map_1_1_geo_marker.html" title=" " alt="" coords="10,81,103,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,48,59,81,54,81,54,48"/>
+<area shape="rect" id="Node000003" href="$db/d2b/class_map_1_1_planner_mark.html" title="Геометка с заданной командой для планировщика." alt="" coords="5,157,108,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="59,124,59,156,54,156,54,124"/>
+</map>

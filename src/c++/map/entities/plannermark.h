@@ -4,10 +4,16 @@
 
 #pragma once
 #include "geomarker.h"
-#include <QuasarSDK/PlannerDatagrams>
+
+namespace QuasarSDK::Datagrams {}
+using namespace QuasarSDK::Datagrams;
 
 namespace Map
 {
+  /**
+   * \brief Геометка с заданной командой для планировщика.
+   * \todo Дополнить документацию.
+   */
   class PlannerMark : public GeoMarker
   {
     public:
@@ -22,6 +28,8 @@ namespace Map
       void setRadius(int);
 
       [[nodiscard]] QString address() const;
+      [[nodiscard]] uint32_t iphex() const;
+      [[nodiscard]] uint16_t port() const;
       void setAddress(const QString&);
 
       [[nodiscard]] int lifetime() const;
@@ -29,6 +37,9 @@ namespace Map
 
       [[nodiscard]] QString command() const;
       void setCommand(const QString&);
+
+      [[nodiscard]] QByteArray appendDatagram() const;
+      [[nodiscard]] QByteArray removeDatagram() const;
 
     protected:
       int m_id;

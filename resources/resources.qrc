@@ -114,5 +114,6 @@
         <file>icons/vector/network/stream.svg</file>
         <file>icons/vector/toolbar/eraser.svg</file>
         <file>icons/vector/common/question.svg</file>
+        <file>icons/vector/network/antenna.svg</file>
     </qresource>
 </RCC>

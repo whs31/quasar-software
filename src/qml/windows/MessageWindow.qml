@@ -87,6 +87,12 @@ Pane {
         Material.elevation: 30;
         Material.background: ColorTheme.active.color(ColorTheme.Dark)
         text: "Ок";
-        onPressed: b_Shown = false;
+        action: closeMessageBoxAction
+    }
+
+    Action {
+        id: closeMessageBoxAction
+        shortcut: "Return"
+        onTriggered: close()
     }
 }

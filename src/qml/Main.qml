@@ -60,13 +60,17 @@ ApplicationWindow  { id: window_root;
 
     menuBar: Layouts.MenuHeader { }
 
-    // idc if i need it)
-//    header: ToolBar {
-//        Material.primary: ColorTheme.active.color(ColorTheme.BaseShade)
+    footer: Layouts.InfoBar {
+        id: infobar
+        Material.primary: ColorTheme.active.color(ColorTheme.BaseShade)
+    }
 
-//        RowLayout {
-//        }
-//    }
+    Layouts.SidePanel {
+        id: sidepanel
+        y: menuBar.height + tabbar.height
+        width: parent.width * 0.33
+        height: parent.height - y
+    }
 
     FileDialog {
         id: window_FileDialog
@@ -138,20 +142,44 @@ ApplicationWindow  { id: window_root;
             }
         }
 
-        Layouts.BottomBar { id: layout_BottomBar;
-            height: 46;
-            anchors {
-                left: parent.left;
-                right: parent.right;
-                bottom: parent.bottom;
+        Action {
+            id: openSidePanelAction
+            shortcut: "Ctrl+P"
+            onTriggered: {
+                if(!sidepanel.opened)
+                    sidepanel.open()
+                else
+                    sidepanel.close()
             }
+        }
+
+        Button {
+            id: sidepanelButton
+            z: 100
+            anchors {
+                left: parent.left
+                leftMargin: 0
+                top: parent.top
+                topMargin: -6
+            }
+
+            icon {
+                source: "qrc:/icons/vector/common/list.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+
+            width: 52
+            height: 52
+
+            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+            action: openSidePanelAction
         }
 
         TabBar { id: tabbar
             z: 100
             contentHeight: 40
             anchors {
-                left: parent.left
+                left: sidepanelButton.right
                 right: parent.right
                 top: parent.top
             }
@@ -180,12 +208,13 @@ ApplicationWindow  { id: window_root;
             }
         }
 
-        SwipeView { id: view_MainView;
+        SwipeView {
+            id: view_MainView
             anchors {
-                top: tabbar.bottom;
-                bottom: layout_BottomBar.top;
-                left: parent.left;
-                right: parent.right;
+                top: tabbar.bottom
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
             }
             interactive: false;
             currentIndex: tabbar.currentIndex;
@@ -203,7 +232,6 @@ ApplicationWindow  { id: window_root;
         Widgets.ProgressPopup { anchors.centerIn: parent; progress: ImageProcessing.progress; z: 100; text: "Обработка изображений"; }
         Widgets.ProgressPopup { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; progress: root.tileloadprogress; z: 100; text: "Загрузка оффлайн-карт"; }
 
-        Windows.NewSettingsWindow { id: settingswindow; z: 99; anchors.centerIn: root; }
         Windows.InfoWindow { id: c_InfoWindow; z: 100; anchors.centerIn: root; }
         Windows.MessageWindow { id: messagebox; anchors.centerIn: parent; z: 99; }
         Windows.DialogWindow { id: dialogwindow; anchors.centerIn: parent; z: 99; }

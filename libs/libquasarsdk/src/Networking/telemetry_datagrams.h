@@ -44,22 +44,22 @@ namespace QuasarSDK::Datagrams
    */
   struct TelemetryDatagram
   {
-    uint32_t marker = 0x0;              //!< Маркер сообщения. Равен \c 0x55AA55AA.
-    uint8_t version = 0x0;              //!< Версия протокола.
-    double latitude = 0;                //!< Широта в **радианах**.
-    double longitude = 0;               //!< Долгота в **радианах**.
-    double altitude = 0;                //!< Высота в метрах.
-    double velocity_course = 0;         //!< Путевая скорость в м/с.
-    double velocity_east = 0;           //!< Скорость на восток в м/с.
-    double velocity_north = 0;          //!< Скорость на север в м/с.
-    double velocity_vertical = 0;       //!< Вертикальная скорость в м/с.
-    double pitch = 0;                   //!< Тангаж БПЛА в радианах.
-    double roll = 0;                    //!< Крен БПЛА в радианах.
-    double yaw = 0;                     //!< Рыскание БПЛА в радианах.
-    double course = 0;                  //!< Курс (азимут) БПЛА в радианах.
-    quint64 time = 0;                   //!< Unix-time на борту.
-    uint8_t satellites = 0;             //!< Текущее количество спутников навигации.
-    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCITT.
+    uint32_t marker = 0x0;              ///< Маркер сообщения. Равен \c 0x55AA55AA.
+    uint8_t version = 0x0;              ///< Версия протокола.
+    double latitude = 0;                ///< Широта в **радианах**.
+    double longitude = 0;               ///< Долгота в **радианах**.
+    double altitude = 0;                ///< Высота в метрах.
+    double velocity_course = 0;         ///< Путевая скорость в м/с.
+    double velocity_east = 0;           ///< Скорость на восток в м/с.
+    double velocity_north = 0;          ///< Скорость на север в м/с.
+    double velocity_vertical = 0;       ///< Вертикальная скорость в м/с.
+    double pitch = 0;                   ///< Тангаж БПЛА в радианах.
+    double roll = 0;                    ///< Крен БПЛА в радианах.
+    double yaw = 0;                     ///< Рыскание БПЛА в радианах.
+    double course = 0;                  ///< Курс (азимут) БПЛА в радианах.
+    quint64 time = 0;                   ///< Unix-time на борту.
+    uint8_t satellites = 0;             ///< Текущее количество спутников навигации.
+    uint16_t crc16 = 0x0;               ///< Контрольная сумма датаграммы \c CRC16_CCITT.
 
     /// \cond
     TelemetryDatagram& operator = (TelemetryDatagram d)
@@ -95,15 +95,31 @@ namespace QuasarSDK::Datagrams
     */
   struct TelemetryRequest
   {
-    uint32_t marker = 0x55bb55bb;       //!< Маркер сообщения. Равен \c 0x55BB55BB.
-    uint8_t init_flag = 0x00;           //!< Тип команды. \c 0x00 завершает передачу, \c 0х01 - начинает.
-    uint16_t port = 0;                  //!< Порт для обратной связи.
-    uint32_t interval_ms = 0;           //!< Интервал передачи телеметрии в мс.
-    uint16_t crc16 = 0x0;               //!< Контрольная сумма датаграммы \c CRC16_CCITT.
+    uint32_t marker = 0x55bb55bb;       ///< Маркер сообщения. Равен \c 0x55BB55BB для телеметрии \c 0x55FF55FF для статуса.
+    uint8_t init_flag = 0x00;           ///< Тип команды. \c 0x00 завершает передачу, \c 0х01 - начинает.
+    uint16_t port = 0;                  ///< Порт для обратной связи.
+    uint32_t interval_ms = 0;           ///< Интервал передачи телеметрии в мс.
+    uint16_t crc16 = 0x0;               ///< Контрольная сумма датаграммы \c CRC16_CCITT.
 
     /// \cond
     friend QDataStream& operator << (QDataStream& dataStream, const TelemetryRequest& data);
     friend QDataStream& operator >> (QDataStream& dataStream, TelemetryRequest& data);
+    /// \endcond
+  };
+
+  struct StatusDatagram
+  {
+    uint32_t marker;
+    uint16_t voltage1;
+    uint16_t voltage2;
+    uint8_t switch_data;
+    uint8_t sar_data;
+    uint8_t r1;
+    uint8_t r2;
+
+    /// \cond
+    friend QDataStream& operator << (QDataStream& dataStream, const StatusDatagram& data);
+    friend QDataStream& operator >> (QDataStream& dataStream, StatusDatagram& data);
     /// \endcond
   };
 
@@ -169,6 +185,32 @@ namespace QuasarSDK::Datagrams
     dataStream >> data.port;
     dataStream >> data.interval_ms;
     dataStream >> data.crc16;
+
+    return dataStream;
+  }
+
+  inline QDataStream &operator <<(QDataStream &dataStream, const StatusDatagram &data)
+  {
+    dataStream << data.marker;
+    dataStream << data.voltage1;
+    dataStream << data.voltage2;
+    dataStream << data.switch_data;
+    dataStream << data.sar_data;
+    dataStream << data.r1;
+    dataStream << data.r2;
+
+    return dataStream;
+  }
+
+  inline QDataStream &operator >>(QDataStream &dataStream, StatusDatagram &data)
+  {
+    dataStream >> data.marker;
+    dataStream >> data.voltage1;
+    dataStream >> data.voltage2;
+    dataStream >> data.switch_data;
+    dataStream >> data.sar_data;
+    dataStream >> data.r1;
+    dataStream >> data.r2;
 
     return dataStream;
   }

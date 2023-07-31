@@ -31,8 +31,8 @@ namespace QuasarSDK
       void ping(); ///< Срабатывает, когда сокет получает телеметрию.
 
     private:
-      Q_SLOT void processTelemetry(QByteArray data);
-      Q_SLOT void requestTelemetry();
+      Q_SLOT void process(QByteArray data);
+      Q_SLOT void request();
 
     private:
       QTimer* m_updateTimer;

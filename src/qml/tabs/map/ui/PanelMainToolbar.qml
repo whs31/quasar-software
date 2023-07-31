@@ -11,13 +11,69 @@ import "../../../widgets" as Widgets
 Pane {
     Material.elevation: 200
 
+    Action {
+        id: toggleModeAction
+        shortcut: "T"
+        onTriggered: {
+            if(NetworkAPI.currentFormingMode < 2)
+                NetworkAPI.currentFormingMode += 1
+            else
+                NetworkAPI.currentFormingMode = 0
+        }
+    }
+
+    Action {
+        id: formAction
+        shortcut: "Space"
+        checkable: NetworkAPI.currentFormingMode !== Net.Telescopic
+        onTriggered: {
+            if(NetworkAPI.currentFormingMode === Net.Telescopic)
+                NetworkAPI.execd.execute(Net.FormTelescopic)
+        }
+        onCheckedChanged: {
+            if(checked) {
+                if(NetworkAPI.currentFormingMode === Net.Strip) {
+                    NetworkAPI.execd.execute(Net.StripStart)
+                    NetworkAPI.remote.isRecordingStrip = true;
+                }
+                else {
+                    NetworkAPI.execd.execute(Net.StreamStart)
+                    NetworkAPI.remote.isRecordingStrip = true;
+                }
+            }
+            else {
+                if(NetworkAPI.currentFormingMode === Net.Strip) {
+                    NetworkAPI.execd.execute(Net.StripStop)
+                    NetworkAPI.remote.isRecordingStrip = false;
+                }
+                else {
+                    NetworkAPI.execd.execute(Net.StreamStop)
+                    NetworkAPI.remote.isRecordingStrip = false;
+                }
+            }
+        }
+    }
+
+    Action {
+        id: calibrateAction
+        shortcut: "Ctrl+H"
+        onTriggered: dialogwindow.open("Калибровка высоты", "Выполнить калибровку высоты? Убедитесь, что БПЛА находится на земле.", "info", 17)
+    }
+
+    Action {
+        id: formSettingsAction
+        shortcut: "J"
+        checkable: true
+        onCheckedChanged: panel_FormParameters.shown = checked
+    }
+
     RowLayout {
         spacing: -2
 
         RoundButton {
             property var m_icons: ["qrc:/icons/vector/toolbar/angle.svg", "qrc:/icons/vector/images/shot.svg", "qrc:/icons/vector/network/stream.svg"]
             property var m_labels: ["Телескопический", "Полосовой", "Потоковый"]
-            property var m_colors: [ColorTheme.active.color(ColorTheme.Accent), ColorTheme.active.color(ColorTheme.Yellow), ColorTheme.active.color(ColorTheme.Maroon)]
+            property var m_colors: [ColorTheme.active.color(ColorTheme.Accent), ColorTheme.active.color(ColorTheme.Yellow), ColorTheme.active.color(ColorTheme.Pink)]
 
             id: button_ToggleMode
 
@@ -32,12 +88,7 @@ Pane {
             Material.background: m_colors[NetworkAPI.currentFormingMode]
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
 
-            onPressed: {
-                if(NetworkAPI.currentFormingMode < 2)
-                    NetworkAPI.currentFormingMode += 1
-                else
-                    NetworkAPI.currentFormingMode = 0
-            }
+            action: toggleModeAction
 
             Widgets.TT { txt: "Переключение между режимами работы РЛС" }
         }
@@ -58,34 +109,9 @@ Pane {
             checkable: NetworkAPI.currentFormingMode !== Net.Telescopic
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: checked ? ColorTheme.active.color(ColorTheme.Red)
+            Material.background: checked ? ColorTheme.active.color(ColorTheme.Orange)
                                          : button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
-            onPressed: {
-                if(NetworkAPI.currentFormingMode === Net.Telescopic)
-                    NetworkAPI.execd.execute(Net.FormTelescopic)
-            }
-            onCheckedChanged: {
-                if(checked) {
-                    if(NetworkAPI.currentFormingMode === Net.Strip) {
-                        NetworkAPI.execd.execute(Net.StripStart)
-                        NetworkAPI.remote.isRecordingStrip = true;
-                    }
-                    else {
-                        NetworkAPI.execd.execute(Net.StreamStart)
-                        NetworkAPI.remote.isRecordingStrip = true;
-                    }
-                }
-                else {
-                    if(NetworkAPI.currentFormingMode === Net.Strip) {
-                        NetworkAPI.execd.execute(Net.StripStop)
-                        NetworkAPI.remote.isRecordingStrip = false;
-                    }
-                    else {
-                        NetworkAPI.execd.execute(Net.StreamStop)
-                        NetworkAPI.remote.isRecordingStrip = false;
-                    }
-                }
-            }
+            action: formAction
 
             Behavior on implicitWidth {
                 NumberAnimation {
@@ -136,7 +162,7 @@ Pane {
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
             Material.background: ColorTheme.active.color(ColorTheme.PrimaryDark)
-            onPressed: dialogwindow.open("Калибровка высоты", "Выполнить калибровку высоты? Убедитесь, что БПЛА находится на земле.", "info", 17)
+            action: calibrateAction
 
             Connections {
                 function onClosed(status, uid) {
@@ -165,7 +191,7 @@ Pane {
             Material.elevation: 30
             Material.foreground: ColorTheme.active.color(ColorTheme.Text)
             Material.background: ColorTheme.active.color(ColorTheme.Surface)
-            onCheckedChanged: panel_FormParameters.shown = checked
+            action: formSettingsAction
 
             Widgets.TT { txt: "Параметры формирования радиолокационных изображений" }
         }

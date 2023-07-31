@@ -8,6 +8,7 @@ import Theme 1.0
 import Config 1.0
 import Markers 1.0
 import Application 1.0
+import Filesystem 1.0
 
 MenuBar {
     Menu {
@@ -60,19 +61,62 @@ MenuBar {
 
     Menu {
         Material.background: ColorTheme.active.color(ColorTheme.Surface)
-        title: "Правка"
+        title: "Изображения"
+        contentWidth: 400
+
+        Action {
+            text: "Обновить выбранный каталог"
+            icon {
+                source: "qrc:/icons/vector/common/refresh.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+
+            onTriggered: {
+                let ret = Filesystem.fetchImageDirectory();
+                if(!ret)
+                    messagebox.open("Не найдены изображения", "В целевой папке не найдены радиолокационные изображения.", "warn");
+            }
+        }
+
+        Action {
+            text: "Выбрать каталог с изображениями"
+            icon {
+                source: "qrc:/icons/vector/common/open.svg"
+                color: ColorTheme.active.color(ColorTheme.Text)
+            }
+
+            onTriggered: window_FileDialog.open()
+        }
 
         MenuSeparator { }
 
         Action {
-            text: "Настройки"
+            text: "Очистить локальный кэш"
             icon {
-                source: "qrc:/icons/vector/common/settings.svg"
+                source: "qrc:/icons/vector/common/delete.svg"
                 color: ColorTheme.active.color(ColorTheme.Text)
             }
-            onTriggered: settingswindow.shown = !settingswindow.shown
+
+            onTriggered: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
+                                           "Все изображения, сохраненные на этом АРМ, будут удалены!", "warn", 3)
         }
     }
+
+//    Menu {
+//        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+//        title: "Правка"
+
+//        MenuSeparator { }
+
+//        Action {
+//            text: "Настройки"
+//            icon {
+//                source: "qrc:/icons/vector/common/settings.svg"
+//                color: ColorTheme.active.color(ColorTheme.Text)
+//            }
+//            onTriggered: settingswindow.shown = !settingswindow.shown
+//        }
+//    }
 
     Menu {
         Material.background: ColorTheme.active.color(ColorTheme.Surface)
@@ -146,6 +190,10 @@ MenuBar {
     Connections {
         target: dialogwindow;
         function onClosed(status, uid) {
+            if(uid === 3 && status === true) {
+                console.log("[GUI] Cache cleared");
+                Paths.clearImageCache();
+            }
             if(uid === 21 && status === true) {
                 console.log("[GUI] Reboot requested");
                 NetworkAPI.execd.execute(Net.Reboot)

@@ -23,18 +23,18 @@ namespace QuasarSDK
 
       [[nodiscard]] QString name() const; void setName(const QString&) noexcept;
 
-      void start(const QString& address) override;
+      Q_INVOKABLE void start(const QString& address) override;
       void start(const QHostAddress& address) noexcept final;
       void start(const QHostAddress& address, uint16_t port) noexcept override;
 
-      void stop() noexcept override;
+      Q_INVOKABLE void stop() noexcept override;
 
       virtual void send(const QByteArray& data) noexcept;
 
-      [[nodiscard]] QString addressString() const noexcept;
+      Q_INVOKABLE [[nodiscard]] QString addressString() const noexcept;
       [[nodiscard]] QHostAddress hostAddress() const noexcept;
-      [[nodiscard]] QString hostAddressString() const noexcept;
-      [[nodiscard]] uint16_t port() const noexcept;
+      Q_INVOKABLE [[nodiscard]] QString hostAddressString() const noexcept;
+      Q_INVOKABLE [[nodiscard]] uint16_t port() const noexcept;
 
     signals:
       /// \brief Срабатывает, когда сокет принимает датаграмму.

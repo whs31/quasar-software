@@ -124,29 +124,6 @@ Map { id: maptab_root;
         }
     }
 
-    MapTab.UAV { id: c_UAV; }
-    MapQuickItems.NotificationsUI { }
-    MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
-    MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
-    RadarDiagram {  id: c_RadarDiagram;
-        angle: 30 - Settings.io.parameter("image/div-correction") // @FIXME
-        uavPosition: NetworkAPI.telemetry.position
-        azimuth: NetworkAPI.telemetry.eulerAxes.y
-        range: 3500
-        direction: Settings.io.parameter("misc/antenna-alignment") === "right" ? 1 : 0
-        type: RadarDiagram.Telescopic
-    }
-
-    MapPolygon { id: c_RadarDiagramView;
-        property bool shown: true;
-        path: c_RadarDiagram.polygon;
-        border.width: 3;
-        border.color: ColorTheme.active.color(ColorTheme.Yellow)
-        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Yellow), 1.2);
-        opacity: shown ? 0.2 : 0;
-        Behavior on opacity { NumberAnimation { duration: 200; } }
-    }
-
     Connections {
         target: dialog_TileDownloader;
         function onClr() {
@@ -191,6 +168,31 @@ Map { id: maptab_root;
         remove: Transition { NumberAnimation { property: "m_opacity"; from: 1; to: 0; duration: 500; easing.type: Easing.OutCubic; } }
         delegate: MapQuickItems.GeoMarker { }
     }
+
+    MapTab.UAV { id: c_UAV; }
+    MapQuickItems.NotificationsUI { }
+    MapTab.UAVRoute { id: c_Route; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
+    MapTab.StripRoute {id: stripRoute; visible: opacity > 0; Behavior on opacity { NumberAnimation { duration: 300; } } }
+    RadarDiagram {  id: c_RadarDiagram;
+        angle: 30 - Settings.io.parameter("image/div-correction") // @FIXME
+        uavPosition: NetworkAPI.telemetry.position
+        azimuth: NetworkAPI.telemetry.eulerAxes.y
+        range: 3500
+        direction: Settings.io.parameter("misc/antenna-alignment") === "right" ? 1 : 0
+        type: RadarDiagram.Telescopic
+    }
+
+    MapPolygon { id: c_RadarDiagramView;
+        property bool shown: true;
+        path: c_RadarDiagram.polygon;
+        border.width: 3;
+        border.color: ColorTheme.active.color(ColorTheme.Yellow)
+        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Yellow), 1.2);
+        opacity: shown ? 0.2 : 0;
+        Behavior on opacity { NumberAnimation { duration: 200; } }
+    }
+
+    MapQuickItems.WorkstationPosition { }
 
     property var tileloaderlastclicked: QtPositioning.coordinate(0, 0);
     MapPolygon { id: tileloaderpolygon;
@@ -356,35 +358,5 @@ Map { id: maptab_root;
         Material.primary: Material.primary
         Material.accent: Material.accent
         onCheckedChanged: panel_Parameters.shown = checked
-    }
-
-    MapTabUI.PanelImages {
-        id: panel_ImageTools
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-        }
-        opacity: 0.85
-    }
-
-    RoundButton {
-        id: button_ToggleImageTools
-        anchors {
-            bottom: panel_ImageTools.top
-            bottomMargin: -7
-            left: panel_ImageTools.left
-            leftMargin: -7
-        }
-        font.family: root.mainfont
-        height: 40
-        radius: 4
-        icon.source: panel_ImageTools.shown ? "qrc:/icons/vector/common/collapse.svg"
-                                            : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
-        text: panel_ImageTools.shown ? "" : "Работа с изображениями"
-        Material.elevation: 30
-        Material.background: Material.background
-        checkable: true
-        onCheckedChanged: panel_ImageTools.shown = checked
     }
 }

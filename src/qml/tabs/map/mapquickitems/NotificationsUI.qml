@@ -3,7 +3,7 @@ import QtLocation 5.15
 import QtPositioning 5.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
-import QtGraphicalEffects 1.15
+import Qt5Compat.GraphicalEffects
 import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0

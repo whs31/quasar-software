@@ -12,6 +12,14 @@
 #include "network_enums.h"
 #include "telemetry.h"
 #include "remotedata.h"
+#include "telemetrysocket.h"
+#include "execdsocket.h"
+#include "outputsocket.h"
+#include "stripsocket.h"
+#include "tcpserver.h"
+#include "pingtester.h"
+#include "redirectserver.h"
+#include "statussocket.h"
 #include "IO/saroutputmodel.h"
 
 class QTimer;

@@ -9,6 +9,7 @@ import Config 1.0
 Page {
     Material.primary: ColorTheme.active.color(ColorTheme.Primary)
     Material.accent: ColorTheme.active.color(ColorTheme.Primary)
+
     header: ToolBar {
         Material.primary: ColorTheme.active.color(ColorTheme.Primary)
 
@@ -59,13 +60,15 @@ Page {
         TextField {
             Layout.rightMargin: 30
 
-            validator: RegExpValidator { regExp:  /^((?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){0,3}(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/ }
+            validator: RegularExpressionValidator { regularExpression:  /^((?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\.){0,3}(?:[0-1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: Settings.setParameter(key, text)
             horizontalAlignment: Text.AlignRight
+
+            Material.roundedScale: Material.NotRounded
         }
     }
 
@@ -86,7 +89,7 @@ Page {
         TextField {
             Layout.rightMargin: 30
 
-            validator: RegExpValidator { regExp:  /^((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))$/ }
+            validator: RegularExpressionValidator { regularExpression:  /^((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
@@ -112,7 +115,7 @@ Page {
         TextField {
             Layout.rightMargin: 30
 
-            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegularExpressionValidator { regularExpression: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: Settings.io.parameter(key)
@@ -221,12 +224,12 @@ Page {
                         Layout.leftMargin: 60
                         text: "Единицы изм. угла в метаданных" + ":"
                         color: ColorTheme.active.color(ColorTheme.Text)
-                        font { weight: Font.DemiBold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                     }
 
                     RadioButton {
                         Layout.rightMargin: 30
-                        font { weight: Font.Bold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                         text: "Градусы"
                         checked: !Settings.io.parameter("image/radians")
                         onPressed: Settings.setParameter("image/radians", false)
@@ -236,7 +239,7 @@ Page {
 
                     RadioButton {
                         Layout.rightMargin: 30
-                        font { weight: Font.Bold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                         text: "Радианы"
                         checked: Settings.io.parameter("image/radians")
                         onPressed: Settings.setParameter("image/radians", true)
@@ -255,12 +258,12 @@ Page {
                         Layout.leftMargin: 60
                         text: "Положение антенны на БПЛА" + ":"
                         color: ColorTheme.active.color(ColorTheme.Text)
-                        font { weight: Font.DemiBold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                     }
 
                     RadioButton {
                         Layout.rightMargin: 30
-                        font { weight: Font.Bold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                         text: "Слева"
                         checked: Settings.io.parameter("misc/antenna-alignment") === "left"
                         onPressed: Settings.setParameter("misc/antenna-alignment", "left")
@@ -270,7 +273,7 @@ Page {
 
                     RadioButton {
                         Layout.rightMargin: 30
-                        font { weight: Font.Bold; pixelSize: 14 }
+                        font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
                         text: "Справа"
                         checked: Settings.io.parameter("misc/antenna-alignment") === "right"
                         onPressed: Settings.setParameter("misc/antenna-alignment", "right")

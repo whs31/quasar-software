@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
-import QtGraphicalEffects 1.15
+import Qt5Compat.GraphicalEffects
 
 import QuaSAR.API 1.0
 

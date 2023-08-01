@@ -3,7 +3,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtPositioning 5.15
-import QtGraphicalEffects 1.15
+import Qt5Compat.GraphicalEffects
 
 import Theme 1.0
 import ClickHandler 1.0

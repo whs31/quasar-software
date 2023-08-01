@@ -1,9 +1,9 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Controls.Material 2.15
-import QtLocation 5.15
-import QtPositioning 5.15
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtLocation
+import QtPositioning
+import QtQuick.Layouts
 
 import QuaSAR.API 1.0
 
@@ -34,7 +34,6 @@ Map { id: maptab_root;
     }
 
     tilt: 15;
-    gesture.acceptedGestures: MapGestureArea.PanGesture | MapGestureArea.PinchGesture;
     plugin: Plugin {
         name: "osm";
 
@@ -54,6 +53,34 @@ Map { id: maptab_root;
 
     Behavior on center { CoordinateAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
     Behavior on zoomLevel { NumberAnimation { duration: 250; easing.type: Easing.InOutCubic; } }
+
+    PinchHandler {
+        id: pinch
+        target: null
+        onActiveChanged: if (active) {
+            maptab_root.startCentroid = maptab_root.toCoordinate(pinch.centroid.position, false)
+        }
+        onScaleChanged: (delta) => {
+            maptab_root.zoomLevel += Math.log2(delta)
+            maptab_root.alignCoordinateToPoint(maptab_root.startCentroid, pinch.centroid.position)
+        }
+        grabPermissions: PointerHandler.TakeOverForbidden
+    }
+
+    WheelHandler {
+        id: wheel
+        acceptedDevices: Qt.platform.pluginName === "cocoa" || Qt.platform.pluginName === "wayland"
+            ? PointerDevice.Mouse | PointerDevice.TouchPad
+            : PointerDevice.Mouse
+        rotationScale: 1/120
+        property: "zoomLevel"
+    }
+
+    DragHandler {
+        id: drag
+        target: null
+        onTranslationChanged: (delta) => maptab_root.pan(-delta.x, -delta.y)
+    }
 
     Connections {
         target: NetworkAPI.telemetry;

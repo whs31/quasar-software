@@ -16,7 +16,7 @@ add_project_meta(META_FILES)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
+find_package(QT NAMES Qt6 REQUIRED COMPONENTS Core Quick)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
     Core
     Quick
@@ -63,8 +63,8 @@ add_subdirectory(libs/libabstract)
 #add_subdirectory(libs/corrosion) # requires rustc package
 add_subdirectory(services/UpdateService)
 
-target_link_libraries(${PROJECT_NAME}
-    PRIVATE Qt${QT_VERSION_MAJOR}::Core
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::Network

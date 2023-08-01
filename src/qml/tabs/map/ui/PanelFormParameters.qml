@@ -50,7 +50,7 @@ Pane {
         }
 
         TextField {
-            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegularExpressionValidator { regularExpression: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
@@ -74,7 +74,7 @@ Pane {
         }
 
         TextField {
-            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegularExpressionValidator { regularExpression: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
@@ -98,7 +98,7 @@ Pane {
         }
 
         TextField {
-            validator: RegExpValidator { regExp: /^(.+)\/([^\/]+)$/ }
+            validator: RegularExpressionValidator { regularExpression: /^(.+)\/([^\/]+)$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
@@ -136,7 +136,7 @@ Pane {
         }
 
         TextField {
-            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegularExpressionValidator { regularExpression: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
@@ -177,7 +177,7 @@ Pane {
         TextField {
             property bool autoMode: __switch.checked
             enabled: !autoMode
-            validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
+            validator: RegularExpressionValidator { regularExpression: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue

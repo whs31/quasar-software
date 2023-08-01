@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
-import QtQuick.Dialogs 1.3
+import QtQuick.Dialogs
 import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
@@ -24,6 +24,8 @@ ApplicationWindow  { id: window_root;
     Material.primary: ColorTheme.active.color(ColorTheme.Accent)
     Material.foreground: ColorTheme.active.color(ColorTheme.Text)
     Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+    Material.roundedScale: Material.ExtraSmallScale
+    Material.containerStyle: Material.Filled
 
     title: "QuaSAR";
     minimumWidth: 1280;
@@ -72,29 +74,27 @@ ApplicationWindow  { id: window_root;
         height: parent.height - y
     }
 
-    FileDialog {
+    FolderDialog {
         id: window_FileDialog
-        property string s_Url: window_FileDialog.fileUrl
+        property string s_Url: window_FileDialog.selectedFolder
         title: "Выберите каталог с радиолокационными изображениями";
-        folder: Paths.imageCache()
-        selectFolder: true
+        currentFolder: Paths.imageCache()
         onAccepted: {
-            console.log("[GUI] Selected folder " + window_FileDialog.fileUrl)
-            Settings.setParameter("state/folder", fileUrl)
+            console.log("[GUI] Selected folder " + window_FileDialog.selectedFolder)
+            Settings.setParameter("state/folder", selectedFolder)
             Settings.save()
             Filesystem.fetchImageDirectory()
         }
         onRejected: console.log("[GUI] Folder selection cancelled");
     }
 
-    FileDialog { id: window_ExportDialog
-        property string s_Url: window_ExportDialog.fileUrl
+    FolderDialog { id: window_ExportDialog
+        property string s_Url: window_ExportDialog.selectedFolder
         title: "Выберите каталог для экспорта"
-        folder: Paths.imageCache()
-        selectFolder: true
+        currentFolder: Paths.imageCache()
         onAccepted: {
-            console.log("[GUI] Selected folder " + window_ExportDialog.fileUrl)
-            let b = ImagesModel.exportSelectedImages(fileUrl)
+            console.log("[GUI] Selected folder " + window_ExportDialog.selectedFolder)
+            let b = ImagesModel.exportSelectedImages(selectedFolder)
             if(!b)
                 messagebox.open("Нет экспортируемых РЛИ", "Вы не отметили для экспорта ни одного изображения с карты. Пожалуйста, отметьте изображения для экспорта.", "warn")
         }
@@ -153,7 +153,7 @@ ApplicationWindow  { id: window_root;
             }
         }
 
-        Button {
+        ToolButton {
             id: sidepanelButton
             z: 100
             anchors {
@@ -170,9 +170,23 @@ ApplicationWindow  { id: window_root;
 
             width: 52
             height: 52
+            display: AbstractButton.IconOnly
 
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+            Material.roundedScale: Material.NotRounded
+            Material.containerStyle: Material.Filled
             action: openSidePanelAction
+        }
+
+        Rectangle {
+            color: ColorTheme.active.color(ColorTheme.BaseShade)
+            anchors {
+                left: parent.left
+                leftMargin: 0
+                top: parent.top
+                topMargin: -6
+            }
+            height: 52
+            width: 52
         }
 
         TabBar { id: tabbar

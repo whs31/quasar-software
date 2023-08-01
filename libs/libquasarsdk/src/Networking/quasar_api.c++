@@ -16,15 +16,7 @@
 #include <QtCore/QTimer>
 #include <QtCore/QVariant>
 #include "network_config.h"
-#include "telemetrysocket.h"
-#include "execdsocket.h"
 #include "execdparser.h"
-#include "outputsocket.h"
-#include "tcpserver.h"
-#include "stripsocket.h"
-#include "pingtester.h"
-#include "redirectserver.h"
-#include "statussocket.h"
 
 namespace QuasarSDK
 {

@@ -12,6 +12,9 @@ Drawer {
     id: drawer
     property int selectedIndex: 0
 
+    Material.roundedScale: Material.NotRounded
+    Material.containerStyle: Material.Filled
+
     SwipeView {
         currentIndex: selectedIndex
         interactive: false

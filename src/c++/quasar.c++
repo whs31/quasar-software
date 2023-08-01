@@ -1,7 +1,8 @@
 #include "quasar.h"
 #include <QtCore/QProcess>
+#include <QtCore/QFile>
 #include <QtCore/QTimer>
-#include <QtQml/qqml.h>
+#include <QtQml/QQmlModuleRegistration>
 #include <SDK/RealtimeLinePlot>
 #include <SDK/MatrixPlot>
 #include <SDK/Gizmos>

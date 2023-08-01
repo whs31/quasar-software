@@ -7,10 +7,10 @@ import Theme 1.0
 import Config 1.0
 
 Page {
-    Material.primary: ColorTheme.active.color(ColorTheme.Accent)
-    Material.accent: ColorTheme.active.color(ColorTheme.Accent)
+    Material.primary: ColorTheme.active.color(ColorTheme.Primary)
+    Material.accent: ColorTheme.active.color(ColorTheme.Primary)
     header: ToolBar {
-        Material.primary: ColorTheme.active.color(ColorTheme.Accent)
+        Material.primary: ColorTheme.active.color(ColorTheme.Primary)
 
         RowLayout {
             anchors.fill: parent
@@ -156,7 +156,7 @@ Page {
         Rectangle {
             Layout.fillWidth: true
             height: 1.5
-            color: ColorTheme.active.color(ColorTheme.Accent)
+            color: ColorTheme.active.color(ColorTheme.Primary)
         }
 
         Label {
@@ -168,7 +168,7 @@ Page {
             }
 
             text: parent.headerText
-            color: ColorTheme.active.color(ColorTheme.Accent)
+            color: ColorTheme.active.color(ColorTheme.Primary)
         }
     }
 

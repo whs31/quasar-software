@@ -55,7 +55,7 @@ Drawer {
                 opacity: enabled ? 1.0 : 0.4
                 icon {
                     source: iconPath
-                    color: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Accent)
+                    color: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Primary)
                                              : ColorTheme.active.color(ColorTheme.Orange)
                 }
 
@@ -64,7 +64,7 @@ Drawer {
                     weight: Font.Bold
                     capitalization: Font.AllUppercase
                 }
-                Material.foreground: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Accent)
+                Material.foreground: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Primary)
                                                        : ColorTheme.active.color(ColorTheme.Orange)
 
                 onPressed: selectedIndex = index + 1

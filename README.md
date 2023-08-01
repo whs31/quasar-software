@@ -26,15 +26,16 @@
 <table>
 <caption id="multi_row">Поддержка систем</caption>
 <tr><th>Операционная система    <th>Поддерживается   <th>Последняя версия приложения   <th>Примечания
-<tr><td>Windows 10         </td><td>Да          </td><td>2.11.8                   </td><td>                                                 </tr>
-<tr><td>Windows 11         </td><td>Да          </td><td>2.11.8                   </td><td>                                                 </tr>
+<tr><td>Windows 10         </td><td>Да          </td><td>2.13.0                   </td><td>                                                 </tr>
+<tr><td>Windows 11         </td><td>Да          </td><td>2.13.0                   </td><td>                                                 </tr>
 <tr><td>Astra Linux 1.6    </td><td>По запросу  </td><td>1.8.4                    </td><td>Требует сборки под стандарт C++14                </tr>
-<tr><td>Astra Linux 1.7    </td><td>Да          </td><td>2.11.7                   </td><td>                                                 </tr>
-<tr><td>Manjaro Linux      </td><td>Да          </td><td>2.12.0                   </td><td>                                                 </tr>
+<tr><td>Astra Linux 1.7    </td><td>Да          </td><td>2.12.0                   </td><td>                                                 </tr>
+<tr><td>Manjaro Linux      </td><td>Да          </td><td>2.13.0                   </td><td>                                                 </tr>
 <tr><td>Fedora Linux       </td><td>Да          </td><td>2.12.0                   </td><td>                                                 </tr>
 <tr><td>Ubuntu Linux       </td><td>Частично    </td><td>2.12.0                   </td><td>Не работает на версиях Ubuntu старше 21.10       </tr>
 <tr><td>Android            </td><td>В разработке</td><td>2.12.0+                  </td><td>Находится в процессе разработки и тестирования   </tr>
 </table>
+
 
 ### Стек
 В проекте используются различные языки, фреймворки и сторонние библиотеки.

@@ -17,7 +17,7 @@ RowLayout {
     property string private_LatSuffix: latitude > 0 ? "°N" : "°S"
     property string private_LonSuffix: longitude > 0 ? "°E" : "°W"
 
-    Button {
+    ToolButton {
         flat: true
         icon {
             source: "qrc:/icons/vector/toolbar/coord.svg"
@@ -25,10 +25,10 @@ RowLayout {
         }
 
         font {
-            pixelSize: 14
+            pixelSize: 13
             weight: Font.Bold
         }
-        text: Number(latitude).toFixed(7) + private_LatSuffix + ", " + Number(longitude).toFixed(7) + private_LonSuffix
+        text: Number(latitude).toFixed(7) + private_LatSuffix + " " + Number(longitude).toFixed(7) + private_LonSuffix
         Material.foreground: ColorTheme.active.color(ColorTheme.Text)
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
@@ -37,7 +37,7 @@ RowLayout {
         Widgets.TT { txt: "Текущие GPS-координаты БПЛА" }
     }
 
-    Button {
+    ToolButton {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/altitude.svg"
@@ -45,19 +45,35 @@ RowLayout {
         }
 
         font {
-            pixelSize: 14
+            pixelSize: 13
             weight: Font.Bold
         }
-        text: Number(altitude).toFixed(0)+  " м, абс " + Number(seaAltitude).toFixed(0) + " м"
+        text: Number(altitude).toFixed(0) +  " м"
         Material.foreground: ColorTheme.active.color(ColorTheme.Text)
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
-        Layout.preferredWidth: 165
+        Layout.preferredWidth: 90
 
-        Widgets.TT { txt: "Текущая относительная и абсолютная (над уровнем моря) высота БПЛА" }
+        Widgets.TT { txt: "Текущая относительная высота БПЛА" }
     }
 
-    Button {
+    ToolButton {
+        flat: true
+
+        font {
+            pixelSize: 13
+            weight: Font.DemiBold
+        }
+        text: Number(seaAltitude).toFixed(0) + " м"
+        Material.foreground: ColorTheme.active.color(ColorTheme.Subtext)
+        Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
+
+        Layout.preferredWidth: 65
+
+        Widgets.TT { txt: "Текущая абсолютная (над уровнем моря) высота БПЛА" }
+    }
+
+    ToolButton {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/speed.svg"
@@ -65,7 +81,7 @@ RowLayout {
         }
 
         font {
-            pixelSize: 14
+            pixelSize: 13
             weight: Font.Bold
         }
         text: Number(velocity).toFixed(0)+  " км/ч"
@@ -77,7 +93,7 @@ RowLayout {
         Widgets.TT { txt: "Текущая скорость БПЛА в километрах в час" }
     }
 
-    Button {
+    ToolButton {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/compass.svg"
@@ -85,7 +101,7 @@ RowLayout {
         }
 
         font {
-            pixelSize: 14
+            pixelSize: 13
             weight: Font.Bold
         }
         text: Number(direction).toFixed(1)+  "°"
@@ -97,7 +113,7 @@ RowLayout {
         Widgets.TT { txt: "Текущий курс БПЛА относительно севера" }
     }
 
-    Button {
+    ToolButton {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/antenna.svg"
@@ -105,8 +121,8 @@ RowLayout {
         }
 
         font {
-            pixelSize: 14
-            weight: Font.Bold
+            pixelSize: 13
+            weight: Font.DemiBold
         }
         text: Number(satellitesCount).toFixed(0)
         Material.foreground: ColorTheme.active.color(ColorTheme.Subtext)

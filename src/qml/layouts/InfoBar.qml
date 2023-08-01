@@ -23,9 +23,8 @@ ToolBar {
                 offlineMode: NetworkAPI.offlineMode
                 connected: NetworkAPI.isConnected
                 delay: NetworkAPI.currentNetworkDelay
+                Layout.fillWidth: true
             }
-
-            Info.ConnectButton { }
 
             ToolSeparator { }
 
@@ -37,11 +36,11 @@ ToolBar {
                 velocity: NetworkAPI.telemetry.velocity.x
                 direction: NetworkAPI.telemetry.eulerAxes.y
                 satellitesCount: NetworkAPI.telemetry.satellites
+                Layout.fillWidth: true
             }
 
             ToolSeparator { }
             Info.StorageWidget { }
-
             ToolSeparator { }
         }
     }

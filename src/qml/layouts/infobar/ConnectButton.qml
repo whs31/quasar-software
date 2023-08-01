@@ -28,9 +28,10 @@ RowLayout {
         Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
         Material.background: NetworkAPI.isConnected ? ColorTheme.active.color(ColorTheme.Red)
                                                     : ColorTheme.active.color(ColorTheme.PrimaryLightest)
-        Layout.preferredHeight: 35
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
         Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
+
+        Layout.preferredHeight: 36
 
         onPressed: {
             let flag = NetworkAPI.isConnected
@@ -71,11 +72,11 @@ RowLayout {
         enabled: !button_Connect.enabled;
         opacity: enabled ? 1 : 0;
         height: 40;
-        width: 40;
+        implicitWidth: enabled ? 30 : 0;
         running: enabled;
 
         Layout.preferredHeight: 30
-        Layout.preferredWidth: 30
         Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 300; } }
+        Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 300; } }
     }
 }

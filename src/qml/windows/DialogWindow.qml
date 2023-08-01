@@ -54,6 +54,18 @@ Pane { id: control;
     implicitWidth: 600;
     implicitHeight: 180;
 
+    Action {
+        id: acceptAction
+        shortcut: "Return"
+        onTriggered: accept()
+    }
+
+    Action {
+        id: declineAction
+        shortcut: "Esc"
+        onTriggered: decline()
+    }
+
     Image { id: iconItem;
         width: 75;
         height: 75;
@@ -94,7 +106,7 @@ Pane { id: control;
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.Dark)
             text: "Ок";
-            onPressed: accept();
+            action: acceptAction
         }
 
         RoundButton { id: button_Cancel;
@@ -106,7 +118,7 @@ Pane { id: control;
             Material.elevation: 30;
             Material.background: ColorTheme.active.color(ColorTheme.Dark)
             text: "Отмена";
-            onPressed: decline();
+            action: declineAction
         }
     }
 }

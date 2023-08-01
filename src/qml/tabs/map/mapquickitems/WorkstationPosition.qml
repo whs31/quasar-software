@@ -13,8 +13,8 @@ MapQuickItem {
         source: "qrc:/icons/vector/network/antenna.svg"
         smooth: true
         antialiasing: true
-        sourceSize.x: 32
-        sourceSize.y: 32
+        sourceSize.width: 32
+        sourceSize.height: 32
         layer {
             enabled: true
             effect: ColorOverlay {
@@ -28,9 +28,5 @@ MapQuickItem {
         updateInterval: 1000
         active: true
         preferredPositioningMethods: PositionSource.AllPositioningMethods
-        onPositionChanged: {
-            let c = gpsSource.position.coordinate
-            console.error(c.latitude, c.longitude)
-        }
     }
 }

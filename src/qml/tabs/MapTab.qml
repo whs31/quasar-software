@@ -359,34 +359,4 @@ Map { id: maptab_root;
         Material.accent: Material.accent
         onCheckedChanged: panel_Parameters.shown = checked
     }
-
-    MapTabUI.PanelImages {
-        id: panel_ImageTools
-        anchors {
-            bottom: parent.bottom
-            left: parent.left
-        }
-        opacity: 0.85
-    }
-
-    RoundButton {
-        id: button_ToggleImageTools
-        anchors {
-            bottom: panel_ImageTools.top
-            bottomMargin: -7
-            left: panel_ImageTools.left
-            leftMargin: -7
-        }
-        font.family: root.mainfont
-        height: 40
-        radius: 4
-        icon.source: panel_ImageTools.shown ? "qrc:/icons/vector/common/collapse.svg"
-                                            : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
-        text: panel_ImageTools.shown ? "" : "Работа с изображениями"
-        Material.elevation: 30
-        Material.background: Material.background
-        checkable: true
-        onCheckedChanged: panel_ImageTools.shown = checked
-    }
 }

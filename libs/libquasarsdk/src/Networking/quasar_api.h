@@ -25,11 +25,13 @@ namespace QuasarSDK
   class TCPServer;
   class PingTester;
   class OutputRedirectServer;
+  class StatusSocket;
 
   class QuasarAPI : public QObject
   {
     Q_OBJECT
     Q_PROPERTY(ExecdSocket* execd READ execdSocket CONSTANT)
+    Q_PROPERTY(StatusSocket* statusSocket READ statusSocket CONSTANT)
     // other sockets belongs here
     Q_PROPERTY(Telemetry* telemetry READ telemetry CONSTANT)
     Q_PROPERTY(RemoteData* remote READ remote CONSTANT)
@@ -38,6 +40,7 @@ namespace QuasarSDK
     Q_PROPERTY(float currentNetworkDelay READ currentNetworkDelay WRITE setCurrentNetworkDelay NOTIFY currentNetworkDelayChanged)
     Q_PROPERTY(int currentFormingMode READ currentFormingMode WRITE setCurrentFormingMode NOTIFY currentFormingModeChanged)
     Q_PROPERTY(bool compatibilityMode READ compatibilityMode WRITE setCompatibilityMode NOTIFY compatibilityModeChanged)
+    Q_PROPERTY(bool offlineMode READ offlineMode WRITE setOfflineMode NOTIFY offlineModeChanged)
 
     public:
       static QuasarAPI* get();
@@ -49,12 +52,14 @@ namespace QuasarSDK
       [[nodiscard]] float currentNetworkDelay() const; void setCurrentNetworkDelay(float);
       [[nodiscard]] int currentFormingMode() const; void setCurrentFormingMode(int);
       [[nodiscard]] bool compatibilityMode() const; void setCompatibilityMode(bool);
+      [[nodiscard]] bool offlineMode() const; void setOfflineMode(bool);
 
       [[nodiscard]] TelemetrySocket* telemetrySocket();
       [[nodiscard]] ExecdSocket* execdSocket();
       [[nodiscard]] OutputSocket* outputSocket();
       [[nodiscard]] TCPServer* tcpServer();
       [[nodiscard]] StripSocket* stripSocket();
+      [[nodiscard]] StatusSocket* statusSocket();
 
       Q_INVOKABLE void start(const QString& telemetry_request_address,
                  const QString& telemetry_receive_address,
@@ -80,6 +85,7 @@ namespace QuasarSDK
       void currentNetworkDelayChanged();
       void currentFormingModeChanged();
       void compatibilityModeChanged();
+      void offlineModeChanged();
 
       /**
        * \brief Срабатывает, когда сервер TCP-IP завершает приём данных.
@@ -151,6 +157,7 @@ namespace QuasarSDK
       float m_currentNetworkDelay;
       int m_currentFormingMode;
       bool m_compatibilityMode;
+      bool m_offlineMode;
 
       QTimer* m_networkDelayTimer;
 
@@ -167,6 +174,7 @@ namespace QuasarSDK
       OutputSocket* m_outputSocket;
       TCPServer* m_tcpServer;
       StripSocket* m_stripSocket;
+      StatusSocket* m_statusSocket;
 
       std::array<QString, 2> m_remote_address_list;
       std::array<QString, 5> m_ping_address_list;

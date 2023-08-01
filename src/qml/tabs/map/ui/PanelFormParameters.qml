@@ -175,14 +175,15 @@ Pane {
         }
 
         TextField {
-            enabled: !__switch.checked
+            property bool autoMode: __switch.checked
+            enabled: !autoMode
             validator: RegExpValidator { regExp: /^[0-9]*(\.[0-9]{0,2})?$/ }
             selectByMouse: true
             inputMethodHints: Qt.ImhFormattedNumbersOnly
             text: defaultValue
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
             onEditingFinished: NetworkAPI.execd.setArgument(key, text, category)
-            onEnabledChanged: {
+            onAutoModeChanged: {
                 text = defaultValue
                 NetworkAPI.execd.setArgument(key, text, category)
             }

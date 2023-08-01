@@ -14,9 +14,8 @@
 #include "common_func.h"
 #include "crc16.h"
 
-constexpr static uint32_t MARKER = 0x55bb55bb;
-constexpr static uint32_t RECV_MARKER_LITTLE = 0xaa55aa55;
-constexpr static uint32_t RECV_MARKER_BIG = 0x55aa55aa;
+constexpr static uint32_t TELEMETRY_MARKER = 0x55BB55BB;
+constexpr static uint32_t TELEMETRY_RECEIVE_MARKER = 0xAA55AA55;
 
 namespace QuasarSDK
 {
@@ -37,8 +36,8 @@ namespace QuasarSDK
   {
     this->setName("Telemetry");
 
-    connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::requestTelemetry);
-    connect(this, &TelemetrySocket::received, this, &TelemetrySocket::processTelemetry);
+    connect(m_updateTimer, &QTimer::timeout, this, &TelemetrySocket::request);
+    connect(this, &TelemetrySocket::received, this, &TelemetrySocket::process);
   }
 
   /**
@@ -66,9 +65,9 @@ namespace QuasarSDK
     }
     catch(const std::invalid_argument& o)
     {
-      qCritical() << "[TELEMETRY] Catched exception:" << o.what();
+      qCritical() << "[TELEMETRY] Caught exception:" << o.what();
     }
-    this->requestTelemetry();
+    this->request();
     m_updateTimer->start((int) (30 * 1'000));
     qDebug().noquote() << "[TELEMETRY] Started reading at frequency of" << 1 / frequency() << "Hz";
   }
@@ -103,25 +102,18 @@ namespace QuasarSDK
   bool TelemetrySocket::checkCRC() const { return m_checkCRC; }
   void TelemetrySocket::setCheckCRC(bool o) { m_checkCRC = o; }
 
-  void TelemetrySocket::processTelemetry(QByteArray data)
+  void TelemetrySocket::process(QByteArray data)
   {
-    uint32_t marker = *(uint32_t*) data.data();
-    if(marker != RECV_MARKER_LITTLE)
+    uint32_t marker = *(uint32_t*)data.data();
+    if(marker != TELEMETRY_RECEIVE_MARKER)
     {
-      qWarning() << "[TELEMETRY] Triggered first marker mismatch";
+      qWarning() << "[TELEMETRY] Received unknown marker:" << Qt::hex << marker << Qt::dec;
       return;
     }
-
     QDataStream stream(&data, ReadOnly);
     stream.setByteOrder(QDataStream::BigEndian);
     Datagrams::TelemetryDatagram received;
     stream >> received;
-
-    if(received.marker != RECV_MARKER_BIG)
-    {
-      qWarning() << "[TELEMETRY] Triggered second marker mismatch";
-      return;
-    }
 
     const float MS_TO_KMH = 3.6;
 
@@ -140,34 +132,34 @@ namespace QuasarSDK
     output->setDatagram(received);
 
     uint16_t crc = checkCRC() ? Utils::crc16_ccitt((const char*) &received, sizeof(Datagrams::TelemetryDatagram) - sizeof(uint16_t))
-                             : received.crc16;
+                              : received.crc16;
     if(crc != received.crc16)
-      qWarning().noquote().nospace() << "[TELSOCK] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
+      qWarning().noquote().nospace() << "[TELEMETRY] Checksum mismatch [" << crc << " : " << received.crc16 << "]";
 
     emit metrics("0x" + QString::number(received.marker, 16) + " " + QString::number(received.version) + " "
-                       + QString::number(received.latitude, 'f', 7) + " " +
-                       QString::number(received.longitude, 'f', 7) + " "
-                       + QString::number(received.altitude, 'f', 2) + " " +
-                       QString::number(received.velocity_course, 'f', 1) + " "
-                       + QString::number(received.velocity_east, 'f', 1) + " " +
-                       QString::number(received.velocity_north, 'f', 1) + " "
-                       + QString::number(received.velocity_vertical, 'f', 1) + " " +
-                       QString::number(received.pitch, 'f', 2) + " "
-                       + QString::number(received.roll, 'f', 2) + " " + QString::number(received.yaw, 'f', 2) + " "
-                       + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " " +
-                       QString::number(received.satellites)
-                       + " 0x" + QString::number(received.crc16, 16), sizeof(received), false);
+                 + QString::number(received.latitude, 'f', 7) + " " +
+                 QString::number(received.longitude, 'f', 7) + " "
+                 + QString::number(received.altitude, 'f', 2) + " " +
+                 QString::number(received.velocity_course, 'f', 1) + " "
+                 + QString::number(received.velocity_east, 'f', 1) + " " +
+                 QString::number(received.velocity_north, 'f', 1) + " "
+                 + QString::number(received.velocity_vertical, 'f', 1) + " " +
+                 QString::number(received.pitch, 'f', 2) + " "
+                 + QString::number(received.roll, 'f', 2) + " " + QString::number(received.yaw, 'f', 2) + " "
+                 + QString::number(received.course, 'f', 2) + " " + QString::number(received.time) + " " +
+                 QString::number(received.satellites)
+                 + " 0x" + QString::number(received.crc16, 16), sizeof(received), false);
     emit ping();
   }
 
-  void TelemetrySocket::requestTelemetry()
+  void TelemetrySocket::request()
   {
     QByteArray buffer;
     QDataStream stream(&buffer, QIODevice::WriteOnly);
     stream.setByteOrder(QDataStream::BigEndian);
     stream.setFloatingPointPrecision(QDataStream::DoublePrecision);
 
-    Datagrams::TelemetryRequest request = { MARKER, 0x01, (uint16_t)(recv_port), (uint32_t)(this->frequency() * 1'000), 0 };
+    Datagrams::TelemetryRequest request = { TELEMETRY_MARKER, 0x01, (uint16_t)(recv_port), (uint32_t)(this->frequency() * 1'000), 0 };
     uint16_t crc = Utils::crc16_ccitt((const char*)&request, sizeof(Datagrams::TelemetryRequest) - sizeof(uint16_t));
     request.crc16 = crc;
 
@@ -178,4 +170,6 @@ namespace QuasarSDK
                        + QString::number(request.port) + " " + QString::number(request.interval_ms)
                        + " 0x" + QString::number(request.crc16, 16), sizeof(request), true);
   }
+
+
 } // QuasarSDK

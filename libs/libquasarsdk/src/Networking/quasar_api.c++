@@ -24,6 +24,7 @@
 #include "stripsocket.h"
 #include "pingtester.h"
 #include "redirectserver.h"
+#include "statussocket.h"
 
 namespace QuasarSDK
 {
@@ -46,6 +47,7 @@ namespace QuasarSDK
       , m_currentNetworkDelay(Config::get()->value<float>("NETWORK_DELAY_THRESHOLD_DISCONNECT") + .1f)
       , m_currentFormingMode(static_cast<int>(Enums::Telescopic))
       , m_compatibilityMode(false)
+      , m_offlineMode(true)
       , m_networkDelayTimer(new QTimer(this))
       , m_de10PingTester(new PingTester(this))
       , m_jetson0PingTester(new PingTester(this))
@@ -53,11 +55,12 @@ namespace QuasarSDK
       , m_com1PingTester(new PingTester(this))
       , m_com2PingTester(new PingTester(this))
       , m_redirectServer(new OutputRedirectServer(this))
-      , m_telemetrySocket(new TelemetrySocket(this, m_telemetry))
+      , m_telemetrySocket(new TelemetrySocket(this, telemetry()))
       , m_execdSocket(new ExecdSocket(compatibilityMode(), this))
       , m_outputSocket(new OutputSocket(this))
       , m_tcpServer(new TCPServer(this))
       , m_stripSocket(new StripSocket(this))
+      , m_statusSocket(new StatusSocket(this, remote()))
       , m_remote_address_list({"127.0.0.1:25565", "127.0.0.1:25560"})
       , m_ping_address_list({"127.0.0.1", "127.0.0.1", "127.0.0.1", "127.0.0.1", "127.0.0.1"})
       , m_redirect(false)
@@ -66,6 +69,7 @@ namespace QuasarSDK
     qDebug() << "$ [QUASAR] Beginning network setup";
 
     qRegisterMetaType<ExecdSocket*>("ExecdSocket*");
+    qRegisterMetaType<StatusSocket*>("StatusSocket*");
 
     // delay handling
     m_networkDelayTimer->start(100);
@@ -221,6 +225,15 @@ namespace QuasarSDK
      execdSocket()->setCompatibility(compatibilityMode());
    }
 
+   bool QuasarAPI::offlineMode() const { return m_offlineMode; }
+   void QuasarAPI::setOfflineMode(bool x)
+   {
+     if(m_offlineMode == x)
+       return;
+     m_offlineMode = x;
+     emit offlineModeChanged();
+   }
+
   /**
    * \brief Возвращает указатель на сокет телеметрии.
    * \return Ненулевой указатель на TelemetrySocket.
@@ -251,6 +264,8 @@ namespace QuasarSDK
    * \return Ненулевой указатель на StripSocket.
    */
   StripSocket* QuasarAPI::stripSocket() { return m_stripSocket; }
+
+  StatusSocket* QuasarAPI::statusSocket() { return m_statusSocket; }
 
   /**
    * \brief Производит попытку подключения к РЛС по указанным адресам.
@@ -341,7 +356,12 @@ namespace QuasarSDK
     m_outputModel->print(data);
   }
 
-  void QuasarAPI::reset_delay() { this->setCurrentNetworkDelay(0); }
+  void QuasarAPI::reset_delay()
+  {
+    if(offlineMode())
+        setOfflineMode(false);
+    setCurrentNetworkDelay(0);
+  }
 
   /**
    * \brief Задает адреса для обратной связи сервиса \c fsend.

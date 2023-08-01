@@ -115,5 +115,13 @@
         <file>icons/vector/toolbar/eraser.svg</file>
         <file>icons/vector/common/question.svg</file>
         <file>icons/vector/network/antenna.svg</file>
+        <file>icons/vector/network/altitude.svg</file>
+        <file>icons/vector/network/compass.svg</file>
+        <file>icons/vector/network/signal-good.svg</file>
+        <file>icons/vector/network/signal-medium.svg</file>
+        <file>icons/vector/network/signal-none.svg</file>
+        <file>icons/vector/network/signal-offline.svg</file>
+        <file>icons/vector/network/speed.svg</file>
+        <file>icons/vector/toolbar/coord.svg</file>
     </qresource>
 </RCC>

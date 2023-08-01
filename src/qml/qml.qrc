@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>Main.qml</file>
         <file>widgets/DebugConsole.qml</file>
-        <file>layouts/BottomBar.qml</file>
         <file>tabs/MapTab.qml</file>
         <file>tabs/FocusTab.qml</file>
         <file>tabs/map/RulerItem.qml</file>
@@ -21,7 +20,6 @@
         <file>tabs/map/ui/PanelTools.qml</file>
         <file>tabs/map/ui/PanelEntities.qml</file>
         <file>tabs/map/ui/PanelParameters.qml</file>
-        <file>tabs/map/ui/PanelImages.qml</file>
         <file>tabs/network/PingConsole.qml</file>
         <file>tabs/network/ConnectionIndicator.qml</file>
         <file>tabs/focus/ReformSettings.qml</file>
@@ -36,16 +34,20 @@
         <file>widgets/ProgressPopup.qml</file>
         <file>widgets/SplashScreen.qml</file>
         <file>windows/UpdateWindow.qml</file>
-        <file>layouts/bottombar/ConnectionStatusIndicator.qml</file>
-        <file>layouts/bottombar/TelemetryWidget.qml</file>
         <file>tabs/map/StripRoute.qml</file>
         <file>tabs/map/mapquickitems/Strip.qml</file>
-        <file>windows/NewSettingsWindow.qml</file>
         <file>tabs/map/mapquickitems/GeoMarker.qml</file>
         <file>layouts/MenuHeader.qml</file>
         <file>tabs/map/mapquickitems/NotificationsUI.qml</file>
         <file>tabs/map/mapquickitems/StripEraser.qml</file>
         <file>tabs/map/ui/PanelFormParameters.qml</file>
         <file>tabs/map/mapquickitems/WorkstationPosition.qml</file>
+        <file>layouts/InfoBar.qml</file>
+        <file>layouts/infobar/ConnectionIndicator.qml</file>
+        <file>layouts/infobar/ConnectButton.qml</file>
+        <file>layouts/infobar/NavigationBar.qml</file>
+        <file>layouts/infobar/StorageWidget.qml</file>
+        <file>layouts/SidePanel.qml</file>
+        <file>layouts/sidepanel/SettingsTab.qml</file>
     </qresource>
 </RCC>

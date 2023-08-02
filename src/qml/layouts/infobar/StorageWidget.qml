@@ -12,7 +12,7 @@ RowLayout
 {
     property real remoteDiskSpace: NetworkAPI.remote.storageSpace
 
-    Button {
+    ToolButton  {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/storage.svg"

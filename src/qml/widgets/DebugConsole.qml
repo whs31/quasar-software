@@ -69,6 +69,7 @@ Pane {
         // move window mouse area
         MouseArea {
             property point offset: Qt.point(0, 0)
+            preventStealing: true
 
             onPressed: offset = Qt.point(mouseX, mouseY)
             onPositionChanged: {
@@ -204,6 +205,7 @@ Pane {
 
                 anchors.fill: parent
                 hoverEnabled: true
+                preventStealing: true
                 onPressed: {
                     parent.color = ColorTheme.active.color(ColorTheme.Surface)
                     offset = Qt.point(mouseX, mouseY);

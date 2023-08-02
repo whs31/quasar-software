@@ -27,6 +27,7 @@ int main(int argc, char* argv[])
   FreeConsole();
   #endif
 
+  QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QApplication app(argc, argv);
   QCoreApplication::setApplicationName(PROJECT_NAME);
   QCoreApplication::setApplicationVersion(PROJECT_VERSION);
@@ -54,8 +55,8 @@ int main(int argc, char* argv[])
   qInfo().noquote() << QCoreApplication::applicationName() << "version" << QCoreApplication::applicationVersion();
 
   const QUrl qml_entry(QStringLiteral("qrc:/Main.qml"));
-  qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
   QQuickStyle::setStyle("Material");
+  qputenv("QT_QUICK_CONTROLS_MATERIAL_VARIANT", "Dense");
 
   QuaSAR quasar;
 

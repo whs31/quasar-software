@@ -61,6 +61,7 @@ Pane {
         // move window mouse area
         MouseArea {
             property point offset: Qt.point(0, 0)
+            preventStealing: true
 
             onPressed: offset = Qt.point(mouseX, mouseY)
             onPositionChanged: {
@@ -221,6 +222,7 @@ Pane {
             // resize window mouse area
             MouseArea {
                 property point offset: Qt.point(0, 0)
+                preventStealing: true
 
                 anchors.fill: parent
                 hoverEnabled: true

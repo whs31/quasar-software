@@ -7,7 +7,6 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Config 1.0
 import Filesystem 1.0
 import Images 1.0
@@ -18,12 +17,14 @@ import "layouts" as Layouts
 import "tabs" as Tabs
 import "windows" as Windows
 
+import "qrc:/js/catpuccin.js" as Catpuccin
+
 ApplicationWindow  { id: window_root;
-    Material.theme: Material.Dark
-    Material.accent: ColorTheme.active.color(ColorTheme.Primary)
-    Material.primary: ColorTheme.active.color(ColorTheme.Accent)
-    Material.foreground: ColorTheme.active.color(ColorTheme.Text)
-    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+    Material.theme: Material.Light
+    Material.accent: Catpuccin.latte.sapphire.hex
+    Material.primary: Catpuccin.latte.mauve.hex
+    Material.foreground: Catpuccin.latte.text.hex
+    Material.background: Catpuccin.latte.base.hex
 
     title: "QuaSAR";
     minimumWidth: 1280;
@@ -32,28 +33,28 @@ ApplicationWindow  { id: window_root;
     height: 800;
     visible: true;
 
-    color: ColorTheme.active.color(ColorTheme.Dark)
+    color: Catpuccin.latte.crust.hex
     font.family: root.mainfont
     palette {
-        alternateBase: ColorTheme.active.color(ColorTheme.BaseShade)
-        base: ColorTheme.active.color(ColorTheme.Dark)
-        brightText: ColorTheme.active.color(ColorTheme.Accent)
-        button: ColorTheme.active.color(ColorTheme.Surface)
-        buttonText: ColorTheme.active.color(ColorTheme.Text)
-        dark: ColorTheme.active.color(ColorTheme.Dark)
-        highlight: ColorTheme.active.color(ColorTheme.Primary)
-        highlightedText: ColorTheme.active.color(ColorTheme.Dark)
-        light: ColorTheme.active.color(ColorTheme.Overlay)
-        link: ColorTheme.active.color(ColorTheme.PrimaryLight)
-        linkVisited: ColorTheme.active.color(ColorTheme.Mauve)
-        mid: ColorTheme.active.color(ColorTheme.BaseShade)
-        midlight: ColorTheme.active.color(ColorTheme.Surface)
+        alternateBase: Catpuccin.latte.mantle.hex
+        base: Catpuccin.latte.base.hex
+        brightText: Catpuccin.latte.mauve.hex
+        button: Catpuccin.latte.surface0.hex
+        buttonText: Catpuccin.latte.text.hex
+        dark: Catpuccin.latte.crust.hex
+        highlight: Catpuccin.latte.teal.hex
+        highlightedText: Catpuccin.latte.crust.hex
+        light: Catpuccin.latte.overlay0.hex
+        link: Catpuccin.latte.teal.hex
+        linkVisited: Catpuccin.latte.sapphire.hex
+        mid: Catpuccin.latte.surface1.hex
+        midlight: Catpuccin.latte.surface2.hex
         shadow: "black"
-        text: ColorTheme.active.color(ColorTheme.Text)
-        toolTipBase: ColorTheme.active.color(ColorTheme.Dark)
-        toolTipText: ColorTheme.active.color(ColorTheme.Subtext)
-        window: ColorTheme.active.color(ColorTheme.Dark)
-        windowText: ColorTheme.active.color(ColorTheme.Text)
+        text: Catpuccin.latte.text.hex
+        toolTipBase: Catpuccin.latte.crust.hex
+        toolTipText: Catpuccin.latte.subtext1.hex
+        window: Catpuccin.latte.base.hex
+        windowText: Catpuccin.latte.text.hex
     }
 
     Component.onCompleted: showMaximized();
@@ -62,7 +63,7 @@ ApplicationWindow  { id: window_root;
 
     footer: Layouts.InfoBar {
         id: infobar
-        Material.primary: ColorTheme.active.color(ColorTheme.BaseShade)
+        Material.primary: Catpuccin.latte.surface0.hex
     }
 
     Layouts.SidePanel {
@@ -165,13 +166,13 @@ ApplicationWindow  { id: window_root;
 
             icon {
                 source: "qrc:/icons/vector/common/list.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: Catpuccin.latte.text.hex
             }
 
             width: 52
             height: 52
 
-            Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+            Material.background: Catpuccin.latte.base.hex
             action: openSidePanelAction
         }
 
@@ -183,20 +184,21 @@ ApplicationWindow  { id: window_root;
                 right: parent.right
                 top: parent.top
             }
-            Material.accent: ColorTheme.active.color(ColorTheme.Overlay)
+            Material.accent: Catpuccin.latte.surface0.hex
+            Material.background: Catpuccin.latte.surface0.hex
 
             TabButton {
                 text: "Интерактивная карта"
                 font.bold: true
                 icon.source: "qrc:/icons/vector/misc/earth.svg"
-                Material.accent: ColorTheme.active.color(ColorTheme.Green)
+                Material.accent: Catpuccin.latte.green.hex
             }
 
             TabButton {
                 text: "Редактирование изображений"
                 font.bold: true
                 icon.source: "qrc:/icons/vector/common/edit.svg"
-                Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
+                Material.accent: Catpuccin.latte.peach.hex
                 enabled: c_FocusTab.currentAssignedIndex >= 0
             }
 
@@ -204,7 +206,7 @@ ApplicationWindow  { id: window_root;
                 text: "Сетевые подключения"
                 font.bold: true
                 icon.source: "qrc:/icons/vector/network/wifi.svg"
-                Material.accent: ColorTheme.active.color(ColorTheme.PrimaryLight)
+                Material.accent: Catpuccin.latte.red.hex
             }
         }
 

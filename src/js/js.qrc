@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/js">
+        <file>catpuccin.js</file>
+    </qresource>
+</RCC>

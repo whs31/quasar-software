@@ -46,6 +46,7 @@ set(PROJECT_SOURCES
     src/c++/quasar.h src/c++/quasar.c++
 
     src/qml/qml.qrc
+    src/js/js.qrc
     resources/resources.qrc
 )
 

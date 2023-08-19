@@ -1,3 +1,9 @@
 [submodule "lpvl"]
 	path = libs/LPVL
 	url = https://github.com/whs31/LPVL.git
+[submodule "libs/Corrosion"]
+	path = libs/Corrosion
+	url = https://github.com/corrosion-rs/corrosion.git
+[submodule "libs/Argparse"]
+	path = libs/Argparse
+	url = https://github.com/cofyc/argparse.git

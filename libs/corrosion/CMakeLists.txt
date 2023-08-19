@@ -5,7 +5,7 @@ project(Corrosion
     # tagged release. Users don't need to care about this, it is mainly to
     # clearly see in configure logs which version was used, without needing to
     # rely on `git`, since Corrosion may be installed or otherwise packaged.
-    VERSION 0.4.1.1
+    VERSION 0.4.2.1
     LANGUAGES NONE
     HOMEPAGE_URL "https://corrosion-rs.github.io/corrosion/"
 )
@@ -88,15 +88,11 @@ endif()
 include(GNUInstallDirs)
 
 if(CORROSION_INSTALL_EXECUTABLE)
-    # Builds the generator executable
-    corrosion_import_crate(MANIFEST_PATH generator/Cargo.toml)
-
-    set(_CORROSION_GENERATOR_DESTINATION "${CMAKE_INSTALL_FULL_LIBEXECDIR}")
-
-    corrosion_install(
-        TARGETS corrosion-generator
-        DESTINATION "${_CORROSION_GENERATOR_DESTINATION}"
+    get_property(
+            _CORROSION_GENERATOR_EXE
+            TARGET Corrosion::Generator PROPERTY IMPORTED_LOCATION
     )
+    install(PROGRAMS "${_CORROSION_GENERATOR_EXE}" DESTINATION "${CMAKE_INSTALL_FULL_LIBEXECDIR}")
 else()
     message(DEBUG "Not installing corrosion-generator since "
         "`CORROSION_INSTALL_EXECUTABLE` is set to ${CORROSION_INSTALL_EXECUTABLE}"

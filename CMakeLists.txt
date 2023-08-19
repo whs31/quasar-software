@@ -56,12 +56,12 @@ add_executable(${PROJECT_NAME}
     ${META_FILES}
 )
 
-add_subdirectory(libs/argparse)
+add_subdirectory(libs/Argparse)
 add_subdirectory(src/c++/sdk) # deprecated
-add_subdirectory(libs/libscenegraph)
+add_subdirectory(libs/LPVL)
 add_subdirectory(libs/libquasarsdk)
 add_subdirectory(libs/libabstract)
-#add_subdirectory(libs/corrosion) # requires rustc package
+#add_subdirectory(libs/Corrosion) # requires rustc package
 add_subdirectory(services/UpdateService)
 
 target_link_libraries(${PROJECT_NAME}

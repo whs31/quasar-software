@@ -10,7 +10,7 @@ namespace Map
   class ImageModel : public QAbstractListModel
   {
     Q_OBJECT
-      Q_PROPERTY(int totalCount READ totalCount WRITE setTotalCount NOTIFY totalCountChanged)
+    Q_PROPERTY(int totalCount READ totalCount WRITE setTotalCount NOTIFY totalCountChanged)
 
     public:
       enum ModelRoles
@@ -42,7 +42,8 @@ namespace Map
         Transparency,
         Shown,
         MercatorZoomLevel,
-        MarkedForExport
+        MarkedForExport,
+        Neural
       };
 
       explicit ImageModel(QObject* parent = nullptr);
@@ -52,6 +53,7 @@ namespace Map
       bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
       void add(const TelescopicImage& image);
+      void addNeuralData(const QList<QuasarSDK::NeuralData>& data, const QString& filename);
       Q_INVOKABLE void remove(int index);
       Q_INVOKABLE void clear();
 

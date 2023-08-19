@@ -7,6 +7,7 @@
 #include <SDK/Gizmos>
 #include <QuasarSDK/API>
 #include <QuasarSDK/Register>
+#include <QuasarSDK/Neural>
 #include "application/updatemanager.h"
 #include "application/quickutils.h"
 #include "gui/terminal/debugconsole.h"
@@ -144,7 +145,10 @@ void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
   file.close();
 
   if(name.endsWith(".json"))
-    qDebug() << data;
+  {
+    auto parsed = QuasarSDK::NeuralParser::parseJSON(data);
+    Processing::ImageProcessing::get()->model()->addNeuralData(parsed.second, parsed.first);
+  }
   else
     OS::Filesystem::get()->fetchTCPCache();
 }

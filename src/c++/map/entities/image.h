@@ -1,9 +1,11 @@
 #pragma once
 
-#include "imagemetadata.h"
 #include <QtCore/QString>
 #include <QtCore/QPair>
+#include <QtCore/QList>
 #include <QtPositioning/QGeoCoordinate>
+#include <QuasarSDK/Neural>
+#include "imagemetadata.h"
 
 typedef QPair<QString, QString> image_file_t;
 
@@ -19,6 +21,7 @@ namespace Map
     bool shown = true;
     bool marked_for_export = false;
     double mercator_zoom_level;
+    QList<QuasarSDK::NeuralData> neural_data;
   };
 
   struct TelescopicImage : public Image

@@ -47,7 +47,7 @@ namespace QuasarSDK
 
     private:
       Q_SLOT void process(QByteArray data);
-      QString condition(const QString& condition, const QString& pass, const QString& fail) noexcept;
+      static QString condition(const QString& condition, const QString& pass, const QString& fail) noexcept;
 
     private:
       ExecdArgumentParser* m_args;

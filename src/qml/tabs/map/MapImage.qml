@@ -2,7 +2,7 @@ import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
-MapQuickItem  {
+MapQuickItem {
     property real m_opacity: transparency
     opacity: m_opacity
     z: 2
@@ -16,11 +16,15 @@ MapQuickItem  {
 
     zoomLevel: mercator_zoom_level
     coordinate: QtPositioning.coordinate(latitude, longitude)
+
     sourceItem: Item {
         Loader {
             active: maptab_root.zoomLevel > 15 ||
                     maptab_root.visibleRegion.contains(QtPositioning.coordinate(latitude, longitude));
             asynchronous: true
+
+            property var neural: neural_data
+
             sourceComponent: Image {
                 layer {
                     enabled: true
@@ -41,6 +45,25 @@ MapQuickItem  {
                 smooth: true
                 antialiasing: true
                 source: "file:///" + lod0
+
+                Repeater {
+                    model: neural
+                    delegate: Rectangle {
+                        required property var modelData
+
+                        color: "transparent"
+                        border {
+                            width: 4
+                            color: modelData.color
+                        }
+                        property rect box: modelData.rect
+                        Component.onCompleted: console.error(box)
+                        width: Math.abs(box.right - box.left)
+                        height: Math.abs(box.top - box.bottom)
+                        x: box.left
+                        y: box.top
+                    }
+                }
             }
         }
     }

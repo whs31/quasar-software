@@ -234,7 +234,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::kill(int pid)
   {
-    QByteArray com = Utils::wrapToExecdString(FROM_JSON("EXECD_SPECIAL_KILL") + "(" + QString::number(pid) + ")", &m_message_uid);
+    QByteArray com = Utils::wrapToExecdString(FROM_JSON("EXECD_SPECIAL_KILL") + "(" + QString::number(pid, 16) + ")", &m_message_uid);
     this->send(com);
 
     qDebug().noquote() << "[EXECD] Killed" << pid;
@@ -249,7 +249,7 @@ namespace QuasarSDK
    */
   void ExecdSocket::signalToProcess(int pid, Enums::UnixSignal signal)
   {
-    QByteArray com = Utils::wrapToExecdString(FROM_JSON("EXECD_SPECIAL_SIGNAL") + "(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid) + ")",
+    QByteArray com = Utils::wrapToExecdString(FROM_JSON("EXECD_SPECIAL_SIGNAL") + "(" + QString::number(static_cast<int>(signal)) + ", " + QString::number(pid, 16) + ")",
                                               &m_message_uid);
     this->send(com);
 

@@ -40,6 +40,7 @@ namespace Map
     roles[Shown] = "shown";
     roles[MercatorZoomLevel] = "mercator_zoom_level";
     roles[MarkedForExport] = "marked_for_export";
+    roles[Neural] = "neural_data";
     return roles;
   }
 
@@ -83,6 +84,7 @@ namespace Map
       case Shown: return QVariant::fromValue(storage[index.row()].shown);
       case MercatorZoomLevel: return QVariant::fromValue(storage[index.row()].mercator_zoom_level);
       case MarkedForExport: return QVariant::fromValue(storage[index.row()].marked_for_export);
+      case Neural: return QVariant::fromValue(storage[index.row()].neural_data);
 
       default: return "Error reading from model";
     }
@@ -95,59 +97,33 @@ namespace Map
       switch(role)
       {
         case Index: return false;
-        case Filename: storage[index.row()].filename = value.toString();
-          break;
-        case Latitude: storage[index.row()].meta.latitude = value.toDouble();
-          break;
-        case Longitude: storage[index.row()].meta.longitude = value.toDouble();
-          break;
-        case DX: storage[index.row()].meta.dx = value.toFloat();
-          break;
-        case DY: storage[index.row()].meta.dy = value.toFloat();
-          break;
-        case X0: storage[index.row()].meta.x0 = value.toFloat();
-          break;
-        case Y0: storage[index.row()].meta.y0 = value.toFloat();
-          break;
-        case Angle: storage[index.row()].meta.angle = value.toFloat();
-          break;
-        case DriftAngle: storage[index.row()].meta.drift_angle = value.toFloat();
-          break;
-        case LX: storage[index.row()].meta.lx = value.toFloat();
-          break;
-        case LY: storage[index.row()].meta.ly = value.toFloat();
-          break;
-        case Div: storage[index.row()].meta.div = value.toFloat();
-          break;
-        case Velocity: storage[index.row()].meta.velocity = value.toFloat();
-          break;
-        case Altitude: storage[index.row()].meta.altitude = value.toFloat();
-          break;
-        case KR: storage[index.row()].meta.kr = value.toFloat();
-          break;
-        case TimeShift: storage[index.row()].meta.time_shift = value.toFloat();
-          break;
-        case TimeDuration: storage[index.row()].meta.time_duration = value.toFloat();
-          break;
-        case Mode: storage[index.row()].meta.mode = value.toInt();
-          break;
+        case Filename: storage[index.row()].filename = value.toString(); break;
+        case Latitude: storage[index.row()].meta.latitude = value.toDouble(); break;
+        case Longitude: storage[index.row()].meta.longitude = value.toDouble(); break;
+        case DX: storage[index.row()].meta.dx = value.toFloat(); break;
+        case DY: storage[index.row()].meta.dy = value.toFloat(); break;
+        case X0: storage[index.row()].meta.x0 = value.toFloat(); break;
+        case Y0: storage[index.row()].meta.y0 = value.toFloat(); break;
+        case Angle: storage[index.row()].meta.angle = value.toFloat(); break;
+        case DriftAngle: storage[index.row()].meta.drift_angle = value.toFloat(); break;
+        case LX: storage[index.row()].meta.lx = value.toFloat(); break;
+        case LY: storage[index.row()].meta.ly = value.toFloat(); break;
+        case Div: storage[index.row()].meta.div = value.toFloat(); break;
+        case Velocity: storage[index.row()].meta.velocity = value.toFloat(); break;
+        case Altitude: storage[index.row()].meta.altitude = value.toFloat(); break;
+        case KR: storage[index.row()].meta.kr = value.toFloat(); break;
+        case TimeShift: storage[index.row()].meta.time_shift = value.toFloat(); break;
+        case TimeDuration: storage[index.row()].meta.time_duration = value.toFloat(); break;
+        case Mode: storage[index.row()].meta.mode = value.toInt(); break;
         case ImageType: storage[index.row()].meta.image_type = value.toInt(); break;
-        case Crc16: storage[index.row()].meta.crc16 = value.toUInt();
-          break;
-        case Valid: storage[index.row()].valid = value.toBool();
-          break;
-        case LOD1FilePath: storage[index.row()].path.second = value.toString();
-          break;
-        case LOD0FilePath: storage[index.row()].path.first = value.toString();
-          break;
-        case Transparency: storage[index.row()].opacity = value.toFloat();
-          break;
-        case Shown: storage[index.row()].shown = value.toBool();
-          break;
-        case MercatorZoomLevel: storage[index.row()].mercator_zoom_level = value.toDouble();
-          break;
-        case MarkedForExport: storage[index.row()].marked_for_export = value.toBool();
-          break;
+        case Crc16: storage[index.row()].meta.crc16 = value.toUInt(); break;
+        case Valid: storage[index.row()].valid = value.toBool(); break;
+        case LOD1FilePath: storage[index.row()].path.second = value.toString(); break;
+        case LOD0FilePath: storage[index.row()].path.first = value.toString(); break;
+        case Transparency: storage[index.row()].opacity = value.toFloat(); break;
+        case Shown: storage[index.row()].shown = value.toBool(); break;
+        case MercatorZoomLevel: storage[index.row()].mercator_zoom_level = value.toDouble(); break;
+        case MarkedForExport: storage[index.row()].marked_for_export = value.toBool(); break;
 
         default: return false;
       }
@@ -241,12 +217,8 @@ namespace Map
     }
   }
 
-  QVector<TelescopicImage>* ImageModel::direct()
-  { return &storage; }
-
-  int ImageModel::totalCount() const
-  { return m_totalCount; }
-
+  QVector<TelescopicImage>* ImageModel::direct() { return &storage; }
+  int ImageModel::totalCount() const { return m_totalCount; }
   void ImageModel::setTotalCount(int other)
   {
     if(m_totalCount == other)
@@ -255,4 +227,24 @@ namespace Map
     emit totalCountChanged();
   }
 
+  void ImageModel::addNeuralData(const QList<QuasarSDK::NeuralData>& data, const QString& filename)
+  {
+    int j = -1;
+    int i = 0;
+    for(const auto& image : storage)
+    {
+      if(image.filename.chopped(4) == filename)
+      {
+        j = i;
+        break;
+      }
+      i++;
+    }
+
+    if(j < 0 or j >= rowCount())
+      return;
+
+    storage[j].neural_data = data;
+    emit dataChanged(index(j), index(j), {Neural});
+  }
 } // Map

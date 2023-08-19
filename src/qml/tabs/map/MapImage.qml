@@ -50,14 +50,13 @@ MapQuickItem {
                     model: neural
                     delegate: Rectangle {
                         required property var modelData
+                        property rect box: modelData.rect
 
                         color: "transparent"
                         border {
                             width: 4
                             color: modelData.color
                         }
-                        property rect box: modelData.rect
-                        Component.onCompleted: console.error(box)
                         width: Math.abs(box.right - box.left)
                         height: Math.abs(box.top - box.bottom)
                         x: box.left

@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
-import Theme 1.0
 import ClickHandler 1.0
 import Images 1.0
 import Markers 1.0
@@ -18,22 +17,22 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/vector/toolbar/marker_new.svg";
-            icon.color: ClickHandler.state === ClickHandler.MarkerActive ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+            icon.color: ClickHandler.state === ClickHandler.MarkerActive ? theme.base : theme.text
             Material.elevation: 30;
-            Material.background: ClickHandler.state === ClickHandler.MarkerActive ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface);
+            Material.background: ClickHandler.state === ClickHandler.MarkerActive ? theme.mauve : theme.surface0
             onPressed: ClickHandler.state = ClickHandler.MarkerActive;
 
             Widgets.TT { txt: "Установка нового маркера карты"; }
         }
 
         RoundButton { id: button_PlannerPoint;
-            enabled: false;
-            height: 44;
-            width: 44;
-            radius: 4;
-            icon.source: "qrc:/icons/vector/toolbar/bookmark_new.svg";
-            icon.color: ColorTheme.active.color(ColorTheme.Text);
-            Material.background: ClickHandler.state === ClickHandler.PlannerActive ? ColorTheme.active.color(ColorTheme.Accent) : ColorTheme.active.color(ColorTheme.Surface);
+            enabled: false
+            height: 44
+            width: 44
+            radius: 4
+            icon.source: "qrc:/icons/vector/toolbar/bookmark_new.svg"
+            icon.color: theme.text
+            Material.background: ClickHandler.state === ClickHandler.PlannerActive ? theme.mauve : theme.surface0
             Material.elevation: 30;
             onPressed: ClickHandler.state = ClickHandler.PlannerActive;
 
@@ -45,8 +44,8 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/vector/toolbar/marker_remove.svg";
-            icon.color: ColorTheme.active.color(ColorTheme.Text);
-            Material.background: ColorTheme.active.color(ColorTheme.Surface);
+            icon.color: theme.text
+            Material.background: theme.surface0
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление маркеров", "Вы уверены, что хотите удалить все маркеры карты?", "warn", 2);
 
@@ -68,8 +67,8 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/vector/toolbar/photo_remove.svg";
-            icon.color: ColorTheme.active.color(ColorTheme.Text);
-            Material.background: ColorTheme.active.color(ColorTheme.Surface);
+            icon.color: theme.text
+            Material.background: theme.surface0
             Material.elevation: 30;
             onPressed: dialogwindow.open("Удаление РЛИ", "Вы уверены, что хотите удалить все радиолокационные изображения с карты?", "warn", 4);
 
@@ -94,10 +93,10 @@ Pane { id: panel_Entities;
             width: 44;
             radius: 4;
             icon.source: "qrc:/icons/vector/toolbar/eraser.svg";
-            icon.color: ClickHandler.state === ClickHandler.EraserActive ? ColorTheme.active.color(ColorTheme.Dark)
-                                                                         : ColorTheme.active.color(ColorTheme.Text)
-            Material.background: ClickHandler.state === ClickHandler.EraserActive ? ColorTheme.active.color(ColorTheme.Red)
-                                                                                  : ColorTheme.active.color(ColorTheme.Surface);
+            icon.color: ClickHandler.state === ClickHandler.EraserActive ? theme.base
+                                                                         : theme.text
+            Material.background: ClickHandler.state === ClickHandler.EraserActive ? theme.red
+                                                                                  : theme.surface0
             Material.elevation: 30;
             onPressed: {
                 if(ClickHandler.state === ClickHandler.EraserActive)

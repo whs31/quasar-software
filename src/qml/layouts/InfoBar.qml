@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import "./infobar" as Info
 
 ToolBar {

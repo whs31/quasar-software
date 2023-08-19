@@ -79,6 +79,7 @@ ApplicationWindow {
     Material.primary: theme.mauve
     Material.foreground: theme.text
     Material.background: theme.base
+
     title: "QuaSAR"
     minimumWidth: 1280
     minimumHeight: 800
@@ -246,8 +247,8 @@ ApplicationWindow {
 
             z: 100
             contentHeight: 40
-            Material.accent: theme.surface0
-            Material.background: theme.surface0
+            Material.accent: theme.mantle
+            Material.background: theme.mantle
 
             anchors {
                 left: sidepanelButton.right

@@ -4,11 +4,10 @@ import QtQuick.Controls.Material 2.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import "network" as NetworkTab
 
 Pane { id: networktab_root;
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.background: theme.mantle
 
     Flickable {
         anchors.fill: parent;
@@ -27,7 +26,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ ТЕЛЕМЕТРИИ";
             width: 720;
             height: 450;
-            color: ColorTheme.active.color(ColorTheme.Lavender)
+            color: theme.mauve
         }
 
         NetworkTab.SocketConsole { id: panel_ExecdConsole;
@@ -39,7 +38,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ КОМАНД";
             width: 1155;
             height: 450;
-            color: ColorTheme.active.color(ColorTheme.Mauve)
+            color: theme.teal
         }
 
         NetworkTab.SocketConsole { id: panel_LFSConsole;
@@ -51,7 +50,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ TCP-IP";
             width: 300;
             height: 450;
-            color: ColorTheme.active.color(ColorTheme.Pink)
+            color: theme.pink
         }
 
         NetworkTab.SocketConsole { id: panel_StripConsole;
@@ -63,7 +62,7 @@ Pane { id: networktab_root;
             name: "СОКЕТ UDP LFS";
             width: 300;
             height: 450;
-            color: ColorTheme.active.color(ColorTheme.Orange)
+            color: theme.peach
         }
 
         NetworkTab.PingConsole { id: panel_pingStatus;

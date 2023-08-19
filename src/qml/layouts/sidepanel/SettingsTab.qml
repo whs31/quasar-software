@@ -3,14 +3,13 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import Config 1.0
 
 Page {
-    Material.primary: ColorTheme.active.color(ColorTheme.Primary)
-    Material.accent: ColorTheme.active.color(ColorTheme.Primary)
+    Material.primary: theme.teal
+    Material.accent: theme.teal
     header: ToolBar {
-        Material.primary: ColorTheme.active.color(ColorTheme.Primary)
+        Material.primary: theme.teal
 
         RowLayout {
             anchors.fill: parent
@@ -18,7 +17,7 @@ Page {
             ToolButton {
                 icon {
                     source: "qrc:/icons/vector/common/left_small.svg"
-                    color: ColorTheme.active.color(ColorTheme.Dark)
+                    color: theme.base
                 }
                 flat: true
                 Layout.fillHeight: true
@@ -32,7 +31,7 @@ Page {
                     pixelSize: 18
                     capitalization: Font.AllUppercase
                 }
-                color: ColorTheme.active.color(ColorTheme.Dark)
+                color: theme.base
                 Layout.fillWidth: true
                 Layout.rightMargin: 25
                 horizontalAlignment: Text.AlignHCenter
@@ -52,7 +51,7 @@ Page {
             Layout.leftMargin: 60
 
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
@@ -79,7 +78,7 @@ Page {
             Layout.leftMargin: 60
 
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
@@ -105,7 +104,7 @@ Page {
             Layout.leftMargin: 60
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
@@ -132,7 +131,7 @@ Page {
             Layout.leftMargin: 60
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.DemiBold; pixelSize: 14 }
         }
 
@@ -156,7 +155,7 @@ Page {
         Rectangle {
             Layout.fillWidth: true
             height: 1.5
-            color: ColorTheme.active.color(ColorTheme.Primary)
+            color: theme.teal
         }
 
         Label {
@@ -168,7 +167,7 @@ Page {
             }
 
             text: parent.headerText
-            color: ColorTheme.active.color(ColorTheme.Primary)
+            color: theme.teal
         }
     }
 
@@ -220,7 +219,7 @@ Page {
                         Layout.fillWidth: true
                         Layout.leftMargin: 60
                         text: "Единицы изм. угла в метаданных" + ":"
-                        color: ColorTheme.active.color(ColorTheme.Text)
+                        color: theme.text
                         font { weight: Font.DemiBold; pixelSize: 14 }
                     }
 
@@ -254,7 +253,7 @@ Page {
                         Layout.fillWidth: true
                         Layout.leftMargin: 60
                         text: "Положение антенны на БПЛА" + ":"
-                        color: ColorTheme.active.color(ColorTheme.Text)
+                        color: theme.text
                         font { weight: Font.DemiBold; pixelSize: 14 }
                     }
 
@@ -298,7 +297,7 @@ Page {
                 }
 
                 Material.elevation: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Surface)
+                Material.background: theme.base
 
                 text: "Сохранить"
                 onPressed: {
@@ -320,7 +319,7 @@ Page {
                 }
 
                 Material.elevation: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Surface)
+                Material.background: theme.base
 
                 text: "Отменить"
                 onPressed: {

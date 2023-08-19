@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import Config 1.0
 
 import "./sidepanel" as Side
@@ -55,8 +54,8 @@ Drawer {
                 opacity: enabled ? 1.0 : 0.4
                 icon {
                     source: iconPath
-                    color: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Primary)
-                                             : ColorTheme.active.color(ColorTheme.Orange)
+                    color: accentColor === 1 ? theme.teal
+                                             : theme.peach
                 }
 
                 font {
@@ -64,8 +63,8 @@ Drawer {
                     weight: Font.Bold
                     capitalization: Font.AllUppercase
                 }
-                Material.foreground: accentColor === 1 ? ColorTheme.active.color(ColorTheme.Primary)
-                                                       : ColorTheme.active.color(ColorTheme.Orange)
+                Material.foreground: accentColor === 1 ? theme.teal
+                                                       : theme.peach
 
                 onPressed: selectedIndex = index + 1
 
@@ -82,7 +81,7 @@ Drawer {
                         pixelSize: 12
                         weight: Font.DemiBold
                     }
-                    color: ColorTheme.active.color(ColorTheme.Subtext)
+                    color: theme.subtext0
                 }
             }
         }
@@ -91,6 +90,9 @@ Drawer {
     }
 
     Button {
+        visible: selectedIndex === 0
+        enabled: visible
+
         anchors {
             right: parent.right
             bottom: parent.bottom
@@ -98,7 +100,7 @@ Drawer {
 
         icon {
             source: lightmode ? "qrc:/icons/vector/common/light.svg"
-                                     : "qrc:/icons/vector/common/dark.svg"
+                              : "qrc:/icons/vector/common/dark.svg"
         }
         font {
             family: root.mainfont

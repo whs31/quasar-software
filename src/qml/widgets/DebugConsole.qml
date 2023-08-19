@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15
 
 import Terminals 1.0
-import Theme 1.0
 
 Pane {
     id: control
@@ -17,7 +16,7 @@ Pane {
     z: 100
     clip: true
 
-    Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2)
+    Material.background: theme.crust
     Material.elevation: 200
     Component.onCompleted: DebugConsole.execute("help")
 
@@ -34,7 +33,7 @@ Pane {
         id: header
 
         height: 32
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.base
         Material.elevation: 20
 
         anchors {
@@ -48,7 +47,7 @@ Pane {
             id: title
 
             text: "КОНСОЛЬ РАЗРАБОТЧИКА"
-            color: ColorTheme.active.color(ColorTheme.Subtext)
+            color: theme.subtext0
             verticalAlignment: Text.AlignVCenter
 
             anchors {
@@ -99,7 +98,7 @@ Pane {
             RoundButton {
                 width: 30
                 height: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Red)
+                Material.background: theme.red
                 onPressed: root.consoleshown = false
             }
         }
@@ -127,7 +126,7 @@ Pane {
                 implicitWidth: 4
                 implicitHeight: 100
                 radius: width / 2
-                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay) : ColorTheme.active.color(ColorTheme.Surface)
+                color: vbar.pressed ? theme.surface0 : theme.surface2
             }
 
         }
@@ -137,13 +136,13 @@ Pane {
 
             Text {
                 property var colors: [
-                    ColorTheme.active.color(ColorTheme.Subtext),
-                    ColorTheme.active.color(ColorTheme.Primary),
-                    ColorTheme.active.color(ColorTheme.Yellow),
-                    ColorTheme.active.color(ColorTheme.Red),
-                    ColorTheme.active.color(ColorTheme.Green),
-                    ColorTheme.active.color(ColorTheme.Pink),
-                    ColorTheme.active.color(ColorTheme.Text)
+                    theme.subtext0,
+                    theme.teal,
+                    theme.peach,
+                    theme.red,
+                    theme.green,
+                    theme.pink,
+                    theme.text
                 ]
 
                 width: scrollView.width;
@@ -162,9 +161,9 @@ Pane {
     Rectangle {
         id: inputArea
 
-        color: ColorTheme.active.color(ColorTheme.BaseShade)
+        color: theme.base
         border.width: 0.5
-        border.color: ColorTheme.active.color(ColorTheme.Surface)
+        border.color: theme.surface0
         height: 28
 
         anchors {
@@ -177,12 +176,12 @@ Pane {
         TextInput {
             anchors.fill: parent;
             anchors.leftMargin: 3;
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             text: "";
             verticalAlignment: Text.AlignVCenter;
             selectByMouse: true;
-            selectedTextColor: ColorTheme.active.color(ColorTheme.Dark)
-            selectionColor: ColorTheme.active.color(ColorTheme.Yellow)
+            selectedTextColor: theme.base
+            selectionColor: theme.yellow
             font.family: root.monofont;
             font.pixelSize: 13;
             onAccepted: {
@@ -196,7 +195,7 @@ Pane {
             anchors.bottom: parent.bottom
             width: 16;
             height: 16;
-            color: ColorTheme.active.color(ColorTheme.BaseShade)
+            color: theme.base
 
             // resize window mouse area
             MouseArea {
@@ -205,10 +204,10 @@ Pane {
                 anchors.fill: parent
                 hoverEnabled: true
                 onPressed: {
-                    parent.color = ColorTheme.active.color(ColorTheme.Surface)
+                    parent.color = theme.surface0
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: parent.color = ColorTheme.active.color(ColorTheme.BaseShade)
+                onReleased: parent.color = theme.base
                 onPositionChanged: {
                     if (pressed) {
                         let global_pos = mapToItem(control, mouseX, mouseY);
@@ -222,9 +221,7 @@ Pane {
                 source: "qrc:/icons/console/handle.png"
                 anchors.centerIn: parent
             }
-
         }
-
     }
 
     Behavior on opacity { NumberAnimation { duration: 150; } }

@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import Route 1.0
 
 Pane { id: panel_Parameters;
@@ -23,7 +22,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: "Режим карты   ";
                 Layout.alignment: Qt.AlignLeft;
             }
@@ -75,7 +74,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: "Тип трека   ";
                 Layout.alignment: Qt.AlignLeft;
             }
@@ -103,13 +102,13 @@ Pane { id: panel_Parameters;
             RoundButton { id: button_ClearTrack;
                 radius: 4;
                 icon.source: "qrc:/icons/vector/common/list_tilted.svg";
-                icon.color: ColorTheme.active.color(ColorTheme.Dark)
+                icon.color: theme.base
                 height: 40;
                 font.family: root.mainfont;
                 width: checkbox_ShowDiagram.width;
                 text: "Очистить трек полёта";
-                Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-                Material.background: ColorTheme.active.color(ColorTheme.Red)
+                Material.foreground: theme.base
+                Material.background: theme.red
                 onPressed: dialogwindow.open("Очистка трека", "Вы уверены, что хотите очистить трек полёта?", "warn", 1);
                 Connections {
                     target: dialogwindow;
@@ -137,7 +136,7 @@ Pane { id: panel_Parameters;
                 font.family: root.mainfont;
                 font.weight: Font.DemiBold;
                 font.pixelSize: 14;
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: "Тип диаграммы   ";
                 Layout.alignment: Qt.AlignLeft;
             }

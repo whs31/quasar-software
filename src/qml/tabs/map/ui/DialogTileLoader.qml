@@ -5,7 +5,6 @@ import QtQuick.Layouts 1.15
 import QtPositioning 5.15
 
 import Offline 1.0
-import Theme 1.0
 
 Pane { id: dialog_TileLoader;
     property var poly: [];
@@ -37,9 +36,9 @@ Pane { id: dialog_TileLoader;
                 text: "Загрузить выбранную область";
 
                 icon.source: "qrc:/icons/vector/common/download.svg";
-                icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
-                Material.background: enabled ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
-                Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                icon.color: enabled ? theme.base : theme.text
+                Material.background: enabled ? theme.green : theme.surface0
+                Material.foreground: enabled ? theme.base : theme.text
                 Material.elevation: 30;
                 onPressed: {
                     TileLoader.download(poly, slider1.value);
@@ -58,9 +57,9 @@ Pane { id: dialog_TileLoader;
                 text: "Отмена";
 
                 icon.source: "qrc:/icons/vector/common/close.svg";
-                icon.color: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
-                Material.background: enabled ? ColorTheme.active.color(ColorTheme.Red) : ColorTheme.active.color(ColorTheme.Surface)
-                Material.foreground: enabled ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                icon.color: enabled ? theme.base : theme.text
+                Material.background: enabled ? theme.red : theme.surface0
+                Material.foreground: enabled ? theme.base : theme.text
                 Material.elevation: 30;
                 onPressed: {
                     clr();
@@ -87,7 +86,7 @@ Pane { id: dialog_TileLoader;
                 Layout.fillHeight: true;
                 Layout.alignment: Qt.AlignVCenter;
                 font.family: root.mainfont;
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 font.pixelSize: 14;
                 font.weight: Font.DemiBold;
                 text: Number(slider1.value).toFixed(0) + " уровень";
@@ -106,7 +105,7 @@ Pane { id: dialog_TileLoader;
                     pixelSize: 15
                 }
                 text: "Ожидаемый размер загрузки:"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
 
             Text {
@@ -118,7 +117,7 @@ Pane { id: dialog_TileLoader;
                 }
 
                 text: Number(tilecount * 16 / 1024).toFixed(0) + " МБ"
-                color: ColorTheme.active.color(ColorTheme.Orange)
+                color: theme.peach
                 horizontalAlignment: Text.AlignRight
             }
         }

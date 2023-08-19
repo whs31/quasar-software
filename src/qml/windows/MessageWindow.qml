@@ -4,8 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtGraphicalEffects 1.15
 
-import Theme 1.0
-
 Pane {
     function open(header, content, icon) {
         title = header;
@@ -34,7 +32,7 @@ Pane {
 
     clip: true;
 
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.background: theme.crust
     Material.elevation: 200;
 
     layer.enabled: true
@@ -70,22 +68,22 @@ Pane {
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;
         font.family: root.mainfont;
-        color: ColorTheme.active.color(ColorTheme.Text)
+        color: theme.text
         font.bold: true;
         font.pixelSize: 14;
         wrapMode: Text.WordWrap;
     }
 
     RoundButton { id: button_Close;
-        anchors.bottom: parent.bottom;
-        anchors.horizontalCenter: parent.horizontalCenter;
-        width: 200;
-        font.family: root.mainfont;
-        font.weight: Font.Bold;
+        anchors.bottom: parent.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        width: 200
+        font.family: root.mainfont
+        font.weight: Font.Bold
         height: 44;
         radius: 4;
         Material.elevation: 30;
-        Material.background: ColorTheme.active.color(ColorTheme.Dark)
+        Material.background: theme.mantle
         text: "Ок";
         action: closeMessageBoxAction
     }

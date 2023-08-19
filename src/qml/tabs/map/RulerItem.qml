@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
-import Theme 1.0
 
 MapItemView { id: orthodromSegments;
     property real fl_LastLatitude: 0;
@@ -15,7 +14,7 @@ MapItemView { id: orthodromSegments;
 
         MapPolyline {
             id: segmentItem;
-            line.color: ColorTheme.active.color(ColorTheme.PrimaryLightest)
+            line.color: theme.sapphire
             line.width: 5;
             antialiasing: true;
             path: segment;
@@ -31,7 +30,7 @@ MapItemView { id: orthodromSegments;
                 width: 16;
                 height: 16;
                 radius: 8;
-                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
+                color: theme.sky
             }
         }
 
@@ -44,7 +43,7 @@ MapItemView { id: orthodromSegments;
                 width: 16;
                 height: 16;
                 radius: 8;
-                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
+                color: theme.sky
             }
         }
 
@@ -59,8 +58,8 @@ MapItemView { id: orthodromSegments;
                 height: segmentLengthText.height * 1.1;
                 radius: 4;
                 border.width: 1;
-                border.color: ColorTheme.active.color(ColorTheme.PrimaryLight)
-                color: ColorTheme.active.color(ColorTheme.PrimaryLight)
+                border.color: theme.sky
+                color: theme.sky
                 visible: true;
 
                 Text {
@@ -69,7 +68,7 @@ MapItemView { id: orthodromSegments;
                     text: segmentLength < 10000 ? Number(segmentLength).toFixed(0) + " м" : Number(segmentLength / 1000).toFixed(1) + " км"
                     font.family: root.mainfont;
                     font.bold: true;
-                    color: ColorTheme.active.color(ColorTheme.Dark)
+                    color: theme.base
                 }
             }
         }

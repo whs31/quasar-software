@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15
-import Theme 1.0
 import Config 1.0
 
 Pane {
@@ -15,7 +14,7 @@ Pane {
     Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
     clip: true;
 
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.background: theme.crust
     Material.elevation: 200
 
     layer.enabled: true
@@ -47,7 +46,7 @@ Pane {
         font.family: root.mainfont;
         font.bold: true;
         font.pixelSize: 22;
-        color: ColorTheme.active.color(ColorTheme.Yellow)
+        color: theme.yellow
         anchors.horizontalCenter: parent.horizontalCenter;
         anchors.top: image_Logo.bottom;
     }
@@ -99,7 +98,7 @@ Pane {
         height: 44;
         radius: 4;
         Material.elevation: 30;
-        Material.background: ColorTheme.active.color(ColorTheme.Dark)
+        Material.background: theme.mantle
         text: "Закрыть";
         onPressed: b_Shown = false;
     }

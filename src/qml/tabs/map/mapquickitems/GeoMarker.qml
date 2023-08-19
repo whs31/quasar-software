@@ -6,7 +6,6 @@ import QtPositioning 5.15
 import QtGraphicalEffects 1.15
 
 import Markers 1.0
-import Theme 1.0
 
 MapQuickItem {
     required property int index
@@ -88,9 +87,9 @@ MapQuickItem {
         }
 
         RoundButton {
-            Material.background: ColorTheme.active.color(ColorTheme.Red)
+            Material.background: theme.red
             height: 36
-            icon.color: ColorTheme.active.color(ColorTheme.Dark)
+            icon.color: theme.base
             icon.source: "qrc:/icons/vector/common/close.svg"
             opacity: markermousearea.showcontrols ? 1 : 0
             width: 36

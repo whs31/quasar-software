@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtGraphicalEffects 1.15
 
-import Theme 1.0
 import Config 1.0
 import Application 1.0
 
@@ -19,7 +18,7 @@ Pane {
     Behavior on width { NumberAnimation { duration: 250; easing.type: Easing.InOutQuad; } }
     clip: true
 
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.background: theme.crust
     Material.elevation: 200
 
     layer.enabled: true
@@ -39,7 +38,7 @@ Pane {
                 pixelSize: 16
                 bold: true
             }
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             text: "ДОСТУПНО ОБНОВЛЕНИЕ ПРИЛОЖЕНИЯ"
             horizontalAlignment: Text.AlignHCenter
         }
@@ -56,7 +55,7 @@ Pane {
                     pixelSize: 14
                     bold: true
                 }
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: "Текущая версия приложения:"
                 horizontalAlignment: Text.AlignLeft
             }
@@ -67,7 +66,7 @@ Pane {
                     pixelSize: 15
                     bold: true
                 }
-                color: ColorTheme.active.color(ColorTheme.Orange)
+                color: theme.peach
                 text: Settings.projectVersion
                 horizontalAlignment: Text.AlignRight
             }
@@ -83,7 +82,7 @@ Pane {
                     pixelSize: 14
                     bold: true
                 }
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: "Доступная версия приложения:"
                 horizontalAlignment: Text.AlignLeft
             }
@@ -94,7 +93,7 @@ Pane {
                     pixelSize: 15
                     bold: true
                 }
-                color: ColorTheme.active.color(ColorTheme.Green)
+                color: theme.green
                 text: UpdateNotifier.remoteVersion()
                 horizontalAlignment: Text.AlignRight
             }
@@ -103,7 +102,7 @@ Pane {
         Item { Layout.preferredHeight: 30; }
 
         RowLayout {
-            visible: UpdateLoader.progress != 0;
+            visible: UpdateLoader.progress !== 0;
             Layout.fillWidth: true;
 
             ProgressBar {
@@ -119,7 +118,7 @@ Pane {
                     pixelSize: 15
                     bold: true
                 }
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
                 text: Number(UpdateLoader.downloadedBytes / 1024).toFixed(0) + " кБ / " + Number(UpdateLoader.totalBytes / 1024).toFixed(0) + " кБ";
                 horizontalAlignment: Text.AlignRight
                 verticalAlignment: Text.AlignVCenter
@@ -138,7 +137,7 @@ Pane {
                 height: 44
                 radius: 4
                 Material.elevation: 30
-                Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+                Material.background: theme.base
                 text: "Обновить"
                 onPressed: UpdateLoader.download(UpdateNotifier.link());
             }
@@ -151,7 +150,7 @@ Pane {
                 height: 44
                 radius: 4
                 Material.elevation: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Dark)
+                Material.background: theme.mantle
                 text: "Закрыть"
                 onPressed: b_Shown = false
             }

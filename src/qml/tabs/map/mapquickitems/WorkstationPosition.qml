@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtLocation 5.15
 import QtPositioning 5.15
 import QtGraphicalEffects 1.15
-import Theme 1.0
 
 MapQuickItem {
     coordinate: gpsSource.position.coordinate
@@ -18,7 +17,7 @@ MapQuickItem {
         layer {
             enabled: true
             effect: ColorOverlay {
-                color: ColorTheme.active.color(ColorTheme.Green)
+                color: theme.green
             }
         }
     }

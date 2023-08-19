@@ -8,7 +8,6 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Notifications 1.0
 
 MapQuickItem {
@@ -47,10 +46,10 @@ MapQuickItem {
                     flat: true
                     icon.source: level === NotificationsModel.Alert ? "qrc:/icons/vector/common/error.svg"
                                                                     : "qrc:/icons/vector/common/warning.svg"
-                    icon.color: level === NotificationsModel.Alert ? ColorTheme.active.color(ColorTheme.Red)
-                                                                   : ColorTheme.active.color(ColorTheme.Orange)
-                    Material.foreground: level === NotificationsModel.Alert ? ColorTheme.active.color(ColorTheme.Red)
-                                                                            : ColorTheme.active.color(ColorTheme.Orange)
+                    icon.color: level === NotificationsModel.Alert ? theme.red
+                                                                   : theme.peach
+                    Material.foreground: level === NotificationsModel.Alert ? theme.red
+                                                                            : theme.peach
 
                     font {
                         pixelSize: 12

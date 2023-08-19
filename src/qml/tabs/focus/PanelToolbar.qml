@@ -2,8 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
-import Theme 1.0
-
 import "../../widgets" as Widgets
 
 Pane { id: panel_EditorTools;
@@ -15,9 +13,9 @@ Pane { id: panel_EditorTools;
             width: 44
             radius: 4
             icon.source: "qrc:/icons/vector/images/pan.svg"
-            icon.color: focustab_root.currentTool === 0 ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+            icon.color: focustab_root.currentTool === 0 ? theme.base : theme.text
             Material.elevation: 30
-            Material.background: focustab_root.currentTool === 0 ? ColorTheme.active.color(ColorTheme.PrimaryDark) : ColorTheme.active.color(ColorTheme.Surface)
+            Material.background: focustab_root.currentTool === 0 ? theme.blue : theme.surface0
             onPressed: focustab_root.currentTool = 0
 
             Widgets.TT { txt: "Инструмент перемещения"; }
@@ -28,9 +26,9 @@ Pane { id: panel_EditorTools;
             width: 44
             radius: 4
             icon.source: "qrc:/icons/vector/images/focus_circle.svg"
-            icon.color: focustab_root.currentTool === 1 ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+            icon.color: focustab_root.currentTool === 1 ? theme.base : theme.text
             Material.elevation: 30
-            Material.background: focustab_root.currentTool === 1 ? ColorTheme.active.color(ColorTheme.Orange) : ColorTheme.active.color(ColorTheme.Surface)
+            Material.background: focustab_root.currentTool === 1 ? theme.peach : theme.surface0
             onPressed: {
                 if(focustab_root.currentTool === 1)
                     focustab_root.currentTool = 0

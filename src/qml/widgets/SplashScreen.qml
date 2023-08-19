@@ -1,11 +1,10 @@
 import QtQuick 2.15
-import Theme 1.0
 
 Rectangle {
     property bool smooth_startup: true;
     enabled: true;
     opacity: enabled ? smooth_startup ? 0 : 1 : 0;
-    color: ColorTheme.active.color(ColorTheme.Dark)
+    color: theme.mantle
 
     Component.onCompleted: {
         smooth_startup = true;

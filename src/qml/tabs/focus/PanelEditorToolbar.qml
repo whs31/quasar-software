@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
-import Theme 1.0
 import QuaSAR.API 1.0
 
 Pane { id: panel_EditorToolbar
@@ -14,11 +13,11 @@ Pane { id: panel_EditorToolbar
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/images/reform.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Dark)
+            icon.color: theme.base
             text: "Переформирование изображения"
             Material.elevation: 30
-            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: ColorTheme.active.color(ColorTheme.Accent)
+            Material.foreground: theme.base
+            Material.background: theme.mauve
             onPressed: NetworkAPI.execd.execute(Net.ReformImage)
         }
 
@@ -28,11 +27,11 @@ Pane { id: panel_EditorToolbar
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/images/focus_circle.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Dark)
+            icon.color: theme.base
             text: "Фокусировка изображения"
             Material.elevation: 30
-            Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-            Material.background: ColorTheme.active.color(ColorTheme.Orange)
+            Material.foreground: theme.base
+            Material.background: theme.peach
             onPressed: NetworkAPI.execd.execute(Net.FocusImage)
         }
     }

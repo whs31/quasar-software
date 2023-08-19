@@ -6,13 +6,11 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
-
 Pane {
     property string name: "Ping Console";
 
     Material.elevation: 60;
-    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+    Material.background: theme.base
 
 
     Rectangle { id: header;
@@ -20,7 +18,7 @@ Pane {
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.margins: -12;
-        color: ColorTheme.active.color(ColorTheme.Surface)
+        color: theme.surface0
         height: 24;
 
         Text {
@@ -32,12 +30,12 @@ Pane {
                 pixelSize: 15
             }
             text: name;
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
     }
 
     Rectangle { id: textareabackground;
-        color: ColorTheme.active.color(ColorTheme.BaseShade)
+        color: theme.base
         anchors {
             top: header.bottom
             topMargin: 12
@@ -59,7 +57,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Радиолокационный модуль: "
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     Layout.fillWidth: true;
                 }
 
@@ -72,8 +70,8 @@ Pane {
                     text: NetworkAPI.remote.pings[0] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                                      : "НЕТ СОЕДИНЕНИЯ";
                     Component.onCompleted: console.error(NetworkAPI.remote.pings[0])
-                    color: NetworkAPI.remote.pings[0] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
-                                                                      : ColorTheme.active.color(ColorTheme.Red)
+                    color: NetworkAPI.remote.pings[0] === Net.Success ? theme.green
+                                                                      : theme.red
                 }
 
                 ConnectionIndicator {
@@ -93,7 +91,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Бортовой вычислитель: "
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     Layout.fillWidth: true;
                 }
 
@@ -105,8 +103,8 @@ Pane {
                     }
                     text: NetworkAPI.remote.pings[1] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                                      : "НЕТ СОЕДИНЕНИЯ";
-                    color: NetworkAPI.remote.pings[1] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
-                                                                      : ColorTheme.active.color(ColorTheme.Red)
+                    color: NetworkAPI.remote.pings[1] === Net.Success ? theme.green
+                                                                      : theme.red
                 }
 
                 ConnectionIndicator {
@@ -126,7 +124,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Навигация: "
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     Layout.fillWidth: true;
                 }
 
@@ -138,8 +136,8 @@ Pane {
                     }
                     text: NetworkAPI.remote.pings[2] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                                      : "НЕТ СОЕДИНЕНИЯ";
-                    color: NetworkAPI.remote.pings[2] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
-                                                                      : ColorTheme.active.color(ColorTheme.Red)
+                    color: NetworkAPI.remote.pings[2] === Net.Success ? theme.green
+                                                                      : theme.red
                 }
 
                 ConnectionIndicator {
@@ -159,7 +157,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Коммутатор антенн: "
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     Layout.fillWidth: true;
                 }
 
@@ -171,8 +169,8 @@ Pane {
                     }
                     text: NetworkAPI.remote.pings[3] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
                                                                      : "НЕТ СОЕДИНЕНИЯ";
-                    color: NetworkAPI.remote.pings[3] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
-                                                                      : ColorTheme.active.color(ColorTheme.Red)
+                    color: NetworkAPI.remote.pings[3] === Net.Success ? theme.green
+                                                                      : theme.red
                 }
 
                 ConnectionIndicator {
@@ -192,7 +190,7 @@ Pane {
                         pixelSize: 14
                     }
                     text: "Коммутатор питания: "
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     Layout.fillWidth: true;
                 }
 
@@ -203,9 +201,9 @@ Pane {
                         pixelSize: 14
                     }
                     text: NetworkAPI.remote.pings[4] === Net.Success ? "СОЕДИНЕНИЕ ДОСТУПНО"
-                                                                     : "НЕТ СОЕДИНЕНИЯ";
-                    color: NetworkAPI.remote.pings[4] === Net.Success ? ColorTheme.active.color(ColorTheme.Green)
-                                                                      : ColorTheme.active.color(ColorTheme.Red)
+                                                                     : "НЕТ СОЕДИНЕНИЯ"
+                    color: NetworkAPI.remote.pings[4] === Net.Success ? theme.green
+                                                                      : theme.red
                 }
 
                 ConnectionIndicator {

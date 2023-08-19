@@ -2,8 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
-
 Pane {
     property real latitude: 0
     property real longitude: 0
@@ -12,7 +10,7 @@ Pane {
 
     RowLayout {
         Text {
-            color: ColorTheme.active.color(ColorTheme.Subtext)
+            color: theme.subtext0
             font {
                 family: root.mainfont
                 weight: Font.DemiBold
@@ -24,7 +22,7 @@ Pane {
 
         Text {
             Layout.preferredWidth: 85
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             text: Number(Math.abs(latitude)).toFixed(6) + "°" + private_LatSuffix
 
             font {
@@ -35,7 +33,7 @@ Pane {
         }
 
         Text {
-            color: ColorTheme.active.color(ColorTheme.Subtext)
+            color: theme.subtext0
             text: "Долгота:"
 
             font {
@@ -46,7 +44,7 @@ Pane {
         }
         Text {
             Layout.preferredWidth: 85
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             text: Number(Math.abs(longitude)).toFixed(6) + "°" + private_LonSuffix
 
             font {

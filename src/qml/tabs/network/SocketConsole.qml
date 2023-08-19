@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtGraphicalEffects 1.15 // LEGACY
 
 import Charts 1.0
-import Theme 1.0
 
 Pane {
     property string name: "Socket Console";
@@ -17,14 +16,14 @@ Pane {
     }
 
     Material.elevation: 6;
-    Material.background: ColorTheme.active.color(ColorTheme.BaseShade)
+    Material.background: theme.base
 
     Rectangle { id: header;
         anchors.top: parent.top;
         anchors.left: parent.left;
         anchors.right: parent.right;
         anchors.margins: -12;
-        color: ColorTheme.active.color(ColorTheme.Surface)
+        color: theme.surface0
         height: 24;
 
         Text {
@@ -32,14 +31,14 @@ Pane {
             anchors.leftMargin: 3;
             text: name;
             font.family: root.mainfont;
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font.bold: true;
             font.pixelSize: 15;
         }
     }
 
     Rectangle { id: textareabackground;
-        color: ColorTheme.active.color(ColorTheme.Dark)
+        color: theme.crust
         anchors.top: header.bottom;
         anchors.topMargin: 12;
         anchors.left: parent.left;
@@ -60,12 +59,12 @@ Pane {
                     height: 12;
                     width: 30;
                     radius: 6;
-                    color: direction ? ColorTheme.active.color(ColorTheme.Orange) : ColorTheme.active.color(ColorTheme.Green)
+                    color: direction ? theme.peach : theme.green
 
                     Text {
                         font.family: root.monofont;
                         anchors.centerIn: parent;
-                        color: ColorTheme.active.color(ColorTheme.Dark)
+                        color: theme.base
                         font.bold: true;
                         font.pixelSize: 12;
                         text: direction ? "OUT" : "IN";
@@ -75,7 +74,7 @@ Pane {
                 Text {
                     text: txt;
                     font.family: root.monofont;
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     font.bold: true;
                     font.pixelSize: 12;
                     textFormat: Text.RichText;
@@ -99,16 +98,16 @@ Pane {
         anchors.bottomMargin: 6;
         radius: 15;
         clip: true;
-        color: ColorTheme.active.color(ColorTheme.BaseShade)
+        color: theme.base
 
         RealtimeLinePlot {
             id: plot
             anchors.fill: parent
             from: 0
             to: 256
-            backgroundColor: ColorTheme.active.color(ColorTheme.Surface)
-            plottingColor: ColorTheme.active.color(ColorTheme.Primary)
-            foregroundColor: ColorTheme.active.color(ColorTheme.Text)
+            backgroundColor: theme.surface0
+            plottingColor: theme.teal
+            foregroundColor: theme.text
             interval: 1
             seconds: 30
             drawAxes: false

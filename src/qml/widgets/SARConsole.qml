@@ -6,8 +6,6 @@ import QtGraphicalEffects 1.15
 import QuaSAR.API 1.0
 import QuaSAR.API.Extras 1.0
 
-import Theme 1.0
-
 Pane {
     id: control
 
@@ -18,7 +16,7 @@ Pane {
     z: 100
     clip: true
     opacity: root.vt100termshown ? 1 : 0
-    Material.background: Qt.darker(ColorTheme.active.color(ColorTheme.Dark), 1.2)
+    Material.background: theme.crust
     Material.elevation: 200
     layer.enabled: true
 
@@ -26,7 +24,7 @@ Pane {
         id: header
 
         height: 32
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.base
         Material.elevation: 20
 
         anchors {
@@ -40,7 +38,7 @@ Pane {
             id: title
 
             text: "КОНСОЛЬ РЛС"
-            color: ColorTheme.active.color(ColorTheme.Subtext)
+            color: theme.subtext0
             verticalAlignment: Text.AlignVCenter
 
             anchors {
@@ -90,8 +88,8 @@ Pane {
 
             RoundButton {
                 height: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Orange)
-                Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
+                Material.background: theme.peach
+                Material.foreground: theme.mantle
                 Material.elevation: 100
                 text: "Очистка"
                 onPressed: NetworkOutput.clear()
@@ -100,7 +98,7 @@ Pane {
             RoundButton {
                 width: 30
                 height: 30
-                Material.background: ColorTheme.active.color(ColorTheme.Red)
+                Material.background: theme.red
                 onPressed: root.vt100termshown = false
             }
 
@@ -133,8 +131,8 @@ Pane {
                 implicitWidth: 4
                 implicitHeight: 100
                 radius: width / 2
-                color: vbar.pressed ? ColorTheme.active.color(ColorTheme.Overlay)
-                                    : ColorTheme.active.color(ColorTheme.Surface)
+                color: vbar.pressed ? theme.surface0
+                                    : theme.surface2
             }
 
         }
@@ -150,8 +148,8 @@ Pane {
                 text: message
                 width: scrollView.width
                 font.family: root.monofont
-                color: type === 0 ? ColorTheme.active.color(ColorTheme.Text)
-                                  : ColorTheme.active.color(ColorTheme.PrimaryLightest)
+                color: type === 0 ? theme.text
+                                  : theme.teal
                 font.bold: true
                 font.pixelSize: 15
                 wrapMode: Text.WordWrap
@@ -165,9 +163,9 @@ Pane {
         id: inputArea
 
         height: 28
-        color: ColorTheme.active.color(ColorTheme.BaseShade)
+        color: theme.base
         border.width: 0.5
-        border.color: ColorTheme.active.color(ColorTheme.Surface)
+        border.color: theme.surface0
 
         anchors {
             left: parent.left
@@ -181,12 +179,12 @@ Pane {
 
             anchors.fill: parent
             anchors.leftMargin: 3
-            color: ColorTheme.active.color(ColorTheme.PrimaryDark)
+            color: theme.blue
             text: "$"
             verticalAlignment: Text.AlignVCenter
             selectByMouse: true
-            selectedTextColor: ColorTheme.active.color(ColorTheme.Dark)
-            selectionColor: ColorTheme.active.color(ColorTheme.Yellow)
+            selectedTextColor: theme.base
+            selectionColor: theme.blue
             font.family: root.monofont
             font.pixelSize: 14
             onAccepted: {
@@ -204,7 +202,7 @@ Pane {
             verticalAlignment: Text.AlignVCenter
             font.family: root.monofont
             font.pixelSize: 14
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             text: input.text.length < 2 ? "  Введите команду для РЛС..."
                                         : ""
         }
@@ -216,7 +214,7 @@ Pane {
             anchors.bottom: parent.bottom
             width: 16
             height: 16
-            color: ColorTheme.active.color(ColorTheme.BaseShade)
+            color: theme.base
 
             // resize window mouse area
             MouseArea {
@@ -225,10 +223,10 @@ Pane {
                 anchors.fill: parent
                 hoverEnabled: true
                 onPressed: {
-                    parent.color = ColorTheme.active.color(ColorTheme.Surface);
+                    parent.color = theme.surface0
                     offset = Qt.point(mouseX, mouseY);
                 }
-                onReleased: parent.color = ColorTheme.active.color(ColorTheme.BaseShade)
+                onReleased: parent.color = theme.base
                 onPositionChanged: {
                     if (pressed) {
                         let global_pos = mapToItem(control, mouseX, mouseY);

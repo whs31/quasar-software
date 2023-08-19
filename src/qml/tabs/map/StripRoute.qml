@@ -4,7 +4,6 @@ import QtPositioning 5.15
 
 import QuaSAR.API 1.0
 import Route 1.0
-import Theme 1.0
 
 MapItemView
 {
@@ -19,7 +18,7 @@ MapItemView
         MapPolyline {
             path: model.eventPath
             line.width: 5
-            line.color: ColorTheme.active.color(ColorTheme.Maroon)
+            line.color: theme.maroon
         }
     }
 

@@ -8,7 +8,6 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Notifications 1.0
 
 MapQuickItem {
@@ -25,11 +24,11 @@ MapQuickItem {
        height: 100
        width: 100
        radius: height / 2
-       color: ColorTheme.active.color(ColorTheme.Maroon)
+       color: theme.maroon
        opacity: 0.5
        border {
            width: 5
-           color: ColorTheme.active.color(ColorTheme.Red)
+           color: theme.red
        }
     }
 }

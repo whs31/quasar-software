@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 
-import Theme 1.0
 import ClickHandler 1.0
 import Images 1.0
 
@@ -27,9 +26,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/vector/toolbar/ruler.svg";
-                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                icon.color: checked ? theme.base : theme.text
                 Material.elevation: 30;
-                Material.background: checked ? ColorTheme.active.color(ColorTheme.Yellow) : ColorTheme.active.color(ColorTheme.Surface)
+                Material.background: checked ? theme.yellow : theme.surface0
                 onCheckedChanged: {
                     if(checked && ClickHandler.state === ClickHandler.Idle)
                         ClickHandler.state = ClickHandler.RulerActive;
@@ -47,9 +46,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/vector/toolbar/select.svg";
-                icon.color: checked ? ColorTheme.active.color(ColorTheme.Dark) : ColorTheme.active.color(ColorTheme.Text)
+                icon.color: checked ? theme.base : theme.text
                 Material.elevation: 30;
-                Material.background: checked ? ColorTheme.active.color(ColorTheme.Green) : ColorTheme.active.color(ColorTheme.Surface)
+                Material.background: checked ? theme.green : theme.surface0
                 onCheckedChanged: {
                     if(checked && ClickHandler.state === ClickHandler.Idle)
                         ClickHandler.state = ClickHandler.TileLoaderActive;
@@ -67,9 +66,9 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/vector/toolbar/gps.svg";
-                icon.color: ColorTheme.active.color(ColorTheme.Text)
+                icon.color: theme.text
                 Material.elevation: 30;
-                Material.background: ColorTheme.active.color(ColorTheme.Surface)
+                Material.background: theme.surface0
                 onPressed: maptab_root.center = c_UAV.coordinate;
 
                 Widgets.TT { txt: "Центрировать карту на БПЛА"; }
@@ -85,8 +84,8 @@ Pane {
                 width: 44;
                 radius: 4;
                 icon.source: "qrc:/icons/vector/toolbar/image_search.svg";
-                icon.color: ColorTheme.active.color(ColorTheme.Text)
-                Material.background: ColorTheme.active.color(ColorTheme.Surface)
+                icon.color: theme.text
+                Material.background: theme.surface0
                 Material.elevation: 30;
                 onPressed: self();
 

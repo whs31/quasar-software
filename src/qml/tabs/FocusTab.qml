@@ -6,13 +6,12 @@ import QtGraphicalEffects 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Images 1.0
 
 import "focus" as FocusTab
 
 Rectangle { id: focustab_root;
-    color: ColorTheme.active.color(ColorTheme.Dark)
+    color: theme.mantle
 
     property int currentAssignedIndex: -1;
     property int currentTool: 0; // 0 - hand, 1 - focus
@@ -60,7 +59,7 @@ Rectangle { id: focustab_root;
 
         Rectangle {
             id: rect;
-            color: ColorTheme.active.color(ColorTheme.Dark)
+            color: theme.crust
             width: Math.max(mapImage.sourceSize.width, flick.width);
             height: Math.max(mapImage.sourceSize.height, flick.height);
             transform: Scale {
@@ -84,7 +83,7 @@ Rectangle { id: focustab_root;
 
                 Rectangle {
                     property bool shown: currentTool === 1;
-                    border.color: ColorTheme.active.color(ColorTheme.Orange)
+                    border.color: theme.peach
                     border.width: 2;
                     color: "transparent";
                     width: panel_FocusSettings.focus_ls * currentStep;
@@ -106,7 +105,7 @@ Rectangle { id: focustab_root;
                     ColorOverlay {
                         anchors.fill: pattern;
                         source: pattern;
-                        color: ColorTheme.active.color(ColorTheme.Orange)
+                        color: theme.peach
                         smooth: true;
                         antialiasing: true;
                     }
@@ -200,7 +199,7 @@ Rectangle { id: focustab_root;
                 family: root.mainfont
                 pixelSize: 15
             }
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
     }
 

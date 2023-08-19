@@ -32,7 +32,7 @@ MapQuickItem {
             anchors.fill: planeSource;
             source: planeSource;
             opacity: 0.75;
-            color: "#ebcb8b";
+            color: theme.yellow;
         }
         DropShadow {
             anchors.fill: overlayPlane;
@@ -47,7 +47,7 @@ MapQuickItem {
             anchors.fill: overlayPlane;
             radius: 5;
             samples: 17;
-            color: "#ebcb8b";
+            color: theme.yellow;
             spread: 0.5;
             transparentBorder: true;
             source: overlayPlane;

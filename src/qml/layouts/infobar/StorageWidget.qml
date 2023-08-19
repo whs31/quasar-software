@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import "../../widgets" as Widgets
 
 import QuaSAR.API 1.0
@@ -16,10 +15,10 @@ RowLayout
         flat: true
         icon {
             source: "qrc:/icons/vector/network/storage.svg"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
 
-        Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+        Material.foreground: theme.text
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 45
@@ -36,12 +35,12 @@ RowLayout
             to: 100
             indeterminate: remoteDiskSpace === 0
             Material.accent: value === 0
-                             ? ColorTheme.active.color(ColorTheme.Text)
+                             ? theme.text
                              : value < 50
-                               ? ColorTheme.active.color(ColorTheme.Red)
+                               ? theme.red
                                : value < 80
-                                 ? ColorTheme.active.color(ColorTheme.Orange)
-                                 : ColorTheme.active.color(ColorTheme.Green)
+                                 ? theme.peach
+                                 : theme.green
             Layout.preferredWidth: 100
         }
 
@@ -49,7 +48,7 @@ RowLayout
             Layout.fillHeight: true;
             Layout.preferredWidth: 30;
             Layout.alignment: Qt.AlignRight
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font {
                 weight: Font.ExtraBold
                 family: root.mainfont
@@ -69,10 +68,10 @@ RowLayout
         font.family: root.mainfont
         radius: 13
         icon.source: "qrc:/icons/vector/common/delete.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Dark)
+        icon.color: theme.base
         Material.elevation: 30
-        Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-        Material.background: ColorTheme.active.color(ColorTheme.Red)
+        Material.foreground: theme.base
+        Material.background: theme.red
         onPressed: dialogwindow.open("Очистка удаленного диска", "Вы уверены, что хотите очистить удаленное хранилище на РЛС?", "error", 27)
 
         Connections {

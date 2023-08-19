@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import Config 1.0
 
 import QuaSAR.API 1.0
@@ -22,12 +21,12 @@ RowLayout {
         radius: 4;
         icon.source: NetworkAPI.isConnected ? "qrc:/icons/vector/network/wifi_off.svg"
                                             : "qrc:/icons/vector/network/wifi.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Dark)
+        icon.color: theme.base
         text: NetworkAPI.isConnected ? "Отключение" : "Подключение";
         Material.elevation: 30;
-        Material.foreground: ColorTheme.active.color(ColorTheme.Dark)
-        Material.background: NetworkAPI.isConnected ? ColorTheme.active.color(ColorTheme.Red)
-                                                    : ColorTheme.active.color(ColorTheme.PrimaryLightest)
+        Material.foreground: theme.base
+        Material.background: NetworkAPI.isConnected ? theme.red
+                                                    : theme.teal
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
         Behavior on opacity { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 

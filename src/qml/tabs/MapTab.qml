@@ -7,7 +7,6 @@ import QtQuick.Layouts 1.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Ruler 1.0
 import ClickHandler 1.0
 import Filesystem 1.0
@@ -186,8 +185,8 @@ Map { id: maptab_root;
         property bool shown: true;
         path: c_RadarDiagram.polygon;
         border.width: 3;
-        border.color: ColorTheme.active.color(ColorTheme.Yellow)
-        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Yellow), 1.2);
+        border.color: theme.yellow
+        color: Qt.lighter(theme.yellow, 1.2);
         opacity: shown ? 0.2 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
@@ -198,8 +197,8 @@ Map { id: maptab_root;
     MapPolygon { id: tileloaderpolygon;
         property bool shown: true;
         border.width: 3;
-        border.color: ColorTheme.active.color(ColorTheme.Green);
-        color: Qt.lighter(ColorTheme.active.color(ColorTheme.Green), 1.2);
+        border.color: theme.green;
+        color: Qt.lighter(theme.green, 1.2);
         opacity: shown ? 0.4 : 0;
         Behavior on opacity { NumberAnimation { duration: 200; } }
     }
@@ -277,7 +276,7 @@ Map { id: maptab_root;
         radius: 4
         icon.source: attitude.shown ? "qrc:/icons/vector/common/collapse.svg"
                                     : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
+        icon.color: theme.text
         font.family: root.mainfont
         text: attitude.shown ? "" : "Авиагоризонт"
         Material.background: Material.background
@@ -350,13 +349,13 @@ Map { id: maptab_root;
         radius: 4
         icon.source: panel_Parameters.shown ? "qrc:/icons/vector/common/collapse.svg"
                                             : "qrc:/icons/vector/common/expand.svg"
-        icon.color: ColorTheme.active.color(ColorTheme.Text)
+        icon.color: theme.text
         font.family: root.mainfont
         text: panel_Parameters.shown ? "" : "Параметры карты"
         Material.elevation: 30
-        Material.background: Material.background
-        Material.primary: Material.primary
-        Material.accent: Material.accent
+        Material.background: theme.base
+        Material.primary: base.mauve
+        Material.accent: base.teal
         onCheckedChanged: panel_Parameters.shown = checked
     }
 }

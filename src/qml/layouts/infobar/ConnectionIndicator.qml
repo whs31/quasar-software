@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import "../../widgets" as Widgets
 
 RowLayout {
@@ -15,12 +14,12 @@ RowLayout {
 
     function evaluateColor(mode, status, dl) {
         if(mode)
-            return ColorTheme.active.color(ColorTheme.Rosewater)
+            return theme.rosewater
         if(!status)
-            return ColorTheme.active.color(ColorTheme.Red)
+            return theme.red
         if(dl > 3)
-            return ColorTheme.active.color(ColorTheme.Yellow)
-        return ColorTheme.active.color(ColorTheme.Green)
+            return theme.yellow
+        return theme.green
     }
 
     ToolButton {

@@ -4,7 +4,6 @@ import QtQuick.Controls.Material 2.15
 
 import QuaSAR.API 1.0
 
-import Theme 1.0
 import Config 1.0
 import Markers 1.0
 import Application 1.0
@@ -12,18 +11,18 @@ import Filesystem 1.0
 
 MenuBar {
     Menu {
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.mantle
         title: "Файл"
         contentWidth: 300
         Menu {
-            Material.background: ColorTheme.active.color(ColorTheme.Surface)
+            Material.background: theme.mantle
             contentWidth: 400
             title: "Экспорт"
             Action {
                 text: "Экспортировать выбранные изображения";
                 icon {
                     source: "qrc:/icons/vector/images/images.svg"
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                 }
                 onTriggered: window_ExportDialog.open()
             }
@@ -33,7 +32,7 @@ MenuBar {
                 text: "Сохранить маркеры в JSON"
                 icon {
                     source: "qrc:/icons/vector/common/file_percent.svg"
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                 }
                 onTriggered: MarkersModel.save(Paths.markers() + "/" + Utils.currentDateString() + ".json", MarkersModel.JSON)
             }
@@ -41,7 +40,7 @@ MenuBar {
                 text: "Сохранить маркеры в текстовый файл"
                 icon {
                     source: "qrc:/icons/vector/common/file.svg"
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                 }
                 onTriggered: MarkersModel.save(Paths.markers() + "/" + Utils.currentDateString() + ".txt", MarkersModel.PlainText)
             }
@@ -53,14 +52,14 @@ MenuBar {
             text: "Закрыть программу"
             icon {
                 source: "qrc:/icons/vector/common/close.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: Qt.quit()
         }
     }
 
     Menu {
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.mantle
         title: "Изображения"
         contentWidth: 400
 
@@ -68,7 +67,7 @@ MenuBar {
             text: "Обновить выбранный каталог"
             icon {
                 source: "qrc:/icons/vector/common/refresh.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.mantle
             }
 
             onTriggered: {
@@ -82,7 +81,7 @@ MenuBar {
             text: "Выбрать каталог с изображениями"
             icon {
                 source: "qrc:/icons/vector/common/open.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
 
             onTriggered: window_FileDialog.open()
@@ -94,7 +93,7 @@ MenuBar {
             text: "Очистить локальный кэш"
             icon {
                 source: "qrc:/icons/vector/common/delete.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
 
             onTriggered: dialogwindow.open("Очистка кэша", "Вы уверены, что хотите очистить кэш радиолокационных изображений? \n" +
@@ -102,24 +101,8 @@ MenuBar {
         }
     }
 
-//    Menu {
-//        Material.background: ColorTheme.active.color(ColorTheme.Surface)
-//        title: "Правка"
-
-//        MenuSeparator { }
-
-//        Action {
-//            text: "Настройки"
-//            icon {
-//                source: "qrc:/icons/vector/common/settings.svg"
-//                color: ColorTheme.active.color(ColorTheme.Text)
-//            }
-//            onTriggered: settingswindow.shown = !settingswindow.shown
-//        }
-//    }
-
     Menu {
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.mantle
         title: "Сеть"
         contentWidth: 300
 
@@ -127,7 +110,7 @@ MenuBar {
             text: "Проверка хранилища РЛС"
             icon {
                 source: "qrc:/icons/vector/network/hdd.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: NetworkAPI.execd.execute(Net.RemoteStorageStatus)
         }
@@ -138,7 +121,7 @@ MenuBar {
             text: "Перезагрузить РЛС"
             icon {
                 source: "qrc:/icons/vector/common/refresh.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: dialogwindow.open("Перезагрузка РЛС", "Вы уверены, что хотите перезагрузить РЛС?", "warn", 21)
         }
@@ -147,21 +130,21 @@ MenuBar {
             text: "Выключить РЛС"
             icon {
                 source: "qrc:/icons/vector/network/poweroff.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: dialogwindow.open("Выключение РЛС", "Вы уверены, что хотите выключить РЛС?", "warn", 22)
         }
     }
 
     Menu {
-        Material.background: ColorTheme.active.color(ColorTheme.Surface)
+        Material.background: theme.mantle
         title: "Дополнительно"
         contentWidth: 300
         Action {
             text: "Консоль разработчика"
             icon {
                 source: "qrc:/icons/vector/common/terminal.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: root.consoleshown = !root.consoleshown
         }
@@ -170,7 +153,7 @@ MenuBar {
             text: "Консоль РЛС"
             icon {
                 source: "qrc:/icons/vector/common/remote_display.svg"
-                color: ColorTheme.active.color(ColorTheme.Text)
+                color: theme.text
             }
             onTriggered: root.vt100termshown = !root.vt100termshown
         }
@@ -181,7 +164,7 @@ MenuBar {
             text: "О программе"
             icon {
                 source: "qrc:/icons/vector/common/info.svg"
-                color: ColorTheme.active.color(ColorTheme.Accent)
+                color: theme.mauve
             }
             onTriggered: c_InfoWindow.b_Shown = !c_InfoWindow.b_Shown
         }

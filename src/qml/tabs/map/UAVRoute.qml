@@ -5,7 +5,6 @@ import QtPositioning 5.15
 import QuaSAR.API 1.0
 
 import Route 1.0
-import Theme 1.0
 
 MapPolyline {
     function clear() { impl.clear(); }
@@ -26,7 +25,7 @@ MapPolyline {
     onCurrentPositionChanged: impl.append(currentPosition, currentSpeed, currentSats)
 
     line.width: 5;
-    line.color: ColorTheme.active.color(ColorTheme.Yellow)
+    line.color: theme.yellow
     path: type === UAVRoute.Full ? impl.fullRoute : impl.recentRoute;
 
     Route { id: impl; }

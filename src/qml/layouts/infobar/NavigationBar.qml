@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import "../../widgets" as Widgets
 
 RowLayout {
@@ -21,7 +20,7 @@ RowLayout {
         flat: true
         icon {
             source: "qrc:/icons/vector/toolbar/coord.svg"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
 
         font {
@@ -29,7 +28,7 @@ RowLayout {
             weight: Font.Bold
         }
         text: Number(latitude).toFixed(7) + private_LatSuffix + " " + Number(longitude).toFixed(7) + private_LonSuffix
-        Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+        Material.foreground: theme.text
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 240
@@ -41,7 +40,7 @@ RowLayout {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/altitude.svg"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
 
         font {
@@ -49,7 +48,7 @@ RowLayout {
             weight: Font.Bold
         }
         text: Number(altitude).toFixed(0) +  " м"
-        Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+        Material.foreground: theme.text
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 90
@@ -65,7 +64,7 @@ RowLayout {
             weight: Font.DemiBold
         }
         text: Number(seaAltitude).toFixed(0) + " м"
-        Material.foreground: ColorTheme.active.color(ColorTheme.Subtext)
+        Material.foreground: theme.subtext0
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 65
@@ -77,7 +76,7 @@ RowLayout {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/speed.svg"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
 
         font {
@@ -85,7 +84,7 @@ RowLayout {
             weight: Font.Bold
         }
         text: Number(velocity).toFixed(0)+  " км/ч"
-        Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+        Material.foreground: theme.text
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 120
@@ -97,7 +96,7 @@ RowLayout {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/compass.svg"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
         }
 
         font {
@@ -105,7 +104,7 @@ RowLayout {
             weight: Font.Bold
         }
         text: Number(direction).toFixed(1)+  "°"
-        Material.foreground: ColorTheme.active.color(ColorTheme.Text)
+        Material.foreground: theme.text
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 100
@@ -117,7 +116,7 @@ RowLayout {
         flat: true
         icon {
             source: "qrc:/icons/vector/network/antenna.svg"
-            color: ColorTheme.active.color(ColorTheme.Subtext)
+            color: theme.subtext0
         }
 
         font {
@@ -125,7 +124,7 @@ RowLayout {
             weight: Font.DemiBold
         }
         text: Number(satellitesCount).toFixed(0)
-        Material.foreground: ColorTheme.active.color(ColorTheme.Subtext)
+        Material.foreground: theme.subtext0
         Behavior on implicitWidth { NumberAnimation { easing.type: Easing.Linear; duration: 100; } }
 
         Layout.preferredWidth: 60

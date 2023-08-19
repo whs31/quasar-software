@@ -3,7 +3,6 @@ import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 
-import Theme 1.0
 import QuaSAR.API 1.0
 
 import "../../../widgets" as Widgets
@@ -19,8 +18,8 @@ Pane {
     clip: true
     opacity: 0.75
     Material.elevation: 30
-    Material.accent: ColorTheme.active.color(ColorTheme.Yellow)
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.accent: theme.yellow
+    Material.background: theme.base
 
     component FormParametersDecimalInputWithInfo: RowLayout {
         property string description: "None"
@@ -36,7 +35,7 @@ Pane {
             font.family: root.mainfont
             radius: 13
             icon.source: "qrc:/icons/vector/common/question.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
+            icon.color: theme.text
             Material.elevation: 30
 
             Widgets.TT {  txt: details }
@@ -45,7 +44,7 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -69,7 +68,7 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -93,7 +92,7 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -122,7 +121,7 @@ Pane {
             font.family: root.mainfont
             radius: 13
             icon.source: "qrc:/icons/vector/common/question.svg"
-            icon.color: ColorTheme.active.color(ColorTheme.Text)
+            icon.color: theme.text
             Material.elevation: 30
 
             Widgets.TT {  txt: details }
@@ -131,7 +130,7 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -159,13 +158,13 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
         Text {
             text: __switch.checked ? "АВТО" : "ВРУЧНУЮ"
-            color: __switch.checked ? ColorTheme.active.color(ColorTheme.Yellow) : ColorTheme.active.color(ColorTheme.Text)
+            color: __switch.checked ? theme.yellow : theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -202,13 +201,13 @@ Pane {
         Text {
             Layout.fillWidth: true
             text: description + ":"
-            color: ColorTheme.active.color(ColorTheme.Text)
+            color: theme.text
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
         Text {
             text: Number(__slider.value).toFixed(1)
-            color: ColorTheme.active.color(ColorTheme.Yellow)
+            color: theme.yellow
             font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
         }
 
@@ -265,7 +264,7 @@ Pane {
                 Text {
                     Layout.fillWidth: true
                     text: "Тип вычислителя:"
-                    color: ColorTheme.active.color(ColorTheme.Text)
+                    color: theme.text
                     font { family: root.mainfont; weight: Font.Bold; pixelSize: 14 }
                 }
 

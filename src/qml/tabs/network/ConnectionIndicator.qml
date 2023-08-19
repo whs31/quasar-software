@@ -1,14 +1,13 @@
 import QtQuick 2.15
-import Theme 1.0
 
 Rectangle { id: control;
     property int connected: 0;
     width: 10;
     height: 10;
     radius: width / 2;
-    color: connected === 2 ? ColorTheme.active.color(ColorTheme.Green)
-                           : connected === 1 ? ColorTheme.active.color(ColorTheme.Yellow)
-                           : ColorTheme.active.color(ColorTheme.Red)
+    color: connected === 2 ? theme.green
+                           : connected === 1 ? theme.yellow
+                           : theme.red
 
     SequentialAnimation {
         NumberAnimation {

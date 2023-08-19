@@ -1,6 +1,5 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
-import Theme 1.0
 
 ToolTip { id: control;
     property string txt: "Tooltip";
@@ -12,10 +11,10 @@ ToolTip { id: control;
     contentItem: Text {
         text: txt;
         font: control.font;
-        color: ColorTheme.active.color(ColorTheme.Text)
+        color: theme.text
     }
     background: Rectangle {
-        color: ColorTheme.active.color(ColorTheme.Dark)
+        color: theme.crust
         radius: 3;
     }
     delay: 500;

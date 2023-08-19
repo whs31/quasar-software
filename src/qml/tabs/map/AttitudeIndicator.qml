@@ -1,7 +1,6 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Controls.Material 2.15
-import Theme 1.0
 
 Pane {
     property bool shown: false
@@ -22,7 +21,7 @@ Pane {
             pixelSize: 15
             bold: true
         }
-        color: ColorTheme.active.color(ColorTheme.Orange)
+        color: theme.peach
         text: "Временно убрано в связи с реворком."
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter

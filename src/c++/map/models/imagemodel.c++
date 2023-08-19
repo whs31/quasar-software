@@ -229,6 +229,7 @@ namespace Map
 
   void ImageModel::addNeuralData(const QList<QuasarSDK::NeuralData>& data, const QString& filename)
   {
+    qDebug() << "$ [NEURAL] Image model is being requested to add neural data to image";
     int j = -1;
     int i = 0;
     for(const auto& image : storage)
@@ -245,6 +246,9 @@ namespace Map
       return;
 
     storage[j].neural_data = data;
+    qDebug() << "$" << "[NEURAL] Image model received data for image" << filename << "at index" << j;
+    for(const auto& a : data)
+      qDebug() << "$" << a.tag() << a.rect() << a.color();
     emit dataChanged(index(j), index(j), {Neural});
   }
 } // Map

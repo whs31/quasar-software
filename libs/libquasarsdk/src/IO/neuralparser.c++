@@ -25,6 +25,10 @@ namespace QuasarSDK
                                       static_cast<float>(x["y2"].toInt()),
                                       QColor(x["color"].toString())));
     }
+
+    qDebug() << "$ [NEURAL] Parsed json package data:";
+    for(const auto& a : ret.second)
+      qDebug() << "$" << a.tag() << a.rect() << a.color();
     return ret;
   }
 } // QuasarSDK

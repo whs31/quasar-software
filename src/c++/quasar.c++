@@ -146,6 +146,7 @@ void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
 
   if(name.endsWith(".json"))
   {
+    qDebug() << "$ [NEURAL] Received json package with size of" << data.size() << "bytes";
     auto parsed = QuasarSDK::NeuralParser::parseJSON(data);
     Processing::ImageProcessing::get()->model()->addNeuralData(parsed.second, parsed.first);
   }

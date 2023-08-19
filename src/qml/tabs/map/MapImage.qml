@@ -51,6 +51,7 @@ MapQuickItem {
                     delegate: Rectangle {
                         required property var modelData
                         property rect box: modelData.rect
+                        onBoxChanged: console.log("$ [NEURAL] Neural data received by QML: " + box)
 
                         color: "transparent"
                         border {

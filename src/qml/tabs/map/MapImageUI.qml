@@ -156,7 +156,7 @@ MapQuickItem {
                         id: button_ShowControls
                         Layout.fillWidth: true
                         icon.source: "qrc:/icons/vector/common/tune.svg"
-                        icon.color: checked ? theme.dark
+                        icon.color: checked ? theme.base
                                             : theme.text
                         font.family: root.mainfont
                         text: "Параметры"
@@ -327,12 +327,16 @@ MapQuickItem {
                             id: repeater
                             model: meta_model
                             delegate: Text {
+                                required property color col
+                                required property string str
+                                required property bool fill
+
                                 font.family: root.mainfont
                                 font.pixelSize: 12
                                 font.bold: !fill
                                 Layout.fillWidth: fill
                                 Layout.alignment: fill ? Qt.AlignLeft : Qt.AlignRight
-                                color: col
+                                color: theme.subtext0
                                 text: str
                             }
                         }

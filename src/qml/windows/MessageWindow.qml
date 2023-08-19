@@ -90,7 +90,7 @@ Pane {
 
     Action {
         id: closeMessageBoxAction
-        shortcut: "Return"
+        // shortcut: "Return"
         onTriggered: close()
     }
 }

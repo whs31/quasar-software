@@ -56,7 +56,7 @@ RowLayout {
             }
         }
 
-        Timer { id: disconnect_timer; running: false; repeat: false; interval: 3000; onTriggered: {
+        Timer { id: disconnect_timer; running: false; repeat: false; interval: 30000; onTriggered: {
                 if(!NetworkAPI.isConnected)
                 {
                     NetworkAPI.stop()

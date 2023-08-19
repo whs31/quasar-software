@@ -18,6 +18,7 @@ Pane {
     opacity: root.vt100termshown ? 1 : 0
     Material.background: theme.crust
     Material.elevation: 200
+    focus: true
     layer.enabled: true
 
     Pane {
@@ -87,11 +88,11 @@ Pane {
             }
 
             RoundButton {
+                width: 30
                 height: 30
                 Material.background: theme.peach
                 Material.foreground: theme.mantle
                 Material.elevation: 100
-                text: "Очистка"
                 onPressed: NetworkOutput.clear()
             }
 
@@ -187,6 +188,7 @@ Pane {
             selectionColor: theme.blue
             font.family: root.monofont
             font.pixelSize: 14
+            focus: true
             onAccepted: {
                 if(text === "$")
                     return;

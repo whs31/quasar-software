@@ -54,7 +54,7 @@ Pane { id: control;
 
     Action {
         id: acceptAction
-        shortcut: "Return"
+        //shortcut: "Return"
         onTriggered: accept()
     }
 

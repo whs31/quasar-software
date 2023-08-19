@@ -4,8 +4,8 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtPositioning 5.15
 
-import Theme 1.0
 import Offline 1.0
+import Theme 1.0
 
 Pane { id: dialog_TileLoader;
     property var poly: [];

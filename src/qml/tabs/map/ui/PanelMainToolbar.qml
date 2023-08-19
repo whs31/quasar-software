@@ -6,7 +6,6 @@ import QtQuick.Layouts 1.15
 import QuaSAR.API 1.0
 
 import "../../../widgets" as Widgets
-import "qrc:/js/catpuccin.js" as Catpuccin
 
 Pane {
     Material.elevation: 200
@@ -64,7 +63,7 @@ Pane {
         id: neuralAction
         shortcut: "N"
         checkable: true
-        onCheckedChanged: console.log("pisi")
+        onCheckedChanged: NetworkAPI.execd.setArgument("-d", (checked ? "1" : "0"), Net.Form)
     }
 
     Action {
@@ -80,7 +79,7 @@ Pane {
         RoundButton {
             property var m_icons: ["qrc:/icons/vector/toolbar/angle.svg", "qrc:/icons/vector/images/shot.svg", "qrc:/icons/vector/network/stream.svg"]
             property var m_labels: ["Телескопический", "Полосовой", "Потоковый"]
-            property var m_colors: [Catpuccin.mocha.mauve.hex, Catpuccin.mocha.yellow.hex, Catpuccin.mocha.pink.hex]
+            property var m_colors: [theme.mauve, theme.yellow, theme.pink]
 
             id: button_ToggleMode
 
@@ -89,11 +88,11 @@ Pane {
             height: 40
             radius: 4
             icon.source: m_icons[NetworkAPI.currentFormingMode]
-            icon.color: Catpuccin.mocha.base.hex
+            icon.color: theme.base
             text: m_labels[NetworkAPI.currentFormingMode]
             Material.elevation: 30
             Material.background: m_colors[NetworkAPI.currentFormingMode]
-            Material.foreground: Catpuccin.mocha.base.hex
+            Material.foreground: theme.base
 
             action: toggleModeAction
 
@@ -109,14 +108,14 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/images/focus.svg"
-            icon.color: Catpuccin.mocha.base.hex
+            icon.color: theme.base
             text: NetworkAPI.currentFormingMode === Net.Telescopic ? "Формирование изображения"
                   : NetworkAPI.currentFormingMode === Net.Strip ? checkstate_string + " записи"
                   : checkstate_string + " потока"
             checkable: NetworkAPI.currentFormingMode !== Net.Telescopic
             Material.elevation: 30
-            Material.foreground: Catpuccin.mocha.base.hex
-            Material.background: checked ? Catpuccin.mocha.peach.hex
+            Material.foreground: theme.base
+            Material.background: checked ? theme.peach
                                          : button_ToggleMode.m_colors[NetworkAPI.currentFormingMode]
             action: formAction
 
@@ -165,10 +164,10 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/images/terrain.svg"
-            icon.color: Catpuccin.mocha.base.hex
+            icon.color: theme.base
             Material.elevation: 30
-            Material.foreground: Catpuccin.mocha.base.hex
-            Material.background: Catpuccin.mocha.blue.hex
+            Material.foreground: theme.base
+            Material.background: theme.blue
             action: calibrateAction
 
             Connections {
@@ -195,10 +194,10 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/misc/neural.svg"
-            icon.color: checked ? Catpuccin.mocha.base.hex : Catpuccin.mocha.text.hex
+            icon.color: checked ? theme.base : theme.text
             Material.elevation: 30
-            Material.foreground: checked ? Catpuccin.mocha.base.hex : Catpuccin.mocha.text.hex
-            Material.background: checked ? Catpuccin.mocha.teal.hex : Catpuccin.mocha.surface1.hex
+            Material.foreground: checked ? theme.base : theme.text
+            Material.background: checked ? theme.teal : theme.surface1
             action: neuralAction
 
             Widgets.TT { txt: "Распознавание изображений бортовой нейронной сетью" }
@@ -213,10 +212,10 @@ Pane {
             height: 40
             radius: 4
             icon.source: "qrc:/icons/vector/common/tune.svg"
-            icon.color: Catpuccin.mocha.text.hex
+            icon.color: theme.text
             Material.elevation: 30
-            Material.foreground: Catpuccin.mocha.text.hex
-            Material.background: checked ? Catpuccin.mocha.surface2.hex : Catpuccin.mocha.surface1.hex
+            Material.foreground: theme.text
+            Material.background: checked ? theme.surface2 : theme.surface1
             action: formSettingsAction
 
             Widgets.TT { txt: "Параметры формирования радиолокационных изображений" }

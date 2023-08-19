@@ -44,6 +44,7 @@
      <tr><td>Тип вычислителя</td><td>--DSP</td><td>String</td><td>DSP_FFTW</td><td>DSP_FFTW или DSP_CUDA</td><td></td></tr>
      <tr><td>Вертикальное отражение РЛИ</td><td>--mirror</td><td>String</td><td>False</td><td>True или False</td><td>Булевая переменная начинается с заглавной буквы</td></tr>
      <tr><td>Высота земли в точке старта</td><td>--e0</td><td>Float</td><td>0</td><td>0 - ∞</td><td></td></tr>
+     <tr><td>Распознование объектов на РЛИ с помощью бортовой нейросети</td><td>-d</td><td>Integer</td><td>0</td><td>0 или 1</td><td></td></tr>
      <tr><td>OX координата точки фокусировки</td><td>--px</td><td>Float</td><td>-1</td><td>произвольное</td><td></td></tr>
      <tr><td>OY координата точки фокусировки</td><td>--py</td><td>Float</td><td>-1</td><td>произвольное</td><td></td></tr>
      <tr><td>Размер стороны квадрата для фокусировки, м</td><td>--ls</td><td>Float</td><td>50</td><td>0 - ∞</td><td></td></tr>

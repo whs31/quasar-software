@@ -110,6 +110,8 @@
         <file>icons/vector/images/scale.svg</file>
         <file>icons/vector/images/transform.svg</file>
         <file>icons/vector/common/file_percent.svg</file>
+        <file>icons/vector/common/light.svg</file>
+        <file>icons/vector/common/dark.svg</file>
         <file>icons/vector/common/error.svg</file>
         <file>icons/vector/images/shot.svg</file>
         <file>icons/vector/network/stream.svg</file>

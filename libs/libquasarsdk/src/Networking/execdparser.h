@@ -70,7 +70,8 @@ namespace QuasarSDK
           {"--DSP", ExecdArgument("DSP_FFTW")},
           {"--mirror", ExecdArgument("False")},
 
-          {"--e0", ExecdArgument(0.0f)}
+          {"--e0", ExecdArgument(0.0f)},
+          {"-d", ExecdArgument(0)},
       };
 
       /**

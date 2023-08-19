@@ -87,7 +87,26 @@ Drawer {
             }
         }
 
-        Side.SettingsTab {
+        Side.SettingsTab { }
+    }
+
+    Button {
+        anchors {
+            right: parent.right
+            bottom: parent.bottom
         }
+
+        icon {
+            source: lightmode ? "qrc:/icons/vector/common/light.svg"
+                                     : "qrc:/icons/vector/common/dark.svg"
+        }
+        font {
+            family: root.mainfont
+            weight: Font.DemiBold
+            pixelSize: 14
+        }
+        flat: true
+        text: "Переключить тему"
+        onPressed: lightmode = !lightmode
     }
 }

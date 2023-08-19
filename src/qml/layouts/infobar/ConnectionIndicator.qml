@@ -7,7 +7,7 @@ import Theme 1.0
 import "../../widgets" as Widgets
 
 RowLayout {
-    spacing: -2
+    spacing: 0
     id: control
     required property bool offlineMode
     required property bool connected

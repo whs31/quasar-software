@@ -143,7 +143,10 @@ void QuaSAR::passTCPData(const QByteArray& data, const QString& name) noexcept
   file.write(data);
   file.close();
 
-  OS::Filesystem::get()->fetchTCPCache();
+  if(name.endsWith(".json"))
+    qDebug() << data;
+  else
+    OS::Filesystem::get()->fetchTCPCache();
 }
 
 void QuaSAR::passUDPData(const QByteArray& data) noexcept { m_stream_processor->process(data); }

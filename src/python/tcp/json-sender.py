@@ -6,7 +6,7 @@ import time
 import os
 
 chunk_size = 1024
-fileName = 'm4-13-12-2022_21-19-14.jpg'
+fileName = 'm4-13-12-2022_21-19-14.json'
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_address = ('127.0.0.1', 10000)
 

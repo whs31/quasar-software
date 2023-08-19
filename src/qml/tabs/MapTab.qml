@@ -354,8 +354,8 @@ Map { id: maptab_root;
         text: panel_Parameters.shown ? "" : "Параметры карты"
         Material.elevation: 30
         Material.background: theme.base
-        Material.primary: base.mauve
-        Material.accent: base.teal
+        Material.primary: theme.mauve
+        Material.accent: theme.teal
         onCheckedChanged: panel_Parameters.shown = checked
     }
 }

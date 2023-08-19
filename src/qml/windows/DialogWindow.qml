@@ -4,8 +4,6 @@ import QtQuick.Controls.Material 2.15
 import QtQuick.Layouts 1.15
 import QtGraphicalEffects 1.15
 
-import Theme 1.0
-
 Pane { id: control;
     function open(header, content, icon, uid_num) {
         title = header;
@@ -39,7 +37,7 @@ Pane { id: control;
 
     clip: true;
 
-    Material.background: ColorTheme.active.color(ColorTheme.Dark)
+    Material.background: theme.crust
     Material.elevation: 200;
 
     layer.enabled: true
@@ -87,7 +85,7 @@ Pane { id: control;
         horizontalAlignment: Text.AlignLeft;
         verticalAlignment: Text.AlignTop;
         font.family: root.mainfont;
-        color: ColorTheme.active.color(ColorTheme.Text)
+        color: theme.text
         font.bold: true;
         font.pixelSize: 14;
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere;
@@ -104,7 +102,7 @@ Pane { id: control;
             height: 44;
             radius: 4;
             Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: theme.crust
             text: "Ок";
             action: acceptAction
         }
@@ -116,7 +114,7 @@ Pane { id: control;
             height: 44;
             radius: 4;
             Material.elevation: 30;
-            Material.background: ColorTheme.active.color(ColorTheme.Dark)
+            Material.background: theme.crust
             text: "Отмена";
             action: declineAction
         }

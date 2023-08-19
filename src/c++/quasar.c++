@@ -10,7 +10,6 @@
 #include "application/updatemanager.h"
 #include "application/quickutils.h"
 #include "gui/terminal/debugconsole.h"
-#include "gui/colortheme.h"
 #include "gui/notificationsmodel.h"
 #include "config/paths.h"
 #include "config/settings.h"
@@ -60,9 +59,6 @@ QuaSAR::QuaSAR(QObject* parent)
 
   qmlRegisterModule("Notifications", 1, 0);
   qmlRegisterSingletonInstance<GUI::NotificationsModel>("Notifications", 1, 0, "NotificationsModel", GUI::NotificationsModel::get());
-
-  qmlRegisterModule("Theme", 1, 0);
-  qmlRegisterSingletonInstance<GUI::ColorTheme>("Theme", 1, 0, "ColorTheme", GUI::ColorTheme::get());
 
   qmlRegisterModule("Filesystem", 1, 0);
   qmlRegisterSingletonInstance<OS::Filesystem>("Filesystem", 1, 0, "Filesystem", OS::Filesystem::get());

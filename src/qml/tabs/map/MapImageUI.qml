@@ -5,8 +5,6 @@ import QtQuick.Layouts 1.15
 import QtLocation 5.15
 import QtPositioning 5.15
 
-import Theme 1.0
-
 MapQuickItem {
     z: 50;
 //    visible: shown;

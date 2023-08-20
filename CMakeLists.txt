@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 
-project(QuaSAR LANGUAGES CXX)
+project(QuaSAR
+  DESCRIPTION "SAR control software"
+  HOMEPAGE_URL "github.com/whs31/quasar-software"
+  LANGUAGES C CXX
+)
 
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src/cmake)
 include(qtprojectbuild)
@@ -18,7 +22,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # 3rd party packages locating
 find_package(QT NAMES Qt5 REQUIRED COMPONENTS Core Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS
+find_package(Qt5 REQUIRED COMPONENTS
   Core
   Quick
   Widgets
@@ -74,13 +78,13 @@ add_subdirectory(services/UpdateService)
 # Linking
 target_link_libraries(${PROJECT_NAME}
   PRIVATE Qt${QT_VERSION_MAJOR}::Core
-  Qt${QT_VERSION_MAJOR}::Quick
-  Qt${QT_VERSION_MAJOR}::Widgets
-  Qt${QT_VERSION_MAJOR}::Network
-  Qt${QT_VERSION_MAJOR}::Location
-  Qt${QT_VERSION_MAJOR}::Positioning
-  Qt${QT_VERSION_MAJOR}::QuickControls2
-  Qt${QT_VERSION_MAJOR}::Concurrent
+  Qt5::Quick
+  Qt5::Widgets
+  Qt5::Network
+  Qt5::Location
+  Qt5::Positioning
+  Qt5::QuickControls2
+  Qt5::Concurrent
   #Corrosion
   argparse
   SDK

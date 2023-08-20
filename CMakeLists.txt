@@ -81,6 +81,7 @@ target_link_libraries(${PROJECT_NAME}
   Qt${QT_VERSION_MAJOR}::Positioning
   Qt${QT_VERSION_MAJOR}::QuickControls2
   Qt${QT_VERSION_MAJOR}::Concurrent
+  #Corrosion
   argparse
   SDK
   LPVL

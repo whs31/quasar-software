@@ -1,14 +1,14 @@
 #pragma once
 
-#include <Abstract/INameable>
-#include <Abstract/IColorable>
+#include <LPVL/Abstract/INameable>
+#include <LPVL/Abstract/IColorable>
 #include <QuasarSDK/Map/ScreenMapObject>
 
 namespace Map
 {
   class GeoMarker : public QuasarSDK::Map::ScreenMapObject,
-                    public INameable,
-                    public IColorable
+                    public LPVL::INameable,
+                    public LPVL::IColorable
   {
     public:
       GeoMarker();

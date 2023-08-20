@@ -5,15 +5,15 @@ namespace Map
 {
   GeoMarker::GeoMarker()
     : QuasarSDK::Map::ScreenMapObject()
-    , INameable()
-    , IColorable()
+    , LPVL::INameable()
+    , LPVL::IColorable()
     , m_icon("qrc:/map/markers/default.png")
   {}
 
   GeoMarker::GeoMarker(const QGeoCoordinate& coord, const QString& name, const QColor& color, QString icon_path)
     : QuasarSDK::Map::ScreenMapObject(coord)
-    , INameable(name)
-    , IColorable(color)
+    , LPVL::INameable(name)
+    , LPVL::IColorable(color)
     , m_icon(std::move(icon_path))
   {}
 

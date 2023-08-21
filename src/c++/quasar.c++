@@ -3,7 +3,6 @@
 #include <QtCore/QTimer>
 #include <QtQml/qqml.h>
 #include <SDK/RealtimeLinePlot>
-#include <SDK/MatrixPlot>
 #include <SDK/Gizmos>
 #include <QuasarSDK/API>
 #include <QuasarSDK/Register>
@@ -44,7 +43,6 @@ QuaSAR::QuaSAR(QObject* parent)
 
   qmlRegisterModule("Charts", 1, 0);
   qmlRegisterType<SDK::Quick::RealtimeLinePlot>("Charts", 1, 0, "RealtimeLinePlot");
-  qmlRegisterType<SDK::Quick::MatrixPlot>("Charts", 1, 0, "MatrixPlot");
 
   qmlRegisterModule("Application", 1, 0);
   qmlRegisterSingletonInstance<Application::UpdateManager>("Application", 1, 0, "UpdateNotifier", m_updateManager);

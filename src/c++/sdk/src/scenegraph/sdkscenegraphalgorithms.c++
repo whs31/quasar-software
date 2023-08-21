@@ -4,7 +4,6 @@
 #include <QtQuick/QSGGeometry>
 #include <QtQuick/QSGFlatColorMaterial>
 #include <QtQuick/QSGGeometryNode>
-#include "SDK/Math"
 
 namespace SDK::Scenegraph
 {

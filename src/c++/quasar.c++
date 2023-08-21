@@ -3,7 +3,6 @@
 #include <QtCore/QTimer>
 #include <QtQml/qqml.h>
 #include <SDK/RealtimeLinePlot>
-#include <SDK/Gizmos>
 #include <QuasarSDK/API>
 #include <QuasarSDK/Register>
 #include <QuasarSDK/Neural>

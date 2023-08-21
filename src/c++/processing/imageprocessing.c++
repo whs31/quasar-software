@@ -14,7 +14,7 @@
 #include <QtConcurrent/QtConcurrent>
 #include <QuasarSDK/CRC>
 #include <LPVL/Math>
-#include <SDK/GeoMath>
+#include <CCL/Geomath>
 #include "map/models/imagemodel.h"
 #include "config/paths.h"
 #include "config/settings.h"
@@ -98,12 +98,11 @@ void ImageProcessing::asyncProcess(const QString& filename)
   image.filename = filename;
   image.opacity = ICFG<float>("PROCESSING_IMAGE_INITIAL_OPACITY");
   image.shown = ICFG<bool>("PROCESSING_IMAGE_INITIAL_VISIBILITY");
-  image.mercator_zoom_level = SDK::Cartography::mqi_zoom_level(image.meta.latitude, image.meta.dx);
+  image.mercator_zoom_level = CCL::mqiZoomLevel(image.meta.latitude, image.meta.dx);
 
   QImage image_data(image.path.first);
-  if(image_data.isNull()) {
+  if(image_data.isNull())
     qCritical() << "[PROCESSING] Bad image file";
-  }
 
   image.meta.ly = static_cast<float>(image_data.height());
 

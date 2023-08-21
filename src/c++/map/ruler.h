@@ -3,7 +3,7 @@
 #include <memory>
 #include <QtCore/QObject>
 #include <QtCore/QAbstractListModel>
-#include <SDK/Orthodrom>
+#include <CCL/Orthodrom>
 
 namespace Map
 {
@@ -51,7 +51,7 @@ namespace Map
       QList<QVariantList> m_segments;
       QList<QGeoCoordinate> m_path;
       QList<QGeoCoordinate> m_segmentsCenter;
-      SDK::Cartography::Orthodrom m_orthodrom;
+      CCL::Orthodrom m_orthodrom;
 
       double m_lastLatitude = 0;
       double m_lastLongitude = 0;

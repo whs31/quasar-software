@@ -31,7 +31,7 @@ find_package(Qt5 REQUIRED COMPONENTS
   Positioning
   QuickControls2
   Concurrent
-  )
+)
 
 include_directories(src/c++ libs)
 
@@ -45,7 +45,7 @@ file(GLOB_RECURSE CPP_SOURCES
   src/c++/scenegraph/*
   src/c++/network/*
   src/c++/processing/*
-  )
+)
 
 set(PROJECT_SOURCES
   src/c++/main.c++
@@ -54,14 +54,14 @@ set(PROJECT_SOURCES
   src/qml/qml.qrc
   src/js/js.qrc
   resources/resources.qrc
-  )
+)
 
 # Making executable
 add_executable(${PROJECT_NAME}
   ${PROJECT_SOURCES}
   ${CPP_SOURCES}
   ${META_FILES}
-  )
+)
 
 # CMake options for children libraries
 set(ARGPARSE_SHARED OFF CACHE BOOL "Build shared library")
@@ -71,6 +71,7 @@ set(ARGPARSE_STATIC ON CACHE BOOL "Build static library")
 add_subdirectory(libs/Argparse)
 add_subdirectory(src/c++/sdk) # deprecated
 add_subdirectory(libs/LPVL)
+add_subdirectory(libs/CCL)
 add_subdirectory(libs/libquasarsdk)
 #add_subdirectory(libs/Corrosion) # requires rustc package
 add_subdirectory(services/UpdateService)
@@ -89,13 +90,14 @@ target_link_libraries(${PROJECT_NAME}
   argparse
   SDK
   LPVL
+  CCL
   libquasarsdk
 )
 
 install(TARGETS ${PROJECT_NAME}
   BUNDLE DESTINATION .
   LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  )
+)
 
 # Git version fetching
 execute_process(COMMAND git remote update WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})

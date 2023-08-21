@@ -7,3 +7,6 @@
 [submodule "libs/Argparse"]
 	path = libs/Argparse
 	url = https://github.com/cofyc/argparse.git
+[submodule "libs/CCL"]
+	path = libs/CCL
+	url = https://github.com/whs31/CCL.git

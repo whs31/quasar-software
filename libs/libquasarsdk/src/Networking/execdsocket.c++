@@ -403,8 +403,7 @@ namespace QuasarSDK
         return {};
     }
 
-    return {com};
-
     qDebug().noquote() << "[EXECD] Prepared built-in command";
+    return {com};
   }
 } // QuasarSDK

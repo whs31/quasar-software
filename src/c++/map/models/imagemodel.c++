@@ -142,6 +142,11 @@ namespace Map
 
     setTotalCount(rowCount());
 
+    qDebug() << "$ <debugging> C++ received:" << image.filename << image.meta.latitude << image.meta.longitude;
+    qDebug() << "$ " << image.meta.dx << image.meta.x0 << image.meta.y0 << image.meta.angle << image.meta.drift_angle;
+    qDebug() << "$ " << image.meta.lx << image.meta.ly << image.meta.div << image.meta.velocity << image.meta.altitude;
+    qDebug() << "$ " << image.meta.kr << image.meta.time_shift << image.meta.time_duration << image.meta.mode << "type:" << image.meta.image_type;
+    qDebug() << "$ " << image.meta.crc16 << image.valid << image.path.second << image.path.first << image.shown << image.mercator_zoom_level;
     qDebug() << "[IMAGE] Model received new image. Now it contains" << rowCount() << "images";
   }
 

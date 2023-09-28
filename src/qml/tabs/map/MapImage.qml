@@ -16,6 +16,11 @@ MapQuickItem {
 
     zoomLevel: mercator_zoom_level
     coordinate: QtPositioning.coordinate(latitude, longitude)
+    Component.onCompleted: {
+        console.log("$ QML received: " + filename + latitude + longitude + dx + x0 + y0 + angle + drift_angle +
+                    lx + ly + div + velocity + altitude + kr + time_shift + time_duration + mode + " type: " + image_type + crc16 + valid +
+                    lod1 + lod0 + shown + mercator_zoom_level)
+    }
 
     sourceItem: Item {
         Loader {

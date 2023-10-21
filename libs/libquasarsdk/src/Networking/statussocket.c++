@@ -31,7 +31,7 @@ namespace QuasarSDK
     uint32_t marker = *(uint32_t*)data.data();
     if(marker != STATUS_RECEIVE_MARKER)
     {
-      qWarning() << "[STATUS] Received unknown marker:" << Qt::hex << marker << Qt::dec;
+      // qWarning() << "[STATUS] Received unknown marker:" << Qt::hex << marker << Qt::dec;
       return;
     }
 

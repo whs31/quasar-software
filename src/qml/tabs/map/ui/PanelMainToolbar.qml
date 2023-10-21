@@ -10,6 +10,7 @@ import "../../../widgets" as Widgets
 Pane {
     Material.elevation: 200
 
+
     Action {
         id: toggleModeAction
         shortcut: "T"
@@ -58,6 +59,7 @@ Pane {
         shortcut: "Ctrl+H"
         onTriggered: dialogwindow.open("Калибровка высоты", "Выполнить калибровку высоты? Убедитесь, что БПЛА находится на земле.", "info", 17)
     }
+
 
     Action {
         id: neuralAction
@@ -188,7 +190,7 @@ Pane {
             id: button_Neural
 
             checkable: true
-            checked: false
+            checked: true
             Layout.preferredHeight: 45
             font.family: root.mainfont
             height: 40
@@ -200,8 +202,10 @@ Pane {
             Material.background: checked ? theme.teal : theme.surface1
             action: neuralAction
 
+
             Widgets.TT { txt: "Распознавание изображений бортовой нейронной сетью" }
         }
+
 
         RoundButton {
             id: button_FormParameters

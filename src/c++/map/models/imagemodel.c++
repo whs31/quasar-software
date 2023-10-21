@@ -232,9 +232,11 @@ namespace Map
     qDebug() << "$ [NEURAL] Image model is being requested to add neural data to image";
     int j = -1;
     int i = 0;
+
     for(const auto& image : storage)
     {
-      if(image.filename.chopped(4) == filename)
+        qDebug() << "$" << "[NEURAL] Try: " << image.filename.chopped(4) << filename.chopped(4);
+      if(image.filename.chopped(4) == filename.chopped(4))
       {
         j = i;
         break;
@@ -242,8 +244,11 @@ namespace Map
       i++;
     }
 
-    if(j < 0 or j >= rowCount())
-      return;
+    //if(j < 0 or j >= rowCount())
+    if(j < 0){
+        qDebug() << "$" << "[NEURAL] Filename is not same: " << filename;
+        return;
+    }
 
     storage[j].neural_data = data;
     qDebug() << "$" << "[NEURAL] Image model received data for image" << filename << "at index" << j;

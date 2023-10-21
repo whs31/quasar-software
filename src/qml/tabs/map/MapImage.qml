@@ -55,7 +55,7 @@ MapQuickItem {
 
                         color: "transparent"
                         border {
-                            width: 4
+                            width: 2
                             color: modelData.color
                         }
                         width: Math.abs(box.right - box.left)

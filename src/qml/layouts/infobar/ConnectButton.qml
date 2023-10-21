@@ -54,6 +54,8 @@ RowLayout {
                 timeout = true;
                 disconnect_timer.start();
             }
+
+            NetworkAPI.execd.setArgument("-d", "1", Net.Form)
         }
 
         Timer { id: disconnect_timer; running: false; repeat: false; interval: 30000; onTriggered: {

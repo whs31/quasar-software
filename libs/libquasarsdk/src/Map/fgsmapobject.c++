@@ -2,6 +2,8 @@
 #include <cmath>
 #include "Networking/common_func.h"
 
+#include <qmath.h>
+
 constexpr const double MAP_SCALE_RATIO = 156'543.03392;
 
 namespace QuasarSDK::Map

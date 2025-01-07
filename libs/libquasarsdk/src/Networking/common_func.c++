@@ -2,6 +2,7 @@
 
 #include <limits>
 #include <cmath>
+#include <qmath.h>
 
 namespace QuasarSDK::Utils
 {

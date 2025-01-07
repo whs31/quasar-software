@@ -59,7 +59,8 @@ namespace QuasarSDK::Datagrams
    * \ingroup sdk_images
    * \brief Заголовок пакета **полосового** радиолокационного изображения.
    */
-  struct StripImageChunkID
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripImageChunkID
   {
     uint16_t marker = 0;                    ///< Идентификатор протокола. Равен 0xDEFA.
     uint16_t version = 0;                   ///< Версия протокола. По маске 0xF000 - мажорная, по 0x0FFF - минорная.
@@ -67,13 +68,15 @@ namespace QuasarSDK::Datagrams
     uint16_t cnt = 0;                       ///< Счётчик.
     uint16_t id = 0;                        ///< Идентификатор РЛС. 0x55 - РЛС "Квазар".
     uint16_t type = 0;                      ///< Идентификатор типа сообщения. 0x1 - полосовое РЛИ. 0x2 - таблица обнаружений.
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 
   /**
    * \ingroup sdk_images
    * \brief Навигационные данные пакета **полосового** радиолокационного изображения.
    */
-  struct StripImageChunkNav
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripImageChunkNav
   {
     float pitch = 0;                        ///< Тангаж в градусах.
     float roll = 0;                         ///< Крен в градусах.
@@ -83,13 +86,15 @@ namespace QuasarSDK::Datagrams
     float velocity = 0;                     ///< Скорость БПЛА в м/с.
     float course = 0;                       ///< Курс БПЛА в **радианах**.
     float track_ang = 0;                    ///< Сумма курса БПЛА и угла сноса (в **радианах**).
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 
   /**
    * \ingroup sdk_images
    * \brief Данные форматирования пакета **полосового** радиолокационного изображения.
    */
-  struct StripImageChunkFormat
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripImageChunkFormat
   {
     float dx = 0;                           ///< Дискрета по дальности в метрах.
     float dy = 0;                           ///< Дискрета по азимуту в метрах.
@@ -102,7 +107,8 @@ namespace QuasarSDK::Datagrams
     uint16_t nx = 0;                        ///< Общее количество дискрет по дальности.
     uint16_t ny = 0;                        ///< Общее количество дискрет по азимуту.
     float k = 0;                            ///< Коэффициент дискреты.
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 
   /**
    * \ingroup sdk_images

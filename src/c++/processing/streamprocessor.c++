@@ -63,8 +63,8 @@ namespace Processing
 
     const int header_size = sizeof(Datagrams::StripImageChunkHeader);
     uint8_t header[header_size];
-    uint8_t buf[MAX_PACKAGE_SIZE - header_size];
-    float fbuf[MAX_PACKAGE_SIZE - header_size];
+    std::vector<uint8_t> buf(MAX_PACKAGE_SIZE - header_size);
+    std::vector<float> fbuf(MAX_PACKAGE_SIZE - header_size);
 
     ArrayReader<uint8_t> array_reader((uint8_t*)data);
 
@@ -121,7 +121,7 @@ namespace Processing
         qCritical() << "\t Передано в QML:" << image.azimuth();
       }
 
-      array_reader.read((uint8_t*)buf, head.size);
+      array_reader.read(buf.data(), head.size);
 
       // запись промежуточного результата в матрицу
       for(int i = 0; i < head.size; i++)
@@ -139,13 +139,13 @@ namespace Processing
     const float k = max_value / 255.0f;
 
     int out_size = x * y;
-    uint8_t out_buf[out_size];
+    std::vector<uint8_t> out_buf(out_size);
 
     // обратное масштабирование
     for(int i = 0; i < out_size; i++)
       out_buf[i] = static_cast<uint8_t>(fmatrix[i] / k);
 
-    vector<uint8_t> output(out_buf, out_buf + out_size);
+    vector<uint8_t> output(out_buf.data(), out_buf.data() + out_size);
 
     QImage strip_result(x, y, QImage::Format_Grayscale16);
     vector<vector<float>> image_result;

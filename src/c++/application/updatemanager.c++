@@ -12,7 +12,7 @@ namespace Application
   UpdateManager::UpdateManager(QObject* parent)
     : QObject(parent)
     , m_fetchUrl("http://195.133.13.123:8090")
-    , m_projectVersion(PROJECT_VERSION)
+    , m_projectVersion("0.0.0")
     , m_status(false)
   {}
 

@@ -9,6 +9,8 @@
 #include <QtPositioning/QGeoRectangle>
 #include "config/paths.h"
 
+#include <qmath.h>
+
 namespace Map
 {
 

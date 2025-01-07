@@ -84,5 +84,5 @@ namespace Config
       emit themeChanged();
   }
 
-  QString Settings::projectVersion() { return PROJECT_VERSION; }
+  QString Settings::projectVersion() { return "0.0.0"; }
 } // Config

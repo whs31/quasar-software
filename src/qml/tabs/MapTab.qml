@@ -22,7 +22,7 @@ import "map/mapquickitems" as MapQuickItems
 import "../widgets" as Widgets
 
 Map { id: maptab_root;
-    property int i_MapMode: 1; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - satellite }
+    property int i_MapMode: 5; // { 0 - offline, 5 - schema, 4 - hybrid, 1 - satellite }
     property alias routeType: c_Route.type;
 
     Component.onDestruction: {
@@ -39,7 +39,7 @@ Map { id: maptab_root;
 
         PluginParameter {
             name: "osm.mapping.providersrepository.address";
-            value: "file:///" + Paths.mapConfig();
+            value: console.log("[MAP] Using osmconfig: " + Paths.mapConfig()), "file:///" + Paths.mapConfig();
         }
 
         Component.onCompleted: console.info("[MAP] Using osmconfig: " + Paths.mapConfig());

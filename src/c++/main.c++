@@ -23,14 +23,11 @@ static const char* const usages[] =
 
 int main(int argc, char* argv[])
 {
-  #if defined(Q_OS_WIN)
-  FreeConsole();
-  #endif
-
+  QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
   QApplication app(argc, argv);
-  QCoreApplication::setApplicationName(PROJECT_NAME);
-  QCoreApplication::setApplicationVersion(PROJECT_VERSION);
-  QCoreApplication::setOrganizationName(PROJECT_COMPANY);
+  QCoreApplication::setApplicationName("TODO");
+  QCoreApplication::setApplicationVersion("0.0.0");
+  QCoreApplication::setOrganizationName("TODO");
   #ifndef Q_OS_WIN
   app.setWindowIcon(QIcon(":/icon.png"));
   #else

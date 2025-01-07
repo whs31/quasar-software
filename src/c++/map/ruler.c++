@@ -1,5 +1,6 @@
 #include "ruler.h"
 #include <cmath>
+#include <qmath.h>
 #include <QtCore/QPointF>
 #include <CCL/Geomath>
 

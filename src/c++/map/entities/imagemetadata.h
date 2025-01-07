@@ -55,7 +55,8 @@ namespace Map
   };
 
   //! @brief Заголовок пакета полосового РЛИ.
-  struct StripHeaderMetadata
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripHeaderMetadata
   {
     uint16_t marker = 0;                    //!< Идентификатор протокола. Равен 0xDEFA.
     uint16_t version = 0;                   //!< Версия протокола. По маске 0xF000 - мажорная, по 0x0FFF - минорная.
@@ -63,10 +64,12 @@ namespace Map
     uint16_t cnt = 0;                       //!< Счётчик.
     uint16_t id = 0;                        //!< Идентификатор РЛС. 0x55 - РЛС "Квазар".
     uint16_t type = 0;                      //!< Идентификатор типа сообщения. 0x1 - полосовое РЛИ. 0x2 - таблица обнаружений.
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 
   //! @brief Навигационные данные пакета полосового РЛИ.
-  struct StripNavigationMetadata
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripNavigationMetadata
   {
     float pitch = 0;                        //!< Тангаж в градусах.
     float roll = 0;                         //!< Крен в градусах.
@@ -76,10 +79,12 @@ namespace Map
     float velocity = 0;                     //!< Скорость БПЛА в м/с.
     float course = 0;                       //!< Курс БПЛА в градусах.
     float track_ang = 0;                    //!< Сумма курса БПЛА и угла сноса (в градусах).
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 
   //! @brief Данные форматирования пакета полосового РЛИ.
-  struct StripFormatMetadata
+#pragma pack(push, 1)
+  struct [[gnu::packed]] StripFormatMetadata
   {
     float dx = 0;                           //!< Дискрета по дальности в метрах.
     float dy = 0;                           //!< Дискрета по азимуту в метрах.
@@ -92,5 +97,6 @@ namespace Map
     uint16_t nx = 0;                        //!< Общее количество дискрет по дальности.
     uint16_t ny = 0;                        //!< Общее количество дискрет по азимуту.
     float k = 0;                            //!< Коэффициент дискреты.
-  } __attribute__((packed));
+  };
+#pragma pack(pop)
 } // namespace Map;
